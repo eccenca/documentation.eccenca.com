@@ -2,7 +2,11 @@
 
 Corporate Memory 22.1 is the first release in 2022.
 
-![22.1: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor")
+<figure markdown>
+  ![22.1: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor"){ width="90%" }
+  <figcaption>22.1: DataIntegration - Linking Editor</figcaption>
+</figure>
+
 ![22.1: DataManager - Workflow Execution](22-1-workflow-execution.png "22.1: DataManager - Workflow Execution")
 ![22.1: cmemc - metrics and python list command](22-1-cmemc-metrics-and-python-list.png "22.1: cmemc - metrics and python list command")
 
@@ -20,7 +24,9 @@ The highlights of this release are:
     - Store command group adds managing commands on quad store level (admin store)
     - Metrics command groups allows for inspecting of server metrics (admin metrics, DataPlatform metrics only at the moment)
 
-With this release of Corporate Memory the DataPlatform configuration and behavior has changed and have to be adapted according to the migration notes below.
+!!! warning
+
+    With this release of Corporate Memory the DataPlatform configuration and behavior has changed and have to be adapted according to the migration notes below.
 
 This release delivers the following component versions:
 

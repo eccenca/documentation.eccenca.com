@@ -10,6 +10,7 @@ markdown_extensions:
   - codehilite
   - attr_list
   - md_in_html
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -28,6 +29,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
 
 plugins:
   - search:
@@ -71,6 +73,19 @@ theme:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css: fontawesome/brands/css3
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
   features:
     - announce.dismiss
     - content.code.annotate
