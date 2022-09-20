@@ -2,8 +2,9 @@
 
 ## Code Blocks
 
-    :::sparql
-    SELECT ?s WHERE {?s ?p ?o}o
+``` sparql
+SELECT ?s WHERE {?s ?p ?o}o
+```
 
 ## Horizontal Rules
 
