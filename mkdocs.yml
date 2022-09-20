@@ -35,6 +35,8 @@ plugins:
   - search:
       lang: en
   - awesome-pages
+  - macros
+  - autolinks
   - glightbox
   - social:
       cards: true

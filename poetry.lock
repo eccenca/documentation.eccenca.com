@@ -360,6 +360,17 @@ watchdog = ">=2.0"
 i18n = ["babel (>=2.9.0)"]
 
 [[package]]
+name = "mkdocs-autolinks-plugin"
+version = "0.6.0"
+description = "An MkDocs plugin"
+category = "main"
+optional = false
+python-versions = ">=2.7"
+
+[package.dependencies]
+mkdocs = ">=1.2.3"
+
+[[package]]
 name = "mkdocs-awesome-pages-plugin"
 version = "2.8.0"
 description = "An MkDocs plugin that simplifies configuring page titles and their order"
@@ -395,6 +406,24 @@ python-versions = "*"
 
 [package.dependencies]
 beautifulsoup4 = ">=4.11.1"
+
+[[package]]
+name = "mkdocs-macros-plugin"
+version = "0.7.0"
+description = "Unleash the power of MkDocs with macros and variables"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+jinja2 = "*"
+mkdocs = ">=0.17"
+python-dateutil = "*"
+pyyaml = "*"
+termcolor = "*"
+
+[package.extras]
+test = ["mkdocs-include-markdown-plugin", "mkdocs-macros-test", "mkdocs-material (>=6.2)"]
 
 [[package]]
 name = "mkdocs-material"
@@ -586,6 +615,17 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "termcolor"
+version = "2.0.1"
+description = "ANSI color formatting for output in terminal"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "tinycss2"
 version = "1.1.1"
 description = "A tiny CSS parser"
@@ -681,7 +721,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "803869e820a11ac5bc5498d99945eaa958ec971248e3af210f0226c13fa8a779"
+content-hash = "c503a4c500c5c205d1a19e1aa953e8511ef93262258624f1e32b176b9c6efb21"
 
 [metadata.files]
 aiohttp = [
@@ -1025,6 +1065,10 @@ mkdocs = [
     {file = "mkdocs-1.3.1-py3-none-any.whl", hash = "sha256:fda92466393127d2da830bc6edc3a625a14b436316d1caf347690648e774c4f0"},
     {file = "mkdocs-1.3.1.tar.gz", hash = "sha256:a41a2ff25ce3bbacc953f9844ba07d106233cd76c88bac1f59cb1564ac0d87ed"},
 ]
+mkdocs-autolinks-plugin = [
+    {file = "mkdocs-autolinks-plugin-0.6.0.tar.gz", hash = "sha256:7bddb5bfb06f003fa7f139a4373ffc433e9ad761a297c7fe6ee205a4d7d913b6"},
+    {file = "mkdocs_autolinks_plugin-0.6.0-py3-none-any.whl", hash = "sha256:db967582a5d3bd282d197730cd9035a74b559b0febb44645e95df27d5c67cad9"},
+]
 mkdocs-awesome-pages-plugin = [
     {file = "mkdocs-awesome-pages-plugin-2.8.0.tar.gz", hash = "sha256:af7e327e14b2eea3b2735c37428e33a528ecd2d9ae2296dc0f1632f0f3bc28f7"},
     {file = "mkdocs_awesome_pages_plugin-2.8.0-py3-none-any.whl", hash = "sha256:6b21ad4f41aecbe89e3a9a51f8837892cc7ce8ca0f9f4e0a355d56159ace3d68"},
@@ -1035,6 +1079,10 @@ mkdocs-git-revision-date-localized-plugin = [
 ]
 mkdocs-glightbox = [
     {file = "mkdocs-glightbox-0.2.1.tar.gz", hash = "sha256:464e6cbd793486d7dc731ef27629c6f68808d8b522b7aa5e8b56d59d206c2730"},
+]
+mkdocs-macros-plugin = [
+    {file = "mkdocs-macros-plugin-0.7.0.tar.gz", hash = "sha256:9e64e1cabcf6925359de29fe54f62d5847fb455c2528c440b87f8f1240650608"},
+    {file = "mkdocs_macros_plugin-0.7.0-py3-none-any.whl", hash = "sha256:96bdabeb98b96139544f0048ea2f5cb80c7befde6b21e94c6d4596c22774cbcf"},
 ]
 mkdocs-material = [
     {file = "mkdocs_material-8.5.3-py3-none-any.whl", hash = "sha256:d194c38041d1e83560221022b3f85eec4604b35e44f5c3a488c24b88542074ed"},
@@ -1251,6 +1299,10 @@ smmap = [
 soupsieve = [
     {file = "soupsieve-2.3.2.post1-py3-none-any.whl", hash = "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759"},
     {file = "soupsieve-2.3.2.post1.tar.gz", hash = "sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"},
+]
+termcolor = [
+    {file = "termcolor-2.0.1-py3-none-any.whl", hash = "sha256:7e597f9de8e001a3208c4132938597413b9da45382b6f1d150cff8d062b7aaa3"},
+    {file = "termcolor-2.0.1.tar.gz", hash = "sha256:6b2cf769e93364a2676e1de56a7c0cff2cf5bd07f37e9cc80b0dd6320ebfe388"},
 ]
 tinycss2 = [
     {file = "tinycss2-1.1.1-py3-none-any.whl", hash = "sha256:fe794ceaadfe3cf3e686b22155d0da5780dd0e273471a51846d0a02bc204fec8"},

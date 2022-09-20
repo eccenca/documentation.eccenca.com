@@ -15,6 +15,8 @@ mike = "^1.1.2"
 mkdocs-git-revision-date-localized-plugin = "^1.1.0"
 mkdocs-awesome-pages-plugin = "^2.8.0"
 mkdocs-glightbox = "^0.2.1"
+mkdocs-macros-plugin = "^0.7.0"
+mkdocs-autolinks-plugin = "^0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
