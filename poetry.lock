@@ -467,6 +467,17 @@ release = ["twine (>=1.13.0)"]
 test = ["autoflake", "black", "isort", "pytest"]
 
 [[package]]
+name = "mkdocs-swagger-ui-tag"
+version = "0.4.3"
+description = "A MkDocs plugin supports for add Swagger UI in page."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.11.1"
+
+[[package]]
 name = "multidict"
 version = "6.0.2"
 description = "multidict implementation"
@@ -737,7 +748,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "5a8ab83e1660571cf5919ac915b9685b53bbbb2eb2d63cc18ca018bebd327f2f"
+content-hash = "47309769768b4f4ba80d9a6ffb1cae59545eaee95752c242157406b733dce163"
 
 [metadata.files]
 aiohttp = [
@@ -1110,6 +1121,9 @@ mkdocs-material-extensions = [
 ]
 mkdocs-redirects = [
     {file = "mkdocs-redirects-1.2.0.tar.gz", hash = "sha256:ddd38267d49fdfa19fb2f25b4aed2fb53f0496c818bf3018009c8eaf6676a327"},
+]
+mkdocs-swagger-ui-tag = [
+    {file = "mkdocs-swagger-ui-tag-0.4.3.tar.gz", hash = "sha256:37fec98555f7493b14033eceeb25a4bcacfbdbedd1640e4235bdd9e854eb751b"},
 ]
 multidict = [
     {file = "multidict-6.0.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:0b9e95a740109c6047602f4db4da9949e6c5945cefbad34a1299775ddc9a62e2"},

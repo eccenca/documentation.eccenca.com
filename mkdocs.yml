@@ -49,6 +49,7 @@ plugins:
   - redirects:
       redirect_maps:
         'cmem.md': 'automate/cmemc-command-line-interface/index.md'
+  - swagger-ui-tag
 
 theme:
   name: material
