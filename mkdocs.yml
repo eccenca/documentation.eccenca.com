@@ -22,3 +22,5 @@ theme:
   icon:
     logo: logo
 
+extra_css:
+  - assets/stylesheets/extra.css
