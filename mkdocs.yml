@@ -1,9 +1,14 @@
 ---
 site_name: eccenca Markdown Sandbox
 repo_url: https://github.com/eccenca/markdown-sandbox
+edit_uri: ./edit/main/docs
+markdown_extensions:
+  - extra
+  - smarty
+  - sane_lists
+  - codehilite
 theme:
-  name: null
-  custom_dir: mkdocs-material/material
+  name: material
 
   # 404 page
   static_templates:
