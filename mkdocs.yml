@@ -1,5 +1,6 @@
 ---
 site_name: eccenca Markdown Sandbox
+repo_url: https://github.com/eccenca/markdown-sandbox
 theme:
   name: null
   custom_dir: mkdocs-material/material
