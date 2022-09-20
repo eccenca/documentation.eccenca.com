@@ -46,6 +46,9 @@ plugins:
       enable_creation_date: true
   - git-revision-date-localized:
       type: timeago
+  - redirects:
+      redirect_maps:
+        'cmem.md': 'automate/cmemc-command-line-interface/index.md'
 
 theme:
   name: material
