@@ -2,9 +2,59 @@
 
 ## Code Blocks
 
-``` sparql
-SELECT ?s WHERE {?s ?p ?o}o
+``` sparql title="select.rq" linenums="1" hl_lines="3 6"
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#># (1)!
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?s
+WHERE {
+    ?s ?p ?o .
+}
 ```
+
+1. This is a namespace prefix definition 😃
+
+
+## Tabs
+
+=== "C"
+
+    ``` c
+    #include <stdio.h>
+
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
+
+=== "C++"
+
+    ``` c++
+    #include <iostream>
+
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```
+
+## Charts
+
+``` mermaid
+graph LR
+  A[Start] --> B{Error?};
+  B -->|Yes| C[Hmm...];
+  C --> D[Debug];
+  D --> B;
+  B ---->|No| E[Yay!];
+```
+
+## Icons, Emojis
+
+[Icon Reference](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
+
+:rocket:
+
 
 ## Horizontal Rules
 

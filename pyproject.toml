@@ -9,6 +9,10 @@ packages = [{include = "markdown_sandbox"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 mkdocs-material = "^8.5.3"
+Pillow = "^9.2.0"
+CairoSVG = "^2.5.2"
+mike = "^1.1.2"
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

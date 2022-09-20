@@ -1,3 +1,9 @@
+---
+tags:
+  - HTML5
+  - JavaScript
+  - CSS
+---
 # Technical
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
