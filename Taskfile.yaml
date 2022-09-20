@@ -1,0 +1,47 @@
+---
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+
+  default:
+    summary: |
+      List documented tasks
+    silent: true
+    cmds:
+      - task --list
+
+  clean:
+    desc: Clean up working directory
+    run: once
+    cmds:
+      - rm -rf site
+
+  install:
+    desc: Install needed dependencies
+    run: once
+    cmds:
+      - poetry install
+
+  check:
+    desc: Check the sources
+    deps:
+      - task: install
+    cmds:
+      - echo "no checks for now"
+
+  build:
+    desc: Build the page
+    deps:
+      - task: install
+    cmds:
+      - poetry run mkdocs build --strict
+
+  serve:
+    desc: Serve the page on localhost
+    deps:
+      - task: install
+    cmds:
+      - poetry run mkdocs serve
+

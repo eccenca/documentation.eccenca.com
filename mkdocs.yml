@@ -8,8 +8,7 @@ markdown_extensions:
   - sane_lists
   - codehilite
 theme:
-  name: null
-  custom_dir: mkdocs-material/material
+  name: material
 
   # 404 page
   static_templates:

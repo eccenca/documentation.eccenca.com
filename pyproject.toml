@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "markdown-sandbox"
+version = "0.1.0"
+description = "Testing Repository for Training Purpose"
+authors = ["Sebastian Tramp <sebastian.tramp@eccenca.com>"]
+readme = "README.md"
+packages = [{include = "markdown_sandbox"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs-material = "^8.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
