@@ -63,6 +63,14 @@ python-versions = ">=3.6"
 pytz = ">=2015.7"
 
 [[package]]
+name = "bracex"
+version = "2.3.post1"
+description = "Bash style brace expander."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "cairocffi"
 version = "1.3.0"
 description = "cffi-based cairo bindings for Python"
@@ -337,6 +345,19 @@ watchdog = ">=2.0"
 i18n = ["babel (>=2.9.0)"]
 
 [[package]]
+name = "mkdocs-awesome-pages-plugin"
+version = "2.8.0"
+description = "An MkDocs plugin that simplifies configuring page titles and their order"
+category = "main"
+optional = false
+python-versions = ">=3.6.2"
+
+[package.dependencies]
+mkdocs = ">=1"
+natsort = ">=8.1.0"
+wcmatch = ">=7"
+
+[[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
 version = "1.1.0"
 description = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
@@ -381,6 +402,18 @@ description = "multidict implementation"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "natsort"
+version = "8.2.0"
+description = "Simple yet flexible natural sorting in Python."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+fast = ["fastnumbers (>=2.0.0)"]
+icu = ["PyICU (>=1.0.0)"]
 
 [[package]]
 name = "packaging"
@@ -569,6 +602,17 @@ python-versions = ">=3.6"
 watchmedo = ["PyYAML (>=3.10)"]
 
 [[package]]
+name = "wcmatch"
+version = "8.4.1"
+description = "Wildcard/glob file name matcher."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+bracex = ">=2.1.1"
+
+[[package]]
 name = "webencodings"
 version = "0.5.1"
 description = "Character encoding aliases for legacy web content"
@@ -603,7 +647,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f934c1e90d9a8bd1aa755038d910c88a1e8629f9eaf8a1c777a3d07493d4144d"
+content-hash = "2fa3ad223e7a175dd0a1da306a587bee34b5430944da6b5ead317254f8a03178"
 
 [metadata.files]
 aiohttp = [
@@ -695,6 +739,10 @@ attrs = [
 Babel = [
     {file = "Babel-2.10.3-py3-none-any.whl", hash = "sha256:ff56f4892c1c4bf0d814575ea23471c230d544203c7748e8c68f0089478d48eb"},
     {file = "Babel-2.10.3.tar.gz", hash = "sha256:7614553711ee97490f732126dc077f8d0ae084ebc6a96e23db1482afabdb2c51"},
+]
+bracex = [
+    {file = "bracex-2.3.post1-py3-none-any.whl", hash = "sha256:351b7f20d56fb9ea91f9b9e9e7664db466eb234188c175fd943f8f755c807e73"},
+    {file = "bracex-2.3.post1.tar.gz", hash = "sha256:e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"},
 ]
 cairocffi = [
     {file = "cairocffi-1.3.0.tar.gz", hash = "sha256:108a3a7cb09e203bdd8501d9baad91d786d204561bd71e9364e8b34897c47b91"},
@@ -939,6 +987,10 @@ mkdocs = [
     {file = "mkdocs-1.3.1-py3-none-any.whl", hash = "sha256:fda92466393127d2da830bc6edc3a625a14b436316d1caf347690648e774c4f0"},
     {file = "mkdocs-1.3.1.tar.gz", hash = "sha256:a41a2ff25ce3bbacc953f9844ba07d106233cd76c88bac1f59cb1564ac0d87ed"},
 ]
+mkdocs-awesome-pages-plugin = [
+    {file = "mkdocs-awesome-pages-plugin-2.8.0.tar.gz", hash = "sha256:af7e327e14b2eea3b2735c37428e33a528ecd2d9ae2296dc0f1632f0f3bc28f7"},
+    {file = "mkdocs_awesome_pages_plugin-2.8.0-py3-none-any.whl", hash = "sha256:6b21ad4f41aecbe89e3a9a51f8837892cc7ce8ca0f9f4e0a355d56159ace3d68"},
+]
 mkdocs-git-revision-date-localized-plugin = [
     {file = "mkdocs-git-revision-date-localized-plugin-1.1.0.tar.gz", hash = "sha256:38517e2084229da1a1b9460e846c2748d238c2d79efd405d1b9174a87bd81d79"},
     {file = "mkdocs_git_revision_date_localized_plugin-1.1.0-py3-none-any.whl", hash = "sha256:4ba0e49abea3e9f6ee26e2623ff7283873da657471c61f1d0cfbb986f403316d"},
@@ -1011,6 +1063,10 @@ multidict = [
     {file = "multidict-6.0.2-cp39-cp39-win32.whl", hash = "sha256:23b616fdc3c74c9fe01d76ce0d1ce872d2d396d8fa8e4899398ad64fb5aa214a"},
     {file = "multidict-6.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:4bae31803d708f6f15fd98be6a6ac0b6958fcf68fda3c77a048a4f9073704aae"},
     {file = "multidict-6.0.2.tar.gz", hash = "sha256:5ff3bd75f38e4c43f1f470f2df7a4d430b821c4ce22be384e1459cb57d6bb013"},
+]
+natsort = [
+    {file = "natsort-8.2.0-py3-none-any.whl", hash = "sha256:04fe18fdd2b9e5957f19f687eb117f102ef8dde6b574764e536e91194bed4f5f"},
+    {file = "natsort-8.2.0.tar.gz", hash = "sha256:57f85b72c688b09e053cdac302dd5b5b53df5f73ae20b4874fcbffd8bf783d11"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
@@ -1189,6 +1245,10 @@ watchdog = [
     {file = "watchdog-2.1.9-py3-none-win_amd64.whl", hash = "sha256:7a833211f49143c3d336729b0020ffd1274078e94b0ae42e22f596999f50279c"},
     {file = "watchdog-2.1.9-py3-none-win_ia64.whl", hash = "sha256:ad576a565260d8f99d97f2e64b0f97a48228317095908568a9d5c786c829d428"},
     {file = "watchdog-2.1.9.tar.gz", hash = "sha256:43ce20ebb36a51f21fa376f76d1d4692452b2527ccd601950d69ed36b9e21609"},
+]
+wcmatch = [
+    {file = "wcmatch-8.4.1-py3-none-any.whl", hash = "sha256:3476cd107aba7b25ba1d59406938a47dc7eec6cfd0ad09ff77193f21a964dee7"},
+    {file = "wcmatch-8.4.1.tar.gz", hash = "sha256:b1f042a899ea4c458b7321da1b5e3331e3e0ec781583434de1301946ceadb943"},
 ]
 webencodings = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},

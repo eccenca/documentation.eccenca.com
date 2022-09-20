@@ -24,7 +24,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: '#'
-      baselevel: 2
+      baselevel: 1
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -32,6 +32,7 @@ markdown_extensions:
 plugins:
   - search:
       lang: en
+  - awesome-pages
   - social:
       cards: true
   - tags:
@@ -92,10 +93,14 @@ theme:
 
 extra:
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/eccenca
     - icon: fontawesome/brands/github
       link: https://github.com/eccenca
+    # - icon: fontawesome/brands/docker
+    # link: https://hub.docker.com/u/eccenca
+    # - icon: fontawesome/brands/python
+    #  link: https://pypi.org/search/?q=cmem-&o=
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/eccenca
   tags:
     HTML5: html
     JavaScript: js
@@ -113,14 +118,3 @@ extra:
 extra_css:
   - assets/stylesheets/extra.css
 
-# Customization
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/eccenca
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/u/eccenca
-    - icon: fontawesome/brands/python
-      link: https://pypi.org/search/?q=cmem-&o=
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/eccenca
