@@ -24,3 +24,15 @@ theme:
 
 extra_css:
   - assets/stylesheets/extra.css
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/eccenca
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/eccenca
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/search/?q=cmem-&o=
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/eccenca
