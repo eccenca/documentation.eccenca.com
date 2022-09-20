@@ -10,6 +10,9 @@ packages = [{include = "markdown_sandbox"}]
 python = "^3.10"
 mkdocs-material = "^8.5.3"
 
+[tool.poetry.group.dev.dependencies]
+linkcheckmd = "^1.4.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

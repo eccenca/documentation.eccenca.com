@@ -20,16 +20,20 @@ tasks:
 
   install:
     desc: Install needed dependencies
-    run: once
     cmds:
       - poetry install
 
   check:
-    desc: Check the sources
+    desc: Run complete test suite
     deps:
-      - task: install
+      - check:links
+
+  check:links:
+    desc: Check outgoing links
+    deps:
+      - install
     cmds:
-      - echo "no checks for now"
+      - poetry run linkcheckMarkdown -r docs
 
   build:
     desc: Build the page
