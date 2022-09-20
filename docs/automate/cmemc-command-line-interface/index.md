@@ -6,7 +6,7 @@ tags:
 
 cmemc is intended for system administrators and Linked Data Expert, who wants to automate and remote control activities on eccenca Corporate Memory.
 
-![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version")
+[![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version"){ .off-glb }](https://pypi.org/project/cmem-cmemc/)
 
 
 Main features of cmemc include:

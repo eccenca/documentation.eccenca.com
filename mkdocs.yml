@@ -33,6 +33,7 @@ plugins:
   - search:
       lang: en
   - awesome-pages
+  - glightbox
   - social:
       cards: true
   - tags:
