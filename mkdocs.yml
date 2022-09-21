@@ -37,8 +37,7 @@ theme:
   language: en
 
   palette:
-    primary: grey
-    accent: orange
+    - scheme: eccenca-light
   font:
     text: Roboto
     code: Roboto Mono
@@ -160,4 +159,3 @@ plugins:
   # https://github.com/byrnereese/mkdocs-swagger-ui
   - swagger-ui-tag
 # }}}
-
