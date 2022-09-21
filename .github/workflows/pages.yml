@@ -62,10 +62,6 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-      # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/#built-in-social-plugin
-      - name: apt-get
-        run: apt-get install libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
-
       - name: check
         run: task check
 
