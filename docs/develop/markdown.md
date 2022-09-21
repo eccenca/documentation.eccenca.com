@@ -2,6 +2,12 @@
 
 ## Code Blocks
 
+- [x] syntax hightligning
+- [x] numbered lines
+- [x] annotation marks
+- [x] file title
+- [x] line hightligning
+
 ``` sparql title="select.rq" linenums="1" hl_lines="3 6"
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#># (1)!
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -168,8 +174,22 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
+### Stand Alone
+
 ![Minion](https://octodex.github.com/images/minion.png)
+
+### With Title
+
 ![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+### With Caption
+
+<figure markdown>
+  ![22.1: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor"){ width="90%" }
+  <figcaption>22.1: DataIntegration - Linking Editor</figcaption>
+</figure>
+
+### As footnote Style
 
 Like links, Images also have a footnote style syntax
 
