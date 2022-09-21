@@ -2,11 +2,7 @@
 
 Corporate Memory 22.1 is the first release in 2022.
 
-<figure markdown>
-  ![22.1: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor"){ width="90%" }
-  <figcaption>22.1: DataIntegration - Linking Editor</figcaption>
-</figure>
-
+![22.1: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor")
 ![22.1: DataManager - Workflow Execution](22-1-workflow-execution.png "22.1: DataManager - Workflow Execution")
 ![22.1: cmemc - metrics and python list command](22-1-cmemc-metrics-and-python-list.png "22.1: cmemc - metrics and python list command")
 
