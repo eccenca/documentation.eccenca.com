@@ -1,62 +1,70 @@
 ---
+# {{{ Main site config
 site_name: eccenca Markdown Sandbox
 repo_url: https://github.com/eccenca/markdown-sandbox
 edit_uri: ./edit/main/docs
+extra:
+  social:
+    # - icon: fontawesome/brands/docker
+    # link: https://hub.docker.com/u/eccenca
+    # - icon: fontawesome/brands/python
+    #  link: https://pypi.org/search/?q=cmem-&o=
+    - icon: fontawesome/brands/github
+      link: https://github.com/eccenca
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/eccenca
+  tags:
+    # here tags are mapped to icons
+    HTML5: html
+    JavaScript: js
+    CSS: css
+  version:
+    provider: mike
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+extra_css:
+  - assets/stylesheets/extra.css
+# }}}
 
-markdown_extensions:
-  - extra
-  - smarty
-  - sane_lists
-  - codehilite
-  - attr_list
-  - md_in_html
-  - pymdownx.details
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - toc:
-      permalink: '¤'
-      baselevel: 1
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - admonition
-
-plugins:
-  - search:
-      lang: en
-  - awesome-pages
-  - macros
-  - autolinks
-  - glightbox
-  - social:
-      cards: true
-  - tags:
-      tags_file: develop/tags.md
-  - git-revision-date-localized:
-      enable_creation_date: true
-  - git-revision-date-localized:
-      type: timeago
-  - redirects:
-      redirect_maps:
-        'cmem.md': 'automate/cmemc-command-line-interface/index.md'
-  - swagger-ui-tag
-
+# {{{ Theme configuration
 theme:
   name: material
+  language: en
 
   palette:
     primary: grey
     accent: orange
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.svg
+  logo: assets/favicon.svg
+
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - navigation.prune
+    # - navigation.sections
+    # - header.autohide
+    # - navigation.expand
+    # - toc.integrate
 
   # 404 page
   static_templates:
@@ -66,19 +74,13 @@ theme:
   include_search_page: false
   search_index_only: true
 
-  # Default values, taken from mkdocs_theme.yml
-  language: en
-  font:
-    text: Roboto
-    code: Roboto Mono
-  favicon: assets/favicon.svg
-  logo: assets/favicon.svg
   icon:
     logo: logo
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css: fontawesome/brands/css3
+    # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky
       abstract: fontawesome/solid/book
@@ -92,51 +94,70 @@ theme:
       bug: fontawesome/solid/robot
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
-  features:
-    - announce.dismiss
-    - content.code.annotate
-    - content.tabs.link
-    - content.tooltips
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    - navigation.instant
-    # - navigation.prune
-    # - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
-    - toc.follow
-    # - toc.integrate
+# }}}
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/eccenca
-    # - icon: fontawesome/brands/docker
-    # link: https://hub.docker.com/u/eccenca
-    # - icon: fontawesome/brands/python
-    #  link: https://pypi.org/search/?q=cmem-&o=
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/eccenca
-  tags:
-    HTML5: html
-    JavaScript: js
-    CSS: css
-  version:
-    provider: mike
-  consent:
-    title: Cookie consent
-    description: >-
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
+# {{{ Extensions to the markdown processor
+markdown_extensions:
+  - extra
+  # https://squidfunk.github.io/mkdocs-material/reference/annotations/
+  - admonition
+  - smarty
+  - sane_lists
+  - codehilite
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: '¤'
+      baselevel: 1
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+# }}}
 
-extra_css:
-  - assets/stylesheets/extra.css
+# {{{ Extensions to mkdocs - some of them are used by material theme
+plugins:
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
+  - search:
+      lang: en
+  # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+  - awesome-pages
+  # https://github.com/fralau/mkdocs_macros_plugin
+  - macros
+  # https://github.com/midnightprioriem/mkdocs-autolinks-plugin
+  - autolinks
+  # https://github.com/blueswen/mkdocs-glightbox
+  - glightbox
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
+  - social:
+      cards: true
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  - tags:
+      tags_file: tests/tags.md
+  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  # https://github.com/mkdocs/mkdocs-redirects
+  - redirects:
+      redirect_maps:
+        'cmem.md': 'automate/cmemc-command-line-interface/index.md'
+  # https://github.com/byrnereese/mkdocs-swagger-ui
+  - swagger-ui-tag
+# }}}
 

@@ -1,4 +1,4 @@
-# Markdown Tests
+# Markdown
 
 ## Code Blocks
 
