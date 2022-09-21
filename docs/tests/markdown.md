@@ -19,6 +19,11 @@ WHERE {
 
 1. This is a namespace prefix definition 😃
 
+## Admonitions
+
+!!! note "Foobar"
+
+    ksahdkjhs dkjasd hkajd hkjad
 
 ## Tabs
 
