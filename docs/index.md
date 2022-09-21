@@ -6,4 +6,4 @@ You can change it via the edit buttons or using a dedicated markdown editor such
 
 [System Architecture](system-architecture.md)
 
-:-)
+
