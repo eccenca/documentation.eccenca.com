@@ -12,3 +12,5 @@ Possible values of this HTTP header field are API dependent and listed as part o
 Dependent on the specific API, eccenca DataIntegration works with the following application media types which correspond to the following specification documents:
 
 <swagger-ui src="https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json"/>
+
+Alternatively, you can (re)view it [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json).
