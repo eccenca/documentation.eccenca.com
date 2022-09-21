@@ -200,7 +200,7 @@ With a reference later in the document defining the URL location:
 [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
 
-### Definition lists
+## Definition lists
 
 Term 1
 
@@ -216,7 +216,7 @@ Term 2 with *inline markup*
     Third paragraph of definition 2.
 
 
-### Abbreviations
+## Abbreviations
 
 This is HTML abbreviation example.
 
