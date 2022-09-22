@@ -1,11 +1,11 @@
 nav:
     - Home: index.md
-    - Build: build
-    - Explore and Autor: explore-and-author
-    - Consume: consume
-    - Deploy and Configure: deploy-and-configure
-    - Automate: automate
-    - Develop: develop
-    - Release Notes: release-notes
+    - ★ Build: build
+    - ★ Explore and Author: explore-and-author
+    - ★ Consume: consume
+    - ☆ Deploy and Configure: deploy-and-configure
+    - ☆ Automate: automate
+    - ☆ Develop: develop
+    - 📆 Release Notes: release-notes
     - Tests: tests
 
