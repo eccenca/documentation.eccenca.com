@@ -3,5 +3,7 @@
   "spellcheck": true,
   "useMarkdownLinks": true,
   "attachmentFolderPath": "./",
-  "newLinkFormat": "relative"
+  "newLinkFormat": "relative",
+  "showFrontmatter": false,
+  "alwaysUpdateLinks": true
 }
