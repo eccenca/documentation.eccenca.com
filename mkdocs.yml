@@ -112,6 +112,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  # https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
+  - pymdownx.keys
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
   - pymdownx.tasklist:
       custom_checkbox: true
