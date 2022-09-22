@@ -36,6 +36,9 @@ theme:
   name: material
   language: en
 
+  # https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
+  custom_dir: overrides
+
   palette:
     - scheme: eccenca-light
   font:
@@ -158,4 +161,10 @@ plugins:
         'cmem.md': 'automate/cmemc-command-line-interface/index.md'
   # https://github.com/byrnereese/mkdocs-swagger-ui
   - swagger-ui-tag
+# }}}
+
+# {{{ Less important mkdocs configuration
+# https://www.mkdocs.org/user-guide/configuration/#watch
+watch:
+  - overrides
 # }}}
