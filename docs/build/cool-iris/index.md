@@ -29,15 +29,13 @@ A good IRI is unique, stable, simple and manageable.
 Define a useful IRI-Scheme that can be used for resources.
 
 - Define a Base URI which is the common authority for all resources in your graph.
-  - Example: `https://data.company.org/`
-- Define subspaces where necessary, e.g. for each subproject or domain. Provide a [prefix](/build/define-prefixes-namespaces) for each subspace.
-  - Example:
+    - Example: `https://data.company.org/`
+- Define subspaces where necessary, e.g. for each subproject or domain. Provide a [prefix](/build/define-prefixes-namespaces) for each subspace. Examples:
     - `https://data.company.org/hardware/` for hardware artifacts
     - `https://data.company.org/software/` for software artifacts
     - `PREFIX cohw: <https://data.company.org/hardware/>`
     - `PREFIX cosw: <https://data.company.org/software/>`
-- Based on these build consistent schemes that define how your IRIs have to be build
-  - Examples:
+- Based on these build consistent schemes that define how your IRIs have to be build. Examples:
     - `https://data.company.org/hardware/<ProductClass>/<Serialnumber>` to identify an individual product
     - `https://data.company.org/hardware/<ProductClass>/<Modelnumber>` to identify a product model
 
@@ -51,8 +49,8 @@ Define a useful IRI-Scheme that can be used for resources.
 - European Union, URIs for Legal Resources: [https://eur-lex.europa.eu/eli-register/technical_information.html](https://eur-lex.europa.eu/eli-register/technical_information.html)
 - UK, "Designing URI sets for the UK public sector": [https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector](https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector)
 - Other Resources
-  - [https://www.w3.org/TR/cooluris/](https://www.w3.org/TR/cooluris/)
-  - [https://www.w3.org/Provider/Style/URI.html](https://www.w3.org/Provider/Style/URI.html)
-  - [https://www.w3.org/wiki/GoodURIs](https://www.w3.org/wiki/GoodURIs)
-  - [https://www.w3.org/TR/dwbp/](https://www.w3.org/TR/dwbp/)
-  - [https://www.w3.org/TR/ld-bp/](https://www.w3.org/TR/ld-bp/)
+    - [https://www.w3.org/TR/cooluris/](https://www.w3.org/TR/cooluris/)
+    - [https://www.w3.org/Provider/Style/URI.html](https://www.w3.org/Provider/Style/URI.html)
+    - [https://www.w3.org/wiki/GoodURIs](https://www.w3.org/wiki/GoodURIs)
+    - [https://www.w3.org/TR/dwbp/](https://www.w3.org/TR/dwbp/)
+    - [https://www.w3.org/TR/ld-bp/](https://www.w3.org/TR/ld-bp/)
