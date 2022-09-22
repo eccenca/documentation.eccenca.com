@@ -28,7 +28,8 @@
 
 /* Comment out this section if the header should not be light colored */
 
-[data-md-color-scheme="eccenca-light"] .md-header {
+[data-md-color-scheme="eccenca-light"] .md-header,
+[data-md-color-scheme="eccenca-light"] [for=__drawer] {
     --md-primary-fg-color: var(--md-footer-bg-color--dark);
     --md-primary-bg-color: var(--md-footer-fg-color);
 }
@@ -48,5 +49,11 @@
     }
     [data-md-color-scheme="eccenca-light"] .md-search__input::placeholder {
         color: var(--md-default-fg-color--light);
+    }
+}
+
+@media screen and (max-width: 76.1875em) {
+    [data-md-color-scheme="eccenca-light"] .md-main__inner {
+        margin-top: 0;
     }
 }
