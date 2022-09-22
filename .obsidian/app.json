@@ -2,6 +2,6 @@
   "showLineNumber": true,
   "spellcheck": true,
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "./img",
+  "attachmentFolderPath": "./",
   "newLinkFormat": "relative"
 }
