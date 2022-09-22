@@ -1,0 +1,12 @@
+nav:
+    - Build: index.md
+    - Introduction to the user interface: introduction-to-the-user-interface
+    - Lift data from tabular data such as CSV, XSLX or database tables: lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
+    - Lift data from JSON and XML sources: lift-data-from-json-and-xml-sources
+    - Extracting data from a Web API: extracting-data-from-a-web-api
+    - Define Prefixes / Namespaces: define-prefixes-namespaces
+    - Workflow Reconfiguration: workflow-reconfiguration
+    - Cool IRIs: cool-iris
+    - Rule Operators: rule-operators
+    - Processing data with variable input workflows: processing-data-with-variable-input-workflows
+    - Populate Data to Neo4j: populate-data-to-neo4j
