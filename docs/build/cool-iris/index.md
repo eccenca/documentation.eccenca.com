@@ -41,7 +41,7 @@ Define a useful IRI-Scheme that can be used for resources.
 
 !!! warning
 
-    Do not put a trailing slash on the end of IRIs. IRIs with a trailing slash can not be used with prefix definitions in Turtle or SPARQL, which makes them more difficult to use.
+    Do not put a trailing slash on the end of a resource IRIs. As such can not be used with prefix definitions in Turtle or SPARQL, which makes them more difficult to use.
 
 ## More information
 
