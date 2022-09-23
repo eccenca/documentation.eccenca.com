@@ -21,7 +21,7 @@ extra:
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
     ExpertTutorial: expert
-    
+
   version:
     provider: mike
   consent:
@@ -146,7 +146,7 @@ plugins:
   # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
   - awesome-pages
   # https://github.com/fralau/mkdocs_macros_plugin
-  - macros
+  # - macros
   # https://github.com/midnightprioriem/mkdocs-autolinks-plugin
   - autolinks
   # https://github.com/blueswen/mkdocs-glightbox
