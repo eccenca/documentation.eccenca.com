@@ -1,0 +1,21 @@
+nav:
+    - application-logging-with-logback
+    - workspaces
+    - workspaces-authorization
+    - dataset-module
+    - explore-module
+    - query-module
+    - vocabs-module
+    - thesaurus-module
+    - admin-module
+    - task-module
+    - app-presentation
+    - error-pages
+    - api-endpoints
+    - title-helper
+    - user-permissions
+    - shacl-configuration
+    - resource-table-configuration
+    - default-configuration
+    - account-settings-module
+
