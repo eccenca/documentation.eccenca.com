@@ -157,11 +157,11 @@ plugins:
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
       tags_file: tests/tags.md
-      tags_extra_files:
-        tutorials.md:
-          - beginners
-          - advanced
-          - expert
+  #    tags_extra_files:
+ #       tutorials.md:
+ #         - beginners
+#          - advanced
+#          - expert
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
