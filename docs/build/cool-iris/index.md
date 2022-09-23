@@ -45,7 +45,7 @@ Define a useful IRI-Scheme that can be used for resources.
 
 ## More information
 
-- Spanish Government, URIs for Open Data resources: [https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2013-2380)
+- Spanish Government, URIs for Open Data resources: [https://www.boe.es/eli/es/res/2013/02/19/(4)](https://www.boe.es/eli/es/res/2013/02/19/(4))
 - European Union, URIs for Legal Resources: [https://eur-lex.europa.eu/eli-register/technical_information.html](https://eur-lex.europa.eu/eli-register/technical_information.html)
 - UK, "Designing URI sets for the UK public sector": [https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector](https://www.gov.uk/government/publications/designing-uri-sets-for-the-uk-public-sector)
 - Other Resources
