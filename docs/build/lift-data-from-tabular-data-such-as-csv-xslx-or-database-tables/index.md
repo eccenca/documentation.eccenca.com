@@ -37,7 +37,7 @@ The following material is used in this tutorial, you should download the files a
 
 - Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
 
-    ![](Pasted%20image%2020220923105705.png)
+    ![](Pasted%20image%2020220923135450.png)
 
 - Sample CSV file: [services.csv](services.csv)
 
@@ -69,11 +69,11 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Vocabularies under **EXPLORE** in the navigation on the left side of the page.
 
-        ![](Pasted%20image%2020220923120151.png){width="30%"}
+        ![](Pasted%20image%2020220923135557.png){width="30%"}
 
     2. Click **Register new vocabulary** on the top right.
 
-        ![](Pasted%20image%2020220923120222.png)
+        ![](Pasted%20image%2020220923135617.png)
 
     3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
@@ -82,7 +82,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - Description: _**Example vocabulary modeled to describe relations between products and services.**_
         - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
 
-            ![](Pasted%20image%2020220923120320.png){width="50%"}
+            ![](Pasted%20image%2020220923135716.png){width="50%"}
 
 === "cmemc"
 
@@ -98,7 +98,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-        ![](Pasted%20image%2020220923123209.png){width="30%"}
+        ![](Pasted%20image%2020220923135557.png){width="30%"}
 
     2. Click **Create** at the top of the page. 
 
