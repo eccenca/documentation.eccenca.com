@@ -82,7 +82,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - Description: _**Example vocabulary modeled to describe relations between products and services.**_
         - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
 
-            ![](Pasted%20image%2020220923135716.png){width="50%"}
+        ![](Pasted%20image%2020220923135716.png){width="50%"}
 
 === "cmemc"
 
@@ -98,7 +98,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-        ![](Pasted%20image%2020220923135557.png){width="30%"}
+        ![](Pasted%20image%2020220923140213.png){width="30%"}
 
     2. Click **Create** at the top of the page. 
 
@@ -112,11 +112,11 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     7. In the **Create new item** dialog, select **CSV**.
 
-        ![](Pasted%20image%2020220923123341.png)
+        ![](Pasted%20image%2020220923140231.png)
 
     8. Fill out a label and upload the **[services.csv](services.csv) sample file**.
 
-        ![](Pasted%20image%2020220923123510.png)
+        ![](Pasted%20image%2020220923140245.png)
 
     9.  Click **Create**.** Leave all other parameters at their default values.
 
@@ -127,6 +127,9 @@ The vocabulary contains the classes and properties needed to map the data into t
     Instead of uploading the [services.csv](services.csv) sample file into Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
 
     1. In the project, Click **Create** and select the **JDBC endpoint** type.
+
+        ![](Pasted%20image%2020220923140318.png)
+
     2. Define a **Label** for the dataset, specify the **JDBC Driver connection URL**, the **table** name and the **user** and **password** to connect to the database. _In this example we will use:_
 
         - Name: _**Services_ServiceDB**_
@@ -134,6 +137,8 @@ The vocabulary contains the classes and properties needed to map the data into t
         - table: _**Services**_
         - username: _**root**_
         - password: _**\*\*\*\***_
+
+        ![](Pasted%20image%2020220923140352.png)
 
         The general form of the JDBC connection string is:
 
@@ -168,15 +173,15 @@ To validate that the input data is correct, you can preview the data table in Co
 
 1. On the dataset page, press the **Load preview** button
 
-    ![](Pasted%20image%2020220923124707.png)
+   ![](Pasted%20image%2020220923140619.png)
 
 2. Once the preview is loaded, you can view a couple of rows to check that your data is accessible.
 
-    ![](Pasted%20image%2020220923124723.png)
+   ![](Pasted%20image%2020220923140649.png)
 
 3. Optionally, you can click **start profiling** and explore statistics about the dataset.
 
-    ![](Pasted%20image%2020220923124736.png)
+   ![](Pasted%20image%2020220923140706.png)
 
 ---
 
@@ -186,7 +191,7 @@ To validate that the input data is correct, you can preview the data table in Co
 
 2. In Create new item window, select Knowledge Graph and click Add.
 
-    ![](Pasted%20image%2020220923124942.png)
+   ![](Pasted%20image%2020220923140758.png)
 
 3. The Create new item of type Knowledge Graph window appears.
 
@@ -215,15 +220,15 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 4. In the main area you will find the **Mapping editor**.
 
-    ![](Pasted%20image%2020220923125713.png)
+   ![](Pasted%20image%2020220923140819.png)
 
 5. Click **Mapping** in the main area to expand its menu.
 
-    ![](Pasted%20image%2020220923125939.png)
+   ![](Pasted%20image%2020220923140841.png)
 
 6. Click **Edit** to create a base mapping.
 
-    ![](Pasted%20image%2020220923125954.png)
+   ![](Pasted%20image%2020220923140856.png)
 
 7. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. _In this example we will use:_
 
@@ -237,7 +242,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
     - _An optional Label: **Service**_
 
-    ![](Pasted%20image%2020220923130139.png)
+    ![](Pasted%20image%2020220923140923.png)
 
 8. Click **Save** _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
@@ -245,15 +250,15 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
     <http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
     ```
 
-9.  Evaluate your mapping by clicking the Expand ![](Pasted%20image%2020220923130324.png) button in the **Examples of target data** property to see at most three generated base URIs.
+9.  Evaluate your mapping by clicking the Expand ![](Pasted%20image%2020220923141010.png) button in the **Examples of target data** property to see at most three generated base URIs.
 
-    ![](Pasted%20image%2020220923130353.png)
+   ![](Pasted%20image%2020220923141023.png)
 
     We have now created the Service entities in the Knowledge Graph. As a next step, we will add the name of the Service entity.
 
 10. Press the circular **Blue + button** on the lower right and select **Add value mapping**.
 
-    ![](Pasted%20image%2020220923130416.png)
+    ![](Pasted%20image%2020220923141147.png)
 
 11. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
 
@@ -262,7 +267,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
     - Value path: _**ServiceName**_ (which corresponds to the column of that name)
     - An optional Label: _**service name**_
 
-    ![](Pasted%20image%2020220923130523.png)
+    ![](Pasted%20image%2020220923141218.png)
 
 12. Click **Save.**
 
@@ -272,7 +277,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 Go the **Transform evaluation** tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.
 
-![](Pasted%20image%2020220923131921.png)
+![](Pasted%20image%2020220923141235.png)
 
 ---
 
@@ -280,12 +285,12 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 1. Go into the mapping and visit the **Transform execution** tab.
 
-    ![](Pasted%20image%2020220923131957.png)
+   ![](Pasted%20image%2020220923141412.png)
 
-2. Press the ![](Pasted%20image%2020220923132014.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
+2. Press the ![](Pasted%20image%2020220923141442.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
-    ![](Pasted%20image%2020220923132026.png)
+   ![](Pasted%20image%2020220923141509.png)
 
 3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: http://ld.company.org/prod-instances/
 
-    ![](Pasted%20image%2020220923132048.png)
+   ![](Pasted%20image%2020220923141524.png)
