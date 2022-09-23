@@ -173,15 +173,15 @@ To validate that the input data is correct, you can preview the data table in Co
 
 1. On the dataset page, press the **Load preview** button
 
-   ![](Pasted%20image%2020220923140619.png)
+    ![](Pasted%20image%2020220923140619.png)
 
 2. Once the preview is loaded, you can view a couple of rows to check that your data is accessible.
 
-   ![](Pasted%20image%2020220923140649.png)
+    ![](Pasted%20image%2020220923140649.png)
 
 3. Optionally, you can click **start profiling** and explore statistics about the dataset.
 
-   ![](Pasted%20image%2020220923140706.png)
+    ![](Pasted%20image%2020220923140706.png)
 
 ---
 
@@ -191,7 +191,7 @@ To validate that the input data is correct, you can preview the data table in Co
 
 2. In Create new item window, select Knowledge Graph and click Add.
 
-   ![](Pasted%20image%2020220923140758.png)
+    ![](Pasted%20image%2020220923140758.png)
 
 3. The Create new item of type Knowledge Graph window appears.
 
@@ -220,15 +220,15 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 4. In the main area you will find the **Mapping editor**.
 
-   ![](Pasted%20image%2020220923140819.png)
+    ![](Pasted%20image%2020220923140819.png)
 
 5. Click **Mapping** in the main area to expand its menu.
 
-   ![](Pasted%20image%2020220923140841.png)
+    ![](Pasted%20image%2020220923140841.png)
 
 6. Click **Edit** to create a base mapping.
 
-   ![](Pasted%20image%2020220923140856.png)
+    ![](Pasted%20image%2020220923140856.png)
 
 7. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. _In this example we will use:_
 
@@ -285,12 +285,12 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 1. Go into the mapping and visit the **Transform execution** tab.
 
-   ![](Pasted%20image%2020220923141412.png)
+    ![](Pasted%20image%2020220923141412.png)
 
 2. Press the ![](Pasted%20image%2020220923141442.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
-   ![](Pasted%20image%2020220923141509.png)
+    ![](Pasted%20image%2020220923141509.png)
 
 3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: http://ld.company.org/prod-instances/
 
-   ![](Pasted%20image%2020220923141524.png)
+    ![](Pasted%20image%2020220923141524.png)
