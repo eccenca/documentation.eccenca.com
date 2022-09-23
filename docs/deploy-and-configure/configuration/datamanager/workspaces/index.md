@@ -6,18 +6,18 @@ DataManager provides the option to define pre-configured workspaces a user can s
 
 -   js.config.workspaces
     -   id
-        -   [name](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].name)
+        -   [name](#workspaces)
         -   authorization
 
-            -   [type](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].authorization.type)
-            -   [logoutRedirectUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].authorization.logoutRedirectUrl)
+            -   [type](#workspaces)
+            -   [logoutRedirectUrl](#workspaces)
         -   backend
-            -   [type](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].backend.type)
-            -   [url](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].backend.url)
-            -   [endpointId](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].backend.endpointId)
+            -   [type](#workspaces)
+            -   [url](#workspaces)
+            -   [endpointId](#workspaces)
         -   DIWorkspace
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].DIWorkspace.enable)
-            -   [url](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].DIWorkspace.url)
+            -   [enable](#workspaces)
+            -   [url](#workspaces)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -73,8 +73,7 @@ Use this property to enable/disable Data Integration menu item on navigation men
 
 Use this property to define the url where Data Integration is accessible.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-Configurationexample)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 js.config.workspaces:

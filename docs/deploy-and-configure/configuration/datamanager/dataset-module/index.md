@@ -5,12 +5,12 @@
 The Dataset module of DataManager is used to manage datasets and their attached resources.
 
 -   js.config.modules.datasets
-    -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/dataset-module#id-.Datasetmodulev20.06-js.config.modules.datasets.enable)
-    -   [startWith](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/dataset-module#id-.Datasetmodulev20.06-js.config.modules.datasets.startWith)
-    -   [graphUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/dataset-module#id-.Datasetmodulev20.06-js.config.modules.datasets.graphUrl)
+    -   [enable](#dataset-module)
+    -   [startWith](#dataset-module)
+    -   [graphUrl](#dataset-module)
     -   dataintegration
-        -   [url](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/dataset-module#id-.Datasetmodulev20.06-js.config.modules.datasets.dataintegration.url)
-        -   [project](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/dataset-module#id-.Datasetmodulev20.06-js.config.modules.datasets.dataintegration.project)
+        -   [url](#dataset-module)
+        -   [project](#dataset-module)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

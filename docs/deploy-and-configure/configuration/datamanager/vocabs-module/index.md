@@ -5,9 +5,9 @@
 The Vocabs module of DataManager is used to manage available vocabularies.
 
 -   js.config.modules.vocabulary
-    -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/vocabs-module#id-.Vocabsmodulev20.06-js.config.modules.vocabulary.enable)
-    -   [startWith](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/vocabs-module#id-.Vocabsmodulev20.06-js.config.modules.vocabulary.startWith)
-    -   [graphUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/vocabs-module#id-.Vocabsmodulev20.06-js.config.modules.vocabulary.graphUrl)
+    -   [enable](#vocabs-module)
+    -   [startWith](#vocabs-module)
+    -   [graphUrl](#vocabs-module)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -31,8 +31,7 @@ Note: If more than one module has defined `startWith: true` the most left modu
 
 Use this property to define the target graph for read and write operations.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/vocabs-module#id-.Vocabsmodulev20.06-Configurationexample)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Configuration example
 
 ``` yaml
 js.config.modules:

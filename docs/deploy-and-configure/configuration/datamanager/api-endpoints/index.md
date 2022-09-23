@@ -5,9 +5,9 @@
 DataManager provides the option to define which endpoints should be used for SPARQL and SPARQL Update requests.
 
 -   js.config.api
-    -   [sparql](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/api-endpoints#id-.Apiendpointsv20.06-js.config.api.sparql)
-    -   [sparqlUpdate](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/api-endpoints#id-.Apiendpointsv20.06-js.config.api.sparqlUpdate)
-    -   [defaultTimeout](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/api-endpoints#id-.Apiendpointsv20.06-js.config.api.defaultTimeout)
+    -   [sparql](../api-endpoints)
+    -   [sparqlUpdate](../api-endpoints)
+    -   [defaultTimeout](../api-endpoints)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -15,7 +15,7 @@ DataManager provides the option to define which endpoints should be used for SPA
 
 Use this property to define the default endpoint for all SPARQL requests.
 
-Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].backend.endpointId).
+Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -23,7 +23,7 @@ Note: When a relative path is set the base url will be added automatically. The 
 
 Use this property to define the default endpoint for all SPARQL Update requests.
 
-Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces#id-.Workspacesv20.10-js.config.workspaces[id].backend.endpointId).
+Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -31,8 +31,7 @@ Note: When a relative path is set the base url will be added automatically. The 
 
 Set this property to limit the timeout (in milliseconds) requesting data in the tables of DataManager.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/api-endpoints#id-.Apiendpointsv20.06-Configurationexample)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 js.config.api:

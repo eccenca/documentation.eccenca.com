@@ -8,8 +8,7 @@ Logging for eccenca DataManager can also be configured with [Logback](https://l
 
 Use this property to specify where the Logback configuration is located.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/application-logging-with-logback#id-.ApplicationloggingwithLogbackv20.06-Configurationexample)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 logging:

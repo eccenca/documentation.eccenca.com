@@ -5,7 +5,7 @@
 DataManager provides the option to configure shacl.
 
 -   js.config.shacl
-    -   [shapesGraph](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/shacl-configuration#id-.Shaclconfigurationv20.06-js.config.shacl.shapesGraph)
+    -   [shapesGraph](#shacl-configuration)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -13,8 +13,7 @@ DataManager provides the option to configure shacl.
 
 Define in which graph shacl shapes exists.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/shacl-configuration#id-.Shaclconfigurationv20.06-Configurationexample)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Configuration example
 
 ``` yaml
 js.config.shacl:

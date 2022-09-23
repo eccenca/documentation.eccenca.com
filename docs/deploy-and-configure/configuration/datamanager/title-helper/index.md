@@ -5,8 +5,8 @@
 DataManager provides the option to define which labels of properties are displayed.
 
 -   js.config.titleHelper
-    -   [properties](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/title-helper#id-.Titlehelperv20.06-js.config.titleHelper.properties)
-    -   [languages](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/title-helper#id-.Titlehelperv20.06-js.config.titleHelper.languages)
+    -   [properties](#title-helper)
+    -   [languages](#title-helper)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -30,8 +30,7 @@ Use this property to define an array of properties used for getting titles. The 
 
 Use this property to define an array of languages used for getting titles.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/title-helper#id-.Titlehelperv20.06-Configurationexample)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Configuration example
 
 ``` yaml
 js.config.titleHelper:

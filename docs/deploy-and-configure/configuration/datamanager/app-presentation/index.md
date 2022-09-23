@@ -5,10 +5,10 @@
 DataManager provides the option to customize the visual presentation.
 
 -   js.config.appPresentation
-    -   [faviconUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/app-presentation#id-.Apppresentationv20.10-js.config.appPresentation.faviconUrl)
-    -   [windowTitle](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/app-presentation#id-.Apppresentationv20.10-js.config.appPresentation.windowTitle)
-    -   [logoUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/app-presentation#id-.Apppresentationv20.10-js.config.appPresentation.logoUrl)
-    -   [headerName](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/app-presentation#id-.Apppresentationv20.10-js.config.appPresentation.headerName)
+    -   [faviconUrl](../app-presentation)
+    -   [windowTitle](../app-presentation)
+    -   [logoUrl](../app-presentation)
+    -   [headerName](../app-presentation)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -34,8 +34,7 @@ Use this property to define a custom logo that is shown in the Module bar. Pictu
 
 Use this property to define a custom name that is shown in the Module bar.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/app-presentation#id-.Apppresentationv20.10-Configurationexample)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Configuration example
 
 ``` yaml
 js.config.appPresentation:

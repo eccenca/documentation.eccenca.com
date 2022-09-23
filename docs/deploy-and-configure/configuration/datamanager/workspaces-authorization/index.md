@@ -7,11 +7,11 @@ DataManager provides several types of authorization.
         -   authorization
             -   type
             -   oauth2
-                -   [grantType](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-js.config.workspaces[id].authorization.oauth2.grantType)
-                -   [authorizeUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-js.config.workspaces[id].authorization.oauth2.authorizeUrl)
-                -   [clientId](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-js.config.workspaces[id].authorization.oauth2.clientId)
-                -   [tokenUrl](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-js.config.workspaces[id].authorization.oauth2.tokenUrl)
-                -   [clientSecret](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-js.config.workspaces[id].authorization.oauth2.clientSecret)
+                -   [grantType](#workspaces-authorization)
+                -   [authorizeUrl](#workspaces-authorization)
+                -   [clientId](#workspaces-authorization)
+                -   [tokenUrl](#workspaces-authorization)
+                -   [clientSecret](#workspaces-authorization)
 
 If you want to use OAuth2, you need to define `authorization.type` to `oauth2` as well as specify further configuration parameters within the `oauth2` parameter:
 
@@ -52,8 +52,7 @@ Note: This property is only needed for `js.config.workspaces[id].authorization.
 
 Use this property to define a passphrase for OAuth2 client authorization. Usually, this property is not required. It must only be set if the authorization server expects a client secret.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/workspaces-authorization#id-.WorkspacesAuthorizationv20.06-Configurationexample)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 The two examples below show how a backend configuration can look like as for example for an eccenca DataPlatform using different authorization options.
 

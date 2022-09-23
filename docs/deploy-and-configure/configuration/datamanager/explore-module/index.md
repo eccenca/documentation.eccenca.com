@@ -5,70 +5,70 @@
 The Explore module of DataManager is used for graph data exploration.
 
 -   js.config.modules.explore
-    -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.enable)
-    -   [startWith](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.startWith)
-    -   [overallSearchQuery](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.overallSearchQuery)
+    -   [enable](#explore-module)
+    -   [startWith](#explore-module)
+    -   [overallSearchQuery](#explore-module)
     -   mapServer
-        -   [url](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.mapServer.url)
-        -   [ext](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.mapServer.ext)
+        -   [url](#explore-module)
+        -   [ext](#explore-module)
     -   graphlist
-        -   [defaultGraph](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.graphlist.defaultGraph)
-        -   [hideSearch](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.graphlist.hideSearch)
-        -   [whiteList](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.graphlist.whiteList)
+        -   [defaultGraph](#explore-module)
+        -   [hideSearch](#explore-module)
+        -   [whiteList](#explore-module)
     -   navigation
-        -   [defaultClass](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.defaultClass)
-        -   [topQuery](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.topQuery)
-        -   [subQuery](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.subQuery)
-        -   [searchQuery](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.searchQuery)
-        -   [listQuery](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.listQuery)
-        -   [itemsPerPage](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.navigation.itemsPerPage)
+        -   [defaultClass](#explore-module)
+        -   [topQuery](#explore-module)
+        -   [subQuery](#explore-module)
+        -   [searchQuery](#explore-module)
+        -   [listQuery](#explore-module)
+        -   [itemsPerPage](#explore-module)
     -   details
         -   properties
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.properties.enable)
+            -   [enable](#explore-module)
         -   usage
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.usage.enable)
+            -   [enable](#explore-module)
         -   references
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.references.enable)
+            -   [enable](#explore-module)
         -   turtle
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.turtle.enable)
+            -   [enable](#explore-module)
         -   history
 
-        -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.history.enable)
+        -   [enable](#explore-module)
 
         -   statistics
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.statistics.enable)
+            -   [enable](#explore-module)
             -   sunburst
-                -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.statistics.sunburst.enable)
+                -   [enable](#explore-module)
     -   visualization
-        -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.enable)
+        -   [enable](#explore-module)
         -   webvowlConfig
             -   filter
-                -   [literals](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.literals)
-                -   [relations](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.relations)
-                -   [solitarySubclasses](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.solitarySubclasses)
-                -   [classDisjointness](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.classDisjointness)
-                -   [setOperators](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.setOperators)
-                -   [degreeOfCollapsing](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.filter.degreeOfCollapsing)
+                -   [literals](#explore-module)
+                -   [relations](#explore-module)
+                -   [solitarySubclasses](#explore-module)
+                -   [classDisjointness](#explore-module)
+                -   [setOperators](#explore-module)
+                -   [degreeOfCollapsing](#explore-module)
             -   mode
-                -   [dynamicLabelWidth](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.mode.dynamicLabelWidth)
-                -   [pickAndPin](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.mode.pickAndPin)
-                -   [nodeScaling](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.mode.nodeScaling)
-                -   [compactNotation](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.mode.compactNotation)
-                -   [colorExternals](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.mode.colorExternals)
+                -   [dynamicLabelWidth](#explore-module)
+                -   [pickAndPin](#explore-module)
+                -   [nodeScaling](#explore-module)
+                -   [compactNotation](#explore-module)
+                -   [colorExternals](#explore-module)
             -   export
-                -   [json](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.export.json)
-                -   [svg](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.export.svg)
+                -   [json](#explore-module)
+                -   [svg](#explore-module)
             -   gravity
-                -   [classDistance](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.gravity.classDistance)
-                -   [dataTypeDistance](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.gravity.dataTypeDistance)
-            -   [reset](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.reset)
-            -   [pause](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.pause)
-            -   [search](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.details.visualization.webvowlConfig.search)
+                -   [classDistance](#explore-module)
+                -   [dataTypeDistance](#explore-module)
+            -   [reset](#explore-module)
+            -   [pause](#explore-module)
+            -   [search](#explore-module)
     -   externalTools
         -   toolX
-            -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.externalTools.toolX.enable)
-            -   [tabname](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.externalTools.toolX.tabname)
-            -   [iframeUrlTemplate](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.externalTools.toolX.iframeUrlTemplate)
+            -   [enable](#explore-module)
+            -   [tabname](#explore-module)
+            -   [iframeUrlTemplate](#explore-module)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -113,7 +113,7 @@ Note: The placeholder `{{QUERY}}` is replaced with the search string entered b
 
 Extension of the tiles as provided by OpenMapTiles Map Server
 
-Note: It works together with [js.config.modules.explore.mapServer.ext](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.mapServer.ext), and only if it is set.
+Note: It works together with [js.config.modules.explore.mapServer.ext](#explore-module), and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -121,7 +121,7 @@ Note: It works together with [js.config.modules.explore.mapServer.ext](https://
 
 The service url as provided by OpenMapTiles Map Server. If not defined, the wikimedia server is used.
 
-Note: It works together with [js.config.modules.explore.mapServer.url](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.mapServer.url), and only if it is set.
+Note: It works together with [js.config.modules.explore.mapServer.url](#explore-module), and only if it is set.
 
 This is how `mapServer.ext` and `mapServer.url` are used in your configuration:
 
@@ -158,7 +158,7 @@ Use this property to specify a list of graphs the user can see.
 
 Use this property to setup a default class.
 
-Note: It works together with [defaultGraph](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-js.config.modules.explore.graphlist.defaultGraph), and only if it is set.
+Note: It works together with [defaultGraph](#explore-module), and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -491,8 +491,7 @@ js.config.modules.explore.externalTools.toolX.iframeUrlTemplate:
 
 Note: The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. The placeholder `{{RESOURCELABEL}}` is replaced with the titleHelper generated label of the resource.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/explore-module#id-.Exploremodulev22.1-Configurationexample)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 js.config.modules.explore:

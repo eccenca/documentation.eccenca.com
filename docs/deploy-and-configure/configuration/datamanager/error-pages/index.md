@@ -6,14 +6,14 @@ DataManager provides the option to customize special user errors.
 
 -   js.config.errorPages
     -   graphAccess
-        -   [title](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.graphAccess.title)
-        -   [message](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.graphAccess.message)
+        -   [title](#error-pages)
+        -   [message](#error-pages)
     -   moduleAccess
-        -   [title](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.moduleAccess.title)
-        -   [message](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.moduleAccess.message)
+        -   [title](#error-pages)
+        -   [message](#error-pages)
     -   workspaceAccess
-        -   [title](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.workspaceAccess.title)
-        -   [message](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-js.config.errorPages.workspaceAccess.message)
+        -   [title](#error-pages)
+        -   [message](#error-pages)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -51,8 +51,7 @@ Use this property to define a custom title that is displayed if the workspace is
 
 Use this property to define a custom message that is displayed if the workspace is not accessible.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/error-pages#id-.Errorpagesv20.06-Configurationexample)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 js.config.errorPages:

@@ -5,10 +5,10 @@
 The Query module of DataManager is used to query rdf data directly from store.
 
 -   js.config.modules.query
-    -   [enable](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/query-module#id-.Querymodulev20.06-js.config.modules.query.enable)
-    -   [graph](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/query-module#id-.Querymodulev20.06-js.config.modules.query.graph)
-    -   [startWith](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/query-module#id-.Querymodulev20.06-js.config.modules.query.startWith)
-    -   [timeout](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/query-module#id-.Querymodulev20.06-js.config.modules.query.timeout)
+    -   [enable](#query-module)
+    -   [graph](#query-module)
+    -   [startWith](#query-module)
+    -   [timeout](#query-module)
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -38,8 +38,7 @@ Note: If more than one module has defined `startWith: true` the most left modu
 
 Set this property to limit the timeout (in milliseconds) requesting manual queries in Query Module.
 
-Configuration example[![Link to Configuration example](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/query-module#id-.Querymodulev20.06-Configurationexample)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Configuration example
 
 ``` yaml
 js.config.modules:
