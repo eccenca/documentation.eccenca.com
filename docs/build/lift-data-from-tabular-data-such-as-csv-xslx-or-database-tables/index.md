@@ -15,8 +15,8 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
     - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
     - by using the [command line interface](/automate/cmemc-command-line-interface)
 
-    ```bash
-    cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
+    ``` shell-session
+    $ cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
     ```
 
     This step is optional and makes some of the following steps of the tutorial superfluous.
@@ -86,8 +86,8 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 === "cmemc"
 
-    ```shell
-    cmemc vocabulary import products_vocabulary.nt
+    ``` shell-session
+    $ cmemc vocabulary import products_vocabulary.nt
     ```
 
 ---
@@ -164,6 +164,16 @@ The vocabulary contains the classes and properties needed to map the data into t
         !!! info
 
             Instead of selecting a table you can also specify a custom SQL query in the _source query_ field.
+
+=== "cmemc"
+
+    ``` shell-session
+    $ cmemc project create tutorial-csv
+
+    $ cmemc dataset create --project tutorial-csv services.csv
+
+    $ cmemc dataset create --project tutorial-csv products.xlsx
+    ```
 
 ---
 
