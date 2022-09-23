@@ -21,7 +21,7 @@ extra:
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
     ExpertTutorial: expert
-    
+
   version:
     provider: mike
   consent:
@@ -158,11 +158,11 @@ plugins:
   - tags:
       tags_file: tests/tags.md
       # https://squidfunk.github.io/mkdocs-material/insiders/
-#      tags_extra_files:
-#        tutorials.md:
-#          - beginners
-#          - advanced
-#          - expert
+      tags_extra_files:
+        tutorials.md:
+          - beginners
+          - advanced
+          - expert
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
