@@ -1,3 +1,8 @@
+---
+tags:
+  - cmemc
+  - Reference
+---
 # Command Reference
 
 This section lists the help texts of all commands as a reference
