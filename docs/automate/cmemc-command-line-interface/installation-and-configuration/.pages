@@ -1,0 +1,6 @@
+nav:
+    - Installation and Configuration: index.md
+    - File-based Configuration: file-based-configuration
+    - Environment-based Configuration: environment-based-configuration
+    - Getting Credentials from external Processes: getting-credentials-from-external-processes
+

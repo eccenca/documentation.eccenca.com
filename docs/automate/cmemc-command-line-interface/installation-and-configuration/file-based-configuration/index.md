@@ -236,7 +236,7 @@ This variable defaults to `none`.
 
 Setting this to `True` will disable certification verification (not recommended).
 
-Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
+Please refer to [Certificate handling and SSL verification](../../certificate-handling-and-ssl-verification/index.md) for more information.
 
 This variable defaults to `False`.
 
@@ -244,7 +244,7 @@ This variable defaults to `False`.
 
 Setting this to a PEM file allow for using private Certificate Authorities for certificate validation.
 
-Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
+Please refer to [Certificate handling and SSL verification](../../certificate-handling-and-ssl-verification/index.md) for more information.
 
 This variable defaults to `$PYTHON_HOME/site-packages/certifi/cacert.pem`.
 

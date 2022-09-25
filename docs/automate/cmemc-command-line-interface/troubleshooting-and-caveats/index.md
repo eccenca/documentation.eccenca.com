@@ -2,7 +2,7 @@
 tags:
   - cmemc
 ---
-# Current:Troubleshooting and Caveats
+# Troubleshooting and Caveats
 
 This page lists and documents possible issues and warnings when working with cmemc.
 
