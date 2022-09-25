@@ -134,8 +134,8 @@ To store the updated OFFSET, we update the triple with a SPARQL Update query: 
     3. Paste the query into the **SPARQL update query** form.
         1. The following IRIs need to be adapted for your use cases:
             1. Service Metadata Graph
-            2. JDBC endpoint ("jdbc_table_data_config")
-            3. Knowledge Graph ("http://ld.company.org/services/")
+            2. JDBC endpoint `jdbc_table_data_config`
+            3. Knowledge Graph `http://ld.company.org/services/`
 
 This query will look for the last max service ID found in the Knowledge Graph, and update the OFFSET information in the Metadata Graph.
 
