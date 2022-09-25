@@ -34,7 +34,7 @@ Once you are sure, that your mapping rule entails the correct value, you can set
 
 !!! info
 
-    The transformation task needs a suffix of the workflow parameter's URI in the workflow operator's serialization as its target property. This differs from the documentation that just refers to the parameter's _name_. If you want to overwrite the source query of a JDBC endpoint, you need to define `sourceQuery` as the target property, which is the suffix of `<[https://vocab.eccenca.com/di/functions/param_Jdbc_sourceQuery](https://vocab.eccenca.com/di/functions/param_Jdbc_sourceQuery)`>.
+    The transformation task needs a suffix of the workflow parameter's URI in the workflow operator's serialization as its target property. This differs from the documentation that just refers to the parameter's _name_. If you want to overwrite the source query of a JDBC endpoint, you need to define `sourceQuery` as the target property, which is the suffix of `<https://vocab.eccenca.com/di/functions/param_Jdbc_sourceQuery>`.
 
 ## Applications
 
