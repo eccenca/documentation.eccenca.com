@@ -8,18 +8,20 @@ tags:
 
 This tutorial shows how you can build a Knowledge Graph based on input data from hierarchical sources like a **JavaScript Object Notation** file (.json) or an **Extensible Markup Language** file (.xml).
 
-The complete tutorial is available as a [project file (XML)](tutorial-xml.project.zip) and a [project file (JSON)](tutorial-json.project.zip). You can import these projects:
+!!! info
 
-- by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-- by using the [command line interface](/automate/cmemc-command-line-interface)
+    The complete tutorial is available as a [project file (XML)](tutorial-xml.project.zip) and a [project file (JSON)](tutorial-json.project.zip). You can import these projects:
 
-    ```shell
-    cmemc -c my-cmem project import tutorial-xml.project.zip xml-transformation
-    ```
+    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
+    - by using the [command line interface](/automate/cmemc-command-line-interface)
 
-    ```shell
-    cmemc -c my-cmem project import tutorial-json.project.zip json-transformation
-    ```
+        ```shell
+        cmemc -c my-cmem project import tutorial-xml.project.zip xml-transformation
+        ```
+
+        ```shell
+        cmemc -c my-cmem project import tutorial-json.project.zip json-transformation
+        ```
 
 The documentation  consists of the following steps, which are described in detail below:
 
@@ -98,3 +100,42 @@ The following material is used in this tutorial:
         ...
     </orgmap>
     ```
+
+## 1 Register the vocabulary
+
+The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
+
+1. In Corporate Memory, click **Vocabularies** in the under **EXPLORE** in the navigation on the left side of the page.
+
+    ![Menu entry EXPLORE > Vocabularies](menu-explore-vocabularies.png){width="30%"}
+
+2. Click **Register new vocabulary** on the top right of the **Vocabulary catalog** page in Corporate Memory.
+
+    ![Vocabularies Catalog](vocab-catalog.png)
+
+3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
+
+    - Name: _**Product Vocabulary**_
+    - Graph URI: _**http://ld.company.org/prod-vocab/**_
+    - Description: _**Example vocabulary modeled to describe relations between products and services.**_
+
+    ![Dialog to register a new vocabulary.](dialog-register-new-vocabulary.png){width="50%"}
+
+4. Click **REGISTER**.
+
+## 2 Upload the data file
+
+To add the data files, click Projects under BUILD in the navigation on the left side of the page. Follow the steps below for adding JSON and XML datasets.
+
+### JSON
+
+1. Click **Create** at the top of the page.
+2. In **Create new item** window, select **JSON** and click Add.
+
+    ![Dialog to create new JSON dataset](create-dataset-JSON.png)
+
+3. Define a **Label** for the dataset and upload the [services.json](services.json) file. You can leave all the other fields at default values.
+
+    ![Dialog to create new JSON dataset](dialog-create-new-json-dataset.png){width="45%"} ![Dialog to create new JSON dataset](dialog-create-new-json-dataset-2.png){width="45%"}
+
+4. Click **Create**.
