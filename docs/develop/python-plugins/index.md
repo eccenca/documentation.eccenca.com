@@ -8,7 +8,7 @@ tags:
 
 The Python plugin system allows to extend eccenca DataIntegration with custom operators.
 
-## Install and Updating
+## Install and Updating Plugins
 
 Plugins are a released as parts of Python packages. The can but do not need to be open source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index).
 
@@ -58,6 +58,7 @@ $ cmemc admin workspace python list-plugins
 ID    Type    Label
 ----  ------  -------
 
+
 ```
 
 You can also install specific versions of a package by using version qualifier
@@ -76,22 +77,21 @@ Install package cmem-plugin-graphql ... done
 
 ## Developing Plugins
 
-
-We recommend to start developing a plugin by creating a new project with our official python project template (cmem-plugin-template).
+We recommend to start developing a plugin by creating a new project with our [official python project template (cmem-plugin-template)](https://github.com/eccenca/cmem-plugin-template).
 
 This template will generate a fully configured Python poetry source repository together with build plans for gitlab and github.
 
 Based on the template, you will be able to develop your own plugins. In the following, we will introduce some basic concepts.
 
-## Workflow plugins
+### Workflow plugins
 
 A workflow plugin implements a new operator (task) that can be used within a workflow. A workflow plugin may accept an arbitrary list of inputs and optionally returns a single output.
 
+![workflow-plugins](21-1-workflow-plugins.png)
+
 A minimal plugin that just outputs the first input looks like this:
 
-```py
-# Minimal workflow plugin
-
+```py title="workflow.py  " linenums="1"
 from typing import Sequence
 from cmem_plugin_base.dataintegration.entity import Entities
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
@@ -111,12 +111,15 @@ The execute function is called with the results of the connected input operators
 The output is forwarded to the next subsequent operator.
 Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over. Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
 
-## Transform plugins
+### Transform plugins
 
 A transform plugin can be used in transform and linking rules. It accepts an arbitrary number of inputs and returns an output. Each input as well as the output consists of a sequence of values.
 
+![transform-plugins](21-1-transform-plugins.png)
+
 A minimal plugin that just outputs the first input looks like this:
-```py
+
+```py title="transform.py  " linenums="1"
 from typing import Sequence
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
 from cmem_plugin_base.dataintegration.plugins import TransformPlugin
@@ -128,7 +131,7 @@ class MyTransformPlugin(TransformPlugin):
         return inputs[0]
 ```
 
-## Logging
+### Logging
 
 The Python standard output is redirected to the DataIntegration standard output. By default, println and logging statements will therefore be printed to the standard output. The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
 
@@ -136,11 +139,13 @@ The Python standard output is redirected to the DataIntegration standard output.
 
 This section describes which backend components are needed on the DataIntegration server. When using our official docker images, these components are already installed and enabled.
 
-## Python
+### Python
+
 An installation of the CPython distribution (at least version 3.3) is required. While other distributions, such as Anaconda, should be working as well, only CPython is officially supported.
 
-Java Embedded Python (Jep)Link to Java Embedded Python (Jep)
-The Jep module needs to be installed. The easiest way is to execute:
+### Java Embedded Python (Jep)
+
+The [Jep](https://github.com/ninia/jep) module needs to be installed. The easiest way is to execute:
 
 ```bash
 pip install jep
@@ -148,8 +153,8 @@ pip install jep
 
 The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running DataIntegration. This can be achieved by setting an environment variable to the directory path where the Jep module is located:
 
-- On Linux, set LD_LIBRARY_PATH.
-- On OS X, set DYLD_LIBRARY_PATH.
-- On Windows, set PATH.
+- :simple-linux: **Linux**: set `LD_LIBRARY_PATH`.
+- :simple-apple: **OS X**: set `DYLD_LIBRARY_PATH`.
+- :simple-windows: **Windows**: set `PATH`.
   
-For alternative installation methods, visit https://github.com/ninia/jep
+For alternative installation methods, visit [![Jep](https://img.shields.io/github/stars/ninia/jep?label=jep%20%7C%20stars&style=plastic){ .off-glb }](https://github.com/ninia/jep)
