@@ -5,9 +5,9 @@
 DataManager provides the option to configure the Resource Tables.
 
 -   js.config.resourceTable
-    -   [timeoutDownload](#resource-table-configuration)
+    -   timeoutDownload
     -   pagination
-        -   [limit](#resource-table-configuration)
+        -   limit
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

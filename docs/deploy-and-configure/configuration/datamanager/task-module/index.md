@@ -5,7 +5,7 @@
 The Task module of DataManager is used to offer direct user action interfaces to view or manipulate specific data.
 
 -   js.config.modules.task
-    -   [enable](#task-module)
+    -   enable
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

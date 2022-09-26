@@ -5,8 +5,8 @@
 DataManager provides the option to define which labels of properties are displayed.
 
 -   js.config.titleHelper
-    -   [properties](#title-helper)
-    -   [languages](#title-helper)
+    -   properties
+    -   languages
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

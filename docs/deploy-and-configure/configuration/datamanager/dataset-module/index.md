@@ -5,12 +5,12 @@
 The Dataset module of DataManager is used to manage datasets and their attached resources.
 
 -   js.config.modules.datasets
-    -   [enable](#dataset-module)
-    -   [startWith](#dataset-module)
-    -   [graphUrl](#dataset-module)
+    -   enable
+    -   startWith
+    -   graphUrl
     -   dataintegration
-        -   [url](#dataset-module)
-        -   [project](#dataset-module)
+        -   url
+        -   project
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

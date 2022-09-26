@@ -5,9 +5,9 @@
 The Admin module of DataManager is used to manage user access rights.
 
 -   js.config.modules.administration
-    -   [enable](#admin-module)
+    -   enable
     -   accessConditions
-        -   [graph](#admin-module)
+        -   graph
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

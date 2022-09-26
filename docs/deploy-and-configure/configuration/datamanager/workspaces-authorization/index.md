@@ -7,11 +7,11 @@ DataManager provides several types of authorization.
         -   authorization
             -   type
             -   oauth2
-                -   [grantType](#workspaces-authorization)
-                -   [authorizeUrl](#workspaces-authorization)
-                -   [clientId](#workspaces-authorization)
-                -   [tokenUrl](#workspaces-authorization)
-                -   [clientSecret](#workspaces-authorization)
+                -   grantType
+                -   authorizeUrl
+                -   clientId
+                -   tokenUrl
+                -   clientSecret
 
 If you want to use OAuth2, you need to define `authorization.type` to `oauth2` as well as specify further configuration parameters within the `oauth2` parameter:
 

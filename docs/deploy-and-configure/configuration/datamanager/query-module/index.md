@@ -5,10 +5,10 @@
 The Query module of DataManager is used to query rdf data directly from store.
 
 -   js.config.modules.query
-    -   [enable](#query-module)
-    -   [graph](#query-module)
-    -   [startWith](#query-module)
-    -   [timeout](#query-module)
+    -   enable
+    -   graph
+    -   startWith
+    -   timeout
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

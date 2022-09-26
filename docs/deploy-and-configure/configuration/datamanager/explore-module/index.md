@@ -5,70 +5,70 @@
 The Explore module of DataManager is used for graph data exploration.
 
 -   js.config.modules.explore
-    -   [enable](#explore-module)
-    -   [startWith](#explore-module)
-    -   [overallSearchQuery](#explore-module)
+    -   enable
+    -   startWith
+    -   overallSearchQuery
     -   mapServer
-        -   [url](#explore-module)
-        -   [ext](#explore-module)
+        -   url
+        -   ext
     -   graphlist
-        -   [defaultGraph](#explore-module)
-        -   [hideSearch](#explore-module)
-        -   [whiteList](#explore-module)
+        -   defaultGraph
+        -   hideSearch
+        -   whiteList
     -   navigation
-        -   [defaultClass](#explore-module)
-        -   [topQuery](#explore-module)
-        -   [subQuery](#explore-module)
-        -   [searchQuery](#explore-module)
-        -   [listQuery](#explore-module)
-        -   [itemsPerPage](#explore-module)
+        -   defaultClass
+        -   topQuery
+        -   subQuery
+        -   searchQuery
+        -   listQuery
+        -   itemsPerPage
     -   details
         -   properties
-            -   [enable](#explore-module)
+            -   enable
         -   usage
-            -   [enable](#explore-module)
+            -   enable
         -   references
-            -   [enable](#explore-module)
+            -   enable
         -   turtle
-            -   [enable](#explore-module)
+            -   enable
         -   history
 
-        -   [enable](#explore-module)
+        -   enable
 
         -   statistics
-            -   [enable](#explore-module)
+            -   enable
             -   sunburst
-                -   [enable](#explore-module)
+                -   enable
     -   visualization
-        -   [enable](#explore-module)
+        -   enable
         -   webvowlConfig
             -   filter
-                -   [literals](#explore-module)
-                -   [relations](#explore-module)
-                -   [solitarySubclasses](#explore-module)
-                -   [classDisjointness](#explore-module)
-                -   [setOperators](#explore-module)
-                -   [degreeOfCollapsing](#explore-module)
+                -   literals
+                -   relations
+                -   solitarySubclasses
+                -   classDisjointness
+                -   setOperators
+                -   degreeOfCollapsing
             -   mode
-                -   [dynamicLabelWidth](#explore-module)
-                -   [pickAndPin](#explore-module)
-                -   [nodeScaling](#explore-module)
-                -   [compactNotation](#explore-module)
-                -   [colorExternals](#explore-module)
+                -   dynamicLabelWidth
+                -   pickAndPin
+                -   nodeScaling
+                -   compactNotation
+                -   colorExternals
             -   export
-                -   [json](#explore-module)
-                -   [svg](#explore-module)
+                -   json
+                -   svg
             -   gravity
-                -   [classDistance](#explore-module)
-                -   [dataTypeDistance](#explore-module)
-            -   [reset](#explore-module)
-            -   [pause](#explore-module)
-            -   [search](#explore-module)
+                -   classDistance
+                -   dataTypeDistance
+            -   reset
+            -   pause
+            -   search
     -   externalTools
         -   toolX
-            -   [enable](#explore-module)
-            -   [tabname](#explore-module)
-            -   [iframeUrlTemplate](#explore-module)
+            -   enable
+            -   tabname
+            -   iframeUrlTemplate
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -113,7 +113,7 @@ Note: The placeholder `{{QUERY}}` is replaced with the search string entered b
 
 Extension of the tiles as provided by OpenMapTiles Map Server
 
-Note: It works together with [js.config.modules.explore.mapServer.ext](#explore-module), and only if it is set.
+Note: It works together with `js.config.modules.explore.mapServer.ext`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -121,7 +121,7 @@ Note: It works together with [js.config.modules.explore.mapServer.ext](#explore
 
 The service url as provided by OpenMapTiles Map Server. If not defined, the wikimedia server is used.
 
-Note: It works together with [js.config.modules.explore.mapServer.url](#explore-module), and only if it is set.
+Note: It works together with `js.config.modules.explore.mapServer.url`, and only if it is set.
 
 This is how `mapServer.ext` and `mapServer.url` are used in your configuration:
 
@@ -158,7 +158,7 @@ Use this property to specify a list of graphs the user can see.
 
 Use this property to setup a default class.
 
-Note: It works together with [defaultGraph](#explore-module), and only if it is set.
+Note: It works together with `defaultGraph`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
