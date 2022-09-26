@@ -5,8 +5,8 @@
 The Thesaurus module of DataManager is used to manage thesauri or taxonomies with SKOS vocabularies.
 
 -   js.config.modules.thesaurus
-    -   [enable](#thesaurus-module)
-    -   [startWith](#thesaurus-module)
+    -   enable
+    -   startWith
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

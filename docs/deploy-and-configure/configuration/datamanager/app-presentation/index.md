@@ -5,10 +5,10 @@
 DataManager provides the option to customize the visual presentation.
 
 -   js.config.appPresentation
-    -   [faviconUrl](../app-presentation)
-    -   [windowTitle](../app-presentation)
-    -   [logoUrl](../app-presentation)
-    -   [headerName](../app-presentation)
+    -   faviconUrl
+    -   windowTitle
+    -   logoUrl
+    -   headerName
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

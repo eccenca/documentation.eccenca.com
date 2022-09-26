@@ -6,18 +6,18 @@ DataManager provides the option to define pre-configured workspaces a user can s
 
 -   js.config.workspaces
     -   id
-        -   [name](#workspaces)
+        -   name
         -   authorization
 
-            -   [type](#workspaces)
-            -   [logoutRedirectUrl](#workspaces)
+            -   type
+            -   logoutRedirectUrl
         -   backend
-            -   [type](#workspaces)
-            -   [url](#workspaces)
-            -   [endpointId](#workspaces)
+            -   type
+            -   url
+            -   endpointId
         -   DIWorkspace
-            -   [enable](#workspaces)
-            -   [url](#workspaces)
+            -   enable
+            -   url
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

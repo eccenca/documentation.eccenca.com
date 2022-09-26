@@ -5,8 +5,8 @@
 DataManager provides the option to define user rights on the Workspace page.
 
 -   js.config.userPermissions
-    -   [allowCreateWorkspace](#user-permissions)
-    -   [allowSelectWorkspace](#user-permissions)
+    -   allowCreateWorkspace
+    -   allowSelectWorkspace
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -18,7 +18,7 @@ When this property is set to `true` the user has the right to manually create 
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.userPermissions.allowSelectWorkspace | true | no | none | boolean |
 
-When this property is set to `true` the user has the right to manually select an existing workspace. This property can only be used when the [`js.config.userPermissions.allowCreateWorkspace`](#user-permissions) property is set `true`.
+When this property is set to `true` the user has the right to manually select an existing workspace. This property can only be used when the `js.config.userPermissions.allowCreateWorkspace` property is set `true`.
 
 ## Configuration example
 

@@ -5,9 +5,9 @@
 The Vocabs module of DataManager is used to manage available vocabularies.
 
 -   js.config.modules.vocabulary
-    -   [enable](#vocabs-module)
-    -   [startWith](#vocabs-module)
-    -   [graphUrl](#vocabs-module)
+    -   enable
+    -   startWith
+    -   graphUrl
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -15,7 +15,7 @@ The Vocabs module of DataManager is used to manage available vocabularies.
 
 Set this property to true to enable the Vocabs module of DataManager.
 
-Note: If this property is set to `false`, all other settings of `modules.vocabulary` are skipped. To use the module you also need to have read access to the graph specified in [js.config.modules.vocabulary.graphUrl ](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager/vocabs-module#id-.Vocabsmodulev20.06-js.config.modules.vocabulary.graphUrl)as well as the access control action `urn:eccenca:VocabularyUserInterface` .
+Note: If this property is set to `false`, all other settings of `modules.vocabulary` are skipped. To use the module you also need to have read access to the graph specified in `js.config.modules.vocabulary.graphUrl` as well as the access control action `urn:eccenca:VocabularyUserInterface` .
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

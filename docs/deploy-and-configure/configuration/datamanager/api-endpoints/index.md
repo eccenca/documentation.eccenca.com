@@ -5,9 +5,9 @@
 DataManager provides the option to define which endpoints should be used for SPARQL and SPARQL Update requests.
 
 -   js.config.api
-    -   [sparql](../api-endpoints)
-    -   [sparqlUpdate](../api-endpoints)
-    -   [defaultTimeout](../api-endpoints)
+    -   sparql
+    -   sparqlUpdate
+    -   defaultTimeout
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

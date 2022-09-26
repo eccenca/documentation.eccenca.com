@@ -5,7 +5,7 @@
 DataManager provides the option to configure shacl.
 
 -   js.config.shacl
-    -   [shapesGraph](#shacl-configuration)
+    -   shapesGraph
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

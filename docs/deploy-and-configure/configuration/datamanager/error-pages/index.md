@@ -6,14 +6,14 @@ DataManager provides the option to customize special user errors.
 
 -   js.config.errorPages
     -   graphAccess
-        -   [title](#error-pages)
-        -   [message](#error-pages)
+        -   title
+        -   message
     -   moduleAccess
-        -   [title](#error-pages)
-        -   [message](#error-pages)
+        -   title
+        -   message
     -   workspaceAccess
-        -   [title](#error-pages)
-        -   [message](#error-pages)
+        -   title
+        -   message
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
