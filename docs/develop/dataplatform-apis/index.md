@@ -1,6 +1,8 @@
 ---
 tags:
     - API
+tags:
+    - API
 ---
 # DataPlatform APIs
 

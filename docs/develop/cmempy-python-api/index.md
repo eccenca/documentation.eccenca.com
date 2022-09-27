@@ -1,3 +1,7 @@
+---
+tags:
+    - API
+---
 # cmempy - Python API
 
 ## Introduction
