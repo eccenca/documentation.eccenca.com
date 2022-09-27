@@ -7,7 +7,7 @@ hide:
 
 ## Introduction
 
-This short recipe covers how to connect to Corporate Memory using a Java program.Such program can connect to Corporate Memory at any time autonomously, independently of whether a user is logged in or not. 
+This short recipe covers how to connect to Corporate Memory using a Java program.Such program can connect to Corporate Memory at any time autonomously, independently of whether a user is logged in or not.
 
 ## Java example
 

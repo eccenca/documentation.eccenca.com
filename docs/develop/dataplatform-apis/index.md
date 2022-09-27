@@ -1,8 +1,6 @@
 ---
 tags:
     - API
-tags:
-    - API
 ---
 # DataPlatform APIs
 
@@ -37,7 +35,7 @@ Dependent on the specific API, eccenca DataPlatform works with the following app
 | text/csv                                                          | [SPARQL 1.1 Query Results CSV and TSV Formats](https://www.w3.org/TR/sparql11-results-csv-tsv/)                                                                         |
 | text/tab-separated-values                                         | [SPARQL 1.1 Query Results CSV and TSV Formats](https://www.w3.org/TR/sparql11-results-csv-tsv/)                                                                         |
 | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [Microsoft Office Excel (.xlsx) format](https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/) |
-| application/problem+json                                          | [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)                                                                                                   |
+| application/problem+json                                          | [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)                                                                                                    |
 
 #### Media type request by URI
 
@@ -117,6 +115,6 @@ In the case a query declares no RDF dataset, DataPlatform uses the following def
 
 The latest Open API specification:
 <!-- swagger collection -->
-<swagger-ui src="https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json">
+<swagger-ui src="https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json"/>
 
 > Alternatively, you can (re)view it [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json)
