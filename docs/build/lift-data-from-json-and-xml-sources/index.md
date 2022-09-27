@@ -329,7 +329,7 @@ Click **Transform evaluation** to evaluate the transformed entities.
 
 ![Transformation evaluation view](xml+json-transform-evaluation.png)
 
-## 6 Execute a Transformation to build a Knowledge Graph
+## 6 Build the Knowledge Graph
 
 1. Click **Transform execution**
 2. Press the ![Button play](button-play-xml+json.png) button and validate the results. In this example, 9x Service entities were created in our Knowledge Graph based on the mapping.
