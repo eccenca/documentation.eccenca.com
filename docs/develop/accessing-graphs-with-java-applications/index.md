@@ -13,10 +13,10 @@ This short recipe covers how to connect to Corporate Memory using a Java program
 
 This example assumes that there is a Corporate Memory instance runnning at <http://docker.localhost>, and the programmer has access to its files. The process is very simple:
 
-- Obtain a Bearer token.
-  - Go to the file `cmem-orchestration/environments/config.env`, and get the client secret from variable `CMEM_SERVICE_ACCOUNT_CLIENT_SECRET`.
-  - With the client secret, connect to to the OpenID endpoint to obtain the Bearer token.
-- Use the Bearer token to connect to Corporate Memory, and, for example, execute a query.
+1. Obtain a Bearer token.
+      1. Go to the file `cmem-orchestration/environments/config.env`, and get the client secret from variable `CMEM_SERVICE_ACCOUNT_CLIENT_SECRET`.
+      2. With the client secret, connect to to the OpenID endpoint to obtain the Bearer token.
+2. Use the Bearer token to connect to Corporate Memory, and, for example, execute a query.
   
 The following code provides a simple implementation of the process:
 

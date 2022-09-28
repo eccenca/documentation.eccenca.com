@@ -106,9 +106,10 @@ class MyWorkflowPlugin(WorkflowPlugin):
 
 The lifecycle of a plugin is as follows:
 
-The plugin will be instantiated once the workflow execution reaches the respective plugin.
-The execute function is called with the results of the connected input operators.
-The output is forwarded to the next subsequent operator.
+- The plugin will be instantiated once the workflow execution reaches the respective plugin.
+- The execute function is called with the results of the connected input operators.
+- The output is forwarded to the next subsequent operator.
+
 Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over. Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
 
 ### Transform plugins

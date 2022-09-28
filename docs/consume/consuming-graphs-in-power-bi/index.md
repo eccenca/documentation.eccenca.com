@@ -64,6 +64,7 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
 ![Database-Category](22-1-2-Database-Category.png)
 - Select the connector and click `Connect`
 - Read and accept the 3rd party connector notification
+![connecting-3rd-party-service](22-1-2-connecting-3rd-party-service.png)
 - In the following dialog you need to specify the connection and information and access credentials, ask your Corporate Memory administrator for assistance if you miss any of the requested details. You have the option to use username + password or a client secret for login. In case of a custom setup is used advanced configuration can be provided:
 
 !!! Access-Configuration
