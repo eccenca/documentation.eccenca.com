@@ -159,5 +159,5 @@ js.config.workspaces:
 
 ### cmemc
 
-- The `config check` command has be deprecated, please use the `admin status` command instead.
+- The `config check` command has been deprecated, please use the `admin status` command instead.
 
