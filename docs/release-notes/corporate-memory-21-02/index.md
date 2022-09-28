@@ -14,7 +14,9 @@ The highlights of this release are:
 - Explore: interactively and visually browse through your graph with our integrated GRAPH visualization.
 - Automate: The command line has never been more colorful, enjoyable and helpful (guessing your wishes as typos might happen). Experience the UX centric redesign of our command line client cmemc.
 
-With this release of Corporate Memory the DataIntegration, DataManager, DataPlatform configuration and cmemc command behavior has changed and have to be adapted according to the migration notes below.
+!!! warning
+
+    With this release of Corporate Memory the DataIntegration, DataManager, DataPlatform configuration and cmemc command behavior has changed and have to be adapted according to the migration notes below.
 
 This release delivers the following component versions:
 
