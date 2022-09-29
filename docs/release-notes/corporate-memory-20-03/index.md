@@ -5,7 +5,7 @@ Corporate Memory 20.03 is the first release in 2020.
 The highlights of this release are:
 
 - DataIntegration supports resources to be stored in an AWS S3 buckets.
-- Rich [SHACL forms](../..explore-and-author/building-a-customized-user-interface/index.md) can be used for the creation of new resources.
+- Rich [SHACL forms](../../explore-and-author/building-a-customized-user-interface/index.md) can be used for the creation of new resources.
 - New BUILD module is introduced in DataManager to provide an experts shortcut to DataIntegration.
 - SPARQL queries can now be used to define arbitrary result tables directly in [SHACL views](../../explore-and-author/building-a-customized-user-interface/index.md).
 - Object properties can be switched between chips and resource table view in [SHACL views](../../explore-and-author/building-a-customized-user-interface/index.md).
