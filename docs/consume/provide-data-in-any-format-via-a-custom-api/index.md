@@ -5,7 +5,7 @@
 Learn how to provide data via a customized Corporate Memory API in a text format of your choice and how to consume it in your applications.
 This tutorial describes how you can provide data in a text format of your choice via your own custom Corporate Memory API, and how you request those APIs.
 
-As an example, we describe how you can set-up an endpoint which provides iCalendar data. If you want to rebuild the example, you can download this iCalendar RDF data and import it into your Corporate Memory instance: :material-file-download:[ical_data.ttl](https://documentation.eccenca.com/files/latest/15109509/15109523/1/1608650041871/ical_data.ttl)
+As an example, we describe how you can set-up an endpoint which provides iCalendar data. If you want to rebuild the example, you can download this iCalendar RDF data and import it into your Corporate Memory instance: :material-file-download:[ical_data.ttl](./ical_data.ttl)
 
 ???+ example "iCalendar Event data"
 
@@ -34,14 +34,14 @@ This query selects the event data in our graph which will be provided via the cu
 
     SELECT DISTINCT ?vevent ?uid ?dtstamp ?dtstart ?dtend ?summary
 
-    WHERE { 
+    WHERE {
     ?vevent a ical:Vevent .
-        ?vevent ical:uid ?uid . 
+        ?vevent ical:uid ?uid .
         ?vevent ical:dtstamp ?dtstamp_raw .
         ?vevent ical:dtstart ?dtstart_raw .
         ?vevent ical:dtend ?dtend_raw .
         ?vevent ical:summary ?summary  .
-    
+
         BIND(REPLACE(STR(?dtstamp_raw),"[: -]","") AS ?dtstamp) .
         BIND(REPLACE(STR(?dtstart_raw),"[: -]","") AS ?dtstart) .
         BIND(REPLACE(STR(?dtend_raw),"[: -]","") AS ?dtend) .
