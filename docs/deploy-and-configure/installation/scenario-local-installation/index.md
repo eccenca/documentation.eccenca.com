@@ -13,7 +13,7 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 
 ## Setup & Check Installation Environment
 
-Download the [Corporate Memory docker orchestration](https://releases.eccenca.com/docker-orchestration/) from eccenca Artifactory.
+Download the [Corporate Memory docker orchestration]<https://releases.eccenca.com/docker-orchestration/> from eccenca Artifactory.
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
 

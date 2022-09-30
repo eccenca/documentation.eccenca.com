@@ -248,7 +248,7 @@ On your localhost where you are running VirtualBox, modify /etc/hosts file:
 echo "10.10.10.10 corporate.memory" >> /etc/hosts
 ```
 
-Open your browser and navigate to [https://corporate.memory](https://corporate.memory/)
+Open your browser and navigate to [https://corporate.memory]<https://corporate.memory>
 
 ![cmem-login-page](../22-1-cmem-login-page.png)
 

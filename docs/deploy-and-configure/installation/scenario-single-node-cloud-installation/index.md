@@ -129,9 +129,9 @@ systemctl enable cmem-orchestration
 systemctl start cmem-orchestration
 ```
 
-# Validation and Finalisation
+## Validation and Finalisation
 
-Open your browser and navigate to the host you have created in DNS server, e.g. [https://corporate-memory.eccenca.dev](https://corporate-memory.eccenca.dev/)
+Open your browser and navigate to the host you have created in DNS server, e.g. [https://corporate-memory.eccenca.dev]<https://corporate-memory.eccenca.dev/>
 
 Click CONTINUE WITH LOGIN and use one of these default accounts:
 
