@@ -8,7 +8,7 @@ Vocabularies are the foundation for semantic data lifting activities.This module
 
 ## Add new vocabulary
 
-Click ![](./ic_add_circle_black_18dp_1x.png) to register a new vocabulary.
+Click ![](./ic_add_circle_black_18dp_1x.png){ .off-glb } to register a new vocabulary.
 
 A new form will be shown, fill it an add the file to import the vocabulary to Corporate Memory.
 
@@ -16,7 +16,7 @@ Use the Search bar to find vocabularies based on name or other metadata.
 
 ## Extended information and options
 
-Each table row provides a menu with more options clicking on ![](./ic_keyboard_arrow_down_black_18dp_1x.png) or in the `Vocabulary` column.
+Each table row provides a menu with more options clicking on ![](./ic_keyboard_arrow_down_black_18dp_1x.png){ .off-glb } or in the `Vocabulary` column.
 
 A vocabulary which is known and available but not installed, looks like this:
 
