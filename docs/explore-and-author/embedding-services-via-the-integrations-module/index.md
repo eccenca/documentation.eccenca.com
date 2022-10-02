@@ -4,8 +4,7 @@ A DataManager module is available that can be used to embed / integrate other we
 
 [![](https://documentation.eccenca.com/files/latest/15110981/15110994/1/1648133864746/image2022-3-24_15-57-44.png)](https://documentation.eccenca.com/files/latest/15110981/15110994/1/1648133864746/image2022-3-24_15-57-44.png)
 
-## Activation and configuration in DataManager[![Link to Activation and configuration in DataManager](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/link-solid.svg)](https://documentation.eccenca.com/latest/explore-and-author/embedding-services-via-the-integrations-module#id-.EmbeddingServicesviatheIntegrationsModulev22.1-ActivationandconfigurationinDataManager)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Activation and configuration in DataManager
 
 In order to use it you need to add respective configuration section(s) into the DataManager `application.yml` configuration file.
 
@@ -38,7 +37,7 @@ A restart of DataManager will be required in order for the configuration change 
 
 The (module) link configuration in DataIntegration is managed in its own configuration. Thus, the following snippet from a `dataintegration.conf`  shows how to add the "INTEGRATINOS" link to the DataIntegrations menu:
 
-```
+``` js
 eccencaDataManager.moduleLinks = [
   {
     path = "explore"
@@ -67,10 +66,6 @@ eccencaDataManager.moduleLinks = [
   }
 ]
 ```
-
-Copy
-
-JS
 
 ![](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/note-macro-icon.svg)
 
