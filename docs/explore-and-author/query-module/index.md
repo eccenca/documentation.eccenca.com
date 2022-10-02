@@ -8,7 +8,7 @@ The Query module features three tabs [Catalog](#query-catalog), [Query](#query-
 
 ## Query catalog
 
-The Catalog tab is the default view of the Query module. It lists all existing SPARQL queries including their metadata, such as name, type, a human readable description as well as creation and modification dates. To create a new query in the catalog, use the![](./add.png)button on the lower right. Click this button to create a new query in the [Query](#query-tab) tab using SPARQL (SPARQL Protocol And RDF Query Language - see <https://www.w3.org/TR/rdf-sparql-query/> for further information).
+The Catalog tab is the default view of the Query module. It lists all existing SPARQL queries including their metadata, such as name, type, a human readable description as well as creation and modification dates. To create a new query in the catalog, use the![](./add.png){ .off-glb } button on the lower right. Click this button to create a new query in the [Query](#query-tab) tab using SPARQL (SPARQL Protocol And RDF Query Language - see <https://www.w3.org/TR/rdf-sparql-query/> for further information).
 
 Use the Search bar in order to filter for specific queries.
 
@@ -16,11 +16,11 @@ Use the Search bar in order to filter for specific queries.
 
 Select the query from the Queries catalog, to open and load the query. 
 
-To delete an existing query, click![](./query1.png).
+To delete an existing query, click![](./query1.png){ .off-glb }.
 
-![](./info-macro-icon.svg)
+!!! info
 
-**Note**: Deleting a query cannot be undone.
+    Deleting a query cannot be undone.
 
 ## Query tab
 
@@ -40,9 +40,9 @@ To export the full set of results without any limits in form of a CSV file click
 
 ![](./QueriesResults.png)
 
-![](./info-macro-icon.svg)
+!!! info
 
-**Note**: The preview result ordering has no impact on the result ordering in the exported file. If you want to export some ordered query results, you need to use the `ORDER BY` construct in the SPARQL query itself.
+    The preview result ordering has no impact on the result ordering in the exported file. If you want to export some ordered query results, you need to use the `ORDER BY` construct in the SPARQL query itself.
 
 ### Saving a query
 
