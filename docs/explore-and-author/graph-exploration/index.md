@@ -12,11 +12,11 @@ The user interface of the Explore module shows the following elements:
 -   [Navigation](#navigation) box
 -   Main window
 
-The main window provides multiple views depending on what resource has been selected. If necessary, you can hide the Graphs and Navigation boxes: To hide the boxes, click ![](./Download_less.png) in the upper left corner. To show the boxes again, click ![](./Download_menu.png).
+The main window provides multiple views depending on what resource has been selected. If necessary, you can hide the Graphs and Navigation boxes: To hide the boxes, click ![](./Download_less.png){ .off-glb } in the upper left corner. To show the boxes again, click ![](./Download_menu.png){ .off-glb }.
 
 ## Graphs
 
-The Graphs box shows the list of graphs you have access to. A Lock icon ![](./Download_lock.png) indicates that you have only read access to this graph and are not allowed to edit data of this graph. To select a graph click the graph name in the Graphs box. The structure of the selected graph is displayed in the Navigation box below. On the right window, the Metadata view of the selected graph appears showing several tabs with metadata information.
+The Graphs box shows the list of graphs you have access to. A Lock icon ![](./Download_lock.png){ .off-glb } indicates that you have only read access to this graph and are not allowed to edit data of this graph. To select a graph click the graph name in the Graphs box. The structure of the selected graph is displayed in the Navigation box below. On the right window, the Metadata view of the selected graph appears showing several tabs with metadata information.
 
 The Graphs are categorized into groups as follows:
 
@@ -29,7 +29,7 @@ The Graphs are categorized into groups as follows:
 
 To add a new graph to the Graphs list:
 
--   In the **Graphs** box, click Add graph![](./add.png)
+-   In the **Graphs** box, click Add graph![](./add.png){ .off-glb }
 -   Click **Add new graph**. A dialog box appears.
 -   Enter the graph URI (e.g. [https://ns.eccenca.com](https://ns.eccenca.com/)) for the new graph.
 -   *Optional*: Click **Choose file** to upload a file containing the graph data. You can upload one of the following file formats: Turtle, N-Triples, RDF/XML, or JSON-LD.
@@ -61,11 +61,11 @@ To update or replace data of a graph:
     -   `Replace`: clear Graph and add uploaded data.
 -   Click **UPDATE** to save your changes.
 
-To delete the graph click the Delete icon ![](./Download_delete.png) and confirm or cancel the deletion process.
+To delete the graph click the Delete icon ![](./Download_delete.png){ .off-glb } and confirm or cancel the deletion process.
 
 ## Navigation
 
-When a graph is selected in the Graphs box the structure of the graph is displayed in the Navigation box. By default, only the top classes of the graph are listed. An arrow ![](./Download_right_arrow.png) indicates that a class has subclasses. Click the arrow to show the subclasses.
+When a graph is selected in the Graphs box the structure of the graph is displayed in the Navigation box. By default, only the top classes of the graph are listed. An arrow ![](./Download_right_arrow.png){ .off-glb } indicates that a class has subclasses. Click the arrow to show the subclasses.
 
 Use the Search field of the Navigation box to search for a keyword in the navigation structure of the graph. Enter a keyword and press Enter to start the search. To reset the results delete the keyword and press Enter.
 
@@ -75,7 +75,7 @@ Select a class in the Navigation box to show all instances of this class in th
 
 [![](./graphoverview.png)](./graphoverview.png)
 
-Click ![](./edit.png) to change the shown resources via the defined SHACL-shape form.
+Click ![](./edit.png){ width=20 .off-glb } to change the shown resources via the defined SHACL-shape form.
 
 Alternatively, click Properties to add or modify the properties.
 
@@ -140,11 +140,10 @@ will result in an custom Instance List for the class `<http://www.w3.org/ns/sha
 
 To open the Instance Details of a resource click on that resource in the Instance List. Resources are shown as grey buttons.
 
-Use ![](./Download_delete.png) on the right upper corner to remove the resource. A dialog box appears where you are asked to confirm the operation.
+Use ![](./Download_delete.png){ .off-glb } on the right upper corner to remove the resource. A dialog box appears where you are asked to confirm the operation.
 
-![](./info-macro-icon.svg)
-
-**Note:** When you remove the resource all triples related to that resource are deleted too.
+!!! info
+    When you remove the resource all triples related to that resource are deleted too.
 
 The instance data is provided on the following tabs:
 
@@ -163,9 +162,8 @@ To display metadata of a graph, select a graph in the Graph box on the left si
 -   [Turtle](#turtle)
 -   Usage
 
-![](./info-macro-icon.svg)
-
-**Note:** The **Usage** tab is only displayed when it contain data.
+!!! info
+    The **Usage** tab is only displayed when it contain data.
 
 ### Resource
 
@@ -197,7 +195,7 @@ This tab shows all properties and objects of the selected resource.
 
 Use the icons on the right side to edit or delete properties. Use SHOW IN LIST to display objects in a list view. Click ADD to add a new value as an object to a property. In the dialog box, select the type from the drop-down list and enter the value. Click SAVE to save your changes.
 
-To add a new property click ![](./ic_add_circle_black_18dp_1x.png). In the dialog box, enter a property, select the value type from the drop-down list and enter a value. Click SAVE to save your changes.
+To add a new property click ![](./ic_add_circle_black_18dp_1x.png){ .off-glb }. In the dialog box, enter a property, select the value type from the drop-down list and enter a value. Click SAVE to save your changes.
 
 ### Statistics
 
@@ -205,19 +203,17 @@ The Statistics tab indicates the number of classes, properties, entities and t
 
 [![](./statictics.png)](./statictics.png)
 
-Use ![](./Download_refresh.png) Update VoID statistics to update the values with a new query. Depending on the size of the graph this operation can take some time.
+Use ![](./Download_refresh.png){ .off-glb } Update VoID statistics to update the values with a new query. Depending on the size of the graph this operation can take some time.
 
-Use ![](./Download_save.png) Save to save updated VoID statistics in the graph. The Save button can only be used when an update query was executed before or when the option auto fetch VoID Statistics is activated. Saving VoID statistics does not modify the property Date of Last Modification.
+Use ![](./Download_save.png){ .off-glb } Save to save updated VoID statistics in the graph. The Save button can only be used when an update query was executed before or when the option auto fetch VoID Statistics is activated. Saving VoID statistics does not modify the property Date of Last Modification.
 
 In order to display the metadata of a graph various properties are analysed that are contained in the graph itself. If these properties are missing in the graph, some metadata properties may remain empty. These empty properties are hidden by default.
 
-![](./info-macro-icon.svg)
+!!! info
+    If you leave this module or even the view, this option is reset to the default setting.
 
-**Note:** If you leave this module or even the view, this option is reset to the default setting.
-
-![](./info-macro-icon.svg)
-
-**Note:** The values given in VoID Statistics can be obsolete. If the graph does not contain the required VoID Statistics no value is displayed.
+!!! info
+    The values given in VoID Statistics can be obsolete. If the graph does not contain the required VoID Statistics no value is displayed.
 
 ### Graph
 
