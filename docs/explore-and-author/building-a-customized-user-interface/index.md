@@ -18,23 +18,23 @@ Forms are defined in the CMEM Shapes Catalog graph. The graph URI is `https://v
 Form definitions are twofold:
 
 1.  The form itself is defined as so called `NodeShape`. NodeShapes define which types of resources the form applies to (the target class), and which fields are shown in the form (the Properties).
-2.  The individual fields are defined as so called `PropertyShape`. PropertyShapes define which property is used to retrieve data for the field (the Path), the name of the field, a description, its cardinality (min and max count), its position in the form (the Order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in [Building a customized User Interface](https://documentation.eccenca.com/latest/explore-and-author/building-a-customized-user-interface#id-.BuildingacustomizedUserInterfacev22.1-PropertyShapes).
+2.  The individual fields are defined as so called `PropertyShape`. PropertyShapes define which property is used to retrieve data for the field (the Path), the name of the field, a description, its cardinality (min and max count), its position in the form (the Order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in [Building a customized User Interface](#propertyshapes).
 
 To define a new form, for example for `foaf:Person` resources, navigate to the CMEM Shapes Catalog graph and select `NodeShape` in Navigation. The list of existing NodeShapes is shown. Click "Create a new SHACL Node shape" in the upper right to create a new NodeShape. Enter a name of the resource. An empty NodeShape resource is created and shown.
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111404/2/1656209178295/createNodeShape.png)](https://documentation.eccenca.com/files/latest/15110784/15111404/2/1656209178295/createNodeShape.png)
+[![](./createNodeShape.png)](./createNodeShape.png)
 
-To create the initial definition, click ![](https://documentation.eccenca.com/files/latest/15110784/15110791/1/1647261778961/ic_mode_edit_black_18dp_1x.png) (Edit). A form is shown to you with input fields Name, Property Shapes, Vocabulary, Target class and Stateent Annotation. The initial definition requires the name, and the target class. Fields themselves are attached to the form later. Target class in particular binds the form to the resources it should cover. The Target class field features an auto-complete that displays all classes stored in Corporate Memory. The example form should cover resources of type `foaf:Person` resources, so enter `foaf:Person` in the Target class field. Click SAVE to save the NodeShape.
+To create the initial definition, click ![](./ic_mode_edit_black_18dp_1x.png){ .off-glb } (Edit). A form is shown to you with input fields Name, Property Shapes, Vocabulary, Target class and Stateent Annotation. The initial definition requires the name, and the target class. Fields themselves are attached to the form later. Target class in particular binds the form to the resources it should cover. The Target class field features an auto-complete that displays all classes stored in Corporate Memory. The example form should cover resources of type `foaf:Person` resources, so enter `foaf:Person` in the Target class field. Click SAVE to save the NodeShape.
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111406/1/1656209780585/EditNodeShape.png)](https://documentation.eccenca.com/files/latest/15110784/15111406/1/1656209780585/EditNodeShape.png)
+[![](./EditNodeShape.png)](./EditNodeShape.png)
 
 You have now created an "empty" form that covers `foaf:Person` resources with tab name "Person". Navigating to a `foaf:Person` resource, you see a new tab as defined. You can still see all properties of the resource in the PROPERTIES tab.
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111407/1/1656229166313/nodeshape.png)](https://documentation.eccenca.com/files/latest/15110784/15111407/1/1656229166313/nodeshape.png)
+[![](./nodeshape.png)](./nodeshape.png)
 
 To define new fields, for example showing the email address of the person (defined as `foaf:mbox`), navigate to the CMEM Shapes Catalog graph and select `PropertyShape` in Navigation. The list of existing PropertyShapes is shown. Click CREATE NEW PROPERTYSHAPE in the upper right to create a new PropertyShape. Enter a name of the resource. An empty PropertyShape resource is created and shown.
 
-Edit the form using ![](https://documentation.eccenca.com/files/latest/15110784/15110791/1/1647261778961/ic_mode_edit_black_18dp_1x.png). A form is shown with all relevant properties of a field definition. Required in this step are:
+Edit the form using ![](./ic_mode_edit_black_18dp_1x.png). A form is shown with all relevant properties of a field definition. Required in this step are:
 
 1.  The name of the field, which will be displayed left of the data content or input field in the form.
 2.  The description, which will be displayed as tooltip on the question mark to the right of the name.
@@ -43,7 +43,7 @@ Edit the form using ![](https://documentation.eccenca.com/files/latest/15110784
 
 Click SAVE after filling out the required fields.
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111408/1/1656229299488/nodeshapeedit.png)](https://documentation.eccenca.com/files/latest/15110784/15111408/1/1656229299488/nodeshapeedit.png)
+[![](./nodeshapeedit.png)](./nodeshapeedit.png)
 
 ### NodeShapes
 
@@ -137,9 +137,8 @@ Used Path: `shui:isApplicableAsStatementLevelMetadata`
 
 Property Shapes are resources of type `[shacl:PropertyShape](http://www.w3.org/ns/shacl#PropertyShape)`. They are used to specify constraints and UI options that need to be met in the context of a Node Shape. The following Property Shape properties of SHACL are supported:
 
-![](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/info-macro-icon.svg)
-
-Name and Description are displayed using the configuration of titleHelper. See [Deploy and Configure → Configuration → DataManager](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/datamanager) for more details.
+!!! info
+    Name and Description are displayed using the configuration of titleHelper. See [Deploy and Configure → Configuration → DataManager](../../deploy-and-configure/configuration/datamanager) for more details.
 
 #### Naming and Presentation
 
@@ -651,7 +650,7 @@ While browsing your knowledge graph, you will always see your shape in action, w
 
 The next images demonstrate this behavior :
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111407/1/1656229166313/nodeshape.png)](https://documentation.eccenca.com/files/latest/15110784/15111407/1/1656229166313/nodeshape.png)
+[![](./nodeshape.png)](./nodeshape.png)
 
 ### Creating new resources
 
@@ -659,6 +658,6 @@ You can also create new resources by using a shaped form. One way to achieve thi
 
 The next images demonstrate this behaviour:
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111409/1/1656230930856/createsparqlquery.png)](https://documentation.eccenca.com/files/latest/15110784/15111409/1/1656230930856/createsparqlquery.png)
+[![](./createsparqlquery.png)](./createsparqlquery.png)
 
-[![](https://documentation.eccenca.com/files/latest/15110784/15111410/1/1656230995894/createsparqlqueryeditor.png)](https://documentation.eccenca.com/files/latest/15110784/15111410/1/1656230995894/createsparqlqueryeditor.png)
+[![](./createsparqlqueryeditor.png)](./createsparqlqueryeditor.png)
