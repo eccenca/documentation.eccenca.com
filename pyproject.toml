@@ -1,10 +1,14 @@
 [tool.poetry]
-name = "markdown-sandbox"
-version = "0.1.0"
-description = "Testing Repository for Training Purpose"
+name = "documentation-eccenca-com"
+version = "0.0.0"
+description = "Documentation repository for eccenca Corporate Memory"
 authors = ["Sebastian Tramp <sebastian.tramp@eccenca.com>"]
+homepage = "https://github.com/eccenca/documentation.eccenca.com"
 readme = "README.md"
-packages = [{include = "markdown_sandbox"}]
+packages = [{include = "tools"}]
+
+[tool.poetry.urls]
+"Issue Tracker" = "https://github.com/eccenca/documentation.eccenca.com/issues"
 
 [tool.poetry.dependencies]
 python = "^3.10"
