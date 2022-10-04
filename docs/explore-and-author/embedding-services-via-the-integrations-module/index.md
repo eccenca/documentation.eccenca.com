@@ -2,7 +2,7 @@
 
 A DataManager module is available that can be used to embed / integrate other web-services in Corporate Memory. The module can be used and configured globally or individually per workspace configuration.
 
-[![](https://documentation.eccenca.com/files/latest/15110981/15110994/1/1648133864746/image2022-3-24_15-57-44.png)](https://documentation.eccenca.com/files/latest/15110981/15110994/1/1648133864746/image2022-3-24_15-57-44.png)
+[![](./integrations.png)](./integrations.png)
 
 ## Activation and configuration in DataManager
 
@@ -25,9 +25,8 @@ js.config.modules.integrations:
 
 The `name` properties can be customized. Important is that the module is enabled ("`enable: true`") in at least one place (globally or in a certain workspace) in order to be shown.
 
-![](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/note-macro-icon.svg)
-
-In case your Corporate Memory Instance is served via HTTPS, no HTTP services can be used due to browser security limitations.
+!!! warning 
+    In case your Corporate Memory Instance is served via HTTPS, no HTTP services can be used due to browser security limitations.
 
 You can redefine all or parts of the configuration per workspace, e.g. in order to disable the module in a specific workspace add "`modules.integrations.enable: false`" to the configuration of the respective workspace.
 
@@ -67,14 +66,13 @@ eccencaDataManager.moduleLinks = [
 ]
 ```
 
-![](https://documentation.eccenca.com/_/0A0A79030170B1271BEB591423192709/1599644127360/images/common/note-macro-icon.svg)
-
-The "`name"` and "`defaultLabel`" property should be aligned in the DataManager and DataIntegration configuration for consistency.
+!!! warning
+    The "`name"` and "`defaultLabel`" property should be aligned in the DataManager and DataIntegration configuration for consistency.
 
 A restart of DataIntegration will be required in order for the configuration change to become effective.
 
 ## (Redash) Dashboard Integration
 
-A typical (eccenca) use case for the Integrations Module is to embed redash dashboards. In order show a dashboard in a Corporate Memory make sure your redash instance use the same protocol as your Corporate Memory instance (typically https). Then open the dashboard that should be embedded and click the sharing button ![](https://documentation.eccenca.com/files/latest/15110981/15110998/1/1648486688885/image2022-3-28_18-58-8.png). In the dialog make sure "*Allow public access*" is enabled. Copy the "*Secret address*" and paste this address into the "`url`" property of a tab configuration, as shown above.
+A typical (eccenca) use case for the Integrations Module is to embed redash dashboards. In order show a dashboard in a Corporate Memory make sure your redash instance use the same protocol as your Corporate Memory instance (typically https). Then open the dashboard that should be embedded and click the sharing button ![](./share.png){ .off-glb width=32 }. In the dialog make sure "*Allow public access*" is enabled. Copy the "*Secret address*" and paste this address into the "`url`" property of a tab configuration, as shown above.
 
-[![](https://documentation.eccenca.com/files/latest/15110981/15111001/1/1648486875686/image2022-3-28_19-1-15.png)](https://documentation.eccenca.com/files/latest/15110981/15111001/1/1648486875686/image2022-3-28_19-1-15.png)
+[![](./share_dashboard.png){ width=561 }](./share_dashboard.png)
