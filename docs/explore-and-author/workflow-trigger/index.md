@@ -8,13 +8,13 @@ Optionally, a reference to the resource in view on workflow execution can be sen
 
 ## Defining Workflow Triggers
 
-Workflow Triggers can be defined and used in any active [Shape Catalog](https://documentation.eccenca.com/latest/explore-and-author/building-a-customized-user-interface) (active means, it is imported from the main Shape Catalog). A workflow trigger resource references a data integration workflow by URI.
+Workflow Triggers can be defined and used in any active [Shape Catalog](../../explore-and-author/building-a-customized-user-interface) (active means, it is imported from the main Shape Catalog). A workflow trigger resource references a data integration workflow by URI.
 
-![](https://documentation.eccenca.com/files/latest/15110347/15110799/1/1647262922642/image2022-3-14_14-2-2.png)
+![](./create_new_workflow_trigger.png)
 
 To define a workflow trigger the following information is needed:
 
--   **Label: **The trigger resource needs a label (can be given in different languages), which is used for the button presentation.
+-   **Label**: The trigger resource needs a label (can be given in different languages), which is used for the button presentation.
 -   **Description**: The trigger resource needs a description, which is used as text that is sitting left of the button for further documentation of the activity to the user.
 -   **Workflow**: the workflow parameter defines the workflow that shall be executed upon clicking the button. The workflow can be selected from a dropdown list.
 -   **Refresh View**: can be either `true `or `false`*.* If this value is set to `true`, the view that contains the workflow trigger will be reloaded upon workflow completion
