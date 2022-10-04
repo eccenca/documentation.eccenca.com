@@ -1,6 +1,6 @@
 ---
 # {{{ Main site config
-site_name: eccenca Markdown Sandbox
+site_name: documentation.eccenca.com
 repo_url: https://github.com/eccenca/markdown-sandbox
 edit_uri: ./edit/main/docs
 extra:
