@@ -1,3 +1,4 @@
 nav:
+    - Automate: index.md
     - Scheduling Workflows: scheduling-workflows
     - cmemc - Command Line Interface: cmemc-command-line-interface
