@@ -58,10 +58,10 @@ Changes are served live on localhost.
 
 ## Repository rules
 
-- always create a directory + `index.md`, e.g. `my-topic/index.md`
-- add new pages to the `.pages` file in order to inject them in the menu
-- put images side by side to the `index.md`
-- name image files properly
+- always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
+- add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
+- put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
+- name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
 - used advanced features where suitable
   - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed)
   - [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
