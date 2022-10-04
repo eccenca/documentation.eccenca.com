@@ -1,6 +1,9 @@
 ---
 # {{{ Main site config
 site_name: documentation.eccenca.com
+copyright: >
+  Copyright &copy; 2022
+  <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
 repo_url: https://github.com/eccenca/markdown-sandbox
 edit_uri: ./edit/main/docs
 extra:
@@ -9,10 +12,14 @@ extra:
     # link: https://hub.docker.com/u/eccenca
     # - icon: fontawesome/brands/python
     #  link: https://pypi.org/search/?q=cmem-&o=
+    - icon: fontawesome/brands/creative-commons
+      link: https://github.com/eccenca/documentation.eccenca.com/blob/main/LICENSE
     - icon: fontawesome/brands/github
       link: https://github.com/eccenca
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/eccenca
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/eccenca-gmbh/
   tags:
     # here tags are mapped to icons
     HTML5: html
