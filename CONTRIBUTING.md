@@ -9,11 +9,11 @@ The following is a set of guidelines for contributing to the eccenca Corporate M
 ### Report Bugs
 
 If you found a bug and its easy to fix, you can just click the edit button and fix it yourself sending a pull request 🤓.
-However, you can also file a bug in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
+However, you can also [file a bug](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
 
 ### Suggest Enhancements
 
-You always can suggest enhancements in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
+You always can [suggest enhancements](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=enhancement&template=documentation-request.md&title=) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
 
 ### Send Pull Requests
 
