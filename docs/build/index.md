@@ -10,7 +10,7 @@ The Build stage is used to turn your legacy data points from existing datasets i
 
 - :material-file-document: [Define Prefixes / Namespaces](./define-prefixes-namespaces) --- Define Prefixes / Namespaces — Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
 
-- :material-file-document: [Extracting data from a Web API](./extracting-data-from-a-web-api) ---This tutorial shows how you can build a Knowledge Graph based on input data from a Web API.
+- :material-file-document: [Extracting data from a Web API](./extracting-data-from-a-web-api) --- This tutorial shows how you can build a Knowledge Graph based on input data from a Web API.
 
 - :material-file-document: [Introduction to the user interface](./introduction-to-the-user-interface) --- This page provides a short introduction to the BUILD / Data Integration workspace incl. projects and different tasks.
 
