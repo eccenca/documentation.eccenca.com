@@ -4,6 +4,8 @@
 
 Shared repository of the eccenca Corporate Memory documentation.
 
+If you consider to contribute to this project, please have a look on [CONTRIBUTING.md](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md)
+
 ## License
 
 Copyright © 2022 [eccenca GmbH](https://eccenca.com)
