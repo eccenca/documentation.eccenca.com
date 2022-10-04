@@ -8,27 +8,23 @@ This feature keeps track of changes to your Knowledge Graphs by creating change 
 
 If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.
 
-![](https://documentation.eccenca.com/files/latest/15109719/15109720/1/1613575707057/20-10-ActualChangesets.png)
+![](./20-10-ActualChangesets.png)
 
 ## Setup
 
 To enable this feature on a specific graph you need to setup the following steps.
 
-1
-
-**Create a Versioning Graph**
+**1. Create a Versioning Graph**
 
 In Exploration, create a new graph and define it as a Versioning Graph.
 
-![](https://documentation.eccenca.com/files/latest/15109719/15109722/1/1613575707322/20-10-CreateVersioningGraph.png)
+![](./20-10-CreateVersioningGraph.png)
 
-2
-
-**Configure a graph to use this Versioning Graph**
+**2. Configure a graph to use this Versioning Graph**
 
 In Exploration, edit this graph and add the Versioning Graph property to select the newly created Versioning Graph.
 
-![](https://documentation.eccenca.com/files/latest/15109719/15109721/1/1613575707179/20-10-ConfigureVersioningGraph.png)
+![](./20-10-ConfigureVersioningGraph.png)
 
 ## Technical Background
 
