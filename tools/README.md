@@ -1,4 +1,4 @@
 # documentation.eccenca.com -> tools
 
-This directory is not just at the moment.
+This directory is not used at the moment.
 
