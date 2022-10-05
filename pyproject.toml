@@ -14,7 +14,7 @@ packages = [{include = "tools"}]
 python = "^3.10"
 # mkdocs-material = "8.5.4"
 # mkdocs-material = { git = "ssh://git@gitlab.eccenca.com:8101/www/mkdocs-material-insiders.git", tag = "8.5.4-insiders-4.24.1" }
-mkdocs-material = { git = "git@github.com:eccenca/mkdocs-material-insiders.git", tag = "8.5.4-insiders-4.24.1" }
+mkdocs-material = { git = "https://github.com/eccenca/mkdocs-material-insiders.git", tag = "8.5.4-insiders-4.24.1" }
 mkdocs = "1.3.1"
 Pillow = "^9.2.0"
 CairoSVG = "^2.5.2"
