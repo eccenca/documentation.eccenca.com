@@ -47,9 +47,7 @@ jobs:
           installer-parallel: true
 
       - name: reconfigure private repository access
-        run: task use:insider-https-token
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        run: GITHUB_TOKEN=${{ github.token }} task use:insider-https-token
 
       - name: load environment cache
         id: cached-poetry-dependencies
