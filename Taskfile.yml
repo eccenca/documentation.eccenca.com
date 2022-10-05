@@ -6,6 +6,8 @@ version: '3'
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 22.1
+  MATERIAL_INSIDER_TAG: 8.5.4-insiders-4.24.1
+  MATERIAL_TAG: 8.5.4
 
 tasks:
 
@@ -52,6 +54,27 @@ tasks:
       - task: install
     cmds:
       - poetry run mkdocs serve
+
+  use:public:
+    desc: switch to public package (non insider)
+    cmds:
+      - poetry remove mkdocs-material || exit 0
+      - poetry add mkdocs-material=={{.MATERIAL_TAG}}
+      - poetry update
+
+  use:insider-ssh:
+    desc: switch to insider package from github:eccenca via ssh (default)
+    cmds:
+      - poetry remove mkdocs-material || exit 0
+      - poetry add git+ssh://git@github.com:eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
+      - poetry update
+
+  use:insider-https-token:
+    desc: switch to insider package from github:eccenca via token access (build plan)
+    cmds:
+      - poetry remove mkdocs-material || exit 0
+      - poetry add git+https://$GITHUB_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
+      - poetry update
 
   public:versions:
     desc: List public documentation versions
