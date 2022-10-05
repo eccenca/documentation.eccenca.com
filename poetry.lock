@@ -484,7 +484,7 @@ requests = ">=2.26"
 
 [package.source]
 type = "git"
-url = "ssh://git@gitlab.eccenca.com:8101/www/mkdocs-material-insiders.git"
+url = "git@github.com:eccenca/mkdocs-material-insiders.git"
 reference = "8.5.4-insiders-4.24.1"
 resolved_reference = "425df60910d649d80505851dc2fd3d240cd65e73"
 
@@ -835,7 +835,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "23ec043b226f1f865a34351c522ed66a3e1623bc54d53ff15916604d589e5368"
+content-hash = "6a6ea4ae2c7b29353740dabc16ec6fa8b6b863ab29cde862b2e85bca61725ca8"
 
 [metadata.files]
 aiohttp = [
