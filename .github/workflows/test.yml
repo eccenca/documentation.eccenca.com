@@ -11,8 +11,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Allow one concurrent deployment
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
 concurrency:
+  group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
