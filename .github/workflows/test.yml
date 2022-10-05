@@ -22,14 +22,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: checkout documentation.eccenca.com
         uses: actions/checkout@v3
         with:
           submodules: "recursive"
           fetch-depth: "0"
 
-      - name: setup github pages
-        uses: actions/configure-pages@v2
+      - name: checkout mkdocs-material-insiders
+        uses: actions/checkout@v3
+        with:
+          repository: "eccenca/mkdocs-material-insiders"
+          ref: "8.5.4-insiders-4.24.1"
+          fetch-depth: "0"
+
+      - name: ls
+        run: ls mkdocs-material-insiders
 
       - name: setup python
         uses: actions/setup-python@v2
