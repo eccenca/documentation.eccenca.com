@@ -33,6 +33,7 @@ jobs:
         with:
           repository: "eccenca/mkdocs-material-insiders"
           ref: "8.5.4-insiders-4.24.1"
+          token: {{ secrets.ACCESS_TOKEN }}
           fetch-depth: "0"
 
       - name: ls
@@ -54,7 +55,7 @@ jobs:
           installer-parallel: true
 
       - name: reconfigure private repository access
-        run: GITHUB_TOKEN=${{ github.token }} task use:insider-https-token
+        run: GITHUB_TOKEN=${{ secrets.ACCESS_TOKEN }} task use:insider-https-token
 
       - name: load environment cache
         id: cached-poetry-dependencies
