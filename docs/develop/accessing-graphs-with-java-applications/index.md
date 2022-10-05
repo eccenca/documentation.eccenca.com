@@ -1,4 +1,6 @@
 ---
+tags:
+    - Java
 hide:
     - toc
 ---
@@ -17,7 +19,7 @@ This example assumes that there is a Corporate Memory instance runnning at <http
       1. Go to the file `cmem-orchestration/environments/config.env`, and get the client secret from variable `CMEM_SERVICE_ACCOUNT_CLIENT_SECRET`.
       2. With the client secret, connect to to the OpenID endpoint to obtain the Bearer token.
 2. Use the Bearer token to connect to Corporate Memory, and, for example, execute a query.
-  
+
 The following code provides a simple implementation of the process:
 
 ```java title="JavaCMEMHTTPClient.java  " linenums="1"
@@ -46,7 +48,7 @@ public class HTTPClient {
     // We assume that the Corporate Memory instance is running at docker.localhost
     String openidConnectEndpoint = "http://docker.localhost/auth/realms/cmem/protocol/openid-connect/token";
 
-    // Get the client secret to obtain the bearer token from file cmem-orchestration/environments/config.env, 
+    // Get the client secret to obtain the bearer token from file cmem-orchestration/environments/config.env,
     // variable CMEM_SERVICE_ACCOUNT_CLIENT_SECRET
     String clientSecret = "...";
 

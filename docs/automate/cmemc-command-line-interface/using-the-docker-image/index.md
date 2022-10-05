@@ -1,7 +1,7 @@
 ---
 tags:
-  - cmemc
   - Docker
+  - cmemc
 ---
 # Using the docker image
 

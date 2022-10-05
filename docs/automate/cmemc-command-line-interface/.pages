@@ -1,5 +1,5 @@
 nav:
-    - Overview: index.md
+    - cmemc - Command Line Interface: index.md
     - Installation and Configuration: installation-and-configuration
     - Command-line Completion: command-line-completion
     - Using the Docker Image: using-the-docker-image

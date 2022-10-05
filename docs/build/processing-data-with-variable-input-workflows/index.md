@@ -1,9 +1,15 @@
+---
+tags:
+  - Automate
+  - ExpertTutorial
+---
 # Processing data with variable input workflows
 
 ## Introduction
 
 This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (means, without registering datasets).
-The concept to achieve this is named a **Variable Dataset**. A variable dataset is created and used inside of a workflow as an input for other tasks (e.g. a transformation) at the place where a "normal" dataset (such as register CSV file) would be placed.
+The concept to achieve this is named a **Variable Dataset**.
+A variable dataset is created and used inside of a workflow as an input for other tasks (e.g. a transformation) at the place where a "normal" dataset (such as register CSV file) would be placed.
 
 The workflow is then called via an HTTP REST call (or via [cmemc](/automate/cmemc-command-line-interface)), thus uploading the payload data "at the place" of this variable input dataset and executing all following parts of the workflow.
 
@@ -16,8 +22,8 @@ This allows for solving all kinds of [☆ Automation](/automate) tasks when you 
     - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
     - by using the [command line interface](/automate/cmemc-command-line-interface)
 
-        ```bash
-        cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
+        ``` shell-session
+        $ cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
         ```
 
 ## 1 Install the required vocabularies
@@ -47,7 +53,9 @@ Feed source: [https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed](https://www
 
 ## 4 Create the feed transformation
 
-Based on the added sample feed XML Dataset, create a mapping to generate RDF triples. The screenshot provides an example mapping to generate WebPages, which include a label, a URL, a text, and the date they were published in the feed. The mappings are based on classes and properties defined by the _Schema.org_ and _RDFS_ vocabulary.
+Based on the added sample feed XML Dataset, create a mapping to generate RDF triples.
+The screenshot provides an example mapping to generate WebPages, which include a label, a URL, a text, and the date they were published in the feed.
+The mappings are based on classes and properties defined by the _Schema.org_ and _RDFS_ vocabulary.
 
 In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: [Lift data from JSON and XML sources](/build/lift-data-from-json-and-xml-sources).
 
@@ -55,7 +63,8 @@ In case you need help with mapping data from XML to RDF, feel free to visit your
 
 ## 5 Create the variable input and workflow
 
-Create a new workflow in your project. Move the **input** XML feed dataset and the **Feed Data** Graph into the workflow editor and connect them with your created **Transform feed**.
+Create a new workflow in your project.
+Move the **input** XML feed dataset and the **Feed Data** Graph into the workflow editor and connect them with your created **Transform feed**.
 
 ![Workflow with variable input](pdwviw-variable-input-workflow.png)
 
@@ -65,14 +74,14 @@ Finally, you can process all the feeds you want, by executing the created workfl
 
 For this, you need to use the `workflow io` command:
 
-```bash
+``` shell-session
 # process one specific feed xml document
 $ cmemc workflow io varinput:process-feed -i feed.xml
 ```
 
 You can easily automate this for a [list of feeds](feeds.txt) like this:
 
-```bash
+``` shell-session
 $ cat feeds.txt
 https://feeds.npr.org/500005/podcast.xml
 http://rss.cnn.com/rss/cnn_topstories.rss
@@ -94,3 +103,4 @@ http://feeds.bbci.co.uk/news/rss.xml
 In **EXPLORATION**, you can study the ingested feed data in your Knowledge Graph.
 
 ![Explore the result](pdwviw-review-knowledge-graph.png)
+

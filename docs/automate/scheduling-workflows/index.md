@@ -1,3 +1,8 @@
+---
+tags:
+    - Workflow
+    - Automate
+---
 # Scheduling Workflows
 
 ## Introduction

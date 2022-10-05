@@ -1,8 +1,13 @@
+---
+tags:
+  - ExpertTutorial
+---
 # Extracting data from a Web API
 
 ## Introduction
 
-This tutorial shows how you can build a Knowledge Graph based on input data from a Web API.The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/), which we will use to fetch repository data of a certain organization and create a Knowledge Graph from the response.
+This tutorial shows how you can build a Knowledge Graph based on input data from a Web API.
+The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/), which we will use to fetch repository data of a certain organization and create a Knowledge Graph from the response.
 
 !!! info
 
@@ -11,21 +16,21 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
     - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
     - by using the [command line interface](/automate/cmemc-command-line-interface)
 
-    ```shell
-    cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
+    ``` shell-session
+    $ cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
     ```
 
 In order to get familiar with the API, just fetch an example response with this command:
 
-```shell
-curl https://api.github.com/orgs/vocol/repos
+``` shell-session
+$ curl https://api.github.com/orgs/vocol/repos
 ```
 
 The HTTP Get request retrieves all repositories of a GitHub organization named vocol.
 
 The JSON response includes the data for all repositories (**mobivoc**, **vocol**, ...). You can also download the response file here: [repos.json](repos.json).
 
-```json
+``` json
 [
     {
         ...
@@ -142,3 +147,4 @@ To build a workflow which combines all the elements we previously built, we defi
 5. Validate the result by clicking on the **Workflow** **Report** tab and see the result of your execution. In this example, 15x repositories were found from the GitHub API request.
 
     ![Workflow execution report](extract-from-api-wf-report.png)
+

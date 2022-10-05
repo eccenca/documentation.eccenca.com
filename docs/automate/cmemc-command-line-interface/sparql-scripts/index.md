@@ -1,7 +1,8 @@
 ---
 tags:
-  - cmemc
+  - Automate
   - SPARQL
+  - cmemc
 ---
 # SPARQL Scripts
 

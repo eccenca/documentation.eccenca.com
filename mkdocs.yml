@@ -4,7 +4,7 @@ site_name: documentation.eccenca.com
 copyright: >
   Copyright &copy; 2022
   <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
-repo_url: https://github.com/eccenca/markdown-sandbox
+repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
 extra:
   social:
@@ -22,13 +22,19 @@ extra:
       link: https://www.linkedin.com/company/eccenca-gmbh/
   tags:
     # here tags are mapped to icons
-    HTML5: html
-    JavaScript: js
-    CSS: css
+    Java: java
+    Security: security
+    API: api
+    Reference: reference
+    Workflow: workflow
+    Automate: automate
+    cmemc: cmemc
+    Docker: docker
+    Python: python
+    SPARQL: sparql
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
     ExpertTutorial: expert
-
   version:
     provider: mike
   consent:
@@ -52,9 +58,11 @@ theme:
 
   palette:
     - scheme: eccenca-light
+
   font:
     text: Roboto
     code: Roboto Mono
+
   favicon: assets/favicon.svg
   logo: assets/favicon.svg
 
@@ -90,9 +98,20 @@ theme:
   icon:
     logo: logo
     tag:
-      html: fontawesome/brands/html5
-      js: fontawesome/brands/js
-      css: fontawesome/brands/css3
+      # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
+      java: material/language-java
+      security: material/server-security
+      api: material/api
+      reference: octicons/cross-reference-24
+      workflow: octicons/workflow-24
+      automate: simple/powerautomate
+      cmemc: octicons/terminal-16
+      docker: fontawesome/brands/docker
+      python: fontawesome/brands/python
+      sparql: material/semantic-web
+      beginners: material/list-status
+      advanced: material/list-status
+      expert: material/list-status
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky
@@ -163,23 +182,23 @@ plugins:
       cards: true
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
-      tags_file: tests/tags.md
+      tags_file: tags.md
       # https://squidfunk.github.io/mkdocs-material/insiders/
-#      tags_extra_files:
-#        tutorials.md:
-#          - beginners
-#          - advanced
-#          - expert
+      tags_extra_files:
+        tutorials/index.md:
+          - beginners
+          - advanced
+          - expert
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
+  # https://github.com/byrnereese/mkdocs-swagger-ui
+  # - swagger-ui-tag
   # https://github.com/mkdocs/mkdocs-redirects
   - redirects:
       redirect_maps:
-        'cmem.md': 'automate/cmemc-command-line-interface/index.md'
-  # https://github.com/byrnereese/mkdocs-swagger-ui
-  - swagger-ui-tag
+        'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
 # }}}
 
 # {{{ Less important mkdocs configuration
@@ -187,3 +206,4 @@ plugins:
 watch:
   - overrides
 # }}}
+

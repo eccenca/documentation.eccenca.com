@@ -4,6 +4,10 @@ tags:
 ---
 # DataPlatform APIs
 
+The latest OpenAPI specification is available at [https://releases.eccenca.com/OpenAPI/](https://releases.eccenca.com/OpenAPI/).
+
+You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json)
+
 ## Introduction
 
 eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.
@@ -111,10 +115,3 @@ In the case a query declares no RDF dataset, DataPlatform uses the following def
 - The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
 - The set of named graphs contains all named graphs the user is allowed to access.
 
-## (Open) API Reference
-
-The latest Open API specification:
-<!-- swagger collection -->
-<swagger-ui src="https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json"/>
-
-> Alternatively, you can (re)view it [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json)

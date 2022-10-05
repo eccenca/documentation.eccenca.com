@@ -1,6 +1,6 @@
 ---
 tags:
-    - python-plugins
+    - Python
 ---
 # Python Plugins
 

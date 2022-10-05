@@ -1,7 +1,7 @@
 ---
 tags:
-  - cmemc
   - Reference
+  - cmemc
 ---
 # Command Reference
 

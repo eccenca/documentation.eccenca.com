@@ -1,3 +1,7 @@
+---
+tags:
+    - Workflow
+---
 # Workflow Reconfiguration
 
 ## Introduction

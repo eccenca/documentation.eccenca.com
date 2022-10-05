@@ -4,8 +4,11 @@ tags:
 hide:
     - toc
 ---
-
 # DataIntegration APIs
+
+The latest OpenAPI specification is available at [https://releases.eccenca.com/OpenAPI/](https://releases.eccenca.com/OpenAPI/).
+
+You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json)
 
 ## Introduction
 
@@ -27,10 +30,3 @@ Dependent on the specific API, eccenca DataIntegration works with the following 
 | application/n-triples             | [RDF 1.1 N-Triples - A line-based syntax for an RDF graph](https://www.w3.org/TR/n-triples/)         |
 | application/problem+json          | [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)                                 |
 
-## (Open) API Reference
-
-The latest Open API specification:
-<!-- swagger collection -->
-<swagger-ui src="https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json"/>
-
-> Alternatively, you can (re)view it [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json).

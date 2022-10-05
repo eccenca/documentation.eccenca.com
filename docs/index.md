@@ -3,7 +3,7 @@ hide:
   - toc
   - navigation
 ---
-# Welcome 🤓
+# Welcome to documentation.eccenca.com 🤓
 
 <div class="grid cards" markdown>
 
@@ -13,7 +13,7 @@ hide:
 
     Documentation of changes and enhancements for each version.
 
-    [:octicons-arrow-right-24: Release Notes](release-notes)
+    [:octicons-arrow-right-24: Latest Release Notes](release-notes/corporate-memory-22-1/index.md)
 
 -   🎯 Tutorials
 
