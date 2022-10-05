@@ -49,6 +49,8 @@ jobs:
       - name: reconfigure private repository access
         run: task use:insider-https-token
         env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: load environment cache
