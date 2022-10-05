@@ -70,10 +70,10 @@ tasks:
       - poetry update
 
   use:insider-https-token:
-    desc: switch to insider package from github:eccenca via token access (build plan)
+    desc: switch to insider package from github:eccenca via ACCESS_TOKEN variable (build plan)
     cmds:
       - poetry remove mkdocs-material || exit 0
-      - poetry add git+https://$GITHUB_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
+      - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
       - poetry update
 
   public:versions:
