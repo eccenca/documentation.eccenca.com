@@ -56,7 +56,7 @@ Click CREATE to create the new condition or abort your action with CANCEL.
 <figcaption>Create a new condition</figcaption>
 </figure>
 
-### Edit an existing condition
+## Edit an existing condition
 
 In the expanded view of an access condition, click DELETE to remove the access condition or EDIT to apply changes.
 
