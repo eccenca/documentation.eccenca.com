@@ -103,3 +103,4 @@ http://feeds.bbci.co.uk/news/rss.xml
 In **EXPLORATION**, you can study the ingested feed data in your Knowledge Graph.
 
 ![Explore the result](pdwviw-review-knowledge-graph.png)
+    
