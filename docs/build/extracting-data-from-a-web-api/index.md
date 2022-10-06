@@ -13,8 +13,8 @@ The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/)
 
     The complete tutorial is available as a [project file](tutorial-webapi.project.zip). You can import this project:
 
-    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-    - by using the [command line interface](/automate/cmemc-command-line-interface)
+    - by using the [web interface](../introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ``` shell-session
     $ cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
@@ -118,7 +118,7 @@ In order to transform the input data from the API, which is structured in our ex
 
     ![Open the transformation](extract-from-api-tf-open.png)
 
-2. In the following screenshots, we provide an example mapping for the data received by the GitHub API. For more complex mappings, we recommend the Tutorial [Lift data from JSON and XML sources](/build/lift-data-from-json-and-xml-sources).
+2. In the following screenshots, we provide an example mapping for the data received by the GitHub API. For more complex mappings, we recommend the Tutorial [Lift data from JSON and XML sources](../lift-data-from-json-and-xml-sources/index.md).
 
     ![Mapping rule example](extract-from-api-tf-rule-1.png)
 

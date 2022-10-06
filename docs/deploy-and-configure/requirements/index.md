@@ -2,7 +2,7 @@
 
 This page lists software and hardware requirements for eccenca Corporate Memory deployments.
 
-For a general overview of a deployment setup please refer to the [System Architecture](./../system-architecture/index.md).
+For a general overview of a deployment setup please refer to the [System Architecture](../system-architecture/index.md).
 
 ## Corporate Memory
 
@@ -11,7 +11,7 @@ For a general overview of a deployment setup please refer to the [System Archit
 A minimal single-node deployment for testing/evaluation purposes means:
 
 - no memory consuming linking and transformation workflows,
-- nearly no concurrent users (< 5).
+- nearly no concurrent users.
 
 Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up to several million triples can be built and served.
 
@@ -38,51 +38,49 @@ For an example of a single-node installation refer to the following scenarios:
 
 ### Typical Setup
 
-In a typical deployment all components are installed on separate VMs (nodes). Therefore, six separate VMs are required.
+In a typical deployment all components are installed on separate VMs (nodes).
+Therefore, six separate VMs are required.
 
 The following numbers are based on existing customer deployments running Knowledge Graphs up to 300 million triples with 40 concurrent users.
 
 - eccenca DataPlatform
-      - \>= 4 cores:regional_indicator_u:
+      - \>= 4 cores[^u]
       - \>= 8 GB RAM
 - eccenca DataIntegration
-      - \>= 4 cores:regional_indicator_w:
-      - \>= 8 GB RAM:regional_indicator_w:
+      - \>= 4 cores[^w]
+      - \>= 8 GB RAM[^w]
 - eccenca DataManager
       - \>= 2 GB RAM
 - Triple / Quad Store
-      - \>= 8 GB RAM:regional_indicator_t:
-      - \>= 4 cores:regional_indicator_u:
-- KeyCloak incl. PostgeSQL:regional_indicator_c:
+      - \>= 8 GB RAM[^t]
+      - \>= 4 cores[^u]
+- KeyCloak incl. PostgeSQL[^c]
       - \>= 4 GB RAM
-- Proxy Server:regional_indicator_c:
-      - \>= 2 cores:regional_indicator_u:
+- Proxy Server[^c]
+      - \>= 2 cores[^u]
       - \>= 2 GB RAM
-
-!!! info
-    - :regional_indicator_u: needs to be scaled with concurrent users
-    - :regional_indicator_w: depends on the DataIntegration workflows
-    - :regional_indicator_t: needs to be scaled with the amount of triples
-    - :regional_indicator_c: in cloud deployments, this could / will be a cloud service
 
 ## Clients
 
 ### Browser / Web Client
 
-We support all (LTS/ESR) versions of the below listed browsers that are actively supported be the respective publishers
+We support all (LTS/ESR) versions of the below listed browsers that are actively supported be the respective publishers:
 
 - Microsoft Edge > v88.0
 - Google Chrome or Chromium > v92.0
 - Firefox > v78.0
 
-???+ info
+!!! note
+
     Internet Explorer 11 as well as Safari Browser are not officially supported. IE11 is reported not to work.
 
 ### Command Line Client (cmemc)
 
-- Python 3.7
-- Installation options:
-  
-  - pip-based installation
-  - single binary / executable available for Ubuntu, RHEL and Microsoft Windows
-  - docker image based on the official debian slim image
+For cmemc, currently Python 3.9 is supported, but Python 3.10 is reported to work as well.
+
+There is also a [docker image](../../automate/cmemc-command-line-interface/using-the-docker-image/index.md) available.
+
+[^u]: Needs to be scaled with concurrent users.
+[^w]: Depends on the DataIntegration workflows.
+[^t]: Needs to be scaled with the amount of triples.
+[^c]: In cloud deployments, this could / will be a cloud service.
