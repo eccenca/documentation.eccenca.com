@@ -2,6 +2,7 @@
 tags:
     - Reference
 ---
+
 <!-- Auto-Generated. Do not edit directly! -->
 
 # Plugin Reference
@@ -180,18 +181,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-
+    
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-
+    
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-
+    
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-
+    
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -367,43 +368,7 @@ The output of this operator should be connected to the SPARQL datasets to which 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
-| sparqlUpdateTemplate | MultilineStringParameter |
-This operator takes a SPARQL Update Query Template that depending on the templating mode (Simple/Velocity Engine) supports
-a set of templating features, e.g. filling in input values via placeholders in the template.
-
-Example for the 'Simple' mode:
-
-  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA2"} }
-  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA3"} }
-
-  This will insert the URI serialization of the property value PROP_FROM_ENTITY_SCHEMA1 for the ${<PROP_FROM_ENTITY_SCHEMA1>} expression.
-  And it will insert a plain literal serialization for the property values PROP_FROM_ENTITY_SCHEMA2/3 for the template literal expressions.
-
-  It is be possible to write something like ${"PROP"}^^<http://someDatatype> or ${"PROP"}@en.
-
-Example for the 'Velocity Engine' mode:
-
-  DELETE DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA2") }
-  #if ( $row.exists("PROP_FROM_ENTITY_SCHEMA1") )
-    INSERT DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA3") }
-  #end
-
-  Input values are accessible via various methods of the 'row' variable:
-
-  - uri(inputPath: String): Renders an input value as URI. Throws exception if the value is no valid URI.
-  - plainLiteral(inputPath: String): Renders an input value as plain literal, i.e. escapes problematic characters etc.
-  - rawUnsafe(inputPath: String): Renders an input value as is, i.e. no escaping is done. This should only be used – better never – if the input values can be trusted.
-  - exists(inputPath: String): Returns true if a value for the input path exists, else false.
-
-  The methods uri, plainLiteral and rawUnsafe throw an exception if no input value is available for the given input path.
-
-  In addition to input values, properties of the input and output tasks can be accessed via the inputProperties and outputProperties objects
-  in the same way as the row object, e.g.
-
-    $inputProperties.uri("graph")
-
-  For more information about the Velocity Engine visit http://velocity.apache.org.
-     | *no default* |
+| sparqlUpdateTemplate | MultilineStringParameter | \This operator takes a SPARQL Update Query Template that depending on the templating mode (Simple/Velocity Engine) supports\a set of templating features, e.g. filling in input values via placeholders in the template.\Example for the 'Simple' mode:\  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA2"} }\  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA3"} }\  \  This will insert the URI serialization of the property value PROP_FROM_ENTITY_SCHEMA1 for the ${<PROP_FROM_ENTITY_SCHEMA1>} expression.\  And it will insert a plain literal serialization for the property values PROP_FROM_ENTITY_SCHEMA2/3 for the template literal expressions.\  It is be possible to write something like ${"PROP"}^^<http://someDatatype> or ${"PROP"}@en.\Example for the 'Velocity Engine' mode:\  DELETE DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA2") }\  #if ( $row.exists("PROP_FROM_ENTITY_SCHEMA1") )\    INSERT DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA3") }\  #end\  Input values are accessible via various methods of the 'row' variable:\  - uri(inputPath: String): Renders an input value as URI. Throws exception if the value is no valid URI.\  - plainLiteral(inputPath: String): Renders an input value as plain literal, i.e. escapes problematic characters etc.\  - rawUnsafe(inputPath: String): Renders an input value as is, i.e. no escaping is done. This should only be used – better never – if the input values can be trusted.\  - exists(inputPath: String): Returns true if a value for the input path exists, else false.\  The methods uri, plainLiteral and rawUnsafe throw an exception if no input value is available for the given input path.\  In addition to input values, properties of the input and output tasks can be accessed via the inputProperties and outputProperties objects\  in the same way as the row object, e.g.\    $inputProperties.uri("graph")\  For more information about the Velocity Engine visit http://velocity.apache.org.\     | *no default* |
 | batchSize | int | How many entities should be handled in a single update request. | 1 |
 | templatingMode | Enum | The templating mode. 'Simple' only allows simple URI and literal insertions, whereas 'Velocity Engine' supports complex templating. See 'Sparql Update Template' parameter description for examples and http://velocity.apache.org for details on the Velocity templates. | simple |
 
@@ -440,24 +405,7 @@ Custom task that will substitute numeric values and pertaining unit symbols with
 | targetUnits | String | Unit symbols (comma-separated) defining the target unit to which the value column will be converted (Note: Make sure the input unit can be converted to the target unit). By default the pertaining SI-base unit will be used as normalization unit (the positions in this list have to align with the pertaining value columns) | *empty string* |
 | suppressErrors | boolean | If true, will ignore any parsing or value conversion error and return an empty result (might happen because of unknown unit symbols or non-numbers as values). Beware, the value will be lost completely! | false |
 | configFilePath | WritableResource | An absolute file path for a unit CSV configuration file (for syntax see 'configuration' param). If set, the 'configuration' param will be ignored. | EmptyResource |
-| configuration | MultilineStringParameter | While all SI units and decimal prefixes are supported by default, custom or obsolete units have to be added via this configuration.
-       NOTE: when constructing formulae depending on other units defined in the configuration, make sure to order them dependently.
-       ALSO: Rational numbers are not supported by the UCUM syntax, express them as a fraction (see 'grain' example below).
-      |
-# Example configuration, don't forget to remove the '#' in front of each row.
-#      CSV COLUMNS:
-#       * unit name - the human readable name of the unit
-#       * override  - (true|false) if true, any assigned unit to the given symbol will be dropped, else if the unit symbol is already in use, the new definition will be ignored
-#       * symbol    - the main symbol used to depict the unit
-#       * equals formula - the formula to derive the given unit from already registered units
-#       * [all additional columns] - alternative symbols, will be registered for this unit
-# Example CSV:
-#      unit name, override, symbol, equals formula
-#       Are     , true    , are   , 100.m2
-#       Denier  , true    , den   , g/(9.km)
-#       Grain   , true    , gr    , (45.g)/100
-#       Pound   , true    , lb    , (45359237.kg)/100000000 , # , lbm
-      |
+| configuration | MultilineStringParameter | While all SI units and decimal prefixes are supported by default, custom or obsolete units have to be added via this configuration.\       NOTE: when constructing formulae depending on other units defined in the configuration, make sure to order them dependently.\       ALSO: Rational numbers are not supported by the UCUM syntax, express them as a fraction (see 'grain' example below).\      | \# Example configuration, don't forget to remove the '#' in front of each row.\#      CSV COLUMNS:\#       * unit name - the human readable name of the unit\#       * override  - (true|false) if true, any assigned unit to the given symbol will be dropped, else if the unit symbol is already in use, the new definition will be ignored\#       * symbol    - the main symbol used to depict the unit\#       * equals formula - the formula to derive the given unit from already registered units\#       * [all additional columns] - alternative symbols, will be registered for this unit\# Example CSV:\#      unit name, override, symbol, equals formula\#       Are     , true    , are   , 100.m2\#       Denier  , true    , den   , g/(9.km)\#       Grain   , true    , gr    , (45.g)/100\#       Pound   , true    , lb    , (45359237.kg)/100000000 , # , lbm\      |
 
 The identifier for this plugin is `ucumNormalizationTask`.
 
@@ -468,7 +416,7 @@ It can be found in the package `com.eccenca.di.measure`.
 #### XSLT
 
 A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource.
-
+      
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -698,7 +646,7 @@ It can be found in the package `org.silkframework.plugins.dataset.rdf.datasets`.
 
 #### Avro
 
-Read from or write to an Apache Avro file.
+Read from or write to an Apache Avro file. 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -964,7 +912,7 @@ This dataset supports queries or simply schema and table names to define what sh
 from a source DB.
 If the dataset is used as a sink, queries are ignored and only schema and table parameters are used.
 If the dataset is used as a sink for a hierarchical mapping it behaves similar to the SqlEndpoint:
-One table is generated per entity type.
+One table is generated per entity type. 
 
 The names of the written tables are generated as follows:
 
@@ -980,22 +928,22 @@ Please make sure to use the correct syntax for each DBS as rather unintuitive er
 
 Here are templates for supported database systems:
 ```
-oracle (external driver needed):
+oracle (external driver needed): 
 jdbc:oracle:thin:@{host}[:{port}]/{database}
 
-postgres (integrated):
+postgres (integrated): 
 jdbc:postgresql://{host}[:{port}]/[{database}]
 
-MySQL/MAriaDB (integrated):
+MySQL/MAriaDB (integrated): 
 jdbc:{mysql|mariadb}://{host}[:{port}]/[{database}]
 
-SnowSQL (external driver needed):
+SnowSQL (external driver needed): 
 jdbc:snowflake://}AWSAccount}.{AWS region}.snowflakecomputing.com?db={database}&schema={schema}
 
-MSSqlServer (integrated):
+MSSqlServer (integrated): 
 jdbc:sqlserver://{host}[:{port}];databaseName={database}
 
-H2 (integrated):
+H2 (integrated): 
 jdbc:h2:{file} or jdbc:h2:tcp://{host}:[{port}][/{database}]
 
 DB2 (external driver needed):
@@ -1055,7 +1003,7 @@ spark.sql.options {
   # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download
   # location can be provided.
   jdbc.drivers = "db2,mysql"
-
+  
   # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path
   # to a jar file containing the driver and the name of driver can be specified here.
   jdbc.db2.jar = "/home/user/Jars/db2jcc-db2jcc4.jar"
@@ -1069,7 +1017,7 @@ spark.sql.options {
 
 Recommended DBMS versions:
 
-Microsoft SQL Server 2017: Older versions might work, but do not support the `groupBy` parameter.
+Microsoft SQL Server 2017: Older versions might work, but do not support the `groupBy` parameter. 
 PostgreSQL 9.5: The `groupBy` parameter needs at least version 8.4.
 MySQL v8.0.19: Older versions do not support the `groupBy` parameter.
 DB2 v11.5.x: The `groupBy` feature needs at least version 9.7 to function.
@@ -1514,7 +1462,7 @@ Computes the distance between two physical quantities.
 The distance is normalized to the SI base unit of the dimension.
 For instance for lengths, the distance will be in metres.
 Comparing incompatible units will yield a validation error.
-
+ 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -2004,7 +1952,7 @@ It can be found in the package `org.silkframework.rule.plugins.transformer.conve
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
-
+ 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -2338,7 +2286,7 @@ It can be found in the package `com.eccenca.di.excel`.
 
 #### And
 
-Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise.
+Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise. 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -3787,18 +3735,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-
+    
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-
+    
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-
+    
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-
+    
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -3833,18 +3781,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-
+    
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-
+    
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-
+    
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-
+    
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -3879,18 +3827,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-
+    
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-
+    
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-
+    
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-
+    
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -4028,7 +3976,7 @@ It can be found in the package `org.silkframework.rule.plugins.transformer.numer
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
-
+ 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4655,7 +4603,7 @@ It can be found in the package `com.eccenca.di.schema.discovery.parser`.
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
-
+ 
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4686,7 +4634,7 @@ An empty string can be created in Excel and alternatives by inserting ="" in the
 If there are multiple values for a single key, all values will be returned for the given key.
 
 Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.
-
+    
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4731,7 +4679,7 @@ Tries to map the first input based on the map of values parameter config.
 If the input value is not found in the map, it takes the value of the second input.
 The indexes of the mapped value and the default value match. If there are less default values than
 values to map, the last default value is replicated to match the count.
-
+      
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4813,7 +4761,7 @@ Returns [first] for parameters [] and input values [[first], [second]].
       the related regex also matched.
 
       If oneOnly is true only the position of the <strong>first</strong> matching regex will be set to the output value.
-
+    
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4851,7 +4799,7 @@ Returns the value found at the specified index. Fails or returns an empty result
        is probably not a good idea to do with RDF models.
 
        If emptyStringToEmptyResult is true then instead of a result with an empty String, an empty result is returned.
-
+    
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -5322,4 +5270,98 @@ Returns [690802dd-a317-335f-807c-e4e1e32b7b5b, 925cbd7f-377b-3fbd-8f4c-ca41529b7
 ## Aggregations
 
 The following aggregation functions are available:
+
+#### Average
+
+Computes the weighted average.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `average`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Geometric mean
+
+Compute the (weighted) geometric mean.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `geometricMean`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Handle missing values
+
+Generates a default similarity score, if no similarity score is provided (e.g., due to missing values). Using this operator can have a performance impact, since it lowers the efficiency of the underlying computation.
+
+| Parameter | Type | Description | Default |
+|  -------------------- | ---------- | ------------------------- | ------------------------- |
+| defaultValue | double | The default value to be generated, if no similarity score is provided. Must be a value between -1 (inclusive) and 1 (inclusive). '1' represents boolean true and '-1' represents boolean false. | -1.0 |
+
+The identifier for this plugin is `handleMissingValues`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Or
+
+At least one input score must be within the threshold. Selects the maximum score.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `max`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### And
+
+All input scores must be within the threshold. Selects the minimum score.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `min`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Negate
+
+Negates the result of the input comparison. A single input is expected. Using this operator can have a performance impact, since it lowers the efficiency of the underlying computation.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `negate`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Euclidian distance
+
+Calculates the Euclidian distance.
+
+This plugin does not require any parameters.
+The identifier for this plugin is `quadraticMean`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
+
+#### Scale
+
+Scales the result of the first input. All other inputs are ignored.
+
+| Parameter | Type | Description | Default |
+|  -------------------- | ---------- | ------------------------- | ------------------------- |
+| factor | double | All input similarity values are multiplied with this factor. | 1.0 |
+
+The identifier for this plugin is `scale`.
+
+It can be found in the package `org.silkframework.rule.plugins.aggegrator`.
+
+
 
