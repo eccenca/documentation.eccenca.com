@@ -19,10 +19,6 @@ proxy:
   languagePreferencesAnyLangFallback: true #(3)
 ```
 
-Copy
-
-YML
-
 These properties define not only which properties and languages should be considered, but also define the precedence of languages and properties over each other.
 
 The retrieval process can simplified to the following procedure:

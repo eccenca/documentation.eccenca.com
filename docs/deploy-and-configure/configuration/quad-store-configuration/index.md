@@ -101,123 +101,19 @@ This section covers only limitations and options which have a direct impact on t
 
 By default Stardog performs canonicalization of XSD integer datatypes as explained in the [Stardog documentation](https://www.stardog.com/docs/#_canonicalized_literals). That means the datatype of all literals declaring a sub-datatype of `xsd:integer` is generalized on load or insert:
 
-|
-
-original datatype of literal
-
- |
-
-new datatype of canonicalized literal
-
- |
-|
-
-`xsd:long`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:int`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:short`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:byte`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:nonNegativeInteger`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:positiveInteger`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:nonPositiveInteger`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:negativeInteger`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:unsignedLong`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:unsignedInt`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:unsignedShort`
-
- |
-
-`xsd:integer`
-
- |
-|
-
-`xsd:unsignedByte`
-
- |
-
-`xsd:integer`
-
- |
+| original datatype of literal | new datatype of canonicalized literal |
+| ---------------------------- | ------------------------------------- |
+| `xsd:int`                    | `xsd:integer`                         |
+| `xsd:short`                  | `xsd:integer`                         |
+| `xsd:byte`                   | `xsd:integer`                         |
+| `xsd:nonNegativeInteger`     | `xsd:integer`                         |
+| `xsd:positiveInteger`        | `xsd:integer`                         |
+| `xsd:nonPositiveInteger`     | `xsd:integer`                         |
+| `xsd:negativeInteger`        | `xsd:integer`                         |
+| `xsd:unsignedLong`           | `xsd:integer`                         |
+| `xsd:unsignedInt`            | `xsd:integer`                         |
+| `xsd:unsignedShort`          | `xsd:integer`                         |
+| `xsd:unsignedByte`           | `xsd:integer`                         |
 
 For example, when ingesting the following RDF data
 

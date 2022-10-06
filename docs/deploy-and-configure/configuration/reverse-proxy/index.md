@@ -8,7 +8,7 @@ Reverse proxy is a necessary component in the Corporate Memory deployment. It en
 - expose only ports 80 and 443 to the outside network, all other communication would be performed in the internal network, and
 - ease configuration and management of the SSL certificates.
 
-This also enables you to activate the [Linked Data delivery mode](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/reverse-proxy#id-.ReverseProxyv20.03-linkedDataDeliveryMode) of DataPlatform. The Linked Data delivery mode is able to serve Linked Data that uses the same namespace as the configured domain name as resolvable URIs including content negotiation.
+This also enables you to activate the [Linked Data delivery mode](#linked-data-delivery-mode) of DataPlatform. The Linked Data delivery mode is able to serve Linked Data that uses the same namespace as the configured domain name as resolvable URIs including content negotiation.
 
 ## Example Configuration for Apache HTTP server
 

@@ -91,7 +91,7 @@ ln -s prod.env config.env
 
 ```
 
-To see all available configuration options refer to [Docker Orchestration configuration](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/docker-orchestration) page.
+To see all available configuration options refer to [Docker Orchestration configuration](./../../configuration/docker-orchestration/index.md) page.
 
 Next, request SSL certificates from [letsencrypt](https://letsencrypt.org/) service:
 
@@ -144,7 +144,7 @@ Click CONTINUE WITH LOGIN and use one of these default accounts:
 
 After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
 
-Do not forget to change the passwords of your deployment, especially if it is available from the public internet. For this, take a look at [Change Passwords and Keys](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/keycloak/change-passwords-and-keys).
+Do not forget to change the passwords of your deployment, especially if it is available from the public internet. For this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
 
 ???+ info "Change the passwords for your needs"
     - To login in to keycloak and change the passwords
