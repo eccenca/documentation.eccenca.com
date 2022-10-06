@@ -1,9 +1,11 @@
 ---
+title: "cmemc: Command-Line Completion"
 icon: material/rocket-launch
 tags:
   - cmemc
+  - Video
 ---
-# cmemc Command-Line Completion
+# Command-Line Completion
 
 ## Introduction
 

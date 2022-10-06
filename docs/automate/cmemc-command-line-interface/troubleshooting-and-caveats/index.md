@@ -1,4 +1,5 @@
 ---
+title: "cmemc: Troubleshooting and Caveats"
 subtitle: and Caveats
 icon: material/lightbulb-multiple-outline
 tags:

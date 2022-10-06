@@ -1,11 +1,12 @@
 ---
+title: "cmemc: Getting Credentials from External Processes"
 subtitle: from External Process
 icon: material/key-link
 tags:
   - Security
   - cmemc
 ---
-# Getting Credentials from External Processes (cmemc)
+# Getting Credentials from External Processes
 
 ## Introduction
 

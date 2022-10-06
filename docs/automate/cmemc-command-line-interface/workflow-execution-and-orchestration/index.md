@@ -1,12 +1,13 @@
 ---
-icon: octicons/workflow-24
+title: "cmemc: Workflow Execution and Orchestration"
 subtitle: and Orchestration
+icon: octicons/workflow-24
 tags:
   - Automate
   - Workflow
   - cmemc
 ---
-# Workflow Execution and Orchestration with cmemc
+# Workflow Execution and Orchestration
 
 ## Introduction
 

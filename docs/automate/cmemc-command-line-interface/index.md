@@ -1,4 +1,5 @@
 ---
+title: cmemc (Overview)
 subtitle: Command Line Interface
 icon: octicons/terminal-16
 hide:

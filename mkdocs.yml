@@ -25,6 +25,7 @@ extra:
       link: https://www.linkedin.com/company/eccenca-gmbh/
   tags:
     # here tags are mapped to icons
+    Video: video
     ReleaseNote: release-note
     Vocabulary: vocabulary
     Configuration: configuration
@@ -108,6 +109,7 @@ theme:
     logo: logo
     tag:
       # https://squidfunk.github.io/mkdocs-material/reference/?h=page+icon#setting-the-page-icon
+      video: material/video-outline
       release-note: material/calendar
       vocabulary: material/graph-outline
       configuration: material/tune

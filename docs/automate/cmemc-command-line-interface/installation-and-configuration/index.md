@@ -1,4 +1,5 @@
 ---
+title: "cmemc: Installation and Configuration"
 subtitle: and Configuration
 icon: material/download-circle-outline
 tags:
