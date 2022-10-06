@@ -1,12 +1,20 @@
+---
+tags:
+    - Security
+    - cmemc
+---
 # Access Conditions
 
 ## Introduction
 
-The Access control module shows the list of all access conditions manageable by your account. Access conditions specify access rights for users and groups to graphs and actions. To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical: in the Module bar and click Access control.
+The Access control module shows the list of all access conditions manageable by your account.
+Access conditions specify access rights for users and groups to graphs and actions.
+To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical: in the Module bar and click Access control.
 
 ## Access conditions
 
-The main window shows the list of all access conditions manageable by your account. Access conditions specify access rights for users and groups to graphs and actions.
+The main window shows the list of all access conditions manageable by your account.
+Access conditions specify access rights for users and groups to graphs and actions.
 
 Click a specific condition to get an expanded view with more details.
 
@@ -48,17 +56,18 @@ Click CREATE to create the new condition or abort your action with CANCEL.
 <figcaption>Create a new condition</figcaption>
 </figure>
 
-### Edit an existing condition
+## Edit an existing condition
 
 In the expanded view of an access condition, click DELETE to remove the access condition or EDIT to apply changes.
 
-For changing a condition refer to [Access Conditions](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/access-conditions#id-.AccessConditionsv20.12-Addinganewcondition). Click on SAVE to apply your changes or discard them with CANCEL
+Click on SAVE to apply your changes or discard them with CANCEL.
 
-## Adding Access Conditions from Command Line
+## Adding Access Conditions with cmemc
 
-Additional to the Access Control module you can add the access conditions directly to the triple store. In this case, the access conditions need to be defined in an RDF file, for example:
+Additional to the Access Control module you can add the access conditions directly to the triple store.
+In this case, the access conditions need to be defined in an Turtle file, for example:
 
-```turtle linenums="1"
+```turtle
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix eccurn: <urn:eccenca:> .
 @prefix ecc: <http://eccenca.com/> .
@@ -86,20 +95,22 @@ ecc:5318ffd4-4ca7-46bb-8e0c-8a910376c6b9
     eccauth:allowedAction eccurn:ExploreUserInterface, eccurn:QueryUserInterface, eccurn:ThesaurusUserInterface, eccurn:VocabularyUserInterface, eccurn:di ;
     eccauth:requiresGroup ecc:local-users ;
     eccauth:writeGraph <urn:elds-backend-all-graphs> .
-
 ```
 
 In this example, we have listed default access conditions for the [docker-compose based orchestration](../docker-orchestration/index.md).
 
-The file defines two access conditions. The allowedActions correspond to the URIs listed in the table above. Both access conditions allow the users to write to all graphs.
+The file defines two access conditions.
+The `eccauth:allowedActions` correspond to the URIs listed in the table above.
+Both access conditions allow the corresponding users (admins or non-admins) to write to all graphs.
 
 You can define several access conditions for the same group.
 
-When you are finished with creating your access conditions RDF file, you can add it directly to the `urn:elds-backend-access-conditions-graph` graph (defined in [DataPlatform configuration](./../dataplatform/index.md)).
+When you are finished with creating your access conditions Turtle file, you can add it directly to the `urn:elds-backend-access-conditions-graph` graph (defined in [DataPlatform configuration](./../dataplatform/index.md)).
 
 With [cmemc](../../../automate/cmemc-command-line-interface/index.md), you can do this with the following command line:
 
-```bash linenums="1"
+``` shell-session
 $ cmemc -c my-cmem-instance graph import --replace access-conditions.ttl urn:elds-backend-access-conditions-graph
 Import graph 1/1: urn:elds-backend-access-conditions-graph from access-conditions.ttl ... done
 ```
+

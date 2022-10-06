@@ -67,3 +67,12 @@ Changes are served live on localhost.
   - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed)
   - [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
   - [Content Tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#usage) (to structure complex pages)
+- code blocks:
+  - do not use line numbers except you refer to it in the text
+  - use correct syntax highlightning (often used: `shell-session`, `bash`, `sparql`, `turtle`, `json`) -> [list of syntax IDs](https://pygments.org/docs/lexers/)
+  - do not confuse `shell-session` with `bash` (the first is a terminal output, the latter a script syntax)
+  - when using `shell-session`, use `$ ` as the prompt
+ - Links:
+    - do not use absolute links for internal documents, e.g. `https://documentation.eccenca.com/latest/...`
+    - do not use base-relative links, e.g. `/automate/...`
+    - use relative links to `index.md` files

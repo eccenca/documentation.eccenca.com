@@ -7,27 +7,29 @@ tags:
 
 ## Introduction
 
-cmempy is a Python API wrapper around the eccenca Corporate Memory HTTP APIs which can be used to rapidly script processes which interact with Corporate Memory. cmempy is also the underlying Python module which powers the [cmemc - Command Line Interface](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface).
+cmempy is a Python API wrapper around the eccenca Corporate Memory HTTP APIs which can be used to rapidly script processes which interact with Corporate Memory.
+cmempy is also the underlying Python module which powers the [cmemc - Command Line Interface](../../automate/cmemc-command-line-interface/index.md).
 
 ## Installation
 
 cmempy is published as an Apache 2 licensed open source python package at [pypi.org](https://pypi.org/project/cmem-cmempy/), hence you are able to install it with a simple pip command:
 
-```bash
-pip install cmem-cmempy
+``` shell-session
+$ pip install cmem-cmempy
 ```
 
 ## Configure a Connection
 
-The used Corporate Memory connection is configured by providing environment variables similar to [cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface) ([Environment based Configuration](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface/installation-and-configuration/environment-based-configuration)).
+The used Corporate Memory connection is configured by providing environment variables similar to [cmemc](../../automate/cmemc-command-line-interface/index.md) ([Environment based Configuration](../../automate/cmemc-command-line-interface/installation-and-configuration/environment-based-configuration/index.md)).
 
-These environment variables can be created and changed in your code or used from the process which executes your python code (e.g. your shell). If you have a working cmemc [file based configuration](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface/installation-and-configuration/file-based-configuration) setup already you can export the environment to your shell using [cmemc config eval](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface/command-reference).
+These environment variables can be created and changed in your code or used from the process which executes your python code (e.g. your shell).
+If you have a working cmemc [file based configuration](../../automate/cmemc-command-line-interface/installation-and-configuration/file-based-configuration/index.md) setup already you can export the environment to your shell using [cmemc config eval](../../automate/cmemc-command-line-interface/command-reference/index.md).
 
 The following table lists all processed environment variables:
 
 | Variable            | Description                                           | Default Value                                                |
 | ------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| CMEM_BASE_URI       | Base URL of your Corporate Memory                     | <http://docker.localhost>                                    |
+| CMEM_BASE_URI       | Base URL of your Corporate Memory                     | http://docker.localhost                                      |
 | DI_API_ENDPOINT     | Data Integration API endpoint                         | CMEM_BASE_URI/dataintegration                                |
 | DP_API_ENDPOINT     | Data Platform API endpoint                            | CMEM_BASE_URI/dataplatform                                   |
 | OAUTH_TOKEN_URI     | OAuth 2.0 Token endpoint                              | CMEM_BASE_URI/auth/realms/cmem/protocol/openid-connect/token |
@@ -45,7 +47,7 @@ Here is a commented code example how to configure and use cmempy.
 
 The example demonstrates, how to execute SPARQL queries on DataPlatform, as well as how to work with the DataIntegration workspace and retrieve workflow status information:
 
-```py title="example_usage.py  " linenums="1"
+``` python title="example_usage.py"
 """Basic example, how to use cmempy"""
 
 from os import environ
@@ -84,7 +86,7 @@ for project in get_projects():
 
 Starting this script should result in an output similar to this:
 
-```bash
+``` shell-session
 $ python example_usage.py
 {
   "head": {
@@ -114,3 +116,4 @@ $ python example_usage.py
 Project: cmem:
 - Workflow: my-workflow (Idle):
 ```
+
