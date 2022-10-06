@@ -1,11 +1,11 @@
 ---
-title: "cmemc: File based Configuration"
+title: "cmemc: File-based Configuration"
 subtitle: Configuration
 icon: material/file-cog-outline
 tags:
   - cmemc
 ---
-# File based Configuration
+# File-based Configuration
 
 ## Introduction
 

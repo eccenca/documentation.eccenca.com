@@ -1,10 +1,10 @@
 ---
+title: "DataIntegration: Activity Reference"
 tags:
     - Reference
 ---
-<!-- Auto-Generated. Do not edit directly! -->
-
 # Activity Reference
+<!-- Auto-Generated. Do not edit directly! -->
 
 ## Project Activities
 
@@ -14,7 +14,7 @@ The following activities are available for each project.
 
 Generates matches between schema paths and datasets based on the schema discovery and profiling information
          of the datasets.
-      
+
 
 | Parameter | Type | Description | Example |
 |  ---------------------- | ------------- | ------------------ | -------------------------- |

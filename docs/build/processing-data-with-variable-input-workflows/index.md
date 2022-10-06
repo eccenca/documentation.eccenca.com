@@ -2,6 +2,7 @@
 tags:
   - ExpertTutorial
   - Automate
+  - Workflow
 ---
 # Processing Data with Variable Input Workflows
 

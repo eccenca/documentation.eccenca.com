@@ -1,11 +1,11 @@
 ---
-title: "cmemc: Environment based Configuration"
+title: "cmemc: Environment-based Configuration"
 subtitle: Configuration
 icon: material/cog-outline
 tags:
   - cmemc
 ---
-# Environment based Configuration
+# Environment-based Configuration
 
 ## Introduction
 

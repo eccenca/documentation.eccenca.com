@@ -1,11 +1,11 @@
 ---
+title: "DataIntegration: Plugin Reference"
 tags:
     - Reference
 ---
+# Plugin Reference
 
 <!-- Auto-Generated. Do not edit directly! -->
-
-# Plugin Reference
 
 ## Plugin Tasks
 
@@ -181,18 +181,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-    
+
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-    
+
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-    
+
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-    
+
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -416,7 +416,7 @@ It can be found in the package `com.eccenca.di.measure`.
 #### XSLT
 
 A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource.
-      
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -646,7 +646,7 @@ It can be found in the package `org.silkframework.plugins.dataset.rdf.datasets`.
 
 #### Avro
 
-Read from or write to an Apache Avro file. 
+Read from or write to an Apache Avro file.
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -912,7 +912,7 @@ This dataset supports queries or simply schema and table names to define what sh
 from a source DB.
 If the dataset is used as a sink, queries are ignored and only schema and table parameters are used.
 If the dataset is used as a sink for a hierarchical mapping it behaves similar to the SqlEndpoint:
-One table is generated per entity type. 
+One table is generated per entity type.
 
 The names of the written tables are generated as follows:
 
@@ -928,22 +928,22 @@ Please make sure to use the correct syntax for each DBS as rather unintuitive er
 
 Here are templates for supported database systems:
 ```
-oracle (external driver needed): 
+oracle (external driver needed):
 jdbc:oracle:thin:@{host}[:{port}]/{database}
 
-postgres (integrated): 
+postgres (integrated):
 jdbc:postgresql://{host}[:{port}]/[{database}]
 
-MySQL/MAriaDB (integrated): 
+MySQL/MAriaDB (integrated):
 jdbc:{mysql|mariadb}://{host}[:{port}]/[{database}]
 
-SnowSQL (external driver needed): 
+SnowSQL (external driver needed):
 jdbc:snowflake://}AWSAccount}.{AWS region}.snowflakecomputing.com?db={database}&schema={schema}
 
-MSSqlServer (integrated): 
+MSSqlServer (integrated):
 jdbc:sqlserver://{host}[:{port}];databaseName={database}
 
-H2 (integrated): 
+H2 (integrated):
 jdbc:h2:{file} or jdbc:h2:tcp://{host}:[{port}][/{database}]
 
 DB2 (external driver needed):
@@ -1003,7 +1003,7 @@ spark.sql.options {
   # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download
   # location can be provided.
   jdbc.drivers = "db2,mysql"
-  
+
   # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path
   # to a jar file containing the driver and the name of driver can be specified here.
   jdbc.db2.jar = "/home/user/Jars/db2jcc-db2jcc4.jar"
@@ -1017,7 +1017,7 @@ spark.sql.options {
 
 Recommended DBMS versions:
 
-Microsoft SQL Server 2017: Older versions might work, but do not support the `groupBy` parameter. 
+Microsoft SQL Server 2017: Older versions might work, but do not support the `groupBy` parameter.
 PostgreSQL 9.5: The `groupBy` parameter needs at least version 8.4.
 MySQL v8.0.19: Older versions do not support the `groupBy` parameter.
 DB2 v11.5.x: The `groupBy` feature needs at least version 9.7 to function.
@@ -1462,7 +1462,7 @@ Computes the distance between two physical quantities.
 The distance is normalized to the SI base unit of the dimension.
 For instance for lengths, the distance will be in metres.
 Comparing incompatible units will yield a validation error.
- 
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -1952,7 +1952,7 @@ It can be found in the package `org.silkframework.rule.plugins.transformer.conve
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
- 
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -2286,7 +2286,7 @@ It can be found in the package `com.eccenca.di.excel`.
 
 #### And
 
-Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise. 
+Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise.
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -3735,18 +3735,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-    
+
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-    
+
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-    
+
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-    
+
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -3781,18 +3781,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-    
+
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-    
+
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-    
+
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-    
+
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -3827,18 +3827,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-    
+
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-    
+
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-    
+
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-    
+
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
@@ -3976,7 +3976,7 @@ It can be found in the package `org.silkframework.rule.plugins.transformer.numer
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
- 
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4603,7 +4603,7 @@ It can be found in the package `com.eccenca.di.schema.discovery.parser`.
  Cleans HTML using a tag white list and allows selection of HTML sections with xPath or cssSelector expressions.
  If the tag or attribute white lists are left empty default white lists will be used. The operator takes two inputs: the page HTML and
  (optional) the page Url which may be needed to resolve relative links in the page HTML.
- 
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4634,7 +4634,7 @@ An empty string can be created in Excel and alternatives by inserting ="" in the
 If there are multiple values for a single key, all values will be returned for the given key.
 
 Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.
-    
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4679,7 +4679,7 @@ Tries to map the first input based on the map of values parameter config.
 If the input value is not found in the map, it takes the value of the second input.
 The indexes of the mapped value and the default value match. If there are less default values than
 values to map, the last default value is replicated to match the count.
-      
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4761,7 +4761,7 @@ Returns [first] for parameters [] and input values [[first], [second]].
       the related regex also matched.
 
       If oneOnly is true only the position of the <strong>first</strong> matching regex will be set to the output value.
-    
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
@@ -4799,7 +4799,7 @@ Returns the value found at the specified index. Fails or returns an empty result
        is probably not a good idea to do with RDF models.
 
        If emptyStringToEmptyResult is true then instead of a result with an empty String, an empty result is returned.
-    
+
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
