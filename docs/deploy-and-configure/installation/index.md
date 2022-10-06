@@ -30,7 +30,7 @@ Special note on RHEL SELinux Support: there is no limitation for RedHat SELinux.
 
 [Docker Compose](https://docs.docker.com/compose/) is a convenient way to provision several Docker containers locally for development setups or on remote servers for single node setups.
 
-eccenca is heavily using Docker Compose for all kinds of internal and customer deployments. For more details on how to use docker-compose based orchestration refer to [Scenario: Local Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-local-installation) and [Scenario: Single Node Cloud Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-single-node-cloud-installation).
+eccenca is heavily using Docker Compose for all kinds of internal and customer deployments. For more details on how to use docker-compose based orchestration refer to [Scenario: Local Installation](../installation/scenario-local-installation/index.md) and [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md).
 
 ## DataIntegration
 

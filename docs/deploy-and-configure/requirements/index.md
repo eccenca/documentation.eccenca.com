@@ -16,25 +16,25 @@ A minimal single-node deployment for testing/evaluation purposes means:
 Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up to several million triples can be built and served.
 
 - Operating System / Hardware
-  - Bare metal server or VM with Ubuntu or RHEL linux OS (see [Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation) for details)
-  - 16 GB RAM
-  - 100 GB free disk space (10 GB for docker images + data + logs over time)
-  - docker and docker-compose (we deliver an orchestration including all needed components)
+      - Bare metal server or VM with Ubuntu or RHEL linux OS (see [Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation) for details)
+      - 16 GB RAM
+      - 100 GB free disk space (10 GB for docker images + data + logs over time)
+      - docker and docker-compose (we deliver an orchestration including all needed components)
 - Triple / Quad Store
-  - Stardog 7.4.x
-  - Ontotext GraphDB
-  - OpenLink Virtuoso Open Source
+      - Stardog 7.4.x
+      - Ontotext GraphDB
+      - OpenLink Virtuoso Open Source
 - Identity Management (delivered with orchestration)
-  - Keycloak >= v6.0.1
-  - PostgreSQL >= v11.5
+      - Keycloak >= v6.0.1
+      - PostgreSQL >= v11.5
 - Proxy Server (delivered with orchestration)
-  - Apache >=2.4 (incl. rewrite and other modules)
+      - Apache >=2.4 (incl. rewrite and other modules)
 
 For an example of a single-node installation refer to the following scenarios:
 
-- [Scenario: Local Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-local-installation)
-- [Scenario: RedHat Enterprise Linux 7](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-redhat-enterprise-linux-7)
-- [Scenario: Single Node Cloud Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-single-node-cloud-installation)
+- [Scenario: Local Installation](../installation/scenario-local-installation/index.md)
+- [Scenario: RedHat Enterprise Linux 7](../installation/scenario-redhat-enterprise-linux-7/index.md)
+- [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md)
 
 ### Typical Setup
 
