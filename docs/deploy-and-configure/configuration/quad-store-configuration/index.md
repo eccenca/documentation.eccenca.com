@@ -1,3 +1,7 @@
+---
+tags:
+    - Configuration
+---
 # Quad Store Configuration
 
 ## Virtuoso setup

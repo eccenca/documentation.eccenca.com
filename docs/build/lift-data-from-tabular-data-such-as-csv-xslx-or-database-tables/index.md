@@ -1,6 +1,7 @@
 ---
 tags:
   - BeginnersTutorial
+  - KnowledgeGraph
 ---
 # Lift data from tabular data such as CSV, XSLX or database tables
 

@@ -1,3 +1,8 @@
+---
+tags:
+    - Configuration
+    - Docker
+---
 # Docker Orchestration
 
 ## Introduction

@@ -1,3 +1,8 @@
+---
+status: deprecated
+tags:
+    - Python
+---
 # Create Custom Transformations with Python
 
 ???+ caution

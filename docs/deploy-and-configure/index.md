@@ -1,4 +1,7 @@
-# :material-star: Deploy and Configure
+---
+icon: material/star-outline
+---
+# Deploy and Configure
 
 Deploy in your own environment.
 

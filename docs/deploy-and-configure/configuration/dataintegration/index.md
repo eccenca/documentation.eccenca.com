@@ -1,3 +1,7 @@
+---
+tags:
+    - Configuration
+---
 # DataIntegration
 
 This section is intended to be a reference for all available eccenca DataIntegration configuration options.The configuration format is based on [HOCON](https://github.com/typesafehub/config).
@@ -460,7 +464,7 @@ dataset.internal.sparqlEndpoint = {
 
 ## Timeouts
 
-DataIntegration has a number of timeouts to maintain operation while connection issues or problems in other applications occur. The following sections list the most important global timeouts. 
+DataIntegration has a number of timeouts to maintain operation while connection issues or problems in other applications occur. The following sections list the most important global timeouts.
 
 ??? note
     In addition to these global timeouts, many datasets, such as the Knowledge Graph dataset, do provide additional timeout parameters. Refer to the documentation of datasets for individual timeout mechanisms of different datasets.

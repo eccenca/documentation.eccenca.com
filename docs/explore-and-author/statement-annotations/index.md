@@ -1,3 +1,8 @@
+---
+status: new
+tags:
+    - KnowledgeGraph
+---
 # Statement Annotations
 
 ## Introduction

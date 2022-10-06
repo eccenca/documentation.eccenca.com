@@ -1,3 +1,8 @@
+---
+tags:
+  - Dashboards
+  - KnowledgeGraph
+---
 # Consuming Graphs in Power BI
 
 ## Introduction
@@ -33,13 +38,13 @@ The latest (unsigned) version of our Power-BI-Connector is available from its so
             - Add the thumbprints of the certificates you want to trust. You can add multiple certificates by using “\0” as a delimiter, or in the registry editor, right click → modify and put each thumbprint on a new line.
             ![PowerBI-Registry-Editor.png](22-1-PowerBI-Registry-Editor.png)
             - (Re-)Start Power BI Desktop
-        
+
         If you wish to automate this setup you can use the reg windows command line tool to make this entry like:
-      
+
         ```powershell
         REM list existing entries in Power BI Desktop > TrustedCertificateThumbprints
         reg query ""HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power BI Desktop" /v TrustedCertificateThumbprints
-        
+
         REM add eccenca Corporate Memory Power-BI-Connector Thumbprint
         reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power BI Desktop" /v TrustedCertificateThumbprints /t REG_MULTI_SZ /d FB6C562BD0B08107AAA420EDDE94507420C7FE1A
         ```
@@ -91,7 +96,7 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
           ![client-credentials](22-1-2-client-credentials.png)
         - Second Step
             - Password / Client Secret
-      
+
     === "Advanced Configuration"
         In case you installation uses a custom service endpoint layout the individual URIs for DataPlatform and Keycloak can be configured individually. The configuration keys are the same as for cmemc.
 

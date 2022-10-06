@@ -1,3 +1,7 @@
+---
+tags:
+    - KnowledgeGraph
+---
 # Building a customized User Interface
 
 ## Introduction

@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 19.10
 
 Corporate Memory 19.10 is the third release in 2019.

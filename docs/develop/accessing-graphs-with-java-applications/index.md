@@ -9,20 +9,22 @@ hide:
 
 ## Introduction
 
-This short recipe covers how to connect to Corporate Memory using a Java program.Such program can connect to Corporate Memory at any time autonomously, independently of whether a user is logged in or not.
+This short recipe covers how to connect to Corporate Memory using a Java program.
+Such program can connect to Corporate Memory at any time autonomously, independently of whether a user is logged in or not.
 
-## Java example
+## Java Example
 
-This example assumes that there is a Corporate Memory instance runnning at <http://docker.localhost>, and the programmer has access to its files. The process is very simple:
+This example assumes that there is a Corporate Memory instance runnning at `http://docker.localhost`, and the programmer has access to its files.
+The process is very simple:
 
 1. Obtain a Bearer token.
       1. Go to the file `cmem-orchestration/environments/config.env`, and get the client secret from variable `CMEM_SERVICE_ACCOUNT_CLIENT_SECRET`.
-      2. With the client secret, connect to to the OpenID endpoint to obtain the Bearer token.
-2. Use the Bearer token to connect to Corporate Memory, and, for example, execute a query.
+      1. With the client secret, connect to to the OpenID endpoint to obtain the Bearer token.
+1. Use the Bearer token to connect to Corporate Memory, and, for example, execute a query.
 
 The following code provides a simple implementation of the process:
 
-```java title="JavaCMEMHTTPClient.java  " linenums="1"
+``` java title="JavaCMEMHTTPClient.java
 package com.eccenca.cmem.client;
 
 import java.io.IOException;
@@ -93,3 +95,4 @@ public class HTTPClient {
   }
 }
 ```
+

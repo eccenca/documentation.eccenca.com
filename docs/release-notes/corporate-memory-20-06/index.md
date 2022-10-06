@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 20.06
 
 Corporate Memory 20.06 is the second release in 2020.

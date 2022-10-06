@@ -1,4 +1,5 @@
 nav:
+    - DataManager: index.md
     - application-logging-with-logback
     - workspaces
     - workspaces-authorization

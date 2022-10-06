@@ -1,3 +1,8 @@
+---
+status: new
+tags:
+    - Workflow
+---
 # Workflow Trigger
 
 ## Introduction

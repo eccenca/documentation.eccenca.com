@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 21.02
 
 Corporate Memory 21.02 is the first release in 2021.

@@ -1,3 +1,8 @@
+---
+tags:
+    - KnowledgeGraph
+    - BestPractice
+---
 # Define Prefixes / Namespaces
 
 ## Introduction

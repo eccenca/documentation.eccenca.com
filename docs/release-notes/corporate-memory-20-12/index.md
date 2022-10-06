@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 20.12
 
 Corporate Memory 20.12 is the fourth release in 2020.

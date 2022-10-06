@@ -4,7 +4,7 @@ tags:
     - API
     - ExpertTutorial
 ---
-# Provide data in any format via a custom API
+# Provide Data in any Format via a Custom API
 
 ## Introduction
 

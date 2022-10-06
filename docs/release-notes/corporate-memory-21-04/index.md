@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 21.04
 
 Corporate Memory 21.04 is the second release in 2021.

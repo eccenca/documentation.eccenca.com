@@ -1,3 +1,7 @@
+---
+tags:
+    - Configuration
+---
 # Reverse Proxy
 
 A reverse proxy forwards all requests from the users to the called service and returns the result to the users.A reverse proxy forwards all requests from the users to the called service and returns the result to the users. Corporate Memory is tested with an Apache HTTP server as a reverse proxy.

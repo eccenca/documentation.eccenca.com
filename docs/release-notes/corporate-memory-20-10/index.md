@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 20.10
 
 Corporate Memory 20.10 is the third release in 2020.

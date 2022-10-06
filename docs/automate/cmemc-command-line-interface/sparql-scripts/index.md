@@ -4,7 +4,7 @@ tags:
   - SPARQL
   - cmemc
 ---
-# SPARQL Scripts
+# SPARQL Scripts with cmemc
 
 By prepending a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line to a SPARQL query file and making this file executable, the query file can be treated as an executable script.
 As an example, here is a simple text file with a generic SPARQL query which counts all triples in all graphs and outputs an ordered list:

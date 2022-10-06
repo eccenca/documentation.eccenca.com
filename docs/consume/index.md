@@ -1,9 +1,10 @@
 ---
+icon: material/star
 hide:
   - toc
 ---
 
-# ★ Consume
+# Consume
 
 This section outlines how to consume data from the Knowledge Graph. While there are several options to retrieve information from the Knowledge Graph, the most direct way is to issue SPARQL queries. SPARQL queries can be managed and executed in the [Query Module UI](../deploy-and-configure/configuration/datamanager/query-module/index.md). External applications may access the query catalog and execute queries through the REST API directly or more conveniently by using the [cmemc - Command Line Interface](../automate/cmemc-command-line-interface/index.md). Since not all applications allow the direct use of SPARQL, this section includes tutorials to access the Knowledge Graph using BI tools (such as Power BI) as well as relational databases.
 

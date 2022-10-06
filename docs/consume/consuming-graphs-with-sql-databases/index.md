@@ -1,3 +1,7 @@
+---
+tags:
+  - ExpertTutorial
+---
 # Consuming Graphs with SQL Databases
 
 ## Introduction

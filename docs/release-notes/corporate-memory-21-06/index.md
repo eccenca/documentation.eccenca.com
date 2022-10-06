@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 21.06
 
 Corporate Memory 21.06 is the third release in 2021.

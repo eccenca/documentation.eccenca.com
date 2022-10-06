@@ -1,4 +1,7 @@
-# ★ Develop
+---
+icon: material/star-outline
+---
+# Develop
 
 API documentation and programming recipes.
 
@@ -9,7 +12,7 @@ All relative API URLs are prefixed by a base URL of the form `https://{domain}:{
 - `domain`: The hostname or domain, where DataPlatform is installed. (required: true, type: string)
 - `port`: The port on which the application server is available. (required: false, type: integer)
 - `context`: The application context where DataPlatform is available (can be empty). (required: false, type: string)
-  
+
 ## HTTP error responses
 
 The default format for HTTP error responses is compliant with [RFC 7807 Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
@@ -22,7 +25,7 @@ The following optional non-standard fields may also be set:
 
 - `status`: The HTTP status code for this occurrence of the problem.
 - `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
-  
+
 The following example shows an HTTP response containing JSON problem details using the `application/problem+json` media type:
 
 ```json

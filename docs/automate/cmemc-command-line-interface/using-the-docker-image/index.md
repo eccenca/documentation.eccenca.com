@@ -3,7 +3,7 @@ tags:
   - Docker
   - cmemc
 ---
-# Using the docker image
+# Using the cmemc Docker Image
 
 ## Introduction
 

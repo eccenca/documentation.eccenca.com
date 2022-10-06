@@ -1,3 +1,8 @@
+---
+tags:
+    - SPARQL
+    - KnowledgeGraph
+---
 # Query Module
 
 ## Introduction

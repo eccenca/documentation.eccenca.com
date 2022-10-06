@@ -1,3 +1,7 @@
+---
+tags:
+    - KnowledgeGraph
+---
 # Graph Exploration
 
 ## Introduction

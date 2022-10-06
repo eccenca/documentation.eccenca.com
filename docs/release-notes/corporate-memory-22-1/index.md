@@ -1,3 +1,8 @@
+---
+status: new
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 22.1
 
 Corporate Memory 22.1 is the first release in 2022.
@@ -8,7 +13,7 @@ Corporate Memory 22.1 is the first release in 2022.
 
 The highlights of this release are:
 
-- Build: 
+- Build:
     - The all new linking editor offering a new level of user experience in the linking process supercharged with inline preview and inline validation, improved operator search and much more
     - Python plugin SDK (workflow and transformation plugins)
 - Explore:
@@ -102,7 +107,7 @@ This version of eccenca DataManager adds the following new features:
 In addition to that, these changes are shipped:
 
 - General
-    - Updated `typescript` to `^4.5.2` and `@reduxjs/toolkit` to `^1.6.2`. 
+    - Updated `typescript` to `^4.5.2` and `@reduxjs/toolkit` to `^1.6.2`.
     - Use session cookie to authenticate in DI requests.
     - Removed Save graph void stats from the Statistics tab.
 - Shacl

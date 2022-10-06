@@ -3,7 +3,7 @@ tags:
   - Reference
   - cmemc
 ---
-# Command Reference
+# Command Reference (cmemc)
 
 This section lists the help texts of all commands as a reference
 and to search for it.

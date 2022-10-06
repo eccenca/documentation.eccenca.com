@@ -1,6 +1,7 @@
 ---
 tags:
   - AdvancedTutorial
+  - KnowledgeGraph
 ---
 # Lift data from JSON and XML source
 

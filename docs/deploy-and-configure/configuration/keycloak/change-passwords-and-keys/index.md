@@ -1,3 +1,7 @@
+---
+tags:
+    - Security
+---
 # Change Passwords and Keys
 
 This page describes how to changes passwords and keys for a new deployment (esp. in the context of a [Single Node Cloud Installation](./../../../installation/scenario-single-node-cloud-installation/index.md))

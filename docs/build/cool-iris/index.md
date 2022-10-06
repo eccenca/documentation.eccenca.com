@@ -1,3 +1,8 @@
+---
+tags:
+    - KnowledgeGraph
+    - BestPractice
+---
 # Cool IRIs
 
 ## Introduction

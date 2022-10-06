@@ -1,3 +1,8 @@
+---
+tags:
+    - KnowledgeGraph
+    - Vocabulary
+---
 # Vocabulary Catalog
 
 ## Introduction

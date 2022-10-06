@@ -1,3 +1,8 @@
+---
+tags:
+    - Configuration
+    - Security
+---
 # Production-ready settings
 
 If you plan to deploy Corporate Memory in an public available environment you should take care about a few issues.

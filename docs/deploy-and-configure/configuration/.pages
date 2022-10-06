@@ -1,0 +1,12 @@
+nav:
+    - Configuration: index.md
+    - Docker Orchestration: docker-orchestration
+    - DataIntegration: dataintegration
+    - DataManager: datamanager
+    - DataPlatform: dataplatform
+    - Keycloak: keycloak
+    - Quad-Store: quad-store-configuration
+    - Reverse Proxy: reverse-proxy
+    - Access Conditions: access-conditions
+    - Label Resolution and Full-Text Search: label-resolution-and-full-text-search
+    - Production-Ready Settings: production-ready-settings

@@ -1,3 +1,7 @@
+---
+tags:
+    - Vocabulary
+---
 # Thesauri Management
 
 ## Introduction
@@ -9,7 +13,7 @@ An example for a taxonomy or classification is how companies can be categorized 
 ![Navigation tree with detail view of the concept Airlines](./CMEM-19-02-navigation-tree.png "Navigation tree with detail view of the concept Airlines")
 
 
-!!! info 
+!!! info
 
     In order to correctly build thesauri or taxonomies with the Thesaurus module you should be familiar with SKOS structures.
 

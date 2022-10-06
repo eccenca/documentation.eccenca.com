@@ -7,6 +7,9 @@ copyright: >
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
 extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
   social:
     # - icon: fontawesome/brands/docker
     # link: https://hub.docker.com/u/eccenca
@@ -22,6 +25,12 @@ extra:
       link: https://www.linkedin.com/company/eccenca-gmbh/
   tags:
     # here tags are mapped to icons
+    ReleaseNote: release-note
+    Vocabulary: vocabulary
+    Configuration: configuration
+    Dashboards: dashboards
+    BestPractice: best-practice
+    KnowledgeGraph: knowledge-graph
     Java: java
     Security: security
     API: api
@@ -98,7 +107,13 @@ theme:
   icon:
     logo: logo
     tag:
-      # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
+      # https://squidfunk.github.io/mkdocs-material/reference/?h=page+icon#setting-the-page-icon
+      release-note: material/calendar
+      vocabulary: material/graph-outline
+      configuration: material/tune
+      dashboards: material/view-dashboard
+      best-practice: material/thumb-up-outline
+      knowledge-graph: material/semantic-web
       java: material/language-java
       security: material/server-security
       api: material/api

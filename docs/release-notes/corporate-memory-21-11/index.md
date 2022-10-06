@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 21.11
 
 Corporate Memory 21.11 is the fourth release in 2021.

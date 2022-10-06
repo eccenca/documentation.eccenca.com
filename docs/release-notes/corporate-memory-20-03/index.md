@@ -1,3 +1,7 @@
+---
+tags:
+    - ReleaseNote
+---
 # Corporate Memory 20.03
 
 Corporate Memory 20.03 is the first release in 2020.

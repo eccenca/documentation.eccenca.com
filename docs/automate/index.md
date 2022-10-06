@@ -1,4 +1,7 @@
-# ☆ Automate
+---
+icon: material/star-outline
+---
+# Automate
 
 Setup processes and automate activities based on and towards your Knowledge Graph.
 
