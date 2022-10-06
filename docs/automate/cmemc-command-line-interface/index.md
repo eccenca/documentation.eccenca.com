@@ -1,6 +1,7 @@
 ---
 title: cmemc (Overview)
 subtitle: Command Line Interface
+description: cmemc is the eccenca Corporate Memory command line interface.
 icon: octicons/terminal-16
 hide:
   - toc
@@ -10,26 +11,60 @@ tags:
 ---
 # cmemc - Command Line Interface
 
-cmemc is intended for system administrators and Linked Data Expert, who wants to automate and remote control activities on eccenca Corporate Memory.
+<div class="grid cards" markdown>
 
-[![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version"){ .off-glb }](https://pypi.org/project/cmem-cmemc/)
-[![pypi package](https://badge.fury.io/py/cmem-cmemc.svg "pypi package"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
-[![pypy downloads](https://img.shields.io/pypi/dm/cmem-cmemc.svg "pypy downloads"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
-[![Docker Image](https://img.shields.io/badge/docker-image-blue?logo=docker&logoColor=white "Docker Image"){ .off-glb }](./using-the-docker-image/index.md)
+-   :octicons-terminal-16: **Command Line** interface for **eccenca Corporate Memory**
+
+    ---
+
+    Developed with **:simple-python: Python** and publicly available as a **pypi.org Package** and a **:simple-docker: Docker Image** under the **Apache 2 :material-license: License**.
+
+    ---
+
+    **Next Steps**: [:material-download-circle-outline:](installation-and-configuration/index.md) :material-arrow-right: [:material-cog-outline:](installation-and-configuration/file-based-configuration/index.md) :material-arrow-right: [:material-rocket-launch-outline:](command-line-completion/index.md) :material-arrow-right: :heart:
+
+    ---
+
+    [![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version"){ .off-glb }](https://pypi.org/project/cmem-cmemc/)
+    [![pypi package](https://badge.fury.io/py/cmem-cmemc.svg "pypi package"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
+    [![pypy downloads](https://img.shields.io/pypi/dm/cmem-cmemc.svg "pypy downloads"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
+    [![Docker Image](https://img.shields.io/badge/docker-image-blue?logo=docker&logoColor=white "Docker Image"){ .off-glb }](./using-the-docker-image/index.md)
+
+-   :octicons-people-24: Intended for **Administrators** and **Linked Data Expert**
+
+    ---
+
+    Battle tested in many projects to **:simple-powerautomate: Automate Activities** and **:material-remote: Remote Control** eccenca Corporate Memory instances.
+
+    ``` shell-session title="Example: List datasets with a specific tag and project."
+    $ cmemc -c prod.knowledge.company.org \
+      dataset list \
+      --filter project crm-graph \
+      --filter tag velocity-daily
+    ```
+
+-   :octicons-rocket-16: Fast ad-hoc Execution with **Command Completion**
+
+    ---
+
+    <figure markdown>
+      ![cmemc - Create Dataset](command-line-completion/22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
+      <figcaption>Create Build Project and Dataset</figcaption>
+    </figure>
 
 
-Main features of cmemc include:
+-   :material-feature-search-outline: **Main Features**:
 
-- List, edit and check configurations.
-- List, create, delete, inspect datasets as well as dataset resources.
-- List, import, export, delete or open graphs.
-- List, import, export, create or delete Build projects.
-- List, execute, replay or open local and remote SPARQL queries.
-- List, install, uninstall, import and open vocabularies.
-- List, execute, open or inspect workflows and workflow schedulers.
-- Import, export and reload build workspaces.
-- Import, export and bootstrap graph stores.
-- List, get or inspect server metrics.
+    ---
 
-In order to start working with cmemc, follow one of the [installation](installation-and-configuration) options.
+    Manage (`list`, `inspect`, `import`, `export`, ...) and Manipulate (`create`, `delete`, `execute`, ...) Vocabularies, Datasets, :simple-semanticweb: Knowledge Graphs, [:octicons-workflow-24: Workflows](workflow-execution-and-orchestration/index.md), Projects, Queries, Scheduler, Configurations and [much more](command-reference/index.md).
+
+    ``` shell-session title="Example: Backup the query catalog including imports."
+    $ cmemc graph export \
+      https://ns.eccenca.com/data/queries/ \
+      --include-imports --output-dir queries \
+      --filename-template "{{date}}-{{iriname}}"
+    ```
+
+</div>
 
