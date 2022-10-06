@@ -41,7 +41,7 @@ echo "STARDOG_PASSWORD=admin" >> environments/prod.env
 echo "TRUSTSTOREPASS=Aimeik5Ocho5riuC" >> environments/prod.env
 ```
 
-This configuration will be sufficient to run the orchestration locally as described in [Scenario: Local Installation](https://documentation.eccenca.com/latest/deploy-and-configure/installation/scenario-local-installation):
+This configuration will be sufficient to run the orchestration locally as described in [Scenario: Local Installation](../../installation/scenario-local-installation/index.md):
 
 ```conf linenums="1"
 CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
