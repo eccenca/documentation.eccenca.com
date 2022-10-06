@@ -1,4 +1,6 @@
 ---
+subtitle: Configuration
+icon: material/file-cog-outline
 tags:
   - cmemc
 ---

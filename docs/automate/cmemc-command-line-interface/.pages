@@ -1,11 +1,11 @@
 nav:
     - cmemc - Command Line Interface: index.md
-    - Installation and Configuration: installation-and-configuration
-    - Command-line Completion: command-line-completion
+    - Installation: installation-and-configuration
+    - Completion: command-line-completion
     - Using the Docker Image: using-the-docker-image
     - Command Reference: command-reference
     - SPARQL Scripts: sparql-scripts
-    - Certificate handling and SSL verification: certificate-handling-and-ssl-verification
-    - Workflow Execution and Orchestration: workflow-execution-and-orchestration
-    - Troubleshooting and Caveats: troubleshooting-and-caveats
+    - Certificate Handling: certificate-handling-and-ssl-verification
+    - Workflow Execution: workflow-execution-and-orchestration
+    - Troubleshooting: troubleshooting-and-caveats
 

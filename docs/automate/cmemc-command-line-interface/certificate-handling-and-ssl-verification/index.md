@@ -1,4 +1,6 @@
 ---
+subtitle: and SSL verification
+icon: material/server-security
 tags:
     - Security
     - cmemc
