@@ -17,7 +17,7 @@ tags:
 
     ---
 
-    Developed with **:simple-python: Python** and publicly available as a **pypi.org Package** and a **:simple-docker: Docker Image** under the **Apache 2 :material-license: License**.
+    Developed with **:simple-python: Python** and publicly available as a **pypi.org Package** and a **:simple-docker: Docker Image** under the **:material-license: Apache 2 License**.
 
     ---
 
@@ -37,11 +37,17 @@ tags:
     Battle tested in many projects to **:simple-powerautomate: Automate Activities** and **:material-remote: Remote Control** eccenca Corporate Memory instances.
 
     ``` shell-session title="Example: List datasets with a specific tag and project."
-    $ cmemc -c prod.knowledge.company.org \
+    $ cmemc -c prod.knowledge.company.org # (1)!
       dataset list \
       --filter project crm-graph \
       --filter tag velocity-daily
     ```
+
+    1.  :person_raising_hand:
+        - The option `-c` is short for `--connection` and references to a remote Corporate Memory instance.
+        - The `list` command in the `dataset` command group shows all datasets of an instance.
+        - In order to manipulate output dataset list, the `--filter` option takes two parameter, a filter type (`tag`, `project`, ...) and a value.
+
 
 -   :octicons-rocket-16: Fast ad-hoc Execution with **Command Completion**
 
