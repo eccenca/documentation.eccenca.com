@@ -7,6 +7,9 @@ copyright: >
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
 extra:
+  analytics:
+    provider: google
+    property: G-VS3GZMYY28
   status:
     new: Recently added
     deprecated: Deprecated
