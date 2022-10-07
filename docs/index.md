@@ -7,7 +7,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   📆 Release Notes
+-   :material-calendar: Release Notes
 
     ---
 
@@ -15,7 +15,7 @@ hide:
 
     [:octicons-arrow-right-24: Latest Release Notes](release-notes/corporate-memory-22-1/index.md)
 
--   🎯 Tutorials
+-   :material-list-status: Tutorials
 
     ---
 
@@ -23,7 +23,7 @@ hide:
 
     [:octicons-arrow-right-24: Tutorials](tutorials/index.md)
 
--   ► Getting Started
+-   :material-arrow-right-thick: Getting Started
 
     ---
 
@@ -31,7 +31,7 @@ hide:
 
     [:octicons-arrow-right-24: Getting Started](getting-started/index.md)
 
--   ★ Build
+-   :material-star: Build
 
     ---
 
@@ -39,7 +39,7 @@ hide:
 
     [:octicons-arrow-right-24: Build](build/index.md)
 
--   ★ Explore and Author
+-   :material-star: Explore and Author
 
     ---
 
@@ -47,7 +47,7 @@ hide:
 
     [:octicons-arrow-right-24: Explore and Author](explore-and-author/index.md)
 
--   ★ Consume
+-   :material-star: Consume
 
     ---
 
@@ -55,7 +55,7 @@ hide:
 
     [:octicons-arrow-right-24: Consume](consume/index.md)
 
--   ☆ Deploy and Configure
+-   :material-star-outline: Deploy and Configure
 
     ---
 
@@ -63,7 +63,7 @@ hide:
 
     [:octicons-arrow-right-24: Deploy and Configure](deploy-and-configure/index.md)
 
--   ☆ Automate
+-   :material-star-outline: Automate
 
     ---
 
@@ -71,7 +71,7 @@ hide:
 
     [:octicons-arrow-right-24: Automate](automate/index.md)
 
--   ☆ Develop
+-   :material-star-outline: Develop
 
     ---
 
