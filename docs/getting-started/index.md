@@ -4,7 +4,7 @@ hide:
 tags:
   - BeginnersTutorial
 ---
-# ► Getting Started
+# Getting Started
 
 ## Introduction
 
