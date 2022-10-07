@@ -1,5 +1,7 @@
 ---
 icon: material/star
+hide:
+  - toc
 ---
 # ★ Explore and Author
 

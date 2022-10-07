@@ -1,5 +1,7 @@
 ---
 icon: material/star
+hide:
+  - toc
 ---
 # Build
 
