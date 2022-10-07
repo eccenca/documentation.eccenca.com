@@ -4,28 +4,32 @@ site_name: documentation.eccenca.com
 copyright: >
   Copyright &copy; 2022
   <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
+# references for the edit button
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
 extra:
   analytics:
     provider: google
     property: G-VS3GZMYY28
+  # https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
   status:
     new: Recently added
     deprecated: Deprecated
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/?h=social#social-links
   social:
     # - icon: fontawesome/brands/docker
     # link: https://hub.docker.com/u/eccenca
-    # - icon: fontawesome/brands/python
-    #  link: https://pypi.org/search/?q=cmem-&o=
     - icon: fontawesome/brands/creative-commons
       link: https://github.com/eccenca/documentation.eccenca.com/blob/main/LICENSE
     - icon: fontawesome/brands/github
       link: https://github.com/eccenca
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/search/?q=cmem-&o=
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/eccenca
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/eccenca-gmbh/
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   tags:
     # here tags are mapped to icons
     Video: video
@@ -48,8 +52,10 @@ extra:
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
     ExpertTutorial: expert
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
+  # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#cookie-consent
   consent:
     title: Cookie consent
     description: >-
@@ -57,21 +63,25 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
+# https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme
 extra_css:
-  - assets/stylesheets/extra.css
+  - assets/extra.css
 # }}}
 
 # {{{ Theme configuration
 theme:
   name: material
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/
   language: en
 
   # https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
   custom_dir: overrides
 
+  # used from assets/extra.css
   palette:
     - scheme: eccenca-light
 
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
   font:
     text: Roboto
     code: Roboto Mono
@@ -80,24 +90,46 @@ theme:
   logo: assets/favicon.svg
 
   features:
+    # add button to dismiss the current announcement
     - announce.dismiss
-    - content.code.annotate
-    - content.tabs.link
-    - content.tooltips
-    - navigation.indexes
-    - navigation.instant
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
+    # on search highlight all occurrences after following the link
     - search.highlight
+    # allows to deep link to the current search query and result
     - search.share
+    # search will display the likeliest completion for the last word
     - search.suggest
+    # sidebar is scrolled so that the active anchor is always visible
     - toc.follow
+    # allow numeric annotion markers in block and inline comments
+    - content.code.annotate
+    # same label tabs are linked and switch to the same label
+    - content.tabs.link
+    # replaces the browser tooltips
+    - content.tooltips
+    # documents can be directly attached to sections, which is particularly
+    # useful for providing overview pages.
+    - navigation.indexes
+    # clicks on all internal links will be intercepted and dispatched via XHR
+    # without fully reloading the page
+    - navigation.instant
+    # top-level sections are rendered in a menu layer below the header
+    - navigation.tabs
+    # top level sections will lock below the header and always remain visible
+    - navigation.tabs.sticky
+    # add back-to-top button
+    - navigation.top
+    # URL in the address bar is automatically updated with the active anchor as
+    # highlighted in the table of contents.
+    - navigation.tracking
+    # left sidebar will expand all collapsible subsections by default
+    - navigation.expand
+    # significantly smaller HTML files for documentation projects with huge
+    # navigation hierarchies.
     # - navigation.prune
+    # top-level sections are rendered as groups in the sidebar for viewports
+    # above 1220px
     # - navigation.sections
     # - header.autohide
-    # - navigation.expand
     # - toc.integrate
 
   # 404 page
@@ -150,35 +182,46 @@ theme:
 
 # {{{ Extensions to the markdown processor
 markdown_extensions:
+  # multi extension: https://python-markdown.github.io/extensions/extra/
   - extra
+  # converts ASCII dashes, quotes and ellipses to their HTML entity equivalents
+  - smarty
+  # ordered list will not continue when an unordered item comes and vice versa
+  - sane_lists
+  # add HTML attributes and CSS classes to Markdown inline and block elements
+  - attr_list
+  # writing Markdown inside of HTML
+  - md_in_html
   # https://squidfunk.github.io/mkdocs-material/reference/annotations/
   - admonition
-  - smarty
-  - sane_lists
-  - codehilite
-  - attr_list
-  - md_in_html
+  # collapsible admonitions
   - pymdownx.details
+  # support for syntax highlighting of code blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+  # support for syntax highlighting of inline code blocks
   - pymdownx.inlinehilite
+  # adds the ability to embed content from arbitrary files into a document
   - pymdownx.snippets
-  - pymdownx.superfences
   # https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
   - pymdownx.keys
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
+  # allows the usage of content tabs, a simple way to group related content
   - pymdownx.tabbed:
       alternate_style: true
+  # arbitrary nesting of code and content blocks inside each other
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  # generates a Table of Contents from a Markdown document with [TOC]
   - toc:
       permalink: '¤'
       baselevel: 1
+  # automatically inlines bundled and custom icons and emojis
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -186,6 +229,15 @@ markdown_extensions:
 
 # {{{ Extensions to mkdocs - some of them are used by material theme
 plugins:
+  # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#built-in-privacy-plugin
+  - privacy:
+      externals: bundle
+      externals_dir: assets/externals
+      externals_exclude:
+        - badge.fury.io/*
+        - img.shields.io/*
+        - cdn.jsdelivr.net/npm/mathjax@3/*
+        - giscus.app/*
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
   - search:
       lang: en
