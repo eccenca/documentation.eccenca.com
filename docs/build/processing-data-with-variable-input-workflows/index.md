@@ -47,8 +47,10 @@ The project will include everything you need to build a workflow for extracting 
 
 Upload a sample XML dataset (feed data) into your project: Create → XML → Upload new file.
 
-For this tutorial, you may take this file: [feed.xml](feed.xml)
-Feed source: [https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed](https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed)
+For this tutorial, you may take this file: [feed.xml](feed.xml)(1)
+{ .annotate }
+
+1. Original feed source was: `https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed`
 
 ![Create XML dataset dialog](pdwviw-create-xml-dataset.png)
 

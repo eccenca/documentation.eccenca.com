@@ -21,7 +21,10 @@ tags:
 
     ---
 
-    **Next Steps**: [:material-download-circle-outline:](installation-and-configuration/index.md) :material-arrow-right: [:material-cog-outline:](installation-and-configuration/file-based-configuration/index.md) :material-arrow-right: [:material-rocket-launch-outline:](command-line-completion/index.md) :material-arrow-right: :heart:
+    **Next Steps**: [:material-download-circle-outline:](installation-and-configuration/index.md "Installation")
+        :material-plus: [:material-cog-outline:](installation-and-configuration/file-based-configuration/index.md "Configuration")
+        :material-plus: [:material-rocket-launch-outline:](command-line-completion/index.md "Completion Setup")
+        :material-equal: :sparkles:{ title="Fun :-)" }
 
     ---
 

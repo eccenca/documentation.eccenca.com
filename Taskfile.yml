@@ -39,7 +39,7 @@ tasks:
     deps:
       - install
     cmds:
-      - poetry run linkcheckMarkdown -r docs
+      - poetry run linkcheckMarkdown -r docs 2>&1 | grep -v "ResourceWarning"
 
   build:
     desc: Build the page
