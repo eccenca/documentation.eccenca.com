@@ -1,4 +1,4 @@
-# documentation.eccenca.com
+# [documentation.eccenca.com](https://documentation.eccenca.com)
 
 [![example workflow][build-shield]][github-actions] [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa] [![CC BY-SA 4.0][mkdocs-shield]][mkdocs] [![made-with-Markdown][markdown-shield]](http://commonmark.org)
 
