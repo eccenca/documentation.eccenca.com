@@ -7,7 +7,8 @@ tags:
 
 ## Introduction
 
-Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.A namespace declaration consists of a **prefix name** and a **namespace IRI**.
+A namespace declaration consists of a **prefix name** and a **namespace IRI**.
+Namespace declarations allow for abbreviation of IRIs by using a prefixed resource name instead of a full IRI.
 
 For example, after defining a namespace with the values
 
@@ -18,7 +19,10 @@ you can use the term `cohw:test` as an abbreviation for the full IRI `https:/
 
 This is in particular useful when you have to write source code in Turtle and SPARQL.
 
-## Using the Vocabulary Catalog
+## Managing Namespace Declarations
+
+
+### Using the Vocabulary Catalog
 
 After installing a vocabulary from the [Vocabulary Catalog](/explore-and-author/vocabulary-catalog), the vocabulary namespace declaration is automatically added to all integration projects.
 
@@ -31,7 +35,17 @@ In the Explore area, an Ontology with a correct namespace declaration looks like
 
 ![An ontology (graph) resource in the EXPLORE > Knowledge Graphs view](ontology-graph-resource.png)
 
-## Using the Project Configuration
+### Using cmemc
+
+The `vocabulary` command group of [cmemc](../../automate/cmemc-command-line-interface/index.md) has an `import` command, which you can use to install arbitrary vocabulary documents and register them as a vocabulary in Corporate Memory.
+
+Beginning with v22.2, this command has an additional option `--namespace` which you can use to set a vocabulary namespace even if the vocabulary does not include the needed data for autodiscovery:
+
+```shell-session
+$ cmemc vocabulary import my-ont.ttl --namespace myo https//example.org/my/`
+```
+
+### Using the Project Configuration
 
 In addition to the used vocabulary namespace declarations, you may want to add well-known namespaces for organizing to Knowledge Graphs.
 
@@ -59,6 +73,10 @@ In this dialog, you are able to
 
 ## Validating Namespace Declarations
 
-After adding namespace declarations to a project, you are able to the abbreviated IRIs in user interface, such as the mapping editor:
+After adding namespace declarations to a project, you are able to the abbreviated IRIs in user interface, such as the mapping editor, the Turtle editor or the Query editor:
 
 ![Prefixes displayed in the mapping dialogs, e.g. property selection.](prefix-displayed-in-mapping.png)
+
+![Query Editor](DM-query-editor.png)
+
+![Turtle Editor](DM-turtle-editor.png)
