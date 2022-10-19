@@ -14,10 +14,12 @@ Corporate Memory 22.2 is the second release in 2022.
 The highlights of this release are:
 
 -   Build:
-    -   The all new Active (Link) Learning UI
-    -   Extended python plugin API
+    -   The all new **Active** (Link) **Learning UI**
+    -   Extended **Python Plugin SDK**
 -   Explore:
     -   New graph exploration module **EasyNav**
+-   Consume:
+        -   ... ?
 -   Automate:
     -   ...
 
