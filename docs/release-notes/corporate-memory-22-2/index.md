@@ -84,11 +84,21 @@ In addition to that, multiple performance and stability issues were solved.
 
 This version of eccenca DataPlatform ships the following new features:
 
--   ...
+-   …
 
 In addition to that, these changes and fixes are shipped:
 
--   ...
+-   New store configuration properties, see below for migration notes
+-   …
+
+The following have been removed:
+
+-   Support for provisioned store authorization
+-   Command line options create-config, update-war
+-   WAR build target and support for WAR servlet deployment
+-   Property for DP query system timeout check interval
+    -   `proxy.queryTimeoutCheckCron` not necessary anymore
+-   Support for multiple endpoints
 
 In addition to that, multiple performance and stability issues were solved.
 
@@ -194,7 +204,59 @@ Due to the added context classes, the signature of a number of functions has bee
 
 ### DataPlatform
 
--   ...
+Due to the removed multiple endpoint support the store configuration properties have changed. Please revise your store configuration section(s) in your DataPlatform `application.yml`. The new configuration properties are:
+
+-   Type of store (general settings)
+    -   `store.type`: MEMORY, HTTP, GRAPHDB, STARDOG, VIRTUOSO, NEPTUNE
+    -   `store.authorization`: NONE, REWRITE_FROM
+-   MEMORY:
+    -   `store.memory.files`: List of files loaded on startup
+-   HTTP:
+    -   `store.http.queryEndpointUrl`: SPARQL Query endpoint (mandatory)
+    -   `store.http.updateEndpointUrl`: SPARQL Update endpoint (mandatory)
+    -   `store.http.graphStoreEndpointUrl`: SPARQL GSP endpoint (optional but highly recommended)
+    -   `store.http.username`: Username (optional)
+    -   `store.http.password`: Password (optional)
+-   GRAPHDB:
+    -   `store.graphdb.host`: host of graphdb backend (i.e. localhost)
+    -   `store.graphdb.port`: port of graphdb backend (i.e. 7200)
+    -   `store.graphdb.ssl-enabled`: flag if ssl (https) is enabled (default: false)
+    -   `store.graphdb.repository`: name of repository (i.e. cmem)
+    -   `store.graphdb.username`: Username (optional)
+    -   `store.graphdb.password`: Password (optional)
+    -   `store.graphdb.useDirectTransfer`: flag if direct GSP endpoints of graphdb shall be used instead of workbench upload (default: true)
+    -   `store.graphdb.importDirectory`: Import directory to be utilized in the "workbench import with shared folder" approach.
+    -   `store.graphdb.graphDbChangeTrackingActive`: Whether change tracking for updates is active - better results for cache invalidation (default: true)
+    -   `store.graphdb.graphDbChangeTrackingMaxQuadMemory`: Amount of quads as a result of an update which are loaded into memory for analyzing consequences for caches (default: 1000)
+-   STARDOG:
+    -   `store.stardog.host`: host of stardog backend (i.e. localhost)
+    -   `store.stardog.port`: port of stardog backend (i.e. 5820)
+    -   `store.stardog.ssl-enabled`: flag if ssl (https) is enabled (default: false)
+    -   `store.stardog.repository`: name of repository (i.e. cmem)
+    -   `store.stardog.username`: Username (optional)
+    -   `store.stardog.password`: Password (optional)
+    -   `store.stardog.userPasswordSalt`: salt for generated user password (optional)
+    -   `store.stardog.updateTimeoutInMilliseconds`: Timeout in ms for updates (default: 0 = deactivated)
+    -   `store.stardog.graphListQuery`: Query for graph list - graph must be bound to variable ?g
+-   NEPTUNE:
+    -   `store.neptune.host`: host of neptune backend (i.e. neptune-cluster123.eu-central-1.neptune.amazonaws.com)
+    -   `store.neptune.port`: port of neptune backend (i.e. 8182)
+    -   `store.neptune.graphListQuery`: Query for graph list - graph must be bound to variable ?g
+    -   Settings under store.neptune.aws (mandatory):
+        -   `store.neptune.aws.region`: AWS region where the configured neptune cluster is located (i.e. eu-central-1)
+        -   `store.neptune.aws.authEnabled`: Flag on whether authentication is enabled on neptune cluster (default: true)
+    -   Settings under `store.neptune.s3` for upload of large files (>150MB uncompressed) (optional):
+        -   `store.neptune.s3.bucketNameOrAPAlias`: Name of bucket or access point for S3 bulk load
+        -   `store.neptune.s3.iamRoleArn`: ARN of role under which neptune cluster loads from S3
+        -   `store.neptune.s3.bulkLoadThresholdInMb`: Load threshold in MB for GSP access, if graph data greater than S3 upload is used (default: 150)
+        -   `store.neptune.s3.bulkLoadParallelism`: Degree of parallelism for neptune S3 bulk loader (LOW (default), MEDIUM, HIGH, OVERSUBSCRIBE)
+-   VIRTUOSO:
+    -   `store.virtuoso.host`: host of virtuoso backend (i.e. localhost)
+    -   `store.virtuoso.port`: http port of virtuoso backend (i.e. 8080)
+    -   `store.virtuoso.databasePort`: database port of virtuoso backend (i.e. 1111)
+    -   `store.virtuoso.ssl-enabled`: flag if ssl (https) is enabled (default: false)
+    -   `store.virtuoso.username`: Username (optional)
+    -   `store.virtuoso.password`: Password (optional)
 
 ### cmemc
 
