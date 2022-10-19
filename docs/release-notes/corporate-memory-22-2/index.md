@@ -56,14 +56,27 @@ In addition to that, multiple performance and stability issues were solved.
 
 This version of eccenca DataManager adds the following new features:
 
--   ...
+-   Navigation
+    -   Add DataIntegration workflows link to main navigation
+-   Vocabulary Catalog
+    -   Inline vocabulary metadata via (editable) shape
+    -   Ability to activate git synchronization of changes
+        -   Change history with diff view and ability to revert to a specific commit
+-   Explore
+    -   New (Shacl) Template based graph creation wizard
+        -   Supporting different methods to define / select graph IRIs
+        -   Support for bulk add via `.zip` archives containing multiple RDF files
+-   i18n
+    -   French translation
+-   EasyNav
+    -   New graph visualization module
+    -   With search filter configuration
+    -   Bulk node search and bulk add
+    -   Ability to save, load and share explorations
 
 In addition to that, these changes are shipped:
 
--   General
-    -   ...
--   Shacl
-    -   ...
+-   Increase height of Turtle editor in the resource details view.
 
 In addition to that, multiple performance and stability issues were solved.
 
