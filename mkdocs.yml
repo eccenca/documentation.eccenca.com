@@ -24,7 +24,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/eccenca
     - icon: fontawesome/brands/python
-      link: https://pypi.org/search/?q=cmem-&o=
+      link: https://pypi.org/user/eccenca/
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/eccenca
     - icon: fontawesome/brands/linkedin
