@@ -168,7 +168,25 @@ In addition to that, multiple performance and stability issues were solved.
 
 ### DataIntegration
 
--   ...
+-   CSV attributes specified via the `properties` parameter had inconsistent encoding rules. For CSV datasets where the `properties` parameter is used this can lead to changed source paths.
+
+#### Python plugins
+
+Due to the added context classes, the signature of a number of functions has been changed. The following changes need to be made to implementation of these classes:
+
+##### WorkflowPlugin
+
+-   The execute function has a new parameter `context`:
+    -   `def execute(self, inputs: Sequence[Entities], context: ExecutionContext)`
+
+##### ParameterType
+
+-   The `project_id` parameters of the label and the autocompletion functions have been replaced by the PluginContext:
+    -   `def autocomplete(self, query_terms: list[str], context: PluginContext) -> list[Autocompletion]`
+    -   `def label(self, value: str, context: PluginContext) -> Optional[str]`
+    -   The project identifier can still be accessed via `context.project_id`
+-   The `fromString` function has a new parameter `context`:
+    -   `def from_string(self, value: str, context: PluginContext) -> T`
 
 ### DataManager
 
