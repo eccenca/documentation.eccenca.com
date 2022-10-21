@@ -1180,7 +1180,7 @@ com.eccenca.di.office365 = {
 }
 ```
 
-### Caching
+#### Caching
 
 The advanced parameter `invalidateCacheAfter` allows the user to specify a duration of the file cache
 after which it is refreshed.
@@ -1188,7 +1188,7 @@ A file based cache is created to avoid CAPTCHAs. During the caching and validati
 access occurs with random wait times between 1 and 5 seconds.
 The cache is invalidated after 5 minutes by default.
 
-#### SPARQL endpoint
+### SPARQL endpoint
 
 Connect to an existing SPARQL endpoint.
 
@@ -1212,8 +1212,6 @@ Connect to an existing SPARQL endpoint.
 The identifier for this plugin is `sparqlEndpoint`.
 
 It can be found in the package `org.silkframework.plugins.dataset.rdf.datasets`.
-
-
 
 ## Distance Measures
 
