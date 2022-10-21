@@ -1047,6 +1047,8 @@ It will automatically correct the URL and add the "export as xlsx" option to a n
 that will be used to download an Excel Spreadsheet.
 The download will be cached and treated the same way as an xlsx file in the Excel Dataset.
 
+
+
 ### Caching
 
 The advanced parameter `invalidateCacheAfter` allows the user to specify a duration of the file cache
@@ -1134,7 +1136,7 @@ This is meant to help understanding and does not aim to provide a precise mappin
 | object property      | relationship |
 | graph | Do not exist in Neo4j, but labels can be used to mimic graphs.    |
 
-#### Excel (OneDrive, Office365)
+### Excel (OneDrive, Office365)
 
 Read data from a remote onedrive or Office365 Spreadsheet.
 
@@ -1152,6 +1154,31 @@ It can be found in the package `com.eccenca.di.office365`.
 The dataset needs the URL of a "share via link" sheet on Office 365/OneDrive as input.
 It will automatically construct a direct download URL, cache the download file handle it like
 an XLSX file in the Excel Dataset.
+
+#### Notes
+
+There are 2 types of URLs that can be shared:
+
+1.   Onedrive links look like `https://1drv.ms/x/s!AucULvzmJ-dsdfsfgaIcyWP_XY_G4w?e=yx65uu`
+2.   Onedrive (based one sharepoint, for businesses) links look like `https://eccencagmbh-my.sharepoint.com/:x:/g/personal/person_eccenca_com/EdEMTEw1dclHiEZXyvy8P4YBit8wSyGsiwU5Kt__sQOZzw`
+
+The first type should always work as input for this dataset.
+The second type requires to set up an application in Azure Active Directory.
+Instructions can be found here: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4.%20Spring%20Framework%20Web%20App%20Tutorial/3-Authorization-II/protect-web-api#register-the-service-app-java-spring-resource-api
+
+After following the steps access to sharepoint can be setup in the application.conf file for eccenca DataIntegration.
+
+Example:
+
+```conf
+com.eccenca.di.office365 = {
+    authority = "https://login.microsoftonline.com/a0907dd1-f981-4c98-a8b9-1deb27bcf2cc/"
+    clientId = "4d14959d-3c62-4f90-a072-a96ca4b3fa9f"
+    secret = "Ceb8Q~QkMMV7TBK-ggB3nh22nUnqoDB1KTmkjj"
+    scope = "https://graph.microsoft.com/.default"
+    tenantId = "a0907dd1-f981-4c98-a8b9-1deb27bcf2cc"
+}
+```
 
 ### Caching
 
