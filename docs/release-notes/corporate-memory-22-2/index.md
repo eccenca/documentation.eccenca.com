@@ -7,8 +7,8 @@ tags:
 
 Corporate Memory 22.2 is the second release in 2022.
 
-<!-- ![22.2: DataIntegration - Linking Editor](22-1-linking-editor.png "22.1: DataIntegration - Linking Editor") -->
-<!-- ![22.2: DataManager - Workflow Execution](22-1-workflow-execution.png "22.1: DataManager - Workflow Execution") -->
+<!-- TODO: add Active Learning UI Screenshot -->
+<!-- TODO: add EasyNav Screenshot -->
 ![22.2: cmemc - Multiple Filter / Admin Status](22-2-cmemc-multiple-filter-and-admin-status.png "22.1: 22-2-cmemc-multiple-filter-and-admin-status.png")
 
 The highlights of this release are:
@@ -18,10 +18,8 @@ The highlights of this release are:
     -   Extended **Python Plugin SDK**
 -   Explore:
     -   New graph exploration module **EasyNav**
--   Consume:
-        -   ... ?
 -   Automate:
-    -   ...
+    -   Tag filter, better status monitoring and complete query management
 
 !!! warning
 
@@ -44,11 +42,48 @@ More detailed release notes for these versions are listed below.
 
 This version of eccenca DataIntegration adds the following new features:
 
--   ...
+-   New active learning UI
+-   Python plugins: Added context objects that allow accessing context dependent functionalities, such as:
+    -   The current OAuth token
+    -   Updating the execution report (for workflows)
+    -   DI version
+    -   Current project and task identifiers
+    -   Requires `cmem-plugin-base >=2.0.0`
+-   Workflows search link in main navigation
+-   Linking rule editor
+    -   Advanced parameter toggle that shows/hides advanced parameters like `weight` and advanced section in rule parameter modal
+-   Support for sticky note in both linking and workflow editors
+-   Parameter `profiling.defaults.noEntities` to configure the default entity limit for profiling operations
+-   Parameter `org.silkframework.runtime.activity.concurrentExecutions` to set the max. concurrent activity instances
+-   Support for the `URI attribute` parameter of datasets
+-   Support for auto-configuration in create/update dialog
+-   Config parameters:
+    -   `profiling.defaults.noEntities` to configure the default entity limit for profiling operations
+    -   `org.silkframework.runtime.activity.concurrentExecutions` to set the max. concurrent activity instances
+    -   `cors.enabled`, `cors.config.allowOrigins` and `cors.config.allowCredentials` to configure CORS settings
 
 In addition to that, these changes are shipped:
 
--   ...
+-   Move `outputTemplate` parameter to advanced section of XML dataset plugin
+-   Improved performance of conversions to floating point numbers
+-   Improved linking performance
+-   Show report on linking execution tab
+-   When the evaluation fails because of missing paths in the cache give specific error message with node highlighting instead of generic error notification
+-   Errors in invalid Python packages are recorded and returned, instead of failing
+-   Size of the activity thread pool can be configured
+-   Linking rule editor
+    -   Show linking rule label above toolbar when in integrated mode
+    -   Handle "reversible" comparators, e.g. "Greater than", by allowing to switch source/target inputs instead of setting the 'reverse' parameter
+-   DataPlatform API timeout is configurable now
+-   Workflow progress information was moved to node footer that is displayed empty when no information is available
+-   Docker image base: `debian:bullseye-20220912-slim`
+-   Return 503 before exceeding the concurrent activity execution limit instead of discarding a running activity instance
+-   Do not execute empty object mapping rules to improve performance
+-   Remove root (start) page:
+    -   Redirect to workbench project search page
+    -   Remove legacy workspace link from user menu
+    -   Add "load example project" action to user menu
+-   Show activity labels instead of IDs in task activity overview
 
 In addition to that, multiple performance and stability issues were solved.
 
@@ -84,12 +119,62 @@ In addition to that, multiple performance and stability issues were solved.
 
 This version of eccenca DataPlatform ships the following new features:
 
--   …
+-   Added support for manual query/update cancellation:
+    -   active for graphdb, stardog, neptune
+    -   DELETE `/api/admin/currentQueries/{queryId}`
+    -   Neptune updates cannot be cancelled because queryId header not processed
+-   Added support for creation of configured graphdb repository on DP startup
+    -   `store.graphdb.createRepositoryOnStartup`: Flag if repository shall be created on startup (default: false)
+-   Added support for selective invalidation of caches (graph list, shapes) via Update parsing / GraphDb Change Tracking
+    -   `proxy.cache-selective-invalidation`: true if activated, false otherwise full flush on every write (default: true)
+    -   `store.graphdb.graphDbChangeTrackingActive`: Whether change tracking for updates is active - better results for cache invalidation (default: true)
+    -   `store.graphdb.graphDbChangeTrackingMaxQuadMemory`: Amount of quads as a result of an update which are loaded into memory for analyzing consequences for caches (default: 1000)
+-   Automatic creation of default `application.yml` and gradle tasks for generation of markdown documentation
+-   Added endpoints for supporting easynav graph visualizations
+    -   search and resource listing via `/api/search`
+    -   managing of persisted visualisations via `/api/navigate` endpoints
+-   Added provisioning of jinja templates with provided substitution map for endpoint `/api/custom/{slug}`
+-   Added property `proxy.descriptionProperties` (analogous to `proxy.labelProperties`) for defining search relevant description properties
+-   Extend query monitor
+    -   Added fields per entry
+        -   `timeout`: value in ms of timeout the query/update has
+        -   `timedOut`: boolean value on whether the query timed out or not
+        -   `cancelled`: boolean value on whether the query has been cancelled manually
+        -   `running`: boolean value on whether the query is currently still being executed
+        -   `affectedGraphs`: on successfully finished query/update the affected graphs are shown (if possible to determine)
+    -   Added property for memory bound consumption in MB for query monitor list
+        -   `proxy.queryMonitorMaxMemoryInMb` (Default: 30)
+    -   Added fields to prometheus metrics endpoint
+        -   `querymonitor_memoryusage_total`: memory usage of query queue in MB
+        -   `querymonitor_queuesize_total`: query queue size
+-   Extend actuator info endpoint with store backend properties, `/actuator/info`:
+    -   fields under store:
+        -   `type`: same as `store.type` property (MEMORY, HTTP, GRAPHDB, STARDOG, VIRTUOSO, NEPTUNE)
+        -   `version`: if possible / otherwise UNKNOWN
+        -   `host`: if applicable otherwise N/A
+        -   `repository`: if applicable otherwise N/A
+        -   `user`: if applicable otherwise N/A
+-   Add non-transactional git sync of graph changes
+    -   graphs can be configured via graph configuration for bi-directional git sync
+    -   cf. config properties under `gitSync.*`
 
 In addition to that, these changes and fixes are shipped:
 
 -   New store configuration properties, see below for migration notes
--   …
+-   Changed property for defining select query for graphList
+    -   setting is store dependant and not valid for some stores
+    -   property `proxy.graphListQuery` (`proxy.graph_list_query`) moved to store settings:
+        -   `store.stardog.graphListQuery`
+        -   `store.neptune.graphListQuery`
+-   Changed property for scheduled cache invalidation
+    -   `proxy.cacheInvalidationCron`: Spring boot cron entry cf. (default: `* */30 * * * *`)
+    -   [https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression](https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression)
+-   Library updates including Spring Boot / Stardog
+-   Changed property for DP query system timeout
+    -   `proxy.queryTimeoutGeneral` -> `store.queryTimeoutGeneral` in ISO 8601 duration format (default: `PT1H`)
+-   Changed loading of model entities i.e. shapes cache
+    -   load model entities using GSP requests instead of construct queries
+    -   Changed property for base IRI: `files.defaultBaseIri` to `proxy.defaultBaseIri` (default: `http://localhost/`)
 
 The following have been removed:
 
@@ -197,10 +282,6 @@ Due to the added context classes, the signature of a number of functions has bee
     -   The project identifier can still be accessed via `context.project_id`
 -   The `fromString` function has a new parameter `context`:
     -   `def from_string(self, value: str, context: PluginContext) -> T`
-
-### DataManager
-
--   ...
 
 ### DataPlatform
 
