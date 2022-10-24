@@ -227,6 +227,8 @@ This version of cmemc adds the following new features:
     -   new option `--enforce-table` to enforce table output of `--key`
 -   `vocabular import` command
     -   new option `--namespace`: In case the imported vocabulary file does not include a preferred namespace prefix, you can manually add a namespace prefix
+- `workflow io` command
+    - new flag `--autoconfig` / `--no-autoconfig` for input dataset auto configuration
 
 In addition to that, these changes and fixes are shipped:
 
