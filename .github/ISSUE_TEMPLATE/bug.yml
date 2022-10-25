@@ -1,0 +1,27 @@
+---
+name: Bug Report
+description: Report a bug
+body:
+  - type: checkboxes
+    attributes:
+      label: Contribution guidelines
+      description: Please read the contribution guidelines before proceeding.
+      options:
+        - label: I've read the [contribution guidelines](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md) and wholeheartedly agree.
+          required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: >
+        Please provide a brief description of the bug in 1-2 sentences.
+        Please also paste a link or a screenshot of the page.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behaviour
+      description: |
+        A clear and concise description of what you expected on that page.
+    validations:
+      required: true
+
