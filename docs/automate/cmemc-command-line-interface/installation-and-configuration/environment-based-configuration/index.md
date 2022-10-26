@@ -36,7 +36,7 @@ $ export OAUTH_CLIENT_SECRET=...
 
 !!! info
 
-    When you combine file based and environment based configuration, the config file always overwrite the environment.
+    When you combine file based and environment based configuration, the config file always overwrites the environment.
 
 ## Environment variables for parameter or options
 
