@@ -16,7 +16,7 @@ cmemc looks for a default configuration file on a reasonable place depending on 
 - For Linux, this is `$HOME/.config/cmemc/config.ini`.
 - For Windows, this is `%APPDATA%\cmemc\config.ini`.
 
-If you need to change this location and want use another config file, you have the following options:
+If you need to change this location and want to use another config file, you have the following options:
 
 - you can always run cmemc with the `--config-file path/to/your/config.ini` option, or
 - you can set a new config file with the environment variable `CMEMC_CONFIG_FILE`, or
