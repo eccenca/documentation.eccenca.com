@@ -13,8 +13,11 @@ This page documents how to configure cmemc via configuration files.
 
 cmemc looks for a default configuration file on a reasonable place depending on your operating system:
 
-- For Linux, this is `$HOME/.config/cmemc/config.ini` (actually it is `$XDG_CONFIG_HOME/cmemc/config.ini`, see also [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)).
+- For Linux, this is `$HOME/.config/cmemc/config.ini`[^1].
 - For Windows, this is `%APPDATA%\cmemc\config.ini`.
+- For MacOS, this is `$HOME/Library/Application Support/cmemc/config.ini`.
+
+[^1]: Actually it is `$XDG_CONFIG_HOME/cmemc/config.ini`, see also the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 
 If you need to change this location and want use another config file, you have the following options:
 
