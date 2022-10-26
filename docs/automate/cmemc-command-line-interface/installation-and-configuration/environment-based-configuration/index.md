@@ -61,7 +61,7 @@ $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
 ... more JSON output ...
 ```
 
-As a next step, we exchange all connection parameter with environment variables:
+As a next step, we exchange all connection parameters with environment variables:
 
 ``` shell-session
 $ export CMEMC_CONFIG_FILE=cmemc.ini
@@ -128,4 +128,3 @@ Please note that the following command has the same effect but needs the cmemc.i
 ``` shell-session
 $ export CMEMC_CONNECTION="my-cmem.example.org"
 ```
-
