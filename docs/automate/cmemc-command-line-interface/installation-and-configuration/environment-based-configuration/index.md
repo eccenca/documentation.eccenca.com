@@ -11,7 +11,7 @@ tags:
 
 In addition to using configuration files, cmemc can be widely configured and parameterised with environment variables.
 
-Typical use cases why you should want this includes:
+Typical use cases why you could want this include:
 
 - set a default connection (see below),
 - enable session wide debugging output,
