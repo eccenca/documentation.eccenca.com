@@ -74,7 +74,7 @@ However, once you start cmemc the first time and without any command or option, 
     ```
 
 You can now edit your config file and add credentials and URL parameter for your Corporate Memory deployment.
-You either search the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified with the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
+You either search the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
 
 ``` shell-session
 $ cmemc config edit
