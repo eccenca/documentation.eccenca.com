@@ -81,7 +81,7 @@ But you also can pre-define command options in the same way:
 $ export CMEMC_GRAPH_LIST_RAW=true
 ```
 
-Again, the same command but --raw is set default.
+Again, the same command but `--raw` is set per default.
 
 ``` shell-session
 $ cmemc graph list
@@ -116,14 +116,14 @@ export REQUESTS_CA_BUNDLE=".../certifi/cacert.pem"
 export SSL_VERIFY="True"
 ```
 
-This can be used to export a full config.env or to eval it in an environment for other processes:
+This can be used to export a full `config.env` or to `eval` it in an environment for other processes:
 
 ``` shell-session
 $ cmemc -c my-cmem.example.org config eval > config.env
 $ eval $(cmemc -c my-cmem.example.org config eval)
 ```
 
-Please note that the following command has the same effect but needs the cmemc.ini for evaluating the config values for the config section my-cmem.example.org:
+Please note that the following command has the same effect but needs the `cmemc.ini` for evaluating the `config` values for the config section `my-cmem.example.org`:
 
 ``` shell-session
 $ export CMEMC_CONNECTION="my-cmem.example.org"
