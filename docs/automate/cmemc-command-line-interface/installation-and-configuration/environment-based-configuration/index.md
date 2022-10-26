@@ -38,7 +38,7 @@ $ export OAUTH_CLIENT_SECRET=...
 
     When you combine file based and environment based configuration, the config file always overwrite the environment.
 
-## Environment variables for parameter or options
+## Environment variables for parameters or options
 
 The general pattern for parameter and option settings via environment variables is:
 
