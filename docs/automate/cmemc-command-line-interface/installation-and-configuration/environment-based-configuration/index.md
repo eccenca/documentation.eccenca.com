@@ -23,9 +23,9 @@ There are two major categories of exploitable environment variables.
 
 ## Environment variables for configuration
 
-For these variables the rules are simple: You can use any variable from the config file in the same way also as an environment variable.
+For these variables the rules are simple: You can use any variable from the [config file](../file-based-configuration/index.md) in the same way also as an environment variable.
 
-The following commands provide the same result as given in the [basic example here](../file-based-configuration/index.md):
+The following commands provide the same result as given in the [basic example for a config file](../file-based-configuration/index.md):
 
 ``` shell-session
 $ export CMEM_BASE_URI=http://localhost/
