@@ -16,7 +16,7 @@ cmemc looks for a default configuration file on a reasonable place depending on 
 - For Linux, this is `$HOME/.config/cmemc/config.ini`.
 - For Windows, this is `%APPDATA%\cmemc\config.ini`.
 
-If you need to change this location and want use another config file, you have the following options:
+If you need to change this location and want to use another config file, you have the following options:
 
 - you can always run cmemc with the `--config-file path/to/your/config.ini` option, or
 - you can set a new config file with the environment variable `CMEMC_CONFIG_FILE`, or
@@ -74,7 +74,7 @@ However, once you start cmemc the first time and without any command or option, 
     ```
 
 You can now edit your config file and add credentials and URL parameter for your Corporate Memory deployment.
-You either search the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified with the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
+You either search the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
 
 ``` shell-session
 $ cmemc config edit

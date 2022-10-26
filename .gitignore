@@ -1,4 +1,6 @@
 site
 .cache
-.obsidian/workspace
 node_modules
+.obsidian/workspace
+.obsidian/workspace.json
+

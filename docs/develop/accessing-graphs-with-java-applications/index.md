@@ -4,7 +4,6 @@ tags:
 hide:
     - toc
 ---
-
 # Accessing Graphs with Java Applications
 
 ## Introduction
@@ -24,7 +23,7 @@ The process is very simple:
 
 The following code provides a simple implementation of the process:
 
-``` java title="JavaCMEMHTTPClient.java
+```java title="JavaCMEMHTTPClient.java"
 package com.eccenca.cmem.client;
 
 import java.io.IOException;

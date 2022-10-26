@@ -9,11 +9,11 @@ The following is a set of guidelines for contributing to the eccenca Corporate M
 ### Report Bugs
 
 If you found a bug and its easy to fix, you can just click the edit button and fix it yourself sending a pull request 🤓.
-However, you can also [file a bug](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=bug&template=bug_report.md&title=) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
+However, you can also [file a bug](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=bug&template=bug.yml&title=%5BBug%5D%3A+) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
 
 ### Suggest Enhancements
 
-You always can [suggest enhancements](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=enhancement&template=documentation-request.md&title=) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
+You always can [suggest enhancements](https://github.com/eccenca/documentation.eccenca.com/issues/new?assignees=&labels=enhancement&template=request.yml&title=%5BRequest%5D%3A+) in the [issue tracker](https://github.com/eccenca/documentation.eccenca.com/issues) of this project.
 
 ### Send Pull Requests
 
@@ -61,7 +61,7 @@ Changes are served live on localhost.
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
 - add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
 - put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
-- do not use images for icons esp. icons from the application - use theme icons instead, e.g. `:material-play:` -> [icon list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon)
+- do not use images for icons esp. icons from the application - use theme icons instead, e.g. `:material-play:` -> [icon list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
 - name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
 - used advanced features where suitable
   - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed)

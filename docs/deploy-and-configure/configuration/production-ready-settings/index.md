@@ -34,13 +34,12 @@ Once this is done, make sure Dataplatform and Dataintegration uses `HTTPS` to 
 
 ## Dataplatform CORS settings
 
-Corporate Memorys Dataplatform uses `http.cors.allowedOrigins *` as default setting. It is recommended to correctly set the values for the following headers:
+Corporate Memors Dataplatform uses `http.cors.allowedOrigins *` as default setting. It is recommended to correctly set the values for the following headers:
 
 - `Access-Control-Allow-Origin`:  specifies which domains can access a site's resources. For example, if ABC Corp. has domains `ABC.com` and `XYZ.com`, then its developers can use this header to securely grant `XYZ.com` access to ABC.com's resources.
 - `Access-Control-Allow-Methods`: specifies which HTTP request methods (GET, PUT, DELETE, etc.) can be used to access resources. This header lets developers further enhance security by specifying what methods are valid when XYZ accesses ABC's resources.
 
-Detailed configuration options can be found [here](./../dataplatform/index.md)
-<!-- add link cross-origin-resource-sharing-corsCross-originresourcesharing(CORS) -->
+Detailed configuration options can be found [here](./../dataplatform/index.md).
 
 This is an example section in dataplatforms application.yml
 
@@ -60,4 +59,24 @@ http:
       - "PUT"
       - "DELETE"
       - "PATCH"
+```
+
+## DataIntegration CORS settings
+
+DataIntegration uses `cors.config.allowOrigins *` as default setting. 
+It is recommended to correctly set the value for the `Access-Control-Allow-Origin` header.
+It specifies which domains can access a site's resources.
+For example, if ABC Corp. has the domains `ABC.com` and `XYZ.com`, then you can use this header to securely grant `XYZ.com` access to `ABC.com`'s resources.
+Detailed configuration options can be found [here](./../dataintegration/index.md).
+
+This is an example section in DataIntegration's `dataintegration.conf`:
+
+```
+## Cross-Origin Resource Sharing (CORS) settings
+# CORS configuration ###
+cors.enabled = true
+# List of domains that are allowed to do requests. Wildcard '*' means "All domains".
+cors.config.allowOrigins = "*"
+# Support cookies, auth etc. for the configured domain under allowOrigins. If set to true, allowOrigins must not have '*' configured.
+cors.config.allowCredentials = false
 ```

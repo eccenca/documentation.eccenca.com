@@ -11,7 +11,7 @@ tags:
 
 In addition to using configuration files, cmemc can be widely configured and parameterised with environment variables.
 
-Typical use cases why you should want this includes:
+Typical use cases why you could want this include:
 
 - set a default connection (see below),
 - enable session wide debugging output,
@@ -19,13 +19,13 @@ Typical use cases why you should want this includes:
 - avoid having client and user credentials laying around in a file,
 - ...
 
-There are two major categories of exploitable environment variables.
+There are two major categories of environment variables you can use.
 
 ## Environment variables for configuration
 
-For these variables the rules are simple: You can use any variable from the config file in the same way also as an environment variable.
+For these variables the rules are simple: You can use any variable from the [config file](../file-based-configuration/index.md) in the same way also as an environment variable.
 
-The following commands provide the same result as given in the [basic example here](../file-based-configuration/index.md):
+The following commands provide the same result as given in the [basic example for a config file](../file-based-configuration/index.md):
 
 ``` shell-session
 $ export CMEM_BASE_URI=http://localhost/
@@ -36,9 +36,9 @@ $ export OAUTH_CLIENT_SECRET=...
 
 !!! info
 
-    When you combine file based and environment based configuration, the config file always overwrite the environment.
+    When you combine file based and environment based configuration, the config file always overwrites the environment.
 
-## Environment variables for parameter or options
+## Environment variables for parameters or options
 
 The general pattern for parameter and option settings via environment variables is:
 
@@ -61,7 +61,7 @@ $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
 ... more JSON output ...
 ```
 
-As a next step, we exchange all connection parameter with environment variables:
+As a next step, we exchange all connection parameters with environment variables:
 
 ``` shell-session
 $ export CMEMC_CONFIG_FILE=cmemc.ini
@@ -81,7 +81,7 @@ But you also can pre-define command options in the same way:
 $ export CMEMC_GRAPH_LIST_RAW=true
 ```
 
-Again, the same command but --raw is set default.
+Again, the same command but `--raw` is set per default.
 
 ``` shell-session
 $ cmemc graph list
@@ -116,16 +116,15 @@ export REQUESTS_CA_BUNDLE=".../certifi/cacert.pem"
 export SSL_VERIFY="True"
 ```
 
-This can be used to export a full config.env or to eval it in an environment for other processes:
+This can be used to export a full `config.env` or to `eval` it in an environment for other processes:
 
 ``` shell-session
 $ cmemc -c my-cmem.example.org config eval > config.env
 $ eval $(cmemc -c my-cmem.example.org config eval)
 ```
 
-Please note that the following command has the same effect but needs the cmemc.ini for evaluating the config values for the config section my-cmem.example.org:
+Please note that the following command has the same effect but needs the `cmemc.ini` for evaluating the `config` values for the config section `my-cmem.example.org`:
 
 ``` shell-session
 $ export CMEMC_CONNECTION="my-cmem.example.org"
 ```
-
