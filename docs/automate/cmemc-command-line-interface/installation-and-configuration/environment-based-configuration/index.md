@@ -19,7 +19,7 @@ Typical use cases why you should want this includes:
 - avoid having client and user credentials laying around in a file,
 - ...
 
-There are two major categories of exploitable environment variables.
+There are two major categories of environment variables you can use.
 
 ## Environment variables for configuration
 
