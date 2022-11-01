@@ -6,7 +6,7 @@ tags:
 
 ## Introduction
 
-Working with shapes allows for creation of a customized Linked Data user interface.In addition to the standard PROPERTIES tab that shows all properties of a data resource, you can create custom "form"-like data interfaces. These configurable forms allow for a cleaner interface to view and author data resources. In addition, they enable integration of data from other resources that are linked to the current resource, creating a more concise view on your data.
+Working with shapes allows for creation of a customized Linked Data user interface. In addition to the standard PROPERTIES tab that shows all properties of a data resource, you can create custom "form"-like data interfaces. These configurable forms allow for a cleaner interface to view and author data resources. In addition, they enable integration of data from other resources that are linked to the current resource, creating a more concise view on your data.
 
 ## Defining forms
 
@@ -22,13 +22,13 @@ Forms are defined in the CMEM Shapes Catalog graph. The graph URI is `https://v
 Form definitions are twofold:
 
 1.  The form itself is defined as so called `NodeShape`. NodeShapes define which types of resources the form applies to (the target class), and which fields are shown in the form (the Properties).
-2.  The individual fields are defined as so called `PropertyShape`. PropertyShapes define which property is used to retrieve data for the field (the Path), the name of the field, a description, its cardinality (min and max count), its position in the form (the Order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in [Building a customized User Interface](#propertyshapes).
+2.  The individual fields are defined as so called `PropertyShape`. PropertyShapes define which property is used to retrieve data for the field (the path), the name of the field, a description, its cardinality (min and max count), its position in the form (the order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in [section PropertyShapes](#propertyshapes).
 
 To define a new form, for example for `foaf:Person` resources, navigate to the CMEM Shapes Catalog graph and select `NodeShape` in Navigation. The list of existing NodeShapes is shown. Click "Create a new SHACL Node shape" in the upper right to create a new NodeShape. Enter a name of the resource. An empty NodeShape resource is created and shown.
 
 [![](./createNodeShape.png)](./createNodeShape.png)
 
-To create the initial definition, click ![](./ic_mode_edit_black_18dp_1x.png){ .off-glb } (Edit). A form is shown to you with input fields Name, Property Shapes, Vocabulary, Target class and Stateent Annotation. The initial definition requires the name, and the target class. Fields themselves are attached to the form later. Target class in particular binds the form to the resources it should cover. The Target class field features an auto-complete that displays all classes stored in Corporate Memory. The example form should cover resources of type `foaf:Person` resources, so enter `foaf:Person` in the Target class field. Click SAVE to save the NodeShape.
+To create the initial definition, click ![](./ic_mode_edit_black_18dp_1x.png){ .off-glb } (Edit). A form is shown to you with input fields Name, Property Shapes, Vocabulary, Target class and Statement Annotation. The initial definition requires the name, and the target class. Fields are attached to the form later. Target class in particular binds the form to the resources it should cover. The Target class field features an auto-complete that displays all classes stored in Corporate Memory. The example form should cover resources of the type `foaf:Person`, so enter `foaf:Person` in the Target class field. Click SAVE to save the NodeShape.
 
 [![](./EditNodeShape.png)](./EditNodeShape.png)
 
