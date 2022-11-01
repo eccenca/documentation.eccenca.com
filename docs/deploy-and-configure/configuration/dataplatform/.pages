@@ -1,0 +1,19 @@
+nav:
+    - DataPlatform: index.md
+    - DP General Overview: application-overview.md
+    - DP General Details: application-full.md
+    - DP OAuth Overview: application-oauth-overview.md
+    - DP OAuth Details: application-oauth-full.md
+    - Store GraphBD Overview: application-graphdb-overview.md
+    - Store GraphDB Details: application-graphdb-full.md
+    - Store HTTP Overview: application-http-overview.md
+    - Store HTTP Details: application-http-full.md
+    - Store In-Memory Overview: application-inmemory-overview.md
+    - Store In-Memory Details: application-inmemory-full.md
+    - Store Neptune Overview: application-neptune-overview.md
+    - Store Neptune Details: application-neptune-full.md
+    - Store Stardog Overview: application-stardog-overview.md
+    - Store Stardog Details: application-stardog-full.md
+    - Store Virtuoso Overview: application-virtuoso-overview.md
+    - Store Virtuoso Details: application-virtuoso-full.md
+
