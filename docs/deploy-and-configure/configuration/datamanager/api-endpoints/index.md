@@ -15,7 +15,9 @@ DataManager provides the option to define which endpoints should be used for SPA
 
 Use this property to define the default endpoint for all SPARQL requests.
 
-Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+!!! info
+
+    When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -23,7 +25,9 @@ Note: When a relative path is set the base url will be added automatically. The 
 
 Use this property to define the default endpoint for all SPARQL Update requests.
 
-Note: When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+!!! info
+
+    When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

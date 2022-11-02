@@ -42,7 +42,9 @@ languages:
 - de
 ```
 
-Note: The order how labels in different languages are displayed is determined by the rank of `properties` combined with all given `languages` , default language english (if not already set) and the path property without any language tag.
+!!! info
+
+    The order how labels in different languages are displayed is determined by the rank of `properties` combined with all given `languages` , default language english (if not already set) and the path property without any language tag.
 
 In this example ordering is set as following:
 

@@ -76,7 +76,9 @@ The Explore module of DataManager is used for graph data exploration.
 
 Use this property to enable the Explore module of DataManager.
 
-Note: If this property is set to `false` , all other settings of `modules.explore` are skipped.
+!!! info
+
+    If this property is set to `false` , all other settings of `modules.explore` are skipped.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -84,7 +86,9 @@ Note: If this property is set to `false` , all other settings of `modules.exp
 
 Use this property to load the Explore module as default one after login.
 
-Note: If more than one module has defined `startWith: true` the most left module in Module bar will be set as default.
+!!! info
+
+    If more than one module has defined `startWith: true` the top most module in the navigation bar will be set as default.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -92,7 +96,7 @@ Note: If more than one module has defined `startWith: true` the most left modu
 
 Use this property to define a custom query for the search field provided in the Module bar.
 
-``` yaml
+```yaml
 # default query
 js.config.modules.explore.overallSearchQuery: |
   SELECT DISTINCT ?resource ?_resource
@@ -105,7 +109,9 @@ js.config.modules.explore.overallSearchQuery: |
     }
 ```
 
-Note: The placeholder `{{QUERY}}` is replaced with the search string entered by the user. A placeholder `{{FROM}}` can be used to insert the currently selected graph URI.
+!!! info
+
+    The placeholder `{{QUERY}}` is replaced with the search string entered by the user. A placeholder `{{FROM}}` can be used to insert the currently selected graph URI.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -113,7 +119,9 @@ Note: The placeholder `{{QUERY}}` is replaced with the search string entered b
 
 Extension of the tiles as provided by OpenMapTiles Map Server
 
-Note: It works together with `js.config.modules.explore.mapServer.ext`, and only if it is set.
+!!! info
+
+    It works together with `js.config.modules.explore.mapServer.ext`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -121,11 +129,13 @@ Note: It works together with `js.config.modules.explore.mapServer.ext`, and onl
 
 The service url as provided by OpenMapTiles Map Server. If not defined, the wikimedia server is used.
 
-Note: It works together with `js.config.modules.explore.mapServer.url`, and only if it is set.
+!!! info
+
+    It works together with `js.config.modules.explore.mapServer.url`, and only if it is set.
 
 This is how `mapServer.ext` and `mapServer.url` are used in your configuration:
 
-``` yaml
+```yaml
 js.config.modules.explore:
   mapServer:
     url: 'https://osm.your-host.com/styles/osm-bright'
@@ -138,7 +148,9 @@ js.config.modules.explore:
 
 Use this property to define a graph URI the user is allowed to work on.
 
-Note: If the property is set the Graph box is hidden.
+!!! info
+
+    If the property is set the Graph box is hidden.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -158,7 +170,9 @@ Use this property to specify a list of graphs the user can see.
 
 Use this property to setup a default class.
 
-Note: It works together with `defaultGraph`, and only if it is set.
+!!! info
+
+    It works together with `defaultGraph`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -166,7 +180,7 @@ Note: It works together with `defaultGraph`, and only if it is set.
 
 Use this property to specify a custom query that defines which top level classes of a graph are displayed.
 
-``` yaml
+```yaml
 # default query
 js.config.modules.explore.navigation.topQuery: |
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -197,7 +211,9 @@ js.config.modules.explore.navigation.topQuery: |
   }
 ```
 
-Note: A placeholder `{{FROM}}` can be used to insert the currently selected graph URI. The `{{FROM}} `placeholder will be resolved to `FROM <graphUri>`.
+!!! info
+
+    A placeholder `{{FROM}}` can be used to insert the currently selected graph URI. The `{{FROM}} `placeholder will be resolved to `FROM <graphUri>`.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -205,7 +221,7 @@ Note: A placeholder `{{FROM}}` can be used to insert the currently selected gr
 
 Use this property to specify a custom query that defines which subclasses of top level classes of a graph are displayed.
 
-``` yaml
+```yaml
 # default query
 js.config.modules.explore.navigation.subQuery: |
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -224,7 +240,9 @@ js.config.modules.explore.navigation.subQuery: |
 
 ```
 
-Note: The placeholder `{{RESOURCE}}` is replaced with the selected parent class. A placeholder `{{FROM}}` can be used to insert the currently selected graph URI. The `{{FROM}}` placeholder will be resolved to `FROM <graphUri>`.
+!!! info
+
+    The placeholder `{{RESOURCE}}` is replaced with the selected parent class. A placeholder `{{FROM}}` can be used to insert the currently selected graph URI. The `{{FROM}}` placeholder will be resolved to `FROM <graphUri>`.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -232,7 +250,7 @@ Note: The placeholder `{{RESOURCE}}` is replaced with the selected parent clas
 
 Use this property to specify a custom query that defines which classes of a graph are displayed when the user uses the Search field in the Navigation box.
 
-``` yaml
+```yaml
 # default query
 js.config.modules.explore.navigation.searchQuery: |
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -266,7 +284,9 @@ js.config.modules.explore.navigation.searchQuery: |
   }
 ```
 
-Note: The placeholder {{QUERY}} is replaced with the search string. A placeholder `{{GRAPH}}` can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
+!!! info
+
+    The placeholder {{QUERY}} is replaced with the search string. A placeholder `{{GRAPH}}` can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -274,7 +294,7 @@ Note: The placeholder {{QUERY}} is replaced with the search string. A placeholde
 
 Use this property to specify a custom query that defines which resources are displayed that are type of a selected class of a graph.
 
-``` yaml
+```yaml
 # default query
 js.config.modules.explore.navigation.listQuery: |
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -292,7 +312,9 @@ js.config.modules.explore.navigation.listQuery: |
   }
 ```
 
-Note: The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. A placeholder `{{GRAPH}} `can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
+!!! info
+
+    The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. A placeholder `{{GRAPH}} `can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -464,7 +486,7 @@ The externTools section can be used to configure one or more external tools whic
 
 Use this property to enable or disable one specific external tool configuration.
 
-``` yaml
+```yaml
 js.config.modules.explore.externalTools.toolX.enable: true
 ```
 
@@ -484,16 +506,18 @@ The `externTools` section can be used to configure one or more external tools 
 
 Use this property to specify the URL which will be loaded in the iFrame inside of the new application tab.
 
-``` yaml
+```yaml
 js.config.modules.explore.externalTools.toolX.iframeUrlTemplate:
     "http://example.org/app/{{RESOURCE}}"
 ```
 
-Note: The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. The placeholder `{{RESOURCELABEL}}` is replaced with the titleHelper generated label of the resource.
+!!! info
+
+    The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. The placeholder `{{RESOURCELABEL}}` is replaced with the titleHelper generated label of the resource.
 
 ## Configuration example
 
-``` yaml
+```yaml
 js.config.modules.explore:
   enable: true
   startWith: true

@@ -15,7 +15,9 @@ The Vocabs module of DataManager is used to manage available vocabularies.
 
 Set this property to true to enable the Vocabs module of DataManager.
 
-Note: If this property is set to `false`, all other settings of `modules.vocabulary` are skipped. To use the module you also need to have read access to the graph specified in `js.config.modules.vocabulary.graphUrl` as well as the access control action `urn:eccenca:VocabularyUserInterface` .
+!!! info
+
+    If this property is set to `false`, all other settings of `modules.vocabulary` are skipped. To use the module you also need to have read access to the graph specified in `js.config.modules.vocabulary.graphUrl` as well as the access control action `urn:eccenca:VocabularyUserInterface` .
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -23,7 +25,9 @@ Note: If this property is set to `false`, all other settings of `modules.vocab
 
 Set this property to true to load this module as default one after login.
 
-Note: If more than one module has defined `startWith: true` the most left module in Module bar will be set as default.
+!!! info
+
+    If more than one module has defined `startWith: true` the top most module in the navigation bar will be set as default.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

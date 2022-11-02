@@ -16,7 +16,9 @@ The Query module of DataManager is used to query rdf data directly from store.
 
 Set this property to `true` to enable the Query module of DataManager.
 
-Note: If this property is set to `false`, all other settings of modules.query are skipped. To use the module you also need to have read access to the graphs specified in `js.config.modules.vocabulary.graph` and `js.config.shacl.shapesGraph` as well as the access control action `urn:eccenca:QueryUserInterface` .
+!!! info
+
+    If this property is set to `false`, all other settings of modules.query are skipped. To use the module you also need to have read access to the graphs specified in `js.config.modules.vocabulary.graph` and `js.config.shacl.shapesGraph` as well as the access control action `urn:eccenca:QueryUserInterface` .
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -30,7 +32,9 @@ Use this property to define the target graph for read and write operations.
 
 Set this property to true to load this module as default one after login.
 
-Note: If more than one module has defined `startWith: true` the most left module in Module bar will be set as default.
+!!! info
+
+    If more than one module has defined `startWith: true` the top most module in the navigation bar will be set as default.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

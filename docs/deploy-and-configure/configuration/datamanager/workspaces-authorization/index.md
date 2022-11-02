@@ -24,7 +24,9 @@ Use this property to define the OAuth2 workflow. Depending on what value you cho
 -   `implicit` : `authorizeURL` and `clientId`
 -   `authorization_code` : `authorizeUrl` , `clientId` , `tokenUrl` , and as optional property `clientSecret`
 
-Note: It is recommended to use the implicit workflow, as DataManager is a client application.
+!!! info
+
+    It is recommended to use the implicit workflow, as DataManager is a client application.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -44,7 +46,9 @@ Use this property to define the client identifier issued by the OAuth2 authoriza
 
 Use this property to define the authorization token endpoint URL of the OAuth2 authorization server.
 
-Note: This property is only needed for `js.config.workspaces[id].authorization.oauth2.grantType=authorization_code`.
+!!! info
+
+    This property is only needed for `js.config.workspaces[id].authorization.oauth2.grantType=authorization_code`.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

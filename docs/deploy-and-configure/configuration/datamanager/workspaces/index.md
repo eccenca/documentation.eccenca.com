@@ -31,7 +31,9 @@ Use this property to define a descriptive name for the workspace that the user s
 
 Use this property to define the type of authorization.
 
-Note: Currently, possible values are anonymous and oauth2 . If oauth2 is selected, you need to configure more options as described in section *Authorization*.
+!!! info
+
+    Currently, possible values are anonymous and oauth2 . If oauth2 is selected, you need to configure more options as described in section *Authorization*.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -45,7 +47,9 @@ Use this property to define a page other than the DataManager page that a user i
 
 Use this property to define the type of the data backend.
 
-Note: Currently, the only possible value is `dataplatform`.
+!!! info
+
+    Currently, the only possible value is `dataplatform`.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -53,7 +57,9 @@ Note: Currently, the only possible value is `dataplatform`.
 
 Use this property to define the base URL of the data backend.
 
-Note: For `js.config.workspaces[id].backend.type: dataplatform` the base URL must not contain "`/`" at the end.
+!!! info
+
+    For `js.config.workspaces[id].backend.type: dataplatform` the base URL must not contain "`/`" at the end.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

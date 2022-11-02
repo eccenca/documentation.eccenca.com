@@ -15,7 +15,9 @@ The Admin module of DataManager is used to manage user access rights.
 
 Set this property to true to enable the Admin module of DataManager.
 
-Note: If this property is set to `false`, all other settings of `modules.administration` are skipped.
+!!! info
+
+    If this property is set to `false`, all other settings of `modules.administration` are skipped.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

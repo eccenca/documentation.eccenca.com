@@ -13,7 +13,9 @@ The Task module of DataManager is used to offer direct user action interfaces to
 
 Set this property to `true` to enable the Task module of DataManager.
 
-Note: If this property is set to `false`, all other settings of `modules.task` are skipped.
+!!! info
+
+    If this property is set to `false`, all other settings of `modules.task` are skipped.
 
 ## Configuration example
 
