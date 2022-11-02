@@ -1,12 +1,12 @@
 
-# Configuration for connecting to Stardog backend
+## Configuration for connecting to Stardog backend
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote stardog store (<https://remote:5820>). All SPARQL updates have a
+This example configures a connection with HTTPS to a remote stardog store (https://remote:5820). All SPARQL updates have a 
 timout of 5 minutes configured.
 
-  ```yaml
+```yaml
 store:
   type: stardog
   owlImportsResolution: true
@@ -19,9 +19,10 @@ store:
     username: "admin"
     password: "admin"
     updateTimeoutInMilliseconds: 300000
-  ```
+```
 
-#### *Property: store.type*
+
+***Property: store.type***
 
 The type of the store must be set to "stardog"
 
@@ -34,7 +35,7 @@ The type of the store must be set to "stardog"
 
 Specific settings for Stardog
 
-#### *Property: store.stardog.host*
+***Property: store.stardog.host***
 
 The host of the Stardog database
 
@@ -45,7 +46,7 @@ The host of the Stardog database
 | Valid values | string |
 | Environment | STORE_STARDOG_HOST |
 
-#### *Property: store.stardog.port*
+***Property: store.stardog.port***
 
 The port of the Stardog database
 
@@ -56,7 +57,7 @@ The port of the Stardog database
 | Valid values | integer |
 | Environment | STORE_STARDOG_PORT |
 
-#### *Property: store.stardog.ssl-enabled*
+***Property: store.stardog.ssl-enabled***
 
 Whether SSL is enabled or not (http vs. https)
 
@@ -67,7 +68,7 @@ Whether SSL is enabled or not (http vs. https)
 | Valid values | boolean |
 | Environment | STORE_STARDOG_SSL_ENABLED |
 
-#### *Property: store.stardog.repository*
+***Property: store.stardog.repository***
 
 The name of the repository to connect to
 
@@ -80,7 +81,7 @@ The name of the repository to connect to
 
 The user name to connect with
 
-#### *Property: store.stardog.password*
+***Property: store.stardog.password***
 
 The credentials of the given user
 
@@ -91,7 +92,7 @@ The credentials of the given user
 | Valid values | string |
 | Environment | STORE_STARDOG_PASSWORD |
 
-#### *Property: store.stardog.updateTimeoutInMilliseconds*
+***Property: store.stardog.updateTimeoutInMilliseconds***
 
 Use this property to set the upper bound for update operation execution time. If an update request consists of multiple update operations, the timeout applies to each update operation individually. To support this, the Stardog server must be properly configured.
 
@@ -101,3 +102,4 @@ Use this property to set the upper bound for update operation execution time. If
 | Required | false |
 | Valid values | string |
 | Environment | STORE_STARDOG_UPDATETIMEOUTINMILLISECONDS |
+

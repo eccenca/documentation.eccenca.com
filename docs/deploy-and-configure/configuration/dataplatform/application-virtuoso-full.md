@@ -1,11 +1,11 @@
 
-# Configuration for connecting to Virtuoso backend
+## Configuration for connecting to Virtuoso backend
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote Virtuoso store (<https://remote:8080>).
+This example configures a connection with HTTPS to a remote Virtuoso store (https://remote:8080). 
 
-  ```yaml
+```yaml
 store:
   type: virtuoso
   authorization: REWRITE_FROM
@@ -16,10 +16,10 @@ store:
     username: "admin"
     password: "admin"
     databasePort: 1111
+```
 
-  ```
 
-#### *Property: store.type*
+***Property: store.type***
 
 The type of the store must be set to "virtuoso"
 
@@ -32,7 +32,7 @@ The type of the store must be set to "virtuoso"
 
 Specific settings for Virtuoso
 
-#### *Property: store.virtuoso.host*
+***Property: store.virtuoso.host***
 
 The host of the Virtuoso server
 
@@ -43,7 +43,7 @@ The host of the Virtuoso server
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_HOST |
 
-#### *Property: store.virtuoso.port*
+***Property: store.virtuoso.port***
 
 The HTTP port of the Virtuoso server
 
@@ -54,7 +54,7 @@ The HTTP port of the Virtuoso server
 | Valid values | integer |
 | Environment | STORE_VIRTUOSO_PORT |
 
-#### *Property: store.virtuoso.databasePort*
+***Property: store.virtuoso.databasePort***
 
 The database port of the Virtuoso server for direct access to the JDBC database
 
@@ -65,7 +65,7 @@ The database port of the Virtuoso server for direct access to the JDBC database
 | Valid values | integer |
 | Environment | STORE_VIRTUOSO_DATABASEPORT |
 
-#### *Property: store.virtuoso.ssl-enabled*
+***Property: store.virtuoso.ssl-enabled***
 
 Whether SSL is enabled or not (http vs. https)
 
@@ -76,7 +76,7 @@ Whether SSL is enabled or not (http vs. https)
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_SSL_ENABLED |
 
-#### *Property: store.virtuoso.username*
+***Property: store.virtuoso.username***
 
 The user name to connect with
 
@@ -87,7 +87,7 @@ The user name to connect with
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_USERNAME |
 
-#### *Property: store.virtuoso.password*
+***Property: store.virtuoso.password***
 
 The credentials of the given user
 
@@ -97,3 +97,4 @@ The credentials of the given user
 | Required | false |
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_PASSWORD |
+

@@ -1,7 +1,7 @@
 
 ## License
 
-By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license.
+By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license. 
 To change the default configuration, you have several options. If the properties under license are not provided the default license included (PEDAL) is used.
 
 In case a dedicated license file is used, different configuration options can overwrite each other. The license is read in the following sequence:
@@ -11,9 +11,11 @@ In case a dedicated license file is used, different configuration options can ov
 3. license.asc file in the same folder, where the application is started from (in Standalone Mode)
 4. Fallback to eccenca free Personal, Evaluation and Development License Agreement (PEDAL)
 
-##### *Property: license.key*
+
+***Property: license.key***
 
 Use this property to specify the license key as a YAML multiline string value of the license.key property.
+
 
 ```yaml
 key: |
@@ -23,6 +25,7 @@ key: |
     -----END PGP MESSAGE-----
 ```
 
+
 | Category | Value |
 |--- | ---: |
 | Default | *none* |
@@ -31,7 +34,7 @@ key: |
   | Conflicts with | license.file |
 | Environment | LICENSE_KEY |
 
-##### *Property: license.file*
+***Property: license.file***
 
 Use this property to specify the location of the license file
 
@@ -43,19 +46,21 @@ Use this property to specify the location of the license file
   | Conflicts with | license.key |
 | Environment | LICENSE_FILE |
 
-## General platform settings for Dataplatform
+## General platform settings for DataPlatform
 
 This section provides general configuration settings.
+
 
 ### Caching
 
 DataPlatform provides caching support which is enabled by default with an in-memory Caffeine cache.
 
-##### *Property: spring.cache.type*
+***Property: spring.cache.type***
 
 Use this property to define the type of cache to use. The default type (CAFFEINE) provides an in-memory cache suitable for simple standalone installations or test deployments.
 
 To disable caching, set the type to NONE (not recommended).
+
 
 | Category | Value |
 |--- | ---: |
@@ -79,7 +84,8 @@ spring:
     port: 6379
 ```
 
-##### *Property: spring.cache.redis.host*
+
+***Property: spring.cache.redis.host***
 
 Use this property to set the hostname where the Redis cache is available.
 
@@ -90,7 +96,7 @@ Use this property to set the hostname where the Redis cache is available.
 | Valid values | string |
 | Environment | SPRING_CACHE_REDIS_HOST |
 
-##### *Property: spring.cache.redis.port*
+***Property: spring.cache.redis.port***
 
 Use this property to set the TCP port where the Redis cache is available.
 
@@ -105,11 +111,13 @@ Multipart upload limits config
 You may need to set the following parameter values to 2048MB for implementations
 that cannot handle large requests
 
-##### *Property: spring.servlet.multipart.max-file-size*
+
+***Property: spring.servlet.multipart.max-file-size***
 
 Use this property to define the maximum size of an uploaded file in number of bytes. Values can use the suffixed "MB" or "KB" (e.g. '1024MB').
 
 **Note:** If DataPlatform is deployed in a Servlet container, make sure to also configure support for large file sizes.
+
 
 | Category | Value |
 |--- | ---: |
@@ -118,7 +126,7 @@ Use this property to define the maximum size of an uploaded file in number of by
 | Valid values | string |
 | Environment | SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE |
 
-##### *Property: spring.servlet.multipart.max-request-size*
+***Property: spring.servlet.multipart.max-request-size***
 
 Use this property to define the maximum size of HTTP request in number of bytes. Values can use the suffixed "MB" or "KB" (e.g. '1024MB').
 
@@ -131,7 +139,8 @@ Use this property to define the maximum size of HTTP request in number of bytes.
 
 Spring Cloud configuration
 
-##### *Property: spring.cloud.config.enabled*
+***Property: spring.cloud.config.enabled***
+
 
 | Category | Value |
 |--- | ---: |
@@ -142,16 +151,17 @@ Spring Cloud configuration
 
 Spring Sleuth Zipkin exporter configuration (tracing)
 
-##### *Property: spring.zipkin.base-url*
+***Property: spring.zipkin.base-url***
+
 
 | Category | Value |
 |--- | ---: |
-| Default | <http://localhost:9411/> |
+| Default | http://localhost:9411/ |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_ZIPKIN_BASE_URL |
 
-##### *Property: spring.zipkin.enabled*
+***Property: spring.zipkin.enabled***
 
 Whether the export to zipkin is enabled
 
@@ -162,9 +172,10 @@ Whether the export to zipkin is enabled
 | Valid values | string |
 | Environment | SPRING_ZIPKIN_ENABLED |
 
-The service name for DP under which the traces are stored
+The service name for DataPlatform under which the traces are stored
 
-##### *Property: spring.zipkin.service.name*
+***Property: spring.zipkin.service.name***
+
 
 | Category | Value |
 |--- | ---: |
@@ -173,9 +184,9 @@ The service name for DP under which the traces are stored
 | Valid values | string |
 | Environment | SPRING_ZIPKIN_SERVICE_NAME |
 
-Spring Cloud Sleuth distributed tracing. This generated IDs for queries/updates and all operations in DP. Write to tracing exporter s. spring.zipkin.
+Spring Cloud Sleuth distributed tracing. This generated IDs for queries/updates and all operations in DataPlatform. Write to tracing exporter s. spring.zipkin.
 
-##### *Property: spring.sleuth.enabled*
+***Property: spring.sleuth.enabled***
 
 Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism. Backend store "neptune" is not compatible with tracing enabled.
 
@@ -206,13 +217,15 @@ springdoc:
    enabled: true
 ```
 
-##### *Property: springdoc.api-docs.enabled*
+
+***Property: springdoc.api-docs.enabled***
 
 Use this property to enable and expose endpoint that provide the OpenAPI compliant specification of the DataPlatform APIs. The following endpoints will become available when this option is set to true:
 
--   <DATA_PLATFORM_URI>/v3/api-docs
--   <DATA_PLATFORM_URI>/v3/api-docs.yaml
--   <DATA_PLATFORM_URI>/v3/api-docs/swagger-config
+- <DATA_PLATFORM_URI>/v3/api-docs
+- <DATA_PLATFORM_URI>/v3/api-docs.yaml
+- <DATA_PLATFORM_URI>/v3/api-docs/swagger-config
+
 
 | Category | Value |
 |--- | ---: |
@@ -221,11 +234,12 @@ Use this property to enable and expose endpoint that provide the OpenAPI complia
 | Valid values | boolean |
 | Environment | SPRINGDOC_API_DOCS_ENABLED |
 
-##### *Property: springdoc.swagger-ui.enabled*
+***Property: springdoc.swagger-ui.enabled***
 
 Use this property to enable and expose a Swagger UI browser interface that can be used to explore and interact with the APIs. The following endpoints will become available when this option is set to true:
 
--   <DATA_PLATFORM_URI>/swagger-ui.html
+- <DATA_PLATFORM_URI>/swagger-ui.html
+
 
 | Category | Value |
 |--- | ---: |
@@ -248,9 +262,10 @@ http:
     - https://example.com
 ```
 
-##### *Property: http.cors.allowedOrigins*
 
-Use this property to define the list of allowed origins. The values must be either specific origins, e.g. <http://example.org>, or * for all origins.
+***Property: http.cors.allowedOrigins***
+
+Use this property to define the list of allowed origins. The values must be either specific origins, e.g. http://example.org, or * for all origins.
 
 | Category | Value |
 |--- | ---: |
@@ -259,7 +274,7 @@ Use this property to define the list of allowed origins. The values must be eith
 | Valid values | list of strings |
 | Environment | HTTP_CORS_ALLOWEDORIGINS |
 
-##### *Property: http.cors.allowedMethods*
+***Property: http.cors.allowedMethods***
 
 Use this property to define the list of allowed HTTP methods. The special value * allows all methods.
 
@@ -270,7 +285,7 @@ Use this property to define the list of allowed HTTP methods. The special value 
 | Valid values | list of strings (of OPTIONS, HEAD, GET, POST,  PUT, DELETE, PATCH) |
 | Environment | HTTP_CORS_ALLOWEDMETHODS |
 
-##### *Property: http.cors.allowedHeaders*
+***Property: http.cors.allowedHeaders***
 
 Use this property to define the list of allowed HTTP headers. The special value * may be used to allow all headers.
 
@@ -281,7 +296,7 @@ Use this property to define the list of allowed HTTP headers. The special value 
 | Valid values | list of strings |
 | Environment | HTTP_CORS_ALLOWEDHEADERS |
 
-##### *Property: http.cors.exposedHeaders*
+***Property: http.cors.exposedHeaders***
 
 Use this property to define the list of headers that an actual response might have and can be exposed.
 
@@ -292,7 +307,7 @@ Use this property to define the list of headers that an actual response might ha
 | Valid values | list of strings |
 | Environment | HTTP_CORS_EXPOSEDHEADERS |
 
-##### *Property: http.cors.allowCredentials*
+***Property: http.cors.allowCredentials***
 
 Use this property to define whether the browser should send credentials, such as cookies along with cross domain requests.
 
@@ -303,7 +318,7 @@ Use this property to define whether the browser should send credentials, such as
 | Valid values | boolean |
 | Environment | HTTP_CORS_ALLOWCREDENTIALS |
 
-##### *Property: http.cors.maxAge*
+***Property: http.cors.maxAge***
 
 Use this property to define how long in seconds the response from a pre-flight request can be cached by clients.
 
@@ -318,7 +333,8 @@ Use this property to define how long in seconds the response from a pre-flight r
 
 Java 11 HTTP client settings for HTTP access to the backend store.
 
-##### *Property: httpclient.connectionPoolSize*
+
+***Property: httpclient.connectionPoolSize***
 
 The maximum number of connections to keep in the HTTP/1.1 keep alive cache. A value of 0 means that the cache is unbounded
 
@@ -329,7 +345,7 @@ The maximum number of connections to keep in the HTTP/1.1 keep alive cache. A va
 | Valid values | string |
 | Environment | HTTPCLIENT_CONNECTIONPOOLSIZE |
 
-##### *Property: httpclient.keepalive.timeout*
+***Property: httpclient.keepalive.timeout***
 
 The number of seconds to keep idle HTTP/1.1 connections alive in the keep alive cache
 
@@ -344,7 +360,7 @@ The number of seconds to keep idle HTTP/1.1 connections alive in the keep alive 
 
 DataPlatform supports authorization of RDF named graphs and actions. Authorization for clients and/or users is specified by the access conditions model which is described in section Access conditions. You can configure root access for a specific group of users who are given unrestricted access regardless of the defined access conditions. Refer to section Root Access for more information.
 
-##### *Property: authorization.rootAccess*
+***Property: authorization.rootAccess***
 
 Use this property to enable or disable root access.
 DataPlatform allows root access for a specific administrator group (see property authorization.abox.adminGroup). You can toggle root access using the property authorization.rootAccess. Regardless of the access conditions declared in the access conditions model (see Access conditions), all members of the administrator group are permitted to read and write all graphs of all endpoints and are allowed to perform all actions.
@@ -358,6 +374,7 @@ authorization:
     adminGroup: admins
 ```
 
+
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -367,7 +384,7 @@ authorization:
 
 Use the following configuration options to specify values used by DataPlatform when working with RDF data, such as default URIs and prefixes.
 
-##### *Property: authorization.abox.adminGroup*
+***Property: authorization.abox.adminGroup***
 
 Use this property to configure the group that gets root access if enabled (see section Root access).
 
@@ -378,10 +395,11 @@ Use this property to configure the group that gets root access if enabled (see s
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ADMINGROUP |
 
-##### *Property: authorization.abox.publicGroup*
+***Property: authorization.abox.publicGroup***
 
 Use this property to configure the URI of the public user group (see section Public access).
 **Note:** If you change this property, you also need to change existing URI descriptions and existing access conditions.
+
 
 | Category | Value |
 |--- | ---: |
@@ -390,10 +408,11 @@ Use this property to configure the URI of the public user group (see section Pub
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_PUBLICGROUP |
 
-##### *Property: authorization.abox.anonymousUser*
+***Property: authorization.abox.anonymousUser***
 
 Use this property to configure the URI of the public user (see section Public access).
 **Note:** If you change this property, you also need to change existing URI descriptions and existing access conditions.
+
 
 | Category | Value |
 |--- | ---: |
@@ -402,14 +421,15 @@ Use this property to configure the URI of the public user (see section Public ac
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
 
-##### *Property: authorization.abox.prefix*
+***Property: authorization.abox.prefix***
 
 Use this property to set the namespace of URIs created by DataPlatform.
 **Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the URI template), as well as existing URI descriptions and existing access conditions.
 
+
 | Category | Value |
 |--- | ---: |
-| Default | <https://ns.eccenca.com/> |
+| Default | https://ns.eccenca.com/ |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_PREFIX |
@@ -428,9 +448,11 @@ An access condition consists of the following elements:
 
 For simplicity, the Turtle serialization syntax is used in the following examples, but you can define the access conditions model in any RDF serialization.
 
-##### *Property: authorization.abox.accessConditions.url*
+
+***Property: authorization.abox.accessConditions.url***
 
 Use this property to set the URL of the access conditions model file. This can be either a remote (http://...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+
 
 | Category | Value |
 |--- | ---: |
@@ -439,10 +461,11 @@ Use this property to set the URL of the access conditions model file. This can b
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ACCESSCONDITIONS_URL |
 
-##### *Property: authorization.abox.accessConditions.graph*
+***Property: authorization.abox.accessConditions.graph***
 
 Use this property to set the graph containing the access conditions model.
 **Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the UI SPARQL queries).
+
 
 | Category | Value |
 |--- | ---: |
@@ -458,62 +481,66 @@ SPARQL endpoints declare how DataPlatform connects to a SPARQL-capable store or 
 
 With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available, unless a store supporting data persistence is configured.
 
-The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated.
+The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
 If nothing matches here, skos:prefLabel is examined in the same way
 
-    ```yaml
-    proxy:
-      endpointIds:
-        - my_stardog
-      labelProperties:
-        - "http://www.w3.org/2000/01/rdf-schema#label"
-        - "http://www.w3.org/2004/02/skos/core#prefLabel"
-      languagePreferences:
-        - "es"
-        - "en"
-        - ""
-    ```
+```yaml
+proxy:
+  endpointIds:
+    - my_stardog
+  labelProperties:
+    - "http://www.w3.org/2000/01/rdf-schema#label"
+    - "http://www.w3.org/2004/02/skos/core#prefLabel"
+  languagePreferences:
+    - "es"
+    - "en"
+    - ""
+```
 
-##### *Property: proxy.defaultBaseIri*
 
-Base IRI for this CMEM instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to <https://fallback.eccenca.com/>
+***Property: proxy.defaultBaseIri***
+
+Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to https://fallback.eccenca.com/
 
 | Category | Value |
 |--- | ---: |
-| Default | <https://fallback.eccenca.com/> |
+| Default | https://fallback.eccenca.com/ |
 | Required | false |
 | Valid values | URI |
 | Environment | PROXY_DEFAULTBASEIRI |
 
-##### *Property: proxy.labelProperties*
+***Property: proxy.labelProperties***
 
 Use this property to specify which RDF properties should be used to provide label values when matching IRIs against a search term during rewriting SELECT-queries.
 **Note:** This configuration property affects modification of SELECT-queries for search triggered by the search-string query parameter. Results of SELECT-queries when the resolveLabels property is set to LABELS
 
+
 | Category | Value |
 |--- | ---: |
-| Default | [<http://www.w3.org/2004/02/skos/core#prefLabel>, <http://www.w3.org/2000/01/rdf-schema#label>, <http://purl.org/dc/terms/title>, <http://www.w3.org/ns/shacl#name>] |
+| Default | [http://www.w3.org/2004/02/skos/core#prefLabel, http://www.w3.org/2000/01/rdf-schema#label, http://purl.org/dc/terms/title, http://www.w3.org/ns/shacl#name] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_LABELPROPERTIES |
 
-##### *Property: proxy.descriptionProperties*
+***Property: proxy.descriptionProperties***
 
 Use this property to specify which RDF properties should be used to provide description values when matching IRIs against a search term during rewriting SELECT-queries.
 **Note:** This configuration property affects modification of SELECT-queries for search triggered by the search-string query parameter. Results of SELECT-queries when the resolveLabels property is set to LABELS
 
+
 | Category | Value |
 |--- | ---: |
-| Default | [<http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
+| Default | [http://purl.org/dc/terms/description, http://www.w3.org/2000/01/rdf-schema#comment] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |
 
-##### *Property: proxy.languagePreferences*
+***Property: proxy.languagePreferences***
 
-Specifies base language preferences for this instance.
+Specifies base language preferences for this instance. 
 
 **Note:** This configuration property affects results of SELECT-queries when the resolveLabels property is set to LABELS.
+
 
 | Category | Value |
 |--- | ---: |
@@ -522,7 +549,7 @@ Specifies base language preferences for this instance.
 | Valid values | string |
 | Environment | PROXY_LANGUAGEPREFERENCES |
 
-##### *Property: proxy.languagePreferencesAnyLangFallback*
+***Property: proxy.languagePreferencesAnyLangFallback***
 
 Allows the fallback to ignoring the languagePreferences, in case none of the configured match the data.
 
@@ -533,11 +560,12 @@ Allows the fallback to ignoring the languagePreferences, in case none of the con
 | Valid values | string |
 | Environment | PROXY_LANGUAGEPREFERENCESANYLANGFALLBACK |
 
-##### *Property: proxy.maxCBDDepth*
+***Property: proxy.maxCBDDepth***
 
 The Concise Boundary Description is used for viewing and editing resoures.
 By default up to a max of 5 Blank nodes are traversed for calculation.
 Increasing the max fetch will support deeper constructs, but will also add to loading time.
+
 
 | Category | Value |
 |--- | ---: |
@@ -546,13 +574,14 @@ Increasing the max fetch will support deeper constructs, but will also add to lo
 | Valid values | string |
 | Environment | PROXY_MAXCBDDEPTH |
 
-##### *Property: proxy.shapedMaxValueCount*
+***Property: proxy.shapedMaxValueCount***
 
 Maximum Values for shaped Resources
 When a resource is shaped by shacl forms, *shapedMaxValueCount* limits the number of values
 returned per `shacl:PropertyShape`. The default needs to be larger than the DataManager setting for
 for 'propertyLimit', which is up to 25. Changing this value allows custom
 endpoints to fetch more data. Increasing this value will increase response time
+
 
 | Category | Value |
 |--- | ---: |
@@ -561,20 +590,20 @@ endpoints to fetch more data. Increasing this value will increase response time
 | Valid values | string |
 | Environment | PROXY_SHAPEDMAXVALUECOUNT |
 
-##### *Property: proxy.cacheInvalidationCron*
+***Property: proxy.cacheInvalidationCron***
 
 Cache Invalidation Frequency - Caches in DataPlatform are invalidated on updates and in regular intervals. This allows setting a cron for a scheduled eviction of all caches
 
 | Category | Value |
 |--- | ---: |
-| Default | 0 */30* ** * |
+| Default | 0 */30 * * * * |
 | Required | false |
-| Valid values | Cron setting according to <https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression> |
+| Valid values | Cron setting according to https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression |
 | Environment | PROXY_CACHEINVALIDATIONCRON |
 
-##### *Property: proxy.cacheSelectiveInvalidation*
+***Property: proxy.cacheSelectiveInvalidation***
 
-Indicates whether the DP caches should selectively invalidate based upon the result of the done operations (insofar as determinable) or not
+Indicates whether the DataPlatform caches should selectively invalidate based upon the result of the done operations (insofar as determinable) or not
 
 | Category | Value |
 |--- | ---: |
@@ -583,7 +612,7 @@ Indicates whether the DP caches should selectively invalidate based upon the res
 | Valid values | boolean |
 | Environment | PROXY_CACHESELECTIVEINVALIDATION |
 
-##### *Property: proxy.queryMonitorMaxMemoryInMb*
+***Property: proxy.queryMonitorMaxMemoryInMb***
 
 Maximum memory entries in the query monitor can take in the heap space. The actual usage is an estimated usage only!
 
@@ -594,14 +623,14 @@ Maximum memory entries in the query monitor can take in the heap space. The actu
 | Valid values | Value in MB |
 | Environment | PROXY_QUERYMONITORMAXMEMORYINMB |
 
-##### *Property: proxy.fetchValuesStrategy*
+***Property: proxy.fetchValuesStrategy***
 
 Value Fetch Strategy
 Determines how the Knowledge Graph is walked for values for specific resources.
 Used for resolving titles & comments and loading shaped resources.
+- RESOURCE_IN_VALUES uses a SPARQL `VALUES (?resource ) { (:resource1)(:resource2)}`
+- FILTER_ONLY Uses SPARQL uses a SPARQL `FILTER (?resource in (:resource1, :resource2))`
 
--   RESOURCE_IN_VALUES uses a SPARQL `VALUES (?resource ) { (:resource1)(:resource2)}`
--   FILTER_ONLY Uses SPARQL uses a SPARQL `FILTER (?resource in (:resource1, :resource2))`
 
 | Category | Value |
 |--- | ---: |
@@ -612,14 +641,33 @@ Used for resolving titles & comments and loading shaped resources.
 
 ## Syncing graph via git repositories
 
-Dataplatform can sync graphs between git repositories and the backend store. Changes of graphs in the backend are transferred to the git
-repository on each update / write of the graph. Changes of the graph in the git repository are synced to the store on a scheduled basis.
-A git repository can be configured for the graph in the graph configuration. If no repository is configured the configured repository from
-the DP configuration is being used. Only HTTP git repositories with basic authentication can be used. A local public bare repository reachable from
-DP can be used in the DP configuration (for testing purposes).
-Attention! Property and all sub properties need to be written as gitSync (camel case must not be replaced by hyphens)
+DataPlatform can sync graphs between git repositories and the backend store.
+Changes of graphs in the backend are transferred to the git repository on each update / write of the graph.
+Changes of the graph in the git repository are synchronized to the store on a scheduled basis.
+<!--A git repository can be configured for the graph in the graph configuration. -->
+<!--If no repository is configured the configured repository from the DataPlatform configuration is being used. -->
+Only HTTP git repositories with basic authentication can be used.
+A local public bare repository reachable from DataPlatform can be used in the DataPlatform configuration (for testing purposes).
 
-##### *Property: gitSync.enabled*
+For details how to provide the correct git authentication refer to <https://www.codeaffine.com/2014/12/09/jgit-authentication/>.
+
+!!! note
+  All properties need to be written as camel case (e.g. "gitSync"), hyphens as separators must not be used.
+
+An example git DataPlatform configuration using a gitlab git repository looks like:
+
+```yaml
+gitSync:
+  enabled: true
+  remoteUrl: https://gitlab-ci-token:abcMyCiTokenxy5@gitlab.example.com/username/gitsync.git
+  user: username
+  password: abcMyCiTokenxy5
+  branch: master
+  scheduledPullCron: "0 */5 * * * *"
+```
+
+
+***Property: gitSync.enabled***
 
 Activates / Deactivates git graph sync feature
 
@@ -630,9 +678,9 @@ Activates / Deactivates git graph sync feature
 | Valid values | boolean |
 | Environment | GITSYNC_ENABLED |
 
-##### *Property: gitSync.dataFolder*
+***Property: gitSync.dataFolder***
 
-The folder inside the repositories where CMEM places the synced files
+The folder inside the repositories where Corporate Memory places the synchronized files
 
 | Category | Value |
 |--- | ---: |
@@ -641,7 +689,7 @@ The folder inside the repositories where CMEM places the synced files
 | Valid values | string |
 | Environment | GITSYNC_DATAFOLDER |
 
-##### *Property: gitSync.remoteUrl*
+***Property: gitSync.remoteUrl***
 
 A remote git repository (http, local) - configured http repositories in graph configuration take precedence over this
 
@@ -649,10 +697,10 @@ A remote git repository (http, local) - configured http repositories in graph co
 |--- | ---: |
 | Default | *none* |
 | Required | false |
-| Valid values | HTTP or local repository which can be reached from DP |
+| Valid values | HTTP or local repository which can be reached from DataPlatform |
 | Environment | GITSYNC_REMOTEURL |
 
-##### *Property: gitSync.branch*
+***Property: gitSync.branch***
 
 The main branch on which the git sync takes place - the sync may create new branches on conflict. The branch must exist before using the feature.
 
@@ -663,7 +711,7 @@ The main branch on which the git sync takes place - the sync may create new bran
 | Valid values | An existing branch in the repository |
 | Environment | GITSYNC_BRANCH |
 
-##### *Property: gitSync.user*
+***Property: gitSync.user***
 
 The git username for simple user/password authentification - may be empty for local repository (s. remoteUrl) w/o authentification
 
@@ -674,7 +722,7 @@ The git username for simple user/password authentification - may be empty for lo
 | Valid values | Existing git repository user |
 | Environment | GITSYNC_USER |
 
-##### *Property: gitSync.password*
+***Property: gitSync.password***
 
 The git password for simple user/password authentification - may be empty for local repository (s. remoteUrl) w/o authentification
 
@@ -685,7 +733,7 @@ The git password for simple user/password authentification - may be empty for lo
 | Valid values | Existing git repository password |
 | Environment | GITSYNC_PASSWORD |
 
-##### *Property: gitSync.committerName*
+***Property: gitSync.committerName***
 
 The committer name which appears in the commit message on system commits
 
@@ -696,7 +744,7 @@ The committer name which appears in the commit message on system commits
 | Valid values | string |
 | Environment | GITSYNC_COMMITTERNAME |
 
-##### *Property: gitSync.committerEmail*
+***Property: gitSync.committerEmail***
 
 The committer email which appears in the commit message  on system commits
 
@@ -707,15 +755,15 @@ The committer email which appears in the commit message  on system commits
 | Valid values | string |
 | Environment | GITSYNC_COMMITTEREMAIL |
 
-##### *Property: gitSync.scheduledPullCron*
+***Property: gitSync.scheduledPullCron***
 
-Schedules Pull Frequency - Configured git repositories for sync are pulled regularly to check for external updates of synced graphs. This setting sets the frequency of the pull.
+Schedules Pull Frequency - Configured git repositories for sync are pulled regularly to check for external updates of synchronized graphs. This setting sets the frequency of the pull.
 
 | Category | Value |
 |--- | ---: |
-| Default | 0 */30* ** * |
+| Default | 0 */30 * * * * |
 | Required | false |
-| Valid values | Cron setting according to <https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression> |
+| Valid values | Cron setting according to https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression |
 | Environment | GITSYNC_SCHEDULEDPULLCRON |
 
 ## Application logging
@@ -743,10 +791,12 @@ logging:
   file: /var/logs/dataplatform.log
 ```
 
+
 Use these properties to specify where you want to store your logging file. Specifying a file leads to both, logging to standard output and the file.
 File output creates an auto-rotating file with 10 MB file size each.
 
-##### *Property: logging.file.name*
+
+***Property: logging.file.name***
 
 Log file name (for instance, `myapp.log`). Names can be an exact location or relative to the current directory.
 
@@ -757,7 +807,7 @@ Log file name (for instance, `myapp.log`). Names can be an exact location or rel
 | Valid values | string (file name) - empty to disable file output |
 | Environment | LOGGING_FILE_NAME |
 
-##### *Property: logging.file.path*
+***Property: logging.file.path***
 
 Location of the log file. For instance, `/var/log`.
 
@@ -768,7 +818,7 @@ Location of the log file. For instance, `/var/log`.
 | Valid values | string (file path) - empty to disable file output |
 | Environment | LOGGING_FILE_PATH |
 
-##### *Property: logging.config*
+***Property: logging.config***
 
 Logging for DataPlatform can also be configured with Logback, which, for example, allows a more granular control on file rolling strategies. For further information on configuration options, refer to the Logback’s Configuration manual section and the Spring Boot’s Configure Logback for Logging manual section.
 
@@ -779,6 +829,7 @@ logging:
   configuration: ELDS_HOME/etc/dataplatform/logback.xml
 ```
 
+
 | Category | Value |
 |--- | ---: |
 | Default | *none* |
@@ -786,7 +837,8 @@ logging:
 | Valid values | string (file path) |
 | Environment | LOGGING_CONFIG |
 
-##### *Property: logging.level.audit*
+***Property: logging.level.audit***
+
 
 | Category | Value |
 |--- | ---: |
@@ -795,7 +847,8 @@ logging:
 | Valid values | string |
 | Environment | LOGGING_LEVEL_AUDIT |
 
-##### *Property: logging.level.com.eccenca.elds.backend*
+***Property: logging.level.com.eccenca.elds.backend***
+
 
 | Category | Value |
 |--- | ---: |
@@ -804,7 +857,8 @@ logging:
 | Valid values | string |
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND |
 
-##### *Property: logging.level.org.springframework*
+***Property: logging.level.org.springframework***
+
 
 | Category | Value |
 |--- | ---: |
@@ -813,7 +867,8 @@ logging:
 | Valid values | string |
 | Environment | LOGGING_LEVEL_ORG_SPRINGFRAMEWORK |
 
-##### *Property: logging.level.com.eccenca.elds.backend.webapp.web.filter.SimpleCorsFilter*
+***Property: logging.level.com.eccenca.elds.backend.webapp.web.filter.SimpleCorsFilter***
+
 
 | Category | Value |
 |--- | ---: |
@@ -822,7 +877,8 @@ logging:
 | Valid values | string |
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_WEBAPP_WEB_FILTER_SIMPLECORSFILTER |
 
-##### *Property: logging.level.com.eccenca.elds.backend.webapp.web.GlobalControllerExceptionHandler*
+***Property: logging.level.com.eccenca.elds.backend.webapp.web.GlobalControllerExceptionHandler***
+
 
 | Category | Value |
 |--- | ---: |
@@ -831,7 +887,8 @@ logging:
 | Valid values | string |
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_WEBAPP_WEB_GLOBALCONTROLLEREXCEPTIONHANDLER |
 
-##### *Property: logging.level.com.eccenca.elds.backend.stardog.StardogTemplate*
+***Property: logging.level.com.eccenca.elds.backend.stardog.StardogTemplate***
+
 
 | Category | Value |
 |--- | ---: |
@@ -852,10 +909,12 @@ auditTrail:
   - "aksw.org"
 ```
 
-##### *Property: audit-trail.enabled*
+
+***Property: audit-trail.enabled***
 
 Use this property to enable logging of read and write access to every graph access. If auditTrail.auditedGraphs is specified, only those graphs are logged.
 **Note:** If audit trail logging is enabled, RDF upload over the Graph Store Protocol interface is limited to triple formats. Any attempt to upload a quad format results in an HTTP 415 error.
+
 
 | Category | Value |
 |--- | ---: |
@@ -864,7 +923,7 @@ Use this property to enable logging of read and write access to every graph acce
 | Valid values | boolean |
 | Environment | AUDIT_TRAIL_ENABLED |
 
-##### *Property: audit-trail.auditedGraphs*
+***Property: audit-trail.auditedGraphs***
 
 Use this property to specify graphs whose read and write access you want to be logged. Omit this value to log access to all graphs.
 
@@ -877,7 +936,8 @@ Use this property to specify graphs whose read and write access you want to be l
 
 Limits the size of the query response
 
-##### *Property: sparql.query.limit*
+***Property: sparql.query.limit***
+
 
 | Category | Value |
 |--- | ---: |
@@ -903,7 +963,8 @@ server:
     contextPath: /dataplatform
 ```
 
-##### *Property: server.port*
+
+***Property: server.port***
 
 Use this property to set the TCP port where the embedded server is available.
 
@@ -914,7 +975,7 @@ Use this property to set the TCP port where the embedded server is available.
 | Valid values | integer |
 | Environment | SERVER_PORT |
 
-##### *Property: server.servlet.contextPath*
+***Property: server.servlet.contextPath***
 
 Use this property to define the context path under which DataPlatform is available. If this property is provided, use a leading slash.
 
@@ -941,7 +1002,8 @@ server:
     client-auth: NEED
 ```
 
-##### *Property: server.ssl.key-store*
+
+***Property: server.ssl.key-store***
 
 Use this property to define the path to the KeyStore used for one-way or two-way SSL authentication.
 
@@ -951,6 +1013,7 @@ In case of two-way authentication, a TrustStore must also be configured. This co
 JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStore=path_to_trust_store.jks -Djavax.net.ssl.trustStorePassword=trust_store_password (ADD TO EXISTING JAVA_TOOL_OPTIONS)
 ```
 
+
 | Category | Value |
 |--- | ---: |
 | Default | *none* |
@@ -958,7 +1021,7 @@ JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStore=path_to_trust_store.jks -Djavax.net
 | Valid values | string |
 | Environment | SERVER_SSL_KEY_STORE |
 
-##### *Property: server.ssl.key-store-password*
+***Property: server.ssl.key-store-password***
 
 Use this property to set the password to unlock the KeyStore used for one-way or two-way SSL authentication.
 
@@ -969,11 +1032,12 @@ Use this property to set the password to unlock the KeyStore used for one-way or
 | Valid values | string |
 | Environment | SERVER_SSL_KEY_STORE_PASSWORD |
 
-##### *Property: server.ssl.client-auth*
+***Property: server.ssl.client-auth***
 
 Use this property to define the client identification policy.
 
 If WANT is set, client identification is optional. If NEED is set, client identification is mandatory, so unauthenticated clients are refused.
+
 
 | Category | Value |
 |--- | ---: |
@@ -1000,7 +1064,8 @@ Configuration recommendation:
 
 **Note:** This configuration recommendation provides settings for headers most commonly used by proxies. Make sure to add all three properties in order to enforce HTTPS.
 
-##### *Property: server.tomcat.remoteIpHeader*
+
+***Property: server.tomcat.remoteIpHeader***
 
 Use this property to set the request header which is required to identify the originating IP address of the client connecting to DataPlatform through an HTTP proxy.
 
@@ -1011,7 +1076,7 @@ Use this property to set the request header which is required to identify the or
 | Valid values | string |
 | Environment | SERVER_TOMCAT_REMOTEIPHEADER |
 
-##### *Property: server.tomcat.protocolHeader*
+***Property: server.tomcat.protocolHeader***
 
 Use this property to set the request header which is required to identify the originating protocol of an HTTP request through an HTTP proxy.
 
@@ -1026,7 +1091,7 @@ Use this property to set the request header which is required to identify the or
 
 Schedulers Configuration (Thread Pools) for asynchronous operations like background file uploads
 
-##### *Property: scheduler.bulkLoadPoolSize*
+***Property: scheduler.bulkLoadPoolSize***
 
 Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load can be run in parallel in file upload.
 
@@ -1037,7 +1102,7 @@ Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load
 | Valid values | integer |
 | Environment | SCHEDULER_BULKLOADPOOLSIZE |
 
-##### *Property: scheduler.analyticalPoolSize*
+***Property: scheduler.analyticalPoolSize***
 
 Limits how many analytical requests can be run in parallel. Analytical requests  can have longer runtimes than retrieval requests.
 
@@ -1050,13 +1115,15 @@ Limits how many analytical requests can be run in parallel. Analytical requests 
 
 ## Asynchronous file uploads
 
-Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file.
+Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file. 
 Please s. API documentation under /api/upload/ for further information.
 
-##### *Property: files.maxStorageSingleFileSizeMb*
+
+***Property: files.maxStorageSingleFileSizeMb***
 
 Maximum size of one stored file (as uploaded i.e. can also be compressed size)
 Value in Mb
+
 
 | Category | Value |
 |--- | ---: |
@@ -1065,10 +1132,11 @@ Value in Mb
 | Valid values | string |
 | Environment | FILES_MAXSTORAGESINGLEFILESIZEMB |
 
-##### *Property: files.minStorageTempSpaceLeftMb*
+***Property: files.minStorageTempSpaceLeftMb***
 
-Minimum storage space left on temp device of Dataplatform for file uploads
+Minimum storage space left on temp device of DataPlatform for file uploads
 Value in Mb
+
 
 | Category | Value |
 |--- | ---: |
@@ -1077,10 +1145,11 @@ Value in Mb
 | Valid values | string |
 | Environment | FILES_MINSTORAGETEMPSPACELEFTMB |
 
-##### *Property: files.maintenanceExpirationDuration*
+***Property: files.maintenanceExpirationDuration***
 
 Cron setting for housekeeping / maintenance job
 Stored files and saved analysis will be deleted if older than maintenanceExpirationDuration
+
 
 | Category | Value |
 |--- | ---: |
@@ -1089,14 +1158,15 @@ Stored files and saved analysis will be deleted if older than maintenanceExpirat
 | Valid values | string |
 | Environment | FILES_MAINTENANCEEXPIRATIONDURATION |
 
-##### *Property: files.maintenanceCron*
+***Property: files.maintenanceCron***
 
 Cron setting for housekeeping / maintenance job
 Stored files and saved analysis will be deleted if older than maintenanceExpirationDuration
 
+
 | Category | Value |
 |--- | ---: |
-| Default | 0 0 1 ** ? |
+| Default | 0 0 1 * * ? |
 | Required | false |
 | Valid values | string |
 | Environment | FILES_MAINTENANCECRON |
@@ -1105,9 +1175,9 @@ Stored files and saved analysis will be deleted if older than maintenanceExpirat
 
 Store properties for connecting to a triple store backend. Please see specific sections in documentation for each backend.
 
-##### *Property: store.type*
+***Property: store.type***
 
-One of the supported types of backends Dataplatform can connect to
+One of the supported types of backends DataPlatform can connect to
 
 | Category | Value |
 |--- | ---: |
@@ -1116,7 +1186,7 @@ One of the supported types of backends Dataplatform can connect to
 | Valid values | MEMORY, HTTP, GRAPHDB, STARDOG, VIRTUOSO, NEPTUNE |
 | Environment | STORE_TYPE |
 
-##### *Property: store.owlImportsResolution*
+***Property: store.owlImportsResolution***
 
 Use this property to enable OWL imports resolution
 
@@ -1127,7 +1197,7 @@ Use this property to enable OWL imports resolution
 | Valid values | string |
 | Environment | STORE_OWLIMPORTSRESOLUTION |
 
-##### *Property: store.authorization*
+***Property: store.authorization***
 
 Strategies to realize authorization for an RDF endpoint
 
@@ -1138,7 +1208,7 @@ Strategies to realize authorization for an RDF endpoint
 | Valid values | NONE, REWRITE_FROM |
 | Environment | STORE_AUTHORIZATION |
 
-##### *Property: store.queryTimeoutGeneral*
+***Property: store.queryTimeoutGeneral***
 
 Query timeout as duration which is active if no timeout in request has been set
 
@@ -1148,3 +1218,4 @@ Query timeout as duration which is active if no timeout in request has been set
 | Required | false |
 | Valid values | ISO 8601 duration format |
 | Environment | STORE_QUERYTIMEOUTGENERAL |
+

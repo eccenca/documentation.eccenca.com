@@ -1,10 +1,12 @@
 
-# Configuration for connecting to GraphDB backend
+## Configuration for connecting to GraphDB backend
 
 Configuration example:
-This example configures a connection with HTTPS to a remote graphdb store (<https://remote:7200>) using the workbench import directory which is shared with the GraphDB instance. The repository will be created on startup of CMEM.
 
-  ```yaml
+This example configures a connection with HTTPS to a remote graphdb store (<https://remote:7200>) using the workbench import directory
+which is shared with the GraphDB instance. The repository will be created on startup of CMEM.
+
+```yaml
 store:
   type: graphdb
   owlImportsResolution: true
@@ -19,9 +21,10 @@ store:
     importDirectory: "/shared/mount"
     useDirectTransfer: false
     createRepositoryOnStartup: true
-  ```
+```
 
-#### *Property: store.type*
+
+***Property: store.type***
 
 The type of the store must be set to "graphdb"
 
@@ -32,9 +35,10 @@ The type of the store must be set to "graphdb"
 | Valid values | GRAPHDB |
 | Environment | STORE_TYPE |
 
-## Specific settings for GraphDB
+### Specific settings for GraphDB
 
-#### *Property: store.graphdb.host*
+
+***Property: store.graphdb.host***
 
 The host of the GraphDB database
 
@@ -45,7 +49,7 @@ The host of the GraphDB database
 | Valid values | string |
 | Environment | STORE_GRAPHDB_HOST |
 
-#### *Property: store.graphdb.port*
+***Property: store.graphdb.port***
 
 The port of the GraphDB database
 
@@ -56,7 +60,7 @@ The port of the GraphDB database
 | Valid values | integer |
 | Environment | STORE_GRAPHDB_PORT |
 
-#### *Property: store.graphdb.ssl-enabled*
+***Property: store.graphdb.ssl-enabled***
 
 Whether SSL is enabled or not (http vs. https)
 
@@ -67,7 +71,7 @@ Whether SSL is enabled or not (http vs. https)
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_SSL_ENABLED |
 
-#### *Property: store.graphdb.repository*
+***Property: store.graphdb.repository***
 
 The name of the repository to connect to
 
@@ -78,7 +82,7 @@ The name of the repository to connect to
 | Valid values | string |
 | Environment | STORE_GRAPHDB_REPOSITORY |
 
-#### *Property: store.graphdb.username*
+***Property: store.graphdb.username***
 
 The user name to connect with
 
@@ -89,7 +93,7 @@ The user name to connect with
 | Valid values | string |
 | Environment | STORE_GRAPHDB_USERNAME |
 
-#### *Property: store.graphdb.password*
+***Property: store.graphdb.password***
 
 The credentials of the given user
 
@@ -100,7 +104,7 @@ The credentials of the given user
 | Valid values | string |
 | Environment | STORE_GRAPHDB_PASSWORD |
 
-#### *Property: store.graphdb.importDirectory*
+***Property: store.graphdb.importDirectory***
 
 Import directory to be utilized in the "workbench import with shared folder" approach. Not relevant when useDirectTransfer is true. Must be set when useDirectTransfer is false.
 
@@ -111,7 +115,7 @@ Import directory to be utilized in the "workbench import with shared folder" app
 | Valid values | string |
 | Environment | STORE_GRAPHDB_IMPORTDIRECTORY |
 
-#### *Property: store.graphdb.useDirectTransfer*
+***Property: store.graphdb.useDirectTransfer***
 
 Set to true to use the native Graph Store API endpoint. Set to false to use the GraphDB workbench import. The import directory must be set then.
 
@@ -122,7 +126,7 @@ Set to true to use the native Graph Store API endpoint. Set to false to use the 
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_USEDIRECTTRANSFER |
 
-#### *Property: store.graphdb.create-repository-on-startup*
+***Property: store.graphdb.create-repository-on-startup***
 
 Whether to create the given repository on startup if it does not exist
 
@@ -133,18 +137,18 @@ Whether to create the given repository on startup if it does not exist
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_CREATE_REPOSITORY_ON_STARTUP |
 
-#### *Property: store.graphdb.gdbBaseIndex*
+***Property: store.graphdb.gdbBaseIndex***
 
 The iri of the lucene index to be used for searches. If the default index is used, Dataplatform syncs the index with the configured 'proxy.labelProperties'
 
 | Category | Value |
 |--- | ---: |
-| Default | <http://www.ontotext.com/connectors/lucene/instance#cmembaseindex> |
+| Default | http://www.ontotext.com/connectors/lucene/instance#cmembaseindex |
 | Required | false |
 | Valid values | Valid URI of lucene index |
 | Environment | STORE_GRAPHDB_GDBBASEINDEX |
 
-#### *Property: store.graphdb.graphDbChangeTrackingActive*
+***Property: store.graphdb.graphDbChangeTrackingActive***
 
 Whether to make use of GraphDB change tracking during SPARQL updates (s. <https://graphdb.ontotext.com/documentation/10.0/change-tracking.html>). This setting is relevant in regards to selectively evicting DP caches depending on the outcome of the SPARQL update s. also proxy.cacheSelectiveInvalidation
 
@@ -155,7 +159,7 @@ Whether to make use of GraphDB change tracking during SPARQL updates (s. <https:
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGACTIVE |
 
-#### *Property: store.graphdb.graphDbChangeTrackingMaxQuadMemory*
+***Property: store.graphdb.graphDbChangeTrackingMaxQuadMemory***
 
 Maximum amount of quads of change tracking result which will be loaded in memory
 
@@ -165,3 +169,4 @@ Maximum amount of quads of change tracking result which will be loaded in memory
 | Required | false |
 | Valid values | int |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGMAXQUADMEMORY |
+
