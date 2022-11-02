@@ -5,6 +5,7 @@ nav:
     - workspaces-authorization
     - dataset-module
     - explore-module
+    - easynav-module
     - query-module
     - vocabs-module
     - thesaurus-module
@@ -19,4 +20,3 @@ nav:
     - resource-table-configuration
     - default-configuration
     - account-settings-module
-
