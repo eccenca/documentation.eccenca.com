@@ -274,6 +274,8 @@ plugins:
   - redirects:
       redirect_maps:
         'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
+  # https://squidfunk.github.io/mkdocs-material/reference/#built-in-meta-plugin
+  - meta
 # }}}
 
 # {{{ Less important mkdocs configuration
