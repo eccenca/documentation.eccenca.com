@@ -76,6 +76,14 @@ tasks:
       - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
       - poetry update
 
+  update:cmemc:
+    desc: re-generates the cmemc command reference
+    cmds:
+      - CMEMC_MANUAL=true cmemc config > {{.REFERENCE_FILE}}
+    vars:
+      REFERENCE_FILE: >
+        docs/automate/cmemc-command-line-interface/command-reference/index.md
+
   public:versions:
     desc: List public documentation versions
     deps:
