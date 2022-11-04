@@ -23,7 +23,7 @@ tags:
 
     **Next Steps**: [:material-download-circle-outline:](installation/index.md "Installation")
         :material-plus: [:material-cog-outline:](configuration/file-based-configuration/index.md "Configuration")
-        :material-plus: [:material-rocket-launch-outline:](command-line-completion/index.md "Completion Setup")
+        :material-plus: [:material-rocket-launch-outline:](configuration/completion-setup/index.md "Completion Setup")
         :material-equal: :sparkles:{ title="Fun :-)" }
 
     ---
