@@ -21,8 +21,8 @@ tags:
 
     ---
 
-    **Next Steps**: [:material-download-circle-outline:](installation-and-configuration/index.md "Installation")
-        :material-plus: [:material-cog-outline:](installation-and-configuration/file-based-configuration/index.md "Configuration")
+    **Next Steps**: [:material-download-circle-outline:](installation/index.md "Installation")
+        :material-plus: [:material-cog-outline:](configuration/file-based-configuration/index.md "Configuration")
         :material-plus: [:material-rocket-launch-outline:](command-line-completion/index.md "Completion Setup")
         :material-equal: :sparkles:{ title="Fun :-)" }
 
@@ -57,7 +57,7 @@ tags:
     ---
 
     <figure markdown>
-      ![cmemc - Create Dataset](command-line-completion/22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
+      ![cmemc - Create Dataset](configuration/completion-setup/22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
       <figcaption>Create Build Project and Dataset</figcaption>
     </figure>
 

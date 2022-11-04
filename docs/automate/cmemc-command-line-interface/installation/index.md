@@ -1,15 +1,14 @@
 ---
-title: "cmemc: Installation and Configuration"
-subtitle: and Configuration
+title: "cmemc: Installation"
 icon: material/download-circle-outline
 tags:
   - cmemc
 ---
-# Installation and Configuration
+# Installation
 
 cmemc can be installed using the python package from pypi.org / the release package or by pulling the docker image.
 
-## Installation via pypi.org
+## ... via pypi.org
 
 cmemc is available as an [official pypi package](https://pypi.org/project/cmem-cmemc/) so installation can be done with pip or pipx (preferred):
 
@@ -17,7 +16,7 @@ cmemc is available as an [official pypi package](https://pypi.org/project/cmem-c
 $ pipx install cmem-cmemc
 ```
 
-## Installation via release package
+## ... via release package
 
 The cmemc [release package](https://releases.eccenca.com/cmemc/) consists of the following files:
 
@@ -40,11 +39,12 @@ $ cmemc --version
 cmemc, version 22.1, running under python 3.9.11
 ```
 
-## Installation via docker image
+## ... via docker image
 
 This topic is described on a [stand-alone page](../using-the-docker-image/index.md).
 
-## Configuration
 
-Once you installed cmemc, you need to configure a connection with a [config file](file-based-configuration/index.md) or learn how to [use environment variables](environment-based-configuration/index.md) to control cmemc.
+!!! Success "Next Steps ..."
+
+    Once you installed cmemc, you need to configure a connection with a [config file](../configuration/file-based-configuration/index.md) or learn how to [use environment variables](../configuration/environment-based-configuration/index.md) to control cmemc.
 

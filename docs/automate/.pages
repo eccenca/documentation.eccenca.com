@@ -1,4 +1,5 @@
 nav:
     - Automate: index.md
-    - Scheduling Workflows: scheduling-workflows
     - cmemc: cmemc-command-line-interface
+    - Processing Data with variable input Workflows: ./build/processing-data-with-variable-input-workflows
+    - Scheduling Workflows: scheduling-workflows

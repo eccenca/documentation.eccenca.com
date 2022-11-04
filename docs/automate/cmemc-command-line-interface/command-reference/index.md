@@ -1,10 +1,3 @@
----
-title: "cmemc: Command Reference"
-icon: octicons/cross-reference-24
-tags:
-  - Reference
-  - cmemc
----
 # Command Reference
 
 This section lists the help texts of all commands as a reference

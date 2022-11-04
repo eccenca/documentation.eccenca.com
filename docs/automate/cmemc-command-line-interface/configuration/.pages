@@ -1,6 +1,8 @@
 nav:
-    - Installation and Configuration: index.md
+    - Configuration: index.md
     - File-based: file-based-configuration
     - Environment-based: environment-based-configuration
+    - Completion Setup: completion-setup
     - Getting Credentials: getting-credentials-from-external-processes
+    - Certificate Handling: certificate-handling-and-ssl-verification
 

@@ -20,10 +20,10 @@ $ pip install cmem-cmempy
 
 ## Configure a Connection
 
-The used Corporate Memory connection is configured by providing environment variables similar to [cmemc](../../automate/cmemc-command-line-interface/index.md) ([Environment based Configuration](../../automate/cmemc-command-line-interface/installation-and-configuration/environment-based-configuration/index.md)).
+The used Corporate Memory connection is configured by providing environment variables similar to [cmemc](../../automate/cmemc-command-line-interface/index.md) ([Environment based Configuration](../../automate/cmemc-command-line-interface/configuration/environment-based-configuration/index.md)).
 
 These environment variables can be created and changed in your code or used from the process which executes your python code (e.g. your shell).
-If you have a working cmemc [file based configuration](../../automate/cmemc-command-line-interface/installation-and-configuration/file-based-configuration/index.md) setup already you can export the environment to your shell using [cmemc config eval](../../automate/cmemc-command-line-interface/command-reference/index.md).
+If you have a working cmemc [file based configuration](../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md) setup already you can export the environment to your shell using [cmemc config eval](../../automate/cmemc-command-line-interface/command-reference/index.md).
 
 The following table lists all processed environment variables:
 
