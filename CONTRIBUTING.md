@@ -22,6 +22,9 @@ Try to test your contribution locally before pushing your changes.
 
 ## What should I know before I get started?
 
+<details>
+  <summary>Extend section</summary>
+
 This documentation project is made with [mkdocs](https://www.mkdocs.org/) and the [material theme for mkdocs](https://squidfunk.github.io/mkdocs-material/).
 The documentation is written in [markdown](https://commonmark.org/) and the project dependency management is done by [poetry](https://python-poetry.org/).
 We suggest to use a specialized markdown editor such as [obsidian](https://obsidian.md/) if you plan to not just fix a typo.
@@ -56,6 +59,10 @@ INFO     -  [16:25:36] Serving on http://127.0.0.1:8000/
 After that, you can go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and start changing / adding files in the docs directory.
 Changes are served live on localhost.
 
+Note that some python packages need corresponding C libraries, which you may have to install as well.
+Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/?h=cairo#dependencies) and the [build plan](https://github.com/eccenca/documentation.eccenca.com/blob/main/.github/workflows/test.yml#L54) for a list.
+</details>
+    
 ## Repository rules
 
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
