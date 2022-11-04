@@ -123,7 +123,7 @@ theme:
     # highlighted in the table of contents.
     - navigation.tracking
     # left sidebar will expand all collapsible subsections by default
-    - navigation.expand
+    # - navigation.expand
     # significantly smaller HTML files for documentation projects with huge
     # navigation hierarchies.
     # - navigation.prune
