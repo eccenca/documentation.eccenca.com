@@ -17,72 +17,23 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
-  bootstrap  Update/Import bootstrap data.
   metrics    List and get metrics.
-  showcase   Create showcase data.
   status     Output health and version information.
   store      Import, export and bootstrap the knowledge graph store.
   token      Fetch and output an access token.
   workspace  Import, export and reload the project workspace.
 ```
 
-### Command: admin showcase
-
-```
-Usage: cmemc [OPTIONS]
-
-  Create showcase data.
-
-  This command creates a showcase scenario of multiple graphs including
-  integration graphs, shapes, statement annotations etc.
-
-  Note: There is currently no deletion mechanism for the showcase data, so
-  you need to remove the showcase graphs manually (or just remove all
-  graphs).
-
-Options:
-  --scale INTEGER  The scale factor provides a way to set the target size of
-                   the scenario. A value of 10 results in around 40k triples,
-                   a value of 50 in around 350k triples.  [default: 10]
-
-  --create         Delete old showcase data if present and create new showcase
-                   databased on the given scale factor.
-
-  --delete         Delete existing showcase data if present.
-  -h, --help       Show this message and exit.
-```
-
-### Command: admin bootstrap
-
-```
-Usage: cmemc [OPTIONS]
-
-  Update/Import bootstrap data.
-
-  This command imports the bootstrap data needed for managing shapes, access
-  conditions, the query catalog and the vocabulary catalog.
-
-  Note: There is currently no deletion mechanism for the bootstrap data, so
-  you need to remove the graphs manually (or just remove all graphs).
-
-Options:
-  --import    Delete existing bootstrap data if present and import bootstrap
-              data which was delivered
-
-  -h, --help  Show this message and exit.
-```
-
 ### Command: admin status
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Output health and version information.
 
   This command outputs version and health information of the selected
-  deployment. If the version information can not be retrieved, UNKNOWN is
-  shown if the endpoint is not available or ERROR is shown, if the endpoints
-  returns an error.
+  deployment. If the version information can not be retrieved, UNKNOWN
+  shown.
 
   In addition to that, this command warns you if the target version of your
   cmemc client is newer than the version of your backend and if the
@@ -94,12 +45,27 @@ Usage: cmemc [OPTIONS]
   cmemc config list | parallel --ctag cmemc -c {} admin status
 
 Options:
-  -h, --help  Show this message and exit.
+  --key TEXT       Get only specific key(s) from the status / info output.
+                   There are two special keys available: 'all' will list all
+                   available keys in the table, 'overall.healthy' with result
+                   in  UP in case all health flags are UP as well (otherwise
+                   DOWN).
+
+  --enforce-table  A single value with --key will be returned as plain text
+                   instead of a table with one row and the header. This
+                   default behaviour allows for more easy integration with
+                   scripts. This flag enforces the use of tabular output, even
+                   for single row tables.
+
+  --raw            Outputs combined raw JSON output of the health/info
+                   endpoints.
+
+  -h, --help       Show this message and exit.
 ```
 
 ### Command: admin token
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Fetch and output an access token.
@@ -154,7 +120,7 @@ Commands:
 
 ### Command: admin metrics get
 
-```
+```text
 Usage: cmemc [OPTIONS] METRIC_ID
 
   Get sample data of a metric.
@@ -189,7 +155,7 @@ Options:
 
 ### Command: admin metrics inspect
 
-```
+```text
 Usage: cmemc [OPTIONS] METRIC_ID
 
   Inspect a metric.
@@ -206,7 +172,7 @@ Options:
 
 ### Command: admin metrics list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List metrics for a specific job.
@@ -244,7 +210,7 @@ Commands:
 
 ### Command: admin workspace export
 
-```
+```text
 Usage: cmemc [OPTIONS] [FILE]
 
   Export the complete workspace (all projects) to a ZIP file.
@@ -276,7 +242,7 @@ Options:
 
 ### Command: admin workspace import
 
-```
+```text
 Usage: cmemc [OPTIONS] FILE
 
   Import the workspace from a file.
@@ -288,7 +254,7 @@ Options:
 
 ### Command: admin workspace reload
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Reload the workspace from the backend.
@@ -323,7 +289,7 @@ Commands:
 
 ### Command: admin workspace python install
 
-```
+```text
 Usage: cmemc [OPTIONS] PACKAGE
 
   Install a python package to the workspace.
@@ -342,7 +308,7 @@ Options:
 
 ### Command: admin workspace python uninstall
 
-```
+```text
 Usage: cmemc [OPTIONS] PACKAGE_NAME
 
   Uninstall a python package from the workspace.
@@ -356,7 +322,7 @@ Options:
 
 ### Command: admin workspace python list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List installed python packages.
@@ -375,7 +341,7 @@ Options:
 
 ### Command: admin workspace python list-plugins
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List installed workspace plugins.
@@ -412,7 +378,7 @@ Commands:
 
 ### Command: admin store showcase
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Create showcase data.
@@ -438,7 +404,7 @@ Options:
 
 ### Command: admin store bootstrap
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Update/Import bootstrap data.
@@ -458,7 +424,7 @@ Options:
 
 ### Command: admin store export
 
-```
+```text
 Usage: cmemc [OPTIONS] BACKUP_FILE
 
   Backup all knowledge graphs to a ZIP archive.
@@ -478,7 +444,7 @@ Options:
 
 ### Command: admin store import
 
-```
+```text
 Usage: cmemc [OPTIONS] BACKUP_FILE
 
   Restore graphs from a ZIP archive.
@@ -560,7 +526,7 @@ Commands:
 
 ### Command: config list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List configured connections.
@@ -584,7 +550,7 @@ Options:
 
 ### Command: config edit
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Edit the user-scope configuration file.
@@ -595,7 +561,7 @@ Options:
 
 ### Command: config get
 
-```
+```text
 Usage: cmemc [OPTIONS] [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
              POINT|DI_API_ENDPOINT|OAUTH_TOKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER
              |OAUTH_PASSWORD|OAUTH_CLIENT_ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_
@@ -619,7 +585,7 @@ Options:
 
 ### Command: config eval
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Export all configuration values of a configuration for evaluation.
@@ -672,7 +638,7 @@ Commands:
 
 ### Command: dataset list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List available datasets.
@@ -681,20 +647,24 @@ Usage: cmemc [OPTIONS]
   dataset create and delete commands.
 
 Options:
-  --project TEXT  The project, from which you want to list the datasets.
-                  Project IDs can be listed with the 'project list' command.
+  --filter <TEXT TEXT>...  List datasets based on meta data. First parameter
+                           --filter CHOICE can be one of ['project', 'regex',
+                           'tag', 'type']. The second parameter is based on
+                           CHOICE.
 
-  --raw           Outputs raw JSON objects of dataset search API response.
-  --id-only       Lists only dataset identifier and no labels or other meta
-                  data. This is useful for piping the ids into other cmemc
-                  commands.
+  --raw                    Outputs raw JSON objects of dataset search API
+                           response.
 
-  -h, --help      Show this message and exit.
+  --id-only                Lists only dataset identifier and no labels or
+                           other meta data. This is useful for piping the ids
+                           into other cmemc commands.
+
+  -h, --help               Show this message and exit.
 ```
 
 ### Command: dataset delete
 
-```
+```text
 Usage: cmemc [OPTIONS] [DATASET_IDS]...
 
   Delete datasets.
@@ -708,19 +678,25 @@ Usage: cmemc [OPTIONS] [DATASET_IDS]...
   Datasets can be listed by using the 'cmemc dataset list' command.
 
 Options:
-  -a, --all       Delete all datasets. This is a dangerous option, so use it
-                  with care.
+  -a, --all                Delete all datasets. This is a dangerous option, so
+                           use it with care.
 
-  --project TEXT  In combination with the '--all' flag, this option allows for
-                  deletion of all datasets of a certain project. The behaviour
-                  is similar to the 'dataset list --project' command.
+  --project TEXT           In combination with the '--all' flag, this option
+                           allows for deletion of all datasets of a certain
+                           project. The behaviour is similar to the 'dataset
+                           list --project' command.
 
-  -h, --help      Show this message and exit.
+  --filter <TEXT TEXT>...  Delete datasets based on meta data. First parameter
+                           --filter CHOICE can be one of ['project', 'regex',
+                           'tag', 'type']. The second parameter is based on
+                           CHOICE.
+
+  -h, --help               Show this message and exit.
 ```
 
 ### Command: dataset download
 
-```
+```text
 Usage: cmemc [OPTIONS] DATASET_ID OUTPUT_PATH
 
   Download the resource file of a dataset.
@@ -744,7 +720,7 @@ Options:
 
 ### Command: dataset upload
 
-```
+```text
 Usage: cmemc [OPTIONS] DATASET_ID INPUT_PATH
 
   Upload a resource file to a dataset.
@@ -769,7 +745,7 @@ Options:
 
 ### Command: dataset inspect
 
-```
+```text
 Usage: cmemc [OPTIONS] DATASET_ID
 
   Display meta data of a dataset.
@@ -781,7 +757,7 @@ Options:
 
 ### Command: dataset create
 
-```
+```text
 Usage: cmemc [OPTIONS] [DATASET_FILE]
 
   Create a dataset.
@@ -830,7 +806,7 @@ Options:
 
 ### Command: dataset open
 
-```
+```text
 Usage: cmemc [OPTIONS] DATASET_IDS...
 
   Open datasets in the browser.
@@ -866,7 +842,7 @@ Commands:
 
 ### Command: dataset resource list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List available file resources.
@@ -889,7 +865,7 @@ Options:
 
 ### Command: dataset resource delete
 
-```
+```text
 Usage: cmemc [OPTIONS] [RESOURCE_IDS]...
 
   Delete file resources.
@@ -913,7 +889,7 @@ Options:
 
 ### Command: dataset resource inspect
 
-```
+```text
 Usage: cmemc [OPTIONS] RESOURCE_ID
 
   Display all meta data of a file resource.
@@ -925,7 +901,7 @@ Options:
 
 ### Command: dataset resource usage
 
-```
+```text
 Usage: cmemc [OPTIONS] RESOURCE_ID
 
   Display all usage data of a file resource.
@@ -960,7 +936,7 @@ Commands:
 
 ### Command: graph count
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Count triples in graph(s).
@@ -976,7 +952,7 @@ Options:
 
 ### Command: graph tree
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Show graph tree(s) of the owl:imports hierarchy.
@@ -1000,7 +976,7 @@ Options:
 
 ### Command: graph list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List accessible graphs.
@@ -1023,7 +999,7 @@ Options:
 
 ### Command: graph export
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Export graph(s) as NTriples to stdout (-), file or directory.
@@ -1064,7 +1040,7 @@ Options:
 
 ### Command: graph delete
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Delete graph(s) from the store.
@@ -1079,7 +1055,7 @@ Options:
 
 ### Command: graph import
 
-```
+```text
 Usage: cmemc [OPTIONS] INPUT_PATH [IRI]
 
   Import graph(s) to the store.
@@ -1104,7 +1080,7 @@ Options:
 
 ### Command: graph open
 
-```
+```text
 Usage: cmemc [OPTIONS] IRI
 
   Open / explore a graph in the browser.
@@ -1137,7 +1113,7 @@ Commands:
 
 ### Command: project open
 
-```
+```text
 Usage: cmemc [OPTIONS] PROJECT_IDS...
 
   Open projects in the browser.
@@ -1154,7 +1130,7 @@ Options:
 
 ### Command: project list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List available projects.
@@ -1172,7 +1148,7 @@ Options:
 
 ### Command: project export
 
-```
+```text
 Usage: cmemc [OPTIONS] [PROJECT_IDS]...
 
   Export project(s) to file(s).
@@ -1228,7 +1204,7 @@ Options:
 
 ### Command: project import
 
-```
+```text
 Usage: cmemc [OPTIONS] PATH [PROJECT_ID]
 
   Import a project from a file or directory.
@@ -1244,7 +1220,7 @@ Options:
 
 ### Command: project delete
 
-```
+```text
 Usage: cmemc [OPTIONS] [PROJECT_IDS]...
 
   Delete project(s).
@@ -1265,7 +1241,7 @@ Options:
 
 ### Command: project create
 
-```
+```text
 Usage: cmemc [OPTIONS] PROJECT_IDS...
 
   Create empty new project(s).
@@ -1304,6 +1280,7 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
+  cancel   Cancel a running query.
   execute  Execute queries which are loaded from files or the query catalog.
   list     List available queries from the catalog.
   open     Open queries in the editor of the query catalog in your browser.
@@ -1313,7 +1290,7 @@ Commands:
 
 ### Command: query execute
 
-```
+```text
 Usage: cmemc [OPTIONS] QUERIES...
 
   Execute queries which are loaded from files or the query catalog.
@@ -1378,7 +1355,7 @@ Options:
 
 ### Command: query list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List available queries from the catalog.
@@ -1395,7 +1372,7 @@ Options:
 
 ### Command: query open
 
-```
+```text
 Usage: cmemc [OPTIONS] QUERIES...
 
   Open queries in the editor of the query catalog in your browser.
@@ -1414,7 +1391,7 @@ Options:
 
 ### Command: query status
 
-```
+```text
 Usage: cmemc [OPTIONS] [QUERY_UUID]
 
   Get status information of executed and running queries.
@@ -1435,17 +1412,17 @@ Options:
   --raw                    Outputs raw JSON response of the query status API.
   --filter <TEXT TEXT>...  Filter queries based on execution status and time.
                            First parameter --filter CHOICE can be one of
-                           ['status', 'slower-than', 'type', 'regex']. The
-                           second parameter is based on CHOICE, e.g. int in
-                           case of slower-than, or a regular expression
-                           string.
+                           ['graph', 'regex', 'slower-than', 'status', 'trace-
+                           id', 'type', 'user']. The second parameter is based
+                           on CHOICE, e.g. int in case of slower-than, or a
+                           regular expression string.
 
   -h, --help               Show this message and exit.
 ```
 
 ### Command: query replay
 
-```
+```text
 Usage: cmemc [OPTIONS] REPLAY_FILE
 
   Re-execute queries from a replay file.
@@ -1484,6 +1461,22 @@ Options:
   -h, --help          Show this message and exit.
 ```
 
+### Command: query cancel
+
+```text
+Usage: cmemc [OPTIONS] QUERY_ID
+
+  Cancel a running query.
+
+  With this command, you can cancel a running query. Depending on the
+  backend triple store, this will result in a broken result stream (stardog,
+  neptune and virtuoso) or a valid result stream with incomplete results
+  (graphdb)
+
+Options:
+  -h, --help  Show this message and exit.
+```
+
 ## Command group: vocabulary
 
 ```
@@ -1505,7 +1498,7 @@ Commands:
 
 ### Command: vocabulary open
 
-```
+```text
 Usage: cmemc [OPTIONS] IRI
 
   Open / explore a vocabulary graph in the browser.
@@ -1519,7 +1512,7 @@ Options:
 
 ### Command: vocabulary list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Output a list of vocabularies.
@@ -1543,7 +1536,7 @@ Options:
 
 ### Command: vocabulary install
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Install one or more vocabularies from the catalog.
@@ -1558,7 +1551,7 @@ Options:
 
 ### Command: vocabulary uninstall
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Uninstall one or more vocabularies.
@@ -1574,7 +1567,7 @@ Options:
 
 ### Command: vocabulary import
 
-```
+```text
 Usage: cmemc [OPTIONS] FILE
 
   Import a turtle file as a vocabulary.
@@ -1588,8 +1581,16 @@ Usage: cmemc [OPTIONS] FILE
   vann:preferredNamespaceUri properties.
 
 Options:
-  --replace   Replace (overwrite) existing vocabulary, if present.
-  -h, --help  Show this message and exit.
+  --namespace <TEXT TEXT>...  In case the imported vocabulary file does not
+                              include a preferred namespace prefix, you can
+                              manually add a namespace prefix with this
+                              option. Example: --namespace ex
+                              https://example.org/
+
+  --replace                   Replace (overwrite) existing vocabulary, if
+                              present.
+
+  -h, --help                  Show this message and exit.
 ```
 
 ## Command group: vocabulary cache
@@ -1609,7 +1610,7 @@ Commands:
 
 ### Command: vocabulary cache update
 
-```
+```text
 Usage: cmemc [OPTIONS] [IRIS]...
 
   Reload / updates the data integration cache for a vocabulary.
@@ -1621,7 +1622,7 @@ Options:
 
 ### Command: vocabulary cache list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   Output the content of the global vocabulary cache.
@@ -1653,7 +1654,7 @@ Options:
 Commands:
   execute    Execute workflow(s).
   io         Execute a workflow with file input/output.
-  list       List available workflow ids.
+  list       List available workflow.
   open       Open a workflow in your browser.
   scheduler  List, inspect, enable/disable or open scheduler.
   status     Get status information of workflow(s).
@@ -1661,7 +1662,7 @@ Commands:
 
 ### Command: workflow execute
 
-```
+```text
 Usage: cmemc [OPTIONS] [WORKFLOW_IDS]...
 
   Execute workflow(s).
@@ -1694,7 +1695,7 @@ Options:
 
 ### Command: workflow io
 
-```
+```text
 Usage: cmemc [OPTIONS] WORKFLOW_ID
 
   Execute a workflow with file input/output.
@@ -1732,37 +1733,40 @@ Options:
                                   default mime type will be used (currently
                                   xml).
 
+  --autoconfig / --no-autoconfig  Setup auto configuration of input datasets,
+                                  e.g. in order to process CSV files with
+                                  semicolon- instead of comma-separation.
+                                  [default: True]
+
   -h, --help                      Show this message and exit.
 ```
 
 ### Command: workflow list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
-  List available workflow ids.
+  List available workflow.
 
 Options:
-  --raw                      Outputs raw JSON objects of workflow task search
-                             API response.
+  --filter <TEXT TEXT>...  List workflows based on meta data. First parameter
+                           --filter CHOICE can be one of ['io', 'project',
+                           'regex', 'tag']. The second parameter is based on
+                           CHOICE.
 
-  --id-only                  Lists only workflow identifier and no labels or
-                             other meta data. This is useful for piping the
-                             IDs into other commands.
+  --id-only                Lists only workflow identifier and no labels or
+                           other meta data. This is useful for piping the IDs
+                           into other commands.
 
-  --filter <CHOICE TEXT>...  Filter workflows based on project or suitability
-                             for the io command .First parameter CHOICE can be
-                             'project' or 'io'. The second parameter has to be
-                             a project ID in case of 'project' or 'input-
-                             only|output-only|input-output|any' in case of
-                             'io' filter.
+  --raw                    Outputs raw JSON objects of workflow task search
+                           API response.
 
-  -h, --help                 Show this message and exit.
+  -h, --help               Show this message and exit.
 ```
 
 ### Command: workflow status
 
-```
+```text
 Usage: cmemc [OPTIONS] [WORKFLOW_IDS]...
 
   Get status information of workflow(s).
@@ -1780,7 +1784,7 @@ Options:
 
 ### Command: workflow open
 
-```
+```text
 Usage: cmemc [OPTIONS] WORKFLOW_ID
 
   Open a workflow in your browser.
@@ -1813,7 +1817,7 @@ Commands:
 
 ### Command: workflow scheduler open
 
-```
+```text
 Usage: cmemc [OPTIONS] SCHEDULER_IDS...
 
   Open scheduler(s) in the browser.
@@ -1833,7 +1837,7 @@ Options:
 
 ### Command: workflow scheduler list
 
-```
+```text
 Usage: cmemc [OPTIONS]
 
   List available scheduler.
@@ -1851,7 +1855,7 @@ Options:
 
 ### Command: workflow scheduler inspect
 
-```
+```text
 Usage: cmemc [OPTIONS] SCHEDULER_ID
 
   Display all meta data of a scheduler.
@@ -1863,7 +1867,7 @@ Options:
 
 ### Command: workflow scheduler disable
 
-```
+```text
 Usage: cmemc [OPTIONS] [SCHEDULER_IDS]...
 
   Disable scheduler(s).
@@ -1878,7 +1882,7 @@ Options:
 
 ### Command: workflow scheduler enable
 
-```
+```text
 Usage: cmemc [OPTIONS] [SCHEDULER_IDS]...
 
   Enable scheduler(s).
