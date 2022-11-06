@@ -79,10 +79,10 @@ tasks:
   update:cmemc:
     desc: re-generates the cmemc command reference
     cmds:
-      - CMEMC_MANUAL=true cmemc config > {{.REFERENCE_FILE}}
+      - rm -rf {{.REFERENCE_DIR}}/*
+      - CMEMC_MANUAL_DIR={{.REFERENCE_DIR}} cmemc -q config
     vars:
-      REFERENCE_FILE: >
-        docs/automate/cmemc-command-line-interface/command-reference/index.md
+      REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
   public:versions:
     desc: List public documentation versions
