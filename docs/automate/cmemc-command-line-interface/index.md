@@ -1,4 +1,5 @@
 ---
+status: new
 title: cmemc (Overview)
 subtitle: Command Line Interface
 description: cmemc is the eccenca Corporate Memory command line interface.
