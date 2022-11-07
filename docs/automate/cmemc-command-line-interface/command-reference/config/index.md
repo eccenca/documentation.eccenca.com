@@ -6,7 +6,9 @@ tags:
   - cmemc
 ---
 # config Command Group
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+```text
 List and edit configs as well as get config values.
 
 Configurations are identified by the section identifier in the
@@ -53,130 +55,102 @@ The configured process needs to return the credential on the first line
 of stdout. In addition to that, the process needs to exit with exit
 code 0 (without failure). There are examples available in the online
 manual.
+```
 
 ## config list
 
 List configured connections.
 
-This command lists all configured
-connections from the currently used config file.
-
-The connection identifier can be used with the --connection option
-in order to use a specific Corporate Memory instance.
-
-In order to apply commands on more than one instance, you need to use
-typical unix gear such as xargs or parallel:
-
-cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
-
-cmemc config list | parallel --jobs 5 cmemc -c {} admin status
-
-```shell-session
-$ cmemc config list [OPTIONS]
+```shell-session title="Usage"
+$ cmemc config list
 ```
 
-```text
-Usage: cmemc config list [OPTIONS]
 
-  List configured connections.
 
-  This command lists all configured connections from the currently used
-  config file.
 
-  The connection identifier can be used with the --connection option in
-  order to use a specific Corporate Memory instance.
+This command lists all configured connections from the currently used config file.
 
-  In order to apply commands on more than one instance, you need to use
-  typical unix gear such as xargs or parallel:
+The connection identifier can be used with the `--connection` option in order to use a specific Corporate Memory instance.
 
-  cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
+In order to apply commands on more than one instance, you need to use typical unix gear such as xargs or parallel.
 
-  cmemc config list | parallel --jobs 5 cmemc -c {} admin status
+```shell-session title="Example"
+$ cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
 ```
+
+
+```shell-session title="Example"
+$ cmemc config list | parallel --jobs 5 cmemc -c {} admin status
+```
+
+
+
+
 ## config edit
 
 Edit the user-scope configuration file.
 
-```shell-session
-$ cmemc config edit [OPTIONS]
+```shell-session title="Usage"
+$ cmemc config edit
 ```
 
-```text
-Usage: cmemc config edit [OPTIONS]
 
-  Edit the user-scope configuration file.
-```
+
+
+
 ## config get
 
 Get the value of a known cmemc configuration key.
 
-In order to automate processes such as fetching custom API data
-from multiple Corporate Memory instances, this command provides a way to
-get the value of a cmemc configuration key for the selected deployment.
-
-Example Usage: curl -H "Authorization: Bearer $(cmemc -c my admin token)"
-$(cmemc -c my config get `DP_API`_ENDPOINT)/api/custom/slug
-
-The commands returns with exit code 1 if the config key is not used in
-the current configuration.
-
-```shell-session
-$ cmemc config get [OPTIONS] [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
+```shell-session title="Usage"
+$ cmemc config get [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
              POINT|DI_API_ENDPOINT|OAUTH_TOKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER
              |OAUTH_PASSWORD|OAUTH_CLIENT_ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_
              TOKEN]
 ```
 
-```text
-Usage: cmemc config get [OPTIONS] [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
-             POINT|DI_API_ENDPOINT|OAUTH_TOKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER
-             |OAUTH_PASSWORD|OAUTH_CLIENT_ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_
-             TOKEN]
 
-  Get the value of a known cmemc configuration key.
 
-  In order to automate processes such as fetching custom API data from
-  multiple Corporate Memory instances, this command provides a way to get
-  the value of a cmemc configuration key for the selected deployment.
 
-  Example Usage: curl -H "Authorization: Bearer $(cmemc -c my admin token)"
-  $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
+In order to automate processes such as fetching custom API data from multiple Corporate Memory instances, this command provides a way to get the value of a cmemc configuration key for the selected deployment.
 
-  The commands returns with exit code 1 if the config key is not used in the
-  current configuration.
+```shell-session title="Example"
+$ curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
 ```
+
+
+The commands return with exit code 1 if the config key is not used in the current configuration.
+
+
+
 ## config eval
 
 Export all configuration values of a configuration for evaluation.
 
-The output of this command is suitable to be used by a shells eval
-command. It will output the complete configuration as 'export key="value"'
-statements. This allows for preparation of a shell environment.
-
-eval $(cmemc -c my config eval)
-
-Please be aware that credential details are shown in cleartext with
-this command.
-
-```shell-session
+```shell-session title="Usage"
 $ cmemc config eval [OPTIONS]
 ```
 
-```text
-Usage: cmemc config eval [OPTIONS]
 
-  Export all configuration values of a configuration for evaluation.
 
-  The output of this command is suitable to be used by a shells eval
-  command. It will output the complete configuration as 'export key="value"'
-  statements. This allows for preparation of a shell environment.
 
-  eval $(cmemc -c my config eval)
+The output of this command is suitable to be used by a shells `eval` command. It will output the complete configuration as `export key="value"` statements. This allows for preparation of a shell environment.
 
-  Please be aware that credential details are shown in cleartext with this
-  command.
-
-Options:
-  --unset     Instead of export all configuration keys, this option will unset
-              all key.
+```shell-session title="Example"
+$ eval $(cmemc -c my config eval)
 ```
+
+
+!!! warning
+    Please be aware that credential details are shown in cleartext with this command.
+
+
+
+
+??? info "Options"
+    ```text
+
+    --unset     Instead of export all configuration keys, this option will unset
+                all key.
+    ```
+
