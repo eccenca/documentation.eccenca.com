@@ -20,7 +20,7 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Determine class according to configuration -->
+<!-- Determine base classes -->
 {% set class = "md-header" %}
 {% if "navigation.tabs.sticky" in features %}
   {% set class = class ~ " md-header--lifted" %}
@@ -88,13 +88,13 @@
             {% endif %}
             type="radio"
             name="__palette"
-            id="__palette_{{ loop.index }}"
+            id="__palette_{{ loop.index0 }}"
           />
           {% if option.toggle %}
             <label
               class="md-header__button md-icon"
               title="{{ option.toggle.name }}"
-              for="__palette_{{ loop.index0 or loop.length }}"
+              for="__palette_{{ loop.index % loop.length }}"
               hidden
             >
               {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
@@ -102,6 +102,11 @@
           {% endif %}
         {% endfor %}
       </form>
+    {% endif %}
+
+    <!-- User preference: color palette -->
+    {% if not config.theme.palette is mapping %}
+      {% include "partials/javascripts/palette.html" %}
     {% endif %}
 
     <!-- Site language selector -->
@@ -127,7 +132,7 @@
                     {{ alt.name }}
                   </a>
                 </li>
-                {% endfor %}
+              {% endfor %}
             </ul>
           </div>
         </div>
@@ -135,7 +140,7 @@
     {% endif %}
 
     <!-- Button to open search modal -->
-    {% if "search" in config.plugins %}
+    {% if "material/search" in config.plugins %}
       <label class="md-header__button md-icon" for="__search">
         {% include ".icons/material/magnify.svg" %}
       </label>
@@ -144,7 +149,12 @@
       {% include "partials/search.html" %}
     {% endif %}
 
-    <!-- Repository information (REMOVED) -->
+    <!-- Repository information -->
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
   </nav>
 
   <!-- Navigation tabs (sticky) -->
