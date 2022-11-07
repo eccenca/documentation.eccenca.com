@@ -67,6 +67,10 @@ extra:
 # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme
 extra_css:
   - assets/extra.css
+extra_javascript:
+  # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#sortable-tables
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/tablesort.js
 # }}}
 
 # {{{ Theme configuration
