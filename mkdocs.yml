@@ -13,7 +13,7 @@ extra:
     property: G-VS3GZMYY28
   # https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
   status:
-    new: Recently added
+    new: Recently added or extended
     deprecated: Deprecated
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/?h=social#social-links
   social:
