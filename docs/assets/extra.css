@@ -86,3 +86,9 @@
     font-weight: 700;
     box-sizing: border-box;
 }
+
+/* always hide repo link in navigation */
+
+.md-nav__source {
+    display: none !important;
+}
