@@ -1,5 +1,5 @@
 ---
-icon: material/graph-outline
+icon: eccenca/module-thesauri
 tags:
     - Vocabulary
 ---

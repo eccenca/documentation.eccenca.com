@@ -1,5 +1,5 @@
 ---
-icon: material/compass-outline
+icon: eccenca/application-explore
 tags:
     - KnowledgeGraph
 ---

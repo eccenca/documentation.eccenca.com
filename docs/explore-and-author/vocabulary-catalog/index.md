@@ -1,5 +1,5 @@
 ---
-icon: material/graph-outline
+icon: eccenca/application-vocabularies
 tags:
     - KnowledgeGraph
     - Vocabulary

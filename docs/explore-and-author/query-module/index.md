@@ -1,5 +1,5 @@
 ---
-icon: material/database-eye-outline
+icon: eccenca/application-queries
 tags:
     - SPARQL
     - KnowledgeGraph

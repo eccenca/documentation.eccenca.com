@@ -1,5 +1,7 @@
 ---
-icon: material/application-outline
+icon: eccenca/module-integrations
+tags:
+    - Dashboards
 ---
 # Embedding Services via the Integrations Module
 
