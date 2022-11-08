@@ -155,7 +155,7 @@ theme:
       configuration: material/tune
       dashboards: material/view-dashboard
       best-practice: material/thumb-up-outline
-      knowledge-graph: material/semantic-web
+      knowledge-graph: material/compass-outline
       java: material/language-java
       security: material/server-security
       api: material/api
@@ -165,7 +165,7 @@ theme:
       cmemc: octicons/terminal-16
       docker: fontawesome/brands/docker
       python: fontawesome/brands/python
-      sparql: material/semantic-web
+      sparql: material/database-eye-outline
       beginners: material/list-status
       advanced: material/list-status
       expert: material/list-status
@@ -231,6 +231,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      # https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/#additional-icons
+      options:
+        custom_icons:
+          - overrides/.icons
 # }}}
 
 # {{{ Extensions to mkdocs - some of them are used by material theme
