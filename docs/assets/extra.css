@@ -57,3 +57,18 @@
         margin-top: 0;
     }
 }
+
+/* Change table display */
+
+.md-typeset table:not([class]) {
+    background-color: var(--md-default-bg-color--light);
+    border: none;
+}
+
+.md-typeset table:not([class]) th {
+    background-color: rgba(0,184,212,.1);
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) td {
+    background-color: rgba(0,184,212,.05);
+}
