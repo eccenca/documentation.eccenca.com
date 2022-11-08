@@ -1,4 +1,5 @@
 ---
+icon: material/database-eye-outline
 tags:
     - SPARQL
     - KnowledgeGraph

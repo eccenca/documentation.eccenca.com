@@ -1,5 +1,5 @@
 ---
-status: new
+icon: octicons/versions-24
 tags:
     - KnowledgeGraph
 ---

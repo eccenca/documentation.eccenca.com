@@ -1,5 +1,5 @@
 ---
-status: new
+icon: material/chat-plus-outline
 tags:
     - KnowledgeGraph
 ---

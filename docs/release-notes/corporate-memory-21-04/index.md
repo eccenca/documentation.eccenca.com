@@ -15,7 +15,7 @@ Corporate Memory 21.04 is the second release in 2021.
 The highlights of this release are:
 
 - Build: The mapping editor now allows for auto-completion of paths on any level in multi-hop paths, including source type specific paths with special semantics, e.g. `#idx` for CSV datasets. This feature lowers the barrier for new Corporate Memory users and allows for much master mapping creation.
-- Explore: Manual authoring of resources via SHACL-shape based [customized user interfaces](../../explore-and-author/building-a-customized-user-interface/index.md) is now supported with client-side datatype validation (in addition to store-based validation). This feature provides instant user feedback while typing Literals and therefor allows faster data entry.
+- Explore: Manual authoring of resources via SHACL-shape based [customized user interfaces](../../explore-and-author/graph-exploration/building-a-customized-user-interface/index.md) is now supported with client-side datatype validation (in addition to store-based validation). This feature provides instant user feedback while typing Literals and therefor allows faster data entry.
 - Automate: The new vocabulary import command of cmemc adds a turtle file as a vocabulary to Corporate Memory (upload and create catalog entry). This allows for automation of CI/CD pipeline which depend on vocabularies managed in a Git Repository.
 
 !!! warning

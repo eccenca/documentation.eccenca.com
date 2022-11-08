@@ -1,3 +1,6 @@
+---
+icon: material/application-outline
+---
 # Embedding Services via the Integrations Module
 
 A DataManager module is available that can be used to embed / integrate other web-services in Corporate Memory. The module can be used and configured globally or individually per workspace configuration.
@@ -25,7 +28,7 @@ js.config.modules.integrations:
 
 The `name` properties can be customized. Important is that the module is enabled ("`enable: true`") in at least one place (globally or in a certain workspace) in order to be shown.
 
-!!! warning 
+!!! warning
     In case your Corporate Memory Instance is served via HTTPS, no HTTP services can be used due to browser security limitations.
 
 You can redefine all or parts of the configuration per workspace, e.g. in order to disable the module in a specific workspace add "`modules.integrations.enable: false`" to the configuration of the respective workspace.

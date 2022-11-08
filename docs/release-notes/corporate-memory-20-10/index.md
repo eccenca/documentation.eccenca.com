@@ -11,8 +11,8 @@ Corporate Memory 20.10 is the third release in 2020.
 The highlights of this release are:
 
 - Release of the new [DataIntegration workspace](../../build/introduction-to-the-user-interface/index.md).
-- Support for [statement annotations](../../explore-and-author/statement-annotations/index.md), in order to express knowledge about specific statements.
-- Support for [tracking change sets](../../explore-and-author/statement-annotations/index.md) for all shape based editing activities.
+- Support for [statement annotations](../../explore-and-author/graph-exploration/statement-annotations/index.md), in order to express knowledge about specific statements.
+- Support for [tracking change sets](../../explore-and-author/graph-exploration/statement-annotations/index.md) for all shape based editing activities.
 - Support for automation of vocabulary and dataset management with [cmemc](../../automate/cmemc-command-line-interface/index.md).
 
 !!! warning
@@ -109,7 +109,7 @@ This version of eccenca DataManager adds the following new features:
 
 - General
     - Add translations and i18n language selection (and ship english and german translations)
-    - Allow for [Annotation of Statements with additional meta data](../../explore-and-author/statement-annotations/index.md)
+    - Allow for [Annotation of Statements with additional meta data](../../explore-and-author/graph-exploration/statement-annotations/index.md)
     - Integrate with the new [DataIntegration workspace](../../build/introduction-to-the-user-interface/index.md) (Data Integration Tab)
 - Shacline
     - Add support for 'sh:languageIn' (as multiple values) in literal properties

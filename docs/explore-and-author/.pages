@@ -1,11 +1,8 @@
 nav:
     - Explore and Author: index.md
+    - Graph Exploration: graph-exploration
     - Vocabulary Catalog: vocabulary-catalog
     - Thesauri Management: thesauri-management
-    - Graph Exploration: graph-exploration
     - Query Module: query-module
-    - Building a customized User Interface: building-a-customized-user-interface
-    - Statement Annotations: statement-annotations
-    - Versioning of Graph Changes: versioning-of-graph-changes
-    - Workflow Trigger: workflow-trigger
     - Embedding Services via the Integrations Module: embedding-services-via-the-integrations-module
+

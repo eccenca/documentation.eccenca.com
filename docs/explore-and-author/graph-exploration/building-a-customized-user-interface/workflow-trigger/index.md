@@ -1,5 +1,5 @@
 ---
-status: new
+icon: octicons/workflow-24
 tags:
     - Workflow
 ---

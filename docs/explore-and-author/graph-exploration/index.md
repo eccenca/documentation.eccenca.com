@@ -1,4 +1,5 @@
 ---
+icon: material/compass-outline
 tags:
     - KnowledgeGraph
 ---

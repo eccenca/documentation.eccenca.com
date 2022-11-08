@@ -1,0 +1,7 @@
+nav:
+    - Building a Customized User Interface: index.md
+    - Workflow Trigger: workflow-trigger
+    - Node Shapes: node-shapes
+    - Property Shapes: property-shapes
+    - Datatypes: datatypes
+
