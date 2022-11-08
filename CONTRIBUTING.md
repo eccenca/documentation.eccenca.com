@@ -35,6 +35,8 @@ The following tools you need locally to get started:
 - [task](https://taskfile.dev/)
 - git, markdown editor
 
+On a few OS distributions (e.g. Arch Linux) the tool/binary is named `go-task`.
+
 The following shell session demonstrates the local workflow (after you forked the repository):
 
 ``` shell-session
@@ -56,13 +58,14 @@ INFO     -  Documentation built in 20.03 seconds
 INFO     -  [16:25:36] Watching paths for changes: 'docs', 'mkdocs.yml', 'overrides'
 INFO     -  [16:25:36] Serving on http://127.0.0.1:8000/
 ```
+
 After that, you can go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and start changing / adding files in the docs directory.
 Changes are served live on localhost.
 
 Note that some python packages need corresponding C libraries, which you may have to install as well.
 Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/?h=cairo#dependencies) and the [build plan](https://github.com/eccenca/documentation.eccenca.com/blob/main/.github/workflows/test.yml#L54) for a list.
 </details>
-    
+
 ## Repository rules
 
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
