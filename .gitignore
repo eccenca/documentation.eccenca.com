@@ -1,4 +1,5 @@
 site
 .cache
+.idea
 .obsidian/workspace
 .obsidian/workspace.json
