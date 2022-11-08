@@ -33,19 +33,19 @@ HTTP/1.1 500
 Content-Type: application/problem+json
 
 {
-"title": "Internal Server Error",
-"status": 500,
-"detail": "Database server 'Stardog' unavailable",
-"cause": {
-"title": "Internal Server Error",
-"status": 500,
-"detail": "Connection refused (Connection refused)"
-}
+  "title": "Internal Server Error",
+  "status": 500,
+  "detail": "Database server 'Stardog' unavailable",
+  "cause": {
+    "title": "Internal Server Error",
+    "status": 500,
+    "detail": "Connection refused (Connection refused)"
+  }
 }
 ```
 
 ## Available APIs and Recipes
 
 - :material-file-document: [cmempy - Python API](./cmempy-python-api/index.md) — cmempy is a Python API wrapper around the eccenca Corporate Memory HTTP APIs which can be used to rapidly script processes which interact with Corporate Memory.
-- :material-file-document: [DataIntegration APIs](./dataintegration-apis/index.md) — eccenca DataIntegration APIs can be used to control, initiate and setup all task and activities related to the [★ Build](../build/index.md) step (such as datasets, transformations, linking tasks etc.). ([DataIntegration OpenAPI Reference](https://markdown-sandbox.eccenca.com/develop/dataintegration-apis/#open-api-reference))
-- :material-file-document: [DataPlatform APIs](../develop/dataintegration-apis/index.md) — eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions. [DataPlatform OpenAPI Reference](https://markdown-sandbox.eccenca.com/develop/dataplatform-apis/#open-api-reference))
+- :material-file-document: [DataIntegration APIs](dataintegration-apis/index.md) — eccenca DataIntegration APIs can be used to control, initiate and setup all task and activities related to the [★ Build](../build/index.md) step (such as datasets, transformations, linking tasks etc.).
+- :material-file-document: [DataPlatform APIs](dataplatform-apis/index.md) — eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.
