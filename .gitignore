@@ -3,3 +3,5 @@ site
 .idea
 .obsidian/workspace
 .obsidian/workspace.json
+__pycache__
+
