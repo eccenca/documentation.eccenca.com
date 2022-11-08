@@ -76,6 +76,20 @@ tasks:
       - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
       - poetry update
 
+  update:icons:
+    desc: update the used eccenca icons from carbon
+    cmds:
+      - rm -rf {{.TMP_DIR}}
+      - mkdir {{.TMP_DIR}}
+      - cd tmp && npm install @carbon/icons
+      - rm -rf {{.ICON_DIR}}/*.svg
+      - poetry run dec-tool update-icons -i {{.META_DATA}} -o {{.ICON_DIR}}
+      - rm -rf {{.TMP_DIR}}
+    vars:
+      ICON_DIR: overrides/.icons/eccenca
+      TMP_DIR: tmp
+      META_DATA: "{{.TMP_DIR}}/node_modules/@carbon/icons/metadata.json"
+
   update:cmemc:
     desc: re-generates the cmemc command reference
     cmds:
