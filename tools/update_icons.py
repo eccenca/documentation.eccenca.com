@@ -66,5 +66,8 @@ def update_icons(carbon_metadata, output_dir, names_source):
         file_path = carbon_icons[carbon_id]["assets"][0]["filepath"]
         url = f"{CARBON_BASE_URL}{file_path}"
         output = f"{output_dir}/{name}.svg"
-        urllib.request.urlretrieve(url, output)
-        print(f"{url} -> {output}")
+        svg = requests.get(url).text
+        fixed_svg = re.sub(r"id=\"icon\"", "class=\"icon\"", svg)
+        with open(output, encoding='utf-8', mode="w") as svg_file:
+            svg_file.write(fixed_svg)
+        print(f"CARBON_BASE_URL:{file_path} -> {output}")
