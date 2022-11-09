@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-The Query module provides a user interface to store, describe, search and edit SPARQL queries
+The Query module provides a user interface to store, describe, search and edit SPARQL queries.
 The queries are evaluated on the Knowledge Graph and provide a way to granularly aggregate semantic data as tables.
 These tables can then be exported as CSV, Excel or JSON documents.
 
