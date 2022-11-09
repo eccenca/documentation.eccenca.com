@@ -92,3 +92,20 @@
 .md-nav__source {
     display: none !important;
 }
+
+/* fix icon dimensions */
+
+svg.icon {
+    width: auto;
+    height: 24px;
+}
+
+.md-nav__link svg.icon {
+    height: 1.3em;
+}
+
+.md-typeset :is(.emojione,.twemoji,.gemoji) svg.icon {
+    fill: currentcolor;
+    max-height: 100%;
+    width: var(--md-icon-size);
+}
