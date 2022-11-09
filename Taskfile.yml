@@ -18,6 +18,24 @@ tasks:
     cmds:
       - task --list
 
+  versions:
+    desc: List relevant versions for a mkdocs material bug report
+    silent: true
+    cmds:
+      - |
+        cat << EOF
+        - Python: {{.PYTHON_VERSION}}
+        - MkDocs: {{.MKDOCS_VERSION}}
+        - Material: {{.MATERIAL_VERSION}}
+        EOF
+    vars:
+      PYTHON_VERSION:
+        sh: poetry run python --version
+      MKDOCS_VERSION:
+        sh: poetry run mkdocs --version | cut -d " " -f -3
+      MATERIAL_VERSION:
+        sh: poetry run pip show mkdocs-material | grep Version | cut -d " " -f 2
+
   clean:
     desc: Clean up working directory
     run: once
