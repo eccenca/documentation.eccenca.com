@@ -53,6 +53,7 @@ extra:
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
     ExpertTutorial: expert
+    Project: project
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
@@ -155,12 +156,12 @@ theme:
       configuration: material/tune
       dashboards: material/view-dashboard
       best-practice: material/thumb-up-outline
-      knowledge-graph: material/compass-outline
+      knowledge-graph: eccenca/artefact-dataset-eccencadataplatform
       java: material/language-java
       security: material/server-security
       api: material/api
       reference: octicons/cross-reference-24
-      workflow: octicons/workflow-24
+      workflow: eccenca/artefact-workflow
       automate: simple/powerautomate
       cmemc: octicons/terminal-16
       docker: fontawesome/brands/docker
@@ -169,6 +170,7 @@ theme:
       beginners: material/list-status
       advanced: material/list-status
       expert: material/list-status
+      project: eccenca/artefact-project
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky
