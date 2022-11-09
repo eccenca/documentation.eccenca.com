@@ -4,4 +4,4 @@ site
 .obsidian/workspace
 .obsidian/workspace.json
 __pycache__
-
+tmp
