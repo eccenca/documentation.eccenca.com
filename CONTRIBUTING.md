@@ -71,7 +71,9 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
 - add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
 - put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
-- do not use images for icons esp. icons from the application - use theme icons instead, e.g. `:material-play:` -> [icon list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
+- do not use images for icons esp. icons from the application
+    - use eccenca icons, e.g. [:eccenca-application-queries:](https://github.com/eccenca/documentation.eccenca.com/blob/main/overrides/.icons/eccenca/application-queries.svg) -> [list](https://github.com/eccenca/documentation.eccenca.com/tree/main/overrides/.icons/eccenca)
+    - use theme icons where no eccenca icon is available -> [list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
 - name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
 - used advanced features where suitable
   - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed)
