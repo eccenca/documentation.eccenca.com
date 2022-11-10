@@ -13,7 +13,7 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 
 ## Setup & Check Installation Environment
 
-Download the [Corporate Memory docker orchestration]<https://releases.eccenca.com/docker-orchestration/> from eccenca Artifactory.
+Download the [Corporate Memory docker orchestration](https://releases.eccenca.com/docker-orchestration/) from eccenca Artifactory.
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
 
@@ -83,7 +83,7 @@ Check validity of your stardog license with `make stardog-license-check` command
 
 ```bash
 $ make stardog-license-check
-docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
+docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 Licensee: Eccenca User (noreply@stardog.com), Eccenca
 Type:  Subscription
 Issued:  Mon Jan 20 19:39:39 GMT 2020
@@ -98,14 +98,14 @@ In case you do not have stardog license or your license has expired, request a t
 # if stardog-license-check is failing with invalid or expired license
 
 $ make stardog-license-check
-docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
+docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 The license is invalid: java.io.EOFException
 make: *** [stardog-license-check] Error 1
 
 # request stardog trial license
 
 $ make stardog-license-request
-docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license request --force --output /data/stardog-license-key.bin
+docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license request --force --output /data/stardog-license-key.bin
 Thank you for downloading Stardog.
 A valid license was not found in /data.
 Would you like to download a trial license from Stardog (y/N)? y
@@ -143,7 +143,7 @@ Thank you!
 # check that you have a valid license now
 
 $ make stardog-license-check
-docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
+docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 Licensee: Stardog Trial User (you@your-domain.com), Stardog Union
 Version: Stardog *
 Type:  Trial
@@ -191,7 +191,7 @@ Creating dockerlocal_datamanager_1     ... done
 Creating dockerlocal_dataintegration_1 ... done
 Creating dockerlocal_keycloak_1        ... done
 Creating dockerlocal_dataplatform_1    ... done
-/Users/ivanermilov/eccenca-corporate-memory//scripts/waitForSuccessfulStart.sh
+/Users/ivanermilov/eccenca-corporate-memory/scripts/waitForSuccessfulStart.sh
 Waiting for healthy orchestration...................... done
 CMEM-Orchestration successfully started.
 Run make logs to see log output
