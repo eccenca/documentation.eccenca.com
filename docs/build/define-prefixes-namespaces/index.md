@@ -8,7 +8,8 @@ tags:
 ## Introduction
 
 A namespace declaration consists of a **prefix name** and a **namespace IRI**.
-Namespace declarations allow for abbreviation of IRIs by using a prefixed resource name instead of a full IRI.
+Namespace declarations allow for abbreviation of IRIs by using a prefixed resource name instead of a full IRI. 
+my chage -- Phani
 
 For example, after defining a namespace with the values
 
