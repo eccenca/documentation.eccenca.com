@@ -1,6 +1,6 @@
 ---
 title: "cmemc: SPARQL Scripts"
-icon: material/semantic-web
+icon: eccenca/application-queries
 tags:
   - Automate
   - SPARQL

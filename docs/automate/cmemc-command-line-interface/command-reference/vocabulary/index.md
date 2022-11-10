@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - vocabulary"
 description: "List, (un-)install, import or open vocabs / manage cache."
-icon: material/graph-outline
+icon: eccenca/application-vocabularies
 tags:
   - Vocabulary
   - cmemc

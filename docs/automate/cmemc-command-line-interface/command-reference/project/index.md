@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - project"
 description: "List, import, export, create, delete or open projects."
-icon: octicons/file-directory-24
+icon: eccenca/artefact-project
 tags:
   - Project
   - cmemc

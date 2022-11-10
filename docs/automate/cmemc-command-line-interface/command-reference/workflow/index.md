@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - workflow"
 description: "List, execute, status or open (io) workflows."
-icon: octicons/workflow-24
+icon: eccenca/artefact-workflow
 tags:
   - Workflow
   - cmemc

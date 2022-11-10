@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - graph"
 description: "List, import, export, delete, count, tree or open graphs."
-icon: material/semantic-web
+icon: eccenca/artefact-dataset-eccencadataplatform
 tags:
   - KnowledgeGraph
   - cmemc
