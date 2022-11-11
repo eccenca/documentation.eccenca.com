@@ -53,7 +53,7 @@ Click :material-chevron-down: on a node to see literal values related to this re
 
 ![Load saved exploration from `Visualization catalog`](easynav-visualization-catalog.png)
 
-The Visualization catalog dialog shows the saved exploration and allows to :octicons-eye-24: open, :octicons-trash-24: delete or to :material-file-link-outline: copy the link to the exploration.
+The `Visualization catalog` dialog shows the saved exploration and allows to :octicons-eye-24: open, :octicons-trash-24: delete or to :material-file-link-outline: copy the link to the exploration.
 
 ## Setup
 
