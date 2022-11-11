@@ -3,6 +3,7 @@ nav:
     - Graph Exploration: graph-exploration
     - Vocabulary Catalog: vocabulary-catalog
     - Thesauri Management: thesauri-management
+    - EasyNav Module: easynav-module
     - Query Module: query-module
     - Embedding Services via the Integrations Module: embedding-services-via-the-integrations-module
 
