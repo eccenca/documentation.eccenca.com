@@ -58,10 +58,11 @@ tags:
 | [graph](graph/index.md) | [open](graph/index.md#graph-open) | Open / explore a graph in the browser. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
-| [project](project/index.md) | [export](project/index.md#project-export) | Export project(s) to file(s). |
+| [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
 | [project](project/index.md) | [import](project/index.md#project-import) | Import a project from a file or directory. |
-| [project](project/index.md) | [delete](project/index.md#project-delete) | Delete project(s). |
-| [project](project/index.md) | [create](project/index.md#project-create) | Create empty new project(s). |
+| [project](project/index.md) | [delete](project/index.md#project-delete) | Delete projects. |
+| [project](project/index.md) | [create](project/index.md#project-create) | Create projects. |
+| [project](project/index.md) | [reload](project/index.md#project-reload) | Reload projects from the workspace provider. |
 | [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |
 | [query](query/index.md) | [list](query/index.md#query-list) | List available queries from the catalog. |
 | [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of the query catalog in your browser. |
