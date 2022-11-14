@@ -76,15 +76,24 @@
 /* Display of get-a-demo link */
 
 .getademo {
-    display: inline-block;
-    padding: 0.4rem;
-    height: 1.8rem;
-    background-color: #f39200;
-    color: #fff;
-    vertical-align: middle;
-    font-size: 0.9rem;
-    font-weight: 700;
-    box-sizing: border-box;
+  background-color: #f39200;
+  border-radius: 999px;
+  box-shadow: #f39200 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 }
 
 /* always hide repo link in navigation */
