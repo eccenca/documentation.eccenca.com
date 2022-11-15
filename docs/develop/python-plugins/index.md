@@ -13,11 +13,11 @@ The Python plugin system allows to extend eccenca DataIntegration with custom op
 
 Plugins are a released as parts of Python packages. The can but do not need to be open source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index).
 
-If you want to install a python plugin package, you can do this by using [cmemc's](../../automate/cmemc-command-line-interface/index.md) admin workspace python command group.
+If you want to install a python plugin package, you can do this by using cmemc's [admin workspace python command group](../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
 
 The following shell commands demonstrate the basic workflow:
 
-```bash
+```shell-session
 # list all installed python packages
 # Note: the list contains plugin packages as well all dependencies which they are using
 $ cmemc admin workspace python list
@@ -64,14 +64,14 @@ ID    Type    Label
 
 You can also install specific versions of a package by using version qualifier
 
-```bash
+```shell-session
 $ cmemc admin workspace python install cmem-plugin-graphql==1.0.0
 Install package cmem-plugin-graphql ... done
 ```
 
 And you can also install a package from a source distribution file
 
-```bash
+```shell-session
 $ cmemc admin workspace python install cmem-plugin-graphql-1.0.0.tar.gz
 Install package cmem-plugin-graphql ... done
 ```
@@ -82,17 +82,19 @@ We recommend to start developing a plugin by creating a new project with our [of
 
 This template will generate a fully configured Python poetry source repository together with build plans for gitlab and github.
 
-Based on the template, you will be able to develop your own plugins. In the following, we will introduce some basic concepts.
+Based on the template, you will be able to develop your own plugins.
+In the following, we will introduce some basic concepts and describe some best practices.
 
 ### Workflow plugins
 
-A workflow plugin implements a new operator (task) that can be used within a workflow. A workflow plugin may accept an arbitrary list of inputs and optionally returns a single output.
+A workflow plugin implements a new operator (task) that can be used within a workflow.
+A workflow plugin may accept an arbitrary list of inputs and optionally returns a single output.
 
 ![workflow-plugins](21-1-workflow-plugins.png)
 
 A minimal plugin that just outputs the first input looks like this:
 
-```py title="workflow.py  " linenums="1"
+```py title="workflow.py"
 from typing import Sequence
 from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
@@ -121,23 +123,10 @@ The lifecycle of a plugin is as follows:
 -   The execute function is called with the results of the connected input operators.
 -   The output is forwarded to the next subsequent operator.
 
-Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over. Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
+Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over.
+Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
 
 ![execution-report](22-2-workflow-execution-report.png)
-
-!!! info "Context API:"
-
-    Context API is provided by `cmem-plugin-base` which contains classes to pass context information into plugins.
-
-    | Class            | Description                                                                                                                                         |
-    | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | SystemContext    | Passed into methods to request general system information.                                                                                          |
-    | UserContext      | Passed into methods that are triggered by a user interaction.                                                                                       |
-    | TaskContext      | Passed into objects that are part of a DataIntegration task/project.                                                                                |
-    | ExecutionReport  | Workflow operators may generate execution reports. An execution report holds basic information and various statistics about the operator execution. |
-    | ReportContext    | Passed into workflow plugins that may generate a report during execution.                                                                           |
-    | PluginContext    | Combines context objects that are available during plugin creation or update.                                                                       |
-    | ExecutionContext | Combines context objects that are available during plugin execution.                                                                                |
 
 ### Transform plugins
 
@@ -159,30 +148,85 @@ class MyTransformPlugin(TransformPlugin):
         return inputs[0]
 ```
 
+### Plugin Context
+
+The `cmem-plugin-base` package describes context objects, which are passed to the plugin depending on the executed method.
+
+| Class              | Description                                                                                                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SystemContext`    | Passed into methods to request general system information.                                                                                          |
+| `UserContext`      | Passed into methods that are triggered by a user interaction.                                                                                       |
+| `TaskContext`      | Passed into objects that are part of a DataIntegration task/project.                                                                                |
+| `ExecutionReport`  | Workflow operators may generate execution reports. An execution report holds basic information and various statistics about the operator execution. |
+| `ReportContext`    | Passed into workflow plugins that may generate a report during execution.                                                                           |
+| `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
+| `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
+
+### Consuming and Producing Entities
+
+TODO
+
+### Plugin Configuration
+
+TODO
+
 ### Logging
 
-The Python standard output is redirected to the DataIntegration standard output. By default, println and logging statements will therefore be printed to the standard output. The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
+The Python standard output is redirected to the DataIntegration standard output.
+By default, `print` and logging statements will therefore be printed to the standard output (e.g. of the docker container).
+The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
 
-## Preliminaries
+## Setup and Configuration
 
-This section describes which backend components are needed on the DataIntegration server. When using our official docker images, these components are already installed and enabled.
+This section describes which backend components are needed on the DataIntegration server.
+When using our official docker images, these components are already installed and configured.
 
-### Python
+### Configuration
 
-An installation of the CPython distribution (at least version 3.3) is required. While other distributions, such as Anaconda, should be working as well, only CPython is officially supported.
+The following DataIntegration configuration section describes how to setup and enable the Python Plugin system.
+
+```text
+#################################################
+# Plugin Configuration
+#################################################
+
+# this (optional) file can be used to hold python plugin specific configuration
+include "python-plugins.conf"
+
+com.eccenca.di.scripting = {
+  python = {
+    PythonPluginRegistry = {
+      # Python plugins will only be loaded if 'enabled' is set to true.
+      enabled = true
+
+      # Plugins will only be loaded below the following base package.
+      basePackage = "cmem"
+    }
+
+    PythonPackageManager = {
+      # Python package installer executable.
+      # pipExecutable = "pip"
+      pipExecutable = "cmem-pip-wrapper.sh"
+    }
+  }
+}
+```
+
+### Python Interpreter
+
+An installation of the CPython distribution (at least version 3.3) is required.
+While other distributions, such as Anaconda, should be working as well, only CPython is officially supported.
 
 ### Java Embedded Python (Jep)
 
-The [Jep](https://github.com/ninia/jep) module needs to be installed. The easiest way is to execute:
+The [Jep](https://github.com/ninia/jep) package needs to be installed.
 
-```bash
-pip install jep
-```
-
-The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running DataIntegration. This can be achieved by setting an environment variable to the directory path where the Jep module is located:
+The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running DataIntegration.
+This can be achieved by setting an environment variable to the directory path where the Jep module is located:
 
 -   :simple-linux: **Linux**: set `LD_LIBRARY_PATH`.
 -   :simple-apple: **OS X**: set `DYLD_LIBRARY_PATH`.
 -   :simple-windows: **Windows**: set `PATH`.
 
 For alternative installation methods, visit [![Jep](https://img.shields.io/github/stars/ninia/jep?label=jep%20%7C%20stars&style=plastic){ .off-glb }](https://github.com/ninia/jep)
+
