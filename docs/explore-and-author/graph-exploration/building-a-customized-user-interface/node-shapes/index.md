@@ -1,94 +1,115 @@
 ---
+title: "Node Shape Reference"
+description: "This page lists all supported properties to describe node shapes."
 icon: octicons/cross-reference-24
 tags:
     - Reference
     - Vocabulary
 ---
 # Node Shapes
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Node Shapes are resources of type `shacl:NodeShape`. They are used to define custom forms attached to resources of a specific type. The following NodeShape properties are supported:
+Node Shapes are resources of type `shacl:NodeShape`.
+They can be used to validate resources as well as to define custom forms for presenting and editing resources of a specific type.
 
-In addition to these properties, the following non-standard properties from the eccenca SHACL UI extension are supported on Node Shapes:
+This page lists all supported properties to describe node shapes.
 
-#### Naming and Presentation
 
-In this group, presentation and naming properties are collected. Most of the properties are straight forward to use.
+## Naming and Presentation
 
-##### Name
+!!! info
+    In this group, presentation and naming properties are collected. Most of the properties are straight forward to use.
+
+### Name
 
 The name of the node is presented to the user only when he needs to distinguish between different shapes for the same resource.
 
-Used Path: `shacl:name`
+Used Path: `shacl:name`
 
-##### Description
+
+### Description
 
 The node description should provide context information for the user when creating a new resource based on this node.
 
-Used Path: `rdfs:comment`
+Used Path: `rdfs:comment`
 
-##### Tab Name (deprecated)
 
-Name of the tab (deprecated, only interpreted until 20.06)
+### Navigation list query
 
-Used Path: `shui:tabName`
+This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use  as a placeholder for the FROM section. Additionally,  can be used to access the graph in the FROM section.
 
-##### Navigation list query
+Used Path: `shui:navigationListQuery`
 
-This property links the node shape to a SPARQL 1.1 Select Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns.
 
-Used Path: `shui:navigationListQuery`
+### Depiction Image
 
-#### Vocabulary
+This property links a node shape to an image in order to use this image when showing resources based on this node shape somewhere.
 
-In this group, the affected vocabulary classes as well as the used property shapes are managed.
+Used Path: `http://xmlns.com/foaf/0.1/depiction`
 
-##### Property
+## Vocabulary
 
-Properties of this node
+!!! info
+    In this group, the affected vocabulary classes as well as the used property shapes are managed.
 
-Used Path: `shacl:property`
+### Property Shapes
 
-##### Target class
+The used property shapes on this node. Please note that this is NOT a link to a datatype or object property but to a SHACL property shape.
 
-Class this NodeShape applies to.
+Used Path: `shacl:property`
 
-Used Path: `shacl:targetClass`
 
-#### Processing
+### Target class
 
-In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
+Class this NodeShape applies to. This is a direct link to a class resource from a vocabulary.
 
-##### URI template
+Used Path: `shacl:targetClass`
+
+## Processing
+
+!!! info
+    In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
+
+### URI template
 
 A compact sequence of characters for describing a range of URIs through variable expansion.
 
-Used Path: `shui:uriTemplate`
+Used Path: `shui:uriTemplate`
 
-##### On update update
 
-A query executed when any value of the resource is added, changed or removed.
+### On update update
 
-Used Path: `shui:onUpdateUpdate`
 
-##### Target Graph Template
+A query which is executed when this nodeshape is submitted.
+The query should be saved in the same graph as the shape (or imported).
+The query can use these placeholders:
+ - the resource currently shown with the node shape of this property shape,
+ - the currently used graph. 
+
+
+Used Path: `shui:onUpdateUpdate`
+
+
+### Target Graph Template
 
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 
-Used Path: `shui:targetGraphTemplate`
+Used Path: `shui:targetGraphTemplate`
 
-#### Statement Annotation
+## Statement Annotation
 
-Statement Annotations provide a way to express knowledge about statements. This group is dedicated to properties which configure the Statement Annotation feature.
+!!! info
+    Statement Annotations provide a way to express knowledge about statements. This group is dedicated to properties which configure the Statement Annotation feature.
 
-##### Enable
+### Enable
 
 A value of true enables visualisation and management capabilities of statement annotations (reification) for all statements which are shown via this shape.
 
-Used Path: `shui:enableStatementLevelMetadata`
+Used Path: `shui:enableStatementLevelMetadata`
 
-##### Provide as Shape
+
+### Provide as Shape
 
 A value of true enables this node shape to be applied as statement annotation (reification).
 
-Used Path: `shui:isApplicableAsStatementLevelMetadata`
-
+Used Path: `shui:isApplicableAsStatementLevelMetadata`

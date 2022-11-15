@@ -112,6 +112,29 @@ tasks:
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
+  update:shape-reference:
+    desc: re-generates the shape and datatype references
+    cmds:
+      - cmemc graph import --replace {{.SRC}}
+      - cp {{.SRC}}/nodeshapedocu-head.md {{.NODESHAPES_MD}}
+      - "{{.CURL}} {{.API}}/nodeshapedocu >>{{.NODESHAPES_MD}}"
+      - cp {{.SRC}}/propertyshapedocu-head.md {{.PROPERTYSHAPES_MD}}
+      - "{{.CURL}} {{.API}}/propertyshapedocu >>{{.PROPERTYSHAPES_MD}}"
+      - cp {{.SRC}}/datatypedocu-head.md {{.DATATYPES_MD}}
+      - "{{.CURL}} {{.API}}/datatypedocu >>{{.DATATYPES_MD}}"
+    vars:
+      DIR: docs/explore-and-author/graph-exploration/building-a-customized-user-interface
+      TOKEN:
+        sh: cmemc admin token
+      DP:
+        sh: cmemc config get DP_API_ENDPOINT
+      CURL: "curl --silent -H 'Authorization: Bearer {{.TOKEN}}'"
+      API: "{{.DP}}/api/custom"
+      NODESHAPES_MD: "{{.DIR}}/node-shapes/index.md"
+      PROPERTYSHAPES_MD: "{{.DIR}}/property-shapes/index.md"
+      DATATYPES_MD: "{{.DIR}}/datatype-reference/index.md"
+      SRC: tools/update-shape-reference
+
   public:versions:
     desc: List public documentation versions
     deps:
