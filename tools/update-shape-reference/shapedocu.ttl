@@ -1,0 +1,189 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix shui: <https://vocab.eccenca.com/shui/> .
+@prefix shapes: <https://vocab.eccenca.com/shacl/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://docker.local/data/service/> .
+
+:
+    a void:Dataset ;
+    rdfs:label "Service Dataset" ;
+    shui:managedClasses shui:SelectQueryEndpoint, shui:SelectResultTemplate .
+
+# {{{ Node Shape Documentation
+:NodeShapeDocumentation
+    a shui:SelectQueryEndpoint ;
+    rdfs:comment "Generates markdown documentation for SHACL node shapes." ;
+    rdfs:label "Node Shape Documentation" ;
+    shui:endpointIsStreaming false ;
+    shui:endpointQuery :NodeShapeDocumentationQuery ;
+    shui:endpointTemplate :NodeShapeDocumentationTemplate ;
+    shui:endpointUrlSlug "nodeshapedocu" ;
+.
+
+:NodeShapeDocumentationQuery
+    a shui:SparqlQuery ;
+    rdfs:label "Query: Node Shape Documentation" ;
+    shui:queryText """
+PREFIX shacl: <http://www.w3.org/ns/shacl#>
+PREFIX shui: <https://vocab.eccenca.com/shui/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT
+  (STR(?groupL) AS ?group )
+  (STR(?propertyL) AS ?property )
+  (STR(?descriptionL) AS ?description )
+  (STR(?groupCommentL) AS ?groupcomment )
+# REPLACE(?o, \"gotit\", \"haveit\", \"i\") AS ?o2)
+  (REPLACE(REPLACE(REPLACE(STR(?iri), STR(shui:), \"shui:\"), STR(shacl:), \"shacl:\"), STR(rdfs:), \"rdfs:\") AS ?path )
+FROM <https://vocab.eccenca.com/shacl/>
+WHERE
+{
+  <https://vocab.eccenca.com/shacl/ShaclNodeShapeNodeShape> a shacl:NodeShape ;
+    shacl:property ?propertyR .
+  ?propertyR a shacl:PropertyShape ;
+    shacl:name ?propertyL ;
+    shacl:description ?descriptionL ;
+    shacl:path ?iri ;
+    shacl:group ?groupR .
+  ?groupR a shacl:PropertyGroup ;
+    rdfs:label ?groupL ;
+    shacl:order ?groupOrder .
+
+  OPTIONAL { ?propertyR shacl:order ?propertyOrder }
+  OPTIONAL { ?groupR rdfs:comment ?groupCommentL . }
+}
+ORDER BY ASC(?groupOrder) ASC(?propertyOrder)
+"""^^shui:sparqlQuery ;
+    shui:queryType "SELECT" ;
+.
+
+:NodeShapeDocumentationTemplate
+    a shui:SelectResultTemplate ;
+    rdfs:label "NodeShape Documentation Template" ;
+    shui:selectResultTemplateBody """{% set group = \"empty\" %}{% for result in results %}{% if group !=  result.group %}{% set group = result.group %}
+## {{ group }}
+
+!!! info
+    {{result.groupcomment}}{% endif %}
+
+### {{ result.property }}
+
+{{ result.description }}
+
+Used Path: `{{ result.path }}`
+{% endfor %}"""^^shui:jinja ;
+.
+
+# }}}
+# {{{ Property Shape Documentation
+:PropertyShapeDocumentation
+    a shui:SelectQueryEndpoint ;
+    rdfs:comment "Generates markdown documentation for SHACL property shapes." ;
+    rdfs:label "Property Shape Documentation" ;
+    shui:endpointIsStreaming false ;
+    shui:endpointQuery :PropertyShapeDocumentationQuery ;
+    shui:endpointTemplate :PropertyShapeDocumentationTemplate ;
+    shui:endpointUrlSlug "propertyshapedocu" ;
+.
+
+:PropertyShapeDocumentationQuery
+    a shui:SparqlQuery ;
+    rdfs:label "Query: Property Shape Documentation" ;
+    shui:queryText """
+PREFIX shacl: <http://www.w3.org/ns/shacl#>
+PREFIX shui: <https://vocab.eccenca.com/shui/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT
+  (STR(?groupL) AS ?group )
+  (STR(?propertyL) AS ?property )
+  (STR(?descriptionL) AS ?description )
+  (STR(?groupCommentL) AS ?groupcomment )
+# REPLACE(?o, \"gotit\", \"haveit\", \"i\") AS ?o2)
+  (REPLACE(REPLACE(REPLACE(STR(?iri), STR(shui:), \"shui:\"), STR(shacl:), \"shacl:\"), STR(rdfs:), \"rdfs:\") AS ?path )
+FROM <https://vocab.eccenca.com/shacl/>
+WHERE
+{
+  <https://vocab.eccenca.com/shacl/ShaclPropertyShapeNodeShape> a shacl:NodeShape ;
+    shacl:property ?propertyR .
+  ?propertyR a shacl:PropertyShape ;
+    shacl:name ?propertyL ;
+    shacl:description ?descriptionL ;
+    shacl:path ?iri ;
+    shacl:group ?groupR .
+  ?groupR a shacl:PropertyGroup ;
+    rdfs:label ?groupL ;
+    shacl:order ?groupOrder .
+
+  OPTIONAL { ?propertyR shacl:order ?propertyOrder }
+  OPTIONAL { ?groupR rdfs:comment ?groupCommentL . }
+}
+ORDER BY ASC(?groupOrder) ASC(?propertyOrder)
+"""^^shui:sparqlQuery ;
+    shui:queryType "SELECT" ;
+.
+
+:PropertyShapeDocumentationTemplate
+    a shui:SelectResultTemplate ;
+    rdfs:label "PropertyShape Documentation Template" ;
+    shui:selectResultTemplateBody """{% set group = \"empty\" %}{% for result in results %}{% if group !=  result.group %}{% set group = result.group %}
+## {{ group }}
+
+!!! info
+
+    {{result.groupcomment}}{% endif %}
+
+### {{ result.property }}
+
+{{ result.description }}
+
+Used Path: `{{ result.path }}`
+{% endfor %}"""^^shui:jinja ;
+.
+# }}}
+# {{{ Datatype Documentation
+:DatatypeDocumentation
+    a shui:SelectQueryEndpoint ;
+    rdfs:label "Datatype Documentation" ;
+    shui:endpointIsStreaming false ;
+    shui:endpointQuery :DatatypeDocumentationQuery ;
+    shui:endpointTemplate :DatatypeDocumentationTemplate ;
+    shui:endpointUrlSlug "datatypedocu";
+.
+
+:DatatypeDocumentationQuery
+    a shui:SparqlQuery ;
+    rdfs:label "Query: Datatype Documentation" ;
+    shui:queryText """
+PREFIX shacl: <http://www.w3.org/ns/shacl#>
+PREFIX shui: <https://vocab.eccenca.com/shui/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT
+	?iri
+	?label
+	?description
+FROM <https://vocab.eccenca.com/shacl/>
+WHERE
+{
+  ?iri a rdfs:Datatype ;
+  	rdfs:label ?label;
+    rdfs:comment ?description .
+}
+ORDER BY ASC(LCASE(?label))"""^^shui:sparqlQuery ;
+    shui:queryType "SELECT" ;
+.
+
+:DatatypeDocumentationTemplate
+    a shui:SelectResultTemplate ;
+    rdfs:label "Datatype Documentation Template" ;
+    shui:selectResultTemplateBody """{% for result in results %}#### {{ result.label }}
+
+{{ result.description }}
+
+IRI: `{{ result.iri }}`
+
+{% endfor %}"""^^shui:jinja ;
+.
+# }}}
+
