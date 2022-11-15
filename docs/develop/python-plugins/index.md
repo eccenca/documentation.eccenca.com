@@ -94,24 +94,50 @@ A minimal plugin that just outputs the first input looks like this:
 
 ```py title="workflow.py  " linenums="1"
 from typing import Sequence
-from cmem_plugin_base.dataintegration.entity import Entities
+from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
+from cmem_plugin_base.dataintegration.entity import Entities
 from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
 
 @Plugin(label="My Workflow Plugin")
 class MyWorkflowPlugin(WorkflowPlugin):
 
-    def execute(self, inputs: Sequence[Entities]) -> Entities:
+    def execute(
+        self, inputs: Sequence[Entities], context: ExecutionContext
+    ) -> Entities:
+        context.report.update(
+            ExecutionReport(
+                entity_count=1,
+                operation="wait",
+                operation_desc="Entity processed from the sequence of inputs.",
+            )
+        )
         return inputs[0]
 ```
 
 The lifecycle of a plugin is as follows:
 
-- The plugin will be instantiated once the workflow execution reaches the respective plugin.
-- The execute function is called with the results of the connected input operators.
-- The output is forwarded to the next subsequent operator.
+-   The plugin will be instantiated once the workflow execution reaches the respective plugin.
+-   The execute function is called with the results of the connected input operators.
+-   The output is forwarded to the next subsequent operator.
 
 Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over. Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
+
+![execution-report](22-2-workflow-execution-report.png)
+
+!!! info "Context API:"
+
+    Context API is provided by `cmem-plugin-base` which contains classes to pass context information into plugins.
+
+    | Class            | Description                                                                                                                                         |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | SystemContext    | Passed into methods to request general system information.                                                                                          |
+    | UserContext      | Passed into methods that are triggered by a user interaction.                                                                                       |
+    | TaskContext      | Passed into objects that are part of a DataIntegration task/project.                                                                                |
+    | ExecutionReport  | Workflow operators may generate execution reports. An execution report holds basic information and various statistics about the operator execution. |
+    | ReportContext    | Passed into workflow plugins that may generate a report during execution.                                                                           |
+    | PluginContext    | Combines context objects that are available during plugin creation or update.                                                                       |
+    | ExecutionContext | Combines context objects that are available during plugin execution.                                                                                |
 
 ### Transform plugins
 
@@ -155,8 +181,8 @@ pip install jep
 
 The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running DataIntegration. This can be achieved by setting an environment variable to the directory path where the Jep module is located:
 
-- :simple-linux: **Linux**: set `LD_LIBRARY_PATH`.
-- :simple-apple: **OS X**: set `DYLD_LIBRARY_PATH`.
-- :simple-windows: **Windows**: set `PATH`.
+-   :simple-linux: **Linux**: set `LD_LIBRARY_PATH`.
+-   :simple-apple: **OS X**: set `DYLD_LIBRARY_PATH`.
+-   :simple-windows: **Windows**: set `PATH`.
 
 For alternative installation methods, visit [![Jep](https://img.shields.io/github/stars/ninia/jep?label=jep%20%7C%20stars&style=plastic){ .off-glb }](https://github.com/ninia/jep)
