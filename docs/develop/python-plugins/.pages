@@ -1,0 +1,6 @@
+nav:
+    - Python Plugins: index.md
+    - Installation and Usage: installation
+    - Development: development
+    - Setup and Configuration: setup
+
