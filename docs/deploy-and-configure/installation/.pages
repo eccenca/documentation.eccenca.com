@@ -1,0 +1,7 @@
+nav:
+    - Installation: index.md
+    - "Scenario: Single Node Cloud Installation": scenario-single-node-cloud-installation
+    - "Scenario: Local Installation": scenario-local-installation
+    - "Scenario: RedHat Enterprise Linux 7": scenario-redhat-enterprise-linux-7
+    - Migrating Stores: migrating-stores
+
