@@ -3,15 +3,35 @@ icon: material/star-outline
 ---
 # Deploy and Configure
 
-Deploy in your own environment.
+Deploy and configure eccenca Corporate Memory in your own environment.
 
-**Intended audience**: deployment engineers and system administrators.
+**Intended audience**: Deployment Engineers and System Administrators.
 
-In this section, we guide you over the installation and configuration of the Corporate Memory. As an example we provide two scenarios of a single node installation: locally and in the cloud.
+<div class="grid cards" markdown>
 
-- :material-file-document: [Configuration](./configuration/index.md) --- This page describes specific topics on how to configure eccenca Corporate Memory.
-- :material-file-document: [Installation](./installation/index.md) --- This page describes proven deployment scenarios for eccenca Corporate Memory.
-- :material-file-document: [Requirements](./requirements/index.md) --- This page lists software and hardware requirements for eccenca Corporate Memory deployments.
-- :material-file-document: [Scenario: Local Installation](./installation/scenario-local-installation/index.md) --- This page describes a docker-compose based orchestration running on your local machine and accessible via browser.
-- :material-file-document: [Scenario: RedHat Enterprise Linux 7](./installation/scenario-redhat-enterprise-linux-7/index.md) --- This page describes a docker-compose based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.
-- :material-file-document: [Scenario: Single Node Cloud Installation](./installation/scenario-single-node-cloud-installation/index.md) --- This page describes a docker-compose based orchestration running on a server instance accessible publicly via browser (SSL enabled via letsencrypt).
+-   :eccenca-application-homepage: [System Architecture](system-architecture/index.md)
+
+    ---
+
+    This page describes the overall system architecture of eccenca Corporate Memory and its components.
+
+-   :material-exclamation-thick: [Requirements](requirements/index.md)
+
+    ---
+
+    This page lists software and hardware requirements for eccenca Corporate Memory deployments.
+
+-   :material-download-circle-outline: [Installation](installation/index.md)
+
+    ---
+
+    This page describes proven deployment scenarios for eccenca Corporate Memory.
+
+-   :material-cog-outline: [Configuration](configuration/index.md)
+
+    ---
+
+    This page describes specific topics on how to configure eccenca Corporate Memory.
+
+</div>
+
