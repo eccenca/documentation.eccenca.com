@@ -12,7 +12,7 @@ The can but do not need to be open source and published on [pypi.org](https://py
 
 ## Installation
 
-If you want to install a python plugin package, you can do this by using cmemc's [admin workspace python command group](../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
+If you want to install a python plugin package, you can do this by using cmemc's [admin workspace python command group](../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
 
 The following shell commands demonstrate the basic workflow:
 
