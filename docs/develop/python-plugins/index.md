@@ -150,7 +150,7 @@ class MyTransformPlugin(TransformPlugin):
 
 ### Plugin Context
 
-The `cmem-plugin-base` package describes context objects, which are passed to the plugin depending on the executed method.
+The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py) objects, which are passed to the plugin depending on the executed method.
 
 | Class              | Description                                                                                                                                         |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
