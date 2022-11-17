@@ -1,12 +1,13 @@
+---
+title: "Deployment: Requirements"
+icon: material/exclamation-thick
+---
 # Requirements
 
 This page lists software and hardware requirements for eccenca Corporate Memory deployments.
-
 For a general overview of a deployment setup please refer to the [System Architecture](../system-architecture/index.md).
 
-## Corporate Memory
-
-### Minimal Setup
+## Minimal Setup
 
 A minimal single-node deployment for testing/evaluation purposes means:
 
@@ -16,19 +17,10 @@ A minimal single-node deployment for testing/evaluation purposes means:
 Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up to several million triples can be built and served.
 
 - Operating System / Hardware
-      - Bare metal server or VM with Ubuntu or RHEL linux OS (see [Installation](./../installation/index.md) for details)
-      - 16 GB RAM
-      - 100 GB free disk space (10 GB for docker images + data + logs over time)
-      - docker and docker-compose (we deliver an orchestration including all needed components)
-- Triple / Quad Store
-      - Stardog 7.4.x
-      - Ontotext GraphDB
-      - OpenLink Virtuoso Open Source
-- Identity Management (delivered with orchestration)
-      - Keycloak >= v6.0.1
-      - PostgreSQL >= v11.5
-- Proxy Server (delivered with orchestration)
-      - Apache >=2.4 (incl. rewrite and other modules)
+    - Bare metal server or VM with Debian based linux OS (see [Installation](./../installation/index.md) for details)
+    - 16 GB RAM
+    - 100 GB free disk space (10 GB for docker images + data + logs over time)
+    - docker and docker-compose (we deliver an orchestration including all needed components)
 
 For an example of a single-node installation refer to the following scenarios:
 
@@ -36,29 +28,21 @@ For an example of a single-node installation refer to the following scenarios:
 - [Scenario: RedHat Enterprise Linux 7](../installation/scenario-redhat-enterprise-linux-7/index.md)
 - [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md)
 
-### Typical Setup
+## Typical Setup
 
 In a typical deployment all components are installed on separate VMs (nodes).
 Therefore, six separate VMs are required.
 
 The following numbers are based on existing customer deployments running Knowledge Graphs up to 300 million triples with 40 concurrent users.
 
-- eccenca DataPlatform
-      - \>= 4 cores[^u]
-      - \>= 8 GB RAM
-- eccenca DataIntegration
-      - \>= 4 cores[^w]
-      - \>= 8 GB RAM[^w]
-- eccenca DataManager
-      - \>= 2 GB RAM
-- Triple / Quad Store
-      - \>= 8 GB RAM[^t]
-      - \>= 4 cores[^u]
-- KeyCloak incl. PostgeSQL[^c]
-      - \>= 4 GB RAM
-- Proxy Server[^c]
-      - \>= 2 cores[^u]
-      - \>= 2 GB RAM
+| Component                    | CPU     | Memory |
+| ---------------------------: | :------ | :---------- |
+| eccenca DataPlatform         | \>= 4 cores[^u] | \>= 8 GB RAM |
+| eccenca DataIntegration      | \>= 4 cores[^w] | \>= 8 GB RAM[^w] |
+| eccenca DataManager          | 2 cores | \>= 2 GB RAM |
+| Triple / Quad Store          | \>= 4 cores[^u] |\>= 8 GB RAM[^t] |
+| Keycloak incl. PostgeSQL[^c] | 2 cores | \>= 4 GB RAM |
+| Proxy Server[^c]             | \>= 2 cores[^u] | \>= 2 GB RAM |
 
 ## Clients
 

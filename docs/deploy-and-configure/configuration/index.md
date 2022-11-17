@@ -1,3 +1,6 @@
+---
+icon: material/cog-outline
+---
 # Configuration
 
 This page describes specific topics on how to configure eccenca Corporate Memory.
