@@ -191,6 +191,8 @@ In addition to that, multiple performance and stability issues were solved.
 
 This version of cmemc adds the following new features:
 
+-   `project reload` command
+    -   Reload all tasks of a project from the workspace provider
 -   `admin workspace python list-plugins` command
     -   New option `--package-id-only` to output only package IDs
 -   `admin workspace python install` command completion
