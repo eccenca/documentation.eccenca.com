@@ -162,9 +162,121 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 | `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
 | `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
 
-### Consuming and Producing Entities
+### Producing and Consuming Entities
 
-TODO
+To Produce and Consume the Entities, understanding [entities](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) is required.
+
+TODO draw.io image of entities.
+
+```py title="entities-producer.py" linenums="1" hl_lines="62 86"
+"""Entities Producer"""
+import uuid
+from secrets import token_urlsafe
+from typing import Sequence
+
+from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
+from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
+from cmem_plugin_base.dataintegration.entity import (
+    Entities,
+    Entity,
+    EntitySchema,
+    EntityPath,
+)
+from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
+
+
+@Plugin(
+    label="Produce Entities",
+    description="Generates random values of X rows a Y values.",
+    documentation="""
+This example workflow operator generates random values as Entities.
+
+The values are generated in X rows a Y values. Both parameter can be specified:
+
+- 'number_of_entities': How many rows do you need.
+- 'number_of_values': How many values per row do you need.
+""",
+    parameters=[
+        PluginParameter(
+            name="number_of_entities",
+            label="Entities (Rows)",
+            description="How many rows will be created per run.",
+            default_value="10",
+        ),
+        PluginParameter(
+            name="number_of_values",
+            label="Values (Columns)",
+            description="How many values are created per entity / row.",
+            default_value="5",
+        ),
+    ],
+)
+class EntitiesProducer(WorkflowPlugin):
+    """Entities Producer Plugin"""
+
+    def __init__(self, number_of_entities: int = 2, number_of_values: int = 2) -> None:
+        if number_of_entities < 1:
+            raise ValueError("Entities (Rows) needs to be a positive integer.")
+
+        if number_of_values < 1:
+            raise ValueError("Values (Columns) needs to be a positive integer.")
+
+        self.number_of_entities = number_of_entities
+        self.number_of_values = number_of_values
+
+    def execute(
+        self, inputs: Sequence[Entities], context: ExecutionContext
+    ) -> Entities:
+        self.log.info("Start creating random values.")
+        self.log.info(f"Config length: {len(self.config.get())}")
+        value_counter = 0
+        entities = []
+        for _ in range(self.number_of_entities):
+            entity_uri = f"urn:uuid:{str(uuid.uuid4())}"
+            values = []
+            for _ in range(self.number_of_values):
+                values.append([token_urlsafe(16)])
+                value_counter += 1
+                context.report.update(
+                    ExecutionReport(
+                        entity_count=value_counter,
+                        operation="wait",
+                        operation_desc="entities generated",
+                    )
+                )
+            entities.append(Entity(uri=entity_uri, values=values))
+        paths = []
+        for path_no in range(self.number_of_values):
+            path_uri = f"https://entities.org/vocab/RandomValuePath/{path_no}"
+            paths.append(EntityPath(path=path_uri))
+        schema = EntitySchema(
+            type_uri="https://entities.org/vocab/RandomValueRow",
+            paths=paths,
+        )
+        self.log.info(f"Happy to serve {value_counter} entities.")
+        return Entities(entities=entities, schema=schema)
+```
+
+From line 62 to 86 is responsible for producing entities with random token values.
+
+```py title="entities-consumer.py" linenums="1"
+class EntitiesConsumer(WorkflowPlugin):
+    """Entities Consumer"""
+
+    def execute(self, inputs: Sequence[Entities], context: ExecutionContext):
+        value_counter = 0
+        for item in inputs:
+            for entity in item.entities:
+                for _ in entity.values:
+                    value_counter += 1
+        context.report.update(
+            ExecutionReport(
+                entity_count=value_counter,
+                operation="wait",
+                operation_desc="entities received",
+            )
+        )
+```
 
 ### Plugin Configuration
 
