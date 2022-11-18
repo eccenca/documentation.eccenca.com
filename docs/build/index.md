@@ -3,13 +3,15 @@ icon: material/star
 hide:
   - toc
 ---
-# Build
+!!! info inline end "You are here"
+
+    ![Your are here](overview-build.drawio.png)
+
+# :material-star: Build
 
 Lift your data by integrating multiple datasets into a Knowledge Graph.
 
 The Build stage is used to turn your legacy data points from existing datasets into an Enterprise Knowledge Graph structure. The subsections introduce the features of Corporate Memory that support this stage and provide guidance through your first lifting activities.
-
-![The BUILD functional block in Corporate Memory](build.png){ width="50%" }
 
 - :material-file-document: [Cool IRIs](./cool-iris) --- URIs and IRIs are character strings identifying the nodes and edges in the graph. Defining them is an important step in creating an exploitable Knowledge Graph for your Company.
 

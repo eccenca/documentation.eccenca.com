@@ -3,7 +3,11 @@ icon: material/star
 hide:
   - toc
 ---
-# ★ Explore and Author
+!!! info inline end "You are here"
+
+    ![Your are here](overview-explore.drawio.png)
+
+# :material-star: Explore and Author
 
 Explore, author and interact with your Knowledge Graph.
 

@@ -3,8 +3,11 @@ icon: material/star
 hide:
   - toc
 ---
+!!! info inline end "You are here"
 
-# Consume
+    ![Your are here](overview-consume.drawio.png)
+
+# :material-star: Consume
 
 This section outlines how to consume data from Corporate Memory Knowledge Graphs.
 While there are several options to retrieve information from the Knowledge Graph, the most direct way is to issue SPARQL queries.
