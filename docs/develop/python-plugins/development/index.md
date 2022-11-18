@@ -4,6 +4,7 @@ icon: material/code-json
 tags:
     - Python
 ---
+
 # Python Plugin Development
 
 We recommend to start developing a plugin by creating a new project with our [official python project template (cmem-plugin-template)](https://github.com/eccenca/cmem-plugin-template).
@@ -94,7 +95,26 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 
 To Produce and Consume the Entities, understanding [entities](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) is required.
 
-TODO draw.io image of entities.
+### Entities
+
+![entities-flow-diagram](22-2-entities-flow-diagram.png)
+
+| Class          | Description                                                        |
+| -------------- | ------------------------------------------------------------------ |
+| `Entities`     | Holds a collection of entities and their schema                    |
+| `Entity`       | An Entity can represent an instance of any given concept.          |
+| `EntitySchema` | An entity schema that represents the type of uri and list of paths |
+| `EntityPath`   | A path in a schema                                                 |
+
+### How to Produce Entities
+
+
+TODO: Actions
+
+-   check setup both for plugin and connecting instance
+-   add copier instructions to copy template
+-   create a project with workflow - add plugin, test and produce entities
+-   see the output.
 
 ```py title="entities-producer.py" linenums="1" hl_lines="62 86"
 """Entities Producer"""
@@ -217,4 +237,3 @@ TODO: mention log method
 The Python standard output is redirected to the DataIntegration standard output.
 By default, `print` and logging statements will therefore be printed to the standard output (e.g. of the docker container).
 The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
-
