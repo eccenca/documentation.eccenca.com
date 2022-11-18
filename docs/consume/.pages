@@ -1,5 +1,6 @@
 nav:
     - Consume: index.md
-    - Consuming Graphs in Power BI: consuming-graphs-in-power-bi
+    - Consuming Graphs in Power&nbsp;BI: consuming-graphs-in-power-bi
+    - Consuming Graphs in Redash: consuming-graphs-with-redash
     - Consuming Graphs with SQL Databases: consuming-graphs-with-sql-databases
     - Provide Data in any Format via a Custom API: provide-data-in-any-format-via-a-custom-api
