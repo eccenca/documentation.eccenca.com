@@ -1,5 +1,7 @@
 ---
 icon: material/star-outline
+hide:
+    - toc
 ---
 # Deploy and Configure
 
@@ -25,13 +27,13 @@ Deploy and configure eccenca Corporate Memory in your own environment.
 
     ---
 
-    This page describes proven deployment scenarios for eccenca Corporate Memory.
+    These pages describe proven deployment scenarios for eccenca Corporate Memory.
 
 -   :material-cog-outline: [Configuration](configuration/index.md)
 
     ---
 
-    This page describes specific topics on how to configure eccenca Corporate Memory.
+    These pages describe specific topics on how to configure eccenca Corporate Memory.
 
 </div>
 
