@@ -7,9 +7,9 @@ tags:
 
 Corporate Memory 22.2 is the second release in 2022.
 
-<!-- TODO: add Active Learning UI Screenshot -->
-<!-- TODO: add EasyNav Screenshot -->
-![22.2: cmemc - Multiple Filter / Admin Status](22-2-cmemc-multiple-filter-and-admin-status.png "22.2: cmemc - Multiple Filter / Admin Status")
+![22.2: Build - Active Learning User Interface](22-2-active-learning-user-interface.png "22.2: Build - Active Learning User Interface")
+![22.2: Explore - EasyNav Visualisation Interface](22-2-easynav-visualisation-interface.png "22.2: Explore - EasyNav Visualisation Interface")
+![22.2: Automate - cmemc Multiple Filter / Admin Status](22-2-cmemc-multiple-filter-and-admin-status.png "22.2: Automate - cmemc Multiple Filter / Admin Status")
 
 The highlights of this release are:
 
