@@ -4,3 +4,5 @@ nav:
     - Consuming Graphs in Redash: consuming-graphs-with-redash
     - Consuming Graphs with SQL Databases: consuming-graphs-with-sql-databases
     - Provide Data in any Format via a Custom API: provide-data-in-any-format-via-a-custom-api
+    - Populare Data to Neo4j: populate-data-to-neo4j
+

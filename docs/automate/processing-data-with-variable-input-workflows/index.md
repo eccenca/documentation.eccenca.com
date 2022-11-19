@@ -1,4 +1,5 @@
 ---
+icon: eccenca/artefact-workflow
 tags:
   - ExpertTutorial
   - Automate

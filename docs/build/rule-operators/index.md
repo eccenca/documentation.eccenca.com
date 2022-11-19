@@ -1,4 +1,5 @@
 ---
+icon: octicons/cross-reference-24
 tags:
     - Reference
 ---
@@ -51,9 +52,11 @@ The following parameters can be set for each comparison:
 | weight    | Weight of this operator in the parent aggregation. The weight is used by some aggregations such as the weighted average aggregation. |
 | threshold | The maximum distance. For normalized distance measures, the threshold should be between 0.0 and 1.0.                                 |
 
-The threshold is used to convert the computed distance to a confidence between -1.0 and 1.0. Links will be generated for confidences above 0 while higher confidence values imply a higher similarity between the compared entities.
+!!! info inline end ""
 
-![Confidence graph](confidence-graph.png)
+    ![Confidence graph](confidence-graph.png)
+
+The threshold is used to convert the computed distance to a confidence between -1.0 and 1.0. Links will be generated for confidences above 0 while higher confidence values imply a higher similarity between the compared entities.
 
 If distance measures generate multiple distance scores the lowest is used to generate the confidence.
 

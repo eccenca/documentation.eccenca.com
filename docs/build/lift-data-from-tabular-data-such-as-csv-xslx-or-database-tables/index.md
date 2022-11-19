@@ -1,4 +1,6 @@
 ---
+icon: material/table
+subtitle: such as CSV, XSLX and Database Tables
 tags:
   - BeginnersTutorial
   - KnowledgeGraph
