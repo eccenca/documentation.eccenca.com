@@ -33,7 +33,7 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     ---
 
-    In order to control eccenca Corporate Memory instances from within Github Action based workflows, you need to provide cmemc as well as the credentials for your instance to the workflow.
+    Automate activities with Corporate Memory related files, such as vocabularies or shapes, with Github Action based workflows.
 
 </div>
 
