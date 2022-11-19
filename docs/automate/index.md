@@ -29,5 +29,11 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     For a time-based execution of a workflow, Corporate Memory provides the Scheduler operator.
 
+-   :material-github: [Using Github Actions](using-github-actions)
+
+    ---
+
+    In order to control eccenca Corporate Memory instances from within Github Action based workflows, you need to provide cmemc as well as the credentials for your instance to the workflow.
+
 </div>
 
