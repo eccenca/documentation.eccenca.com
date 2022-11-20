@@ -29,11 +29,11 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     For a time-based execution of a workflow, Corporate Memory provides the Scheduler operator.
 
--   :material-github: [Using Github Actions](using-github-actions)
+-   :material-github: [Continuous Integration and Delivery](continuous-integration)
 
     ---
 
-    Automate activities with Corporate Memory related files, such as vocabularies or shapes, with Github Action based workflows.
+    Setup processes which continuously integrate data artifacts such as vocabularies and shapes with your Corporate Memory instances.
 
 </div>
 

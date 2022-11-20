@@ -41,7 +41,7 @@ cmemc, version 22.1, running under python 3.9.11
 
 ## ... via docker image
 
-This topic is described on a [stand-alone page](../using-the-docker-image/index.md).
+This topic is described on a [stand-alone page](../invocation/docker-image/index.md).
 
 
 !!! Success "Next Steps ..."

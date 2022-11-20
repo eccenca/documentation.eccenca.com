@@ -2,16 +2,11 @@
 icon: material/github
 tags:
     - Automate
-    - Workflow
     - cmemc
 ---
 # Using Github Actions
 
 ## Introduction
-
-Project teams often manage crucial parts of their work assets inside of git repositories.
-This includes Corporate Memory related files such as ontologies, shapes or project configurations.
-Given such a project setup, it is often wanted to automate activities with these Corporate Memory files.
 
 [Github Actions](https://docs.github.com/en/actions) allow for automation and execution of workflows based on pushes, merge requests and other trigger events on your git repository.
 In order to control eccenca Corporate Memory instances from within Github Action based workflows, you need to provide cmemc as well as credentials for your instance to the workflow.

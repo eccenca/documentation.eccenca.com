@@ -62,7 +62,7 @@ We support all (LTS/ESR) versions of the below listed browsers that are actively
 
 For cmemc, currently Python 3.9 is supported, but Python 3.10 is reported to work as well.
 
-There is also a [docker image](../../automate/cmemc-command-line-interface/using-the-docker-image/index.md) available.
+There is also a [docker image](../../automate/cmemc-command-line-interface/invocation/docker-image/index.md) available.
 
 [^u]: Needs to be scaled with concurrent users.
 [^w]: Depends on the DataIntegration workflows.
