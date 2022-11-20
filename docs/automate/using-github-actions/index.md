@@ -29,7 +29,7 @@ After that, simply use `pip` to install cmemc:
           python-version: '3.9'
       - name: install cmemc
         run: |
-          pip install cmem-cmemc
+          pip install -q cmem-cmemc
           cmemc --version
 ```
 
@@ -49,7 +49,7 @@ Given the following workflow step, you need to add `MY_CMEM_BASE_URI`, `MY_OAUTH
           cmemc graph count $GRAPH
           cmemc graph delete $GRAPH
         env:
-          GRAPH: "https://github.com/seebi/cmemc-workflow"
+          GRAPH: "https://github.com/eccenca/cmemc-workflow"
           CMEM_BASE_URI: ${{ secrets.MY_CMEM_BASE_URI }}
           OAUTH_GRANT_TYPE: ${{ secrets.MY_OAUTH_GRANT_TYPE }}
           OAUTH_CLIENT_ID: ${{ secrets.MY_OAUTH_CLIENT_ID }}
