@@ -50,5 +50,11 @@ Since not all applications allow the direct use of SPARQL, this section includes
 
     Learn how to populate graphs to Neo4j.
 
+-   :material-apache-kafka: [Apache Kafka](consume-graphs-in-apache-kafka)
+
+    ---
+
+    Use a Apache Kafka Producer in order to export parts of your Knowledge Graph as a message stream.
+
 </div>
 
