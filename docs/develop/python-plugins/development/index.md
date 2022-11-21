@@ -403,8 +403,18 @@ TODO
 
 ## Logging
 
-TODO: mention log method
+### Standard
 
 The Python standard output is redirected to the DataIntegration standard output.
 By default, `print` and logging statements will therefore be printed to the standard output (e.g. of the docker container).
 The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
+
+### PluginLogger
+
+[PluginLogger](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L10) is the default plugin logger for CMEM plugins supported by cmem-plugin-base. PluginLogger operates as follows: If a plugin is running within DataIntegration, this class will be replaced to log into DI using the path: `plugins.python.<plugin id>`.
+
+[Example Log Usage:](#__codelineno-10-85)
+
+```py
+self.log.info(f"Successfully executed Workflow Plugin")
+```
