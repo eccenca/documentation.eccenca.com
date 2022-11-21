@@ -32,7 +32,7 @@ tags:
     [![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version"){ .off-glb }](https://pypi.org/project/cmem-cmemc/)
     [![pypi package](https://badge.fury.io/py/cmem-cmemc.svg "pypi package"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
     [![pypy downloads](https://img.shields.io/pypi/dm/cmem-cmemc.svg "pypy downloads"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
-    [![Docker Image](https://img.shields.io/badge/docker-image-blue?logo=docker&logoColor=white "Docker Image"){ .off-glb }](./using-the-docker-image/index.md)
+    [![Docker Image](https://img.shields.io/badge/docker-image-blue?logo=docker&logoColor=white "Docker Image"){ .off-glb }](./invocation/docker-image/index.md)
 
 -   :octicons-people-24: Intended for **Administrators** and **Linked Data Expert**
 

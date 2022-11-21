@@ -18,6 +18,24 @@ tasks:
     cmds:
       - task --list
 
+  versions:
+    desc: List relevant versions for a mkdocs material bug report
+    silent: true
+    cmds:
+      - |
+        cat << EOF
+        - Python: {{.PYTHON_VERSION}}
+        - MkDocs: {{.MKDOCS_VERSION}}
+        - Material: {{.MATERIAL_VERSION}}
+        EOF
+    vars:
+      PYTHON_VERSION:
+        sh: poetry run python --version
+      MKDOCS_VERSION:
+        sh: poetry run mkdocs --version | cut -d " " -f -3
+      MATERIAL_VERSION:
+        sh: poetry run pip show mkdocs-material | grep Version | cut -d " " -f 2
+
   clean:
     desc: Clean up working directory
     run: once
@@ -79,16 +97,12 @@ tasks:
   update:icons:
     desc: update the used eccenca icons from carbon
     cmds:
-      - rm -rf {{.TMP_DIR}}
-      - mkdir {{.TMP_DIR}}
-      - cd tmp && npm install @carbon/icons
-      - rm -rf {{.ICON_DIR}}/*.svg
-      - poetry run dec-tool update-icons -i {{.META_DATA}} -o {{.ICON_DIR}}
-      - rm -rf {{.TMP_DIR}}
+      - poetry run dec-tool update-icons \
+          --version {{.GUI_VERSION}} \
+          -o {{.ICON_DIR}} \
     vars:
+      GUI_VERSION: main
       ICON_DIR: overrides/.icons/eccenca
-      TMP_DIR: tmp
-      META_DATA: "{{.TMP_DIR}}/node_modules/@carbon/icons/metadata.json"
 
   update:cmemc:
     desc: re-generates the cmemc command reference
@@ -97,6 +111,29 @@ tasks:
       - CMEMC_MANUAL_DIR={{.REFERENCE_DIR}} cmemc -q config
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
+
+  update:shape-reference:
+    desc: re-generates the shape and datatype references
+    cmds:
+      - cmemc graph import --replace {{.SRC}}
+      - cp {{.SRC}}/nodeshapedocu-head.md {{.NODESHAPES_MD}}
+      - "{{.CURL}} {{.API}}/nodeshapedocu >>{{.NODESHAPES_MD}}"
+      - cp {{.SRC}}/propertyshapedocu-head.md {{.PROPERTYSHAPES_MD}}
+      - "{{.CURL}} {{.API}}/propertyshapedocu >>{{.PROPERTYSHAPES_MD}}"
+      - cp {{.SRC}}/datatypedocu-head.md {{.DATATYPES_MD}}
+      - "{{.CURL}} {{.API}}/datatypedocu >>{{.DATATYPES_MD}}"
+    vars:
+      DIR: docs/explore-and-author/graph-exploration/building-a-customized-user-interface
+      TOKEN:
+        sh: cmemc admin token
+      DP:
+        sh: cmemc config get DP_API_ENDPOINT
+      CURL: "curl --silent -H 'Authorization: Bearer {{.TOKEN}}'"
+      API: "{{.DP}}/api/custom"
+      NODESHAPES_MD: "{{.DIR}}/node-shapes/index.md"
+      PROPERTYSHAPES_MD: "{{.DIR}}/property-shapes/index.md"
+      DATATYPES_MD: "{{.DIR}}/datatype-reference/index.md"
+      SRC: tools/update-shape-reference
 
   public:versions:
     desc: List public documentation versions

@@ -1,3 +1,6 @@
+---
+icon: material/download-circle-outline
+---
 # Installation
 
 This page describes proven deployment scenarios for eccenca Corporate Memory.

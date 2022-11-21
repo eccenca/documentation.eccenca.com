@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - vocabulary cache"
 description: "List und update the vocabulary cache."
-icon: material/cached
+icon: eccenca/application-vocabularies
 tags:
   - Vocabulary
   - cmemc

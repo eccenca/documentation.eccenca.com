@@ -4,4 +4,5 @@ site
 .obsidian/workspace
 .obsidian/workspace.json
 __pycache__
-
+tmp
+.DS_Store

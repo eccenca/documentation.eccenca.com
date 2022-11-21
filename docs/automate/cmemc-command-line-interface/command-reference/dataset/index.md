@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - dataset"
 description: "List, create, delete, inspect, up-/download or open datasets."
-icon: material/database-outline
+icon: eccenca/artefact-dataset
 tags:
   - cmemc
 ---

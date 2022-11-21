@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - project"
 description: "List, import, export, create, delete or open projects."
-icon: octicons/file-directory-24
+icon: eccenca/artefact-project
 tags:
   - Project
   - cmemc
@@ -14,7 +14,7 @@ List, import, export, create, delete or open projects.
 Projects are identified by a `PROJECT_ID`.
 
 !!! note
-    The get a list of existing projects, execute the `project list` command or use tab-completion.
+    To get a list of existing projects, execute the `project list` command or use tab-completion.
 
 
 
@@ -60,7 +60,7 @@ Outputs a list of project IDs which can be used as reference for the project cre
 
 ## project export
 
-Export project(s) to file(s).
+Export projects to files.
 
 ```shell-session title="Usage"
 $ cmemc project export [OPTIONS] [PROJECT_IDS]...
@@ -146,7 +146,7 @@ $ cmemc project import my_project.zip my_project
 
 ## project delete
 
-Delete project(s).
+Delete projects.
 
 ```shell-session title="Usage"
 $ cmemc project delete [OPTIONS] [PROJECT_IDS]...
@@ -176,7 +176,7 @@ This deletes existing data integration projects from Corporate Memory.
 
 ## project create
 
-Create empty new project(s).
+Create projects.
 
 ```shell-session title="Usage"
 $ cmemc project create PROJECT_IDS...
@@ -192,4 +192,33 @@ This creates one or more new projects. Existing projects will not be overwritten
 
 
 
+
+## project reload
+
+Reload projects from the workspace provider.
+
+```shell-session title="Usage"
+$ cmemc project reload [OPTIONS] [PROJECT_IDS]...
+```
+
+
+
+
+This command reloads all tasks of a project from the workspace provider. This is the same as the `workspace reload` command, but for a single project only.
+
+!!! note
+    You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterwards.
+
+
+!!! warning
+    Depending on the size your datasets esp. your Knowledge Graphs, reloading a project can take a long time to re-create the path caches.
+
+
+
+
+??? info "Options"
+    ```text
+
+    -a, --all   Reload all projects
+    ```
 

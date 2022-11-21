@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Workflow Execution and Orchestration"
 subtitle: and Orchestration
-icon: octicons/workflow-24
+icon: eccenca/artefact-workflow
 tags:
   - Automate
   - Workflow

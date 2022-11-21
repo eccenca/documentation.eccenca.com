@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - dataset resource"
 description: "List, inspect or delete dataset file resources."
-icon: material/file-document
+icon: eccenca/artefact-file
 tags:
   - cmemc
 ---

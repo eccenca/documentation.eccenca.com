@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - query"
 description: "List, execute, get status or open SPARQL queries."
-icon: material/semantic-web
+icon: eccenca/application-queries
 tags:
   - SPARQL
   - cmemc

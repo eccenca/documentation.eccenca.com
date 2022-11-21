@@ -1,4 +1,5 @@
 ---
+icon: eccenca/artefact-dataset-sqlendpoint
 tags:
   - ExpertTutorial
 ---

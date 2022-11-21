@@ -1,4 +1,5 @@
 ---
+icon: material/api
 tags:
     - SPARQL
     - API
@@ -14,7 +15,7 @@ This tutorial describes how you can provide data in a text format of your choice
 In this tutorial, we describe how you can set-up an endpoint which provides [iCalendar data](https://en.wikipedia.org/wiki/ICalendar).
 If you want to rebuild the example, you can download this iCalendar RDF data and import it into your Corporate Memory instance: [ical_data.ttl](./ical_data.ttl)
 
-``` ical
+```ical
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
@@ -34,7 +35,7 @@ This query selects the event data in our graph which will be provided via the cu
 To rebuild the iCalendar format, we need at least the unique identifier (`uid`), the datetime start (`dtstart`), the datetime end (`dtend`), and the summary of the event.
 The query filters (`REPLACE`) at the end the special characters `:` and `-`, as they are not needed in the iCal DateTime format.
 
-``` sparql
+```sparql
 PREFIX ical: <http://www.w3.org/2002/12/cal/icaltzd#>
 
 SELECT DISTINCT ?vevent ?uid ?dtstamp ?dtstart ?dtend ?summary
@@ -86,7 +87,7 @@ and for the conclusion of the iteration, this line needs to be added at the end:
 
 ![sparql-result-template](22-1-2-sparql-result-template.png)
 
-``` jinja title="Jira Template for our iCalendar format"
+```jinja title="Jira Template for our iCalendar format"
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
@@ -120,18 +121,14 @@ Once you press save, your endpoint it set up!
 
 Now that the endpoint is defined, it is possible to make a request to receive the iCal data.
 The endpoint URL consist of the path `/dataplatform/api/custom` and the previously defined URL Slug (`/ical`).
+cmemc can be used to get the API base URL as well as a valid token:
 
-``` shell-session title="/ical request"
-$ curl 'https://<cmem_instance>/dataplatform/api/custom/ical' -H 'Authorization: Bearer <token>'
+```shell-session title="curl request"
+$ curl "https://$(cmemc -c my config get DP_API_ENDPOINT)/api/custom/ical" \
+    -H "Authorization: Bearer $(cmemc -c my admin token)"
 ```
 
-The `<token>` can be fetched by:
-
-``` shell-session
-$ cmemc admin token
-```
-
-``` ical title="API Response"
+```ical title="API Response"
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
