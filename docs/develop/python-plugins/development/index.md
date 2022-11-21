@@ -4,21 +4,42 @@ icon: material/code-json
 tags:
     - Python
 ---
-
 # Python Plugin Development
 
-## Getting Started
+## Introduction
 
-The CMEM Python SDK supports two kinds of operator plugins. These are supported by [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base), which is the underlying dependency for [cmem-plugin-template]. Those two types of cmem-plugin-base plugins are
+Python plugins are small software projects which extend the functionality of eccenca Corporate Memory.
+They have its own release cycle and are not included in the main software.
+Python plugins can can be installed and un-installed during runtime.
 
-### Workflow plugins
+In order to support the development of python plugins, we published a [base package](https://github.com/eccenca/cmem-plugin-base) as well as a [project template](https://github.com/eccenca/cmem-plugin-template).
+Please have a look at these projects to get started.
+
+This page gives an overview on the concepts you need to understand, when developing plugins.
+
+## Plugin Types
+
+The following plugin types are defined.
+
+### Workflow Plugins
 
 A workflow plugin implements a new operator (task) that can be used within a workflow.
 A workflow plugin may accept an arbitrary list of inputs and optionally returns a single output.
 
+The lifecycle of a workflow plugin is as follows:
+
+-   The plugin will be instantiated once the workflow execution reaches the respective plugin.
+-   The `execute` function is called, and get the results of the ingoing operators as input.
+-   The output is forwarded to the next subsequent operator.
+
+The following depiction shows a task named **Test One**, which is a task of the plugin **My Workflow Plugin**.
+The task has one connected ingoing task and one connected outgoing task.
+
+TODO: Replace the image so it shows the plugin from the source code.
+
 ![workflow-plugins](21-1-workflow-plugins.png)
 
-A minimal plugin that just outputs the first input looks like this:
+The corresponding source code is listed below:
 
 ```py title="workflow.py"
 from typing import Sequence
@@ -43,26 +64,26 @@ class MyWorkflowPlugin(WorkflowPlugin):
         return inputs[0]
 ```
 
-The lifecycle of a plugin is as follows:
-
--   The plugin will be instantiated once the workflow execution reaches the respective plugin.
--   The execute function is called with the results of the connected input operators.
--   The output is forwarded to the next subsequent operator.
+TODO: Is the rest of the section needed?
 
 Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over.
 Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
-
 ![execution-report](22-2-workflow-execution-report.png)
 
-### Transform plugins
 
-A transform plugin can be used in transform and linking rules. It accepts an arbitrary number of inputs and returns an output. Each input as well as the output consists of a sequence of values.
+### Transform Plugins
+
+A transform plugin can be used in transform and linking rules.
+It accepts an arbitrary number of inputs and returns an output.
+Each input as well as the output consists of a sequence of values.
+
+TODO: Replace the image so it shows the plugin from the source code.
 
 ![transform-plugins](21-1-transform-plugins.png)
 
 A minimal plugin that just outputs the first input looks like this:
 
-```py title="transform.py  " linenums="1"
+```py title="transform.py"
 from typing import Sequence
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
 from cmem_plugin_base.dataintegration.plugins import TransformPlugin
@@ -74,9 +95,9 @@ class MyTransformPlugin(TransformPlugin):
         return inputs[0]
 ```
 
-### Plugin Context
+## Context Objects
 
-The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py) objects, which are passed to the plugin depending on the executed method.
+The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context objects](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py), which are passed to the plugin depending on the executed method.
 
 | Class              | Description                                                                                                                                         |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -88,104 +109,19 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 | `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
 | `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
 
-## Setup and Usage
+## Entities
 
-### Prerequisites
+An `entity` is a structure to describe data objects, which are passed around in workflows from one task to another task.
+An entity is identified by an `uri` and holds `values`, which is a sequence of string sequences (= a list of multi value fields).
 
-Before you begin developing cmem-python-plugins, make sure your system has the [installation dependencies](https://github.com/eccenca/cmem-plugin-template#install-local-requirements). You can use this command to perform a quick check.
+Multiple entities are handled as `entities` objects, which have an attached `schema` to it.
 
-```shell-session
-python --version && copier --version && poetry --version && pre-commit --version && task --version && cmemc --version
-```
+A `schema` contains of `path` descriptions and is identified by a `type_uri`.
 
-You can expect something like this, otherthan version numbers([lastest version dependencies](https://github.com/eccenca/cmem-plugin-template#install-local-requirements)).
+The following depiction shows these terms and their relationships. (1)
+{ .annotate }
 
-```shell-session
-Python 3.9.11
-copier 6.2.0
-Poetry (version 1.2.2)
-pre-commit 2.17.0
-Task version: v3.12.1
-cmemc, version SNAPSHOT, running under python 3.9.11
-```
-
-### Project Initialization
-
-The following command will create a new project directory:
-
-```shell-session
-$ copier gh:eccenca/cmem-plugin-template cmem-plugin-my
-```
-
-After that, you can initialize the repository and install git hooks:
-
-```shell-session
-$ cd cmem-plugin-my
-$ git init
-$ git add .
-$ git commit -m "init"
-$ pre-commit install
-```
-
-Then you can run the local test suite an build a first deployment artifact:
-
-```shell-session
-$ task check build
-```
-
-### Project Update
-
-From time to time, this template will be upgraded, so you can update your repository as well:
-
-```shell-session
-$ copier update
-```
-
-Please have a look at the [copier documentation](https://copier.readthedocs.io/en/stable/updating/).
-
-### Other Tasks
-
-Available tasks for your project can be listed like this:
-
-```shell-session
-$ task
-task: Available tasks for this project:
-* build:          Build tarball and a wheel package.
-* check:          Run whole test suite.
-* check:bandit:   Check source code with bandit.
-* check:flake8:   Check source code with flake8.
-* check:mypy:     Check source code with mypy.
-* check:pylint:   Check source code with pylint.
-* check:pytest:   Run pytest suite.
-* check:safety:   Check source code with safety.
-* clean:          Removes dist, *.pyc and some caches
-* deploy:         Install plugin package in Corporate Memory
-* poetry:install: Install dependencies managed by Poetry.
-* poetry:shell:   Open a poetry shell.
-* poetry:update:  Update dependencies managed by Poetry to their newest versions.
-* python:format:  Format Python files.
-```
-
-You can extend this task lisk by creating a file `TaskfileCustom.yaml` in your repository root:
-
-```shell-session
-$ cat TaskfileCustom.yaml
----
-version: '3'
-
-tasks:
-
-  ttt:
-    desc: just a test
-    cmds:
-      - task --list
-```
-
-## Producing and Consuming Entities
-
-To Produce and Consume the Entities, understanding [entities](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) is required.
-
-### Entities
+1.  The concrete implementation details of entities can be seen in the [entity module](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) of the cmem-plugin-base package.
 
 ![entities-flow-diagram](22-2-entities-flow-diagram.png)
 
@@ -198,7 +134,7 @@ To Produce and Consume the Entities, understanding [entities](https://github.com
 
 ### Producing Entities
 
-On [Project Initialization](#project-initialization) copier produces a new plugin that has same code as below. The code responsible to create number of entities as output based on the input params.
+The following section shows the source code of a **Produce Entities** plugin, which is commented below.
 
 ```py title="entities-producer.py" linenums="1"
 """Entities Producer"""
@@ -319,9 +255,9 @@ Let's understand code:
 
 ### Consuming Entities
 
-By default Workflow plugins are configured to accepct sequence of entities in workflow. Any task that generates entities can pass to the workflow plugin. Let's learn how to handle entities when passed.
+Consuming entities in a workflow plugin means that you process at least one `entities` object from the `inputs` list.
 
-The below code represents of accepting entities and updating the workflow report with number of entities and its values.
+The following code shows a plugin, which loops through all inputs and counts all entities and its values.
 
 ```py title="entities-consumer.py" linenums="1"
 """Consume Entities"""
@@ -368,53 +304,30 @@ Let's understand code:
 1. `inputs` from the workflow are sequence of `Entities`, each item from input has list of entities and each entity has its values. (#22-26)
 2. One end of values count, workflow reports get updated with total number of entities and values as summary. (#27-37)
 
-Now, you have created two plugins one to produce and other to consume entities.
+## Configuration
 
-Only few steps away to witness the output of the plugins. run following commad to deploy the plugins to your CMEM instance.
+Plugins can have an application wide configuration, which can not be changed on runtime and is the same of all instances of this plugin.
 
-```shell-session
-task check deploy
+This plugin configuration is provided as `self.config` [PluginConfig](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L32) object to the plugin.
+The `get` method of this object returns a JSON string of the configuration.
 
-...
-task: [deploy] cmemc admin workspace python install dist/*.tar.gz
-Install package dist/cmem_plugin_entities-0.0.0+dirty.tar.gz ... done
-task: [deploy] cmemc admin workspace python list-plugins
-ID                                                         Package ID            Type             Label
----------------------------------------------------------  --------------------  ---------------  --------------------
-cmem_plugin_entities-workflow-consumer-EntitiesConsumer    cmem-plugin-entities  WorkflowPlugin   Consume Entities
-cmem_plugin_entities-workflow-producer-EntitiesProducer    cmem-plugin-entities  WorkflowPlugin   Produce Entities
+Plugin configurations use the `plugin_id` as a config path in the `dataintegration.conf`.
+
+```hocon title="Example plugin configuration"
+plugins.python.<plugin_id> = {
+    key1 = "value1"
+    key2 = "value2"
+}
 ```
-
-### Workflow Editor
-
-To use plugins, you must first create a workflow and its good to have a csv dataset to see the entities as response from Producer Entities task. After that, you can create Producer Entities  and Consumer Entities  plugin tasks for the workflow in the same project. Configure the workflow so that the entities are saved in a csv dataset and can be passed to the Consumer Task at the same time.
-
-![entities-workflow](22-2-entities-workflow.png)
-
-### Workflow Report
-
-As we updated the context report on entity creation, the workflow report would look like this after a successful workflow run.
-
-![entities-workflow-report](22-2-entities-workflow-report.gif)
-
-## Plugin Configuration
-
-TODO
 
 ## Logging
 
-### Standard
-
-The Python standard output is redirected to the DataIntegration standard output.
-By default, `print` and logging statements will therefore be printed to the standard output (e.g. of the docker container).
-The default Python logging configuration applies, so logs can be redirected to files or other outputs as well.
-
-### PluginLogger
-
-[PluginLogger](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L10) is the default plugin logger for CMEM plugins supported by cmem-plugin-base. PluginLogger operates as follows: If a plugin is running within DataIntegration, this class will be replaced to log into DI using the path: `plugins.python.<plugin id>`.
-
-[Example Log Usage:](#__codelineno-10-85)
+Logging should be done with the [PluginLogger](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L10), which is available as `self.log` in all plugins.
 
 ```py
-self.log.info(f"Successfully executed Workflow Plugin")
+self.log.info("Successfully executed Workflow Plugin")
 ```
+
+On runtime, this logger will be replaced with a JVM based logging function, in order to feed the plugin logs into the normal DataIntegration log stream.
+This JVM based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
+
