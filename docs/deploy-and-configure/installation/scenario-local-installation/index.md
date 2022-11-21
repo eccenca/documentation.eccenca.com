@@ -1,3 +1,6 @@
+---
+icon: material/laptop
+---
 # Introduction
 
 This page describes a docker-compose based orchestration running on your local machine and accessible via browser.

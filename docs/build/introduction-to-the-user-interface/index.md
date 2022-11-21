@@ -1,3 +1,6 @@
+---
+icon: eccenca/application-dataintegration
+---
 # Introduction to the user interface
 
 This page provides a short introduction to the BUILD / Data Integration workspace incl. projects and different tasks.
@@ -56,25 +59,25 @@ A dataset represents an abstraction over raw data. In order to work with data, y
 
 There is a range of different dataset types for different kinds of source data. Some most important ones are:
 
-- **Knowledge Graph** - Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory. 
+- **Knowledge Graph** - Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory.
 - **CSV** - Read from or write to an CSV file.
 - **XML** - Read from or write to an XML file.
 - **JSON** - Read from or write to a JSON file.
 - **JDBC endpoint** - Connect to an existing JDBC endpoint.
 - **Variable dataset** - Dataset that acts as a placeholder in workflows and is replaced at request time.
-- **Excel** - Read from or write to an Excel workbook in Open XML format (XLSX). 
+- **Excel** - Read from or write to an Excel workbook in Open XML format (XLSX).
 - **Multi CSV ZIP** - Reads from or writes to multiple CSV files from/to a single ZIP file.
 
 Other options include:
 
 - **Internal dataset** - Dataset for storing entities between workflow steps.
-- **RDF** - Dataset which retrieves and writes all entities from/to an RDF file. The dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead. 
+- **RDF** - Dataset which retrieves and writes all entities from/to an RDF file. The dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead.
 - **SPARQL endpoint** - Connect to an existing SPARQL endpoint.
 - **In-memory dataset** - A Dataset that holds all data in-memory.
 - **Avro** - Read from or write to an Apache Avro file.
 - **ORC** - Read from or write to an Apache ORC file.
 - **Parquet** - Read from or write to an Apache Parquet file.
-- **Hive database** - Read from or write to an embedded Apache Hive endpoint. 
+- **Hive database** - Read from or write to an embedded Apache Hive endpoint.
 - **SQL endpoint** - Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL.
 - **Neo4j** - Connect to an existing Neo4j property graph database system.
 

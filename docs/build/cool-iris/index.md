@@ -1,4 +1,5 @@
 ---
+icon: material/semantic-web
 tags:
     - KnowledgeGraph
     - BestPractice
