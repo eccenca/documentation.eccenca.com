@@ -196,17 +196,11 @@ To Produce and Consume the Entities, understanding [entities](https://github.com
 | `EntitySchema` | An entity schema that represents the type of uri and list of paths |
 | `EntityPath`   | A path in a schema                                                 |
 
-### How to Produce Entities
+### Producing Entities
 
+On [Project Initialization](#project-initialization) copier produces a new plugin that has same code as below. The code responsible to create number of entities as output based on the input params.
 
-TODO: Actions
-
--   check setup both for plugin and connecting instance
--   add copier instructions to copy template
--   create a project with workflow - add plugin, test and produce entities
--   see the output.
-
-```py title="entities-producer.py" linenums="1" hl_lines="62 86"
+```py title="entities-producer.py" linenums="1"
 """Entities Producer"""
 import uuid
 from secrets import token_urlsafe
@@ -267,17 +261,19 @@ class EntitiesProducer(WorkflowPlugin):
     ) -> Entities:
         self.log.info("Start creating random values.")
         self.log.info(f"Config length: {len(self.config.get())}")
+        entities_counter = 0
         value_counter = 0
         entities = []
         for _ in range(self.number_of_entities):
             entity_uri = f"urn:uuid:{str(uuid.uuid4())}"
+            entities_counter += 1
             values = []
             for _ in range(self.number_of_values):
                 values.append([token_urlsafe(16)])
                 value_counter += 1
                 context.report.update(
                     ExecutionReport(
-                        entity_count=value_counter,
+                        entity_count=entities_counter,
                         operation="wait",
                         operation_desc="entities generated",
                     )
@@ -291,11 +287,41 @@ class EntitiesProducer(WorkflowPlugin):
             type_uri="https://entities.org/vocab/RandomValueRow",
             paths=paths,
         )
-        self.log.info(f"Happy to serve {value_counter} entities.")
+        self.log.info(
+            f"Happy to serve {entities_counter} entities with {value_counter} values."
+        )
+        context.report.update(
+            ExecutionReport(
+                entity_count=entities_counter,
+                operation="wait",
+                operation_desc="entities generated",
+                summary=[
+                    ("No. of entities", f"{entities_counter}"),
+                    ("No. of values", f"{value_counter}"),
+                ],
+            )
+        )
         return Entities(entities=entities, schema=schema)
 ```
 
-From line 62 to 86 is responsible for producing entities with random token values.
+Let's understand code:
+
+1. State about the plugin and add necessary description. [(#17-27)](#__codelineno-10-17)
+2. Define the parameters of the plugin, here two parameters are defined where one accepts `rows` and other `columns`. [(#24-41)](#__codelineno-10-24)
+3. Intialise the parameters of the plugin. In addition to this, you can validate and raise exceptions from `init()`. [(#46-54)](#__codelineno-10-46)
+4. To return Entities we have to create list of `entities` and its `schema`. As a first step, declare entities has an empty list. [(#62)](#__codelineno-10-62)
+5. As you know, each `Entity` should have a `URI` and can have sequence of `values`. Here, list of entities are created with a random UUID based on rows and values are created based on columns. After each entity is created it is appended to the entities list. [(#64-78)](#__codelineno-10-64)
+6. To generate `schema` which is of type `EntitySchema`, should have a `type_uri` and sequence of `paths`, define an empty list of paths. [(#79)]((#__codelineno-10-79))
+7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated respectively with `type_uri` and `paths`. [(#80-86)]((#__codelineno-10-80))
+8. Once entities and the schema is generated successfully you can return it. [(#101)](#__codelineno-10-101)
+9. Update plugin logs using `PluginLogger` which is available has a default logger. [(#87-91)](#__codelineno-10-87)
+10. To make your plugin more user friendly you can use Context API  `report.update()` to update the workflow report. [(#91-100)](#__codelineno-10-86)
+
+### Consuming Entities
+
+By default Workflow plugins are configured to accepct sequence of entities in workflow. Any task that generates entities can pass to the workflow plugin. Let's learn how to handle entities when passed.
+
+The below code represents of accepting entities and updating the workflow report with number of entities and its values.
 
 ```py title="entities-consumer.py" linenums="1"
 class EntitiesConsumer(WorkflowPlugin):
