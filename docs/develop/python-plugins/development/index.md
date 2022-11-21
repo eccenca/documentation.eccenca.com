@@ -324,20 +324,41 @@ By default Workflow plugins are configured to accepct sequence of entities in wo
 The below code represents of accepting entities and updating the workflow report with number of entities and its values.
 
 ```py title="entities-consumer.py" linenums="1"
+"""Consume Entities"""
+from typing import Sequence
+from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
+from cmem_plugin_base.dataintegration.description import Plugin
+from cmem_plugin_base.dataintegration.entity import Entities
+from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
+
+
+@Plugin(
+    label="Consume Entities",
+    description="Reads random values of X rows a Y values.",
+    documentation="""
+This example workflow operator reads random values.
+""",
+)
 class EntitiesConsumer(WorkflowPlugin):
     """Entities Consumer"""
 
     def execute(self, inputs: Sequence[Entities], context: ExecutionContext):
+        entities_counter = 0
         value_counter = 0
         for item in inputs:
             for entity in item.entities:
+                entities_counter += 1
                 for _ in entity.values:
                     value_counter += 1
         context.report.update(
             ExecutionReport(
-                entity_count=value_counter,
+                entity_count=entities_counter,
                 operation="wait",
                 operation_desc="entities received",
+                summary=[
+                    ("No. of entities", f"{entities_counter}"),
+                    ("No. of values", f"{value_counter}"),
+                ],
             )
         )
 ```
