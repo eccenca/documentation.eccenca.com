@@ -7,14 +7,11 @@ tags:
 
 # Python Plugin Development
 
-We recommend to start developing a plugin by creating a new project with our [official python project template (cmem-plugin-template)](https://github.com/eccenca/cmem-plugin-template).
+## Getting Started
 
-This template will generate a fully configured Python poetry source repository together with build plans for gitlab and github.
+The CMEM Python SDK supports two kinds of operator plugins. These are supported by [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base), which is the underlying dependency for [cmem-plugin-template]. Those two types of cmem-plugin-base plugins are
 
-Based on the template, you will be able to develop your own plugins.
-In the following, we will introduce some basic concepts and describe some best practices.
-
-## Workflow plugins
+### Workflow plugins
 
 A workflow plugin implements a new operator (task) that can be used within a workflow.
 A workflow plugin may accept an arbitrary list of inputs and optionally returns a single output.
@@ -57,7 +54,7 @@ Multiple iterations happen if the output of the workflow plugin is connected to 
 
 ![execution-report](22-2-workflow-execution-report.png)
 
-## Transform plugins
+### Transform plugins
 
 A transform plugin can be used in transform and linking rules. It accepts an arbitrary number of inputs and returns an output. Each input as well as the output consists of a sequence of values.
 
@@ -77,7 +74,7 @@ class MyTransformPlugin(TransformPlugin):
         return inputs[0]
 ```
 
-## Plugin Context
+### Plugin Context
 
 The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py) objects, which are passed to the plugin depending on the executed method.
 
