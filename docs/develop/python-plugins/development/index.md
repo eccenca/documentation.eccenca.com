@@ -363,6 +363,40 @@ class EntitiesConsumer(WorkflowPlugin):
         )
 ```
 
+Let's understand code:
+
+1. `inputs` from the workflow are sequence of `Entities`, each item from input has list of entities and each entity has its values. (#22-26)
+2. One end of values count, workflow reports get updated with total number of entities and values as summary. (#27-37)
+
+Now, you have created two plugins one to produce and other to consume entities.
+
+Only few steps away to witness the output of the plugins. run following commad to deploy the plugins to your CMEM instance.
+
+```shell-session
+task check deploy
+
+...
+task: [deploy] cmemc admin workspace python install dist/*.tar.gz
+Install package dist/cmem_plugin_entities-0.0.0+dirty.tar.gz ... done
+task: [deploy] cmemc admin workspace python list-plugins
+ID                                                         Package ID            Type             Label
+---------------------------------------------------------  --------------------  ---------------  --------------------
+cmem_plugin_entities-workflow-consumer-EntitiesConsumer    cmem-plugin-entities  WorkflowPlugin   Consume Entities
+cmem_plugin_entities-workflow-producer-EntitiesProducer    cmem-plugin-entities  WorkflowPlugin   Produce Entities
+```
+
+### Workflow Editor
+
+To use plugins, you must first create a workflow and its good to have a csv dataset to see the entities as response from Producer Entities task. After that, you can create Producer Entities  and Consumer Entities  plugin tasks for the workflow in the same project. Configure the workflow so that the entities are saved in a csv dataset and can be passed to the Consumer Task at the same time.
+
+![entities-workflow](22-2-entities-workflow.png)
+
+### Workflow Report
+
+As we updated the context report on entity creation, the workflow report would look like this after a successful workflow run.
+
+![entities-workflow-report](22-2-entities-workflow-report.gif)
+
 ## Plugin Configuration
 
 TODO
