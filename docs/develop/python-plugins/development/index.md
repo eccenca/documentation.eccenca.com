@@ -88,6 +88,99 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 | `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
 | `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
 
+## Setup and Usage
+
+### Prerequisites
+
+Before you begin developing cmem-python-plugins, make sure your system has the [installation dependencies](https://github.com/eccenca/cmem-plugin-template#install-local-requirements). You can use this command to perform a quick check.
+
+```shell-session
+python --version && copier --version && poetry --version && pre-commit --version && task --version && cmemc --version
+```
+
+You can expect something like this, otherthan version numbers([lastest version dependencies](https://github.com/eccenca/cmem-plugin-template#install-local-requirements)).
+
+```shell-session
+Python 3.9.11
+copier 6.2.0
+Poetry (version 1.2.2)
+pre-commit 2.17.0
+Task version: v3.12.1
+cmemc, version SNAPSHOT, running under python 3.9.11
+```
+
+### Project Initialization
+
+The following command will create a new project directory:
+
+```shell-session
+$ copier gh:eccenca/cmem-plugin-template cmem-plugin-my
+```
+
+After that, you can initialize the repository and install git hooks:
+
+```shell-session
+$ cd cmem-plugin-my
+$ git init
+$ git add .
+$ git commit -m "init"
+$ pre-commit install
+```
+
+Then you can run the local test suite an build a first deployment artifact:
+
+```shell-session
+$ task check build
+```
+
+### Project Update
+
+From time to time, this template will be upgraded, so you can update your repository as well:
+
+```shell-session
+$ copier update
+```
+
+Please have a look at the [copier documentation](https://copier.readthedocs.io/en/stable/updating/).
+
+### Other Tasks
+
+Available tasks for your project can be listed like this:
+
+```shell-session
+$ task
+task: Available tasks for this project:
+* build:          Build tarball and a wheel package.
+* check:          Run whole test suite.
+* check:bandit:   Check source code with bandit.
+* check:flake8:   Check source code with flake8.
+* check:mypy:     Check source code with mypy.
+* check:pylint:   Check source code with pylint.
+* check:pytest:   Run pytest suite.
+* check:safety:   Check source code with safety.
+* clean:          Removes dist, *.pyc and some caches
+* deploy:         Install plugin package in Corporate Memory
+* poetry:install: Install dependencies managed by Poetry.
+* poetry:shell:   Open a poetry shell.
+* poetry:update:  Update dependencies managed by Poetry to their newest versions.
+* python:format:  Format Python files.
+```
+
+You can extend this task lisk by creating a file `TaskfileCustom.yaml` in your repository root:
+
+```shell-session
+$ cat TaskfileCustom.yaml
+---
+version: '3'
+
+tasks:
+
+  ttt:
+    desc: just a test
+    cmds:
+      - task --list
+```
+
 ## Producing and Consuming Entities
 
 To Produce and Consume the Entities, understanding [entities](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) is required.
