@@ -32,8 +32,8 @@ The lifecycle of a workflow plugin is as follows:
 -   The `execute` function is called, and get the results of the ingoing operators as input.
 -   The output is forwarded to the next subsequent operator.
 
-The following depiction shows a task named **Test One**, which is a task of the plugin **My Workflow Plugin**.
-The task has one connected ingoing task and one connected outgoing task.
+The following depiction shows a task of the plugin **My Workflow Plugin**.
+The task has two connected ingoing tasks and one connected outgoing task.
 
 ![workflow-plugins](22-2-my-workflow-plugin.png)
 
@@ -56,21 +56,18 @@ class MyWorkflowPlugin(WorkflowPlugin):
         return inputs[0]
 ```
 
-TODO: Is the rest of the section needed?
-
-Because the returned Entities object can only be iterated once, the above process has to be repeated each time the output is iterated over.
-Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
-![execution-report](22-2-workflow-execution-report.png)
-
 ### Transform Plugins
 
 A transform plugin can be used in transform and linking rules.
 It accepts an arbitrary number of inputs and returns an output.
 Each input as well as the output consists of a sequence of values.
 
+The following depictions shows a value transformation which uses the **My Transform Plugin** plugin.
+The plugin splits the input strings and just forwards the last word.
+
 ![transform-plugins](22-1-my-transform-plugin.png)
 
-A minimal plugin that just outputs the last word of the first input looks like this:
+The corresponding code of the depicted plugin is shown below.
 
 ```py title="transform.py"
 from typing import Sequence
