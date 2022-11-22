@@ -1,4 +1,5 @@
 ---
+icon: material/language-python
 tags:
     - API
     - Python

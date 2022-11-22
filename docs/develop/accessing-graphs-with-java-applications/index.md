@@ -1,4 +1,5 @@
 ---
+icon: material/language-java
 tags:
     - Java
 hide:
