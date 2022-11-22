@@ -35,32 +35,24 @@ The lifecycle of a workflow plugin is as follows:
 The following depiction shows a task named **Test One**, which is a task of the plugin **My Workflow Plugin**.
 The task has one connected ingoing task and one connected outgoing task.
 
-TODO: Replace the image so it shows the plugin from the source code.
-
-![workflow-plugins](21-1-workflow-plugins.png)
+![workflow-plugins](22-2-my-workflow-plugin.png)
 
 The corresponding source code is listed below:
 
 ```py title="workflow.py"
 from typing import Sequence
-from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
+from cmem_plugin_base.dataintegration.context import ExecutionContext
 from cmem_plugin_base.dataintegration.description import PluginParameter, Plugin
 from cmem_plugin_base.dataintegration.entity import Entities
 from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
 
 @Plugin(label="My Workflow Plugin")
 class MyWorkflowPlugin(WorkflowPlugin):
+    """My Workflow Plugin"""
 
     def execute(
         self, inputs: Sequence[Entities], context: ExecutionContext
     ) -> Entities:
-        context.report.update(
-            ExecutionReport(
-                entity_count=1,
-                operation="wait",
-                operation_desc="Entity processed from the sequence of inputs.",
-            )
-        )
         return inputs[0]
 ```
 
@@ -70,18 +62,15 @@ Because the returned Entities object can only be iterated once, the above proces
 Multiple iterations happen if the output of the workflow plugin is connected to multiple operators.
 ![execution-report](22-2-workflow-execution-report.png)
 
-
 ### Transform Plugins
 
 A transform plugin can be used in transform and linking rules.
 It accepts an arbitrary number of inputs and returns an output.
 Each input as well as the output consists of a sequence of values.
 
-TODO: Replace the image so it shows the plugin from the source code.
+![transform-plugins](22-1-my-transform-plugin.png)
 
-![transform-plugins](21-1-transform-plugins.png)
-
-A minimal plugin that just outputs the first input looks like this:
+A minimal plugin that just outputs the last word of the first input looks like this:
 
 ```py title="transform.py"
 from typing import Sequence
@@ -91,8 +80,11 @@ from cmem_plugin_base.dataintegration.plugins import TransformPlugin
 
 @Plugin(label="My Transform Plugin")
 class MyTransformPlugin(TransformPlugin):
+    """My Transform Plugin"""
+
     def transform(self, inputs: Sequence[Sequence[str]]) -> Sequence[str]:
-        return inputs[0]
+        for item in inputs:
+            return item[0].split(" ")[-1]
 ```
 
 ## Context Objects
@@ -121,7 +113,7 @@ A `schema` contains of `path` descriptions and is identified by a `type_uri`.
 The following depiction shows these terms and their relationships. (1)
 { .annotate }
 
-1.  The concrete implementation details of entities can be seen in the [entity module](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) of the cmem-plugin-base package.
+1. The concrete implementation details of entities can be seen in the [entity module](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) of the cmem-plugin-base package.
 
 ![entities-flow-diagram](22-2-entities-flow-diagram.png)
 
