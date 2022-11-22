@@ -1,5 +1,6 @@
 ---
 icon: eccenca/module-easynav
+status: new
 tags:
     - KnowledgeGraph
 ---
