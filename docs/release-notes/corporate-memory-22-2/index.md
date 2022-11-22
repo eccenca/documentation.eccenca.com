@@ -27,7 +27,7 @@ The highlights of this release are:
 
 !!! warning
 
-    With this release of Corporate Memory the (DataIntegration) Python plugin SDK added the `ExecutionContext` class. This results in a changed signature of the SDK API functions and thus in a breaking change. Your python SDK based plugins have to be adapted according to the migration notes below.
+    With this release of Corporate Memory the (DataIntegration) Python plugin SDK contains the `ExecutionContext` class. This results in a changed signature of the SDK API functions and causes a breaking change to your exisitng code. Your python SDK based plugins needs to be adapted according to the migration notes below.
 
 This release delivers the following component versions:
 
@@ -43,7 +43,7 @@ More detailed release notes for these versions are listed below.
 This version of eccenca DataIntegration adds the following new features:
 
 -   New active learning UI
--   Python plugins: Added context objects that allow accessing context dependent functionalities, such as:
+-   Python plugins: Added context objects that allows accessing context dependent functionalities, such as:
     -   The current OAuth token
     -   Updating the execution report (for workflows)
     -   DI version
@@ -62,7 +62,7 @@ This version of eccenca DataIntegration adds the following new features:
     -   `org.silkframework.runtime.activity.concurrentExecutions` to set the max. concurrent activity instances
     -   `cors.enabled`, `cors.config.allowOrigins` and `cors.config.allowCredentials` to configure CORS settings
 
-In addition to that, these changes are shipped:
+In addition to that, these changes are included:
 
 -   Move `outputTemplate` parameter to advanced section of XML dataset plugin
 -   Improved performance of conversions to floating point numbers
@@ -77,7 +77,7 @@ In addition to that, these changes are shipped:
 -   DataPlatform API timeout is configurable now
 -   Workflow progress information was moved to node footer that is displayed empty when no information is available
 -   Docker image base: `debian:bullseye-20220912-slim`
--   Return 503 before exceeding the concurrent activity execution limit instead of discarding a running activity instance
+-   Return 503 error before exceeding the concurrent activity execution limit instead of discarding a running activity instance
 -   Do not execute empty object mapping rules to improve performance
 -   Remove root (start) page:
     -   Redirect to workbench project search page
@@ -85,7 +85,7 @@ In addition to that, these changes are shipped:
     -   Add "load example project" action to user menu
 -   Show activity labels instead of IDs in task activity overview
 
-In addition to that, multiple performance and stability issues were solved.
+In addition to that, multiple performance and stability issues are addressed.
 
 ## eccenca DataManager v22.2
 
@@ -109,11 +109,11 @@ This version of eccenca DataManager adds the following new features:
     -   Bulk node search and bulk add
     -   Ability to save, load and share explorations
 
-In addition to that, these changes are shipped:
+In addition to that, these changes are included:
 
 -   Increase height of Turtle editor in the resource details view.
 
-In addition to that, multiple performance and stability issues were solved.
+In addition to that, multiple performance and stability issues are addressed.
 
 ## eccenca DataPlatform v22.2
 
@@ -158,7 +158,7 @@ This version of eccenca DataPlatform ships the following new features:
     -   graphs can be configured via graph configuration for bi-directional git sync
     -   cf. config properties under `gitSync.*`
 
-In addition to that, these changes and fixes are shipped:
+In addition to that, these changes and fixes are included:
 
 -   New store configuration properties, see below for migration notes
 -   Changed property for defining select query for graphList
@@ -176,7 +176,7 @@ In addition to that, these changes and fixes are shipped:
     -   load model entities using GSP requests instead of construct queries
     -   Changed property for base IRI: `files.defaultBaseIri` to `proxy.defaultBaseIri` (default: `http://localhost/`)
 
-The following have been removed:
+The following functionality have been discontinued:
 
 -   Support for provisioned store authorization
 -   Command line options create-config, update-war
@@ -185,7 +185,7 @@ The following have been removed:
     -   `proxy.queryTimeoutCheckCron` not necessary anymore
 -   Support for multiple endpoints
 
-In addition to that, multiple performance and stability issues were solved.
+In addition to that, multiple performance and stability issues are addressed.
 
 ## eccenca Corporate Memory Control (cmemc) v22.2
 
@@ -232,7 +232,7 @@ This version of cmemc adds the following new features:
 - `workflow io` command
     - new flag `--autoconfig` / `--no-autoconfig` for input dataset auto configuration
 
-In addition to that, these changes and fixes are shipped:
+In addition to that, these changes and fixes are included:
 
 -   `admin workspace python list-plugins` command
     -   Additionally outputs the Package ID
@@ -252,7 +252,7 @@ In addition to that, these changes and fixes are shipped:
 -   `admin status` command
     -   command will now always return, even if a component is down
 
-The following commands are removed:
+The following commands are discontinued:
 
 -   `admin bootstap` command
     -   was deprecated in 22.1, use `admin store bootstrap` command instead
@@ -261,7 +261,7 @@ The following commands are removed:
 -   `dataset list`|`delete` command
     -   `--project` option, use `--filter projext XXX` instead
 
-In addition to that, multiple performance and stability issues were solved.
+In addition to that, multiple performance and stability issues are addressed.
 
 ## Migration Notes
 
