@@ -49,6 +49,7 @@ extra:
     cmemc: cmemc
     Docker: docker
     Python: python
+    PythonPlugin: python-plugin
     SPARQL: sparql
     BeginnersTutorial: beginners
     AdvancedTutorial: advanced
@@ -166,6 +167,7 @@ theme:
       cmemc: octicons/terminal-16
       docker: fontawesome/brands/docker
       python: fontawesome/brands/python
+      python-plugin: fontawesome/brands/python
       sparql: material/database-eye-outline
       beginners: material/list-status
       advanced: material/list-status

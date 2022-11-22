@@ -8,77 +8,59 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-calendar: Release Notes
+-   :material-calendar: [Release Notes](release-notes/corporate-memory-22-2)
 
     ---
 
     Documentation of changes and enhancements for each version.
 
-    [:octicons-arrow-right-24: Latest Release Notes](release-notes/corporate-memory-22-1/index.md)
-
--   :material-list-status: Tutorials
+-   :material-list-status: [Tutorials](tutorials)
 
     ---
 
     Learn by example and step-by-step guidelines to achieve a concrete goal fast.
 
-    [:octicons-arrow-right-24: Tutorials](tutorials/index.md)
-
--   :material-arrow-right-thick: Getting Started
+-   :material-arrow-right-thick: [Getting Started](getting-started)
 
     ---
 
     This page describes how to work with Corporate Memory and shortly outlines all functionalities of the user interface.
 
-    [:octicons-arrow-right-24: Getting Started](getting-started/index.md)
-
--   :material-star: Build
+-   :material-star: [Build](build)
 
     ---
 
     Lift your data by integrating multiple datasets into a Knowledge Graph.
 
-    [:octicons-arrow-right-24: Build](build/index.md)
-
--   :material-star: Explore and Author
+-   :material-star: [Explore and Author](explore-and-author)
 
     ---
 
     Explore, author and interact with your Knowledge Graph.
 
-    [:octicons-arrow-right-24: Explore and Author](explore-and-author/index.md)
-
--   :material-star: Consume
+-   :material-star: [Consume](consume)
 
     ---
 
     This section outlines how to consume data from the Knowledge Graph.
 
-    [:octicons-arrow-right-24: Consume](consume/index.md)
-
--   :material-star-outline: Deploy and Configure
+-   :material-star-outline: [Deploy and Configure](deploy-and-configure)
 
     ---
 
     Deploy in your own environment.
 
-    [:octicons-arrow-right-24: Deploy and Configure](deploy-and-configure/index.md)
-
--   :material-star-outline: Automate
+-   :material-star-outline: [Automate](automate)
 
     ---
 
     Setup processes and automate activities based on and towards your Knowledge Graph.
 
-    [:octicons-arrow-right-24: Automate](automate/index.md)
-
--   :material-star-outline: Develop
+-   :material-star-outline: [Develop](develop)
 
     ---
 
     API documentation and programming recipes.
-
-    [:octicons-arrow-right-24: Develop](develop/index.md)
 
 </div>
 

@@ -1,4 +1,5 @@
 ---
+icon: material/clock-start
 tags:
     - Workflow
     - Automate

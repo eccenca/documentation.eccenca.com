@@ -1,5 +1,5 @@
 ---
-status: new
+icon: simple/neo4j
 tags:
     - AdvancedTutorial
 ---
@@ -273,3 +273,4 @@ Optionally, you can use the same transformation and the workflow to render the r
     ![Add Knowledge Graph output](pdtn-add-kg-dataset-into-workflow.png)
 2. The results can then be reviewed in the Knowledge Graph module, e.g., explored visually:
     ![Results in Corporate Memory](pdtn-ontodia-result-view.png)
+

@@ -1,3 +1,6 @@
+---
+icon: material/redhat
+---
 # Scenario: RedHat Enterprise Linux 7
 
 ## Introduction

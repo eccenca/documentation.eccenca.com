@@ -3,5 +3,5 @@ nav:
     - Workflow Trigger: workflow-trigger
     - Node Shapes: node-shapes
     - Property Shapes: property-shapes
-    - Datatypes: datatypes
+    - Datatypes: datatype-reference
 

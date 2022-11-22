@@ -1,3 +1,6 @@
+---
+icon: material/database
+---
 # Migrating Stores
 
 ## Sizing and Deployment

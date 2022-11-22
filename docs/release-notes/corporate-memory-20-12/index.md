@@ -110,7 +110,7 @@ In addition to that, multiple performance and stability issues were solved.
 This version of cmemc adds the following new features:
 
 - The `workflow io` command was added to allow for executing workflows with variable file payload (input) and receive data from a workflow (output).
-    - This feature is described in the advanced tutorial [Processing data with variable input workflows](../../build/processing-data-with-variable-input-workflows/index.md).
+    - This feature is described in the advanced tutorial [Processing data with variable input workflows](../../automate/processing-data-with-variable-input-workflows/index.md).
     - In addition to that, the concepts of io workflows is described in [Workflow execution and orchestration](../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md).
 - The `admin` command group was added and includes the following commands:
     - `bootstrap` - Update/Import bootstrap data.

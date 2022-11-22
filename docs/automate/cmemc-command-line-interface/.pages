@@ -2,8 +2,7 @@ nav:
     - cmemc - Command Line Interface: index.md
     - Installation: installation
     - Configuration: configuration
-    - Using the Docker Image: using-the-docker-image
-    - SPARQL Scripts: sparql-scripts
+    - Invocation: invocation
     - Workflow Execution: workflow-execution-and-orchestration
     - Troubleshooting: troubleshooting-and-caveats
     - Command Reference: command-reference

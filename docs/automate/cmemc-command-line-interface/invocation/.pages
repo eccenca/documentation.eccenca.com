@@ -1,0 +1,7 @@
+nav:
+    - Invocation: index.md
+    - Docker Image: docker-image
+    - Github Action: github-action
+    - Gitlab Pipeline: gitlab-pipeline
+    - SPARQL Scripts: sparql-scripts
+

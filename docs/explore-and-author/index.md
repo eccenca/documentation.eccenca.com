@@ -3,47 +3,43 @@ icon: material/star
 hide:
   - toc
 ---
-# ★ Explore and Author
+!!! info inline end ""
 
-Explore, author and interact with your Knowledge Graph.
+    ![Your are here](overview-explore.drawio.png "You are here")
+
+# :material-star: Explore and Author
 
 In the Explore section you will learn how Corporate Memory allows you to interact with your Enterprise Knowledge Graph.
 All relevant modules and functionalities are described.
 You will also learn how we make use of [SHACL Shapes](https://www.w3.org/TR/shacl/) in order to [customize the way how you can interact with your data](./graph-exploration/building-a-customized-user-interface/index.md).
 
+**:octicons-people-24: Intended audience:** Linked Data Experts and Domain Experts
+
 <div class="grid cards" markdown>
 
--   :eccenca-application-explore: Graph Exploration
+-   :eccenca-application-explore: [Graph Exploration](graph-exploration)
 
     ---
 
     This module provides a generic and extensible RDF data browser and editor.
 
-    [:octicons-arrow-right-24: Graph Exploration](graph-exploration/index.md)
-
--   :eccenca-application-vocabularies: Vocabulary Catalog
+-   :eccenca-application-vocabularies: [Vocabulary Catalog](vocabulary-catalog)
 
     ---
 
     This module allows for managing vocabularies in Corporate Memory that are accessible for the user.
 
-    [:octicons-arrow-right-24: Vocabulary Catalog](vocabulary-catalog/index.md)
-
--   :eccenca-module-thesauri: Thesauri Management
+-   :eccenca-module-thesauri: [Thesauri Management](thesauri-management)
 
     ---
 
     The Thesaurus module provides a user interface to create, browse and edit thesaurus resources and general taxonomical data modeled in SKOS.
 
-    [:octicons-arrow-right-24: Thesauri Management](thesauri-management/index.md)
-
--   :eccenca-application-queries: Query Module
+-   :eccenca-application-queries: [Query Module](query-module)
 
     ---
 
     The Query module provides a user interface to store, describe, search and edit SPARQL queries.
-
-    [:octicons-arrow-right-24: Query Module](query-module/index.md)
 
 </div>
 
