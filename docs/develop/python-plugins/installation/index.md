@@ -8,11 +8,11 @@ tags:
 # Installation and Usage of Python Plugins
 
 Plugins are a released as parts of Python packages.
-The can but do not need to be open source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index). One package can contain of multiple plugins.
+They can but do not need to be open-source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index). One package can contain of multiple plugins.
 
 ## Installation
 
-If you want to install a python plugin package, you can do this by using cmemc's [admin workspace python command group](../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
+If you want to install a python plugin package, you need to use cmemc's [admin workspace python command group](../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
 
 The following shell commands demonstrate the basic workflow:
 
@@ -28,7 +28,7 @@ ID                                 Type            Label
 cmem_plugin_graphql-GraphQLPlugin  WorkflowPlugin  GraphQL query
 ```
 
-You can also get a list of all installed python packages: (1)
+You can get a list of all installed python packages: (1)
 { .annotate }
 
 1.   This list contains all installed packages in the python environment, not just your plugin packages.

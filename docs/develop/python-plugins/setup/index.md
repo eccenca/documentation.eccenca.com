@@ -7,7 +7,10 @@ tags:
 # Setup and Configuration
 
 This section describes which backend components are needed on the DataIntegration server.
-When using our official docker images, these components are already installed and configured.
+
+!!! info
+
+    When using the official eccenca docker images, setup and configuration is already done.
 
 ## Configuration
 
