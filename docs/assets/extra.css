@@ -79,17 +79,18 @@
 
 .getademo {
     background-color: #f39200;
-    border-radius: 999px;
-    box-shadow: #f39200 0 10px 20px -10px;
+    border-radius: 100rem;
+    box-shadow: #f39200 0 0.5rem 1.0rem -0.5rem;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
     font-size: 0.7rem;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 1.5rem;
     opacity: 1;
-    outline: 0 solid transparent;
-    padding: 8px 18px;
+    outline: 1 solid transparent;
+    vertical-align: middle;
+    padding: 0.4rem 1.2rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
