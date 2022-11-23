@@ -14,7 +14,7 @@ packages = [{include = "tools"}]
 dec-tool = 'tools:cli'
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 Pillow = "^9.2.0"
 CairoSVG = "^2.5.2"
 mkdocs = "^1.4.2"
@@ -26,7 +26,7 @@ mkdocs-macros-plugin = "^0.7.0"
 mkdocs-autolinks-plugin = "^0.6.0"
 mkdocs-redirects = "^1.2.0"
 mkdocs-swagger-ui-tag = "^0.4.3"
-mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "8.5.8-insiders-4.26.2"}
+mkdocs-material = "8.5.8"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

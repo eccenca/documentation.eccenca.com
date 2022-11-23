@@ -244,14 +244,14 @@ markdown_extensions:
 # {{{ Extensions to mkdocs - some of them are used by material theme
 plugins:
   # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#built-in-privacy-plugin
-  - privacy:
-      external_assets: bundle
-      external_assets_dir: assets/externals
-      external_assets_exclude:
-        - badge.fury.io/*
-        - img.shields.io/*
-        - cdn.jsdelivr.net/npm/mathjax@3/*
-        - giscus.app/*
+  # - privacy:
+      # external_assets: bundle
+      # external_assets_dir: assets/externals
+      # external_assets_exclude:
+      #   - badge.fury.io/*
+      #   - img.shields.io/*
+      #   - cdn.jsdelivr.net/npm/mathjax@3/*
+      #   - giscus.app/*
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
   - search:
       lang: en
@@ -268,14 +268,14 @@ plugins:
       cards: true
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
-      tags_compare: !!python/name:material.plugins.tags.plugin.casefold
+      # tags_compare: !!python/name:material.plugins.tags.plugin.casefold
       tags_file: tags.md
       # https://squidfunk.github.io/mkdocs-material/insiders/
-      tags_extra_files:
-        tutorials/index.md:
-          - beginners
-          - advanced
-          - expert
+      # tags_extra_files:
+      #   tutorials/index.md:
+      #     - beginners
+      #     - advanced
+      #     - expert
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
@@ -288,7 +288,7 @@ plugins:
         'explore-and-author/building-a-customized-user-interface/index.md': 'explore-and-author/graph-exploration/building-a-customized-user-interface/index.md'
         'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
   # https://squidfunk.github.io/mkdocs-material/reference/#built-in-meta-plugin
-  - meta
+  # - meta
 # }}}
 
 # {{{ Less important mkdocs configuration
