@@ -285,6 +285,7 @@ plugins:
   # https://github.com/mkdocs/mkdocs-redirects
   - redirects:
       redirect_maps:
+        'explore-and-author/building-a-customized-user-interface/index.md': 'explore-and-author/graph-exploration/building-a-customized-user-interface/index.md'
         'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
   # https://squidfunk.github.io/mkdocs-material/reference/#built-in-meta-plugin
   - meta
