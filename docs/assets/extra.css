@@ -78,25 +78,34 @@
 /* Display of get-a-demo link */
 
 .getademo {
+    display: inline-block;
     background-color: #f39200;
-    border-radius: 100rem;
+    border: 1px solid #f39200;
+    border-radius: 1.8rem;
     box-shadow: #f39200 0 0.5rem 1.0rem -0.5rem;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
     font-size: 0.7rem;
     font-weight: 700;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
+    height: 1.8rem;
     opacity: 1;
-    outline: 1 solid transparent;
     vertical-align: middle;
-    padding: 0.4rem 1.2rem;
+    padding: 0 1.2rem;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: fit-content;
-    word-break: break-word;
-    border: 0;
+    white-space: nowrap;
+}
+
+.getademo:hover {
+    border-color: #fff;
+}
+
+.getademo:focus-visible {
+    outline: 1px solid #f39200;
+    outline-offset: 2px;
 }
 
 /* always hide repo link in navigation */
