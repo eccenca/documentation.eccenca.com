@@ -1,17 +1,17 @@
 [data-md-color-scheme="eccenca-light"] {
     --md-default-bg-color: hsla(0, 0%, 95%, 1);
     --md-default-bg-color--light: hsla(0, 0%, 100%, 1);
-    --md-default-bg-color--lighter: hsla(0, 0%, 100%, .61);
-    --md-default-bg-color--lightest: hsla(0, 0%, 100%, .39);
+    --md-default-bg-color--lighter: hsla(0, 0%, 100%, 0.61);
+    --md-default-bg-color--lightest: hsla(0, 0%, 100%, 0.39);
     --md-primary-fg-color: hsla(204, 88%, 34%, 1);
     --md-accent-fg-color: hsla(36, 100%, 48%, 1);
     --md-typeset-a-color: var(--md-primary-fg-color);
     --md-footer-fg-color: hsla(209, 19%, 26%, 1);
-    --md-footer-fg-color--light: hsla(209, 19%, 26%, .61);
-    --md-footer-fg-color--lighter: hsla(209, 19%, 26%, .39);
+    --md-footer-fg-color--light: hsla(209, 19%, 26%, 0.61);
+    --md-footer-fg-color--lighter: hsla(209, 19%, 26%, 0.39);
     --md-footer-bg-color: var(--md-default-bg-color);
     --md-footer-bg-color--dark: hsla(0, 0%, 90%, 1);
-    --md-code-bg-color:  hsla(0, 0%, 97.5%, 1);
+    --md-code-bg-color: hsla(0, 0%, 97.5%, 1);
 }
 
 .md-container a:not(.headerlink):hover {
@@ -29,13 +29,13 @@
 /* Comment out this section if the header should not be light colored */
 
 [data-md-color-scheme="eccenca-light"] .md-header,
-[data-md-color-scheme="eccenca-light"] [for=__drawer] {
+[data-md-color-scheme="eccenca-light"] [for="__drawer"] {
     --md-primary-fg-color: var(--md-footer-bg-color--dark);
     --md-primary-bg-color: var(--md-footer-fg-color);
 }
 
 [data-md-color-scheme="eccenca-light"] .md-search__form,
-[data-md-color-scheme="eccenca-light"] [data-md-toggle=search]:checked~.md-header .md-search__form {
+[data-md-color-scheme="eccenca-light"] [data-md-toggle="search"]:checked~.md-header .md-search__form {
     background-color: var(--md-default-bg-color--light);
 }
 
@@ -44,9 +44,11 @@
         background-color: var(--md-default-bg-color--lightest);
         border: solid 1px var(--md-primary-bg-color);
     }
+
     [data-md-color-scheme="eccenca-light"] .md-search__form:hover {
         background-color: var(--md-default-bg-color--lighter);
     }
+
     [data-md-color-scheme="eccenca-light"] .md-search__input::placeholder {
         color: var(--md-default-fg-color--light);
     }
@@ -66,25 +68,44 @@
 }
 
 .md-typeset table:not([class]) th {
-    background-color: rgba(0,184,212,.1);
+    background-color: rgba(0, 184, 212, 0.1);
 }
 
 .md-typeset table:not([class]) tbody tr:nth-child(even) td {
-    background-color: rgba(0,184,212,.05);
+    background-color: rgba(0, 184, 212, 0.05);
 }
 
 /* Display of get-a-demo link */
 
 .getademo {
     display: inline-block;
-    padding: 0.4rem;
-    height: 1.8rem;
     background-color: #f39200;
-    color: #fff;
-    vertical-align: middle;
-    font-size: 0.9rem;
-    font-weight: 700;
+    border: 1px solid #f39200;
+    border-radius: 1.8rem;
+    box-shadow: #f39200 0 0.5rem 1.0rem -0.5rem;
     box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    height: 1.8rem;
+    opacity: 1;
+    vertical-align: middle;
+    padding: 0 1.2rem;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.getademo:hover {
+    border-color: #fff;
+}
+
+.getademo:focus-visible {
+    outline: 1px solid #f39200;
+    outline-offset: 2px;
 }
 
 /* always hide repo link in navigation */
@@ -104,7 +125,7 @@ svg.icon {
     height: 1.3em;
 }
 
-.md-typeset :is(.emojione,.twemoji,.gemoji) svg.icon {
+.md-typeset :is(.emojione, .twemoji, .gemoji) svg.icon {
     fill: currentcolor;
     max-height: 100%;
     width: var(--md-icon-size);
