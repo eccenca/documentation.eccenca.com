@@ -1,4 +1,7 @@
 ports:
 - port: 8000
 tasks:
-- command: task use:public
+- name: Dependencies
+  init: task use:public
+  command: task serve
+
