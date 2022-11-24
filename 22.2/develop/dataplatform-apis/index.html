@@ -3046,28 +3046,20 @@
       Introduction
     </span>
 </a>
-<nav aria-label="Introduction" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#media-types">
 <span class="md-ellipsis">
       Media Types
     </span>
 </a>
-<nav aria-label="Media Types" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#media-type-request-by-uri">
 <span class="md-ellipsis">
       Media type request by URI
     </span>
 </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#security-schemes">
@@ -3108,6 +3100,13 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#http-error-responses">
+<span class="md-ellipsis">
+      HTTP error responses
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -3123,11 +3122,11 @@
 </a>
 <h1 id="dataplatform-apis">DataPlatform APIs<a class="headerlink" href="#dataplatform-apis" title="Permanent link">¤</a></h1>
 <p>The latest OpenAPI specification is available at <a href="https://releases.eccenca.com/OpenAPI/">https://releases.eccenca.com/OpenAPI/</a>.</p>
-<p>You can (re)view it with the <a href="https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json">redoc web UI</a> or the <a href="https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json">petstore web UI</a></p>
+<p>You can (re)view it with the <a href="https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-latest.json">redoc web UI</a> or the <a href="https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-latest.json">petstore web UI</a></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.</p>
 <p>This section describes common characteristics and features of all provided APIs.</p>
-<h3 id="media-types">Media Types<a class="headerlink" href="#media-types" title="Permanent link">¤</a></h3>
+<h2 id="media-types">Media Types<a class="headerlink" href="#media-types" title="Permanent link">¤</a></h2>
 <p>The default <a href="https://en.wikipedia.org/wiki/Media_type">media type</a> of most responses is <code>application/json</code>. Other possible response media types can be reached by changing the Accept header of the request. Alternatively, the desired response media type can be expressed in the request URI.</p>
 <p>Possible values of this HTTP header field are API dependent and listed as part of the specific HTTP method.</p>
 <p>Dependent on the specific API, eccenca DataPlatform works with the following application media types which correspond to the following specification documents:</p>
@@ -3205,7 +3204,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="media-type-request-by-uri">Media type request by URI<a class="headerlink" href="#media-type-request-by-uri" title="Permanent link">¤</a></h4>
+<h2 id="media-type-request-by-uri">Media type request by URI<a class="headerlink" href="#media-type-request-by-uri" title="Permanent link">¤</a></h2>
 <p>The desired response media type can be requested by adding a format query parameter. The parameter value is interpreted as a media type abbreviation that is expanded to a proper media type string. eccenca DataPlatform maps the following abbreviations to media types it supports:</p>
 <table>
 <thead>
@@ -3297,12 +3296,39 @@ However, this can be changed in the configuration.</p>
 <li>The default graph is the union (<a href="https://www.w3.org/TR/sparql11-query/#sparqlDataset">RDF Merge graph</a>) of all named graphs the user is allowed to access.</li>
 <li>The set of named graphs contains all named graphs the user is allowed to access.</li>
 </ul>
+<h2 id="http-error-responses">HTTP error responses<a class="headerlink" href="#http-error-responses" title="Permanent link">¤</a></h2>
+<p>The default format for HTTP error responses is compliant with <a href="https://tools.ietf.org/html/rfc7807">RFC 7807 Problem Details for HTTP APIs</a>.
+An HTTP error response contains a JSON object that provides at least two fields:</p>
+<ul>
+<li><code>title</code>: A short, human-readable summary of the problem type.</li>
+<li><code>detail</code>: A human-readable explanation specific to this occurrence of the problem.</li>
+</ul>
+<p>The following optional non-standard fields may also be set:</p>
+<ul>
+<li><code>status</code>: The HTTP status code for this occurrence of the problem.</li>
+<li><code>cause</code>: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as <code>title</code> and <code>detail</code>.</li>
+</ul>
+<p>The following example shows an HTTP response containing JSON problem details using the <code>application/problem+json</code> media type:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">500</span><span class="w"></span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/problem+jso</span><span class="kc">n</span><span class="w"></span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal Server Error"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Database server 'Stardog' unavailable"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="nt">"cause"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal Server Error"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connection refused (Connection refused)"</span><span class="w"></span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-22T13:32:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-22</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-24T21:35:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-24</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
