@@ -1,18 +1,2 @@
-image: docker-registry.eccenca.com/eccenca-python:v3.9.14-2
-# all jobs can be interrupted in case a new commit is pushed
-ports:
-- port: 8000
-tasks:
-- name: Dependencies
-  init: |
-    brew install go-task/tap/go-task
-    task use:public
-  command: |
-    echo "Starting Serve"
-    task serve
-- name: env
-  init: |
-    echo "username: ${ECCENCA_DOCKER_REGISTRY_USERNAME}"
-    echo "password: ${ECCENCA_DOCKER_REGISTRY_PASSWORD}"
-  command: |
-    echo "Successful"
+image:
+  file: .gitpod.Dockerfile
