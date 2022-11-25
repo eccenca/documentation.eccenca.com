@@ -10,7 +10,7 @@ tags:
 !!! warning
 
     EasyNav is a preview feature, which is disabled by default.
-    Preview features can be instable.
+    Preview features can be unstable.
 
 ## Introduction
 
