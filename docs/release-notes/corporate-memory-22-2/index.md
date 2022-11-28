@@ -265,6 +265,14 @@ In addition to that, multiple performance and stability issues are addressed.
 
 ## Migration Notes
 
+!!! warning
+
+    We do not guarantee forward compatibility for configuration, data or projects.
+    I.e. importing a project created with DataIntegration v22.2 into DataIntegration v22.1 (or older) might not work.
+
+    Backward compatibility will be ensured or migration paths explained.
+    I.e. projects created with DataIntegration v22.1 can be imported into DataIntegration v22.2.
+
 ### DataIntegration
 
 -   CSV attributes specified via the `properties` parameter had inconsistent encoding rules. For CSV datasets where the `properties` parameter is used this can lead to changed source paths.

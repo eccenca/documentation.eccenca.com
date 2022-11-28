@@ -7,7 +7,7 @@ tags:
 
 The latest OpenAPI specification is available at [https://releases.eccenca.com/OpenAPI/](https://releases.eccenca.com/OpenAPI/).
 
-You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-v22.1.json)
+You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-latest.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataPlatform-OpenAPI-Reference-latest.json)
 
 ## Introduction
 
@@ -15,7 +15,7 @@ eccenca DataPlatform APIs can be used to import, export, query and extract infor
 
 This section describes common characteristics and features of all provided APIs.
 
-### Media Types
+## Media Types
 
 The default [media type](https://en.wikipedia.org/wiki/Media_type) of most responses is `application/json`. Other possible response media types can be reached by changing the Accept header of the request. Alternatively, the desired response media type can be expressed in the request URI.
 
@@ -42,7 +42,7 @@ Dependent on the specific API, eccenca DataPlatform works with the following app
 | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [Microsoft Office Excel (.xlsx) format](https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/) |
 | application/problem+json                                          | [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)                                                                                                    |
 
-#### Media type request by URI
+## Media type request by URI
 
 The desired response media type can be requested by adding a format query parameter. The parameter value is interpreted as a media type abbreviation that is expanded to a proper media type string. eccenca DataPlatform maps the following abbreviations to media types it supports:
 
@@ -115,4 +115,35 @@ In the case a query declares no RDF dataset, DataPlatform uses the following def
 
 - The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
 - The set of named graphs contains all named graphs the user is allowed to access.
+
+## HTTP error responses
+
+The default format for HTTP error responses is compliant with [RFC 7807 Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
+An HTTP error response contains a JSON object that provides at least two fields:
+
+- `title`: A short, human-readable summary of the problem type.
+- `detail`: A human-readable explanation specific to this occurrence of the problem.
+
+The following optional non-standard fields may also be set:
+
+- `status`: The HTTP status code for this occurrence of the problem.
+- `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
+
+The following example shows an HTTP response containing JSON problem details using the `application/problem+json` media type:
+
+```json
+HTTP/1.1 500
+Content-Type: application/problem+json
+
+{
+  "title": "Internal Server Error",
+  "status": 500,
+  "detail": "Database server 'Stardog' unavailable",
+  "cause": {
+    "title": "Internal Server Error",
+    "status": 500,
+    "detail": "Connection refused (Connection refused)"
+  }
+}
+```
 

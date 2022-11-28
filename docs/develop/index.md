@@ -5,47 +5,31 @@ icon: material/star-outline
 
 API documentation and programming recipes.
 
-## Base URL
+**:octicons-people-24: Intended audience**: Software Developers and Linked Data Experts
 
-All relative API URLs are prefixed by a base URL of the form `https://{domain}:{port}/{context}` with the following parameters:
+<div class="grid cards" markdown>
 
-- `domain`: The hostname or domain, where DataPlatform is installed. (required: true, type: string)
-- `port`: The port on which the application server is available. (required: false, type: integer)
-- `context`: The application context where DataPlatform is available (can be empty). (required: false, type: string)
+-   :material-language-java: Java
 
-## HTTP error responses
+    ---
 
-The default format for HTTP error responses is compliant with [RFC 7807 Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
-An HTTP error response contains a JSON object that provides at least two fields:
+    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications) covers how to connect to Corporate Memory using a Java program.
 
-- `title`: A short, human-readable summary of the problem type.
-- `detail`: A human-readable explanation specific to this occurrence of the problem.
+-   :material-language-python: Python
 
-The following optional non-standard fields may also be set:
+    ---
 
-- `status`: The HTTP status code for this occurrence of the problem.
-- `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
+    For Python developers, we offer a [Plugin SDK](python-plugins) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api)).
 
-The following example shows an HTTP response containing JSON problem details using the `application/problem+json` media type:
+-   :material-api: OpenAPI specification
 
-```json
-HTTP/1.1 500
-Content-Type: application/problem+json
+    ---
 
-{
-  "title": "Internal Server Error",
-  "status": 500,
-  "detail": "Database server 'Stardog' unavailable",
-  "cause": {
-    "title": "Internal Server Error",
-    "status": 500,
-    "detail": "Connection refused (Connection refused)"
-  }
-}
-```
+    API Specifications are available for
 
-## Available APIs and Recipes
+    - [DataIntegration (Build)](dataintegration-apis) and
+    - [DataPlatform (Explore/Consume)](dataplatform-apis).
 
-- :material-file-document: [cmempy - Python API](./cmempy-python-api/index.md) — cmempy is a Python API wrapper around the eccenca Corporate Memory HTTP APIs which can be used to rapidly script processes which interact with Corporate Memory.
-- :material-file-document: [DataIntegration APIs](dataintegration-apis/index.md) — eccenca DataIntegration APIs can be used to control, initiate and setup all task and activities related to the [★ Build](../build/index.md) step (such as datasets, transformations, linking tasks etc.).
-- :material-file-document: [DataPlatform APIs](dataplatform-apis/index.md) — eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.
+
+</div>
+

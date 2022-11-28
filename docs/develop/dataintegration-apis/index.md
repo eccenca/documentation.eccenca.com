@@ -9,7 +9,7 @@ hide:
 
 The latest OpenAPI specification is available at [https://releases.eccenca.com/OpenAPI/](https://releases.eccenca.com/OpenAPI/).
 
-You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-v22.1.json)
+You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-latest.json) or the [petstore web UI](https://petstore.swagger.io/?url=https://releases.eccenca.com/OpenAPI/eccenca-DataIntegration-OpenAPI-Reference-latest.json)
 
 ## Introduction
 
