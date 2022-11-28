@@ -11,7 +11,7 @@ tasks:
 github:
   prebuilds:
     # enable for the default branch (defaults to true)
-    master: true
+    main: true
     # enable for all branches in this repo (defaults to false)
     branches: true # change it to false
     # enable for pull requests coming from this repo (defaults to true)
