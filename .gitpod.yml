@@ -1,10 +1,10 @@
 ports:
   - port: 8000
 tasks:
-  - name: Dependencies
-    init: |
+  - name: setup
+    before: |
       brew install go-task/tap/go-task
+    init: |
       task use:insider-https-token
     command: |
-      echo "Starting Serve"
       task serve
