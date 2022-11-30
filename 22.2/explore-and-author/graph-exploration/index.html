@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/explore-and-author/graph-exploration/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3208,7 +3211,7 @@ changing the workspace configuration in the <strong>CMEM Configuration</strong> 
 <h3 id="adding-a-new-graph"><span class="twemoji"><svg viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,4c6.6,0,12,5.4,12,12s-5.4,12-12,12S4,22.6,4,16S9.4,4,16,4 M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14	S23.7,2,16,2z"></path><path d="M24 15L17 15 17 8 15 8 15 15 8 15 8 17 15 17 15 24 17 24 17 17 24 17z"></path></svg></span> Adding a new graph<a class="headerlink" href="#adding-a-new-graph" title="Permanent link">¤</a></h3>
 <div class="admonition example inline end">
 <p class="admonition-title">Adding a Graph</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="adding-a-new-graph.png"><img alt="Adding a new Graph" src="adding-a-new-graph.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="adding-a-new-graph.png"><img alt="Adding a new Graph" src="adding-a-new-graph.png"/></a></p>
 </div>
 <p>To add a new graph to the Graphs list:</p>
 <div class="annotate">
@@ -3266,7 +3269,7 @@ To reset the results delete the keyword and press Enter.</p>
 <h3 id="instance-details">Instance Details<a class="headerlink" href="#instance-details" title="Permanent link">¤</a></h3>
 <p>To open the Instance Details of a resource click on that resource in the Instance List.
 Resources are shown as grey chip buttons.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="instancedata.png"><img alt="" src="instancedata.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="instancedata.png"><img alt="" src="instancedata.png"/></a></p>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
 <p>When you remove the resource, all triples related to that resource are deleted too.</p>
@@ -3278,7 +3281,7 @@ The availability of these views depends on the context and the resource type.</p
 <h4 id="resource">Resource<a class="headerlink" href="#resource" title="Permanent link">¤</a></h4>
 <p>The Resource tab provides a view based on the shapes of the selected resource.
 The details of the shaped view depends on the configuration.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="graphoverview.png"><img alt="" src="graphoverview.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="graphoverview.png"><img alt="" src="graphoverview.png"/></a></p>
 <h4 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">¤</a></h4>
 <p>The Properties tab shows all properties and objects of the selected resource, independent from a shape selection.</p>
 <p>Use the icons on the right side to edit or delete properties.
@@ -3294,14 +3297,14 @@ Click <strong>SAVE</strong> to save your changes.</p>
 <p>This view is only available on graphs (not on resources).</p>
 </div>
 <p>The Statistics tab indicates the number of classes, properties, entities and triples of the graph.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="statictics.png"><img alt="" src="statictics.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="statictics.png"><img alt="" src="statictics.png"/></a></p>
 <h4 id="graph">Graph<a class="headerlink" href="#graph" title="Permanent link">¤</a></h4>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
 <p>This view is only available on graphs (not on resources).</p>
 </div>
 <p>The Graph tab shows a visual graph representation of the graph.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="graphvisulization.png"><img alt="" src="graphvisulization.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="graphvisulization.png"><img alt="" src="graphvisulization.png"/></a></p>
 <h4 id="vocab">Vocab<a class="headerlink" href="#vocab" title="Permanent link">¤</a></h4>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
@@ -3309,7 +3312,7 @@ Click <strong>SAVE</strong> to save your changes.</p>
 </div>
 <p>This tab shows a graph visualization of an installed vocabularies.
 It displays all classes showing the class-subclass.  You can open the class details and view list of instances related to that class. It also allows you to copy resource IRI.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="vocab.png"><img alt="" src="vocab.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="vocab.png"><img alt="" src="vocab.png"/></a></p>
 <h4 id="references">References<a class="headerlink" href="#references" title="Permanent link">¤</a></h4>
 <p>This tab shows all resource which link back to the selected resource.</p>
 <p><a href="Reference.png"></a></p>
@@ -3508,5 +3511,5 @@ You can use this tab to edit the selected resource:</p>
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

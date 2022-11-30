@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/consume/consuming-graphs-with-sql-databases/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3111,17 +3114,17 @@
 <li>A dataset that configures access to the SQL database using JDBC.</li>
 </ul>
 <p>A simple workflow to write the contents of a Knowledge Graph into a SQL database looks like this:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-workflow-graph.png"><img alt="workflow-graph" src="22-1-workflow-graph.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-workflow-graph.png"><img alt="workflow-graph" src="22-1-workflow-graph.png"/></a></p>
 <p>In the following, we have a more detailed look at each of the three operators.</p>
 <h3 id="create-knowledge-graph-dataset">Create Knowledge Graph dataset<a class="headerlink" href="#create-knowledge-graph-dataset" title="Permanent link">¤</a></h3>
 <p>Create a dataset of the type Knowledge Graph (embedded) and set the graph parameter to the URI of the graph that contains the resources to be exported:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-1-create-dataset.png"><img alt="create-dataset" src="22-1-1-create-dataset.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-1-create-dataset.png"><img alt="create-dataset" src="22-1-1-create-dataset.png"/></a></p>
 <h3 id="create-transformation">Create Transformation<a class="headerlink" href="#create-transformation" title="Permanent link">¤</a></h3>
 <p>Create a transformation that covers the type of the RDF resources to be exported into a table:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-create-transform.png"><img alt="create-transform" src="22-1-2-create-transform.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-create-transform.png"><img alt="create-transform" src="22-1-2-create-transform.png"/></a></p>
 <p>For each column of the target table, add a value mapping to the transformation:</p>
 <figure>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-basic-mapping.png"><img alt="Basic Mapping" src="22-1-2-basic-mapping.png" width="90%"/></a>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-basic-mapping.png"><img alt="Basic Mapping" src="22-1-2-basic-mapping.png" width="90%"/></a>
 </p>
 <figcaption>Basic Mapping</figcaption>
 </figure>
@@ -3132,7 +3135,7 @@
 </ul>
 <h3 id="create-sql-dataset">Create SQL dataset<a class="headerlink" href="#create-sql-dataset" title="Permanent link">¤</a></h3>
 <p>Create a dataset of the type JDBC endpoint (remote):</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-JDBC-endpoint.png"><img alt="JDBC-endpoint" src="22-1-3-JDBC-endpoint.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-3-JDBC-endpoint.png"><img alt="JDBC-endpoint" src="22-1-3-JDBC-endpoint.png"/></a></p>
 <p>The most relevant parameters are:</p>
 <ul>
 <li>The JDBC Driver Connection URL should contain the database-specific JDBC URL.</li>
@@ -3332,5 +3335,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

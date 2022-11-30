@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/build/introduction-to-the-user-interface/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3096,7 +3099,7 @@
 <p>This page provides a short introduction to the BUILD / Data Integration workspace incl. projects and different tasks.</p>
 <h2 id="workbench">Workbench<a class="headerlink" href="#workbench" title="Permanent link">¤</a></h2>
 <p>The workbench is the main entry point to the BUILD interface and provides a list view of your work, structured in <em>projects</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-workbench.png"><img alt="" src="build-ui-workbench.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-workbench.png"><img alt="" src="build-ui-workbench.png"/></a></p>
 <p>On the left-hand side, a facet list provides an overview over different item types:</p>
 <ul>
 <li><strong>Projects</strong> are the main structure and consists of datasets, workflows and different tasks (transformations, linking and other tasks)</li>
@@ -3107,7 +3110,7 @@
 </ul>
 <p>The interface can be used to browse from a global level to a project level as well as to search for items globally and project wide.</p>
 <p>On the top right side in the header, there is a big blue <strong>Create (+)</strong> button which allows for creation of all possible data integration items:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-datasets.png"><img alt="" src="build-ui-datasets.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-datasets.png"><img alt="" src="build-ui-datasets.png"/></a></p>
 <h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">¤</a></h2>
 <p>Selecting a project from the search results opens the project details view (see above).</p>
 <p>The project is the main metaphor to structure your work. In the workspace, you can review your projects, create new or delete old ones, and import or export them.</p>
@@ -3123,7 +3126,7 @@
 <p>Resources, data sets, tasks and other parts of a project can be added and configured from within the workspace. By clicking the <code>Show Details</code> button on any item in a project, you can ‘look inside’ it and define the actual transformation or linking rules, or assemble the actual workflow.</p>
 <h2 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">¤</a></h2>
 <p>Selecting a dataset in a project or from the search results opens the dataset details view.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-dataset-preview.png"><img alt="" src="build-ui-dataset-preview.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-dataset-preview.png"><img alt="" src="build-ui-dataset-preview.png"/></a></p>
 <p>Here you have the following options:</p>
 <ul>
 <li>Change the meta data of the dataset (<strong>Summary</strong> - label and description, top left main area),</li>
@@ -3159,7 +3162,7 @@
 <h2 id="transform-tasks">Transform tasks<a class="headerlink" href="#transform-tasks" title="Permanent link">¤</a></h2>
 <p>The purpose of transform tasks is to transform data sets (e.g., from one format or schema to another). More specifically Transform Task create Knowledge Graphs out of raw data sources.</p>
 <p>Selecting a transform task in a project or from the search results opens the transform task details view.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-transform.png"><img alt="" src="build-ui-transform.png"/></a><!-- TODO: update img --></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-transform.png"><img alt="" src="build-ui-transform.png"/></a><!-- TODO: update img --></p>
 <p>Here you have the following options:</p>
 <ul>
 <li>Change the meta data of the transformation task (<strong>Summary</strong> - label and description, top left main area)</li>
@@ -3173,7 +3176,7 @@
 <h2 id="linking-tasks">Linking tasks<a class="headerlink" href="#linking-tasks" title="Permanent link">¤</a></h2>
 <p>The purpose of linking tasks is to integrate two datasets (source and target) by generating a linkset that contains links from the source to the target dataset.</p>
 <p>Selecting a linking task in a project or from the search results opens the transform task details view.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-linking.png"><img alt="" src="build-ui-linking.png"/></a> <!-- TODO: update img --></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-linking.png"><img alt="" src="build-ui-linking.png"/></a> <!-- TODO: update img --></p>
 <p>Here you have the following options:</p>
 <ul>
 <li>Change the meta data of the linking task (<strong>Summary</strong> - label and description, top left main area),</li>
@@ -3188,7 +3191,7 @@
 <h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">¤</a></h2>
 <p>For projects that go beyond one or two simple transform or linking tasks, you can create complex workflows. In a workflow, you can orchestrate datasets, transform and linking tasks in terms of inputs and outputs to each other, and in this way perform complex tasks.</p>
 <p>Selecting a workflow in a project or from the search results opens the workflow details view.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-ui-workflow.png"><img alt="" src="build-ui-workflow.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-ui-workflow.png"><img alt="" src="build-ui-workflow.png"/></a></p>
 <p>Here you have the following options:</p>
 <ul>
 <li>Change the meta data of the linking task (<strong>Summary</strong> - label and description, top left main area)</li>
@@ -3383,5 +3386,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

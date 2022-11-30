@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/deploy-and-configure/installation/scenario-single-node-cloud-installation/index.png" name="twitter:image"/>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3209,7 +3212,7 @@ For now, you can use the provided file <code>config.ssl-letsencrypt.env</code>�
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../22-1-successful-login.png"><img alt="successful-login" src="../22-1-successful-login.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../22-1-successful-login.png"><img alt="successful-login" src="../22-1-successful-login.png"/></a></p>
 <p>After successful login, you will see Corporate Memory interface.
 You can now proceed to the <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg></span> <a href="../../../getting-started/">Getting Started</a> section.</p>
 <p>Do not forget to change the passwords of your deployment, especially if it is available from the public internet.
@@ -3401,5 +3404,5 @@ For this, take a look at <a href="../../configuration/keycloak/change-passwords
 <script src="../../../js/timeago_mkdocs_material.js"></script>
 <script src="../../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

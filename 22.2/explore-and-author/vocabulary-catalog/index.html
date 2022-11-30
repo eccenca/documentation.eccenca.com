@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/explore-and-author/vocabulary-catalog/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3078,7 +3081,7 @@
 <h1 id="vocabulary-catalog">Vocabulary Catalog<a class="headerlink" href="#vocabulary-catalog" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>Vocabularies are the foundation for semantic data lifting activities.This module shows the list of all managed vocabularies in Corporate Memory that are accessible for the user. The table represents the list of known vocabularies. Installed vocabularies are indicated by the orange switch in the column <code>Installed</code>.</p>
-<p><a href="vocabulary.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="vocabulary.png"><img alt="" src="vocabulary.png"/></a></a></p>
+<p><a href="vocabulary.png"><img alt="" src="vocabulary.png"/></a></p>
 <h2 id="add-new-vocabulary">Add new vocabulary<a class="headerlink" href="#add-new-vocabulary" title="Permanent link">¤</a></h2>
 <p>Click <img alt="" class="off-glb" src="ic_add_circle_black_18dp_1x.png"> to register a new vocabulary.</img></p>
 <p>A new form will be shown, fill it an add the file to import the vocabulary to Corporate Memory.</p>
@@ -3086,14 +3089,14 @@
 <h2 id="extended-information-and-options">Extended information and options<a class="headerlink" href="#extended-information-and-options" title="Permanent link">¤</a></h2>
 <p>Each table row provides a menu with more options clicking on <img alt="" class="off-glb" src="ic_keyboard_arrow_down_black_18dp_1x.png"/> or in the <code>Vocabulary</code> column.</p>
 <p>A vocabulary which is known and available but not installed, looks like this:</p>
-<p><a href="not_installed_vocab.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="not_installed_vocab.png"><img alt="Example of extended information of uninstalled Vocabulary Catalog" src="not_installed_vocab.png" title="Example of extended information of uninstalled Vocabulary Catalog"/></a></a></p>
+<p><a href="not_installed_vocab.png"><img alt="Example of extended information of uninstalled Vocabulary Catalog" src="not_installed_vocab.png" title="Example of extended information of uninstalled Vocabulary Catalog"/></a></p>
 <p>Example of extended information of uninstalled Vocabulary Catalog</p>
 <ul>
 <li>Use <strong>Install</strong> or the switch in the column <code>Installed</code> to install the Catalog.</li>
 <li>Use <strong>View</strong> to access the Vocabulary.</li>
 </ul>
 <p>A vocabulary which is installed looks like this</p>
-<p><a href="installed_vocab.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="installed_vocab.png"><img alt="Example of extended information of installed Vocabulary Catalog" src="installed_vocab.png" title="Example of extended information of installed Vocabulary Catalog"/></a></a></p>
+<p><a href="installed_vocab.png"><img alt="Example of extended information of installed Vocabulary Catalog" src="installed_vocab.png" title="Example of extended information of installed Vocabulary Catalog"/></a></p>
 <p>Example of extended information of installed Vocabulary Catalog</p>
 <ul>
 <li>Use <strong>Uninstall</strong> to remove an installed vocabulary or <strong>Install</strong> to install a vocabulary.</li>
@@ -3287,5 +3290,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

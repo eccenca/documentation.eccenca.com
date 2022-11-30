@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/explore-and-author/graph-exploration/versioning-of-graph-changes/index.png" name="twitter:image"/>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3086,18 +3089,18 @@
 <p>This feature keeps track of changes to your Knowledge Graphs by creating change set data based on the user’s editing activities.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
 <p>If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="20-10-ActualChangesets.png"><img alt="" src="20-10-ActualChangesets.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="20-10-ActualChangesets.png"><img alt="" src="20-10-ActualChangesets.png"/></a></p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
 <p>To enable this feature on a specific graph you need to setup the following steps.</p>
 <details class="success">
 <summary>1. Create a Versioning Graph</summary>
 <p>In Exploration, create a new graph and define it as a Versioning Graph.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="20-10-CreateVersioningGraph.png"><img alt="" src="20-10-CreateVersioningGraph.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="20-10-CreateVersioningGraph.png"><img alt="" src="20-10-CreateVersioningGraph.png"/></a></p>
 </details>
 <details class="success">
 <summary>2. Configure a graph to use this Versioning Graph</summary>
 <p>In Exploration, edit this graph and add the Versioning Graph property to select the newly created Versioning Graph.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="20-10-ConfigureVersioningGraph.png"><img alt="" src="20-10-ConfigureVersioningGraph.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="20-10-ConfigureVersioningGraph.png"><img alt="" src="20-10-ConfigureVersioningGraph.png"/></a></p>
 </details>
 <h2 id="technical-background">Technical Background<a class="headerlink" href="#technical-background" title="Permanent link">¤</a></h2>
 <p>For each editing activity (→ Save a Form), a ChangeSet resource will be created.
@@ -3290,5 +3293,5 @@ This resource has some metadata (user, timestamp, label) as well as links to add
 <script src="../../../js/timeago_mkdocs_material.js"></script>
 <script src="../../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

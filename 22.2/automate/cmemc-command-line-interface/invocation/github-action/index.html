@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/automate/cmemc-command-line-interface/invocation/github-action/index.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3120,7 +3123,7 @@ Github provides you with an <a href="https://docs.github.com/en/actions/security
 <h2 id="example-project">Example Project<a class="headerlink" href="#example-project" title="Permanent link">¤</a></h2>
 <p>The Github project <a href="https://github.com/eccenca/cmemc-workflow">eccenca/cmemc-workflow</a> provides an <a href="https://github.com/eccenca/cmemc-workflow/blob/main/.github/workflows/cmemc.yml">example workflow description</a> which uses cmemc to import a graph, count the triples and removes the graph afterwards.
 Here is an example output:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="example-workflow-output.png"><img alt="Example workflow output" src="example-workflow-output.png" title="Example workflow output"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="example-workflow-output.png"><img alt="Example workflow output" src="example-workflow-output.png" title="Example workflow output"/></a></p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of last update">
@@ -3308,5 +3311,5 @@ Here is an example output:</p>
 <script src="../../../../js/timeago_mkdocs_material.js"></script>
 <script src="../../../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

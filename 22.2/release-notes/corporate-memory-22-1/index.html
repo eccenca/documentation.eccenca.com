@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/release-notes/corporate-memory-22-1/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3122,9 +3125,9 @@
 </a>
 <h1 id="corporate-memory-221">Corporate Memory 22.1<a class="headerlink" href="#corporate-memory-221" title="Permanent link">¤</a></h1>
 <p>Corporate Memory 22.1 is the first release in 2022.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-linking-editor.png"><img alt="22.1: DataIntegration - Linking Editor" src="22-1-linking-editor.png" title="22.1: DataIntegration - Linking Editor"/></a>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-workflow-execution.png"><img alt="22.1: DataManager - Workflow Execution" src="22-1-workflow-execution.png" title="22.1: DataManager - Workflow Execution"/></a>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-cmemc-metrics-and-python-list.png"><img alt="22.1: cmemc - metrics and python list command" src="22-1-cmemc-metrics-and-python-list.png" title="22.1: cmemc - metrics and python list command"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-linking-editor.png"><img alt="22.1: DataIntegration - Linking Editor" src="22-1-linking-editor.png" title="22.1: DataIntegration - Linking Editor"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-workflow-execution.png"><img alt="22.1: DataManager - Workflow Execution" src="22-1-workflow-execution.png" title="22.1: DataManager - Workflow Execution"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-cmemc-metrics-and-python-list.png"><img alt="22.1: cmemc - metrics and python list command" src="22-1-cmemc-metrics-and-python-list.png" title="22.1: cmemc - metrics and python list command"/></a></p>
 <p>The highlights of this release are:</p>
 <ul>
 <li>Build:<ul>
@@ -3592,5 +3595,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

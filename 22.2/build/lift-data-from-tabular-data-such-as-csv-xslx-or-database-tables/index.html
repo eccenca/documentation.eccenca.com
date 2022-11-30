@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3146,7 +3149,7 @@
 <ul>
 <li>
 <p>Sample vocabulary which describes the data in the CSV files: <a href="products_vocabulary.nt">products_vocabulary.nt</a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="products-vocab.png"><img alt="" src="products-vocab.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="products-vocab.png"><img alt="" src="products-vocab.png"/></a></p>
 </li>
 <li>
 <p>Sample CSV file: <a href="services.csv">services.csv</a></p>
@@ -3250,11 +3253,11 @@
 <ol>
 <li>
 <p>In Corporate Memory, click Vocabularies under <strong>EXPLORE</strong> in the navigation on the left side of the page.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="explore-vocab-catalog.png"><img alt="" src="explore-vocab-catalog.png" width="30%"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="explore-vocab-catalog.png"><img alt="" src="explore-vocab-catalog.png" width="30%"/></a></p>
 </li>
 <li>
 <p>Click <strong>Register new vocabulary</strong> on the top right.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="vocab-catalog.png"><img alt="" src="vocab-catalog.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="vocab-catalog.png"><img alt="" src="vocab-catalog.png"/></a></p>
 </li>
 <li>
 <p>Define a <strong>Name</strong>, a <strong>Graph URI</strong> and a <strong>Description</strong> of the vocabulary. <em>In this example we will use:</em></p>
@@ -3264,7 +3267,7 @@
 <li>Description: <em><strong>Example vocabulary modeled to describe relations between products and services.</strong></em></li>
 <li>Vocabulary File: Browse in your filesystem for the <strong><a href="products_vocabulary.nt">products_vocabulary.nt</a></strong> file and select it to be uploaded.</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="register-new-vocab.png"><img alt="" src="register-new-vocab.png" width="50%"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="register-new-vocab.png"><img alt="" src="register-new-vocab.png" width="50%"/></a></p>
 </li>
 </ol>
 </div>
@@ -3282,7 +3285,7 @@
 <ol>
 <li>
 <p>In Corporate Memory, click Projects under <strong>BUILD</strong> in the navigation on the left side of the page.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="menu-build-projects.png"><img alt="" src="menu-build-projects.png" width="30%"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="menu-build-projects.png"><img alt="" src="menu-build-projects.png" width="30%"/></a></p>
 </li>
 <li>
 <p>Click <strong>Create</strong> at the top of the page. </p>
@@ -3301,11 +3304,11 @@
 </li>
 <li>
 <p>In the <strong>Create new item</strong> dialog, select <strong>CSV</strong>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-dataset-types-csv.png"><img alt="" src="build-dataset-types-csv.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-dataset-types-csv.png"><img alt="" src="build-dataset-types-csv.png"/></a></p>
 </li>
 <li>
 <p>Fill out a label and upload the <strong><a href="services.csv">services.csv</a> sample file</strong>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="create%20new-dataset-csv.png"><img alt="" src="create%20new-dataset-csv.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="create%20new-dataset-csv.png"><img alt="" src="create%20new-dataset-csv.png"/></a></p>
 </li>
 <li>
 <p>Click <strong>Create</strong>.** Leave all other parameters at their default values.</p>
@@ -3320,7 +3323,7 @@
 <ol>
 <li>
 <p>In the project, Click <strong>Create</strong> and select the <strong>JDBC endpoint</strong> type.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-dataset-types-jdbc.png"><img alt="" src="build-dataset-types-jdbc.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-dataset-types-jdbc.png"><img alt="" src="build-dataset-types-jdbc.png"/></a></p>
 </li>
 <li>
 <p>Define a <strong>Label</strong> for the dataset, specify the <strong>JDBC Driver connection URL</strong>, the <strong>table</strong> name and the <strong>user</strong> and <strong>password</strong> to connect to the database. <em>In this example we will use:</em></p>
@@ -3331,7 +3334,7 @@
 <li>username: <em><strong>root</strong></em></li>
 <li>password: <em><strong>****</strong></em></li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="create%20new-dataset-jdbc.png"><img alt="" src="create%20new-dataset-jdbc.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="create%20new-dataset-jdbc.png"><img alt="" src="create%20new-dataset-jdbc.png"/></a></p>
 <p>The general form of the JDBC connection string is:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>jdbc:&lt;vendor&gt;://&lt;hostname&gt;:&lt;portNumber&gt;/&lt;databaseName&gt;
 </code></pre></div>
@@ -3404,15 +3407,15 @@
 <ol>
 <li>
 <p>On the dataset page, press the <strong>Load preview</strong> button</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="dataset-services.png"><img alt="" src="dataset-services.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="dataset-services.png"><img alt="" src="dataset-services.png"/></a></p>
 </li>
 <li>
 <p>Once the preview is loaded, you can view a couple of rows to check that your data is accessible.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="dataset-services-preview.png"><img alt="" src="dataset-services-preview.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="dataset-services-preview.png"><img alt="" src="dataset-services-preview.png"/></a></p>
 </li>
 <li>
 <p>Optionally, you can click <strong>start profiling</strong> and explore statistics about the dataset.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="dataset-services-profiling.png"><img alt="" src="dataset-services-profiling.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="dataset-services-profiling.png"><img alt="" src="dataset-services-profiling.png"/></a></p>
 </li>
 </ol>
 <hr/>
@@ -3423,7 +3426,7 @@
 </li>
 <li>
 <p>In Create new item window, select Knowledge Graph and click Add.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="build-dataset-types-kg.png"><img alt="" src="build-dataset-types-kg.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="build-dataset-types-kg.png"><img alt="" src="build-dataset-types-kg.png"/></a></p>
 </li>
 <li>
 <p>The Create new item of type Knowledge Graph window appears.</p>
@@ -3459,15 +3462,15 @@
 </li>
 <li>
 <p>In the main area you will find the <strong>Mapping editor</strong>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="services-mapping.png"><img alt="" src="services-mapping.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="services-mapping.png"><img alt="" src="services-mapping.png"/></a></p>
 </li>
 <li>
 <p>Click <strong>Mapping</strong> in the main area to expand its menu.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="mapping-header.png"><img alt="" src="mapping-header.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="mapping-header.png"><img alt="" src="mapping-header.png"/></a></p>
 </li>
 <li>
 <p>Click <strong>Edit</strong> to create a base mapping.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="services-mapping-rule.png"><img alt="" src="services-mapping-rule.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="services-mapping-rule.png"><img alt="" src="services-mapping-rule.png"/></a></p>
 </li>
 <li>
 <p>Define the <strong>Target entity type</strong> from the vocabulary, the <strong>URI pattern</strong> and a <strong>label</strong> for the mapping. <em>In this example we will use:</em></p>
@@ -3486,7 +3489,7 @@
 <p><em>An optional Label: <strong>Service</strong></em></p>
 </li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="services-mapping-class.png"><img alt="" src="services-mapping-class.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="services-mapping-class.png"><img alt="" src="services-mapping-class.png"/></a></p>
 </li>
 <li>
 <p>Click <strong>Save</strong> <em>Example RDF triple in our Knowledge Graph based on the mapping definition:</em></p>
@@ -3494,13 +3497,13 @@
 </code></pre></div>
 </li>
 <li>
-<p>Evaluate your mapping by clicking the Expand <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="button-expand.png"><img alt="" src="button-expand.png"/></a> button in the <strong>Examples of target data</strong> property to see at most three generated base URIs.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="mapping-inline-preview.png"><img alt="" src="mapping-inline-preview.png"/></a></p>
+<p>Evaluate your mapping by clicking the Expand <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="button-expand.png"><img alt="" src="button-expand.png"/></a> button in the <strong>Examples of target data</strong> property to see at most three generated base URIs.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="mapping-inline-preview.png"><img alt="" src="mapping-inline-preview.png"/></a></p>
 <p>We have now created the Service entities in the Knowledge Graph. As a next step, we will add the name of the Service entity.</p>
 </li>
 <li>
 <p>Press the circular <strong>Blue + button</strong> on the lower right and select <strong>Add value mapping</strong>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="services-mapping-add-rule.png"><img alt="" src="services-mapping-add-rule.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="services-mapping-add-rule.png"><img alt="" src="services-mapping-add-rule.png"/></a></p>
 </li>
 <li>
 <p>Define the <strong>Target property</strong>, the <strong>Data type</strong>, the <strong>Value path</strong> (column name) and a <strong>Label</strong> for your value mapping. <em>In this example we will use:</em></p>
@@ -3510,7 +3513,7 @@
 <li>Value path: <em><strong>ServiceName</strong></em> (which corresponds to the column of that name)</li>
 <li>An optional Label: <em><strong>service name</strong></em></li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="services-mapping-rule-edit.png"><img alt="" src="services-mapping-rule-edit.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="services-mapping-rule-edit.png"><img alt="" src="services-mapping-rule-edit.png"/></a></p>
 </li>
 <li>
 <p>Click <strong>Save.</strong></p>
@@ -3519,21 +3522,21 @@
 <hr/>
 <h2 id="6-evaluate-a-transformation">6 Evaluate a Transformation<a class="headerlink" href="#6-evaluate-a-transformation" title="Permanent link">¤</a></h2>
 <p>Go the <strong>Transform evaluation</strong> tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="mapping-evaluation.png"><img alt="" src="mapping-evaluation.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="mapping-evaluation.png"><img alt="" src="mapping-evaluation.png"/></a></p>
 <hr/>
 <h2 id="7-build-the-knowledge-graph">7 Build the Knowledge Graph<a class="headerlink" href="#7-build-the-knowledge-graph" title="Permanent link">¤</a></h2>
 <ol>
 <li>
 <p>Go into the mapping and visit the <strong>Transform execution</strong> tab.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="mapping-execution.png"><img alt="" src="mapping-execution.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="mapping-execution.png"><img alt="" src="mapping-execution.png"/></a></p>
 </li>
 <li>
-<p>Press the <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="button-play.png"><img alt="" src="button-play.png"/></a> button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="mapping-execution-result.png"><img alt="" src="mapping-execution-result.png"/></a></p>
+<p>Press the <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="button-play.png"><img alt="" src="button-play.png"/></a> button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="mapping-execution-result.png"><img alt="" src="mapping-execution-result.png"/></a></p>
 </li>
 <li>
 <p>Finally you can use the DataManager <strong>Knowledge Graphs</strong> module to (re-)view of the created Knowledge Graph: http://ld.company.org/prod-instances/</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="kg-result.png"><img alt="" src="kg-result.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="kg-result.png"><img alt="" src="kg-result.png"/></a></p>
 </li>
 </ol>
 <aside class="md-source-file">
@@ -3723,5 +3726,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

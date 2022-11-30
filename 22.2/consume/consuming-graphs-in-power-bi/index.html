@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/consume/consuming-graphs-in-power-bi/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3089,7 +3092,7 @@
 <p>Power BI is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. Power BI can be obtained from the <a href="https://www.microsoft.com/download/details.aspx?id=45331">official Microsoft page</a>  and/or in the Windows Software Store.</p>
 <p>The latest (unsigned) version of our Power-BI-Connector is available from its source repository a version signed by eccenca is available with each Corporate Memory release.</p>
 <ul>
-<li><a href="https://github.com/eccenca/power-bi-connector/tags">eccenca github.com repository</a> (unsigned .mez file)<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic"><img alt="release" src="https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic"/></a> <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic"><img alt="tag" src="https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic"/></a></li>
+<li><a href="https://github.com/eccenca/power-bi-connector/tags">eccenca github.com repository</a> (unsigned .mez file)<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic"><img alt="release" src="https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic"><img alt="tag" src="https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic"/></a></li>
 <li><a href="https://releases.eccenca.com/power-bi-connector/">eccenca Corporate Memory Releases</a> (signed .pqx file)</li>
 <li>Thumbprint of the signature: <strong>FB6C562BD0B08107AAA420EDDE94507420C7FE1A</strong></li>
 </ul>
@@ -3112,7 +3115,7 @@
 <li>The registry path is <code>HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Power BI Desktop</code> . Make sure the path exists, or create it.</li>
 <li>Add a new value under the path specified above. The type should be “Multi-String Value” ( <code>REG_MULTI_SZ</code> ), and it should be called <code>TrustedCertificateThumbprints</code></li>
 <li>Add the thumbprints of the certificates you want to trust. You can add multiple certificates by using “\0” as a delimiter, or in the registry editor, right click → modify and put each thumbprint on a new line.
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-PowerBI-Registry-Editor.png"><img alt="PowerBI-Registry-Editor.png" src="22-1-PowerBI-Registry-Editor.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-PowerBI-Registry-Editor.png"><img alt="PowerBI-Registry-Editor.png" src="22-1-PowerBI-Registry-Editor.png"/></a></li>
 <li>(Re-)Start Power BI Desktop</li>
 </ul>
 </li>
@@ -3131,7 +3134,7 @@
 <li>(Re-)Start Power BI Desktop, go to <code>File → Options and settings → Options → Security</code></li>
 <li>Under Data Extensions, select<em>(Not Recommended). Allow any extension to load without validation or warning.</em></li>
 <li>Select OK, and then restart Power BI Desktop.
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-PowerBI-Security-Settings.png"><img alt="PowerBI-Security-Settings" src="22-1-PowerBI-Security-Settings.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-PowerBI-Security-Settings.png"><img alt="PowerBI-Security-Settings" src="22-1-PowerBI-Security-Settings.png"/></a></li>
 </ul>
 </div>
 </div>
@@ -3142,12 +3145,12 @@
 <ul>
 <li>Open Power BI Desktop</li>
 <li>Click <code>Edit Queries → New Source</code> (or directly Get <code>Data</code>)
-<a class="off-glb" href="22-1-2-Get-Data.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-Get-Data.png"><img src="22-1-2-Get-Data.png" width="20%"/></a></a></li>
+<a class="off-glb" href="22-1-2-Get-Data.png"><img src="22-1-2-Get-Data.png" width="20%"/></a></li>
 <li>In the dialog search for eccenca <code>Corporate Memory</code>, which is listed in the <code>Database</code> category
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-Database-Category.png"><img alt="Database-Category" src="22-1-2-Database-Category.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-Database-Category.png"><img alt="Database-Category" src="22-1-2-Database-Category.png"/></a></li>
 <li>Select the connector and click <code>Connect</code></li>
 <li>Read and accept the 3rd party connector notification
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-connecting-3rd-party-service.png"><img alt="connecting-3rd-party-service" src="22-1-2-connecting-3rd-party-service.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-connecting-3rd-party-service.png"><img alt="connecting-3rd-party-service" src="22-1-2-connecting-3rd-party-service.png"/></a></li>
 <li>In the following dialog you need to specify the connection and information and access credentials, ask your Corporate Memory administrator for assistance if you miss any of the requested details. You have the option to use username + password or a client secret for login. In case of a custom setup is used advanced configuration can be provided:</li>
 </ul>
 <div class="admonition access-configuration">
@@ -3161,12 +3164,12 @@
 <li>Corporate Memory Base URI</li>
 <li>Grant type = password</li>
 <li>Client ID
-  <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-with-password.png"><img alt="with-password" src="22-1-2-with-password.png"/></a></li>
+  <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-with-password.png"><img alt="with-password" src="22-1-2-with-password.png"/></a></li>
 </ul>
 </li>
 <li>Second Step<ul>
 <li>Password / Client Secret
-  <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-add-credentials.png"><img alt="add-credentials" src="22-1-2-add-credentials.png"/></a></li>
+  <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-add-credentials.png"><img alt="add-credentials" src="22-1-2-add-credentials.png"/></a></li>
 </ul>
 </li>
 </ul>
@@ -3178,7 +3181,7 @@
 <li>Corporate Memory Base URI</li>
 <li>Grant type = client_credentials</li>
 <li>Client ID
-  <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-client-credentials.png"><img alt="client-credentials" src="22-1-2-client-credentials.png"/></a></li>
+  <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-client-credentials.png"><img alt="client-credentials" src="22-1-2-client-credentials.png"/></a></li>
 </ul>
 </li>
 <li>Second Step<ul>
@@ -3194,7 +3197,7 @@
 <li><code>DP_API_ENDPOINT</code> - specifies the DataPlatform URI</li>
 <li><code>OAUTH_TOKEN_URI</code> - specifies the keycloak token URI</li>
 <li><code>SSL_VERIFY</code> - can be used to set certificate verification to <code>False</code>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-2-advance-config.png"><img alt="advance-configuration" src="22-1-2-advance-config.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-2-advance-config.png"><img alt="advance-configuration" src="22-1-2-advance-config.png"/></a></li>
 </ul>
 </li>
 <li>In case a <code>Corporate Memory Base URI</code> is configured too, the values from the <code>Config ini</code> section take precedence</li>
@@ -3211,27 +3214,27 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
-<li><code>SELECT</code> queries that use no placeholders are shown with a table icon (e.g. <a class="off-glb" href="22-1-3-Graph-List.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-Graph-List.png"><img src="22-1-3-Graph-List.png" width="20%"/></a></a>)</li>
+<li><code>SELECT</code> queries that use no placeholders are shown with a table icon (e.g. <a class="off-glb" href="22-1-3-Graph-List.png"><img src="22-1-3-Graph-List.png" width="20%"/></a>)</li>
 <li>When selected a preview will be loaded.</li>
 <li>Check the one(s) you want to load and click <code>OK</code>.</li>
 <li>The tables will be added to your list of <code>queries</code> and to the <code>fields</code> inventory in Power BI</li>
 <li>Start using your data in transformations, dashboards and analytics
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-Navigator.png"><img alt="navigator" src="22-1-3-Navigator.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-3-Navigator.png"><img alt="navigator" src="22-1-3-Navigator.png"/></a></li>
 </ul>
 </div>
 <div class="tabbed-block">
 <ul>
-<li>SELECT queries that take placeholder arguments are shown with a function icon. (e.g. <a class="off-glb" href="22-1-3-regex-button.png"><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-regex-button.png"><img src="22-1-3-regex-button.png" width="20%"/></a></a>)
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-Navigator-Placeholder.png"><img alt="Navigator-Placeholder" src="22-1-3-Navigator-Placeholder.png"/></a></li>
+<li>SELECT queries that take placeholder arguments are shown with a function icon. (e.g. <a class="off-glb" href="22-1-3-regex-button.png"><img src="22-1-3-regex-button.png" width="20%"/></a>)
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-3-Navigator-Placeholder.png"><img alt="Navigator-Placeholder" src="22-1-3-Navigator-Placeholder.png"/></a></li>
 <li>You need to be in <code>Edit Queries</code> mode in Power BI so you can enter the required query parameter.</li>
 <li>Check the one(s) to be added.</li>
 <li>Power BI will add the selected query as a <code>query</code> entry.</li>
 <li>Click “Transform Data” in order to fill in the parameter.
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-Transform-Data.png"><img alt="" src="22-1-3-Transform-Data.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-3-Transform-Data.png"><img alt="" src="22-1-3-Transform-Data.png"/></a></li>
 <li>This adds a new entry to the list of Power BI queries, which contains the actual data you requested. The new entry will be named “Invoked Function”.</li>
 <li>It is recommended to rename this automatic generated name to a more speaking one. Right click on “Invoked Function” or select “Invoked Function” and press F2.</li>
 <li>Rename the table (e.g. to “_search via regex match”). Click “Close &amp; Apply“ to save changes.
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-3-regex-search.png"><img alt="regex-search" src="22-1-3-regex-search.png"/></a></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-3-regex-search.png"><img alt="regex-search" src="22-1-3-regex-search.png"/></a></li>
 </ul>
 <details class="hint" open="open">
 <summary>Hint</summary>
@@ -3431,5 +3434,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

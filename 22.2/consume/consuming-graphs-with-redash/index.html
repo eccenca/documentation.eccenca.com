@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/consume/consuming-graphs-with-redash/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3083,9 +3086,9 @@ In <a href="https://github.com/getredash/redash/pull/5415">03/2021</a> Redash ha
 <h2 id="adding-an-eccenca-corporate-memory-data-source">Adding an eccenca Corporate Memory Data Source<a class="headerlink" href="#adding-an-eccenca-corporate-memory-data-source" title="Permanent link">¤</a></h2>
 <p>The key to query your Knowledge Graphs with Redash is to add a new eccenca Corporate Memory data source.
 To do so, open the <strong>Settings</strong> &gt; <strong>Data Sources</strong> Tab, and search for the right type:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="1-add-datasource-search.png"><img alt="Redash Data Sources: Search for eccenca Corporate Memory" src="1-add-datasource-search.png" title="Redash Data Sources: Search for eccenca Corporate Memory"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="1-add-datasource-search.png"><img alt="Redash Data Sources: Search for eccenca Corporate Memory" src="1-add-datasource-search.png" title="Redash Data Sources: Search for eccenca Corporate Memory"/></a></p>
 <p>Click on it and you will come into another screen where you have to enter location and access data:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="2-add-datasource-config.png"><img alt="Redash Data Sources: Configure Corporate Memory Access" src="2-add-datasource-config.png" title="Redash Data Sources: Configure Corporate Memory Access"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="2-add-datasource-config.png"><img alt="Redash Data Sources: Configure Corporate Memory Access" src="2-add-datasource-config.png" title="Redash Data Sources: Configure Corporate Memory Access"/></a></p>
 <p>This configuration screen basically clones the basic configuration of <a href="../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index">cmemc</a>:</p>
 <ul>
 <li><strong>Name</strong> is a human friendly identifier for the source,</li>
@@ -3099,7 +3102,7 @@ To do so, open the <strong>Settings</strong> &gt; <strong>Data Sources</strong> 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In order to query eccenca Corporate Memory data sources in Redash, you have to formulate your query with SPARQL:
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="3-edit-query.png"><img alt="Redash: Query with SPARQL" src="3-edit-query.png" title="Redash: Query with SPARQL"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="3-edit-query.png"><img alt="Redash: Query with SPARQL" src="3-edit-query.png" title="Redash: Query with SPARQL"/></a></p>
 </div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
@@ -3288,5 +3291,5 @@ To do so, open the <strong>Settings</strong> &gt; <strong>Data Sources</strong> 
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

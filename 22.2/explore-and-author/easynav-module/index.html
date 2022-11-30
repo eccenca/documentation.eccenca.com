@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/explore-and-author/easynav-module/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3085,7 +3088,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>EasyNav is a preview feature, which is disabled by default.
-Preview features can be instable.</p>
+Preview features can be unstable.</p>
 </div>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>This feature allows for the visual exploration of Knowledge Graphs.
@@ -3094,7 +3097,7 @@ Furthermore, sophisticated individual search settings (filter presets) can be cr
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
 <p>If enabled, content of Knowledge Graphs can be explored in a visual way, rendering nodes and edges and allowing the user to expand along the relationships between the nodes.</p>
 <p>Start using <code>EasyNav</code> by selecting the respective module entry in the main navigation.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-start.png"><img alt="" src="easynav-start.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-start.png"><img alt="" src="easynav-start.png"/></a></p>
 <p>At the module welcome screen the user can either load a saved visualization of start searching for an initial node / resource by providing a search term.</p>
 <div class="admonition info">
 <p class="admonition-title">Graph selection drop-down</p>
@@ -3103,20 +3106,20 @@ In case no specific module configuration exists or non has not has been set for 
 A <code>EasyNav Module</code> configuration pre-configures a graph.
 Thus, the dropdown will not be shown if such has been configured for the current workspace.</p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-welcome-search.png"><img alt="Initial search on the welcome screen." src="easynav-welcome-search.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-welcome-search.png"><img alt="Initial search on the welcome screen." src="easynav-welcome-search.png"/></a></p>
 <p>Enter a search term to populate the result list.
 Click a result to start the visual graph exploration.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-canvas.png"><img alt="The exploration canvas" src="easynav-canvas.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-canvas.png"><img alt="The exploration canvas" src="easynav-canvas.png"/></a></p>
 <p>The exploration starts with the selected node (or a saved exploration).
 The nodes can further be expanded along the relationships that exist to other resources.
 Therefore, click the node expansion button on the right side of a node (the point where the arrows originate in the screenshot below).</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-exploration-expand.png"><img alt="Expanding the exploration" src="easynav-exploration-expand.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-exploration-expand.png"><img alt="Expanding the exploration" src="easynav-exploration-expand.png"/></a></p>
 <p>Any expanded resource / node can be added to the current exploration by double-clicking the node.
 Clicking anywhere on the empty canvas will close the relationship dialog and retain the added nodes and their relationships only.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-literal-inline.png"><img alt="Literal view" src="easynav-literal-inline.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-literal-inline.png"><img alt="Literal view" src="easynav-literal-inline.png"/></a></p>
 <p>Click <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42Z"></path></svg></span> on a node to see literal values related to this resource <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41Z"></path></svg></span> closes the details again.</p>
 <p><code>Save</code> allows to save an exploration, <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.75 7.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5z"></path><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill-rule="evenodd"></path></svg></span> will start a new exploration while <span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M447.1 96H275l-48.3-45.25C214.7 38.74 198.5 32 181.5 32H63.1c-35.35 0-64 28.66-64 64v320c0 35.34 28.65 64 64 64h384c35.35 0 64-28.66 64-64V160c0-35.3-27.8-64-64-64zm16 320c0 8.824-7.178 16-16 16h-384c-8.822 0-16-7.176-16-16V96c0-8.824 7.178-16 16-16h117.5c4.273 0 8.293 1.664 11.31 4.688L255.1 144h192c8.822 0 16 7.176 16 16v256z"></path></svg></span> allows to open any previously saved exploration.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-visualization-catalog.png"><img alt="Load saved exploration from Visualization catalog" src="easynav-visualization-catalog.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-visualization-catalog.png"><img alt="Load saved exploration from Visualization catalog" src="easynav-visualization-catalog.png"/></a></p>
 <p>The <code>Visualization catalog</code> dialog shows the saved exploration and allows to <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"></path><path d="M12 3.5c-3.432 0-6.125 1.534-8.054 3.24C2.02 8.445.814 10.352.33 11.202a1.6 1.6 0 0 0 0 1.598c.484.85 1.69 2.758 3.616 4.46C5.876 18.966 8.568 20.5 12 20.5c3.432 0 6.125-1.534 8.054-3.24 1.926-1.704 3.132-3.611 3.616-4.461a1.6 1.6 0 0 0 0-1.598c-.484-.85-1.69-2.757-3.616-4.46C18.124 5.034 15.432 3.5 12 3.5zM1.633 11.945c.441-.774 1.551-2.528 3.307-4.08C6.69 6.314 9.045 5 12 5c2.955 0 5.309 1.315 7.06 2.864 1.756 1.553 2.866 3.307 3.307 4.08a.111.111 0 0 1 .017.056.111.111 0 0 1-.017.056c-.441.774-1.551 2.527-3.307 4.08C17.31 17.685 14.955 19 12 19c-2.955 0-5.309-1.315-7.06-2.864-1.756-1.553-2.866-3.306-3.307-4.08A.11.11 0 0 1 1.616 12a.11.11 0 0 1 .017-.055z" fill-rule="evenodd"></path></svg></span> open, <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 1.75V3h5.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H8V1.75C8 .784 8.784 0 9.75 0h4.5C15.216 0 16 .784 16 1.75zm-6.5 0a.25.25 0 0 1 .25-.25h4.5a.25.25 0 0 1 .25.25V3h-5V1.75z" fill-rule="evenodd"></path><path d="M4.997 6.178a.75.75 0 1 0-1.493.144L4.916 20.92a1.75 1.75 0 0 0 1.742 1.58h10.684a1.75 1.75 0 0 0 1.742-1.581l1.413-14.597a.75.75 0 0 0-1.494-.144l-1.412 14.596a.25.25 0 0 1-.249.226H6.658a.25.25 0 0 1-.249-.226L4.997 6.178z"></path><path d="M9.206 7.501a.75.75 0 0 1 .793.705l.5 8.5A.75.75 0 1 1 9 16.794l-.5-8.5a.75.75 0 0 1 .705-.793zm6.293.793A.75.75 0 1 0 14 8.206l-.5 8.5a.75.75 0 0 0 1.498.088l.5-8.5z"></path></svg></span> delete or to <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6m4 18H6V4h7v5h5v11m-7-1h-.25C9.45 19 7 18.22 7 15.25s2.45-3.75 3.75-3.75H11V13h-.25c-.37 0-2.25.13-2.25 2.25 0 2.19 2 2.25 2.25 2.25H11V19m3-3h-4v-1.5h4V16m-1-4.5h.25c1.3 0 3.75.78 3.75 3.75S14.55 19 13.25 19H13v-1.5h.25c.37 0 2.25-.13 2.25-2.25 0-2.19-2-2.25-2.25-2.25H13v-1.5Z"></path></svg></span> copy the link to the exploration.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
 <p>This feature needs to be initially enabled in the DataManager configuration file (<code>application.yml</code>).
@@ -3125,10 +3128,10 @@ See <a href="/deploy-and-configure/configuration/datamanager/easynav-module">con
 <p>Optionally a <code>EasyNav Module</code> configuration can be created to provide a fixed graph selection and search filter settings.</p>
 <details class="info">
 <summary>Create a <code>EasyNav Module</code> Configuration</summary>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-config-EasyNavModule.png"><img alt="Create a EasyNav Module Configuration" src="easynav-config-EasyNavModule.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-config-EasyNavModule.png"><img alt="Create a EasyNav Module Configuration" src="easynav-config-EasyNavModule.png"/></a></p>
 <p>In the <code>Knowledge Graphs</code> module navigate to the <code>CMEM Configuration</code> graph.
 Select the class <code>EasyNav Module</code> and <code>Create a new "EasyNav Module"</code>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-config-newEasyNavModule-dialog.png"><img alt="New EasyNav Module dialog" src="easynav-config-newEasyNavModule-dialog.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-config-newEasyNavModule-dialog.png"><img alt="New EasyNav Module dialog" src="easynav-config-newEasyNavModule-dialog.png"/></a></p>
 <p>Provide a <code>Name</code> for your configuration and select the <code>Default Graph</code> which contains the nodes you want to explore visually.
 This graph can of course be an integration graph.</p>
 <p><code>Search Configuration</code> is optional but a powerful feature to create predefined search filter/facets.
@@ -3136,14 +3139,14 @@ If want to use this capability select existing <code>Search Configuration</code>
 </details>
 <details class="info">
 <summary>Set the <code>EasyNav Module</code> in the <code>Workspace</code> configuration</summary>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-config-select-in-workspace.png"><img alt="Select EasyNav Module in Workspace configuration" src="easynav-config-select-in-workspace.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-config-select-in-workspace.png"><img alt="Select EasyNav Module in Workspace configuration" src="easynav-config-select-in-workspace.png"/></a></p>
 <p>After creating the <code>EasyNav Module</code> configuration it need to be selected in workspace configuration(s) that shall be using it.</p>
 </details>
 <details class="info">
 <summary>Create a <code>Search Configuration</code></summary>
 <p>Follow the stub link from creating a new configuration in the <code>Module</code> dialog.
 Then click edit to provide the necessary details.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="easynav-config-search-config-dialog.png"><img alt="Setup a Search Configuration" src="easynav-config-search-config-dialog.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="easynav-config-search-config-dialog.png"><img alt="Setup a Search Configuration" src="easynav-config-search-config-dialog.png"/></a></p>
 <p>At least a <code>Name</code> and <code>Search Weight</code> need to be specified.
 The weight can be used to boost the results of one search configuration over another in case multiple <code>Search Configuration</code>s are used.</p>
 <p><code>Graph Resource Patter</code> are a topic on its own and explained <a href="./GraphResourcePattern">here</a>.</p>
@@ -3156,7 +3159,7 @@ Which means each additional <code>Search Configuration</code> increases the time
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-22T13:36:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-22</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-25T13:41:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-25</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
@@ -3338,5 +3341,5 @@ Which means each additional <code>Search Configuration</code> increases the time
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

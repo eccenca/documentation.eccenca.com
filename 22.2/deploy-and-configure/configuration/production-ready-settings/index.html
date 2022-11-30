@@ -8,7 +8,7 @@
 <link href="https://documentation.eccenca.com/22.2/deploy-and-configure/configuration/production-ready-settings/" rel="canonical"/>
 <link href="../../../assets/favicon.svg" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.8+insiders-4.26.2" name="generator"/>
-<title>Production-ready settings - documentation.eccenca.com</title>
+<title>Production-Ready Settings - documentation.eccenca.com</title>
 <link href="../../../assets/stylesheets/main.fa1d38d9.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.815d1a91.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h226.7c17 0 33.3-6.7 45.3-18.7l93.3-93.3c12-12 18.7-28.3 18.7-45.3V96c0-35.3-28.7-64-64-64H64zm0 64h320v224h-64c-17.7 0-32 14.3-32 32v64H64V96z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96zm0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256zm-40-176h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6S434.5.2 425.3 9.3L381.7 53c-48 48-113.1 75-181 75H64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64v128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352h8.7c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7v262.6C357.2 317.8 280.5 288 200.7 288H192v-96h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256zm-86.2-346.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1 0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6-13.3 0-24-10.7-24-24v-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1 0-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM288 352c0 17.7-14.3 32-32 32s-32-14.3-32-32 14.3-32 32-32 32 14.3 32 32z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7.2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8.2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24v112c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224c0-17.7-14.3-32-32-32s-32 14.3-32 32 14.3 32 32 32 32-14.3 32-32z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.1 52.4 442.6 6.5c-1.9-3.9-6.1-6.5-10.5-6.5s-8.5 2.6-10.4 6.5l-16.5 45.9-46 16.8c-4.3 1.6-7.3 5.9-7.2 10.4 0 4.5 3 8.7 7.2 10.2l45.7 16.8 16.8 45.8c1.5 4.4 5.8 7.5 10.4 7.5s8.9-3.1 10.4-7.5l16.5-45.8 45.7-16.8c4.2-1.5 7.2-5.7 7.2-10.2 0-4.6-3-8.9-7.2-10.4l-45.6-16.8zm-132.4 53c-12.5-12.5-32.8-12.5-45.3 0l-2.9 2.9c-22-8-45.8-12.3-70.5-12.3C93.1 96 0 189.1 0 304s93.1 208 208 208 208-93.1 208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5 12.5-32.8 0-45.3l-80-80zM200 192c-57.4 0-104 46.6-104 104v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-75.1 60.9-136 136-136h8c8.8 0 16 7.2 16 16s-7.2 16-16 16h-8z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 398.9c58.5-41.1 96-104.1 96-174.9C512 100.3 397.4 0 256 0S0 100.3 0 224c0 70.7 37.5 133.8 96 174.9V464c0 26.5 21.5 48 48 48h48v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48h64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48h48c26.5 0 48-21.5 48-48v-65.1zM224 256c0 35.3-28.7 64-64 64s-64-28.7-64-64 28.7-64 64-64 64 28.7 64 64zm128 64c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M320 0c17.7 0 32 14.3 32 32v64h128c35.3 0 64 28.7 64 64v288c0 35.3-28.7 64-64 64H160c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h128V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zM264 256c0-22.1-17.9-40-40-40s-40 17.9-40 40 17.9 40 40 40 40-17.9 40-40zm152 40c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zM48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224h16z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M288 0H128c-17.7 0-32 14.3-32 32s14.3 32 32 32v132.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6 0 480.9 31.1 512 69.4 512h309.2c38.3 0 69.4-31.1 69.4-69.4 0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5V64c17.7 0 32-14.3 32-32S337.7 0 320 0h-32zm-96 196.8V64h64v132.8c0 23.7 6.6 46.9 19 67.1l34.5 56.1h-171l34.5-56.1c12.4-20.2 19-43.4 19-67.1z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64h-64c-35.3 0-64-28.7-64-64V216z"/></svg>');}</style>
@@ -22,7 +22,7 @@
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-VS3GZMYY28"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-VS3GZMYY28",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-VS3GZMYY28",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Production-ready settings - documentation.eccenca.com" property="og:title"/>
+<meta content="Production-Ready Settings - documentation.eccenca.com" property="og:title"/>
 <meta content="None" property="og:description"/>
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/deploy-and-configure/configuration/production-ready-settings/index.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -30,17 +30,20 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://documentation.eccenca.com/22.2/deploy-and-configure/configuration/production-ready-settings/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Production-ready settings - documentation.eccenca.com" name="twitter:title"/>
+<meta content="Production-Ready Settings - documentation.eccenca.com" name="twitter:title"/>
 <meta content="None" name="twitter:description"/>
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/deploy-and-configure/configuration/production-ready-settings/index.png" name="twitter:image"/>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -109,7 +112,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Production-ready settings
+              Production-Ready Settings
             
           </span>
 </div>
@@ -3041,39 +3044,50 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#changing-keycloak-client-settings">
+<a class="md-nav__link" href="#restrict-redirect-urls">
 <span class="md-ellipsis">
-      Changing keycloak client settings
+      Restrict Redirect URLs
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#password-policies">
 <span class="md-ellipsis">
-      Password policies
+      Password Policies
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#change-keycloak-cookie-settings">
+<a class="md-nav__link" href="#cookie-settings">
 <span class="md-ellipsis">
-      Change Keycloak cookie settings
+      Cookie Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataplatform-cors-settings">
+<a class="md-nav__link" href="#cors-settings">
 <span class="md-ellipsis">
-      Dataplatform CORS settings
+      CORS Settings
+    </span>
+</a>
+<nav aria-label="CORS Settings" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataplatform">
+<span class="md-ellipsis">
+      DataPlatform
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataintegration-cors-settings">
+<a class="md-nav__link" href="#dataintegration">
 <span class="md-ellipsis">
-      DataIntegration CORS settings
+      DataIntegration
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -3089,67 +3103,78 @@
 <a class="md-content__button md-icon" href="https://github.com/eccenca/documentation.eccenca.com/edit/main/docs/deploy-and-configure/configuration/production-ready-settings/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="production-ready-settings">Production-ready settings<a class="headerlink" href="#production-ready-settings" title="Permanent link">¤</a></h1>
-<p>If you plan to deploy Corporate Memory in an public available environment you should take care about a few issues.</p>
-<h2 id="changing-keycloak-client-settings">Changing keycloak client settings<a class="headerlink" href="#changing-keycloak-client-settings" title="Permanent link">¤</a></h2>
-<p><a href="https://www.keycloak.org/docs/latest/server_admin/index.html#unspecific-redirect-uris_server_administration_guide">https://www.keycloak.org/docs/latest/server_admin/index.html#unspecific-redirect-uris_server_administration_guide</a></p>
-<p>Corporate Memory uses some clients to authenticate against keycloak. For each client you have to adjust the referrer uri. These clients you need to take care of:</p>
+<h1 id="production-ready-settings">Production-Ready Settings<a class="headerlink" href="#production-ready-settings" title="Permanent link">¤</a></h1>
+<p>If you plan to deploy Corporate Memory in an public available environment you need to take care about some final configuration steps.</p>
+<h2 id="restrict-redirect-urls">Restrict Redirect URLs<a class="headerlink" href="#restrict-redirect-urls" title="Permanent link">¤</a></h2>
+<p>As stated in the <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#unspecific-redirect-uris_server_administration_guide">Keycloak Server Administration Guide</a>:</p>
+<blockquote>
+<p>Make your registered redirect URIs as specific as feasible. Registering vague redirect URIs for Authorization Code Flows can allow malicious clients to impersonate another client with broader access.</p>
+</blockquote>
+<p>Corporate Memory uses the following clients to authenticate against keycloak.
+For each client, you have to adjust the <strong>Valid Redirect URIs</strong> field.</p>
 <ul>
 <li>datamanager</li>
 <li>dataintegration</li>
 </ul>
-<p>Go to <code>Cmem-Realm</code> → <code>Clients</code> → <code>datamanger / dataintegration</code> and enter your deploy URI like <a href="https://cmem.example.net/">https://cmem.example.net/</a>*</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-keycloak-client-settings.png"><img alt="changing-keycloak-client-settings" src="22-1-keycloak-client-settings.png"/></a></p>
-<h2 id="password-policies">Password policies<a class="headerlink" href="#password-policies" title="Permanent link">¤</a></h2>
-<p>If you create users in Keycloak, make sure users have strong passwords, for this setting up password policies will help. You can take a look here: <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_password-policies">https://www.keycloak.org/docs/latest/server_admin/index.html#_password-policies</a></p>
-<h2 id="change-keycloak-cookie-settings">Change Keycloak cookie settings<a class="headerlink" href="#change-keycloak-cookie-settings" title="Permanent link">¤</a></h2>
-<p>In Keycloak you should enforce secure flag for keycloak cookies. Go to <code>Cmem-Realm → Realm Settings → Login</code> and change Require SSL to “all requests”. If you are running without SSL you will no longer be able to login into Corporate Memory.</p>
-<p>Once this is done, make sure Dataplatform and Dataintegration uses <code>HTTPS</code> to connect to Keycloak. See the usage of <code>DATAPLATFORM_AUTH_URL, OAUTH_AUTHORIZATION_URL, OAUTH_TOKEN_URL</code></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-1-changing-keycloak-cookie-settings.png"><img alt="changing-keycloak-cookie-settings" src="22-1-changing-keycloak-cookie-settings.png"/></a></p>
-<h2 id="dataplatform-cors-settings">Dataplatform CORS settings<a class="headerlink" href="#dataplatform-cors-settings" title="Permanent link">¤</a></h2>
-<p>Corporate Memors Dataplatform uses <code>http.cors.allowedOrigins *</code> as default setting. It is recommended to correctly set the values for the following headers:</p>
+<p>Go to <code>Cmem-Realm</code> → <code>Clients</code> → <code>datamanger / dataintegration</code> and enter your deploy URL, such as <code>https://cmem.example.net/*</code>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-keycloak-client-settings.png"><img alt="changing-keycloak-client-settings" src="22-1-keycloak-client-settings.png"/></a></p>
+<h2 id="password-policies">Password Policies<a class="headerlink" href="#password-policies" title="Permanent link">¤</a></h2>
+<p>If you create users in Keycloak, make sure these users have strong passwords.
+To enforce this, setting up <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_password-policies">password policies</a> can help.</p>
+<h2 id="cookie-settings">Cookie Settings<a class="headerlink" href="#cookie-settings" title="Permanent link">¤</a></h2>
+<p>In Keycloak you should enforce secure flag for keycloak cookies.
+Go to <code>Cmem-Realm</code> → <code>Realm Settings</code> → <code>Login</code> and change <strong>Require SSL</strong> to <code>all requests</code>.
+If you are running without SSL you will no longer be able to login into Corporate Memory.</p>
+<p>Once this is done, make sure DataPlatform and DataIntegration use <code>HTTPS</code> to connect to Keycloak.
+See the usage of <code>DATAPLATFORM_AUTH_URL</code>, <code>OAUTH_AUTHORIZATION_URL</code> and <code>OAUTH_TOKEN_URL</code>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-1-changing-keycloak-cookie-settings.png"><img alt="changing-keycloak-cookie-settings" src="22-1-changing-keycloak-cookie-settings.png"/></a></p>
+<h2 id="cors-settings">CORS Settings<a class="headerlink" href="#cors-settings" title="Permanent link">¤</a></h2>
+<h3 id="dataplatform">DataPlatform<a class="headerlink" href="#dataplatform" title="Permanent link">¤</a></h3>
+<p>DataPlatform uses <code>http.cors.allowedOrigins *</code> as default setting.
+It is recommended to correctly set the values for the following headers:</p>
 <ul>
 <li><code>Access-Control-Allow-Origin</code>:  specifies which domains can access a site’s resources. For example, if ABC Corp. has domains <code>ABC.com</code> and <code>XYZ.com</code>, then its developers can use this header to securely grant <code>XYZ.com</code> access to ABC.com’s resources.</li>
-<li><code>Access-Control-Allow-Methods</code>: specifies which HTTP request methods (GET, PUT, DELETE, etc.) can be used to access resources. This header lets developers further enhance security by specifying what methods are valid when XYZ accesses ABC’s resources.</li>
+<li><code>Access-Control-Allow-Methods</code>: specifies which HTTP request methods (<code>GET</code>, <code>PUT</code>, <code>DELETE</code>, etc.) can be used to access resources. This header lets developers further enhance security by specifying what methods are valid when XYZ accesses ABC’s resources.</li>
 </ul>
 <p>Detailed configuration options can be found <a href="../dataplatform/">here</a>.</p>
-<p>This is an example section in dataplatforms application.yml</p>
-<p>application.yml</p>
+<p>This is an example section from DataPlatform <code>application.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">## Cross-Origin Resource Sharing (CORS) settings</span><span class="w"></span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">http</span><span class="p">:</span><span class="w"></span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">cors</span><span class="p">:</span><span class="w"></span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nt">allowedOrigins</span><span class="p">:</span><span class="w"></span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"http://example.org"</span><span class="w"></span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"https://cmem.example.net"</span><span class="w"></span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nt">allowedMethods</span><span class="p">:</span><span class="w"></span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"OPTIONS"</span><span class="w"></span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="w w-Error"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"HEAD"</span><span class="w"></span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"HEAD"</span><span class="w"></span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"GET"</span><span class="w"></span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"POST"</span><span class="w"></span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"PUT"</span><span class="w"></span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"DELETE"</span><span class="w"></span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"PATCH"</span><span class="w"></span>
 </code></pre></div>
-<h2 id="dataintegration-cors-settings">DataIntegration CORS settings<a class="headerlink" href="#dataintegration-cors-settings" title="Permanent link">¤</a></h2>
+<h3 id="dataintegration">DataIntegration<a class="headerlink" href="#dataintegration" title="Permanent link">¤</a></h3>
 <p>DataIntegration uses <code>cors.config.allowOrigins *</code> as default setting. 
 It is recommended to correctly set the value for the <code>Access-Control-Allow-Origin</code> header.
 It specifies which domains can access a site’s resources.
 For example, if ABC Corp. has the domains <code>ABC.com</code> and <code>XYZ.com</code>, then you can use this header to securely grant <code>XYZ.com</code> access to <code>ABC.com</code>‘s resources.
 Detailed configuration options can be found <a href="../dataintegration/">here</a>.</p>
-<p>This is an example section in DataIntegration’s <code>dataintegration.conf</code>:</p>
+<p>This is an example section from <code>dataintegration.conf</code>:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>## Cross-Origin Resource Sharing (CORS) settings
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a># CORS configuration ###
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>cors.enabled = true
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a># List of domains that are allowed to do requests. Wildcard '*' means "All domains".
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>cors.config.allowOrigins = "*"
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a># Support cookies, auth etc. for the configured domain under allowOrigins. If set to true, allowOrigins must not have '*' configured.
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>cors.config.allowCredentials = false
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a># List of domains that are allowed to do requests.
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a># Wildcard '*' means "All domains".
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>cors.config.allowOrigins = "*"
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a># Support cookies, auth etc. for the configured domain under allowOrigins.
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a># If set to true, allowOrigins must not have '*' configured.
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>cors.config.allowCredentials = false
 </code></pre></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-10-25T12:10:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-28T18:59:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-28</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
@@ -3331,5 +3356,5 @@ Detailed configuration options can be found <a href="../dataintegration/">here<
 <script src="../../../js/timeago_mkdocs_material.js"></script>
 <script src="../../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

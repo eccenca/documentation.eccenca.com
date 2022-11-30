@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/release-notes/corporate-memory-22-2/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3144,9 +3147,9 @@
 </a>
 <h1 id="corporate-memory-222">Corporate Memory 22.2<a class="headerlink" href="#corporate-memory-222" title="Permanent link">¤</a></h1>
 <p>Corporate Memory 22.2 is the second release in 2022.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-2-active-learning-user-interface.png"><img alt="22.2: Build - Active Learning User Interface" src="22-2-active-learning-user-interface.png" title="22.2: Build - Active Learning User Interface"/></a>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-2-easynav-visualisation-interface.png"><img alt="22.2: Explore - EasyNav Visualisation Interface" src="22-2-easynav-visualisation-interface.png" title="22.2: Explore - EasyNav Visualisation Interface"/></a>
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="22-2-cmemc-multiple-filter-and-admin-status.png"><img alt="22.2: Automate - cmemc Multiple Filter / Admin Status" src="22-2-cmemc-multiple-filter-and-admin-status.png" title="22.2: Automate - cmemc Multiple Filter / Admin Status"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-2-active-learning-user-interface.png"><img alt="22.2: Build - Active Learning User Interface" src="22-2-active-learning-user-interface.png" title="22.2: Build - Active Learning User Interface"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-2-easynav-visualisation-interface.png"><img alt="22.2: Explore - EasyNav Visualisation Interface" src="22-2-easynav-visualisation-interface.png" title="22.2: Explore - EasyNav Visualisation Interface"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="22-2-cmemc-multiple-filter-and-admin-status.png"><img alt="22.2: Automate - cmemc Multiple Filter / Admin Status" src="22-2-cmemc-multiple-filter-and-admin-status.png" title="22.2: Automate - cmemc Multiple Filter / Admin Status"/></a></p>
 <p>The highlights of this release are:</p>
 <ul>
 <li>Build:<ul>
@@ -3505,6 +3508,13 @@
 </ul>
 <p>In addition to that, multiple performance and stability issues are addressed.</p>
 <h2 id="migration-notes">Migration Notes<a class="headerlink" href="#migration-notes" title="Permanent link">¤</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We do not guarantee forward compatibility for configuration, data or projects.
+I.e. importing a project created with DataIntegration v22.2 into DataIntegration v22.1 (or older) might not work.</p>
+<p>Backward compatibility will be ensured or migration paths explained.
+I.e. projects created with DataIntegration v22.1 can be imported into DataIntegration v22.2.</p>
+</div>
 <h3 id="dataintegration">DataIntegration<a class="headerlink" href="#dataintegration" title="Permanent link">¤</a></h3>
 <ul>
 <li>CSV attributes specified via the <code>properties</code> parameter had inconsistent encoding rules. For CSV datasets where the <code>properties</code> parameter is used this can lead to changed source paths.</li>
@@ -3621,7 +3631,7 @@
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-22T08:07:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-22</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-25T20:04:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-25</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
@@ -3803,5 +3813,5 @@
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

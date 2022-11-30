@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/build/define-prefixes-namespaces/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3120,7 +3123,7 @@ Namespace declarations allow for abbreviation of IRIs by using a prefixed resour
 <li><a href="https://vocab.org/vann/#preferredNamespaceUri">vann:preferredNamespaceUri</a> - to specify the <strong>namespace IRI</strong></li>
 </ul>
 <p>In the Explore area, an Ontology with a correct namespace declaration looks like this.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="ontology-graph-resource.png"><img alt="An ontology (graph) resource in the EXPLORE &gt; Knowledge Graphs view" src="ontology-graph-resource.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="ontology-graph-resource.png"><img alt="An ontology (graph) resource in the EXPLORE &gt; Knowledge Graphs view" src="ontology-graph-resource.png"/></a></p>
 <h3 id="using-cmemc">Using cmemc<a class="headerlink" href="#using-cmemc" title="Permanent link">¤</a></h3>
 <p>The <code>vocabulary</code> command group of <a href="../../automate/cmemc-command-line-interface/">cmemc</a> has an <code>import</code> command, which you can use to install arbitrary vocabulary documents and register them as a vocabulary in Corporate Memory.</p>
 <p>Beginning with v22.2, this command has an additional option <code>--namespace</code> which you can use to set a vocabulary namespace even if the vocabulary does not include the needed data for autodiscovery:</p>
@@ -3141,9 +3144,9 @@ Namespace declarations allow for abbreviation of IRIs by using a prefixed resour
 </ul>
 <p>Prefixes in Data Integration are defined on a project base. When creating a new project, a list of well-know prefixes is already declared.</p>
 <p>After selecting a project from the search results the prefix management is available in the project configuration in the lower right area:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="DI-workspace.png"><img alt="DataIntegration workspace" src="DI-workspace.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="DI-workspace.png"><img alt="DataIntegration workspace" src="DI-workspace.png"/></a></p>
 <p>By using the <strong>Edit Prefix Settings</strong> button in this Configuration are, you will see the <strong>Manage Prefixes</strong> dialog:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="DI-workspace-prefix-dialog.png"><img alt="DataIntegration workspace prefix setup dialog" src="DI-workspace-prefix-dialog.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="DI-workspace-prefix-dialog.png"><img alt="DataIntegration workspace prefix setup dialog" src="DI-workspace-prefix-dialog.png"/></a></p>
 <p>In this dialog, you are able to</p>
 <ul>
 <li>Delete a namespace declaration → <strong>Delete Prefix</strong></li>
@@ -3151,9 +3154,9 @@ Namespace declarations allow for abbreviation of IRIs by using a prefixed resour
 </ul>
 <h2 id="validating-namespace-declarations">Validating Namespace Declarations<a class="headerlink" href="#validating-namespace-declarations" title="Permanent link">¤</a></h2>
 <p>After adding namespace declarations to a project, you are able to the abbreviated IRIs in user interface, such as the mapping editor, the Turtle editor or the Query editor:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="prefix-displayed-in-mapping.png"><img alt="Prefixes displayed in the mapping dialogs, e.g. property selection." src="prefix-displayed-in-mapping.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="DM-query-editor.png"><img alt="Query Editor" src="DM-query-editor.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="DM-turtle-editor.png"><img alt="Turtle Editor" src="DM-turtle-editor.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="prefix-displayed-in-mapping.png"><img alt="Prefixes displayed in the mapping dialogs, e.g. property selection." src="prefix-displayed-in-mapping.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="DM-query-editor.png"><img alt="Query Editor" src="DM-query-editor.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="DM-turtle-editor.png"><img alt="Turtle Editor" src="DM-turtle-editor.png"/></a></p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of last update">
@@ -3341,5 +3344,5 @@ Namespace declarations allow for abbreviation of IRIs by using a prefixed resour
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

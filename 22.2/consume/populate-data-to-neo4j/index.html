@@ -35,12 +35,15 @@
 <meta content="https://documentation.eccenca.com/22.2/assets/images/social/consume/populate-data-to-neo4j/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="eccenca-light" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -3219,20 +3222,20 @@ This tutorial uses the <em>Multi CSV Zip</em> format to efficiently handle the f
 <p>To upload multiple files together as an input:</p>
 <ol>
 <li>In Corporate Memory, click Projects under <strong>BUILD</strong> in the navigation on the left side of the page.
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-menu-projects.png"><img alt="Menu &gt; BUILD &gt; Projects" src="pdtn-menu-projects.png" width="50%"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-menu-projects.png"><img alt="Menu &gt; BUILD &gt; Projects" src="pdtn-menu-projects.png" width="50%"/></a></li>
 <li>Click Create at the top of the page. </li>
 <li>In Create new item window, select Project and click Add. The Create new item of type Project window appears.</li>
 <li>Fill in the required details such as Title and Description.  Alternatively, import the existing project by clicking Import Project File and selecting the file from your system. </li>
 <li>Click Create. Your project (Northwind) is created.
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-project-northwind.png"><img alt="Project Northwind" src="pdtn-project-northwind.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-project-northwind.png"><img alt="Project Northwind" src="pdtn-project-northwind.png"/></a></li>
 <li>In your project, click Create Item.</li>
 <li>In the Create new item window, select Multi CSV ZIP and click Add.
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-create-dataset-multi-csv.png"><img alt="Create Multi CSV Zip dataset" src="pdtn-create-dataset-multi-csv.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-create-dataset-multi-csv.png"><img alt="Create Multi CSV Zip dataset" src="pdtn-create-dataset-multi-csv.png"/></a></li>
 <li>Specify a Label of the dataset in the Create new item of type Multi CSV ZIP window.</li>
 <li>Select the Upload new file option as you have the files. The Multi CSV ZIP file containing the above-listed files is available here. If it is an existing project, you can select the files from the project. For the remaining parameters, the default settings are used.</li>
 <li>Click Create. You can see the message northwind.zip was successfully uploaded in Green.</li>
 <li>You can see Multi CSV ZIP file is uploaded with the datasets and the item has been created.
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-create-dataset-upload.png"><img alt="Upload file to dataset" src="pdtn-create-dataset-upload.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-create-dataset-upload.png"><img alt="Upload file to dataset" src="pdtn-create-dataset-upload.png"/></a></li>
 <li>Click the Play button and review the dataset in the Data preview section. You can see the contents of the loaded zip file, which are the above introduced CSV file.</li>
 </ol>
 <h2 id="2-create-a-neo4j-dataset">2 Create a Neo4j dataset<a class="headerlink" href="#2-create-a-neo4j-dataset" title="Permanent link">¤</a></h2>
@@ -3241,7 +3244,7 @@ Perform the following steps to create a Neo4j dataset:</p>
 <ol>
 <li>In your existing project, click Create to create a new item. </li>
 <li>In the item category Dataset select Neo4j.
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-create-dataset-neo4j.png"><img alt="Create Neo4j dataset" src="pdtn-create-dataset-neo4j.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-create-dataset-neo4j.png"><img alt="Create Neo4j dataset" src="pdtn-create-dataset-neo4j.png"/></a></li>
 <li>Click Add.</li>
 <li>Enter the following details:<ul>
 <li>Label: <em>Name of the item</em>.  </li>
@@ -3258,9 +3261,9 @@ In this case we will create an RDF and LPG Knowledge Graph.
 A vocabulary for this tutorial is available as <a href="schema.ttl">schema.ttl</a>.
 Follow <a href="/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables">Lift data from tabular data such as CSV, XSLX or database tables</a> to learn how to register your vocabulary in Corporate Memory.</p>
 <p>The provided vocabulary is inspired by this structure from the original Neo4j tutorial on the Northwind data:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-neo4j-data-structure.png"><img alt="Neo4j data schema" src="pdtn-neo4j-data-structure.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-neo4j-data-structure.png"><img alt="Neo4j data schema" src="pdtn-neo4j-data-structure.png"/></a></p>
 <p>The vocabulary for the Northwind project can be visualized like this:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-vocabulary.png"><img alt="Northwind vocabulary" src="pdtn-vocabulary.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-vocabulary.png"><img alt="Northwind vocabulary" src="pdtn-vocabulary.png"/></a></p>
 <h2 id="4-create-transformations">4 Create Transformations<a class="headerlink" href="#4-create-transformations" title="Permanent link">¤</a></h2>
 <p>A transformation defines how the input datasets are transformed into output datasets.
 In this example, each of the CSV files is represented as nodes with the same labels in the application.
@@ -3455,17 +3458,17 @@ To create this, click Add object mapping. For this example, specify the follow
 </ol>
 <p>In this example, the dataset must be connected to the transformations as an input, and the output should be the Neo4j output.</p>
 <p>Drag and drop the options available in the Workflow editor pane and link them accordingly.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-workflow.png"><img alt="Complete workflow" src="pdtn-workflow.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-workflow.png"><img alt="Complete workflow" src="pdtn-workflow.png"/></a></p>
 <p>Click the Play icon to validate the results. The nodes and edges created are stored in the Neo4j dataset.</p>
 <h2 id="6-results-in-neo4j">6 Results in Neo4j<a class="headerlink" href="#6-results-in-neo4j" title="Permanent link">¤</a></h2>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-result-in-neo4j.png"><img alt="Result in Neo4j" src="pdtn-result-in-neo4j.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-result-in-neo4j.png"><img alt="Result in Neo4j" src="pdtn-result-in-neo4j.png"/></a></p>
 <h2 id="7-results-in-knowledge-graph">7 Results in Knowledge Graph<a class="headerlink" href="#7-results-in-knowledge-graph" title="Permanent link">¤</a></h2>
 <p>Optionally, you can use the same transformation and the workflow to render the resulting graph data into a Knowledge Graph.</p>
 <ol>
 <li>Add a Knowledge Graph dataset and use this as an additional target in your workflow:
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-add-kg-dataset-into-workflow.png"><img alt="Add Knowledge Graph output" src="pdtn-add-kg-dataset-into-workflow.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-add-kg-dataset-into-workflow.png"><img alt="Add Knowledge Graph output" src="pdtn-add-kg-dataset-into-workflow.png"/></a></li>
 <li>The results can then be reviewed in the Knowledge Graph module, e.g., explored visually:
-    <a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="pdtn-ontodia-result-view.png"><img alt="Results in Corporate Memory" src="pdtn-ontodia-result-view.png"/></a></li>
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="pdtn-ontodia-result-view.png"><img alt="Results in Corporate Memory" src="pdtn-ontodia-result-view.png"/></a></li>
 </ol>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
@@ -3654,5 +3657,5 @@ To create this, click Add object mapping. For this example, specify the follow
 <script src="../../js/timeago_mkdocs_material.js"></script>
 <script src="../../assets/externals/unpkg.com/tablesort%405.3.0/dist/tablesort.min.js.js"></script>
 <script src="../../assets/tablesort.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
