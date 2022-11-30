@@ -8,6 +8,7 @@ vars:
   CURRENT_VERSION: 22.2
   MATERIAL_INSIDER_TAG: 8.5.8-insiders-4.26.2
   MATERIAL_TAG: 8.5.8
+  ACCESS_TOKEN: $ACCESS_TOKEN
 
 tasks:
 
@@ -91,7 +92,7 @@ tasks:
     desc: switch to insider package from github:eccenca via ACCESS_TOKEN variable (build plan)
     cmds:
       - poetry remove mkdocs-material || exit 0
-      - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
+      - poetry add git+https://{{.ACCESS_TOKEN}}@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
       - poetry update
 
   update:icons:
