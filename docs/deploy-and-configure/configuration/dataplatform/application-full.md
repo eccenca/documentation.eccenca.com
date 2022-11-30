@@ -652,7 +652,7 @@ A local public bare repository reachable from DataPlatform can be used in the Da
 For details how to provide the correct git authentication refer to <https://www.codeaffine.com/2014/12/09/jgit-authentication/>.
 
 !!! note
-  All properties need to be written as camel case (e.g. "gitSync"), hyphens as separators must not be used.
+    All properties need to be written as camel case (e.g. "gitSync"), hyphens as separators must not be used.
 
 An example git DataPlatform configuration using a gitlab git repository looks like:
 
@@ -1086,6 +1086,16 @@ Use this property to set the request header which is required to identify the or
 | Required | false |
 | Valid values | string |
 | Environment | SERVER_TOMCAT_PROTOCOLHEADER |
+
+***Property: server.tomcat.max-swallow-size***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | -1 |
+| Required | false |
+| Valid values | string |
+| Environment | SERVER_TOMCAT_MAX_SWALLOW_SIZE |
 
 ## Scheduler for asynchronous operations
 
