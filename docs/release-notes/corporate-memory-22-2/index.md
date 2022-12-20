@@ -38,6 +38,54 @@ This release delivers the following component versions:
 
 More detailed release notes for these versions are listed below.
 
+## Corporate Memory 22.2.1
+
+Corporate Memory 22.2.1 is the first patch release in the 22.2 release line.
+It ships the following changes and fixes:
+
+### eccenca DataIntegration v22.2.1
+
+#### Added
+
+-   Rule and workflow editors:
+    -   Support automatic scrolling when moving beyond the editor canvas borders on a all drag and edge connect/update operations. (CMEM-4701)
+-   Added "sort words" transform operator, which sorts words in each value (CMEM-4696).
+
+#### Changed
+
+-   Rule editors (linking, transform):
+    -   On tab change do not remove the search text, instead select the text to easily overwrite it. (CMEM-4715)
+    -   Allow to search for input paths in the 'All' tab. (CMEM-4715)
+
+#### Fixed
+
+-   If a long-running workflow is executed manually, the same workflow can be started by a scheduler in the background (CMEM-4623).
+-   Executing workflows did not occupy a slot in the thread pool (i.e., unlimited workflows could be executed concurrently) (CMEM-4623).
+-   Generating links could lead to a deadlock, if no slot in the thread pool is available (CMEM-4623).
+-   Entering an invalid URI as path input in the linking editor with a knowledge graph as input results in the rule being broken in the editor. (CMEM-4720)
+-   Linking editor: Show the same property labels in the input path auto-completion as in the tab auto-completion. (CMEM-4716)
+
+### eccenca DataManager v22.2.1
+
+#### Fixed
+
+-   LinkRules
+    -   Fixed trigger of refetching data after an update (CMEM-4664)
+    -   Display of negative Reference Links (CMEM-4664)
+
+### eccenca DataPlaftorm v22.2.1
+
+#### Fixed
+
+-   Update of dependencies because of vulnerabilities i.e. Spring Boot (CMEM-4620, CMEM-4724)
+-   Addition of logstash runtime dependency as to enable json logging (OPS-1792)
+-   GraphDb indices are created without facet option which causes problems (CMEM-4703)
+-   Fix of memory leak in query monitor which causes high heap usage (CMEM-4674)
+
+#### Changed
+
+-   Refactoring of spring integration tests (IT) and inclusion of most tests in the cucumber subproject (CMEM-4139)
+
 ## eccenca DataIntegration v22.2
 
 This version of eccenca DataIntegration adds the following new features:
@@ -229,8 +277,8 @@ This version of cmemc adds the following new features:
     -   new option `--enforce-table` to enforce table output of `--key`
 -   `vocabular import` command
     -   new option `--namespace`: In case the imported vocabulary file does not include a preferred namespace prefix, you can manually add a namespace prefix
-- `workflow io` command
-    - new flag `--autoconfig` / `--no-autoconfig` for input dataset auto configuration
+-   `workflow io` command
+    -   new flag `--autoconfig` / `--no-autoconfig` for input dataset auto configuration
 
 In addition to that, these changes and fixes are included:
 
