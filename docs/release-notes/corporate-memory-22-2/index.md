@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 22.2
+# Corporate Memory 22.2.1
 
-Corporate Memory 22.2 is the second release in 2022.
+Corporate Memory 22.2.1 is the first patch release in the 22.2 release line.
 
 ![22.2: Build - Active Learning User Interface](22-2-active-learning-user-interface.png "22.2: Build - Active Learning User Interface")
 ![22.2: Explore - EasyNav Visualisation Interface](22-2-easynav-visualisation-interface.png "22.2: Explore - EasyNav Visualisation Interface")
@@ -31,64 +31,33 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v22.2
--   eccenca DataIntegration v22.2
--   eccenca DataManager v22.2
+-   eccenca DataPlatform v22.2.1
+-   eccenca DataIntegration v22.2.1
+-   eccenca DataManager v22.2.1
 -   eccenca Corporate Memory Control (cmemc) v22.2
 
 More detailed release notes for these versions are listed below.
 
-## Corporate Memory 22.2.1
+## eccenca DataIntegration v22.2.1
 
-Corporate Memory 22.2.1 is the first patch release in the 22.2 release line.
-It ships the following changes and fixes:
-
-### eccenca DataIntegration v22.2.1
-
-#### Added
+v22.2.1 of eccenca DataIntegration adds the following new features:
 
 -   Rule and workflow editors:
-    -   Support automatic scrolling when moving beyond the editor canvas borders on a all drag and edge connect/update operations. (CMEM-4701)
--   Added "sort words" transform operator, which sorts words in each value (CMEM-4696).
+    -   Support automatic scrolling when moving beyond the editor canvas borders on a all drag and edge connect/update operations.
+-   Added "sort words" transform operator, which sorts words in each value.
 
-#### Changed
+In addition to that, these changes are included in v22.2.1 of eccenca DataIntegration:
 
 -   Rule editors (linking, transform):
-    -   On tab change do not remove the search text, instead select the text to easily overwrite it. (CMEM-4715)
-    -   Allow to search for input paths in the 'All' tab. (CMEM-4715)
+    -   On tab change do not remove the search text, instead select the text to easily overwrite it.
+    -   Allow to search for input paths in the `All` tab.
+-   If a long-running workflow is executed manually, the same workflow can be started by a scheduler in the background.
+-   Executing workflows did not occupy a slot in the thread pool (i.e., unlimited workflows could be executed concurrently).
+-   Generating links could lead to a deadlock, if no slot in the thread pool is available.
+-   Entering an invalid URI as path input in the linking editor with a knowledge graph as input results in the rule being broken in the editor.
+-   Linking editor: Show the same property labels in the input path auto-completion as in the tab auto-completion.
 
-#### Fixed
-
--   If a long-running workflow is executed manually, the same workflow can be started by a scheduler in the background (CMEM-4623).
--   Executing workflows did not occupy a slot in the thread pool (i.e., unlimited workflows could be executed concurrently) (CMEM-4623).
--   Generating links could lead to a deadlock, if no slot in the thread pool is available (CMEM-4623).
--   Entering an invalid URI as path input in the linking editor with a knowledge graph as input results in the rule being broken in the editor. (CMEM-4720)
--   Linking editor: Show the same property labels in the input path auto-completion as in the tab auto-completion. (CMEM-4716)
-
-### eccenca DataManager v22.2.1
-
-#### Fixed
-
--   LinkRules
-    -   Fixed trigger of refetching data after an update (CMEM-4664)
-    -   Display of negative Reference Links (CMEM-4664)
-
-### eccenca DataPlaftorm v22.2.1
-
-#### Fixed
-
--   Update of dependencies because of vulnerabilities i.e. Spring Boot (CMEM-4620, CMEM-4724)
--   Addition of logstash runtime dependency as to enable json logging (OPS-1792)
--   GraphDb indices are created without facet option which causes problems (CMEM-4703)
--   Fix of memory leak in query monitor which causes high heap usage (CMEM-4674)
-
-#### Changed
-
--   Refactoring of spring integration tests (IT) and inclusion of most tests in the cucumber subproject (CMEM-4139)
-
-## eccenca DataIntegration v22.2
-
-This version of eccenca DataIntegration adds the following new features:
+v22.2 of eccenca DataIntegration adds the following new features:
 
 -   New active learning UI
 -   Python plugins: Added context objects that allows accessing context dependent functionalities, such as:
@@ -110,7 +79,7 @@ This version of eccenca DataIntegration adds the following new features:
     -   `org.silkframework.runtime.activity.concurrentExecutions` to set the max. concurrent activity instances
     -   `cors.enabled`, `cors.config.allowOrigins` and `cors.config.allowCredentials` to configure CORS settings
 
-In addition to that, these changes are included:
+In addition to that, these changes are included in v22.2:
 
 -   Move `outputTemplate` parameter to advanced section of XML dataset plugin
 -   Improved performance of conversions to floating point numbers
@@ -135,9 +104,15 @@ In addition to that, these changes are included:
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataManager v22.2
+## eccenca DataManager v22.2.1
 
-This version of eccenca DataManager adds the following new features:
+v22.2.1 of eccenca DataManager has the following fixes:
+
+-   LinkRules
+    -   Fixed trigger of refetching data after an update
+    -   Display of negative Reference Links
+
+v22.2 of eccenca DataManager adds the following new features:
 
 -   Navigation
     -   Add DataIntegration workflows link to main navigation
@@ -157,15 +132,23 @@ This version of eccenca DataManager adds the following new features:
     -   Bulk node search and bulk add
     -   Ability to save, load and share explorations
 
-In addition to that, these changes are included:
+In addition to that, these changes are included in v22.2 of eccenca DataManager:
 
 -   Increase height of Turtle editor in the resource details view.
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataPlatform v22.2
+## eccenca DataPlaftorm v22.2.1
 
-This version of eccenca DataPlatform ships the following new features:
+v22.2.1 of eccenca DataManager has the following fixes:
+
+-   Update of dependencies because of vulnerabilities i.e. Spring Boot.
+-   Addition of logstash runtime dependency as to enable json logging.
+-   GraphDb indices are created without facet option which causes problems.
+-   Fix of memory leak in query monitor which causes high heap usage.
+-   Refactoring of spring integration tests (IT) and inclusion of most tests in the cucumber subproject.
+
+v22.2 of eccenca DataPlatform ships the following new features:
 
 -   Added support for manual query/update cancellation:
     -   active for graphdb, stardog, neptune
@@ -206,7 +189,7 @@ This version of eccenca DataPlatform ships the following new features:
     -   graphs can be configured via graph configuration for bi-directional git sync
     -   cf. config properties under `gitSync.*`
 
-In addition to that, these changes and fixes are included:
+In addition to that, these changes and fixes are included in v22.2 of eccence DataPlatform:
 
 -   New store configuration properties, see below for migration notes
 -   Changed property for defining select query for graphList
