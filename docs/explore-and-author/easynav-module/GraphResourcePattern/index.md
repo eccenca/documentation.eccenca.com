@@ -516,7 +516,7 @@ An concrete example object is shown here:
                 "predicate": "http://example.com/vocab/hasParent"
             },
             {
-                "subjectVarName": "resouce",
+                "subjectVarName": "resource",
                 "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                 "objectVarName": "class"
             }
@@ -531,6 +531,8 @@ An concrete example object is shown here:
         ]
     }
     ```
+
+A valid configuration must use a `subjectVarName` called `resource`. This is the binding that yields results.
 
 This configuration produces the following result, it only shows results where:
 
