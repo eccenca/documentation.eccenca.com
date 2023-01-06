@@ -5,7 +5,7 @@ site_url: https://documentation.eccenca.com/
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
 copyright: >
-  Copyright &copy; 2022
+  Copyright &copy; 2023
   <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
 extra:
   analytics:
