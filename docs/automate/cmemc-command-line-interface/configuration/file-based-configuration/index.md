@@ -51,7 +51,7 @@ However, once you start cmemc the first time and without any command or option, 
 
                           https://eccenca.com/go/cmemc
 
-      cmemc is © 2023 eccenca GmbH, licensed under the Apache License 2.0.
+      cmemc is © 2022 eccenca GmbH, licensed under the Apache License 2.0.
 
     Options:
       -c, --connection TEXT  Use a specific connection from the config file.

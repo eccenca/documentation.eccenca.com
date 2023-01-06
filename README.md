@@ -13,7 +13,7 @@ If you consider to contribute to this project, please have a look on [CONTRIBUTI
 
 ## License
 
-Copyright © 2023 [eccenca GmbH](https://eccenca.com)
+Copyright © 2022 [eccenca GmbH](https://eccenca.com)
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
