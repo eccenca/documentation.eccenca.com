@@ -1,5 +1,9 @@
 ---
+title: "cmemc: Using Gitlab Pipelines"
 icon: material/gitlab
+tags:
+  - Automate
+  - cmemc
 ---
 # Using Gitlab Pipelines
 
