@@ -28,7 +28,7 @@ Sample CSV files: dbpedia.csv and linkedmdb.csv
 
 [Links to dowload the files](**[https://drive.google.com/drive/folders/1LR-6d17LYTjsCr8ZOdJNVXI_QgkSfIIi](https://drive.google.com/drive/folders/1LR-6d17LYTjsCr8ZOdJNVXI_QgkSfIIi)**)
 
-![](https://lh4.googleusercontent.com/T8KaHxenZZac-UuVeMtQ5dB3MZlNLtgXBTWpsZ6VsG5OMLbPxlGIzwEtcNhyZtQQVJC8sFzeFfXKCjgBvvvsWzHO64rTk2IbCB3xW3G5RXsv_EprraJkd4uNkTrWEHOezmlgx81DOa5M5qdQLdp4rbEBeMAbqS6ZLcgruKb1wWMmLp58-ACmvifapTXNJkCX)**
+![image](sample.png)
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
@@ -59,9 +59,14 @@ The screen gives an overview of the different projects created in your installat
 
 - Click on **add file** on the right side of the page.
 
+![image](Add-file.png)
+
 - Click on **drop files here** select the file and click on **open**.
 
+![image](drop-files.png)
+
 - Once the file is successfully uploaded click on **close.**
+![image](uploaded.png)
 
 - Repeat the same step to add the file select the next second file and upload it.
 
