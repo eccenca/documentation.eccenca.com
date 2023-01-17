@@ -10,4 +10,5 @@ nav:
     - Workflow Reconfiguration: workflow-reconfiguration
     - Incremental Database Loading: loading-jdbc-datasets-incrementally
     - Data Linking Tutorial: create-project-with-linkingrule
+    - Improving Linking Rule: improving-linking-rules-tutorial
 
