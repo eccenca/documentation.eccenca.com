@@ -46,6 +46,16 @@ The screen gives an overview of the different projects created in your installat
 
 ![image](click-on-project.png)
 
+
+
+
+
+
+
+
+
+
+
 - Type the project name as **Movie links** in the title field and click on **create.**
 
 ![image](type-movielinks.png)
@@ -129,7 +139,7 @@ The screen gives an overview of the different projects created in your installat
 
 - Select the **type** field (it gives the default name) select the same and click on **create**.
 
-![image](defaut-type.png)
+![image](default-type.png)
 
 - In the continuation to the same page go down, select the target input dataset as a linkedmdb file.
 
@@ -163,25 +173,43 @@ On the right side of the page, it shows datasets, configuration linking, and con
 
 - Click on the source path and drag the title on the canvas.
 
+![image](source-path.png)
+
 - Click on the target path and drag the title on the canvas.
+
+![image](target-input.png)
 
 **Step Result**: The titles from the source path and target are dragged on the canvas as shown below.
 
+![image](source-target-path.png)
+
 **Task**: Let's make this a little better and compare only the lowercase versions of the titles to get around issues with differences in the lower and upper case between the two datasets.
 
-Click on **transformation**, type the operator lowercase  in the search field and drag the same on the canvas twice.
+- Click on **transformation**, type the operator lowercase  in the search field and drag the same on the canvas twice.
+
+![image](transformation1.png)
 
 - Drag the little dot on the right side of the source path box onto the left dot of the transformation box(lower case) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
+![image](source-conect-lower.png)
+
 **Step Result**: The lines connected between the source path title and lowercase as shown below.
+
+![image](source-conect-lower.png)
 
 - Drag the little dot on the right side of the target path box onto the left dot of the transformation box(lower case) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
+![image](target-lower.png)
+
 **Step Result**: The lines connected between the target path title and lowercase as shown below.
+
+![image](target-lower.png)
 
 **Task**: To compare the movie title names of both the data dbpedia.csv and linkedmdb.csv.
 
 - Click on **comparison** and type the equality in the search field and drag the string equality on the canvas.
+
+![image](equality.png)
 
 - Drag the little dot on the right side of both lowercase boxes onto the left dot of the string equality box to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
