@@ -32,11 +32,11 @@ Sample CSV files: dbpedia.csv and linkedmdb.csv
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
-## Let's begin to create a project with the linking rules
+## **Let's begin to create a project with the linking rules.**
 
 ### 1. **Create a new project.**
 
--   Once logged in to Corporate memory on the right side click on **create**
+-   Once logged in to Corporate memory on the right side click on **create.**
 
 ![image](create-project.png)
 
@@ -76,6 +76,7 @@ The screen gives an overview of the different projects created in your installat
 ![image](drop-files.png)
 
 - Once the file is successfully uploaded click on **close.**
+
 ![image](uploaded.png)
 
 - Repeat the same step to add the file select the next second file and upload it.
@@ -84,7 +85,7 @@ The screen gives an overview of the different projects created in your installat
 
 ![image](files-added.png)
 
-### 3. **create datasets.**
+### 3. **Create datasets.**
 
 - Click on **create.**
 
@@ -94,7 +95,7 @@ The screen gives an overview of the different projects created in your installat
 
 ![image](click-on-project.png)
 
-- Type the file name as **dbpedia** in **the** label field.
+- Type the file name as **dbpedia** in the label field.
 
 ![image](dbpedia.png)
 
@@ -185,6 +186,8 @@ On the right side of the page, it shows datasets, configuration linking, and con
 
 **Task**: Let's make this a little better and compare only the lowercase versions of the titles to get around issues with differences in the lower and upper case between the two datasets.
 
+
+
 - Click on **transformation**, type the operator lowercase  in the search field and drag the same on the canvas twice.
 
 ![image](transformation1.png)
@@ -263,8 +266,6 @@ The movie name is twice in both sheets, but the release dates differ. The shaft 
 
 **Step Result**: The links are executed and copied to the output data file links.csv and which shows the count of links on the page.
 
-**Thanks for learning**
-**“Learning never exhausts the mind.”**
 
 
 
