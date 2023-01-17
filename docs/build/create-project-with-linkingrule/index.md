@@ -72,52 +72,90 @@ The screen gives an overview of the different projects created in your installat
 
 **Step Result**: The files are uploaded to the project and reflect on the right side as shown below.
 
+![image](files-added.png)
+
 ### 3. **create datasets.**
 
 - Click on **create.**
 
+![image](click-on-create.png)
+
 - Click on the **dataset** on the left side in the item type and double-click on the **CSV file** in the centre.
 
+![image](click-on-project.png)
 
 - Type the file name as **dbpedia** in **the** label field.
 
+![image](dbpedia.png)
+
 - Tick the option **select file from project** and select the file from the drop-down list of files available in the project.
 
+![image](bdpedia-select-file.png)
+
 - Click on **create**.
+
+![image](bdpedia-create.png)
 
 - Repeat the same step and add another file linkedmdb in the dataset.
 
 - Create the empty dataset file for extracting both files' links as an output result. Click on the **dataset** on the left side of the item list and double-click on the **CSV** file.
 
+![image](CSV.png)
+
 - Type the label name **links.csv** in the label field.
+
+![image](type-links.png)
 
 - Tick the option **create empty file** and select the file name from the drop-down list as link.csv then click on create. 
 
+![image](links.png)
+
 **Step result**: Dataset for both the files dbpedia and linkedmdb has been created, and link.csv is created for the output result displayed in the page's center.
 
+![image](dataset-created.png)
 ### 4.**Create a linking task.**
 
 - Click on **create**.
 
+![image](dataset-created.png)
+
 - Click on **linking** on the left side in the item type and double-click on **linking** in the center.
+
+![image](click-on-linking.png)
 
 - Type the name as linking in the label field and select the source input data set as a dbpedia file.
 
+![image](linking.png)
+
 - Select the **type** field (it gives the default name) select the same and click on **create**.
+
+![image](defaut-type.png)
 
 - In the continuation to the same page go down, select the target input dataset as a linkedmdb file.
 
 - Select the **type** field (it gives the default name) select the same and click on **create**.
 
+![image](target-input.png)
+
 - Select the **output dataset** as link.csv file.
+
+![image](output.png)
 
 - Click on create.
 
+![image](linking-save.png)
+
 **Step Result**: Linking task is created for the project. It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
+
+![image](linking-result.png)
 
 It shows the linking editor, linking execution, linking evaluation, and reference link in the centre of the page to create and evaluate the linking rules.
 
+![image](linking-result.png)
+
 On the right side of the page, it shows datasets, configuration linking, and configuration linking rules.
+
+![image](linking-result.png)
 
 ### 5.**Work with linking rules : Assemble a linking rule with the linking editor.**
 
