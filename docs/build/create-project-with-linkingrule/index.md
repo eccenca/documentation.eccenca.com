@@ -213,31 +213,53 @@ On the right side of the page, it shows datasets, configuration linking, and con
 
 - Drag the little dot on the right side of both lowercase boxes onto the left dot of the string equality box to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
+![image](lower-equality.png)
+
 **Step Result**: The lines are connected between both lowercase operators and string equality operators.
 
+![image](lower-equality.png)
+
 - Click on **save** on the right side of the page.
+
+![image](save.png)
 
 **Linking evaluation**: Now it is time to see your linking rule in action by running it on your datasets. So far, we have created a linking rule in which we changed the title names of both files in lowercase and compared the same. Now it’s time to generate the links by evaluating them.
 
 - Click on the **linking evaluation**.
 
+![image](linking-evaluation.png)
+
 - Click on the **play button** to start the evaluation and generate the links.
+
+![image](play.png)
 
 **Step Result**: The links are generated as shown below. (It allows us to review the links and since Data Integration does not know which column to use as a unique identifier, it just uses the row number in the .csv file to identify each movie.
 
+![image](play.png)
+
 - Click on the down arrow button to expand all 
 
+![image](expand.png)
+
 **Step Result**: This allows you to see how the linking rule was performed for each link and even the movie name compared in both files.
+
+![image](expand-result.png)
 
 **Filter**: It has a filter feature that helps to find links by movie names. An example is shown below.
 
 Let’s consider the movie name as shaft type shaft in the filter it shows the links with the shaft movie names links of both files.
 
+![image](shaft.png)
+
 Cross-checking in the dbpedia.csv and linkedmdb.csv data sheet.
+
+![image](shaft-result.png)
 
 The movie name is twice in both sheets, but the release dates differ. The shaft movie’s original release was in 1971 and the remake was in 2000. We have the tick option for the correct rule.
 
 - Click on the linking execution then click on the play button to execute the links (It copies the links to our data file links.csv (which is our output file).
+
+![image](linkexecution.png)
 
 **Step Result**: The links are executed and copied to the output data file links.csv and which shows the count of links on the page.
 
