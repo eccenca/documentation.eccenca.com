@@ -1,4 +1,5 @@
 ---
+title: "cmemc: Using Github Actions"
 icon: material/github
 tags:
     - Automate
