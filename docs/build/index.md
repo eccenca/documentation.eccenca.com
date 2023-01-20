@@ -30,6 +30,7 @@ The Build stage is used to turn your legacy data points from existing datasets i
 
      - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables) --- Build a Knowledge Graph from from Tabular Data such as CSV, XSLX or Database Tables.
      - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
+     - [Linking Tutorial](create-project-with-linkingrule) --- Build a data integration project using linking rules.
      - [Extracting data from a Web API](extracting-data-from-a-web-api) --- Build a Knowledge Graph based on input data from a Web API.
      - [Reconfigure Workflow Tasks](workflow-reconfiguration) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
      - [Incremental Database Loading](loading-jdbc-datasets-incrementally) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
