@@ -1,5 +1,8 @@
 ---
+title: "cmemc: Invocation"
 icon: material/star-shooting-outline
+tags:
+  - cmemc
 ---
 # Invocation
 
