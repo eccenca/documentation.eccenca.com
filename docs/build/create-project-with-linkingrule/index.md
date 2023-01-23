@@ -133,47 +133,49 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on **create**.
 
-    ![image](dataset-created.png){ width="75%"}
+    ![image](22.2-dataset-created.png){ width="75%"}
 
 -   Click on **linking** on the left side in the item type and double-click on **linking** in the center.
 
-    ![image](click-on-linking.png){ width="75%"}
+    ![image](22.2-click-on-linking.png){ width="75%"}
 
 -   Type the name as linking in the label field and select the source input data set as a dbpedia file.
 
-    ![image](linking.png){ width="75%"}
+    ![image](22.2-type-linking.png){ width="75%"}
 
 -   Select the **type** field (it gives the default name) select the same and click on **create**.
 
-    ![image](default-type.png){ width="75%"}
+    ![image](22.2-select-type-field.png){ width="75%"}
 
 -   In the continuation to the same page go down, select the target input dataset as a linkedmdb file.
 
+    ![image](22.2-target-input.png){ width="75%"}
+
 -   Select the **type** field (it gives the default name) select the same and click on **create**.
 
-    ![image](target-input.png){ width="75%"}
+    ![image](22.2-selecttype-field.png){ width="75%"}
 
 -   Select the **output dataset** as link.csv file.
 
-    ![image](output.png){ width="75%"}
+    ![image](22.2-select-output.png){ width="75%"}
 
 -   Click on create.
 
-    ![image](linking-save.png){ width="75%"}
+    ![image](22.2-linking-click-on-create.png){ width="75%"}
 
 !!! note "Step Result"
 
     Linking task is created for the project. It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
 
-    ![image](linking-result.png){ width="75%"}
+    ![image](22.2-linking-created.png){ width="75%"}
 
     It shows the linking editor, linking execution, linking evaluation, and reference link in the centre of the page to create and evaluate the linking rules.
 
-    ![image](linking-result.png){ width="75%"}
+    ![image](22.2-linking-created.png){ width="75%"}
 
     On the right side of the page, it shows datasets, configuration linking, and configuration linking rules.
 
-    ![image](linking-result.png){ width="75%"}
+    ![image](22.2-linking-created.png){ width="75%"}
 
 ## 5 Work with linking rules
 
