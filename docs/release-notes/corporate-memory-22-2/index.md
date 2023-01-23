@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 22.2.1
+# Corporate Memory 22.2.2
 
-Corporate Memory 22.2.1 is the first patch release in the 22.2 release line.
+Corporate Memory 22.2.2 is the second patch release in the 22.2 release line.
 
 ![22.2: Build - Active Learning User Interface](22-2-active-learning-user-interface.png "22.2: Build - Active Learning User Interface")
 ![22.2: Explore - EasyNav Visualisation Interface](22-2-easynav-visualisation-interface.png "22.2: Explore - EasyNav Visualisation Interface")
@@ -31,9 +31,9 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v22.2.1
+-   eccenca DataPlatform v22.2.2
 -   eccenca DataIntegration v22.2.1
--   eccenca DataManager v22.2.1
+-   eccenca DataManager v22.2.2
 -   eccenca Corporate Memory Control (cmemc) v22.2
 
 More detailed release notes for these versions are listed below.
@@ -104,7 +104,15 @@ In addition to that, these changes are included in v22.2:
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataManager v22.2.1
+## eccenca DataManager v22.2.2
+
+v22.2.2 of eccenca DataManager has the following fixes:
+
+-   General
+    - Logout in DM also triggers logout in DI
+-   LinkRules
+    - Rule Setup: Rule filter corretly display OneOf and NoneOf
+    - Rule is correctly serialized after editing, preventing the rule contents to be deleted
 
 v22.2.1 of eccenca DataManager has the following fixes:
 
@@ -138,9 +146,17 @@ In addition to that, these changes are included in v22.2 of eccenca DataManager:
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataPlaftorm v22.2.1
+## eccenca DataPlaftorm v22.2.2
 
-v22.2.1 of eccenca DataManager has the following fixes:
+v22.2.2 of eccenca DataPlatform has the following changes:
+
+-   Fixed
+    - reintroduced support for IRI templates in node shapes, with only the uuid placeholder.
+    - Prevent buffer overflow for large query results streaming to client
+-   Changed
+    - Maintenance: Updated Spring Boot to 2.7.8
+
+v22.2.1 of eccenca DataPlatform has the following fixes:
 
 -   Update of dependencies because of vulnerabilities i.e. Spring Boot.
 -   Addition of logstash runtime dependency as to enable json logging.
