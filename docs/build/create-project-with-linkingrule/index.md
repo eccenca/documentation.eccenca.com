@@ -47,86 +47,87 @@ The following material is used in this tutorial, you should download the files a
 
 -   Once logged in to Corporate memory on the right side click on **create.**
 
-    ![image](create-project.png){ width="75%"}
+    ![image](22.2-create-project.png){ width="75%"}
 
     The screen gives an overview of the different projects created in your installation of Data Integration. It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
 
 -   Click on the **project** on the left side in the item type and double-click on the **project** in the centre.
 
-    ![image](click-on-project.png){ width="75%"}
+    ![image](22.2-click-on-project.png){ width="75%"}
 
 -   Type the project name as **Movie links** in the title field and click on **create.**
 
-    ![image](type-movielinks.png){ width="75%"}
+    ![image](22.2-type-movielink.png){ width="75%"}
 
 !!! note "Step Result"
 
     The project was created with the name "Movie links," which is displayed in the page top left corner.
 
-    ![image](display-movielink.png){ width="75%"}
+    ![image](22.2-project-created.png){ width="75%"}
 
 ## 2 Upload the files
 
 -   Click on **add file** on the right side of the page.
 
-    ![image](Add-file.png){ width="75%"}
+    ![image](22.2-click-on-add-files.png){ width="75%"}
 
 -   Click on **drop files here** select the file and click on **open**.
 
-    ![image](drop-files.png){ width="75%"}
+    ![image](22.2-upload-files.png){ width="75%"}
 
 -   Once the file is successfully uploaded click on **close.**
 
-    ![image](uploaded.png){ width="75%"}
+    ![image](22.2-files-uploaded.png){ width="75%"}
 
 -   Repeat the same step to add the file select the next second file and upload it.
 
 !!! note "Step Result"
 
     The files are uploaded to the project and reflect on the right side as shown below.
-    ![image](files-added.png){ width="75%"}
+
+    ![image](22.2-files-added.png){ width="75%"}
 
 ## 3 Create datasets
 
 -   Click on **create.**
 
-    ![image](click-on-create.png){ width="75%"}
+    ![image](22.2-click-on-create.png){ width="75%"}
 
 -   Click on the **dataset** on the left side in the item type and double-click on the **CSV file** in the centre.
 
-    ![image](click-on-project.png){ width="75%"}
+    ![image](22.2-click-on-dataset.png){ width="75%"}
 
 -   Type the file name as **dbpedia** in the label field.
 
-    ![image](dbpedia.png){ width="75%"}
+    ![image](22.2-type-dbpedia.png){ width="75%"}
 
 -   Tick the option **select file from project** and select the file from the drop-down list of files available in the project.
 
-    ![image](bdpedia-select-file.png){ width="75%"}
+    ![image](22.2-select-dbpedia-file.png){ width="75%"}
 
 -   Click on **create**.
 
-    ![image](bdpedia-create.png){ width="75%"}
+    ![image](22.2-click-on-create1.png){ width="75%"}
 
 -   Repeat the same step and add another file linkedmdb in the dataset.
 
 -   Create the empty dataset file for extracting both files' links as an output result. Click on the **dataset** on the left side of the item list and double-click on the **CSV** file.
 
-    ![image](CSV.png){ width="75%"}
+    ![image](22.2-click-on-dataset.png){ width="75%"}
 
 -   Type the label name **links.csv** in the label field.
 
-    ![image](type-links.png){ width="75%"}
+    ![image](22.2-type-links.png){ width="75%"}
 
 -   Tick the option **create empty file** and select the file name from the drop-down list as link.csv then click on create.
 
-    ![image](links.png){ width="75%"}
+    ![image](22.2-click-on-emptyfiles.png){ width="75%"}
 
 !!! note "Step result"
 
     Dataset for both the files dbpedia and linkedmdb has been created, and link.csv is created for the output result displayed in the page's center.
 
-    ![image](dataset-created.png){ width="75%"}
+    ![image](22.2-dataset-created.png){ width="75%"}
 
 ## 4 Create a linking task
 
