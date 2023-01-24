@@ -119,7 +119,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-type-links.png){ width="75%"}
 
--   Tick the option **create empty file** and select the file name from the drop-down list as link.csv then click on create.
+-   Tick the option **create empty file** and select the file name from the drop-down list as **link.csv** then click on **create**.
 
     ![image](22.2-click-on-emptyfiles.png){ width="75%"}
 
@@ -139,7 +139,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-linking.png){ width="75%"}
 
--   Type the name as linking in the label field and select the source input data set as a dbpedia file.
+-   Type the name as **linking** in the label field and select the **source input** data set as a **dbpedia** file.
 
     ![image](22.2-type-linking.png){ width="75%"}
 
@@ -147,7 +147,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-select-type-field.png){ width="75%"}
 
--   In the continuation to the same page go down, select the target input dataset as a linkedmdb file.
+-   In the continuation to the same page go down, select the **target input** dataset as a **linkedmdb** file.
 
     ![image](22.2-target-input.png){ width="75%"}
 
@@ -155,11 +155,11 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-selecttype-field.png){ width="75%"}
 
--   Select the **output dataset** as link.csv file.
+-   Select the **output dataset** as **link.csv** file.
 
     ![image](22.2-select-output.png){ width="75%"}
 
--   Click on create.
+-   Click on **create**.
 
     ![image](22.2-linking-click-on-create.png){ width="75%"}
 
@@ -186,11 +186,11 @@ The following material is used in this tutorial, you should download the files a
     Assemble a linking rule with the linking editor.
     To create a rule to say that movies from dbpedia and linkedmdb should be considered the same if their titles are identical.
 
--   Click on the source path and drag the title on the canvas.
+-   Click on the **source path** and drag the title on the canvas.
 
     ![image](22.2-click-on-sourcepath.png){ width="75%"}
 
--   Click on the target path and drag the title on the canvas.
+-   Click on the **target path** and drag the title on the canvas.
 
     ![image](22.2-click-on-targetpath.png){ width="75%"}
 
@@ -206,7 +206,7 @@ The following material is used in this tutorial, you should download the files a
 
     Let's make this a little better and compare only the lowercase versions of the titles to get around issues with differences in the lower and upper case between the two datasets.
 
--   Click on **transformation**, type the operator lowercase  in the search field and drag the same on the canvas twice.
+-   Click on **transformation**, type the operator **lowercase**  in the search field and drag the same on the canvas twice.
 
     ![image](22.2-lowercase.png){ width="75%"}
 
@@ -230,7 +230,7 @@ The following material is used in this tutorial, you should download the files a
 
     To compare the movie title names of both the data `dbpedia.csv` and `linkedmdb.csv`.
 
--   Click on **comparison** and type the equality in the search field and drag the string equality on the canvas.
+-   Click on **comparison** and type the **equality** in the search field and drag the string equality on the canvas.
 
     ![image](22.2-comparison.png){ width="75%"}
 
@@ -268,7 +268,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-evalute-result.png){ width="75%"}
 
--   Click on the down arrow button to expand all
+-   Click on the down arrow button to **expand** all.
 
     ![image](22.2-expand-all.png){ width="75%"}
 
@@ -284,7 +284,7 @@ The following material is used in this tutorial, you should download the files a
 
     It has a filter feature that helps to find links by movie names. An example is shown below.
 
-    Let’s consider the movie name as shaft type shaft in the filter it shows the links with the shaft movie names links of both files.
+    Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names links of both files.
 
     ![image](22.2-type-shaft.png){ width="75%"}
 
@@ -294,7 +294,7 @@ The following material is used in this tutorial, you should download the files a
 
     The movie name is twice in both sheets, but the release dates differ. The shaft movie’s original release was in 1971 and the remake was in 2000. We have the tick option for the correct rule.
 
--   Click on the linking execution then click on the play button to execute the links (It copies the links to our data file links.csv (which is our output file).
+-   Click on the linking execution then click on the **play button** to execute the links (It copies the links to our data file links.csv (which is our output file).
 
     ![image](22.2-start-activity.png){ width="75%"}
 
