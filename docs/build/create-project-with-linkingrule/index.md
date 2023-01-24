@@ -188,17 +188,17 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on the source path and drag the title on the canvas.
 
-    ![image](source-path.png){ width="75%"}
+    ![image](22.2-click-on-sourcepath.png){ width="75%"}
 
 -   Click on the target path and drag the title on the canvas.
 
-    ![image](target-input.png){ width="75%"}
+    ![image](22.2-click-on-targetpath.png){ width="75%"}
 
 !!! note "Step Result"
 
     The titles from the source path and target are dragged on the canvas as shown below.
 
-    ![image](source-target-path.png){ width="75%"}
+    ![image](22.2-click-on-targetpath.png){ width="75%"}
 
 ### Improve the linking rule
 
@@ -208,27 +208,21 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on **transformation**, type the operator lowercase  in the search field and drag the same on the canvas twice.
 
-    ![image](transformation1.png){ width="75%"}
+    ![image](22.2-lowercase.png){ width="75%"}
 
 -   Drag the little dot on the right side of the source path box onto the left dot of the transformation box(lower case) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
-    ![image](source-conect-lower.png){ width="75%"}
-
-!!! note "Step Result"
-
-    The lines connected between the source path title and lowercase as shown below.
-
-    ![image](source-conect-lower.png){ width="75%"}
+    ![image](22.2-source-lowercase.png){ width="75%"}
 
 -   Drag the little dot on the right side of the target path box onto the left dot of the transformation box(lower case) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
-    ![image](target-lower.png){ width="75%"}
+    ![image](22.2-target-lowercase.png){ width="75%"}
 
 !!! note "Step Result"
 
     The lines connected between the target path title and lowercase as shown below.
 
-    ![image](target-lower.png){ width="75%"}
+    ![image](22.2-target-lowercase.png){ width="75%"}
 
 ### Compare names
 
@@ -238,21 +232,21 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on **comparison** and type the equality in the search field and drag the string equality on the canvas.
 
-    ![image](equality.png){ width="75%"}
+    ![image](22.2-comparison.png){ width="75%"}
 
 -   Drag the little dot on the right side of both lowercase boxes onto the left dot of the string equality box to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
 
-    ![image](lower-equality.png){ width="75%"}
+    ![image](22.2-lower-string.png){ width="75%"}
 
 !!! note "Step Result"
 
     The lines are connected between both lowercase operators and string equality operators.
 
-    ![image](lower-equality.png){ width="75%"}
+    ![image](22.2-lower-string.png){ width="75%"}
 
 -   Click on **save** on the right side of the page.
 
-    ![image](save.png){ width="75%"}
+    ![image](22.2-comparison-save.png){ width="75%"}
 
 ### Linking evaluation
 
@@ -262,27 +256,27 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on the **linking evaluation**.
 
-    ![image](linking-evaluation.png){ width="75%"}
+    ![image](22.2-click-on-linking-evaluation.png){ width="75%"}
 
 -   Click on the **play button** to start the evaluation and generate the links.
 
-    ![image](play.png){ width="75%"}
+    ![image](22.2-start-evalute.png){ width="75%"}
 
 !!! note "Step Result"
 
     The links are generated as shown below. (It allows us to review the links and since Data Integration does not know which column to use as a unique identifier, it just uses the row number in the .csv file to identify each movie.
 
-    ![image](play.png){ width="75%"}
+    ![image](22.2-evalute-result.png){ width="75%"}
 
 -   Click on the down arrow button to expand all
 
-    ![image](expand.png){ width="75%"}
+    ![image](22.2-expand-all.png){ width="75%"}
 
 !!! note "Step Result"
 
     This allows you to see how the linking rule was performed for each link and even the movie name compared in both files.
 
-    ![image](expand-result.png){ width="75%"}
+    ![image](22.2-expand-result.png){ width="75%"}
 
 ### Use a filter
 
@@ -292,18 +286,20 @@ The following material is used in this tutorial, you should download the files a
 
     Let’s consider the movie name as shaft type shaft in the filter it shows the links with the shaft movie names links of both files.
 
-    ![image](shaft.png){ width="75%"}
+    ![image](22.2-type-shaft.png){ width="75%"}
 
     Cross-checking in the `dbpedia.csv` and `linkedmdb.csv` data sheet.
 
-    ![image](shaft-result.png){ width="75%"}
+    ![image](22.2-shaft-result.png){ width="75%"}
 
     The movie name is twice in both sheets, but the release dates differ. The shaft movie’s original release was in 1971 and the remake was in 2000. We have the tick option for the correct rule.
 
 -   Click on the linking execution then click on the play button to execute the links (It copies the links to our data file links.csv (which is our output file).
 
-    ![image](linkexecution.png){ width="75%"}
+    ![image](22.2-start-activity.png){ width="75%"}
 
 !!! note "Step Result"
 
     The links are executed and copied to the output data file links.csv and which shows the count of links on the page.
+
+    ![image](22.2-linking-result.png){ width="75%"}
