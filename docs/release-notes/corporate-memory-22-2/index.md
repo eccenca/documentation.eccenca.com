@@ -146,7 +146,7 @@ In addition to that, these changes are included in v22.2 of eccenca DataManager:
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataPlaftorm v22.2.2
+## eccenca DataPlatform v22.2.2
 
 v22.2.2 of eccenca DataPlatform has the following changes:
 
