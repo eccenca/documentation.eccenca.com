@@ -13,7 +13,7 @@ tags:
 ## Introduction
 
 The eccenca DataIntegration platform is designed to support the process to "BUILD" a knowledge graph by integrating structured and unstructured data from multiple sources, including on-premises systems and cloud-based services.
-The feature to BUILD include data mapping, transformation, and cleansing tools, as well as real-time data integration and governance support.
+The BUILD functionalities include data mapping, transformation, and cleansing tools, as well as data integration and governance support.
 
 This beginner-level tutorial explains how to build a data integration project using linking rules.
 
@@ -43,7 +43,7 @@ The following material is used in this tutorial, you should download the files a
 
         ![](preview-linkedmdb.png){ width="75%"}
 
-## 1 Create a new project
+## 1. Create a new project
 
 -   Once logged in to Corporate memory on the right side click on **create.**
 
@@ -65,7 +65,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-project-created.png){ width="75%"}
 
-## 2 Upload the files
+## 2. Upload the files
 
 -   Click on **add file** on the right side of the page.
 
@@ -87,7 +87,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-files-added.png){ width="75%"}
 
-## 3 Create datasets
+## 3. Create datasets
 
 -   Click on **create.**
 
@@ -129,7 +129,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-dataset-created.png){ width="75%"}
 
-## 4 Create a linking task
+## 4. Create a linking task
 
 -   Click on **create**.
 
@@ -177,7 +177,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-linking-created.png){ width="75%"}
 
-## 5 Work with linking rules
+## 5. Work with linking rules
 
 ### Assemble a linking rule
 
