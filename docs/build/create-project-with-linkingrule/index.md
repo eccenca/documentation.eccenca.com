@@ -181,6 +181,13 @@ The following material is used in this tutorial, you should download the files a
 
 ### Assemble a linking rule
 
+<!--
+the initial rule shown in the screenshots is incomplete.
+a rule is only complete if if can be saved and validated.
+
+the initial rule should have the source and target paths for title and a string equality comperator.
+-->
+
 !!! success "Task"
 
     Assemble a linking rule with the linking editor.
