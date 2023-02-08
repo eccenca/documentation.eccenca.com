@@ -114,10 +114,15 @@ tasks:
 
   update:shape-reference:
     desc: re-generates the shape and datatype references
-    summary: |
+    summary: >
+      This task uses a running Corporate Memory to upload a specification for
+      a custom markdown endpoint (see shapedocu.ttl in
+      tools/update-shape-reference) for exporting.
+
+
       In order to use this task, a valid cmemc Corporate Memory connection needs
-      to be available. This can be done by setting CMEMC_CONNECTION or
-      using the eval command.
+      to be available in the environment.
+      This can be done by setting CMEMC_CONNECTION or by using the eval command.
 
         - CMEMC_CONNECTION=mycmem task update:shape-reference
         - eval $(cmemc -c mycmem config eval); task update:shape-reference
