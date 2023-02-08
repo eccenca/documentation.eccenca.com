@@ -48,11 +48,12 @@ Used Path: `shacl:description`
 
 Use this property to provide a tabular read-only report of a custom SPARQL query at the place where this property shape is used in the user interface.
 
-The following placeholder can be used in the query text of the sparql query:
+The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
 - `{{shuiGraph}}` - the currently used graph.
+
 
 Used Path: `shui:valueQuery`
 
@@ -166,7 +167,7 @@ Used Path: `shacl:datatype`
 ### Use textarea
 
 
-Default is false. A value of true enables multiline editing capabilities for Literals via a textarea widget.
+Default is false. A value of true enables multiline editing capabilities for Literals via a `textarea` widget.
 
 Used Path: `shui:textarea`
 
@@ -190,7 +191,7 @@ Used Path: `shacl:flags`
 ### Languages allowed
 
 
-This limits the given Literals to a list of languages. This property works only in combination with the datatype rdf:langString. Note that the expression for this property only allows for '2 Char ISO-639-1-Codes' only (no sub-tags).
+This limits the given Literals to a list of languages. This property works only in combination with the datatype `rdf:langString`. Note that the expression for this property only allows for '2 Char ISO-639-1-Codes' only (no sub-tags).
 
 Used Path: `shui:languageIn`
 
@@ -274,7 +275,7 @@ Used Path: `shui:ignoreOnCopy`
 
 This query is executed when a property value is added or changed.
 
-The following placeholder can be used in the query text of the sparql query:
+The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
@@ -289,7 +290,7 @@ Used Path: `shui:onInsertUpdate`
 
 This query is executed when a value is changed or removed.
 
-The following placeholder can be used in the query text of the sparql query:
+The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
