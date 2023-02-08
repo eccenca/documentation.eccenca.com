@@ -69,7 +69,11 @@ ORDER BY ASC(?groupOrder) ASC(?propertyOrder)
 
 ### {{ result.property }}
 
-{{ result.description }}
+{#
+# wrapping {{placeholder}} in `raw` environment in order to have it in the output
+# https://stackoverflow.com/questions/55463849/how-can-i-escape-double-curly-braces-in-jinja2
+#}
+{{ result.description | replace('{{', '{% raw %}{{') | replace('}}', '}}{% endraw %}') }}
 
 Used Path: `{{ result.path }}`
 {% endfor %}"""^^shui:jinja ;
@@ -135,7 +139,11 @@ ORDER BY ASC(?groupOrder) ASC(?propertyOrder)
 
 ### {{ result.property }}
 
-{{ result.description }}
+{#
+# wrapping {{placeholder}} in `raw` environment in order to have it in the output
+# https://stackoverflow.com/questions/55463849/how-can-i-escape-double-curly-braces-in-jinja2
+#}
+{{ result.description | replace('{{', '{% raw %}{{') | replace('}}', '}}{% endraw %}') }}
 
 Used Path: `{{ result.path }}`
 {% endfor %}"""^^shui:jinja ;
@@ -179,7 +187,11 @@ ORDER BY ASC(LCASE(?label))"""^^shui:sparqlQuery ;
     rdfs:label "Datatype Documentation Template" ;
     shui:selectResultTemplateBody """{% for result in results %}#### {{ result.label }}
 
-{{ result.description }}
+{#
+# wrapping {{placeholder}} in `raw` environment in order to have it in the output
+# https://stackoverflow.com/questions/55463849/how-can-i-escape-double-curly-braces-in-jinja2
+#}
+{{ result.description | replace('{{', '{% raw %}{{') | replace('}}', '}}{% endraw %}') }}
 
 IRI: `{{ result.iri }}`
 

@@ -22,6 +22,7 @@ This page lists all supported properties to describe node shapes.
 
 ### Name
 
+
 The name of the node is presented to the user only when he needs to distinguish between different shapes for the same resource.
 
 Used Path: `shacl:name`
@@ -29,19 +30,30 @@ Used Path: `shacl:name`
 
 ### Description
 
+
 The node description should provide context information for the user when creating a new resource based on this node.
 
 Used Path: `rdfs:comment`
 
 
+### Tab Name (deprecated)
+
+
+Name of the tab (deprecated, only interpreted until 20.06)
+
+Used Path: `shui:tabName`
+
+
 ### Navigation list query
 
-This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use  as a placeholder for the FROM section. Additionally,  can be used to access the graph in the FROM section.
+
+This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section. Additionally, {{GRAPH}} can be used to access the graph in the FROM section.
 
 Used Path: `shui:navigationListQuery`
 
 
 ### Depiction Image
+
 
 This property links a node shape to an image in order to use this image when showing resources based on this node shape somewhere.
 
@@ -54,12 +66,14 @@ Used Path: `http://xmlns.com/foaf/0.1/depiction`
 
 ### Property Shapes
 
+
 The used property shapes on this node. Please note that this is NOT a link to a datatype or object property but to a SHACL property shape.
 
 Used Path: `shacl:property`
 
 
 ### Target class
+
 
 Class this NodeShape applies to. This is a direct link to a class resource from a vocabulary.
 
@@ -72,6 +86,7 @@ Used Path: `shacl:targetClass`
 
 ### URI template
 
+
 A compact sequence of characters for describing a range of URIs through variable expansion.
 
 Used Path: `shui:uriTemplate`
@@ -80,17 +95,21 @@ Used Path: `shui:uriTemplate`
 ### On update update
 
 
+
 A query which is executed when this nodeshape is submitted.
 The query should be saved in the same graph as the shape (or imported).
+
 The query can use these placeholders:
- - the resource currently shown with the node shape of this property shape,
- - the currently used graph. 
+
+- `{{shuiResource}}` - the resource currently shown with the node shape of this property shape,
+- `{{shuiGraph}}` - the currently used graph. 
 
 
 Used Path: `shui:onUpdateUpdate`
 
 
 ### Target Graph Template
+
 
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 
@@ -103,12 +122,14 @@ Used Path: `shui:targetGraphTemplate`
 
 ### Enable
 
+
 A value of true enables visualisation and management capabilities of statement annotations (reification) for all statements which are shown via this shape.
 
 Used Path: `shui:enableStatementLevelMetadata`
 
 
 ### Provide as Shape
+
 
 A value of true enables this node shape to be applied as statement annotation (reification).
 
