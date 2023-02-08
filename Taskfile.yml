@@ -114,6 +114,13 @@ tasks:
 
   update:shape-reference:
     desc: re-generates the shape and datatype references
+    summary: |
+      In order to use this task, a valid cmemc Corporate Memory connection needs
+      to be available. This can be done by setting CMEMC_CONNECTION or
+      using the eval command.
+
+        - CMEMC_CONNECTION=mycmem task update:shape-reference
+        - eval $(cmemc -c mycmem config eval); task update:shape-reference
     cmds:
       - cmemc graph import --replace {{.SRC}}
       - cp {{.SRC}}/nodeshapedocu-head.md {{.NODESHAPES_MD}}
