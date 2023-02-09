@@ -45,14 +45,14 @@ IRI: `http://www.w3.org/2001/XMLSchema#byte`
 #### date
 
 
-The ·lexical space· of date consists of finite-length sequences of characters of the form: '-'? yyyy '-' mm '-' dd zzzzzz? where the date and optional timezone are represented exactly the same way as they are for dateTime. The first moment of the interval is that represented by: '-' yyyy '-' mm '-' dd 'T00:00:00' zzzzzz? and the least upper bound of the interval is the timeline point represented (noncanonically) by: '-' yyyy '-' mm '-' dd 'T24:00:00' zzzzzz?.
+The lexical space of date consists of finite-length sequences of characters of the form: `'-'? yyyy '-' mm '-' dd zzzzzz?` where the date and optional timezone are represented exactly the same way as they are for dateTime. The first moment of the interval is that represented by: `'-' yyyy '-' mm '-' dd 'T00:00:00' zzzzzz?` and the least upper bound of the interval is the timeline point represented (noncanonically) by: `'-' yyyy '-' mm '-' dd 'T24:00:00' zzzzzz?`.
 
 IRI: `http://www.w3.org/2001/XMLSchema#date`
 
 #### dateTime
 
 
-The ·lexical space· of dateTime consists of finite-length sequences of characters of the form: '-'? yyyy '-' mm '-' dd 'T' hh ':' mm ':' ss ('.' s+)? (zzzzzz)? For example, 2002-10-10T12:00:00-05:00 (noon on 10 October 2002, Central Daylight Savings Time as well as Eastern Standard Time in the U.S.) is 2002-10-10T17:00:00Z, five hours later than 2002-10-10T12:00:00Z.
+The ·lexical space· of dateTime consists of finite-length sequences of characters of the form: `'-'? yyyy '-' mm '-' dd 'T' hh ':' mm ':' ss ('.' s+)? (zzzzzz)?` For example, `2002-10-10T12:00:00-05:00` (noon on 10 October 2002, Central Daylight Savings Time as well as Eastern Standard Time in the U.S.) is `2002-10-10T17:00:00Z`, five hours later than `2002-10-10T12:00:00Z`.
 
 IRI: `http://www.w3.org/2001/XMLSchema#dateTime`
 
@@ -80,7 +80,7 @@ IRI: `http://www.w3.org/2001/XMLSchema#double`
 #### duration
 
 
-The lexical representation for duration is the [ISO 8601] extended format PnYn MnDTnH nMnS, where nY represents the number of years, nM the number of months, nD the number of days, 'T' is the date/time separator, nH the number of hours, nM the number of minutes and nS the number of seconds. The number of seconds can include decimal digits to arbitrary precision.
+The lexical representation for duration is the ISO 8601 extended format `PnYnMnDTnHnMnS`, where `nY` represents the number of years, `nM` the number of months, `nD` the number of days, `T` is the date/time separator, `nH` the number of hours, `nM` the number of minutes and `nS` the number of seconds. The number of seconds can include decimal digits to arbitrary precision.
 
 IRI: `http://www.w3.org/2001/XMLSchema#duration`
 
@@ -94,28 +94,28 @@ IRI: `http://www.w3.org/2001/XMLSchema#float`
 #### gDay
 
 
-The lexical representation for gDay is the left truncated lexical representation for date: ---DD . An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D).
+The lexical representation for gDay is the left truncated lexical representation for date: `---DD` . An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats.
 
 IRI: `http://www.w3.org/2001/XMLSchema#gDay`
 
 #### gMonth
 
 
-The lexical representation for gMonth is the left and right truncated lexical representation for date: --MM. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D).
+The lexical representation for gMonth is the left and right truncated lexical representation for date: `--MM`. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats.
 
 IRI: `http://www.w3.org/2001/XMLSchema#gMonth`
 
 #### gMonthDay
 
 
-The lexical representation for gMonthDay is the left truncated lexical representation for date: --MM-DD. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D). This datatype can be used to represent a specific day in a month. To say, for example, that my birthday occurs on the 14th of September ever year.
+The lexical representation for gMonthDay is the left truncated lexical representation for date: `--MM-DD`. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats. This datatype can be used to represent a specific day in a month. To say, for example, that my birthday occurs on the 14th of September ever year.
 
 IRI: `http://www.w3.org/2001/XMLSchema#gMonthDay`
 
 #### gYear
 
 
-The lexical representation for gYear is the reduced (right truncated) lexical representation for dateTime: CCYY. No left truncation is allowed. An optional following time zone qualifier is allowed as for dateTime. To accommodate year values outside the range from 0001 to 9999, additional digits can be added to the left of this representation and a preceding '-' sign is allowed. For example, to indicate 1999, one would write: 1999. See also ISO 8601 Date and Time Formats (·D).
+The lexical representation for gYear is the reduced (right truncated) lexical representation for dateTime: `CCYY`. No left truncation is allowed. An optional following time zone qualifier is allowed as for dateTime. To accommodate year values outside the range from `0001` to `9999`, additional digits can be added to the left of this representation and a preceding `-` sign is allowed. For example, to indicate 1999, one would write: `1999`. See also ISO 8601 Date and Time Formats.
 
 IRI: `http://www.w3.org/2001/XMLSchema#gYear`
 
@@ -154,7 +154,7 @@ integer has a lexical representation consisting of a finite-length sequence of d
 
 IRI: `http://www.w3.org/2001/XMLSchema#integer`
 
-#### Jinja Template String (datatype)
+#### Jinja Template String
 
 
 Jinja is a modern and designer-friendly templating language for Python and other languages.
@@ -290,7 +290,7 @@ IRI: `http://www.w3.org/2001/XMLSchema#string`
 #### time
 
 
-The lexical representation for time is the left truncated lexical representation for dateTime: hh:mm:ss.sss with optional following time zone indicator. For example, to indicate 1:20 pm for Eastern Standard Time which is 5 hours behind Coordinated Universal Time (UTC), one would write: 13:20:00-05:00. See also ISO 8601 Date and Time Formats (·D).
+The lexical representation for time is the left truncated lexical representation for dateTime: `hh:mm:ss.sss` with optional following time zone indicator. For example, to indicate 1:20 pm for Eastern Standard Time which is 5 hours behind Coordinated Universal Time (UTC), one would write: `13:20:00-05:00`. See also ISO 8601 Date and Time Formats.
 
 IRI: `http://www.w3.org/2001/XMLSchema#time`
 
