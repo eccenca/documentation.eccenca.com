@@ -13,17 +13,17 @@ tags:
 ## Introduction
 
 The eccenca DataIntegration platform is designed to support the process to "BUILD" a knowledge graph by integrating structured and unstructured data from multiple sources, including on-premises systems and cloud-based services.
-The BUILD functionalities include data mapping, transformation, and cleansing tools, as well as data integration and governance support.
+The BUILD functionalities include data mapping, transformation, and cleansing tools, as well as DataIntegration and governance support.
 
-This beginner-level tutorial explains how to build a data integration project using linking rules.
+This beginner-level tutorial explains how to build a DataIntegration project using linking rules.
 
 The documentation consists of the following steps described in detail below:
 
-1. Create a new project.
-2. Upload files.
+1. Create a new project
+2. Upload files
 3. Create datasets
 4. Create a linking task
-5. Work with linking rules.
+5. Assemble a linking rule
 
 This tutorial shows how to connect two movie-related data sources and introduces some of Data-Integration’s fundamental functions. sources of information are LinkedMDB, the linked data version of the IMDb movie database, and DBpedia, the linked data version of Wikipedia. Both files contain a list of movies with their names, titles, release dates, and an internal ID for each movie. The task is to link the two datasets to find out which movie in DBpedia corresponds to which movie in LinkedMDB.
 
@@ -49,7 +49,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-create-project.png){ width="75%"}
 
-    The screen gives an overview of the different projects created in your installation of Data Integration. It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
+    The screen gives an overview of the different projects created in your installation of DataIntegration. It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
 
 -   Click on the **project** on the left side in the item type and double-click on the **project** in the centre.
 
@@ -177,21 +177,21 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-linking-created.png){ width="75%"}
 
-## 5. Work with linking rules
-
-### Assemble a linking rule
+## 5. Assemble a linking rule
 
 <!--
 the initial rule shown in the screenshots is incomplete.
 a rule is only complete if if can be saved and validated.
 
-the initial rule should have the source and target paths for title and a string equality comperator.
+the initial rule should have the source and target paths for title and a string equality comparator.
 -->
 
 !!! success "Task"
 
     Assemble a linking rule with the linking editor.
     To create a rule to say that movies from dbpedia and linkedmdb should be considered the same if their titles are identical.
+
+### Add source and target paths for the `title`
 
 -   Click on the **source path** and drag the title on the canvas.
 
@@ -207,7 +207,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-click-on-targetpath.png){ width="75%"}
 
-### Improve the linking rule
+### Normalize the `title` for a better comparison result
 
 !!! success "Task"
 
@@ -231,13 +231,13 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-target-lowercase.png){ width="75%"}
 
-### Compare names
+### Compare the `title` of the movies
 
 !!! success "Task"
 
-    To compare the movie title names of both the data `dbpedia.csv` and `linkedmdb.csv`.
+    Compare the movie title names of both the data `dbpedia.csv` and `linkedmdb.csv`.
 
--   Click on **comparison** and type the **equality** in the search field and drag the string equality on the canvas.
+-   Click on **comparison** and type the **equality** in the search field and drag the `string equality`operation onto the canvas.
 
     ![image](22.2-comparison.png){ width="75%"}
 
@@ -271,7 +271,7 @@ the initial rule should have the source and target paths for title and a string 
 
 !!! note "Step Result"
 
-    The links are generated as shown below. (It allows us to review the links and since Data Integration does not know which column to use as a unique identifier, it just uses the row number in the .csv file to identify each movie.
+    The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the .csv file to identify each movie.
 
     ![image](22.2-evalute-result.png){ width="75%"}
 
