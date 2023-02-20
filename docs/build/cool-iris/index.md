@@ -13,7 +13,7 @@ URIs and IRIs are character strings identifying the nodes and edges in the graph
 [RFC 3986](http://tools.ietf.org/html/rfc3986) defines a generic syntax for URIs:
 
 - `<scheme>:<scheme-specific-part>`
-- Scheme-specific part often structured: `<authority>/<path>?<query>`
+- The scheme-specific part is often structured: `<authority>/<path>?<query>`
 
 URIs are limited to ASCII characters. IRIs (Internationalized Resource Identifiers) allow Unicode ([RFC 3987](https://tools.ietf.org/html/rfc3987)).
 
@@ -41,13 +41,13 @@ Define a useful IRI-Scheme that can be used for resources.
     - `https://data.company.org/software/` for software artifacts
     - `PREFIX cohw: <https://data.company.org/hardware/>`
     - `PREFIX cosw: <https://data.company.org/software/>`
-- Based on these build consistent schemes that define how your IRIs have to be build. Examples:
+- Based on these, build consistent schemes that define how your IRIs have to be build. Examples:
     - `https://data.company.org/hardware/<ProductClass>/<Serialnumber>` to identify an individual product
     - `https://data.company.org/hardware/<ProductClass>/<Modelnumber>` to identify a product model
 
 !!! warning
 
-    Do not put a trailing slash on the end of a resource IRIs. As such can not be used with prefix definitions in Turtle or SPARQL, which makes them more difficult to use.
+    Do not put a trailing slash at the end of resource IRIs as these cannot be used with prefix definitions in Turtle or SPARQL, which makes them more difficult to use.
 
 ## More information
 
