@@ -10,13 +10,13 @@ tags:
 
 ## Introduction
 
-This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (means, without registering datasets).
+This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (i.e., without registering datasets).
 The concept to achieve this is named a **Variable Dataset**.
-A variable dataset is created and used inside of a workflow as an input for other tasks (e.g. a transformation) at the place where a "normal" dataset (such as register CSV file) would be placed.
+A variable dataset is created and used inside of a workflow as an input for other tasks (e.g. a transformation) at the place where a "regular" dataset (such as register CSV file) would be placed.
 
-The workflow is then called via an HTTP REST call (or via [cmemc](/automate/cmemc-command-line-interface)), thus uploading the payload data "at the place" of this variable input dataset and executing all following parts of the workflow.
+The workflow is then called via an HTTP REST call (or via [cmemc](/automate/cmemc-command-line-interface)), thus uploading the payload data to this variable input dataset and executing all following parts of the workflow.
 
-This allows for solving all kinds of [☆ Automation](/automate) tasks when you need to process lots of small data snippets or similar.
+This allows for solving all kinds of [☆ Automation](/automate) tasks when, for instance, a large number of small data snippets needs to be processed.
 
 !!! info
 
@@ -35,7 +35,7 @@ First, install all required ontologies/vocabularies which are needed for mapping
 
 In this tutorial, we need the _Schema.org_ and the _RDFS_ vocabulary. Press the (toggle switch) button on the right to install them.
 
-![VOcabulary catalog](pdwviw-vocab-catalog.png)
+![Vocabulary catalog](pdwviw-vocab-catalog.png)
 
 ## 2 Create a new project
 
@@ -59,10 +59,10 @@ For this tutorial, you may take this file: [feed.xml](feed.xml)(1)
 ## 4 Create the feed transformation
 
 Based on the added sample feed XML Dataset, create a mapping to generate RDF triples.
-The screenshot provides an example mapping to generate WebPages, which include a label, a URL, a text, and the date they were published in the feed.
+The screenshot provides an example mapping to generate WebPages, which includes a label, a URL, a text, and the date they were published in the feed.
 The mappings are based on classes and properties defined by the _Schema.org_ and _RDFS_ vocabulary.
 
-In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: [Lift data from JSON and XML sources](/build/lift-data-from-json-and-xml-sources).
+In case you need help with mapping data from XML to RDF, feel free to visit the respective tutorial: [Lift data from JSON and XML sources](/build/lift-data-from-json-and-xml-sources).
 
 ![Feed transformation](pdwviw-feed-transformation.png)
 
@@ -75,7 +75,7 @@ Move the **input** XML feed dataset and the **Feed Data** Graph into the workflo
 
 ## 6 Use `cmemc` to feed data into the workflow
 
-Finally, you can process all the feeds you want, by executing the created workflow with a dynamic XML payload.
+Finally, you can process all the feeds you want by executing the created workflow with a dynamic XML payload.
 
 For this, you need to use the `workflow io` command:
 
