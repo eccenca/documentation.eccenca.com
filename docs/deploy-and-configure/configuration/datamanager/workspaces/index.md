@@ -71,7 +71,7 @@ Use this property to define the identifier of a specific SPARQL endpoint at the 
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.workspaces[id].DIWorkspace.enable | none | yes | none | true / false |
 
-Use this property to enable/disable Data Integration menu item on navigation menu.
+Use this property to enable/disable the Data Integration menu item in the navigation menu.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -115,7 +115,7 @@ js.config.workspaces:
 
 ```
 
-Most configuration options that are app-wide applied can be overruled by specific workspace configurations. To overrule an app-wide configuration include the specific configuration option in the workspace definition as shown in the example below:
+Most configuration options that are applied application-wide can be overruled by specific workspace configurations. To overrule an app-wide configuration include the specific configuration option in the workspace definition as shown in the example below:
 
 ``` yaml
 js.config.workspaces:
@@ -139,4 +139,4 @@ js.config.appPresentation:
   headerName: Datamanager
 ```
 
-In the example above, the properties `js.config.workspaces and js.config.appPresentation` are configured. The property `js.config.appPresentation.windowTitle` in `js.config.workspaces` changes the title of DataManager from '*DataManager*' to '*Example Name*' for this specific workspace. Users logged in to this workspace see *Example Name* as window title, because the workspace configuration overrules the app-wide configuration.
+In the example above, the properties `js.config.workspaces and js.config.appPresentation` are configured. The property `js.config.appPresentation.windowTitle` in `js.config.workspaces` changes the title of DataManager from '*DataManager*' to '*Example Name*' for this specific workspace. Users logged in to this workspace see *Example Name* as the window title, because the workspace configuration overrules the app-wide configuration.
