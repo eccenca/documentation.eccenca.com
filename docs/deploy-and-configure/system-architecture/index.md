@@ -42,5 +42,5 @@ However, it is highly recommended to [use a relational database](https://www.ke
 Refer to the [Keycloak manual](https://www.keycloak.org/guides#server) for further information on possible setups.
 
 [cmemc](../../automate/cmemc-command-line-interface/index.md) (12) (**C**orporate **Mem**ory **C**ontrol) is the eccenca Corporate Memory Command Line Interface (CLI).
-cmemc is intended for System Administrators and Linked Data Experts who wants to automate and remote control activities on Corporate Memory.
+cmemc is intended for System Administrators and Linked Data Experts who want to automate and remote control activities in Corporate Memory.
 
