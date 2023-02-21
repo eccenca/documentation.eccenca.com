@@ -44,14 +44,14 @@ The results are presented as a table with pagination.
 
 ### Export results
 
-To export the full set of results without any limits in form of a CSV file click **:eccenca-item-download: Download result** on the top right. 
+To export the full set of results without any limits in the form of a CSV file click **:eccenca-item-download: Download result** at the top right. 
 
 ![](./QueriesResults.png)
 
 !!! info
 
     The preview result ordering has no impact on the result ordering in the exported file.
-    If you want to export some ordered query results, you need to use the `ORDER BY` construct in the SPARQL query itself.
+    If you want to export ordered query results, you need to use the `ORDER BY` construct in the SPARQL query itself.
 
 ### Save a query
 
@@ -61,7 +61,7 @@ This opens a dialog that allows you to overwrite the existing query.
 
 ### Placeholders
 
-In addition to the standard SPARQL syntax, placeholders can be used to parametrize a query.
+In addition to the standard SPARQL syntax, placeholders can be used to parameterize a query.
 Placeholders are indicated in the query using a string of the form `{{placeholdername}}`.
 Multiple placeholders can be defined by changing the name inside the brackets.
 
@@ -70,7 +70,7 @@ When a query contains a placeholder, the placeholder list to the right of the qu
 ![](./placeholder.png)
 
 When running a query that contains placeholders, the query editor replaces the `{{placeholdername}}` string in the query with the respective string entered into the placeholder list.
-This is a direct string replacement, so placeholders can contain simple strings and literal values, URIs, variables or even sub queries.
+This is a direct string replacement, so placeholders can contain simple strings and literal values, URIs, variables or even subqueries.
 
 Running a query with a placeholder is only possible when all placeholder fields in the placeholder list have been filled.
 
