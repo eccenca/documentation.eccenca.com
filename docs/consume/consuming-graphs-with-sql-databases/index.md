@@ -7,7 +7,7 @@ tags:
 
 ## Introduction
 
-If direct access to the knowledge graph is not sufficient, fragments of the Knowledge Graph may also be pushed into external SQL databases. While in general all supported databases can also be written into, optimized writing support is available and packaged for MySQL and MariaDB.
+If direct access to the knowledge graph is not sufficient, fragments of the Knowledge Graph may also be pushed into external SQL databases. While in general all supported databases can also be written to, optimized writing support is available and packaged for MySQL and MariaDB.
 
 See the documentation of the JDBC dataset for more details.
 
@@ -44,7 +44,7 @@ For each column of the target table, add a value mapping to the transformation:
 </figure>
 The shown transformation will create a table with two columns:
 
-- A column **name**  that contains values of the property **foaf:name**.
+- A column **name** that contains values of the property **foaf:name**.
 - A column **runtime** that contains values of the property **dbpediaow:runtime**.
 
 ### Create SQL dataset
@@ -57,11 +57,11 @@ The most relevant parameters are:
 
 - The JDBC Driver Connection URL should contain the database-specific JDBC URL.
 - The table parameter defines the name of the table to be written.
-- The write strategy specifies the behavior if the configured table already exists in the target SQL database.
+- The write strategy specifies the behavior when the configured table already exists in the target SQL database.
 
 ## Writing multiple tables into a SQL database
 
-If multiple tables should be written from several type of resources, there are two options:
+If multiple tables should be written from several types of resources, there are two options:
 
 1. If the types are connected by properties, a single transformation with multiple object mappings can be used. The root mapping will write the table specified by the SQL dataset. Each object mapping does write an additional table. The name of the table is generated based on the target type, which is defined in the object mapping.
-2. If the types are not directly connected by properties, multiple transformations can be created. Note that for each transformation, a separate target SQL dataset needs to be created, since the table name is specified in it.
+2. If the types are not directly connected by properties, multiple transformations can be created. Note that for each transformation, a separate target SQL dataset needs to be created since the table name is specified in it.
