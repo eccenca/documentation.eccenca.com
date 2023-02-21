@@ -10,7 +10,7 @@ This page describes how to configure eccenca DataManager.
 
 It is intended for system administrators, who are responsible for installing, configuring, maintaining and supporting the deployment of DataManager.
 
-eccenca DataManager is a single-page JavaScript application, which means the application consists of a single HTML page which loads all needed web resources in the browser after loading the page itself.
+eccenca DataManager is a single-page JavaScript application, which means the application consists of a single HTML page which loads all the necessary web resources in the browser after loading the page.
 
 In the context of DataManager, these web resources are:
 
@@ -23,7 +23,7 @@ DataManager communicates with different API endpoints in order to retrieve and m
 
 The features of DataManager include:
 
--   Dataset Manager to create and update datasets and its meta data
+-   Dataset Manager to create and update datasets and its metadata
 -   Vocabulary Manager to install and remove Vocabulary descriptions
 -   Data browser to explore and manage graph-based data
 -   Taxonomy Editor to manage and create SKOS based taxonomies
