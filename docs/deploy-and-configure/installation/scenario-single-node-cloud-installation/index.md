@@ -12,7 +12,7 @@ This page describes a docker-compose based orchestration running on a server ins
 - ssh access to a server instance (Debian 11) with a public IP address
 - A resolvable domain name to this server
 - Terminal with ssh client installed locally
-- An eccenca partner account for the docker registry as well as the release artifact area
+- An eccenca partner account for the docker registry and the release artifact area
 
 ## Server Provisioning
 
@@ -46,7 +46,7 @@ $ chmod +x /usr/local/bin/docker-compose
 
 !!! info
 
-    For username and password in curl command use the credentials to access eccenca Artifactory and docker registry.
+    For username and password in the curl command use the credentials to access eccenca Artifactory and docker registry.
 
 Connect to the server and navigate to the directory with the Corporate Memory docker orchestration:
 
@@ -76,7 +76,7 @@ For now, you can use the provided file `config.ssl-letsencrypt.env` as a templ
 
 !!! warning
 
-    You need to change the lines with DEPLOYHOST and LETSENCRYPT_MAIL to you actual values.
+    You need to edit the lines with DEPLOYHOST and LETSENCRYPT_MAIL to include your actual values.
 
 ```shell-session
 $ cd /opt/cmem-orchestration/environments
@@ -86,7 +86,7 @@ $ cp config.ssl-letsencrypt.env prod.env
 $ vi prod.env
 ```
 
-In addition that, you need to remove the default config and link it to your prod.env
+In addition to that, you need to remove the default config and link it to your prod.env
 
 ```shell-session
 $ cd /opt/cmem-orchestration/environments
@@ -125,7 +125,7 @@ $ make clean-pull-start-bootstrap
 $ make tutorials-import
 ```
 
-Optional: you can install cmem as a systemd service for this use these commands as root oder sudo:
+Optional: you can install cmem as a systemd service. To do this, use these commands as root oder sudo:
 
 ```shell-session
 $ cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service /etc/systemd/system
@@ -146,9 +146,9 @@ Click **CONTINUE WITH LOGIN** and use one of these default accounts:
 
 ![successful-login](../22-1-successful-login.png)
 
-After successful login, you will see Corporate Memory interface.
+After successful login, you will see the Corporate Memory interface.
 You can now proceed to the :material-arrow-right: [Getting Started](../../../getting-started/index.md) section.
 
-Do not forget to change the passwords of your deployment, especially if it is available from the public internet.
-For this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
+Do not forget to change the passwords of your deployment, especially if it is publically accessible on the internet.
+To do this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
 
