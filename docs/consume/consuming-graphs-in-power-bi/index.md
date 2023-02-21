@@ -14,7 +14,7 @@ This manual and tutorial describes how you can consume data from your knowledge 
 
 Power BI is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. Power BI can be obtained from the [official Microsoft page](https://www.microsoft.com/download/details.aspx?id=45331)  and/or in the Windows Software Store.
 
-The latest (unsigned) version of our Power-BI-Connector is available from its source repository a version signed by eccenca is available with each Corporate Memory release.
+The latest (unsigned) version of our Power-BI-Connector is available from its source repository; a version signed by eccenca is available with each Corporate Memory release.
 
 - [eccenca github.com repository](https://github.com/eccenca/power-bi-connector/tags) (unsigned .mez file)![release](https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic) ![tag](https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic)
 - [eccenca Corporate Memory Releases](https://releases.eccenca.com/power-bi-connector/) (signed .pqx file)
@@ -40,7 +40,7 @@ The latest (unsigned) version of our Power-BI-Connector is available from its so
             ![PowerBI-Registry-Editor.png](22-1-PowerBI-Registry-Editor.png)
             - (Re-)Start Power BI Desktop
 
-        If you wish to automate this setup you can use the reg windows command line tool to make this entry like:
+        If you wish to automate this setup you can use the reg windows command line tool to make this entry, such as:
 
         ```powershell
         REM list existing entries in Power BI Desktop > TrustedCertificateThumbprints
@@ -71,12 +71,12 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
 - Select the connector and click `Connect`
 - Read and accept the 3rd party connector notification
 ![connecting-3rd-party-service](22-1-2-connecting-3rd-party-service.png)
-- In the following dialog you need to specify the connection and information and access credentials, ask your Corporate Memory administrator for assistance if you miss any of the requested details. You have the option to use username + password or a client secret for login. In case of a custom setup is used advanced configuration can be provided:
+- In the following dialog you need to specify the connection and information and access credentials. Ask your Corporate Memory administrator for assistance if you are missing any of the requested details. You have the option to use username + password or a client secret for login. In case a custom setup is used, advanced configuration can be provided:
 
 !!! Access-Configuration
 
     === "Username + Password"
-        In order to use username +  password based login you need to fill the details shown below:
+        In order to use username + password based login you need to fill in the details below:
 
         - First Step
             - Corporate Memory Base URI
@@ -88,7 +88,7 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
           ![add-credentials](22-1-2-add-credentials.png)
 
     === "Client"
-        In order to use Client Secret based login you need to fill the details shown below:
+        In order to use Client Secret based login you need to fill in the details below:
 
         - First Step
             - Corporate Memory Base URI
@@ -99,25 +99,25 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
             - Password / Client Secret
 
     === "Advanced Configuration"
-        In case you installation uses a custom service endpoint layout the individual URIs for DataPlatform and Keycloak can be configured individually. The configuration keys are the same as for cmemc.
+        In case your installation uses a custom service endpoint layout, the URIs for DataPlatform and Keycloak can be configured individually. The configuration keys are the same as for cmemc.
 
-        - The following configuration parameter can be provided:
+        - The following configuration parameters can be provided:
             - `DP_API_ENDPOINT` - specifies the DataPlatform URI
             - `OAUTH_TOKEN_URI` - specifies the keycloak token URI
             - `SSL_VERIFY` - can be used to set certificate verification to `False`
         ![advance-configuration](22-1-2-advance-config.png)
-        - In case a `Corporate Memory Base URI` is configured too, the values from the `Config ini` section take precedence
+        - In case a `Corporate Memory Base URI` is configured as well, the values from the `Config ini` section take precedence.
 
 ## Get Data
 
-With the eccenca Corporate Memory Power-BI-Connector you can load data from SELECT queries stored in the query catalog of Corporate Memory. You can use queries without or with placeholders. The steps are different depending if your query uses placeholder:
+With the eccenca Corporate Memory Power-BI-Connector you can load data from SELECT queries stored in the query catalog of Corporate Memory. You can use queries with or without placeholders. The steps depend on whether your query uses placeholders:
 
 !!! Queries
 
     === "Without placeholders"
 
-        - `SELECT` queries that use no placeholders are shown with a table icon (e.g. [<img src="22-1-3-Graph-List.png" width="20%"/>](22-1-3-Graph-List.png){ .off-glb })
-        - When selected a preview will be loaded.
+        - `SELECT` queries that do not use placeholders are shown with a table icon (e.g. [<img src="22-1-3-Graph-List.png" width="20%"/>](22-1-3-Graph-List.png){ .off-glb })
+        - When selected, a preview will be loaded.
         - Check the one(s) you want to load and click `OK`.
         - The tables will be added to your list of `queries` and to the `fields` inventory in Power BI
         - Start using your data in transformations, dashboards and analytics
@@ -127,15 +127,15 @@ With the eccenca Corporate Memory Power-BI-Connector you can load data from SELE
 
         - SELECT queries that take placeholder arguments are shown with a function icon. (e.g. [<img src="22-1-3-regex-button.png" width="20%"/>](22-1-3-regex-button.png){ .off-glb })
         ![Navigator-Placeholder](22-1-3-Navigator-Placeholder.png)
-        - You need to be in `Edit Queries` mode in Power BI so you can enter the required query parameter.
+        - In Power BI, you need to be in `Edit Queries` mode to enter the required query parameter.
         - Check the one(s) to be added.
-        - Power BI will add the selected query as a `query` entry.
+        - Power BI will add the selected queries as `query` entries.
         - Click "Transform Data" in order to fill in the parameter.
         ![](22-1-3-Transform-Data.png)
         - This adds a new entry to the list of Power BI queries, which contains the actual data you requested. The new entry will be named “Invoked Function”.
-        - It is recommended to rename this automatic generated name to a more speaking one. Right click on “Invoked Function” or select “Invoked Function” and press F2.
+        - It is recommended to rename this automatically generated name to a more meaningful one. Right click on “Invoked Function” or select “Invoked Function” and press F2.
         - Rename the table (e.g. to “_search via regex match”). Click “Close & Apply“ to save changes.
         ![regex-search](22-1-3-regex-search.png)
         ???+ hint
-            You can call the function multi times with different parameter values to get different result tables into Power BI.
+            You can call the function multiple times with different parameter values to get different result tables in Power BI.
         - Start using your data in transformations, dashboards and analytics
