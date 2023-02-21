@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 22.2.2
+# Corporate Memory 22.2.3
 
-Corporate Memory 22.2.2 is the second patch release in the 22.2 release line.
+Corporate Memory 22.2.3 is the third patch release in the 22.2 release line.
 
 ![22.2: Build - Active Learning User Interface](22-2-active-learning-user-interface.png "22.2: Build - Active Learning User Interface")
 ![22.2: Explore - EasyNav Visualisation Interface](22-2-easynav-visualisation-interface.png "22.2: Explore - EasyNav Visualisation Interface")
@@ -33,7 +33,7 @@ This release delivers the following component versions:
 
 -   eccenca DataPlatform v22.2.2
 -   eccenca DataIntegration v22.2.1
--   eccenca DataManager v22.2.2
+-   eccenca DataManager v22.2.3
 -   eccenca Corporate Memory Control (cmemc) v22.2
 
 More detailed release notes for these versions are listed below.
@@ -104,7 +104,12 @@ In addition to that, these changes are included in v22.2:
 
 In addition to that, multiple performance and stability issues are addressed.
 
-## eccenca DataManager v22.2.2
+## eccenca DataManager v22.2.3
+
+v22.2.3 of eccenca DataManager has the following fixes:
+
+-   LinkRules
+    - Rule Setup: Fix display of filter
 
 v22.2.2 of eccenca DataManager has the following fixes:
 
