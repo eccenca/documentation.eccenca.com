@@ -37,7 +37,7 @@ cmem_plugin_kafka-SendMessages     cmem-plugin-kafka  WorkflowPlugin  Kafka Prod
 
 ## Usage
 
-Once you installed the package, you can use the Kafka Producer by simply creating a new task, e.g. search for `kafka` in the **Create new item** screen:
+Once you installed the package, you can use the Kafka Producer by simply creating a new task, e.g., search for `kafka` in the **Create new item** screen:
 
 ![Create new Item and search for `kafka`](create-new-item-kafka.png "Create new Item and search for `kafka`")
 
