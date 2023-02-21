@@ -5,17 +5,17 @@ icon: material/database
 
 ## Sizing and Deployment
 
-- size and deploy of the new store (refer to the capacity planning / sizing considerations, refer to the docker container / orchestration)
+- size and deploy the new store (refer to the capacity planning / sizing considerations, refer to the docker container / orchestration)
 - store specific config (e.g. search-all-graphs in SD)
 
 ## Transferring Data and Configuration
 
-- backing-up / exporting and restore / import of graphs, DI-projects, configuration (if any)
+- backup / export and restore / import of graphs, DI-projects, configuration (if any)
     - graphs
         - blacklisting the DI projects graphs
     - config
         - DM
-            - stardog text match support (this is a DM parameter!)
+            - Stardog text match support (this is a DM parameter!)
             - search queries
             - navigation
     - DP
@@ -27,7 +27,7 @@ icon: material/database
 ## Test and Validation
 
 - best practice:
-    - run all (SELECT) queries in the query catalog and compare results (e.g. with `cmemc`)
+    - run all (SELECT) queries in the query catalog and compare the results (e.g. with `cmemc`)
         -  theoretically this could also be applied to INSERT queries (by re-writing into SELECTS in case you want / need to omit altering your graphs)
     - count all triples in all graphs on both instances before/after export/import (`cmemc graph count --all`)
 
@@ -35,7 +35,7 @@ icon: material/database
 
 - optimizing customization (e.g. queries in SHAPES; DI; DM-config)
     - "textmatch" / "lucene" queries need to be migrated (a query can be helpful to find these queries...)
-    - performance comparisons could be automated via `cmemc query replay`
+    - performance comparisons can be automated via `cmemc query replay`
         - identify query that won't run or run slow
 - general query best practices
     - → query optimization guide
