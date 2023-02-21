@@ -1,6 +1,6 @@
 # Application logging with Logback
 
-Logging for eccenca DataManager can also be configured with [Logback](https://logback.qos.ch/), which, for example, allows a more granular control on file rolling strategies. For further information on configuration options, refer to the [Logback's Configuration](https://logback.qos.ch/manual/configuration.html) manual section and the Spring Boot's Configure Logback for logging manual section.
+Logging for eccenca DataManager can also be configured with [Logback](https://logback.qos.ch/), which, for example, allows a more granular control of file rolling strategies. For further information on configuration options refer to the [Logback's Configuration](https://logback.qos.ch/manual/configuration.html) manual section and the Spring Boot's Configure Logback for logging manual section.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
