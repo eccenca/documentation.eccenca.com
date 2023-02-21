@@ -15,7 +15,7 @@ This page describes a docker-compose based orchestration running on RedHat Enter
 
 ## Provisioning
 
-Create a working directory for this scenario and inside the working directory `Vagrantfile` with the following contents:
+Create a working directory for this scenario, and inside the working directory a file named `Vagrantfile` with the following contents:
 
 ```bash linenums="1"
 # -*- mode: ruby -*-
@@ -95,9 +95,9 @@ ssh vagrant@10.10.10.10
 ```
 
 !!! info
-    For username:password in curl command use the credentials to access eccenca Artifactory and docker registry.
+    For username:password in the curl command use the credentials to access eccenca Artifactory and docker registry.
 
-Install the necessary software Inside the virtual machine and download the Corporate Memory orchestration from [releases.eccenca.com](http://releases.eccenca.com/):
+Install the necessary software inside the virtual machine and download the Corporate Memory orchestration from [releases.eccenca.com](http://releases.eccenca.com/):
 
 ```bash linenums="1"
 # switch to superuser
@@ -167,13 +167,13 @@ APACHE_CONFIG=default.ssl.conf
 PROXY_ADDRESS_FORWARDING=true
 ```
 
-Login into eccenca docker registry:
+Login to eccenca docker registry:
 
 ```bash linenums="1"
 docker login docker-registry.eccenca.com
 ```
 
-Provide a stardog license or request a trial license:
+Provide a Stardog license or request a trial license:
 
 ```bash linenums="1"
 # check validity of your license
@@ -245,7 +245,7 @@ You have successfully deployed a Corporate Memory instance.
 
 ## Access Corporate Memory Instance
 
-On your localhost where you are running VirtualBox, modify /etc/hosts file:
+On your localhost where you are running VirtualBox, modify the /etc/hosts file:
 
 ```bash linenums="1"
 echo "10.10.10.10 corporate.memory" >> /etc/hosts
@@ -264,4 +264,4 @@ Click CONTINUE WITH LOGIN and use one of these default accounts:
 
 ![successful-login](../22-1-successful-login.png)
 
-After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
+After successful login, you will see the Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
