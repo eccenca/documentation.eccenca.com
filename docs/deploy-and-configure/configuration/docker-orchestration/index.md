@@ -10,7 +10,7 @@ tags:
 This page describes the configuration for the docker-compose based orchestration.
 
 The Docker Orchestration (hereafter simply orchestration) is configured via environment files.
-In this document we provide an overview on how the environment files are loaded, how to modify the configuration inside those files and available configuration parameters.
+In this document we provide an overview of how the environment files are loaded, how to modify the configuration inside those files, and available configuration parameters.
 
 ## Environment Files: Loading Sequence
 
@@ -21,7 +21,7 @@ For example, in [Scenario: Single Node Cloud Installation](../../installation/s
 $ CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
 ```
 
-When you run `make clean-pull-start-bootstrap` target, the Makefile will evaluate and export the environment variables from the `environments/default.env`, your `${CONFIGFILE}` or `environments/config.env` and `environments/scripted-env.mk`:
+When you run `make clean-pull-start-bootstrap` target, the Makefile will evaluate and export the environment variables from the `environments/default.env`, your `${CONFIGFILE}` or `environments/config.env`, and `environments/scripted-env.mk`:
 
 ``` shell-session
 $ cat Makefile
@@ -33,13 +33,12 @@ export
 ...
 ```
 
-The files are loaded exactly in this order and the later env files will overwrite the environment variables from the former env files.
-In other words, your `${CONFIGFILE}` will have precedence over `environments/default.env`.
-While `environments/scripted-env.mk` has precedence over both `environments/default.env` and your `${CONFIGFILE}`.
+The files are loaded exactly in this order and the later env files will overwrite the environment variables of the previous env files.
+In other words, your `${CONFIGFILE}` will have precedence over `environments/default.env`, while `environments/scripted-env.mk` has precedence over both `environments/default.env` and your `${CONFIGFILE}`.
 
 ## Configuring Docker Orchestration
 
-To configure the orchestration according to your requirements, you need simply to create a file inside `environments/` directory and set the necessary variables there.
+To configure the orchestration according to your requirements, you simply need to create a file inside the `environments/` directory and set the necessary variables there.
 For example, to replicate the minimum configuration from `config.env`, you can do the following:
 
 ``` shell-session
@@ -59,7 +58,7 @@ $ CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
 
 ## Available Configuration Variables
 
-All available configuration environment variables are listed in `environments/default.env` file. In this section we describe the default value and purpose of each of those variables.
+All available configuration environment variables are listed in the `environments/default.env` file. In this section we describe the default values and purpose of each of those variables.
 
 ### Docker Settings
 
@@ -133,7 +132,7 @@ All available configuration environment variables are listed in `environments/de
 
 | Variable | Default Value | Description |
 | -------------------------- | ---------------------------------------- | -------------------------------------------------- |
-| STARDOG_SEARCHINDEX_ENABLE | true | Enable or disable stardog search index |
+| STARDOG_SEARCHINDEX_ENABLE | true | Enable or disable Stardog search index |
 | STARDOG_SERVER_JAVA_ARGS | -Xms2g -Xmx2g -XX:MaxDirectMemorySize=1g | Java options, modify to increase memory allocation |
 
 ### Component Versions
@@ -150,7 +149,7 @@ All available configuration environment variables are listed in `environments/de
 
 ## SSL Configuration with Letsencrypt Example
 
-A complete example on how to deploy the Corporate Memory instance on Hetzner with Letsencrypt certificates is described in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md)
+A complete example of how to deploy the Corporate Memory instance on Hetzner with Letsencrypt certificates is described in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md)
 
 ``` bash
 #!/bin/bash
