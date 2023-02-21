@@ -10,12 +10,12 @@ tags:
 The Thesaurus module provides a user interface to create, browse and edit thesaurus resources and general taxonomical data modeled in the [Simple Knowledge Organization System (SKOS)](https://www.w3.org/2004/02/skos/vocabs).
 
 > A thesaurus is a reference work that lists concepts with similar meaning, containing for example synonyms, often including taxonomical relations between these concepts.
-> Taxonomies describe classifications of concepts into categories sharing particular features and their relations to broader (parent) and narrower (child) concepts.
+> Taxonomies describe classifications of concepts in categories sharing particular features and their relations to broader (parent) and narrower (child) concepts.
 
 An example for a taxonomy or classification is how companies can be categorized into industries, industry groups and sectors.
 An airport belongs to the sector Airport Services, the broader category Transportation Infrastructure, the broader category Transportation and the broader category Industrials.
-You can think of these relations as a hierarchical tree representing the relations as individual branches like shown in the navigation tree on the left side of the Thesaurus view.
-In a concept scheme Industries, a top branch in this tree, as for example the sub-industry Industrials or Health Care, is called a top concept.
+You can think of these relations as a hierarchical tree representing the relations as individual branches as shown in the navigation tree on the left side of the Thesaurus view.
+In a concept scheme Industries, a top branch in this tree, for example the sub-industry Industrials or Health Care, is called a top concept.
 All branches together belong to the concept scheme Industries.
 
 ![Navigation tree with detail view of the concept Airlines](./CMEM-19-02-navigation-tree.png "Navigation tree with detail view of the concept Airlines")
@@ -33,7 +33,7 @@ The Thesaurus module allows to create, browse and edit such structures, providin
 
     Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* is installed in the Vocabulary catalog (see section [Vocabulary Catalog](../vocabulary-catalog)).
 
-Click **:eccenca-module-thesauri: Thesauri** in the main menu, to open the Thesaurus project catalog.
+Click **:eccenca-module-thesauri: Thesauri** in the main menu to open the Thesaurus project catalog.
 
 ## Thesaurus project catalog
 
@@ -49,8 +49,8 @@ To open the detail view of a thesaurus project, click the project name in the ca
 
 ### Creating a new thesaurus project
 
-In order to create a new thesaurus project, select **Create new thesaurus project** on the upper right of the thesaurus project catalog.
-Enter a name for your thesaurus project and more metadata if required and click **SAVE**.
+In order to create a new thesaurus project, select **Create new thesaurus project** in the upper right of the thesaurus project catalog.
+Enter a name for your thesaurus project and, if required, additional metadata and click **SAVE**.
 The thesaurus detail view is shown, displaying an empty thesaurus project.
 
 ### Importing an existing thesaurus
@@ -77,7 +77,7 @@ After selecting a thesaurus project in the Thesaurus project catalog, the thesau
 This view consists of three components.
 The navigation tree component is displayed to the left.
 It displays the hierarchical structure of the thesaurus.
-The upmost element is the project level.
+The uppermost element is the project level.
 Clicking :eccenca-navigation-previous: brings you back to the Thesaurus project catalog.
 
 Below the project level, the concept scheme(s) and concepts are displayed.
@@ -103,7 +103,7 @@ The concept detail view displays the concept's preferred and alternative labels 
 A list of top concepts of a concept scheme or narrower (child) concepts of a concept is shown below these metadata as a searchable table called concept list.
 
 To find specific sub concepts of a concept, you can use the search bar in the concept list.
-Click any result row to display more information on the concept, like its labels, definition and notation.
+Click any result row to display more information on the concept, such as its labels, definition and notation.
 Click the concept name in the row itself to open the concept detail view for this concept.
 Selecting a concept in the concept list updates the navigation tree to highlight the concept's position in the tree.
 
@@ -111,7 +111,7 @@ In case of concept schemes, the **Statistics** tab can be used to learn more a
 
 The **Triples** tab shows the RDF source code of the concept as Turtle serialization.
 The triples in this view are editable, but be aware that changes in the triple editor can cause major errors in the Thesaurus module.
-When you are not an expert in working with triples do not use the triple view as an editor.
+It is recommended that if you are not an expert in working with triples to not use the triple view as an editor.
 
 ### Adding new concepts and concept schemes
 
@@ -130,15 +130,15 @@ Instead of starting on project level, select an existing concept scheme first.
 Click the context menu **:eccenca-item-moremenu: Show more options** and a new option **Create new top concept** is available.
 Use it to create a new top concept.
 
-Selecting a normal concept brings up the option **Create new concept** in the same menu.
-Using this option creates a new concept and automatically add it as a narrower concept to the concept you created it on.
-It also automatically adds the `broader` back link on the newly created concept.
+Selecting a regular concept brings up the option **Create new concept** in the same menu.
+Using this option creates a new concept and adds it as a narrower concept of the concept previously selected.
+It also automatically adds the `broader` back link to the newly created concept.
 
-To edit a concept or concept scheme, click **:eccenca-item-edit: Edit** to get a form displaying all available fields, like labels and definition.
+To edit a concept or concept scheme, click **:eccenca-item-edit: Edit** to get a form displaying all available fields like labels and definition.
 
 !!! info
 
-    For each concept, you have to enter one preferred label per language.
+    For each concept, you need to enter one preferred label per language.
     Be aware that SKOS allows only one preferred label per language.
     If you want to enter more labels use alternative or hidden labels as specified by SKOS.
 
@@ -157,15 +157,15 @@ You can only choose from existing concepts.
 Click **SAVE** to confirm your changes.
 
 In the same way you can also add a top concept to a second concept scheme.
-Use therefore the field Top concept of in the editing mode of a top concept.
+To do this, use the field Top concept of in the editing mode of a top concept.
 
-When adding relations the inverse relation is automatically added, too.
+When adding relations, the inverse relation is automatically added as well.
 
 ### Removing concepts and concept schemes
 
 !!! info
 
-    Be aware that removing a concept or concept scheme with child elements (top concepts or narrower concepts) means that the complete substructure, i.e. all childs, are also deleted regardless whether they are used in another concept scheme.
+    Be aware that removing a concept or concept scheme with child elements (top concepts or narrower concepts) results in the deletion of the complete substructure, i.e., all children, regardless of whether they are used in another concept scheme.
 
 To remove concepts or concept schemes, select the resource in the navigation tree, click the context menu **:eccenca-item-moremenu: Show more options** and select the **Remove** option.
 Confirm the dialog and click **REMOVE**.
