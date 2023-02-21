@@ -17,7 +17,7 @@ The user interface of the Explore module shows the following main areas:
 <div class="annotate" markdown>
 - the header area, showing selected elements, possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**), a **:eccenca-module-search: Go to resource** input field, and a **:eccenca-application-useraccount: user menu**
 - the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
-- the main area, which provides multiple views, depending on which resource has been selected.
+- the main area, providing multiple views, depending on which resource has been selected.
 </div>
 
 1.  If necessary, you can toggle the navigation area by using the
@@ -32,7 +32,7 @@ In the main area, the Metadata view of the selected graph appears, showing sev
 
 !!! note inline end
 
-    This default categorization is just a suggestion and can be manipulated by
+    This default categorization is just a suggestion and can be modified by
     changing the workspace configuration in the **CMEM Configuration** graph.
 
 The Graphs are categorized into groups as follows:
@@ -119,7 +119,7 @@ Resources are shown as grey chip buttons.
 
 !!! warning inline end
 
-    When you remove the resource, all triples related to that resource are deleted too.
+    When you remove the resource, all triples related to that resource are deleted as well.
 
 Select **:eccenca-item-remove: Remove resource** on the upper right corner to remove the resource.
 A dialog box appears where you are asked to confirm the operation.
@@ -136,7 +136,7 @@ The details of the shaped view depends on the configuration.
 
 #### Properties
 
-The Properties tab shows all properties and objects of the selected resource, independent from a shape selection.
+The Properties tab shows all properties and objects of the selected resource independently from a shape selection.
 
 Use the icons on the right side to edit or delete properties.
 Use **SHOW IN LIST** to display objects in a list view.
@@ -174,14 +174,14 @@ The Graph tab shows a visual graph representation of the graph.
 
     This view is only available on graphs (not on resources).
 
-This tab shows a graph visualization of an installed vocabularies.
-It displays all classes showing the class-subclass.  You can open the class details and view list of instances related to that class. It also allows you to copy resource IRI.
+This tab shows a graph visualization of an installed vocabulary.
+It displays all classes showing the class-subclass.  You can open the class details and view the list of instances related to that class. It also allows you to copy the resource IRI.
 
 ![](./vocab.png)
 
 #### References
 
-This tab shows all resource which link back to the selected resource.
+This tab shows all resources that link back to the selected resource.
 
 [](./Reference.png)
 
