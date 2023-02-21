@@ -2800,17 +2800,17 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../../release-notes/corporate-memory-22-2/">
 <span class="md-ellipsis">
-    Corporate Memory 22.2.2
+    Corporate Memory 22.2.3
     
   </span>
 <span class="md-status md-status--new" title="Recently added or extended">
 </span>
 </a>
 </div>
-<nav aria-label="Corporate Memory 22.2.2" class="md-nav" data-md-level="2">
+<nav aria-label="Corporate Memory 22.2.3" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_7_1">
 <span class="md-nav__icon md-icon"></span>
-            Corporate Memory 22.2.2
+            Corporate Memory 22.2.3
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
@@ -3184,9 +3184,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#jinja-template-string">
+<a class="md-nav__link" href="#jinja-template-string-datatype">
 <span class="md-ellipsis">
-      Jinja Template String
+      Jinja Template String (datatype)
     </span>
 </a>
 </li>
@@ -3399,10 +3399,10 @@
 <p>byte is ·derived· from short by setting the value of ·maxInclusive· to be 127 and ·minInclusive· to be -128. byte has a lexical representation consisting of an optional sign followed by a finite-length sequence of decimal digits (#x30-#x39). If the sign is omitted, ‘+’ is assumed. For example: -1, 0, 126, +100.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#byte</code></p>
 <h4 id="date">date<a class="headerlink" href="#date" title="Permanent link">¤</a></h4>
-<p>The lexical space of date consists of finite-length sequences of characters of the form: <code>'-'? yyyy '-' mm '-' dd zzzzzz?</code> where the date and optional timezone are represented exactly the same way as they are for dateTime. The first moment of the interval is that represented by: <code>'-' yyyy '-' mm '-' dd 'T00:00:00' zzzzzz?</code> and the least upper bound of the interval is the timeline point represented (noncanonically) by: <code>'-' yyyy '-' mm '-' dd 'T24:00:00' zzzzzz?</code>.</p>
+<p>The ·lexical space· of date consists of finite-length sequences of characters of the form: ‘-‘? yyyy ‘-‘ mm ‘-‘ dd zzzzzz? where the date and optional timezone are represented exactly the same way as they are for dateTime. The first moment of the interval is that represented by: ‘-‘ yyyy ‘-‘ mm ‘-‘ dd ‘T00:00:00’ zzzzzz? and the least upper bound of the interval is the timeline point represented (noncanonically) by: ‘-‘ yyyy ‘-‘ mm ‘-‘ dd ‘T24:00:00’ zzzzzz?.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#date</code></p>
 <h4 id="datetime">dateTime<a class="headerlink" href="#datetime" title="Permanent link">¤</a></h4>
-<p>The ·lexical space· of dateTime consists of finite-length sequences of characters of the form: <code>'-'? yyyy '-' mm '-' dd 'T' hh ':' mm ':' ss ('.' s+)? (zzzzzz)?</code> For example, <code>2002-10-10T12:00:00-05:00</code> (noon on 10 October 2002, Central Daylight Savings Time as well as Eastern Standard Time in the U.S.) is <code>2002-10-10T17:00:00Z</code>, five hours later than <code>2002-10-10T12:00:00Z</code>.</p>
+<p>The ·lexical space· of dateTime consists of finite-length sequences of characters of the form: ‘-‘? yyyy ‘-‘ mm ‘-‘ dd ‘T’ hh ‘:’ mm ‘:’ ss (‘.’ s+)? (zzzzzz)? For example, 2002-10-10T12:00:00-05:00 (noon on 10 October 2002, Central Daylight Savings Time as well as Eastern Standard Time in the U.S.) is 2002-10-10T17:00:00Z, five hours later than 2002-10-10T12:00:00Z.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#dateTime</code></p>
 <h4 id="datetimestamp">dateTimeStamp<a class="headerlink" href="#datetimestamp" title="Permanent link">¤</a></h4>
 <p>The lexical space of dateTimeStamp consists of strings which are in the ·lexical space· of dateTime and which also match the regular expression ‘.*(Z|(+|-)[0-9][0-9]:[0-9][0-9])’</p>
@@ -3414,22 +3414,22 @@
 <p>double values have a lexical representation consisting of a mantissa followed, optionally, by the character ‘E’ or ‘e’, followed by an exponent. The exponent ·must· be an integer. The mantissa must be a decimal number. The representations for exponent and mantissa must follow the lexical rules for integer and decimal. If the ‘E’ or ‘e’ and the following exponent are omitted, an exponent value of 0 is assumed. The special values positive and negative infinity and not-a-number have lexical representations INF, -INF and NaN, respectively. Lexical representations for zero may take a positive or negative sign. For example, -1E4, 1267.43233E12, 12.78e-2, 12 , -0, 0 and INF are all legal literals for double.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#double</code></p>
 <h4 id="duration">duration<a class="headerlink" href="#duration" title="Permanent link">¤</a></h4>
-<p>The lexical representation for duration is the ISO 8601 extended format <code>PnYnMnDTnHnMnS</code>, where <code>nY</code> represents the number of years, <code>nM</code> the number of months, <code>nD</code> the number of days, <code>T</code> is the date/time separator, <code>nH</code> the number of hours, <code>nM</code> the number of minutes and <code>nS</code> the number of seconds. The number of seconds can include decimal digits to arbitrary precision.</p>
+<p>The lexical representation for duration is the [ISO 8601] extended format PnYn MnDTnH nMnS, where nY represents the number of years, nM the number of months, nD the number of days, ‘T’ is the date/time separator, nH the number of hours, nM the number of minutes and nS the number of seconds. The number of seconds can include decimal digits to arbitrary precision.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#duration</code></p>
 <h4 id="float">float<a class="headerlink" href="#float" title="Permanent link">¤</a></h4>
 <p>float values have a lexical representation consisting of a mantissa followed, optionally, by the character ‘E’ or ‘e’, followed by an exponent. The exponent ·must· be an integer. The mantissa must be a decimal number. The representations for exponent and mantissa must follow the lexical rules for integer and decimal. If the ‘E’ or ‘e’ and the following exponent are omitted, an exponent value of 0 is assumed. The special values positive and negative infinity and not-a-number have lexical representations INF, -INF and NaN, respectively. Lexical representations for zero may take a positive or negative sign. For example, -1E4, 1267.43233E12, 12.78e-2, 12 , -0, 0 and INF are all legal literals for float.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#float</code></p>
 <h4 id="gday">gDay<a class="headerlink" href="#gday" title="Permanent link">¤</a></h4>
-<p>The lexical representation for gDay is the left truncated lexical representation for date: <code>---DD</code> . An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats.</p>
+<p>The lexical representation for gDay is the left truncated lexical representation for date: —DD . An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D).</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#gDay</code></p>
 <h4 id="gmonth">gMonth<a class="headerlink" href="#gmonth" title="Permanent link">¤</a></h4>
-<p>The lexical representation for gMonth is the left and right truncated lexical representation for date: <code>--MM</code>. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats.</p>
+<p>The lexical representation for gMonth is the left and right truncated lexical representation for date: –MM. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D).</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#gMonth</code></p>
 <h4 id="gmonthday">gMonthDay<a class="headerlink" href="#gmonthday" title="Permanent link">¤</a></h4>
-<p>The lexical representation for gMonthDay is the left truncated lexical representation for date: <code>--MM-DD</code>. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats. This datatype can be used to represent a specific day in a month. To say, for example, that my birthday occurs on the 14th of September ever year.</p>
+<p>The lexical representation for gMonthDay is the left truncated lexical representation for date: –MM-DD. An optional following time zone qualifier is allowed as for date. No preceding sign is allowed. No other formats are allowed. See also ISO 8601 Date and Time Formats (·D). This datatype can be used to represent a specific day in a month. To say, for example, that my birthday occurs on the 14th of September ever year.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#gMonthDay</code></p>
 <h4 id="gyear">gYear<a class="headerlink" href="#gyear" title="Permanent link">¤</a></h4>
-<p>The lexical representation for gYear is the reduced (right truncated) lexical representation for dateTime: <code>CCYY</code>. No left truncation is allowed. An optional following time zone qualifier is allowed as for dateTime. To accommodate year values outside the range from <code>0001</code> to <code>9999</code>, additional digits can be added to the left of this representation and a preceding <code>-</code> sign is allowed. For example, to indicate 1999, one would write: <code>1999</code>. See also ISO 8601 Date and Time Formats.</p>
+<p>The lexical representation for gYear is the reduced (right truncated) lexical representation for dateTime: CCYY. No left truncation is allowed. An optional following time zone qualifier is allowed as for dateTime. To accommodate year values outside the range from 0001 to 9999, additional digits can be added to the left of this representation and a preceding ‘-‘ sign is allowed. For example, to indicate 1999, one would write: 1999. See also ISO 8601 Date and Time Formats (·D).</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#gYear</code></p>
 <h4 id="gyearmonth">gYearMonth<a class="headerlink" href="#gyearmonth" title="Permanent link">¤</a></h4>
 <p>The lexical representation for gYearMonth is the reduced (right truncated) lexical representation for dateTime: CCYY-MM. No left truncation is allowed. An optional following time zone qualifier is allowed. To accommodate year values outside the range from 0001 to 9999, additional digits can be added to the left of this representation and a preceding ‘-‘ sign is allowed. For example, to indicate the month of May 1999, one would write: 1999-05. See also ISO 8601 Date and Time Formats (·D).</p>
@@ -3446,7 +3446,7 @@
 <h4 id="integer">integer<a class="headerlink" href="#integer" title="Permanent link">¤</a></h4>
 <p>integer has a lexical representation consisting of a finite-length sequence of decimal digits (#x30-#x39) with an optional leading sign. If the sign is omitted, ‘+’ is assumed. For example: -1, 0, 12678967543233, +100000.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#integer</code></p>
-<h4 id="jinja-template-string">Jinja Template String<a class="headerlink" href="#jinja-template-string" title="Permanent link">¤</a></h4>
+<h4 id="jinja-template-string-datatype">Jinja Template String (datatype)<a class="headerlink" href="#jinja-template-string-datatype" title="Permanent link">¤</a></h4>
 <p>Jinja is a modern and designer-friendly templating language for Python and other languages.</p>
 <p>IRI: <code>https://vocab.eccenca.com/shui/jinja</code></p>
 <h4 id="langstring">langString<a class="headerlink" href="#langstring" title="Permanent link">¤</a></h4>
@@ -3504,7 +3504,7 @@
 <p>The string datatype represents character strings in XML. The ·value space· of string is the set of finite-length sequences of characters (as defined in [XML 1.0 (Second Edition)]) that ·match· the Char production from [XML 1.0 (Second Edition)]. A character is an atomic unit of communication, it is not further specified except to note that every character has a corresponding Universal Character Set code point, which is an integer.</p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#string</code></p>
 <h4 id="time">time<a class="headerlink" href="#time" title="Permanent link">¤</a></h4>
-<p>The lexical representation for time is the left truncated lexical representation for dateTime: <code>hh:mm:ss.sss</code> with optional following time zone indicator. For example, to indicate 1:20 pm for Eastern Standard Time which is 5 hours behind Coordinated Universal Time (UTC), one would write: <code>13:20:00-05:00</code>. See also ISO 8601 Date and Time Formats.</p>
+<p>The lexical representation for time is the left truncated lexical representation for dateTime: hh<img alt="🇲🇲" class="twemoji" src="../../../../assets/externals/twemoji.maxcdn.com/v/latest/svg/1f1f2-1f1f2.svg.svg" title=":mm:">ss.sss with optional following time zone indicator. For example, to indicate 1:20 pm for Eastern Standard Time which is 5 hours behind Coordinated Universal Time (UTC), one would write: 13:20:00-05:00. See also ISO 8601 Date and Time Formats (·D).</img></p>
 <p>IRI: <code>http://www.w3.org/2001/XMLSchema#time</code></p>
 <h4 id="token">token<a class="headerlink" href="#token" title="Permanent link">¤</a></h4>
 <p>token represents tokenized strings. The ·value space· of token is the set of strings that do not contain the carriage return (#xD), line feed (#xA) nor tab (#x9) characters, that have no leading or trailing spaces (#x20) and that have no internal sequences of two or more spaces. The ·lexical space· of token is the set of strings that do not contain the carriage return (#xD), line feed (#xA) nor tab (#x9) characters, that have no leading or trailing spaces (#x20) and that have no internal sequences of two or more spaces. The ·base type· of token is normalizedString.</p>
@@ -3529,7 +3529,7 @@
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-15T00:21:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-15</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-08T19:56:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-08</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">

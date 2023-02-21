@@ -2800,17 +2800,17 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../../release-notes/corporate-memory-22-2/">
 <span class="md-ellipsis">
-    Corporate Memory 22.2.2
+    Corporate Memory 22.2.3
     
   </span>
 <span class="md-status md-status--new" title="Recently added or extended">
 </span>
 </a>
 </div>
-<nav aria-label="Corporate Memory 22.2.2" class="md-nav" data-md-level="2">
+<nav aria-label="Corporate Memory 22.2.3" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_7_1">
 <span class="md-nav__icon md-icon"></span>
-            Corporate Memory 22.2.2
+            Corporate Memory 22.2.3
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
@@ -3052,6 +3052,13 @@
 <nav aria-label="Naming and Presentation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#provide-workflow-trigger">
+<span class="md-ellipsis">
+      Provide Workflow Trigger
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#name">
 <span class="md-ellipsis">
       Name
@@ -3111,13 +3118,6 @@
 <a class="md-nav__link" href="#read-only">
 <span class="md-ellipsis">
       Read only
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#provide-workflow-trigger">
-<span class="md-ellipsis">
-      Provide Workflow Trigger
     </span>
 </a>
 </li>
@@ -3364,6 +3364,9 @@ They are used to specify constraints and UI options that need to be met in the 
 <p class="admonition-title">Info</p>
 <p>In this group, presentation and naming properties are collected. Most of the properties are straight forward to use, other properties provide more complex features, such as table reports.</p>
 </div>
+<h3 id="provide-workflow-trigger">Provide Workflow Trigger<a class="headerlink" href="#provide-workflow-trigger" title="Permanent link">¤</a></h3>
+<p>Integrates a workflow trigger button in order to execute workflows from or with this resource.</p>
+<p>Used Path: <code>shui:provideWorkflowTrigger</code></p>
 <h3 id="name">Name<a class="headerlink" href="#name" title="Permanent link">¤</a></h3>
 <p>This name will be shown to the user.</p>
 <p>Used Path: <code>shacl:name</code></p>
@@ -3371,11 +3374,13 @@ They are used to specify constraints and UI options that need to be met in the 
 <p>This text will be shown to the user in a tooltip. You can use new and blank lines for basic text structuring.</p>
 <p>Used Path: <code>shacl:description</code></p>
 <h3 id="query-table-report">Query: Table Report<a class="headerlink" href="#query-table-report" title="Permanent link">¤</a></h3>
-<p>Use this property to provide a tabular read-only report of a custom SPARQL query at the place where this property shape is used in the user interface.
-The following placeholder can be used in the query text of the sparql query:
- - refers to the main resource rendered in the starte node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
- - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
- - the currently used graph.</p>
+<p>Use this property to provide a tabular read-only report of a custom SPARQL query at the place where this property shape is used in the user interface.</p>
+<p>The following placeholder can be used in the query text of the SPARQL query:</p>
+<ul>
+<li><code>{{shuiMainResource}}</code> - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;</li>
+<li><code>{{shuiResource}}</code> - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;</li>
+<li><code>{{shuiGraph}}</code> - the currently used graph.</li>
+</ul>
 <p>Used Path: <code>shui:valueQuery</code></p>
 <h3 id="query-table-report-hide-header">Query: Table Report (hide header)<a class="headerlink" href="#query-table-report-hide-header" title="Permanent link">¤</a></h3>
 <p>If set to true, the report table will be rendered without header (in case you expect only a single value).</p>
@@ -3395,9 +3400,6 @@ The following placeholder can be used in the query text of the sparql query:
 <h3 id="read-only">Read only<a class="headerlink" href="#read-only" title="Permanent link">¤</a></h3>
 <p>Default is false. A value of true means the properties are not editable by the user. Useful for displaying system properties.</p>
 <p>Used Path: <code>shui:readOnly</code></p>
-<h3 id="provide-workflow-trigger">Provide Workflow Trigger<a class="headerlink" href="#provide-workflow-trigger" title="Permanent link">¤</a></h3>
-<p>Integrates a workflow trigger button in order to execute workflows from or with this resource.</p>
-<p>Used Path: <code>shui:provideWorkflowTrigger</code></p>
 <h2 id="vocabulary">Vocabulary<a class="headerlink" href="#vocabulary" title="Permanent link">¤</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -3427,7 +3429,7 @@ The following placeholder can be used in the query text of the sparql query:
 <p>The datatype of the property.</p>
 <p>Used Path: <code>shacl:datatype</code></p>
 <h3 id="use-textarea">Use textarea<a class="headerlink" href="#use-textarea" title="Permanent link">¤</a></h3>
-<p>Default is false. A value of true enables multiline editing capabilities for Literals via a textarea widget.</p>
+<p>Default is false. A value of true enables multiline editing capabilities for Literals via a <code>textarea</code> widget.</p>
 <p>Used Path: <code>shui:textarea</code></p>
 <h3 id="regex-pattern">Regex Pattern<a class="headerlink" href="#regex-pattern" title="Permanent link">¤</a></h3>
 <p>A XPath regular expression (Perl like) that all literal strings need to match.</p>
@@ -3436,7 +3438,7 @@ The following placeholder can be used in the query text of the sparql query:
 <p>An optional string of flags for the regular expression pattern (e.g. ‘i’ for case-insensitive mode)</p>
 <p>Used Path: <code>shacl:flags</code></p>
 <h3 id="languages-allowed">Languages allowed<a class="headerlink" href="#languages-allowed" title="Permanent link">¤</a></h3>
-<p>This limits the given Literals to a list of languages. This property works only in combination with the datatype rdf:langString. Note that the expression for this property only allows for ‘2 Char ISO-639-1-Codes’ only (no sub-tags).</p>
+<p>This limits the given Literals to a list of languages. This property works only in combination with the datatype <code>rdf:langString</code>. Note that the expression for this property only allows for ‘2 Char ISO-639-1-Codes’ only (no sub-tags).</p>
 <p>Used Path: <code>shui:languageIn</code></p>
 <h3 id="languages-unique">Languages Unique<a class="headerlink" href="#languages-unique" title="Permanent link">¤</a></h3>
 <p>Default is false. A value of true enforces that no pair of Literals may use the same language tag.</p>
@@ -3474,17 +3476,21 @@ The following placeholder can be used in the query text of the sparql query:
 <p>Used Path: <code>shui:ignoreOnCopy</code></p>
 <h3 id="query-on-insert-update">Query: On insert update<a class="headerlink" href="#query-on-insert-update" title="Permanent link">¤</a></h3>
 <p>This query is executed when a property value is added or changed.</p>
-<p>The following placeholder can be used in the query text of the sparql query:
- - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
- - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
- - the currently used graph.</p>
+<p>The following placeholder can be used in the query text of the SPARQL query:</p>
+<ul>
+<li><code>{{shuiMainResource}}</code> - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;</li>
+<li><code>{{shuiResource}}</code> - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;</li>
+<li><code>{{shuiGraph}}</code> - the currently used graph.</li>
+</ul>
 <p>Used Path: <code>shui:onInsertUpdate</code></p>
 <h3 id="query-on-delete-update">Query: On delete update<a class="headerlink" href="#query-on-delete-update" title="Permanent link">¤</a></h3>
 <p>This query is executed when a value is changed or removed.</p>
-<p>The following placeholder can be used in the query text of the sparql query:
- - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
- - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
- - the currently used graph.</p>
+<p>The following placeholder can be used in the query text of the SPARQL query:</p>
+<ul>
+<li><code>{{shuiMainResource}}</code> - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;</li>
+<li><code>{{shuiResource}}</code> - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;</li>
+<li><code>{{shuiGraph}}</code> - the currently used graph.</li>
+</ul>
 <p>Used Path: <code>shui:onDeleteUpdate</code></p>
 <h3 id="target-graph-template">Target Graph Template<a class="headerlink" href="#target-graph-template" title="Permanent link">¤</a></h3>
 <p>Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).</p>
@@ -3505,7 +3511,7 @@ The following placeholder can be used in the query text of the sparql query:
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-15T00:21:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-15</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-08T19:56:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-08</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">

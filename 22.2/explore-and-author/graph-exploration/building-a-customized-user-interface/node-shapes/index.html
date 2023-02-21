@@ -2801,17 +2801,17 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../../../release-notes/corporate-memory-22-2/">
 <span class="md-ellipsis">
-    Corporate Memory 22.2.2
+    Corporate Memory 22.2.3
     
   </span>
 <span class="md-status md-status--new" title="Recently added or extended">
 </span>
 </a>
 </div>
-<nav aria-label="Corporate Memory 22.2.2" class="md-nav" data-md-level="2">
+<nav aria-label="Corporate Memory 22.2.3" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_7_1">
 <span class="md-nav__icon md-icon"></span>
-            Corporate Memory 22.2.2
+            Corporate Memory 22.2.3
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
@@ -3067,6 +3067,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#tab-name-deprecated">
+<span class="md-ellipsis">
+      Tab Name (deprecated)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#navigation-list-query">
 <span class="md-ellipsis">
       Navigation list query
@@ -3195,8 +3202,11 @@ They can be used to validate resources as well as to define custom forms for pre
 <h3 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¤</a></h3>
 <p>The node description should provide context information for the user when creating a new resource based on this node.</p>
 <p>Used Path: <code>rdfs:comment</code></p>
+<h3 id="tab-name-deprecated">Tab Name (deprecated)<a class="headerlink" href="#tab-name-deprecated" title="Permanent link">¤</a></h3>
+<p>Name of the tab (deprecated, only interpreted until 20.06)</p>
+<p>Used Path: <code>shui:tabName</code></p>
 <h3 id="navigation-list-query">Navigation list query<a class="headerlink" href="#navigation-list-query" title="Permanent link">¤</a></h3>
-<p>This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use  as a placeholder for the FROM section. Additionally,  can be used to access the graph in the FROM section.</p>
+<p>This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section. Additionally, {{GRAPH}} can be used to access the graph in the FROM section.</p>
 <p>Used Path: <code>shui:navigationListQuery</code></p>
 <h3 id="depiction-image">Depiction Image<a class="headerlink" href="#depiction-image" title="Permanent link">¤</a></h3>
 <p>This property links a node shape to an image in order to use this image when showing resources based on this node shape somewhere.</p>
@@ -3222,10 +3232,12 @@ They can be used to validate resources as well as to define custom forms for pre
 <p>Used Path: <code>shui:uriTemplate</code></p>
 <h3 id="on-update-update">On update update<a class="headerlink" href="#on-update-update" title="Permanent link">¤</a></h3>
 <p>A query which is executed when this nodeshape is submitted.
-The query should be saved in the same graph as the shape (or imported).
-The query can use these placeholders:
- - the resource currently shown with the node shape of this property shape,
- - the currently used graph. </p>
+The query should be saved in the same graph as the shape (or imported).</p>
+<p>The query can use these placeholders:</p>
+<ul>
+<li><code>{{shuiResource}}</code> - the resource currently shown with the node shape of this property shape,</li>
+<li><code>{{shuiGraph}}</code> - the currently used graph. </li>
+</ul>
 <p>Used Path: <code>shui:onUpdateUpdate</code></p>
 <h3 id="target-graph-template">Target Graph Template<a class="headerlink" href="#target-graph-template" title="Permanent link">¤</a></h3>
 <p>Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).</p>
@@ -3246,7 +3258,7 @@ The query can use these placeholders:
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-15T00:21:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-15</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-08T19:56:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-08</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
