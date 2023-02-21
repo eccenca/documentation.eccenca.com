@@ -84,7 +84,7 @@ Use this property to enable the Explore module of DataManager.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.startWith | false | no | none | boolean |
 
-Use this property to load the Explore module as default one after login.
+Use this property to load the Explore module as the default one after login.
 
 !!! info
 
@@ -121,13 +121,13 @@ Extension of the tiles as provided by OpenMapTiles Map Server
 
 !!! info
 
-    It works together with `js.config.modules.explore.mapServer.ext`, and only if it is set.
+    This works together with `js.config.modules.explore.mapServer.ext`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.mapServer.ext | none | no | none | string (URI) |
 
-The service url as provided by OpenMapTiles Map Server. If not defined, the wikimedia server is used.
+The service URL as provided by OpenMapTiles Map Server. If not defined, the wikimedia server is used.
 
 !!! info
 
@@ -172,7 +172,7 @@ Use this property to setup a default class.
 
 !!! info
 
-    It works together with `defaultGraph`, and only if it is set.
+    This works together with `defaultGraph`, and only if it is set.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -286,7 +286,7 @@ js.config.modules.explore.navigation.searchQuery: |
 
 !!! info
 
-    The placeholder {{QUERY}} is replaced with the search string. A placeholder `{{GRAPH}}` can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
+    The placeholder {{QUERY}} is replaced with the search string. A placeholder `{{GRAPH}}` can be used to insert the currently selected graph URI (will be resolved to `<graphUri>` ).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -314,7 +314,7 @@ js.config.modules.explore.navigation.listQuery: |
 
 !!! info
 
-    The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. A placeholder `{{GRAPH}} `can be used for insert currently selected graph URI (will be resolved to `<graphUri>` ).
+    The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. A placeholder `{{GRAPH}}` can be used to insert the currently selected graph URI (will be resolved to `<graphUri>` ).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -404,7 +404,7 @@ Use this property to enable the set operators filter in the OWL viewer.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.details.visualization.webvowlConfig.filter.degreeOfCollapsing | true | no | none | boolean |
 
-Use this property to enable the degree of collapsing function in the OWL viewer.
+Use this property to enable the degree of the collapsing function in the OWL viewer.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -440,13 +440,13 @@ Use this property to enable the color externals mode in the OWL viewer.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.details.visualization.webvowlConfig.export.json | true | no | none | boolean |
 
-Use this property to enable the feature export as json in the OWL viewer.
+Use this property to enable the feature export as JSON in the OWL viewer.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.details.visualization.webvowlConfig.export.svg | true | no | none | boolean |
 
-Use this property to enable the feature export as svg in the OWL viewer.
+Use this property to enable the feature export as SVG in the OWL viewer.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -482,7 +482,7 @@ Use this property to enable the search function in the OWL viewer.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.externalTools.toolX.enable | false | no | none | boolean |
 
-The externTools section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is send via postmate to the running application inside of the iFrame.
+The `externTools` section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is sent via postmate to the running application inside of the iFrame.
 
 Use this property to enable or disable one specific external tool configuration.
 
@@ -494,7 +494,7 @@ js.config.modules.explore.externalTools.toolX.enable: true
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.externalTools.toolX.tabname | none | yes | none | string |
 
-The `externTools` section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is send via postmate to the running application inside of the iFrame.
+The `externTools` section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is sent via postmate to the running application inside of the iFrame.
 
 Use this property to name the tab for the external tool.
 
@@ -502,9 +502,9 @@ Use this property to name the tab for the external tool.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.explore.externalTools.toolX.iframeUrlTemplate | none | yes | none | string (URL) |
 
-The `externTools` section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is send via postmate to the running application inside of the iFrame.
+The `externTools` section can be used to configure one or more external tools which will be integrated as additional tabs in a resource detail view. The tool is then presented in the content of an iFrame. In addition to that, a JSON representation of the presented resource is sent via postmate to the running application inside of the iFrame.
 
-Use this property to specify the URL which will be loaded in the iFrame inside of the new application tab.
+Use this property to specify the URL which will be loaded in the iFrame in the new application tab.
 
 ```yaml
 js.config.modules.explore.externalTools.toolX.iframeUrlTemplate:
@@ -513,7 +513,7 @@ js.config.modules.explore.externalTools.toolX.iframeUrlTemplate:
 
 !!! info
 
-    The placeholder `{{RESOURCE}}` is replaced by the selected resource URI. The placeholder `{{RESOURCELABEL}}` is replaced with the titleHelper generated label of the resource.
+    The placeholder `{{RESOURCE}}` is replaced with the selected resource URI. The placeholder `{{RESOURCELABEL}}` is replaced with the titleHelper generated label of the resource.
 
 ## Configuration example
 
