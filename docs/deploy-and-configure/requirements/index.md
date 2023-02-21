@@ -48,7 +48,7 @@ The following numbers are based on existing customer deployments running Knowled
 
 ### Browser / Web Client
 
-We support all (LTS/ESR) versions of the below listed browsers that are actively supported be the respective publishers:
+We support all (LTS/ESR) versions of the browsers listed below that are actively supported be the respective publishers:
 
 - Microsoft Edge > v88.0
 - Google Chrome or Chromium > v92.0
@@ -62,7 +62,7 @@ We support all (LTS/ESR) versions of the below listed browsers that are actively
 
 For cmemc, currently Python 3.9 is supported, but Python 3.10 is reported to work as well.
 
-There is also a [docker image](../../automate/cmemc-command-line-interface/invocation/docker-image/index.md) available.
+A [docker image](../../automate/cmemc-command-line-interface/invocation/docker-image/index.md) is available as well.
 
 [^u]: Needs to be scaled with concurrent users.
 [^w]: Depends on the DataIntegration workflows.
