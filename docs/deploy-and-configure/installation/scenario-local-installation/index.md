@@ -5,7 +5,7 @@ icon: material/laptop
 
 This page describes a docker-compose based orchestration running on your local machine and accessible via browser.
 
-The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).
+The code examples in this section assume that you have a POSIX-compliant shell (linux, macOS or WSL for Windows).
 
 ## Requirements
 
@@ -49,7 +49,7 @@ Server Version: 19.03.8
 $ docker-compose --version
 docker-compose version 1.25.4, build 8d51620a
 
-# login into eccenca docker registry
+# login to eccenca docker registry
 
 $ docker login docker-registry.eccenca.com
 Username: yourusername
@@ -59,7 +59,7 @@ Login Succeeded
 
 ## Installation
 
-To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
+To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts). The minimal configuration is as follows:
 
 ```bash
 ##
@@ -73,7 +73,7 @@ To install Corporate Memory, you need to modify your local hosts file (located i
 127.0.0.1   corporate.memory
 ```
 
-Corporate Memory uses stardog triple store as a backend. Stardog requires a license:
+Corporate Memory uses Stardog triple store as a backend. Stardog requires a license:
 
 ```bash
 # if you have a license copy it to conf/stardog/stardog-license-key.bin
@@ -82,7 +82,7 @@ Corporate Memory uses stardog triple store as a backend. Stardog requires a lice
 $ cp ~/Downloads/stardog-Eccenca-Developer-license-key.bin conf/stardog/stardog-license-key.bin
 ```
 
-Check validity of your stardog license with `make stardog-license-check` command:
+Check validity of your Stardog license with `make stardog-license-check` command:
 
 ```bash
 $ make stardog-license-check
@@ -95,7 +95,7 @@ Support: 286 days
 Quantity: 1
 ```
 
-In case you do not have stardog license or your license has expired, request a trial license using `make stardog-license-request` command:
+In case you do not have a Stardog license or your license has expired, request a trial license using `make stardog-license-request` command:
 
 ```bash
 # if stardog-license-check is failing with invalid or expired license
@@ -156,7 +156,7 @@ Support: The license does not include maintenance.
 Quantity: 3
 ```
 
-Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:
+Run the command to clean the workspace, pull the images, start the Corporate Memory instance and load initial data:
 
 ```bash
 $ cd ${HOME}/eccenca-corporate-memory
@@ -167,7 +167,7 @@ $ make clean-pull-start-bootstrap
 
 ```
 
-You should see the output as follows:
+You should see the following output:
 
 ```bash
 /usr/local/bin/docker-compose kill
@@ -215,4 +215,4 @@ Click CONTINUE WITH LOGIN and use one of these default accounts:
 
 ![successful-login](../22-1-successful-login.png)
 
-After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
+After successful login, you will see the Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
