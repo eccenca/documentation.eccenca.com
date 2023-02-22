@@ -19,25 +19,25 @@ DataManager provides the option to customize special user errors.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.errorPages.graphAccess.title | 'Unauthorized User' | no | none | string |
 
-Use this property to define a custom title that is displayed if a user has no read access to any graph of the selected workspace.
+Use this property to define a custom title that is displayed if a user does not have read access to any graph of the selected workspace.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.errorPages.graphAccess.message | 'You are not authorized to use this workspace.' | no | none | string |
 
-Use this property to define a custom message that is displayed if a user has no read access to any graph of the selected workspace.
+Use this property to define a custom message that is displayed if a user does not have read access to any graph of the selected workspace.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.errorPages.moduleAccess.title | 'No module accessible' | no | none | string |
 
-Use this property to define a custom title that is displayed if a user has no permission to any module of DataManager.
+Use this property to define a custom title that is displayed if a user does not have permission to access any module of DataManager.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.errorPages.moduleAccess.message | 'You have no access to any module.' | no | none | string |
 
-Use this property to define a custom message that is displayed if a user has no permission to any module of DataManager.
+Use this property to define a custom message that is displayed if a user does not have permission to access any module of DataManager.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
