@@ -12,7 +12,7 @@ DataManager provides the option to define which labels of properties are display
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.titleHelper.properties | see below | yes, if `titleHelper.languages` is set | none | list of strings |
 
-Use this property to define an array of properties used for getting titles. The default value is:
+Use this property to define an array of properties used for fetching titles. The default value is:
 
 ``` json
 [
@@ -28,7 +28,7 @@ Use this property to define an array of properties used for getting titles. The 
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.titleHelper.languages | ['en'] | no | none | list of strings |
 
-Use this property to define an array of languages used for getting titles.
+Use this property to define an array of languages used for fetching titles.
 
 # Configuration example
 
