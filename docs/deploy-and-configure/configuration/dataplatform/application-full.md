@@ -2,7 +2,7 @@
 ## License
 
 By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license. 
-To change the default configuration, you have several options. If the properties under license are not provided the default license included (PEDAL) is used.
+There are several options for changing the default configuration. If the properties under license are not provided, the included default license (PEDAL) is used.
 
 In case a dedicated license file is used, different configuration options can overwrite each other. The license is read in the following sequence:
 
@@ -53,7 +53,7 @@ This section provides general configuration settings.
 
 ### Caching
 
-DataPlatform provides caching support which is enabled by default with an in-memory Caffeine cache.
+DataPlatform provides caching support, which is enabled by default with an in-memory Caffeine cache.
 
 ***Property: spring.cache.type***
 
@@ -71,7 +71,7 @@ To disable caching, set the type to NONE (not recommended).
 
 #### Redis
 
-Set REDIS to use a Redis cache. Use this cache type in scenarios with higher scalability demands or clustered setups. If this cache type is used, you must set the spring.cache.redis.host and spring.cache.redis.port properties, too.
+Set REDIS to use a Redis cache. Use this cache type in scenarios with higher scalability demands or clustered setups. If this cache type is used, you must set the spring.cache.redis.host and spring.cache.redis.port properties as well.
 
 Configuration example:
 
@@ -114,7 +114,7 @@ that cannot handle large requests
 
 ***Property: spring.servlet.multipart.max-file-size***
 
-Use this property to define the maximum size of an uploaded file in number of bytes. Values can use the suffixed "MB" or "KB" (e.g. '1024MB').
+Use this property to define the maximum size of an uploaded file in bytes. Values can use the suffixes "MB" or "KB" (e.g. '1024MB').
 
 **Note:** If DataPlatform is deployed in a Servlet container, make sure to also configure support for large file sizes.
 
@@ -128,7 +128,7 @@ Use this property to define the maximum size of an uploaded file in number of by
 
 ***Property: spring.servlet.multipart.max-request-size***
 
-Use this property to define the maximum size of HTTP request in number of bytes. Values can use the suffixed "MB" or "KB" (e.g. '1024MB').
+Use this property to define the maximum size of HTTP request in bytes. Values can use the suffixes "MB" or "KB" (e.g. '1024MB').
 
 | Category | Value |
 |--- | ---: |
@@ -184,11 +184,11 @@ The service name for DataPlatform under which the traces are stored
 | Valid values | string |
 | Environment | SPRING_ZIPKIN_SERVICE_NAME |
 
-Spring Cloud Sleuth distributed tracing. This generated IDs for queries/updates and all operations in DataPlatform. Write to tracing exporter s. spring.zipkin.
+Spring Cloud Sleuth distributed tracing. This generates IDs for queries/updates and all operations in DataPlatform. Write to tracing exporter s. spring.zipkin.
 
 ***Property: spring.sleuth.enabled***
 
-Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism. Backend store "neptune" is not compatible with tracing enabled.
+Whether tracing is enabled. If not, then IDs for i.e. queries are generated via UUID mechanism. Backend store "neptune" is not compatible with tracing enabled.
 
 | Category | Value |
 |--- | ---: |
@@ -309,7 +309,7 @@ Use this property to define the list of headers that an actual response might ha
 
 ***Property: http.cors.allowCredentials***
 
-Use this property to define whether the browser should send credentials, such as cookies along with cross domain requests.
+Use this property to define whether the browser should send credentials, such as cookies, with cross domain requests.
 
 | Category | Value |
 |--- | ---: |
@@ -320,7 +320,7 @@ Use this property to define whether the browser should send credentials, such as
 
 ***Property: http.cors.maxAge***
 
-Use this property to define how long in seconds the response from a pre-flight request can be cached by clients.
+Use this property to define how long (in seconds) the response from a pre-flight request can be cached by clients.
 
 | Category | Value |
 |--- | ---: |
@@ -336,7 +336,7 @@ Java 11 HTTP client settings for HTTP access to the backend store.
 
 ***Property: httpclient.connectionPoolSize***
 
-The maximum number of connections to keep in the HTTP/1.1 keep alive cache. A value of 0 means that the cache is unbounded
+The maximum number of connections to keep in the HTTP/1.1 keep-alive cache. A value of 0 denotes that the cache is unbound
 
 | Category | Value |
 |--- | ---: |
@@ -347,7 +347,7 @@ The maximum number of connections to keep in the HTTP/1.1 keep alive cache. A va
 
 ***Property: httpclient.keepalive.timeout***
 
-The number of seconds to keep idle HTTP/1.1 connections alive in the keep alive cache
+The number of seconds to keep idle HTTP/1.1 connections alive in the keep-alive cache
 
 | Category | Value |
 |--- | ---: |
@@ -358,12 +358,12 @@ The number of seconds to keep idle HTTP/1.1 connections alive in the keep alive 
 
 ## Authorization
 
-DataPlatform supports authorization of RDF named graphs and actions. Authorization for clients and/or users is specified by the access conditions model which is described in section Access conditions. You can configure root access for a specific group of users who are given unrestricted access regardless of the defined access conditions. Refer to section Root Access for more information.
+DataPlatform supports authorization of RDF named graphs and actions. Authorization for clients and/or users is specified by the access conditions model which is described in section Access conditions. You can configure root access for a specific group of users that are given unrestricted access regardless of the defined access conditions. Refer to section Root Access for more information.
 
 ***Property: authorization.rootAccess***
 
 Use this property to enable or disable root access.
-DataPlatform allows root access for a specific administrator group (see property authorization.abox.adminGroup). You can toggle root access using the property authorization.rootAccess. Regardless of the access conditions declared in the access conditions model (see Access conditions), all members of the administrator group are permitted to read and write all graphs of all endpoints and are allowed to perform all actions.
+DataPlatform allows root access for a specific administrator group (see property authorization.abox.adminGroup). You can toggle root access using the property authorization.rootAccess. Regardless of the access conditions declared in the access conditions model (see Access conditions), all members of the administrator group are permitted to read and write any graph of any endpoint and are allowed to perform all actions.
 
 For example, the following configuration grants root access to any user in the group admins:
 
@@ -424,7 +424,7 @@ Use this property to configure the URI of the public user (see section Public ac
 ***Property: authorization.abox.prefix***
 
 Use this property to set the namespace of URIs created by DataPlatform.
-**Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the URI template), as well as existing URI descriptions and existing access conditions.
+**Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (i.e., the URI template), as well as existing URI descriptions and existing access conditions.
 
 
 | Category | Value |
@@ -436,9 +436,9 @@ Use this property to set the namespace of URIs created by DataPlatform.
 
 #### Access conditions
 
-**Note:** The access conditions model is empty if you provide no configuration in this section.
+**Note:** The access conditions model is empty if you do not provide a configuration in this section.
 
-Access conditions are defined in the access conditions model, an RDF named graph containing instances of the OWL class eccauth:AccessCondition defined by the eLDS Auth schema Ontology.
+Access conditions are defined in the access conditions model, an RDF named graph containing instances of the OWL class eccauth:AccessCondition is defined by the eLDS Auth schema Ontology.
 
 An access condition consists of the following elements:
 
@@ -446,7 +446,7 @@ An access condition consists of the following elements:
     - requirements: Conditions to be fulfilled by the logged-in user such as group membership. All conditions must be fulfilled, otherwise the access condition is not fulfilled.
     - grants: Actions or data the user is allowed to execute and/or access such as accessing a specific API or reading a graph.
 
-For simplicity, the Turtle serialization syntax is used in the following examples, but you can define the access conditions model in any RDF serialization.
+For simplicity, the Turtle serialization syntax is used in the following examples, however, you can define the access conditions model in any RDF serialization.
 
 
 ***Property: authorization.abox.accessConditions.url***
@@ -464,7 +464,7 @@ Use this property to set the URL of the access conditions model file. This can b
 ***Property: authorization.abox.accessConditions.graph***
 
 Use this property to set the graph containing the access conditions model.
-**Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the UI SPARQL queries).
+**Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (i.e., the UI SPARQL queries).
 
 
 | Category | Value |
@@ -479,10 +479,10 @@ Use this property to set the graph containing the access conditions model.
 
 SPARQL endpoints declare how DataPlatform connects to a SPARQL-capable store or service. This includes stores that are capable of reading and writing RDF such as Virtuoso as well as read-only services like remote SPARQL HTTP endpoints (e.g. DBpedia).
 
-With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available, unless a store supporting data persistence is configured.
+With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available unless a store supporting data persistence is configured.
 
-The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
-If nothing matches here, skos:prefLabel is examined in the same way
+The following example shows a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
+If there are no matches here, skos:prefLabel is examined in the same way
 
 ```yaml
 proxy:
@@ -500,7 +500,7 @@ proxy:
 
 ***Property: proxy.defaultBaseIri***
 
-Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to https://fallback.eccenca.com/
+Base IRI for this Corporate Memory instance. If not set, falls back to environment variable DEPLOY_BASE_URL, further fallback to https://fallback.eccenca.com/
 
 | Category | Value |
 |--- | ---: |
@@ -551,7 +551,7 @@ Specifies base language preferences for this instance.
 
 ***Property: proxy.languagePreferencesAnyLangFallback***
 
-Allows the fallback to ignoring the languagePreferences, in case none of the configured match the data.
+Allows the fallback to ignoring the languagePreferences, in case none of the configured ones match the data.
 
 | Category | Value |
 |--- | ---: |
@@ -562,8 +562,8 @@ Allows the fallback to ignoring the languagePreferences, in case none of the con
 
 ***Property: proxy.maxCBDDepth***
 
-The Concise Boundary Description is used for viewing and editing resoures.
-By default up to a max of 5 Blank nodes are traversed for calculation.
+The Concise Boundary Description is used for viewing and editing resources.
+By default, up to a maximum of 5 Blank nodes are traversed for calculation.
 Increasing the max fetch will support deeper constructs, but will also add to loading time.
 
 
@@ -578,9 +578,9 @@ Increasing the max fetch will support deeper constructs, but will also add to lo
 
 Maximum Values for shaped Resources
 When a resource is shaped by shacl forms, *shapedMaxValueCount* limits the number of values
-returned per `shacl:PropertyShape`. The default needs to be larger than the DataManager setting for
+returned per `shacl:PropertyShape`. The default needs to be larger than the DataManager setting
 for 'propertyLimit', which is up to 25. Changing this value allows custom
-endpoints to fetch more data. Increasing this value will increase response time
+endpoints to fetch more data. Increasing this value will increase response time.
 
 
 | Category | Value |
@@ -592,7 +592,7 @@ endpoints to fetch more data. Increasing this value will increase response time
 
 ***Property: proxy.cacheInvalidationCron***
 
-Cache Invalidation Frequency - Caches in DataPlatform are invalidated on updates and in regular intervals. This allows setting a cron for a scheduled eviction of all caches
+Cache Invalidation Frequency - Caches in DataPlatform are invalidated on updates and in regular intervals. This allows setting a cron for a scheduled eviction of all caches.
 
 | Category | Value |
 |--- | ---: |
@@ -603,7 +603,7 @@ Cache Invalidation Frequency - Caches in DataPlatform are invalidated on updates
 
 ***Property: proxy.cacheSelectiveInvalidation***
 
-Indicates whether the DataPlatform caches should selectively invalidate based upon the result of the done operations (insofar as determinable) or not
+Indicates whether the DataPlatform caches should selectively invalidate based upon the result of the done operations (insofar as determinable) or not.
 
 | Category | Value |
 |--- | ---: |
@@ -643,18 +643,18 @@ Used for resolving titles & comments and loading shaped resources.
 
 DataPlatform can sync graphs between git repositories and the backend store.
 Changes of graphs in the backend are transferred to the git repository on each update / write of the graph.
-Changes of the graph in the git repository are synchronized to the store on a scheduled basis.
+Changes of the graph in the git repository are synchronized with the store on a scheduled basis.
 <!--A git repository can be configured for the graph in the graph configuration. -->
-<!--If no repository is configured the configured repository from the DataPlatform configuration is being used. -->
+<!--If no repository is configured, the configured repository from the DataPlatform configuration is used. -->
 Only HTTP git repositories with basic authentication can be used.
-A local public bare repository reachable from DataPlatform can be used in the DataPlatform configuration (for testing purposes).
+A local public bare repository accessible from DataPlatform can be used in the DataPlatform configuration (for testing purposes).
 
-For details how to provide the correct git authentication refer to <https://www.codeaffine.com/2014/12/09/jgit-authentication/>.
+For details on how to provide the correct git authentication refer to <https://www.codeaffine.com/2014/12/09/jgit-authentication/>.
 
 !!! note
-    All properties need to be written as camel case (e.g. "gitSync"), hyphens as separators must not be used.
+    All properties need to be written in camel case (e.g. "gitSync"), hyphens as separators must not be used.
 
-An example git DataPlatform configuration using a gitlab git repository looks like:
+An example git DataPlatform configuration using a gitlab git repository looks as follows:
 
 ```yaml
 gitSync:
@@ -691,7 +691,7 @@ The folder inside the repositories where Corporate Memory places the synchronize
 
 ***Property: gitSync.remoteUrl***
 
-A remote git repository (http, local) - configured http repositories in graph configuration take precedence over this
+A remote git repository (http, local) - http repositories configured in graph configuration take precedence over this
 
 | Category | Value |
 |--- | ---: |
@@ -735,7 +735,7 @@ The git password for simple user/password authentification - may be empty for lo
 
 ***Property: gitSync.committerName***
 
-The committer name which appears in the commit message on system commits
+The committer name that appears in the commit message on system commits
 
 | Category | Value |
 |--- | ---: |
@@ -746,7 +746,7 @@ The committer name which appears in the commit message on system commits
 
 ***Property: gitSync.committerEmail***
 
-The committer email which appears in the commit message  on system commits
+The committer email that appears in the commit message on system commits
 
 | Category | Value |
 |--- | ---: |
@@ -780,7 +780,7 @@ specify a log file (auto-rotating, 10Mb file size).
 Possible log settings for specific modules:
 Query Logging: com.eccenca.elds.backend.sparql.query.logging: DEBUG
 
-The levels can also be configured on runtime via the loggers HTTP endpoint as described in section Application loggers of the Developer Manual.
+The levels can also be configured on runtime via the loggers HTTP endpoint as described in section Application loggers in the Developer Manual.
 
 ```yaml
 logging:
@@ -798,7 +798,7 @@ File output creates an auto-rotating file with 10 MB file size each.
 
 ***Property: logging.file.name***
 
-Log file name (for instance, `myapp.log`). Names can be an exact location or relative to the current directory.
+Log file name (e.g., `myapp.log`). Names can be an exact location or relative to the current directory.
 
 | Category | Value |
 |--- | ---: |
@@ -809,7 +809,7 @@ Log file name (for instance, `myapp.log`). Names can be an exact location or rel
 
 ***Property: logging.file.path***
 
-Location of the log file. For instance, `/var/log`.
+Location of the log file, e.g., `/var/log`.
 
 | Category | Value |
 |--- | ---: |
@@ -820,7 +820,7 @@ Location of the log file. For instance, `/var/log`.
 
 ***Property: logging.config***
 
-Logging for DataPlatform can also be configured with Logback, which, for example, allows a more granular control on file rolling strategies. For further information on configuration options, refer to the Logback’s Configuration manual section and the Spring Boot’s Configure Logback for Logging manual section.
+Logging for DataPlatform can also be configured with Logback, which, for example, allows a more granular control of file rolling strategies. For further information on configuration options, refer to the Logback’s Configuration manual section and the Spring Boot’s Configure Logback for Logging manual section.
 
 Use this property to specify where the Logback configuration is located.
 
@@ -899,7 +899,7 @@ logging:
 
 ## Audit trail logging
 
-DataPlatform is able to log the access of each user to named graphs in form of an audit trail log under the logger name audit.
+DataPlatform is able to log the access of each user to named graphs in the form of an audit trail log under the logger name audit.
 
 ```yaml
 auditTrail:
@@ -988,7 +988,7 @@ Use this property to define the context path under which DataPlatform is availab
 
 ### HTTPS support for standalone mode
 
-If DataPlatform is executed in standalone mode (see Standalone), the embedded servlet container can be configured to support one-way (server certification) or two-way (server and client certification) SSL. A KeyStore is required for one-way SSL and both a KeyStore as well as a TrustStore are required for two-way SSL.
+If DataPlatform is executed in standalone mode (see Standalone), the embedded servlet container can be configured to support one-way (server certification) or two-way (server and client certification) SSL. A KeyStore is required for one-way SSL and both a KeyStore and a TrustStore are required for two-way SSL.
 
 Refer to the Oracle documentation to see how to create KeyStore and TrustStore files.
 
@@ -1036,7 +1036,7 @@ Use this property to set the password to unlock the KeyStore used for one-way or
 
 Use this property to define the client identification policy.
 
-If WANT is set, client identification is optional. If NEED is set, client identification is mandatory, so unauthenticated clients are refused.
+If WANT is set, client identification is optional. If NEED is set, client identification is mandatory and unauthenticated clients are refused.
 
 
 | Category | Value |
@@ -1114,7 +1114,7 @@ Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load
 
 ***Property: scheduler.analyticalPoolSize***
 
-Limits how many analytical requests can be run in parallel. Analytical requests  can have longer runtimes than retrieval requests.
+Limits how many analytical requests can be run in parallel. Analytical requests can have longer runtimes than retrieval requests.
 
 | Category | Value |
 |--- | ---: |
@@ -1131,7 +1131,7 @@ Please s. API documentation under /api/upload/ for further information.
 
 ***Property: files.maxStorageSingleFileSizeMb***
 
-Maximum size of one stored file (as uploaded i.e. can also be compressed size)
+Maximum size of one stored file (as uploaded, i.e., can also be compressed size)
 Value in Mb
 
 
