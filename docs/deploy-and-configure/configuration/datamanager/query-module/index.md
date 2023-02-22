@@ -34,13 +34,13 @@ Set this property to true to load this module as default one after login.
 
 !!! info
 
-    If more than one module has defined `startWith: true` the top most module in the navigation bar will be set as default.
+    If more than one module is defined `startWith: true` the top most module in the navigation bar will be set as default.
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.query.timeout | 600000 | no | none | number |
 
-Set this property to limit the timeout (in milliseconds) requesting manual queries in Query Module.
+Set this property to limit the timeout (in milliseconds) for requesting manual queries in Query Module.
 
 ## Configuration example
 
