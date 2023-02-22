@@ -18,9 +18,9 @@ spring:
 
 #### OAuth 2.0 Resource Server
 
-In order to protect access to it’s resources, DataPlatform acts as an OAuth 2.0 resource server accepting and responding to a protected resource request using a JSON Web Token (JWT).
+In order to protect access to its resources, DataPlatform acts as an OAuth 2.0 resource server accepting and responding to a protected resource request using a JSON Web Token (JWT).
 
-The OAuth 2.0 specification as well as the JSON Web Token specification don’t define any mandatory claims to be contained in a JWT access token. However, if the property spring.security.oauth2.resourceserver.jwt.issuer-uri is set, the iss (issuer) claim is required to be contained in the JWT. It’s value must be equal to the configured issuer URI. Additionally, in order to identify the requesting principal, either the username claim or the clientId claim must be contained in the JWT.
+Neither the OAuth 2.0 specification nor the JSON Web Token specification define any mandatory claims to be contained in a JWT access token. However, if the property spring.security.oauth2.resourceserver.jwt.issuer-uri is set, the iss (issuer) claim is required to be contained in the JWT. Its value must be the same as the configured issuer URI. Additionally, in order to identify the requesting principal, either the username claim or the clientId claim must be contained in the JWT.
 
 
 ***Property: spring.security.oauth2.resourceserver.anonymous***
@@ -52,7 +52,7 @@ If this property is set, the iss (issuer) claim is required to be contained in t
 
 ***Property: spring.security.oauth2.resourceserver.jwt.jwkSetUri***
 
-Use this property to specify the JSON Web Key URI to use to verify the JWT token.
+Use this property to specify the JSON Web Key URI to use for verifying the JWT token.
 
 | Category | Value |
 |--- | ---: |
@@ -62,7 +62,7 @@ Use this property to specify the JSON Web Key URI to use to verify the JWT token
   | Conflicts with | spring.security.oauth2.resourceserver.jwt.issuerUri |
 | Environment | SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI |
 
-Use the following configuration options to specify the claims conveyed by a JWT used to access protected resources of DataPlatform. If nothing is configured, a default configuration is provided with the following configuration
+Use the following configuration options to specify the claims conveyed by a JWT used to access protected resources of DataPlatform. If nothing is configured, the following default configuration is provided
 
 ***Property: spring.security.oauth2.resourceserver.jwt.claims.username***
 
