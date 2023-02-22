@@ -2,7 +2,7 @@
 
 *Configuration property: `modules.accountSettings` | Scope: app-wide and per workspace*
 
-DataManager provides a menu point to edit the account settings. It also need to be enabled in keycloak.
+DataManager provides a menu item for editing the account settings, which needs to be enabled in keycloak.
 
 -   js.config.modules.accountSettings
     -   url
