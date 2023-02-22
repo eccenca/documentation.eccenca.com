@@ -3,8 +3,8 @@
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote stardog store (https://remote:5820). All SPARQL updates have a 
-timout of 5 minutes configured.
+This example configures a connection with HTTPS to a remote Stardog store (https://remote:5820). All SPARQL updates have a 
+timeout configured to 5 minutes.
 
 ```yaml
 store:
