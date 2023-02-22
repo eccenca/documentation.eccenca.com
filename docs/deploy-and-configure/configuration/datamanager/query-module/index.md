@@ -30,7 +30,7 @@ Use this property to define the target graph for read and write operations.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.query.startWith | false | no | none | boolean |
 
-Set this property to true to load this module as default one after login.
+Set this property to true to load this module as the default one after login.
 
 !!! info
 
