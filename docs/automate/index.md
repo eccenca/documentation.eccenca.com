@@ -15,13 +15,13 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     ---
 
-    cmemc is intended for system administrators and Linked Data Expert, who wants to automate and remote control activities on eccenca Corporate Memory.
+    cmemc is intended for system administrators and Linked Data experts, who want to automate and control activities on eccenca Corporate Memory remotely.
 
 -   :eccenca-artefact-workflow: [Processing data with variable input workflows](processing-data-with-variable-input-workflows)
 
     ---
 
-    This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (means, without registering datasets).
+    This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (i.e., without registering datasets).
 
 -   :material-clock-start: [Scheduling Workflows](scheduling-workflows)
 
