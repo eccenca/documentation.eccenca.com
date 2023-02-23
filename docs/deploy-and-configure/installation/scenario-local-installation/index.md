@@ -73,7 +73,85 @@ To install Corporate Memory, you need to modify your local hosts file (located i
 127.0.0.1   corporate.memory
 ```
 
-Corporate Memory uses stardog triple store as a backend. Stardog requires a license:
+Corporate Memory uses Ontotext GraphDB triple store as default backend. Graphdb is available as free version and does not requires a license. If you have a license for graphdb you can copy the file to the ```license```folder inside Corporate Memory's root folder.
+
+```bash
+$ cp YOUR_SE_LICENSE_FILE ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
+# or 
+$ cp YOUR_EE_LICENSE_FILE ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+```
+
+Then change the file ```environments/config.env``` to use the correct version:
+
+```bash
+
+###############################
+# Stores                      #
+###############################
+# default: graphdb-se
+#DP_STORE=graphdb-ee
+DP_STORE=graphdb-free
+
+```
+
+
+Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:
+
+```bash
+$ cd ${HOME}/cmem-orchestration-VERSION
+
+# Pulling the images will take time
+
+$ make clean-pull-start-bootstrap
+
+```
+
+You should see the output as follows:
+
+```bash
+/usr/local/bin/docker-compose kill
+/usr/local/bin/docker-compose stop
+/usr/local/bin/docker-compose down --volumes --remove-orphans
+Removing network dockerlocal_default
+Removing volume dockerlocal_stardog
+/usr/local/bin/docker-compose rm -v --force
+No stopped containers
+Pulling apache2         ... done
+Pulling datamanager     ... done
+Pulling store           ... done
+Pulling postgres        ... done
+Pulling keycloak        ... done
+Pulling dataplatform    ... done
+Pulling dataintegration ... done
+Pulling cmemc           ... done
+/usr/local/bin/docker-compose  up -d
+Creating network "dockerlocalhost_default" with the default driver
+Creating volume "dockerlocalhost_postgres_volume" with default driver
+Creating volume "dockerlocalhost_import_volume" with default driver
+Creating volume "dockerlocalhost_store_volume" with default driver
+Creating dockerlocalhost_store_1       ... done
+Creating dockerlocalhost_apache2_1     ... done
+Creating dockerlocalhost_datamanager_1 ... done
+Creating dockerlocalhost_postgres_1    ... done
+Creating dockerlocalhost_cmemc_1       ... done
+Creating dockerlocalhost_keycloak_1    ... done
+Creating dockerlocalhost_dataplatform_1    ... done
+Creating dockerlocalhost_dataintegration_1 ... done
+/home/user/cmem-orchestration-v22.2.2//scripts/waitForSuccessfulStart.dist.sh
+Waiting for healthy orchestration................... done
+Remove existing bootstrap data from triple store and import shipped data from DP
+chmod a+r conf/cmemc/cmemc.ini
+docker run -i --rm --network dockerlocalhost_default --env "OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" --volume /home/user/cmem-orchestration-v22.2.2/data:/data --volume /home/user/cmem-orchest
+ration-v22.2.2/conf/cmemc/cmemc.ini:/config/cmemc.ini docker-registry.eccenca.com/eccenca-cmemc:v22.2 -c cmem admin store bootstrap --import
+Update or import bootstrap data ... done
+make[1]: Leaving directory '/home/ttelleis/aztest/cmem-orchestration-v22.2.2'
+
+CMEM-Orchestration successfully started with store graphdb-free.
+Please open http://docker.localhost for validation.
+Run make logs to see log output
+```
+### Installation with Stardog
+Corporate Memory can also use stardog triple store as a backend. Stardog requires a license:
 
 ```bash
 # if you have a license copy it to conf/stardog/stardog-license-key.bin
@@ -154,50 +232,6 @@ Issued:  Sun Mar 29 12:03:25 GMT 2020
 Expiration: 59 days
 Support: The license does not include maintenance.
 Quantity: 3
-```
-
-Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:
-
-```bash
-$ cd ${HOME}/eccenca-corporate-memory
-
-# Pulling the images will take time
-
-$ make clean-pull-start-bootstrap
-
-```
-
-You should see the output as follows:
-
-```bash
-/usr/local/bin/docker-compose kill
-/usr/local/bin/docker-compose stop
-/usr/local/bin/docker-compose down --volumes --remove-orphans
-Removing network dockerlocal_default
-Removing volume dockerlocal_stardog
-/usr/local/bin/docker-compose rm -v --force
-No stopped containers
-Removing data/dataplatform/shui-vocab/includes/widoco/
-Pulling apache2         ... done
-Pulling datamanager     ... done
-Pulling dataintegration ... done
-Pulling stardog         ... done
-Pulling dataplatform    ... done
-Pulling postgres        ... done
-Pulling keycloak        ... done
-Creating network "dockerlocal_default" with the default driver
-Creating volume "dockerlocal_stardog" with default driver
-Creating dockerlocal_apache2_1     ... done
-Creating dockerlocal_stardog_1         ... done
-Creating dockerlocal_postgres_1        ... done
-Creating dockerlocal_datamanager_1     ... done
-Creating dockerlocal_dataintegration_1 ... done
-Creating dockerlocal_keycloak_1        ... done
-Creating dockerlocal_dataplatform_1    ... done
-/Users/ivanermilov/eccenca-corporate-memory/scripts/waitForSuccessfulStart.sh
-Waiting for healthy orchestration...................... done
-CMEM-Orchestration successfully started.
-Run make logs to see log output
 ```
 
 ## Initial Login / Test
