@@ -36,14 +36,6 @@ The node description should provide context information for the user when creati
 Used Path: `rdfs:comment`
 
 
-### Tab Name (deprecated)
-
-
-Name of the tab (deprecated, only interpreted until 20.06)
-
-Used Path: `shui:tabName`
-
-
 ### Navigation list query
 
 

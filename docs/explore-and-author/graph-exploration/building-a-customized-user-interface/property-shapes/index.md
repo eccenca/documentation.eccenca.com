@@ -19,14 +19,6 @@ The following Property Shape properties are supported:
 
     In this group, presentation and naming properties are collected. Most of the properties are straight forward to use, other properties provide more complex features, such as table reports.
 
-### Provide Workflow Trigger
-
-
-Integrates a workflow trigger button in order to execute workflows from or with this resource.
-
-Used Path: `shui:provideWorkflowTrigger`
-
-
 ### Name
 
 
@@ -104,6 +96,14 @@ Used Path: `shui:showAlways`
 Default is false. A value of true means the properties are not editable by the user. Useful for displaying system properties.
 
 Used Path: `shui:readOnly`
+
+
+### Provide Workflow Trigger
+
+
+Integrates a workflow trigger button in order to execute workflows from or with this resource.
+
+Used Path: `shui:provideWorkflowTrigger`
 
 ## Vocabulary
 
