@@ -3087,167 +3087,118 @@
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¤</a></h2>
 <ul>
 <li>Access credentials to eccenca Artifactory and eccenca Docker Registry → <a href="https://eccenca.com/en/contact">contact us to get yours</a></li>
-<li><a href="https://www.docker.com/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed locally</li>
+<li><a href="https://www.docker.com/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> (v1) installed locally</li>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed locally</li>
 <li>At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker</li>
 </ul>
 <h2 id="setup-check-installation-environment">Setup &amp; Check Installation Environment<a class="headerlink" href="#setup-check-installation-environment" title="Permanent link">¤</a></h2>
 <p>Download the <a href="https://releases.eccenca.com/docker-orchestration/">Corporate Memory docker orchestration</a> from eccenca Artifactory.</p>
 <p>Open a terminal window, create a directory, copy and extract docker orchestration there.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># create eccenca-corporate-memory directory in your ${HOME} and set as a working dir</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp"># </span>create eccenca-corporate-memory directory <span class="k">in</span> your <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span> and <span class="nb">set</span> as a working dir
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>$ mkdir <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">$ </span>mkdir <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># cp Corporate Memory docker orchestration distribution in the local directory</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Change VERSION to the version you have downloaded e.g. v20.03</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp"># </span>cp Corporate Memory docker orchestration distribution <span class="k">in</span> the <span class="nb">local</span> directory
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp"># </span>Change VERSION to the version you have downloaded e.g. v20.03
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>$ cp <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/Downloads/cmem-orchestration-VERSION.zip ./
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>$ unzip cmem-orchestration-VERSION.zip
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>$ rm cmem-orchestration-VERSION.zip
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>$ git init <span class="o">&amp;&amp;</span> git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">"stub"</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="gp">$ </span>cp <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/Downloads/cmem-orchestration-VERSION.zip ./
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="gp">$ </span>unzip cmem-orchestration-VERSION.zip
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="gp">$ </span>rm cmem-orchestration-VERSION.zip
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="gp">$ </span>git init <span class="o">&amp;&amp;</span> git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">"stub"</span>
 </code></pre></div>
 <p>Check your local environment:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># run the following command (without $) to check your docker server version, should be at least 19.03</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># to have the current security patches, always update your docker version to the latest one</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="gp"># </span>run the following <span class="nb">command</span> <span class="o">(</span>without $<span class="o">)</span> to check your docker server version, should be at least <span class="m">19</span>.03
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="gp"># </span>to have the current security patches, always update your docker version to the latest one
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>$ docker info <span class="p">|</span> grep -i version
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>Server Version: <span class="m">19</span>.03.8
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="gp">$ </span>docker info <span class="p">|</span> grep -i version
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="go">Server Version: 19.03.8</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># check docker-compose version, should be at least 1.25.0</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># update to the latest version if necessary</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="gp"># </span>check docker-compose version, should be at least <span class="m">1</span>.25.0
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="gp"># </span>update to the latest version <span class="k">if</span> necessary
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>$ docker-compose --version
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>docker-compose version <span class="m">1</span>.25.4, build 8d51620a
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="gp">$ </span>docker-compose --version
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="go">docker-compose version 1.25.4, build 8d51620a</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># login into eccenca docker registry</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="gp"># </span>login into eccenca docker registry
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>$ docker login docker-registry.eccenca.com
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>Username: yourusername
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>Password:
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>Login Succeeded
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="gp">$ </span>docker login docker-registry.eccenca.com
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="go">Username: yourusername</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="go">Password:</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="go">Login Succeeded</span>
 </code></pre></div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¤</a></h2>
 <p>To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">##</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># Host Database</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">#</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># localhost is used to configure the loopback interface</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># when the system is booting.  Do not change this entry.</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1">##</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="m">127</span>.0.0.1 localhost
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="m">127</span>.0.0.1   docker.localhost
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="m">127</span>.0.0.1   corporate.memory
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>##
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a># Host Database
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>#
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a># localhost is used to configure the loopback interface
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a># when the system is booting.  Do not change this entry.
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>##
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>127.0.0.1 localhost
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>127.0.0.1 docker.localhost
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>127.0.0.1 corporate.memory
 </code></pre></div>
-<p>Corporate Memory uses stardog triple store as a backend. Stardog requires a license:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># if you have a license copy it to conf/stardog/stardog-license-key.bin</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1"># for example</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>$ cp ~/Downloads/stardog-Eccenca-Developer-license-key.bin conf/stardog/stardog-license-key.bin
+<p>Corporate Memory uses Ontotext GraphDB triple store as default backend. Graphdb is available as free version and does not requires a license. If you have a license for graphdb you can copy the file to the <code>license</code>folder inside Corporate Memory’s root folder.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gp">$ </span>cp YOUR_SE_LICENSE_FILE <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-se.license
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="gp"># </span>or
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="gp">$ </span>cp YOUR_EE_LICENSE_FILE <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-ee.license
 </code></pre></div>
-<p>Check validity of your stardog license with <code>make stardog-license-check</code> command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>$ make stardog-license-check
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Licensee: Eccenca User <span class="o">(</span>noreply@stardog.com<span class="o">)</span>, Eccenca
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>Type:  Subscription
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>Issued:  Mon Jan <span class="m">20</span> <span class="m">19</span>:39:39 GMT <span class="m">2020</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>Expiration: <span class="m">286</span> days
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>Support: <span class="m">286</span> days
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>Quantity: <span class="m">1</span>
-</code></pre></div>
-<p>In case you do not have stardog license or your license has expired, request a trial license using <code>make stardog-license-request</code> command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># if stardog-license-check is failing with invalid or expired license</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>$ make stardog-license-check
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>The license is invalid: java.io.EOFException
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>make: *** <span class="o">[</span>stardog-license-check<span class="o">]</span> Error <span class="m">1</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="c1"># request stardog trial license</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>$ make stardog-license-request
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license request --force --output /data/stardog-license-key.bin
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>Thank you <span class="k">for</span> downloading Stardog.
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>A valid license was not found <span class="k">in</span> /data.
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>Would you like to download a trial license from Stardog <span class="o">(</span>y/N<span class="o">)</span>? y
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>Contacting Stardog...............
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>Please provide a valid email address to start your <span class="m">60</span>-day trial <span class="o">(</span>we may occasionally contact you with Stardog news<span class="o">)</span>:  you@your-domain.com
-<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>Contacting license server.....................
-<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a>Email validated. You now have a <span class="m">60</span>-day Stardog trial license. Starting Stardog...
-<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a>                                                         %▄,
-<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>                                                       ░░Γ╬▀▀█▓╣⌐
-<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a>                                                      ▄▓▌░░░░░░╨▓
-<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a>                          .⌐⌐.                     .½▓█▌░░░░░░░░░▀▄
-<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a>                     ⌐Γ░░░░░░░░░░Γ«⌐              ≤░▓███▓▓▌▄░░░░░▓▒█Γ⌐
-<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>                .»≥░░░░░░░░░░░░░░░░░░░░░≥▒▒▒▒▒▒▒░░░▓████████░░░░▐█▄╙░░≥░░≥<span class="o">[</span>».
-<a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a>             ┌Γ░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒░░╫█████████▌▒▒▒▒▒█▒▓▓▓▌▌▌▌▓▓█▓⌐
-<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a>          .≥░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╢▒▒▓▓▒▒▒░░░░╟██████╙ └█b  ████▀▀▒█████▌
-<a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a> Γ    .∩░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░░██████<span class="sb">`</span>   ╙   ╟█▓∩  ███▀██▌
-<a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>├░, .░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░╫██████        ▐█    ██    ╙
-<a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a>├░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒░░░░▓██████          ,  <span class="s1">'  ▄</span>
-<a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="s1"> ░░░░░░░░░░░░░░░░░░░░░░░░░░░░▄▄▄░░░░░░░░░░░░░░░░░░░░▓██████▓░░░░╕    ▐█▄   ██</span>
-<a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="s1">.░░░░░░░░░░░░░░░░╣▄░░░░░▄╣▓██████▓▄░░░░░░░░░░░░░░░░░╢████████▒██░░╣   ██▄▄╣▒▒▌▄▄</span>
-<a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="s1"> ░░░░░░░░░░░░░░,  └╙▀▀██████████████▓░░░░░░░░░░░░░░░░██████████▌░░░╦  █▒██████▌</span>
-<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="s1"> ╙░░░░░░░░░░░░░░░       ╙▀███████████░░░░░░░░░░░░░░▓░░█████▀▀▀░░░░░╬▒█████████</span>
-<a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="s1">  '</span>╙░░░░░░░░░▄▄▄<span class="sb">`</span>          └▀███████░░░░░░░░░░░░░░║██▓▄░▀▀░░░░░░░░░Γ <span class="s2">"╙░░░░▀▀</span>
-<a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="s2">    ╙░░▄╣▓▓██▀▀               ╙▀███▌░░░░░░░░░░░░░╢█████⌐   ╙░░░░░░░</span>
-<a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="s2">    └╣███▀▀└                     ╙▀░░░░░░░░░░░░░╣████▀       '""`</span>
-<a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="s2">                                 .░░░░░░░░░░░░╠▓███▀²</span>
-<a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="s2">                                «░░░░░░░░░░░░╣███▀</span>
-<a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="s2">                               ≥░░░░░░░░░░░┴▀▀╙</span>
-<a href="#__codelineno-5-40" id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="s2">                            .Γ░░░░░░░░░░∩`</span>
-<a href="#__codelineno-5-41" id="__codelineno-5-41" name="__codelineno-5-41"></a><span class="s2">                á▀▀╕▄#▌▀▀░≥░░░░░░░╙∩"</span>
-<a href="#__codelineno-5-42" id="__codelineno-5-42" name="__codelineno-5-42"></a>                ░░░░░░░░░░∩<span class="sb">`</span>
-<a href="#__codelineno-5-43" id="__codelineno-5-43" name="__codelineno-5-43"></a>                 └░░░░╙∩<span class="sb">`</span>
-<a href="#__codelineno-5-44" id="__codelineno-5-44" name="__codelineno-5-44"></a>Thank you!
-<a href="#__codelineno-5-45" id="__codelineno-5-45" name="__codelineno-5-45"></a>
-<a href="#__codelineno-5-46" id="__codelineno-5-46" name="__codelineno-5-46"></a><span class="c1"># check that you have a valid license now</span>
-<a href="#__codelineno-5-47" id="__codelineno-5-47" name="__codelineno-5-47"></a>
-<a href="#__codelineno-5-48" id="__codelineno-5-48" name="__codelineno-5-48"></a>$ make stardog-license-check
-<a href="#__codelineno-5-49" id="__codelineno-5-49" name="__codelineno-5-49"></a>docker run -it --rm --name stardog-license-check -v data:/data -v /Users/ivanermilov/eccenca-corporate-memory/conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
-<a href="#__codelineno-5-50" id="__codelineno-5-50" name="__codelineno-5-50"></a>Licensee: Stardog Trial User <span class="o">(</span>you@your-domain.com<span class="o">)</span>, Stardog Union
-<a href="#__codelineno-5-51" id="__codelineno-5-51" name="__codelineno-5-51"></a>Version: Stardog *
-<a href="#__codelineno-5-52" id="__codelineno-5-52" name="__codelineno-5-52"></a>Type:  Trial
-<a href="#__codelineno-5-53" id="__codelineno-5-53" name="__codelineno-5-53"></a>Issued:  Sun Mar <span class="m">29</span> <span class="m">12</span>:03:25 GMT <span class="m">2020</span>
-<a href="#__codelineno-5-54" id="__codelineno-5-54" name="__codelineno-5-54"></a>Expiration: <span class="m">59</span> days
-<a href="#__codelineno-5-55" id="__codelineno-5-55" name="__codelineno-5-55"></a>Support: The license does not include maintenance.
-<a href="#__codelineno-5-56" id="__codelineno-5-56" name="__codelineno-5-56"></a>Quantity: <span class="m">3</span>
+<p>Then change the file <code>environments/config.env</code> to use the correct version:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>###############################
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a># Stores                      #
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>###############################
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a># default: graphdb-se
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>#DP_STORE=graphdb-ee
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>DP_STORE=graphdb-free
 </code></pre></div>
 <p>Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>$ <span class="nb">cd</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Pulling the images will take time</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>$ make clean-pull-start-bootstrap
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="gp">$ </span><span class="nb">cd</span> <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="gp"># </span>Pulling the images will take <span class="nb">time</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="gp">$ </span>make clean-pull-start-bootstrap
 </code></pre></div>
 <p>You should see the output as follows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>/usr/local/bin/docker-compose <span class="nb">kill</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>/usr/local/bin/docker-compose stop
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>/usr/local/bin/docker-compose down --volumes --remove-orphans
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>Removing network dockerlocal_default
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>Removing volume dockerlocal_stardog
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>/usr/local/bin/docker-compose rm -v --force
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>No stopped containers
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>Removing data/dataplatform/shui-vocab/includes/widoco/
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>Pulling apache2         ... <span class="k">done</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>Pulling datamanager     ... <span class="k">done</span>
-<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>Pulling dataintegration ... <span class="k">done</span>
-<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>Pulling stardog         ... <span class="k">done</span>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a>Pulling dataplatform    ... <span class="k">done</span>
-<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a>Pulling postgres        ... <span class="k">done</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a>Pulling keycloak        ... <span class="k">done</span>
-<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a>Creating network <span class="s2">"dockerlocal_default"</span> with the default driver
-<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a>Creating volume <span class="s2">"dockerlocal_stardog"</span> with default driver
-<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>Creating dockerlocal_apache2_1     ... <span class="k">done</span>
-<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>Creating dockerlocal_stardog_1         ... <span class="k">done</span>
-<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a>Creating dockerlocal_postgres_1        ... <span class="k">done</span>
-<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a>Creating dockerlocal_datamanager_1     ... <span class="k">done</span>
-<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a>Creating dockerlocal_dataintegration_1 ... <span class="k">done</span>
-<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a>Creating dockerlocal_keycloak_1        ... <span class="k">done</span>
-<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>Creating dockerlocal_dataplatform_1    ... <span class="k">done</span>
-<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a>/Users/ivanermilov/eccenca-corporate-memory/scripts/waitForSuccessfulStart.sh
-<a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a>Waiting <span class="k">for</span> healthy orchestration...................... <span class="k">done</span>
-<a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a>CMEM-Orchestration successfully started.
-<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a>Run make logs to see log output
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="go">/usr/local/bin/docker-compose kill</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="go">/usr/local/bin/docker-compose stop</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="go">/usr/local/bin/docker-compose down --volumes --remove-orphans</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="go">Removing network dockerlocal_default</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="go">Removing volume dockerlocal_stardog</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="go">/usr/local/bin/docker-compose rm -v --force</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="go">No stopped containers</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="go">Pulling apache2         ... done</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="go">Pulling datamanager     ... done</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="go">Pulling store           ... done</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="go">Pulling postgres        ... done</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="go">Pulling keycloak        ... done</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="go">Pulling dataplatform    ... done</span>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="go">Pulling dataintegration ... done</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="go">Pulling cmemc           ... done</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="go">/usr/local/bin/docker-compose  up -d</span>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="go">Creating network "dockerlocalhost_default" with the default driver</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="go">Creating volume "dockerlocalhost_postgres_volume" with default driver</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="go">Creating volume "dockerlocalhost_import_volume" with default driver</span>
+<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="go">Creating volume "dockerlocalhost_store_volume" with default driver</span>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="go">Creating dockerlocalhost_store_1       ... done</span>
+<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="go">Creating dockerlocalhost_apache2_1     ... done</span>
+<a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="go">Creating dockerlocalhost_datamanager_1 ... done</span>
+<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="go">Creating dockerlocalhost_postgres_1    ... done</span>
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="go">Creating dockerlocalhost_cmemc_1       ... done</span>
+<a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="go">Creating dockerlocalhost_keycloak_1    ... done</span>
+<a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="go">Creating dockerlocalhost_dataplatform_1    ... done</span>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="go">Creating dockerlocalhost_dataintegration_1 ... done</span>
+<a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="go">/home/user/cmem-orchestration-v22.2.2//scripts/waitForSuccessfulStart.dist.sh</span>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="go">Waiting for healthy orchestration................... done</span>
+<a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="go">Remove existing bootstrap data from triple store and import shipped data from DP</span>
+<a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="go">chmod a+r conf/cmemc/cmemc.ini</span>
+<a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="go">docker run -i --rm --network dockerlocalhost_default --env "OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" --volume /home/user/cmem-orchestration-v22.2.2/data:/data --volume /home/user/cmem-orchest</span>
+<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="go">ration-v22.2.2/conf/cmemc/cmemc.ini:/config/cmemc.ini docker-registry.eccenca.com/eccenca-cmemc:v22.2 -c cmem admin store bootstrap --import</span>
+<a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="go">Update or import bootstrap data ... done</span>
+<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="go">make[1]: Leaving directory '/home/ttelleis/aztest/cmem-orchestration-v22.2.2'</span>
+<a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a>
+<a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="go">CMEM-Orchestration successfully started with store graphdb-free.</span>
+<a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="go">Please open http://docker.localhost for validation.</span>
+<a href="#__codelineno-6-40" id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="go">Run make logs to see log output</span>
 </code></pre></div>
 <h2 id="initial-login-test">Initial Login / Test<a class="headerlink" href="#initial-login-test" title="Permanent link">¤</a></h2>
 <p>Open your browser and navigate to <a href="http://docker.localhost">http://docker.localhost</a></p>
@@ -3281,7 +3232,7 @@
 <span class="md-icon" title="Date of last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-11-17T22:29:11+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-17</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-23T13:22:44+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Date of creation">
