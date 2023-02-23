@@ -42,7 +42,7 @@ To add a new access condition:
 | `urn:elds-backend-anonymous-user`              | Represents the anonymous user account. You can use it in the **Requires account** field.                                                                                                                       |
 | `urn:elds-backend-actions-revision-api`        | Represents the Revision API (see the Developer Manual). You can use it in the **Allowed actions** field.                                                                                                       |
 | `urn:elds-backend-actions-auth-access-control` | Represents the Authorization management API (see the Developer Manual). You can use it in the Allowed actions field.                                                                                           |
-| `urn:eccenca:di`                               | Represents the action needed to use eccenca DataIntegration component of eccenca Corporate Memory. You can use it in the **Allowed actions** field.                                                            |
+| `urn:eccenca:di`                               | Represents the action needed to use the eccenca DataIntegration component of eccenca Corporate Memory. You can use it in the **Allowed actions** field.                                                            |
 | `urn:eccenca:ThesaurusUserInterface`           | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well). You can use it in the **Allowed actions** field. |
 | `urn:eccenca:AccessInternalGraphs`             | Represents the action needed to list Corporate Memory Internal graphs in the exploration tab. You can use it in the **Allowed actions** field.                                                                 |
 | `urn:eccenca:QueryUserInterface`               | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed). You can use it in the **Allowed actions** field.                                   |
@@ -64,8 +64,8 @@ Click on SAVE to apply your changes or discard them with CANCEL.
 
 ## Adding Access Conditions with cmemc
 
-Additional to the Access Control module you can add the access conditions directly to the triple store.
-In this case, the access conditions need to be defined in an Turtle file, for example:
+In addition to the Access Control module you can add the access conditions directly to the triple store.
+In this case, the access conditions need to be defined in a Turtle file, for example:
 
 ```turtle
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -107,7 +107,7 @@ You can define several access conditions for the same group.
 
 When you are finished with creating your access conditions Turtle file, you can add it directly to the `urn:elds-backend-access-conditions-graph` graph (defined in [DataPlatform configuration](./../dataplatform/index.md)).
 
-With [cmemc](../../../automate/cmemc-command-line-interface/index.md), you can do this with the following command line:
+With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can do this with the following command line:
 
 ``` shell-session
 $ cmemc -c my-cmem-instance graph import --replace access-conditions.ttl urn:elds-backend-access-conditions-graph
