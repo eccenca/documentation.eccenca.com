@@ -201,7 +201,7 @@ Whether tracing is enabled. If not then IDs for i.e. queries are generated via U
 
 You can activate endpoints to expose an OpenAPI compliant specification of the available DataPlatform APIs. Developers can make use of this information to understand the API and to bootstrap client integration code.
 
-The servers URLs can be customized by setting the environment variable OPENAPI_SERVER_URLS on the machine or in the docker container that runs DataManager:
+The server URLs can be customized by setting the environment variable OPENAPI_SERVER_URLS on the machine or in the docker container that runs DataManager:
 
 ```bash
 export OPENAPI_SERVER_URLS="https://my-custom.domain.com:443/dataplatform"
@@ -220,7 +220,7 @@ springdoc:
 
 ***Property: springdoc.api-docs.enabled***
 
-Use this property to enable and expose endpoint that provide the OpenAPI compliant specification of the DataPlatform APIs. The following endpoints will become available when this option is set to true:
+Use this property to enable and expose the endpoint that provides the OpenAPI compliant specification of the DataPlatform APIs. The following endpoints will become available when this option is set to true:
 
 - <DATA_PLATFORM_URI>/v3/api-docs
 - <DATA_PLATFORM_URI>/v3/api-docs.yaml
