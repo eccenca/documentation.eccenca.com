@@ -22,7 +22,7 @@ Set this property to true to enable the Thesaurus module of DataManager.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.modules.thesaurus.startWith | false | no | none | boolean |
 
-Set this property to true to load this module as default one after login.
+Set this property to true to load this module as the default one after login.
 
 !!! info
 
