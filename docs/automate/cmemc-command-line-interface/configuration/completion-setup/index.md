@@ -12,11 +12,11 @@ tags:
 In case you are using bash or zsh as your terminal shell, you should enable [Command-line tab completion](https://en.wikipedia.org/wiki/Command-line_completion) for cmemc.
 
 Tab completion is a powerful feature and will save you a lot of typing work.
-Furthermore, it will help you to learn the different commands, parameters and options and will auto-complete parameter values taken live from your Corporate Memory instance (such as graph IRIs, project IDs, ...).
+Furthermore, it will help you to learn the different commands, parameters and options and will auto-complete parameter values taken live from your Corporate Memory instance (such as graph IRIs, project IDs, etc.).
 
 ![cmemc - Create Dataset](22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
 
-We suggest to use [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take advantage of the advanced menu-completion feature of zsh.
+We suggest using [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take advantage of its advanced menu-completion feature.
 
 ## Installation
 
