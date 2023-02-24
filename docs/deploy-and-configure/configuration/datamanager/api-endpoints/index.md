@@ -17,7 +17,7 @@ Use this property to define the default endpoint for all SPARQL requests.
 
 !!! info
 
-    When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -27,13 +27,13 @@ Use this property to define the default endpoint for all SPARQL Update requests.
 
 !!! info
 
-    When a relative path is set the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.api.defaultTimeout | 60000 | no | none | number |
 
-Set this property to limit the timeout (in milliseconds) requesting data in the tables of DataManager.
+Set this property to limit the timeout (in milliseconds) for requesting data in the tables of DataManager.
 
 ## Configuration example
 

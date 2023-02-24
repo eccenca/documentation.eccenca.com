@@ -14,7 +14,7 @@ DataManager provides the option to customize the visual presentation.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.appPresentation.faviconUrl | none | no | none | string (URL) |
 
-Use this property to define a custom favicon that is displayed in browser tab. Pictures can be an URL or a [Data URL](https://dopiaza.org/tools/datauri/index.php).
+Use this property to define a custom favicon that is displayed in the browser tab. Pictures can be an URL or a [Data URL](https://dopiaza.org/tools/datauri/index.php).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -26,7 +26,7 @@ Use this property to define a custom browser tab name.
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.appPresentation.logoUrl | none | no | none | string (URL) |
 
-Use this property to define a custom logo that is shown in the Module bar. Pictures can be a an URL or a [Data URL](https://dopiaza.org/tools/datauri/index.php).
+Use this property to define a custom logo that is shown in the Module bar. Images can be a an URL or a [Data URL](https://dopiaza.org/tools/datauri/index.php).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

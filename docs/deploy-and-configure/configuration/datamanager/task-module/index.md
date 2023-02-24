@@ -2,7 +2,7 @@
 
 *Configuration property: `modules.task` | Scope: app-wide and per workspace*
 
-The Task module of DataManager is used to offer direct user action interfaces to view or manipulate specific data.
+The Task module of DataManager is used to offer direct user action interfaces for viewing or manipulating specific data.
 
 -   js.config.modules.task
     -   enable
