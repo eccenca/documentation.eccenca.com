@@ -15,7 +15,7 @@ Python plugins can can be installed and uninstalled during runtime.
 In order to support the development of python plugins, we published a [base package](https://github.com/eccenca/cmem-plugin-base) as well as a [project template](https://github.com/eccenca/cmem-plugin-template).
 Please have a look at these projects to get started.
 
-This page gives an overview of the concepts you need to understand to develop plugins.
+This page gives an overview of the concepts you need to understand in order to develop plugins.
 
 ## Plugin Types
 
@@ -229,24 +229,24 @@ class EntitiesProducer(WorkflowPlugin):
         return Entities(entities=entities, schema=schema)
 ```
 
-Let's understand the code:
+Code explanation:
 
 1. Provide a label, description and short documentation for the plugin. [(#17-27)](#__codelineno-10-17)
 2. Define the parameters of the plugin. Here, two parameters are defined, where one specifies the number of `rows` and the other acthe number of `columns`. [(#24-41)](#__codelineno-10-24)
 3. Intialise the parameters of the plugin. Additionally, you can validate and raise exceptions from `init()`. [(#46-54)](#__codelineno-10-46)
 4. To return Entities we have to create a list of `entities` and its `schema`. As a first step, declare entities as an empty list. [(#62)](#__codelineno-10-62)
 5. As previously mentioned, each `Entity` should have a `URI` and it can have sequence of `values`. Here, a list of entities is created with random UUIDs based on rows and values are created based on columns. After each entity is created it is appended to the entities list. [(#64-78)](#__codelineno-10-64)
-6. To generate `schema` which is of type `EntitySchema`, should have a `type_uri` and sequence of `paths`, define an empty list of paths. [(#79)]((#__codelineno-10-79))
-7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated respectively with `type_uri` and `paths`. [(#80-86)]((#__codelineno-10-80))
-8. Once entities and the schema is generated successfully you can return it. [(#101)](#__codelineno-10-101)
-9. Update plugin logs using `PluginLogger` which is available has a default logger. [(#87-91)](#__codelineno-10-87)
-10. To make your plugin more user friendly you can use Context API  `report.update()` to update the workflow report. [(#91-100)](#__codelineno-10-86)
+6. To generate a `schema` (which is of type `EntitySchema`), which should have a `type_uri` and a sequence of `paths`, define an empty list of paths. [(#79)]((#__codelineno-10-79))
+7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated with `type_uri` and `paths` respectively. [(#80-86)]((#__codelineno-10-80))
+8. Once the entities and the schema are generated you can return them. [(#101)](#__codelineno-10-101)
+9. Update plugin logs using `PluginLogger` which is available as a default logger. [(#87-91)](#__codelineno-10-87)
+10. To make your plugin more user-friendly you can use the Context API `report.update()` to update the workflow report. [(#91-100)](#__codelineno-10-86)
 
 ### Consuming Entities
 
 Consuming entities in a workflow plugin means that you process at least one `entities` object from the `inputs` list.
 
-The following code shows a plugin, which loops through all inputs and counts all entities and its values.
+The following code shows a plugin which loops through all inputs and counts all entities and its values.
 
 ```py title="entities-consumer.py" linenums="1"
 """Consume Entities"""
@@ -288,19 +288,19 @@ class EntitiesConsumer(WorkflowPlugin):
         )
 ```
 
-Let's understand code:
+Code explanation:
 
-1. `inputs` from the workflow are sequence of `Entities`, each item from input has list of entities and each entity has its values. (#22-26)
-2. One end of values count, workflow reports get updated with total number of entities and values as summary. (#27-37)
+1. `inputs` from the workflow is a sequence of `Entities` with each item from the input having a list of entities and each entity having values. The entities and values are seperately counted. (#22-26)
+2. Once the counting is done, the workflow report is updated with the total number of entities and values as the summary. (#27-37)
 
 ## Configuration
 
-Plugins can have an application wide configuration, which can not be changed on runtime and is the same of all instances of this plugin.
+Plugins can have an application-wide configuration which cannot be changed on runtime and applies to all instances of this plugin.
 
-This plugin configuration is provided as `self.config` [PluginConfig](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L32) object to the plugin.
+This plugin configuration is provided in the `self.config` [PluginConfig](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/plugins.py#L32) object of the plugin.
 The `get` method of this object returns a JSON string of the configuration.
 
-Plugin configurations use the `plugin_id` as a config path in the `dataintegration.conf`.
+Plugin configurations use the `plugin_id` as a config path in `dataintegration.conf`.
 
 ```hocon title="Example plugin configuration"
 plugins.python.<plugin_id> = {
@@ -317,6 +317,6 @@ Logging should be done with the [PluginLogger](https://github.com/eccenca/cmem-p
 self.log.info("Successfully executed Workflow Plugin")
 ```
 
-On runtime, this logger will be replaced with a JVM based logging function, in order to feed the plugin logs into the normal DataIntegration log stream.
-This JVM based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
+On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal DataIntegration log stream.
+This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
 
