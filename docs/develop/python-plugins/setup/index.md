@@ -46,7 +46,7 @@ com.eccenca.di.scripting = {
 ## Python Interpreter
 
 An installation of the CPython distribution (at least version 3.3) is required.
-While other distributions, such as Anaconda, should be working as well, only CPython is officially supported.
+Although other distributions, such as Anaconda, should work as well, only CPython is officially supported.
 
 ## Java Embedded Python (Jep)
 
