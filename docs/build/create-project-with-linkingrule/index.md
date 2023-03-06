@@ -1,14 +1,14 @@
 ---
-icon: material/link-variant-plus
+icon: material/link-variant
 subtitle: based on the built in movies example
 #hide:
 #  - navigation
 tags:
-  - BeginnersTutorial
+  - "1 Beginners Tutorial"
   - KnowledgeGraph
 ---
 
-# Linking Tutorial
+# Linking tutorial
 
 ## Introduction
 
@@ -25,9 +25,12 @@ The documentation consists of the following steps described in detail below:
 4. Create a linking task
 5. Assemble a linking rule
 
-This tutorial shows how to connect two movie-related data sources and introduces some of Data-Integration’s fundamental functions. sources of information are LinkedMDB, the linked data version of the IMDb movie database, and DBpedia, the linked data version of Wikipedia. Both files contain a list of movies with their names, titles, release dates, and an internal ID for each movie. The task is to link the two datasets to find out which movie in DBpedia corresponds to which movie in LinkedMDB.
+This tutorial shows how to connect two movie-related data sources and introduces some of Data-Integration’s fundamental functions.
+Sources of information are LinkedMDB, the linked data version of the IMDb movie database, and DBpedia, the linked data version of Wikipedia.
+Both files contain a list of movies with their names, titles, release dates, and an internal ID for each movie.
+The task is to link the two datasets to find out which movie in DBpedia corresponds to which movie in LinkedMDB.
 
-## Sample Material
+## Sample material
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
@@ -49,7 +52,8 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-create-project.png){ width="75%"}
 
-    The screen gives an overview of the different projects created in your installation of DataIntegration. It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
+    The screen gives an overview of the different projects created in your installation of DataIntegration.
+    It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
 
 -   Click on the **project** on the left side in the item type and double-click on the **project** in the centre.
 
@@ -125,7 +129,7 @@ The following material is used in this tutorial, you should download the files a
 
 !!! note "Step result"
 
-    Dataset for both the files dbpedia and linkedmdb has been created, and link.csv is created for the output result displayed in the page's center.
+    Dataset for both the files dbpedia and linkedmdb has been created, and `link.csv` is created for the output result displayed in the page's center.
 
     ![image](22.2-dataset-created.png){ width="75%"}
 
@@ -165,7 +169,8 @@ The following material is used in this tutorial, you should download the files a
 
 !!! note "Step Result"
 
-    Linking task is created for the project. It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
+    Linking task is created for the project.
+    It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
 
     ![image](22.2-linking-created.png){ width="75%"}
 
@@ -237,7 +242,7 @@ the initial rule should have the source and target paths for title and a string 
 
     Compare the movie title names of both the data `dbpedia.csv` and `linkedmdb.csv`.
 
--   Click on **comparison** and type the **equality** in the search field and drag the `string equality`operation onto the canvas.
+-   Click on **comparison** and type the **equality** in the search field and drag the `string equality` operation onto the canvas.
 
     ![image](22.2-comparison.png){ width="75%"}
 
@@ -259,7 +264,9 @@ the initial rule should have the source and target paths for title and a string 
 
 !!! success "Task"
 
-    Now it is time to see your linking rule in action by running it on your datasets. So far, we have created a linking rule in which we changed the title names of both files in lowercase and compared the same. Now it’s time to generate the links by evaluating them.
+    Now it is time to see your linking rule in action by running it on your datasets.
+    So far, we have created a linking rule in which we changed the title names of both files in lowercase and compared the same.
+    Now it’s time to generate the links by evaluating them.
 
 -   Click on the **linking evaluation**.
 
@@ -271,7 +278,7 @@ the initial rule should have the source and target paths for title and a string 
 
 !!! note "Step Result"
 
-    The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the .csv file to identify each movie.
+    The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.
 
     ![image](22.2-evalute-result.png){ width="75%"}
 
@@ -289,7 +296,8 @@ the initial rule should have the source and target paths for title and a string 
 
 !!! success "Task"
 
-    It has a filter feature that helps to find links by movie names. An example is shown below.
+    It has a filter feature that helps to find links by movie names.
+    An example is shown below.
 
     Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names links of both files.
 
@@ -299,14 +307,16 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-shaft-result.png){ width="75%"}
 
-    The movie name is twice in both sheets, but the release dates differ. The shaft movie’s original release was in 1971 and the remake was in 2000. We have the tick option for the correct rule.
+    The movie name is twice in both sheets, but the release dates differ.
+    The shaft movie’s original release was in 1971 and the remake was in 2000.
+    We have the tick option for the correct rule.
 
--   Click on the linking execution then click on the **play button** to execute the links (It copies the links to our data file links.csv (which is our output file).
+-   Click on the linking execution then click on the **play button** to execute the links (It copies the links to our data file `links.csv` (which is our output file).
 
     ![image](22.2-start-activity.png){ width="75%"}
 
 !!! note "Step Result"
 
-    The links are executed and copied to the output data file links.csv and which shows the count of links on the page.
+    The links are executed and copied to the output data file `links.csv` and which shows the count of links on the page.
 
     ![image](22.2-linking-result.png){ width="75%"}
