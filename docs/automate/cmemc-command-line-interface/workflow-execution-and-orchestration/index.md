@@ -11,10 +11,10 @@ tags:
 
 ## Introduction
 
-In some cases, you need to automate a complete graph of integration workflows, which depend on each other and can sometimes run in parallel or after each other.
+In some cases, you need to automate a complete graph of integration workflows which depend on each other and can sometimes run in parallel or consecutively.
 Although cmemc is not a workflow orchestration tool, you can easily use it do some basic workflow orchestration.
-This page describes how you can execute and orchestrate workflows together.
-For simplicity all given examples do not select a specific connection (`--connection your-cmem`).
+This page describes how you can execute and orchestrate workflows.
+For simplicity, all the given examples do not select a specific connection (`--connection your-cmem`).
 We simply assume that you selected your instance via an environment variable (`export CMEMC_CONNECTION=your-cmem`).
 
 ## Simple Execution
@@ -43,7 +43,7 @@ $ cmemc workflow execute cmem:my-workflow --wait
 cmem:my-workflow ... Started ... Finished (Finished in 32.931s, just now)
 ```
 
-For a reference on the `workflow execute` command, have a look at the [Command Reference](../command-reference/index.md) or look at the command specific help (`cmemc workflow execute --help`).
+For a reference of the `workflow execute` command, please have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow execute --help`).
 
 ## Retrieve Status Information
 
@@ -54,7 +54,7 @@ $ cmemc workflow status cmem:my-workflow
 cmem:my-workflow ... Finished (Finished in 32.931s, 4 minutes ago)
 ```
 
-In addition to that, you can retrieve raw JSON data about a workflow, which can used for post-processing:
+Additionally, you can retrieve raw JSON data about a workflow, which can be used for post-processing:
 
 ``` shell-session title="workflow status command with JSON output"
 $ cmemc -workflow status cmem:my-workflow --raw
@@ -75,13 +75,13 @@ $ cmemc -workflow status cmem:my-workflow --raw
 }
 ```
 
-For a reference on the `workflow status` command, have a look at the [Command Reference](../command-reference/index.md)  or look at the command specific help (`cmemc workflow status --help`).
+For a reference of the `workflow status` command, please have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow status --help`).
 
 ## Serial Execution
 
-The `workflow execute` command is able to start multiple workflows in a chain, waiting for each of the workflow and exit if there is an error with one of the workflows.
+The `workflow execute` command is able to start multiple workflows in a chain, waiting for each of the workflows to finish and exiting if there is an error with one of the workflows.
 
-To do this, use the `--wait` option and simply add more than one workflow identifier as parameter to the the command:
+To do this, use the `--wait` option and simply add more than one workflow identifier as parameters to the the command:
 
 ``` shell-session title="workflow execute command"
 $ cmemc workflow execute cmem:my-workflow cmem:second-workflow --wait
@@ -91,17 +91,17 @@ cmem:second-workflow ... Started ... Finished (Finished in 50.579s, just now)
 
 !!! warning
 
-    Starting these workflows in this way means that cmemc exits with an error code 1 in the moment the first workflow throws an error.
-    All later workflows will not be executed.
+    Starting workflows in this way means that cmemc exits with an error code 1 at the moment a workflow throws an error.
+    None of the following workflows will be executed.
 
 ## Parallel Execution
 
-Sometimes you want to execute workflows in parallel, because they do not depend on each other and it can fasten up the overall runtime.
+Sometimes you may want to execute workflows in parallel, because they do not depend on each other and it fastens up the overall runtime.
 
-To do this, there is a little bit of extra scripting needed at the moment.
-The main idea is, to start the parallel workflows without waiting and then poll the status information until they are not running anymore.
+To do this, there is currently a little bit of extra scripting needed.
+The main idea is to start the parallel workflows without waiting and then poll the status information until they are not running anymore.
 
-Here is an example script which does exactly this.
+Here is an example script which does exactly this:
 
 ``` bash title="cmemc-parallel-workflows.sh"
 #!/usr/bin/env bash

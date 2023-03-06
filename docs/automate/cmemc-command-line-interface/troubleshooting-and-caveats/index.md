@@ -11,7 +11,7 @@ This page lists and documents possible issues and warnings when working with cme
 
 ## Proxy is in the way
 
-If you feel that your systems proxy configuration troubles the communication between cmemc and Corporate Memory, you can disable the usage of any proxy by setting this variable:
+If you feel that your system's proxy configuration negatively impacts the communication between cmemc and Corporate Memory, you can disable using any proxy by setting this variable:
 
 ``` shell-session
 export no_proxy='*'
@@ -25,7 +25,7 @@ This is due to the [python requests library proxy handling](https://docs.python.
 
 ## Gateway Time-out
 
-A gateway time-out occurs if your Corporate Memory infrastructure ins not setup correctly.
+A gateway timeout occurs if your Corporate Memory infrastructure is not setup correctly.
 
 ``` shell-session
 $ cmemc -c my-cmem project import my-project.zip my-project

@@ -11,20 +11,20 @@ tags:
 
 This page documents how to configure cmemc via configuration files.
 
-cmemc looks for a default configuration file on a reasonable place depending on your operating system:
+cmemc looks for a default configuration file in a location depending on your operating system:
 
 - For Linux, this is `$HOME/.config/cmemc/config.ini`[^1].
 - For Windows, this is `%APPDATA%\cmemc\config.ini`.
 - For MacOS, this is `$HOME/Library/Application Support/cmemc/config.ini`.
 
-[^1]: Actually it is `$XDG_CONFIG_HOME/cmemc/config.ini`, see also the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+[^1]: More precisely, it is `$XDG_CONFIG_HOME/cmemc/config.ini`, see also the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 
-If you need to change this location and want to use another config file, you have the following options:
+If you need to change this location and want to use another config file, you have two options:
 
-- you can always run cmemc with the `--config-file path/to/your/config.ini` option, or
-- you can set a new config file with the environment variable `CMEMC_CONFIG_FILE`
+- run cmemc with the `--config-file path/to/your/config.ini` option
+- set a new config file with the environment variable `CMEMC_CONFIG_FILE`
 
-However, once you start cmemc the first time and without any command or option, it will create an empty config file at this location and will output a general introduction.
+However, once you start cmemc the first time without any command or option, it will create an empty config file at this location and will output a general introduction.
 
 
 ??? example "First cmemc run ..."
@@ -75,8 +75,8 @@ However, once you start cmemc the first time and without any command or option, 
       workflow    List, execute, status or open (io) workflows.
     ```
 
-You can now edit your config file and add credentials and URL parameter for your Corporate Memory deployment.
-You either search the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
+You can now edit your config file and add credentials and URL parameters for your Corporate Memory deployment.
+You either search for the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
 
 ``` shell-session
 $ cmemc config edit
@@ -100,7 +100,7 @@ Here is a minimal example using the `client_credentials` grant type.
 
 This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
 The authorization will be done with a system account `cmem-service-account` and the given client secret.
-Using this combination of config parameter is based on a typical installation where, all components are available under the same hostname.
+Using this combination of config parameters is based on a typical installation where all components are available under the same hostname.
 
 !!! example inline end
     ``` ini
@@ -114,13 +114,13 @@ Using this combination of config parameter is based on a typical installation wh
 
 Another example using `password` grant type.
 
-This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
+This creates a named section `my-local`, which is a connection to a Corporate Memory deployment on `http://localhost/`.
 The authorization will be done with the given `OAUTH_USERNAME` and the `OAUTH_PASSWORD`.
 
 ## Configuration Variables
 
 The above example provides access to an installation where all components including keycloak are deployed with the default URL base.
-However, if you need to fine tune all locations or want to use special functionality, the following config file parameters can be used to do this.
+However, if you need to fine-tune all locations or want to use special functionality, the following config file parameters can be used.
 
 ### Location related
 
@@ -153,7 +153,7 @@ This variable defaults to `$CMEM_BASE_URI/dataplatform/`.
 
 #### OAUTH_TOKEN_URI
 
-This is [OpenID Connect (OIDC)](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) OAuth 2.0 token endpoint location (HTTP(S) URL).
+This is the [OpenID Connect (OIDC)](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) OAuth 2.0 token endpoint location (HTTP(S) URL).
 
 Usually you do **not need to set** this configuration variable.
 
@@ -161,18 +161,18 @@ This variable defaults to `$CMEM_BASE_URI/auth/realms/cmem/protocol/openid-conne
 
 ### Authentication related
 
-The following configuration variables specify how cmemc can fetch a token in order to authenticate with this token on the endpoints.
+The following configuration variables specify how cmemc can fetch a token to authenticate on the endpoints.
 
 #### OAUTH_GRANT_TYPE
 
-This configures the used [OAuth Grant Type](https://oauth.net/2/grant-types/) in order to specify how cmemc is able to get a valid token for accessing the Corporate Memory APIs.
+This configures the [OAuth Grant Type](https://oauth.net/2/grant-types/) used to specify how cmemc is able to get a valid token for accessing the Corporate Memory APIs.
 
-Depending on the value of this variable, other authentication related variables will become mandatory or obsolete.
+Depending on the value of this variable, other authentication-related variables will become mandatory or obsolete.
 The following values can be used:
 
 - `client_credentials` - this refers to the [OAuth 2.0 Client Credentials Grant Type](https://oauth.net/2/grant-types/client-credentials/). Mandatory variables for this grant type are `OAUTH_CLIENT_ID`, `OAUTH_CLIENT_SECRET` **or** `OAUTH_CLIENT_SECRET_PROCESS`.
 - `password` - this refers to the [OAuth 2.0 Password Grant Type](https://oauth.net/2/grant-types/password/). Mandatory variables for this grant type are `OAUTH_CLIENT_ID`, `OAUTH_USER`, `OAUTH_PASSWORD` **or** `OAUTH_PASSWORD_PROCESS`.
-- `prefetched_token` - this value can be used in case you can provide a token which was fetched outside of cmemc. Mandatory variables for this grant type are `OAUTH_ACCESS_TOKEN` **or** `OAUTH_ACCESS_TOKEN_PROCESS`.
+- `prefetched_token` - this value can be used in case you can provide a token that was fetched outside of cmemc. Mandatory variables for this grant type are `OAUTH_ACCESS_TOKEN` **or** `OAUTH_ACCESS_TOKEN_PROCESS`.
 
 #### OAUTH_CLIENT_ID
 
@@ -189,7 +189,7 @@ This variable defaults to `cmem-service-account`.
 
 This variable specifies your user account.
 
-You **only** need to set this configuration variable in case you use the `password` grant type.
+You **only** need to set this configuration variable if you use the `password` grant type.
 
 This variable defaults to `admin`.
 
@@ -197,23 +197,23 @@ This variable defaults to `admin`.
 
 This variable specifies your user password.
 
-You **only** need to set this configuration variable in case you use the `password` grant type.
+You **only** need to set this configuration variable if you use the `password` grant type.
 
 #### OAUTH_CLIENT_SECRET
 
 This variable specifies your client secret (password).
 
-You **only** need to set this configuration variable in case you use the `client_credentials` grant type.
+You **only** need to set this configuration variable if you use the `client_credentials` grant type.
 
 #### OAUTH_ACCESS_TOKEN
 
 This variable specifies a prefetched access token.
 
-You **only** need to set this configuration variable in case you use the `prefetched_token` grant type.
+You **only** need to set this configuration variable if you use the `prefetched_token` grant type.
 
 #### OAUTH_PASSWORD_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of  the `OAUTH_PASSWORD` variable.
+In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_PASSWORD` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
@@ -221,7 +221,7 @@ This variable defaults to `none`.
 
 #### OAUTH_CLIENT_SECRET_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of  the `OAUTH_CLIENT_SECRET` variable.
+In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_CLIENT_SECRET` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
@@ -229,7 +229,7 @@ This variable defaults to `none`.
 
 #### OAUTH_ACCESS_TOKEN_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of  the `OAUTH_ACCESS_TOKEN` variable.
+In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_ACCESS_TOKEN` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
@@ -247,7 +247,7 @@ This variable defaults to `False`.
 
 #### REQUESTS_CA_BUNDLE
 
-Setting this to a PEM file allow for using private Certificate Authorities for certificate validation.
+Setting this to a PEM file allows for using private Certificate Authorities for certificate validation.
 
 Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
 

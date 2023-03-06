@@ -4,13 +4,13 @@ tags:
 ---
 # Reverse Proxy
 
-A reverse proxy forwards all requests from the users to the called service and returns the result to the users.A reverse proxy forwards all requests from the users to the called service and returns the result to the users. Corporate Memory is tested with an Apache HTTP server as a reverse proxy.
+A reverse proxy forwards all requests from the users to the called service and returns the result to the users. Corporate Memory is tested with an Apache HTTP server as a reverse proxy.
 
 Reverse proxy is a necessary component in the Corporate Memory deployment. It enables you to:
 
-- define routes for all the components within one domain name,
-- expose only ports 80 and 443 to the outside network, all other communication would be performed in the internal network, and
-- ease configuration and management of the SSL certificates.
+- define routes for all the components within one domain name
+- expose only ports 80 and 443 to the outside network, all other communication would be performed in the internal network
+- ease configuration and management of the SSL certificates
 
 This also enables you to activate the [Linked Data delivery mode](#linked-data-delivery-mode) of DataPlatform. The Linked Data delivery mode is able to serve Linked Data that uses the same namespace as the configured domain name as resolvable URIs including content negotiation.
 
@@ -65,10 +65,10 @@ apache configuration template
 </VirtualHost>
 ```
 
-Information about the runtime environment, which is used to run DataPlatform, DataIntegration and DataManager, is hidden.
+Information about the runtime environment which is used to run DataPlatform, DataIntegration and DataManager, is hidden.
 
 !!! note
-    Keep in mind, that you have to adjust the location paths/URLs in the DataManager and DataIntegration configuration files.
+    Keep in mind that you have to adjust the location paths/URLs in the DataManager and DataIntegration configuration files.
 
 ## Linked Data delivery mode
 

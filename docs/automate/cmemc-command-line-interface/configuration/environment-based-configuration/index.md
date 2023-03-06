@@ -9,21 +9,20 @@ tags:
 
 ## Introduction
 
-In addition to using configuration files, cmemc can be widely configured and parameterised with environment variables.
+In addition to using configuration files, cmemc can also be widely configured and parameterized with environment variables.
 
-Typical use cases why you could want this include:
+Typical use cases for when you may want to do this include:
 
-- set a default connection (see below),
-- enable session wide debugging output,
-- control cmemc with variables from a calling process,
-- avoid having client and user credentials laying around in a file,
-- ...
+- set a default connection (see below)
+- enable session-wide debugging output
+- control cmemc with variables from a calling process
+- avoid having client and user credentials lying around in a file
 
 There are two major categories of environment variables you can use.
 
 ## Environment variables for configuration
 
-For these variables the rules are simple: You can use any variable from the [config file](../file-based-configuration/index.md) in the same way also as an environment variable.
+For these variables the rules are simple: You can use any variable from the [config file](../file-based-configuration/index.md) in the same way as an environment variable.
 
 The following commands provide the same result as given in the [basic example for a config file](../file-based-configuration/index.md):
 
@@ -36,22 +35,22 @@ $ export OAUTH_CLIENT_SECRET=...
 
 !!! info
 
-    When you combine file based and environment based configuration, the config file always overwrites the environment.
+    When you combine file-based and environment-based configuration, the config file always overwrites the environment.
 
 ## Environment variables for parameters or options
 
 The general pattern for parameter and option settings via environment variables is:
 
-- all variables start with the prefix `CMEMC_` ,
-- command group and command follow the prefix uppercased and separated by `_` ,
-- finally, the option is uppercased at the end.
+- all variables start with the prefix `CMEMC_`
+- command group and command follow the prefix in uppercase and separated by `_`
+- the option is in uppercase at the end.
 - The naming scheme is: `CMEM[_<COMMAND-GROUP>_<COMMAND>][_<OPTION>]`
 
 The next sections demonstrate this pattern with examples.
 
 ### Example: Set a default connection
 
-To give an example, we first run a cmemc command via command line parameter:
+We first run a cmemc command via command line parameter:
 
 ``` shell-session
 $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
@@ -61,7 +60,7 @@ $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
 ... more JSON output ...
 ```
 
-As a next step, we exchange all connection parameters with environment variables:
+As a next step, we replace all connection parameters with environment variables:
 
 ``` shell-session
 $ export CMEMC_CONFIG_FILE=cmemc.ini
@@ -75,7 +74,7 @@ $ cmemc graph list --raw
 [... same output as above ...]
 ```
 
-But you also can pre-define command options in the same way:
+However, you can also pre-define command options in the same way:
 
 ``` shell-session
 $ export CMEMC_GRAPH_LIST_RAW=true
@@ -98,7 +97,7 @@ $ export CMEMC_DEBUG=true
 
 ## Configuration environment export from the config file
 
-Beginning with v21.11, cmemc can export a configuration environment from a configuration file to setup an environment for later use with the `config eval` command.
+Beginning with v21.11, cmemc can export a configuration environment from a configuration file to set up an environment for later use with the `config eval` command.
 
 ``` shell-session
 $ cmemc -c my-cmem.example.org config eval

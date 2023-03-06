@@ -6,9 +6,9 @@ tags:
 ---
 # Invocation
 
-cmemc is intended to be useful for Administrators and Linked Data Expert.
+cmemc is intended to be useful for administrators and Linked Data experts.
 
-Beside the plain ad-hoc invocation from a users terminal, the following recipes show other invocation methods.
+Besides the plain ad-hoc invocation from a users terminal, the following recipes show additional invocation methods.
 
 <div class="grid cards" markdown>
 

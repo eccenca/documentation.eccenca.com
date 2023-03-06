@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Label resolution translates resource identifiers (URI/IRI) into human readable labels. This resolution, and by extends the full text search is configurable for different scenarios.
+Label resolution translates resource identifiers (URI/IRI) into human readable labels. This resolution and, by extension, the full text search is configurable for different scenarios.
 
 ## Configuration
 
@@ -19,23 +19,23 @@ proxy:
   languagePreferencesAnyLangFallback: true #(3)
 ```
 
-These properties define not only which properties and languages should be considered, but also define the precedence of languages and properties over each other.
+These properties define not only which properties and languages should be considered, but also the precedence of languages and properties over each other.
 
-The retrieval process can simplified to the following procedure:
+The retrieval process can be simplified to the following procedure:
 
 - First, when determining the label for a resource, the language is evaluated, then the property is considered.
 - Consequently, for a resource in the default case:
     1. An english value for `rdfs:label` is searched.
-    2. A literal without a language tag of the property `rdfs:label` is searched (this is why there is an entry `""`).
+    2. A literal of the property `rdfs:label` without a language tag is searched (which is why there is an entry `""`).
     3. An english value of `skos:prefLabel` is searched.
-    4. A language-less value for `skos:prefLabel` is searched.
+    4. A literal of the property `skos:prefLabel` without a language tag is searched.
     5. If nothing is found, DataPlatform tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.
 
 Additionally, in case more than one label could be retrieved, for example by conflicting values, the alphabetically first entry is used.
 
 ## Example
 
-How labels are resolved is best explained using those default settings and some examples.
+How labels are resolved is best explained using these default settings and some examples.
 
 ```turtle
 :Resource1 rdfs:label "Leipzig"@en.
@@ -48,13 +48,13 @@ How labels are resolved is best explained using those default settings and some 
 :Resource4 rdfs:label "Another Label for Hanover"@en
 ```
 
-- For `**:Resource1**`  the label will be `Leipzig`, as it will retrieve the english `rdfs:label`.
-- For `**:Resource2 **`the label cannot be retrieved from the Knowledge Graph, as no know Property is used. Hence the fallback
-- For :**Resource3**the label  will be retrieved as `Stuttgart` , if the (3) `languagePreferencesAnyLangFallback` is `true`*.*
-  - While there is a well-known property used, none of the used languages matches. Using the fallback, the alphabetically first match is retrieved anyways.
-- For **`:Resource4`**multiple label candidates could be determined.
-  - In this case, `Another Label for Hanover` is retrieved, as it is the first value in the alphanumerical comparison.
+- For `**:Resource1**` the label will be `Leipzig` as the english `rdfs:label` will be retrieved.
+- For `**:Resource2 **` the label cannot be retrieved from the Knowledge Graph since no known property is used. Hence the fallback.
+- For :**Resource3** the label will be retrieved as `Stuttgart`, if the (3) `languagePreferencesAnyLangFallback` is `true`*.*
+  - While there is a well-known property used, none of the used languages match. Using the fallback, the alphabetically first match is retrieved in this case.
+- For **`:Resource4`** multiple label candidates could be determined.
+  - In this case, `Another Label for Hanover` is retrieved as it is the first value in the alphanumerical comparison.
 
 ## Client API
 
-The label resolution functionality can also be used by client systems, the functionality is exposed as an [API endpoint](../../../develop/dataplatform-apis/index.md) (`<dp_url>/api/explore/title`).
+The label resolution functionality can also be used by client systems. This functionality is exposed as an [API endpoint](../../../develop/dataplatform-apis/index.md) (`<dp_url>/api/explore/title`).

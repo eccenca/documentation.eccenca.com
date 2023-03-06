@@ -12,23 +12,23 @@ tags:
 
 In a reasonable production deployment, all client-accessible Corporate Memory APIs will be securely available as HTTPS endpoints.
 This document clarifies how to deal with certificates.
-cmemc will validate the certificates of your HTTPS endpoints and will complain if there are validation errors.
+cmemc will validate the certificates of your HTTPS endpoints and indicate validation errors.
 If the certificates of your Corporate Memory deployment are based on a common and publicly available Certificate Authority (such as [Let's Encrypt](https://letsencrypt.org/)), cmemc is able to validate your certificates out of the box.
 
-However, in some cases you need to:
+However, in some cases you need to do one of the following:
 
-- provide your own certificates CA bundle in order to allow cmem to trust your servers, or
-- you need to disable SSL verification at all (for debugging and testing purpose only).
+- provide your own certificates CA bundle in order to allow cmem to trust your servers
+- disable SSL verification entirely (for debugging and testing purpose only)
 
-## Provide you own CA bundle
+## Provide your own CA bundle
 
-cmemc will validate all used certificates of your HTTPS API endpoints by using a built-in CA bundle which comes from python's [certifi package](https://pypi.org/project/certifi/).
+cmemc will validate all used certificates of your HTTPS API endpoints by using a built-in CA bundle that comes from python's [certifi package](https://pypi.org/project/certifi/).
 
 > Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts.
 
 If you need to configure a custom CA bundle to use with a specific connection, you can do so by using the `REQUESTS_CA_BUNDLE` key in the config or as an environment variable.
 
-You can validate, which CA bundle is used by turning debugging on (`–debug`) and watch for a CA bundle debug line (here, line 10).
+You can validate which CA bundle is used by switching on debugging (`–debug`) and watch for a CA bundle debug line (here, line 10).
 
 ``` shell-session title="using the debug mode to watch for the CA bundle"
 $ cmemc --debug -c ssltest.eccenca.com graph list
@@ -45,10 +45,10 @@ http://di.eccenca.com/project/cmem
 urn:elds-backend-access-conditions-graph
 ```
 
-The CA bundle has to be available in the PEM format.
+The CA bundle must be available in PEM format.
 You can use the [openssl command line tool](https://www.openssl.org/) to fetch all certificates from an HTTPS URL and create a PEM CA Bundle out of it.
 
-Here is an example line, producing the cacert.pem file used in the example above:
+Here is an example line producing the cacert.pem file used in the example above:
 
 ``` shell-session
 $ openssl s_client -showcerts -connect ssltest.eccenca.com:443 </dev/null 2>/dev/null | openssl x509 -outform PEM >cacert.pem

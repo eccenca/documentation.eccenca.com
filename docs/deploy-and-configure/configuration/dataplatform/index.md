@@ -9,7 +9,7 @@ It is intended for system administrators, who are responsible for installing, co
 To use this manual, system administrators should have knowledge about Linux (Ubuntu) and the installation environment on which DataPlatform is deployed.
 
 The following subsections describe different configuration topics in detail.
-Every subsection is catered as a property key overview and a details section with additional explanations:
+Every subsection is presented with a property key overview and a details section with additional explanations:
 
 -   [DataPlatform general configuration](application-full.md)
 -   [OAuth specific configuration](application-oauth-full.md)

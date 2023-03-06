@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-[Github Actions](https://docs.github.com/en/actions) allow for automation and execution of workflows based on pushes, merge requests and other trigger events on your git repository.
+[Github Actions](https://docs.github.com/en/actions) allow for the automation and execution of workflows based on pushes, merge requests and other trigger events to your git repository.
 In order to control eccenca Corporate Memory instances from within Github Action based workflows, you need to provide cmemc as well as credentials for your instance to the workflow.
 
 ## Runner Provisioning
@@ -29,12 +29,12 @@ After that, simply use `pip` to install cmemc:
           cmemc --version
 ```
 
-Adding this to your workflow yaml description, will provide a cmemc command which can be used in all following steps of the same workflow.
+Adding the above to your workflow yaml description will provide a cmemc command which can be used in all subsequent steps of the same workflow.
 
 ## Credentials and Usage
 
 Since we should never save credentials in your repository, we need to provide them as an encrypted secret managed outside of the repository.
-Github provides you with an [Encrypted Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) interface where you can add secrets for your repository, which then can be used in your workflows.
+Github provides you with an [Encrypted Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) interface where you can add secrets for your repository, which in turn can be used in your workflows.
 
 Given the following workflow step, you need to add `MY_CMEM_BASE_URI`, `MY_OAUTH_GRANT_TYPE`, `MY_OAUTH_CLIENT_ID` and `MY_OAUTH_CLIENT_SECRET` as encrypted secrets to your repository:
 
@@ -52,7 +52,7 @@ Given the following workflow step, you need to add `MY_CMEM_BASE_URI`, `MY_OAUTH
           OAUTH_CLIENT_SECRET: ${{ secrets.MY_OAUTH_CLIENT_SECRET }}
 ```
 
-This snippet also demonstrates, how you can map your encrypted secrets to [cmemc's configuration variables](../cmemc-command-line-interface/configuration/file-based-configuration).
+The above snippet also demonstrates how you can map your encrypted secrets to [cmemc's configuration variables](../cmemc-command-line-interface/configuration/file-based-configuration).
 
 ## Example Project
 

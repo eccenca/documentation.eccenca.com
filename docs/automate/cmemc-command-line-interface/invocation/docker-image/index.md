@@ -10,7 +10,7 @@ tags:
 ## Introduction
 
 In addition to the cmemc distribution package, you can use the eccenca cmemc docker image which is based on the official [debian slim image](https://hub.docker.com/_/debian).
-This is especially needed when you want to use cmemc in orchestrations.
+This is especially needed if you want to use cmemc in orchestrations.
 
 ## Image and Tags
 
