@@ -2,7 +2,7 @@
 icon: material/table
 subtitle: such as CSV, XSLX and Database Tables
 tags:
-  - BeginnersTutorial
+  - "1 Beginners Tutorial"
   - KnowledgeGraph
 ---
 # Lift data from tabular data such as CSV, XSLX or database tables

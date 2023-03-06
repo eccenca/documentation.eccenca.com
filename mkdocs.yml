@@ -51,9 +51,9 @@ extra:
     Python: python
     PythonPlugin: python-plugin
     SPARQL: sparql
-    BeginnersTutorial: beginners
-    AdvancedTutorial: advanced
-    ExpertTutorial: expert
+    "1 Beginners Tutorial": beginners
+    "2 Advanced Tutorial": advanced
+    "3 Expert Tutorial": expert
     Project: project
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:

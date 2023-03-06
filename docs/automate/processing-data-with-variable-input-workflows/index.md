@@ -1,7 +1,7 @@
 ---
 icon: eccenca/artefact-workflow
 tags:
-  - ExpertTutorial
+  - "3 Expert Tutorial"
   - Automate
   - Workflow
   - cmemc

@@ -1,7 +1,7 @@
 ---
 icon: material/database-sync
 tags:
-    - ExpertTutorial
+    - "3 Expert Tutorial"
 ---
 # Loading JDBC datasets incrementally
 

@@ -1,7 +1,7 @@
 ---
 icon: simple/neo4j
 tags:
-    - AdvancedTutorial
+    - "2 Advanced Tutorial"
 ---
 # Populate Data to Neo4j
 
