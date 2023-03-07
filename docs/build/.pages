@@ -9,4 +9,8 @@ nav:
     - Lift Web API Data: extracting-data-from-a-web-api
     - Workflow Reconfiguration: workflow-reconfiguration
     - Incremental Database Loading: loading-jdbc-datasets-incrementally
+    - Snowflake Tutorial: snowflake-tutorial 
+    
+
+
 
