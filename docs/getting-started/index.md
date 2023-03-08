@@ -14,7 +14,7 @@ For the installation and configuration of Corporate Memory refer to the [☆ De
 !!! info
 
     Functions described in this manual for adding, editing or deleting data depend on the write permissions that are assigned to you.
-    In case you have only read permission these functions are not available for you.
+    In case you only have read permission these functions are not available for you.
 
 ## About
 
@@ -82,7 +82,7 @@ Click **SHOW OPTIONS** to display extended configuration options.
 
 !!! note
 
-    Refer to the system manual of eccenca DataManager to get more information on all options that can be configured here.
+    Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
 
 Click on **CONTINUE WITH LOGIN** to save your entries.
 
@@ -91,7 +91,7 @@ Click on **CONTINUE WITH LOGIN** to save your entries.
 
 !!! note
 
-    This option is only available for workspaces created by the user itself.
+    This option is only available for workspaces created by users themselves.
 
 To delete a workspace, select the workspace from the drop-down list on the Workspace screen and click **DELETE**.
 
