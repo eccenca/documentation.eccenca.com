@@ -23,11 +23,11 @@ The highlights of this release are:
 
 !!! warning
 
-    With this release of Corporate Memory the DataPlatform configuration and behavior has changed and have to be adapted according to the migration notes below.
+    With this release of Corporate Memory the DataPlatform configuration and behavior has changed and needs to be adapted according to the migration notes below.
 
 !!! warning
 
-    With this release of Corporate Memory the (DataIntegration) Python plugin SDK contains the `ExecutionContext` class. This results in a changed signature of the SDK API functions and causes a breaking change to your exisitng code. Your python SDK based plugins needs to be adapted according to the migration notes below.
+    With this release of Corporate Memory the (DataIntegration) Python plugin SDK contains the `ExecutionContext` class. This results in a changed signature of the SDK API functions and causes a breaking change to your exisitng code. Your python SDK based plugins need to be adapted according to the migration notes below.
 
 This release delivers the following component versions:
 
@@ -60,7 +60,7 @@ In addition to that, these changes are included in v22.2.1 of eccenca DataIntegr
 v22.2 of eccenca DataIntegration adds the following new features:
 
 -   New active learning UI
--   Python plugins: Added context objects that allows accessing context dependent functionalities, such as:
+-   Python plugins: Added context objects that allow accessing context dependent functionalities, such as:
     -   The current OAuth token
     -   Updating the execution report (for workflows)
     -   DI version
@@ -69,7 +69,7 @@ v22.2 of eccenca DataIntegration adds the following new features:
 -   Workflows search link in main navigation
 -   Linking rule editor
     -   Advanced parameter toggle that shows/hides advanced parameters like `weight` and advanced section in rule parameter modal
--   Support for sticky note in both linking and workflow editors
+-   Support for sticky notes in both linking and workflow editors
 -   Parameter `profiling.defaults.noEntities` to configure the default entity limit for profiling operations
 -   Parameter `org.silkframework.runtime.activity.concurrentExecutions` to set the max. concurrent activity instances
 -   Support for the `URI attribute` parameter of datasets
@@ -116,7 +116,7 @@ v22.2.2 of eccenca DataManager has the following fixes:
 -   General
     - Logout in DM also triggers logout in DI
 -   LinkRules
-    - Rule Setup: Rule filter corretly display OneOf and NoneOf
+    - Rule Setup: Rule filter correctly displays OneOf and NoneOf
     - Rule is correctly serialized after editing, preventing the rule contents to be deleted
 
 v22.2.1 of eccenca DataManager has the following fixes:
@@ -165,8 +165,8 @@ v22.2.1 of eccenca DataPlatform has the following fixes:
 
 -   Update of dependencies because of vulnerabilities i.e. Spring Boot.
 -   Addition of logstash runtime dependency as to enable json logging.
--   GraphDb indices are created without facet option which causes problems.
--   Fix of memory leak in query monitor which causes high heap usage.
+-   GraphDb indices are created without facet option causing problems.
+-   Fix of memory leak in query monitor causing high heap usage.
 -   Refactoring of spring integration tests (IT) and inclusion of most tests in the cucumber subproject.
 
 v22.2 of eccenca DataPlatform ships the following new features:
@@ -189,7 +189,7 @@ v22.2 of eccenca DataPlatform ships the following new features:
 -   Added property `proxy.descriptionProperties` (analogous to `proxy.labelProperties`) for defining search relevant description properties
 -   Extend query monitor
     -   Added fields per entry
-        -   `timeout`: value in ms of timeout the query/update has
+        -   `timeout`: value in ms of the query/update timeout
         -   `timedOut`: boolean value on whether the query timed out or not
         -   `cancelled`: boolean value on whether the query has been cancelled manually
         -   `running`: boolean value on whether the query is currently still being executed
@@ -228,7 +228,7 @@ In addition to that, these changes and fixes are included in v22.2 of eccence Da
     -   load model entities using GSP requests instead of construct queries
     -   Changed property for base IRI: `files.defaultBaseIri` to `proxy.defaultBaseIri` (default: `http://localhost/`)
 
-The following functionality have been discontinued:
+The following functionalities have been discontinued:
 
 -   Support for provisioned store authorization
 -   Command line options create-config, update-war
@@ -294,12 +294,12 @@ In addition to that, these changes and fixes are included:
     -   new table output (similar to the other tables)
     -   `status` filter with `error` value
         -   only execution errors are listed
-        -   this means esp. no cancelled and timeouted queries (they have there own status now)
+        -   this specifically means no cancelled and timeouted queries (they have there own status now)
 -   Add pysocks dependency to cmempy
     -   This allows for using the `all_proxy` evironment variable
 -   `dataset list --raw` output
     -   output was not a JSON array and not filtered correctly
--   cmempy get graph streames
+-   cmempy get graph streams
     -   stream enabled
 -   `admin status` command
     -   command will now always return, even if a component is down
@@ -331,7 +331,7 @@ In addition to that, multiple performance and stability issues are addressed.
 
 #### Python plugins
 
-Due to the added context classes, the signature of a number of functions has been changed. The following changes need to be made to implementation of these classes:
+Due to the added context classes, the signature of a number of functions has been changed. The following changes need to be made for the implementation of these classes:
 
 ##### WorkflowPlugin
 
@@ -388,7 +388,7 @@ Due to the removed multiple endpoint support the store configuration properties 
     -   `store.neptune.port`: port of neptune backend (i.e. 8182)
     -   `store.neptune.graphListQuery`: Query for graph list - graph must be bound to variable ?g
     -   Settings under store.neptune.aws (mandatory):
-        -   `store.neptune.aws.region`: AWS region where the configured neptune cluster is located (i.e. eu-central-1)
+        -   `store.neptune.aws.region`: AWS region where the configured neptune cluster is located (e.g. eu-central-1)
         -   `store.neptune.aws.authEnabled`: Flag on whether authentication is enabled on neptune cluster (default: true)
     -   Settings under `store.neptune.s3` for upload of large files (>150MB uncompressed) (optional):
         -   `store.neptune.s3.bucketNameOrAPAlias`: Name of bucket or access point for S3 bulk load
