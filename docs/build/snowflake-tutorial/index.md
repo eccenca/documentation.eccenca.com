@@ -58,8 +58,10 @@ To connect to Snowflake cloud data warehouse a JDBC driver is required.
 
 ![image](22.2-table-created.png)
 
-- Type the SPARQL query for creating a database in the table that is created, then click on **Run**.
+- Type the **SPARQL** query for creating a database in the table that is created, then click on **Run**.
 
+      !!! Example 
+      
        The following is an example of a query for the database.
 
 INSERT INTO product (product_id, product_name, product_manager_name, email, price, height, width, depth, weight) 
@@ -68,7 +70,7 @@ VALUES
 
 ![image](22.2-query.png)
 
-**Step result** : The database has been created as shown below.
+**Step Result** : The database has been created as shown below.
 
 ![image](22.2-database-created.png)
 
@@ -78,7 +80,7 @@ VALUES
 
 ![image](22.2-create-project.png)
 
-- Click on Project, then click on **Add**.
+- Click on Project, then click on **add**.
 
 ![image](22.2-add-project.png)
 
@@ -98,14 +100,16 @@ VALUES
 
 ![image](22.2-product-name.png)
 
-- Type the JDBC URL path in the **JDBC Driver connection URL** field.
+- Type the **JDBC URL** path in the **JDBC Driver connection URL** field.
 
 !!! Note
+
 This is a JDBC connection string for connecting to Snowflake data warehouse in eccenca corporate memory.
 
 <!-- Note -> :snowflake: gives an emoji so, using \:snowflake\: for documentation-->
 
 !!! Example 
+
 jdbc\:snowflake\://WTXSZXM-FS77078.snowflakecomputing.com/?db=PRODUCT&schema=PRODUCTS_VOCABULARY.
 
 Here is a breakdown of the elements of this example connection string.
@@ -116,14 +120,17 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-organization-number.png)
 
-- 
-**?db=PRODUCT** specifies the name of the Snowflake database you want to connect to.In this case, the database is named product.
+ 
+- **?db=PRODUCT** specifies the name of the Snowflake database you want to connect to.In this case, the database is named product.
 
 - **&schema=products_vocabulary** specifies the name of the Snowflake schema that you want to use within the specified database. In this case, the schema name is **products_vocabulary**.
 
 ![image](22.2-jdbc-url.png)
 
-- Type Source query as **SELECT *from PRODUCT**.
+- Type Source query as 
+```
+SELECT * from PRODUCT
+```
 
 ![image](22.2-source-query.png)
 
@@ -153,7 +160,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-click-on-create.png)
 
-- Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **Add**.
+- Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **add**.
 
 ![image](22.2-transformation.png)
 
@@ -211,9 +218,27 @@ We have the suggestion option as well; click on the **+icon** and select the **s
 
 ![image](22.2-tick.png)
 
+## **4.Create a knowledge graph.**
 
+- Click on **create** on the right side of the page.
 
+![image](22.2-trans-result.png)
 
+- Select **Knowledge Graph**, then click on **add**.
+
+![image](22.2-kg-graph.png)
+
+- Select the **target project** from the drop down menu as **product**.
+
+![image](22.2-graph-target.png)
+
+- Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **create**.
+
+![image](22.2-graph-uri.png)
+
+**Step Result** : Graph is created successfully.
+
+![image](22.2-graph.png)
 
 
 
