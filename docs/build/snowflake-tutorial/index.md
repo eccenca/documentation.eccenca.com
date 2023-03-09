@@ -58,7 +58,7 @@ To connect to Snowflake cloud data warehouse a JDBC driver is required.
 
 ![image](22.2-table-created.png)
 
-- Type the SPARQL query for creating a database in the table that is created, then click on **run**.
+- Type the SPARQL query for creating a database in the table that is created, then click on **Run**.
 
        The following is an example of a query for the database.
 
@@ -78,7 +78,7 @@ VALUES
 
 ![image](22.2-create-project.png)
 
-- Click on project, then click on **Add**.
+- Click on Project, then click on **Add**.
 
 ![image](22.2-add-project.png)
 
@@ -146,5 +146,74 @@ Here is a breakdown of the elements of this example connection string.
 **Step Result**: JDBC endpoint is created and data is transferred from Snowflake to eccenca Corporate Memory.
 
 ![image](22.2-jdbc-created.png)
+
+## **4.Create a transformation to build mapping rules.**
+
+- Click on **create** on the right side of the page.
+
+![image](22.2-click-on-create.png)
+
+- Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **Add**.
+
+![image](22.2-transformation.png)
+
+- Type the name **product** in the **Label** field, in the **INPUT TASK Dataset** select **Product Table (JDBC)** and in the **Type** field select **table**.
+
+![image](22.2-trans-connect.png)
+
+- In the **Output** dataset field select **product graph**, then click on **create** .
+
+![image](22.2-output.png)
+
+- Click on **Mapping**, then click on **edit**.
+
+![image](22.2-click-on-mapping.png)
+
+- For  the target entity select  **Product (pv:product)**.
+
+![image](22.2-target-entity.png)
+
+- Click on **create custom pattern**.
+
+![image](22.2-custome-pattern.png)
+
+- Type the URI pattern as **http://id.company.org/product/jdbc**. You can use either company.org or company.com as per your requirement.Then type the label name as **product** and then click on **save**.
+
+![image](22.2-uri-pattern.png)
+
+- Click on **+icon**, then select the **add value mapping**.
+
+![image](22.2-add-value.png)
+
+- Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name,product id etc. This step will help in mapping the data from the source to the target property.
+
+![image](22.2-target-property.png)
+
+- Type the label name **product name**, then click on **save**.
+
+![image](22.2-trans-label.png)
+
+**Step Result** : Mapping rule is created successfully.
+
+![image](22.2-mapping-rule.png)
+
+!!! Note
+
+We have the suggestion option as well; click on the **+icon** and select the **suggestion mapping**.
+
+![image](22.2-suggestions.png)
+
+**Step Result** : Suggestion appears as below can select as per the requirement.
+
+![image](22.2-suggestion-result.png)
+
+- **Tick** the box to select the suggestions to be added, then click on **add**.
+
+![image](22.2-tick.png)
+
+
+
+
+
 
 
