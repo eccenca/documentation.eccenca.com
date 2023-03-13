@@ -98,6 +98,29 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 | `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
 | `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
 
+TODO: Draw.io Picture to understand all context API which is dependent on what?
+
+### System Context
+
+The SystemContext class is a utility class that provides general system information to methods that require it. It has three methods: di_version, encrypt, and decrypt. The di_version method returns the version of the running DataIntegration instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext class is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
+
+Usage:
+
+-   [Password Parameter Type](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py#LL10C6-L10C6)
+-   [Plugin Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L381)
+
+### User Context
+
+### Task Context
+
+### Execution Report
+
+### Report Context
+
+### Plugin Context
+
+### Execution Context
+
 ## Entities
 
 An `entity` is a structure to describe data objects which are passed around in workflows from one task to another task.
@@ -319,4 +342,3 @@ self.log.info("Successfully executed Workflow Plugin")
 
 On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal DataIntegration log stream.
 This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
-
