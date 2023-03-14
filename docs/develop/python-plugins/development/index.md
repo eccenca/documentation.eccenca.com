@@ -98,7 +98,7 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 | `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
 | `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
 
-TODO: Draw.io Picture to understand all context API which is dependent on what?
+![context-api-flow-diagram](23-1-context-api-flow-diagram.png)
 
 ### System Context
 
