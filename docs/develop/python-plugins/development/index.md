@@ -88,21 +88,36 @@ class MyTransformPlugin(TransformPlugin):
 
 The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context objects](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py), which are passed to the plugin depending on the executed method.
 
-| Class              | Description                                                                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SystemContext`    | Passed into methods to request general system information.                                                                                          |
-| `UserContext`      | Passed into methods that are triggered by a user interaction.                                                                                       |
-| `TaskContext`      | Passed into objects that are part of a DataIntegration task/project.                                                                                |
-| `ExecutionReport`  | Workflow operators may generate execution reports. An execution report holds basic information and various statistics about the operator execution. |
-| `ReportContext`    | Passed into workflow plugins that may generate a report during execution.                                                                           |
-| `PluginContext`    | Combines context objects that are available during plugin creation or update.                                                                       |
-| `ExecutionContext` | Combines context objects that are available during plugin execution.                                                                                |
-
 ![context-api-flow-diagram](23-1-context-api-flow-diagram.png)
+
+### Basic Understanding
+
+Context objects have been introduced to provide a way to access context-dependent functionalities during plugin creation, update, or execution.
+
+These context objects allow accessing various useful functionalities such as the current OAuth token, updating the execution report for workflows, DI version, and current project. Having a basic understanding of context objects and their functionalities can help developers effectively use them to create and execute plugins in DataIntegration.
+
+### Plugin Context
+
+The PluginContext class provides important context information during plugin creation or update. It has three attributes: system, user, and project_id.
+
+The system attribute is of type SystemContext and contains general system information. The user attribute is of type UserContext and contains information about the user. The project_id attribute contains the identifier of the project that contains or will contain the plugin.
+
+> Note that after creation, the plugin may be updated or executed by another user.
+
+### Execution Context
+
+The ExecutionContext class combines context objects that are available during plugin execution. It contains four attributes:
+
+-   system: An instance of the SystemContext class, which provides general system information.
+-   user: An optional instance of the UserContext class, which provides information about the user that issued the plugin execution.
+-   task: An instance of the TaskContext class, which provides metadata about the executed plugin.
+-   report: An instance of the ReportContext class, which allows to update the execution report.
+
+The ExecutionContext class is used to provide context information to plugins during execution, enabling plugins to access information about the environment in which they are running, the user who initiated the execution, and the task being executed. The ReportContext attribute allows plugins to generate and update reports during execution.
 
 ### System Context
 
-The SystemContext class is a utility class that provides general system information to methods that require it. It has three methods: di_version, encrypt, and decrypt. The di_version method returns the version of the running DataIntegration instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext class is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
+SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The di_version method returns the version of the running [DataIntegration](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext class is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
 
 Usage:
 
@@ -111,15 +126,24 @@ Usage:
 
 ### User Context
 
+UserContext can be used to obtain information about the user that is interacting with the system. It has three methods: `user_uri()`, `user_label()`, and `token()`. The `user_uri()` returns the URI of the user, which can be used to identify them uniquely. The `user_label()` returns the name of the user, which can be used for display purposes. The `token()` retrieves the OAuth token for the user, which can be used to authenticate requests made on behalf of the user.
+
 ### Task Context
+
+The TaskContext class can be used to obtain information about the project and task that an object is part of. The `project_id()` returns the identifier of the project, which can be used to retrieve information about the project or to associate the object with the project. The task_id method returns the identifier of the task, which can be used to retrieve information about the task or to associate the object with the task.
+
+When to use the TaskContext class?
+The TaskContext class should be used whenever an object needs to obtain information about the project or task that it is part of. This information can be used for various purposes, such as retrieving additional metadata about the project or task, or associating the object with the project or task in order to perform specific operations.
 
 ### Execution Report
 
+The ExecutionReport class is used to provide insights into the execution of a workflow operator. It contains important information such as the number of entities that have been processed, a short label and description of the executed operation, a summary table representing the summary of the report, any warnings or user-friendly messages that occurred during execution, and an error message in case a fatal error occurred.
+
+The ExecutionReport class should be used by workflow operators to generate execution reports. This information can be used for various purposes, such as providing insights into the performance of the operator, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred. The information contained in the ExecutionReport can also be displayed in real-time in the user interface.
+
 ### Report Context
 
-### Plugin Context
-
-### Execution Context
+The ReportContext class is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. The update method takes an instance of the ExecutionReport class as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insights into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
 
 ## Entities
 
