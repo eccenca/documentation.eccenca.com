@@ -94,32 +94,17 @@ The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package des
 
 Context objects have been introduced to provide a way to access context-dependent functionalities during plugin creation, update, or execution.
 
-These context objects allow accessing various useful functionalities such as the current OAuth token, updating the execution report for workflows, DI version, and current project. Having a basic understanding of context objects and their functionalities can help developers effectively use them to create and execute plugins in DataIntegration.
+These context objects allow accessing various useful functionalities such as the current OAuth token, updating the execution report for workflows, DI version, and current project details.
 
-### Plugin Context
+!!! Note
 
-The PluginContext class provides important context information during plugin creation or update. It has three attributes: system, user, and project_id.
-
-The system attribute is of type SystemContext and contains general system information. The user attribute is of type UserContext and contains information about the user. The project_id attribute contains the identifier of the project that contains or will contain the plugin.
-
-> Note that after creation, the plugin may be updated or executed by another user.
-
-### Execution Context
-
-The ExecutionContext class combines context objects that are available during plugin execution. It contains four attributes:
-
--   system: An instance of the SystemContext class, which provides general system information.
--   user: An optional instance of the UserContext class, which provides information about the user that issued the plugin execution.
--   task: An instance of the TaskContext class, which provides metadata about the executed plugin.
--   report: An instance of the ReportContext class, which allows to update the execution report.
-
-The ExecutionContext class is used to provide context information to plugins during execution, enabling plugins to access information about the environment in which they are running, the user who initiated the execution, and the task being executed. The ReportContext attribute allows plugins to generate and update reports during execution.
+    Having a basic understanding of context objects and their functionalities can help developers effectively use them to create and execute plugins in DataIntegration.
 
 ### System Context
 
-SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The di_version method returns the version of the running [DataIntegration](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext class is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
+SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The `di_version()` returns the version of the running [DataIntegration](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
 
-Usage:
+!!! example:
 
 -   [Password Parameter Type](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py#LL10C6-L10C6)
 -   [Plugin Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L381)
@@ -128,22 +113,60 @@ Usage:
 
 UserContext can be used to obtain information about the user that is interacting with the system. It has three methods: `user_uri()`, `user_label()`, and `token()`. The `user_uri()` returns the URI of the user, which can be used to identify them uniquely. The `user_label()` returns the name of the user, which can be used for display purposes. The `token()` retrieves the OAuth token for the user, which can be used to authenticate requests made on behalf of the user.
 
+!!! example
+
+    [Working Example](https://github.com/eccenca/cmem-plugin-kafka/blob/main/cmem_plugin_kafka/utils.py#L391) Here, The UserContext is used to set up the cmempy user access before accessing the resource from the dataset.
+
 ### Task Context
 
-The TaskContext class can be used to obtain information about the project and task that an object is part of. The `project_id()` returns the identifier of the project, which can be used to retrieve information about the project or to associate the object with the project. The task_id method returns the identifier of the task, which can be used to retrieve information about the task or to associate the object with the task.
+TaskContext can be used to obtain information about the project and task that an object is part of. The `project_id()` returns the identifier of the project, which can be used to retrieve information about the project or to associate the object with the project. The `task_id()` returns the identifier of the task, which can be used to retrieve information about the task or to associate the object with the task. This information can be used for various purposes, such as retrieving additional metadata about the project or task, or associating the object with the project or task in order to perform specific operations.
 
-When to use the TaskContext class?
-The TaskContext class should be used whenever an object needs to obtain information about the project or task that it is part of. This information can be used for various purposes, such as retrieving additional metadata about the project or task, or associating the object with the project or task in order to perform specific operations.
 
 ### Execution Report
 
-The ExecutionReport class is used to provide insights into the execution of a workflow operator. It contains important information such as the number of entities that have been processed, a short label and description of the executed operation, a summary table representing the summary of the report, any warnings or user-friendly messages that occurred during execution, and an error message in case a fatal error occurred.
+ExecutionReport is used to provide insight into the execution of a workflow operator. It contains important information such as the number of `entities` that have been processed, a short label and `description` of the executed operation, a `summary` table representing the summary of the report, any warnings or user-friendly messages that occurred during execution, and an `error` message in case a fatal error occurred.
 
-The ExecutionReport class should be used by workflow operators to generate execution reports. This information can be used for various purposes, such as providing insights into the performance of the operator, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred. The information contained in the ExecutionReport can also be displayed in real-time in the user interface.
+ExecutionReport is used by workflow operators to generate execution reports. This information can be used for various purposes, such as providing insight into the performance of the operator, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred. The information contained in the ExecutionReport can also be displayed in real-time in the user interface.
+
+!!! example
+
+
 
 ### Report Context
 
-The ReportContext class is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. The update method takes an instance of the ExecutionReport class as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insights into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
+ReportContext is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. The `update()` takes an instance of the ExecutionReport as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insight into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
+
+Usage:
+
+!!! example
+
+    sometimes the report need to updated - one such example is you find here
+
+### Plugin Context
+
+PluginContext provides important context information during plugin creation or update. It has three attributes: system, user, and project_id.
+
+The `system` attribute is of type SystemContext and contains general system information. The `user` attribute is of type UserContext and contains information about the user. The `project_id` attribute contains the identifier of the project that contains or will contain the plugin.
+
+!!! Note
+
+    After creation, the plugin may be updated or executed by another user.
+
+### Execution Context
+
+ExecutionContext combines context objects that are available during plugin execution. It contains four attributes:
+
+-   `system`: An instance of the SystemContext, which provides general system information.
+-   `user`: An optional instance of the UserContext, which provides information about the user that issued the plugin execution.
+-   `task`: An instance of the TaskContext, which provides metadata about the executed plugin.
+-   `report`: An instance of the ReportContext, which allows to update the execution report.
+
+The ExecutionContext is used to provide context information to plugins during execution, enabling plugins to access information about the environment in which they are running, the user who initiated the execution, and the task being executed. The ReportContext attribute allows plugins to generate and update reports during execution.
+
+Usage:
+
+-   [cmem-base-example]
+-   [real-working-example]
 
 ## Entities
 
@@ -283,8 +306,8 @@ Code explanation:
 3. Intialise the parameters of the plugin. Additionally, you can validate and raise exceptions from `init()`. [(#46-54)](#__codelineno-10-46)
 4. To return Entities we have to create a list of `entities` and its `schema`. As a first step, declare entities as an empty list. [(#62)](#__codelineno-10-62)
 5. As previously mentioned, each `Entity` should have a `URI` and it can have sequence of `values`. Here, a list of entities is created with random UUIDs based on rows and values are created based on columns. After each entity is created it is appended to the entities list. [(#64-78)](#__codelineno-10-64)
-6. To generate a `schema` (which is of type `EntitySchema`), which should have a `type_uri` and a sequence of `paths`, define an empty list of paths. [(#79)]((#__codelineno-10-79))
-7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated with `type_uri` and `paths` respectively. [(#80-86)]((#__codelineno-10-80))
+6. To generate a `schema` (which is of type `EntitySchema`), which should have a `type_uri` and a sequence of `paths`, define an empty list of paths. [(#79)](<(#__codelineno-10-79)>)
+7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated with `type_uri` and `paths` respectively. [(#80-86)](<(#__codelineno-10-80)>)
 8. Once the entities and the schema are generated you can return them. [(#101)](#__codelineno-10-101)
 9. Update plugin logs using `PluginLogger` which is available as a default logger. [(#87-91)](#__codelineno-10-87)
 10. To make your plugin more user-friendly you can use the Context API `report.update()` to update the workflow report. [(#91-100)](#__codelineno-10-86)
