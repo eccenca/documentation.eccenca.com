@@ -17,6 +17,10 @@ Please have a look at these projects to get started.
 
 This page gives an overview of the concepts you need to understand in order to develop plugins.
 
+## Base Package
+
+`cmem-plugin-base` is a Python library that provides a set of base classes for developing plugins for the eccenca Corporate Memory (CMEM) platform. These base classes provide a consistent interface for defining new plugins, handling configuration, and communicating with the DataIntegration of CMEM.
+
 ## Plugin Types
 
 The following plugin types are defined.
@@ -84,6 +88,79 @@ class MyTransformPlugin(TransformPlugin):
             return item[0].split(" ")[-1]
 ```
 
+## Plugin
+
+The `@Plugin` decorator is used to mark a Python class as a Workflow/Transform Operator plugin. This decorator takes several parameters that provide information about the plugin, such as the `label`, `plugin_id`, and `description`. It also allows for defining a list of `parameters` that can be used to customize the plugin behavior. The `documentation` parameter can be used to provide additional information about the plugin that will be displayed in the Workflow Editor.
+
+## Plugin Parameter
+
+The `PluginParameter` represents a parameter that can be used to customize a Workflow/Transform Operator plugin's behavior.
+
+`PluginParameter` class can be instantiated multiple times within a `@Plugin` decorator to create a list of `parameters` that can be used to customize the plugin's behavior. The `param_type` parameter can be set to a specific parameter type class that extends the `ParameterType` base class to validate user input and provide additional functionality.
+
+The `PluginParameter` has several parameters that can be specified when initializing an instance:
+
+-   `name`: The name of the parameter. This is a required parameter and must be specified.
+-   `label`: A visible label of the parameter. This is an optional parameter and can be left blank. If left blank, the name of the parameter will be used as the label.
+-   `description`: A visible description of the parameter. This is an optional parameter and can be left blank.
+-   `param_type`: Optionally overrides the parameter type. Usually, this does not have to be set manually as it will be inferred from the plugin automatically.
+-   `default_value`: The parameter default value (optional). This parameter is also optional, and if not specified, it will be inferred from the plugin automatically.
+-   `advanced`: A boolean flag indicating if this is an advanced parameter that can only be changed in the advanced section. This is an optional parameter and defaults to False.
+-   `visible`: A boolean flag indicating if the parameter will be displayed to the user in the UI. This is an optional parameter and defaults to True.
+
+## Parameter Type
+
+The `ParameterType` class is a generic class that serves as the base for all other parameter types. It has methods for converting parameter values to and from strings, and for providing auto-completion suggestions.
+
+### Concrete Parameter Types
+
+There are several concrete parameter types defined in the module, including `StringParameterType`, `IntParameterType`, `FloatParameterType`, `BoolParameterType`, `PluginContextParameterType`, and `EnumParameterType`. These correspond to different types of parameters that a plugin might use, such as strings, integers, and boolean values.
+
+Each concrete parameter type implements the `from_string` and `to_string` methods for converting parameter values to and from strings.
+
+### DataIntegration Parameter Types
+
+In addition to concrete parameter types, the base package offers some special types that are derived from data integration. These special types include Enum, Password, Dataset, Multiline, Choice Type, and others. These types are provided to enhance the development of plugins and offer greater flexibility when creating custom parameters.
+
+#### Enum ParameterType
+
+`EnumParameterType` also takes an additional argument in its constructor to specify the enumeration type it represents.
+
+#### Password ParameterType
+
+[`PasswordParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) is a parameter type that can be used in plugins to handle password strings. When a `password` is entered by a user, this parameter type will encrypt and store the password so that it cannot be viewed by the user or stored in plain text. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L293)
+
+#### Dataset ParameterType
+
+[`DatasetParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) can be used as a parameter type for plugins that require dataset input. It provides autocompletion suggestions based on the user's query terms and allows filtering datasets by dataset type (csv, json, etc.) in the current project. It also returns the label of the selected dataset as its value. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L278)
+
+These are some examples of special type parameters, and you can find more for your plugin development [here](https://github.com/eccenca/cmem-plugin-base/tree/main/cmem_plugin_base/dataintegration/parameter).
+
+### AutoComplete Method
+
+The `ParameterType` class also defines an `autocomplete()`, which can be used to provide auto-completion suggestions for a parameter value.
+The `EnumParameterType`is an example of a parameter type that uses auto-completion suggestions. This is a method that is designed to assist with autocompleting values when querying terms. It is a special method that requires attention as it plays an important role in providing suggestions for autocomplete functionality.
+
+The `autocomplete()` takes in three parameters: `query_terms`, `depend_on_parameter_values`, and `context`. It returns a list of `Autocompletion` objects, which represent the possible auto-completion results.
+
+-   `query_terms` parameter is a list of lower case conjunctive search terms. These are the search terms that the user has entered, and the `auto-completion()` will attempt to find results that match all of them.
+
+-   `depend_on_parameter_values` parameter is a list of values for the parameters that the `auto-completion()` depends on. These values will be used to generate the auto-completion results. The type of each parameter value is the same as in the init method, which means that if a `password` parameter is specified, the type of the parameter value will be of `Password` Type.
+
+-   `context` parameter represents the `PluginContext` in which the auto-completion is requested. This could be, for example, the context of a specific plugin, or the context of the entire system.
+
+#### Autocompletion
+
+The method returns a list of `Autocompletion` objects, which represent the possible auto-completion results. Each `Autocompletion` object has two attributes: value and label.
+
+-   The `value` attribute represents the value to which the parameter value should be set.
+
+-   The `label` attribute is an optional label that a human user would see instead.
+
+!!! Note
+
+    The method should be modified to generate actual auto-completion results based on the input parameters.
+
 ## Context Objects
 
 The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context objects](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py), which are passed to the plugin depending on the executed method.
@@ -121,7 +198,6 @@ UserContext can be used to obtain information about the user that is interacting
 
 TaskContext can be used to obtain information about the project and task that an object is part of. The `project_id()` returns the identifier of the project, which can be used to retrieve information about the project or to associate the object with the project. The `task_id()` returns the identifier of the task, which can be used to retrieve information about the task or to associate the object with the task. This information can be used for various purposes, such as retrieving additional metadata about the project or task, or associating the object with the project or task in order to perform specific operations.
 
-
 ### Execution Report
 
 ExecutionReport is used to provide insight into the execution of a workflow operator. It contains important information such as the number of `entities` that have been processed, a short label and `description` of the executed operation, a `summary` table representing the summary of the report, any warnings or user-friendly messages that occurred during execution, and an `error` message in case a fatal error occurred.
@@ -129,8 +205,6 @@ ExecutionReport is used to provide insight into the execution of a workflow oper
 ExecutionReport is used by workflow operators to generate execution reports. This information can be used for various purposes, such as providing insight into the performance of the operator, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred. The information contained in the ExecutionReport can also be displayed in real-time in the user interface.
 
 !!! example
-
-
 
 ### Report Context
 
@@ -202,7 +276,7 @@ from secrets import token_urlsafe
 from typing import Sequence
 
 from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
-from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
+from cmem_plugin_base.dataintegration.description import Plugin, `PluginParameter`
 from cmem_plugin_base.dataintegration.entity import (
     Entities,
     Entity,
@@ -224,13 +298,13 @@ The values are generated in X rows a Y values. Both parameter can be specified:
 - 'number_of_values': How many values per row do you need.
 """,
     parameters=[
-        PluginParameter(
+        `PluginParameter`(
             name="number_of_entities",
             label="Entities (Rows)",
             description="How many rows will be created per run.",
             default_value="10",
         ),
-        PluginParameter(
+        `PluginParameter`(
             name="number_of_values",
             label="Values (Columns)",
             description="How many values are created per entity / row.",
