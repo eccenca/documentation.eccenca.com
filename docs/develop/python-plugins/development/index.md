@@ -118,13 +118,57 @@ There are several concrete parameter types defined in the module, including `Str
 
 Each concrete parameter type implements the `from_string` and `to_string` methods for converting parameter values to and from strings.
 
+[`EnumParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/types.py#L154) also takes an additional argument in its constructor to specify the enumeration type it represents.
+
+!!! Example "Initialising Default Values"
+
+    === "Int"
+        
+        ```python
+        PluginParameter(
+            name="rows",
+            label="Rows",
+            description="Number of rows",
+            default_value=12,
+        ),
+        ```
+
+    === "Float"
+
+        ```python
+        PluginParameter(
+            name="distance",
+            label="Distance",
+            description="Minimum distance between two nodes",
+            default_value=1.2,
+        ),
+        ```
+
+    === "String"
+
+        ```python
+        PluginParameter(
+            name="name",
+            label="Name",
+            description="Name of the user",
+            default_value="eccenca Developer",
+        ),
+        ```
+
+    === "Bool"
+
+        ```python
+        PluginParameter(
+            name="log_stats",
+            label="Log Statistics",
+            description="Logs the statitics of the plugin usage",
+            default_value=True,
+        ),
+        ```
+
 ### DataIntegration Parameter Types
 
-In addition to concrete parameter types, the base package offers some special types that are derived from data integration. These special types include Enum, Password, Dataset, Multiline, Choice Type, and others. These types are provided to enhance the development of plugins and offer greater flexibility when creating custom parameters.
-
-#### Enum ParameterType
-
-`EnumParameterType` also takes an additional argument in its constructor to specify the enumeration type it represents.
+In addition to concrete parameter types, the base package offers some special types that are derived from data integration. These special types include Password, Dataset, Multiline, Choice Type, and others. These types are provided to enhance the development of plugins and offer greater flexibility when creating custom parameters.
 
 #### Password ParameterType
 
@@ -154,12 +198,11 @@ The `autocomplete()` takes in three parameters: `query_terms`, `depend_on_parame
 The method returns a list of `Autocompletion` objects, which represent the possible auto-completion results. Each `Autocompletion` object has two attributes: value and label.
 
 -   The `value` attribute represents the value to which the parameter value should be set.
-
 -   The `label` attribute is an optional label that a human user would see instead.
 
 !!! Note
 
-    The method should be modified to generate actual auto-completion results based on the input parameters.
+    The `autocomplete()` should be modified to generate actual auto-completion results based on the input parameters.
 
 ## Context Objects
 
@@ -181,22 +224,27 @@ These context objects allow accessing various useful functionalities such as the
 
 SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The `di_version()` returns the version of the running [DataIntegration](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
 
-!!! example:
+!!! Example
 
--   [Password Parameter Type](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py#LL10C6-L10C6)
--   [Plugin Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L381)
+    -   [Password Parameter Type](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py#LL10C6-L10C6): it is used to decrypt an encrypted password value.
+        
+    -   [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L381) of decrypting the key.
 
 ### User Context
 
 UserContext can be used to obtain information about the user that is interacting with the system. It has three methods: `user_uri()`, `user_label()`, and `token()`. The `user_uri()` returns the URI of the user, which can be used to identify them uniquely. The `user_label()` returns the name of the user, which can be used for display purposes. The `token()` retrieves the OAuth token for the user, which can be used to authenticate requests made on behalf of the user.
 
-!!! example
+!!! Example
 
-    [Working Example](https://github.com/eccenca/cmem-plugin-kafka/blob/main/cmem_plugin_kafka/utils.py#L391) Here, The UserContext is used to set up the cmempy user access before accessing the resource from the dataset.
+    [Here](https://github.com/eccenca/cmem-plugin-kafka/blob/main/cmem_plugin_kafka/utils.py#L391): The UserContext is used to set up the cmempy user access before accessing the resource from the dataset.
 
 ### Task Context
 
 TaskContext can be used to obtain information about the project and task that an object is part of. The `project_id()` returns the identifier of the project, which can be used to retrieve information about the project or to associate the object with the project. The `task_id()` returns the identifier of the task, which can be used to retrieve information about the task or to associate the object with the task. This information can be used for various purposes, such as retrieving additional metadata about the project or task, or associating the object with the project or task in order to perform specific operations.
+
+!!! Example
+
+    [Here](https://github.com/eccenca/cmem-plugin-kafka/blob/7551d6087f0c134cef53b3120a949eb513692bf5/cmem_plugin_kafka/workflow/producer.py#L219) is an example of how the context object can be used to retrieve the `project_id` of the current `task`.
 
 ### Execution Report
 
@@ -204,17 +252,17 @@ ExecutionReport is used to provide insight into the execution of a workflow oper
 
 ExecutionReport is used by workflow operators to generate execution reports. This information can be used for various purposes, such as providing insight into the performance of the operator, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred. The information contained in the ExecutionReport can also be displayed in real-time in the user interface.
 
-!!! example
+!!! Example
+
+    [Here](https://github.com/eccenca/cmem-plugin-kafka/blob/7551d6087f0c134cef53b3120a949eb513692bf5/cmem_plugin_kafka/workflow/producer.py#LL242C15-L242C15), the execution report with the number of successful messages sent by the producer and a summary of Kafka statistics. It also includes information about the operation performed (i.e., write) and a description of the operation (i.e., messages sent), making it easier to track the progress of the process.
 
 ### Report Context
 
 ReportContext is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. The `update()` takes an instance of the ExecutionReport as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insight into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
 
-Usage:
+!!! Example
 
-!!! example
-
-    sometimes the report need to updated - one such example is you find here
+    [Here](https://github.com/eccenca/cmem-plugin-kafka/blob/7551d6087f0c134cef53b3120a949eb513692bf5/cmem_plugin_kafka/utils.py#L339): While producing messages in Kafka, the message count is constantly updated.
 
 ### Plugin Context
 
@@ -225,6 +273,10 @@ The `system` attribute is of type SystemContext and contains general system info
 !!! Note
 
     After creation, the plugin may be updated or executed by another user.
+
+!!! Example
+
+    All parameters [here]((https://github.com/eccenca/cmem-plugin-base/blob/6030760272a3d3bf4ab93db5d09b82bec35baf46/cmem_plugin_base/dataintegration/types.py)) use the `PluginContext`, to get the context in which the param type is requested.
 
 ### Execution Context
 
@@ -237,10 +289,13 @@ ExecutionContext combines context objects that are available during plugin execu
 
 The ExecutionContext is used to provide context information to plugins during execution, enabling plugins to access information about the environment in which they are running, the user who initiated the execution, and the task being executed. The ReportContext attribute allows plugins to generate and update reports during execution.
 
-Usage:
+!!! Note
 
--   [cmem-base-example]
--   [real-working-example]
+    [Here](https://github.com/eccenca/cmem-plugin-mattermost/blob/40c933db4afd70cc78b2804b814ed6998452de80/cmem_plugin_mattermost/workflow/mattermost_plugin.py#L186), The ExecutionContext is only available to the WorkflowPlugins and provides information and resources related to the execution environment. Plugins can use it to access/update information that may impact the report, such as logging and configuration data.
+
+!!! Example
+
+    [Here](https://github.com/eccenca/cmem-plugin-kafka/blob/7551d6087f0c134cef53b3120a949eb513692bf5/cmem_plugin_kafka/workflow/producer.py#L219) is an example of how the context object can be used to retrieve the `project_id` of the current `task` and the `user` associated with the current execution.
 
 ## Entities
 
@@ -276,7 +331,7 @@ from secrets import token_urlsafe
 from typing import Sequence
 
 from cmem_plugin_base.dataintegration.context import ExecutionContext, ExecutionReport
-from cmem_plugin_base.dataintegration.description import Plugin, `PluginParameter`
+from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
 from cmem_plugin_base.dataintegration.entity import (
     Entities,
     Entity,
@@ -298,13 +353,13 @@ The values are generated in X rows a Y values. Both parameter can be specified:
 - 'number_of_values': How many values per row do you need.
 """,
     parameters=[
-        `PluginParameter`(
+        PluginParameter(
             name="number_of_entities",
             label="Entities (Rows)",
             description="How many rows will be created per run.",
             default_value="10",
         ),
-        `PluginParameter`(
+        PluginParameter(
             name="number_of_values",
             label="Values (Columns)",
             description="How many values are created per entity / row.",
