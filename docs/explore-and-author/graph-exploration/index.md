@@ -46,10 +46,6 @@ You can search for a specific graph with **:eccenca-module-search: Search**.
 
 ### :eccenca-item-add-artefact: Adding a new graph
 
-!!! example inline end "Adding a Graph"
-
-    ![Adding a new Graph](adding-a-new-graph.png)
-
 To add a new graph to the Graphs list:
 
 <div class="annotate" markdown>

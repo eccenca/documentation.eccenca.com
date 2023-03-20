@@ -9,7 +9,7 @@ tags:
 
 This tutorial walks you through the process of loading data incrementally from a JDBC Dataset (relational database table) into a Knowledge Graph.
 
-!!! info
+!!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-jdbc.project.zip). You can import this project:
 
@@ -63,7 +63,7 @@ To extract data from a relational database, you need to first register a **JDBC 
 
 To incrementally extract data in Corporate Memory, we need to store the information about the OFFSET that will change with each extraction. To accomplish this, we need to define a new Graph named _Services Metadata Graph_ that will hold this information. To identify the changing OFFSET with the JDBC endpoint we previously created, we will use the Graph IRI that Corporate Memory created for us.
 
-!!! info "To find the JDBC endpoint IRI"
+### **To find the JDBC endpoint IRI**
 
     1. Visit the **Exploration** Tab of Corporate Memory
     2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)

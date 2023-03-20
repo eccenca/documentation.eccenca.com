@@ -203,13 +203,13 @@ files = [
 
 [[package]]
 name = "cairocffi"
-version = "1.4.0"
+version = "1.5.0"
 description = "cffi-based cairo bindings for Python"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "cairocffi-1.4.0.tar.gz", hash = "sha256:509339b32ccd8d7b00c2204c32736cde78db53a32e6a162d312478d25626cd9a"},
+    {file = "cairocffi-1.5.0.tar.gz", hash = "sha256:d105b49009d9b4970a459e38ff030cb5dfc8c8ee231e867d28f77ee9df44495e"},
 ]
 
 [package.dependencies]
@@ -622,14 +622,14 @@ files = [
 
 [[package]]
 name = "importlib-metadata"
-version = "6.0.0"
+version = "6.1.0"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "importlib_metadata-6.0.0-py3-none-any.whl", hash = "sha256:7efb448ec9a5e313a57655d35aa54cd3e01b7e1fbcf72dce1bf06119420f5bad"},
-    {file = "importlib_metadata-6.0.0.tar.gz", hash = "sha256:e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"},
+    {file = "importlib_metadata-6.1.0-py3-none-any.whl", hash = "sha256:ff80f3b5394912eb1b108fcfd444dc78b7f1f3e16b16188054bd01cb9cb86f09"},
+    {file = "importlib_metadata-6.1.0.tar.gz", hash = "sha256:43ce9281e097583d758c2c708c4376371261a02c34682491a8e98352365aad20"},
 ]
 
 [package.dependencies]
@@ -870,14 +870,14 @@ pytz = "*"
 
 [[package]]
 name = "mkdocs-glightbox"
-version = "0.3.1"
+version = "0.3.2"
 description = "MkDocs plugin supports image lightbox with GLightbox."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mkdocs-glightbox-0.3.1.tar.gz", hash = "sha256:ac85e2d4d422cc4a670fa276840f0aa3064a1ec4ad25ccb6d6e82d11bb11e513"},
-    {file = "mkdocs_glightbox-0.3.1-py3-none-any.whl", hash = "sha256:1974f505e3272b617b5e7552fd09d8d918d267631ed991772b4bd103dc74bea2"},
+    {file = "mkdocs-glightbox-0.3.2.tar.gz", hash = "sha256:aec32193fa367f83a5159a10ef0a0e501e595860f4399fb860ca1c5d95fd099d"},
+    {file = "mkdocs_glightbox-0.3.2-py3-none-any.whl", hash = "sha256:ef168717e0d6f5e3b33afa8a62837e9ea3b8754fbf073760db169650edbcb866"},
 ]
 
 [package.dependencies]

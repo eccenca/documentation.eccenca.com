@@ -36,9 +36,8 @@ $ cmemc config list | parallel --ctag cmemc -c {} admin status
 
 
 
-
-??? info "Options"
-    ```text
+!!! Note
+    
 
     --key TEXT       Get only specific key(s) from the status / info output.
                      There are two special keys available: 'all' will list all
@@ -78,8 +77,8 @@ Please be aware that this command can reveal secrets, which you do not want to h
 
 
 
-??? info "Options"
-    ```text
+!!! Note
+    
 
     --raw       Outputs raw JSON. Note that this option will always try to fetch
                 a new JSON token response. In case you are working with

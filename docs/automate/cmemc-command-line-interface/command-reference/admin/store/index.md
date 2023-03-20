@@ -33,9 +33,8 @@ This command creates a showcase scenario of multiple graphs including integratio
 
 
 
-??? info "Options"
-    ```text
-
+!!! Note
+   
     --scale INTEGER  The scale factor provides a way to set the target size of
                      the scenario. A value of 10 results in around 40k triples,
                      a value of 50 in around 350k triples.  [default: 10]
@@ -65,9 +64,8 @@ This command imports the bootstrap data needed for managing shapes, access condi
 
 
 
-??? info "Options"
-    ```text
-
+!!! note
+   
     --import    Delete existing bootstrap data if present and import bootstrap
                 data which was delivered
     ```

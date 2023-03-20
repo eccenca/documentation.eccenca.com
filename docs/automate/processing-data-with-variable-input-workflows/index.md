@@ -18,7 +18,7 @@ The workflow is then called via an HTTP REST call (or via [cmemc](/automate/cme
 
 This allows for solving all kinds of [☆ Automation](/automate) tasks when, for instance, a large number of small data snippets needs to be processed.
 
-!!! info
+!!! Abstract  
 
     The complete tutorial is available as a [project file](tutorial-varinput.project.zip). You can import this project
 

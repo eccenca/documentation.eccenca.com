@@ -10,7 +10,7 @@ tags:
 This tutorial demonstrates how you can build a Knowledge Graph based on input data from a Web API.
 The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/), which we will use to fetch repository data of a certain organization and create a Knowledge Graph from the response.
 
-!!! info
+!!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-webapi.project.zip). You can import this project:
 
