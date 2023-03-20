@@ -276,7 +276,7 @@ The `system` attribute is of type SystemContext and contains general system info
 
 !!! Example
 
-    All parameters [here]((https://github.com/eccenca/cmem-plugin-base/blob/6030760272a3d3bf4ab93db5d09b82bec35baf46/cmem_plugin_base/dataintegration/types.py)) use the `PluginContext`, to get the context in which the param type is requested.
+    All parameters [here](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/types.py) use the `PluginContext`, to get the context in which the param type is requested.
 
 ### Execution Context
 
@@ -435,8 +435,8 @@ Code explanation:
 3. Intialise the parameters of the plugin. Additionally, you can validate and raise exceptions from `init()`. [(#46-54)](#__codelineno-10-46)
 4. To return Entities we have to create a list of `entities` and its `schema`. As a first step, declare entities as an empty list. [(#62)](#__codelineno-10-62)
 5. As previously mentioned, each `Entity` should have a `URI` and it can have sequence of `values`. Here, a list of entities is created with random UUIDs based on rows and values are created based on columns. After each entity is created it is appended to the entities list. [(#64-78)](#__codelineno-10-64)
-6. To generate a `schema` (which is of type `EntitySchema`), which should have a `type_uri` and a sequence of `paths`, define an empty list of paths. [(#79)](<(#__codelineno-10-79)>)
-7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated with `type_uri` and `paths` respectively. [(#80-86)](<(#__codelineno-10-80)>)
+6. To generate a `schema` (which is of type `EntitySchema`), which should have a `type_uri` and a sequence of `paths`, define an empty list of paths. [(#79)](#__codelineno-10-79)
+7. Based on the columns, each unique path is appended to the paths list. Once all paths are added, the schema is updated with `type_uri` and `paths` respectively. [(#80-86)](#__codelineno-10-80)
 8. Once the entities and the schema are generated you can return them. [(#101)](#__codelineno-10-101)
 9. Update plugin logs using `PluginLogger` which is available as a default logger. [(#87-91)](#__codelineno-10-87)
 10. To make your plugin more user-friendly you can use the Context API `report.update()` to update the workflow report. [(#91-100)](#__codelineno-10-86)
