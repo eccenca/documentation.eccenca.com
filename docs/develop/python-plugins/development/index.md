@@ -96,7 +96,7 @@ The `@Plugin` decorator is used to mark a Python class as a Workflow/Transform O
 
 The `PluginParameter` represents a parameter that can be used to customize a Workflow/Transform Operator plugin's behavior.
 
-`PluginParameter` class can be instantiated multiple times within a `@Plugin` decorator to create a list of `parameters` that can be used to customize the plugin's behavior. The `param_type` parameter can be set to a specific parameter type class that extends the `ParameterType` base class to validate user input and provide additional functionality.
+The `PluginParameter` class can be instantiated multiple times within a `@Plugin` decorator to create a list of `parameters` that can be used to customize the plugin's behavior. The `param_type` parameter can be set to a specific parameter type class that extends the `ParameterType` base class to validate user input and provide additional functionality.
 
 The `PluginParameter` has several parameters that can be specified when initializing an instance:
 
@@ -185,13 +185,13 @@ These are some examples of special type parameters, and you can find more for yo
 The `ParameterType` class also defines an `autocomplete()`, which can be used to provide auto-completion suggestions for a parameter value.
 The `EnumParameterType`is an example of a parameter type that uses auto-completion suggestions. This is a method that is designed to assist with autocompleting values when querying terms. It is a special method that requires attention as it plays an important role in providing suggestions for autocomplete functionality.
 
-The `autocomplete()` takes in three parameters: `query_terms`, `depend_on_parameter_values`, and `context`. It returns a list of `Autocompletion` objects, which represent the possible auto-completion results.
+`autocomplete()` takes in three parameters: `query_terms`, `depend_on_parameter_values`, and `context`. It returns a list of `Autocompletion` objects, which represent the possible auto-completion results.
 
--   `query_terms` parameter is a list of lower case conjunctive search terms. These are the search terms that the user has entered, and the `auto-completion()` will attempt to find results that match all of them.
+-   The `query_terms` parameter is a list of lower case conjunctive search terms. These are the search terms that the user has entered, and the `auto-completion()` will attempt to find results that match all of them.
 
--   `depend_on_parameter_values` parameter is a list of values for the parameters that the `auto-completion()` depends on. These values will be used to generate the auto-completion results. The type of each parameter value is the same as in the init method, which means that if a `password` parameter is specified, the type of the parameter value will be of `Password` Type.
+-   The `depend_on_parameter_values` parameter is a list of values for the parameters that the `auto-completion()` depends on. These values will be used to generate the auto-completion results. The type of each parameter value is the same as in the init method, which means that if a `password` parameter is specified, the type of the parameter value will be of `Password` Type.
 
--   `context` parameter represents the `PluginContext` in which the auto-completion is requested. This could be, for example, the context of a specific plugin, or the context of the entire system.
+-   The `context` parameter represents the `PluginContext` in which the auto-completion is requested. This could be, for example, the context of a specific plugin, or the context of the entire system.
 
 #### Autocompletion
 
@@ -202,7 +202,7 @@ The method returns a list of `Autocompletion` objects, which represent the possi
 
 !!! Note
 
-    The `autocomplete()` should be modified to generate actual auto-completion results based on the input parameters.
+    `autocomplete()` should be modified to generate actual auto-completion results based on the input parameters.
 
 ## Context Objects
 
@@ -258,7 +258,7 @@ ExecutionReport is used by workflow operators to generate execution reports. Thi
 
 ### Report Context
 
-ReportContext is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. The `update()` takes an instance of the ExecutionReport as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insight into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
+ReportContext is used to pass context information into workflow plugins that may generate a report during execution. It contains a single method called update that can be called repeatedly during operator execution to update the current execution report. `update()` takes an instance of the ExecutionReport as input and updates the current report with the information contained in the ExecutionReport. This allows plugins to generate reports that can be used for various purposes, such as providing insight into the performance of the plugin, identifying any warnings or errors that occurred during execution, and stopping the workflow execution in case a fatal error occurred.
 
 !!! Example
 
