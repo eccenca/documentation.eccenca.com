@@ -120,51 +120,101 @@ Each concrete parameter type implements the `from_string` and `to_string` method
 
 [`EnumParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/types.py#L154) also takes an additional argument in its constructor to specify the enumeration type it represents.
 
-!!! Example "Initialising Default Values"
+!!! Example "Concrete Parameters Initialization"
 
-    === "Int"
-        
-        ```python
-        PluginParameter(
-            name="rows",
-            label="Rows",
-            description="Number of rows",
-            default_value=12,
-        ),
-        ```
+    ```python
+    """Concrete Parameters Example"""
+    from enum import Enum
+    from typing import Sequence
 
-    === "Float"
+    from cmem_plugin_base.dataintegration.context import ExecutionContext
+    from cmem_plugin_base.dataintegration.description import Plugin, PluginParameter
+    from cmem_plugin_base.dataintegration.entity import (
+        Entities,
+    )
+    from cmem_plugin_base.dataintegration.plugins import WorkflowPlugin
+    from cmem_plugin_base.dataintegration.types import EnumParameterType
 
-        ```python
-        PluginParameter(
-            name="distance",
-            label="Distance",
-            description="Minimum distance between two nodes",
-            default_value=1.2,
-        ),
-        ```
 
-    === "String"
+    class Animal(Enum):
+        """Animal Enum"""
 
-        ```python
-        PluginParameter(
-            name="name",
-            label="Name",
-            description="Name of the user",
-            default_value="eccenca Developer",
-        ),
-        ```
+        CAT = 1
+        DOG = 2
+        HORSE = 3
+        LION = 4
 
-    === "Bool"
 
-        ```python
-        PluginParameter(
-            name="log_stats",
-            label="Log Statistics",
-            description="Logs the statitics of the plugin usage",
-            default_value=True,
-        ),
-        ```
+    @Plugin(
+        label="Concrete Parameters Example",
+        description="Use of concrete parameters and set default values",
+        documentation="""
+    - `value_int`: A parameter of Integer Type
+    - `value_float`: A parameter of Integer Type
+    - `value_str`: A Parameter of String Type
+    - `value_bool`: A Parameter of Boolean Type
+    - `value_enum`: A Parameter of Enum Type
+    """,
+        parameters=[
+            PluginParameter(
+                name="value_int",
+                label="Integer",
+                description="A parameter of Integer Type",
+                default_value=10,
+            ),
+            PluginParameter(
+                name="value_float",
+                label="Float",
+                description="A parameter of Integer Type",
+                default_value=5.0,
+            ),
+            PluginParameter(
+                name="value_str",
+                label="String",
+                description="A Parameter of String Type",
+                default_value="eccenca Developer",
+            ),
+            PluginParameter(
+                name="value_bool",
+                label="Boolean",
+                description="A Parameter of Boolean Type",
+                default_value=True,
+            ),
+            PluginParameter(
+                name="value_enum",
+                label="Enum",
+                description="A Parameter of Enum Type ",
+                param_type=EnumParameterType(enum_type=Animal),
+                default_value=Animal.CAT,
+            ),
+        ],
+    )
+    class ConcreteParameters(WorkflowPlugin):
+        """Example Workflow Plugin: Random Values"""
+
+        def __init__(
+            self,
+            value_int: int = 10,
+            value_float: float = 5.0,
+            value_str: str = "eccenca Developer",
+            value_bool: bool = True,
+            value_enum: Animal = Animal.CAT,
+        ) -> None:
+            self.value_int = value_int
+            self.value_float = value_float
+            self.value_str = value_str
+            self.value_bool = value_bool
+            self.value_enum = value_enum
+
+        def execute(self, inputs: Sequence[Entities], context: ExecutionContext) -> None:
+            self.log.info("Concrete Parameters Example")
+            self.log.info(f"{self.value_int}")
+            self.log.info(f"{self.value_float}")
+            self.log.info(f"{self.value_str}")
+            self.log.info(f"{self.value_bool}")
+            self.log.info(f"{self.value_int}")
+
+    ```
 
 ### DataIntegration Parameter Types
 
