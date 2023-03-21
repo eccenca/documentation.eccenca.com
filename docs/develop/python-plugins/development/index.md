@@ -220,13 +220,25 @@ Each concrete parameter type implements the `from_string` and `to_string` method
 
 In addition to concrete parameter types, the base package offers some special types that are derived from data integration. These special types include Password, Dataset, Multiline, Choice Type, and others. These types are provided to enhance the development of plugins and offer greater flexibility when creating custom parameters.
 
-#### Password ParameterType
+#### Choice ParameterType
 
-[`PasswordParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) is a parameter type that can be used in plugins to handle password strings. When a `password` is entered by a user, this parameter type will encrypt and store the password so that it cannot be viewed by the user or stored in plain text. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L293)
+[`ChoiceParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/choice.py) that represents a parameter type with a pre-defined set of choices. It allows users to select from the available choices using autocompletion, and provides labels for each of the choices. [Example](https://github.com/eccenca/cmem-plugin-number-conversion/blob/87c5c17796386301117637e8bc9f4f9542fcb344/cmem_plugin_number_conversion/transform/__init__.py#LL32C5-L32C5)
 
 #### Dataset ParameterType
 
 [`DatasetParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) can be used as a parameter type for plugins that require dataset input. It provides autocompletion suggestions based on the user's query terms and allows filtering datasets by dataset type (csv, json, etc.) in the current project. It also returns the label of the selected dataset as its value. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L278)
+
+#### Graph ParameterType
+
+[`GraphParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/graph.py) that represents a parameter type for selecting a knowledge graph. It provides autocompletion suggestions for available graphs, based on various filtering criteria, such as whether to show DI project graphs or system resource graphs, and which classes the graphs should belong to.
+
+#### Multiline ParameterType
+
+[`MultilineStringParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/multiline.py) is used to represent a multiline string parameter type in a DataIntegration, which allows multiline text entry from users. [Example](https://github.com/eccenca/cmem-plugin-graphql/blob/263c3b712990d80d6ef180baad2e0cfdef836e93/cmem_plugin_graphql/workflow/graphql.py#L51)
+
+#### Password ParameterType
+
+[`PasswordParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) is a parameter type that can be used in plugins to handle password strings. When a `password` is entered by a user, this parameter type will encrypt and store the password so that it cannot be viewed by the user or stored in plain text. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L293)
 
 These are some examples of special type parameters, and you can find more for your plugin development [here](https://github.com/eccenca/cmem-plugin-base/tree/main/cmem_plugin_base/dataintegration/parameter).
 
@@ -253,6 +265,57 @@ The method returns a list of `Autocompletion` objects, which represent the possi
 !!! Note
 
     `autocomplete()` should be modified to generate actual auto-completion results based on the input parameters.
+
+!!! Example
+
+    ```python
+    class KaggleSearch(StringParameterType):
+    """Kaggle Search Type"""
+
+    autocompletion_depends_on_parameters: list[str] = ["username", "api_key"]
+
+    # auto complete for values
+    allow_only_autocompleted_values: bool = True
+    # auto complete for labels
+    autocomplete_value_with_labels: bool = True
+
+    def autocomplete(
+        self,
+        query_terms: list[str],
+        depend_on_parameter_values: list[Any],
+        context: PluginContext,
+    ) -> list[Autocompletion]:
+        auth(depend_on_parameter_values[0], depend_on_parameter_values[1].decrypt())
+        result = []
+        if len(query_terms) != 0:
+            datasets = search(query_terms=query_terms)
+            for dataset in datasets:
+                slug = get_slugs(str(dataset))
+                result.append(
+                    Autocompletion(
+                        value=f"{slug.owner}/{slug.name}",
+                        label=f"{slug.owner}/{slug.name}",
+                    )
+                )
+            result.sort(key=lambda x: x.label)  # type: ignore
+            return result
+        if len(query_terms) == 0:
+            label = "Search for kaggle datasets"
+            result.append(Autocompletion(value="", label=f"{label}"))
+        result.sort(key=lambda x: x.label)  # type: ignore
+        return result
+    ```
+    The `KaggleSearch` class is a `StringParameterType` that allows users to search for Kaggle datasets. It inherits from the `StringParameterType` class and overrides its `autocomplete()` to provide autocompletion(of type `Autocompletion`) for search results.
+
+    The `autocomplete()` uses the search function to search for datasets on Kaggle and returns a list of `Autocompletion` objects representing the search results.
+
+    The `autocompletion_depends_on_parameters` attribute of the KaggleSearch class is a list of strings that specifies which parameter values this autocomplete method depends on. In this case, it depends on the values of the `username` and `api_key` parameters in order to authenticate the Kaggle API.
+
+    If the `query_terms` list is empty, it returns a single Autocompletion object with an empty value and a label prompting the user to search for Kaggle datasets.
+
+    The `allow_only_autocompleted_values` attribute is set to `True`, which means that the user can only select values from the autocomplete suggestions. The autocomplete_value_with_labels attribute is set to `True`, which means that the autocomplete suggestions include both values and human-readable labels.
+
+    *This code block is derived from [cmem-plugin-kaggle](https://github.com/eccenca/cmem-plugin-kaggle)*
 
 ## Context Objects
 
