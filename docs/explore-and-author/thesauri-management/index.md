@@ -163,7 +163,7 @@ When adding relations the inverse relation is automatically added, too.
 
 ### Removing concepts and concept schemes
 
-!!! info
+!!! Warning
 
     Be aware that removing a concept or concept scheme with child elements (top concepts or narrower concepts) means that the complete substructure, i.e. all childs, are also deleted regardless whether they are used in another concept scheme.
 

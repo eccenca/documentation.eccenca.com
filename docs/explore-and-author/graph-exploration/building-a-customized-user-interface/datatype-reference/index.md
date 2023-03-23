@@ -9,7 +9,7 @@ tags:
 
 This is a list of supported data types in shapes.
 
-!!! warning
+!!! Note
 
     Not all datatypes result in specific widgets.
 

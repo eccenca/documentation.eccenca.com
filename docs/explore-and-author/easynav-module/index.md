@@ -7,7 +7,7 @@ tags:
 
 # EasyNav Module
 
-!!! warning
+!!! Info
 
     EasyNav is a preview feature, which is disabled by default.
     Preview features can be unstable.
@@ -28,7 +28,7 @@ Start using `EasyNav` by selecting the respective module entry in the main navig
 
 At the module welcome screen the user can either load a saved visualization of start searching for an initial node / resource by providing a search term.
 
-!!! info "Graph selection drop-down"
+!!! Note
 
     The graph selection drop-down might or might not be visible depending the existence of an (optional) `EasyNav Module` configuration.
     In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown.
@@ -70,7 +70,7 @@ Without further (workspace) specific configuration the feature can be used askin
 
 Optionally a `EasyNav Module` configuration can be created to provide a fixed graph selection and search filter settings.
 
-??? info "Create a `EasyNav Module` Configuration"
+### **"Create a `EasyNav Module` Configuration"**
 
     ![Create a `EasyNav Module` Configuration](easynav-config-EasyNavModule.png)
 
@@ -85,13 +85,13 @@ Optionally a `EasyNav Module` configuration can be created to provide a fixed gr
     `Search Configuration` is optional but a powerful feature to create predefined search filter/facets.
     If want to use this capability select existing `Search Configuration`s in the drop down or create stubs for the configurations you want to setup.
 
-??? info "Set the `EasyNav Module` in the `Workspace` configuration"
+### **"Set the `EasyNav Module` in the `Workspace` configuration"**
 
     ![Select `EasyNav Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
 
     After creating the `EasyNav Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
 
-??? info "Create a `Search Configuration`"
+### **"Create a `Search Configuration`"**
 
     Follow the stub link from creating a new configuration in the `Module` dialog.
     Then click edit to provide the necessary details.

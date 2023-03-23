@@ -10,7 +10,7 @@ tags:
 This tutorial walks you through the process of using the Neo4j dataset.
 You will learn how to transform data from a source dataset into a graph structure into Neo4j.
 
-!!! info
+!!! Abstract
 
     This tutorial uses a specific dataset called Northwind for your understanding.
     However, the principles can be applied and reused with any dataset.

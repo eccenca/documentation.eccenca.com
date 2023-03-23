@@ -36,7 +36,7 @@ Once you added a eccenca Corporate Memory data source to Redash, you can create 
 
 To get familiar with Redash, please have a look at the Redash user guide, especially the [Getting Started](https://redash.io/help/user-guide/getting-started) page.
 
-!!! note
+!!! Info
 
     In order to query eccenca Corporate Memory data sources in Redash, you have to formulate your query with SPARQL:
     ![Redash: Query with SPARQL](3-edit-query.png "Redash: Query with SPARQL")
