@@ -65,11 +65,11 @@ To incrementally extract data in Corporate Memory, we need to store the informat
 
 ### **To find the JDBC endpoint IRI**
 
-    1. Visit the **Exploration** Tab of Corporate Memory
-    2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)
-    3. Select in Navigation (bottom left): **functions_Plugins_Jdbc**
-    4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
-    5. Press the **Turtle** tab inside your JDBC endpoint view (right)
+   -  1. Visit the **Exploration** Tab of Corporate Memory
+   -  2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)
+-    3. Select in Navigation (bottom left): **functions_Plugins_Jdbc**
+-   4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
+-    5. Press the **Turtle** tab inside your JDBC endpoint view (right)
 
 In our example, the JDBC Endpoint IRI looks like this: _http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC_
 
