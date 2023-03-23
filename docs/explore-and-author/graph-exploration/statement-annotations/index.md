@@ -36,7 +36,7 @@ In the Statement Annotation dialog, you can select the Statement Annotation Temp
 
 In order to have a working Statement Annotation setup, the following steps need to be done:
 
-??? success "1. Create a Statement Annotation Graph"
+ ### "1. Create a Statement Annotation Graph"
 
     Create a new Graph, edit its metadata and change the type to Statement Annotation Graph.
 
