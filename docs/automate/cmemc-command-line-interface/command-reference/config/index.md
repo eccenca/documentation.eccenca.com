@@ -147,9 +147,8 @@ $ eval $(cmemc -c my config eval)
 
 
 
-??? info "Options"
-    ```text
-
+!!! Note    
+  
     --unset     Instead of export all configuration keys, this option will unset
                 all key.
     ```

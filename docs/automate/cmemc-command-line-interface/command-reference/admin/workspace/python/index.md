@@ -13,7 +13,7 @@ List, install, or uninstall python packages.
 
 Python packages are used to extend the DataIntegration workspace with python plugins. To get a list of installed packages, execute the list command.
 
-!!! warning
+!!! Note
     Installing packages from unknown sources is not recommended. Plugins are not verified for malicious code.
 
 
@@ -67,8 +67,8 @@ It outputs a table of python package identifiers with version information.
 
 
 
-??? info "Options"
-    ```text
+!!! Note
+
 
     --raw       Outputs raw JSON.
     --id-only   Lists only package identifier. This is useful for piping the IDs
