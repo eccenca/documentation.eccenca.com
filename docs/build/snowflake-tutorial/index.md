@@ -52,8 +52,8 @@ To connect to Snowflake cloud data warehouse a JDBC driver is required.
 
 - Click on schema name **products_vocabulary** on the left side of the page and type the  **sql query** for creating a table in the center, then click on **Run** on the right side of the page.
 
-!!! Example SQL Query
-
+!!! SQL Query
+ 
     CREATE TABLE PRODUCT (
     Product ID INT ,
     product_name VARCHAR(50) NOT NULL,
@@ -74,7 +74,7 @@ To connect to Snowflake cloud data warehouse a JDBC driver is required.
 
 - Type the **SQL** query for creating a database in the table that is created, then click on **Run**.
 
-!!!  Example of a query for the database.
+!!!  SQL query for the database.
       
       INSERT INTO product (product_id, product_name, product_manager_name, email, price, height, width, depth, weight) 
 
@@ -229,7 +229,7 @@ SELECT * from PRODUCT
 
 !!! Note 
 
-       Suggestions generated are based on vocabulary which describes the data in the CSV files: products_vocabulary.nt
+       Suggestions generated are based on vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
 
 
 - **Tick** the box to select the suggestions to be added, then click on **add**.
