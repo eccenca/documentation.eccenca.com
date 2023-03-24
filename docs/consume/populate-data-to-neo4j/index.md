@@ -48,13 +48,13 @@ To upload multiple files together as an input:
 8. Specify a Label of the dataset in the Create new item of type Multi CSV ZIP window.
 9. Select the Upload new file option as you have the files. The Multi CSV ZIP file containing the above-listed files is available here. If it is an existing project, you can select the files from the project. For the remaining parameters, the default settings are used.
 10. Click Create. You can see the message northwind.zip was successfully uploaded in Green.
-11. You can see Multi CSV ZIP file is uploaded with the datasets and the item has been created.
+11. You can see the Multi CSV ZIP file is uploaded with the datasets, and the item has been created.
     ![Upload file to dataset](pdtn-create-dataset-upload.png)
-12. Click the Play button and review the dataset in the Data preview section. You can see the contents of the loaded zip file, which are the above introduced CSV file.
+12. Click the Play button and review the dataset in the Data preview section. You can see the contents of the loaded zip file consisting of the CSV files introduced above.
 
 ## 2 Create a Neo4j dataset
 
-A Neo4j dataset that holds a Labeled Property Graph (LPG) representation is one of the outputs of the process.
+A Neo4j dataset holding a Labeled Property Graph (LPG) representation is one of the outputs of the process.
 Perform the following steps to create a Neo4j dataset:
 
 1. In your existing project, click Create to create a new item. 
@@ -110,7 +110,7 @@ To register the nodes and relationships, perform the following:
     #### Add Value Mapping
 
     1. On the Mapping Editor, expand the Root Mapping section and click Edit.
-    2. If the vocabulary is pre-defined, specify the Target entity type from the vocabulary. Else, specify the Target entity type, and click Create option. In this example, specify the following:
+    2. If the vocabulary is pre-defined, specify the Target entity type from the vocabulary. Else, specify the Target entity type and click Create option. In this example, specify the following:
         - Target entity type: `nw:Employee`
         - URI pattern: `urn:empl-{EmployeeID}`
 
@@ -138,17 +138,17 @@ To register the nodes and relationships, perform the following:
     Click Create.
     A transformation for Northwind Orders is created.
 
-    To add value mapping, repeat the steps followed while adding the mapping to the Employees node.
-    In this example, for orders node, specify the following:
+    To add a value mapping, repeat the steps followed while adding the mapping to the Employees node.
+    In this example, for the orders node specify the following:
 
     - Target entity type: `nw:Order` 
     - URI pattern: `urn:order-{OrderID}`
 
-        {OrderID} is a placeholder that points to the column name specified in the specific dataset.
+        {OrderID} is a placeholder that points to the column name specified in the specific dataset.
 
     #### Add Object Mapping
 
-    In this example, the Employee and Orders nodes have a relationship, SOLD.
+    In this example, the Employee and Orders nodes have a relationship SOLD.
     To create the relationship, create an Object mapping.
 
     1. Click the circular blue button on the lower right and select Add object mapping
@@ -168,7 +168,7 @@ To register the nodes and relationships, perform the following:
     Create another transformation using the node Orders.
 
     1. Repeat steps from 1 to 3 in Create Employees Transforms section to create the Order Transformation.  
-    2. In the Create new item of type Transform window, for this tutorial, specify the following:
+    2. In the Create new item of type Transform window, specify the following for this tutorial:
         - Label: _Northwind Products_
         - Dataset: Select the previously uploaded _Northwind dataset_ from the dropdown.
         - Type: Select _products.csv_
@@ -194,16 +194,16 @@ To register the nodes and relationships, perform the following:
     Click Create. A Transformation for Northwind Category is created.
 
     To add value mapping, repeat the steps followed while adding the mapping to the Employees node.
-    In this example, for category node, specify the following:
+    In this example, specify the following for the category node:
 
     - Target entity type:  `nw:Category`
     - URI pattern: `urn:cat-{CategoryID}`
 
-        {CategoryID}  is a placeholder that points to the column name specified in the specific dataset.
+        {CategoryID} is a placeholder that points to the column name specified in the specific dataset.
 
     #### Add Object Mapping
 
-    In this example, the products node is connected to the Category node through the relationship, partOf.
+    In this example, the Product node is connected to the Category node through the relationship, partOf.
     To create this, click add object mapping.
 
     For this example, specify the following:
@@ -229,11 +229,11 @@ To register the nodes and relationships, perform the following:
     - Target entity type: `nw:Supplier`
     - URI pattern: `urn:suppl-{SupplierID}`
 
-        _{SupplierID}_  is a placeholder that points to the column name specified in the specific dataset.
+        _{SupplierID}_ is a placeholder that points to the column name specified in the specific dataset.
 
     #### Add Object Mapping
 
-    In this example, the products node is connected to the Supplier node through the relationship, SUPPLIES.
+    In this example, the Product node is connected to the Supplier node through the relationship, SUPPLIES.
     As the supplier supplies to the Product, navigate to Product transform and then click Add Object Mapping.
     To create this, click Add object mapping. For this example, specify the following:
 
@@ -267,7 +267,7 @@ Click the Play icon to validate the results. The nodes and edges created are sto
 
 ## 7 Results in Knowledge Graph
 
-Optionally, you can use the same transformation and the workflow to render the resulting graph data into a Knowledge Graph.
+Optionally, you can use the same transformation and workflow to render the resulting graph data into a Knowledge Graph.
 
 1. Add a Knowledge Graph dataset and use this as an additional target in your workflow:
     ![Add Knowledge Graph output](pdtn-add-kg-dataset-into-workflow.png)

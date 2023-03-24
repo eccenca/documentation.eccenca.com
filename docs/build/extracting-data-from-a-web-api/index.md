@@ -7,10 +7,10 @@ tags:
 
 ## Introduction
 
-This tutorial shows how you can build a Knowledge Graph based on input data from a Web API.
+This tutorial demonstrates how you can build a Knowledge Graph based on input data from a Web API.
 The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/), which we will use to fetch repository data of a certain organization and create a Knowledge Graph from the response.
 
-!!! info
+!!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-webapi.project.zip). You can import this project:
 
@@ -21,7 +21,7 @@ The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/)
     $ cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
     ```
 
-In order to get familiar with the API, just fetch an example response with this command:
+In order to get familiar with the API, simply fetch an example response with this command:
 
 ``` shell-session
 $ curl https://api.github.com/orgs/vocol/repos
@@ -57,7 +57,7 @@ The JSON response includes the data for all repositories (**mobivoc**, **vocol**
 
 ## 1 Register a Web API
 
-1. Press the **Create** button (top right) in the data integration workspace and select the type **REST request**.
+1. Click the **Create** button (top right) in the data integration workspace and select the type **REST request**.
 
     ![Create new REST request task](create-new-task-rest.png)
 
@@ -69,11 +69,11 @@ The JSON response includes the data for all repositories (**mobivoc**, **vocol**
 
 As we are only interested in the _HTTP Message Body_ which holds the JSON repository data, we first have to parse the _body_ from the entire HTTP response.
 
-1. Press the **Create** button (top right) in the data integration workspace and select the type **Parse JSON.**
+1. Click the **Create** button (top right) in the data integration workspace and select the type **Parse JSON.**
 
     ![Parse JSON task](create-new-task-parse-json.png)
 
-2. Define a **Label**, a **Description**, and the **Input path.** Every other field can keep the default settings. The default input path is always: `<http://silkframework.org/vocab/taskSpec/RestTaskResult/responseBody>`
+2. Define a **Label**, a **Description**, and the **Input path.** All other fields can keep the default settings. The default input path is always: `<http://silkframework.org/vocab/taskSpec/RestTaskResult/responseBody>`
 
     ![Parse JSON task configuration](extract-from-api-parse-json-config.png)
 
@@ -81,7 +81,7 @@ As we are only interested in the _HTTP Message Body_ which holds the JSON reposi
 
 To create a JSON-to-RDF-mapping within Corporate Memory, we have to first register an example response from the API (repos.json). Based on the schema of the response, we can then define step-by-step the mappings, which are used to build the Knowledge Graph.
 
-1. Press the **Create** button (top right) in the data integration workspace and select the type **JSON**.
+1. Click the **Create** button (top right) in the data integration workspace and select the type **JSON**.
 
     ![Create JSON dataset](create-new-json-dataset.png)
 
@@ -93,7 +93,7 @@ To create a JSON-to-RDF-mapping within Corporate Memory, we have to first regist
 
 The Knowledge Graph will be used to integrate all data coming from one or more APIs. The Knowledge Graph receives RDF triples from the defined Transformations for each API.
 
-1. Press the Create button (top right) in the data integration workspace and select the type **Knowledge Graph**.
+1. Click the Create button (top right) in the data integration workspace and select the type **Knowledge Graph**.
 
     ![Create Knowledge Graph dataset](create-new-kg-dataset.png)
 
@@ -103,23 +103,21 @@ The Knowledge Graph will be used to integrate all data coming from one or more A
 
 ## 5 Create a Transformation
 
-In order to transform the input data from the API, which is structured in our example in JSON, we have to define a mapping to create RDF triples which are then written into the Knowledge Graph.
+In order to transform the input data from the API, in our example structured in JSON, we have to define a mapping to create RDF triples which are then written to the Knowledge Graph.
 
-1. Press the Create button (top right) in the data integration workspace and select the type **Transform**.
+1. Click the Create button (top right) in the data integration workspace and select the type **Transform**.
 
     ![Create a transformation](extract-from-api-create-transformation.png)
 
-2. Provide the Transformation with a **Label** and **Description**, configure the **Input Dataset** (Repos.json) as well as the **Output Dataset** (Repository Knowledge Graph).
+2. Provide the Transformation with a **Label** and **Description**, configure the **Input Dataset** (Repos.json) and the **Output Dataset** (Repository Knowledge Graph).
 
     ![Transformation task configuration](extract-from-api-create-transformation-config.png)
 
-In order to transform the input data from the API, which is structured in our example in JSON, we have to define a mapping to create RDF triples which are then written into the Knowledge Graph.
-
-1. Press the **Mapping Editor** button in the previously defined Transformation.
+3. Click the **Mapping Editor** button in the previously defined Transformation.
 
     ![Open the transformation](extract-from-api-tf-open.png)
 
-2. In the following screenshots, we provide an example mapping for the data received by the GitHub API. For more complex mappings, we recommend the Tutorial [Lift data from JSON and XML sources](../lift-data-from-json-and-xml-sources/index.md).
+4. In the following screenshots, we provide an example mapping for the data received by the GitHub API. For more complex mappings, we recommend the Tutorial [Lift data from JSON and XML sources](../lift-data-from-json-and-xml-sources/index.md).
 
     ![Mapping rule example](extract-from-api-tf-rule-1.png)
 
@@ -127,9 +125,9 @@ In order to transform the input data from the API, which is structured in our ex
 
 ## 6 Create a Workflow
 
-To build a workflow which combines all the elements we previously built, we define now a workflow for (1) requesting the data from the GitHub API, (2) parsing the HTTP response we receive, (3) transforming the JSON data into RDF triples and finally (5) to write the RDF triples into the Knowledge Graph.
+To build a workflow that combines all the elements we previously built, we now define a workflow for (1) requesting the data from the GitHub API, (2) parsing the HTTP response we receive, (3) transforming the JSON data into RDF triples and finally (4) writing the RDF triples into the Knowledge Graph.
 
-1. Press the **Create** button (top right) in the data integration workspace and select the type **Workflow**.
+1. Click the **Create** button (top right) in the data integration workspace and select the type **Workflow**.
 
     ![Create a workflow](extract-from-api-create-wf.png)
 
@@ -137,7 +135,7 @@ To build a workflow which combines all the elements we previously built, we defi
 
     ![Workflow configuration](extract-from-api-wf-config.png)
 
-3. Press the **Workflow Editor** button in the menu of the created workflow.
+3. Click the **Workflow Editor** button in the menu of the created workflow.
 
     ![Workflow details view](extract-from-api-wf-created.png)
 

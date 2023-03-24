@@ -11,7 +11,7 @@ tags:
 
 This tutorial shows how you can build a Knowledge Graph based on input data from hierarchical sources like a **JavaScript Object Notation** file (.json) or an **Extensible Markup Language** file (.xml).
 
-!!! info
+!!! Abstract
 
     The complete tutorial is available as a [project file (XML)](tutorial-xml.project.zip) and a [project file (JSON)](tutorial-json.project.zip). You can import these projects:
 
@@ -26,11 +26,11 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
         cmemc -c my-cmem project import tutorial-json.project.zip json-transformation
         ```
 
-The documentation  consists of the following steps, which are described in detail below:
+The documentation consists of the following steps, which are described in detail below.
 
 The following material is used in this tutorial:
 
-- Sample vocabulary which describes the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
+- Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
 
     ![Visualization of the "Products Vocabulary".](products-vocab-xml+json.png)
 
@@ -108,7 +108,7 @@ The following material is used in this tutorial:
 
 The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
 
-1. In Corporate Memory, click **Vocabularies** in the under **EXPLORE** in the navigation on the left side of the page.
+1. In Corporate Memory, click **Vocabularies** in the navigation under **EXPLORE** on the left side of the page.
 
     ![Menu entry EXPLORE > Vocabularies](menu-explore-vocabularies.png){width="30%"}
 
