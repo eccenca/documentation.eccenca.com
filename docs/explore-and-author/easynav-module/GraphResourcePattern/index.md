@@ -268,7 +268,7 @@ The `GraphResourcePattern` object reference is provided in different ways depend
     | ---------------------------------------------------------------- | ------- | ------ | ---------- | ---------- | ----------------- |
     | - [datatype](#pathFilters_items_isNoneOfLiteral_items_datatype ) | No      | string | No         | -          | -                 |
     | - [lang](#pathFilters_items_isNoneOfLiteral_items_lang )         | No      | string | No         | -          | -                 |
-    | + [value](#pathFilters_items_isNoneOfLiteral_items_value )       | No      | string | No         | -          | -                 |
+   | + [value](#pathFilters_items_isNoneOfLiteral_items_value )       | No      | string | No         | -          | -                 |
 
     ###### <a name="pathFilters_items_isNoneOfLiteral_items_datatype"></a>datatype
 
@@ -505,7 +505,7 @@ The `GraphResourcePattern` object reference is provided in different ways depend
 
 An concrete example object is shown here:
 
-=== "GraphResourcePattern"
+=== "Graphresourcepattern"
 
     ```json
     {
