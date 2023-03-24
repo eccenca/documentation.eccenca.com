@@ -11,7 +11,7 @@ This page outlines the basic operators that can be used to build linkage and tra
 
 Transformation rules are trees that consist of two types of operators:
 
-- **Path Operator:** Retrieves all values of a specific property path of each entity, such as its label property. The purpose of the path operator is to enable the access of values from the dataset.
+- **Path Operator:** Retrieves all values of a specific property path of each entity, such as its label property. The purpose of the path operator is to enable access to values from the dataset.
 - **Transformation Operator:** Transforms the values of path or transformation operators according to a specific data transformation function.
 
 Linkage rules may use two additional operator types in addition:
@@ -21,7 +21,7 @@ Linkage rules may use two additional operator types in addition:
 
 ## Path Operator
 
-A path operator retrieves all values, which are connected to the entities by a specific path. Every path statement consists of a series of path elements. If a path cannot be resolved due to a missing property or a too restrictive filter, an empty result set is returned.
+A path operator retrieves all values which are connected to the entities by a specific path. Every path statement consists of a series of path elements. If a path cannot be resolved due to a missing property or a too restrictive filter, an empty result set is returned.
 
 The following operators can be used to traverse the dataset:
 
@@ -42,7 +42,7 @@ Examples of transformation functions include case normalization, tokenization or
 
 A comparison operator evaluates two inputs and computes the **similarity** based on a user-defined **distance measure** and a user-defined **threshold**.
 
-The distance measure always outputs 0 for a perfect match, and a higher value for an imperfect match. Only distance values between 0 and the threshold will result in a positive similarity score. Therefore it is important to know how the distance measures work and what the range of their output values is, in order to set a threshold value sensibly.
+The distance measure always outputs 0 for a perfect match, and a higher value for an imperfect match. Only distance values between 0 and the threshold will result in a positive similarity score. Therefore it is important to know how the distance measures work and what the range of their output values is in order to set a threshold value sensibly.
 
 The following parameters can be set for each comparison:
 

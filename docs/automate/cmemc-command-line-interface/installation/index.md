@@ -44,7 +44,7 @@ cmemc, version 22.1, running under python 3.9.11
 This topic is described on a [stand-alone page](../invocation/docker-image/index.md).
 
 
-!!! Success "Next Steps ..."
+!!! Note
 
     Once you have installed cmemc, you need to configure a connection with a [config file](../configuration/file-based-configuration/index.md) or learn how to [use environment variables](../configuration/environment-based-configuration/index.md) to control cmemc.
 

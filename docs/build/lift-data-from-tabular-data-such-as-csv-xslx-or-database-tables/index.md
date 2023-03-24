@@ -11,7 +11,7 @@ tags:
 
 This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a **comma-separated value file** (.csv), an **excel file** (.xlsx) or a **database table** (jdbc).
 
-!!! info
+!!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-csv.project.zip). You can import this project
 

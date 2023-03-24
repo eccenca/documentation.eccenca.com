@@ -12,7 +12,7 @@ tags:
 Learn how to provide data via a customized Corporate Memory API in a text format of your choice and how to consume it in your applications.
 This tutorial describes how you can provide data in a text format of your choice via your own custom Corporate Memory API, and how you request those APIs.
 
-In this tutorial, we describe how you can set-up an endpoint which provides [iCalendar data](https://en.wikipedia.org/wiki/ICalendar).
+In this tutorial, we describe how you can set up an endpoint which provides [iCalendar data](https://en.wikipedia.org/wiki/ICalendar).
 If you want to rebuild the example, you can download this iCalendar RDF data and import it into your Corporate Memory instance: [ical_data.ttl](./ical_data.ttl)
 
 ```ical
@@ -33,7 +33,7 @@ END:VCALENDAR
 
 This query selects the event data in our graph which will be provided via the customized API.
 To rebuild the iCalendar format, we need at least the unique identifier (`uid`), the datetime start (`dtstart`), the datetime end (`dtend`), and the summary of the event.
-The query filters (`REPLACE`) at the end the special characters `:` and `-`, as they are not needed in the iCal DateTime format.
+The query filters (`REPLACE`) the special characters `:` and `-` at the end as they are not needed in the iCal DateTime format.
 
 ```sparql
 PREFIX ical: <http://www.w3.org/2002/12/cal/icaltzd#>
@@ -56,23 +56,23 @@ WHERE {
 
 ## Define a Template for the iCal format
 
-As a next step, we will define a template which generates iCalendar data from our previously defined SPARQL query.
+As a next step, we will define a template that generates iCalendar data from our previously defined SPARQL query.
 
-Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Result Template and click `Create a new Select Result Template` to create a new one.
+Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Result Template and click `Create a new Select Result Template` to create a new template.
 
 ![result-template](22-1-2-result-template.png)
 
 ![create-result-template](22-1-3-create-query-endpoint.png)
 
 Define a *Name*, a *Description* and the *Body* format.
-You may also define a Header or a Footer, but this is not necessary for this example.
+You may also define a header and/or a footer, however, this is not necessary for this example.
 
 The template engine we are using [Jinja](https://palletsprojects.com/p/jinja/).
 In Jinja, dynamic data within a template needs to be referenced via double curly brackets `{{...}}`.
 So the line `{{result.uid}}` inserts at execution time the `?uid` value from our previously defined SPARQL query into this template.
 Everything outside curly brackets it static.
 As static data in our example, we define the full iCalendar format (`..BEGIN:EVENT..`).
-As we receive from the SPARQL query multiple results (iCalendar Events), we have to iterate through each of them.
+As we receive multiple results (iCalendar Events) from the SPARQL query, we have to iterate through each of them.
 To define this iteration in the template, the following line needs to be added:
 
 ``` jinja
@@ -106,13 +106,13 @@ END:VCALENDAR
 
 ## Create an API based on your template
 
-As a next step, we will set-up the API which serves the data in the format you defined in the previous template.
+As a next step, we will set up the API which serves the data in the format we defined in the previous template.
 
-Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Query Endpoint and click "Create a new Select Query Endpoint" to create a new one.
+Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Query Endpoint and click "Create a new Select Query Endpoint" to create a new endpoint.
 
 ![query-endpoint](22-1-3-query-endpoint.png)
 
-Define a Name, a human-readable keyword (aka [URL Slug](https://en.wikipedia.org/wiki/Clean_URL#Slug)) for the API path, choose if it is a Streaming endpoint (false in our example), a Description, select the defined SPARQL Query from our first step and select the Template we created in the second step.
+Define a Name, a human-readable keyword (i.e. the [URL Slug](https://en.wikipedia.org/wiki/Clean_URL#Slug)) for the API path, specify if it is a Streaming endpoint (false in our example), enter a Description, and select the defined SPARQL Query from our first step and the Template we created in the second step.
 Once you press save, your endpoint it set up!
 
 ![create-query-endpoint](22-1-3-create-query-endpoint.png)
@@ -160,13 +160,13 @@ END:VEVENT
 END:VCALENDAR
 ```
 
-This result represent as valid ICalendar (`ics`) format and can be imported into your calendar client ([event_data.ics](event_data.ics)).
+This result is represented in valid ICalendar (`ics`) format and can be imported into your calendar client ([event_data.ics](event_data.ics)).
 
 ## Configuration remarks
 
 ### Streaming
 
-If *Is Streaming* is set to false for the endpoint (as in the given example) the respective Jinja Template needs to resolve a results variable, which is a list of all query results and you need to iterate over the variable using Jinja constructs:
+If *Is Streaming* is set to false for the endpoint (as in the given example), the respective Jinja Template needs to resolve a results variable, which is a list of all query results that needs to be iterated over using Jinja constructs:
 
 ``` jinja
 {% for result in results %}
@@ -175,5 +175,5 @@ If *Is Streaming* is set to false for the endpoint (as in the given example) the
 A non-streaming result set (the SPARQL query) is limited to 1000 elements.
 If more results are expected *Is Streaming* should be set to true.
 
-If *Is Streaming* is set to `true` the Jinja Template has to resolve a `result` variable (without the '`s`'), which is a single query result and the template engine iterates over the results, i.e. the Body template is repeated for each query result.
+If *Is Streaming* is set to `true` the Jinja Template has to resolve a `result` variable (without the '`s`'), which is a single query result. The template engine iterates over the results, i.e. the Body template is repeated for each query result.
 

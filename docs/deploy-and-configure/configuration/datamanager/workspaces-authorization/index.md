@@ -13,13 +13,13 @@ DataManager provides several types of authorization.
                 -   tokenUrl
                 -   clientSecret
 
-If you want to use OAuth2, you need to define `authorization.type` to `oauth2` as well as specify further configuration parameters within the `oauth2` parameter:
+If you want to use OAuth2, you need to set `authorization.type` to `oauth2` and specify further configuration parameters within the `oauth2` parameter:
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
 | js.config.workspaces[id].authorization.oauth2.grantType | none | yes, if authorization.type is `oauth2` | none | `implicit` or `authorization_code` |
 
-Use this property to define the OAuth2 workflow. Depending on what value you choose you have to configure different properties:
+Use this property to define the OAuth2 workflow. Depending on the chosen value you need to configure different properties:
 
 -   `implicit` : `authorizeURL` and `clientId`
 -   `authorization_code` : `authorizeUrl` , `clientId` , `tokenUrl` , and as optional property `clientSecret`
@@ -58,7 +58,7 @@ Use this property to define a passphrase for OAuth2 client authorization. Usuall
 
 ## Configuration example
 
-The two examples below show how a backend configuration can look like as for example for an eccenca DataPlatform using different authorization options.
+The two examples below show how a backend configuration can look like, for example for an eccenca DataPlatform using different authorization options.
 
 DataPlatform configuration with anonymous access:
 
