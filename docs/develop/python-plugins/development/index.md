@@ -104,9 +104,9 @@ The `PluginParameter` has several parameters that can be specified when initiali
 -   `label`: A visible label of the parameter. This is an optional parameter and can be left blank. If left blank, the name of the parameter will be used as the label.
 -   `description`: A visible description of the parameter. This is an optional parameter and can be left blank.
 -   `param_type`: Optionally overrides the parameter type. Usually, this does not have to be set manually as it will be inferred from the plugin automatically.
--   `default_value`: The parameter default value (optional). This parameter is also optional, and if not specified, it will be inferred from the plugin automatically.
--   `advanced`: A boolean flag indicating if this is an advanced parameter that can only be changed in the advanced section. This is an optional parameter and defaults to False.
--   `visible`: A boolean flag indicating if the parameter will be displayed to the user in the UI. This is an optional parameter and defaults to True.
+-   `default_value`: The parameter default value (optional). If not specified, it will be inferred from the plugin automatically.
+-   `advanced`: A boolean flag indicating whether or not this is an advanced parameter that can only be changed in the advanced section. This is an optional parameter and defaults to False.
+-   `visible`: A boolean flag indicating whether or not the parameter will be displayed to the user in the UI. This is an optional parameter and defaults to True.
 
 ## Parameter Type
 
@@ -307,7 +307,7 @@ The method returns a list of `Autocompletion` objects, which represent the possi
     ```
     The `KaggleSearch` class is a `StringParameterType` that allows users to search for Kaggle datasets. It inherits from the `StringParameterType` class and overrides its `autocomplete()` to provide autocompletion(of type `Autocompletion`) for search results.
 
-    The `autocomplete()` uses the search function to search for datasets on Kaggle and returns a list of `Autocompletion` objects representing the search results.
+    The `autocomplete()` method uses the search function to search for datasets on Kaggle and returns a list of `Autocompletion` objects representing the search results.
 
     The `autocompletion_depends_on_parameters` attribute of the KaggleSearch class is a list of strings that specifies which parameter values this autocomplete method depends on. In this case, it depends on the values of the `username` and `api_key` parameters in order to authenticate the Kaggle API.
 
