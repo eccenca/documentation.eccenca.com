@@ -52,21 +52,34 @@ To connect to Snowflake cloud data warehouse a JDBC driver is required.
 
 - Click on schema name **products_vocabulary** on the left side of the page and type the  **sql query** for creating a table in the center, then click on **Run** on the right side of the page.
 
+!!! Example SQL Query
+
+    CREATE TABLE PRODUCT (
+    Product ID INT ,
+    product_name VARCHAR(50) NOT NULL,
+    Height INT ,
+    Width INT ,
+    Depth INT ,
+    Weight INT ,
+    Email VARCHAR(100) NOT NULL,
+    Price INT,
+    );
+
+
 ![image](22.2-sql-table.png)
 
 **Step Result** : The table is created as shown below.
 
 ![image](22.2-table-created.png)
 
-- Type the **SPARQL** query for creating a database in the table that is created, then click on **Run**.
+- Type the **SQL** query for creating a database in the table that is created, then click on **Run**.
 
-      !!! Example 
+!!!  Example of a query for the database.
       
-       The following is an example of a query for the database.
+      INSERT INTO product (product_id, product_name, product_manager_name, email, price, height, width, depth, weight) 
 
-INSERT INTO product (product_id, product_name, product_manager_name, email, price, height, width, depth, weight) 
-VALUES 
-(11,'Memristor Encoder','Siglind.Brinkerhoff','Siglind.Brinkerhoff Company.org','3,79 EUR',30,22,19,2).
+      VALUES 
+     (11,'Memristor Encoder','Siglind.Brinkerhoff','Siglind.Brinkerhoff Company.org','3,79 EUR',30,22,19,2).
 
 ![image](22.2-query.png)
 
@@ -104,13 +117,13 @@ VALUES
 
 !!! Note
 
-This is a JDBC connection string for connecting to Snowflake data warehouse in eccenca corporate memory.
+     This is a JDBC connection string for connecting to Snowflake data warehouse in eccenca corporate memory.
 
 <!-- Note -> :snowflake: gives an emoji so, using \:snowflake\: for documentation-->
 
 !!! Example 
 
-jdbc\:snowflake\://WTXSZXM-FS77078.snowflakecomputing.com/?db=PRODUCT&schema=PRODUCTS_VOCABULARY.
+     jdbc\:snowflake\://WTXSZXM-FS77078.snowflakecomputing.com/?db=PRODUCT&schema=PRODUCTS_VOCABULARY.
 
 Here is a breakdown of the elements of this example connection string.
 
@@ -206,7 +219,7 @@ SELECT * from PRODUCT
 
 !!! Note
 
-We have the suggestion option as well; click on the **+icon** and select the **suggestion mapping**.
+      We have the suggestion option as well; click on the **+icon** and select the **suggestion mapping**.
 
 ![image](22.2-suggestions.png)
 
@@ -214,11 +227,16 @@ We have the suggestion option as well; click on the **+icon** and select the **s
 
 ![image](22.2-suggestion-result.png)
 
+!!! Note 
+
+       Suggestions generated are based on vocabulary which describes the data in the CSV files: products_vocabulary.nt
+
+
 - **Tick** the box to select the suggestions to be added, then click on **add**.
 
 ![image](22.2-tick.png)
 
-## **4.Create a knowledge graph.**
+## **5.Create a knowledge graph.**
 
 - Click on **create** on the right side of the page.
 
