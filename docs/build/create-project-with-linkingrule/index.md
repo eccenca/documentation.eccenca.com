@@ -63,7 +63,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-type-movielink.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The project was created with the name "Movie links," which is displayed in the page top left corner.
 
@@ -85,7 +85,7 @@ The following material is used in this tutorial, you should download the files a
 
 -   Repeat the same step to add the file select the next second file and upload it.
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The files are uploaded to the project and reflect on the right side as shown below.
 
@@ -127,7 +127,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-emptyfiles.png){ width="75%"}
 
-!!! note "Step result"
+!!! success "Step result"
 
     Dataset for both the files dbpedia and linkedmdb has been created, and `link.csv` is created for the output result displayed in the page's center.
 
@@ -167,7 +167,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-linking-click-on-create.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     Linking task is created for the project.
     It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
@@ -206,7 +206,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-click-on-targetpath.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The titles from the source path and target are dragged on the canvas as shown below.
 
@@ -230,7 +230,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-target-lowercase.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The lines connected between the target path title and lowercase as shown below.
 
@@ -250,7 +250,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-lower-string.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The lines are connected between both lowercase operators and string equality operators.
 
@@ -276,7 +276,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-start-evalute.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.
 
@@ -286,7 +286,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-expand-all.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     This allows you to see how the linking rule was performed for each link and even the movie name compared in both files.
 
@@ -315,7 +315,7 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-start-activity.png){ width="75%"}
 
-!!! note "Step Result"
+!!! success "Step Result"
 
     The links are executed and copied to the output data file `links.csv` and which shows the count of links on the page.
 
