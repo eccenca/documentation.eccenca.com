@@ -133,7 +133,8 @@ CREATE TABLE product(
 
     ![image](22.2-table-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-You can populate some test data with the following SQL query:
+In the **Worksheets** view (you might need to create a new worksheet), select the **product** database, the **products_vocabulary** schema and finally the **prouct** table.
+Here you can populate some test data with the following SQL query:
 
 ??? example "INSERT query"
 
@@ -1185,13 +1186,13 @@ You can populate some test data with the following SQL query:
 
 !!! Example
 
-    `jdbc:snowflake://WTXSZXM-FS77078.snowflakecomputing.com/?db=product&schema=products_vocabulary`
+    `jdbc:snowflake://kiaouyb-fe21477.snowflakecomputing.com/?db=product&schema=products_vocabulary`
 
 Here is a breakdown of the elements of this example connection string.
 
 -   `jdbc:snowflake://` is the prefix for the snowflake JDBC driver.
 
--   `WTXSZXM-FS77078.snowflakecomputing.com` is the URL for the snowflake account you want to connect to.
+-   `kiaouyb-fe21477.snowflakecomputing.com` is the URL for the snowflake account you want to connect to.
     The number `WTXSZXM-FS77078` is the organization number you will get from Snowflake as shown below.
 
 ![image](22.2-organization-number.png){ style="border: 1px solid #555; border-radius: 5px;" }
