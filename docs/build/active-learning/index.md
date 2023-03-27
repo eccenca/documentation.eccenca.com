@@ -2,7 +2,7 @@
 icon: fontawesome/solid/wand-magic-sparkles
 subtitle: Use AI/ML to learn linking rules
 tags:
-  - "1 Beginners Tutorial"
+  - beginners
 ---
 
 # Active Learning
@@ -49,7 +49,7 @@ Start the learning dialog by clicking the “Learning” tab in the linking view
 
     ![image](22.2-targetpath.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the plus icon to add the path pair to be examined in the learning algorithm.
+-   Click on the :eccenca-item-add-artefact: icon to add the path pair to be examined in the learning algorithm.
 
     ![image](22.2-plusicon.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -59,7 +59,7 @@ Start the learning dialog by clicking the “Learning” tab in the linking view
 
         ![image](22.2-stepresult1.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on delete icon to remove the paths.
+-   Click on :eccenca-item-remove: icon to remove the paths.
 
      ![image](22.2-delete.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -69,7 +69,7 @@ Start the learning dialog by clicking the “Learning” tab in the linking view
 
     !!! note
 
-        Clicking on the star icon uses the property value as the entity label, unselecting the star icon removes the property value from the entity label.
+        Clicking on the :material-star: icon uses the property value as the entity label, unselecting the :material-star: icon removes the property value from the entity label.
         Multiple properties can be starred to use them as a combined label.
 
         ![image](22.2-star.png){ style="border: 1px solid #555; border-radius: 5px;" }
