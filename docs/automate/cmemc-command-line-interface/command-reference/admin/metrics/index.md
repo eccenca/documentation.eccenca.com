@@ -32,8 +32,8 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
 
 
 
-!!! Note
-    
+??? info "Options"
+    ```text
 
     --job [DP]               The job from which the metrics data is fetched.
                              [default: DP]
