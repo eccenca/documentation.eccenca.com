@@ -26,7 +26,7 @@ mkdocs-macros-plugin = "^0.7.0"
 mkdocs-autolinks-plugin = "^0.6.0"
 mkdocs-redirects = "^1.2.0"
 mkdocs-swagger-ui-tag = "^0.4.3"
-mkdocs-material = {git = "https://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@github.com/eccenca/mkdocs-material-insiders.git", rev = "8.5.8-insiders-4.26.2"}
+mkdocs-material = "8.5.8"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

@@ -20,9 +20,8 @@ Create a linking rule and setup source and target datasets as well as the linkin
 
        Based on the dataset suggestions for comparison are produced.
 
-         
-
-  ### **Add property paths for both entities**.
+        
+### **Add property paths for both entities**.
 
  - Click on the Source path and select a path.
 
@@ -37,11 +36,11 @@ Create a linking rule and setup source and target datasets as well as the linkin
      ![image](22.2-plusicon.png)
 
 
-  !!! Success
-
-          Step Result: Both entities' paths were added.          
-
-          ![image](22.2-stepresult1.png)
+   !!! Success
+        
+           Step Result: Both entities' paths were added.
+          
+           ![image](22.2-stepresult1.png)
 
  - Click on delete icon to remove the paths.
 
@@ -69,20 +68,36 @@ Create a linking rule and setup source and target datasets as well as the linkin
     
     **Confirm**: If the source and target title names are the same, click on Confirm and it is shown in dark blue colour.  
 
-    **Uncertain**: If the title names differ slightly, we can consider the link uncertain. As it might be a spelling mistake, we cannot ensure it is the same nor can we say it is different. If the title names are different it is displayed in light blue colour.      
+    ![image](22.2-confirm.png)
 
-    **Decline**: If the title names of source and target path are different,click on decline and it displayed in light blue colour. 
+    **Uncertain**: If the title names differ slightly, we can consider the link uncertain. As it might be a spelling mistake, we cannot ensure it is the same nor can we say it is different. If the title names are different it is displayed in light blue colour. 
+
+    ![image](22.2-decline.png)     
+
+    **Decline**: If the title names of source and target path are different,click on decline and it displayed in light blue colour.
+
+    ![image](22.2-decline.png) 
 
     - On the right side of the page click on the 3 dots, then click on show entity’s URI.
+
+    ![image](22.2-uri.png)
 
 !!! Success
 
          Step Result: It shows the link entity URIs along with rows numbers in both the dataset files.
 
+         ![image](22.2-reflinks.png)
+
 - Click on Save based on our input confirm, uncertain and decline the link rule will get generated automatically and the score changes for these entities in the score bar.
+
+![image](22.2-save.png)
 
 - Switch on the save best learned rule, then click on save.
 
-!!! Success
+![image](22.2-stepresult2.png)
+
+ !!! Success
 
           The new automatically created linking rule based on the input training data consisting of confirmed, uncertain and declined links is shown below. It tokenize all the input values from the connected source path and compares the data with  target paths.
+
+        ![image](22.2-stepresult3.png)
