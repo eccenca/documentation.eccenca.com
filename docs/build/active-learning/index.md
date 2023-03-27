@@ -1,5 +1,5 @@
 ---
-#icon: ":fontawesome-solid-wand-magic-sparkles:"
+icon: fontawesome/solid/wand-magic-sparkles
 subtitle: Use AI/ML to learn linking rules
 tags:
   - "1 Beginners Tutorial"
