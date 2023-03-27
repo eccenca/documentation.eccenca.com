@@ -4,7 +4,7 @@ subtitle: based on the built in movies example
 #hide:
 #  - navigation
 tags:
-  - beginners
+  - "1 Beginners Tutorial"
   - KnowledgeGraph
 ---
 
