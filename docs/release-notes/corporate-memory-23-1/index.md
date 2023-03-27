@@ -15,8 +15,8 @@ Corporate Memory 23.1 is the first release in the 23.1 release line.
 The highlights of this release are:
 
 -   Build:
-    -   The all new **Active** (Link) **Learning UI**
-    -   Extended **Python Plugin SDK**
+    -   Several UI/UX improvements
+    -   All new linking evaluation view
 -   Explore:
     -   Graph editing capabilities added to **EasyNav**
     -   All new workspace switching and altered login flow
