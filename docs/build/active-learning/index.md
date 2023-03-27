@@ -14,7 +14,7 @@ Create a linking rule and setup source and target datasets as well as the linkin
 
 - Choose properties to compare. Select from the suggestions or search them by specifying property paths for both entities.
 
-    ![image](22.2-suggestion1.png)
+    ![image](22.2-Suggestion.png)
 
 !!! Note
 
@@ -26,37 +26,47 @@ Create a linking rule and setup source and target datasets as well as the linkin
 
  - Click on the Source path and select a path.
 
-     ![image](22.2-sourcepath1.png)
+     ![image](22.2-Sourcepath.png)
 
  - Click on the Target path and select a corresponding path.
 
-      ![image](22.2-targetpath1.png)    
+      ![image](22.2-targetpath.png)    
 
  - Click on the plus icon to add the path pair to be examined in the learning algorithm.
 
-     ![image](22.2-compare.png) 
+     ![image](22.2-plusicon.png)
 
 
   !!! Success
 
           Step Result: Both entities' paths were added.          
 
-![image](22.2-stepresult1.png)
+          ![image](22.2-stepresult1.png)
 
  - Click on delete icon to remove the paths.
 
- !!! Note
-
-        Clicking on the star icon uses the property value as the entity label, unselecting the star icon removes the property value from the entity label. Multiple properties can be starred to use them as a combined label.  
+     ![image](22.2-delete.png)
 
  - Click on Start learning.
 
+    ![image](22.2-startlearning.png)
+
+    !!! Note
+
+           Clicking on the star icon uses the property value as the entity label, unselecting the star icon removes the property value from the entity label. Multiple properties can be starred to use them as a combined label.
+
+           ![image](22.2-star.png)
+
+           ![image](22.2-star1.png)
+
     !!! Success
 
-          Step Result: The comparison in both paths will are reflected as shown below.
+          Step Result: The comparison in both paths will be reflected as shown below.
+           
+           ![image](22.2-string.png)    
 
     Cross-check the similarity between the source and target path data with regards to the configured link property (owl:sameAs in this example).
-
+    
     **Confirm**: If the source and target title names are the same, click on Confirm and it is shown in dark blue colour.  
 
     **Uncertain**: If the title names differ slightly, we can consider the link uncertain. As it might be a spelling mistake, we cannot ensure it is the same nor can we say it is different. If the title names are different it is displayed in light blue colour.      
