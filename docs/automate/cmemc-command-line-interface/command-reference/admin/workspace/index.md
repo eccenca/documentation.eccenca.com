@@ -28,7 +28,8 @@ The file name is optional and will be generated with by the template if absent.
 
 
 
-!!! Note
+??? info "Options"
+    ```text
 
     -o, --overwrite               Overwrite existing files. This is a dangerous
                                   option, so use it with care.
@@ -57,8 +58,8 @@ $ cmemc admin workspace import [OPTIONS] FILE
 
 
 
-!!! Note
-    
+??? info "Options"
+    ```text
 
     --type TEXT  Type of the exported workspace file.  [default: xmlZip]
     ```

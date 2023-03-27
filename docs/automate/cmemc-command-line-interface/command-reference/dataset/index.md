@@ -34,8 +34,8 @@ Outputs a list of datasets IDs which can be used as reference for the dataset cr
 
 
 
-!!! Note    
-    
+??? info "Options"
+    ```text
 
     --filter <TEXT TEXT>...  List datasets based on meta data. First parameter
                              --filter CHOICE can be one of ['project', 'regex',
@@ -73,7 +73,8 @@ This command deletes existing datasets in integration projects from Corporate Me
 
 
 
-!!! Note    
+??? info "Options"
+    ```text
 
     -a, --all                Delete all datasets. This is a dangerous option, so
                              use it with care.
@@ -109,8 +110,9 @@ Without providing an output path, the output file name will be the same as the r
 
 
 
-!!!Note 
 
+??? info "Options"
+    ```text
 
     --replace   Replace existing files. This is a dangerous option, so use it
                 with care.
@@ -133,9 +135,8 @@ This command uploads a file to a dataset. The content of the uploaded file repla
     If the remote file resource is used in more than one dataset, the other datasets are also affected by this command.
 
 
-!!! Note
-
-     The content of the uploaded file is not tested, so uploading a JSON file to an XML dataset will result in errors.
+!!! warning
+    The content of the uploaded file is not tested, so uploading a JSON file to an XML dataset will result in errors.
 
 
 !!! note
@@ -166,8 +167,8 @@ $ cmemc dataset inspect [OPTIONS] DATASET_ID
 
 
 
-!!! Note
-    
+??? info "Options"
+    ```text
 
     --raw       Outputs raw JSON.
     ```
@@ -194,8 +195,8 @@ $ cmemc dataset create --project my-project --type csv my-file.csv
 
 
 
-!!! Note
-    
+??? info "Options"
+    ```text
 
     -t, --type TEXT                 The dataset type of the dataset to create.
                                     Example types are 'csv','json' and
