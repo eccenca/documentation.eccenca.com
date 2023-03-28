@@ -1283,7 +1283,7 @@ Here is a breakdown of the elements of this example connection string.
 
     Mapping rule is created successfully.
 
-    ![image](22.2-mapping-rulenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-mapping-rulenew.png) { style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! note
 
@@ -1309,7 +1309,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **create** on the right side of the page.
 
-![image](22.2-trans-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-trans-resultnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Select **Knowledge Graph**, then click on **add**.
 
@@ -1317,11 +1317,11 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Select the **target project** from the drop down menu as **product**.
 
-![image](22.2-graph-target.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-graph-targetnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **create**.
 
-![image](22.2-graph-uri.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-graph-urinew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
