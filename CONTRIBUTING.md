@@ -66,7 +66,10 @@ Note that some python packages need corresponding C libraries, which you may hav
 Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/?h=cairo#dependencies) and the [build plan](https://github.com/eccenca/documentation.eccenca.com/blob/main/.github/workflows/test.yml#L54) for a list.
 </details>
 
-## Repository rules
+## General Repository rules
+
+<details>
+  <summary>Extend section</summary>
 
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
 - add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
@@ -76,7 +79,7 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
     - use theme icons where no eccenca icon is available -> [list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
 - name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
 - used advanced features where suitable
-  - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed)
+  - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed) -> see Admonition section for more details
   - [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
   - [Content Tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#usage) (to structure complex pages)
 - code blocks:
@@ -89,8 +92,13 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
     - do not use base-relative links, e.g. `/automate/...`
     - use relative links to `index.md` files
 
-- New Standard Admonitions
+</details>
 
+## Admonitions
+
+<details>
+  <summary>Extend section</summary>
+    
 |Admonition Name|Used For |Example|
 |---------------|---------|-------|
 |Info |Information in documentation provides details about a topic or process that the reader needs to know. It is usually essential and relevant to the main subject of the document.|Statement annotations provide a way to express knowledge about statements. This group is dedicated to properties that configure the Statement Annotation feature|
@@ -102,5 +110,20 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 |Bug|A bug admonition include a description of the bug or issue, as well as steps that the user can take to avoid or work around the problem. It may also include information about when the bug will be fixed or patched, if applicable.|Users may experience issues with the file saving feature when running this software on Windows 10. To avoid data loss or corruption, be sure to save your work frequently and consider using an external backup device. Our development team is working to resolve this issue in the next software update.|
 |Example|The example admonition is typically used in instructional or educational documents to clarify complex concepts or demonstrate how to perform a specific task.|To create a new email account, click on the "Sign Up" button on the homepage and enter your name, email address, and desired password. Be sure to choose a strong password with a mix of uppercase and lowercase letters, numbers, and special characters. Once you have entered your information, click "Create Account" to complete the process.|
 
+</details>
 
+## Images (esp. Screenshots)
 
+<details>
+  <summary>Extend section</summary>
+
+- do not use a cluttered desktop
+- do not show other esp. personal project artifacts then relevant for the tutorial / feature to show
+- select cropping area carefully (omit backgrounds, lines on the edges, etc.)
+- use the same or a similar area for similar screens
+- all relevant elements should be clearly visible and not be truncated
+- irrelevant elements / details should be omitted completely and not be half visible
+- crop scrollbars (they can make edges look unclean, especially if a scrollbar is directly on an edge)
+- keep an equal distance of all visible elements to the edges of the screenshot
+
+</details>
