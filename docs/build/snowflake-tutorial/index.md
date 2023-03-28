@@ -1144,7 +1144,7 @@ Here you can populate some test data with the following SQL query:
 
     The database has been populated as shown below.
 
-    ![image](22.2-database-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-table-creatednew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 3. Create a project in eccenca Corporate Memory
 
@@ -1198,7 +1198,7 @@ Here is a breakdown of the elements of this example connection string.
 -   `&schema=products_vocabulary` specifies the name of the Snowflake schema that you want to use within the specified database.
     In this case, the schema name is _products_vocabulary_.
 
-![image](22.2-jdbc-url.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-jdbc-uri-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type Source query as
 
@@ -1206,7 +1206,7 @@ Here is a breakdown of the elements of this example connection string.
     SELECT * from product
     ```
 
-![image](22.2-source-query.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-query-sourcenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Select the **Query strategy** as **Execute the given source query.No paging or virtual query**.
 
@@ -1228,7 +1228,7 @@ Here is a breakdown of the elements of this example connection string.
 
     JDBC endpoint is created and data is transferred from Snowflake to eccenca Corporate Memory.
 
-    ![image](22.2-jdbc-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-jdbc-created.-newpng){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 4. Create a transformation to build mapping rules
 
@@ -1238,7 +1238,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **add**.
 
-![image](22.2-transformation.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-transformation-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type the name **product** in the **Label** field, in the **INPUT TASK Dataset** select **Product Table (JDBC)** and in the **Type** field select **table**.
 
@@ -1254,7 +1254,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   For  the target entity select  **Product (pv:product)**.
 
-![image](22.2-target-entity.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-target-entity-newpng.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **create custom pattern**.
 
@@ -1273,7 +1273,7 @@ Here is a breakdown of the elements of this example connection string.
 -   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name,product id etc.
     This step will help in mapping the data from the source to the target property.
 
-![image](22.2-target-property.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-target-propertynew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type the label name **product name**, then click on **save**.
 
@@ -1283,7 +1283,7 @@ Here is a breakdown of the elements of this example connection string.
 
     Mapping rule is created successfully.
 
-    ![image](22.2-mapping-rulenew.png) { style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-mapping-rulenew.png)
 
 !!! note
 
