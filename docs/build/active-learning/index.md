@@ -83,9 +83,9 @@ Start the learning dialog by clicking the “Learning” tab in the linking view
 
         ![image](22.2-string.png){ class="bordered" }
 
-    Cross-check the similarity between the source and target path data with regards to the configured link property (owl:sameAs in this example).
+    Cross-check the similarity between the source and target path data with regards to the configured link property (`owl:sameAs` in this example).
 
-    **Confirm**: If the source and target title names are the same, click on Confirm and it is shown in dark blue colour.
+    **:octicons-thumbsup-24: Confirm**: If the source and target title names are the same, click on Confirm and it is shown in dark blue colour.
 
     ![image](22.2-confirm.png){ class="bordered" }
 
@@ -95,7 +95,7 @@ Start the learning dialog by clicking the “Learning” tab in the linking view
 
     ![image](22.2-decline.png){ class="bordered" }
 
-    **Decline**: If the title names of source and target path are different,click on decline and it displayed in light blue colour.
+    **:octicons-thumbsdown-24: Decline**: If the title names of source and target path are different,click on decline and it displayed in light blue colour.
 
     ![image](22.2-decline.png){ class="bordered" }
 
