@@ -80,15 +80,15 @@ There are 3 settings to specify:
 
 -   Click on **Database** on the left side of the page.
 
-![image](22.2-click_on_database.png){ style="border: 1px solid #555; border-radius: 5px;" }
+ ![image](22.2-click_on_database.png)){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **+Database** on the right side of the page.
 
-![image](22.2-click_on_database.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-add-databasenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type the database name **Product**, then click on **create**.
 
-![image](22.2-databas-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-Product-name-database.png)){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on database **product**, then click on **+Schema** on the right side of the page.
 
@@ -96,15 +96,11 @@ There are 3 settings to specify:
 
 -   Type the schema name **products_vocabulary** and click on **create**.
 
-![image](22.2-add-schema.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-schema-name.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on scheme **products_vocabulary** on the left side of the page.
+-   Click on scheme **products_vocabulary** on the left side of the page then click on **create** on the right side of the page, then click on **table**, then select then **standard**.
 
-![image](22.2-click-on-schema.png){ style="border: 1px solid #555; border-radius: 5px;" }
-
--   Click on **create**, then click on **table**, then select the **standard**.
-
-![image](22.2-create-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.22-click-on-standar.png)){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on schema name **products_vocabulary** on the left side of the page and type the  **sql query** for creating a table in the center, then click on **Run** on the right side of the page.
 
@@ -125,13 +121,13 @@ CREATE TABLE product(
 
 -   Type or copy the **SQL** query for creating a database in the table that is created, then click on **Run**.
 
-![image](22.2-sql-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-sql-for-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
     The table is created as shown below.
 
-    ![image](22.2-table-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-table%20creatednew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 In the **Worksheets** view (you might need to create a new worksheet), select the **product** database, the **products_vocabulary** schema and finally the **prouct** table.
 Here you can populate some test data with the following SQL query:
@@ -1142,7 +1138,7 @@ Here you can populate some test data with the following SQL query:
     ,('X716-6172862','Coil Resonator',74,36,16,8,'Baldwin.Guenther@company.org','3,20 EUR');
     ```
 
-![image](22.2-query.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-sql-query-data.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
