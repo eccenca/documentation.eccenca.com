@@ -127,7 +127,7 @@ CREATE TABLE product(
 
     The table is created as shown below.
 
-    ![image](22.2-table%20creatednew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-table-creatednew.png)){ style="border: 1px solid #555; border-radius: 5px;" }
 
 In the **Worksheets** view (you might need to create a new worksheet), select the **product** database, the **products_vocabulary** schema and finally the **prouct** table.
 Here you can populate some test data with the following SQL query:
@@ -1250,7 +1250,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **Mapping**, then click on **edit**.
 
-![image](22.2-click-on-mapping.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-click-on-mappingnew.png{ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   For  the target entity select  **Product (pv:product)**.
 
@@ -1277,25 +1277,25 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Type the label name **product name**, then click on **save**.
 
-![image](22.2-trans-label.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-trans-labelnewpng.png{ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
     Mapping rule is created successfully.
 
-    ![image](22.2-mapping-rule.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-mapping-rulenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! note
 
     We have the suggestion option as well; click on the **+icon** and select the **suggestion mapping**.
 
-    ![image](22.2-suggestions.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-suggestionsnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
     Suggestion appears as below can select as per the requirement.
 
-    ![image](22.2-suggestion-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-suggestion-resultnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! note
 
@@ -1303,7 +1303,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   **Tick** the box to select the suggestions to be added, then click on **add**.
 
-![image](22.2-tick.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-ticknew.png)){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 5. Create a knowledge graph
 
