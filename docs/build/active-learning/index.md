@@ -2,7 +2,7 @@
 icon: fontawesome/solid/wand-magic-sparkles
 subtitle: Use AI/ML to learn linking rules
 tags:
-  - beginners
+  - BeginnersTutorial
 ---
 
 # Active Learning
