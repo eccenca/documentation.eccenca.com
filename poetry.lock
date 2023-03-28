@@ -942,14 +942,14 @@ min-versions = ["babel (==2.9.0)", "click (==7.0)", "colorama (==0.4)", "ghp-imp
 
 [[package]]
 name = "mkdocs-autolinks-plugin"
-version = "0.6.0"
+version = "0.7.0"
 description = "An MkDocs plugin"
 category = "main"
 optional = false
-python-versions = ">=2.7"
+python-versions = ">=3.4"
 files = [
-    {file = "mkdocs-autolinks-plugin-0.6.0.tar.gz", hash = "sha256:7bddb5bfb06f003fa7f139a4373ffc433e9ad761a297c7fe6ee205a4d7d913b6"},
-    {file = "mkdocs_autolinks_plugin-0.6.0-py3-none-any.whl", hash = "sha256:db967582a5d3bd282d197730cd9035a74b559b0febb44645e95df27d5c67cad9"},
+    {file = "mkdocs-autolinks-plugin-0.7.0.tar.gz", hash = "sha256:75b43e0806d6fb9dfbe8e830371cf50d092c13c155e3cb5a44f71a800fb08c2d"},
+    {file = "mkdocs_autolinks_plugin-0.7.0-py3-none-any.whl", hash = "sha256:c8db70fe22ccc6fc914282c724b36a577e90daa9cac6204a63fb962fd9584359"},
 ]
 
 [package.dependencies]
@@ -1092,13 +1092,14 @@ test = ["autoflake", "black", "isort", "pytest"]
 
 [[package]]
 name = "mkdocs-swagger-ui-tag"
-version = "0.4.3"
+version = "0.6.1"
 description = "A MkDocs plugin supports for add Swagger UI in page."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "mkdocs-swagger-ui-tag-0.4.3.tar.gz", hash = "sha256:37fec98555f7493b14033eceeb25a4bcacfbdbedd1640e4235bdd9e854eb751b"},
+    {file = "mkdocs-swagger-ui-tag-0.6.1.tar.gz", hash = "sha256:141ac067d3213c63f0261557b25bb99af54827b80f0e208aff712e3c0aba44dc"},
+    {file = "mkdocs_swagger_ui_tag-0.6.1-py3-none-any.whl", hash = "sha256:07584dfb09d0784edf6442bd151857803ebee86c5b84821f4a8f4a583905b964"},
 ]
 
 [package.dependencies]
@@ -1852,4 +1853,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "ef39554b96291464661070425de9459cc6358fd2ef0cf77fd511b1c3d984d69b"
+content-hash = "6e8cf7a222101cf97e145fade34968576baa064801d57ab14cb6895ab1678a99"
