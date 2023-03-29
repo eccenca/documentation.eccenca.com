@@ -210,7 +210,7 @@ This command reloads all tasks of a project from the workspace provider. This is
     You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterwards.
 
 
-!!! warning
+!!! Note
     Depending on the size your datasets esp. your Knowledge Graphs, reloading a project can take a long time to re-create the path caches.
 
 
