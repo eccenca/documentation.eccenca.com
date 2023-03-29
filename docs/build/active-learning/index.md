@@ -22,20 +22,26 @@ The documentation consists of the following parts described in detail below:
 
 ## Usage
 
-Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs.
+Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs [[wikipedia]](https://www.wikiwand.com/en/Active_learning_(machine_learning)#introduction).
 In Corporate Memory we apply this approach to the process of learning a linking rule by interactively label records from the configured source and target dataset.
-Labeling in this case means to indicate if the pair of resources (from source and target) should be connected with the configured linking.
-The labeling creates records against which the linking rule can be created and further refines as more input is given by the user.
+Labeling in this case means to indicate if the pair of resources (from source and target) should be connected with the configured property.
+The labeling process creates records against which the linking rule can be created and further refined as more input is given by the user.
 
-Our active (link) learning is a two step process:
+Our active (link) learning is a three step process:
 
 1. It starts by define properties to compare between entities of the selected datasets.
 2. We continue with the interactive labeling process where user feedback is asked, the golden record build and a rule (automatically) calculated and refined (as more reference links are entered)
+3. Saving the learned rule and/or the reference links only
 
 ## Start the learning dialog
 
-Create a linking rule and setup source and target datasets as well as the linking property that should be yielded.
+Link learning is a feature available on a link rule in a DataIntegration project.
+See the [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables) tutorial to learn how to setup a project.
+Use the **Create :eccenca-item-add-artefact:** button in your project and select **Linking** to create a new linking rule.
+In the configuration dialog of your linking rule and setup source and target datasets as well as the linking property that should be yielded.
 Start the learning dialog by clicking the “Learning” tab in the linking view.
+
+The examples process below uses the **movies** example project which can be added to your workspace with the **:eccenca-item-add-artefact: Add "movies" example project** button to be found in the **:eccenca-application-useraccount:** user menu in the top right corner.
 
 ## Creating an automatic link rule
 
