@@ -141,7 +141,7 @@ $ eval $(cmemc -c my config eval)
 ```
 
 
-!!! Note
+!!! warning
     Please be aware that credential details are shown in cleartext with this command.
 
 
