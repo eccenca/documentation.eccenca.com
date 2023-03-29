@@ -31,9 +31,9 @@ We suggest to use a specialized markdown editor such as [obsidian](https://obsid
 
 The following tools you need locally to get started:
 
-- [poetry](https://python-poetry.org/)
-- [task](https://taskfile.dev/)
-- git, markdown editor
+-   [poetry](https://python-poetry.org/)
+-   [task](https://taskfile.dev/)
+-   git, markdown editor
 
 On a few OS distributions (e.g. Arch Linux) the tool/binary is named `go-task`.
 
@@ -71,26 +71,26 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 <details>
   <summary>Extend section</summary>
 
-- always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
-- add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
-- put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
-- do not use images for icons esp. icons from the application
-    - use eccenca icons, e.g. [:eccenca-application-queries:](https://github.com/eccenca/documentation.eccenca.com/blob/main/overrides/.icons/eccenca/application-queries.svg) -> [list](https://github.com/eccenca/documentation.eccenca.com/tree/main/overrides/.icons/eccenca)
-    - use theme icons where no eccenca icon is available -> [list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
-- name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
-- used advanced features where suitable
-  - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed) -> see Admonition section for more details
-  - [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
-  - [Content Tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#usage) (to structure complex pages)
-- code blocks:
-  - do not use line numbers except you refer to it in the text
-  - use correct syntax highlightning (often used: `shell-session`, `bash`, `sparql`, `turtle`, `json`) -> [list of syntax IDs](https://pygments.org/docs/lexers/)
-  - do not confuse `shell-session` with `bash` (the first is a terminal output, the latter a script syntax)
-  - when using `shell-session`, use `$ ` as the prompt
- - Links:
-    - do not use absolute links for internal documents, e.g. `https://documentation.eccenca.com/latest/...`
-    - do not use base-relative links, e.g. `/automate/...`
-    - use relative links to `index.md` files
+-   always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
+-   add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
+-   put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
+-   do not use images for icons esp. icons from the application
+    -   use eccenca icons, e.g. [:eccenca-application-queries:](https://github.com/eccenca/documentation.eccenca.com/blob/main/overrides/.icons/eccenca/application-queries.svg) -> [list](https://github.com/eccenca/documentation.eccenca.com/tree/main/overrides/.icons/eccenca)
+    -   use theme icons where no eccenca icon is available -> [list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
+-   name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
+-   used advanced features where suitable
+    -   [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed) -> see Admonition section for more details
+    -   [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
+    -   [Content Tabs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#usage) (to structure complex pages)
+-   code blocks:
+    -   do not use line numbers except you refer to it in the text
+    -   use correct syntax highlightning (often used: `shell-session`, `bash`, `sparql`, `turtle`, `json`) -> [list of syntax IDs](https://pygments.org/docs/lexers/)
+    -   do not confuse `shell-session` with `bash` (the first is a terminal output, the latter a script syntax)
+    -   when using `shell-session`, use `$` as the prompt
+-   Links:
+    -   do not use absolute links for internal documents, e.g. `https://documentation.eccenca.com/latest/...`
+    -   do not use base-relative links, e.g. `/automate/...`
+    -   use relative links to `index.md` files
 
 </details>
 
@@ -98,7 +98,7 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 
 <details>
   <summary>Extend section</summary>
-    
+
 |Admonition Name|Used For |Example|
 |---------------|---------|-------|
 |Info |Information in documentation provides details about a topic or process that the reader needs to know. It is usually essential and relevant to the main subject of the document.|Statement annotations provide a way to express knowledge about statements. This group is dedicated to properties that configure the Statement Annotation feature|
@@ -117,13 +117,13 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 <details>
   <summary>Extend section</summary>
 
-- do not use a cluttered desktop
-- do not show other esp. personal project artifacts then relevant for the tutorial / feature to show
-- select cropping area carefully (omit backgrounds, lines on the edges, etc.)
-- use the same or a similar area for similar screens
-- all relevant elements should be clearly visible and not be truncated
-- irrelevant elements / details should be omitted completely and not be half visible
-- crop scrollbars (they can make edges look unclean, especially if a scrollbar is directly on an edge)
-- keep an equal distance of all visible elements to the edges of the screenshot
+-   do not use a cluttered desktop
+-   do not show other esp. personal project artifacts then relevant for the tutorial / feature to show
+-   select cropping area carefully (omit backgrounds, lines on the edges, etc.)
+-   use the same or a similar area for similar screens
+-   all relevant elements should be clearly visible and not be truncated
+-   irrelevant elements / details should be omitted completely and not be half visible
+-   crop scrollbars (they can make edges look unclean, especially if a scrollbar is directly on an edge)
+-   keep an equal distance of all visible elements to the edges of the screenshot
 
 </details>
