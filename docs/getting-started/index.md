@@ -2,7 +2,7 @@
 hide:
   - navigation
 tags:
-  - BeginnersTutorial
+  - "1 Beginners Tutorial"
 ---
 # Getting Started
 

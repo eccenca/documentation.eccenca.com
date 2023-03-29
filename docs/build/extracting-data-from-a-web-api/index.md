@@ -1,7 +1,7 @@
 ---
 icon: material/api
 tags:
-  - ExpertTutorial
+  - "3 Expert Tutorial"
 ---
 # Extracting data from a Web API
 

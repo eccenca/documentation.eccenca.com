@@ -1,7 +1,7 @@
 ---
 icon: eccenca/artefact-dataset-sqlendpoint
 tags:
-  - ExpertTutorial
+  - "3 Expert Tutorial"
 ---
 # Consuming Graphs with SQL Databases
 

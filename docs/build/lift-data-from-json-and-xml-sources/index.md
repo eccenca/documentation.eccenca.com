@@ -2,7 +2,7 @@
 icon: material/family-tree
 subtitle: such as JSON and XML files
 tags:
-  - AdvancedTutorial
+  - "2 Advanced Tutorial"
   - KnowledgeGraph
 ---
 # Lift data from JSON and XML source

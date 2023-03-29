@@ -3,7 +3,7 @@ icon: material/api
 tags:
     - SPARQL
     - API
-    - ExpertTutorial
+    - "3 Expert Tutorial"
 ---
 # Provide Data in any Format via a Custom API
 
