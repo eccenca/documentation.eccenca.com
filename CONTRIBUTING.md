@@ -128,3 +128,18 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 -   keep an equal distance of all visible elements to the edges of the screenshot
 
 </details>
+
+## Generated Content
+
+<details>
+  <summary>The following files are generated from other sources and should not be changed:</summary>
+    
+-   cmemc Command Reference: [docs/automate/cmemc-command-line-interface/command-reference](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface/command-reference)
+    - to update, start `task update:cmemc`
+-   Coporate Memory Application Icons: [overrides/.icons/eccenca](https://github.com/eccenca/documentation.eccenca.com/tree/main/overrides/.icons/eccenca)
+    - to update, start `task update:icons`
+-   Shapes and Datatypes: [docs/explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes|property-shapes|datatype-reference](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes)
+    - to update, start `task update:shape-reference`
+
+Where applicable, we added the following disclaimer: `<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->`
+</details>
