@@ -22,7 +22,15 @@ The documentation consists of the following parts described in detail below:
 
 ## Usage
 
-Define properties to compare between entities of the selected datasets.
+Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs.
+In Corporate Memory we apply this approach to the process of learning a linking rule by interactively label records from the configured source and target dataset.
+Labeling in this case means to indicate if the pair of resources (from source and target) should be connected with the configured linking.
+The labeling creates records against which the linking rule can be created and further refines as more input is given by the user.
+
+Our active (link) learning is a two step process:
+
+1. It starts by define properties to compare between entities of the selected datasets.
+2. We continue with the interactive labeling process where user feedback is asked, the golden record build and a rule (automatically) calculated and refined (as more reference links are entered)
 
 ## Start the learning dialog
 
