@@ -80,7 +80,7 @@ There are 3 settings to specify:
 
 -   Click on **Database** on the left side of the page.
 
- ![image](22.2-click_on_database.png)){ style="border: 1px solid #555; border-radius: 5px;" }
+ ![image](22.2-click_on_database.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **+Database** on the right side of the page.
 
@@ -88,7 +88,7 @@ There are 3 settings to specify:
 
 -   Type the database name **Product**, then click on **create**.
 
-![image](22.2-Product-name-database.png)){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-Product-name-database.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on database **product**, then click on **+Schema** on the right side of the page.
 
@@ -100,7 +100,7 @@ There are 3 settings to specify:
 
 -   Click on scheme **products_vocabulary** on the left side of the page then click on **create** on the right side of the page, then click on **table**, then select then **standard**.
 
-![image](22.22-click-on-standar.png)){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.22-click-on-standar.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on schema name **products_vocabulary** on the left side of the page and type the  **sql query** for creating a table in the center, then click on **Run** on the right side of the page.
 
@@ -1154,7 +1154,7 @@ Here you can populate some test data with the following SQL query:
 
 -   Click on Project, then click on **add**.
 
-![image](22.2-add-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-add-projectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type the project name **product** in the title field, then click on **create**.
 
@@ -1242,15 +1242,15 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Type the name **product** in the **Label** field, in the **INPUT TASK Dataset** select **Product Table (JDBC)** and in the **Type** field select **table**.
 
-![image](22.2-trans-connect.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-trans-connectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   In the **Output** dataset field select **product graph**, then click on **create** .
 
-![image](22.2-output.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-output.new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **Mapping**, then click on **edit**.
 
-![image](22.2-click-on-mappingnew.png{ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-click-on-mappingnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   For  the target entity select  **Product (pv:product)**.
 
@@ -1268,7 +1268,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **+icon**, then select the **add value mapping**.
 
-![image](22.2-add-value.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-add-valuenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name,product id etc.
     This step will help in mapping the data from the source to the target property.
@@ -1277,13 +1277,13 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Type the label name **product name**, then click on **save**.
 
-![image](22.2-trans-labelnewpng.png{ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-trans-labelnewpng.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
     Mapping rule is created successfully.
 
-    ![image](22.2-mapping-rulenew.png)
+    ![image](22.2-mapping-rulenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! note
 
@@ -1309,7 +1309,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **create** on the right side of the page.
 
-![image](22.2-trans-resultnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-trans-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Select **Knowledge Graph**, then click on **add**.
 
