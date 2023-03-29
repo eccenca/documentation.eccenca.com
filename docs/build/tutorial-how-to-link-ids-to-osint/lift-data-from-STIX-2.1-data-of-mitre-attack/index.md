@@ -37,9 +37,32 @@ You can improve this first knowledge graph with these exercises:
 
 ### Create a new project for your knowledge graph
 
+![](23-1-create-project.gif)
+
 ### Import the datasets to convert in RDF
 
+![](23-1-import-JSON.gif)
+
+Create JSON datasets
+MA Entreprise (JSON)
+MITRE ATT&CK® Entreprise dataset STIX 2.1
+MA Mobile (JSON)
+MA ICS (JSON)
+
+https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json
+https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json
+https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json
+
 ### Create named graphs of your knowledge graph
+
+Create RDF datasets
+MA Entreprise (knowledge graph)
+MA Mobile (knowledge graph)
+MA ICS (knowledge graph)
+
+https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json
+https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json
+https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json
 
 ### Create a STIX transformer
 
@@ -50,6 +73,10 @@ You can improve this first knowledge graph with these exercises:
 ### Create the workflow to transform all STIX data to RDF
 
 ### Create the global graph of your knowledge graph
+
+
+MITRE ATT&CK®  (knowledge graph)
+https://attack.mitre.org
 
 ### Test the SPARQL query to read the name, the description and the references of one Mitre tag
 
