@@ -28,6 +28,7 @@ mkdocs-redirects = "^1.2.0"
 mkdocs-swagger-ui-tag = "^0.4.3"
 mkdocs-material = "8.5.8"
 
+
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
 

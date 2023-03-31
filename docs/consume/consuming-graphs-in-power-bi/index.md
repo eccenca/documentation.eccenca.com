@@ -28,7 +28,7 @@ The latest (unsigned) version of our Power-BI-Connector is available from its so
   - In case you are running Windows on Parallels Desktop: Do not use the Local `Disk\Users\UserName\Documents` folder but your shared folder with macOS.
 - Register the Thumbprint (for .pqx) or setup PowerBI Desktop to allow any 3rd party connector (for .pqx or .mez) *(we recommend to register the Thumbprint)*
 
-!!! Setup
+??? Setup
 
     === "Register Thumbprint (.pqx)"
 
@@ -73,7 +73,7 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
 ![connecting-3rd-party-service](22-1-2-connecting-3rd-party-service.png)
 - In the following dialog you need to specify the connection and information and access credentials, ask your Corporate Memory administrator for assistance if you miss any of the requested details. You have the option to use username + password or a client secret for login. In case of a custom setup is used advanced configuration can be provided:
 
-!!! Access-Configuration
+??? Access-Configuration
 
     === "Username + Password"
         In order to use username +  password based login you need to fill the details shown below:
@@ -112,7 +112,7 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
 
 With the eccenca Corporate Memory Power-BI-Connector you can load data from SELECT queries stored in the query catalog of Corporate Memory. You can use queries without or with placeholders. The steps are different depending if your query uses placeholder:
 
-!!! Queries
+??? Queries
 
     === "Without placeholders"
 
