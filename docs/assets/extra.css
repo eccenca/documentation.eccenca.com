@@ -148,3 +148,9 @@ svg.icon {
   -webkit-mask-image: var(--md-admonition-icon--task);
   mask-image: var(--md-admonition-icon--task);
 }
+
+img.bordered {
+    border: 1px solid #555;
+    border-radius: 5px
+}
+
