@@ -12,17 +12,10 @@ tags:
 
 Active learning infuses expert knowledge and creates new relationships between properties of two datasets. We can learn new rules and refine existing rules.
 
-The documentation consists of the following parts described in detail below:
-
--   [Introduction](#introduction)
--   [Usage](#usage)
--   [Start the learning dialog](#start-the-learning-dialog)
--   [Creating an automatic link rule](#creating-an-automatic-link-rule)
--   [Add property paths for both entities](#add-property-paths-for-both-entities)
-
 ## Usage
 
-Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs [[wikipedia]](https://www.wikiwand.com/en/Active_learning_(machine_learning)#introduction).
+> Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs. [[wikipedia]](https://www.wikiwand.com/en/Active_learning_(machine_learning)#introduction)
+
 In Corporate Memory we apply this approach to the process of learning a linking rule by interactively label records from the configured source and target dataset.
 Labeling in this case means to indicate if the pair of resources (from source and target) should be connected with the configured property.
 The labeling process creates reference links against which the linking rule can be created and further refined as more input is given by the user.
@@ -35,7 +28,7 @@ Our active (link) learning is a three step process:
 
 ## Start the learning dialog
 
-Link learning is a feature available on a link rule in a DataIntegration project.
+Link learning is a feature available on a link rule in a **Build** project.
 See the [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables) tutorial to learn how to setup a project.
 Use the **Create :eccenca-item-add-artefact:** button in your project and select **Linking** to create a new linking rule.
 In the configuration dialog of your linking rule and setup source and target datasets as well as the linking property that should be yielded.
