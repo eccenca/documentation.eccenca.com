@@ -86,3 +86,13 @@ Drag and drop it on the canvas, and connect it with ingoing and / or outgoing li
 
 <div style="clear: both" />
 
+## Known Issues
+
+!!! bug "Sharing the `PYTHONPATH` via NFS"
+
+    The `PYTHONPATH` is the location where the installed python plugins and their dependencies are stored for DataIntegration.
+    When you share this path via NFS, there are issues with open file locks which will sometimes break the plugin installation requests.
+    A workaround for this is to install or upgrade plugins right after rebooting DataIntergration (and before you start a workflow that uses a python plugin).
+    We currently advise against using NFS on this path directly.
+    The problem is [known by the python community](https://github.com/pypa/pip/issues/6327) but there is no fix or workaround available yet.
+
