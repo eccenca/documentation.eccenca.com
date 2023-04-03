@@ -24,12 +24,12 @@ Labs:
 1. Create a new project for your knowledge graph
 2. Import the datasets to convert in RDF
 3. Create named graphs of your knowledge graph
-4. Create a STIX transformer
-5. Create the workflow to transform all STIX data to RDF
-6. Create the global graph of your knowledge graph
-7. Test the SPARQL query to read the name, the description and the references of one Mitre tag
+4. Create a RDF transformer for STIX 2.1
+5. Create the workflow to transform all STIX datasets to RDF
+6. Create the global named graph of your knowledge graph
+7. Test the SPARQL query to obtain the name, the description and the references of a Mitre tag
 8. (optional) Create the Void description of knowledge graph 
-9. (optional) Update the files via command lines
+9. (optional) Refresh your knowledge graph automatically
 
 You can improve this first knowledge graph with these exercises:
 
@@ -38,13 +38,13 @@ You can improve this first knowledge graph with these exercises:
 
 ## Labs
 
-### Create a new project for your knowledge graph
+### Create a project
 
 For each type of dataset, you can create an new project with all the tools necessary to convert this dataset in a knowledge graph.
 
 ![](23-1-create-project.gif)
 
-### Import the datasets to convert in RDF
+### Import datasets
 
 MITRE ATT&CK® has 3 domains (TODO insert link): Entreprise, Mobile and ICS.
 
@@ -68,7 +68,7 @@ Each domain dataset is saved in GitHub:
     ![](23-1-import-JSON-result.png)
 
 
-### Create named graphs of your knowledge graph
+### Create named graphs
 
 !!! Info
 
@@ -118,7 +118,7 @@ Create one RDF datasets for each Mitre dataset:
     This option is to use only for the graphs which will generate automatically by Corporate Memory.
 
 
-### Create a STIX transformer
+### Create a transformer
 
 !!! Tip
 
@@ -154,17 +154,133 @@ Create one RDF datasets for each Mitre dataset:
       prefix ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
       ```
 
-      TODO insert screenshot
+![](23-1-create-prefix.gif)
 
 2. Create the (Mitre) STIX 2.1 transformer
-   
-      TODO insert screenshot
+
+This transformer will be a component of your worflow. You could reuse it in several workflows in other projects. To create a new transformer, you need to give this:
+
+- Label: STIX 2.1 transformer
+- Input: MA Entreprise (JSON)
+- Output: MA Entreprise (knowledge graph)
+
+![](23-1-create-transformer.gif)
+
+!!! Tip
+
+    In your use case, there is only this transformer to build this named graph, so there is no consequence on the final knowledge graph when we test this transformer on this graph (automatically cleared after each execution of transformer). However, a good practice is to create a tempory graph in ouput for each transformer, so your final knowledge graph is not affected during the modification of your transformer before executing the workflows with this transformer. In this case, you need to hide this tempory graph of your users.
+
+    You can create a transformer for several syntaxes in input: JSON, XML, CSV, etc. If your format does not exist in Corporate Memory, you can convert your data in JSON before importing this data in Corporate Memory.
 
 !!! Info
 
-    STIX gives the possibility to extend its syntaxes. Mitre uses this possibility. So, in theory, if we need to import all the data, we can extend this transformer at STIX attributes and add the Mitre attributes described in its [documentation](https://github.com/mitre/cti/blob/master/USAGE.md).
+    STIX gives the possibility to extend its syntaxes. Mitre uses this possibility. So, in theory, if we need to import all the data, we can extend this transformer at all STIX attributes and add the Mitre attributes described in its [documentation](https://github.com/mitre/cti/blob/master/USAGE.md).
 
-3. Convert MD link of descriptions to html links for the interfaces of SPLUNK
+3. Study the tree of STIX data
+   
+```json
+{
+    "type": "bundle",
+    "id": "bundle--19413d5e-67e5-4a48-a4c8-afb06b7954de",
+    "spec_version": "2.1",
+    "objects": [
+        {
+            "type": "x-mitre-collection",
+            "id": "x-mitre-collection--1f5f1533-f617-4ca8-9ab4-6a02367fa019",
+            "name": "Enterprise ATT&CK",
+            "description": "ATT&CK for Enterprise provides a knowledge base of real-world adversary behavior targeting traditional enterprise networks. ATT&CK for Enterprise covers the following platforms: Windows, macOS, Linux, PRE, Office 365, Google Workspace, IaaS, Network, and Containers.",
+            ...
+        },
+        {
+            "id": "attack-pattern--0042a9f5-f053-4769-b3ef-9ad018dfa298",
+            "type": "attack-pattern",
+            "name": "Extra Window Memory Injection",
+            "description": "Adversaries may inject malicious code..." ,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "T1055.011",
+                    "url": "https://attack.mitre.org/techniques/T1055/011"
+                },
+                {
+                    "url": "https://msdn.microsoft.com/library/windows/desktop/ms633574.aspx",
+                    "description": "Microsoft. (n.d.). About Window Classes. Retrieved December 16, 2017.",
+                    "source_name": "Microsoft Window Classes"
+                },...
+```
+
+To extract STIX objects with its type, its label, its description and its references, we need to navigate via a root object of type "bundle" before touching the STIX objects. Each object has an ID we suppose unique in all Mitre datasets to generate IRI of all objects. We use your prefix ctia to build the class name and the properties of your RDFS vocabulary. Here, we build the vocabulary of manner agile for your use case because Mitre had not proposed a RDFS vocabulary for its datasets.
+
+4. Create the root object and give it an unique IRI:
+
+- RDF type: ctia:Object
+- IRI pattern: https://github.com/mitre-attack/attack-stix-data#{id}
+   
+![](23-1-extract-root-object.gif)
+
+!!! Tip
+
+    You can develop an IRI from scratch in the IRI formula editor, like here or directly in the form and improve it after, if necessary (see an example in the next step).
+
+    The important is to test the result in the evaluation view.
+
+!!! Success
+
+        During the development of a transformer, you can test your transformation and check all the steps.
+
+        ![](23-1-see-steps-during-a-transformation.png)
+
+5. Link the sub-objects to their root with their IRI and the property ctia:object:
+   
+- RDF property: ctia:object
+- RDF type: ctia:Object
+- IRI pattern: https://github.com/mitre-attack/attack-stix-data#{id}
+
+![](23-1-extract-objects.gif)
+
+!!! Tip
+
+    The RDFS classes start by an uppercase and the property by a lowercase and apply the camel case notation, if possible. The objective is to create cool IRI, ie. lisible IDs for humans and unique on the Web.
+
+6. Extract now their type, label and description with these properties for example:
+
+- ctia:type
+- rdfs:label
+- ctia:description
+
+![](23-1-extract-properties.gif)
+
+!!! Tip
+
+     STIX type doesn't apply the camel case and doesn't start by an uppercase. We prefers to create a specific property ctia:type for this reason.
+
+     You can reuse a vocabulary already in Corporate Memory (like rdfs) but you are also free to develop a new vocabulary on the fly with your prefixes.
+
+!!! Success
+
+    Now, you can see these RDF datasets in Corporate Memory:
+    ![](23-1-create-RDF-dataset-result.png)
+
+1. At the end of the last step, we saw the dataset uses the syntax of Markdown to define a Web link. In the interface of SPLUNK, we need to use the HTML syntax. Modify the formula for the description with the operator "regex replace".
+
+- Regex:  \[([^\[\]]*)\]\(([^\(\)]*)\)
+- Replace: <a href='$2' target='blank'>$1</a>
+  
+(TODO bug in the interface need to remake the gif)
+![](23-1-regex-replace.gif) 
+
+
+!!! Success
+
+        ![](23-1-regex-replace.png)
+
+
+!!! Tip
+
+    We could limit the number of objects to import with a condition in the 
+
+
+1. Convert MD link of descriptions to html links for the interfaces of SPLUNK
 
       TODO insert screenshot
 
@@ -178,7 +294,7 @@ Create one RDF datasets for each Mitre dataset:
 
       TODO insert screenshot
 
-### Create the workflow to transform all STIX data to RDF
+### Create a workflow
 
 You have now a STIX transformer. We are building here a workflow to apply this transformer for all datasets in same time.
 
@@ -199,26 +315,16 @@ Do the same operations for the three datasets.
 
       TODO insert screenshot
 
-### Create the global graph of your knowledge graph
+### Create a global named graph
 
 To simplify the requests by a SPARQL query on your knowledge graph, we are offering the possibility to request all data of these 3 datasets in same time.
 
 We are showing SPARQL tasks, another important feature available in Corporate Memory: the SPARQL tasks with Jinja template
 
-Here, the new SPARQL tasks are inserting automatically all the metadata to import the named graphs in this global graph and add a [VoID](https://www.w3.org/TR/void/) description with the statistics of your final knowledge graph.
-
-!!! Info
-
-    [VoID](https://www.w3.org/TR/void/) is an RDF Schema vocabulary for expressing metadata about RDF datasets. t is intended as a bridge between the publishers and users of RDF data.
-
-
-
 1. Create a RDF dataset
 
     - Label: MITRE ATT&CK®  (knowledge graph)
     - URI (name of graph): https://attack.mitre.org
-
-
 
 2. Create a SPARQL Update task
 
@@ -243,7 +349,6 @@ INSERT DATA {
 TODO workflow image
 
 
-
 !!! Success
 
     In the Turtle view of RDF dataset "MITRE ATT&CK®", you can see the triples inserted by your SPARQL query.
@@ -254,6 +359,20 @@ TODO workflow image
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>
         .
     ```
+
+### Test with a SPARQL query
+
+
+
+### Create the Void description
+
+Here, the new SPARQL tasks are inserting automatically all the metadata to import the named graphs in this global graph and add a [VoID](https://www.w3.org/TR/void/) description with the statistics of your final knowledge graph.
+
+!!! Info
+
+    [VoID](https://www.w3.org/TR/void/) is an RDF Schema vocabulary for expressing metadata about RDF datasets. t is intended as a bridge between the publishers and users of RDF data.
+
+
 
 
 4. In the same workflow, insert a new SPARQL task with this query to calculate the statistics:
@@ -308,7 +427,7 @@ TODO workflow image
         .
     ```
 
-### Update the files via command lines
+### Refresh all automatically
 
 1. Find your JSON datasets IDs and your workflow ID
 2. execute these command lines
@@ -323,8 +442,9 @@ cmemc workflow execute --wait WORKFLOW_ID
 
 ## Exercices
 
-### Exercice: create an inference in your knowledge graph via a SPARQL Update query
-After this tutorial, you want probably to navigate in your new knowledge graph between the relationships of Objects STIX.
+### Create an inference
+
+After this tutorial, you want probably to navigate in your new knowledge graph between the relationships of Objects STIX. You need to create inferences in your knowledge graph via SPARQL Update queries.
 
 TODO insert the view easynav with the icons of STIX ???
 
@@ -359,7 +479,7 @@ This SPARQL query create explicitly the STIX links in the knowledge graph. Here,
 5. (TODO add STIX icon in CMEM)
 6. You can now navigate in EasyNav
 
-### Exercice: create an other knowledge graph for CAPEC
+### Add the CAPEC dataset
 The Common Attack Pattern Enumeration and Classification (CAPEC™) effort provides a publicly available catalog of common attack patterns that helps users understand how adversaries exploit weaknesses in applications and other cyber-enabled capabilities.
 
 Dataset: https://github.com/mitre/cti/blob/master/capec/2.1/stix-capec.json
