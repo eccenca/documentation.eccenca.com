@@ -12,7 +12,7 @@ It can be used to provide search filter / facets in order to tailor the search r
 
 The `GraphResourcePattern` object reference is provided in different ways depending on your preferences:
 
-??? example "Type Script"
+=== "Type Script"
 
     ```ts
     export type GraphResourcePattern = {
@@ -55,7 +55,7 @@ The `GraphResourcePattern` object reference is provided in different ways depend
     };
     ```
 
-??? example "JSON Schema"
+=== "JSON Schema"
 
     ```json
     {
@@ -179,7 +179,7 @@ The `GraphResourcePattern` object reference is provided in different ways depend
     }
     ```
 
-??? example "json-schema-for-humans"
+=== "json-schema-for-humans"
 
     The following section are a _human friendly_ representation generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans)
 

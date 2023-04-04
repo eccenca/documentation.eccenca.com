@@ -74,9 +74,9 @@ The Corporate Memory docker orchestration is configured with environment files.
 You will need to create an environment file at `/opt/cmem-orchestration/environments/prod.env`.
 For now, you can use the provided file `config.ssl-letsencrypt.env` as a template.
 
-!!! warning
+!!! Info
 
-    You need to change the lines with DEPLOYHOST and LETSENCRYPT_MAIL to you actual values.
+    You need to change the lines with DEPLOYHOST and LETSENCRYPT_MAIL to your actual values.
 
 ```shell-session
 $ cd /opt/cmem-orchestration/environments

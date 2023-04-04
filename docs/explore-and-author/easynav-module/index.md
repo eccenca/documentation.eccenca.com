@@ -7,7 +7,7 @@ tags:
 
 # EasyNav Module
 
-!!! warning
+!!! Info
 
     EasyNav is a preview feature, which is disabled by default.
     Preview features can be unstable.
@@ -28,7 +28,7 @@ Start using `EasyNav` by selecting the respective module entry in the main navig
 
 At the module welcome screen the user can either load a saved visualization of start searching for an initial node / resource by providing a search term.
 
-!!! info "Graph selection drop-down"
+!!! Note
 
     The graph selection drop-down might or might not be visible depending the existence of an (optional) `EasyNav Module` configuration.
     In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown.
@@ -70,38 +70,39 @@ Without further (workspace) specific configuration the feature can be used askin
 
 Optionally a `EasyNav Module` configuration can be created to provide a fixed graph selection and search filter settings.
 
-??? info "Create a `EasyNav Module` Configuration"
+### Create a EasyNav Module Configuration
 
-    ![Create a `EasyNav Module` Configuration](easynav-config-EasyNavModule.png)
+![Create a `EasyNav Module` Configuration](easynav-config-EasyNavModule.png)
 
-    In the `Knowledge Graphs` module navigate to the `CMEM Configuration` graph.
-    Select the class `EasyNav Module` and `Create a new "EasyNav Module"`.
+In the `Knowledge Graphs` module navigate to the `CMEM Configuration` graph.
 
-    ![New `EasyNav Module` dialog](easynav-config-newEasyNavModule-dialog.png)
+Select the class `EasyNav Module` and `Create a new "EasyNav Module"`.
 
-    Provide a `Name` for your configuration and select the `Default Graph` which contains the nodes you want to explore visually.
-    This graph can of course be an integration graph.
+![New `EasyNav Module` dialog](easynav-config-newEasyNavModule-dialog.png)
 
-    `Search Configuration` is optional but a powerful feature to create predefined search filter/facets.
-    If want to use this capability select existing `Search Configuration`s in the drop down or create stubs for the configurations you want to setup.
+Provide a `Name` for your configuration and select the `Default Graph` which contains the nodes you want to explore visually.
+This graph can of course be an integration graph.
 
-??? info "Set the `EasyNav Module` in the `Workspace` configuration"
+`Search Configuration` is optional but a powerful feature to create predefined search filter/facets.
+If want to use this capability select existing `Search Configuration`s in the drop down or create stubs for the configurations you want to setup.
 
-    ![Select `EasyNav Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
+### Set the EasyNav Module in the Workspace configuration
 
-    After creating the `EasyNav Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
+![Select `EasyNav Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
 
-??? info "Create a `Search Configuration`"
+After creating the `EasyNav Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
 
-    Follow the stub link from creating a new configuration in the `Module` dialog.
-    Then click edit to provide the necessary details.
+### Create a Search Configuration
 
-    ![Setup a `Search Configuration`](easynav-config-search-config-dialog.png)
+Follow the stub link from creating a new configuration in the `Module` dialog.
+Then click edit to provide the necessary details.
 
-    At least a `Name` and `Search Weight` need to be specified.
-    The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
+![Setup a `Search Configuration`](easynav-config-search-config-dialog.png)
 
-    `Graph Resource Patter` are a topic on its own and explained [here](./GraphResourcePattern).
+At least a `Name` and `Search Weight` need to be specified.
+The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
+
+`Graph Resource Patter` are a topic on its own and explained [here](./GraphResourcePattern).
 
 ## Technical Background
 
