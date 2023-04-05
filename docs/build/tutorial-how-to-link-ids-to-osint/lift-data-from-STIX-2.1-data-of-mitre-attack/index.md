@@ -134,11 +134,13 @@ Create one RDF datasets for each Mitre dataset:
 
     In UML, you can represent your targeted model like that: here a RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK
 
+    (todo refresh)
     ![RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK](rdf-model-course-of-action.png)
 
     The SPARQL query for this model can be specify in UML with a RDF pattern: here a RDF pattern to select the "course-of-action" objects with a known Mitre ID
     
 
+    (todo refresh)
     ![RDF pattern to select the "course-of-action" objects with a knowed Mitre ID](rdf-pattern-to-select-a-course-of-action-with-a-mitre-tag.png)
 
     Without an official vocabulary and its official prefix, we are using the documentation on the Web of its datasets: [[enterprise-attack.json](https://github.com/mitre/cti/blob/master/USAGE.md)](https://github.com/mitre/cti/blob/master/USAGE.md)
@@ -242,7 +244,15 @@ To extract STIX objects with its type, its label, its description and its refere
 
     The RDFS classes start by an uppercase and the property by a lowercase and apply the camel case notation, if possible. The objective is to create cool IRI, ie. lisible IDs for humans and unique on the Web.
 
-6. Extract now their type, label and description with these properties for example:
+    There are exceptions, like Wikidata which prefers to use a number for their IRI but with a explicit label in all languages.
+
+    Moreover, if there is no clear ontology in your domain, the best is to take the name of parameters of the source (here json). So, we will use the property, like `ctia:external_id` with underscore because it's the convention of Mitre in its datasets. If Mitre defines a best RDF ontology, we will modify simply your transformer to respect their new ontology.
+
+!!! Tip
+
+    We could limit the number of objects to import, if you add conditions in the formula editor with the field "type" of objects, for example.
+
+1. Extract now their type, label and description with these properties for example:
 
 - ctia:type
 - rdfs:label
@@ -261,59 +271,103 @@ To extract STIX objects with its type, its label, its description and its refere
     Now, you can see these RDF datasets in Corporate Memory:
     ![](23-1-create-RDF-dataset-result.png)
 
-1. At the end of the last step, we saw the dataset uses the syntax of Markdown to define a Web link. In the interface of SPLUNK, we need to use the HTML syntax. Modify the formula for the description with the operator "regex replace".
+7. At the end of the last step, we saw the dataset uses the syntax of Markdown to define a Web link. In the interface of SPLUNK, we need to use the HTML syntax. Modify the formula for the description with the operator "regex replace".
 
-- Regex:  \[([^\[\]]*)\]\(([^\(\)]*)\)
-- Replace: <a href='$2' target='blank'>$1</a>
+- Regex:  `\[([^\[\]]*)\]\(([^\(\)]*)\)`
+- Replace: `<a href='$2' target='blank'>$1</a>`
   
 (TODO bug in the interface need to remake the gif)
 ![](23-1-regex-replace.gif) 
 
 
 !!! Success
-
+        (TODO bug in the interface, make gif with example)
         ![](23-1-regex-replace.png)
 
-
 !!! Tip
 
-    We could limit the number of objects to import with a condition in the 
+    At any moment, you will modify your vocabulary according to your needs that you will find during your development. You need to modify this transformer and relaunch all your workflows which use this transformer.
 
+8. Via the same method, we are linking the references objects to their STIX objects via the property `ctia:external_references`.
 
-1. Convert MD link of descriptions to html links for the interfaces of SPLUNK
+ctia:Reference object has these properties:
 
-      TODO insert screenshot
+- rdf:type (ctia:Reference)
+- ctia:source_name
+- ctia:description
+- ctia:url
+- ctia:external_id
 
-!!! Tip
+ctia:Reference object has like IRI in the graph its own url.
 
-    At any moment, you will modify your vocabulary according to your needs that you will find during your development.
+(TODO bug in the interface need to remake the gif don't forget ctia:external_id)
+![](23-1-extract-references.gif)
 
 !!! Success
 
-    To test, you need to implement an example of SPARQL query with your RDF pattern. You can develop this query in the SPARQL editor:
+    To test your transformer, you need to develop one or several SPARQL queries with the RDF pattern which will use in your use case. You are developing this query in the SPARQL editor:
 
-      TODO insert screenshot
+    ![](23-1-sparql-query.gif)
+
+    ```sparql
+    #Test 1 transformer STIX 2.1
+
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
+
+    SELECT 
+    ?title ?description 
+    (GROUP_CONCAT(?link; separator="<br/>") as ?references)
+    FROM <https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json>
+    WHERE {
+    {
+        ?resource ctia:type ctia:course-of-action .
+    } union {
+        ?resource ctia:type ctia:attack-pattern .
+    }
+
+    ?resource rdfs:label ?title ;
+                ctia:description ?description ;
+                ctia:external_references ?mitre_url .
+
+    ?mitre_url ctia:external_id  "T1490" ;
+                ctia:source_name  "mitre-attack" .
+
+    OPTIONAL { 
+        ?resource ctia:external_references [
+                ctia:url ?reference_url ;
+                ctia:source_name ?reference_label ;
+                ctia:description ?reference_description 
+                ] .
+        BIND( CONCAT("<a ref=",STR(?reference_url),"\">",?reference_label,": ",?reference_description ,"</a>") as ?link)
+    }
+    }
+    GROUP BY ?title ?description 
+    ```
 
 ### Create a workflow
 
 You have now a STIX transformer. We are building here a workflow to apply this transformer for all datasets in same time.
 
-1. Create a workflow
+1. Create a workflow with a name, for example "MITRE ATT&CK® workflow"
 2. Insert the input JSON dataset
 3. Insert the output RDF dataset
 3. Insert the transformer
 4. Link all components
 5. Execute the workflow
 6. Save it
-   TODO insert
+
+(TODO remake the gif when the bug in "URI fix" wil be fixed.)
+    ![](23-1-extract-references.gif)
 
 Do the same operations for the three datasets.
 
 !!! Success
 
-    To test, you need to implement an example of SPARQL query with your RDF pattern. You can develop this query in the SPARQL editor:
+    At the end, the workflow looks like that:
 
-      TODO insert screenshot
+    (TODO remake when the bug in "URI fix" wil be fixed.)
+    ![](23-1-success-worflow.png)
 
 ### Create a global named graph
 
@@ -442,6 +496,26 @@ cmemc workflow execute --wait WORKFLOW_ID
 
 ## Exercices
 
+### Improve the search by text
+
+Corporate Memory indexes some properties automatically, like rdfs:label. Without these properties, it's not easy to find the objects by a search by text. To facilite the research of references, like the mitre id, you are adding the property rdfs:label to reference objects.
+
+1. Open the transformer STIX in your project
+2. Add the property rdfs:label to references.
+   
+![](23-1-model-with-rdfslabel.png)
+
+3. Write the rule in Corporate Memory to build the label of references, like in the RDF model. Try to do this rule alone before to see the response, here:
+
+![](23-1-extract-rdfslabel.png)
+
+!!! Success
+
+        You can test the result when you search the Mitre ID via the explorer:
+
+        <image src="23-1-success-extract-rdfslabel.png" width="60%" height="60%" align="center"/>
+
+
 ### Create an inference
 
 After this tutorial, you want probably to navigate in your new knowledge graph between the relationships of Objects STIX. You need to create inferences in your knowledge graph via SPARQL Update queries.
@@ -489,7 +563,11 @@ The CAPEC "ontology": https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md
 1. Import the CAPEC dataset in Corporate Memory
 2. Create the named graph of CAPEC
 3. In the workflows of MITRE ATT&CK, insert the CAPEC dataset in the same knowledge graph
+4. Modify the transformer to support the references to CAPEC dataset from MITRE datasets.
 
 ## Conclusion
 STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory. Here, we have only extracted a few useful fields for our use case but if you want to import all the data, you will need to import the properties from STIX 2.1, the extended properties in your OSINT dataset and convert the other STIX relationships to RDF statements (like in the final exercice).
 
+## Ressources
+
+- [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
