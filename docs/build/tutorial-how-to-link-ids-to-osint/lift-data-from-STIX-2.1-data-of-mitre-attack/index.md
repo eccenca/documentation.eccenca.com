@@ -373,63 +373,133 @@ Do the same operations for the three datasets.
 
 To simplify the requests by a SPARQL query on your knowledge graph, we are offering the possibility to request all data of these 3 datasets in same time.
 
-We are showing SPARQL tasks, another important feature available in Corporate Memory: the SPARQL tasks with Jinja template
+We are showing the "SPARQL tasks", another important feature available in Corporate Memory. More precisely, we will work with the SPARQL Update task with Jinja template.
+
+!!! Note
+
+    Jinja is a text-based template language and thus can be used to generate any markup as well as source code, like SPARQL. Corporate Memory gives the possibility to insert the name of named graph in a SPARQL query according to its position in the worflow to execute.
+
+    For example, `$outputProperties.uri("graph")` inserts the name of graph connected to the output of the task in the workflow and `$inputProperties.uri("graph")` inserts the name of graph connected to the input. It's very practice to do repetive tasks, like to calculate the VoiD description at each update of graph.
 
 1. Create a RDF dataset
 
     - Label: MITRE ATT&CK®  (knowledge graph)
     - URI (name of graph): https://attack.mitre.org
 
-2. Create a SPARQL Update task
+2. Create a SPARQL Update task without missing to enable the Jinja Template
 
 ```sparql
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 INSERT DATA {
   GRAPH $outputProperties.uri("graph") {
-  	$outputProperties.uri("graph") owl:imports $inputProperties.uri("graph")
+  	$outputProperties.uri("graph") 
+        owl:imports $inputProperties.uri("graph") .
   }
 }
 ```
 
 !!! Note
 
-    TODO explain 
-    $outputProperties.uri("graph")
-    $inputProperties.uri("graph")
+    In this query, Jinja replace $outputProperties.uri("graph") and $inputProperties.uri("graph") according to our workflow so the final code executed of this query is, for example:
 
-3. In the same workflow add one SPARQL task for each RDF datasets and in output add the RDF dataset "MITRE ATT&CK®". Execute it and save it.
+    ```sparql
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-TODO workflow image
-
+    INSERT DATA {
+    GRAPH <https://attack.mitre.org>  {
+        <https://attack.mitre.org>  
+            owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json> .
+    }
+    }
+    ```
 
 !!! Success
 
     In the Turtle view of RDF dataset "MITRE ATT&CK®", you can see the triples inserted by your SPARQL query.
     ```turtle
-    <http://attack.mitre.org> 
+    <https://attack.mitre.org> 
         owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json>;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json>;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>
         .
     ```
 
-### Test with a SPARQL query
+1. In the same workflow add one SPARQL task for each RDF datasets and in output add the RDF dataset "MITRE ATT&CK®". Execute it and save it.
 
+    ![](23-1-sparql-task.gif)
+
+!!! Success
+
+    ![](23-1-workflow-import.png)
+
+    In the Turtle view of RDF dataset "MITRE ATT&CK®", you can see the triples inserted by your SPARQL query.
+
+    ```turtle
+    <http://attack.mitre.org> 
+        owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json> ;
+        owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json> ;
+        owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>
+        .
+    ```
+
+### Test your final SPARQL query
+
+Now, you can request all the datasets in same time through the named graph `https://attack.mitre.org` to respond at the final query of our use case:
+
+```sparql
+#Test 2 final query
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
+
+SELECT 
+?title ?description 
+(GROUP_CONCAT( distinct ?link; separator="<br/>") as ?references)
+FROM <https://attack.mitre.org>
+WHERE {
+{
+    ?resource ctia:type ctia:course-of-action .
+} union {
+    ?resource ctia:type ctia:attack-pattern .
+}
+
+?resource rdfs:label ?title ;
+            ctia:description ?description ;
+            ctia:external_references ?mitre_url .
+
+?mitre_url ctia:external_id  "T1490" ;
+            ctia:source_name  "mitre-attack" .
+
+    OPTIONAL { 
+        ?resource ctia:external_references [
+                ctia:url ?reference_url ;
+                ctia:source_name ?reference_label ;
+                ctia:description ?reference_description 
+                ] .
+        BIND( CONCAT("<a ref=",STR(?reference_url),"\">",?reference_label,": ",?reference_description ,"</a>") as ?link)
+    }
+}
+GROUP BY ?title ?description 
+```
+
+!!! Success
+
+    ![](23-1-sparql-all_datasets.gif)
 
 
 ### Create the Void description
 
-Here, the new SPARQL tasks are inserting automatically all the metadata to import the named graphs in this global graph and add a [VoID](https://www.w3.org/TR/void/) description with the statistics of your final knowledge graph.
+In theory, RDF datasets in the Linked Open Data have to have a [VoID](https://www.w3.org/TR/void/) description with their statistics. The objective is to catalog automatically these datasets.
+
 
 !!! Info
 
-    [VoID](https://www.w3.org/TR/void/) is an RDF Schema vocabulary for expressing metadata about RDF datasets. t is intended as a bridge between the publishers and users of RDF data.
+    [VoID](https://www.w3.org/TR/void/) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data.
 
+Here, we are creating a new SPARQL Update task to calculate and insert automatically the statistics of our global graph and add a [VoID](https://www.w3.org/TR/void/) description.
 
-
-
-4. In the same workflow, insert a new SPARQL task with this query to calculate the statistics:
+1. In the same workflow, insert a new SPARQL task with this query to calculate the statistics:
 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -463,36 +533,71 @@ WHERE
 }
 ```
 
-This query uses the graph in output of workflow to replace the variable `$outputProperties.uri("graph")`. The work This SPARQL task is connected after the dataset
+!!! Tip
 
-TODO workflow image
+        This query uses the variable `$outputProperties.uri("graph")` (Jinja template). If the name of graph changes, the code of the query stays stable in your workflow.
+
+![](23-1-sparql-void.gif)
 
 !!! Success
 
+    The final triples in the graph `https://attack.mitre.org`after this worflow.
+
     ```turtle
-    <http://attack.mitre.org> a void:Dataset;
-        dcterms:title "MITRE ATT&CK®";
-        dcterms:description "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.";
-        void:triples 1000000000 ; 
-        void:entities 3400000 ;
-            owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json>;
-            owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json>;
-            owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>.
-        .
+    prefix owl:  <http://www.w3.org/2002/07/owl#> 
+    prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+    prefix xsd:  <http://www.w3.org/2001/XMLSchema#> 
+
+    <https://attack.mitre.org>
+            rdf:type      <http://rdfs.org/ns/void#Dataset> ;
+            rdfs:comment  "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations." ;
+            rdfs:label    "MITRE ATT&CK®" ;
+            <http://rdfs.org/ns/void#entities>
+                    28081 ;
+            <http://rdfs.org/ns/void#triples>
+                    150120 ;
+            owl:imports   
+                    <https://github.com/mitre-attack/attack-stix-data/raw/master/ics-attack/ics-attack.json> ,
+                    <https://github.com/mitre-attack/attack-stix-data/raw/master/mobile-attack/mobile-attack.json> ,
+                    <https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json>
     ```
 
 ### Refresh all automatically
 
-1. Find your JSON datasets IDs and your workflow ID
-2. execute these command lines
+The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file.
 
-```bash
-wget...
-cmemc dataset download --replace DATASET_ID OUTPUT_PATH
-cmemc workflow execute --wait WORKFLOW_ID
+1. You need to know the IDs of your JSON datasets IDs and your workflow ID to implement the command lines with the tool [Corporate Memory Console]() (TODO insert link to CMEMC in the doc).
+
+![](23-1-collect_IDs.gif)
+
+For example in this demo for JSON datasets:
+```
+MITREATTCK_a7da514d3631c43f:MAEntrepriseJSON_575bcb4d6c86694e
+MITREATTCK_a7da514d3631c43f:MAICSJSON_a88aef40eaadf881
+MITREATTCK_a7da514d3631c43f:MAMobileJSON_64b4354b2ddc2993
 ```
 
-3. Create a scheduler in your cron
+2. Read the `help` of tool `cmemc` and search the commands to replace the  
+JSON datasets and to execute the workflow.
+
+!!! Success
+
+    TODO finalize the command lines:
+
+    ```bash
+    wget...
+    cmemc dataset download --replace MITREATTCK_a7da514d3631c43f:MAEntrepriseJSON_575bcb4d6c86694e OUTPUT_PATH
+
+    cmemc dataset download --replace MITREATTCK_a7da514d3631c43f:MAICSJSON_a88aef40eaadf881 OUTPUT_PATH
+
+    cmemc dataset download --replace MITREATTCK_a7da514d3631c43f:MAMobileJSON_64b4354b2ddc2993 OUTPUT_PATH
+    cmemc workflow execute --wait WORKFLOW_ID
+    ```
+
+!!! Tip
+
+    With these command lines, you can now start a cron every day to check the Mitre updates and start refreshing your datasets.
 
 ## Exercices
 
@@ -523,9 +628,12 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
 TODO insert the view easynav with the icons of STIX ???
 
 Apply these operations in Corporate Memory:
+
 1. In the STIX transformer, import also the fields: ctia:source_ref, ctia:target_ref and ctia:relationship_type.
+
 2. Create a new SPARQL Update task "convert STIX relationships to rdf statements" with this code:
-```
+
+```sparql
 PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
 
 INSERT 
@@ -546,12 +654,17 @@ WHERE
 }
 ```
 This SPARQL query create explicitly the STIX links in the knowledge graph. Here, we create a new inference via a simple query.
-3. Create a new Knowledge graph dataset "STIX inferences" and import it, like other datasets, via the workflow "generate the global knowledge graph".
-4. calculate also the "STIX inferences" dataset
+
+1. Create a new Knowledge graph dataset "STIX inferences" and import it, like other datasets, via the workflow "generate the global knowledge graph".
+   
+2. calculate also the "STIX inferences" dataset
+   
   - In the workflow "Transform all STIX data to RDF", insert the task "convert STIX relationships to rdf statements" and the dataset "STIX inferences"
   - After all others tasks in this workflow, execute the task "convert STIX relationships to rdf statements" and save the inferences in the dataset "STIX inferences"
-5. (TODO add STIX icon in CMEM)
-6. You can now navigate in EasyNav
+
+3. (TODO add STIX icon in CMEM)
+   
+4. You can now navigate in EasyNav
 
 ### Add the CAPEC dataset
 The Common Attack Pattern Enumeration and Classification (CAPEC™) effort provides a publicly available catalog of common attack patterns that helps users understand how adversaries exploit weaknesses in applications and other cyber-enabled capabilities.
@@ -566,7 +679,7 @@ The CAPEC "ontology": https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md
 4. Modify the transformer to support the references to CAPEC dataset from MITRE datasets.
 
 ## Conclusion
-STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory. Here, we have only extracted a few useful fields for our use case but if you want to import all the data, you will need to import the properties from STIX 2.1, the extended properties in your OSINT dataset and convert the other STIX relationships to RDF statements (like in the final exercice).
+STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory. Here, we have only extracted a few useful fields for our use case but if you want to import all the data, you will need to import the other properties from STIX 2.1, the extended properties in your Mitre datasets and convert the other STIX relationships to RDF statements (like in the exercice "Create an inference").
 
 ## Ressources
 
