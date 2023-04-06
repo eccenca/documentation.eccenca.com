@@ -53,7 +53,7 @@ The following material is used in this tutorial, you should download the files a
 
 ## 1. Create a new project
 
--   Once logged in to eccenca Corporate memory on the right side click on **Create :eccenca-item-add-artefact:**.
+-   Once logged in to eccenca Corporate meon the right side click on **Create :eccenca-item-add-artefact:**.
 
     ![image](22.2-create-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -66,35 +66,34 @@ The following material is used in this tutorial, you should download the files a
 
 -   Type the project name as **Movie links** in the title field and click on **create.**
 
-    ![image](22.2-type-movielink.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-type-movie-links.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 !!! success "Step Result"
 
     The project was created with the name "Movie links" which is displayed in the page top left corner.
 
     ![image](22.2-project-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
-
+task 
 ## 2. Upload the files
 
--   Click on **add file** on the right side of the page.
+-   Click on **Add File** on the right side of the page.
 
-    ![image](22.2-click-on-add-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-project-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **drop files here** select the file and click on **open**.
+-   Click on **Drop files here** select the both file and click on **Open**.
 
-    ![image](22.2-upload-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-add-file.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Once the file is successfully uploaded click on **close.**
 
-    ![image](22.2-files-uploaded.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-files-added.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Repeat the same step to add the file select the next second file and upload it.
-
+-   
 !!! success "Step Result"
 
     The files are uploaded to the project and reflect on the right side as shown below.
 
-    ![image](22.2-files-added.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-files-added-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 3. Create datasets
 
@@ -104,7 +103,7 @@ The following material is used in this tutorial, you should download the files a
 
 -   Click on the **dataset** on the left side in the item type and double-click on the **:eccenca-artefact-dataset-csv: CSV** file in the centre.
 
-    ![image](22.2-click-on-dataset.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-csv-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Type the file name as **dbpedia** in the label field.
 
@@ -112,11 +111,11 @@ The following material is used in this tutorial, you should download the files a
 
 -   Tick the option **select file from project** and select the file from the drop-down list of files available in the project.
 
-    ![image](22.2-select-dbpedia-file.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-select-filefrom-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **create**.
 
-    ![image](22.2-click-on-create1.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-db.csv.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Repeat the same step and add another file linkedmdb in the dataset.
 
