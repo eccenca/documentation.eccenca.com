@@ -53,7 +53,7 @@ The following material is used in this tutorial, you should download the files a
 
 ## 1. Create a new project
 
--   Once logged in to eccenca Corporate meon the right side click on **Create :eccenca-item-add-artefact:**.
+-   Once logged in to eccenca Corporate memory on the right side click on **Create :eccenca-item-add-artefact:**.
 
     ![image](22.2-create-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -73,7 +73,7 @@ The following material is used in this tutorial, you should download the files a
     The project was created with the name "Movie links" which is displayed in the page top left corner.
 
     ![image](22.2-project-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
-task 
+
 ## 2. Upload the files
 
 -   Click on **Add File** on the right side of the page.
@@ -88,7 +88,6 @@ task
 
     ![image](22.2-files-added.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   
 !!! success "Step Result"
 
     The files are uploaded to the project and reflect on the right side as shown below.
@@ -109,7 +108,7 @@ task
 
     ![image](22.2-type-dbpedia.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Tick the option **select file from project** and select the file from the drop-down list of files available in the project.
+-   Tick the option **Select file from project** and select the file from the drop-down list of files available in the project.
 
     ![image](22.2-select-filefrom-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -124,11 +123,11 @@ task
 
     ![image](22.2-click-on-dataset.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the label name **links.csv** in the label field.
+-   Type the label name **links** in the label field.
 
     ![image](22.2-type-links.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Tick the option **create empty file** and select the file name from the drop-down list as **link.csv** then click on **create**.
+-   Tick the option **Create empty file** and select the file name from the drop-down list as **link.csv** then click on **Create**.
 
     ![image](22.2-click-on-emptyfiles.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -136,13 +135,13 @@ task
 
     Dataset for both the files dbpedia and linkedmdb has been created, and `link.csv` is created for the output result displayed in the page's center.
 
-    ![image](22.2-dataset-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-data-set-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 4. Create a linking task
 
 -   Click on **Create :eccenca-item-add-artefact:**.
 
-    ![image](22.2-dataset-created.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-data-created-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on **:eccenca-artefact-linking: Linking** on the left side in the item type and double-click on **linking** in the center.
 
@@ -152,23 +151,23 @@ task
 
     ![image](22.2-type-linking.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **type** field (it gives the default name) select the same and click on **create**.
+-   Select the **Type** field (it gives the default name)
 
     ![image](22.2-select-type-field.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   In the continuation to the same page go down, select the **target input** dataset as a **linkedmdb** file.
+-   In the continuation to the same page go down, select the **TARGET INPUT** dataset as a **linkedmdb** file.
 
     ![image](22.2-target-input.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **type** field (it gives the default name) select the same and click on **create**.
+-   Select the **Type** field (it gives the default name) select the same.
 
     ![image](22.2-selecttype-field.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **output dataset** as **link.csv** file.
+-   Select the **Output dataset** as **links** file.
 
     ![image](22.2-select-output.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **create**.
+-   Click on **Create**.
 
     ![image](22.2-linking-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
