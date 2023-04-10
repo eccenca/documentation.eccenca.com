@@ -153,7 +153,7 @@ The following material is used in this tutorial, you should download the files a
 
 -   Select the **Type** field (it gives the default name)
 
-    ![image](22.2-select-type-field.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-type-csv.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   In the continuation to the same page go down, select the **TARGET INPUT** dataset as a **linkedmdb** file.
 
@@ -161,7 +161,7 @@ The following material is used in this tutorial, you should download the files a
 
 -   Select the **Type** field (it gives the default name) select the same.
 
-    ![image](22.2-selecttype-field.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-linkmbd-csv.png)task{ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Select the **Output dataset** as **links** file.
 
