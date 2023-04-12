@@ -307,7 +307,7 @@ ctia:Reference object has like IRI in the graph its own url.
 
     To test your transformer, you need to develop one or several SPARQL queries with the RDF pattern which will use in your use case. You are developing this query in the SPARQL editor:
 
-    ![](23-1-sparql-query.gif)
+    (TODO gif query from scratch 23-1-sparql-query.gif)
 
     ```sparql
     #Test 1 transformer STIX 2.1
