@@ -108,7 +108,7 @@ Using this combination of config parameters is based on a typical installation w
     CMEM_BASE_URI=http://localhost/
     OAUTH_GRANT_TYPE=password
     OAUTH_CLIENT_ID=cmemc
-    OAUTH_USERNAME=user
+    OAUTH_USER=user
     OAUTH_PASSWORD=...
     ```
 
