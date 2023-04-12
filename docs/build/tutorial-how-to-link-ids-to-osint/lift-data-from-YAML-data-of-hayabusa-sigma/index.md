@@ -145,9 +145,8 @@ Rule object:
     ![](23-1-success-extract-rule2.png)
     ![](23-1-success-extract-rule.png)
 
-
-
 4. Make the workflow with one input
+![](23-1-success-workflow.png)
 
 ![](23-1-add-worflow.gif)
 
