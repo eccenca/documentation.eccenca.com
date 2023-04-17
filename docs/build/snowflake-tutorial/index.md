@@ -34,7 +34,7 @@ This tutorial contains the following step-by-step instructions to connect the Sn
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
--   the product data vocabulary [products_vocabulary.nt](products_vocabulary.nt)
+-   The product data vocabulary [products_vocabulary.nt](products_vocabulary.nt)
 
 ## 1. Configure Custom JDBC Driver
 
@@ -74,7 +74,7 @@ There are 3 settings to specify:
 
 ## 2. Create a database in snowflake
 
--   Login to Snowflake enter the **username** and **password**, then click on **sign in**.
+-   Login to Snowflake enter the **username** and **password**, then click on **Sign in**.
 
 ![image](login.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -86,7 +86,7 @@ There are 3 settings to specify:
 
 ![image](22.2-add-databasenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the database name **Product**, then click on **create**.
+-   Type the database name **Product**, then click on **Create**.
 
 ![image](22.2-Product-name-database.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -94,11 +94,11 @@ There are 3 settings to specify:
 
 ![image](22.2-dd-schema.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the schema name **products_vocabulary** and click on **create**.
+-   Type the schema name **products_vocabulary** and click on **Create**.
 
 ![image](22.2-schema-name.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on scheme **products_vocabulary** on the left side of the page then click on **create** on the right side of the page, then click on **table**, then select then **standard**.
+-   Click on scheme **products_vocabulary** on the left side of the page then click on **Create** on the right side of the page, then click on **Table**, then select then **Standard**.
 
 ![image](22.22-click-on-standar.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1148,23 +1148,23 @@ Here you can populate some test data with the following SQL query:
 
 ## 3. Create a project in eccenca Corporate Memory
 
--   Click on **create** on the right side of the page.
+-   Click on **Create** on the right side of the page.
 
 ![image](22.2-create-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on Project, then click on **add**.
+-   Click on Project, then click on **Add**.
 
 ![image](22.2-add-projectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the project name **product** in the title field, then click on **create**.
+-   Type the project name **product** in the title field, then click on **Create**.
 
 ![image](22.2-project-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **create** on the right side of the page.
+-   Click on **Create** on the right side of the page.
 
 ![image](22.2-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **JDBC endpoint**, then click on **add**.
+-   Click on **JDBC endpoint**, then click on **Add**.
 
 ![image](22.2-jdbc.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1216,11 +1216,11 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-write-stategy.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **advanced options**.
+-   Click on the **ADVANCED OPTIONS**.
 
 ![image](22.2-advanced.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type **Username** and **Password** in the dialog window, then click on **create**.
+-   Type **Username** and **Password** in the dialog window, then click on **Create**.
 
 ![image](22.2-userpassword.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1232,11 +1232,11 @@ Here is a breakdown of the elements of this example connection string.
 
 ## 4. Create a transformation to build mapping rules
 
--   Click on **create** on the right side of the page.
+-   Click on **Create** on the right side of the page.
 
 ![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **add**.
+-   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **Add**.
 
 ![image](22.2-transformation-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1244,11 +1244,13 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-trans-connectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   In the **Output** dataset field select **product graph**, then click on **create** .
+![image](22.2-type-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-![image](22.2-output.new.png){ style="border: 1px solid #555; border-radius: 5px;" }
+-   In the **Output** dataset field select **product graph**, then click on **Create** .
 
--   Click on **Mapping**, then click on **edit**.
+![image](22.2-output-gp.png){ style="border: 1px solid #555; border-radius: 5px;" }
+
+-   Click on **Mapping**, then click on **Edit**.
 
 ![image](22.2-click-on-mappingnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1266,7 +1268,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-uri-pattern.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **+icon**, then select the **add value mapping**.
+-   Click on **+Icon**, then select the **Add value mapping**.
 
 ![image](22.2-add-valuenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1275,7 +1277,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-target-propertynew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the label name **product name**, then click on **save**.
+-   Type the label name **product name**, then click on **Save**.
 
 ![image](22.2-trans-labelnewpng.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1287,7 +1289,7 @@ Here is a breakdown of the elements of this example connection string.
 
 !!! note
 
-    We have the suggestion option as well; click on the **+icon** and select the **suggestion mapping**.
+    We have the suggestion option as well; click on the **+Icon** and select the **Suggestion mapping**.
 
     ![image](22.2-suggestionsnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1301,17 +1303,17 @@ Here is a breakdown of the elements of this example connection string.
 
     Suggestions generated are based on vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
 
--   **Tick** the box to select the suggestions to be added, then click on **add**.
+-   **Tick** the box to select the suggestions to be added, then click on **Add**.
 
 ![image](22.2-ticknew.png)){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 5. Create a knowledge graph
 
--   Click on **create** on the right side of the page.
+-   Click on **Create** on the right side of the page.
 
 ![image](22.2-trans-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select **Knowledge Graph**, then click on **add**.
+-   Select **Knowledge Graph**, then click on **Add**.
 
 ![image](22.2-kg-graph.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1319,7 +1321,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-graph-targetnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **create**.
+-   Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **Create**.
 
 ![image](22.2-graph-urinew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1327,4 +1329,4 @@ Here is a breakdown of the elements of this example connection string.
 
     Graph is created successfully.
 
-    ![image](22.2-graph.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](22.2-easynav-graph.png){ style="border: 1px solid #555; border-radius: 5px;" }
