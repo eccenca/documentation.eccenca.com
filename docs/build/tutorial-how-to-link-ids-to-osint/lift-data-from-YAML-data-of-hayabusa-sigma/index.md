@@ -121,6 +121,7 @@ Rule object:
   
 ![](23-1-iri-rule.png) (todo replace)
 
+- property `ctis:filename` with the result of this regular expression `^.*?([^\/]*)$` on the rule path 
 - property `rdfs:label` with the rule title
 - property `rdfs:comment` with the rule description
 - property `rdfs:seeAlso` with the references
@@ -137,7 +138,7 @@ Rule object:
 
 ![](23-1-rules-isdefinedby.png)
 
-![](23-1-add-transformer-rule.gif)
+![](23-1-add-transformer-rule.gif) (todo don't miss ctis:filename)
 
 !!! Success
 
@@ -145,7 +146,7 @@ Rule object:
     ![](23-1-success-extract-rule2.png)
     ![](23-1-success-extract-rule.png)
 
-4. Make the workflow with one input
+1. Make the workflow with one input
 ![](23-1-success-workflow.png)
 
 ![](23-1-add-worflow.gif)
