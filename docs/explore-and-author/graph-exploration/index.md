@@ -15,13 +15,21 @@ To open the Explore module, click **:eccenca-application-explore: Knowledge G
 The user interface of the Explore module shows the following main areas:
 
 <div class="annotate" markdown>
-- the header area, showing selected elements, possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**), a **:eccenca-module-search: Go to resource** input field, and a **:eccenca-application-useraccount: user menu**
-- the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
-- the main area, providing multiple views, depending on which resource has been selected.
+-   the header area, showing:
+    -   selected elements,
+    -   possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**),
+    -   a **:eccenca-module-search: Go to resource** (2) input field,
+    -   and a **:eccenca-application-useraccount: user menu**
+-   the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
+-   the main area, providing multiple views, depending on which resource has been selected.
 </div>
 
 1.  If necessary, you can toggle the navigation area by using the
     :eccenca-toggler-moveleft: (hide) and :eccenca-toggler-tree: (show) buttons.
+
+2.  _Go to resource_ is not a search field.
+    It is used with an IRI to open the resource details page directly.
+    You can try to search for a keyword, which might or might not be doing what you intended.
 
 ## Graphs
 
