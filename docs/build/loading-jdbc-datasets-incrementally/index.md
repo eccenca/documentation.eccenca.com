@@ -45,15 +45,15 @@ To extract data from a relational database, you need to first register a **JDBC 
     ![Create JDBC Dataset](create-dataset-JDBC.png)
 
 5. Provide the required configuration details for the JDBC endpoint:
-    - **Label**: Provide a table name.
-    - **Description:** Optionally describe your table.
-    - **JDBC Driver Connection URL:** Provide the JDBC connection. In this tutorial we use a MySQL database. The database server is named _mysql_ and the database is named _serviceDB_.
-    - **Table:** Provide the name of the table in the database.
-    - **Source query**: Provide a default source query. In this tutorial, the source query will be modified later as the OFFSET changes.
-    - **Limit:** Provide a LIMIT for the SQL query. In this tutorial, we choose 5 for demonstrating the functionality. You may select any value which works for your use case.
-    - **Query strategy**: Select: _Execute the given source query. No paging or virtual Query._ In this tutorial, this needs to be changed so that when this JDBC endpoint is being used, Corporate Memory will always check for the _Source Query_ that was provided earlier.
-    - **User**: Provide the user name which is allowed to access the database.
-    - **Password**: Provide the user password that is allowed to access the database.
+    -   **Label**: Provide a table name.
+    -   **Description:** Optionally describe your table.
+    -   **JDBC Driver Connection URL:** Provide the JDBC connection. In this tutorial we use a MySQL database. The database server is named _mysql_ and the database is named _serviceDB_.
+    -   **Table:** Provide the name of the table in the database.
+    -   **Source query**: Provide a default source query. In this tutorial, the source query will be modified later as the OFFSET changes.
+    -   **Limit:** Provide a LIMIT for the SQL query. In this tutorial, we choose 5 for demonstrating the functionality. You may select any value which works for your use case.
+    -   **Query strategy**: Select: _Execute the given source query. No paging or virtual Query._ In this tutorial, this needs to be changed so that when this JDBC endpoint is being used, Corporate Memory will always check for the _Source Query_ that was provided earlier.
+    -   **User**: Provide the user name which is allowed to access the database.
+    -   **Password**: Provide the user password that is allowed to access the database.
 
 ![Configuration of a JDBC dataset](configure-JDBC-1.png)
 
@@ -63,15 +63,15 @@ To extract data from a relational database, you need to first register a **JDBC 
 
 To incrementally extract data in Corporate Memory, we need to store the information about the OFFSET that will change with each extraction. To accomplish this, we need to define a new Graph named _Services Metadata Graph_ that will hold this information. To identify the changing OFFSET with the JDBC endpoint we previously created, we will use the Graph IRI that Corporate Memory created for us.
 
-### **To find the JDBC endpoint IRI**
+### To find the JDBC endpoint IRI
 
-    1. Visit the **Exploration** Tab of Corporate Memory
-    2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)
-    3. Select in Navigation (bottom left): **functions_Plugins_Jdbc**
-    4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
-    5. Press the **Turtle** tab inside your JDBC endpoint view (right)
+1. Visit the **Exploration** Tab of Corporate Memory
+2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)
+3. Select in Navigation (bottom left): **functions_Plugins_Jdbc**
+4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
+5. Press the **Turtle** tab inside your JDBC endpoint view (right)
 
-In our example, the JDBC Endpoint IRI looks like this: _http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC_
+In our example, the JDBC Endpoint IRI looks like this: _<http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210>_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC_
 
 See screenshot below for example:
 
@@ -106,7 +106,7 @@ For your project, please:
 
 **Import the Graph** in the Exploration tab → Graph (menu) → Add new Graph → Provide Graph IRI + Select file
 
-In our example, we used the following Graph IRI for the Metadata Graph: _http://di.eccenca.com/project/services/metadata_
+In our example, we used the following Graph IRI for the Metadata Graph: _<http://di.eccenca.com/project/services/metadata>_
 
 ## 3 Create a Transformation to dynamically compose a SQL Query
 
@@ -131,7 +131,7 @@ To extract rows based on the predefined (changing) OFFSET and LIMIT from a table
 
 Each time we execute the transformation, we want to forward the OFFSET in our SQL Query to extract the next rows. As an example, we have a start OFFSET of 0 and LIMIT of 5. After one execution we want to have an OFFSET of 5, after another execution an OFFSET of 10 and so on. In this tutorial, we assume that the table contains an ID column which incrementally increases by 1 in each row.
 
-To store the updated OFFSET, we update the triple with a SPARQL Update query: 
+To store the updated OFFSET, we update the triple with a SPARQL Update query:
 
 1. Press the **Create** button (top right) in the data integration workspace and select the type **Transformation**
     1. Provide a **Label**
