@@ -4,20 +4,22 @@ tags:
     - Security
     - Keycloak
 ---
-# Configure Corporate Memory with external Keycloak
+# Configure Corporate Memory with an external Keycloak
 
 ## Introduction
 
-Often there already exists a Keycloak deployment in your environment or you want to deploy multiple stages or deployments of corporate memory but only using one Keycloak. Here you often have keycloak deployed in a different domain than Corporate Memory, i.e. cmem.example.com and keycloak.example.com. For this circumstance this page give some hints.
+Maybe you already operate a central Keycloak deployment in your infrastructure or you want to deploy multiple stages of Corporate Memory with a single Keycloak.
+Very often this results a Keycloak which is deployed in a different domain than your Corporate Memory, i.e. `cmem.example.com` and `keycloak.example.com`.
+For this scenario, this page give some hints.
 
 ## Configuration in Keycloak
 
-When using a keycloak in a different domain, you have to allow this domain in the keycloak settings:
+When using a Keycloak in a different domain, you have to allow this domain in the Keycloak settings:
 
--   In Realm Settings go to Security defenses tab
-    -   X-Frame-Options need to be cleared
-    -   The Content-Security-Policy header needs to be defined for allowing the framing of the login mask of keycloak for the deployment frame-src <https://cmem.example.com/>;
--   In Clients go to i.e. `cmem` client
+-   In **Realm Settings**, go to **Security defenses** tab
+    -   `X-Frame-Options` need to be cleared
+    -   The `Content-Security-Policy` header needs to be defined for allowing the framing of the login mask of Keycloak for the deployment `frame-src <https://cmem.example.com/>;`
+-   In **Clients** go to i.e. `cmem` client
     -   add `https://cmem.example.com/*` to Valid redirect URIs
 
 ![CSP-settings](CSP-settings.png){ class="bordered" }
@@ -28,9 +30,11 @@ When using a keycloak in a different domain, you have to allow this domain in th
 
 ### Environments
 
-When running CHO you can configure the keycloak through editing `environments/config.env`. Then just add the variables below. You can get those from the `.well-known` url from your instance, e.g. `https://keycloak.example.com/auth/realms/cmem/.well-known/openid-configuration`:
+When running the Corporate Memory docker orchestration, you can configure the Keycloak through editing `environments/config.env`.
+Then just add the variables below.
+You can get those from the `.well-known` url from your instance, e.g. `https://keycloak.example.com/auth/realms/cmem/.well-known/openid-configuration`:
 
-```bash
+``` bash
 OAUTH_AUTHORIZATION_URL=${EXTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth
 OAUTH_TOKEN_URL=${EXTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token
 OAUTH_JWK_SET_URL=${EXTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/certs
@@ -43,9 +47,10 @@ OAUTH_CLIENT_ID=cmem
 
 ### Dataintegration (optional)
 
-In default configuration Dataintegration is configured through environments. However you can also edit this in Dataintegration's config file `dataintegration.conf`:
+By default, Dataintegration is configured through environments.
+However you can also edit this in Dataintegration's config file `dataintegration.conf`:
 
-```bash
+``` bash
 oauth.clientId = ${OAUTH_CLIENT_ID}
 oauth.authorizationUrl = ${OAUTH_AUTHORIZATION_URL}
 oauth.tokenUrl = ${OAUTH_TOKEN_URL}
@@ -54,9 +59,10 @@ oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
 
 ### Dataplatform (optional)
 
-In default configuration Dataplatform is configured through environments. However you can also edit this in Dataplatforms's config file `application.yml`:
+By default, Dataplatform is configured through environments.
+However you can also edit this in Dataplatforms's config file `application.yml`:
 
-```yaml
+``` yaml
 spring.security.oauth2:
   resourceserver:
     anonymous: "${DATAPLATFORM_ANONYMOUS}"
@@ -84,18 +90,22 @@ spring.security.oauth2:
 
 ### cmemc
 
-In cmemc you also need to change the keycloak cmemc tries to authenticate before connecting to corporate memory. You have to add this:
+In cmemc you also need to change the Keycloak cmemc tries to authenticate before connecting to Corporate Memory.
+You have to add this:
 
-```bash
-OAUTH_TOKEN_URI=https://keycloak.example.com/auth/realms/cmem/protocol/openid-connect/token
+``` ini
+KEYCLOAK_BASE_URI=https://keycloak.example.com/
+KEYCLOAK_REALM_ID=cmem
 ```
 
 ### Helm charts (optional)
 
-In the helm charts we assumed you deploy keycloak by official charts, either via operator, or via helm charts. In either way you can configure the the base realm path in the value section.
+In the helm charts, we assumed you deploy Keycloak by official charts, either via operator, or via helm charts.
+In either way you can configure the base realm path in the value section.
 
-```yaml
-  # This is the base keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
+``` yaml
+  # This is the base Keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
   .Values.global.keycloakIssuerUrl: https://keycloak.example.com/auth/realms/cmem
   .Values.global.oauthClientId: cmem
 ```
+
