@@ -29,12 +29,13 @@ The highlights of this release are:
 
 !!! warning
 
-    With this release of Corporate Memory the DataPlatform configuration and behavior has changed and needs to be adapted according to the migration notes below.
+    With this release of Corporate Memory the DataManager configuration has changed and needs to be adapted according to the [migration notes below](#eccenca-datamanager).
 
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.1
 -   eccenca DataIntegration v23.1
+-   eccenca DataIntegration Python Plugins v3.0.0
 -   eccenca DataManager v23.1
 -   eccenca Corporate Memory Control (cmemc) v23.1
 
@@ -125,6 +126,39 @@ v23.1 of eccenca DataIntegration introduced the following deprecations:
 
 -   Resource endpoints:
     -   All resources endpoints that have the _file path_ (`workspace/projects/:project/resources/:name`) encoded in the URL path are now deprecated. The files endpoints using a _query parameter_ for the path should be used now.
+
+## eccenca DataIntegration Python Plugins v3.0.0
+
+Corporate Memory v23.1 includes the DataIntegration Python Plugins support in version 3.0.0.
+
+v3.0.0 of eccenca DataIntegration Python Plugins adds the following new features:
+
+-   Autocompleted parameter types may declare dependent parameters. For instance, a parameter `city` may declare that its completed values depend on another parameter 'country':
+
+    ```py
+    class CityParameterType(StringParameterType):
+        autocompletion_depends_on_parameters: list[str] = ["country"]
+        def autocomplete(self,
+                         query_terms: list[str],
+                         depend_on_parameter_values: list[Any],
+                         context: PluginContext) -> list[Autocompletion]:
+           # 'depend_on_parameter_values' contains the value of the country parameter
+           return ...
+    ```
+
+-   Password plugin parameter type. Passwords will be encrypted in the backend and not shown to users:
+
+    ```py
+    @Plugin(label="My Plugin")
+    class MyTestPlugin(TransformPlugin):
+    def __init__(self, password: Password):
+        self.password = password
+
+    # The decrypted password can be accessed using:
+    self.password.decrypt()
+    ```
+
+-   Custom parameter types can be registered. See implementation of `PasswordParameterType` for an example.
 
 ## eccenca DataManager v23.1
 
@@ -223,17 +257,27 @@ v23.1 of eccenca Corporate Memory Control introduced the following deprecations:
 
 ### eccenca DataIntegration Python Plugins
 
-TODO
+The signature of the autocomplete function has been changed.
+All autocomplete implementations need to be updated to the following signature:
+
+```py
+def autocomplete(self, query_terms: list[str], depend_on_parameter_values: list[Any], context: PluginContext) -> list[Autocompletion]
+```
+
+Parameters using the old signature will continue to work for one release, but a warning will be printed in the log.
+
+The same applies to the label function that has been updated to the following signature:
+
+```py
+def label(self, value: str, depend_on_parameter_values: list[Any], context: PluginContext) -> Optional[str]
+```
 
 ### eccenca DataManager
 
 -   A manual migration for the graph based configuration of the EasyNav configuration and the graph list configuration of the explore module is necessary.
 -   A manual migration for the `.yml` based DataManager configuration is necessary.
+-   The new web based configuration tool can be used to migrate, create and manage your DataManager (workspace) configuration
 
 ### eccenca DataPlatform
 
 -   Deprecated properties under `authorization.accessConditions` have been removed. The used graph is always the default graph from bootstrap, and URL as a source for access conditions is not supported anymore.
-
-### eccenca Corporate Memory Control
-
-TODO
