@@ -29,7 +29,7 @@ $ cmemc graph count [OPTIONS] [IRIS]...
 
 
 
-This command lists graphs with their triple count. Counts are done without following imported graphs.
+This command lists graphs with their triple count. Counts do not inlude imported graphs.
 
 
 
@@ -62,10 +62,10 @@ Imported graphs which do not exist are shown as `[missing: IRI]`. Imported graph
 
     -a, --all   Show tree of all (readable) graphs.
     --raw       Outputs raw JSON of the graph importTree API response.
-    --id-only   Lists only graph identifier (IRIs) and no labels or other meta
-                data. This is useful for piping the IRIs into other commands.
-                The output with this option is a sorted, flat, de-duplicated
-                list of existing graphs.
+    --id-only   Lists only graph identifier (IRIs) and no labels or other
+                metadata. This is useful for piping the IRIs into other
+                commands. The output with this option is a sorted, flat, de-
+                duplicated list of existing graphs.
     ```
 
 ## graph list
@@ -85,7 +85,7 @@ $ cmemc graph list [OPTIONS]
 
     --raw                      Outputs raw JSON of the graphs list API response.
     --id-only                  Lists only graph identifier (IRIs) and no labels
-                               or other meta data. This is useful for piping the
+                               or other metadata. This is useful for piping the
                                IRIs into other commands.
   
     --filter <CHOICE TEXT>...  Filter graphs based on effective access
@@ -172,7 +172,7 @@ $ cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 
 
 
-If input is a directory, it scans for file-pairs such as `xxx.ttl` and `xxx.ttl.graph` where `xxx.ttl` is the actual triples file and `xxx.ttl.graph` contains the graph IRI as one string: `https://mygraph.de/xxx/`.
+If input is a directory, it scans for file-pairs such as `xyz.ttl` and `xyz.ttl.graph` where `xyz.ttl` is the actual triples file and `xyz.ttl.graph` contains the graph IRI as one string: `https://mygraph.de/xyz/`.
 
 If input is a file, content will be uploaded to IRI. If `--replace` is set, the data will be overwritten, if not, it will be added.
 

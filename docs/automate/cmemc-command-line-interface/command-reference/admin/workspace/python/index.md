@@ -29,9 +29,9 @@ $ cmemc admin workspace python install PACKAGE
 
 
 
-This command is basically a `pip install` in the remote python environment.
+This command is essentially a `pip install` in the remote python environment.
 
-You can install a package by uploading a source distribution .tar.gz file, or by uploading a build distribution .whl file, or by specifying a package name, more precisely, a pip requirement specifier with a package name available on pypi.org (e.g. `requests==2.27.1`).
+You can install a package by uploading a source distribution .tar.gz file, by uploading a build distribution .whl file, or by specifying a package name, i.e., a pip requirement specifier with a package name available on pypi.org (e.g. `requests==2.27.1`).
 
 
 
@@ -46,7 +46,7 @@ $ cmemc admin workspace python uninstall PACKAGE_NAME
 
 
 
-This command is basically a `pip uninstall` in the remote python environment.
+This command is essentially a `pip uninstall` in the remote python environment.
 
 
 
@@ -61,7 +61,7 @@ $ cmemc admin workspace python list [OPTIONS]
 
 
 
-This command is basically a `pip list` in the remote python environment.
+This command is essentially a `pip list` in the remote python environment.
 
 It outputs a table of python package identifiers with version information.
 
