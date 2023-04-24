@@ -55,6 +55,7 @@ extra:
     AdvancedTutorial: advanced
     ExpertTutorial: expert
     Project: project
+    Keycloak: keycloak
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
@@ -173,6 +174,7 @@ theme:
       advanced: material/list-status
       expert: material/list-status
       project: eccenca/artefact-project
+      keycloak: material/openid
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky
