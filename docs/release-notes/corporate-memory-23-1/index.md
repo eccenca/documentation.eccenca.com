@@ -7,25 +7,20 @@ tags:
 
 Corporate Memory 23.1 is the first release in the 23.1 release line.
 
-<!--TODO: add highlight screenshots -->
-![22.2: Build - Active Learning User Interface](22-2-active-learning-user-interface.png "22.2: Build - Active Learning User Interface")
-![22.2: Explore - EasyNav Visualisation Interface](22-2-easynav-visualisation-interface.png "22.2: Explore - EasyNav Visualisation Interface")
-![22.2: Automate - cmemc Multiple Filter / Admin Status](22-2-cmemc-multiple-filter-and-admin-status.png "22.2: Automate - cmemc Multiple Filter / Admin Status")
+![23.1: Build - Global Variables](23-1-global-variables.png "23.1: Build - Global Variables"){ class="bordered" }
+![23.1: Explore - Workspace Selector](23-1-workspace-switch.png "23.1: Explore - Workspace Selector"){ class="bordered" }
+![23.1: Explore - EasyNav Graph Editing](23-1-easynav-edit.png "23.1: Explore - EasyNav Graph Editing"){ class="bordered" }
 
 The highlights of this release are:
 
 -   Build:
-    -   Support for global variables in dataset and task parameters.
-    -   Extensions to the Python Plugin API, including autocompleted parameter types and password plugin parameter type.
-    -   Improved handling of replaceable datasets and read-only dataset configurations.
+    -   Support for **global variables** in dataset and task parameters.
+    -   Extensions to the Python Plugin API, including **autocompleted parameter** type and **password parameter** type.
 -   Explore:
-    -   Workspaces are now selectable at runtime.
-    -   Enhanced editing capabilities in the EasyNav editor.
--   Consume:
-    -   Integration of Infinispan as the sole cache provider, enabling clustering of DataPlatform instances.
-    -   New dynamic access conditions and improved user rights management.
+    -   Workspaces are now **selectable at runtime**.
+    -   Enhanced **editing capabilities** in the EasyNav editor.
 -   Automate:
-    -   New `admin user` command group for managing user accounts in the Keycloak CMEM realm.
+    -   New **`admin user` command group** for managing user accounts in the Keycloak CMEM realm.
 
 !!! warning
 
