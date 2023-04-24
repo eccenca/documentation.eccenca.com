@@ -124,8 +124,7 @@ v23.1 of eccenca DataIntegration ships following fixes:
 v23.1 of eccenca DataIntegration introduced the following deprecations:
 
 -   Resource endpoints:
-    -   All endpoints starting with `workspace/projects/:project/resources/:name` have become deprecated.
-    -   Use corresponding endpoints starting with `workspace/projects/:project/files` instead that have a query parameter `path` instead of the path parameter `name`.
+    -   All resources endpoints that have the _file path_ (`workspace/projects/:project/resources/:name`) encoded in the URL path are now deprecated. The files endpoints using a _query parameter_ for the path should be used now.
 
 ## eccenca DataManager v23.1
 
@@ -218,7 +217,9 @@ v23.1 of eccenca Corporate Memory Control introduced the following deprecations:
 
 ### eccenca DataIntegration
 
-TODO
+-   Resource endpoints:
+    -   All resources endpoints that have the _file path_ (`workspace/projects/:project/resources/:name`) encoded in the URL path are now deprecated.
+    -   Use corresponding endpoints starting with `workspace/projects/:project/files` instead, using a _query parameter_ for the file path.
 
 ### eccenca DataIntegration Python Plugins
 
