@@ -1,10 +1,12 @@
 ---
 tags:
+    - Configuration
     - Security
+    - Keycloak
 ---
-# Change Passwords and Keys
+# Changing Passwords and Keys
 
-This page describes how to change passwords and keys for a new deployment (esp. in the context of a [Single Node Cloud Installation](./../../../installation/scenario-single-node-cloud-installation/index.md))
+This page describes how to change passwords and keys for a new deployment (esp. in the context of a [Single Node Cloud Installation](./../../../installation/scenario-single-node-cloud-installation/index.md)).
 
 Assuming your instance runs at `https://cmem.example.com/` in a default installation Keycloak is deployed at `https://cmem.example.com/auth` (this may vary depending on your setup).
 
