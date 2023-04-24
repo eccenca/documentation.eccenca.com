@@ -85,6 +85,13 @@ spring.security.oauth2:
         user-name-attribute: "preferred_username"
 ```
 
+### cmemc
+
+In cmemc you also need to change the keycloak cmemc tries to authenticate before connecting to corporate memory. You have to add this:
+
+```
+OAUTH_TOKEN_URI=https://keycloak.example.com/auth/realms/cmem/protocol/openid-connect/token
+```
 
 ### Helm charts (optional)
 
