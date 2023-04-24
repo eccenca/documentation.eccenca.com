@@ -7,9 +7,9 @@ tags:
 
 Corporate Memory 23.1 is the first release in the 23.1 release line.
 
+![23.1: Explore - EasyNav Graph Editing](23-1-easynav-edit.png "23.1: Explore - EasyNav Graph Editing"){ class="bordered" }
 ![23.1: Build - Global Variables](23-1-global-variables.png "23.1: Build - Global Variables"){ class="bordered" }
 ![23.1: Explore - Workspace Selector](23-1-workspace-switch.png "23.1: Explore - Workspace Selector"){ class="bordered" }
-![23.1: Explore - EasyNav Graph Editing](23-1-easynav-edit.png "23.1: Explore - EasyNav Graph Editing"){ class="bordered" }
 
 The highlights of this release are:
 
@@ -212,13 +212,15 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
     -   `authorization.accessConditions.graph`: used graph is always the default graph from bootstrap
     -   `authorization.accessConditions.url`: url as source for access condition not supported anymore
 
-## eccenca Corporate Memory Control (cmemc) v22.2
+## eccenca Corporate Memory Control (cmemc) v23.1
 
-We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements. This release introduces new command functionalities, configuration options, and a change in the project structure.
+We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements.
+This release introduces new command functionalities, configuration options, and a change in the project structure.
 
 v23.1 of eccenca Corporate Memory Control adds the following new features:
 
 -   `admin status` command:
+    -   option `--exit-1` to specify, when to return non-zero exit code
     -   currently set to `never`, this will be changed to `always` in the future
 -   `admin user` command group:
     -   `create` command - add a user account to the keycloak CMEM realm
@@ -231,7 +233,7 @@ v23.1 of eccenca Corporate Memory Control adds the following new features:
 
 v23.1 of eccenca Corporate Memory Control introduced the following deprecations:
 
--   `admin status` command
+-   `admin status` command `--exit-1` option default
     -   currently set to `never`, this will be changed to `always` in a future release
 
 ## Migration Notes
