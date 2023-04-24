@@ -14,65 +14,140 @@ This page documents important steps in order to configure Keycloak as an authent
 
 ## Realm configuration
 
-In order to separate all configuration
+!!! NOTE: A realm can be im-/exported. However exports will not contain user credentials. So be aware not losing data.
 
-- Add new realm `cmem`
+To create a realm use the drop down menu for choosing a realm on the left side.
+
+  -  Create a realm `cmem`
+    - Select "Realm settings"
+      - "General" tab:
+      - Change HTML Display name to `<span class="ecc-logo"></span>Corporate Memory`
+    - "Themes" tab
       - Switch realm's login theme to `eccenca`
-          - Change Display name to `CMEM`
-          - Change HTML Display name to `<span class="ecc-logo"></span>Corporate Memory`
+      - Switch realm's account theme to `eccenca`
 
 ## Client configuration
 
-- Add a client called `cmem-oauth2-client`
+There are two (three) diffenrent kinds of clients used by Corporate Memory. One client is used by DM/DP/DI to authenticate a user for using the UI. The other client is for using the command line client as technical user. Depending on the environment there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.
 
-      - This client is intended for usage by DataManager and DataIntegration (user login)
-      - Configure this client ID under `oauth.clientId` in DataIntegration's configuration file
-      - Configure this client ID under `js.config.workspaces.default.authorization.oauth2.clientId` in DataManager's configuration file
-      - Enable `Standard Flow Enabled` (enables OAuth 2.0 Authorization Code Flow)
-      - Enable `Implicit Flow Enabled`
-      - Add the adequate URL pattern (wildcard `http://example.org/*` works) to `Valid Redirect URIs` (`*` for testing purposes is acceptable)
-      - Save
-      - Go to `Mappers`
-        - Click `Create`
-            - Name `groups`
-            - Mapper Type `Group Membership`
-            - Token Claim Name `groups`
-            - Disable `Full group path`
-            - Disable `Add to ID token`
-            - Enable `Add to access token`
-        - (Only for DP < 19.10.1) Click `Create`
-            - Name `DataPlatform audience`
-            - Mapper Type `Audience`
-            - Included Client Audience --> "Select One" (do not touch it)
-            - Included Custom Audience `dataplatform`
-            - Disable `Add to ID token`
-            - Enable `Add to access token`
+### Add a client by importing
 
-- Add client called `cmem-service-account`
+Add a client called `cmem` by select clients, then create client. The client described below can also be imported. Please download the [client configuration for using the ui](cmem.json), [client configuration with credentials for technical account](cmem-service-account.json), then select "Import client". For `cmem-service-account` you have to edit the file an replace the secret or regenerate the secret in keycloak after the import.
 
-      - This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes ([cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface))
-      - Set the `Access Type` to `confidential`
-      - Go to `Settings` and enable `Service Accounts Enabled` (enables OAuth 2.0 Client Credentials Flow)
-      - Save
-      - Go to `Credentials` and configure `Client Id and Secret`
-      - If DataIntegration schedulers are required, configure this client id and secret under the properties`workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file
-      - For the importer add the client secret to `docker-compose.importer.yml`
-      - Go to `Roles` and add the `elds-admins` role
-      - Go to `Service Account Roles -> Client Roles (cmem-service-account)` and add the `elds-admins` role to `Assigned Roles`
-      - Go to `Mappers`
-          - Click `Create`
-            - Name `roles`
-            - Mapper Type `User Client Role`
-            - Client ID `cmem-service-account`
-            - Token Claim Name `groups`
-            - Enable `Add to access token`
-          - (Only for DP < 19.10.1) Click `Create`
-            - Name `DataPlatform audience`
-            - Mapper Type `Audience`
-            - Included Client Audience --> "Select One" (do not touch it)
-            - Included Custom Audience `dataplatform`
-            - Disable `Add to ID token`
-            - Enable `Add to access token`
+![Dialog import cmem client](import-client-cmem.png)
+
+### Add a client manually (Login into UI)
+
+This client is intended for usage by DataManager/Dataplatform and DataIntegration (user login):
+
+![Dialog create cmem client](createClient_1.png)
+
+  - Client type: OpenID Connect
+  - Client ID: i.e. `cmem`, you need to remember this and use this later
+  - Name and Description: fill as you like
+  - Select 'Next'
+  - Client authentication: Off
+  - Authorization: Off
+  - until v22.2:
+    - Enable `Standard Flow Enabled` (enables OAuth 2.0 Authorization Code Flow)
+    - Enable `Implicit Flow Enabled`
+  - from v23.1:
+    - Enable `Standard Flow Enabled` (enables OAuth 2.0 Authorization Code Flow)
+  - Save
+
+![Dialog create cmem client](createClient_2.png)
+
+The dialog above closes and you land on the configuration sections of this client:
+
+  - Valid redirect URIs: Add the adequate URL pattern (wildcard `http://example.org/*` works) to `Valid Redirect URIs` (`*` for testing purposes is acceptable)
+  - Switch the Tabs to 'Client scopes' and select the first scope (i.e.: cmem-service-account-dedicated)
+
+![Dialog select cmem-service-account-dedicated](createClient_11.png)
+![Dialog create mapper](createClient_4.png)
+![Dialog create mapper](createClient_5.png)
+
+  - `Configure a new mapper`
+  - select Mapper Type `User Client Role`
+    - Name `groups`
+    - Token Claim Name `groups`
+    - Disable `Full group path`
+    - Disable `Add to ID token`
+    - Enable `Add to access token`
+    - Enable `Add to user info`
+  - Save
+
+![Dialog create mapper](createClient_6.png)
+
+
+  - In Corporate Memory configuration until v22.2:
+    - Configure this client ID under `js.config.workspaces.default.authorization.oauth2.clientId` in DataManager's configuration file (Datamanager needs implicit flow)
+    - Configre  this client ID under `oauth.clientId = "cmem"` in DataManager's configuration file (Dataintegration needs stadard flow)
+  - In Corporate Memory configuration from v23.1:
+    - Configure this client ID in the environments with the name `OAUTH_CLIENT_ID` in `/environments/config.env`
+
+
+### Add a client manually (Technical Account)
+
+This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes ([cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface))
+
+
+  - Client type: OpenID Connect
+  - Client ID: i.e. `cmem-service-account`, you need to remember this and use this later
+  - Name and Description: fill as you like
+  - Select 'Next'
+  - Client authentication: On
+  - Authorization: Off
+  - Authentication flow: enable `Service accounts roles`
+  - Save
+
+  - Go to `Credentials` and configure `Client Id and Secret`, copy the client secret for later usage
+![Dialog create role](createClient_7.png)
+![Dialog create role](createClient_8.png)
+
+  - Go to `Roles` and add the `elds-admins` role
+  - Select `Action` and `Add associated roles`
+  - Select `Filter by client` then 
+![Dialog create role](createClient_9.png)
+![Dialog create role](createClient_10.png)
+
+  - Go to `Service Account Roles -> Client Roles (cmem-service-account)` and add the `elds-admins` role to `Assigned Roles`
+
+![Dialog select cmem-dedicated](createClient_3.png)
+![Dialog create mapper](createClient_13.png)
+
+  - `Configure a new mapper`
+  - select Mapper Type `User Client Role`
+    - Name `roles`
+    - Token Claim Name `groups`
+    - Enable `Add to ID token`
+    - Enable `Add to access token`
+    - Enable `Add to user info`
+  - Save
+
+![Dialog create mapper](createClient_14.png)
+
+  - Go to tab `Service account roles` 
+  - select the link in the center `To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID`
+
+![Dialog add role to client](createClient_15.png)
+
+  - Go to tab `Role mapping` and select `Assign role`
+  - Change the filter to `Filter by clients` and select the new Client ID, i.e `cmem-service-account`
+
+![Dialog add role to client](createClient_16.png)
+![Dialog add role to client](createClient_17.png)
+
+  - In Corporate Memory configuration:
+    - If DataIntegration schedulers are required, configure this client id and secret under the properties`workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file or
+    - in docker-compose-orchestration you can edit this in the environment as:
+        - CMEM_SERVICE_ACCOUNT_CLIENT_ID=cmem-service-account
+        - CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=YourSecret
+        - DATAINTEGRATION_CMEM_SERVICE_CLIENT=cmem-service-account
+        - DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET=YourSecret
+    - in helm this value is definded by: 
+        - DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET: `{{ .Values.global.cmemClientSecret }}`
+        - DATAINTEGRATION_CMEM_SERVICE_CLIENT: `{{ .Values.global.cmemClientId }}`
+    - For cmemc you can your this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`
 
 ## Groups configuration
 
@@ -80,7 +155,7 @@ In order to separate all configuration
       - Add the following groups:
         - `elds-admins`
         - Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak
-              - In CHO, `local-users`, `local-admins`
+          - In CHO, `local-users`, `local-admins`
 
 ## Users configuration
 
@@ -88,5 +163,6 @@ In order to separate all configuration
 - Go to `Users`
 - Add the following users and assign their groups respectively (for each user go to credentials, add password and disable `Temporary`)
       - `user:user`
-      - groups: `local-users` and `group_user_a` (legacy group)
+        - groups: `local-users`
       - `admin:admin`
+        - groups: `local-admin`
