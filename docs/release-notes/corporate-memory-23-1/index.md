@@ -15,13 +15,17 @@ Corporate Memory 23.1 is the first release in the 23.1 release line.
 The highlights of this release are:
 
 -   Build:
-    -   Several UI/UX improvements
-    -   All new linking evaluation view
+    -   Support for global variables in dataset and task parameters.
+    -   Extensions to the Python Plugin API, including autocompleted parameter types and password plugin parameter type.
+    -   Improved handling of replaceable datasets and read-only dataset configurations.
 -   Explore:
-    -   Graph editing capabilities added to **EasyNav**
-    -   All new workspace switching and altered login flow
+    -   Workspaces are now selectable at runtime.
+    -   Enhanced editing capabilities in the EasyNav editor.
+-   Consume:
+    -   Integration of Infinispan as the sole cache provider, enabling clustering of DataPlatform instances.
+    -   New dynamic access conditions and improved user rights management.
 -   Automate:
-    -   ...
+    -   New `admin user` command group for managing user accounts in the Keycloak CMEM realm.
 
 !!! warning
 
@@ -59,7 +63,7 @@ v23.1 of eccenca DataIntegration adds the following new features:
 -   Auto-completion support to linking rule 'link type' parameter.
 -   Improve handling of replaceable datasets:
     -   Datasets that can be replaced/configured in a workflow at API request time can be set in the workflow editor.
-    -   This allows for the execution of workflows with mock data, which has not been possible with "Variable dataset" tasks.
+    -   This allows for the execution of workflows with mock data, which has not been possible with 'Variable dataset' tasks.
 -   Allow to config datasets as read-only to prevent accidentally writing into them.
 -   New resource endpoints to replace the deprecated resource endpoints. See deprecation section for more details.
 -   Allow to force start activity.
@@ -68,7 +72,8 @@ v23.1 of eccenca DataIntegration adds the following new features:
 v23.1 of eccenca DataIntegration introduces the following changes:
 
 -   Check token expiration (> 5s left) before sending a request to prevent unnecessary request retries.
--   'Concatenate' and 'Concatenate multiple values' transformer: In 'glue' parameter value support `\t`, `\n` and `\\` as escaped characters.
+-   'Concatenate' and 'Concatenate multiple values' transformer:
+    -   In 'glue' parameter value support `\t`, `\n` and `\\` as escaped characters.
 -   Indexing of levenshtein comparisons can be configured now.
 -   Rename 'Constant' comparison operator to 'Constant similarity value'.
 -   Neo4j improvements:
@@ -108,7 +113,7 @@ v23.1 of eccenca DataIntegration ships following fixes:
 -   Dependent parameter auto-completion using default values of other parameters.
 -   Support replaceable/variable datasets in nested workflows.
 -   Display info message when a parameter is disabled because it depends on other parameters to be set.
--   "Fix URI" operator trims the URI before fixing it and tries better to maintain the original URI with only the invalid characters encoded.
+-   'Fix URI' operator trims the URI before fixing it and tries better to maintain the original URI with only the invalid characters encoded.
 -   Task completion message is shown without executing the transformation.
 -   Evaluation in mapping rule editor does not work when inside object mappings.
 -   Show error message when project import fails because of errors detected in the backend instead of closing the project import modal.
@@ -129,14 +134,14 @@ We are excited to announce the latest update to DataManager v23.1, which introdu
 v23.1 of eccenca DataManager adds the following new features:
 
 -   Workspaces are selectable at runtime.
--   Routes can include a worksapace selection.
--   Added Editing capabilites to the easynav editor.
+-   Routes can include a workspace selection.
+-   Added Editing capabilities to the easynav editor.
 
 v23.1 of eccenca DataManager introduces the following changes:
 
--   Configuration is now fully retieved from DataPlatform, the included Spring Boot based backend is solely delivering the javascript fronend.
+-   Configuration is now fully retrieved from DataPlatform, the included Spring Boot based backend is solely delivering the javascript frontend.
 -   The configuration can be changed at runtime using a frontend in the `/admin` Module. Changes are visible with the next full browser reload.
--   Authentication is now based on the Ouath2 Code Flow.
+-   Authentication is now based on the OAuth2 Code Flow.
 
 v23.1 of eccenca DataManager ships following fixes:
 
@@ -168,7 +173,7 @@ v23.1 of eccenca DataPlatform introduces the following changes:
 
 v23.1 of eccenca DataPlatform ships following fixes:
 
--   Prevent injection of formulas in Excel/csv exports
+-   Prevent injection of formulas in Excel/CSV exports
 -   Diagnostic store operations / query rewrite log on logging topic `com.eccenca.elds.backend.sparql.query.diagnostic` - must be set to TRACE:
     -   Activated update result statistics in existing query result logger
 -   Missing access condition action resource for EasyNav added
@@ -181,17 +186,25 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
 
 ## eccenca Corporate Memory Control (cmemc) v22.2
 
+We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements. This release introduces new command functionalities, configuration options, and a change in the project structure.
+
 v23.1 of eccenca Corporate Memory Control adds the following new features:
 
--   TODO
+-   `admin status` command:
+    -   currently set to `never`, this will be changed to `always` in the future
+-   `admin user` command group:
+    -   `create` command - add a user account to the keycloak CMEM realm
+    -   `delete` command - remove a user account from the keycloak CMEM realm
+    -   `list` command - list user accounts in the keycloak CMEM realm
+    -   `password` command - change the accounts password
+    -   `update` command - change a user account in the keycloak CMEM realm
+-   optional `KEYCLOAK_BASE_URI` config environment
+-   optional `KEYCLOAK_REALM_ID` config environment
 
-v23.1 of eccenca Corporate Memory Control introduces the following changes:
+v23.1 of eccenca Corporate Memory Control introduced the following deprecations:
 
--   TODO
-
-v23.1 of eccenca Corporate Memory Control ships following fixes:
-
--   TODO
+-   `admin status` command
+    -   currently set to `never`, this will be changed to `always` in a future release
 
 ## Migration Notes
 
@@ -218,7 +231,7 @@ TODO
 
 ### eccenca DataPlatform
 
-TODO
+-   Deprecated properties under `authorization.accessConditions` have been removed. The used graph is always the default graph from bootstrap, and URL as a source for access conditions is not supported anymore.
 
 ### eccenca Corporate Memory Control
 
