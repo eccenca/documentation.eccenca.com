@@ -28,11 +28,15 @@ To create a realm use the drop down menu for choosing a realm on the left side.
 
 ## Client configuration
 
-There are two (three) diffenrent kinds of clients used by Corporate Memory. One client is used by DM/DP/DI to authenticate a user for using the UI. The other client is for using the command line client as technical user. Depending on the environment there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.
+There are two (three) different kinds of clients used by Corporate Memory. One client is used by DM/DP/DI to authenticate a user for using the UI. The other client is for using the command line client as technical user. Depending on the environment there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.
 
 ### Add a client by importing
 
-Add a client called `cmem` by select clients, then create client. The client described below can also be imported. Please download the [client configuration for using the ui](cmem.json), [client configuration with credentials for technical account](cmem-service-account.json), then select "Import client". For `cmem-service-account` you have to edit the file an replace the secret or regenerate the secret in keycloak after the import.
+Add a client called `cmem` by select clients, then create client. The client described below can also be imported. Please download file below, then select "Import client". For `cmem-service-account` you have to edit the file an replace the secret or regenerate the secret in keycloak after the import. Files:
+
+  - [client configuration for using the ui](cmem.json)
+  - [client configuration with credentials for technical account](cmem-service-account.json)
+
 
 ![Dialog import cmem client](import-client-cmem.png)
 
@@ -81,7 +85,7 @@ The dialog above closes and you land on the configuration sections of this clien
 
   - In Corporate Memory configuration until v22.2:
     - Configure this client ID under `js.config.workspaces.default.authorization.oauth2.clientId` in DataManager's configuration file (Datamanager needs implicit flow)
-    - Configre  this client ID under `oauth.clientId = "cmem"` in DataManager's configuration file (Dataintegration needs stadard flow)
+    - Configure  this client ID under `oauth.clientId = "cmem"` in DataManager's configuration file (Dataintegration needs standard flow)
   - In Corporate Memory configuration from v23.1:
     - Configure this client ID in the environments with the name `OAUTH_CLIENT_ID` in `/environments/config.env`
 
@@ -144,7 +148,7 @@ This client is intended for internal use by DataIntegration (scheduler super-use
         - CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=YourSecret
         - DATAINTEGRATION_CMEM_SERVICE_CLIENT=cmem-service-account
         - DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET=YourSecret
-    - in helm this value is definded by: 
+    - in helm this value is defined by: 
         - DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET: `{{ .Values.global.cmemClientSecret }}`
         - DATAINTEGRATION_CMEM_SERVICE_CLIENT: `{{ .Values.global.cmemClientId }}`
     - For cmemc you can your this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`
