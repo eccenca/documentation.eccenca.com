@@ -84,3 +84,14 @@ spring.security.oauth2:
         user-info-uri: "${OAUTH_USERINFO_URL}"
         user-name-attribute: "preferred_username"
 ```
+
+
+### Helm charts (optional)
+
+In the helm charts we assumed you deploy keycloak by official charts, either via operator, or via helm charts. In either way you can configure the the base realm path in the value section.
+```
+  # This is the base keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
+  .Values.global.keycloakIssuerUrl: https://keycloak.example.com/auth/realms/cmem
+  .Values.global.oauthClientId: cmem
+
+```
