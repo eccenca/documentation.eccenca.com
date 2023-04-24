@@ -22,7 +22,7 @@ $ cmemc admin workspace export [OPTIONS] [FILE]
 
 
 
-Depending on the requested type, this ZIP contains either a turtle file for each project (type rdfTurtle) or a substructure of resource files and XML descriptions (type xmlZip).
+Depending on the requested export type, this ZIP file contains either one Turtle file per project (type `rdfTurtle`) or a substructure of resource files and XML descriptions (type `xmlZip`).
 
 The file name is optional and will be generated with by the template if absent.
 

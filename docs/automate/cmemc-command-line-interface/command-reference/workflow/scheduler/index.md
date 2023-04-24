@@ -57,13 +57,13 @@ Outputs a table or a list of scheduler IDs which can be used as reference for th
     ```text
 
     --raw       Outputs raw JSON.
-    --id-only   Lists only task identifier and no labels or other meta data.
-                This is useful for piping the IDs into other commands.
+    --id-only   Lists only task identifier and no labels or other metadata. This
+                is useful for piping the IDs into other commands.
     ```
 
 ## workflow scheduler inspect
 
-Display all meta data of a scheduler.
+Display all metadata of a scheduler.
 
 ```shell-session title="Usage"
 $ cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID

@@ -27,6 +27,12 @@ tags:
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
+| [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
+| [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
+| [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
+| [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete a user account. |
+| [admin user](admin/user/index.md) | [password](admin/user/index.md#admin-user-password) | Change the password of a user account. |
+| [admin user](admin/user/index.md) | [open](admin/user/index.md#admin-user-open) | Open user in the browser. |
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |
 | [admin workspace](admin/workspace/index.md) | [reload](admin/workspace/index.md#admin-workspace-reload) | Reload the workspace from the backend. |
@@ -47,7 +53,7 @@ tags:
 | [dataset](dataset/index.md) | [open](dataset/index.md#dataset-open) | Open datasets in the browser. |
 | [dataset resource](dataset/resource/index.md) | [list](dataset/resource/index.md#dataset-resource-list) | List available file resources. |
 | [dataset resource](dataset/resource/index.md) | [delete](dataset/resource/index.md#dataset-resource-delete) | Delete file resources. |
-| [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all meta data of a file resource. |
+| [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
 | [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
 | [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | Show graph tree(s) of the owl:imports hierarchy. |
@@ -83,7 +89,7 @@ tags:
 | [workflow](workflow/index.md) | [open](workflow/index.md#workflow-open) | Open a workflow in your browser. |
 | [workflow scheduler](workflow/scheduler/index.md) | [open](workflow/scheduler/index.md#workflow-scheduler-open) | Open scheduler(s) in the browser. |
 | [workflow scheduler](workflow/scheduler/index.md) | [list](workflow/scheduler/index.md#workflow-scheduler-list) | List available scheduler. |
-| [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all meta data of a scheduler. |
+| [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all metadata of a scheduler. |
 | [workflow scheduler](workflow/scheduler/index.md) | [disable](workflow/scheduler/index.md#workflow-scheduler-disable) | Disable scheduler(s). |
 | [workflow scheduler](workflow/scheduler/index.md) | [enable](workflow/scheduler/index.md#workflow-scheduler-enable) | Enable scheduler(s). |
 
