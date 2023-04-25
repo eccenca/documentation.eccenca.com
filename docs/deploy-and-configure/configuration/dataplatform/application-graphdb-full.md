@@ -3,7 +3,7 @@
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote GraphDB store (<https://remote:7200>) using the workbench import directory
+This example configures a connection with HTTPS to a remote graphdb store (<https://remote:7200>) using the workbench import directory
 which is shared with the GraphDB instance. The repository will be created on startup of CMEM.
 
 ```yaml
@@ -117,7 +117,7 @@ Import directory to be utilized in the "workbench import with shared folder" app
 
 ***Property: store.graphdb.useDirectTransfer***
 
-Set to true to use the native Graph Store API endpoint. Set to false to use the GraphDB workbench import. The import directory must then be set.
+Set to true to use the native Graph Store API endpoint. Set to false to use the GraphDB workbench import. The import directory must be set then.
 
 | Category | Value |
 |--- | ---: |
@@ -161,7 +161,7 @@ Whether to make use of GraphDB change tracking during SPARQL updates (s. <https:
 
 ***Property: store.graphdb.graphDbChangeTrackingMaxQuadMemory***
 
-Maximum number of quads of change tracking result which will be loaded in memory
+Maximum amount of quads of change tracking result which will be loaded in memory
 
 | Category | Value |
 |--- | ---: |
