@@ -31,7 +31,7 @@ This release delivers the following component versions:
 -   eccenca DataPlatform v23.1
 -   eccenca DataIntegration v23.1
 -   eccenca DataIntegration Python Plugins v3.0.0
--   eccenca DataManager v23.1
+-   eccenca DataManager v23.1.1
 -   eccenca Corporate Memory Control (cmemc) v23.1
 
 More detailed release notes for these versions are listed below.
@@ -155,15 +155,19 @@ v3.0.0 of eccenca DataIntegration Python Plugins adds the following new features
 
 -   Custom parameter types can be registered. See implementation of `PasswordParameterType` for an example.
 
-## eccenca DataManager v23.1
+## eccenca DataManager v23.1.1
 
 We are excited to announce the latest update to DataManager v23.1, which introduces new features, improvements and bug fixes. This release brings enhancements to workspaces, editing capabilities in the EasyNav editor, and updates to the authentication system.
+
+v23.1.1 of eccenca DataManager ships following fixes:
+
+-   Fixes link rules creation dialogue setting a target property.
 
 v23.1 of eccenca DataManager adds the following new features:
 
 -   Workspaces are selectable at runtime.
 -   Routes can include a workspace selection.
--   Added Editing capabilities to the easynav editor.
+-   Added Editing capabilities to the EasyNav editor.
 
 v23.1 of eccenca DataManager introduces the following changes:
 
