@@ -19,9 +19,9 @@ For each client, you have to adjust the **Valid Redirect URIs** field.
 - datamanager
 - dataintegration
 
-Go to `Cmem-Realm` → `Clients` → `datamanger / dataintegration` and enter your deploy URL, e.g., `https://cmem.example.net/*`.
+Select`cmem` realm, then **Clients** → `cmem` and enter your deploy URL, e.g., `https://cmem.example.net/*`.
 
-![changing-keycloak-client-settings](22-1-keycloak-client-settings.png)
+![Keycloak: Client Settings: Valid Redirect URLs](23-1-keycloak-client-settings.png)
 
 ## Password Policies
 
@@ -30,14 +30,25 @@ To enforce this, setting up [password policies](https://www.keycloak.org/docs/la
 
 ## Cookie Settings
 
+### Keycloak
+
 In Keycloak you should enforce the secure flag for keycloak cookies.
-Go to `Cmem-Realm` → `Realm Settings` → `Login` and change **Require SSL** to `all requests`.
-If you are running without SSL, you will no longer be able to log in to Corporate Memory.
+Select `cmem` realm, then **Realm settings** → **General** and change **Require SSL** to `All requests`.
+If you are running without SSL, you will no longer be able to log into Corporate Memory.
 
 Once this is done, make sure DataPlatform and DataIntegration use `HTTPS` to connect to Keycloak.
 See the usage of `DATAPLATFORM_AUTH_URL`, `OAUTH_AUTHORIZATION_URL` and `OAUTH_TOKEN_URL`.
 
-![changing-keycloak-cookie-settings](22-1-changing-keycloak-cookie-settings.png)
+![Keycloak: Client Settings](23-1-keycloak-realm-settings.png)
+
+### DataPlatform
+
+todo sobo
+
+### DataIntegration
+
+todo sobo
+
 
 ## CORS Settings
 
