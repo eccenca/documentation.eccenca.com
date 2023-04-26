@@ -28,10 +28,10 @@ The screenshots displayed in this documentation were taken from Keycloak v20 usi
 To create a realm, use the drop down menu for choosing a realm on the left side.
 
   -  Create a realm `cmem`
-    - Select "Realm settings"
-      - "General" tab:
+    - Select **Realm settings**
+      - **General** tab:
       - Change HTML Display name to `<span class="ecc-logo"></span>Corporate Memory`
-    - "Themes" tab
+    - **Themes** tab
       - Switch realm's login theme to `eccenca`
       - Switch realm's account theme to `eccenca`
 
