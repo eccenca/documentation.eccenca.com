@@ -43,7 +43,7 @@ OAUTH_LOGOUT_REDIRECT_URL=${EXTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-
 OAUTH_CLIENT_ID=cmem
 ```
 
-![well-known configuration](well-known-config.png)
+![well-known configuration](well-known-config.png){ class="bordered" }
 
 ### Dataintegration (optional)
 
@@ -60,7 +60,7 @@ oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
 ### Dataplatform (optional)
 
 By default, Dataplatform is configured through environments.
-However you can also edit this in Dataplatforms's config file `application.yml`:
+However you can also edit this in Dataplatform's config file `application.yml`:
 
 ``` yaml
 spring.security.oauth2:
