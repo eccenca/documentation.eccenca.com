@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://documentation.eccenca.com/23.1/deploy-and-configure/configuration/keycloak/" rel="canonical">
-<link href="../docker-orchestration/" rel="prev"/>
+<link href="../dataplatform/application-virtuoso-full/" rel="prev"/>
 <link href="change-passwords-and-keys/" rel="next"/>
 <link href="../../../assets/favicon.svg" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4+insiders-4.32.4" name="generator"/>
@@ -2314,7 +2314,8 @@
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_4_5_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_5_6" id="__nav_4_5_6_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -2323,8 +2324,11 @@
 
     
   </span>
+</a>
+<label class="md-nav__link md-nav__link--active" for="__nav_4_5_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="true" aria-labelledby="__nav_4_5_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_6">
 <span class="md-nav__icon md-icon"></span>
@@ -2336,7 +2340,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5_6_1" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_4_5_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="change-passwords-and-keys/">
 <span class="md-ellipsis">
@@ -2349,8 +2353,8 @@
   </span>
 </a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_6_1_label" class="md-nav" data-md-level="4">
-<label class="md-nav__title" for="__nav_4_5_6_1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_6_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_5_6_2">
 <span class="md-nav__icon md-icon"></span>
             
   
@@ -2363,7 +2367,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5_6_2" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_4_5_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="using-external-keycloak/">
 <span class="md-ellipsis">
@@ -2376,8 +2380,8 @@
   </span>
 </a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_6_2_label" class="md-nav" data-md-level="4">
-<label class="md-nav__title" for="__nav_4_5_6_2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_6_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_5_6_3">
 <span class="md-nav__icon md-icon"></span>
             
   
@@ -4269,6 +4273,37 @@
       
     </span>
 </a>
+<nav aria-label="Client configuration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-clients-by-importing-the-json-exports">
+<span class="md-ellipsis">
+      
+        Add clients by importing the JSON exports
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-client-cmem-manually-for-web-interface">
+<span class="md-ellipsis">
+      
+        Create client cmem manually (for web interface)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-client-manually-technical-account">
+<span class="md-ellipsis">
+      
+        Create a client manually (Technical Account)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#groups-configuration">
@@ -4298,118 +4333,200 @@
 <nav class="md-tags">
 <a class="md-tag md-tag-icon md-tag--configuration" href="../../../tags/#configuration">Configuration</a>
 <a class="md-tag md-tag-icon md-tag--security" href="../../../tags/#security">Security</a>
+<a class="md-tag md-tag-icon md-tag--keycloak" href="../../../tags/#keycloak">Keycloak</a>
 </nav>
 <h1 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
-<p>This page documents important steps in order to configure Keycloak as an authentication backend for Corporate Memory.</p>
+<p>This page documents important steps in order to configure Keycloak as an authentication backend for Corporate Memory.
+The screenshots displayed in this documentation were taken from Keycloak v20 using the <code>keycloak.v2</code> theme.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>You do not need these instruction in case you followed the documentation on <a href="../../installation/scenario-local-installation/">Scenario: Local Installation</a> or <a href="../../installation/scenario-single-node-cloud-installation/">Scenario: Single Node Cloud Installation</a> (in this case, everything was done automatically). However, in case you need to integrate Corporate Memory with an existing Keycloak, this page may help you. Please also have the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak - Server Administration Guide</a> ready <img alt="😄" class="twemoji" src="../../../assets/externals/cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f604.svg" title=":smile:"></p>
+<p>You do not need these instruction in case you followed the documentation on <a href="../../installation/scenario-local-installation/">Scenario: Local Installation</a> or <a href="../../installation/scenario-single-node-cloud-installation/">Scenario: Single Node Cloud Installation</a> (in this case, everything was done automatically).
+However, in case you need to integrate Corporate Memory with an existing Keycloak, this page may help you.
+Please also have the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak - Server Administration Guide</a> ready <img alt="😄" class="twemoji" src="../../../assets/externals/cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f604.svg" title=":smile:"></p>
 </div>
 <h2 id="realm-configuration">Realm configuration<a class="headerlink" href="#realm-configuration" title="Permanent link">¤</a></h2>
-<p>In order to separate all configuration</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A realm can be im-/exported.
+However, exported realms will not contain user credentials.
+So be aware not losing data.</p>
+</div>
+<p>To create a realm, use the drop down menu for choosing a realm on the left side.</p>
 <ul>
-<li>Add new realm <code>cmem</code><ul>
-<li>Switch realm’s login theme to <code>eccenca</code><ul>
-<li>Change Display name to <code>CMEM</code></li>
+<li>Create a realm <code>cmem</code><ul>
+<li>Select <strong>Realm settings</strong></li>
+<li><strong>General</strong> tab:</li>
 <li>Change HTML Display name to <code>&lt;span class="ecc-logo"&gt;&lt;/span&gt;Corporate Memory</code></li>
-</ul>
-</li>
+<li><strong>Themes</strong> tab</li>
+<li>Switch realm’s login theme to <code>eccenca</code></li>
+<li>Switch realm’s account theme to <code>eccenca</code></li>
 </ul>
 </li>
 </ul>
 <h2 id="client-configuration">Client configuration<a class="headerlink" href="#client-configuration" title="Permanent link">¤</a></h2>
+<p>There are two (three) different kinds of clients used by Corporate Memory:</p>
 <ul>
+<li>One client is used by DM/DP/DI to authenticate a user for using the UI (usually named <code>cmem</code>).</li>
+<li>The other client is for using the command line client as a technical user (usually named <code>cmem-service-account</code>).
+  Depending on the environment, there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.</li>
+</ul>
+<h3 id="add-clients-by-importing-the-json-exports">Add clients by importing the JSON exports<a class="headerlink" href="#add-clients-by-importing-the-json-exports" title="Permanent link">¤</a></h3>
+<p>Add a client named <code>cmem</code> by select clients, then create client.
+The client described below can also be imported.
+Please download the file below, then select <strong>Import client</strong>.
+For the <code>cmem-service-account</code> client you have to edit the file and replace the secret or regenerate the secret in keycloak after the import.</p>
+<p>Available files:</p>
+<ul>
+<li><a href="cmem.json">client configuration for using the ui (<code>cmem</code>)</a></li>
+<li><a href="cmem-service-account.json">client configuration with credentials for technical account (<code>cmem-service-account</code>)</a></li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="import-client-cmem.png"><img alt="Dialog import cmem client" class="bordered" src="import-client-cmem.png"/></a></p>
+<h3 id="create-client-cmem-manually-for-web-interface">Create client <code>cmem</code> manually (for web interface)<a class="headerlink" href="#create-client-cmem-manually-for-web-interface" title="Permanent link">¤</a></h3>
+<p>This client is intended for the usage with DataManager, Dataplatform and DataIntegration (user login):</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_1.png"><img alt="Dialog create cmem client" class="bordered" src="createClient_1.png"/></a></p>
+<ul>
+<li><strong>Client type</strong>: OpenID Connect</li>
+<li><strong>Client ID</strong>: i.e. <code>cmem</code>, you need to remember this and use this later</li>
+<li><strong>Name</strong> and <strong>Description</strong>: fill as you like</li>
+<li>Select <strong>Next</strong></li>
+<li><strong>Client authentication</strong>: Off</li>
+<li><strong>Authorization</strong>: Off</li>
+<li>Enable <strong>Standard Flow Enabled</strong> (enables OAuth 2.0 Authorization Code Flow)</li>
+<li>Before v23.1:<ul>
+<li>Additionally enable <strong>Implicit Flow Enabled</strong></li>
+</ul>
+</li>
+<li><strong>Save</strong></li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_2.png"><img alt="Dialog create cmem client" class="bordered" src="createClient_2.png"/></a></p>
+<p>The dialog above closes and you land on the configuration page of this client:</p>
+<ul>
+<li><strong>Valid redirect URIs</strong>: Add the correct URL pattern (wildcard <code>http://example.org/*</code> works) to <code>Valid Redirect URIs</code> (<code>*</code> for testing purposes can be used as well)</li>
+<li>Switch the Tabs to <strong>Client scopes</strong> and select the first scope (i.e.: <code>cmem-dedicated</code>)</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_11.png"><img alt="Dialog select cmem-service-account-dedicated" class="bordered" src="createClient_11.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_4.png"><img alt="Dialog create mapper" class="bordered" src="createClient_4.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_5.png"><img alt="Dialog create mapper" class="bordered" src="createClient_5.png"/></a></p>
+<ul>
+<li>Configure a new mapper (<strong>Client</strong> -&gt; <strong>Client Scopes</strong> -&gt; <strong>Add / Select Client Scope</strong> -&gt; <strong>Add Mapper</strong>)<ul>
+<li>select Mapper Type <strong>User Client Role</strong></li>
+<li><strong>Name</strong> <code>groups</code></li>
+<li><strong>Token Claim Name</strong> <code>groups</code></li>
+<li>Disable <strong>Full group path</strong></li>
+<li>Disable <strong>Add to ID token</strong></li>
+<li>Enable <strong>Add to access token</strong></li>
+<li>Enable <strong>Add to user info</strong></li>
+</ul>
+</li>
+<li><strong>Save</strong></li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_6.png"><img alt="Dialog create mapper" class="bordered" src="createClient_6.png"/></a></p>
+<ul>
+<li>In Corporate Memory configuration until v22.2:<ul>
+<li>Configure this client ID under <code>js.config.workspaces.default.authorization.oauth2.clientId</code> in DataManager’s configuration file (Datamanager needs implicit flow)</li>
+<li>Configure  this client ID under <code>oauth.clientId = "cmem"</code> in DataManager’s configuration file (Dataintegration needs standard flow)</li>
+</ul>
+</li>
+<li>In Corporate Memory configuration from v23.1:<ul>
+<li>Configure this client ID in the environments with the name <code>OAUTH_CLIENT_ID</code> in <code>/environments/config.env</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="create-a-client-manually-technical-account">Create a client manually (Technical Account)<a class="headerlink" href="#create-a-client-manually-technical-account" title="Permanent link">¤</a></h3>
+<p>This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes (<a href="https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface">cmemc</a>)</p>
+<ul>
+<li><strong>Client type</strong>: OpenID Connect</li>
+<li><strong>Client ID</strong>: i.e. <code>cmem-service-account</code>, you need to remember this and use this later</li>
+<li><strong>Name</strong> and <strong>Description</strong>: fill as you like</li>
+<li>Select <strong>Next</strong></li>
+<li><strong>Client authentication</strong>: On</li>
+<li><strong>Authorization</strong>: Off</li>
+<li><strong>Authentication flow</strong>: only enable <code>Service accounts roles</code>, the rest can be disabled</li>
 <li>
-<p>Add a client called <code>cmem-oauth2-client</code></p>
-<ul>
-<li>This client is intended for usage by DataManager and DataIntegration (user login)</li>
-<li>Configure this client ID under <code>oauth.clientId</code> in DataIntegration’s configuration file</li>
-<li>Configure this client ID under <code>js.config.workspaces.default.authorization.oauth2.clientId</code> in DataManager’s configuration file</li>
-<li>Enable <code>Standard Flow Enabled</code> (enables OAuth 2.0 Authorization Code Flow)</li>
-<li>Enable <code>Implicit Flow Enabled</code></li>
-<li>Add the adequate URL pattern (wildcard <code>http://example.org/*</code> works) to <code>Valid Redirect URIs</code> (<code>*</code> for testing purposes is acceptable)</li>
-<li>Save</li>
-<li>Go to <code>Mappers</code><ul>
-<li>Click <code>Create</code><ul>
-<li>Name <code>groups</code></li>
-<li>Mapper Type <code>Group Membership</code></li>
-<li>Token Claim Name <code>groups</code></li>
-<li>Disable <code>Full group path</code></li>
-<li>Disable <code>Add to ID token</code></li>
-<li>Enable <code>Add to access token</code></li>
-</ul>
-</li>
-<li>(Only for DP &lt; 19.10.1) Click <code>Create</code><ul>
-<li>Name <code>DataPlatform audience</code></li>
-<li>Mapper Type <code>Audience</code></li>
-<li>Included Client Audience –&gt; “Select One” (do not touch it)</li>
-<li>Included Custom Audience <code>dataplatform</code></li>
-<li>Disable <code>Add to ID token</code></li>
-<li>Enable <code>Add to access token</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><strong>Save</strong></p>
 </li>
 <li>
-<p>Add client called <code>cmem-service-account</code></p>
+<p>Go to <strong>Credentials</strong> and configure <strong>Client Id and Secret</strong>, copy the client secret for later usage</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_7.png"><img alt="Dialog create role" class="bordered" src="createClient_7.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_8.png"><img alt="Dialog create role" class="bordered" src="createClient_8.png"/></a></p>
 <ul>
-<li>This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes (<a href="https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface">cmemc</a>)</li>
-<li>Set the <code>Access Type</code> to <code>confidential</code></li>
-<li>Go to <code>Settings</code> and enable <code>Service Accounts Enabled</code> (enables OAuth 2.0 Client Credentials Flow)</li>
-<li>Save</li>
-<li>Go to <code>Credentials</code> and configure <code>Client Id and Secret</code></li>
-<li>If DataIntegration schedulers are required, configure this client id and secret under the properties<code>workbench.superuser.client</code> and <code>workbench.superuser.clientSecret</code> in DataIntegration’s configuration file</li>
-<li>For the importer add the client secret to <code>docker-compose.importer.yml</code></li>
-<li>Go to <code>Roles</code> and add the <code>elds-admins</code> role</li>
-<li>Go to <code>Service Account Roles -&gt; Client Roles (cmem-service-account)</code> and add the <code>elds-admins</code> role to <code>Assigned Roles</code></li>
-<li>Go to <code>Mappers</code><ul>
-<li>Click <code>Create</code><ul>
-<li>Name <code>roles</code></li>
-<li>Mapper Type <code>User Client Role</code></li>
-<li>Client ID <code>cmem-service-account</code></li>
-<li>Token Claim Name <code>groups</code></li>
-<li>Enable <code>Add to access token</code></li>
+<li>Go to <strong>Roles</strong> and add the <code>elds-admins</code> role</li>
+<li>Select <strong>Action</strong> and <strong>Add associated roles</strong></li>
+<li>Select <strong>Filter by client</strong> then</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_9.png"><img alt="Dialog create role" class="bordered" src="createClient_9.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_10.png"><img alt="Dialog create role" class="bordered" src="createClient_10.png"/></a></p>
+<ul>
+<li>Go to <strong>Service Account Roles</strong> -&gt; <strong>Client Roles</strong> (<code>cmem-service-account</code>) and add the <code>elds-admins</code> role to <strong>Assigned Roles</strong><ul>
+<li>no <strong>Realm roles</strong> needed beforehand</li>
 </ul>
 </li>
-<li>(Only for DP &lt; 19.10.1) Click <code>Create</code><ul>
-<li>Name <code>DataPlatform audience</code></li>
-<li>Mapper Type <code>Audience</code></li>
-<li>Included Client Audience –&gt; “Select One” (do not touch it)</li>
-<li>Included Custom Audience <code>dataplatform</code></li>
-<li>Disable <code>Add to ID token</code></li>
-<li>Enable <code>Add to access token</code></li>
+<li>Switch the Tabs to <strong>Client scopes</strong> and select the first scope (i.e.: <code>cmem-service-account-dedicated</code>)</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_3.png"><img alt="Dialog select cmem-dedicated" class="bordered" src="createClient_3.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_13.png"><img alt="Dialog create mapper" class="bordered" src="createClient_13.png"/></a></p>
+<ul>
+<li><strong>Configure a new mapper</strong> (<strong>Client</strong> -&gt; <strong>Client Scopes</strong> -&gt; <strong>Add / Select Client Scope</strong> -&gt; <strong>Add Mapper</strong>)</li>
+<li>select Mapper Type <code>User Client Role</code><ul>
+<li><strong>Name</strong> <code>roles</code></li>
+<li><strong>Token Claim Name</strong> <code>groups</code></li>
+<li>Enable <strong>Add to ID token</strong></li>
+<li>Enable <strong>Add to access token</strong></li>
+<li>Enable <strong>Add to user info</strong></li>
 </ul>
 </li>
+<li><strong>Save</strong></li>
 </ul>
-</li>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_14.png"><img alt="Dialog create mapper" class="bordered" src="createClient_14.png"/></a></p>
+<ul>
+<li>Go to tab <strong>Service account roles</strong></li>
+<li>Select the link in the center <strong>To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID</strong></li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_15.png"><img alt="Dialog add role to client" class="bordered" src="createClient_15.png"/></a></p>
+<ul>
+<li>Go to tab <strong>Role mapping</strong> and select <strong>Assign role</strong></li>
+<li>Change the filter to <strong>Filter by clients</strong> and select the new Client ID, i.e <code>cmem-service-account</code></li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_16.png"><img alt="Dialog add role to client" class="bordered" src="createClient_16.png"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="createClient_17.png"><img alt="Dialog add role to client" class="bordered" src="createClient_17.png"/></a></p>
+<ul>
+<li>In Corporate Memory configuration:<ul>
+<li>If DataIntegration schedulers are required, configure this client id and secret under the properties <code>workbench.superuser.client</code> and <code>workbench.superuser.clientSecret</code> in DataIntegration’s configuration file or</li>
+<li>in docker-compose-orchestration you can edit this in the environment as:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w">  </span><span class="nv">CMEM_SERVICE_ACCOUNT_CLIENT_ID</span><span class="o">=</span>cmem-service-account
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nv">CMEM_SERVICE_ACCOUNT_CLIENT_SECRET</span><span class="o">=</span>YourSecret
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nv">DATAINTEGRATION_CMEM_SERVICE_CLIENT</span><span class="o">=</span>cmem-service-account
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="nv">DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET</span><span class="o">=</span>YourSecret
+</code></pre></div></li>
+<li>in helm this value is defined by:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="w">  </span><span class="nt">DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">.Values.global.cmemClientSecret</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="nt">DATAINTEGRATION_CMEM_SERVICE_CLIENT</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">.Values.global.cmemClientId</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+</code></pre></div></li>
+<li>For cmemc you can configure this with <code>OAUTH_CLIENT_ID</code> and <code>OAUTH_CLIENT_SECRET</code>.</li>
 </ul>
 </li>
 </ul>
 <h2 id="groups-configuration">Groups configuration<a class="headerlink" href="#groups-configuration" title="Permanent link">¤</a></h2>
 <ul>
-<li>Go to <code>Groups</code><ul>
-<li>Add the following groups:<ul>
+<li>Go to <strong>Groups</strong> and add the following groups:</li>
 <li><code>elds-admins</code></li>
-<li>Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak<ul>
-<li>In CHO, <code>local-users</code>, <code>local-admins</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak</li>
+<li>In Corporate Memory docker orchestration, <code>local-users</code>, <code>local-admins</code></li>
 </ul>
 <h2 id="users-configuration">Users configuration<a class="headerlink" href="#users-configuration" title="Permanent link">¤</a></h2>
 <ul>
 <li>This applies to the <a href="../docker-orchestration/">Docker Orchestration</a>, for other setups consult the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak manual</a>.</li>
 <li>Go to <code>Users</code></li>
-<li>Add the following users and assign their groups respectively (for each user go to credentials, add password and disable <code>Temporary</code>)<ul>
-<li><code>user:user</code></li>
-<li>groups: <code>local-users</code> and <code>group_user_a</code> (legacy group)</li>
-<li><code>admin:admin</code></li>
+<li>Add the following users and assign their groups respectively (for each user go to credentials, add password and disable <code>Temporary</code>)</li>
+<li><code>user:user</code><ul>
+<li>groups: <code>local-users</code></li>
+</ul>
+</li>
+<li><code>admin:admin</code><ul>
+<li>groups: <code>local-admin</code></li>
 </ul>
 </li>
 </ul>
@@ -4418,7 +4535,7 @@
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-22T16:22:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-22</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-26T11:07:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-26</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">
