@@ -24,9 +24,9 @@ $ cmemc admin status [OPTIONS]
 
 
 
-This command outputs version and health information of the selected deployment. If the version information can not be retrieved, UNKNOWN shown.
+This command outputs version and health information of the selected deployment. If the version information cannot be retrieved, UNKNOWN is shown.
 
-In addition to that, this command warns you if the target version of your cmemc client is newer than the version of your backend and if the ShapeCatalog has a different version then your DataPlatform component.
+Additionally, this command warns you if the target version of your cmemc client is newer than the version of your backend and if the ShapeCatalog has a different version than your DataPlatform component.
 
 To get status information of all configured deployments use this command in combination with parallel.
 
@@ -40,20 +40,28 @@ $ cmemc config list | parallel --ctag cmemc -c {} admin status
 ??? info "Options"
     ```text
 
-    --key TEXT       Get only specific key(s) from the status / info output.
-                     There are two special keys available: 'all' will list all
-                     available keys in the table, 'overall.healthy' with result
-                     in  UP in case all health flags are UP as well (otherwise
-                     DOWN).
+    --key TEXT                     Get only specific key(s) from the status /
+                                   info output. There are two special keys
+                                   available: 'all' will list all available keys
+                                   in the table, 'overall.healthy' with result
+                                   in  UP in case all health flags are UP as
+                                   well (otherwise DOWN).
   
-    --enforce-table  A single value with --key will be returned as plain text
-                     instead of a table with one row and the header. This
-                     default behaviour allows for more easy integration with
-                     scripts. This flag enforces the use of tabular output, even
-                     for single row tables.
+    --exit-1 [never|error|always]  Specify, when this command returns with exit
+                                   code 1. Available options are 'never' (exit 0
+                                   on errors and warnings), 'error' (exit 1 on
+                                   errors, exit 0 on warnings), 'always' (exit 1
+                                   on errors and warnings).  [default: never]
   
-    --raw            Outputs combined raw JSON output of the health/info
-                     endpoints.
+    --enforce-table                A single value with --key will be returned as
+                                   plain text instead of a table with one row
+                                   and the header. This default behaviour allows
+                                   for more easy integration with scripts. This
+                                   flag enforces the use of tabular output, even
+                                   for single row tables.
+  
+    --raw                          Outputs combined raw JSON output of the
+                                   health/info endpoints.
     ```
 
 ## admin token
@@ -74,7 +82,7 @@ $ curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my confi
 ```
 
 
-Please be aware that this command can reveal secrets, which you do not want to have in log files or on the screen.
+Please be aware that this command can reveal secrets which you might not want to be present in log files or on the screen.
 
 
 

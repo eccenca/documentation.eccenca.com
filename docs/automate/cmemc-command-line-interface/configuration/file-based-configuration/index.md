@@ -108,14 +108,14 @@ Using this combination of config parameters is based on a typical installation w
     CMEM_BASE_URI=http://localhost/
     OAUTH_GRANT_TYPE=password
     OAUTH_CLIENT_ID=cmemc
-    OAUTH_USERNAME=user
+    OAUTH_USER=user
     OAUTH_PASSWORD=...
     ```
 
 Another example using `password` grant type.
 
 This creates a named section `my-local`, which is a connection to a Corporate Memory deployment on `http://localhost/`.
-The authorization will be done with the given `OAUTH_USERNAME` and the `OAUTH_PASSWORD`.
+The authorization will be done with the given `OAUTH_USER` and the `OAUTH_PASSWORD`.
 
 ## Configuration Variables
 
@@ -151,13 +151,29 @@ Usually you do **not need to set** this configuration variable.
 
 This variable defaults to `$CMEM_BASE_URI/dataplatform/`.
 
+#### KEYCLOAK_BASE_URI
+
+This is the base location (HTTP(S) URL) of all Keycloak APIs.
+
+Usually you do **not need to set** this configuration variable.
+
+This variable defaults to `$CMEM_BASE_URI/auth/`.
+
+#### KEYCLOAK_REALM_ID
+
+This is the identifier of your  Keycloak Realm.
+
+Usually you do **not need to set** this configuration variable.
+
+This variable defaults to `cmem`.
+
 #### OAUTH_TOKEN_URI
 
 This is the [OpenID Connect (OIDC)](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) OAuth 2.0 token endpoint location (HTTP(S) URL).
 
 Usually you do **not need to set** this configuration variable.
 
-This variable defaults to `$CMEM_BASE_URI/auth/realms/cmem/protocol/openid-connect/token`.
+This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`.
 
 ### Authentication related
 

@@ -3,6 +3,7 @@ title: "cmemc: Command Group - config"
 description: "List and edit configs as well as get config values."
 icon: material/cog-outline
 tags:
+  - Configuration
   - cmemc
 ---
 # config Command Group
@@ -104,9 +105,9 @@ Get the value of a known cmemc configuration key.
 
 ```shell-session title="Usage"
 $ cmemc config get [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
-             POINT|DI_API_ENDPOINT|OAUTH_TOKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER
-             |OAUTH_PASSWORD|OAUTH_CLIENT_ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_
-             TOKEN]
+             POINT|DI_API_ENDPOINT|KEYCLOAK_BASE_URI|KEYCLOAK_REALM_ID|OAUTH_T
+             OKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER|OAUTH_PASSWORD|OAUTH_CLIENT_
+             ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_TOKEN]
 ```
 
 
@@ -134,7 +135,7 @@ $ cmemc config eval [OPTIONS]
 
 
 
-The output of this command is suitable to be used by a shells `eval` command. It will output the complete configuration as `export key="value"` statements. This allows for preparation of a shell environment.
+The output of this command is suitable to be used by a shell's `eval` command. It will output the complete configuration as `export key="value"` statements, which allow for the preparation of a shell environment.
 
 ```shell-session title="Example"
 $ eval $(cmemc -c my config eval)
@@ -150,7 +151,7 @@ $ eval $(cmemc -c my config eval)
 ??? info "Options"
     ```text
 
-    --unset     Instead of export all configuration keys, this option will unset
-                all key.
+    --unset     Instead of exporting all configuration keys, this option will
+                unset all keys.
     ```
 

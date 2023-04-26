@@ -31,7 +31,7 @@ $ cmemc project open PROJECT_IDS...
 
 With this command, you can open a project in the workspace in your browser to change them.
 
-The command accepts multiple projects IDs which results in opening multiple browser tabs.
+The command accepts multiple project IDs which results in opening multiple browser tabs.
 
 
 
@@ -54,7 +54,7 @@ Outputs a list of project IDs which can be used as reference for the project cre
     ```text
 
     --raw       Outputs raw JSON.
-    --id-only   Lists only project identifier and no labels or other meta data.
+    --id-only   Lists only project identifier and no labels or other metadata.
                 This is useful for piping the IDs into other commands.
     ```
 
@@ -69,7 +69,7 @@ $ cmemc project export [OPTIONS] [PROJECT_IDS]...
 
 
 
-Projects can be exported with different export formats. The default type is a zip archive which includes metadata as well as dataset resources. If more than one project is exported, a file is created for each project. By default, these files are created in the current directory and with a descriptive name (see `--template` option default).
+Projects can be exported with different export formats. The default type is a zip archive which includes metadata as well as dataset resources. If more than one project is exported, a file is created for each project. By default, these files are created in the current directory with a descriptive name (see `--template` option default).
 
 !!! note
     Projects can be listed by using the `project list` command.
@@ -155,14 +155,14 @@ $ cmemc project delete [OPTIONS] [PROJECT_IDS]...
 
 
 
-This deletes existing data integration projects from Corporate Memory.
+This command deletes existing data integration projects from Corporate Memory.
 
 !!! warning
     Projects will be deleted without prompting!
 
 
 !!! note
-    Projects can be listed by using the `project list` command.
+    Projects can be listed with the `project list` command.
 
 
 
@@ -185,7 +185,7 @@ $ cmemc project create PROJECT_IDS...
 
 
 
-This creates one or more new projects. Existing projects will not be overwritten.
+This command creates one or more new projects. Existing projects will not be overwritten.
 
 !!! note
     Projects can be listed by using the `project list` command.
@@ -204,7 +204,7 @@ $ cmemc project reload [OPTIONS] [PROJECT_IDS]...
 
 
 
-This command reloads all tasks of a project from the workspace provider. This is the same as the `workspace reload` command, but for a single project only.
+This command reloads all tasks of a project from the workspace provider. This is similar to the `workspace reload` command, but for a single project only.
 
 !!! note
     You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterwards.
