@@ -172,7 +172,7 @@ This client is intended for internal use by DataIntegration (scheduler super-use
           DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET: {{ .Values.global.cmemClientSecret }}
           DATAINTEGRATION_CMEM_SERVICE_CLIENT: {{ .Values.global.cmemClientId }}
         ```
-    - For cmemc you can this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`.
+    - For cmemc you can configure this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`.
 
 ## Groups configuration
 
