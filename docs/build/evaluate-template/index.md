@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-In this tutorial we dynamically produce text from a **Jinja** template and send it as en email message. The email contains a dataset as an attachment, that is sent went a workflow is completed. The dataset in this tutorial is sent as is. For tutorials on how to transform data. please refer to one of our other  [tutorials](https://documentation.eccenca.com/22.2/tutorials/) that demonstrate lifting data from a variety of data sources.
+In this tutorial we dynamically produce text with a **Jinja** template and send it in an email after the execution of a workflow. The email message contains information retrieved from a graph. The graph dataset is attached to the email as an Ntriples file. In this tutorial, the dataset is sent as is. For tutorials on how to transform data. please refer to one of our other  [tutorials](https://documentation.eccenca.com/22.2/tutorials/) that demonstrate lifting data from a variety of data sources.
 
 !!! Abstract
 
@@ -26,7 +26,7 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial:
 
-- RDF graph containing company infomration regarding employees, products and services : [company-graph.ttl](company-graph.ttl)
+- RDF graph containing company infomration regarding employees, products and services : [company.ttl](company.ttl)
 
 
     ```Turtle
@@ -62,7 +62,7 @@ The vocabulary contains the classes and properties needed to map the source data
 
     ![Dialog add graph](dialog-new-graph-from-file.png){width="50%"}
 
-4. Drop the file [company-graph.ttl](company-graph.ttl) onto the dialog, or click on **browse** to navigate to the file.
+4. Drop the file [company.ttl](company.ttl) onto the dialog, or click on **browse** to navigate to the file.
 
     ![Dialog uoload graph](dialog-upload-graph.png){width="50%"}
 
@@ -76,7 +76,7 @@ The vocabulary contains the classes and properties needed to map the source data
 
 
 
-## 3 Create a Project
+## 2 Create a Project
 
 
 1. Click **Projects** in the navigation under **Explore** on the left side of the page.
@@ -93,26 +93,8 @@ The vocabulary contains the classes and properties needed to map the source data
 
     ![Dialog to create new Knowledge Graph dataset](create-project-2.png)
 
-5. Navigate to the created project by clicking on the project title.
 
-    ![Navigate to project](navigate-project.png)
-
-
-
-## 3 Create a Workflow
-
-1. Click Create at the top of the page. 
-   
-2. In the **Create new item** window, select **Workflow** and click **Add**. The **Create new item of type Workflow** appears.
-
-    ![Create new Workflow](add-workflow.png)
-
-3. Fill in the required details (Label) and click **Create**.
-
-    ![Dialog to create new Knowledge Graph dataset](add-workflow-2.png)
-
-
-## 4 Create a SPARQL Select Query Task Item
+## 3 Create a SPARQL Select Query Task Item
 
 The SPARQL select query is used to retrieve data from the cpmapny grapph that we want to include in our email.
 
@@ -124,12 +106,8 @@ The SPARQL select query is used to retrieve data from the cpmapny grapph that we
 
 3. Fill in the required details. In the **Select query** field enter the following query which counts the instances of employees, managers, departments, products and products that have other compatible products in the database. When finished, click **Create**.
 
-  ```sparql
-    PREFIX pi: <http://ld.company.org/prod-instances/>
+    ```sparql
     PREFIX pv: <http://ld.company.org/prod-vocab/>
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX pv:   <http://ld.company.org/prod-vocab/>
 
     SELECT ?employees
         ?managers
@@ -157,12 +135,12 @@ The SPARQL select query is used to retrieve data from the cpmapny grapph that we
         }
         BIND( now() AS ?currentDateTime )
     } 
-```
+    ```
 
     ![Dialog to create new Select query](add-sparql-select-2.png)
 
 
-## 5 Create an Evaluate Template Task Item
+## 4 Create an Evaluate Template Task Item
 
 The Jinja template in this item acts as the template for our email message.
 
@@ -190,27 +168,50 @@ The Jinja template in this item acts as the template for our email message.
     ![Dialog to create new Evaluate template item](create-evaluate-template-2.png)
 
 
+## 5 Create a Text Dataset
 
+The text dataset holds a text file that will contain the evaluated Jinja template that will be our email message.\*
 
+1. Click **Create** at the top of the page.
+
+2. In the **Create new item** window, select **Text** and click **Add**. The **Create new item of type Text** appears.
+
+    ![Create new text dataset](create-text-dataset.png)
+
+3. Fill in the required details, such as **Label** and **FILE**. Under **FILE**, select **Create empty file** and enter the filename in the **New file name** field. When finished, click **Create**.
+
+    ![Dialog to create new Text dataset](create-text-dataset-2.png)
 
 
 ## 6 Create a Transformation
 
-1. Click Create at the top of the page.
+The transformation retrieves the text from the Text dataset to be sent as our email message.
 
-2. In the **Create new item** window, select **Send eMail** and click **Add**. The **Create new item of type Send eMail** appears.
+1. Click **Create** at the top of the page.  
 
+2. In the **Create New Item** window, select **Transform** and click **Add**. The **Create new item of type Transform** appears.
 
+    ![Create new Transformation](create-new-transform.png)
 
+3. In the  window, enter the required fields, such as **Label** and **INPUT TASK dataset**.
 
+    ![Dialog to create new Transform](dialog-create-transform.png)
 
+4. Expand the ![Mapping Button](button-mapping.png) menu by clicking the arrow on the right side of the page to expand the menu.
 
+5. Click the circular blue **+** icon on the lower right and select **Add value mapping**.
+
+    ![Add a mapping rule](text-mapping-add-rule.png)
+
+6. In the **Target property** field enter _message_ (the parameter name for the email message) and in the **Value path** field enter _text_ (the path for the text in the Text dataset). When finished, click **Save**.\*
+
+    ![Add a value mapping](text-mapping-add-rule-2.png)
 
 ## 7 Create a Request RDF Triples Task Item
 
 The **Request RDF triples** task is used to write all tripled from the company graph into an RDF dataset in NTriples serialization.
 
-1. Click Create at the top of the page. 
+1. Click **Create** at the top of the page. 
 
 2. In the **Create new item** window, select **Request RDF triples** and click **Add**. The **Create new item of type Request RDF triples** appears.
 
@@ -237,7 +238,7 @@ The **RDF** dataset holds an NTriples file that contains the triples requested b
 
 ## 9 Create a Send Email Task Item
 
-1. Click Create at the top of the page.
+1. Click **Create** at the top of the page.
 
 2. In the **Create new item** window, select **Send eMail** and click **Add**. The **Create new item of type Send eMail** appears.
 
@@ -256,14 +257,42 @@ The **RDF** dataset holds an NTriples file that contains the triples requested b
     ![Create new RDF dataset](create-send-email-2.png)
 
 
+## 10 Create the Workflow
 
-## 10 Construct the Workflow
+1. Click Create at the top of the page. 
+   
+2. In the **Create new item** window, select **Workflow** and click **Add**. The **Create new item of type Workflow** appears.
 
-![Workflow](workflow.png)
+    ![Create new Workflow](add-workflow.png)
 
-## 11 Execute Workflow
+3. Fill in the required details (Label) and click **Create**.
 
-![Workflow](workflow-execute.png){width="30%"}
+    ![Dialog to create new Knowledge Graph dataset](add-workflow-2.png)
 
+4. In the workflow editor, arrange and connect the items as shown below. Items can be dragged from the list of items on the left side onto the canvas. To connect the outputs and inputs, click and hold the output on the right side of an item and drag it to the input on the left side of another item.
 
+   -  The **Knowledge Graph dataset** connects to the **Request RDF triples task** and the **SPARQL Select query task**.
+   -  The **Request RDF triples task** connects to the **RDF dataset**. It requests all triples from the products graph and sends them to the dataset.
+   -  The **RDF dataset** connects to the **Send eMail task**. It holds the NTriples file that will be attached to the email.
+   -  The **SPARQL Select query task** connects to the **Evaluate template task**. Note that the graph to be queried is specified in the SPARQL query itself with the FROM clause, while the input only triggers its execution. The query results are sent to its output.
+   -  The **Evaluate template task** connects to the **Text dataset**. It receives the SPARQL query results and sends the evaluated Jinja template to its output.
+   -  The **Text dataset** connects to the **Transform**. It holds the text file with the evaluated Jinja template and acts as input for the Transform.\*
+  
+    ![Workflow 1](workflow-1.png)
 
+5. To send the _message_ parameter with our message text as its value to the **Send eMail task** first, enable its config port
+    ![Set Config Port](config-port.png){width="55%"}
+
+    Then, connect the output of the **Transform** to the config port located on the top of the **Send eMail task**. The complete workflow now looks as shown below.
+
+    ![Workflow 2](workflow-2.png)
+
+## 11 Execute the Workflow
+
+1. Execute the **Workflow** by clicking the play button.
+
+    ![Workflow](workflow-execute.png){width="40%"}
+
+2. After the workflow has finished you can find an email in the mailbox of the address you specified for the **Send eMail** task.
+
+<sub>\* The _Evaluate template_ operator can also be connected directly to the _Transform_. In this case, omit [§5](#5-create-a-text-dataset) and enter _output_ instead of _text_ for the _Value path_ of the value mapping in the _Transform_ (see [§6.6](#6-create-a-transformation)).</sub>
