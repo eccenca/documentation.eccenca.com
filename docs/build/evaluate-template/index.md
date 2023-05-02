@@ -1,9 +1,8 @@
 ---
 icon: material/family-tree
-subtitle: such as JSON and XML files
 tags:
   - AdvancedTutorial
-  - KnowledgeGraph
+  - EvaluateTemplate
 ---
 # Evaluate Jinja Template to Create an Email Message
 
