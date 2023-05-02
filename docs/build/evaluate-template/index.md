@@ -51,27 +51,27 @@ The vocabulary contains the classes and properties needed to map the source data
 
 1. In Corporate Memory, click **Knowledge Graphs** in the navigation under **Explore** on the left side of the page.
 
-    ![Menu entry EXPLORE > Knowledge Graphs](menu-explore-knowledge-graphs.png)width="30%"}{
+    ![Menu entry EXPLORE > Knowledge Graphs](menu-explore-knowledge-graphs.png){width="40%"}
 
 2. Click on the **+** symbol next to the search field on the top left side of the page.
 
-    ![Add graph](add-graph.png){width="50%"}
+    ![Add graph](add-graph.png){width="40%"}
 
 3. In the dialog, click **New Graph from File**.
 
-    ![Dialog add graph](dialog-new-graph-from-file.png){width="50%"}
+    ![Dialog add graph](dialog-new-graph-from-file.png)
 
 4. Drop the file [company.ttl](company.ttl) onto the dialog, or click on **browse** to navigate to the file.
 
-    ![Dialog uoload graph](dialog-upload-graph.png){width="50%"}
+    ![Dialog uoload graph](dialog-upload-graph.png){width="75%"}
 
 5. In the **Target graph URI** field, enter **http://ld.company.org/prod-inst-jinja/** and click **Create option 'http://ld.company.org/prod-inst-jinja/'** 
    
-    ![Dialog to register a new vocabulary.](dialog-create-graph.png){width="50%"}
+    ![Dialog to register a new vocabulary.](dialog-create-graph.png){width="75%"}
    
 6. Tick the **Add new graph** checkbox and click **Upload**.
 
-    ![Dialog to register a new vocabulary.](dialog-create-graph-2.png){width="50%"}
+    ![Dialog to register a new vocabulary.](dialog-create-graph-2.png){width="75%"}
 
 
 
@@ -80,7 +80,7 @@ The vocabulary contains the classes and properties needed to map the source data
 
 1. Click **Projects** in the navigation under **Explore** on the left side of the page.
    
-    ![Menu entry EXPLORE > Projects](menu-explore-projects.png){width="30%"}
+    ![Menu entry EXPLORE > Projects](menu-explore-projects.png){width="40%"}
 
 2. Click **Create** at the top of the page.  
 
@@ -196,7 +196,7 @@ The transformation retrieves the text from the Text dataset to be sent as our em
 
     ![Dialog to create new Transform](dialog-create-transform.png)
 
-4. Expand the ![Mapping Button](button-mapping.png) menu by clicking the arrow on the right side of the page to expand the menu.
+4. Expand the ![Mapping Button](button-mapping-text.png){width=11%} menu by clicking the arrow on the right side of the page to expand the menu.
 
 5. Click the circular blue **+** icon on the lower right and select **Add value mapping**.
 
