@@ -4,7 +4,7 @@ tags:
   - AdvancedTutorial
   - EvaluateTemplate
 ---
-# Evaluate Jinja Template to Create an Email Message
+# Evaluate Jinja Template and Send an Email Message
 
 ## Introduction
 
