@@ -235,10 +235,15 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
     -   `authorization.accessConditions.graph`: used graph is always the default graph from bootstrap
     -   `authorization.accessConditions.url`: url as source for access condition not supported anymore
 
-## eccenca Corporate Memory Control (cmemc) v23.1
+## eccenca Corporate Memory Control (cmemc) v23.1.1
 
 We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements.
 This release introduces new command functionalities, configuration options, and a change in the project structure.
+
+v23.1.1 of eccenca Corporate Memory Control introduces the following changes:
+
+-   remove some unneeded packages from docker image
+-   switch to python 3.11.3 base image and tests
 
 v23.1 of eccenca Corporate Memory Control adds the following new features:
 
