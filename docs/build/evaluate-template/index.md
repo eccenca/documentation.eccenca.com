@@ -45,7 +45,7 @@ The following material is used in this tutorial:
     ```
 
 
-## 1 Upload the company graph
+## 1 Upload the Company Graph
 
 The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
 
@@ -93,9 +93,24 @@ The vocabulary contains the classes and properties needed to map the source data
     ![Dialog to create new Knowledge Graph dataset](create-project-2.png)
 
 
-## 3 Create a SPARQL Select Query Task Item
+## 3 Create a Knowledge Graph Dataset
 
-The SPARQL select query is used to retrieve data from the cpmapny grapph that we want to include in our email.
+The **Knowledge graph** dataset holds the **Company graph** we uploaded earlier.
+
+1. Click Create at the top of the page.
+
+2. In the **Create new item** window, select **Knowledge Graph** and click **Add**. The **Create new item of type Knowledge Graph** appears.
+
+    ![Create new Knowledge graph dataset](create-knowledge-graph-dataset.png)
+
+3. Fill in the required details, such as **Label** and, for **Graph**, the IRI of the company graph **http://ld.company.org/prod-inst-jinja/**. When finished, click **Create**.
+
+    ![Dialog to create new Knowledge Graph dataset](create-knowledge-graph-dataset-2.png)
+
+
+## 4 Create a SPARQL Select Query Task Item
+
+The SPARQL select query is used to retrieve the data from the company graph that we want to include in our email.
 
 1. Click **Create** at the top of the page. 
 
@@ -139,7 +154,7 @@ The SPARQL select query is used to retrieve data from the cpmapny grapph that we
     ![Dialog to create new Select query](add-sparql-select-2.png)
 
 
-## 4 Create an Evaluate Template Task Item
+## 5 Create an Evaluate Template Task Item
 
 The Jinja template in this item acts as the template for our email message.
 
@@ -167,7 +182,7 @@ The Jinja template in this item acts as the template for our email message.
     ![Dialog to create new Evaluate template item](create-evaluate-template-2.png)
 
 
-## 5 Create a Text Dataset
+## 6 Create a Text Dataset
 
 The text dataset holds a text file that will contain the evaluated Jinja template that will be our email message.\*
 
@@ -182,9 +197,9 @@ The text dataset holds a text file that will contain the evaluated Jinja templat
     ![Dialog to create new Text dataset](create-text-dataset-2.png)
 
 
-## 6 Create a Transformation
+## 7 Create a Transform
 
-The transformation retrieves the text from the Text dataset to be sent as our email message.
+The Transform retrieves the text from the Text dataset to be sent as our email message.
 
 1. Click **Create** at the top of the page.  
 
@@ -206,7 +221,7 @@ The transformation retrieves the text from the Text dataset to be sent as our em
 
     ![Add a value mapping](text-mapping-add-rule-2.png)
 
-## 7 Create a Request RDF Triples Task Item
+## 8 Create a Request RDF Triples Task Item
 
 The **Request RDF triples** task is used to write all tripled from the company graph into an RDF dataset in NTriples serialization.
 
@@ -221,13 +236,13 @@ The **Request RDF triples** task is used to write all tripled from the company g
     ![Dialog to create new Request RDF triples task](create-request-rdf-triples-task-2.png)
 
 
-## 8 Create an RDF dataset
+## 9 Create an RDF Dataset
 
 The **RDF** dataset holds an NTriples file that contains the triples requested by the **Request RDF triples** task, which we will send as the email attachment.
 
 1. Click Create at the top of the page.
 
-2. In the **Create new item** window, select **RDF** and click **Add**. The **Create new item of type Request RDF triples** appears.
+2. In the **Create new item** window, select **RDF** and click **Add**. The **Create new item of type RDF** appears.
 
     ![Create new RDF dataset](create-rdf-dataset.png)
 
@@ -235,7 +250,7 @@ The **RDF** dataset holds an NTriples file that contains the triples requested b
 
     ![Dialog to create new RDF dataset](create-rdf-dataset-2.png)
 
-## 9 Create a Send Email Task Item
+## 10 Create a Send Email Task Item
 
 1. Click **Create** at the top of the page.
 
@@ -256,7 +271,7 @@ The **RDF** dataset holds an NTriples file that contains the triples requested b
     ![Create new RDF dataset](create-send-email-2.png)
 
 
-## 10 Create the Workflow
+## 11 Create the Workflow
 
 1. Click Create at the top of the page. 
    
@@ -279,14 +294,14 @@ The **RDF** dataset holds an NTriples file that contains the triples requested b
   
     ![Workflow 1](workflow-1.png)
 
-5. To send the _message_ parameter with our message text as its value to the **Send eMail task** first, enable its config port
+5. To send the _message_ parameter with our message text as its value to the **Send eMail task** first, enable its config port by checking the box.
     ![Set Config Port](config-port.png){width="55%"}
 
     Then, connect the output of the **Transform** to the config port located on the top of the **Send eMail task**. The complete workflow now looks as shown below.
 
     ![Workflow 2](workflow-2.png)
 
-## 11 Execute the Workflow
+## 12 Execute the Workflow
 
 1. Execute the **Workflow** by clicking the play button.
 
