@@ -3,7 +3,7 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.1.1
+# Corporate Memory 23.1.2
 
 Corporate Memory 23.1 is the first patch release in the 23.1 release line.
 
@@ -28,15 +28,15 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.1.1
+-   eccenca DataPlatform v23.1.2
 -   eccenca DataIntegration v23.1.1
 -   eccenca DataIntegration Python Plugins v3.0.0
--   eccenca DataManager v23.1.3
+-   eccenca DataManager v23.1.4
 -   eccenca Corporate Memory Control (cmemc) v23.1.1
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.1.1
+## eccenca DataIntegration v23.1.2
 
 We're excited to bring you the latest update to DataIntegration v23.1, featuring numerous enhancements, bug fixes, and deprecations. This release introduces global variables support, Python Plugin API extensions, improved handling of replaceable datasets, and much more.
 
@@ -162,9 +162,14 @@ v3.0.0 of eccenca DataIntegration Python Plugins adds the following new features
 
 -   Custom parameter types can be registered. See implementation of `PasswordParameterType` for an example.
 
-## eccenca DataManager v23.1.3
+## eccenca DataManager v23.1.4
 
 We are excited to announce the latest update to DataManager v23.1, which introduces new features, improvements and bug fixes. This release brings enhancements to workspaces, editing capabilities in the EasyNav editor, and updates to the authentication system.
+
+v23.1.4 of eccenca DataManager ships following changes:
+
+-   Switch from iframe to redirect based login view.
+    -   Known issues: Interactions after the timeout do not always trigger a reload and simply shows error messages or empty results. Using the navigation bar triggers a reload.
 
 v23.1.3 of eccenca DataManager ships following fixes:
 
@@ -193,9 +198,14 @@ v23.1 of eccenca DataManager ships following fixes:
 
 -   Removed session token from URL.
 
-## eccenca DataPlatform v23.1.1
+## eccenca DataPlatform v23.1.2
 
 We're excited to announce the latest update to DataPlatform v23.1, featuring significant improvements in caching, user rights management, and workspace configuration. This update also includes various bug fixes and the removal of deprecated properties. Here's an overview of the changes:
+
+v23.1.2 of eccenca DataPlatform ships following changes:
+
+-   DP/Infinispan: session timeout increased to 10h
+-   Login: switch from iframe to redirect based flow
 
 v23.1.1 of eccenca DataPlatform ships following fixes:
 
