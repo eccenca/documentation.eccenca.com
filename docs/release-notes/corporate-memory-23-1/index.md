@@ -5,7 +5,7 @@ tags:
 ---
 # Corporate Memory 23.1.2
 
-Corporate Memory 23.1 is the first patch release in the 23.1 release line.
+Corporate Memory 23.1 is the second patch release in the 23.1 release line.
 
 ![23.1: Explore - EasyNav Graph Editing](23-1-easynav-edit.png "23.1: Explore - EasyNav Graph Editing"){ class="bordered" }
 ![23.1: Build - Global Variables](23-1-global-variables.png "23.1: Build - Global Variables"){ class="bordered" }
