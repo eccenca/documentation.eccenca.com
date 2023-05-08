@@ -207,7 +207,7 @@ The following material is used in this tutorial:
     ![Dialog to create new Text dataset](create-text-dataset-2.png)
 
 !!! Info 
-    The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip this section and enter **output** instead of **text** for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
+    The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip this section and enter *output* instead of *text* for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
 ## 7 Create a Transform
 
@@ -310,7 +310,7 @@ The following material is used in this tutorial:
     ![Workflow 1](workflow-1.png)
 
 !!! Info
-    The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip [§6](#6-create-a-text-dataset) and enter **output** instead of **text** for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
+    The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip [§6](#6-create-a-text-dataset) and enter *output* instead of *text* for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
  5. Click on three dots of the **Send eMail** task, select **Config** and tick the check box to enable the config port. 
 
