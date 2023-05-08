@@ -1,18 +1,23 @@
 /* site specific tweaks */
+
+// hide header and footer for urls that include 'with-your-sandbox'
 var header = document.querySelector("header");
+var footer = document.querySelector("footer");
 let previousUrl = "";
 
-// hide header for urls that include 'sandbox'
 const observer = new MutationObserver(() => {
   if (location.href !== previousUrl) {
     previousUrl = location.href;
-    if (location.href?.includes("sandbox")) {
-      header.style.visibility = "hidden";
+    if (location.href?.includes("with-your-sandbox")) {
+      header.style.display = "none";
+      footer.style.display = "none";
     } else {
-      header.style.visibility = "visible";
+      header.style.display = "block";
+      footer.style.display = "block";
     }
   }
 });
 
 const config = { subtree: true, childList: true };
 observer.observe(document, config);
+
