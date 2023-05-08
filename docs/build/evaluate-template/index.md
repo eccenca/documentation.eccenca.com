@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-In this tutorial we dynamically produce text with a **Jinja** template and send it in an email after the execution of a workflow. The email message contains information retrieved from a graph. The graph dataset is attached to the email as an N-triples file. In this tutorial, we do not transform data, but send an existing dataset. For tutorials on how to transform data, please refer to one of our other [tutorials](https://documentation.eccenca.com/22.2/tutorials/) that demonstrate lifting data from a variety of data sources.
+In this tutorial we dynamically produce text with a **Jinja** template and send it in an email after the execution of a workflow. The email message contains information retrieved from a graph. The graph dataset is attached to the email as an N-triples file.
 
 !!! Abstract
 
@@ -85,7 +85,7 @@ The following material is used in this tutorial:
 
 2. Click **Create** at the top of the page.  
 
-3. In the **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.
+3. Select **Project** and click **Add**.
 
     ![Dialog to create new Knowledge Graph dataset](create-project.png)
 
@@ -103,7 +103,7 @@ The following material is used in this tutorial:
 
     ![Create](create.png){width="30%"}
 
-2. In the **Create new item** window, select **Knowledge Graph** and click **Add**. The **Create new item of type Knowledge Graph** appears.
+2. Select **Knowledge Graph** and click **Add**.
 
     ![Create new Knowledge graph dataset](create-knowledge-graph-dataset.png)
 
@@ -115,16 +115,16 @@ The following material is used in this tutorial:
 ## 4 Create a SPARQL Select Query Task Item
 
 !!! Info
-    The SPARQL select query is used to retrieve the data from the company graph that we want to include in our email.
+    The SPARQL select query is used to retrieve the data from the company graph that we want to include in our email. It counts the instances of employees, managers, departments, products, and products that have other compatible products in the database.
 
 1. Click **Create** at the top of the page. 
 
-2. On the **Create new item** window, select **SPARQL Select query** and click **Add**. The **Create new item of type SPARQL Select query** window appears.
+2. Select **SPARQL Select query** and click **Add**.
 
     ![Create new Select query](add-sparql-select.png)
 
-3. Fill in the required details. In the **Select query** field enter the following query which counts the instances of employees, managers, departments, products, and products that have other compatible products in the database. When finished, click **Create**.
-
+3. Fill in the required details such as **Title** and **Description**, then copy the above query and paste in the **Select query** field. When finished, click **Create**.
+    
     ```sparql
     PREFIX pv: <http://ld.company.org/prod-vocab/>
 
@@ -166,7 +166,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page. 
 
-2. In the **Create new item** window, select **Evaluate template** and click **Add**. The **Create new item of type Evaluate template** appears.
+2. Select **Evaluate template** and click **Add**.
 
     ![Create new Evaluate template item](create-evaluate-template.png)
 
@@ -198,7 +198,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page.
 
-2. In the **Create new item** window, select **Text** and click **Add**. The **Create new item of type Text** appears.
+2. Select **Text** and click **Add**.
 
     ![Create new text dataset](create-text-dataset.png)
 
@@ -216,7 +216,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page.  
 
-2. In the **Create New Item** window, select **Transform** and click **Add**. The **Create new item of type Transform** appears.
+2. Select **Transform** and click **Add**.
 
     ![Create new Transformation](create-new-transform.png)
 
@@ -241,7 +241,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page. 
 
-2. In the **Create new item** window, select **Request RDF triples** and click **Add**. The **Create new item of type Request RDF triples** appears.
+2. Select **Request RDF triples** and click **Add**.
 
     ![Create new Request RDF triples task](create-request-rdf-triples-task.png)
 
@@ -257,7 +257,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page.
 
-2. In the **Create new item** window, select **RDF** and click **Add**. The **Create new item of type RDF** appears.
+2. Select **RDF** and click **Add**..
 
     ![Create new RDF dataset](create-rdf-dataset.png)
 
@@ -269,7 +269,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page.
 
-2. In the **Create new item** window, select **Send eMail** and click **Add**. The **Create new item of type Send eMail** appears.
+2. Select **Send eMail** and click **Add**.
 
     ![Create new RDF dataset](create-send-email.png)
 
@@ -290,7 +290,7 @@ The following material is used in this tutorial:
 
 1. Click **Create** at the top of the page. 
    
-2. In the **Create new item** window, select **Workflow** and click **Add**. The **Create new item of type Workflow** appears.
+2. Select **Workflow** and click **Add**.
 
     ![Create new Workflow](add-workflow.png)
 
@@ -312,18 +312,22 @@ The following material is used in this tutorial:
 !!! Info
     The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip [§6](#6-create-a-text-dataset) and enter **output** instead of **text** for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
-5. To send the _message_ parameter with our message text as its value to the **Send eMail task** first, enable its config port by checking the box.
-    ![Set Config Port](config-port.png){width="55%"}
+ 5. Click on three dots of the **Send eMail** task, select **Config** and tick the check box to enable the config port. 
 
-    Then, connect the output of the **Transform** to the config port located on the top of the **Send eMail task**. When finished, click **Save**. The complete workflow now looks as shown below.
+    ![Set Config Port](config-port.png){width="55%"}
+   
+ 6. Connect the output of the **Transform** to the config port located on the top of the **Send eMail** task. When finished, click **Save**. The complete workflow now looks as shown below.
 
     ![Workflow 2](workflow-2.png)
 
+!!! Info    
+    The **Transform** sends the _message_ parameter with our message text as its value to the **Send eMail** task.
+   
 ## 12 Execute the Workflow
 
-1. Execute the **Workflow** by clicking the **play button (▶)**.
+1. Execute the **Workflow** by clicking the *play* button (▶).
 
     ![Workflow](workflow-execute.png){width="40%"}
 
 !!! Info
-    After the workflow has finished you can find an email in the mailbox of the address you specified for the **Send eMail** task.
+    After the workflow has finished you can find an email in the mailbox of the recipient address you specified for the **Send eMail** task.
