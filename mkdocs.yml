@@ -74,6 +74,7 @@ extra_javascript:
   # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#sortable-tables
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - assets/tablesort.js
+  - assets/extra.js
 # }}}
 
 # {{{ Theme configuration
