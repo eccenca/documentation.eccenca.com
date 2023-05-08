@@ -10,7 +10,7 @@ tags:
 
 In this tutorial we dynamically produce text with a **Jinja** template and send it in an email after the execution of a workflow. The email message contains information retrieved from a graph. The graph dataset is attached to the email as an N-triples file.
 
-!!! Abstract
+!!! Tip
 
     The complete tutorial is available as a [project file](tutorial-template.project.zip). You can import the projects:
 
@@ -21,8 +21,8 @@ In this tutorial we dynamically produce text with a **Jinja** template and send 
         cmemc -c my-cmem project import tutorial-template.project.zip tutorial-evaluate-template
         ```
     
-!!! Info
-    In the imported project, you need to enter valid email credentials to send the email (see [§10](#10-create-a-send-email-task-item)).
+!!! Warning
+    In the imported project, enter valid email credentials in the **send eMail** task to succsessfully execute the included workflow (see [§10.3](#10-create-a-send-email-task-item)).
 
 The following material is used in this tutorial:
 
@@ -208,7 +208,7 @@ The tutorial consists of the following steps, which are described in detail belo
 
     ![Dialog to create new Text dataset](create-text-dataset-2.png)
 
-!!! Info 
+!!! Note 
     The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip this section and enter *output* instead of *text* for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
 ## 7 Create a Transform
@@ -311,7 +311,7 @@ The tutorial consists of the following steps, which are described in detail belo
   
     ![Workflow 1](workflow-1.png)
 
-!!! Info
+!!! Note
     The **Evaluate template** operator can also be connected directly to the **Transform**. In this case, skip [§6](#6-create-a-text-dataset) and enter *output* instead of *text* for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
  5. Click on three dots of the **Send eMail** task, select **Config** and tick the check box to enable the config port. 
