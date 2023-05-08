@@ -174,9 +174,6 @@ The tutorial consists of the following steps, which are described in detail belo
 
 3. Fill in the required details, such as **Label** and **Template**. In the **Template** field enter the following Jinja template. Select **jinja** in the **Language** field. When finished, click **Create**.
 
-!!! Note
-     The variable names correspond to those in the SPARQL query we previously created.
-
     ```
     Hi,
 
@@ -192,6 +189,9 @@ The tutorial consists of the following steps, which are described in detail belo
 
     ![Dialog to create new Evaluate template item](create-evaluate-template-2.png)
 
+
+!!! Note
+     The variable names correspond to those in the SPARQL query we previously created.
 
 ## 6 Create a Text Dataset
 
