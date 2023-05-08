@@ -25,7 +25,7 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial:
 
-- RDF graph containing company information regarding employees, products and services : [company.ttl](company.ttl)
+- RDF graph containing company information regarding employees, products and services: [company.ttl](company.ttl)
 
 
     ```Turtle
