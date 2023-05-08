@@ -21,7 +21,8 @@ In this tutorial we dynamically produce text with a **Jinja** template and send 
         cmemc -c my-cmem project import tutorial-template.project.zip tutorial-evaluate-template
         ```
     
-The documentation consists of the following steps, which are described in detail below.
+!!! Info
+    In the imported project, you need to enter valid email credentials to send the email (see [§10](#10-create-a-send-email-task-item)).
 
 The following material is used in this tutorial:
 
@@ -44,6 +45,7 @@ The following material is used in this tutorial:
     ...
     ```
 
+The tutorial consists of the following steps, which are described in detail below.
 
 ## 1 Upload the Company Graph
 
