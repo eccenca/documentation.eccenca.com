@@ -136,7 +136,6 @@ The tutorial consists of the following steps, which are described in detail belo
         ?products
         ?product_compatibility
         ?currentDateTime
-        ?validation_result
     FROM <http://ld.company.org/prod-inst-jinja/>
     WHERE {
         { SELECT ( COUNT( DISTINCT ?employee ) AS ?employees ) {
