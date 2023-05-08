@@ -13,32 +13,34 @@ This page lists materials and resources to be used to replicate and follow the *
 
     This masterclass provides the foundation of KG solutions based on the eccenca Corporate Memory platform. The platform covers the full lifecycle of KG applications. Our partners and experts love it for its productivity, ease of use and level of automation in KG creation and evolution. It boosts your abilities to capture, access and re-use knowledge from your organization in a whole new way. Join our tutors to learn about the platform and what it can do in your KG projects.
 
-## File resources
+<div class="grid cards" markdown>
 
--   Hardware Products Dataset: [hardware.xlsx](./material/resources/hardware.xlsx){target=_blank}
--   Service Products Dataset: [services.csv](./material/resources/services.csv){target=_blank}
--   Supplier Dataset: [supplier.json](./material/resources/supplier.json){target=_blank}
--   Organizational Information Dataset: [orgmap.xml](./material/resources/orgmap.xml){target=_blank}
+-   ## File resources
 
-## (Custom) Vocabularies
+    ---
 
--   Products Vocabulary: [pv.ttl](./material/vocabs/pv.ttl){target=_blank}
+    | Type           | Name                       | Resource                                                           |
+    | -------------- | -------------------------- | ------------------------------------------------------------------ |
+    | Dataset (XLSX) | Hardware Products          | [hardware.xlsx](./material/resources/hardware.xlsx){target=_blank} |
+    | Dataset (CSV)  | Service Products           | [services.csv](./material/resources/services.csv){target=_blank}   |
+    | Dataset (JSON) | Supplier                   | [supplier.json](./material/resources/supplier.json){target=_blank} |
+    | Dataset (XML)  | Organizational Information | [orgmap.xml](./material/resources/orgmap.xml){target=_blank}       |
+    | Vocabulary     | Products Vocabulary*       | [pv.ttl](./material/vocabs/pv.ttl){target=_blank}                  |
 
-## Name(space) suggestions
+    *) FYI, vocabulary already installed
 
-### Build Project
+-   ## Name(space) suggestions
 
-| Name                   |
-| ---------------------- |
-| KGC Product Build Demo |
+    ---
 
-### Knowledge Graph Datasets
+    | Type          | Name                    | IRI                                  |
+    | ------------- | ----------------------- | ------------------------------------ |
+    | Dataset (KG)  | KGC Prod - Integration  | `http://kgc.eccenca.com/prod-int/`   |
+    | Dataset (KG)  | KGC Prod - Hardware     | `http://kgc.eccenca.com/prod-hw/`    |
+    | Dataset (KG)  | KGC Prod - Services     | `http://kgc.eccenca.com/prod-srv/`   |
+    | Dataset (KG)  | KGC Prod - Supplier     | `http://kgc.eccenca.com/prod-suppl/` |
+    | Dataset (KG)  | KGC Prod - Organization | `http://kgc.eccenca.com/prod-org/`   |
+    | Dataset (KG)  | KGC Prod - Links        | `http://kgc.eccenca.com/prod-links/` |
+    | Build Project | KGC Product Build Demo  |                                      |
 
-| Name                    | IRI                                  |
-| ----------------------- | ------------------------------------ |
-| KGC Prod - Integration  | `http://kgc.eccenca.com/prod-int/`   |
-| KGC Prod - Hardware     | `http://kgc.eccenca.com/prod-hw/`    |
-| KGC Prod - Services     | `http://kgc.eccenca.com/prod-srv/`   |
-| KGC Prod - Supplier     | `http://kgc.eccenca.com/prod-suppl/` |
-| KGC Prod - Organization | `http://kgc.eccenca.com/prod-org/`   |
-| KGC Prod - Links        | `http://kgc.eccenca.com/prod-links/` |
+</div>

@@ -33,6 +33,14 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     The sandbox includes a sample build project named _"Product Data Integration Demo"_ and the graphs produced by this project as well as an integration graph as the entry point: _"Products - Integration"_. Shacl shapes are provided for the Product Vocabulary. Those are used in the EasyNav module for visual exploration as well as in a customized workspace configuration called _"Product Data Integration"_ demonstrating how the user interface can be tailored.
 
+-   :superhero:{ .lg .middle } __KGC 2023 Masterclass Material__
+
+    ---
+
+    A lists materials and resources to be used to replicate and follow the **The Knowledge Graph Conference 2023** Masterclass Session: _From zero to KG hero: boost your KG creation productivity with eccenca Corporate Memory_.
+
+    [:octicons-arrow-right-24: KG heros :superhero: this way…](./material){target=_blank}
+
 -   :material-script-text-play-outline:{ .lg .middle } __Tutorials and Examples__
 
     ---
