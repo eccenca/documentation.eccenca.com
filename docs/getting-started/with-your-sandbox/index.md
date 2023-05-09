@@ -39,7 +39,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     A lists materials and resources to be used to replicate and follow the **The Knowledge Graph Conference 2023** Masterclass Session: _From zero to KG hero: boost your KG creation productivity with eccenca Corporate Memory_.
 
-    [:octicons-arrow-right-24: KG heros :superhero: this way…](./material){target=_blank}
+    [:octicons-arrow-right-24: KG heros :superhero: this way :material-directions:](./material){target=_blank}
 
 -   :material-script-text-play-outline:{ .lg .middle } __Tutorials and Examples__
 
@@ -84,6 +84,14 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
     With _AUTOMATE_, you can easily set up and automate processes in your Knowledge Graph. Our `cmemc` command line tool simplifies the management and migration of data and configurations in Corporate Memory. Learn about our vision of a DataOps process based on Corporate Memory. how to schedule workflows and using variable data inputs.
 
     [:octicons-arrow-right-24: Learn more about _Automate_](/automate){target=_blank}
+
+-   :material-account-school:{ .lg .middle } __Training and Certification__
+
+    ---
+
+    Our Learning Management System contains courses and certifications for different target groups: e.g. for business, (linked data) consultants or DevOps.
+
+    [:octicons-arrow-right-24: register at _eccenca LMS_](https://lms.eccenca.com/){target=_blank}
 
 -   :material-information-variant:{ .lg .middle } __About Corporate Memory__
 

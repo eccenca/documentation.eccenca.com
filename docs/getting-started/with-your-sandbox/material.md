@@ -43,4 +43,18 @@ This page lists materials and resources to be used to replicate and follow the *
     | Dataset (KG)  | KGC Prod - Links        | `http://kgc.eccenca.com/prod-links/` |
     | Build Project | KGC Product Build Demo  |                                      |
 
+-   ## Resource IRI suggestions
+
+    ---
+
+    | Type             | IRI                                                             |
+    | ---------------- | --------------------------------------------------------------- |
+    | Department       | `http://kgc.eccenca.com/prod-data/dept-{id}`                    |
+    | Employee         | `http://kgc.eccenca.com/prod-data/empl-{email}`                 |
+    | Hardware         | `http://kgc.eccenca.com/prod-data/hw-{id}`                      |
+    | Price            | `http://kgc.eccenca.com/prod-data/price-{parent-id}-{currency}` |
+    | Product Category | `http://kgc.eccenca.com/prod-data/prod-cat-{name|uuid}`         |
+    | Service          | `http://kgc.eccenca.com/prod-data/srv-{id}`                     |
+    | Supplier         | `http://kgc.eccenca.com/prod-data/suppl-{id}`                   |
+
 </div>
