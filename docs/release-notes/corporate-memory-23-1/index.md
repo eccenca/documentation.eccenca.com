@@ -32,7 +32,7 @@ This release delivers the following component versions:
 -   eccenca DataIntegration v23.1.1
 -   eccenca DataIntegration Python Plugins v3.0.0
 -   eccenca DataManager v23.1.4
--   eccenca Corporate Memory Control (cmemc) v23.1.1
+-   eccenca Corporate Memory Control (cmemc) v23.1.2
 
 More detailed release notes for these versions are listed below.
 
@@ -245,10 +245,17 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
     -   `authorization.accessConditions.graph`: used graph is always the default graph from bootstrap
     -   `authorization.accessConditions.url`: url as source for access condition not supported anymore
 
-## eccenca Corporate Memory Control (cmemc) v23.1.1
+## eccenca Corporate Memory Control (cmemc) v23.1.2
 
 We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements.
 This release introduces new command functionalities, configuration options, and a change in the project structure.
+
+v23.1.2 of eccenca Corporate Memory Control introduces the following fixes:
+
+-   broken installation due to `urllib3` dependency
+    - `urllib3>=2` was released 2023-04-26 but is broken with this error: `ImportError: cannot import name 'appengine' from 'urllib3.contrib'`
+    - cmemc requested any version and not `^1.26.15` of this library, which resulted in broken installations with pip beginning from 2023-04-26
+    - quick fix to solve this without updating cmemc: `pip install urllib3==1.26.15` in the cmemc virtual env
 
 v23.1.1 of eccenca Corporate Memory Control introduces the following changes:
 
