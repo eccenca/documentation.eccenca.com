@@ -87,36 +87,41 @@ The rules for the config file are similar to a Windows INI file and are explaine
 
 ## Examples
 
-!!! example inline end
+Below is a minimal example using the `client_credentials` grant type.
+
+!!! example
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
+    OAUTH_TOKEN_URI=http://localhost/realms/cmem/protocol/openid-connect/token
     OAUTH_GRANT_TYPE=client_credentials
     OAUTH_CLIENT_ID=cmem-service-account
     OAUTH_CLIENT_SECRET=...
     ```
 
-Here is a minimal example using the `client_credentials` grant type.
-
 This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
-The authorization will be done with a system account `cmem-service-account` and the given client secret.
+The authorization will be done with a system account `cmem-service-account` and the given client secret. The OAuth 2.0 token endpoint location is configured with `OAUTH_TOKEN_URI`.
 Using this combination of config parameters is based on a typical installation where all components are available under the same hostname.
 
-!!! example inline end
+Another example using `password` grant type.
+
+!!! example
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
+    OAUTH_TOKEN_URI=http://localhost/realms/cmem/protocol/openid-connect/token
     OAUTH_GRANT_TYPE=password
     OAUTH_CLIENT_ID=cmemc
     OAUTH_USER=user
     OAUTH_PASSWORD=...
     ```
 
-Another example using `password` grant type.
-
 This creates a named section `my-local`, which is a connection to a Corporate Memory deployment on `http://localhost/`.
-The authorization will be done with the given `OAUTH_USER` and the `OAUTH_PASSWORD`.
+The authorization will be done with the given `OAUTH_USER` and `OAUTH_PASSWORD`. The OAuth 2.0 token endpoint location is configured with `OAUTH_TOKEN_URI`.
 
+!!! info
+    Usually you do **not need to set** `OAUTH_TOKEN_URI`. This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`. Click [here](#oauth_token_uri) for more information. 
+    
 ## Configuration Variables
 
 The above example provides access to an installation where all components including keycloak are deployed with the default URL base.
