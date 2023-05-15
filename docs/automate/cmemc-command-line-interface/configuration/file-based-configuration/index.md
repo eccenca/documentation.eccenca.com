@@ -93,7 +93,6 @@ Below is a minimal example using the `client_credentials` grant type.
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
-    OAUTH_TOKEN_URI=http://localhost/realms/cmem/protocol/openid-connect/token
     OAUTH_GRANT_TYPE=client_credentials
     OAUTH_CLIENT_ID=cmem-service-account
     OAUTH_CLIENT_SECRET=...
@@ -109,7 +108,6 @@ Another example using `password` grant type.
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
-    OAUTH_TOKEN_URI=http://localhost/realms/cmem/protocol/openid-connect/token
     OAUTH_GRANT_TYPE=password
     OAUTH_CLIENT_ID=cmemc
     OAUTH_USER=user
@@ -119,8 +117,8 @@ Another example using `password` grant type.
 This creates a named section `my-local`, which is a connection to a Corporate Memory deployment on `http://localhost/`.
 The authorization will be done with the given `OAUTH_USER` and `OAUTH_PASSWORD`. The OAuth 2.0 token endpoint location is configured with `OAUTH_TOKEN_URI`.
 
-!!! info
-    Usually you do **not need to set** `OAUTH_TOKEN_URI`. This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`. Click [here](#oauth_token_uri) for more information. 
+!!! Warning
+    This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`. If **Keycloak** is exposed to a different domain than Corporate Memory, make sure to correctly set the variables [KEYCLOAK_BASE_URI](#keycloak_base_uri) and [KEYKLOAK_REALM_ID](#keycloak_realm_id). Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information. 
     
 ## Configuration Variables
 
