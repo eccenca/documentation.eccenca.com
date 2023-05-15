@@ -118,7 +118,7 @@ This creates a named section `my-local`, which is a connection to a Corporate Me
 The authorization will be done with the given `OAUTH_USER` and `OAUTH_PASSWORD`.
 
 !!! info
-    The OAuth 2.0 token endpoint location ([`OAUTH_TOKEN_URI`](#oauth_token_uri)) defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`. If **Keycloak** is exposed to a different domain than Corporate Memory, make sure to correctly set the variables [`KEYCLOAK_BASE_URI`](#keycloak_base_uri) and [`KEYKLOAK_REALM_ID`](#keycloak_realm_id). Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information. 
+    The OAuth 2.0 token endpoint location ([`OAUTH_TOKEN_URI`](#oauth_token_uri)) defaults to `$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token`. If **Keycloak** is exposed to a different domain than Corporate Memory, make sure variables [`KEYCLOAK_BASE_URI`](#keycloak_base_uri) and [`KEYKLOAK_REALM_ID`](#keycloak_realm_id) configured correctly. Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information. 
     
 ## Configuration Variables
 
