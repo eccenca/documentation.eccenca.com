@@ -142,41 +142,31 @@ This variable defaults to `http://docker.localhost/`.
 
 This is the base location (HTTP(S) URL) of all Data Integration APIs.
 
-Usually you do **not need to set** this configuration variable.
-
-This variable defaults to `$CMEM_BASE_URI/dataintegration/`.
+This variable defaults to `$CMEM_BASE_URI/dataintegration/` and usually does **not** need to be set.
 
 #### DP_API_ENDPOINT
 
 This is the base location (HTTP(S) URL) of all Data Platform APIs.
 
-Usually you do **not need to set** this configuration variable.
-
-This variable defaults to `$CMEM_BASE_URI/dataplatform/`.
+This variable defaults to `$CMEM_BASE_URI/dataplatform/` and usually does **not** need to be set.
 
 #### KEYCLOAK_BASE_URI
 
 This is the base location (HTTP(S) URL) of all Keycloak APIs.
 
-Usually you do **not need to set** this configuration variable.
-
-This variable defaults to `$CMEM_BASE_URI/auth/`.
+This variable defaults to `$CMEM_BASE_URI/auth/` and usually does **not** need to be set.
 
 #### KEYCLOAK_REALM_ID
 
 This is the identifier of your  Keycloak Realm.
 
-Usually you do **not need to set** this configuration variable.
-
-This variable defaults to `cmem`.
+This variable defaults to `cmem` and usually does **not** need to be set.
 
 #### OAUTH_TOKEN_URI
 
 This is the [OpenID Connect (OIDC)](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) OAuth 2.0 token endpoint location (HTTP(S) URL).
 
-Usually you do **not need to set** this configuration variable.
-
-This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token`.
+This variable defaults to `$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token` and usually does **not** need to be set.
 
 ### Authentication related
 
