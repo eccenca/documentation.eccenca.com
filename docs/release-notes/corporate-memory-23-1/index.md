@@ -42,8 +42,8 @@ We're excited to bring you the latest update to DataIntegration v23.1, featuring
 
 v23.1.2 of eccenca DataIntegration ships following fixes:
 
-- Saving a transform or linking rule with an operator that references a project resource fails.
-- Cannot read large Excel files from S3.
+-   Saving a transform or linking rule with an operator that references a project resource fails.
+-   Cannot read large Excel files from S3.
 
 v23.1.1 of eccenca DataIntegration ships following fixes:
 
