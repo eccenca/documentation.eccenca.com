@@ -40,6 +40,11 @@ More detailed release notes for these versions are listed below.
 
 We're excited to bring you the latest update to DataIntegration v23.1, featuring numerous enhancements, bug fixes, and deprecations. This release introduces global variables support, Python Plugin API extensions, improved handling of replaceable datasets, and much more.
 
+v23.1.2 of eccenca DataIntegration ships following fixes:
+
+- Saving a transform or linking rule with an operator that references a project resource fails.
+- Cannot read large Excel files from S3.
+
 v23.1.1 of eccenca DataIntegration ships following fixes:
 
 -   Fixed various vulnerabilities by upgrading affected libraries.
