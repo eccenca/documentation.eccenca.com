@@ -75,7 +75,7 @@ In our example, the JDBC Endpoint IRI looks like this: _<http://dataintegration.
 
 See screenshot below for example:
 
-![Turtle view of a graph resource](graph-turtle-view.png)
+![image](graph-demo.png)
 
 Now that we have the JDBC endpoint IRI, we will build the Metadata Graph to store the OFFSET information.
 

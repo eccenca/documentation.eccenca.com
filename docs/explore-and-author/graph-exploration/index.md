@@ -111,7 +111,7 @@ Select a class in the Navigation box to show all instances of this class in th
 To open the Instance Details of a resource click on that resource in the Instance List.
 Resources are shown as grey chip buttons.
 
-![](./instancedata.png)
+![image](graph-shapes.png)
 
 !!! warning inline end
 
@@ -128,7 +128,7 @@ The availability of these views depends on the context and the resource type.
 The Resource tab provides a view based on the shapes of the selected resource.
 The details of the shaped view depends on the configuration.
 
-![](./graphoverview.png)
+![image](graph-resource.png)
 
 #### Properties
 
@@ -173,7 +173,7 @@ The Graph tab shows a visual graph representation of the graph.
 This tab shows a graph visualization of an installed vocabulary.
 It displays all classes showing the class-subclass.  You can open the class details and view the list of instances related to that class. It also allows you to copy the resource IRI.
 
-![](./vocab.png)
+![image](graph-vocab.png)
 
 #### References
 

@@ -35,7 +35,7 @@ First, install all required ontologies/vocabularies which are needed for mapping
 
 In this tutorial, we need the _Schema.org_ and the _RDFS_ vocabulary. Press the (toggle switch) button on the right to install them.
 
-![Vocabulary catalog](pdwviw-vocab-catalog.png)
+![image](vocab-entry.png)
 
 ## 2 Create a new project
 
@@ -107,4 +107,4 @@ http://feeds.bbci.co.uk/news/rss.xml
 
 In **EXPLORATION**, you can study the ingested feed data in your Knowledge Graph.
 
-![Explore the result](pdwviw-review-knowledge-graph.png)
+![image](graph-explore.png)

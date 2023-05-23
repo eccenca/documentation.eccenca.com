@@ -78,6 +78,6 @@ After adding namespace declarations to a project you are able to use the abbrevi
 
 ![Prefixes displayed in the mapping dialogs, e.g. property selection.](prefix-displayed-in-mapping.png)
 
-![Query Editor](DM-query-editor.png)
+![image](query.png)
 
-![Turtle Editor](DM-turtle-editor.png)
+![image](turtle.png)

@@ -20,7 +20,7 @@ The catalog lists all existing SPARQL queries including name, type and descripti
 
 Use the **:eccenca-operation-search: Search** bar in order to look for a specific query.
 
-![](./Queries.png)
+![image](query-catelog.png)
 
 Select the query from the Queries catalog, to open and load the query. 
 

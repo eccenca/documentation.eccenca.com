@@ -43,7 +43,7 @@ In order to get more information on a thesaurus project and edit its metadata, c
 The view expands showing the project metadata.
 Click **:eccenca-item-edit: Edit** on the right side of the row to open the edit mode, enter your changes and click **SAVE**.
 
-![Thesaurus project catalog](CMEM-22-2-thesaurus-project-catalog.png "Thesaurus project catalog")
+![image](Thesaurus.png)
 
 To open the detail view of a thesaurus project, click the project name in the catalog.
 

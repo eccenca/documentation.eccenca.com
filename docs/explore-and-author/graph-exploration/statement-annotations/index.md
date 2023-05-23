@@ -17,7 +17,7 @@ Statement Annotations provide a way to express knowledge about statements. Typi
 
 If enabled on a specific type of statement or type of resource, you see a Statement Annotation text bubble beside every annotatable statement:
 
-![](./statementannotationoveriew.png)
+![image](product-services.png)
 
 This bubble has different status:
 

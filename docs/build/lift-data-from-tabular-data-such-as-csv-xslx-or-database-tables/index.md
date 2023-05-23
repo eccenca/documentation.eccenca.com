@@ -72,7 +72,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Vocabularies under **EXPLORE** in the navigation on the left side of the page.
 
-        ![](explore-vocab-catalog.png){width="30%"}
+        ![image](voca-bularies.png){width="30%"}
 
     2. Click **Register new vocabulary** on the top right.
 
@@ -306,4 +306,4 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: http://ld.company.org/prod-instances/
 
-    ![](kg-result.png)
+    ![image](graph-crop.png)

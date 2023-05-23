@@ -110,11 +110,11 @@ The vocabulary contains the classes and properties needed to map the source data
 
 1. In Corporate Memory, click **Vocabularies** in the navigation under **EXPLORE** on the left side of the page.
 
-    ![Menu entry EXPLORE > Vocabularies](menu-explore-vocabularies.png){width="30%"}
+    ![image](vocabularies.png)
 
 2. Click **Register new vocabulary** on the top right of the **Vocabulary catalog** page in Corporate Memory.
 
-    ![Vocabularies Catalog](vocab-catalog-xml+json.png)
+    ![image](vocularies-register.png)
 
 3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
@@ -343,7 +343,7 @@ Click **Transform evaluation** to evaluate the transformed entities.
 
     === "JSON"
 
-        ![Service KG](services-kg.png)
+        ![image](kg-organization.png)
 
     === "XML"
 

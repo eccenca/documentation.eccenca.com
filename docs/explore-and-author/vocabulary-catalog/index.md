@@ -10,7 +10,7 @@ tags:
 
 Vocabularies are the foundation for semantic data lifting activities.This module shows the list of all managed vocabularies in Corporate Memory that are accessible for the user. The table represents the list of known vocabularies. Installed vocabularies are indicated by the orange switch in the column `Installed`.
 
-[![](./vocabulary.png)](./vocabulary.png)
+[![image](vocab-introduction.png)
 
 ## Add new vocabulary
 
