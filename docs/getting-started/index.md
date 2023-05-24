@@ -110,7 +110,7 @@ The user interface of Corporate Memory usually consists of two sections:
 1. The module bar providing access to the various modules of Corporate Memory and to a menu with further options
 1. The main section for operating the software functions
 
-![](UserInterface.png)
+![image](statistic.png)
 
 Each module provides a set of functionalities and views for specific use cases.
 To access a module, click the module name. The active module is highlighted.
