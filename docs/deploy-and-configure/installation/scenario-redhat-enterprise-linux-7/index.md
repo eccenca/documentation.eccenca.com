@@ -253,10 +253,6 @@ echo "10.10.10.10 corporate.memory" >> /etc/hosts
 
 Open your browser and navigate to [https://corporate.memory]<https://corporate.memory>
 
-![cmem-login-page](../22-1-cmem-login-page.png)
-
-Click CONTINUE WITH LOGIN and use one of these default accounts:
-
 | account | password | description                                                                                 |
 | ------- | -------- | ------------------------------------------------------------------------------------------- |
 | `admin` | `admin`  | Is member of the global admin group (can see and do anything)                               |

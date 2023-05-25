@@ -7,7 +7,7 @@ tags:
 
 A DataManager module is available that can be used to embed / integrate other web-services in Corporate Memory. The module can be used and configured globally or individually per workspace configuration.
 
-[![](./integrations.png)](./integrations.png)
+![image](integration.png)
 
 ## Activation and configuration in DataManager
 

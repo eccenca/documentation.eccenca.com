@@ -153,9 +153,6 @@ Run make logs to see log output
 
 Open your browser and navigate to <http://docker.localhost>
 
-![cmem-login-page](../22-1-cmem-login-page.png)
-
-Click CONTINUE WITH LOGIN and use one of these default accounts:
 
 | account | password | description                                                                                 |
 | ------- | -------- | ------------------------------------------------------------------------------------------- |

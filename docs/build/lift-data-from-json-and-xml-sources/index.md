@@ -343,8 +343,8 @@ Click **Transform evaluation** to evaluate the transformed entities.
 
     === "JSON"
 
-        ![image](kg-organization.png)
+        ![image](graph-json1.png)
 
     === "XML"
 
-        ![Organization KG](kg-organization.png)
+        ![image](graph-xml.png)

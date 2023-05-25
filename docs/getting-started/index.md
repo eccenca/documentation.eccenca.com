@@ -45,7 +45,6 @@ For the best user experience, we recommend to use the newest version of Google C
 To start eccenca Corporate Memory:
 
 1. Enter the URL in your web browser.
-1. Select your workspace and click **CONTINUE WITH LOGIN**.
 2. Enter your credentials and click **LOG IN**.
 
 After you logged in to your Corporate Memory instance, the main application view appears.
@@ -136,7 +135,7 @@ Use the provided search field(s) in each module to search for specific keywords 
 
 The **EXPLORE** module provides more search fields (e.g. in the Graph box, Navigation box, etc.) where you can limit your search to specific graphs or resources.
 
-![](Explore.png)
+![image](demograph.png)
 
 ### Settings menu for table views
 
