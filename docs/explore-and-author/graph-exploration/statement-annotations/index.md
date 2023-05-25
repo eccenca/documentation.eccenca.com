@@ -41,25 +41,25 @@ In order to have a working Statement Annotation setup, the following steps need 
 
 Create a new Graph, edit its metadata and change the type to Statement Annotation Graph.
 
-![](./statementannotation.png)
+![image](annotation-graph.png)
 
 ### Setup and import the Statement Annotation Graph in your data graph
 
 In your data graph, where the resources exist which you want to annotate, import the Statement Annotation Graph and select it as an Annotation Graph.
 
-![](./annotations.png)
+![image](import-graph.png)
 
 ### Create a shaped form which will be used to annotate statements
 
 In your Shape Catalog, select a Node Shape (or create one) which you want to use for statement annotations, and Enable Statement Annotation to true.
 
-![](./setannotations.png)
+![image](create-shapes.png)
 
 ### Allow statement annotations in your shaped forms on specific Classes or Properties
 
 Finally, select the Node Shape or Property Shape from your Shape Catalog, and enable annotations by setting the Enable option in the Statement Annotations group to true.
 
-![](./setannotations.png)
+![image](create-shapes1.png)
 
 This will enable the feature on the statements of all resources shown with this Node Shape or on all statements shown with this Property Shape.
 
