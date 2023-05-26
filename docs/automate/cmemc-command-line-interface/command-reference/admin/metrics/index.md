@@ -10,7 +10,7 @@ tags:
 
 List and get metrics.
 
-This command group consists of commands for reading and listing internal monitoring metrics of eccenca Corporate Memory. A deployment consists of multiple jobs (e.g. DP, DI), which provide multiple metric families on an endpoint.
+This command group consists of commands for reading and listing internal monitoring metrics of eccenca Corporate Memory. A deployment consists of multiple jobs (e.g. DP, DI), which provide multiple metric families for an endpoint.
 
 Each metric family can consist of different samples identified by labels with a name and a value (dimensions). A metric has a specific type (counter, gauge, summary and histogram) and additional metadata.
 
@@ -32,8 +32,8 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
 
 
 
-!!! Note
-    
+??? info "Options"
+    ```text
 
     --job [DP]               The job from which the metrics data is fetched.
                              [default: DP]
@@ -67,7 +67,7 @@ $ cmemc admin metrics inspect [OPTIONS] METRIC_ID
 
 
 
-This command outputs the data of a metric. The first table includes basic meta data about the metric. The second table includes sample labels and values.
+This command outputs the data of a metric. The first table includes basic metadata about the metric. The second table includes sample labels and values.
 
 
 

@@ -46,7 +46,7 @@ Vocabularies are graphs (see `graph` command group) which consists of class and 
     ```text
 
     --id-only                       Lists only vocabulary identifier (IRIs) and
-                                    no labels or other meta data. This is useful
+                                    no labels or other metadata. This is useful
                                     for piping the ids into other cmemc
                                     commands.
   

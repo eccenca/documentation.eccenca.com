@@ -71,7 +71,7 @@ eccencaDataManager.moduleLinks = [
 ]
 ```
 
-!!! warning
+!!! Note
     The "`name"` and "`defaultLabel`" property should be aligned in the DataManager and DataIntegration configuration for consistency.
 
 A restart of DataIntegration will be required in order for the configuration change to become effective.

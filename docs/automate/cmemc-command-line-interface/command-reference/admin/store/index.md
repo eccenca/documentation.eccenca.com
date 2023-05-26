@@ -25,16 +25,17 @@ $ cmemc admin store showcase [OPTIONS]
 
 
 
-This command creates a showcase scenario of multiple graphs including integration graphs, shapes, statement annotations etc.
+This command creates a showcase scenario of multiple graphs including integration graphs, shapes, statement annotations, etc.
 
 !!! note
-    There is currently no deletion mechanism for the showcase data, so you need to remove the showcase graphs manually (or just remove all graphs).
+    There is currently no deletion mechanism for the showcase data and you need to remove the showcase graphs manually (or just remove all graphs).
 
 
 
 
-!!! Note
-   
+??? info "Options"
+    ```text
+
     --scale INTEGER  The scale factor provides a way to set the target size of
                      the scenario. A value of 10 results in around 40k triples,
                      a value of 50 in around 350k triples.  [default: 10]
@@ -56,16 +57,17 @@ $ cmemc admin store bootstrap [OPTIONS]
 
 
 
-This command imports the bootstrap data needed for managing shapes, access conditions, the query catalog and the vocabulary catalog.
+This command imports the bootstrap data needed for managing shapes and configuration objects.
 
 !!! note
-    There is currently no deletion mechanism for the bootstrap data, so you need to remove the graphs manually (or just remove all graphs).
+    The command will first remove all existing bootstrap data (identified with the isSystemResource flag) and will then import the new data to the corresponding graphs (shape catalog, vocabulary catalog, configuration graph).
 
 
 
 
-!!! note
-   
+??? info "Options"
+    ```text
+
     --import    Delete existing bootstrap data if present and import bootstrap
                 data which was delivered
     ```
@@ -81,7 +83,7 @@ $ cmemc admin store export [OPTIONS] BACKUP_FILE
 
 
 
-The backup file is a ZIP archive containing all knowledge graphs as Turtle files + configuration file for each graph.
+The backup file is a ZIP archive containing all knowledge graphs (one Turtle file + configuration file per graph).
 
 This command will create lots of load on the server. It can take a long time to complete.
 
@@ -105,11 +107,11 @@ $ cmemc admin store import BACKUP_FILE
 
 
 
-The backup file is a ZIP archive containing all knowledge graphs as Turtle files + configuration file for each graph.
+The backup file is a ZIP archive containing all knowledge graphs  (one Turtle file + configuration file per graph).
 
-The command will load a single backup ZIP archive into the triple store, by replacing all graphs with the content of the Turtle files in the archive and deleting all graphs which are not in the archive.
+The command will load a single backup ZIP archive into the triple store by replacing all graphs with the content of the Turtle files in the archive and deleting all graphs which are not in the archive.
 
-This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer, the network connection is not used anymore, so it will be closed by proxies sometimes. This does not mean that the import failed.
+This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer the network connection is not used anymore and may be closed by proxies. This does not mean that the import failed.
 
 
 

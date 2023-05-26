@@ -27,3 +27,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 [mkdocs-shield]: https://img.shields.io/badge/Made%20with-mkdocs-brightgreen
 [mkdocs]: https://www.mkdocs.org/
 [markdown-shield]: https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg
+

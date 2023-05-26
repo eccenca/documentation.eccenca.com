@@ -15,18 +15,19 @@ dec-tool = 'tools:cli'
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Pillow = "^9.2.0"
-CairoSVG = "^2.5.2"
+Pillow = "^9.4.0"
+CairoSVG = "^2.7.0"
 mkdocs = "^1.4.2"
 mike = "^1.1.2"
-mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-git-revision-date-localized-plugin = "^1.2.0"
 mkdocs-awesome-pages-plugin = "^2.8.0"
-mkdocs-glightbox = "^0.3.0"
+mkdocs-glightbox = "^0.3.2"
 mkdocs-macros-plugin = "^0.7.0"
-mkdocs-autolinks-plugin = "^0.6.0"
+mkdocs-autolinks-plugin = "^0.7.0"
 mkdocs-redirects = "^1.2.0"
-mkdocs-swagger-ui-tag = "^0.4.3"
-mkdocs-material = "8.5.8"
+mkdocs-swagger-ui-tag = "^0.6.1"
+mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "9.1.4-insiders-4.32.4"}
+
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

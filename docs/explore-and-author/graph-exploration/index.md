@@ -48,7 +48,7 @@ You can search for a specific graph with **:eccenca-module-search: Search**.
 
 To add a new graph to the Graphs list:
 
-<div class="annotate" markdown>
+
 - Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
 - Select a graph type. (1)
 - Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
