@@ -1236,7 +1236,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page,then click on **Add**.
+-   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page, then click on **Add**.
 
 ![image](22.2-transformation-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -1272,7 +1272,7 @@ Here is a breakdown of the elements of this example connection string.
 
 ![image](22.2-add-valuenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name,product id etc.
+-   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name, product id etc.
     This step will help in mapping the data from the source to the target property.
 
 ![image](22.2-target-propertynew.png){ style="border: 1px solid #555; border-radius: 5px;" }
