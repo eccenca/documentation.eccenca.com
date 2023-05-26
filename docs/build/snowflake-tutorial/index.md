@@ -4,7 +4,7 @@ subtitle: Connect snowflake cloud datawarehouse via JDBC
 #hide:
 #  - navigation
 tags:
-  - "2 Advanced Tutorial"
+  - AdvancedTutorial
   - KnowledgeGraph
 ---
 
@@ -42,9 +42,9 @@ To connect to the Snowflake cloud data warehouse a JDBC driver is required.
 
 The SQL-Dataset of eccenca Corporate Memory can access any database that offers a (supported/tested) JDBC driver.
 This happens partly via Apache Spark SQL but requires no Spark specific configuration for eccenca Corporate Memory.
-For Snowflake supported (e.g. 3.13.15+) JDBC drivers can be found at:
+For Snowflake supported (e.g. 3.13.30) JDBC drivers can be found at:
 
--   [MVN Repository](https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc/3.13.15) ([direct jar download](https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.15/snowflake-jdbc-3.13.15.jar))
+-   [MVN Repository](https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc/3.13.30) ([direct jar download](https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.30/snowflake-jdbc-3.13.30.jar))
 -   to verify and build yourself: [github.com/snowflakedb/snowflake-jdbc](https://github.com/snowflakedb/snowflake-jdbc)
 
 To use the driver it needs to be part of the classpath of eccenca DataIntegration.
@@ -65,7 +65,7 @@ There are 3 settings to specify:
         # …
         # configure snowflake JDBC driver
         jdbc.drivers = "snowflake"
-        jdbc.snowflake.jar = ${ELDS_HOME}"/etc/dataintegration/conf/snowflake-jdbc-3.13.27.jar"
+        jdbc.snowflake.jar = ${ELDS_HOME}"/etc/dataintegration/conf/snowflake-jdbc-3.13.30.jar"
         jdbc.snowflake.name = "net.snowflake.client.jdbc.SnowflakeDriver"
         # …
     }
