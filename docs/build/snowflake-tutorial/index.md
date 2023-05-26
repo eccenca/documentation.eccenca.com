@@ -1305,7 +1305,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   **Tick** the box to select the suggestions to be added, then click on **Add**.
 
-![image](22.2-ticknew.png)){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](22.2-ticknew.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## 5. Create a knowledge graph
 
