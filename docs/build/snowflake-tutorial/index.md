@@ -84,11 +84,11 @@ There are 3 settings to specify:
 
 -   Click on **+Database** on the right side of the page.
 
-![image](22.2-add-databasenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-add-database.png)
 
 -   Type the database name **Product**, then click on **Create**.
 
-![image](22.2-Product-name-database.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-product-name-database.png)
 
 -   Click on database **product**, then click on **+Schema** on the right side of the page.
 
