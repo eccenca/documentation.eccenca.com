@@ -1138,7 +1138,7 @@ Here you can populate some test data with the following SQL query:
 
     The database has been populated as shown below.
 
-    ![image](snowflake-table-created-new.png){ class="bordered" }
+    ![image](snowflake-table-created.png){ class="bordered" }
 
 ## 3. Create a project in eccenca Corporate Memory
 
@@ -1148,7 +1148,7 @@ Here you can populate some test data with the following SQL query:
 
 -   Click on Project, then click on **Add**.
 
-![image](snowflake-add-project-new.png){ class="bordered" }
+![image](snowflake-add-project.png){ class="bordered" }
 
 -   Type the project name **product** in the title field, then click on **Create**.
 
@@ -1200,7 +1200,7 @@ Here is a breakdown of the elements of this example connection string.
     SELECT * from product
     ```
 
-![image](snowflake-query-source-new.png){ class="bordered" }
+![image](snowflake-query-source.png){ class="bordered" }
 
 -   Select the **Query strategy** as **Execute the given source query.No paging or virtual query**.
 
@@ -1222,7 +1222,7 @@ Here is a breakdown of the elements of this example connection string.
 
     JDBC endpoint is created and data is transferred from Snowflake to eccenca Corporate Memory.
 
-    ![image](snowflake-jdbc-created-new.png){ class="bordered" }
+    ![image](snowflake-jdbc-created.png){ class="bordered" }
 
 ## 4. Create a transformation to build mapping rules
 
@@ -1232,11 +1232,11 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page, then click on **Add**.
 
-![image](snowflake-transformation-new.png){ class="bordered" }
+![image](snowflake-transformation.png){ class="bordered" }
 
 -   Type the name **product** in the **Label** field, in the **INPUT TASK Dataset** select **Product Table (JDBC)** and in the **Type** field select **table**.
 
-![image](snowflake-trans-connect-new.png){ class="bordered" }
+![image](snowflake-trans-connect.png){ class="bordered" }
 
 ![image](snowflake-type-table.png){ class="bordered" }
 
@@ -1246,11 +1246,11 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **Mapping**, then click on **Edit**.
 
-![image](snowflake-click-on-mapping-new.png){ class="bordered" }
+![image](snowflake-click-on-mapping.png){ class="bordered" }
 
 -   For  the target entity select  **Product (pv:product)**.
 
-![image](snowflake-target-entity-new.png){ class="bordered" }
+![image](snowflake-target-entity.png){ class="bordered" }
 
 -   Click on **create custom pattern**.
 
@@ -1264,34 +1264,34 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **+Icon**, then select the **Add value mapping**.
 
-![image](snowflake-add-value-new.png){ class="bordered" }
+![image](snowflake-add-value.png){ class="bordered" }
 
 -   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name, product id etc.
     This step will help in mapping the data from the source to the target property.
 
-![image](snowflake-target-property-new.png){ class="bordered" }
+![image](snowflake-target-property.png){ class="bordered" }
 
 -   Type the label name **product name**, then click on **Save**.
 
-![image](snowflake-trans-label-new.png){ class="bordered" }
+![image](snowflake-trans-label.png){ class="bordered" }
 
 !!! success "Step Result"
 
     Mapping rule is created successfully.
 
-    ![image](snowflake-mapping-rule-new.png){ class="bordered" }
+    ![image](snowflake-mapping-rule.png){ class="bordered" }
 
 !!! note
 
     We have the suggestion option as well; click on the **+Icon** and select the **Suggestion mapping**.
 
-    ![image](snowflake-suggestions-new.png){ class="bordered" }
+    ![image](snowflake-suggestions.png){ class="bordered" }
 
 !!! success "Step Result"
 
     Suggestion appears as below can select as per the requirement.
 
-    ![image](snowflake-suggestion-result-new.png){ class="bordered" }
+    ![image](snowflake-suggestion-result.png){ class="bordered" }
 
 !!! note
 
@@ -1299,13 +1299,13 @@ Here is a breakdown of the elements of this example connection string.
 
 -   **Tick** the box to select the suggestions to be added, then click on **Add**.
 
-![image](snowflake-tick-new.png){ class="bordered" }
+![image](snowflake-tick.png){ class="bordered" }
 
 ## 5. Create a knowledge graph
 
 -   Click on **Create** on the right side of the page.
 
-![image](snowflake-trans-result-new.png){ class="bordered" }
+![image](snowflake-trans-result.png){ class="bordered" }
 
 -   Select **Knowledge Graph**, then click on **Add**.
 
@@ -1313,11 +1313,11 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Select the **target project** from the drop down menu as **product**.
 
-![image](snowflake-graph-target-new.png){ class="bordered" }
+![image](snowflake-graph-target.png){ class="bordered" }
 
 -   Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **Create**.
 
-![image](snowflake-graph-uri-new.png){ class="bordered" }
+![image](snowflake-graph-uri.png){ class="bordered" }
 
 !!! success "Step Result"
 
