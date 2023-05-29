@@ -55,46 +55,76 @@ To log out, open the menu :material-dots-vertical: in the Module bar and click�
 
 A workspace is an endpoint of an eccenca DataPlatform identified by a workspace name and the DataPlatform URL.
 The specific configuration of the application defines which options are available here, i.e. whether you can select one of several workspaces, access only a default workspace or are allowed to create own workspaces.
-These options are configured by the system administrator.
+
 
 For more information on workspace configuration refer to the system manual of eccenca DataManager.
 
 ### Selecting a workspace
 
-To select an existing workspace open the drop-down list and click the workspace you want to open.
-The name and the DataPlatform URL of the selected workspace are shown under **Workspace Configuration**.
-Click **CONTINUE WITH LOGIN** and enter your credentials to log in.
+To select a workspace click on the **user icon** on the right side of the page 
+
+![image](user.png)
+
+Click the drop-down list and click the workspace you want to open.
+
+![image](workspace.png)
+
+!!! Note
+   
+    The name and the DataPlatform URL of the  
+    selected workspace are shown under **Workspace Configuration**.
+
+Click on the **user icon** on the right side of the page then click on **Configuration**. 
+
+![image](configuration.png)
+
+Click on **Workspace** then select the workspace you want to see the details.
+
+![image](select-wprkspace.png)
+
+ Click on down arrow to expand the **Workspace** and **DI Workspace Configuration** to see the configuration details as shown below.
+
+![image](details.png)
 
 ### Adding a new workspace
 
-!!! info
+Click on the **user icon** on the right side of the page then click on **Configuration**. 
 
-    Whether this option is available depends on the configuration of Corporate Memory that is defined by the system administrator.
+![image](configuration-1.png)
 
-To add a new workspace, open the drop-down list on the Workspaces window and click **Add New Workspace**.
+Click on **Workspace** on the left side of the page then click on **Create New Workspace**
 
-![](Workspace.png)
+![image](create-new-workspace.png)
 
-Under **Workspace Configuration** enter a Workspace Name and the DataPlatform URL.
+Type the **Id** and **Label** name then click on **Add**
 
-Click **SHOW OPTIONS** to display extended configuration options.
+![image](add-workspace.png)
+
 
 !!! note
 
     Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
 
-Click on **CONTINUE WITH LOGIN** to save your entries.
 
 
 ### Deleting a workspace
 
-!!! note
+Click on **User Icon** on the right side of the page then click on **Configuration** then click on **Workspace** 
 
-    This option is only available for workspaces created by users themselves.
+![image](create-new-workspace-1.png)
 
-To delete a workspace, select the workspace from the drop-down list on the Workspace screen and click **DELETE**.
+Select the Workspace from the drop-down you want to delete 
 
-The workspace is removed from the drop-down list.
+![image](select-workspace-1.png)
+
+Click on the **Delete Icon** on the right side of the page.
+
+![image](delete.png)
+
+!!! Step Result
+
+      The workspace has been deleted.
+      ![image](delete-stepresult.png)
 
 !!! note
 
