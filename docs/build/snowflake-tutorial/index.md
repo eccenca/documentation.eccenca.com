@@ -76,31 +76,31 @@ There are 3 settings to specify:
 
 -   Login to Snowflake enter the **username** and **password**, then click on **Sign in**.
 
-![image](login.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-login.png){ width="50%" class="bordered" }
 
 -   Click on **Database** on the left side of the page.
 
- ![image](22.2-click_on_database.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-click_on_database.png){ class="bordered" }
 
 -   Click on **+Database** on the right side of the page.
 
-![image](snowflake-add-database.png)
+![image](snowflake-add-database.png){ class="bordered" }
 
 -   Type the database name **Product**, then click on **Create**.
 
-![image](snowflake-product-name-database.png)
+![image](snowflake-product-name-database.png){ width="50%" class="bordered" }
 
 -   Click on database **product**, then click on **+Schema** on the right side of the page.
 
-![image](22.2-dd-schema.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-dd-schema.png){ class="bordered" }
 
 -   Type the schema name **products_vocabulary** and click on **Create**.
 
-![image](22.2-schema-name.png){ width="50%" style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-schema-name.png){ width="50%" class="bordered" }
 
 -   Click on scheme **products_vocabulary** on the left side of the page then click on **Create** on the right side of the page, then click on **Table**, then select then **Standard**.
 
-![image](22.22-click-on-standar.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-click-on-standard.png){ class="bordered" }
 
 -   Click on schema name **products_vocabulary** on the left side of the page and type the  **sql query** for creating a table in the center, then click on **Run** on the right side of the page.
 
@@ -121,15 +121,9 @@ CREATE TABLE product(
 
 -   Type or copy the **SQL** query for creating a database in the table that is created, then click on **Run**.
 
-![image](22.2-sql-for-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-sql-for-table.png){ class="bordered" }
 
-!!! success "Step Result"
-
-    The table is created as shown below.
-
-    ![image](22.2-table-creatednew.png)){ style="border: 1px solid #555; border-radius: 5px;" }
-
-In the **Worksheets** view (you might need to create a new worksheet), select the **product** database, the **products_vocabulary** schema and finally the **prouct** table.
+In the **Worksheets** view (you might need to create a new worksheet), select the **product** database, the **products_vocabulary** schema and finally the **product** table.
 Here you can populate some test data with the following SQL query:
 
 ??? example "INSERT query"
@@ -1138,39 +1132,39 @@ Here you can populate some test data with the following SQL query:
     ,('X716-6172862','Coil Resonator',74,36,16,8,'Baldwin.Guenther@company.org','3,20 EUR');
     ```
 
-![image](22.2-sql-query-data.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-sql-query-data.png){ class="bordered" }
 
 !!! success "Step Result"
 
     The database has been populated as shown below.
 
-    ![image](22.2-table-creatednew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-table-created-new.png){ class="bordered" }
 
 ## 3. Create a project in eccenca Corporate Memory
 
 -   Click on **Create** on the right side of the page.
 
-![image](22.2-create-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-create-project.png){ class="bordered" }
 
 -   Click on Project, then click on **Add**.
 
-![image](22.2-add-projectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-add-project-new.png){ class="bordered" }
 
 -   Type the project name **product** in the title field, then click on **Create**.
 
-![image](22.2-project-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-project-name.png){ class="bordered" }
 
 -   Click on **Create** on the right side of the page.
 
-![image](22.2-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-create.png){ class="bordered" }
 
 -   Click on **JDBC endpoint**, then click on **Add**.
 
-![image](22.2-jdbc.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-jdbc.png){ class="bordered" }
 
 -   Type the name **product table (JDBC)** in the label field.
 
-![image](22.2-product-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-product-name.png){ class="bordered" }
 
 -   Type the **JDBC URL** path in the **JDBC Driver connection URL** field.
 
@@ -1191,14 +1185,14 @@ Here is a breakdown of the elements of this example connection string.
 -   `kiaouyb-fe21477.snowflakecomputing.com` is the URL for the snowflake account you want to connect to.
     The number `WTXSZXM-FS77078` is the organization number you will get from Snowflake as shown below.
 
-![image](22.2-organization-number.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-organization-number.png){ class="bordered" }
 
 -   `?db=product` specifies the name of the Snowflake database you want to connect to.In this case, the database is named product.
 
 -   `&schema=products_vocabulary` specifies the name of the Snowflake schema that you want to use within the specified database.
     In this case, the schema name is _products_vocabulary_.
 
-![image](22.2-jdbc-uri-name.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-jdbc-uri-name.png){ class="bordered" }
 
 -   Type Source query as
 
@@ -1206,98 +1200,98 @@ Here is a breakdown of the elements of this example connection string.
     SELECT * from product
     ```
 
-![image](22.2-query-sourcenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-query-source-new.png){ class="bordered" }
 
 -   Select the **Query strategy** as **Execute the given source query.No paging or virtual query**.
 
-![image](22.2-query-strategy.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-query-strategy.png){ class="bordered" }
 
 -   Select the **Write strategy** as **An exception will be thrown, if the table already exists.**
 
-![image](22.2-write-stategy.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-write-stategy.png){ class="bordered" }
 
 -   Click on the **ADVANCED OPTIONS**.
 
-![image](22.2-advanced.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-advanced.png){ class="bordered" }
 
 -   Type **Username** and **Password** in the dialog window, then click on **Create**.
 
-![image](22.2-userpassword.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-userpassword.png){ class="bordered" }
 
 !!! success "Step Result"
 
     JDBC endpoint is created and data is transferred from Snowflake to eccenca Corporate Memory.
 
-    ![image](22.2-jdbc-created.-newpng){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-jdbc-created-new.png){ class="bordered" }
 
 ## 4. Create a transformation to build mapping rules
 
 -   Click on **Create** on the right side of the page.
 
-![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-click-on-create.png){ class="bordered" }
 
 -   Click on **Transform** on the left side of the page, then on **Transform** in the centre of the page, then click on **Add**.
 
-![image](22.2-transformation-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-transformation-new.png){ class="bordered" }
 
 -   Type the name **product** in the **Label** field, in the **INPUT TASK Dataset** select **Product Table (JDBC)** and in the **Type** field select **table**.
 
-![image](22.2-trans-connectnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-trans-connect-new.png){ class="bordered" }
 
-![image](22.2-type-table.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-type-table.png){ class="bordered" }
 
 -   In the **Output** dataset field select **product graph**, then click on **Create** .
 
-![image](22.2-output-gp.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-output-gp.png){ class="bordered" }
 
 -   Click on **Mapping**, then click on **Edit**.
 
-![image](22.2-click-on-mappingnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-click-on-mapping-new.png){ class="bordered" }
 
 -   For  the target entity select  **Product (pv:product)**.
 
-![image](22.2-target-entity-newpng.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-target-entity-new.png){ class="bordered" }
 
 -   Click on **create custom pattern**.
 
-![image](22.2-custome-pattern.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-custome-pattern.png){ class="bordered" }
 
 -   Type the URI pattern as `<http://id.company.org/product/jdbc>`.
     You can use either company.org or company.com as per your requirement.
     Then type the label name as **product** and then click on **save**.
 
-![image](22.2-uri-pattern.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-uri-pattern.png){ class="bordered" }
 
 -   Click on **+Icon**, then select the **Add value mapping**.
 
-![image](22.2-add-valuenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-add-value-new.png){ class="bordered" }
 
 -   Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name, product id etc.
     This step will help in mapping the data from the source to the target property.
 
-![image](22.2-target-propertynew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-target-property-new.png){ class="bordered" }
 
 -   Type the label name **product name**, then click on **Save**.
 
-![image](22.2-trans-labelnewpng.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-trans-label-new.png){ class="bordered" }
 
 !!! success "Step Result"
 
     Mapping rule is created successfully.
 
-    ![image](22.2-mapping-rulenew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-mapping-rule-new.png){ class="bordered" }
 
 !!! note
 
     We have the suggestion option as well; click on the **+Icon** and select the **Suggestion mapping**.
 
-    ![image](22.2-suggestionsnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-suggestions-new.png){ class="bordered" }
 
 !!! success "Step Result"
 
     Suggestion appears as below can select as per the requirement.
 
-    ![image](22.2-suggestion-resultnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-suggestion-result-new.png){ class="bordered" }
 
 !!! note
 
@@ -1305,28 +1299,28 @@ Here is a breakdown of the elements of this example connection string.
 
 -   **Tick** the box to select the suggestions to be added, then click on **Add**.
 
-![image](22.2-ticknew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-tick-new.png){ class="bordered" }
 
 ## 5. Create a knowledge graph
 
 -   Click on **Create** on the right side of the page.
 
-![image](22.2-trans-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-trans-result-new.png){ class="bordered" }
 
 -   Select **Knowledge Graph**, then click on **Add**.
 
-![image](22.2-kg-graph.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-kg-graph.png){ class="bordered" }
 
 -   Select the **target project** from the drop down menu as **product**.
 
-![image](22.2-graph-targetnew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-graph-target-new.png){ class="bordered" }
 
 -   Type  **product graph** in the label field, then enter the **graph URI** in the Graph field, then click on **Create**.
 
-![image](22.2-graph-urinew.png){ style="border: 1px solid #555; border-radius: 5px;" }
+![image](snowflake-graph-uri-new.png){ class="bordered" }
 
 !!! success "Step Result"
 
     Graph is created successfully.
 
-    ![image](22.2-easynav-graph.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](snowflake-easynav-graph.png){ class="bordered" }
