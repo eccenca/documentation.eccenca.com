@@ -1254,7 +1254,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on **create custom pattern**.
 
-![image](snowflake-custome-pattern.png){ class="bordered" }
+![image](snowflake-custom-pattern.png){ class="bordered" }
 
 -   Type the URI pattern as `<http://id.company.org/product/jdbc>`.
     You can use either company.org or company.com as per your requirement.
