@@ -69,10 +69,16 @@ Click the drop-down list and click the workspace you want to open.
 
 ![image](workspace.png)
 
-!!! Note
-   
-    The name and the DataPlatform URL of the  
-    selected workspace are shown under **Workspace Configuration**.
+!!! Step Result
+
+           The workspace opens and now you can enable or disabled the module as per your requirement.
+
+           !!![image](enable.png)
+
+
+ 
+### To Know the Workpspace name and configuration 
+
 
 Click on the **user icon** on the right side of the page then click on **Configuration**. 
 
@@ -86,7 +92,7 @@ Click on **Workspace** then select the workspace you want to see the details.
 
 ![image](details.png)
 
-### Adding a new workspace
+### Adding a New Workspace
 
 Click on the **user icon** on the right side of the page then click on **Configuration**. 
 
@@ -100,11 +106,14 @@ Type the **Id** and **Label** name then click on **Add**
 
 ![image](add-workspace.png)
 
+!!! Step Result
+              The workspace created sucessfully and now you can enable or disabled the module as per your requirement.
+        
+             ![image](enable.png)  
 
 !!! note
 
     Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
-
 
 
 ### Deleting a workspace
@@ -120,6 +129,10 @@ Select the Workspace from the drop-down you want to delete
 Click on the **Delete Icon** on the right side of the page.
 
 ![image](delete.png)
+
+Click on **Delete** 
+
+![image](delete-select.png)
 
 !!! Step Result
 
