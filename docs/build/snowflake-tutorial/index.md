@@ -1212,7 +1212,7 @@ Here is a breakdown of the elements of this example connection string.
 
 -   Click on the **ADVANCED OPTIONS**.
 
-![image](snowflake-advanced.png){ class="bordered" }
+![image](snowflake-jdbc-dataset-advanced-options.png){ class="bordered" }
 
 -   Type **Username** and **Password** in the dialog window, then click on **Create**.
 
