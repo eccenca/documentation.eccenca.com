@@ -8,7 +8,7 @@ tags:
   - KnowledgeGraph
 ---
 
-# Snowflake
+# Connect to Snowflake
 
 ## Introduction
 
