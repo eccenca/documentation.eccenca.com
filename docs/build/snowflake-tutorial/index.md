@@ -1,8 +1,7 @@
 ---
 icon: material/database-export
-subtitle: Connect snowflake cloud datawarehouse via JDBC
-#hide:
-#  - navigation
+subtitle: cloud datawarehouse via JDBC
+status: new
 tags:
   - AdvancedTutorial
   - KnowledgeGraph
@@ -25,7 +24,7 @@ This integration enables organizations to make informed decisions, improve their
 This tutorial contains the following step-by-step instructions to connect the Snowflake data-warehouse with eccenca corporate memory:
 
 -   [1. Configure Custom JDBC Driver](#1-configure-custom-jdbc-driver)
--   [2. Create a database in snowflake](#2-create-a-database-in-snowflake)
+-   [2. Create a database in Snowflake](#2-create-a-database-in-snowflake)
 -   [3. Create a project in eccenca Corporate Memory](#3-create-a-project-in-eccenca-corporate-memory)
 -   [4. Create a transformation to build mapping rules](#4-create-a-transformation-to-build-mapping-rules)
 -   [5. Create a knowledge graph](#5-create-a-knowledge-graph)
@@ -53,7 +52,7 @@ That can be achieved in multiple ways but it is recommended to register the driv
 There are 3 settings to specify:
 
 1. The most important is to add the driver name to `spark.sql.options.jdbc.drivers` - a comma separated list of drivers.
-    The names in this list are the same as the database name in its JDBC-connection string (i.e. snowflake for its connection URL which looks like `jdbc:snowflake://<account_identifier>.snowflakecomputing.com/?<connection_params>`).
+    The names in this list are the same as the database name in its JDBC-connection string (i.e. `snowflake` for its connection URL which looks like `jdbc:snowflake://<account_identifier>.snowflakecomputing.com/?<connection_params>`).
 2. Snowflake specific property for the jar file location: `spark.sql.options.jdbc.snowflake.jar="/location/for/snowflake-*-jdbc.jar"`
 3. Snowflake specific property for the driver class name: `spark.sql.options.jdbc.snowflake.name="com.snowflake.client.jdbc.SnowflakeDriver"`
 
@@ -63,7 +62,7 @@ There are 3 settings to specify:
     # …
     spark.sql.options {
         # …
-        # configure snowflake JDBC driver
+        # configure Snowflake JDBC driver
         jdbc.drivers = "snowflake"
         jdbc.snowflake.jar = ${ELDS_HOME}"/etc/dataintegration/conf/snowflake-jdbc-3.13.30.jar"
         jdbc.snowflake.name = "net.snowflake.client.jdbc.SnowflakeDriver"
@@ -72,7 +71,7 @@ There are 3 settings to specify:
     # …
     ```
 
-## 2. Create a database in snowflake
+## 2. Create a database in Snowflake
 
 -   Login to Snowflake enter the **username** and **password**, then click on **Sign in**.
 
@@ -1324,3 +1323,4 @@ Here is a breakdown of the elements of this example connection string.
     Graph is created successfully.
 
     ![image](snowflake-easynav-graph.png){ class="bordered" }
+
