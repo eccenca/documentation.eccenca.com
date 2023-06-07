@@ -5,7 +5,7 @@ tags:
 ---
 # Production-Ready Settings
 
-If you plan to deploy Corporate Memory in a publically accessible environment you need to take care about some final configuration steps.
+If you plan to deploy Corporate Memory in a non-trusted environment, you need to take care about some final configuration steps.
 
 ## Restrict Redirect URLs
 
@@ -13,10 +13,7 @@ As stated in the [Keycloak Server Administration Guide](https://www.keycloak.org
 
 > Make your registered redirect URIs as specific as possible. Registering vague redirect URIs for Authorization Code Flows may allow malicious clients to impersonate another client with broader access.
 
-Corporate Memory uses the following clients to authenticate against keycloak.
-For each client, you have to adjust the **Valid Redirect URIs** field.
-
-- cmem
+Corporate Memory uses the `cmem` client to authenticate against Keycloak, so adjust the **Valid Redirect URIs** field for this client.
 
 Select`cmem` realm, then **Clients** → `cmem` and enter your deploy URL, e.g., `https://cmem.example.net/*`.
 
@@ -31,9 +28,9 @@ To enforce this, setting up [password policies](https://www.keycloak.org/docs/la
 
 ### Keycloak
 
-In Keycloak you should enforce the secure flag for keycloak cookies.
+In Keycloak you should enforce the secure flag for Keycloak cookies.
 Select `cmem` realm, then **Realm settings** → **General** and change **Require SSL** to `All requests`.
-If you are running without SSL, you will no longer be able to log into Corporate Memory.
+If you are running Corporate Memory without SSL for testing, you will no longer be able to login after this step.
 
 Once this is done, make sure DataPlatform and DataIntegration use `HTTPS` to connect to Keycloak.
 See the usage of `DATAPLATFORM_AUTH_URL`, `OAUTH_AUTHORIZATION_URL` and `OAUTH_TOKEN_URL`.
@@ -42,7 +39,7 @@ See the usage of `DATAPLATFORM_AUTH_URL`, `OAUTH_AUTHORIZATION_URL` and `OAUT
 
 ### DataPlatform
 
-In DataPlatform you can uncomment these cookie setting in DataPlatforms `application.yml`.
+For DataPlatform you can uncomment these cookie setting in `application.yml`.
 
 ```yaml
 ## This is important to set flags for DP session cookies
@@ -54,7 +51,7 @@ server.servlet.session.cookie.secure: true
 
 ### DataIntegration
 
-Similar to DataPlatform you can also set cookie settings for DataIntegration inside DataIntegrations configuration "productions.conf" for docker-compose deployments or in dataintegration.conf in helm deployments
+Similar to DataPlatform, you can also set cookie settings for DataIntegration inside `productions.conf` for docker-compose deployments or in `dataintegration.conf` in helm deployments
 
 ```yaml
 # sets "secure" flag in PLAY_SESSION cookie
@@ -62,14 +59,15 @@ Similar to DataPlatform you can also set cookie settings for DataIntegration ins
 play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}
 ```
 
-At the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession) you can find further informations, i.e. also setting `sameSite = "lax"`or `strict`. By default Dataintegration sets this to `lax`
+In the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession), you can find further information, i.e. also setting `sameSite = "lax"`or `strict`. By default DataIntegration sets this to `lax`
+
 
 ## CORS Settings
 
 ### DataPlatform
 
 DataPlatform uses `http.cors.allowedOrigins *` as the default setting.
-It is recommended to correctly set the values for the following headers:
+It is recommended to set custom values for the following headers:
 
 - `Access-Control-Allow-Origin`:  specifies which domains can access a site's resources. For example, if ABC Corp. has domains `ABC.com` and `XYZ.com`, then its developers can use this header to securely grant `XYZ.com` access to ABC.com's resources.
 - `Access-Control-Allow-Methods`: specifies which HTTP request methods (`GET`, `PUT`, `DELETE`, etc.) can be used to access resources. This header lets developers further enhance security by specifying what methods are valid when XYZ accesses ABC's resources.
@@ -97,7 +95,7 @@ http:
 ### DataIntegration
 
 DataIntegration uses `cors.config.allowOrigins *` as the default setting. 
-It is recommended to correctly set the value for the `Access-Control-Allow-Origin` header.
+It is recommended to set custom values for the `Access-Control-Allow-Origin` header.
 It specifies which domains can access a site's resources.
 For example, if ABC Corp. has the domains `ABC.com` and `XYZ.com`, you can use this header to securely grant `XYZ.com` access to `ABC.com`'s resources.
 Detailed configuration options can be found [here](./../dataintegration/index.md).
