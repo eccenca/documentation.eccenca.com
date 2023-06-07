@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-This page documents important steps in order to configure Keycloak as an authentication backend for Corporate Memory.
+This page describes important steps in order to configure Keycloak as an authentication backend for Corporate Memory.
 The screenshots displayed in this documentation were taken from Keycloak v20 using the `keycloak.v2` theme.
 
 
@@ -24,7 +24,6 @@ The screenshots displayed in this documentation were taken from Keycloak v20 usi
 
     A realm can be im-/exported.
     However, exported realms will not contain user credentials.
-    So be aware not losing data.
 
 To create a realm, use the drop down menu for choosing a realm on the left side.
 
@@ -38,40 +37,55 @@ To create a realm, use the drop down menu for choosing a realm on the left side.
 
 ## Client configuration
 
-Clients are used to link users and groups managed in keycloak to Corporate Memory. There are two (three) different kinds of clients used by Corporate Memory:
+Clients are used to link users and groups managed in Keycloak to Corporate Memory.
+There are two different clients used by Corporate Memory:
 
-- One client is used by DM/DP/DI to authenticate a user for using the UI (usually named `cmem`).
-- The other client is for using the command line client as a technical user (usually named `cmem-service-account`).
-  Depending on the environment, there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.
-
-### Explaining client roles and groups
-
-Corporate Memory can set up access conditions for users or groups which is described at [Access Conditions](./../access-conditions/index.md). To map users or groups from keycloak into Corporate Memory ACLs. These clients needs to have mappers attached to each client.
-
-- For in the first kind of client (`cmem` here), the groups a user belongs to needs to get attached by the client. This is done by a **Group Membership** mapper (described below). Here we attach  each group a user is assigned in keycloak to its authentication process so Corporate Memory is aware of the same user and group name for setting up the ACLs.
-
-- Keycloak does not allow us to add groups for the second kind (technical accounts as `cmem-service-account`) so we are using **ROLES** for this. By creating a mapper from roles to groups we can allow Corporate Memory to read roles as groups attached to these clients tokens as well.
-
-In our default setup in helm or docker-compose deployments we often refer to `elds-admins` role or group acting as default admin group. Every user in this group has all possible rights no matter which ACLs in Corporate Memory are set. This is by default configured in Dataplatform configuration or as environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins`, also see [Dataplatform configuration authorization](./../dataplatform/application-full/#authorization).
+- The first client is used to authenticate a user for using the web interface (usually named `cmem`).
+- The other client is used as a technical user with the command line interface (typically named `cmem-service-account`).
+  Depending on the environment, there might be other use cases, when running background schedules, then a third client, also as technical user, might be useful.
 
 
-### Add clients by importing the JSON exports
+### Access conditions, roles and groups
 
-Add a client named `cmem` by select clients, then create client.
-The client described below can also be imported.
-Please download the file below, then select **Import client**.
-For the `cmem-service-account` client you have to edit the file and replace the secret or regenerate the secret in keycloak after the import.
+Corporate Memory uses access conditions which are related to users or groups.
+This is described at [Access Conditions](./../access-conditions/index.md).
+To use groups from Keycloak in Corporate Memory access conditions, all Keycloak client configurations need to have attached mappers:
 
-Available files:
+- For the web interface client (`cmem`), the user groups need to get attached to the client.
+  This is done by a **Group Membership** mapper (described below).
+  With this mapper each group of a user is assigned for the authentication process, so Corporate Memory is aware of the user and group IDs for setting up access conditions.
 
-  - [client configuration for using the ui (`cmem`)](cmem.json)
-  - [client configuration with credentials for technical account (`cmem-service-account`)](cmem-service-account.json)
+- For the technical account clients (such as `cmem-service-account`), Keycloak does not allow to add groups directly to a client.
+  To work around this limitation, we are using **ROLES** instead.
+  By creating a mapper to re-define roles from groups, we allow Corporate Memory to read roles as groups attached to the client token.
 
-![Dialog import cmem client](import-client-cmem.png){ class="bordered" }
+In the default setup in helm or docker-compose deployments, we often refer to the `elds-admins` group, acting as a super-admin / root group.
+Every user in this group has all possible rights in Corporate Memory, no matter which access conditions are available.
+This is configured in the DataPlatform configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Dataplatform configuration authorization](./../dataplatform/application-full/#authorization)).
 
-### Create client `cmem` manually (for web interface)
 
-This client is intended for the usage with DataManager, Dataplatform and DataIntegration (user login):
+### Option 1: Import the needed clients from a JSON export
+
+To import a pre-configured `cmem` client for using the web interface, follow these steps:
+
+!!! quote inline end ""
+
+    ![Dialog import cmem client](import-client-cmem.png)
+
+- Login to Keycloak and select the Corporate Memory realm (`cmem`).
+- Download the [client configuration for using the web interface](cmem.json) (`cmem.json`).
+- Select **Clients**, then **Import client**.
+- **Browse** for the downloaded `cmem.json` and select it.
+- **Save** new client.
+
+To import a pre-configured `cmem-service-account` client, repeat the process with the [client configuration with credentials for the technical account (`cmem-service-account`)](cmem-service-account.json) (`cmem-service-account.json`).
+
+
+### Option 2: Create client configurations manually
+
+#### Add the `cmem` client for using the web interface
+
+This client is intended for the usage with DataManager, DataPlatform and DataIntegration (user login):
 
 ![Dialog create cmem client](createClient_1.png){ class="bordered" }
 
@@ -116,11 +130,12 @@ The dialog above closes and you land on the configuration page of this client:
     - Configure this client ID in the environments with the name `OAUTH_CLIENT_ID` in `/environments/config.env` (defaults to `cmem` if not set)
 
 
-### Create a client manually (Technical Account)
+#### Add the `cmem-service-account` client
 
 This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes ([cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface)).
 
-This descriptions can also be used to create clients with different permissions than admins. For this, just create a different role name later, and create an access condition with this groups name in Corporate Memory as it is described in [Access Conditions](./../access-conditions/index.md).
+This descriptions can also be used to create clients with different permissions than admins.
+For this, just create a different role name later, and create an access condition with this groups name in Corporate Memory as it is described in [Access Conditions](./../access-conditions/index.md).
 
 ![Dialog create role](createClient_7_1.png){ class="bordered" }
 ![Dialog create role](createClient_7_2.png){ class="bordered" }
@@ -143,7 +158,7 @@ This descriptions can also be used to create clients with different permissions 
 
 ![Dialog create role](createClient_7.png){ class="bordered" }
 ![Dialog create role](createClient_8.png){ class="bordered" }
- 
+
   - Select **Action** and **Add associated roles**
 
 ![Dialog create role](createClient_9.png){ class="bordered" }
@@ -195,14 +210,11 @@ This descriptions can also be used to create clients with different permissions 
 
 ![Dialog add role to client](createClient_16_2.png){ class="bordered" }
 ![Dialog add role to client](createClient_16_1.png){ class="bordered" }
-
-
 ![Dialog add role to client](createClient_17.png){ class="bordered" }
 
 
+## Corporate Memory configuration after setting up clients
 
-
-### Corporate Memory configuration after setting up clients:
   - If **DataIntegration** schedulers are required, configure this client id and secret under the properties `workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file or
   - in docker-compose-orchestration you can edit this in the environment as:
       ``` bash
@@ -218,14 +230,14 @@ This descriptions can also be used to create clients with different permissions 
       ```
   - For **cmemc** you can configure this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`.
 
-## Groups configuration
+### Groups configuration
 
 - Go to **Groups** and add the following groups:
   - `elds-admins`
   - Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak
   - In Corporate Memory docker orchestration, `local-users`, `local-admins`
 
-## Users configuration
+### Users configuration
 
 - This applies to the [Docker Orchestration](./../docker-orchestration/index.md), for other setups consult the [Keycloak manual](https://www.keycloak.org/docs/latest/server_admin/).
 - Go to `Users`
