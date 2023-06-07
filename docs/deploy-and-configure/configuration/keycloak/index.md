@@ -11,6 +11,7 @@ tags:
 This page documents important steps in order to configure Keycloak as an authentication backend for Corporate Memory.
 The screenshots displayed in this documentation were taken from Keycloak v20 using the `keycloak.v2` theme.
 
+
 !!! info
 
     You do not need these instruction in case you followed the documentation on [Scenario: Local Installation](./../../installation/scenario-local-installation/index.md) or [Scenario: Single Node Cloud Installation](./../../installation/scenario-single-node-cloud-installation/index.md) (in this case, everything was done automatically).
@@ -37,11 +38,22 @@ To create a realm, use the drop down menu for choosing a realm on the left side.
 
 ## Client configuration
 
-There are two (three) different kinds of clients used by Corporate Memory:
+Clients are used to link users and groups managed in keycloak to Corporate Memory. There are two (three) different kinds of clients used by Corporate Memory:
 
 - One client is used by DM/DP/DI to authenticate a user for using the UI (usually named `cmem`).
 - The other client is for using the command line client as a technical user (usually named `cmem-service-account`).
   Depending on the environment, there might be an other use case when running background schedules, then a third client, also as technical user, might be useful.
+
+### Explaining client roles and groups
+
+Corporate Memory can set up access conditions for users or groups which is described at [Access Conditions](./../access-conditions/index.md). To map users or groups from keycloak into Corporate Memory ACLs. These clients needs to have mappers attached to each client.
+
+- For in the first kind of client (`cmem` here), the groups a user belongs to needs to get attached by the client. This is done by a **Group Membership** mapper (described below). Here we attach  each group a user is assigned in keycloak to its authentication process so Corporate Memory is aware of the same user and group name for setting up the ACLs.
+
+- Keycloak does not allow us to add groups for the second kind (technical accounts as `cmem-service-account`) so we are using **ROLES** for this. By creating a mapper from roles to groups we can allow Corporate Memory to read roles as groups attached to these clients tokens as well.
+
+In our default setup in helm or docker-compose deployments we often refer to `elds-admins` role or group acting as default admin group. Every user in this group has all possible rights no matter which ACLs in Corporate Memory are set. This is by default configured in Dataplatform configuration or as environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins`, also see [Dataplatform configuration authorization](./../dataplatform/application-full/#authorization).
+
 
 ### Add clients by importing the JSON exports
 
@@ -86,7 +98,7 @@ The dialog above closes and you land on the configuration page of this client:
 ![Dialog create mapper](createClient_5.png){ class="bordered" }
 
   - Configure a new mapper (**Client** -> **Client Scopes** -> **Add / Select Client Scope** -> **Add Mapper**)
-    - select Mapper Type **User Client Role**
+    - select Mapper Type **Group Membership**
     - **Name** `groups`
     - **Token Claim Name** `groups`
     - Disable **Full group path**
@@ -101,12 +113,18 @@ The dialog above closes and you land on the configuration page of this client:
     - Configure this client ID under `js.config.workspaces.default.authorization.oauth2.clientId` in DataManager's configuration file (Datamanager needs implicit flow)
     - Configure  this client ID under `oauth.clientId = "cmem"` in DataManager's configuration file (Dataintegration needs standard flow)
   - In Corporate Memory configuration from v23.1:
-    - Configure this client ID in the environments with the name `OAUTH_CLIENT_ID` in `/environments/config.env`
+    - Configure this client ID in the environments with the name `OAUTH_CLIENT_ID` in `/environments/config.env` (defaults to `cmem` if not set)
 
 
 ### Create a client manually (Technical Account)
 
-This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes ([cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface))
+This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes ([cmemc](https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface)).
+
+This descriptions can also be used to create clients with different permissions than admins. For this, just create a different role name later, and create an access condition with this groups name in Corporate Memory as it is described in [Access Conditions](./../access-conditions/index.md).
+
+![Dialog create role](createClient_7_1.png){ class="bordered" }
+![Dialog create role](createClient_7_2.png){ class="bordered" }
+![Dialog create role](createClient_7_3.png){ class="bordered" }
 
   - **Client type**: OpenID Connect
   - **Client ID**: i.e. `cmem-service-account`, you need to remember this and use this later
@@ -119,24 +137,38 @@ This client is intended for internal use by DataIntegration (scheduler super-use
 
   - Go to **Credentials** and configure **Client Id and Secret**, copy the client secret for later usage
 
+![Dialog create role](createClient_7_4.png){ class="bordered" }
+
+  - Go to **Roles** and select **Create role** to create the `elds-admins` role
+
 ![Dialog create role](createClient_7.png){ class="bordered" }
 ![Dialog create role](createClient_8.png){ class="bordered" }
-
-  - Go to **Roles** and add the `elds-admins` role
+ 
   - Select **Action** and **Add associated roles**
-  - Select **Filter by client** then
 
 ![Dialog create role](createClient_9.png){ class="bordered" }
+
+  - Select **Filter by client** then
+
 ![Dialog create role](createClient_10.png){ class="bordered" }
 
-  - Go to **Service Account Roles** -> **Client Roles** (`cmem-service-account`) and add the `elds-admins` role to **Assigned Roles**
-      - no **Realm roles** needed beforehand
+  - In this dialog select the client by name which you are currently configuring ( here `cmem-service-account`) and then **Assign**
+
+![Dialog create role](createClient_10_1.png){ class="bordered" }
+
+  - Go back to **Client details** i.e. by using the top navigation
+  - In the **Roles** tab you now see your created role here
+
+![Dialog create role](createClient_10_2.png){ class="bordered" }
+
   - Switch the Tabs to **Client scopes** and select the first scope (i.e.: `cmem-service-account-dedicated`)
 
-![Dialog select cmem-dedicated](createClient_3.png){ class="bordered" }
-![Dialog create mapper](createClient_13.png){ class="bordered" }
+![Dialog create mapper](createClient_11.png){ class="bordered" }
 
-  - **Configure a new mapper** (**Client** -> **Client Scopes** -> **Add / Select Client Scope** -> **Add Mapper**)
+  - select **Add mapper** -> **By configuration**
+
+![Dialog create mapper](createClient_13_1.png){ class="bordered" }
+
   - select Mapper Type `User Client Role`
     - **Name** `roles`
     - **Token Claim Name** `groups`
@@ -145,34 +177,46 @@ This client is intended for internal use by DataIntegration (scheduler super-use
     - Enable **Add to user info**
   - **Save**
 
+![Dialog create mapper](createClient_13.png){ class="bordered" }
+
 ![Dialog create mapper](createClient_14.png){ class="bordered" }
 
-  - Go to tab **Service account roles**
+  - After **Save** go back to **Client details**
+  - Go to tab **Service account roles** tab
   - Select the link in the center **To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID**
 
 ![Dialog add role to client](createClient_15.png){ class="bordered" }
 
   - Go to tab **Role mapping** and select **Assign role**
-  - Change the filter to **Filter by clients** and select the new Client ID, i.e `cmem-service-account`
 
 ![Dialog add role to client](createClient_16.png){ class="bordered" }
+
+  - Change the filter to **Filter by clients** and select the new Client ID, i.e `cmem-service-account`
+
+![Dialog add role to client](createClient_16_2.png){ class="bordered" }
+![Dialog add role to client](createClient_16_1.png){ class="bordered" }
+
+
 ![Dialog add role to client](createClient_17.png){ class="bordered" }
 
-  - In Corporate Memory configuration:
-    - If DataIntegration schedulers are required, configure this client id and secret under the properties `workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file or
-    - in docker-compose-orchestration you can edit this in the environment as:
-        ``` bash
-          CMEM_SERVICE_ACCOUNT_CLIENT_ID=cmem-service-account
-          CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=YourSecret
-          DATAINTEGRATION_CMEM_SERVICE_CLIENT=cmem-service-account
-          DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET=YourSecret
-        ```
-    - in helm this value is defined by:
-        ``` yaml
-          DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET: {{ .Values.global.cmemClientSecret }}
-          DATAINTEGRATION_CMEM_SERVICE_CLIENT: {{ .Values.global.cmemClientId }}
-        ```
-    - For cmemc you can configure this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`.
+
+
+
+### Corporate Memory configuration after setting up clients:
+  - If **DataIntegration** schedulers are required, configure this client id and secret under the properties `workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file or
+  - in docker-compose-orchestration you can edit this in the environment as:
+      ``` bash
+        CMEM_SERVICE_ACCOUNT_CLIENT_ID=cmem-service-account
+        CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=YourSecret
+        DATAINTEGRATION_CMEM_SERVICE_CLIENT=cmem-service-account
+        DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET=YourSecret
+      ```
+  - in helm this value is defined by:
+      ``` yaml
+        DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET: {{ .Values.global.cmemClientSecret }}
+        DATAINTEGRATION_CMEM_SERVICE_CLIENT: {{ .Values.global.cmemClientId }}
+      ```
+  - For **cmemc** you can configure this with `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`.
 
 ## Groups configuration
 
