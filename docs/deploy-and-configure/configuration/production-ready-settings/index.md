@@ -16,8 +16,7 @@ As stated in the [Keycloak Server Administration Guide](https://www.keycloak.org
 Corporate Memory uses the following clients to authenticate against keycloak.
 For each client, you have to adjust the **Valid Redirect URIs** field.
 
-- datamanager
-- dataintegration
+- cmem
 
 Select`cmem` realm, then **Clients** → `cmem` and enter your deploy URL, e.g., `https://cmem.example.net/*`.
 
@@ -43,12 +42,27 @@ See the usage of `DATAPLATFORM_AUTH_URL`, `OAUTH_AUTHORIZATION_URL` and `OAUT
 
 ### DataPlatform
 
-todo sobo
+In DataPlatform you can uncomment these cookie setting in DataPlatforms `application.yml`.
+
+```yaml
+## This is important to set flags for DP session cookies
+server.servlet.session.cookie.same-site: Strict
+
+# If this is enabled it only allows usage of cookies if TLS connection are available
+server.servlet.session.cookie.secure: true
+```
 
 ### DataIntegration
 
-todo sobo
+Similar to DataPlatform you can also set cookie settings for DataIntegration inside DataIntegrations configuration "productions.conf" for docker-compose deployments or in dataintegration.conf in helm deployments
 
+```yaml
+# sets "secure" flag in PLAY_SESSION cookie
+# https://www.playframework.com/documentation/2.8.x/SettingsSession
+play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}
+```
+
+At the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession) you can find further informations, i.e. also setting `sameSite = "lax"`or `strict`. By default Dataintegration sets this to `lax`
 
 ## CORS Settings
 
