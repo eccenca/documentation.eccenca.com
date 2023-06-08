@@ -104,15 +104,15 @@ This client is intended for the usage with DataManager, DataPlatform and DataInt
 
 The dialog above closes and you land on the configuration page of this client:
 
-  - **Valid redirect URIs**: Add the correct URL pattern (wildcard `http://example.org/*` works) to `Valid Redirect URIs` (`*` for testing purposes can be used as well)
-  - Switch the Tabs to **Client scopes** and select the first scope (i.e.: `cmem-dedicated`)
+  - **Valid redirect URIs**: Add the correct URL pattern (e.g., wildcard `https://cmem.example.net/*` works) to `Valid Redirect URIs` (`*` for testing purposes can be used as well) and **Save**
+  - Switch the Tabs to **Client scopes** and click on the first scope (i.e.: `cmem-dedicated`)
 
 ![Dialog select cmem-service-account-dedicated](createClient_11.png){ class="bordered" }
 ![Dialog create mapper](createClient_4.png){ class="bordered" }
 ![Dialog create mapper](createClient_5.png){ class="bordered" }
 
-  - Configure a new mapper (**Client** -> **Client Scopes** -> **Add / Select Client Scope** -> **Add Mapper**)
-    - select Mapper Type **Group Membership**
+  - Click **Configure a new mapper**
+    - Select Mapper Type **Group Membership**
     - **Name** `groups`
     - **Token Claim Name** `groups`
     - Disable **Full group path**
@@ -144,7 +144,7 @@ For this, just create a different role name later, and create an access conditio
   - **Client type**: OpenID Connect
   - **Client ID**: i.e. `cmem-service-account`, you need to remember this and use this later
   - **Name** and **Description**: fill as you like
-  - Select **Next**
+  - click **Next**
   - **Client authentication**: On
   - **Authorization**: Off
   - **Authentication flow**: only enable `Service accounts roles`, the rest can be disabled
@@ -154,29 +154,29 @@ For this, just create a different role name later, and create an access conditio
 
 ![Dialog create role](createClient_7_4.png){ class="bordered" }
 
-  - Go to **Roles** and select **Create role** to create the `elds-admins` role
+  - Go to **Roles** and click **Create role** to create the `elds-admins` role
 
 ![Dialog create role](createClient_7.png){ class="bordered" }
 ![Dialog create role](createClient_8.png){ class="bordered" }
 
-  - Select **Action** and **Add associated roles**
+  - Click **Action** and select **Add associated roles**
 
 ![Dialog create role](createClient_9.png){ class="bordered" }
 
-  - Select **Filter by client** then
+  - Select **Filter by client** from the filter pull-down-menu
 
 ![Dialog create role](createClient_10.png){ class="bordered" }
 
-  - In this dialog select the client by name which you are currently configuring ( here `cmem-service-account`) and then **Assign**
+  - In this dialog select the client by name which you are currently configuring (here `cmem-service-account`) and then **Assign**
 
 ![Dialog create role](createClient_10_1.png){ class="bordered" }
 
-  - Go back to **Client details** i.e. by using the top navigation
+  - Go back to **Client details** e.g., by using the top navigation
   - In the **Roles** tab you now see your created role here
 
 ![Dialog create role](createClient_10_2.png){ class="bordered" }
 
-  - Switch the Tabs to **Client scopes** and select the first scope (i.e.: `cmem-service-account-dedicated`)
+  - Switch the Tabs to **Client scopes** and click on the first scope (i.e.: `cmem-service-account-dedicated`)
 
 ![Dialog create mapper](createClient_11.png){ class="bordered" }
 
@@ -186,6 +186,7 @@ For this, just create a different role name later, and create an access conditio
 
   - select Mapper Type `User Client Role`
     - **Name** `roles`
+    - **Client ID** select the client you are currently configuring from the pull-down-menu (here `cmem-service-account`)
     - **Token Claim Name** `groups`
     - Enable **Add to ID token**
     - Enable **Add to access token**
@@ -207,6 +208,7 @@ For this, just create a different role name later, and create an access conditio
 ![Dialog add role to client](createClient_16.png){ class="bordered" }
 
   - Change the filter to **Filter by clients** and select the new Client ID, i.e `cmem-service-account`
+  - Click **Assign**
 
 ![Dialog add role to client](createClient_16_2.png){ class="bordered" }
 ![Dialog add role to client](createClient_16_1.png){ class="bordered" }
