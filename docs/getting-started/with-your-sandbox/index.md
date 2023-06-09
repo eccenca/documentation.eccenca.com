@@ -45,7 +45,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     ---
 
-    Our [tutorials](/tutorials){target=_blank} help you to create Knowledge Graphs and to use the exploration and consumption features. To get started, we recommend:
+    Our [tutorials](../../tutorials){target=_blank} help you to create Knowledge Graphs and to use the exploration and consumption features. To get started, we recommend:
 
     -   [Lift tabular sources (CSV, XSLX, JDBC)](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/){target=_blank}
     -   [Active Learning of Linking Rules](../../build/active-learning){target=_blank}
