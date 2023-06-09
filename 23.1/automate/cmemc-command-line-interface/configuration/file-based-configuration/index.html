@@ -10666,7 +10666,7 @@
 <li>run cmemc with the <code>--config-file path/to/your/config.ini</code> option</li>
 <li>set a new config file with the environment variable <code>CMEMC_CONFIG_FILE</code></li>
 </ul>
-<p>However, once you start cmemc the first time without any command or option, it will create an empty config file at this location and will output a general introduction.</p>
+<p>However, once you start cmemc the first time without any command or option, it will create an empty configuration file at this location and will output a general introduction.</p>
 <details class="example">
 <summary>First cmemc run &hellip;</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>cmemc
@@ -10715,14 +10715,15 @@
 <a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="go">  workflow    List, execute, status or open (io) workflows.</span>
 </code></pre></div>
 </details>
-<p>You can now edit your config file and add credentials and URL parameters for your Corporate Memory deployment.
-You either search for the config manually in your home directory or you can use the <code>config edit</code> command, which opens the config file in your default text editor (specified by the <a href="https://wiki.archlinux.org/title/environment_variables#Default_programs"><code>EDITOR</code> variable</a>).</p>
+<p>You can now edit your configuration file and add credentials and URL parameters for your Corporate Memory deployment.
+You either search for the configuration manually in your home directory or you can use the <code>config edit</code> command, which opens the configuration file in your default text editor (specified by the <a href="https://wiki.archlinux.org/title/environment_variables#Default_programs"><code>EDITOR</code> variable</a>).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>cmemc<span class="w"> </span>config<span class="w"> </span>edit
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">Open editor for config file /home/user/.config/cmemc/config.ini</span>
 </code></pre></div>
-<p>The rules for the config file are similar to a Windows INI file and are explained in detail at <a href="https://docs.python.org/3/library/configparser.html">docs.python.org</a>.</p>
+<p>The rules for the configuration file are similar to a Windows INI file and are explained in detail at <a href="https://docs.python.org/3/library/configparser.html">docs.python.org</a>.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¤</a></h2>
-<div class="admonition example inline end">
+<p>Below is a minimal example using the <code>client_credentials</code> grant type.</p>
+<div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[my-local]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">CMEM_BASE_URI</span><span class="o">=</span><span class="s">http://localhost/</span>
@@ -10731,11 +10732,11 @@ You either search for the config manually in your home directory or you can use 
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">OAUTH_CLIENT_SECRET</span><span class="o">=</span><span class="s">...</span>
 </code></pre></div>
 </div>
-<p>Here is a minimal example using the <code>client_credentials</code> grant type.</p>
 <p>This creates a named section <code>my-local</code> which is a connection to a Corporate Memory deployment on <code>http://localhost/</code>.
 The authorization will be done with a system account <code>cmem-service-account</code> and the given client secret.
-Using this combination of config parameters is based on a typical installation where all components are available under the same hostname.</p>
-<div class="admonition example inline end">
+Using this combination of configuration parameters is based on a typical installation where all components are available under the same host name.</p>
+<p>Another example using <code>password</code> grant type.</p>
+<div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[my-local]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">CMEM_BASE_URI</span><span class="o">=</span><span class="s">http://localhost/</span>
@@ -10745,12 +10746,17 @@ Using this combination of config parameters is based on a typical installation w
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">OAUTH_PASSWORD</span><span class="o">=</span><span class="s">...</span>
 </code></pre></div>
 </div>
-<p>Another example using <code>password</code> grant type.</p>
 <p>This creates a named section <code>my-local</code>, which is a connection to a Corporate Memory deployment on <code>http://localhost/</code>.
-The authorization will be done with the given <code>OAUTH_USER</code> and the <code>OAUTH_PASSWORD</code>.</p>
+The authorization will be done with the given <code>OAUTH_USER</code> and <code>OAUTH_PASSWORD</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The OAuth 2.0 token endpoint location (<a href="#oauth_token_uri"><code>OAUTH_TOKEN_URI</code></a>) defaults to <code>$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token</code>.
+If Keycloak is exposed to a different domain than Corporate Memory, make sure the variables <a href="#keycloak_base_uri"><code>KEYCLOAK_BASE_URI</code></a> and <a href="#keycloak_realm_id"><code>KEYCLOAK_REALM_ID</code></a> are configured correctly.
+Please refer to <a href="../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/">Configure Corporate Memory with an external Keycloak</a> for more information.</p>
+</div>
 <h2 id="configuration-variables">Configuration Variables<a class="headerlink" href="#configuration-variables" title="Permanent link">¤</a></h2>
-<p>The above example provides access to an installation where all components including keycloak are deployed with the default URL base.
-However, if you need to fine-tune all locations or want to use special functionality, the following config file parameters can be used.</p>
+<p>The above example provides access to an installation where all components (including Keycloak) are deployed with the default URL base.
+However, if you need to fine-tune all locations or want to use special functionality, the following configuration parameters can be used.</p>
 <h3 id="location-related">Location related<a class="headerlink" href="#location-related" title="Permanent link">¤</a></h3>
 <p>The following configuration variables specify where cmemc can find the relevant HTTP endpoints.
 Most of them are optional.</p>
@@ -10760,24 +10766,19 @@ Most of them are optional.</p>
 <p>This variable defaults to <code>http://docker.localhost/</code>.</p>
 <h4 id="di_api_endpoint">DI_API_ENDPOINT<a class="headerlink" href="#di_api_endpoint" title="Permanent link">¤</a></h4>
 <p>This is the base location (HTTP(S) URL) of all Data Integration APIs.</p>
-<p>Usually you do <strong>not need to set</strong> this configuration variable.</p>
-<p>This variable defaults to <code>$CMEM_BASE_URI/dataintegration/</code>.</p>
+<p>This variable defaults to <code>$CMEM_BASE_URI/dataintegration/</code> and usually does <strong>not</strong> need to be set.</p>
 <h4 id="dp_api_endpoint">DP_API_ENDPOINT<a class="headerlink" href="#dp_api_endpoint" title="Permanent link">¤</a></h4>
 <p>This is the base location (HTTP(S) URL) of all Data Platform APIs.</p>
-<p>Usually you do <strong>not need to set</strong> this configuration variable.</p>
-<p>This variable defaults to <code>$CMEM_BASE_URI/dataplatform/</code>.</p>
+<p>This variable defaults to <code>$CMEM_BASE_URI/dataplatform/</code> and usually does <strong>not</strong> need to be set.</p>
 <h4 id="keycloak_base_uri">KEYCLOAK_BASE_URI<a class="headerlink" href="#keycloak_base_uri" title="Permanent link">¤</a></h4>
 <p>This is the base location (HTTP(S) URL) of all Keycloak APIs.</p>
-<p>Usually you do <strong>not need to set</strong> this configuration variable.</p>
-<p>This variable defaults to <code>$CMEM_BASE_URI/auth/</code>.</p>
+<p>This variable defaults to <code>$CMEM_BASE_URI/auth/</code> and usually does <strong>not</strong> need to be set.</p>
 <h4 id="keycloak_realm_id">KEYCLOAK_REALM_ID<a class="headerlink" href="#keycloak_realm_id" title="Permanent link">¤</a></h4>
 <p>This is the identifier of your  Keycloak Realm.</p>
-<p>Usually you do <strong>not need to set</strong> this configuration variable.</p>
-<p>This variable defaults to <code>cmem</code>.</p>
+<p>This variable defaults to <code>cmem</code> and usually does <strong>not</strong> need to be set.</p>
 <h4 id="oauth_token_uri">OAUTH_TOKEN_URI<a class="headerlink" href="#oauth_token_uri" title="Permanent link">¤</a></h4>
 <p>This is the <a href="https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)">OpenID Connect (OIDC)</a> OAuth 2.0 token endpoint location (HTTP(S) URL).</p>
-<p>Usually you do <strong>not need to set</strong> this configuration variable.</p>
-<p>This variable defaults to <code>$KEYCLOAK_BASE_URI/realms/$KEYKLOAK_REALM_ID/protocol/openid-connect/token</code>.</p>
+<p>This variable defaults to <code>$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token</code> and usually does <strong>not</strong> need to be set.</p>
 <h3 id="authentication-related">Authentication related<a class="headerlink" href="#authentication-related" title="Permanent link">¤</a></h3>
 <p>The following configuration variables specify how cmemc can fetch a token to authenticate on the endpoints.</p>
 <h4 id="oauth_grant_type">OAUTH_GRANT_TYPE<a class="headerlink" href="#oauth_grant_type" title="Permanent link">¤</a></h4>
@@ -10790,7 +10791,8 @@ The following values can be used:</p>
 <li><code>prefetched_token</code> - this value can be used in case you can provide a token that was fetched outside of cmemc. Mandatory variables for this grant type are <code>OAUTH_ACCESS_TOKEN</code> <strong>or</strong> <code>OAUTH_ACCESS_TOKEN_PROCESS</code>.</li>
 </ul>
 <h4 id="oauth_client_id">OAUTH_CLIENT_ID<a class="headerlink" href="#oauth_client_id" title="Permanent link">¤</a></h4>
-<p>This configures the used client ID. Ususally, the following cmemc related clients are configured in the standard Corporate Memory realm:</p>
+<p>This configures the used client ID.
+Usually, the following cmemc related clients are configured in the standard Corporate Memory realm:</p>
 <ul>
 <li><code>cmem-service-account</code> is the client which is configured to be used with the <code>client_credentials</code> grant type.</li>
 <li><code>cmemc</code> is the client which is configured to be used with the <code>password</code> grant type.</li>
@@ -10808,18 +10810,18 @@ The following values can be used:</p>
 <p>This variable specifies your client secret (password).</p>
 <p>You <strong>only</strong> need to set this configuration variable if you use the <code>client_credentials</code> grant type.</p>
 <h4 id="oauth_access_token">OAUTH_ACCESS_TOKEN<a class="headerlink" href="#oauth_access_token" title="Permanent link">¤</a></h4>
-<p>This variable specifies a prefetched access token.</p>
+<p>This variable specifies a pre-fetched access token.</p>
 <p>You <strong>only</strong> need to set this configuration variable if you use the <code>prefetched_token</code> grant type.</p>
 <h4 id="oauth_password_process">OAUTH_PASSWORD_PROCESS<a class="headerlink" href="#oauth_password_process" title="Permanent link">¤</a></h4>
-<p>In order to avoid saving credentials in config files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_PASSWORD</code> variable.</p>
+<p>In order to avoid saving credentials in configuration files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_PASSWORD</code> variable.</p>
 <p>Please refer to <a href="../getting-credentials-from-external-processes/">Getting Credentials from external Processes</a> for more information.</p>
 <p>This variable defaults to <code>none</code>.</p>
 <h4 id="oauth_client_secret_process">OAUTH_CLIENT_SECRET_PROCESS<a class="headerlink" href="#oauth_client_secret_process" title="Permanent link">¤</a></h4>
-<p>In order to avoid saving credentials in config files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_CLIENT_SECRET</code> variable.</p>
+<p>In order to avoid saving credentials in configuration files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_CLIENT_SECRET</code> variable.</p>
 <p>Please refer to <a href="../getting-credentials-from-external-processes/">Getting Credentials from external Processes</a> for more information.</p>
 <p>This variable defaults to <code>none</code>.</p>
 <h4 id="oauth_access_token_process">OAUTH_ACCESS_TOKEN_PROCESS<a class="headerlink" href="#oauth_access_token_process" title="Permanent link">¤</a></h4>
-<p>In order to avoid saving credentials in config files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_ACCESS_TOKEN</code> variable.</p>
+<p>In order to avoid saving credentials in configuration files you can use this optional configuration variable <strong>instead</strong> of the <code>OAUTH_ACCESS_TOKEN</code> variable.</p>
 <p>Please refer to <a href="../getting-credentials-from-external-processes/">Getting Credentials from external Processes</a> for more information.</p>
 <p>This variable defaults to <code>none</code>.</p>
 <h3 id="network-related">Network related<a class="headerlink" href="#network-related" title="Permanent link">¤</a></h3>
@@ -10854,7 +10856,7 @@ The following values can be used:</p>
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-24T21:58:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-24</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-09T09:49:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-09</span>
       </span>
     
     
