@@ -21,7 +21,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     ---
 
-    Learn how to get going with Corporate Memory in our Getting Started guide. Understand the user interface, the structure of the application and basic concepts. [:octicons-arrow-right-24: Getting started](..){target=_blank}
+    Learn how to get going with Corporate Memory in our Getting Started guide. Understand the user interface, the structure of the application and basic concepts. [:octicons-arrow-right-24: Getting started](../){target=_blank}
 
     Community support for the sandbox is provided in this [:simple-github: forum](https://github.com/eccenca/documentation.eccenca.com/discussions){target=_blank}, use it seek for help, report issues or suggestions or discuss solution ideas.
 
