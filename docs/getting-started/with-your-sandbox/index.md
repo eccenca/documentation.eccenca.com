@@ -21,7 +21,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     ---
 
-    Learn how to get going with Corporate Memory in our Getting Started guide. Understand the user interface, the structure of the application and basic concepts. [:octicons-arrow-right-24: Getting started](/getting-started){target=_blank}
+    Learn how to get going with Corporate Memory in our Getting Started guide. Understand the user interface, the structure of the application and basic concepts. [:octicons-arrow-right-24: Getting started](..){target=_blank}
 
     Community support for the sandbox is provided in this [:simple-github: forum](https://github.com/eccenca/documentation.eccenca.com/discussions){target=_blank}, use it seek for help, report issues or suggestions or discuss solution ideas.
 
@@ -48,10 +48,10 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
     Our [tutorials](/tutorials){target=_blank} help you to create Knowledge Graphs and to use the exploration and consumption features. To get started, we recommend:
 
     -   [Lift tabular sources (CSV, XSLX, JDBC)](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/){target=_blank}
-    -   [Active Learning of Linking Rules](/build/active-learning){target=_blank}
-    -   [Building a customized User Interface](/explore-and-author/graph-exploration/building-a-customized-user-interface){target=_blank}
-    -   [Populate Data to Neo4j](/consume/populate-data-to-neo4j){target=_blank}
-    -   [Data in any Format via Custom API](/consume/provide-data-in-any-format-via-a-custom-api){target=_blank}
+    -   [Active Learning of Linking Rules](../../build/active-learning){target=_blank}
+    -   [Building a customized User Interface](../../explore-and-author/graph-exploration/building-a-customized-user-interface){target=_blank}
+    -   [Populate Data to Neo4j](../../consume/populate-data-to-neo4j){target=_blank}
+    -   [Data in any Format via Custom API](../../consume/provide-data-in-any-format-via-a-custom-api){target=_blank}
 
 -   :material-graph:{ .lg .middle } __BUILD__
 
@@ -59,7 +59,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     _BUILD_ data product pipelines that turn you existing data points into Enterprise Knowledge Graphs. Use them to establish data product assembly lines in a visual intuitive and business user compatible fashion.
 
-    [:octicons-arrow-right-24: Learn more about _Build_](/build){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Build_](../../build){target=_blank}
 
 -   :material-compass-rose:{ .lg .middle } __EXPLORE__
 
@@ -73,7 +73,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     ---
 
-    The _CONSUME_ stage provides several standard APIs to retrieve data from your Knowledge Graph. We also offer native integrations with [PowerBI](/consume/consuming-graphs-in-power-bi){target=_blank} and [redash](https://redash.io/){target=_blank}, and [custom APIs](/consume/provide-data-in-any-format-via-a-custom-api/){target=_blank} can be configured to provide data in any format.
+    The _CONSUME_ stage provides several standard APIs to retrieve data from your Knowledge Graph. We also offer native integrations with [PowerBI](/consume/consuming-graphs-in-power-bi){target=_blank} and [redash](https://redash.io/){target=_blank}, and [custom APIs](../../consume/provide-data-in-any-format-via-a-custom-api/){target=_blank} can be configured to provide data in any format.
 
     [:octicons-arrow-right-24: Learn more about _Consume_](/consume){target=_blank}
 
@@ -83,7 +83,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     With _AUTOMATE_, you can easily set up and automate processes in your Knowledge Graph. Our `cmemc` command line tool simplifies the management and migration of data and configurations in Corporate Memory. Learn about our vision of a DataOps process based on Corporate Memory. how to schedule workflows and using variable data inputs.
 
-    [:octicons-arrow-right-24: Learn more about _Automate_](/automate){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Automate_](../../automate){target=_blank}
 
 -   :material-account-school:{ .lg .middle } __Training and Certification__
 
