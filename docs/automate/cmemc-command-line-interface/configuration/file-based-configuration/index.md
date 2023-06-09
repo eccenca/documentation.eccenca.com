@@ -24,7 +24,7 @@ If you need to change this location and want to use another config file, you hav
 - run cmemc with the `--config-file path/to/your/config.ini` option
 - set a new config file with the environment variable `CMEMC_CONFIG_FILE`
 
-However, once you start cmemc the first time without any command or option, it will create an empty config file at this location and will output a general introduction.
+However, once you start cmemc the first time without any command or option, it will create an empty configuration file at this location and will output a general introduction.
 
 
 ??? example "First cmemc run ..."
@@ -75,21 +75,22 @@ However, once you start cmemc the first time without any command or option, it w
       workflow    List, execute, status or open (io) workflows.
     ```
 
-You can now edit your config file and add credentials and URL parameters for your Corporate Memory deployment.
-You either search for the config manually in your home directory or you can use the `config edit` command, which opens the config file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
+You can now edit your configuration file and add credentials and URL parameters for your Corporate Memory deployment.
+You either search for the configuration manually in your home directory or you can use the `config edit` command, which opens the configuration file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
 
 ``` shell-session
 $ cmemc config edit
 Open editor for config file /home/user/.config/cmemc/config.ini
 ```
 
-The rules for the config file are similar to a Windows INI file and are explained in detail at [docs.python.org](https://docs.python.org/3/library/configparser.html).
+The rules for the configuration file are similar to a Windows INI file and are explained in detail at [docs.python.org](https://docs.python.org/3/library/configparser.html).
 
 ## Examples
 
 Below is a minimal example using the `client_credentials` grant type.
 
 !!! example
+
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
@@ -100,11 +101,12 @@ Below is a minimal example using the `client_credentials` grant type.
 
 This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
 The authorization will be done with a system account `cmem-service-account` and the given client secret.
-Using this combination of config parameters is based on a typical installation where all components are available under the same hostname.
+Using this combination of configuration parameters is based on a typical installation where all components are available under the same host name.
 
 Another example using `password` grant type.
 
 !!! example
+
     ``` ini
     [my-local]
     CMEM_BASE_URI=http://localhost/
@@ -118,12 +120,15 @@ This creates a named section `my-local`, which is a connection to a Corporate Me
 The authorization will be done with the given `OAUTH_USER` and `OAUTH_PASSWORD`.
 
 !!! info
-    The OAuth 2.0 token endpoint location ([`OAUTH_TOKEN_URI`](#oauth_token_uri)) defaults to `$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token`. If **Keycloak** is exposed to a different domain than Corporate Memory, make sure the variables [`KEYCLOAK_BASE_URI`](#keycloak_base_uri) and [`KEYCLOAK_REALM_ID`](#keycloak_realm_id) are configured correctly. Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information. 
-    
+
+    The OAuth 2.0 token endpoint location ([`OAUTH_TOKEN_URI`](#oauth_token_uri)) defaults to `$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token`.
+    If Keycloak is exposed to a different domain than Corporate Memory, make sure the variables [`KEYCLOAK_BASE_URI`](#keycloak_base_uri) and [`KEYCLOAK_REALM_ID`](#keycloak_realm_id) are configured correctly.
+    Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information.
+
 ## Configuration Variables
 
-The above example provides access to an installation where all components including keycloak are deployed with the default URL base.
-However, if you need to fine-tune all locations or want to use special functionality, the following config file parameters can be used.
+The above example provides access to an installation where all components (including Keycloak) are deployed with the default URL base.
+However, if you need to fine-tune all locations or want to use special functionality, the following configuration parameters can be used.
 
 ### Location related
 
@@ -185,7 +190,8 @@ The following values can be used:
 
 #### OAUTH_CLIENT_ID
 
-This configures the used client ID. Ususally, the following cmemc related clients are configured in the standard Corporate Memory realm:
+This configures the used client ID.
+Usually, the following cmemc related clients are configured in the standard Corporate Memory realm:
 
 - `cmem-service-account` is the client which is configured to be used with the `client_credentials` grant type.
 - `cmemc` is the client which is configured to be used with the `password` grant type.
@@ -216,13 +222,13 @@ You **only** need to set this configuration variable if you use the `client_cred
 
 #### OAUTH_ACCESS_TOKEN
 
-This variable specifies a prefetched access token.
+This variable specifies a pre-fetched access token.
 
 You **only** need to set this configuration variable if you use the `prefetched_token` grant type.
 
 #### OAUTH_PASSWORD_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_PASSWORD` variable.
+In order to avoid saving credentials in configuration files you can use this optional configuration variable **instead** of the `OAUTH_PASSWORD` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
@@ -230,7 +236,7 @@ This variable defaults to `none`.
 
 #### OAUTH_CLIENT_SECRET_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_CLIENT_SECRET` variable.
+In order to avoid saving credentials in configuration files you can use this optional configuration variable **instead** of the `OAUTH_CLIENT_SECRET` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
@@ -238,7 +244,7 @@ This variable defaults to `none`.
 
 #### OAUTH_ACCESS_TOKEN_PROCESS
 
-In order to avoid saving credentials in config files you can use this optional configuration variable **instead** of the `OAUTH_ACCESS_TOKEN` variable.
+In order to avoid saving credentials in configuration files you can use this optional configuration variable **instead** of the `OAUTH_ACCESS_TOKEN` variable.
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
