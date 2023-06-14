@@ -32,7 +32,7 @@ This release delivers the following component versions:
 -   eccenca DataIntegration v23.1.2
 -   eccenca DataIntegration Python Plugins v3.0.0
 -   eccenca DataManager v23.1.5
--   eccenca Corporate Memory Control (cmemc) v23.1.2
+-   eccenca Corporate Memory Control (cmemc) v23.1.3
 
 More detailed release notes for these versions are listed below.
 
@@ -260,10 +260,15 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
     -   `authorization.accessConditions.graph`: used graph is always the default graph from bootstrap
     -   `authorization.accessConditions.url`: url as source for access condition not supported anymore
 
-## eccenca Corporate Memory Control (cmemc) v23.1.2
+## eccenca Corporate Memory Control (cmemc) v23.1.3
 
 We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements.
 This release introduces new command functionalities, configuration options, and a change in the project structure.
+
+v23.1.3 of eccenca Corporate Memory Control introduces the following security updates:
+
+- upgrade base image to python:3.11.4-slim-bullseye
+- upgrade dependencies (esp. certifi)
 
 v23.1.2 of eccenca Corporate Memory Control introduces the following fixes:
 
