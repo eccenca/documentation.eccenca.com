@@ -187,6 +187,7 @@ For this, just create a different role name later, and create an access conditio
   - select Mapper Type `User Client Role`
     - **Name** `roles`
     - **Client ID** select the client you are currently configuring from the pull-down-menu (here `cmem-service-account`)
+    - Enable **Multivalued**
     - **Token Claim Name** `groups`
     - Enable **Add to ID token**
     - Enable **Add to access token**
@@ -235,7 +236,8 @@ For this, just create a different role name later, and create an access conditio
 ### Groups configuration
 
 - Go to **Groups** and add the following groups:
-  - `elds-admins`
+  - These groups are for user assignment only, as clients have roles-to-group mappers.
+  - `elds-admins` 
   - Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak
   - In Corporate Memory docker orchestration, `local-users`, `local-admins`
 
