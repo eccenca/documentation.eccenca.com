@@ -5,9 +5,9 @@ hide:
   - navigation
 ---
 
-# KGC 2023 Masterclass - Material and Namespace Suggestions
+# Masterclass - Material and Namespace Suggestions
 
-This page lists materials and resources to be used to replicate and follow the **The Knowledge Graph Conference 2023** Masterclass Session _From zero to KG hero: boost your KG creation productivity with eccenca Corporate Memory_.
+A list of materials and resources to reproduce and follow the masterclass.
 
 !!! info "About Session"
 
