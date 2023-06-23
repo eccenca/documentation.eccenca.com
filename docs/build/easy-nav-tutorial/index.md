@@ -80,3 +80,29 @@ The visual exploration feature in our Knowledge Graph tool can be utilized in va
 
 - Click on Save to save the visualization.
 
+- We have feature to add the new instance in the graph visualization 
+Drag the Add new instance on the canvas
+
+- Select a node type as SHACL property group.
+
+- Type the Naming and Presentations i.e Label, Description and order then click on Save.
+
+- Click on Save.
+
+- Click on Create.
+
+!!! Step Result
+
+              The new instance has been created
+
+
+ - Click on the dot of the right side the CMEM shapes catalog and drag to the new instance right dot to connect then select the edge type as label as shown below.
+
+ - Click on Save.
+
+!!! Step Result
+
+              The new instance got connected
+
+              
+
