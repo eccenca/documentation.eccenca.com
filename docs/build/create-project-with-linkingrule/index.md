@@ -53,22 +53,22 @@ The following material is used in this tutorial, you should download the files a
 
 ## 1. Create a new project
 
--   Once logged in to eccenca Corporate memory on the right side click on **Create :eccenca-item-add-artefact:**.
+-   Once logged in to eccenca Corporate Memory on the right side click on **Create :eccenca-item-add-artefact:**.
 
     ![image](22.2-create-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
     The screen gives an overview of the different projects created in your installation of eccenca Corporate Memory.
     It shows the item type on the left side like a project, workflow, dataset, transform, linking, and task.
 
--   Click on the **project** on the left side in the item type and double-click on the **project** in the centre.
+-   Click on the **project** on the left side in the item type and select **project** in the centre then click on **Add**.
 
     ![image](22.2-click-on-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the project name as **Movie links** in the title field and click on **create.**
+-   Type the project name as **Movie links** in the title field and click on **Create.**
 
     ![image](22.2-type-movie-links.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-!!! success "Step Result"
+!!! Success "Step Result"
 
     The project was created with the name "Movie links" which is displayed in the page top left corner.
 
@@ -88,7 +88,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-files-added.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-!!! success "Step Result"
+!!! Success "Step Result"
 
     The files are uploaded to the project and reflect on the right side as shown below.
 
@@ -100,7 +100,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **dataset** on the left side in the item type and double-click on the **:eccenca-artefact-dataset-csv: CSV** file in the centre.
+-   Click on the **dataset** on the left side in the item type and select **CSV** option then click on **Add**.
 
     ![image](22.2-csv-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -112,14 +112,14 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-select-filefrom-project.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **create**.
+-   Click on **Create**.
 
     ![image](22.2-db.csv.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Repeat the same step and add another file linkedmdb in the dataset.
 
 -   Create the empty dataset file for extracting both files' links as an output result.
-    Click on the **dataset** on the left side of the item list and double-click on the **:eccenca-artefact-dataset-csv: CSV** file.
+    Click on the **dataset** on the left side of the item list then select **CSV** and click on **Add**.
 
     ![image](22.2-click-on-dataset.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -131,7 +131,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-emptyfiles.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-!!! success "Step result"
+!!! Success "Step result"
 
     Dataset for both the files dbpedia and linkedmdb has been created, and `link.csv` is created for the output result displayed in the page's center.
 
@@ -143,7 +143,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-data-created-new.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **:eccenca-artefact-linking: Linking** on the left side in the item type and double-click on **linking** in the center.
+-   Click on **:eccenca-artefact-linking: Linking** on the left side in the item type and select **Linking** in the center then click on **Add**.
 
     ![image](22.2-click-on-linking.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -171,7 +171,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-linking-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-!!! success "Step Result"
+!!! Success "Step Result"
 
     Linking task is created for the project.
     It shows the source path, target path, and operators (transform, comparison, and aggregation) options on the left side of the page.
