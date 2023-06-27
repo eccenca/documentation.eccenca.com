@@ -100,7 +100,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **dataset** on the left side in the item type and select **CSV** option then click on **Add**.
+-   Click on the **dataset** on the left side in the item type and select **CSV** in the centre then click on **Add**.
 
     ![image](22.2-csv-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -202,19 +202,23 @@ the initial rule should have the source and target paths for title and a string 
 
 ### Add source and target paths for the `title`
 
--   Click on the **:eccenca-data-sourcepath: source path** and drag the title on the canvas.
+-   Click on the **:eccenca-data-sourcepath: Source path** and drag the title on the canvas.
 
     ![image](22.2-click-on-sourcepath.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **:eccenca-data-targetpath: target path** and drag the title on the canvas.
+-   Click on the **:eccenca-data-targetpath: Target path** and drag the title on the canvas.
 
     ![image](22.2-click-on-targetpath.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-!!! success "Step Result"
+!!! Success "Step Result"
 
-    The titles from the source path and target are dragged on the canvas as shown below.
+    The titles from the Source path and Target are dragged on the canvas as shown below.
 
     ![image](22.2-click-on-targetpath.png){ style="border: 1px solid #555; border-radius: 5px;" }
+
+- Select the **title** in the path field for both Source path and Target path.
+
+![image](title-name.png)
 
 ### Normalize the `title` for a better comparison result
 
@@ -272,7 +276,7 @@ the initial rule should have the source and target paths for title and a string 
     So far, we have created a linking rule in which we changed the title names of both files in lowercase and compared the same.
     Now it’s time to generate the links by evaluating them.
 
--   Click on the **linking evaluation**.
+-   Click on the **Linking evaluation**.
 
     ![image](22.2-click-on-linking-evaluation.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
