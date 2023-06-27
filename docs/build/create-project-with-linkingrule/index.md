@@ -202,11 +202,11 @@ the initial rule should have the source and target paths for title and a string 
 
 ### Add source and target paths for the `title`
 
--   Click on the **:eccenca-data-sourcepath: Source path** and drag the title on the canvas.
+-   Click on the **:eccenca-data-sourcepath: Source path** and drag the title on the canvas and select **title** in the path field .
 
     ![image](22.2-click-on-sourcepath.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **:eccenca-data-targetpath: Target path** and drag the title on the canvas.
+-   Click on the **:eccenca-data-targetpath: Target path** and drag the title on the canvas and select **title** in the path field.
 
     ![image](22.2-click-on-targetpath.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -215,12 +215,6 @@ the initial rule should have the source and target paths for title and a string 
     The titles from the Source path and Target are dragged on the canvas as shown below.
 
     ![image](22.2-click-on-targetpath.png){ style="border: 1px solid #555; border-radius: 5px;" }
-
-- Select the **title** in the path field for both Source path and Target path.
-
-![image](title-name.png)
-
-### Normalize the `title` for a better comparison result
 
 !!! success "Task"
 
@@ -268,9 +262,14 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-comparison-save.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
+   !!! Step Result
+
+                The links are executed and shows the counts of the link in each source.
+               !!![image](execution.png)  
+
 ### Linking evaluation
 
-!!! success "Task"
+!!! Task
 
     Now it is time to see your linking rule in action by running it on your datasets.
     So far, we have created a linking rule in which we changed the title names of both files in lowercase and compared the same.
@@ -278,27 +277,32 @@ the initial rule should have the source and target paths for title and a string 
 
 -   Click on the **Linking evaluation**.
 
-    ![image](22.2-click-on-linking-evaluation.png){ style="border: 1px solid #555; border-radius: 5px;" }
+!!! Note
 
--   Click on the **:eccenca-item-start: button** to start the evaluation and generate the links.
+       It has two default on toggler buttons of value table and operator tree expanded for default.It  enable users to conveniently view and interact with data through different representations and structures.
 
-    ![image](22.2-start-evalute.png){ style="border: 1px solid #555; border-radius: 5px;" }
+       !!![image](togler.png)
 
-!!! success "Step Result"
+-   Click on the **play button** to start the evaluation and generate the links.
+
+!!![image](evaluation.png)
+   
+
+!!! Step Result
 
     The links are generated as shown below. (It allows us to review the links and since eccenca Corporate Memory does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.
 
-    ![image](22.2-evalute-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+   !!! [image](evalute-result.png)
 
--   Click on the **:eccenca-toggler-showmore:** button to **expand all**.
+-   Click on the **:eccenca-toggler-showmore:** button to **expand all row**.
 
-    ![image](22.2-expand-all.png){ style="border: 1px solid #555; border-radius: 5px;" }
+ !!! [image](expand-row.png)
 
 !!! success "Step Result"
 
     This allows you to see how the linking rule was performed for each link and even the movie name compared in both files.
 
-    ![image](22.2-expand-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    !!! [image](expand-result.png)
 
 ### Use a filter
 
@@ -307,18 +311,15 @@ the initial rule should have the source and target paths for title and a string 
     It has a filter feature that helps to find links by movie names.
     An example is shown below.
 
-    Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names links of both files.
+    Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names from both files.
 
-    ![image](22.2-type-shaft.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    !!! [image](shaft-search.png)
 
     Cross-checking in the `dbpedia.csv` and `linkedmdb.csv` data sheet.
 
     ![image](22.2-shaft-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
-    The movie name is twice in both sheets, but the release dates differ.
-    The shaft movie’s original release was in 1971 and the remake was in 2000.
-    We have the tick option for the correct rule.
-
+   
 -   Click on the linking execution then click on the **:eccenca-item-start: button** to execute the links (It copies the links to our data file `links.csv` (which is our output file).
 
     ![image](22.2-start-activity.png){ style="border: 1px solid #555; border-radius: 5px;" }
