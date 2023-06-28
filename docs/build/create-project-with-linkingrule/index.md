@@ -100,7 +100,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-create.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **dataset** on the left side in the item type and select **CSV** in the centre then click on **Add**.
+-   Click on the **Dataset** on the left side in the item type and select **CSV** in the centre then click on **Add**.
 
     ![image](22.2-csv-files.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -119,7 +119,7 @@ The following material is used in this tutorial, you should download the files a
 -   Repeat the same step and add another file linkedmdb in the dataset.
 
 -   Create the empty dataset file for extracting both files' links as an output result.
-    Click on the **dataset** on the left side of the item list then select **CSV** and click on **Add**.
+    Click on the **Dataset** on the left side of the item list then select **CSV** and click on **Add**.
 
     ![image](22.2-click-on-dataset.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -147,11 +147,11 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-click-on-linking.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Type the name as **linking** in the label field and select the **source input** data set as a **dbpedia** file.
+-   Type the name as **linking** in the label field and select the **SOURCE INPUT** data set as a **dbpedia** file.
 
     ![image](22.2-type-linking.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **Type** field (it gives the default name)
+-   Select the **Type** field (it gives the default name)select the same.
 
     ![image](22.2-type-csv.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -163,7 +163,7 @@ The following material is used in this tutorial, you should download the files a
 
     ![image](22.2-linkmbd-csv.png)task{ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Select the **Output dataset** as **links** file.
+-   Select the **Output** as **links** file.
 
     ![image](22.2-select-output.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -200,8 +200,6 @@ the initial rule should have the source and target paths for title and a string 
     Assemble a linking rule with the linking editor.
     To create a rule to say that movies from dbpedia and linkedmdb should be considered the same if their titles are identical.
 
-### Add source and target paths for the `title`
-
 -   Click on the **:eccenca-data-sourcepath: Source path** and drag the title on the canvas and select **title** in the path field .
 
     ![image](22.2-click-on-sourcepath.png){ style="border: 1px solid #555; border-radius: 5px;" }
@@ -220,7 +218,7 @@ the initial rule should have the source and target paths for title and a string 
 
     Let's make this a little better and compare only the lowercase versions of the titles to get around issues with differences in the lower and upper case between the two datasets.
 
--   Click on **:eccenca-operation-transform: transform**, type the operator **lowercase**  in the search field and drag the same on the canvas twice.
+-   Click on **:eccenca-operation-transform: Transform**, type the operator **Lowercase**  in the search field and drag the same on the canvas twice.
 
     ![image](22.2-lowercase.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -234,7 +232,7 @@ the initial rule should have the source and target paths for title and a string 
 
 !!! success "Step Result"
 
-    The lines connected between the target path title and lowercase as shown below.
+    The lines connected between the source and target path title with lowercase as shown below.
 
     ![image](22.2-target-lowercase.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
@@ -265,7 +263,8 @@ the initial rule should have the source and target paths for title and a string 
    !!! Step Result
 
                 The links are executed and shows the counts of the link in each source.
-               !!![image](execution.png)  
+              
+                ![image](execution.png)
 
 ### Linking evaluation
 
@@ -281,28 +280,28 @@ the initial rule should have the source and target paths for title and a string 
 
        It has two default on toggler buttons of value table and operator tree expanded for default.It  enable users to conveniently view and interact with data through different representations and structures.
 
-       !!![image](togler.png)
+       ![image](togler.png)
 
 -   Click on the **play button** to start the evaluation and generate the links.
 
-!!![image](evaluation.png)
+ ![image](evaluation.png)
    
 
 !!! Step Result
 
     The links are generated as shown below. (It allows us to review the links and since eccenca Corporate Memory does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.
 
-   !!! [image](evalute-result.png)
+    ![image](evalute-result.png)
 
 -   Click on the **:eccenca-toggler-showmore:** button to **expand all row**.
 
- !!! [image](expand-row.png)
+   ![image](expand-row.png)
 
 !!! success "Step Result"
 
     This allows you to see how the linking rule was performed for each link and even the movie name compared in both files.
 
-    !!! [image](expand-result.png)
+    ![image](expand-result.png)
 
 ### Use a filter
 
@@ -313,7 +312,7 @@ the initial rule should have the source and target paths for title and a string 
 
     Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names from both files.
 
-    !!! [image](shaft-search.png)
+    ![image](shaft-search.png)
 
     Cross-checking in the `dbpedia.csv` and `linkedmdb.csv` data sheet.
 
@@ -322,10 +321,10 @@ the initial rule should have the source and target paths for title and a string 
    
 -   Click on the linking execution then click on the **:eccenca-item-start: button** to execute the links (It copies the links to our data file `links.csv` (which is our output file).
 
-    ![image](22.2-start-activity.png){ style="border: 1px solid #555; border-radius: 5px;" }
+ ![image](start-activity.png)
 
 !!! success "Step Result"
 
     The links are executed and copied to the output data file `links.csv` and which shows the count of links on the page.
 
-    ![image](22.2-linking-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](linking-result.png)  
