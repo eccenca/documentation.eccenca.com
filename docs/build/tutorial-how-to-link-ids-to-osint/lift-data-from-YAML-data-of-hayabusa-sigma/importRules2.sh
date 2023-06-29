@@ -12,9 +12,9 @@ for file in $(find . -name '*.yml'); do
 	yq ".rulePath = \"${file}\"" -o=json  $file > ${file}.json
 done
 
-cmemc -c test graph delete http://example.com/rule
+cmemc graph delete http://example.com/rule
 
 for file in $(find . -name '*.json'); do
     [ -f "$file" ] || break
-    cmemc -c test workflow io  RulesHayabusaSigma_0acd314cabf95ef2:Importrules_a1e8e349bc9563c6 -i ${file}
+    cmemc workflow io  RulesHayabusaSigma_671e1f43d94bbc36:Importrules_6ccbc14b656c75c9 -i ${file}
 done

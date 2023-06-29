@@ -8,8 +8,8 @@ There are rules for Host-based intrusion detection systems (HIDS) with Hayabusa/
 
 Here, we are working with the Hayabusa/Sigma rules available via GitHub:
 
-- https://github.com/Yamato-Security/hayabusa-rules
-- https://github.com/SigmaHQ/sigma
+- [https://github.com/Yamato-Security/hayabusa-rules](https://github.com/Yamato-Security/hayabusa-rules)
+- [https://github.com/SigmaHQ/sigma](https://github.com/Yamato-Security/hayabusa-rules)
 
 The problem of interoperability, here, is the YAML format of files, their random position in their folders in their Github projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
 
@@ -53,14 +53,12 @@ done
 
 We can test this script:
 ```bash
-mkdir -p /home/karima/datasets/rules
 cd ~/git/tutorial-how-to-link-ids-to-osint/docs/build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma
 chmod +x importRules.sh
 ./importRules.sh
 ```
 
-For example, the file "https://github.com/SigmaHQ/sigma/master/
-rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml" will become this JSON file:
+For example, the file [proc_creation_win_bcdedit_boot_conf_tamper.yml](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml) will become this JSON file:
 ```json
 {
   "title": "Boot Configuration Tampering Via Bcdedit.EXE",
@@ -94,16 +92,14 @@ This new transformer are building the following RDF model for your use case:
 ![](23-1-rdf-model-rule.png)
 
 1. Create a new project to build the knowledge graph of "Rules Hayabusa Sigma"
-   (todo gif)
 
-2. Create a RDF dataset "Rules Hayabusa Sigma" in Corporate Memory for all rules with the named graph: `http://example.com/rule`
-   (todo gif after fix 142 )
+2. In this project, create a RDF dataset "Rules Hayabusa Sigma" in Corporate Memory for all rules with the named graph: `http://example.com/rule`
 
-4. Create a JSON dataset in Corporate Memory with one example of rule: "Rule example (JSON)"
+3. Create a JSON dataset "Rule example (JSON)" in Corporate Memory with one example of rule: 
 
 ![](23-1-add-json-dataset.gif)
 
-5. Create the prefix of your vocabulary:
+4. Create the prefix of your vocabulary:
    
 ```turtle
 prefix ctis: <https://github.com/SigmaHQ/sigma-specification/blob/main/Sigma_specification.md#>
@@ -111,7 +107,7 @@ prefix ctis: <https://github.com/SigmaHQ/sigma-specification/blob/main/Sigma_spe
 
 ![](23-1-add-prefix-ctis.gif)
 
-4. Create the transformer for "SIGMA Hayabusa rule" to build this RDF model.
+5. Create the transformer for "SIGMA Hayabusa rule" to build this RDF model.
 
 Rule object:
 
@@ -119,26 +115,31 @@ Rule object:
 
 - IRI: concatenation of "http://example.com/rule/" with the result of this regular expression `^.*?([^\/]*)$` on the rule path 
   
-![](23-1-iri-rule.png) (todo replace)
+![](23-1-iri-rule.png)
 
-- property `ctis:filename` with the result of this regular expression `^.*?([^\/]*)$` on the rule path 
-- property `rdfs:label` with the rule title
-- property `rdfs:comment` with the rule description
-- property `rdfs:seeAlso` with the references
-- property `ctis:mitreAttackTechniqueId` is building with this formula
+- property `ctis:filename` with the result of this regular expression `^.*?([^\/]*)$` on the value path `rulePath` 
+- property `rdfs:label` with the value path `title`
+- property `rdfs:comment` with the value path `description`
+- property `rdfs:seeAlso` with the value path `references`
+- property `ctis:mitreAttackTechniqueId` is building with this formula with the value path `tags`
     - Filter by regex: `^attack\.t\d+$`
     - Regex replace `attack\.t` by `T`
 
 ![](23-1-formula-mitreid.png)
   
-- property `rdfs:isDefinedBy` is building with this formula to link the rules to their Web addresses.
-    - Concatenate for Sigma `https://github.com/SigmaHQ/sigma/blob/master` with the rulepath `./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` to obtain this final link `https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml`
-    - Concatenate for Hayabusa `https://github.com/Yamato-Security/hayabusa-rules/blob/main` with the rulepath `./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml` to obtain this final link `https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml`
+- property `rdfs:isDefinedBy` on the value path `rulePath` is building with this formula to link the rules to their Web addresses.
+    - Add two "Regex replace"
+        - replace `\./hayabusa-rules/` by `https://github.com/Yamato-Security/hayabusa-rules/blob/main/`
+        - replace `\./sigma/` by `https://github.com/SigmaHQ/sigma/blob/master/`
 
+    ![](23-1-rules-isdefinedby.png)
 
-![](23-1-rules-isdefinedby.png)
+So the rulepath `./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` becomes the link `https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` and `./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml`becomes `https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml`
 
-![](23-1-add-transformer-rule.gif) (todo don't miss ctis:filename)
+!!! Tips
+
+    To test your transformer, you can use the tab "Transform execution". Here, the knowledge graph will not be cleared after each workflow or execution to test your transformer because the option "clear graph before workflow" is disabled. However during the steps to build this transformer, you can enable tempory this option to see and test the final transformer.
+    You need only to disable this option when your transformer is finished. 
 
 !!! Success
 
@@ -146,17 +147,20 @@ Rule object:
     ![](23-1-success-extract-rule2.png)
     ![](23-1-success-extract-rule.png)
 
-1. Make the workflow with one input
+6. Make the workflow "Import rules" with one input
 ![](23-1-success-workflow.png)
+
+And don't forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow. 
+![](23-1-workflow-allow-replacement.png)
 
 ![](23-1-add-worflow.gif)
 
-5. Copy the workflow ID
+7. Copy the workflow ID
 ![](23-1-id-worflow.gif)
 
 !!! Success
 
-    In this example the ID of workflow is `RulesHayabusaSigma_0acd314cabf95ef2:Importrules_a1e8e349bc9563c6`
+    In this example the ID of workflow is `RulesHayabusaSigma_671e1f43d94bbc36:Importrules_6ccbc14b656c75c9`
 
 ## Apply the worflow to all files
 
@@ -168,16 +172,22 @@ We modify the first bash where we add the line to clear the knowledge graph befo
 
 !!! Tip
 
-    CMEMC config file need to be correctly configurated before to execute this bash. (todo create link to doc about cmemc config)
+    CMEMC config file need to be correctly configurated before to execute this bash, like in the previous tutorial.
 
     For example:
-    ```
-    [myconfig]
-    CMEM_BASE_URI=TODO put instance for the tutorial
+    ```bash
+    [johndo.eccenca.my]
+    CMEM_BASE_URI=https://johndo.eccenca.my/
     OAUTH_GRANT_TYPE=password
     OAUTH_CLIENT_ID=cmemc
-    OAUTH_USER=YOUR_LOGIN
-    OAUTH_PASSWORD=YOUR_PASSWORD
+    OAUTH_USER=johndo@example.com
+    OAUTH_PASSWORD=XXXXXXXXX
+    ```
+    You need to replace "johndo" by other thing, "johndo@example.com" by your login (email) in the sandbox and XXXXXXXXX by your password. Save the file (with VI, :wq).
+
+    Don't forget to specify the config by default to use by CMEMC.
+    ```bash
+    export CMEMC_CONNECTION=johndo.eccenca.my
     ```
 
 ```bash
@@ -195,19 +205,33 @@ for file in $(find . -name '*.yml'); do
 	yq ".rulePath = \"${file}\"" -o=json  $file > ${file}.json
 done
 
-cmemc -c myconfig graph delete http://example.com/rule
+cmemc graph delete http://example.com/rule
 
 for file in $(find . -name '*.json'); do
     [ -f "$file" ] || break
-    cmemc -c myconfig workflow io  RulesHayabusaSigma_0acd314cabf95ef2:Importrules_a1e8e349bc9563c6 -i ${file}
+    cmemc workflow io  RulesHayabusaSigma_671e1f43d94bbc36:Importrules_6ccbc14b656c75c9 -i ${file}
 done
 ```
 
 We can test this script:
 ```bash
-./importRules.sh
+./importRules2.sh
 ```
 
 ## Conclusion
 
 Here, we learnt how to generate a knowledge graph with files in input with Corporate Memory to prepare the worflow and cmemc to execute this worklow on all files.
+
+
+## Ressources
+
+- [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
+- [script 1](importRules.sh)
+- [script 2](importRules2.sh)
+
+---
+Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
+
+Next chapter: [Link IDS event to a knowledge graph in dashboards via queries](../link-IDS-event-to-KG/index.md)
+
+Previous chapter: [Build a Knowledge Graph of MITRE ATT&CK® datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
