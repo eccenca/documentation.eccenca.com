@@ -27,50 +27,51 @@ Here we show how to evolve and improve the precision of a linking rule by adding
 
 As a potential improvement to the initial linking rule built in [linking tutorial](../create-project-with-linkingrule/) we can compare the release date information.
 
--   Click on the **linking** editor then click on the **source path** and drag the release date on the canvas.
+-   Click on the **Linking editor** then click on the **Source path** and drag the **release_date** on the canvas.
     ![image](source-releasedate.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on the **target path** and drag the release date on the canvas.
+-   Click on the **Target path** and drag the **release_date** on the canvas.
     ![image](target-releasedate.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **transform** and type the date and drag the parse date pattern on the canvas twice.
+-   Click on **Transform** and type the **date** and drag the **parse date pattern** on the canvas twice.
     ![image](date-pattern.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Drag the little dot on the right side of the source path box and target path box (release date) onto the left dot of the transformation box(parse date) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
+-   Drag the little dot on the right side of the Source path box and Target path box (release_date) onto the left dot of the Transformation box(parse date pattern) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
     ![image](date-connects.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on transform type date and drag on the canvas and type **365** in the threshold field (to allow a distance of 365 days between two dates).
-    ![image](date.png){ style="border: 1px solid #555; border-radius: 5px;" }
+-   Click on **Comparison** type **Date** and drag on the canvas and type **365** in the threshold field (to allow a distance of 365 days between two dates).
+    ![image](Comparison.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Drag the little dot on the right side of both parse date patterns onto the left dot of the transformation box(date) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
     ![image](date-connects-result.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **aggregation** type minimum and drag on the canvas (It allows to combine two similarities computed by the comparators)
-    ![image](aggregation.png){ style="border: 1px solid #555; border-radius: 5px;" }
+-   Click on **Aggregation** type **minimum** and drag **And(minimum score)** on the canvas (It allows to combine two similarities computed by the comparators)
+    ![image](aggregation.png){ style="border: 1px solid #555; border-radius: 5px;"}
 
--   Drag the little dot on the right side of string equality and date operators onto the left dot of the aggregation box (minimum) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
+-   Drag the little dot on the right side of String equality and Date operators onto the left dot of the aggregation box (minimum) to connect the two with a line (you always must drag from the right side of one element to the left side of another to connect the two).
     ![image](equality-aggregation.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
--   Click on **save** on the right side of the page.
+-   Click on **Save** on the right side of the page.
     ![image](click-on-save.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 ## Linking evaluation
 
--   Click on the **linking evaluation**.
+-   Click on the **Linking evaluation**.
     ![image](click-on-evalution.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
 -   Click on the **play button** to start the evaluation and generate the links.
-    ![image](click-on-play.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](linking-evaluation1.png){ style="border: 1px solid #555; border-radius: 5px;"}
 
-!!! success "Step Result"
+!!! Step Result
 
-    The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.)
-    ![image](result.png){ style="border: 1px solid #555; border-radius: 5px;" }
+          The links are generated as shown below. (It allows us to review the links and since DataIntegration does not know which column to use as a unique identifier, it just uses the row number in the `.csv` file to identify each movie.)
 
--   Click on the **linking execution** then click on the play button to execute the links (It copies the links to our data file `links.csv` (which is our output file).
-    ![image](click-on-linkexe.png){ style="border: 1px solid #555; border-radius: 5px;" }
+          ![image](step-result-evaluation.png){ style="border: 1px solid #555; border-radius: 5px;"}
+
+-   Click on the **Linking execution** then click on the **play button** to execute the links (It copies the links to our data file `links.csv` (which is our output file).
+    ![image](linking-execution-result.png)
 
 !!! success "Step Result"
 
     The links are executed and copied to the output data file `links.csv`, showing the count of links on the page.
-    ![image](click-on-linkexe.png){ style="border: 1px solid #555; border-radius: 5px;" }
+    ![image](linking-result.png){style="border: 1px solid #555; border-radius: 5px;"}
