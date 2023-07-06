@@ -10,7 +10,7 @@ tags:
 
 List, inspect or delete dataset file resources.
 
-File resources are identified by its name and project ID.
+File resources are identified by their paths and project IDs.
 
 
 ## dataset resource list
@@ -32,11 +32,11 @@ Outputs a table or a list of dataset resources (files).
     ```text
 
     --raw                    Outputs raw JSON.
-    --id-only                Lists only resource names and no other meta data.
+    --id-only                Lists only resource names and no other metadata.
                              This is useful for piping the IDs into other
                              commands.
   
-    --filter <TEXT TEXT>...  Filter file resources based on a meta data. First
+    --filter <TEXT TEXT>...  Filter file resources based on metadata. First
                              parameter CHOICE can be one of ['project',
                              'regex']. The second parameter is based on CHOICE,
                              e.g. a project ID or a regular expression string.
@@ -53,7 +53,7 @@ $ cmemc dataset resource delete [OPTIONS] [RESOURCE_IDS]...
 
 
 
-You have three selection mechanisms: with specific IDs, you will delete only these resources; by using `--filter` your will delete resources based on the filter type and value; by using `--all` will delete all resources.
+There are three selection mechanisms: with specific IDs, only those specified resources will be deleted; by using `--filter`, resources based on the filter type and value will be deleted; using `--all` will delete all resources.
 
 
 
@@ -64,7 +64,7 @@ You have three selection mechanisms: with specific IDs, you will delete only the
     -a, --all                Delete all resources. This is a dangerous option,
                              so use it with care.
   
-    --filter <TEXT TEXT>...  Filter file resources based on a meta data. First
+    --filter <TEXT TEXT>...  Filter file resources based on metadata. First
                              parameter CHOICE can be one of ['project',
                              'regex']. The second parameter is based on CHOICE,
                              e.g. a project ID or a regular expression string.
@@ -72,7 +72,7 @@ You have three selection mechanisms: with specific IDs, you will delete only the
 
 ## dataset resource inspect
 
-Display all meta data of a file resource.
+Display all metadata of a file resource.
 
 ```shell-session title="Usage"
 $ cmemc dataset resource inspect [OPTIONS] RESOURCE_ID

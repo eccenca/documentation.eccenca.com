@@ -113,13 +113,13 @@ $ cmemc workflow list [OPTIONS]
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  List workflows based on meta data. First parameter
+    --filter <TEXT TEXT>...  List workflows based on metadata. First parameter
                              --filter CHOICE can be one of ['io', 'project',
                              'regex', 'tag']. The second parameter is based on
                              CHOICE.
   
     --id-only                Lists only workflow identifier and no labels or
-                             other meta data. This is useful for piping the IDs
+                             other metadata. This is useful for piping the IDs
                              into other commands.
   
     --raw                    Outputs raw JSON objects of workflow task search
