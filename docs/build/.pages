@@ -11,4 +11,4 @@ nav:
     - Incremental Database Loading: loading-jdbc-datasets-incrementally
     - Connect to Snowflake: snowflake-tutorial
     - Active learning: active-learning
-
+    - Link Intrusion Detection Systems to Open-Source INTelligence: tutorial-how-to-link-ids-to-osint
