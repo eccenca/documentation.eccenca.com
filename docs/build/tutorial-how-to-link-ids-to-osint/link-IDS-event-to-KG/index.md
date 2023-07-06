@@ -1,11 +1,13 @@
 # Link IDS event to a knowledge graph in dashboards via SPARQL queries
 
 ## Introduction
+
 In this tutorial, we are using the Linked Data App for Splunk. This app contains the SPARQL command necessary to dasboards to help the analysts to understand the Hayabusa and Sigma alerts before searching manually in the data via a SPL (Search Processing Language) query in Splunk.
 
 In the demo of this app in the video 1, the user selects the indexes of his investigation and select an alert message to open its sources on the Web before searching manually via the Splunk interfaces. Splunk, automatically, refreshes the SPARQL queries in the dashboard after each interaction of user.
 
 ![](splunk-app-demo-LD-app.gif)
+
 *Video 1: Splunk dashboards of the Linked Data App*
 
 In this tutorial, we learn to:
@@ -17,8 +19,7 @@ In this tutorial, we learn to:
 
 ## Install the "Linked Data App" in Splunk for this tutorial
 
-The "Linked Data App" extends Splunk Search Processing Language (SPL) to support the [SPARQL protocol](https://www.w3.org/TR/sparql11-protocol/). 
-
+The "Linked Data App" extends Splunk Search Processing Language (SPL) to support the [SPARQL protocol](https://www.w3.org/TR/sparql11-protocol/).
 
 1. Download the tar.gz: [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz)
 
@@ -31,14 +32,17 @@ The "Linked Data App" extends Splunk Search Processing Language (SPL) to support
 3. Upload the app in Splunk (see video 2)
 
 ![](splunk-app-install.gif)
+
 *Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk.*
 
 !!! Tip
+
     The dependencies of this app are already in its tar.gz but you can update the dependencies yourself, via the lines:
+
     ```bash
-        cd eccenca_commands
-        pip install sparqlwrapper -t bin --upgrade
-        pip install splunk-sdk  -t bin --upgrade
+    cd eccenca_commands
+    pip install sparqlwrapper -t bin --upgrade
+    pip install splunk-sdk  -t bin --upgrade
     ```
 
 ## Configure the SPARQL endpoint of your sandbox
@@ -48,14 +52,17 @@ When you made your knowledge graphs in the previous pages, you have used the ecc
 After the installation, this app is in the folder `etc/apps/eccenca_commands` of Splunk directory.
 
 1. Create the file `settings.conf`:
+
 ```bash
 cd etc/apps/eccenca_commands
 cp default/settings_template_sandbox.conf default/settings.conf
 vi default/settings.conf
 ```
+
 You have an example of configuration for the eccenca sandbox SPARQL endpoint in the file `default/settings_template_sandbox.conf` (and another example via Oauth2 secret ID in the file `default/settings_template_oauth_secret_id.conf`).
 
 2. Insert your credentials in the the file `settings.conf`, ie. replace `johndo` by the name of your sandbox (endpointRead, token_endpoint), `johndo@example.com` by your email and `XXXXXXXXX` by your password. Don't change the parameters OAUTH_CLIENT_ID and OAUTH_GRANT_TYPE.
+
 ```ini
 [config:default]
 # replace johndo.eccenca.my by your sandbox
@@ -74,6 +81,7 @@ OAUTH_PASSWORD=XXXXXXXXX
 3. Restart after your Splunk instance (via the administration windows)
 
 4. Test your sandbox endpoint in Splunk with this SPL query:
+
 ```
 | sparql
     query="
@@ -86,13 +94,16 @@ OAUTH_PASSWORD=XXXXXXXXX
 ```
 
 ## Add other SPARQL endpoints
+
 To add a new SPARQL endpoint, add these two lines in your file `settings.conf` where your need to replace here `wikidata` by the name of new public endpoint and `https://query.wikidata.org/sparql` by the url of endpoint.
+
 ```ini
 [config:wikidata]
 endpointRead=https://query.wikidata.org/sparql
 ```
 
 Restart after your Splunk instance and request in Splunk your endpoint with the parameter config (here wikidata) to select the config to use in the file `settings.conf`:
+
 ```
 | sparql
     config="wikidata"
@@ -106,6 +117,7 @@ Restart after your Splunk instance and request in Splunk your endpoint with the 
 ```
 
 !!! Tip
+
     You can clone the dashboards of this app to see and modify the SPARQL examples with Wikidata.
 
 ## An example of dashboard with your private knowledge graphs
@@ -113,16 +125,21 @@ Restart after your Splunk instance and request in Splunk your endpoint with the 
 To work, our example of dashboard need to have Splunk indexes of IoCs. We cannot share our indexes but you can modify our example with your own SPL queries according to your Splunk indexes.
 
 ![](demo_ld.png)
+
 *Figure 2: Dashboard with SPARQL commands and the script `table_html.js` to print the HTML and to open Web pages of alerts' references*
 
 !!! Tip
+
     The SPARQL command respects the logic of SPLUNK to see all metadata of the SPARQL response (types of literal, etc). However, in a dashboard via a static table panel, you want probably to see only the columns in the header of your SPARQL query. In the XML element `table`, you can select the columns in output via the XML element `fields`:
+
     ```xml
         <fields>["Source","Description","MitreID"]</fields>
     ```
-    Ofcourse, you can do it also via the SPL query.
+
+    Of course, you can do it also via the SPL query.
 
 You can see the XML of dashboard in the figure 2:
+
 ```xml
 <form version="1.1" script="eccenca_commands:table_html.js">
 <label>SIGMA/Hayabusa with knowledge graph</label>
@@ -140,7 +157,7 @@ You can see the XML of dashboard in the figure 2:
       <search>
         <query>| eventcount summarize=false index=*
 | search NOT index IN ("history", "cim_modactions", "summary")
-| dedup index 
+| dedup index
 | fields index</query>
         <earliest>0</earliest>
         <latest></latest>
@@ -253,7 +270,7 @@ prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
 SELECT DISTINCT (STRBEFORE(STRAFTER(STR(?link),\"https://github.com/\"),\"/\") as ?Source) (?comment as ?Description) ?link  (?mitreID as ?MitreID)
 FROM &lt;http://example.com/rule&gt;
-WHERE {     
+WHERE {
   VALUES ?title { \"$selected_rule$\" }
 
         ?ruleHayabusa a ctis:Rule ;
@@ -293,7 +310,7 @@ prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
 SELECT DISTINCT (GROUP_CONCAT(STRBEFORE(STRAFTER(STR(?link),\"https://github.com/\"),\"/\"); separator=', ') as ?Source)  (?referenceLink as ?Reference)
 FROM &lt;http://example.com/rule&gt;
-WHERE {     
+WHERE {
   VALUES ?title { \"$selected_rule$\" }
 
         ?ruleHayabusa a ctis:Rule ;
@@ -327,7 +344,7 @@ query="
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX ctia: &lt;https://github.com/mitre/cti/blob/master/USAGE.md#&gt;
 
-SELECT 
+SELECT
 (CONCAT (\"&lt;b&gt;\",?title,\"&lt;/b&gt;\",\"&lt;br/&gt;\",?description,\"&lt;br/&gt;&lt;br/&gt;\",GROUP_CONCAT( distinct ?link; separator=\"&lt;br/&gt;\")) as ?html)
 FROM &lt;https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json&gt;
 WHERE  {
@@ -345,11 +362,11 @@ WHERE  {
   ?mitre_url ctia:external_id  \"$MitreID$\" ;
              ctia:source_name  \"mitre-attack\" .
 
-  OPTIONAL { 
+  OPTIONAL {
     ?resource ctia:external_references [
         ctia:url ?reference_url ;
         ctia:source_name ?reference_label ;
-        ctia:description ?reference_description 
+        ctia:description ?reference_description
     ] .
     BIND( CONCAT(\"&lt;a href='\",STR(?reference_url),\"'&gt;\",?reference_label,\": \",?reference_description ,\"&lt;/a&gt;\") as ?link)
   }
@@ -386,7 +403,8 @@ GROUP BY ?title ?description"</query>
 ```
 
 ## Conclusion
-In the "Linked Data App", we implemented a simple SPARQL command to request the Linked Open Data and also your private knowledge graphs. 
+
+In the "Linked Data App", we implemented a simple SPARQL command to request the Linked Open Data and also your private knowledge graphs.
 
 The Linked Data technologies give the opportunity to push the Open-Source INTelligence (OSINT) in the Linked Open Data and it will simplify the work of analysts via their SIEM, like Splunk or other.
 
@@ -395,6 +413,7 @@ In the previous pages of this tutorial, you are able to create new classes and n
 In the next page, we are using advanced tools in Coporate Memory to "Accelerate Cyber Threat Hunting".
 
 ---
+
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
 Next chapter: [Link IDS event to a knowledge graph in dashboards via inferences](../link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of Corporate Memory)

@@ -1,13 +1,14 @@
 # Build a Knowledge Graph from STIX 2.1 data such as the MITRE ATT&CK® datasets
 
 ## Introduction
+
 MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies in the private sector, in government, and in the cybersecurity product and service community.
 
 The MITRE ATT&CK datasets in STIX 2.1 JSON collections are here:
 
-* [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json)
-* [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json)
-* [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json)
+*   [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json)
+*   [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json)
+*   [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json)
 
 [Structured Threat Information Expression (STIX™)](
 https://oasis-open.github.io/cti-documentation/stix/intro.html) is a language and serialization format used to exchange cyber threat intelligence (CTI).
@@ -21,14 +22,14 @@ This tutorial must be completed in order.
 
 Labs:
 
-1. Create a new project for your knowledge graph in your Sandbox 
+1. Create a new project for your knowledge graph in your Sandbox
 2. Import the datasets to convert in RDF
 3. Create named graphs of your knowledge graph
 4. Create a RDF transformer for STIX 2.1
 5. Create the workflow to transform all STIX datasets to RDF
 6. Create the global named graph of your knowledge graph
 7. Test the SPARQL query to obtain the name, the description and the references of a Mitre tag
-8. (optional) Create the Void description of knowledge graph 
+8. (optional) Create the Void description of knowledge graph
 9. (optional) Refresh your knowledge graph automatically
 
 You can improve this first knowledge graph with these exercises:
@@ -39,30 +40,32 @@ You can improve this first knowledge graph with these exercises:
 ## Labs
 
 ### Create your sandbox
+
 You need to create your sandbox of Corporate Memory to create your tempory knowledge graph for this tutorial.
 
 Follow the instructions here: [https://eccenca.my](https://eccenca.my/)
 
-
 ### Create a project
+
 For each type of dataset, you can create an new project with all the tools necessary to convert this dataset in a knowledge graph.
 
 Create a new project, reproduce the demonstration in the following video:
 
-* Title: MITRE ATT&CK®
+*   Title: MITRE ATT&CK®
 
-* Description: MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.
+*   Description: MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.
 
 ![](23-1-create-project.gif)
 
 ### Import datasets
+
 MITRE ATT&CK® has 3 domains: [Entreprise](https://attack.mitre.org/techniques/enterprise/), [Mobile](https://attack.mitre.org/techniques/mobile/) and [ICS](https://attack.mitre.org/techniques/ics/).
 
 Each domain dataset is saved in GitHub:
 
-* [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json)
-* [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json)
-* [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json)
+*   [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json)
+*   [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json)
+*   [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json)
 
 1. Download these 3 files
 2. Create for each JSON file, a JSON dataset:
@@ -77,13 +80,11 @@ Each domain dataset is saved in GitHub:
     Now, you can see these JSON datasets in Corporate Memory:
     ![](23-1-import-JSON-result.png)
 
-
 ### Create named graphs
 
 !!! Info
 
     A knowledge graph is an abstract concept. Concretly in a triplestore or a RDF graph database via Corporate Memory, the database saves each RDF triple of graph in a named graph or RDF dataset in Corporate Memory. A graph named is a set of triples. So, a knowledge graph can be composed by one or several named graphs.
-
 
 !!! Tip
 
@@ -92,20 +93,19 @@ Each domain dataset is saved in GitHub:
     A good practice is to name the named graph by the URI of its real source on the Web, so the labels and graph names of your RDF datasets can be:
 
     * Entreprise domain
-  
+
         - Label: MA Entreprise (knowledge graph)
         - Graph name: https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json
-  
+
     * Mobile domain
-  
+
         - Label: MA Mobile (knowledge graph)
         - Graph name: https://github.com/mitre-attack/attack-stix-data/raw/master/mobile-attack/mobile-attack.json
-  
+
     * ICS domain
-  
+
         - Label: MA ICS (knowledge graph)
         - Graph name: https://github.com/mitre-attack/attack-stix-data/raw/master/ics-attack/ics-attack.json
-
 
 Create one RDF dataset for each Mitre dataset:
 
@@ -113,7 +113,7 @@ Create one RDF dataset for each Mitre dataset:
 2. Put a label
 3. Put a URI of named graph
 4. Enable "Clear graph before workflow execution"
-   
+
 ![](23-1-create-RDF-dataset.gif)
 
 !!! Success
@@ -126,7 +126,6 @@ Create one RDF dataset for each Mitre dataset:
     The consequence of the option "Clear graph before workflow execution" is the named graph will be deleted (with all its triples) before receiving new triples  when you use this named graph like an output in a workflow and also in the transformer task (in the next step).
 
     This option is to use only for the graphs which will generate automatically by Corporate Memory.
-
 
 ### Create a transformer
 
@@ -147,7 +146,7 @@ Create one RDF dataset for each Mitre dataset:
     ![RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK](rdf-model-course-of-action.png)
 
     The SPARQL query for this model can be specify in UML with a RDF pattern: here a RDF pattern to select the "course-of-action" objects with a known Mitre ID
-    
+
     ![RDF pattern to select the "course-of-action" objects with a knowed Mitre ID](rdf-pattern-to-select-a-course-of-action-with-a-mitre-tag.png)
 
     Without an official vocabulary and its official prefix, we are using the documentation on the Web of its datasets: [https://github.com/mitre/cti/blob/master/USAGE.md](https://github.com/mitre/cti/blob/master/USAGE.md)
@@ -159,6 +158,7 @@ Create one RDF dataset for each Mitre dataset:
     ```
 
 1. Create the prefix of your vocabulary:
+
       ```turtle
       prefix ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
       ```
@@ -169,9 +169,9 @@ Create one RDF dataset for each Mitre dataset:
 
 This transformer will be a component of your worflow. You could reuse it in several workflows in other projects. To create a new transformer, you need to give a:
 
-- Label: STIX 2.1 transformer
-- Input: MA Entreprise (JSON)
-- Output: MA Entreprise (knowledge graph)
+*   Label: STIX 2.1 transformer
+*   Input: MA Entreprise (JSON)
+*   Output: MA Entreprise (knowledge graph)
 
 ![](23-1-create-transformer.gif)
 
@@ -186,7 +186,7 @@ This transformer will be a component of your worflow. You could reuse it in seve
     STIX gives the possibility to extend its syntaxes. Mitre uses this possibility. So, in theory, if we need to import all the data, we can extend this transformer at all STIX attributes and add the Mitre attributes described in its [documentation](https://github.com/mitre/cti/blob/master/USAGE.md).
 
 3. Study the tree of STIX data
-   
+
 ```json
 {
     "type": "bundle",
@@ -222,9 +222,9 @@ To extract STIX objects with its type, its label, its description and its refere
 
 4. Create the root object and give it an unique IRI:
 
-- RDF type: ctia:Object
-- IRI pattern: https://github.com/mitre-attack/attack-stix-data#{id}
-   
+*   RDF type: ctia:Object
+*   IRI pattern: <https://github.com/mitre-attack/attack-stix-data#{id}>
+
 ![](23-1-extract-root-object.gif)
 
 !!! Tip
@@ -235,19 +235,19 @@ To extract STIX objects with its type, its label, its description and its refere
 
 !!! Success
 
-        During the development of a transformer, you can test your transformation and check all the steps.
+    During the development of a transformer, you can test your transformation and check all the steps.
 
-        ![](23-1-see-steps-during-a-transformation.png)
+    ![](23-1-see-steps-during-a-transformation.png)
 
-5. Link the sub-objects to their root: 
+5. Link the sub-objects to their root:
 
-- Value path: objects
+*   Value path: objects
 
 with their IRI and the property ctia:object:
-   
-- RDF property: ctia:object
-- RDF type: ctia:Object
-- IRI pattern: https://github.com/mitre-attack/attack-stix-data#{id}
+
+*   RDF property: ctia:object
+*   RDF type: ctia:Object
+*   IRI pattern: <https://github.com/mitre-attack/attack-stix-data#{id}>
 
 ![](23-1-extract-objects.gif)
 
@@ -265,23 +265,23 @@ with their IRI and the property ctia:object:
 
 6. Extract now their type, label and description with these properties for example:
 
-- ctia:type
-    - value path: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
-    - RDF type: URI
-- rdfs:label
-    - value path: name
-    - RDF type: String
-- ctia:description
-    - value path: description
-    - RDF type: String
+*   ctia:type
+    *   value path: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
+    *   RDF type: URI
+*   rdfs:label
+    *   value path: name
+    *   RDF type: String
+*   ctia:description
+    *   value path: description
+    *   RDF type: String
 
 ![](23-1-extract-properties.gif)
 
 !!! Tip
 
-     STIX type doesn't apply the camel case and doesn't start by an uppercase. We prefers to create a specific property ctia:type for this reason.
+    STIX type doesn't apply the camel case and doesn't start by an uppercase. We prefers to create a specific property ctia:type for this reason.
 
-     You can reuse a vocabulary already in Corporate Memory (like rdfs) but you are also free to develop a new vocabulary on the fly with your prefixes.
+    You can reuse a vocabulary already in Corporate Memory (like rdfs) but you are also free to develop a new vocabulary on the fly with your prefixes.
 
 !!! Success
 
@@ -290,11 +290,10 @@ with their IRI and the property ctia:object:
 
 7. At the end of the last step, we saw the dataset uses the syntax of Markdown to define a Web link. In the interface of SPLUNK, we need to use the HTML syntax. Modify the formula for the description with the operator "regex replace".
 
-- Regex:  `\[([^\[\]]*)\]\(([^\(\)]*)\)`
-- Replace: `<a href='$2' target='blank'>$1</a>`
-  
-![](23-1-regex-replace.gif)
+*   Regex:  `\[([^\[\]]*)\]\(([^\(\)]*)\)`
+*   Replace: `<a href='$2' target='blank'>$1</a>`
 
+![](23-1-regex-replace.gif)
 
 !!! Success
         In the "value formula editor", you can immediatly check the result of your formula.
@@ -310,17 +309,17 @@ with their IRI and the property ctia:object:
 
 8. Via the same method, we are linking the references objects to their STIX objects:
 
-- via the property: `ctia:external_references`
-- Type: ctia:Reference 
-- value path: external_references
-- IRI of each object: its own URL ()
+*   via the property: `ctia:external_references`
+*   Type: ctia:Reference
+*   value path: external_references
+*   IRI of each object: its own URL ()
 
 ctia:Reference object has these properties:
 
-- ctia:source_name
-- ctia:description
-- ctia:url
-- ctia:external_id
+*   ctia:source_name
+*   ctia:description
+*   ctia:url
+*   ctia:external_id
 
 ![](23-1-extract-references.gif)
 
@@ -348,8 +347,8 @@ ctia:Reference object has these properties:
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
 
-    SELECT 
-    ?title ?description 
+    SELECT
+    ?title ?description
     (GROUP_CONCAT(?link; separator="<br/>") as ?references)
     FROM <https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json>
     WHERE {
@@ -366,40 +365,41 @@ ctia:Reference object has these properties:
     ?mitre_url ctia:external_id  "T1490" ;
                 ctia:source_name  "mitre-attack" .
 
-    OPTIONAL { 
+    OPTIONAL {
         ?resource ctia:external_references [
                 ctia:url ?reference_url ;
                 ctia:source_name ?reference_label ;
-                ctia:description ?reference_description 
+                ctia:description ?reference_description
                 ] .
         BIND( CONCAT("<a ref=",STR(?reference_url),"\">",?reference_label,": ",?reference_description ,"</a>") as ?link)
     }
     }
-    GROUP BY ?title ?description 
+    GROUP BY ?title ?description
     ```
-    
+
     ![](23-1-sparql-query.gif)
 
-9. During the building of interfaces, we saw the same MITRE ID of IoC rules is used by the concepts of tactic, mitigation, technique,... In the final interface, we will print properly the label of each concept for the same Mitre ID, like "Technique TXX" or "Mitigation TXX". 
+9. During the building of interfaces, we saw the same MITRE ID of IoC rules is used by the concepts of tactic, mitigation, technique,... In the final interface, we will print properly the label of each concept for the same Mitre ID, like "Technique TXX" or "Mitigation TXX".
 
 !!! Tip
-        Moreover, Corporate Memory indexes some specific properties automatically, like rdfs:label. Without this property, it's not easy to find the objects by a search by text. To facilite the research of references, like the mitre id, you are adding the property rdfs:label to reference objects.
+
+    Moreover, Corporate Memory indexes some specific properties automatically, like rdfs:label. Without this property, it's not easy to find the objects by a search by text. To facilite the research of references, like the mitre id, you are adding the property rdfs:label to reference objects.
 
 So, we add a new property `rdfs:label` to object `ctia:Reference`. If the reference is not a Mitre ID, we will copy the source_name else we will extract the type of concept in the URL and concat his Mitre ID:
 
-- In the transformer STIX, add the property rdfs:label (type string) to object `ctia:Reference`.
-   
+*   In the transformer STIX, add the property rdfs:label (type string) to object `ctia:Reference`.
+
 ![](rdf-model-course-of-action.png)
 
-- Customize the value of label, like in this RDF model: (try to do this rule alone before to look at this possible response)
+*   Customize the value of label, like in this RDF model: (try to do this rule alone before to look at this possible response)
 
 ![](23-1-extract-rdfslabel.png)
 
 !!! Success
 
-        You can test the result when you search the Mitre ID via the explorer of knowledge graph "MA Entreprise":
+    You can test the result when you search the Mitre ID via the explorer of knowledge graph "MA Entreprise":
 
-        <image src="23-1-success-extract-rdfslabel.png" width="60%" height="60%" align="center"/>
+    <image src="23-1-success-extract-rdfslabel.png" width="60%" height="60%" align="center"/>
 
 ### Create a workflow
 
@@ -437,19 +437,20 @@ We are showing the "SPARQL tasks", another important feature available in Corpor
 
 1. Create a RDF dataset
 
-    - Label: MITRE ATT&CK®  (knowledge graph)
-    - URI (name of graph): https://attack.mitre.org
-    - Enable "Clear graph before workflow execution"
+    *   Label: MITRE ATT&CK®  (knowledge graph)
+    *   URI (name of graph): <https://attack.mitre.org>
+    *   Enable "Clear graph before workflow execution"
 
 2. Create a SPARQL Update task without missing to enable the Jinja Template
 
-    - Label: Import graph
+    *   Label: Import graph
+
 ```sparql
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 INSERT DATA {
   GRAPH $outputProperties.uri("graph") {
-  	$outputProperties.uri("graph") 
+   $outputProperties.uri("graph")
         owl:imports $inputProperties.uri("graph") .
   }
 }
@@ -463,18 +464,19 @@ INSERT DATA {
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
     INSERT DATA {
-    GRAPH <https://attack.mitre.org>  {
-        <https://attack.mitre.org>  
-            owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json> .
-    }
+        GRAPH <https://attack.mitre.org>  {
+            <https://attack.mitre.org>
+                owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json> .
+        }
     }
     ```
 
 !!! Success
 
     In the Turtle view of RDF dataset "MITRE ATT&CK®", you can see the triples inserted by your SPARQL query.
+
     ```turtle
-    <https://attack.mitre.org> 
+    <https://attack.mitre.org>
         owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json>;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json>;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>
@@ -492,7 +494,7 @@ INSERT DATA {
     In the Turtle view of RDF dataset "MITRE ATT&CK®", you can see the triples inserted by your SPARQL query.
 
     ```turtle
-    <http://attack.mitre.org> 
+    <http://attack.mitre.org>
         owl:imports <https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json> ;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json> ;
         owl:imports <https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json>
@@ -509,45 +511,43 @@ Now, you can request all the datasets in same time through the named graph `http
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
 
-SELECT 
-?title ?description 
+SELECT
+?title ?description
 (GROUP_CONCAT( distinct ?link; separator="<br/>") as ?references)
 FROM <https://attack.mitre.org>
 WHERE {
-{
-    ?resource ctia:type ctia:course-of-action .
-} union {
-    ?resource ctia:type ctia:attack-pattern .
-}
+    {
+        ?resource ctia:type ctia:course-of-action .
+    } union {
+        ?resource ctia:type ctia:attack-pattern .
+    }
 
-?resource rdfs:label ?title ;
-            ctia:description ?description ;
-            ctia:external_references ?mitre_url .
+    ?resource rdfs:label ?title ;
+        ctia:description ?description ;
+        ctia:external_references ?mitre_url .
 
-?mitre_url ctia:external_id  "T1490" ;
-            ctia:source_name  "mitre-attack" .
+    ?mitre_url ctia:external_id  "T1490" ;
+        ctia:source_name  "mitre-attack" .
 
-    OPTIONAL { 
+    OPTIONAL {
         ?resource ctia:external_references [
-                ctia:url ?reference_url ;
-                ctia:source_name ?reference_label ;
-                ctia:description ?reference_description 
-                ] .
+            ctia:url ?reference_url ;
+            ctia:source_name ?reference_label ;
+            ctia:description ?reference_description
+        ] .
         BIND( CONCAT("<a ref=",STR(?reference_url),"\">",?reference_label,": ",?reference_description ,"</a>") as ?link)
     }
 }
-GROUP BY ?title ?description 
+GROUP BY ?title ?description
 ```
 
 !!! Success
 
     ![](23-1-sparql-all_datasets.gif)
 
-
 ### Create the Void description
 
 In theory, RDF datasets in the Linked Open Data have to have a [VoID](https://www.w3.org/TR/void/) description with their statistics. The objective is to catalog automatically these datasets.
-
 
 !!! Info
 
@@ -557,42 +557,43 @@ Here, we are creating a new SPARQL Update task to calculate and insert automatic
 
 1. In the same workflow, insert a new SPARQL Update task with this query to calculate the statistics:
 
-- label: Calculate VoID
+*   label: Calculate VoID
+
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 prefix void: <http://rdfs.org/ns/void#>
 
-INSERT 
-{ GRAPH $outputProperties.uri("graph") {
-      $outputProperties.uri("graph") a void:Dataset;
-          rdfs:label  "MITRE ATT&CK®";
-          rdfs:comment  "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.";
-          void:triples ?triples ; 
-          void:entities ?entities .
-	}
+INSERT
+{
+    GRAPH $outputProperties.uri("graph") {
+        $outputProperties.uri("graph") a void:Dataset;
+            rdfs:label  "MITRE ATT&CK®";
+            rdfs:comment  "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.";
+            void:triples ?triples ;
+            void:entities ?entities .
+    }
 }
 USING $outputProperties.uri("graph")
-WHERE
-  { 
-   {
-    SELECT (COUNT(DISTINCT ?resource) as ?entities)
-    WHERE {
-      ?resource a ?class .
+WHERE {
+    {
+        SELECT (COUNT(DISTINCT ?resource) as ?entities)
+        WHERE {
+            ?resource a ?class .
+        }
     }
-  }
-  {
-    SELECT (COUNT(?s) as ?triples)
-    WHERE {
-          ?s ?p ?o .
+    {
+        SELECT (COUNT(?s) as ?triples)
+        WHERE {
+            ?s ?p ?o .
+        }
     }
-  }
 }
 ```
 
 !!! Tip
 
-        This query uses the variable `$outputProperties.uri("graph")` (Jinja template). If the name of graph changes, the code of the query stays stable in your workflow.
+    This query uses the variable `$outputProperties.uri("graph")` (Jinja template). If the name of graph changes, the code of the query stays stable in your workflow.
 
 ![](23-1-sparql-void.gif)
 
@@ -601,23 +602,21 @@ WHERE
     The final triples in the graph `https://attack.mitre.org`after this worflow.
 
     ```turtle
-    prefix owl:  <http://www.w3.org/2002/07/owl#> 
-    prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
-    prefix xsd:  <http://www.w3.org/2001/XMLSchema#> 
+    prefix owl:  <http://www.w3.org/2002/07/owl#>
+    prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
 
     <https://attack.mitre.org>
-            rdf:type      <http://rdfs.org/ns/void#Dataset> ;
-            rdfs:comment  "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations." ;
-            rdfs:label    "MITRE ATT&CK®" ;
-            <http://rdfs.org/ns/void#entities>
-                    28081 ;
-            <http://rdfs.org/ns/void#triples>
-                    150120 ;
-            owl:imports   
-                    <https://github.com/mitre-attack/attack-stix-data/raw/master/ics-attack/ics-attack.json> ,
-                    <https://github.com/mitre-attack/attack-stix-data/raw/master/mobile-attack/mobile-attack.json> ,
-                    <https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json>
+        rdf:type      <http://rdfs.org/ns/void#Dataset> ;
+        rdfs:comment  "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations." ;
+        rdfs:label    "MITRE ATT&CK®" ;
+        <http://rdfs.org/ns/void#entities> 28081 ;
+        <http://rdfs.org/ns/void#triples> 150120 ;
+        owl:imports
+            <https://github.com/mitre-attack/attack-stix-data/raw/master/ics-attack/ics-attack.json> ,
+            <https://github.com/mitre-attack/attack-stix-data/raw/master/mobile-attack/mobile-attack.json> ,
+            <https://github.com/mitre-attack/attack-stix-data/raw/master/enterprise-attack/enterprise-attack.json> .
     ```
 
 ### Refresh all automatically
@@ -627,6 +626,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
 1. [Install CMEMC - a Command Line Interface of CMEM](/automate/cmemc-command-line-interface/installation/)
 
 2. Open your config file:
+
 ```bash
 cmemc config edit
 ```
@@ -641,28 +641,32 @@ OAUTH_CLIENT_ID=cmemc
 OAUTH_USER=johndo@example.com
 OAUTH_PASSWORD=XXXXXXXXX
 ```
-You need to replace "johndo" by other thing, "johndo@example.com" by your login (email) in the sandbox and XXXXXXXXX by your password. Save the file (with VI, :wq).
+
+You need to replace "johndo" by other thing, "<johndo@example.com>" by your login (email) in the sandbox and XXXXXXXXX by your password. Save the file (with VI, :wq).
 
 !!! Tip
 
-        Immediatly, in the file ~/.bashrc, you can write your sandbox if your instance CMEM by default when you use CMEMC with this line:
-        ```bash
-        export CMEMC_CONNECTION=johndo.eccenca.my
-        ```
+    Immediatly, in the file ~/.bashrc, you can write your sandbox if your instance CMEM by default when you use CMEMC with this line:
+
+    ```bash
+    export CMEMC_CONNECTION=johndo.eccenca.my
+    ```
 
 Test:
+
 ```bash
-cmemc graph list 
-# or cmemc -c johndo.eccenca.my graph list 
+cmemc graph list
+# or cmemc -c johndo.eccenca.my graph list
 ```
 
-If you can connect it, you can see your knowledge graph "https://attack.mitre.org" in the list.
+If you can connect it, you can see your knowledge graph "<https://attack.mitre.org>" in the list.
 
 4. You need to know the IDs of your JSON datasets IDs and your workflow ID to implement the command lines with the tool [Corporate Memory Console]() (
 
 ![](23-1-collect_IDs.gif)
 
 For example in my demo the JSON datasets and the workflow have these IDs:
+
 ```
 MITREATTCK_3dc114458dfd4c57:MAEntrepriseJSON_14f0f94ed5de5daa
 MITREATTCK_3dc114458dfd4c57:MAICSJSON_e024c6433ed523e1
@@ -685,9 +689,10 @@ cmemc workflow execute --wait MITREATTCK_3dc114458dfd4c57:MITREATTCKworkflow_0b8
 ```
 
 !!! Success
-        You can see the result in the shell but also via the "Activities Board". It's useful to follow the errors of your workflows, if you execute a script via a Linux Cron, for example.
 
-        ![](23-1-success-cmemc-activity.png)
+    You can see the result in the shell but also via the "Activities Board". It's useful to follow the errors of your workflows, if you execute a script via a Linux Cron, for example.
+
+    ![](23-1-success-cmemc-activity.png)
 
 !!! Tip
 
@@ -696,6 +701,7 @@ cmemc workflow execute --wait MITREATTCK_3dc114458dfd4c57:MITREATTCKworkflow_0b8
 ## Exercices
 
 ### Create inferences
+
 After this tutorial, you want probably to navigate in your new knowledge graph between the relationships of Objects STIX. Before, you need to create inferences of these STIX "relationships" in your knowledge graph via a SPARQL Update query.
 
 1. In the STIX transformer, import also the fields: `ctia:source_ref`, `ctia:target_ref` and `ctia:relationship_type`.
@@ -705,30 +711,29 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
 ```sparql
 PREFIX ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
 
-INSERT 
-  { 
-     GRAPH  $outputProperties.uri("graph") {
-    			?sourceIRI  ?propertyIRI ?targetIRI .
-       } 
-  }
-WHERE
-  { 
-     GRAPH  $inputProperties.uri("graph") {
-      ?relationship
-         ctia:type ctia:relationship ;
-         ctia:source_ref ?source ;
-         ctia:target_ref ?target ;
-         ctia:relationship_type ?property .
+INSERT {
+    GRAPH  $outputProperties.uri("graph") {
+        ?sourceIRI  ?propertyIRI ?targetIRI .
     }
-  	
-  BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?source)) as ?sourceIRI)
-  BIND (IRI(CONCAT("https://github.com/mitre/cti/blob/master/USAGE.md#",?property)) as ?propertyIRI)
-  BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?target)) as ?targetIRI)
+}
+WHERE {
+    GRAPH  $inputProperties.uri("graph") {
+        ?relationship
+            ctia:type ctia:relationship ;
+            ctia:source_ref ?source ;
+            ctia:target_ref ?target ;
+            ctia:relationship_type ?property .
+    }
+
+    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?source)) as ?sourceIRI)
+    BIND (IRI(CONCAT("https://github.com/mitre/cti/blob/master/USAGE.md#",?property)) as ?propertyIRI)
+    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?target)) as ?targetIRI)
 }
 ```
+
 This SPARQL query create explicitly the STIX links in the knowledge graph. Here, we create a new inference via a simple query.
 
-3. Create a new Knowledge graph dataset "STIX inferences" with this IRI: https://attack.mitre.org/inferences
+3. Create a new Knowledge graph dataset "STIX inferences" with this IRI: <https://attack.mitre.org/inferences>
 
 !!! Tip
 
@@ -736,19 +741,20 @@ This SPARQL query create explicitly the STIX links in the knowledge graph. Here,
 
 4. Split the workflow in two workflows:
 
-- "Transform all STIX data to RDF" to calculate the inferences after RDF triples
-![](23-1-ex-workflow-STIX.png)
+   *   "Transform all STIX data to RDF" to calculate the inferences after RDF triples
+        ![](23-1-ex-workflow-STIX.png)
 
-- "Assemble the global knowledge graph", it will import all the graphs of projects
-![](23-1-ex-workflow-gen.png)
-
+   *   "Assemble the global knowledge graph", it will import all the graphs of projects
+        ![](23-1-ex-workflow-gen.png)
 
 5. Create a new workflow "MITRE ATT&CK® workflow" where you will insert the other workflows, like that:
-![](23-1-ex-workflow-global.png)
-   
+
+    ![](23-1-ex-workflow-global.png)
+
 !!! Success
-        You can now navigate in your first knowledge graph:
-        ![](23-1-ex-graph-navigation.gif)
+
+    You can now navigate in your first knowledge graph:
+    ![](23-1-ex-graph-navigation.gif)
 
 ### Reconcile automatically the STIX concepts via the Linking tasks
 
@@ -759,10 +765,11 @@ This SPARQL query create explicitly the STIX links in the knowledge graph. Here,
 2. Use the json of [STIX report](https://oasis-open.github.io/cti-documentation/examples/example_json/apt1.json) of [Mandiant's APT1 Report](https://oasis-open.github.io/cti-documentation/stix/examples.html) to reconcile the STIX tools in this report and the tools in the Mitre knowledge graph with your transformer STIX and a Linking task.
 
 ### Add the CAPEC dataset
+
 The Common Attack Pattern Enumeration and Classification (CAPEC™) effort provides a publicly available catalog of common attack patterns that helps users understand how adversaries exploit weaknesses in applications and other cyber-enabled capabilities.
 
-- Dataset: [https://github.com/mitre/cti/blob/master/capec/2.1/stix-capec.json](https://github.com/mitre/cti/blob/master/capec/2.1/stix-capec.json)
-- The CAPEC "ontology": [https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md](https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md)
+*   Dataset: [https://github.com/mitre/cti/blob/master/capec/2.1/stix-capec.json](https://github.com/mitre/cti/blob/master/capec/2.1/stix-capec.json)
+*   The CAPEC "ontology": [https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md](https://github.com/mitre/cti/blob/master/USAGE-CAPEC.md)
 
 1. Import the CAPEC dataset in Corporate Memory
 2. Create the named graph of CAPEC
@@ -770,14 +777,16 @@ The Common Attack Pattern Enumeration and Classification (CAPEC™) effort provi
 4. Modify the transformer to support the references to CAPEC dataset from MITRE datasets.
 
 ## Conclusion
+
 STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory. Here, we have only extracted a few useful fields for our use case but if you want to import all the data, you will need to import the other properties from STIX 2.1, the extended properties in your Mitre datasets and convert the other STIX relationships to RDF statements (like in the exercice "Create inferences").
 
 ## Ressources
 
-- [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
-- [Archive of CMEM project](MITREATTCK_tutorial.zip)
+*   [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
+*   [Archive of CMEM project](MITREATTCK_tutorial.zip)
 
 ---
+
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
 Next chapter: [Build a Knowledge Graph of compromise rules, like Hayabusa and Sigma rules](../lift-data-from-YAML-data-of-hayabusa-sigma/index.md)
