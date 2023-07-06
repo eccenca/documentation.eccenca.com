@@ -2,12 +2,10 @@
 icon: material/table
 subtitle: such as STIX
 tags:
-  - BeginnersTutorial
-  - KnowledgeGraph
-  - Security
+  - ExpertTutorial
 ---
 
-# Tutorial: how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)
+# How to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)
 
 ## Plan of tutorial
 
@@ -40,4 +38,7 @@ Simple examples will allow you to discover Linked Data technologies.
 
 ## Material
 
-eccenca will offer an online sandbox running an instance of Corporate Memory. You can also install Corporate Memory Console (CMEMC) on your computer to test the example of bash scripts in this tutorial. For the part "Link IDS event to a knowledge graph in dashboards", you need to have a Splunk instance where you can install the Splunk apps of this tutorial.
+eccenca will offer an online sandbox running an instance of Corporate Memory.
+You can also install Corporate Memory Control ([cmemc](https://eccenca.com/go/cmemc)) on your computer to test the example of bash scripts in this tutorial.
+For the part "Link IDS event to a knowledge graph in dashboards", you need to have a Splunk instance where you can install the Splunk apps of this tutorial.
+
