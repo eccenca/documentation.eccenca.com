@@ -109,7 +109,7 @@ Each domain dataset is saved in GitHub:
 
 Create one RDF dataset for each Mitre dataset:
 
-1. Add component "RDF dataset"
+1. Add component "Knowledge Graph"
 2. Put a label
 3. Put a URI of named graph
 4. Enable "Clear graph before workflow execution"
