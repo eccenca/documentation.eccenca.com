@@ -266,8 +266,8 @@ with their IRI and the property ctia:object:
 6. Extract now their type, label and description with these properties for example:
 
 *   ctia:type
-    *   value path: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
     *   RDF type: URI
+    *   Via the "value forma editor" create the IRI: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
 *   rdfs:label
     *   value path: name
     *   RDF type: String
