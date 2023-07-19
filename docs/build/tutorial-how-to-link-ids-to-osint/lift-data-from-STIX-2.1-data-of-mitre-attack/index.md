@@ -441,13 +441,13 @@ We are showing the "SPARQL tasks", another important feature available in Corpor
 
     For example, `$outputProperties.uri("graph")` inserts the name of graph connected to the output of the task in the workflow and `$inputProperties.uri("graph")` inserts the name of graph connected to the input. It's very practice to do repetive tasks, like to calculate the VoiD description at each update of graph.
 
-1. Create a RDF dataset
+1. Create a "Knowledge Graph" dataset (ie, a RDF dataset)
 
     *   Label: MITRE ATT&CK®  (knowledge graph)
     *   URI (name of graph): <https://attack.mitre.org>
     *   Enable "Clear graph before workflow execution"
 
-2. Create a SPARQL Update task without missing to enable the Jinja Template
+2. Create a "SPARQL Update query" task without missing to enable the Jinja Template
 
     *   Label: Import graph
 
@@ -652,7 +652,7 @@ You need to replace "johndo" by other thing, "<johndo@example.com>" by your logi
 
 !!! Tip
 
-    Immediatly, in the file ~/.bashrc, you can write your sandbox if your instance CMEM by default when you use CMEMC with this line:
+    Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for CMEMC with this line:
 
     ```bash
     export CMEMC_CONNECTION=johndo.eccenca.my
