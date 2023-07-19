@@ -15,14 +15,14 @@ In order to control eccenca Corporate Memory instances from within Github Action
 ## Runner Provisioning
 
 Providing a working cmemc command is simple.
-You just need to install a python environment suitable to run cmemc (currently `3.9`).
+You just need to install a python environment suitable to run cmemc (currently `3.11`).
 This can be done with the [setup-python](https://github.com/actions/setup-python) action.
 After that, simply use `pip` to install cmemc:
 
 ```yaml title="Partial github action yaml showing cmemc provisioning"
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.11'
       - name: install cmemc
         run: |
           pip install -q cmem-cmemc
