@@ -323,6 +323,12 @@ ctia:Reference object has these properties:
 
 ![](23-1-extract-references.gif)
 
+!!! Tip
+
+    Sometimes, several urls are not correct. You can use the component "Fix URI" to fix the classic problems.
+    
+    ![](23-2-fix-url.png)
+
 !!! Warning
 
     When you make a transformer on a dataset, you see quickly the limit of data. For example with Mitre, several references are a set of citations without URL.
