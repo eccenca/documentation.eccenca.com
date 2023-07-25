@@ -109,7 +109,7 @@ Each domain dataset is saved in GitHub:
 
 Create one RDF dataset for each Mitre dataset:
 
-1. Add component "RDF dataset"
+1. Add component "Knowledge Graph"
 2. Put a label
 3. Put a URI of named graph
 4. Enable "Clear graph before workflow execution"
@@ -266,8 +266,8 @@ with their IRI and the property ctia:object:
 6. Extract now their type, label and description with these properties for example:
 
 *   ctia:type
-    *   value path: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
     *   RDF type: URI
+    *   Via the "value forma editor" create the IRI: `https://github.com/mitre/cti/blob/master/USAGE.md#{type}`
 *   rdfs:label
     *   value path: name
     *   RDF type: String
@@ -322,6 +322,12 @@ ctia:Reference object has these properties:
 *   ctia:external_id
 
 ![](23-1-extract-references.gif)
+
+!!! Tip
+
+    Sometimes, several urls are not correct. You can use the component "Fix URI" to fix the classic problems.
+    
+    ![](23-2-fix-url.png)
 
 !!! Warning
 
@@ -435,13 +441,13 @@ We are showing the "SPARQL tasks", another important feature available in Corpor
 
     For example, `$outputProperties.uri("graph")` inserts the name of graph connected to the output of the task in the workflow and `$inputProperties.uri("graph")` inserts the name of graph connected to the input. It's very practice to do repetive tasks, like to calculate the VoiD description at each update of graph.
 
-1. Create a RDF dataset
+1. Create a "Knowledge Graph" dataset (ie, a RDF dataset)
 
     *   Label: MITRE ATT&CK®  (knowledge graph)
     *   URI (name of graph): <https://attack.mitre.org>
     *   Enable "Clear graph before workflow execution"
 
-2. Create a SPARQL Update task without missing to enable the Jinja Template
+2. Create a "SPARQL Update query" task without missing to enable the Jinja Template
 
     *   Label: Import graph
 
@@ -646,7 +652,7 @@ You need to replace "johndo" by other thing, "<johndo@example.com>" by your logi
 
 !!! Tip
 
-    Immediatly, in the file ~/.bashrc, you can write your sandbox if your instance CMEM by default when you use CMEMC with this line:
+    Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for CMEMC with this line:
 
     ```bash
     export CMEMC_CONNECTION=johndo.eccenca.my
