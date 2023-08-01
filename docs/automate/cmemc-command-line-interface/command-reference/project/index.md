@@ -179,7 +179,7 @@ This command deletes existing data integration projects from Corporate Memory.
 Create projects.
 
 ```shell-session title="Usage"
-$ cmemc project create PROJECT_IDS...
+$ cmemc project create [OPTIONS] PROJECT_IDS...
 ```
 
 
@@ -192,6 +192,16 @@ This command creates one or more new projects. Existing projects will not be ove
 
 
 
+
+??? info "Options"
+    ```text
+
+    --from-transformation TEXT  This option can be used to explicitly create the
+                                link specification, which is internally executed
+                                when using the mapping suggestion of a
+                                transformation task. You need the task ID of the
+                                transformation task.
+    ```
 
 ## project reload
 

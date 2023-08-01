@@ -11,6 +11,11 @@ The Access control module shows the list of all access conditions manageable b
 Access conditions specify access rights for users and groups to graphs and actions.
 To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical: in the Module bar and click Access control.
 
+!!! bug
+
+    In the current version of Corporate Memory, access conditions are visible in the user interface only for user accounts, which are in the super-admin / root group (usually `elds-admins`, see property `authorization.rootAccess` [here](../dataplatform/application-full/#authorization)).
+    This will be fixed in the next release.
+
 ## Access conditions
 
 The main window shows the list of all access conditions manageable by your account.

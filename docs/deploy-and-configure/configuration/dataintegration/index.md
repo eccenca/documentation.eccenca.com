@@ -356,6 +356,37 @@ workspace.repository.projectS3 = {
   # /path/to/my-workspace/
 }
 ```
+For this S3 plugin make sure the account has at least these permissions attached: 
+
+``` json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::<YOUR_BUCKET_NAME>"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::<YOUR_BUCKET_NAME>/*"
+        }
+    ]
+}
+```
 
 ### S3 Bucket, Shared Directory - s3
 

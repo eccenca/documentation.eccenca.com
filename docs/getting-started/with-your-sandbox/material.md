@@ -5,9 +5,9 @@ hide:
   - navigation
 ---
 
-# KGC 2023 Masterclass - Material and Namespace Suggestions
+# Masterclass - Material and Namespace Suggestions
 
-This page lists materials and resources to be used to replicate and follow the **The Knowledge Graph Conference 2023** Masterclass Session _From zero to KG hero: boost your KG creation productivity with eccenca Corporate Memory_.
+A list of materials and resources to reproduce and follow the masterclass (MC).
 
 !!! info "About Session"
 
@@ -25,36 +25,36 @@ This page lists materials and resources to be used to replicate and follow the *
     | Dataset (CSV)  | Service Products           | [services.csv](./material/resources/services.csv){target=_blank}   |
     | Dataset (JSON) | Supplier                   | [supplier.json](./material/resources/supplier.json){target=_blank} |
     | Dataset (XML)  | Organizational Information | [orgmap.xml](./material/resources/orgmap.xml){target=_blank}       |
-    | Vocabulary     | Products Vocabulary*       | [pv.ttl](./material/vocabs/pv.ttl){target=_blank}                  |
+    | Vocabulary*    | Products Vocabulary        | [pv.ttl](./material/vocabs/pv.ttl){target=_blank}                  |
 
-    *) FYI, vocabulary already installed
+    *) vocabulary already installed, attached for information purposes only.
 
 -   ## Name(space) suggestions
 
     ---
 
-    | Type          | Name                    | IRI                                  |
-    | ------------- | ----------------------- | ------------------------------------ |
-    | Dataset (KG)  | KGC Prod - Integration  | `http://kgc.eccenca.com/prod-int/`   |
-    | Dataset (KG)  | KGC Prod - Hardware     | `http://kgc.eccenca.com/prod-hw/`    |
-    | Dataset (KG)  | KGC Prod - Services     | `http://kgc.eccenca.com/prod-srv/`   |
-    | Dataset (KG)  | KGC Prod - Supplier     | `http://kgc.eccenca.com/prod-suppl/` |
-    | Dataset (KG)  | KGC Prod - Organization | `http://kgc.eccenca.com/prod-org/`   |
-    | Dataset (KG)  | KGC Prod - Links        | `http://kgc.eccenca.com/prod-links/` |
-    | Build Project | KGC Product Build Demo  |                                      |
+    | Type          | Name                   | IRI                                 |
+    | ------------- | ---------------------- | ----------------------------------- |
+    | Dataset (KG)  | MC Prod - Integration  | `http://mc.eccenca.com/prod-int/`   |
+    | Dataset (KG)  | MC Prod - Hardware     | `http://mc.eccenca.com/prod-hw/`    |
+    | Dataset (KG)  | MC Prod - Services     | `http://mc.eccenca.com/prod-srv/`   |
+    | Dataset (KG)  | MC Prod - Supplier     | `http://mc.eccenca.com/prod-suppl/` |
+    | Dataset (KG)  | MC Prod - Organization | `http://mc.eccenca.com/prod-org/`   |
+    | Dataset (KG)  | MC Prod - Links        | `http://mc.eccenca.com/prod-links/` |
+    | Build Project | MC Product Build Demo  |                                     |
 
 -   ## Resource IRI suggestions
 
     ---
 
-    | Type             | IRI                                                             |
-    | ---------------- | --------------------------------------------------------------- |
-    | Department       | `http://kgc.eccenca.com/prod-data/dept-{id}`                    |
-    | Employee         | `http://kgc.eccenca.com/prod-data/empl-{email}`                 |
-    | Hardware         | `http://kgc.eccenca.com/prod-data/hw-{id}`                      |
-    | Price            | `http://kgc.eccenca.com/prod-data/price-{parent-id}-{currency}` |
-    | Product Category | `http://kgc.eccenca.com/prod-data/prod-cat-{name|uuid}`         |
-    | Service          | `http://kgc.eccenca.com/prod-data/srv-{id}`                     |
-    | Supplier         | `http://kgc.eccenca.com/prod-data/suppl-{id}`                   |
+    | Type             | IRI                                                            |
+    | ---------------- | -------------------------------------------------------------- |
+    | Department       | `http://mc.eccenca.com/prod-data/dept-{id}`                    |
+    | Employee         | `http://mc.eccenca.com/prod-data/empl-{email}`                 |
+    | Hardware         | `http://mc.eccenca.com/prod-data/hw-{id}`                      |
+    | Price            | `http://mc.eccenca.com/prod-data/price-{parent-id}-{currency}` |
+    | Product Category | `http://mc.eccenca.com/prod-data/prod-cat-{name|uuid}`         |
+    | Service          | `http://mc.eccenca.com/prod-data/srv-{id}`                     |
+    | Supplier         | `http://mc.eccenca.com/prod-data/suppl-{id}`                   |
 
 </div>

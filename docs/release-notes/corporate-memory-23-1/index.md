@@ -1,11 +1,10 @@
 ---
-status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.1.2
+# Corporate Memory 23.1.3
 
-Corporate Memory 23.1.2 is the second patch release in the 23.1 release line.
+Corporate Memory 23.1.3 is the second patch release in the 23.1 release line.
 
 ![23.1: Explore - EasyNav Graph Editing](23-1-easynav-edit.png "23.1: Explore - EasyNav Graph Editing"){ class="bordered" }
 ![23.1: Build - Global Variables](23-1-global-variables.png "23.1: Build - Global Variables"){ class="bordered" }
@@ -28,11 +27,11 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.1.2
--   eccenca DataIntegration v23.1.1
+-   eccenca DataPlatform v23.1.3
+-   eccenca DataIntegration v23.1.2
 -   eccenca DataIntegration Python Plugins v3.0.0
--   eccenca DataManager v23.1.4
--   eccenca Corporate Memory Control (cmemc) v23.1.2
+-   eccenca DataManager v23.1.5
+-   eccenca Corporate Memory Control (cmemc) v23.1.3
 
 More detailed release notes for these versions are listed below.
 
@@ -42,8 +41,8 @@ We're excited to bring you the latest update to DataIntegration v23.1, featuring
 
 v23.1.2 of eccenca DataIntegration ships following fixes:
 
-- Saving a transform or linking rule with an operator that references a project resource fails.
-- Cannot read large Excel files from S3.
+-   Saving a transform or linking rule with an operator that references a project resource fails.
+-   Cannot read large Excel files from S3.
 
 v23.1.1 of eccenca DataIntegration ships following fixes:
 
@@ -167,9 +166,15 @@ v3.0.0 of eccenca DataIntegration Python Plugins adds the following new features
 
 -   Custom parameter types can be registered. See implementation of `PasswordParameterType` for an example.
 
-## eccenca DataManager v23.1.4
+## eccenca DataManager v23.1.5
 
 We are excited to announce the latest update to DataManager v23.1, which introduces new features, improvements and bug fixes. This release brings enhancements to workspaces, editing capabilities in the EasyNav editor, and updates to the authentication system.
+
+v23.1.5 of eccenca DataManager ships following fixes:
+
+-   Fixed download of query result in query editor.
+-   Setting the defaultGraph of a explore workspace configuration no longer prevents the Navigation box from loading.
+-   Fixes in the LinkRules modules: Result-Details, Rule-Deletions, Property-Search
 
 v23.1.4 of eccenca DataManager ships following changes:
 
@@ -203,9 +208,13 @@ v23.1 of eccenca DataManager ships following fixes:
 
 -   Removed session token from URL.
 
-## eccenca DataPlatform v23.1.2
+## eccenca DataPlatform v23.1.3
 
 We're excited to announce the latest update to DataPlatform v23.1, featuring significant improvements in caching, user rights management, and workspace configuration. This update also includes various bug fixes and the removal of deprecated properties. Here's an overview of the changes:
+
+v23.1.3 of eccenca DataPlatform ships following fixes:
+
+-   Fix wrong calculation of write graph access under certain conditions.
 
 v23.1.2 of eccenca DataPlatform ships following changes:
 
@@ -250,10 +259,15 @@ v23.1 of eccenca DataPlatform removed the following features and configurations:
     -   `authorization.accessConditions.graph`: used graph is always the default graph from bootstrap
     -   `authorization.accessConditions.url`: url as source for access condition not supported anymore
 
-## eccenca Corporate Memory Control (cmemc) v23.1.2
+## eccenca Corporate Memory Control (cmemc) v23.1.3
 
 We are excited to announce the latest updates to eccenca Corporate Memory Control v23.1, which brings new features and improvements.
 This release introduces new command functionalities, configuration options, and a change in the project structure.
+
+v23.1.3 of eccenca Corporate Memory Control introduces the following security updates:
+
+- upgrade base image to python:3.11.4-slim-bullseye
+- upgrade dependencies (esp. certifi)
 
 v23.1.2 of eccenca Corporate Memory Control introduces the following fixes:
 

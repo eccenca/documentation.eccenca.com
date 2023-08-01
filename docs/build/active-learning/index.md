@@ -1,7 +1,6 @@
 ---
 icon: fontawesome/solid/wand-magic-sparkles
 subtitle: Use AI/ML to learn linking rules
-status: new
 tags:
   - BeginnersTutorial
 ---
