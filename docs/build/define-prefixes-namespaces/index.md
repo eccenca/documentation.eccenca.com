@@ -13,8 +13,8 @@ Namespace declarations allow for the abbreviation of IRIs by using a prefixed re
 
 For example, after defining a namespace with the values
 
-- **prefix name** = `cohw`, and the
-- **namespace IRI** = `https://data.company.org/hardware/`
+-   **prefix name** = `cohw`, and the
+-   **namespace IRI** = `https://data.company.org/hardware/`
 
 you can use the term `cohw:test` as an abbreviation for the full IRI `https://data.company.org/hardware/test`.
 
@@ -22,15 +22,14 @@ This is particularly useful when you have to write source code in Turtle and SPA
 
 ## Managing Namespace Declarations
 
-
 ### Using the Vocabulary Catalog
 
 After installing a vocabulary from the [Vocabulary Catalog](/explore-and-author/vocabulary-catalog), the vocabulary namespace declaration is automatically added to all integration projects.
 
 In order to get the **prefix name** and the **namespace IRI** from the vocabulary graph, the following terms from the [VANN vocabulary](https://vocab.org/vann/) need to be used on the Ontology resource.
 
-- [vann:preferredNamespacePrefix](https://vocab.org/vann/#preferredNamespacePrefix) - to specify the **prefix name**
-- [vann:preferredNamespaceUri](https://vocab.org/vann/#preferredNamespaceUri) - to specify the **namespace IRI**
+-   [vann:preferredNamespacePrefix](https://vocab.org/vann/#preferredNamespacePrefix) - to specify the **prefix name**
+-   [vann:preferredNamespaceUri](https://vocab.org/vann/#preferredNamespaceUri) - to specify the **namespace IRI**
 
 In the Explore area, an Ontology with a correct namespace declaration looks like this:
 
@@ -43,7 +42,7 @@ The `vocabulary` command group of [cmemc](../../automate/cmemc-command-line-inte
 Beginning with v22.2, this command has an additional option `--namespace` which you can use to set a vocabulary namespace even if the vocabulary does not include the data needed for autodiscovery:
 
 ```shell-session
-$ cmemc vocabulary import my-ont.ttl --namespace myo https//example.org/my/`
+cmemc vocabulary import my-ont.ttl --namespace myo https//example.org/my/`
 ```
 
 ### Using the Project Configuration
@@ -52,10 +51,10 @@ In addition to the used vocabulary namespace declarations, you may want to add w
 
 Such organization use cases include:
 
-- Namespaces per class / resource type:
-    - **prefix name** = `persons`, **namespace IRI** = `https://example.org/data/persons/`
-- Namespaces per data owner or origin:
-    - **prefix name** = `sales`, **namespace IRI** = `https://example.org/data/sales/`
+-   Namespaces per class / resource type:
+    -   **prefix name** = `persons`, **namespace IRI** = `https://example.org/data/persons/`
+-   Namespaces per data owner or origin:
+    -   **prefix name** = `sales`, **namespace IRI** = `https://example.org/data/sales/`
 
 Prefixes in Data Integration are defined on a project basis. When creating a new project, a list of well-know prefixes is already declared.
 
@@ -69,8 +68,8 @@ By using the **Edit Prefix Settings** button in this Configuration area, you wil
 
 In this dialog, you are able to
 
-- Delete a namespace declaration → **Delete Prefix**
-- Add a new namespace declaration → **Add**
+-   Delete a namespace declaration → **Delete Prefix**
+-   Add a new namespace declaration → **Add**
 
 ## Validating Namespace Declarations
 
@@ -78,6 +77,6 @@ After adding namespace declarations to a project you are able to use the abbrevi
 
 ![Prefixes displayed in the mapping dialogs, e.g. property selection.](prefix-displayed-in-mapping.png)
 
-![image](query.png)
+![Query Editor](DM-query-editor.png){ class="bordered" }
 
-![image](turtle.png)
+![Turtle Editor](DM-turtle-editor.png){ class="bordered" }
