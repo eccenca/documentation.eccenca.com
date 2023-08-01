@@ -30,11 +30,11 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial:
 
-- Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
+-   Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
 
-    ![Visualization of the "Products Vocabulary".](products-vocab-xml+json.png)
+    ![Visualization of the "Products Vocabulary".](products-vocab-xml+json.png){ class="bordered" }
 
-- Sample JSON file: [services.json](services.json)
+-   Sample JSON file: [services.json](services.json)
 
     ```json
     [
@@ -56,7 +56,8 @@ The following material is used in this tutorial:
     ]
     ```
 
-- Sample XML file: [orgmap.xml](orgmap.xml)
+-   Sample XML file: [orgmap.xml](orgmap.xml)
+
     ```xml
     <orgmap>
         <dept id="73191" name="Engineering">
@@ -110,19 +111,19 @@ The vocabulary contains the classes and properties needed to map the source data
 
 1. In Corporate Memory, click **Vocabularies** in the navigation under **EXPLORE** on the left side of the page.
 
-    ![image](vocabularies.png)
+    ![Menu entry EXPLORE > Vocabularies](menu-explore-vocabularies.png){ class="bordered" width="30%" }
 
 2. Click **Register new vocabulary** on the top right of the **Vocabulary catalog** page in Corporate Memory.
 
-    ![image](vocularies-register.png)
+    ![Vocabularies Catalog](vocab-catalog-xml+json.png){ class="bordered" }
 
 3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
-    - Name: _**Product Vocabulary**_
-    - Graph URI: _**http://ld.company.org/prod-vocab/**_
-    - Description: _**Example vocabulary modeled to describe relations between products and services.**_
+    -   Name: _**Product Vocabulary**_
+    -   Graph URI: _**<http://ld.company.org/prod-vocab/>**_
+    -   Description: _**Example vocabulary modeled to describe relations between products and services.**_
 
-    ![Dialog to register a new vocabulary.](dialog-register-new-vocabulary.png){width="50%"}
+    ![Dialog to register a new vocabulary.](dialog-register-new-vocabulary.png){ class="bordered" width="50%" }
 
 4. Click **REGISTER**.
 
@@ -136,11 +137,11 @@ To add the data files, click Projects under BUILD in the navigation on the left 
 
     2. In **Create new item** window, select **JSON** and click Add.
 
-        ![Dialog to create new JSON dataset](create-dataset-JSON.png)
+        ![Dialog to create new JSON dataset](create-dataset-JSON.png){ class="bordered" }
 
     3. Define a **Label** for the dataset and upload the [services.json](services.json) file. You can leave all the other fields at default values.
 
-        ![Dialog to create new JSON dataset](dialog-create-new-json-dataset.png){width="45%"} ![Dialog to create new JSON dataset](dialog-create-new-json-dataset-2.png){width="45%"}
+        ![Dialog to create new JSON dataset](dialog-create-new-json-dataset.png){ class="bordered" width="45%"} ![Dialog to create new JSON dataset](dialog-create-new-json-dataset-2.png){ class="bordered" width="45%"}
 
     4. Click **Create**.
 
@@ -148,11 +149,11 @@ To add the data files, click Projects under BUILD in the navigation on the left 
 
     1. Press the **Create** button and select XML
 
-        ![Dialog to create new XML dataset](create-dataset-XML.png)
+        ![Dialog to create new XML dataset](create-dataset-XML.png){ class="bordered" }
 
     2. Define a **Label** for the dataset and upload the [orgmap.xml](orgmap.xml) example file. You can leave all the other fields at default values.
 
-        ![Dialog to create new XML dataset](dialog-create-new-xml-dataset.png)
+        ![Dialog to create new XML dataset](dialog-create-new-xml-dataset.png){ class="bordered" }
 
     3. Click **Create**.
 
@@ -162,7 +163,7 @@ To add the data files, click Projects under BUILD in the navigation on the left 
 
 2. In **Create new item** window, select **Knowledge Graph** and click **Add**. The Create new item of type Knowledge Graph window appears.
 
-    ![Dialog to create new Knowledge Graph dataset](create-dataset-KG.png)
+    ![Dialog to create new Knowledge Graph dataset](create-dataset-KG.png){ class="bordered" }
 
 3. Fill in the required details such as Label and Description.
 
@@ -173,7 +174,7 @@ To add the data files, click Projects under BUILD in the navigation on the left 
         - Name: _**Service Knowledge Graph**_
         - Graph: _**http://ld.company.org/prod-instances/**_
 
-        ![Dialog to create new Knowledge Graph dataset](create-new-kg-for-json.png)
+        ![Dialog to create new Knowledge Graph dataset](create-new-kg-for-json.png){ class="bordered" }
 
     === "XML"
 
@@ -182,7 +183,7 @@ To add the data files, click Projects under BUILD in the navigation on the left 
         - Name: _**Organization Knowledge Graph**_
         - Graph: _**http://ld.company.org/organization-data/**_
 
-        ![Dialog to create new Knowledge Graph dataset](create-new-kg-for-xml.png)
+        ![Dialog to create new Knowledge Graph dataset](create-new-kg-for-xml.png){ class="bordered" }
 
 ## 4 Create a Transformation
 
@@ -192,7 +193,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
 2. On the **Create New Item** window, select **Transform** and click **Add** to create a new transformation.
 
-    ![Create new Transformation](create-new-tf.png)
+    ![Create new Transformation](create-new-tf.png){ class="bordered" }
 
 3. In the **Create new item of type Transform** window, enter the required fields.
 
@@ -205,7 +206,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
         - Select the Source Dataset: _**Services JSON**_
         - Select the Output Dataset: _**Service_Knowledge_Graph**_
 
-        ![Dialog to create new Transformation](create-new-tf-for-json.png)
+        ![Dialog to create new Transformation](create-new-tf-for-json.png){ class="bordered" }
 
         Click **Create**.
 
@@ -219,7 +220,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
         - Type: _**dept**_ (define the Source Type, which defines the XML element that should be iterated when creating resources)
         - Select the Output Dataset: _**Organization_Knowledge_Graph**_
 
-        ![Dialog to create new Transformation](create-new-tf-for-xml.png)
+        ![Dialog to create new Transformation](create-new-tf-for-xml.png){ class="bordered" }
 
         Click **Create**.
 
@@ -227,7 +228,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
 5. Click **Edit** to create a base mapping.
 
-    ![Mapping header configuration.](mapping-configuration-header.png)
+    ![Mapping header configuration.](mapping-configuration-header.png){ class="bordered" }
 
 6. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **Label** for the mapping.
 
@@ -280,13 +281,13 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
 7. Evaluate your mapping by pressing on the ![Button expand](button-expand-xml+json.png) button in the **Examples of target data** property to see at most three generated base URIs.
 
-    ![Preview of mapping results](mapping-value-preview.png)
+    ![Preview of mapping results](mapping-value-preview.png){ class="bordered" }
 
     We have now created the Service entities in the Knowledge Graph. Next we will now add the name of our entity.
 
 8. Click the circular blue **+** icon on the lower right and select **Add value mapping**.
 
-    ![Add a mapping rule](service-mapping-add-rule.png)
+    ![Add a mapping rule](service-mapping-add-rule.png){ class="bordered" }
 
     === "JSON"
 
@@ -298,7 +299,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
             - which corresponds to the following element in the json-file: _[ {"ProductManager": {  "name": "Corinna Ludwig"} ... } ...]_
         - An optional Label: _**has Product Manager**_
 
-        ![Configuration of a mapping rule](mapping-rule-config-json.png)
+        ![Configuration of a mapping rule](mapping-rule-config-json.png){ class="bordered" }
 
         Click **Save**.
 
@@ -312,7 +313,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
             - which corresponds to the `department name` attribute in the XML file
         - An optional Label: _**department name**_
 
-        ![Configuration of a mapping rule](mapping-rule-config-xml.png)
+        ![Configuration of a mapping rule](mapping-rule-config-xml.png){ class="bordered" }
 
         Click **Save**.
 
@@ -320,17 +321,17 @@ By clicking on the ![Button expand](button-expand-xml+json.png) button in the **
 
 === "JSON"
 
-    ![Mapping result](mapping-result-json.png)
+    ![Mapping result](mapping-result-json.png){ class="bordered" }
 
 === "XML"
 
-    ![Mapping result](mapping-result-xml.png)
+    ![Mapping result](mapping-result-xml.png){ class="bordered" }
 
 ## 5 Evaluate a Transformation
 
 Click **Transform evaluation** to evaluate the transformed entities.
 
-![Transformation evaluation view](xml+json-transform-evaluation.png)
+![Transformation evaluation view](xml+json-transform-evaluation.png){ class="bordered" }
 
 ## 6 Build the Knowledge Graph
 
@@ -338,13 +339,13 @@ Click **Transform evaluation** to evaluate the transformed entities.
 2. Press the ![Button play](button-play-xml+json.png) button and validate the results. In this example, 9x Service entities were created in our Knowledge Graph based on the mapping.
 3. You can click **Knowledge Graphs** under **EXPLORE** to (re-)view of the created Knowledge Graphs
 4. Enter the following URIs in the Enter search term for JSON and XML respectively.
-    - JSON / Service: _**http://ld.company.org/prod-instances/**_
-    - XML / Department: _**http://ld.company.org/organization-data/**_
+    -   JSON / Service: _**<http://ld.company.org/prod-instances/>**_
+    -   XML / Department: _**<http://ld.company.org/organization-data/>**_
 
     === "JSON"
 
-        ![image](graph-json1.png)
+        ![Service KG](kg-services.png){ class="bordered" }
 
     === "XML"
 
-        ![image](graph-xml.png)
+        ![Organization KG](kg-organization.png){ class="bordered" }
