@@ -9,9 +9,9 @@ This page describes a docker-compose based orchestration running on RedHat Enter
 
 ## Requirements
 
-- [Virtualbox](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html) and [vagrant](https://www.vagrantup.com/downloads.html) installed locally
-- Terminal with ssh client installed locally
-- POSIX-compatible command line interface (Linux, macOS or WSL for Windows)
+-   [Virtualbox](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html) and [vagrant](https://www.vagrantup.com/downloads.html) installed locally
+-   Terminal with ssh client installed locally
+-   POSIX-compatible command line interface (Linux, macOS or WSL for Windows)
 
 ## Provisioning
 
@@ -256,8 +256,5 @@ Open your browser and navigate to [https://corporate.memory]<https://corporate.
 | account | password | description                                                                                 |
 | ------- | -------- | ------------------------------------------------------------------------------------------- |
 | `admin` | `admin`  | Is member of the global admin group (can see and do anything)                               |
-| `user`  | `user`   | Is member of the local user group (can not change access conditions or see internal graphs) |
-
-![successful-login](../22-1-successful-login.png)
 
 After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.

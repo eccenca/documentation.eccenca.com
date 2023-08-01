@@ -9,10 +9,10 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 
 ## Requirements
 
-- Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
-- [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/) (v1) installed locally
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
-- At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
+-   Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
+-   [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/) (v1) installed locally
+-   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
+-   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
 ## Setup & Check Installation Environment
 
@@ -153,13 +153,8 @@ Run make logs to see log output
 
 Open your browser and navigate to <http://docker.localhost>
 
-
 | account | password | description                                                                                 |
 | ------- | -------- | ------------------------------------------------------------------------------------------- |
 | `admin` | `admin`  | Is member of the global admin group (can see and do anything)                               |
-| `user`  | `user`   | Is member of the local user group (can not change access conditions or see internal graphs) |
-
-![successful-login](../22-1-successful-login.png)
 
 After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
-
