@@ -10,7 +10,7 @@ tags:
 
 Vocabularies are the foundation for semantic data lifting activities.This module shows the list of all managed vocabularies in Corporate Memory that are accessible for the user. The table represents the list of known vocabularies. Installed vocabularies are indicated by the orange switch in the column `Installed`.
 
-[![image](vocab-introduction.png)
+![](vocabulary.png){ class="bordered" }
 
 ## Add new vocabulary
 
@@ -26,8 +26,7 @@ Each table row provides a menu with more options clicking on ![](./ic_keyboard
 
 A vocabulary which is known and available but not installed, looks like this:
 
-[![Example of extended information of uninstalled Vocabulary Catalog](./not_installed_vocab.png
- "Example of extended information of uninstalled Vocabulary Catalog")](./not_installed_vocab.png)
+![Example of extended information of uninstalled Vocabulary Catalog](./not_installed_vocab.png "Example of extended information of uninstalled Vocabulary Catalog"){ class="bordered" }
 
 Example of extended information of uninstalled Vocabulary Catalog
 
@@ -36,7 +35,7 @@ Example of extended information of uninstalled Vocabulary Catalog
 
 A vocabulary which is installed looks like this
 
-[![Example of extended information of installed Vocabulary Catalog](./installed_vocab.png "Example of extended information of installed Vocabulary Catalog")](./installed_vocab.png)
+![Example of extended information of installed Vocabulary Catalog](./installed_vocab.png "Example of extended information of installed Vocabulary Catalog"){ class="bordered" }
 
 Example of extended information of installed Vocabulary Catalog
 
