@@ -24,21 +24,21 @@ eccenca Corporate Memory is a semantic data management software that accelerates
 
 The main features of Corporate Memory include:
 
-- Flexible metadata and schema layer based on knowledge graphs
-- Data virtualization and analytics
-- Data integration and indexing
-- Dataset and vocabulary management
-- Thesaurus and taxonomy management
-- Big data scalability
-- Access control
+-   Flexible metadata and schema layer based on knowledge graphs
+-   Data virtualization and analytics
+-   Data integration and indexing
+-   Dataset and vocabulary management
+-   Thesaurus and taxonomy management
+-   Big data scalability
+-   Access control
 
 ### Minimal requirements
 
 For the best user experience, we recommend to use the newest version of Google Chrome or Mozilla Firefox. Corporate Memory is tested with the following browsers:
 
-- Google Chrome 83 or later
-- Mozilla Firefox 78 or later
-- Microsoft Edge 83 (on Windows) or later
+-   Google Chrome 83 or later
+-   Mozilla Firefox 78 or later
+-   Microsoft Edge 83 (on Windows) or later
 
 ## Login and Logout
 
@@ -53,97 +53,9 @@ To log out, open the menu :material-dots-vertical: in the Module bar and click�
 
 ## Workspaces
 
-A workspace is an endpoint of an eccenca DataPlatform identified by a workspace name and the DataPlatform URL.
 The specific configuration of the application defines which options are available here, i.e. whether you can select one of several workspaces, access only a default workspace or are allowed to create own workspaces.
 
-
-For more information on workspace configuration refer to the system manual of eccenca DataManager.
-
-### Selecting a workspace
-
-To select a workspace click on the **user icon** on the right side of the page 
-
-![image](user.png)
-
-Click the drop-down list and click the workspace you want to open.
-
-![image](workspace.png)
-
-!!! Step Result
-
-           The workspace opens and now you can enable or disabled the module as per your requirement.
-
-           !!![image](enable.png)
-
-
- 
-### To Know the Workpspace name and configuration 
-
-
-Click on the **user icon** on the right side of the page then click on **Configuration**. 
-
-![image](configuration.png)
-
-Click on **Workspace** then select the workspace you want to see the details.
-
-![image](select-wprkspace.png)
-
- Click on down arrow to expand the **Workspace** and **DI Workspace Configuration** to see the configuration details as shown below.
-
-![image](details.png)
-
-### Adding a New Workspace
-
-Click on the **user icon** on the right side of the page then click on **Configuration**. 
-
-![image](configuration-1.png)
-
-Click on **Workspace** on the left side of the page then click on **Create New Workspace**
-
-![image](create-new-workspace.png)
-
-Type the **Id** and **Label** name then click on **Add**
-
-![image](add-workspace.png)
-
-!!! Step Result
-              The workspace created sucessfully and now you can enable or disabled the module as per your requirement.
-        
-             ![image](enable.png)  
-
-!!! note
-
-    Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
-
-
-### Deleting a workspace
-
-Click on **User Icon** on the right side of the page then click on **Configuration** then click on **Workspace** 
-
-![image](create-new-workspace-1.png)
-
-Select the Workspace from the drop-down you want to delete 
-
-![image](select-workspace-1.png)
-
-Click on the **Delete Icon** on the right side of the page.
-
-![image](delete.png)
-
-Click on **Delete** 
-
-![image](delete-select.png)
-
-!!! Step Result
-
-      The workspace has been deleted.
-      ![image](delete-stepresult.png)
-
-!!! note
-
-    When you delete a workspace, the graph data is not deleted.
-
-This section describes the main elements of the graphical user interface of eccenca Corporate Memory.
+See the [workspaces](../explore-and-author/workspace-configuration/) section for more details.
 
 ## User interface and modules
 
@@ -152,19 +64,19 @@ The user interface of Corporate Memory usually consists of two sections:
 1. The module bar providing access to the various modules of Corporate Memory and to a menu with further options
 1. The main section for operating the software functions
 
-![image](statistic.png)
+![Graph statistics view](statistic.png)
 
 Each module provides a set of functionalities and views for specific use cases.
 To access a module, click the module name. The active module is highlighted.
 
 By default, Corporate Memory provides the following modules:
 
-- EXPLORE - for Knowledge Graph browsing and exploration, specifically
-    - [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
-    - [Vocabularies](../explore-and-author/vocabulary-catalog/index.md) - for vocabulary management
-    - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
-    - [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
--   [BUILD](../build/index.md) - for creating and integrating Knowledge Graphs, with specific links to
+-   EXPLORE - for Knowledge Graph browsing and exploration, specifically
+    -   [Knowledge Graphs](../explore-and-author/) - a generic and extensible RDF data browser and editor
+    -   [Vocabularies](../explore-and-author/vocabulary-catalog/) - for vocabulary management
+    -   [Thesauri](../explore-and-author/thesauri-management/) - for managing thesauri and taxonomies based on SKOS
+    -   [Queries](../explore-and-author/query-module/) - a SPARQL query interface
+-   [BUILD](../build/) - for creating and integrating Knowledge Graphs, with specific links to
     -   Projects - the BUILD Projects level
     -   Datasets - the Datasets across all BUILD Projects
     -   Workflows - the Workflows across all BUILD Projects
@@ -176,9 +88,9 @@ By default, Corporate Memory provides the following modules:
 
 Use the provided search field(s) in each module to search for specific keywords or strings in names and labels of resources.
 
-The **EXPLORE** module provides more search fields (e.g. in the Graph box, Navigation box, etc.) where you can limit your search to specific graphs or resources.
+The **Knowledge Graphs** module provides more search fields (e.g. in the Graph box, Navigation box, etc.) where you can limit your search to specific graphs or resources.
 
-![image](demograph.png)
+![Explore graph sample](demograph.png)
 
 ### Settings menu for table views
 
@@ -231,4 +143,3 @@ This section provides an overview of icons and their functionality in Corporate 
 | ---- | ----------- |
 | :material-folder: | Object mappings. |
 | :material-file: | Value mappings. |
-
