@@ -18,7 +18,6 @@ The highlights of this release are:
 -   Automate:
     -   New **`admin client` command group** for managing client accounts in the Keycloak CMEM realm.
 
-
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.2
@@ -39,11 +38,10 @@ Corporate Memory v23.2 includes the DataIntegration Python Plugins support in ve
 
 v4.1.0 of eccenca DataIntegration Python Plugins adds the following new features:
 
-- use `post_resource` api in `write_to_dataset` function to update dataset file resource
-- use cmempy 23.2
-- upgrade dependencies
-- enforce usage of Python 3.11
-
+-   use `post_resource` api in `write_to_dataset` function to update dataset file resource
+-   use cmempy 23.2
+-   upgrade dependencies
+-   enforce usage of Python 3.11
 
 ## eccenca DataManager v23.2
 
@@ -57,29 +55,27 @@ v4.1.0 of eccenca DataIntegration Python Plugins adds the following new features
 
 v23.2 of eccenca Corporate Memory Control adds the following new features:
 
-- `admin user password` command
-    - option `--request-change` added, to send a email to user to reset the password
-- `dataset create` command
-    - add `readOnly` and `uriProperty` keys for the `-p/--parameter` option
-- `admin client` command group
-    - `list` command - list client accounts
-    - `open` command - Open clients in the browser
-    - `secret` command - Get or generate a new secret for a client account
-- `project create` command
-    - new option `--from-transformation` to create a mapping suggestion project
+-   `admin user password` command
+    -   option `--request-change` added, to send a email to user to reset the password
+-   `dataset create` command
+    -   add `readOnly` and `uriProperty` keys for the `-p/--parameter` option
+-   `admin client` command group
+    -   `list` command - list client accounts
+    -   `open` command - Open clients in the browser
+    -   `secret` command - Get or generate a new secret for a client account
+-   `project create` command
+    -   new option `--from-transformation` to create a mapping suggestion project
 
 ### Changed
 
-- `dataset upload` command
-    - use new endpoint which is aware of read-only datasets
-- `workflow io` command
-    - use of extended io endpoint
-    - allows for uploading bigger files
-    - allows for more input and output mimetypes
-    - change default output to JSON
-
+-   `dataset upload` command
+    -   use new endpoint which is aware of read-only datasets
+-   `workflow io` command
+    -   use of extended io endpoint
+    -   allows for uploading bigger files
+    -   allows for more input and output mimetypes
+    -   change default output to JSON
 
 ## Migration Notes
 
 ...
-
