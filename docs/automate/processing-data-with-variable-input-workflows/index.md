@@ -18,7 +18,7 @@ The workflow is then called via an HTTP REST call (or via [cmemc](../cmemc-comm
 
 This allows for solving all kinds of [☆ Automation](../) tasks when you need to process lots of small data snippets or similar.
 
-!!! Abstract  
+!!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-varinput.project.zip). You can import this project
 
@@ -35,7 +35,7 @@ First, install all required ontologies/vocabularies which are needed for mapping
 
 In this tutorial, we need the _Schema.org_ and the _RDFS_ vocabulary. Press the (toggle switch) button on the right to install them.
 
-![image](vocab-entry.png)
+![Vocabulary catalog](pdwviw-vocab-catalog.png){ class="bordered" }
 
 ## 2 Create a new project
 
@@ -43,7 +43,7 @@ Second, create in the tab **DATA INTEGRATION** a new project. Provide it with a 
 
 The project will include everything you need to build a workflow for extracting Feed XML data, transforming it into RDF, and loading it into a Knowledge Graph.
 
-![Create new project dialog](pdwviw-create-new-project.png)
+![Create new project dialog](pdwviw-create-new-project.png){ class="bordered" }
 
 ## 3 Create an (example) feed dataset and target graph dataset
 
@@ -54,7 +54,7 @@ For this tutorial, you may take this file: [feed.xml](feed.xml)(1)
 
 1. Original feed source was: `https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed`
 
-![Create XML dataset dialog](pdwviw-create-xml-dataset.png)
+![Create XML dataset dialog](pdwviw-create-xml-dataset.png){ class="bordered" }
 
 ## 4 Create the feed transformation
 
@@ -64,14 +64,14 @@ The mappings are based on classes and properties defined by the _Schema.org_ and
 
 In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: [Lift data from JSON and XML sources](../../build/lift-data-from-json-and-xml-sources/).
 
-![Feed transformation](pdwviw-feed-transformation.png)
+![Feed transformation](pdwviw-feed-transformation.png){ class="bordered" }
 
 ## 5 Create the variable input and workflow
 
 Create a new workflow in your project.
 Move the **input** XML feed dataset and the **Feed Data** Graph into the workflow editor and connect them with your created **Transform feed**.
 
-![Workflow with variable input](pdwviw-variable-input-workflow.png)
+![Workflow with variable input](pdwviw-variable-input-workflow.png){ class="bordered" }
 
 ## 6 Use `cmemc` to feed data into the workflow
 
@@ -107,4 +107,4 @@ http://feeds.bbci.co.uk/news/rss.xml
 
 In **EXPLORATION**, you can study the ingested feed data in your Knowledge Graph.
 
-![image](graph-explore.png)
+![Explore the result](pdwviw-review-knowledge-graph.png){ class="bordered" }
