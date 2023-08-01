@@ -38,11 +38,11 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
-- Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
+-   Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
 
-    ![](products-vocab.png)
+    ![](products-vocab.png){ class="bordered" }
 
-- Sample CSV file: [services.csv](services.csv)
+-   Sample CSV file: [services.csv](services.csv)
 
     !!! info
 
@@ -52,7 +52,7 @@ The following material is used in this tutorial, you should download the files a
         | I241-8776317 | Component Confabulation | Z249-1364492, L557-1467804, C721-7900144, ... | Corinna.Ludwig@company.org | 1082,00 EUR |
         | …            | …                       | …                                             | …                          | …           |
 
-- Sample Excel file: [products.xlsx](products.xlsx)
+-   Sample Excel file: [products.xlsx](products.xlsx)
 
     !!! info
 
@@ -72,11 +72,11 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Vocabularies under **EXPLORE** in the navigation on the left side of the page.
 
-        ![image](voca-bularies.png){width="30%"}
+        ![](explore-vocab-catalog.png){ class="bordered" width="30%" }
 
     2. Click **Register new vocabulary** on the top right.
 
-        ![](vocab-catalog.png)
+        ![](vocab-catalog.png){ class="bordered" }
 
     3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
@@ -85,7 +85,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - Description: _**Example vocabulary modeled to describe relations between products and services.**_
         - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
 
-        ![](register-new-vocab.png){width="50%"}
+        ![](register-new-vocab.png){ class="bordered" width="50%" }
 
 === "cmemc"
 
@@ -101,7 +101,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-        ![](menu-build-projects.png){width="30%"}
+        ![](menu-build-projects.png){ class="bordered" width="30%" }
 
     2. Click **Create** at the top of the page. 
 
@@ -115,11 +115,11 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     7. In the **Create new item** dialog, select **CSV**.
 
-        ![](build-dataset-types-csv.png)
+        ![](build-dataset-types-csv.png){ class="bordered" }
 
     8. Fill out a label and upload the **[services.csv](services.csv) sample file**.
 
-        ![](create new-dataset-csv.png)
+        ![](create new-dataset-csv.png){ class="bordered" }
 
     9.  Click **Create**.** Leave all other parameters at their default values.
 
@@ -131,7 +131,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In the project, Click **Create** and select the **JDBC endpoint** type.
 
-        ![](build-dataset-types-jdbc.png)
+        ![](build-dataset-types-jdbc.png){ class="bordered" }
 
     2. Define a **Label** for the dataset, specify the **JDBC Driver connection URL**, the **table** name and the **user** and **password** to connect to the database. _In this example we will use:_
 
@@ -141,7 +141,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - username: _**root**_
         - password: _**\*\*\*\***_
 
-        ![](create new-dataset-jdbc.png)
+        ![](create new-dataset-jdbc.png){ class="bordered" }
 
         The general form of the JDBC connection string is:
 
@@ -186,15 +186,15 @@ To validate that the input data is correct, you can preview the data table in Co
 
 1. On the dataset page, press the **Load preview** button
 
-    ![](dataset-services.png)
+    ![](dataset-services.png){ class="bordered" }
 
 2. Once the preview is loaded, you can view a couple of rows to check that your data is accessible.
 
-    ![](dataset-services-preview.png)
+    ![](dataset-services-preview.png){ class="bordered" }
 
 3. Optionally, you can click **start profiling** and explore statistics about the dataset.
 
-    ![](dataset-services-profiling.png)
+    ![](dataset-services-profiling.png){ class="bordered" }
 
 ---
 
@@ -204,14 +204,14 @@ To validate that the input data is correct, you can preview the data table in Co
 
 2. In Create new item window, select Knowledge Graph and click Add.
 
-    ![](build-dataset-types-kg.png)
+    ![](build-dataset-types-kg.png){ class="bordered" }
 
 3. The Create new item of type Knowledge Graph window appears.
 
 4. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. _In this example we will use:_
 
-    - Label: _**Service Knowledge Graph**_
-    - Graph: _**http://ld.company.org/prod-instances/**_
+    -   Label: _**Service Knowledge Graph**_
+    -   Graph: _**<http://ld.company.org/prod-instances/>**_
 
 5. Click **Create**.
 
@@ -227,35 +227,35 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 3. Fill out the the details leaving the **target vocabularies** field at its default value **all installed vocabularies,** which will enable us to create a transformation to the previously installed products vocabulary. _In this example we will use:_
 
-    - Name: _**Lift Service Database**_
-    - _In the section **INPUT TASK** in the field **Dataset**, select the previously created dataset: **Services** (Input Dataset)._
-    - _Select the previously created dataset as the Output Dataset: **Service Knowledge Graph**_
+    -   Name: _**Lift Service Database**_
+    -   _In the section **INPUT TASK** in the field **Dataset**, select the previously created dataset: **Services** (Input Dataset)._
+    -   _Select the previously created dataset as the Output Dataset: **Service Knowledge Graph**_
 
 4. In the main area you will find the **Mapping editor**.
 
-    ![](services-mapping.png)
+    ![](services-mapping.png){ class="bordered" }
 
 5. Click **Mapping** in the main area to expand its menu.
 
-    ![](mapping-header.png)
+    ![](mapping-header.png){ class="bordered" }
 
 6. Click **Edit** to create a base mapping.
 
-    ![](services-mapping-rule.png)
+    ![](services-mapping-rule.png){ class="bordered" }
 
 7. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. _In this example we will use:_
 
-    - Target entity type: _**Service**_
-    - URI pattern:
+    -   Target entity type: _**Service**_
+    -   URI pattern:
 
-        - Click **Create custom pattern**
-        - Insert _**http://ld.company.org/prod-inst/{ServiceID}**_
-        - where _http://ld.company.org/prod-inst/_ is a common prefix for the instances in this use case,
-        - and _{ServiceID}_ is a placeholder that will resolve to the column of that name
+        -   Click **Create custom pattern**
+        -   Insert _**<http://ld.company.org/prod-inst/{ServiceID}>**_
+        -   where _<http://ld.company.org/prod-inst/>_ is a common prefix for the instances in this use case,
+        -   and _{ServiceID}_ is a placeholder that will resolve to the column of that name
 
-    - _An optional Label: **Service**_
+    -   _An optional Label: **Service**_
 
-    ![](services-mapping-class.png)
+    ![](services-mapping-class.png){ class="bordered" }
 
 8. Click **Save** _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
@@ -265,22 +265,22 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 9. Evaluate your mapping by clicking the Expand ![](button-expand.png) button in the **Examples of target data** property to see at most three generated base URIs.
 
-    ![](mapping-inline-preview.png)
+    ![](mapping-inline-preview.png){ class="bordered" }
 
     We have now created the Service entities in the Knowledge Graph. As a next step, we will add the name of the Service entity.
 
 10. Press the circular **Blue + button** on the lower right and select **Add value mapping**.
 
-    ![](services-mapping-add-rule.png)
+    ![](services-mapping-add-rule.png){ class="bordered" }
 
 11. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
 
-    - Target Property: **_name_**
-    - Data type: _**StringValueType**_
-    - Value path: _**ServiceName**_ (which corresponds to the column of that name)
-    - An optional Label: _**service name**_
+    -   Target Property: **_name_**
+    -   Data type: _**StringValueType**_
+    -   Value path: _**ServiceName**_ (which corresponds to the column of that name)
+    -   An optional Label: _**service name**_
 
-    ![](services-mapping-rule-edit.png)
+    ![](services-mapping-rule-edit.png){ class="bordered" }
 
 12. Click **Save.**
 
@@ -290,7 +290,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 Go the **Transform evaluation** tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.
 
-![](mapping-evaluation.png)
+![](mapping-evaluation.png){ class="bordered" }
 
 ---
 
@@ -298,12 +298,12 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 1. Go into the mapping and visit the **Transform execution** tab.
 
-    ![](mapping-execution.png)
+    ![](mapping-execution.png){ class="bordered" }
 
 2. Press the ![](button-play.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
-    ![](mapping-execution-result.png)
+    ![](mapping-execution-result.png){ class="bordered" }
 
-3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: http://ld.company.org/prod-instances/
+3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: <http://ld.company.org/prod-instances/>
 
-    ![image](graph-crop.png)
+    ![](kg-result.png){ class="bordered" }
