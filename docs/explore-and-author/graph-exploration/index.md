@@ -15,13 +15,21 @@ To open the Explore module, click **:eccenca-application-explore: Knowledge G
 The user interface of the Explore module shows the following main areas:
 
 <div class="annotate" markdown>
-- the header area, showing selected elements, possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**), a **:eccenca-module-search: Go to resource** input field, and a **:eccenca-application-useraccount: user menu**
-- the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
-- the main area, providing multiple views, depending on which resource has been selected.
+-   the header area, showing:
+    -   selected elements,
+    -   possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**),
+    -   a **:eccenca-module-search: Go to resource** (2) input field,
+    -   and a **:eccenca-application-useraccount: user menu**
+-   the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
+-   the main area, providing multiple views, depending on which resource has been selected.
 </div>
 
 1. If necessary, you can toggle the navigation area by using the
     :eccenca-toggler-moveleft: (hide) and :eccenca-toggler-tree: (show) buttons.
+
+2. _Go to resource_ is used with an IRI to open the resource details page directly.
+    It is not a search field.
+    You can try to search for a keyword, which might or might not be doing what you intended.
 
 ## Graphs
 
@@ -49,15 +57,15 @@ You can search for a specific graph with **:eccenca-module-search: Search**.
 To add a new graph to the Graphs list:
 
 <div class="annotate" markdown>
-- Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
-- Select a graph type. (1)
-- Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
-- Click **Next** and provide metadata (different types, require different metadata to enter).
-- Click **Save** to create the new graph.
+-   Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
+-   Select a graph type. (1)
+-   Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
+-   Click **Next** and provide metadata (different types, require different metadata to enter).
+-   Click **Save** to create the new graph.
 </div>
 
 1. More concrete, you select a shape here.
-     This can be configured in the workspace configuration as well.
+    This can be configured in the workspace configuration as well.
 
 ### :eccenca-item-download: Downloading a graph
 
@@ -74,13 +82,13 @@ Use this function to add or replace data in the a graph.
 To update or replace data of a graph:
 
 <div class="annotate" markdown>
-- In the **Graphs** box, select **:eccenca-item-download: Manage graph** on the graph you want to update or replace.
-- A dialog box appears.
-- Click **Choose file** to upload a file containing the new or updated data. (1)
-- Choose one of the following options:
-  - **Update**: add uploaded data to Graph.
-  - **Replace**: clear Graph and add uploaded data.
-- Click **Update** to start the upload process.
+-   In the **Graphs** box, select **:eccenca-item-download: Manage graph** on the graph you want to update or replace.
+-   A dialog box appears.
+-   Click **Choose file** to upload a file containing the new or updated data. (1)
+-   Choose one of the following options:
+    -   **Update**: add uploaded data to Graph.
+    -   **Replace**: clear Graph and add uploaded data.
+-   Click **Update** to start the upload process.
 </div>
 
 1. You can upload one of the following file formats: Turtle, N-Triples, RDF/XML, or JSON-LD.
