@@ -10,9 +10,9 @@ tags:
 
 List, create, delete, inspect, up-/download or open datasets.
 
-This command group allows for managing workspace datasets as well as dataset file resources. Datasets can be created and deleted. File resources can be uploaded and downloaded. Details of dataset parameter can be listed with inspect.
+This command group allows for managing workspace datasets as well as dataset file resources. Datasets can be created and deleted. File resources can be uploaded and downloaded. Details of dataset parameters can be listed with inspect.
 
-Datasets are identified with a combined key of the `PROJECT_ID` and a `DATASET_ID` (e.g: `my-project:my-dataset`).
+Datasets are identified by a combined key of the `PROJECT_ID` and a `DATASET_ID` (e.g: `my-project:my-dataset`).
 
 !!! note
     To get a list of existing datasets, execute the `dataset list` command or use tab-completion.
@@ -30,24 +30,24 @@ $ cmemc dataset list [OPTIONS]
 
 
 
-Outputs a list of datasets IDs which can be used as reference for the dataset create and delete commands.
+Output and filter a list of available datasets. Each dataset is listed with its ID, type and label.
 
 
 
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  List datasets based on meta data. First parameter
-                             --filter CHOICE can be one of ['project', 'regex',
-                             'tag', 'type']. The second parameter is based on
-                             CHOICE.
+    --filter <TEXT TEXT>...  Filter datasets based on metadata. First parameter
+                             can be one of the following values: project, regex,
+                             tag, type. The options for the second parameter
+                             depend on the first parameter.
   
-    --raw                    Outputs raw JSON objects of dataset search API
+    --raw                    Outputs raw JSON objects of the dataset search API
                              response.
   
-    --id-only                Lists only dataset identifier and no labels or
-                             other meta data. This is useful for piping the ids
-                             into other cmemc commands.
+    --id-only                Lists only dataset IDs and no labels or other
+                             metadata. This is useful for piping the IDs into
+                             other cmemc commands.
     ```
 
 ## dataset delete
@@ -84,7 +84,7 @@ This command deletes existing datasets in integration projects from Corporate Me
                              project. The behaviour is similar to the 'dataset
                              list --project' command.
   
-    --filter <TEXT TEXT>...  Delete datasets based on meta data. First parameter
+    --filter <TEXT TEXT>...  Delete datasets based on metadata. First parameter
                              --filter CHOICE can be one of ['project', 'regex',
                              'tag', 'type']. The second parameter is based on
                              CHOICE.
@@ -115,7 +115,7 @@ Without providing an output path, the output file name will be the same as the r
     ```text
 
     --replace   Replace existing files. This is a dangerous option, so use it
-                with care.
+                with care!
     ```
 
 ## dataset upload
@@ -129,10 +129,10 @@ $ cmemc dataset upload DATASET_ID INPUT_PATH
 
 
 
-This command uploads a file to a dataset. The content of the uploaded file replaces the remote file resource. The name of the remote file resource is not changed.
+This command uploads a file to a dataset. The content of the uploaded file replaces the remote file resource. The name of the remote file resource will not be changed.
 
 !!! warning
-    If the remote file resource is used in more than one dataset, the other datasets are also affected by this command.
+    If the remote file resource is used in more than one dataset, all of these datasets are affected by this command.
 
 
 !!! warning
@@ -184,9 +184,9 @@ $ cmemc dataset create [OPTIONS] [DATASET_FILE]
 
 
 
-Datasets are created in projects and can have associated file resources. Each dataset has a type (such as `csv`) and a list of parameter which can change or specify the dataset behaviour.
+Datasets are created in projects and can have associated file resources. Each dataset has a type (such as `csv`) and a list of parameters which can alter or specify the dataset behaviour.
 
-To get more information on possible dataset types and parameter on these types, use the `--help-types` and `--help-parameter` options.
+To get more information about available dataset types and associated parameters, use the `--help-types` and `--help-parameter` options.
 
 ```shell-session title="Example"
 $ cmemc dataset create --project my-project --type csv my-file.csv

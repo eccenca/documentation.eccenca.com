@@ -36,13 +36,13 @@ To extract data from a relational database, you need to first register a **JDBC 
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png)
+    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png){ class="bordered" }
 
 2. Click **Create** at the top of the page.
 3. In the Create new item window, select Project and click Add. The Create new item of type Project window appears.
 4. In the Create new item window, select Dataset under **Item Type**, search for JDBC endpoint, and click **Add**.
 
-    ![Create JDBC Dataset](create-dataset-JDBC.png)
+    ![Create JDBC Dataset](create-dataset-JDBC.png){ class="bordered" }
 
 5. Provide the required configuration details for the JDBC endpoint:
     -   **Label**: Provide a table name.
@@ -55,9 +55,9 @@ To extract data from a relational database, you need to first register a **JDBC 
     -   **User**: Provide the user name which is allowed to access the database.
     -   **Password**: Provide the user password that is allowed to access the database.
 
-![Configuration of a JDBC dataset](configure-JDBC-1.png)
+![Configuration of a JDBC dataset](configure-JDBC-1.png){ class="bordered" }
 
-![Configuration of a JDBC dataset](configure-JDBC-2.png)
+![Configuration of a JDBC dataset](configure-JDBC-2.png){ class="bordered" }
 
 ## 2 Create a Metadata Graph
 
@@ -75,7 +75,7 @@ In our example, the JDBC Endpoint IRI looks like this: _<http://dataintegration.
 
 See screenshot below for example:
 
-![Turtle view of a graph resource](graph-turtle-view.png)
+![Turtle view of a graph resource](graph-turtle-view.png){ class="bordered" }
 
 Now that we have the JDBC endpoint IRI, we will build the Metadata Graph to store the OFFSET information.
 
@@ -117,15 +117,15 @@ To extract rows based on the predefined (changing) OFFSET and LIMIT from a table
     2. Provide **Description** (Optional).
     3. Select the _Services Metadata Graph_ we previously created.
 
-    ![Create Transformation dialog](incr-jdbc-create-transformation.png)
+    ![Create Transformation dialog](incr-jdbc-create-transformation.png){ class="bordered" }
 
 2. Create only a value mapping with the property **sourceQuery**. The sourceQuery will be used as an input for the JDBC endpoint. A root mapping does not need to be defined. In this screenshot everything is already configured while yours will be empty when you create it for the first time.
 
-    ![sourceQuery value mapping rule](source-query-value-mapping.png)
+    ![sourceQuery value mapping rule](source-query-value-mapping.png){ class="bordered" }
 
 3. Press the circular pen button to jump into the advanced mapping editor. As source paths we select the data from our Metadata Graph: **table**, **lastOffset** and **limit**. Everything else is defined as a constant as it does not change in the query. For our source paths we defined a "di" prefix. In case this defintion is missing, your source path may look longer (full IRI).
 
-    ![Complex transformation rule](source-path-complex-mapping.png)
+    ![Complex transformation rule](source-path-complex-mapping.png){ class="bordered" }
 
 ## 4 Create a Transformation to update the SQL Offset
 
@@ -180,4 +180,4 @@ Finally, we can build a Workflow which demonstrates how each step works.
 
 We compose the SQL query based on the OFFSET and LIMIT information in our Metadata Graph. This SQL query will be used to configure the sourceQuery of the JDBC endpoint. Next, we do a "regular" transformation of data from a JDBC endpoint to RDF. As this step was omitted here, please feel free to read how this Transformation can be built here: [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables). As a final step, we use our SPARQL update query to select the max service ID in our Knowledge Graph and update the RDF Triples in our Metadata Graph accordingly.
 
-![Workflow using config part for incremental data loading](incr-jdbc-complete-wf.png)
+![Workflow using config part for incremental data loading](incr-jdbc-complete-wf.png){ class="bordered" }

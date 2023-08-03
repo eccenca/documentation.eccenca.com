@@ -503,9 +503,9 @@ The `GraphResourcePattern` object reference is provided in different ways depend
     ----------------------------------------------------------------------------------------------------------------------------
     Generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans) on 2022-11-10 at 21:15:54 +0100
 
-An concrete example object is shown here:
+    An concrete example object is shown here:
 
-!!! example "Example `GraphResourcePattern`"
+=== "Graphresourcepattern"
 
     ```json
     {

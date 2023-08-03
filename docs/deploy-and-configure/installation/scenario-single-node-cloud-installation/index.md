@@ -9,10 +9,10 @@ This page describes a docker-compose based orchestration running on a server ins
 
 ## Requirements
 
-- ssh access to a server instance (Debian 11) with a public IP address
-- A resolvable domain name to this server
-- Terminal with ssh client installed locally
-- An eccenca partner account for the docker registry as well as the release artifact area
+-   ssh access to a server instance (Debian 11) with a public IP address
+-   A resolvable domain name to this server
+-   Terminal with ssh client installed locally
+-   An eccenca partner account for the docker registry as well as the release artifact area
 
 ## Server Provisioning
 
@@ -89,10 +89,10 @@ $ vi prod.env
 In addition that, you need to remove the default config and link it to your prod.env
 
 ```shell-session
-$ cd /opt/cmem-orchestration/environments
+cd /opt/cmem-orchestration/environments
 
-$ rm config.env
-$ ln -s prod.env config.env
+rm config.env
+ln -s prod.env config.env
 ```
 
 To see all available configuration options refer to [Docker Orchestration configuration](./../../configuration/docker-orchestration/index.md) page.
@@ -100,8 +100,8 @@ To see all available configuration options refer to [Docker Orchestration confi
 Next, request SSL certificates from [letsencrypt](https://letsencrypt.org/) service:
 
 ```shell-session
-$ cd /opt/cmem-orchestration
-$ make letsencrypt-create
+cd /opt/cmem-orchestration
+make letsencrypt-create
 ```
 
 Change `CMEM_BASE_URI` according to your `DEPLOYHOST`.
@@ -121,16 +121,16 @@ EOF
 Finally deploy the Corporate Memory instance:
 
 ```shell-session
-$ make clean-pull-start-bootstrap
-$ make tutorials-import
+make clean-pull-start-bootstrap
+make tutorials-import
 ```
 
 Optional: you can install cmem as a systemd service for this use these commands as root oder sudo:
 
 ```shell-session
-$ cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service /etc/systemd/system
-$ systemctl enable cmem-orchestration
-$ systemctl start cmem-orchestration
+cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service /etc/systemd/system
+systemctl enable cmem-orchestration
+systemctl start cmem-orchestration
 ```
 
 ## Validation and Finalisation
@@ -142,13 +142,9 @@ Click **CONTINUE WITH LOGIN** and use one of these default accounts:
 | account | password | description                                                                                 |
 | ------- | -------- | ------------------------------------------------------------------------------------------- |
 | `admin` | `admin`  | Is member of the global admin group (can see and do anything)                               |
-| `user`  | `user`   | Is member of the local user group (can not change access conditions or see internal graphs) |
-
-![successful-login](../22-1-successful-login.png)
 
 After successful login, you will see Corporate Memory interface.
 You can now proceed to the :material-arrow-right: [Getting Started](../../../getting-started/index.md) section.
 
 Do not forget to change the passwords of your deployment, especially if it is available from the public internet.
 For this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
-

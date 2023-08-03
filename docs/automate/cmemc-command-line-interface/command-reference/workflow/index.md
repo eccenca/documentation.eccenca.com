@@ -65,32 +65,30 @@ With this command, you can execute a workflow that uses variable datasets as inp
 ??? info "Options"
     ```text
 
-    -i, --input FILE                From which file the input is taken: note
-                                    that the maximum file size to upload is
-                                    limited to a server configured value. If the
+    -i, --input FILE                From which file the input is taken. If the
                                     workflow has no defined variable input
-                                    dataset, this can be ignored.
+                                    dataset, this option is not allowed.
   
-    -o, --output FILE               To which file the result is written to: use
+    -o, --output FILE               To which file the result is written to. Use
                                     '-' in order to output the result to stdout.
                                     If the workflow has no defined variable
-                                    output dataset, this can be ignored. Please
-                                    note that the io command will not warn you
-                                    on overwriting existing output files.
+                                    output dataset, this option is not allowed.
+                                    Please note that the io command will not
+                                    warn you on overwriting existing output
+                                    files.
   
-    --input-mimetype [guess|application/xml|application/json|text/csv]
+    --input-mimetype [application/x-plugin-csv|application/x-plugin-json|application/xml|application/x-plugin-excel|application/octet-stream|application/x-plugin-multiCsv|text/plain|guess]
                                     Which input format should be processed: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
-                                    fail
+                                    fail.
   
-    --output-mimetype [guess|application/xml|application/json|application/n-triples|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|text/csv]
+    --output-mimetype [application/x-plugin-csv|application/x-plugin-excel|application/n-triples|application/n-triples|application/x-plugin-json|application/xml|guess]
                                     Which output format should be requested: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
                                     fail. In case of an output to stdout, a
-                                    default mime type will be used (currently
-                                    xml).
+                                    default mime type will be used (JSON).
   
     --autoconfig / --no-autoconfig  Setup auto configuration of input datasets,
                                     e.g. in order to process CSV files with
@@ -113,13 +111,13 @@ $ cmemc workflow list [OPTIONS]
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  List workflows based on meta data. First parameter
+    --filter <TEXT TEXT>...  List workflows based on metadata. First parameter
                              --filter CHOICE can be one of ['io', 'project',
                              'regex', 'tag']. The second parameter is based on
                              CHOICE.
   
     --id-only                Lists only workflow identifier and no labels or
-                             other meta data. This is useful for piping the IDs
+                             other metadata. This is useful for piping the IDs
                              into other commands.
   
     --raw                    Outputs raw JSON objects of workflow task search

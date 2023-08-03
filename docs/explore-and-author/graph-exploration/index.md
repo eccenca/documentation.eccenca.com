@@ -24,10 +24,10 @@ The user interface of the Explore module shows the following main areas:
 -   the main area, providing multiple views, depending on which resource has been selected.
 </div>
 
-1.  If necessary, you can toggle the navigation area by using the
+1. If necessary, you can toggle the navigation area by using the
     :eccenca-toggler-moveleft: (hide) and :eccenca-toggler-tree: (show) buttons.
 
-2.  _Go to resource_ is used with an IRI to open the resource details page directly.
+2. _Go to resource_ is used with an IRI to open the resource details page directly.
     It is not a search field.
     You can try to search for a keyword, which might or might not be doing what you intended.
 
@@ -45,7 +45,7 @@ In the main area, the Metadata view of the selected graph appears, showing sev
 
 The Graphs are categorized into groups as follows:
 
--   User: All graphs which represent user data (created manually or by build processes). 
+-   User: All graphs which represent user data (created manually or by build processes).
 -   Vocabularies: All graphs containing vocabularies.
 -   System: All graphs containing configuration data.
 -   All
@@ -56,6 +56,7 @@ You can search for a specific graph with **:eccenca-module-search: Search**.
 
 To add a new graph to the Graphs list:
 
+<div class="annotate" markdown>
 -   Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
 -   Select a graph type. (1)
 -   Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
@@ -63,7 +64,7 @@ To add a new graph to the Graphs list:
 -   Click **Save** to create the new graph.
 </div>
 
-1.  More concrete, you select a shape here.
+1. More concrete, you select a shape here.
     This can be configured in the workspace configuration as well.
 
 ### :eccenca-item-download: Downloading a graph
@@ -90,7 +91,7 @@ To update or replace data of a graph:
 -   Click **Update** to start the upload process.
 </div>
 
-1.  You can upload one of the following file formats: Turtle, N-Triples, RDF/XML, or JSON-LD.
+1. You can upload one of the following file formats: Turtle, N-Triples, RDF/XML, or JSON-LD.
 
 To delete a graph, select **:eccenca-item-remove: Remove graph** on the graph you want to remove and confirm deletion process.
 
@@ -110,7 +111,7 @@ To reset the results delete the keyword and press Enter.
 Select a class in the Navigation box to show all instances of this class in the main area. (1)
 { .annotate }
 
-1.   The table uses a default query to list all resources with a given class.
+1. The table uses a default query to list all resources with a given class.
      This can be configured by adding a `shui:navigationListQuery` to the class shape.
 
 ### Instance Details
@@ -118,7 +119,7 @@ Select a class in the Navigation box to show all instances of this class in th
 To open the Instance Details of a resource click on that resource in the Instance List.
 Resources are shown as grey chip buttons.
 
-![](./instancedata.png)
+![](instancedata.png){ class="bordered" }
 
 !!! warning inline end
 
@@ -135,7 +136,7 @@ The availability of these views depends on the context and the resource type.
 The Resource tab provides a view based on the shapes of the selected resource.
 The details of the shaped view depends on the configuration.
 
-![](./graphoverview.png)
+![](graphoverview.png){ class="bordered" }
 
 #### Properties
 
@@ -158,7 +159,7 @@ Click **SAVE** to save your changes.
 
 The Statistics tab indicates the number of classes, properties, entities and triples of the graph.
 
-![](./statictics.png)
+![](./statictics.png){ class="bordered" }
 
 #### Graph
 
@@ -168,7 +169,7 @@ The Statistics tab indicates the number of classes, properties, entities and t
 
 The Graph tab shows a visual graph representation of the graph.
 
-![](./graphvisulization.png)
+![](./graphvisulization.png){ class="bordered" }
 
 #### Vocab
 
@@ -179,13 +180,13 @@ The Graph tab shows a visual graph representation of the graph.
 This tab shows a graph visualization of an installed vocabulary.
 It displays all classes showing the class-subclass.  You can open the class details and view the list of instances related to that class. It also allows you to copy the resource IRI.
 
-![](./vocab.png)
+![](vocab.png){ class="bordered" }
 
 #### References
 
 This tab shows all resources that link back to the selected resource.
 
-[](./Reference.png)
+![](./Reference.png){ class="bordered" }
 
 #### Turtle
 

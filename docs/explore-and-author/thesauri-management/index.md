@@ -18,8 +18,7 @@ You can think of these relations as a hierarchical tree representing the relatio
 In a concept scheme Industries, a top branch in this tree, as for example the sub-industry Industrials or Health Care, is called a top concept.
 All branches together belong to the concept scheme Industries.
 
-![Navigation tree with detail view of the concept Airlines](./CMEM-19-02-navigation-tree.png "Navigation tree with detail view of the concept Airlines")
-
+![Navigation tree with detail view of the concept Airlines](./navigation-tree.png "Navigation tree with detail view of the concept Airlines"){ class="bordered" }
 
 !!! info
 
@@ -43,7 +42,7 @@ In order to get more information on a thesaurus project and edit its metadata, c
 The view expands showing the project metadata.
 Click **:eccenca-item-edit: Edit** on the right side of the row to open the edit mode, enter your changes and click **SAVE**.
 
-![Thesaurus project catalog](CMEM-22-2-thesaurus-project-catalog.png "Thesaurus project catalog")
+![Thesaurus project catalog](thesaurus-project-catalog.png "Thesaurus project catalog"){ class="bordered" }
 
 To open the detail view of a thesaurus project, click the project name in the catalog.
 
@@ -150,8 +149,8 @@ You can add, for example, a second broader concept for an existing concept or a 
 To add relations, select the concept in the navigation tree.
 In the detail view, click **:eccenca-item-edit: Edit** to open the edit mode.
 
-- To add an associative relation to another concept, enter the concept name in the field **Related concept**.
-- To add a further broader relation, enter the name of the broader concept in the field **Broader concepts**.
+-   To add an associative relation to another concept, enter the concept name in the field **Related concept**.
+-   To add a further broader relation, enter the name of the broader concept in the field **Broader concepts**.
 
 You can only choose from existing concepts.
 Click **SAVE** to confirm your changes.
@@ -169,4 +168,3 @@ When adding relations the inverse relation is automatically added, too.
 
 To remove concepts or concept schemes, select the resource in the navigation tree, click the context menu **:eccenca-item-moremenu: Show more options** and select the **Remove** option.
 Confirm the dialog and click **REMOVE**.
-

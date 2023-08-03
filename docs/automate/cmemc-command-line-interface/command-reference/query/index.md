@@ -106,7 +106,7 @@ Outputs a list of query URIs which can be used as reference for the query execut
 ??? info "Options"
     ```text
 
-    --id-only   Lists only query identifier and no labels or other meta data.
+    --id-only   Lists only query identifier and no labels or other metadata.
                 This is useful for piping the ids into other cmemc commands.
     ```
 
@@ -148,7 +148,7 @@ You can filter queries based on status and runtime in order to investigate slow 
     ```text
 
     --id-only                Lists only query identifier and no labels or other
-                             meta data. This is useful for piping the ids into
+                             metadata. This is useful for piping the ids into
                              other cmemc commands.
   
     --raw                    Outputs raw JSON response of the query status API.

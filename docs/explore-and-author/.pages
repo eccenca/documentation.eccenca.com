@@ -1,5 +1,6 @@
 nav:
     - Explore and Author: index.md
+    - Workspace Selection and Configuration: workspace-configuration
     - Graph Exploration: graph-exploration
     - Vocabulary Catalog: vocabulary-catalog
     - Thesauri Management: thesauri-management
