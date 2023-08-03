@@ -7,7 +7,7 @@ tags:
 
 A DataManager module is available that can be used to embed / integrate other web-services in Corporate Memory. The module can be used and configured globally or individually per workspace configuration.
 
-[![](./integrations.png)](./integrations.png)
+![image](integration.png){ class="bordered" }
 
 ## Activation and configuration in DataManager
 
@@ -39,7 +39,7 @@ A restart of DataManager will be required in order for the configuration change 
 
 ## Link Configuration in DataIntegration
 
-The (module) link configuration in DataIntegration is managed in its own configuration. Thus, the following snippet from a `dataintegration.conf`  shows how to add the "INTEGRATINOS" link to the DataIntegrations menu:
+The (module) link configuration in DataIntegration is managed in its own configuration. Thus, the following snippet from a `dataintegration.conf`  shows how to add the "INTEGRATIONS" link to the DataIntegrations menu:
 
 ``` js
 eccencaDataManager.moduleLinks = [
@@ -72,6 +72,7 @@ eccencaDataManager.moduleLinks = [
 ```
 
 !!! Note
+
     The "`name"` and "`defaultLabel`" property should be aligned in the DataManager and DataIntegration configuration for consistency.
 
 A restart of DataIntegration will be required in order for the configuration change to become effective.
@@ -80,4 +81,4 @@ A restart of DataIntegration will be required in order for the configuration cha
 
 A typical (eccenca) use case for the Integrations Module is to embed redash dashboards. In order show a dashboard in a Corporate Memory make sure your redash instance use the same protocol as your Corporate Memory instance (typically https). Then open the dashboard that should be embedded and click the sharing button ![](./share.png){ .off-glb width=32 }. In the dialog make sure "*Allow public access*" is enabled. Copy the "*Secret address*" and paste this address into the "`url`" property of a tab configuration, as shown above.
 
-[![](./share_dashboard.png){ width=561 }](./share_dashboard.png)
+![](./share_dashboard.png){ class="bordered" width=561 }
