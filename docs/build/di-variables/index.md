@@ -1,5 +1,5 @@
 ---
-icon: material/family-tree
+icon: material/variable-box
 tags:
   - KnowledgeGraph
 ---
@@ -33,23 +33,23 @@ Instead of repeating the same information in multiple places, project variables 
 
 ## Benefits of using variables
 
-1.  When sending an email to all employees, instead of manually typing or copy pasting each email address, you can conveniently store all the email addresses once and utilize them with a single word.
+1. When sending an email to all employees, instead of manually typing or copy pasting each email address, you can conveniently store all the email addresses once and utilize them with a single word.
     This saves time and ensures that no email addresses are missed or incorrectly entered.
 
-2.  Another scenario where variables can be beneficial is when dealing with lengthy or hard-to-remember values.
+2. Another scenario where variables can be beneficial is when dealing with lengthy or hard-to-remember values.
     For instance, consider the value "xmhnjnnjkmnlbbhbvfhnbjkm".
     By assigning it to a variable, you can store it once and easily recall it whenever needed.
     This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.
 
-3.  In software development, when working with URLs or file paths that are long or subject to change, you can store them in variables.
+3. In software development, when working with URLs or file paths that are long or subject to change, you can store them in variables.
     This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
-    For example, you can assign a URL like "https://example.com/api/data" to a variable named `apiURL` for consistent referencing.
+    For example, you can assign a URL like "<https://example.com/api/data>" to a variable named `apiURL` for consistent referencing.
 
-4.  When creating templates or form letters, variables can be used to personalize the content.
+4. When creating templates or form letters, variables can be used to personalize the content.
     For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient's name and company information.
     This way, you can generate customized communications quickly without manually editing each instance.
 
-5.  You can save the message, port, host or IP address, tokens, passwords, properties etc.
+5. You can save the message, port, host or IP address, tokens, passwords, properties etc.
 
 The use of variables provides flexibility, efficiency, and consistency, making it easier to manage complex or frequently used values across various tasks and documents.
 
