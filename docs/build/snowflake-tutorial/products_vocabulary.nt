@@ -1,0 +1,220 @@
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/address_text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/Software> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#label> "Products vocabulary"@en .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#label> "eligible for" .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#label> "Service"@en .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#label> "Product"@en .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/2000/01/rdf-schema#label> "expert for" .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#label> "Employee"@en .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/2000/01/rdf-schema#label> "Product Category"@en .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/2000/01/rdf-schema#label> "has address" .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent"@en .
+<http://ld.company.org/prod-vocab/Address> <http://www.w3.org/2000/01/rdf-schema#label> "Address"@en .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#label> "has category" .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#label> "has direct report" .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#label> "Manager"@en .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#label> "has manager" .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#label> "has product manager" .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/2000/01/rdf-schema#label> "manages product" .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#label> "member of" .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#label> "Department"@en .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#label> "price"@en .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price"@en .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#label> "responsible for" .
+<http://ld.company.org/prod-vocab/address_text> <http://www.w3.org/2000/01/rdf-schema#label> "address text"@en .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#label> "amount"@en .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/2000/01/rdf-schema#label> "city"@en .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#label> "country"@en .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#label> "currency"@en .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#label> "depth in mm"@en .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#label> "Hardware"@en .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#label> "email"@en .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/2000/01/rdf-schema#label> "house number"@en .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#label> "ID" .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#label> "name"@en .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#label> "phone number"@en .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/2000/01/rdf-schema#label> "postal code"@en .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/2000/01/rdf-schema#label> "price in EUR"@en .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/2000/01/rdf-schema#label> "street"@en .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#label> "weight in g"@en .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#label> "width in mm"@en .
+<http://ld.company.org/prod-vocab/Software> <http://www.w3.org/2000/01/rdf-schema#label> "Software"@en .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#label> "height in mm"@en .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#comment> "Example vocabulary modeled from a simple sentence about products and services."@en .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#comment> "Some value add service realized based on other product(s)"@en .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#comment> "Anything that we make and/or sell"@en .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#comment> "An employee in my company"@en .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract base class for people, robots or other things that can act."@en .
+<http://ld.company.org/prod-vocab/Address> <http://www.w3.org/2000/01/rdf-schema#comment> "An address object to explicitly handle address details"@en .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#comment> "An employee with some direct reports and management duties"@en .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#comment> "A department in an organization"@en .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#comment> "A price object to deal with multiple prices and/or currencies"@en .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/modified> "2018-08-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/publisher> "eccenca GmbH" .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/creator> "René Pietzsch" .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/created> "2018-08-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Address> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/address_text> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Software> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/> <http://rdfs.org/ns/void#vocabulary> <http://xmlns.com/foaf/0.1/> .
+<http://ld.company.org/prod-vocab/> <http://rdfs.org/ns/void#vocabulary> <http://purl.org/vocab/vann/> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/ProductCategory> .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/ProductCategory> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Manager> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Department> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Service> .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Manager> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Department> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Address> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
+<http://ld.company.org/prod-vocab/> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/4.0/> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "prod" .
+<http://ld.company.org/prod-vocab/> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://ld.company.org/prod-vocab/" .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/Software> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/expertFor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/hasAddress> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/managesProduct> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ld.company.org/prod-vocab/city> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/house_number> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/postalcode> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/price_eur> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/street> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2002/07/owl#versionIRI> <http://ld.company.org/prod-vocab/0.0.1/> .

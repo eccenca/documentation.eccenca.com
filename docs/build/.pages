@@ -9,5 +9,7 @@ nav:
     - Lift Web API Data: extracting-data-from-a-web-api
     - Workflow Reconfiguration: workflow-reconfiguration
     - Incremental Database Loading: loading-jdbc-datasets-incrementally
+    - Connect to Snowflake: snowflake-tutorial
     - Active learning: active-learning
-
+    - Link Intrusion Detection Systems to Open-Source INTelligence: tutorial-how-to-link-ids-to-osint
+    - Project and Global Varibles: di-variables

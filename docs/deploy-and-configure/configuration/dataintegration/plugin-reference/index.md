@@ -254,8 +254,6 @@ The identifier for this plugin is `SparkFunction`.
 
 It can be found in the package `com.eccenca.di.spark.operator`.
 
-
-
 #### Evaluate template
 
 Evaluates a template on a sequence of entities. Can be used after a transformation or directly after datasets that output a single table, such as CSV or Excel. For each input entity, a output entity is generated that provides a single output attribute, which contains the evaluated template.
@@ -275,8 +273,9 @@ It can be found in the package `com.eccenca.di.templating.operators`.
 The template operator supports the Jinja templating language. Documentation about Jinja can be found in the official [Template Designer Documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/).
 
 Currently, the template operator does have the following limitations:
-- As Jinja does not support special characters, such as colons, in variable names, RDF properties cannot be accessed. For this reason, the transformation that precedes the template operator needs to make sure that it generates attributes that are valid Jinja variable names.
-- Accessing nested paths is not supported. If the preceding transformation contains hierarchical mappings, only the attributes from the root mapping can be accessed.
+
+-   As Jinja does not support special characters, such as colons, in variable names, RDF properties cannot be accessed. For this reason, the transformation that precedes the template operator needs to make sure that it generates attributes that are valid Jinja variable names.
+-   Accessing nested paths is not supported. If the preceding transformation contains hierarchical mappings, only the attributes from the root mapping can be accessed.
 
 #### Unpivot
 

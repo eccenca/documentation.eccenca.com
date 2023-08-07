@@ -133,10 +133,14 @@ With this command, the password of a user account can be changed. The default ex
 ??? info "Options"
     ```text
 
-    --value TEXT  With this option, the new password can be set in a non-
-                  interactive way.
+    --value TEXT      With this option, the new password can be set in a non-
+                      interactive way.
   
-    --temporary   If enabled, the user must change the password on next login.
+    --temporary       If enabled, the user must change the password on next
+                      login.
+  
+    --request-change  If enabled, will send a email to user to reset the
+                      password.
     ```
 
 ## admin user open

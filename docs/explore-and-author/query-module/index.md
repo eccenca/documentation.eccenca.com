@@ -20,10 +20,9 @@ The catalog lists all existing SPARQL queries including name, type and descripti
 
 Use the **:eccenca-operation-search: Search** bar in order to look for a specific query.
 
-![](./Queries.png)
+![](Queries.png){ class="bordered" }
 
-Select the query from the Queries catalog, to open and load the query. 
-
+Select the query from the Queries catalog, to open and load the query.
 
 ## Query editor
 
@@ -35,7 +34,7 @@ The query editor features SPARQL syntax highlighting and SPARQL validation, allo
 
 The Query editor allows to Run query, Download Results, Delete, Save and Save as Queries.
 
-![](./QueryEditor.png)
+![](./QueryEditor.png){ class="bordered" }
 
 ### Run a query
 
@@ -44,9 +43,9 @@ The results are presented as a table with pagination.
 
 ### Export results
 
-To export the full set of results without any limits in form of a CSV file click **:eccenca-item-download: Download result** on the top right. 
+To export the full set of results without any limits in form of a CSV file click **:eccenca-item-download: Download result** on the top right.
 
-![](./QueriesResults.png)
+![](./QueriesResults.png){ class="bordered" }
 
 !!! info
 
@@ -58,7 +57,6 @@ To export the full set of results without any limits in form of a CSV file click
 To save a query in the Query catalog click **:material-floppy: Save**.
 This opens a dialog that allows you to overwrite the existing query.
 
-
 ### Placeholders
 
 In addition to the standard SPARQL syntax, placeholders can be used to parametrize a query.
@@ -67,7 +65,7 @@ Multiple placeholders can be defined by changing the name inside the brackets.
 
 When a query contains a placeholder, the placeholder list to the right of the query editor shows a field with its name.
 
-![](./placeholder.png)
+![](./placeholder.png){ class="bordered" }
 
 When running a query that contains placeholders, the query editor replaces the `{{placeholdername}}` string in the query with the respective string entered into the placeholder list.
 This is a direct string replacement, so placeholders can contain simple strings and literal values, URIs, variables or even sub queries.
@@ -86,4 +84,3 @@ When you enter `Person` into the `class` placeholder field in the placeholde
 ```sparql
 SELECT * WHERE { ?classInstance a <http://dbpedia.org/ontology/Person> .}
 ```
-

@@ -16,16 +16,16 @@ This is especially needed if you want to use cmemc in orchestrations.
 
 The following image - tag combinations are available for public use:
 
-- `docker-registry.eccenca.com/eccenca-cmemc:v22.1` - a specific release
+- `docker-registry.eccenca.com/eccenca-cmemc:v23.2` - a specific release
 - `docker-registry.eccenca.com/eccenca-cmemc:latest` - same as the latest release
 
 ``` shell-session title="Image retrieval and check cmemc version"
-$ docker run -it --rm docker-registry.eccenca.com/eccenca-cmemc:v22.1 --version
-Unable to find image 'docker-registry.eccenca.com/eccenca-cmemc:v22.1' locally
-v22.1: Pulling from eccenca-cmemc
-Digest: sha256:29bdd320e02f1b7758df22528740964225b62530c73c773a55c36c0e9e18b647
-Status: Downloaded newer image for docker-registry.eccenca.com/eccenca-cmemc:v22.1
-cmemc, version v22.1.1, running under python 3.9.13
+$ docker run -it --rm docker-registry.eccenca.com/eccenca-cmemc:v23.2 --version
+Unable to find image 'docker-registry.eccenca.com/eccenca-cmemc:v23.2' locally
+v23.2: Pulling from eccenca-cmemc
+Digest: sha256:....
+Status: Downloaded newer image for docker-registry.eccenca.com/eccenca-cmemc:v23.2
+cmemc, version v23.2 running under python 3.11.4
 ```
 
 ## Volumes

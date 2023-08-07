@@ -20,6 +20,9 @@ tags:
 | ------------: | :------ | :---------- |
 | [admin](admin/index.md) | [status](admin/index.md#admin-status) | Output health and version information. |
 | [admin](admin/index.md) | [token](admin/index.md#admin-token) | Fetch and output an access token. |
+| [admin client](admin/client/index.md) | [list](admin/client/index.md#admin-client-list) | List client accounts. |
+| [admin client](admin/client/index.md) | [secret](admin/client/index.md#admin-client-secret) | Get or generate a new secret for a client account. |
+| [admin client](admin/client/index.md) | [open](admin/client/index.md#admin-client-open) | Open clients in the browser. |
 | [admin metrics](admin/metrics/index.md) | [get](admin/metrics/index.md#admin-metrics-get) | Get sample data of a metric. |
 | [admin metrics](admin/metrics/index.md) | [inspect](admin/metrics/index.md#admin-metrics-inspect) | Inspect a metric. |
 | [admin metrics](admin/metrics/index.md) | [list](admin/metrics/index.md#admin-metrics-list) | List metrics for a specific job. |
