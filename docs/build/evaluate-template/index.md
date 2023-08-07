@@ -53,6 +53,7 @@ The tutorial consists of the following steps, which are described in detail belo
 ## 1 Upload the Company Graph
 
 !!! info
+
     The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
 
 1. In Corporate Memory, click **Knowledge Graphs** in the navigation under **Explore** on the left side of the page.
@@ -164,7 +165,8 @@ The tutorial consists of the following steps, which are described in detail belo
 
 ## 5 Create an Evaluate Template Task Item
 
-!!! Info
+!!! info
+
     The Jinja template in this item acts as the template for our email message.
 
 1. Click **Create** at the top of the page.
