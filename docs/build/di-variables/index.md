@@ -18,11 +18,11 @@ They can be used in most Build configuration and input fields that take inputs o
 
 Two kinds of variables can be defined:
 
-`Global variables`
+**Global variables** 
 
 :   It is defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
 
-`Project variables (User-defined)`
+**Project variables (User-defined)** 
 
 :   It is defined by the user in the UI.
     Project variables can only be used in the same project.
