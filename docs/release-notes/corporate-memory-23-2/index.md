@@ -7,7 +7,9 @@ tags:
 
 Corporate Memory 23.2 is the second major release in 2023.
 
-... images ...
+![23.2: Build - Project Variables](23-2-build-project-variables.png "23.2: Build - Project Variables"){ class="bordered" }
+![23.2: Explore - Easynav Graph Selection](23-2-easynav-graph-select.png "23.2: Explore - Easynav Graph Selection"){ class="bordered" }
+![23.2: Explore - Easynav Node Autolayout](23-2-easynav-autolayout.gif "23.2: Explore - Easynav Node Autolayout"){ class="bordered" }
 
 The highlights of this release are:
 
