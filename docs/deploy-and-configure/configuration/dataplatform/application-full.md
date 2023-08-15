@@ -974,6 +974,16 @@ Use this property to set the TCP port where the embedded server is available.
 | Valid values | integer |
 | Environment | SERVER_PORT |
 
+***Property: server.error.include-stacktrace***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | NEVER |
+| Required | false |
+| Valid values | string |
+| Environment | SERVER_ERROR_INCLUDE_STACKTRACE |
+
 ***Property: server.servlet.contextPath***
 
 Use this property to define the context path under which DataPlatform is available. If this property is provided, use a leading slash.
@@ -992,7 +1002,7 @@ Tomcat servlet settings
 
 | Category | Value |
 |--- | ---: |
-| Default | none |
+| Default | Lax |
 | Required | false |
 | Valid values | string |
 | Environment | SERVER_SERVLET_SESSION_COOKIE_SAME_SITE |
