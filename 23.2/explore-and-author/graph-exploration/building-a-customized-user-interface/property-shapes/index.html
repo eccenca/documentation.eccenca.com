@@ -11556,10 +11556,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#query-on-delete-update" class="md-nav__link">
+  <a href="#on-delete-update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Query: On delete update
+        On delete update
       
     </span>
   </a>
@@ -11723,10 +11723,10 @@ They are used to specify constraints and UI options that need to be met in the 
 <p>The node shape this property shape belongs to.</p>
 <p>Used Path: <code>shacl:property</code></p>
 <h3 id="path">Path<a class="headerlink" href="#path" title="Permanent link">¤</a></h3>
-<p>The datatype or object property used in this shape.</p>
+<p>The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Easynav, this path can always be used for exploration.</p>
 <p>Used Path: <code>shacl:path</code></p>
 <h3 id="node-kind">Node kind<a class="headerlink" href="#node-kind" title="Permanent link">¤</a></h3>
-<p>Type of the node.</p>
+<p>The type of the linked nodes. In Easynav, if these nodes are literals, they cannot be explored, but will be shown as metadata.</p>
 <p>Used Path: <code>shacl:nodeKind</code></p>
 <h3 id="min-count">Min count<a class="headerlink" href="#min-count" title="Permanent link">¤</a></h3>
 <p>Min cardinality, 0 will show this property under optionals unless &lsquo;Show always = true&rsquo;</p>
@@ -11763,7 +11763,7 @@ They are used to specify constraints and UI options that need to be met in the 
 <p>In this group, all shape properties are managed, which only have effects on object properties.</p>
 </div>
 <h3 id="class">Class<a class="headerlink" href="#class" title="Permanent link">¤</a></h3>
-<p>Class of the connected IRI if nodeKind == sh:IRI.</p>
+<p>Class of the connected IRI if its nodeKind is sh:IRI. In Easynav, any new node that a user creates by means of this property shape, will be an instance this class.</p>
 <p>Used Path: <code>shacl:class</code></p>
 <h3 id="query-selectable-resources">Query: Selectable Resources<a class="headerlink" href="#query-selectable-resources" title="Permanent link">¤</a></h3>
 <p>This query allows for listing selectable resources in the dropdown list for this property shape.</p>
@@ -11775,7 +11775,7 @@ They are used to specify constraints and UI options that need to be met in the 
 <p>A value of true disables the option to create new resources.</p>
 <p>Used Path: <code>shui:denyNewResources</code></p>
 <h3 id="node-shape">Node shape<a class="headerlink" href="#node-shape" title="Permanent link">¤</a></h3>
-<p>The shape of the linked resource.</p>
+<p>This shape will be used to create an embedded view of the linked resource.</p>
 <p>Used Path: <code>shacl:node</code></p>
 <h2 id="processing">Processing<a class="headerlink" href="#processing" title="Permanent link">¤</a></h2>
 <div class="admonition info">
@@ -11797,12 +11797,11 @@ They are used to specify constraints and UI options that need to be met in the 
 <li><code>{{shuiGraph}}</code> - the currently used graph.</li>
 </ul>
 <p>Used Path: <code>shui:onInsertUpdate</code></p>
-<h3 id="query-on-delete-update">Query: On delete update<a class="headerlink" href="#query-on-delete-update" title="Permanent link">¤</a></h3>
-<p>This query is executed when a value is changed or removed.</p>
+<h3 id="on-delete-update">On delete update<a class="headerlink" href="#on-delete-update" title="Permanent link">¤</a></h3>
+<p>A query which is executed when the resource the node shape applies to gets deleted.</p>
 <p>The following placeholder can be used in the query text of the SPARQL query:</p>
 <ul>
 <li><code>{{shuiMainResource}}</code> - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;</li>
-<li><code>{{shuiResource}}</code> - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;</li>
 <li><code>{{shuiGraph}}</code> - the currently used graph.</li>
 </ul>
 <p>Used Path: <code>shui:onDeleteUpdate</code></p>
@@ -11835,7 +11834,7 @@ They are used to specify constraints and UI options that need to be met in the 
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-23T13:35:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-15T17:58:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-15</span>
       </span>
     
     
