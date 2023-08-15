@@ -122,7 +122,7 @@ Used Path: `shacl:property`
 ### Path
 
 
-The datatype or object property used in this shape.
+The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Easynav, this path can always be used for exploration.
 
 Used Path: `shacl:path`
 
@@ -130,7 +130,7 @@ Used Path: `shacl:path`
 ### Node kind
 
 
-Type of the node.
+The type of the linked nodes. In Easynav, if these nodes are literals, they cannot be explored, but will be shown as metadata.
 
 Used Path: `shacl:nodeKind`
 
@@ -212,7 +212,7 @@ Used Path: `shacl:uniqueLang`
 ### Class
 
 
-Class of the connected IRI if nodeKind == sh:IRI.
+Class of the connected IRI if its nodeKind is sh:IRI. In Easynav, any new node that a user creates by means of this property shape, will be an instance this class.
 
 Used Path: `shacl:class`
 
@@ -244,7 +244,7 @@ Used Path: `shui:denyNewResources`
 ### Node shape
 
 
-The shape of the linked resource.
+This shape will be used to create an embedded view of the linked resource.
 
 Used Path: `shacl:node`
 
@@ -285,15 +285,14 @@ The following placeholder can be used in the query text of the SPARQL query:
 Used Path: `shui:onInsertUpdate`
 
 
-### Query: On delete update
+### On delete update
 
 
-This query is executed when a value is changed or removed.
+A query which is executed when the resource the node shape applies to gets deleted.
 
 The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
-- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
 - `{{shuiGraph}}` - the currently used graph.
     
 

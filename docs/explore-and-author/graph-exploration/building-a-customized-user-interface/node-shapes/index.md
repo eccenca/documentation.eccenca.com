@@ -51,6 +51,18 @@ This property links a node shape to an image in order to use this image when sho
 
 Used Path: `http://xmlns.com/foaf/0.1/depiction`
 
+
+### Order
+
+
+Specifies the order of this node shape.
+
+This property is used for the drop-down list in the shaped resource view as well as for priorising depictions and update queries.
+It is only relevant in case multiple node shapes are on the same level in the shape hierarchy (which is based on the rdfs:subClassOf relationship).
+
+
+Used Path: `shacl:order`
+
 ## Vocabulary
 
 !!! info
@@ -82,6 +94,20 @@ Used Path: `shacl:targetClass`
 A compact sequence of characters for describing a range of URIs through variable expansion.
 
 Used Path: `shui:uriTemplate`
+
+
+### On delete update
+
+
+A query which is executed when the resource the node shape applies to gets deleted.
+
+The following placeholder can be used in the query text of the SPARQL query:
+
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
+- `{{shuiGraph}}` - the currently used graph.
+    
+
+Used Path: `shui:onDeleteUpdate`
 
 
 ### On update update
