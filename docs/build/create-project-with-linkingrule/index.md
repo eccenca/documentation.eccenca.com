@@ -29,6 +29,7 @@ The documentation consists of the following steps described in detail below:
     -   [Compare the `title` of the movies](#compare-the-title-of-the-movies)
     -   [Linking evaluation](#linking-evaluation)
     -   [Use a filter](#use-a-filter)
+-   [6. Improving linking rule](#6-Improving-Linking-rule) 
 
 This tutorial shows how to connect two movie-related data sources and introduces some of Data-Integration’s fundamental functions.
 Sources of information are LinkedMDB, the linked data version of the IMDb movie database, and DBpedia, the linked data version of Wikipedia.
@@ -260,11 +261,15 @@ the initial rule should have the source and target paths for title and a string 
 
     ![image](22.2-comparison-save.png){ style="border: 1px solid #555; border-radius: 5px;" }
 
+-   Click on **Play button** to start evalution then click on **Save**.
+
+     ![image](evaluation.png)
+
    !!! Step Result
 
-                The links are executed and shows the counts of the link in each source.
+                The links are executed and it shows the values in the boxes as shown below.
               
-                ![image](execution.png)
+                ![image](evaluation-r.png)
 
 ### Linking evaluation
 
@@ -312,7 +317,7 @@ the initial rule should have the source and target paths for title and a string 
 
     Let’s consider the movie name as shaft type **shaft** in the filter it shows the links with the shaft movie names from both files.
 
-    ![image](shaft-search.png)
+    ![image](shaft-n.png)
 
     Cross-checking in the `dbpedia.csv` and `linkedmdb.csv` data sheet.
 
