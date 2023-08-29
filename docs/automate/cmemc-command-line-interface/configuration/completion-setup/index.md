@@ -23,13 +23,13 @@ We suggest using [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take ad
 In order to enable tab completion with **zsh** run the following command:
 
 ``` shell-session title="completion setup for zsh"
-$ eval "$(_CMEMC_COMPLETE=source_zsh cmemc)"
+$ eval "$(_CMEMC_COMPLETE=zsh_source cmemc)"
 ```
 
 In order to enable tab completion with **bash** run the following command:
 
 ``` shell-session title="completion setup for bash"
-$ eval "$(_CMEMC_COMPLETE=source cmemc)"
+$ eval "$(_CMEMC_COMPLETE=bash_source cmemc)"
 ```
 
 You may want to add this line to your `.bashrc` or `.zshrc`.
