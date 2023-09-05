@@ -41,11 +41,11 @@ We're excited to bring you the latest update to DataIntegration v23.2, featuring
 
 v23.2.1 of eccenca DataIntegration ships the following improvements and fixes:
 
-- Added overview listing all available keyboard shortcuts, available by `?` key, or from the user menu.
-- Improved vocabulary (needs to be installed separately).
-- The file API will set the content type based on the file extension.
-    - For instance, for a file ending in `.json` the `Content-Type` header will be set to `application/json`
-- Upgraded several libraries to fix vulnerabilities.
+-   Added overview listing all available keyboard shortcuts, available by `?` key, or from the user menu.
+-   Improved vocabulary (needs to be installed separately).
+-   The file API will set the content type based on the file extension:
+    -   For instance, for a file ending in `.json` the `Content-Type` header will be set to `application/json`.
+-   Upgraded several libraries to fix vulnerabilities.
 
 v23.2 of eccenca DataIntegration adds the following new features:
 
@@ -170,7 +170,7 @@ We're excited to bring you the latest update to DataPlatform v23.2, featuring nu
 
 v23.2.1 of eccenca DataPlatform ships following fixes:
 
--   Bootstrap Data: Removed unneeded DataIntegration vocabulary from shape catalog
+-   Bootstrap Data: Removed obsolete DataIntegration vocabulary from shape catalog
 
 v23.2 of eccenca DataPlatform adds the following new features:
 
