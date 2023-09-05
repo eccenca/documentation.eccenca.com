@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.2
+# Corporate Memory 23.2.1
 
-Corporate Memory 23.2 is the second major release in 2023.
+Corporate Memory 23.2.1 is the first patch release in the 23.2 release line.
 
 ![23.2: Build - Project Variables](23-2-build-project-variables.png "23.2: Build - Project Variables"){ class="bordered" }
 ![23.2: Explore - Easynav Graph Selection](23-2-easynav-graph-select.png "23.2: Explore - Easynav Graph Selection"){ class="bordered" }
@@ -27,17 +27,25 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.2
--   eccenca DataIntegration v23.2
+-   eccenca DataPlatform v23.2.1
+-   eccenca DataIntegration v23.2.1
 -   eccenca DataIntegration Python Plugins v4.1.0
 -   eccenca DataManager v23.2
 -   eccenca Corporate Memory Control (cmemc) v23.2
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.2
+## eccenca DataIntegration v23.2.1
 
 We're excited to bring you the latest update to DataIntegration v23.2, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.2.1 of eccenca DataIntegration ships the following improvements and fixes:
+
+-   Added overview listing all available keyboard shortcuts, available by `?` key, or from the user menu.
+-   Improved vocabulary (needs to be installed separately).
+-   The file API will set the content type based on the file extension:
+    -   For instance, for a file ending in `.json` the `Content-Type` header will be set to `application/json`.
+-   Upgraded several libraries to fix vulnerabilities.
 
 v23.2 of eccenca DataIntegration adds the following new features:
 
@@ -156,9 +164,13 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message shows when trying to upload broken file to the graph (CMEM-4704).
 -   Fixed error with lost graph list tabs on workspace switch (CMEM-5087).
 
-## eccenca DataPlatform v23.2
+## eccenca DataPlatform v23.2.1
 
 We're excited to bring you the latest update to DataPlatform v23.2, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.2.1 of eccenca DataPlatform ships following fixes:
+
+-   Bootstrap Data: Removed obsolete DataIntegration vocabulary from shape catalog
 
 v23.2 of eccenca DataPlatform adds the following new features:
 
