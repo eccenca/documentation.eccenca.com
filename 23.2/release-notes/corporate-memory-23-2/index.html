@@ -25,7 +25,7 @@
     
     
       
-        <title>Corporate Memory 23.2 - documentation.eccenca.com</title>
+        <title>Corporate Memory 23.2.1 - documentation.eccenca.com</title>
       
     
     
@@ -257,7 +257,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Corporate Memory 23.2 - documentation.eccenca.com" >
+        <meta  property="og:title"  content="Corporate Memory 23.2.1 - documentation.eccenca.com" >
       
         <meta  property="og:description"  content="None" >
       
@@ -273,7 +273,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Corporate Memory 23.2 - documentation.eccenca.com" >
+        <meta  name="twitter:title"  content="Corporate Memory 23.2.1 - documentation.eccenca.com" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -311,7 +311,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#corporate-memory-232" class="md-skip">
+        <a href="#corporate-memory-2321" class="md-skip">
           Skip to content
         </a>
       
@@ -401,7 +401,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Corporate Memory 23.2
+              Corporate Memory 23.2.1
             
           </span>
         </div>
@@ -11155,10 +11155,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#eccenca-dataintegration-v232" class="md-nav__link">
+  <a href="#eccenca-dataintegration-v2321" class="md-nav__link">
     <span class="md-ellipsis">
       
-        eccenca DataIntegration v23.2
+        eccenca DataIntegration v23.2.1
       
     </span>
   </a>
@@ -11188,10 +11188,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#eccenca-dataplatform-v232" class="md-nav__link">
+  <a href="#eccenca-dataplatform-v2321" class="md-nav__link">
     <span class="md-ellipsis">
       
-        eccenca DataPlatform v23.2
+        eccenca DataPlatform v23.2.1
       
     </span>
   </a>
@@ -11256,8 +11256,8 @@
   
 
 
-<h1 id="corporate-memory-232">Corporate Memory 23.2<a class="headerlink" href="#corporate-memory-232" title="Permanent link">¤</a></h1>
-<p>Corporate Memory 23.2 is the second major release in 2023.</p>
+<h1 id="corporate-memory-2321">Corporate Memory 23.2.1<a class="headerlink" href="#corporate-memory-2321" title="Permanent link">¤</a></h1>
+<p>Corporate Memory 23.2.1 is the first patch release in the 23.2 release line.</p>
 <p><a class="glightbox" href="23-2-build-project-variables.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="23.2: Build - Project Variables" class="bordered" src="23-2-build-project-variables.png" title="23.2: Build - Project Variables" /></a>
 <a class="glightbox" href="23-2-easynav-graph-select.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="23.2: Explore - Easynav Graph Selection" class="bordered" src="23-2-easynav-graph-select.png" title="23.2: Explore - Easynav Graph Selection" /></a>
 <a class="glightbox" href="23-2-easynav-autolayout.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="23.2: Explore - Easynav Node Autolayout" class="bordered" src="23-2-easynav-autolayout.gif" title="23.2: Explore - Easynav Node Autolayout" /></a></p>
@@ -11285,15 +11285,25 @@
 </ul>
 <p>This release delivers the following component versions:</p>
 <ul>
-<li>eccenca DataPlatform v23.2</li>
-<li>eccenca DataIntegration v23.2</li>
+<li>eccenca DataPlatform v23.2.1</li>
+<li>eccenca DataIntegration v23.2.1</li>
 <li>eccenca DataIntegration Python Plugins v4.1.0</li>
 <li>eccenca DataManager v23.2</li>
 <li>eccenca Corporate Memory Control (cmemc) v23.2</li>
 </ul>
 <p>More detailed release notes for these versions are listed below.</p>
-<h2 id="eccenca-dataintegration-v232">eccenca DataIntegration v23.2<a class="headerlink" href="#eccenca-dataintegration-v232" title="Permanent link">¤</a></h2>
+<h2 id="eccenca-dataintegration-v2321">eccenca DataIntegration v23.2.1<a class="headerlink" href="#eccenca-dataintegration-v2321" title="Permanent link">¤</a></h2>
 <p>We&rsquo;re excited to bring you the latest update to DataIntegration v23.2, featuring numerous enhancements, bug fixes, and deprecations.</p>
+<p>v23.2.1 of eccenca DataIntegration ships the following improvements and fixes:</p>
+<ul>
+<li>Added overview listing all available keyboard shortcuts, available by <code>?</code> key, or from the user menu.</li>
+<li>Improved vocabulary (needs to be installed separately).</li>
+<li>The file API will set the content type based on the file extension:<ul>
+<li>For instance, for a file ending in <code>.json</code> the <code>Content-Type</code> header will be set to <code>application/json</code>.</li>
+</ul>
+</li>
+<li>Upgraded several libraries to fix vulnerabilities.</li>
+</ul>
 <p>v23.2 of eccenca DataIntegration adds the following new features:</p>
 <ul>
 <li>User-defined project variables:<ul>
@@ -11437,8 +11447,12 @@
 <li>Error message shows when trying to upload broken file to the graph (CMEM-4704).</li>
 <li>Fixed error with lost graph list tabs on workspace switch (CMEM-5087).</li>
 </ul>
-<h2 id="eccenca-dataplatform-v232">eccenca DataPlatform v23.2<a class="headerlink" href="#eccenca-dataplatform-v232" title="Permanent link">¤</a></h2>
+<h2 id="eccenca-dataplatform-v2321">eccenca DataPlatform v23.2.1<a class="headerlink" href="#eccenca-dataplatform-v2321" title="Permanent link">¤</a></h2>
 <p>We&rsquo;re excited to bring you the latest update to DataPlatform v23.2, featuring numerous enhancements, bug fixes, and deprecations.</p>
+<p>v23.2.1 of eccenca DataPlatform ships following fixes:</p>
+<ul>
+<li>Bootstrap Data: Removed obsolete DataIntegration vocabulary from shape catalog</li>
+</ul>
 <p>v23.2 of eccenca DataPlatform adds the following new features:</p>
 <ul>
 <li>Bootstrap Data: allow <code>sh:order</code> for <code>sh:NodesShape</code>.</li>
@@ -11528,7 +11542,7 @@ I.e. projects created with DataIntegration v23.1 can be imported into DataIntegr
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-11T11:28:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-11</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-05T09:33:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-05</span>
       </span>
     
     
