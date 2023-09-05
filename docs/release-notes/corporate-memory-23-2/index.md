@@ -28,16 +28,24 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.2
--   eccenca DataIntegration v23.2
+-   eccenca DataIntegration v23.2.1
 -   eccenca DataIntegration Python Plugins v4.1.0
 -   eccenca DataManager v23.2
 -   eccenca Corporate Memory Control (cmemc) v23.2
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.2
+## eccenca DataIntegration v23.2.1
 
 We're excited to bring you the latest update to DataIntegration v23.2, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.2.1 of eccenca DataIntegration ships the following improvements and fixes:
+
+- Added overview listing all available keyboard shortcuts, available by `?` key, or from the user menu.
+- Improved vocabulary (needs to be installed separately).
+- The file API will set the content type based on the file extension.
+    - For instance, for a file ending in `.json` the `Content-Type` header will be set to `application/json`
+- Upgraded several libraries to fix vulnerabilities.
 
 v23.2 of eccenca DataIntegration adds the following new features:
 
