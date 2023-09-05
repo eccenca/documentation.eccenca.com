@@ -27,7 +27,7 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.2
+-   eccenca DataPlatform v23.2.1
 -   eccenca DataIntegration v23.2.1
 -   eccenca DataIntegration Python Plugins v4.1.0
 -   eccenca DataManager v23.2
@@ -164,9 +164,13 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message shows when trying to upload broken file to the graph (CMEM-4704).
 -   Fixed error with lost graph list tabs on workspace switch (CMEM-5087).
 
-## eccenca DataPlatform v23.2
+## eccenca DataPlatform v23.2.1
 
 We're excited to bring you the latest update to DataPlatform v23.2, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.2.1 of eccenca DataPlatform ships following fixes:
+
+-   Bootstrap Data: Removed unneeded DataIntegration vocabulary from shape catalog
 
 v23.2 of eccenca DataPlatform adds the following new features:
 
