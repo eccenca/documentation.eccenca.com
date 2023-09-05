@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.2
+# Corporate Memory 23.2.1
 
-Corporate Memory 23.2 is the second major release in 2023.
+Corporate Memory 23.2.1 is the first patch release in the 23.2 release line.
 
 ![23.2: Build - Project Variables](23-2-build-project-variables.png "23.2: Build - Project Variables"){ class="bordered" }
 ![23.2: Explore - Easynav Graph Selection](23-2-easynav-graph-select.png "23.2: Explore - Easynav Graph Selection"){ class="bordered" }
