@@ -6,9 +6,9 @@ MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and te
 
 The MITRE ATT&CK datasets in STIX 2.1 JSON collections are here:
 
-*   [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json)
-*   [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json)
-*   [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json)
+*   [enterprise-attack.json](https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json){target=_blank}
+*   [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json){target=_blank}
+*   [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json){target=_blank}
 
 [Structured Threat Information Expression (STIX™)](
 https://oasis-open.github.io/cti-documentation/stix/intro.html) is a language and serialization format used to exchange cyber threat intelligence (CTI).
@@ -326,7 +326,7 @@ ctia:Reference object has these properties:
 !!! Tip
 
     Sometimes, several urls are not correct. You can use the component "Fix URI" to fix the classic problems.
-    
+
     ![](23-2-fix-url.png)
 
 !!! Warning

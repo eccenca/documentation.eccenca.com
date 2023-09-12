@@ -178,4 +178,4 @@ Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTellig
 
 Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
 
-Previous chapter: [Specify the dashboards of use cases before the RDF models](../define-the-interfaces/index.md)
+Previous chapter: [Define the need, the expected result and the use cases](../define-the-need/index.md)

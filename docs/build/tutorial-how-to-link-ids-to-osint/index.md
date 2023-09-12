@@ -42,3 +42,6 @@ eccenca will offer an online sandbox running an instance of Corporate Memory.
 You can also install Corporate Memory Control ([cmemc](https://eccenca.com/go/cmemc)) on your computer to test the example of bash scripts in this tutorial.
 For the part "Link IDS event to a knowledge graph in dashboards", you need to have a Splunk instance where you can install the Splunk apps of this tutorial.
 
+---
+
+Next chapter: [Define the need, the expected result and the use cases](./define-the-need/index.md)
