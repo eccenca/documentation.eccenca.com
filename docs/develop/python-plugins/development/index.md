@@ -238,9 +238,35 @@ In addition to concrete parameter types, the base package offers some special ty
 
 #### Password ParameterType
 
-[`PasswordParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/dataset.py) is a parameter type that can be used in plugins to handle password strings. When a `password` is entered by a user, this parameter type will encrypt and store the password so that it cannot be viewed by the user or stored in plain text. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L293)
+[`PasswordParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py) is a parameter type that can be used in plugins to handle password strings. When a `password` is entered by a user, this parameter type will encrypt and store the password so that it cannot be viewed by the user or stored in plain text. [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L293)
 
 These are some examples of special type parameters, and you can find more for your plugin development [here](https://github.com/eccenca/cmem-plugin-base/tree/main/cmem_plugin_base/dataintegration/parameter).
+
+#### Code ParameterTypes
+
+[`CodeParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/code.py) supports various different code languages.
+
+Currently, the following types are supported:
+
+- `JinjaCode`: Jinja 2 templates
+- `JsonCode`: JSON
+- `XmlCode`: XML
+- `SparqlCode`: SPARQL queries
+- `SqlCode`: SQL queries
+- `YamlCode`: YAML configuration
+
+The simplest way to employ a code type is to annotate the respective parameter in the constructor:
+
+!!! Example "Example Jinja code parameter"
+
+    ```python
+    @Plugin(label="Code test plugin")
+    class TransformTestPlugin(TransformPlugin):
+
+        def __init__(self, jinja: JinjaCode = JinjaCode("default template"):
+            self.jinja = jinja
+
+If a plugin with a code parameter is created or edited in the UI, a code editor with syntax highlighting will be shown to the user.
 
 ### AutoComplete Method
 
@@ -340,7 +366,7 @@ SystemContext can be used to obtain important system information. It has three m
 !!! Example
 
     -   [Password Parameter Type](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/password.py#LL10C6-L10C6): it is used to decrypt an encrypted password value.
-        
+
     -   [Example](https://github.com/eccenca/cmem-plugin-kaggle/blob/main/cmem_plugin_kaggle/kaggle_import.py#L381) of decrypting the key.
 
 ### User Context
