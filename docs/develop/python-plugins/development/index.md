@@ -250,21 +250,24 @@ Currently, the following types are supported:
 
 - `JinjaCode`: Jinja 2 templates
 - `JsonCode`: JSON
-- `XmlCode`: XML
+- `PythonCode`: Python
 - `SparqlCode`: SPARQL queries
 - `SqlCode`: SQL queries
+- `TurtleCode`: Turtle
+- `XmlCode`: XML
 - `YamlCode`: YAML configuration
 
 The simplest way to employ a code type is to annotate the respective parameter in the constructor:
 
 !!! Example "Example Jinja code parameter"
 
-    ```python
+    ``` python
     @Plugin(label="Code test plugin")
     class TransformTestPlugin(TransformPlugin):
 
         def __init__(self, jinja: JinjaCode = JinjaCode("default template"):
             self.jinja = jinja
+    ```
 
 If a plugin with a code parameter is created or edited in the UI, a code editor with syntax highlighting will be shown to the user.
 
