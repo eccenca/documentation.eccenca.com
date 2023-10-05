@@ -87,7 +87,6 @@ $ cmemc graph list [OPTIONS]
     --id-only                  Lists only graph identifier (IRIs) and no labels
                                or other metadata. This is useful for piping the
                                IRIs into other commands.
-  
     --filter <CHOICE TEXT>...  Filter graphs based on effective access
                                conditions or import closure. First parameter
                                CHOICE can be 'access' or 'imported-by'. The
@@ -118,12 +117,10 @@ In case of file export, data from all selected graphs will be concatenated in on
     --include-imports               Export selected graph(s) and all graphs
                                     which are imported from these selected
                                     graph(s).
-  
     --create-catalog                In addition to the .ttl and .graph files,
                                     cmemc will create an XML catalog file
                                     (catalog-v001.xml) which can be used by
                                     applications such as Protégé.
-  
     --output-dir DIRECTORY          Export to this directory.
     --output-file FILE              Export to this file.  [default: -]
     -t, --filename-template TEXT    Template for the export file name(s). Used
@@ -135,7 +132,6 @@ In case of file export, data from all selected graphs will be concatenated in on
                                     the current date as YYYY-MM-DD. The file
                                     suffix will be appended. Needed directories
                                     will be created.  [default: {{hash}}]
-  
     --mime-type [application/n-triples|text/turtle]
                                     Define the requested mime type  [default:
                                     application/n-triples]
@@ -183,7 +179,6 @@ If input is a file, content will be uploaded to IRI. If `--replace` is set, the 
 
     --replace        Replace / overwrite the graph - instead of just adding new
                      triples the graph.
-  
     --skip-existing  Skip importing a file if the target graph already exists in
                      the store. Note that the graph list is fetched once at the
                      beginning of the process, so that you can still add

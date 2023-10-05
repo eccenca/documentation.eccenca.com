@@ -90,16 +90,13 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
     -a, --all                     Export all projects.
     -o, --overwrite               Overwrite existing files. This is a dangerous
                                   option, so use it with care.
-  
     --output-dir DIRECTORY        The base directory, where the project files
                                   will be created. If this directory does not
                                   exist, it will be silently created.  [default:
                                   .]
-  
     --type TEXT                   Type of the exported project file(s). Use the
                                   --help-types option or tab completion to see a
                                   list of possible types.  [default: xmlZip]
-  
     -t, --filename-template TEXT  Template for the export file name(s). Possible
                                   placeholders are (Jinja2): {{id}} (the project
                                   ID), {{connection}} (from the --connection
@@ -107,7 +104,6 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
                                   YYYY-MM-DD). The file suffix will be appended.
                                   Needed directories will be created.  [default:
                                   {{date}}-{{connection}}-{{id}}.project]
-  
     --extract                     Export projects to a directory structure
                                   instead of a ZIP archive. Note that the
                                   --filename-template option is ignored here.
@@ -115,7 +111,6 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
                                   is created under the output directory. Also
                                   note that not all export types are
                                   extractable.
-  
     --help-types                  Lists all possible export types.
     ```
 
@@ -201,6 +196,12 @@ This command creates one or more new projects. Existing projects will not be ove
                                 when using the mapping suggestion of a
                                 transformation task. You need the task ID of the
                                 transformation task.
+    --label TEXT                Give the label of the project. You can give more
+                                than one label if you create more than one
+                                project.
+    --description TEXT          Give the description of the project. You can
+                                give more than one description if you create
+                                more than one project.
     ```
 
 ## project reload

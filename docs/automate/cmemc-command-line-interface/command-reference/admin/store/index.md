@@ -39,16 +39,14 @@ This command creates a showcase scenario of multiple graphs including integratio
     --scale INTEGER  The scale factor provides a way to set the target size of
                      the scenario. A value of 10 results in around 40k triples,
                      a value of 50 in around 350k triples.  [default: 10]
-  
     --create         Delete old showcase data if present and create new showcase
                      databased on the given scale factor.
-  
     --delete         Delete existing showcase data if present.
     ```
 
 ## admin store bootstrap
 
-Update/Import bootstrap data.
+Update/Import or remove bootstrap data.
 
 ```shell-session title="Usage"
 $ cmemc admin store bootstrap [OPTIONS]
@@ -57,10 +55,12 @@ $ cmemc admin store bootstrap [OPTIONS]
 
 
 
-This command imports the bootstrap data needed for managing shapes and configuration objects.
+Use ``--import`` to import the bootstrap data needed for managing shapes and configuration objects. This will remove the old data first.
+
+Use ``--remove`` to delete bootstrap data.
 
 !!! note
-    The command will first remove all existing bootstrap data (identified with the isSystemResource flag) and will then import the new data to the corresponding graphs (shape catalog, vocabulary catalog, configuration graph).
+    The removal of existing bootstrap data will search for resources which are flagged with the isSystemResource property.
 
 
 
@@ -69,7 +69,8 @@ This command imports the bootstrap data needed for managing shapes and configura
     ```text
 
     --import    Delete existing bootstrap data if present and import bootstrap
-                data which was delivered
+                data which was delivered with Corporate Memory.
+    --remove    Delete existing bootstrap data if present.
     ```
 
 ## admin store export

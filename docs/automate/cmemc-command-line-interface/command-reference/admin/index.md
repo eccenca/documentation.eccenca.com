@@ -46,20 +46,17 @@ $ cmemc config list | parallel --ctag cmemc -c {} admin status
                                    in the table, 'overall.healthy' with result
                                    in  UP in case all health flags are UP as
                                    well (otherwise DOWN).
-  
     --exit-1 [never|error|always]  Specify, when this command returns with exit
                                    code 1. Available options are 'never' (exit 0
                                    on errors and warnings), 'error' (exit 1 on
                                    errors, exit 0 on warnings), 'always' (exit 1
                                    on errors and warnings).  [default: never]
-  
     --enforce-table                A single value with --key will be returned as
                                    plain text instead of a table with one row
                                    and the header. This default behaviour allows
                                    for more easy integration with scripts. This
                                    flag enforces the use of tabular output, even
                                    for single row tables.
-  
     --raw                          Outputs combined raw JSON output of the
                                    health/info endpoints.
     ```
@@ -92,7 +89,6 @@ Please be aware that this command can reveal secrets which you might not want to
     --raw       Outputs raw JSON. Note that this option will always try to fetch
                 a new JSON token response. In case you are working with
                 OAUTH_GRANT_TYPE=prefetched_token, this may lead to an error.
-  
     --decode    Decode the access token and outputs the raw JSON. Note that the
                 access token is only decoded and esp. not validated.
     ```

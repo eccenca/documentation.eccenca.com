@@ -33,10 +33,8 @@ The file name is optional and will be generated with by the template if absent.
 
     -o, --overwrite               Overwrite existing files. This is a dangerous
                                   option, so use it with care.
-  
     --type TEXT                   Type of the exported workspace file.
                                   [default: xmlZip]
-  
     -t, --filename-template TEXT  Template for the export file name. Possible
                                   placeholders are (Jinja2): {{connection}}
                                   (from the --connection option) and {{date}}

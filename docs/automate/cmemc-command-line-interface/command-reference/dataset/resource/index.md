@@ -35,7 +35,6 @@ Outputs a table or a list of dataset resources (files).
     --id-only                Lists only resource names and no other metadata.
                              This is useful for piping the IDs into other
                              commands.
-  
     --filter <TEXT TEXT>...  Filter file resources based on metadata. First
                              parameter CHOICE can be one of ['project',
                              'regex']. The second parameter is based on CHOICE,
@@ -63,7 +62,6 @@ There are three selection mechanisms: with specific IDs, only those specified re
     --force                  Delete resource even if in use by a task.
     -a, --all                Delete all resources. This is a dangerous option,
                              so use it with care.
-  
     --filter <TEXT TEXT>...  Filter file resources based on metadata. First
                              parameter CHOICE can be one of ['project',
                              'regex']. The second parameter is based on CHOICE,

@@ -27,7 +27,7 @@ tags:
 | [admin metrics](admin/metrics/index.md) | [inspect](admin/metrics/index.md#admin-metrics-inspect) | Inspect a metric. |
 | [admin metrics](admin/metrics/index.md) | [list](admin/metrics/index.md#admin-metrics-list) | List metrics for a specific job. |
 | [admin store](admin/store/index.md) | [showcase](admin/store/index.md#admin-store-showcase) | Create showcase data. |
-| [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import bootstrap data. |
+| [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
@@ -40,9 +40,10 @@ tags:
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |
 | [admin workspace](admin/workspace/index.md) | [reload](admin/workspace/index.md#admin-workspace-reload) | Reload the workspace from the backend. |
 | [admin workspace python](admin/workspace/python/index.md) | [install](admin/workspace/python/index.md#admin-workspace-python-install) | Install a python package to the workspace. |
-| [admin workspace python](admin/workspace/python/index.md) | [uninstall](admin/workspace/python/index.md#admin-workspace-python-uninstall) | Uninstall a python package from the workspace. |
+| [admin workspace python](admin/workspace/python/index.md) | [uninstall](admin/workspace/python/index.md#admin-workspace-python-uninstall) | Uninstall a python packages from the workspace. |
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
 | [admin workspace python](admin/workspace/python/index.md) | [list-plugins](admin/workspace/python/index.md#admin-workspace-python-list-plugins) | List installed workspace plugins. |
+| [admin workspace python](admin/workspace/python/index.md) | [open](admin/workspace/python/index.md#admin-workspace-python-open) | Open a package pypi.org page in the browser. |
 | [config](config/index.md) | [list](config/index.md#config-list) | List configured connections. |
 | [config](config/index.md) | [edit](config/index.md#config-edit) | Edit the user-scope configuration file. |
 | [config](config/index.md) | [get](config/index.md#config-get) | Get the value of a known cmemc configuration key. |
@@ -54,6 +55,7 @@ tags:
 | [dataset](dataset/index.md) | [inspect](dataset/index.md#dataset-inspect) | Display metadata of a dataset. |
 | [dataset](dataset/index.md) | [create](dataset/index.md#dataset-create) | Create a dataset. |
 | [dataset](dataset/index.md) | [open](dataset/index.md#dataset-open) | Open datasets in the browser. |
+| [dataset](dataset/index.md) | [update](dataset/index.md#dataset-update) | Update a dataset. |
 | [dataset resource](dataset/resource/index.md) | [list](dataset/resource/index.md#dataset-resource-list) | List available file resources. |
 | [dataset resource](dataset/resource/index.md) | [delete](dataset/resource/index.md#dataset-resource-delete) | Delete file resources. |
 | [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
@@ -72,6 +74,11 @@ tags:
 | [project](project/index.md) | [delete](project/index.md#project-delete) | Delete projects. |
 | [project](project/index.md) | [create](project/index.md#project-create) | Create projects. |
 | [project](project/index.md) | [reload](project/index.md#project-reload) | Reload projects from the workspace provider. |
+| [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project variables. |
+| [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project variable. |
+| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete a project variable. |
+| [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
+| [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
 | [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |
 | [query](query/index.md) | [list](query/index.md#query-list) | List available queries from the catalog. |
 | [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of the query catalog in your browser. |

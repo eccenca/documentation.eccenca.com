@@ -10,6 +10,8 @@ tags:
 # admin client Command Group
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 List client accounts, get or generate client account secrets.
 
 This command group is an opinionated interface to the Keycloak realm of your Corporate Memory instance. In order to be able to use the commands in this group, the configured cmemc connection account needs to be equipped with the `manage-clients` role in the used realm.
@@ -26,6 +28,8 @@ List client accounts.
 ```shell-session title="Usage"
 $ cmemc admin client list [OPTIONS]
 ```
+
+
 
 
 
@@ -53,6 +57,8 @@ Get or generate a new secret for a client account.
 ```shell-session title="Usage"
 $ cmemc admin client secret [OPTIONS] CLIENT_ID
 ```
+
+
 
 
 

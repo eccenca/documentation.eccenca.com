@@ -56,6 +56,7 @@ extra:
     ExpertTutorial: expert
     Project: project
     Keycloak: keycloak
+    Variables: variables
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
@@ -176,6 +177,7 @@ theme:
       expert: material/list-status
       project: eccenca/artefact-project
       keycloak: material/openid
+      variables: material/variable-box
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky

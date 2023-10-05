@@ -49,11 +49,9 @@ Vocabularies are graphs (see `graph` command group) which consists of class and 
                                     no labels or other metadata. This is useful
                                     for piping the ids into other cmemc
                                     commands.
-  
     --filter [all|installed|installable]
                                     Filter list based on status.  [default:
                                     installed]
-  
     --raw                           Outputs raw JSON.
     ```
 
@@ -124,7 +122,6 @@ The uploaded ontology file is analysed locally in order to discover the named gr
                                 manually add a namespace prefix with this
                                 option. Example: --namespace ex
                                 https://example.org/
-  
     --replace                   Replace (overwrite) existing vocabulary, if
                                 present.
     ```

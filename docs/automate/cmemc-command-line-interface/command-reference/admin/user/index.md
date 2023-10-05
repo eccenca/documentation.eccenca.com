@@ -10,6 +10,8 @@ tags:
 # admin user Command Group
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 List, create, delete and modify user accounts.
 
 This command group is an opinionated interface to the Keycloak realm of your Corporate Memory instance. In order to be able to manage user data, the configured cmemc connection account needs to be equipped with the `manage-users` role in the used realm.
@@ -26,6 +28,8 @@ List user accounts.
 ```shell-session title="Usage"
 $ cmemc admin user list [OPTIONS]
 ```
+
+
 
 
 
@@ -53,6 +57,8 @@ $ cmemc admin user create USERNAME
 
 
 
+
+
 This command creates a new user account.
 
 !!! note
@@ -68,6 +74,8 @@ Update a user account.
 ```shell-session title="Usage"
 $ cmemc admin user update [OPTIONS] USERNAME
 ```
+
+
 
 
 
@@ -103,6 +111,8 @@ $ cmemc admin user delete USERNAME
 
 
 
+
+
 This command deletes a user account from a realm.
 
 !!! note
@@ -122,6 +132,8 @@ $ cmemc admin user password [OPTIONS] USERNAME
 
 
 
+
+
 With this command, the password of a user account can be changed. The default execution mode of this command is an interactive prompt which asks for the password (twice). In order automate password changes, you can use the ``--value`` option.
 
 !!! warning
@@ -135,10 +147,8 @@ With this command, the password of a user account can be changed. The default ex
 
     --value TEXT      With this option, the new password can be set in a non-
                       interactive way.
-  
     --temporary       If enabled, the user must change the password on next
                       login.
-  
     --request-change  If enabled, will send a email to user to reset the
                       password.
     ```

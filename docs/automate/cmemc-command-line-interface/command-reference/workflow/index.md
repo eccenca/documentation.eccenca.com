@@ -37,14 +37,14 @@ The optional `--wait` option starts the workflows in the same way, but also poll
     ```text
 
     -a, --all                       Execute all available workflows.
-    --wait                          Wait until all executed workflows are
-                                    completed.
-  
+    --wait                          Wait until workflows are completed.
+    --progress                      Wait until workflows are completed and show
+                                    a progress bar.
     --polling-interval INTEGER RANGE
                                     How many seconds to wait between status
                                     polls. Status polls are cheap, so a higher
                                     polling interval is most likely not needed.
-                                    [default: 1]
+                                    [default: 1; 0<=x<=60]
     ```
 
 ## workflow io
@@ -68,7 +68,6 @@ With this command, you can execute a workflow that uses variable datasets as inp
     -i, --input FILE                From which file the input is taken. If the
                                     workflow has no defined variable input
                                     dataset, this option is not allowed.
-  
     -o, --output FILE               To which file the result is written to. Use
                                     '-' in order to output the result to stdout.
                                     If the workflow has no defined variable
@@ -76,24 +75,21 @@ With this command, you can execute a workflow that uses variable datasets as inp
                                     Please note that the io command will not
                                     warn you on overwriting existing output
                                     files.
-  
     --input-mimetype [application/x-plugin-csv|application/x-plugin-json|application/xml|application/x-plugin-excel|application/octet-stream|application/x-plugin-multiCsv|text/plain|guess]
                                     Which input format should be processed: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
                                     fail.
-  
     --output-mimetype [application/x-plugin-csv|application/x-plugin-excel|application/n-triples|application/n-triples|application/x-plugin-json|application/xml|guess]
                                     Which output format should be requested: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
                                     fail. In case of an output to stdout, a
                                     default mime type will be used (JSON).
-  
     --autoconfig / --no-autoconfig  Setup auto configuration of input datasets,
                                     e.g. in order to process CSV files with
                                     semicolon- instead of comma-separation.
-                                    [default: True]
+                                    [default: autoconfig]
     ```
 
 ## workflow list
@@ -115,11 +111,9 @@ $ cmemc workflow list [OPTIONS]
                              --filter CHOICE can be one of ['io', 'project',
                              'regex', 'tag']. The second parameter is based on
                              CHOICE.
-  
     --id-only                Lists only workflow identifier and no labels or
                              other metadata. This is useful for piping the IDs
                              into other commands.
-  
     --raw                    Outputs raw JSON objects of workflow task search
                              API response.
     ```
@@ -142,7 +136,6 @@ $ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
     --project TEXT                  The project, from which you want to list the
                                     workflows. Project IDs can be listed with
                                     the 'project list' command.
-  
     --raw                           Output raw JSON info.
     --filter [Idle|Not executed|Finished|Cancelled|Failed|Successful|Canceling|Running|Waiting]
                                     Show only workflows of a specific status.

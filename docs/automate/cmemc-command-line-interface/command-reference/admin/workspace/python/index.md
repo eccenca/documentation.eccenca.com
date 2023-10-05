@@ -37,10 +37,10 @@ You can install a package by uploading a source distribution .tar.gz file, by up
 
 ## admin workspace python uninstall
 
-Uninstall a python package from the workspace.
+Uninstall a python packages from the workspace.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python uninstall PACKAGE_NAME
+$ cmemc admin workspace python uninstall [OPTIONS] [PACKAGE_NAME]...
 ```
 
 
@@ -49,6 +49,14 @@ $ cmemc admin workspace python uninstall PACKAGE_NAME
 This command is essentially a `pip uninstall` in the remote python environment.
 
 
+
+??? info "Options"
+    ```text
+
+    -a, --all   This option removes all installed packages from the system,
+                leaving only the pre-installed mandatory packages in the
+                environment.
+    ```
 
 ## admin workspace python list
 
@@ -70,9 +78,13 @@ It outputs a table of python package identifiers with version information.
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only package identifier. This is useful for piping the IDs
-                into other commands.
+    --raw        Outputs raw JSON.
+    --id-only    Lists only package identifier. This is useful for piping the
+                 IDs into other commands.
+    --available  Instead of listing installed packages, this option lists
+                 installable packages from pypi.org, which are prefixed with
+                 'cmem-plugin-' and so are most likely Corporate Memory plugin
+                 packages.
     ```
 
 ## admin workspace python list-plugins
@@ -101,4 +113,19 @@ This commands lists all discovered plugins.
     --id-only          Lists only plugin identifier.
     --package-id-only  Lists only plugin package identifier.
     ```
+
+## admin workspace python open
+
+Open a package pypi.org page in the browser.
+
+```shell-session title="Usage"
+$ cmemc admin workspace python open PACKAGE
+```
+
+
+
+
+With this command, you can open the pypi.org page of a published package in your browser. From there, you can follow links, review the version history as well as the origin of the package, and read the provided documentation.
+
+
 

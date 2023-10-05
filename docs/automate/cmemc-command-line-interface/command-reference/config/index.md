@@ -12,50 +12,51 @@ tags:
 ```text
 List and edit configs as well as get config values.
 
-Configurations are identified by the section identifier in the
-config file. Each configuration represent a Corporate Memory deployment
-with its specific access method as well as credentials.
+    Configurations are identified by the section identifier in the
+    config file. Each configuration represent a Corporate Memory deployment
+    with its specific access method as well as credentials.
 
-A minimal configuration which uses client credentials has the following
-entries:
+    A minimal configuration which uses client credentials has the following
+    entries:
 
-
-[example.org]
-CMEM_BASE_URI=https://cmem.example.org/
-OAUTH_GRANT_TYPE=client_credentials
-OAUTH_CLIENT_ID=cmem-service-account
-OAUTH_CLIENT_SECRET=my-secret-account-pass
+    
+    [example.org]
+    CMEM_BASE_URI=https://cmem.example.org/
+    OAUTH_GRANT_TYPE=client_credentials
+    OAUTH_CLIENT_ID=cmem-service-account
+    OAUTH_CLIENT_SECRET=my-secret-account-pass
 
-Note that OAUTH_GRANT_TYPE can be either client_credentials, password or
-prefetched_token.
+    Note that OAUTH_GRANT_TYPE can be either client_credentials, password or
+    prefetched_token.
 
-In addition to that, the following config parameters can be used as well:
+    In addition to that, the following config parameters can be used as well:
 
-
-SSL_VERIFY=False    - for ignoring certificate issues (not recommended)
-DP_API_ENDPOINT=URL - to point to a non-standard DataPlatform location
-DI_API_ENDPOINT=URL - to point to a non-standard DataIntegration location
-OAUTH_TOKEN_URI=URL - to point to an external IdentityProvider location
-OAUTH_USER=username - only if OAUTH_GRANT_TYPE=password
-OAUTH_PASSWORD=password - only if OAUTH_GRANT_TYPE=password
-OAUTH_ACCESS_TOKEN=token - only if OAUTH_GRANT_TYPE=prefetched_token
+    
+    SSL_VERIFY=False    - for ignoring certificate issues (not recommended)
+    DP_API_ENDPOINT=URL - to point to a non-standard DataPlatform location
+    DI_API_ENDPOINT=URL - to point to a non-standard DataIntegration location
+    OAUTH_TOKEN_URI=URL - to point to an external IdentityProvider location
+    OAUTH_USER=username - only if OAUTH_GRANT_TYPE=password
+    OAUTH_PASSWORD=password - only if OAUTH_GRANT_TYPE=password
+    OAUTH_ACCESS_TOKEN=token - only if OAUTH_GRANT_TYPE=prefetched_token
 
-In order to get credential information from an external process, you can
-use the parameter OAUTH_PASSWORD_PROCESS, OAUTH_CLIENT_SECRET_PROCESS and
-OAUTH_ACCESS_TOKEN_PROCESS to setup an external executable.
+    In order to get credential information from an external process, you can
+    use the parameter OAUTH_PASSWORD_PROCESS, OAUTH_CLIENT_SECRET_PROCESS and
+    OAUTH_ACCESS_TOKEN_PROCESS to setup an external executable.
 
-
-OAUTH_CLIENT_SECRET_PROCESS=/path/to/getpass.sh
-OAUTH_PASSWORD_PROCESS=["getpass.sh", "parameter1", "parameter2"]
+    
+    OAUTH_CLIENT_SECRET_PROCESS=/path/to/getpass.sh
+    OAUTH_PASSWORD_PROCESS=["getpass.sh", "parameter1", "parameter2"]
 
-The credential executable can use the cmemc environment for fetching the
-credential (e.g. CMEM_BASE_URI and OAUTH_USER).
-If the credential executable is not given with a full path, cmemc
-will look into your environment PATH for something which can be executed.
-The configured process needs to return the credential on the first line
-of stdout. In addition to that, the process needs to exit with exit
-code 0 (without failure). There are examples available in the online
-manual.
+    The credential executable can use the cmemc environment for fetching the
+    credential (e.g. CMEM_BASE_URI and OAUTH_USER).
+    If the credential executable is not given with a full path, cmemc
+    will look into your environment PATH for something which can be executed.
+    The configured process needs to return the credential on the first line
+    of stdout. In addition to that, the process needs to exit with exit
+    code 0 (without failure). There are examples available in the online
+    manual.
+    
 ```
 
 ## config list
@@ -104,10 +105,10 @@ $ cmemc config edit
 Get the value of a known cmemc configuration key.
 
 ```shell-session title="Usage"
-$ cmemc config get [CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
+$ cmemc config get {CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
              POINT|DI_API_ENDPOINT|KEYCLOAK_BASE_URI|KEYCLOAK_REALM_ID|OAUTH_T
              OKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER|OAUTH_PASSWORD|OAUTH_CLIENT_
-             ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_TOKEN]
+             ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_TOKEN}
 ```
 
 

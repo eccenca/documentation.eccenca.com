@@ -37,7 +37,6 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
 
     --job [DP]               The job from which the metrics data is fetched.
                              [default: DP]
-  
     --filter <TEXT TEXT>...  A set of label name/value pairs in order to filter
                              the samples of the requested metric family. Each
                              metric has a different set of labels with different
@@ -46,13 +45,11 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
                              option. The label names are then shown as column
                              headers and label values as cell values of this
                              column.
-  
     --enforce-table          A single sample value will be returned as plain
                              text instead of the normal table. This allows for
                              more easy integration with scripts. This flag
                              enforces the use of tabular output, even for single
                              row tables.
-  
     --raw                    Outputs raw prometheus sample classes.
     ```
 
@@ -99,7 +96,6 @@ For each metric, the output table shows the metric ID, the type of the metric, a
     --job [DP]  The job from which the metrics data is fetched.  [default: DP]
     --id-only   Lists metric identifier only. This is useful for piping the IDs
                 into other commands.
-  
     --raw       Outputs (sorted) JSON dict, parsed from the metrics API output.
     ```
 

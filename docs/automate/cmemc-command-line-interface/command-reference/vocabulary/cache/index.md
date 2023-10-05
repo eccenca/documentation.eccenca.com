@@ -48,7 +48,6 @@ $ cmemc vocabulary cache list [OPTIONS]
     --id-only   Lists only vocabulary term identifier (IRIs) and no labels or
                 other metadata. This is useful for piping the ids into other
                 cmemc commands.
-  
     --raw       Outputs raw JSON.
     ```
 

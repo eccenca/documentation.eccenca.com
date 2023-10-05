@@ -2,12 +2,13 @@
 icon: material/variable-box
 tags:
   - KnowledgeGraph
+  - Variables
 ---
 # Build Variables
 
 ## Introduction
 
-Build variables are used to configure and customize build workflow and processes.
+Build variables are used to configure and customize build workflows and processes.
 These variables define various aspects of the integration tasks, such as the source target data formats, transformation rules, mapping definitions etc.
 The variables are not technically typed.
 They can be used in most Build configuration and input fields that take inputs of the following data types:
@@ -18,11 +19,11 @@ They can be used in most Build configuration and input fields that take inputs o
 
 Two kinds of variables can be defined:
 
-**Global variables** 
+**Global variables**
 
 :   It is defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
 
-**Project variables (User-defined)** 
+**Project variables (User-defined)**
 
 :   It is defined by the user in the UI.
     Project variables can only be used in the same project.
@@ -82,9 +83,7 @@ Which is described in the following sections.
 
 ## Project Variables
 
-### Adding Variables
-
-Login to eccenca Corporate Memory, select the build module and click on the project to open.
+In order to add project variables, login to eccenca Corporate Memory, select the build module and click on the project to open.
 
 ![Build projects overview](di-var-project-select.png){ class="bordered" }
 
@@ -116,7 +115,7 @@ Type name as `email_ids`, in values we have updated all the email id’s of the 
 
     ![](di-var-email-defined.png){ class="bordered" }
 
-### Using Variables
+## Using Variables
 
 Let's see how these variables are useful.
 
@@ -166,3 +165,10 @@ Click on the symbol **{#}** it turns blue in color. It means the variable's feat
 !!! note
 
     Parameters that are typed as password will not show the evaluated template for security reasons and should only show after you saved the operator.
+
+## Accessing Variables with cmemc
+
+In order to allow the automation of activities with build variables from external processes, the Corporate Memory command line interfaces cmemc has a dedicated [`project variable` command group](../../automate/cmemc-command-line-interface/command-reference/project/variable/index.md) for this.
+
+Please have a look at command group documentation to learn how to use these commands.
+

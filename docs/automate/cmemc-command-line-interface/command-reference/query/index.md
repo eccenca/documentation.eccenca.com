@@ -52,19 +52,16 @@ Limitations: All optional parameters (e.g. accept, base64, ...) are provided for
                                     refer to the Corporate Memory system manual
                                     for a list of accepted mime types.
                                     [default: default]
-  
     --no-imports                    Graphs which include other graphs (using
                                     owl:imports) will be queried as merged
                                     overall-graph. This flag disables this
                                     default behaviour. The flag has no effect on
                                     update queries.
-  
     --base64                        Enables base64 encoding of the query
                                     parameter for the SPARQL requests (the
                                     response is not touched). This can be useful
                                     in case there is an aggressive firewall
                                     between cmemc and Corporate Memory.
-  
     -p, --parameter <TEXT TEXT>...  In case of a parameterized query
                                     (placeholders with the '{{key}}' syntax),
                                     this option fills all placeholder with a
@@ -72,18 +69,14 @@ Limitations: All optional parameters (e.g. accept, base64, ...) are provided for
                                     executed.Pairs of placeholder/value need to
                                     be given as a tuple 'KEY VALUE'. A key can
                                     be used only once.
-  
     --limit INTEGER                 Override or set the LIMIT in the executed
                                     SELECT query. Note that this option will
                                     never give you more results than the LIMIT
                                     given in the query itself.
-  
     --offset INTEGER                Override or set the OFFSET in the executed
                                     SELECT query.
-  
     --distinct                      Override the SELECT query by make the result
                                     set DISTINCT.
-  
     --timeout INTEGER               Set max execution time for query evaluation
                                     (in milliseconds).
     ```
@@ -150,7 +143,6 @@ You can filter queries based on status and runtime in order to investigate slow 
     --id-only                Lists only query identifier and no labels or other
                              metadata. This is useful for piping the ids into
                              other cmemc commands.
-  
     --raw                    Outputs raw JSON response of the query status API.
     --filter <TEXT TEXT>...  Filter queries based on execution status and time.
                              First parameter --filter CHOICE can be one of
@@ -193,13 +185,11 @@ The optional output file is the same JSON document which is used as input, but e
     --loops INTEGER     Number of loops to run the replay file.  [default: 1]
     --wait INTEGER      Number of seconds to wait between query executions.
                         [default: 0]
-  
     --output-file FILE  Save the optional output to this file. Input and output
                         of the command can be the same file. The output is
                         written at the end of a successful command execution.
                         The output can be stdout ('-') - in this case, the
                         execution statistic output is oppressed.
-  
     --run-label TEXT    Optional label of this replay run.
     ```
 

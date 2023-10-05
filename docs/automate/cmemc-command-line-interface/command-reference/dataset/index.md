@@ -41,10 +41,8 @@ Output and filter a list of available datasets. Each dataset is listed with its 
                              can be one of the following values: project, regex,
                              tag, type. The options for the second parameter
                              depend on the first parameter.
-  
     --raw                    Outputs raw JSON objects of the dataset search API
                              response.
-  
     --id-only                Lists only dataset IDs and no labels or other
                              metadata. This is useful for piping the IDs into
                              other cmemc commands.
@@ -78,12 +76,10 @@ This command deletes existing datasets in integration projects from Corporate Me
 
     -a, --all                Delete all datasets. This is a dangerous option, so
                              use it with care.
-  
     --project TEXT           In combination with the '--all' flag, this option
                              allows for deletion of all datasets of a certain
                              project. The behaviour is similar to the 'dataset
                              list --project' command.
-  
     --filter <TEXT TEXT>...  Delete datasets based on metadata. First parameter
                              --filter CHOICE can be one of ['project', 'regex',
                              'tag', 'type']. The second parameter is based on
@@ -201,28 +197,22 @@ $ cmemc dataset create --project my-project --type csv my-file.csv
     -t, --type TEXT                 The dataset type of the dataset to create.
                                     Example types are 'csv','json' and
                                     'eccencaDataPlatform' (-> Knowledge Graph).
-  
     --project TEXT                  The project, where you want to create the
                                     dataset in. If there is only one project in
                                     the workspace, this option can be omitted.
-  
     -p, --parameter <TEXT TEXT>...  A set of key/value pairs. Each dataset type
                                     has different parameters (such as charset,
                                     arraySeparator, ignoreBadLines, ...). In
                                     order to get a list of possible parameter,
                                     use the'--help-parameter' option.
-  
     --replace                       Replace remote file resources in case there
                                     already exists a file with the same name.
-  
     --id TEXT                       The dataset ID of the dataset to create. The
                                     dataset ID will be automatically created in
                                     case it is not present.
-  
     --help-types                    Lists all possible dataset types on given
                                     Corporate Memory instance. Note that this
                                     option already needs access to the instance.
-  
     --help-parameter                Lists all possible (optional and mandatory)
                                     parameter for a dataset type. Note that this
                                     option already needs access to the instance.
@@ -244,4 +234,41 @@ With this command, you can open a dataset in the workspace in your browser.
 The command accepts multiple dataset IDs which results in opening multiple browser tabs.
 
 
+
+## dataset update
+
+Update a dataset.
+
+```shell-session title="Usage"
+$ cmemc dataset update [OPTIONS] DATASET_ID
+```
+
+
+
+
+With this command, you can update the configuration of an existing dataset. Similar to the `dataset create` command, you need to use configuration key/value pairs on the ``--parameter`` option.
+
+To get more information about the available configuration parameters on a dataset, use the ``--help-parameter`` option.
+
+```shell-session title="Example"
+$ cmemc dataset update my-project:my-csv -p separator ";"
+```
+
+
+
+
+??? info "Options"
+    ```text
+
+    -p, --parameter <TEXT TEXT>...  A configuration parameter key/value pair.
+                                    Each dataset type has different parameters
+                                    (such as charset, arraySeparator,
+                                    ignoreBadLines, ...). In order to get a list
+                                    of possible parameter, use the'--help-
+                                    parameter' option.
+    --help-parameter                Lists all possible (optional and mandatory)
+                                    configuration parameter for a given dataset.
+                                    Note that this option already needs access
+                                    to the instance.
+    ```
 
