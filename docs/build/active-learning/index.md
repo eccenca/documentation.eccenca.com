@@ -28,7 +28,7 @@ Our active (link) learning is a three step process:
 ## Start the learning dialog
 
 Link learning is a feature available on a link rule in a **Build** project.
-See the [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables) tutorial to learn how to setup a project.
+See the [Lift data from tabular data such as CSV, XSLX or database tables](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) tutorial to learn how to setup a project.
 Use the **Create :eccenca-item-add-artefact:** button in your project and select **Linking** to create a new linking rule.
 In the configuration dialog of your linking rule and setup source and target datasets as well as the linking property that should be yielded.
 Start the learning dialog by clicking the “Learning” tab in the linking view.

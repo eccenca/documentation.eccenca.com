@@ -36,7 +36,7 @@ Define a useful IRI-Scheme that can be used for resources.
 
 - Define a Base URI which is the common authority for all resources in your graph.
     - Example: `https://data.company.org/`
-- Define subspaces where necessary, e.g. for each subproject or domain. Provide a [prefix](/build/define-prefixes-namespaces) for each subspace. Examples:
+- Define subspaces where necessary, e.g. for each subproject or domain. Provide a [prefix](../../build/define-prefixes-namespaces/index.md) for each subspace. Examples:
     - `https://data.company.org/hardware/` for hardware artifacts
     - `https://data.company.org/software/` for software artifacts
     - `PREFIX cohw: <https://data.company.org/hardware/>`

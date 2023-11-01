@@ -15,8 +15,8 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
 
     The complete tutorial is available as a [project file (XML)](tutorial-xml.project.zip) and a [project file (JSON)](tutorial-json.project.zip). You can import these projects:
 
-    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-    - by using the [command line interface](/automate/cmemc-command-line-interface)
+    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
         ```shell
         cmemc -c my-cmem project import tutorial-xml.project.zip xml-transformation

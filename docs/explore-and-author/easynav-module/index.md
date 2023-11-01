@@ -64,7 +64,7 @@ The `Visualization catalog` dialog shows the saved exploration and allows to :oc
 ## Setup
 
 This feature needs to be initially enabled in the DataManager configuration file (`application.yml`).
-See [configuration of EasyNav module](/deploy-and-configure/configuration/datamanager/easynav-module) for details how to enable it.
+See [configuration of EasyNav module](../../deploy-and-configure/configuration/datamanager/easynav-module/index.md) for details how to enable it.
 
 Without further (workspace) specific configuration the feature can be used asking for the graph that shall be explored every time a new exploration is started.
 
@@ -102,7 +102,7 @@ Then click edit to provide the necessary details.
 At least a `Name` and `Search Weight` need to be specified.
 The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
 
-`Graph Resource Patter` are a topic on its own and explained [here](./GraphResourcePattern).
+`Graph Resource Patter` are a topic on its own and explained [here](./GraphResourcePattern/index.md).
 
 ## Technical Background
 

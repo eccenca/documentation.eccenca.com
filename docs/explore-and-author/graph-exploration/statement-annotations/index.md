@@ -81,7 +81,7 @@ The following illustration depicts this schema with boxes and arrows:
 
 ## Querying Statement Annotations
 
-In order to automate access to Statement Annotations, you can query them with SPARQL e.g. via [cmemc](../../automate/cmemc-command-line-interface/) or the API endpoint.
+In order to automate access to Statement Annotations, you can query them with SPARQL e.g. via [cmemc](../../../automate/cmemc-command-line-interface/index.md) or the API endpoint.
 
 Here is a query example to start with:
 

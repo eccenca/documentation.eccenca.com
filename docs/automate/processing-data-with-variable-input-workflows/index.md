@@ -14,16 +14,16 @@ This tutorial shows how you can create and use data integration workflows to pro
 The concept to achieve this is named a **Variable Dataset**.
 A variable dataset is created and used inside of a workflow as an input for other tasks (e.g. a transformation) at the place where a "regular" dataset (such as register CSV file) would be placed.
 
-The workflow is then called via an HTTP REST call (or via [cmemc](../cmemc-command-line-interface/)), thus uploading the payload data "at the place" of this variable input dataset and executing all following parts of the workflow.
+The workflow is then called via an HTTP REST call (or via [cmemc](../cmemc-command-line-interface/index.md)), thus uploading the payload data "at the place" of this variable input dataset and executing all following parts of the workflow.
 
-This allows for solving all kinds of [☆ Automation](../) tasks when you need to process lots of small data snippets or similar.
+This allows for solving all kinds of [☆ Automation](../index.md) tasks when you need to process lots of small data snippets or similar.
 
 !!! Abstract
 
     The complete tutorial is available as a [project file](tutorial-varinput.project.zip). You can import this project
 
     - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
-    - by using the [command line interface](../cmemc-command-line-interface/)
+    - by using the [command line interface](../cmemc-command-line-interface/index.md)
 
         ``` shell-session
         $ cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
@@ -62,7 +62,7 @@ Based on the added sample feed XML Dataset, create a mapping to generate RDF tri
 The screenshot provides an example mapping to generate WebPages, which includes a label, a URL, a text, and the date they were published in the feed.
 The mappings are based on classes and properties defined by the _Schema.org_ and _RDFS_ vocabulary.
 
-In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: [Lift data from JSON and XML sources](../../build/lift-data-from-json-and-xml-sources/).
+In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: [Lift data from JSON and XML sources](../../build/lift-data-from-json-and-xml-sources/index.md).
 
 ![Feed transformation](pdwviw-feed-transformation.png){ class="bordered" }
 

@@ -15,8 +15,8 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
 
     The complete tutorial is available as a [project file](tutorial-csv.project.zip). You can import this project
 
-    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-    - by using the [command line interface](/automate/cmemc-command-line-interface)
+    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ``` shell-session
     $ cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv

@@ -33,9 +33,9 @@ The following pages provide recipes for different CI/CD solutions:
 
 <div class="grid cards" markdown>
 
--   :material-github: [Github Actions](../cmemc-command-line-interface/invocation/github-action)
+-   :material-github: [Github Actions](../cmemc-command-line-interface/invocation/github-action/index.md)
 
--   :material-gitlab: [Gitlab Pipelines](../cmemc-command-line-interface/invocation/gitlab-pipeline)
+-   :material-gitlab: [Gitlab Pipelines](../cmemc-command-line-interface/invocation/gitlab-pipeline/index.md)
 
 </div>
 

@@ -30,7 +30,7 @@ The Thesaurus module allows to create, browse and edit such structures, providin
 
 !!! info
 
-    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* is installed in the Vocabulary catalog (see section [Vocabulary Catalog](../vocabulary-catalog)).
+    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* is installed in the Vocabulary catalog (see section [Vocabulary Catalog](../vocabulary-catalog/index.md)).
 
 Click **:eccenca-module-thesauri: Thesauri** in the main menu, to open the Thesaurus project catalog.
 

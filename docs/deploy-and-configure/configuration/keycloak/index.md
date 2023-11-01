@@ -14,7 +14,7 @@ The screenshots displayed in this documentation were taken from Keycloak v20 usi
 
 !!! info
 
-    You do not need these instruction in case you followed the documentation on [Scenario: Local Installation](./../../installation/scenario-local-installation/index.md) or [Scenario: Single Node Cloud Installation](./../../installation/scenario-single-node-cloud-installation/index.md) (in this case, everything was done automatically).
+    You do not need these instruction in case you followed the documentation on [Scenario: Local Installation](../../installation/scenario-local-installation/index.md) or [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) (in this case, everything was done automatically).
     However, in case you need to integrate Corporate Memory with an existing Keycloak, this page may help you.
     Please also have the [Keycloak - Server Administration Guide](https://www.keycloak.org/docs/latest/server_admin/) ready :smile:
 
@@ -61,7 +61,7 @@ To use groups from Keycloak in Corporate Memory access conditions, all Keycloak 
 
 In the default setup in helm or docker-compose deployments, we often refer to the `elds-admins` group, acting as a super-admin / root group.
 Every user in this group has all possible rights in Corporate Memory, no matter which access conditions are available.
-This is configured in the DataPlatform configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Dataplatform configuration authorization](./../dataplatform/application-full/#authorization)).
+This is configured in the DataPlatform configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Dataplatform configuration authorization](../dataplatform/application-full.md#authorization)).
 
 
 ### Option 1: Import the needed clients from a JSON export

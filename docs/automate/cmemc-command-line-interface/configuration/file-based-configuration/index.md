@@ -123,7 +123,7 @@ The authorization will be done with the given `OAUTH_USER` and `OAUTH_PASSWORD`.
 
     The OAuth 2.0 token endpoint location ([`OAUTH_TOKEN_URI`](#oauth_token_uri)) defaults to `$KEYCLOAK_BASE_URI/realms/$KEYCLOAK_REALM_ID/protocol/openid-connect/token`.
     If Keycloak is exposed to a different domain than Corporate Memory, make sure the variables [`KEYCLOAK_BASE_URI`](#keycloak_base_uri) and [`KEYCLOAK_REALM_ID`](#keycloak_realm_id) are configured correctly.
-    Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/) for more information.
+    Please refer to [Configure Corporate Memory with an external Keycloak](../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/index.md) for more information.
 
 ## Configuration Variables
 

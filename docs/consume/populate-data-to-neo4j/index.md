@@ -73,7 +73,7 @@ Perform the following steps to create a Neo4j dataset:
 The vocabulary contains the classes and properties in order to map the source data into a new (domain specific) structure.
 In this case we will create an RDF and LPG Knowledge Graph.
 A vocabulary for this tutorial is available as [schema.ttl](schema.ttl).
-Follow [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables) to learn how to register your vocabulary in Corporate Memory.
+Follow [Lift data from tabular data such as CSV, XSLX or database tables](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) to learn how to register your vocabulary in Corporate Memory.
 
 The provided vocabulary is inspired by this structure from the original Neo4j tutorial on the Northwind data:
 

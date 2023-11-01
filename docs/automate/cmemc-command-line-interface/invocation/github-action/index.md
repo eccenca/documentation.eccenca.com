@@ -52,7 +52,7 @@ Given the following workflow step, you need to add `MY_CMEM_BASE_URI`, `MY_OAUTH
           OAUTH_CLIENT_SECRET: ${{ secrets.MY_OAUTH_CLIENT_SECRET }}
 ```
 
-The above snippet also demonstrates how you can map your encrypted secrets to [cmemc's configuration variables](../cmemc-command-line-interface/configuration/file-based-configuration).
+The above snippet also demonstrates how you can map your encrypted secrets to [cmemc's configuration variables](../../configuration/file-based-configuration/index.md).
 
 ## Example Project
 
