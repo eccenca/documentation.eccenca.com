@@ -17,8 +17,8 @@ The graph dataset is attached to the email as an N-triples file.
     The complete tutorial is available as a [project file](tutorial-template.project.zip).
     You can import the projects:
 
-    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-    - by using the [command line interface](/automate/cmemc-command-line-interface)
+    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
         ```shell
         cmemc -c my-cmem project import tutorial-template.project.zip tutorial-evaluate-template
@@ -26,7 +26,7 @@ The graph dataset is attached to the email as an N-triples file.
 
 !!! warning
 
-    In the imported project, enter valid email credentials in the **send eMail** task to succsessfully execute the included workflow (see [§10.3](#10-create-a-send-email-task-item)).
+    In the imported project, enter valid email credentials in the **send eMail** task to successfully execute the included workflow (see [§10.3](#10-create-a-send-email-task-item)).
 
 The following material is used in this tutorial:
 

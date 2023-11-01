@@ -201,7 +201,7 @@ When all the sources are imported in the knowlege graph, the app will use the to
 </init>
 ```
 
-If you want to reuse your own algorithm to calculate new inferences, you can develop your own [plugin](develop/python-plugins/) in Corporate Memory and call it in a workflow that you can call in a Splunk dashboard.
+If you want to reuse your own algorithm to calculate new inferences, you can develop your own [plugin](../../../develop/python-plugins//index.md) in Corporate Memory and call it in a workflow that you can call in a Splunk dashboard.
 
 ## Reconcile automatically the complex data via a Linking task
 
@@ -211,9 +211,9 @@ One component is **very useful** to reconcile the instance of concepts in your g
 
 To use it:
 
-1. Read the documentation of ["Linking task"](/build/active-learning) to learn to use it
+1. Read the documentation of ["Linking task"](../../../build/active-learning/index.md) to learn to use it
 
-2. [Do the exercice "Reconcile automatically the STIX concepts via the Linking tasks" in the page of tutorial about Mitre's datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/#reconcile-automatically-the-stix-concepts-via-the-linking-tasks)
+2. [Do the exercice "Reconcile automatically the STIX concepts via the Linking tasks" in the page of tutorial about Mitre's datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md#reconcile-automatically-the-stix-concepts-via-the-linking-tasks)
 
 ## Conclusion
 

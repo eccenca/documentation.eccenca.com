@@ -15,7 +15,7 @@ In this document we provide an overview on how the environment files are loaded,
 ## Environment Files: Loading Sequence
 
 The environment files are supplied in the CONFIGFILE environment variable to the make targets inside the orchestration.
-For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation) we have created a `prod.env` environment file and created the Corporate Memory instance using `prod.env` configuration:
+For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the Corporate Memory instance using `prod.env` configuration:
 
 ``` shell-session
 $ CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
@@ -113,11 +113,11 @@ All available configuration environment variables are listed in `environments/de
 
 | Variable                               | Default Value                                                                   | Description                                                                                                                                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| DATAINTEGRATION_EXECUTOR               | LocalExecutionManager                                                           | DataIntegration execution.manager.plugin parameter, see [DataIntegration](../../configuration/dataintegration) manual for more details |
+| DATAINTEGRATION_EXECUTOR               | LocalExecutionManager                                                           | DataIntegration execution.manager.plugin parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
 | INTERNAL_BASE_URL                      | ${DEPLOYPROTOCOL}://${DEPLOYHOST} | Used for DATAPLATFORM_URL and OAUTH_TOKEN_URL variables |
-| DATAPLATFORM_URL | ${INTERNAL_BASE_URL}${DATAPLATFORM_CONTEXTPATH} | DataIntegration eccencaDataPlatform.url parameter, see [DataIntegration](../../configuration/dataintegration) manual for more details |
-| OAUTH_AUTHORIZATION_URL | ${DEPLOY_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth | DataIntegration oauth.authorizationUrl parameter, see [DataIntegration](../../configuration/dataintegration) manual for more details |
-| OAUTH_TOKEN_URL | ${INTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token | DataIntegration oauth.tokenUrl parameter, see [DataIntegration](../../configuration/dataintegration) manual for more details |
+| DATAPLATFORM_URL | ${INTERNAL_BASE_URL}${DATAPLATFORM_CONTEXTPATH} | DataIntegration eccencaDataPlatform.url parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
+| OAUTH_AUTHORIZATION_URL | ${DEPLOY_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth | DataIntegration oauth.authorizationUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
+| OAUTH_TOKEN_URL | ${INTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token | DataIntegration oauth.tokenUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
 | DATAINTEGRATION_PRODUCTION_CONFIG_FILE | /opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/production.conf | Path to DataIntegration production.conf, for injecting production related parameters, like encryption keys |
 | DATAINTEGRATION_JAVA_TOOL_OPTIONS | -Xmx4g | Java options, modify to increase memory allocation |
 

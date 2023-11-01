@@ -35,7 +35,7 @@ To create the initial definition, click ![](./ic_mode_edit_black_18dp_1x.png){ 
 
 You have now created an "empty" form that covers `foaf:Person` resources with tab name "Person". Navigating to a `foaf:Person` resource, you see a new tab as defined. You can still see all properties of the resource in the PROPERTIES tab.
 
-![](/nodeshape.png){ class="bordered" }
+![](./nodeshape.png){ class="bordered" }
 
 To define new fields, for example showing the email address of the person (defined as `foaf:mbox`), navigate to the CMEM Shapes Catalog graph and select `PropertyShape` in Navigation. The list of existing PropertyShapes is shown. Click CREATE NEW PROPERTYSHAPE in the upper right to create a new PropertyShape. Enter a name of the resource. An empty PropertyShape resource is created and shown.
 

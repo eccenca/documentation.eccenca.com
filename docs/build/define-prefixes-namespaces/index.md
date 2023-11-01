@@ -24,7 +24,7 @@ This is particularly useful when you have to write source code in Turtle and SPA
 
 ### Using the Vocabulary Catalog
 
-After installing a vocabulary from the [Vocabulary Catalog](/explore-and-author/vocabulary-catalog), the vocabulary namespace declaration is automatically added to all integration projects.
+After installing a vocabulary from the [Vocabulary Catalog](../../explore-and-author/vocabulary-catalog/index.md), the vocabulary namespace declaration is automatically added to all integration projects.
 
 In order to get the **prefix name** and the **namespace IRI** from the vocabulary graph, the following terms from the [VANN vocabulary](https://vocab.org/vann/) need to be used on the Ontology resource.
 

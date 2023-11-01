@@ -13,13 +13,13 @@ API documentation and programming recipes.
 
     ---
 
-    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications) covers how to connect to Corporate Memory using a Java program.
+    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to Corporate Memory using a Java program.
 
 -   :material-language-python: Python
 
     ---
 
-    For Python developers, we offer a [Plugin SDK](python-plugins) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api)).
+    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
 
 -   :material-api: OpenAPI specification
 
@@ -27,8 +27,8 @@ API documentation and programming recipes.
 
     API Specifications are available for
 
-    - [DataIntegration (Build)](dataintegration-apis) and
-    - [DataPlatform (Explore/Consume)](dataplatform-apis).
+    - [DataIntegration (Build)](dataintegration-apis/index.md) and
+    - [DataPlatform (Explore/Consume)](dataplatform-apis/index.md).
 
 
 </div>

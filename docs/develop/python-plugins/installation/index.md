@@ -60,7 +60,7 @@ Please have a look at the [admin workspace python command group](../../../automa
 
 ## Usage
 
-Depending on the plugin type, an installed plugin can appear in different parts of the [Build workbench](../../../build/introduction-to-the-user-interface):
+Depending on the plugin type, an installed plugin can appear in different parts of the [Build workbench](../../../build/introduction-to-the-user-interface/index.md):
 
 <div style="clear: both" markdown>
 

@@ -23,7 +23,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     Learn how to get started with Corporate Memory in our Getting Started Guide. Understand the user interface, application structure, and basic concepts.
 
-    [:octicons-arrow-right-24: Getting Started](../){target=_blank}
+    [:octicons-arrow-right-24: Getting Started](../index.md){target=_blank}
 
     Community support for the sandbox is provided in this [:simple-github: forum](https://github.com/eccenca/documentation.eccenca.com/discussions){target=_blank}, use it seek for help, report issues or suggestions, or discuss solution ideas.
 
@@ -41,19 +41,19 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     A list of materials and resources to reproduce and follow the masterclass session: _From Zero to KG Hero: Boosting Your KG Creation Productivity with eccenca Corporate Memory_. Originally presented at **The Knowledge Graph Conference 2023**. [Watch the recording on :simple-youtube:](https://youtu.be/qD-hge6gyIE){target=_blank}.
 
-    [:octicons-arrow-right-24: materials and resources](./material){target=_blank}
+    [:octicons-arrow-right-24: materials and resources](./material.md){target=_blank}
 
 -   :material-script-text-play-outline:{ .lg .middle } __Tutorials and Examples__
 
     ---
 
-    Our [tutorials](../../tutorials){target=_blank} help you to create Knowledge Graphs and to use the exploration and consumption features. To get started, we recommend:
+    Our [tutorials](../../tutorials/index.md){target=_blank} help you to create Knowledge Graphs and to use the exploration and consumption features. To get started, we recommend:
 
-    -   [Lift tabular sources (CSV, XSLX, JDBC)](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/){target=_blank}
-    -   [Active Learning of Linking Rules](../../build/active-learning){target=_blank}
-    -   [Building a customized User Interface](../../explore-and-author/graph-exploration/building-a-customized-user-interface){target=_blank}
-    -   [Populate Data to Neo4j](../../consume/populate-data-to-neo4j){target=_blank}
-    -   [Data in any Format via Custom API](../../consume/provide-data-in-any-format-via-a-custom-api){target=_blank}
+    -   [Lift tabular sources (CSV, XSLX, JDBC)](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md){target=_blank}
+    -   [Active Learning of Linking Rules](../../build/active-learning/index.md){target=_blank}
+    -   [Building a customized User Interface](../../explore-and-author/graph-exploration/building-a-customized-user-interface/index.md){target=_blank}
+    -   [Populate Data to Neo4j](../../consume/populate-data-to-neo4j/index.md){target=_blank}
+    -   [Data in any Format via Custom API](../../consume/provide-data-in-any-format-via-a-custom-api/index.md){target=_blank}
 
 -   :material-graph:{ .lg .middle } __BUILD__
 
@@ -61,7 +61,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     _BUILD_ data product pipelines that turn you existing data points into Enterprise Knowledge Graphs. Use them to create data product assembly lines in a visual, intuitive, and business-user friendly way.
 
-    [:octicons-arrow-right-24: Learn more about _Build_](../../build){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Build_](../../build/index.md){target=_blank}
 
 -   :material-compass-rose:{ .lg .middle } __EXPLORE__
 
@@ -69,15 +69,15 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     With _EXPLORE_, you can interact with and visualize your Knowledge Graph data in both list and drill-down views. Configure custom front-end configurations to meet domain-specific needs without duplicating data.
 
-    [:octicons-arrow-right-24: Learn more about _Explore_](/explore-and-author){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Explore_](../../explore-and-author/index.md){target=_blank}
 
 -   :material-api:{ .lg .middle } __CONSUME__
 
     ---
 
-    The _CONSUME_ tier provides several standard APIs for retrieving data from your Knowledge Graph. We also provide native integrations with [PowerBI](/consume/consuming-graphs-in-power-bi){target=_blank} and [redash](https://redash.io/){target=_blank}.[Custom APIs](../../consume/provide-data-in-any-format-via-a-custom-api/){target=_blank} can be configured to provide data in any format.
+    The _CONSUME_ tier provides several standard APIs for retrieving data from your Knowledge Graph. We also provide native integrations with [PowerBI](../../consume/consuming-graphs-in-power-bi/index.md){target=_blank} and [redash](https://redash.io/){target=_blank}.[Custom APIs](../../consume/provide-data-in-any-format-via-a-custom-api/index.md){target=_blank} can be configured to provide data in any format.
 
-    [:octicons-arrow-right-24: Learn more about _Consume_](/consume){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Consume_](../../consume/index.md){target=_blank}
 
 -   :simple-powerautomate:{ .lg .middle } __AUTOMATE__
 
@@ -85,7 +85,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     With _AUTOMATE_, you can easily set up and automate processes in your Knowledge Graph. Our `cmemc` command line tool simplifies the management and migration of data and configurations in Corporate Memory. Learn about our vision of a DataOps process based on Corporate Memory, how to schedule workflows, and how to use variable data inputs.
 
-    [:octicons-arrow-right-24: Learn more about _Automate_](../../automate){target=_blank}
+    [:octicons-arrow-right-24: Learn more about _Automate_](../../automate/index.md){target=_blank}
 
 -   :material-account-school:{ .lg .middle } __Training and Certification__
 

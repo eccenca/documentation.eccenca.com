@@ -20,37 +20,37 @@ Since not all applications allow the direct use of SPARQL, this section includes
 
 <div class="grid cards" markdown>
 
--   :simple-powerbi: [Power BI](consuming-graphs-in-power-bi)
+-   :simple-powerbi: [Power BI](consuming-graphs-in-power-bi/index.md)
 
     ---
 
     Learn how to consume data from your Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
 
--   :material-view-dashboard: [Redash](consuming-graphs-with-redash)
+-   :material-view-dashboard: [Redash](consuming-graphs-with-redash/index.md)
 
     ---
 
     Create Dashboards based on your Knowledge Graphs with the open-source application Redash.
 
--   :eccenca-artefact-dataset-sqlendpoint: [SQL Databases](consuming-graphs-with-sql-databases)
+-   :eccenca-artefact-dataset-sqlendpoint: [SQL Databases](consuming-graphs-with-sql-databases/index.md)
 
     ---
 
     If direct access to the knowledge graph is not sufficient, fragments of the Knowledge Graph may also be pushed into external SQL databases.
 
--   :material-api: [Custom APIs](provide-data-in-any-format-via-a-custom-api)
+-   :material-api: [Custom APIs](provide-data-in-any-format-via-a-custom-api/index.md)
 
     ---
 
     Learn how to provide data via a customized Corporate Memory API in a text format of your choice and how to consume it in your applications.
 
--   :simple-neo4j: [Neo4j](populate-data-to-neo4j)
+-   :simple-neo4j: [Neo4j](populate-data-to-neo4j/index.md)
 
     ---
 
     Learn how to populate graphs to Neo4j.
 
--   :material-apache-kafka: [Apache Kafka](consume-graphs-in-apache-kafka)
+-   :material-apache-kafka: [Apache Kafka](consume-graphs-in-apache-kafka/index.md)
 
     ---
 

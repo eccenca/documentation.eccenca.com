@@ -629,7 +629,7 @@ WHERE {
 
 The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use CMEM.
 
-1. [Install CMEMC - a Command Line Interface of CMEM](/automate/cmemc-command-line-interface/installation/)
+1. [Install CMEMC - a Command Line Interface of CMEM](../../../automate/cmemc-command-line-interface/installation/index.md)
 
 2. Open your config file:
 
@@ -764,9 +764,9 @@ This SPARQL query create explicitly the STIX links in the knowledge graph. Here,
 
 ### Reconcile automatically the STIX concepts via the Linking tasks
 
-[The "Linking task"](/build/active-learning) is very useful to reconcile the instance of concepts in your graphs when their labels are inserted manually with some light differences. For example, you can reconcile the tool, malware, etc of different STIX documents.
+[The "Linking task"](../../../build/active-learning/index.md) is very useful to reconcile the instance of concepts in your graphs when their labels are inserted manually with some light differences. For example, you can reconcile the tool, malware, etc of different STIX documents.
 
-1. Read the documentation of ["Linking task"](/build/active-learning)
+1. Read the documentation of ["Linking task"](../../../build/active-learning/index.md)
 
 2. Use the json of [STIX report](https://oasis-open.github.io/cti-documentation/examples/example_json/apt1.json) of [Mandiant's APT1 Report](https://oasis-open.github.io/cti-documentation/stix/examples.html) to reconcile the STIX tools in this report and the tools in the Mitre knowledge graph with your transformer STIX and a Linking task.
 

@@ -17,7 +17,7 @@ On the left-hand side, a facet list provides an overview of different item types
 - **Datasets** are registered data sources from files or endpoints, or internally managed.
 - **Transform** tasks take an input dataset and execute a (hierarchical) set of mapping and transformation rules, and generate data for an output dataset.
 - **Linking** tasks compare entities from two datasets according to (hierarchical) sets of comparators and generate links between these datasets in an output (link) dataset.
-- **Workflows** can combine all items in a project in order to create a structured work plan which can be executed on demand, controlled remotely (e.g. via [cmemc](/automate/cmemc-command-line-interface)) or executed from a [scheduler](/automate/scheduling-workflows).
+- **Workflows** can combine all items in a project in order to create a structured work plan which can be executed on demand, controlled remotely (e.g. via [cmemc](../../automate/cmemc-command-line-interface/index.md)) or executed from a [scheduler](../../automate/scheduling-workflows/index.md).
 
 The interface can be used to browse from a global level to a project level as well as to search for items globally and project wide.
 

@@ -49,7 +49,7 @@ This version of eccenca DataIntegration adds the following new features:
 - Python plugin support
     - Initial support for workflow and transform plugins.
     - Plugins are executed in a Python 3 environment.
-    - Check documentation for details: [Python Plugins](../../develop/python-plugins/)
+    - Check documentation for details: [Python Plugins](../../develop/python-plugins/index.md)
 - User-defined tags on projects and tasks.
 - REST endpoint to fetch rule operator plugins (`/api/core/ruleOperatorPlugins`).
 - `convertToComplex` query parameter to GET transform rule REST endpoint to always request a complex value transform rule.

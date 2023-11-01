@@ -15,19 +15,19 @@ The following pages give an overview about this feature:
 
 <div class="grid cards" markdown>
 
--   :material-download-circle-outline: [Installation and Usage](installation)
+-   :material-download-circle-outline: [Installation and Usage](installation/index.md)
 
     ---
 
     Intended for Linked Data Experts and Deployment Engineers, this page outlines how to install and use existing python plugins.
 
--   :material-code-json: [Development](development)
+-   :material-code-json: [Development](development/index.md)
 
     ---
 
     Intended for Developers, this page gives an overview on the plugin concepts and how to start developing your own plugins.
 
--   :material-cog-outline: [Setup and Configuration](setup)
+-   :material-cog-outline: [Setup and Configuration](setup/index.md)
 
     ---
 

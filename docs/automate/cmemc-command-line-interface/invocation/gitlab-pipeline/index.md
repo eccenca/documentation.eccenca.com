@@ -14,7 +14,7 @@ In order to control eccenca Corporate Memory instances from within Gitlab CI/CD 
 
 ## Runner Provisioning
 
-In order to use cmemc in Gitlab pipelines you can use the [cmemc docker image](../docker-image).
+In order to use cmemc in Gitlab pipelines you can use the [cmemc docker image](../docker-image/index.md).
 
 ```yaml title="Partial .gitlab-ci.yml showing cmemc provisioning"
 test:
@@ -53,7 +53,7 @@ test:
       AUTH_CLIENT_SECRET: $MY_OAUTH_CLIENT_SECRET
 ```
 
-The above snippet also demonstrates how you can map your project variables to [cmemc's configuration variables](../cmemc-command-line-interface/configuration/file-based-configuration).
+The above snippet also demonstrates how you can map your project variables to [cmemc's configuration variables](../../configuration/file-based-configuration/index.md).
 
 ## Example Project
 

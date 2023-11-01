@@ -17,7 +17,7 @@ Use this property to define the default endpoint for all SPARQL requests.
 
 !!! info
 
-    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces/index.md).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |
@@ -27,7 +27,7 @@ Use this property to define the default endpoint for all SPARQL Update requests.
 
 !!! info
 
-    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces).
+    When a relative path is set, the base url will be added automatically. The placeholder `:endpointId` will be set according to the used workspace defined at [`js.config.workspaces[id].backend.endpointId`](../workspaces/index.md).
 
 | Property | Default | Required | Conflicts with | Valid values |
 | -------- | ------- | -------- | -------------- | ------------ |

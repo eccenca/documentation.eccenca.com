@@ -13,8 +13,8 @@ This tutorial walks you through the process of loading data incrementally from a
 
     The complete tutorial is available as a [project file](tutorial-jdbc.project.zip). You can import this project:
 
-    - by using the [web interface](/build/introduction-to-the-user-interface) (Create → Project → Import project file) or
-    - by using the [command line interface](/automate/cmemc-command-line-interface)
+    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ```shell
     cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
@@ -178,6 +178,10 @@ WHERE {
 
 Finally, we can build a Workflow which demonstrates how each step works.
 
-We compose the SQL query based on the OFFSET and LIMIT information in our Metadata Graph. This SQL query will be used to configure the sourceQuery of the JDBC endpoint. Next, we do a "regular" transformation of data from a JDBC endpoint to RDF. As this step was omitted here, please feel free to read how this Transformation can be built here: [Lift data from tabular data such as CSV, XSLX or database tables](/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables). As a final step, we use our SPARQL update query to select the max service ID in our Knowledge Graph and update the RDF Triples in our Metadata Graph accordingly.
+We compose the SQL query based on the OFFSET and LIMIT information in our Metadata Graph.
+This SQL query will be used to configure the sourceQuery of the JDBC endpoint.
+Next, we do a "regular" transformation of data from a JDBC endpoint to RDF.
+As this step was omitted here, please feel free to read how this Transformation can be built here: [Lift data from tabular data such as CSV, XSLX or database tables](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md).
+As a final step, we use our SPARQL update query to select the max service ID in our Knowledge Graph and update the RDF Triples in our Metadata Graph accordingly.
 
 ![Workflow using config part for incremental data loading](incr-jdbc-complete-wf.png){ class="bordered" }

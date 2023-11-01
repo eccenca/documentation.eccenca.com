@@ -55,7 +55,7 @@ To log out, open the menu :material-dots-vertical: in the Module bar and click�
 
 The specific configuration of the application defines which options are available here, i.e. whether you can select one of several workspaces, access only a default workspace or are allowed to create own workspaces.
 
-See the [workspaces](../explore-and-author/workspace-configuration/) section for more details.
+See the [workspaces](../explore-and-author/workspace-configuration/index.md) section for more details.
 
 ## User interface and modules
 
@@ -72,11 +72,11 @@ To access a module, click the module name. The active module is highlighted.
 By default, Corporate Memory provides the following modules:
 
 -   EXPLORE - for Knowledge Graph browsing and exploration, specifically
-    -   [Knowledge Graphs](../explore-and-author/) - a generic and extensible RDF data browser and editor
-    -   [Vocabularies](../explore-and-author/vocabulary-catalog/) - for vocabulary management
-    -   [Thesauri](../explore-and-author/thesauri-management/) - for managing thesauri and taxonomies based on SKOS
-    -   [Queries](../explore-and-author/query-module/) - a SPARQL query interface
--   [BUILD](../build/) - for creating and integrating Knowledge Graphs, with specific links to
+    -   [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
+    -   [Vocabularies](../explore-and-author/vocabulary-catalog/index.md) - for vocabulary management
+    -   [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
+    -   [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
+-   [BUILD](../build/index.md) - for creating and integrating Knowledge Graphs, with specific links to
     -   Projects - the BUILD Projects level
     -   Datasets - the Datasets across all BUILD Projects
     -   Workflows - the Workflows across all BUILD Projects

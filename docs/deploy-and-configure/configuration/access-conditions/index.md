@@ -13,7 +13,7 @@ To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical:
 
 !!! bug
 
-    In the current version of Corporate Memory, access conditions are visible in the user interface only for user accounts, which are in the super-admin / root group (usually `elds-admins`, see property `authorization.rootAccess` [here](../dataplatform/application-full/#authorization)).
+    In the current version of Corporate Memory, access conditions are visible in the user interface only for user accounts, which are in the super-admin / root group (usually `elds-admins`, see property `authorization.rootAccess` [here](../dataplatform/application-full.md#authorization)).
     This will be fixed in the next release.
 
 ## Access conditions

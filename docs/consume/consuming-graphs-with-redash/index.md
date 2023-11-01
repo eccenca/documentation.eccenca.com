@@ -23,7 +23,7 @@ Click on it and you will come into another screen where you have to enter locati
 
 ![Redash Data Sources: Configure Corporate Memory Access](2-add-datasource-config.png "Redash Data Sources: Configure Corporate Memory Access")
 
-This configuration screen basically clones the basic configuration of [cmemc](../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index):
+This configuration screen basically clones the basic configuration of [cmemc](../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md):
 
 - **Name** is a human friendly identifier for the source,
 - **Base URL** refers to `CMEM_BASE_URI`,
