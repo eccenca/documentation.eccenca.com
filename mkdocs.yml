@@ -238,8 +238,8 @@ markdown_extensions:
       # toc_depth: 4
   # automatically inlines bundled and custom icons and emojis
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
       # https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/#additional-icons
       options:
         custom_icons:
@@ -250,9 +250,9 @@ markdown_extensions:
 plugins:
   # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#built-in-privacy-plugin
   - privacy:
-      external_assets: bundle
-      external_assets_dir: assets/externals
-      external_assets_exclude:
+      assets_fetch: true
+      assets_fetch_dir: assets/externals
+      assets_exclude:
         - badge.fury.io/*
         - img.shields.io/*
         - cdn.jsdelivr.net/npm/mathjax@3/*
@@ -273,7 +273,7 @@ plugins:
       cards: true
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
-      tags_compare: !!python/name:material.plugins.tags.plugin.casefold
+      tags_compare: !!python/name:material.plugins.tags.casefold
       tags_file: tags.md
       # https://squidfunk.github.io/mkdocs-material/insiders/
       tags_extra_files:
