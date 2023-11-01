@@ -20,6 +20,13 @@ We suggest using [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take ad
 
 ## Installation
 
+!!! info
+
+    The installation commands for the completion recently changed.
+    Use the following lines for the completion setup of cmemc >= 23.3.
+    If using an older version, look at the [old documenation](https://documentation.eccenca.com/23.1/automate/cmemc-command-line-interface/configuration/completion-setup/).
+
+
 In order to enable tab completion with **zsh** run the following command:
 
 ``` shell-session title="completion setup for zsh"
