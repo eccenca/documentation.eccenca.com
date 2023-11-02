@@ -7,11 +7,6 @@ tags:
 
 # EasyNav Module
 
-!!! Info
-
-    EasyNav is a preview feature, which is disabled by default.
-    Preview features can be unstable.
-
 ## Introduction
 
 This feature allows for the visual exploration of Knowledge Graphs.
