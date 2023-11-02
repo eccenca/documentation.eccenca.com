@@ -7,7 +7,8 @@ tags:
 
 ## Introduction
 
-Statement Annotations provide a way to express knowledge about statements. Typical use cases for Statement Annotations include:
+Statement Annotations provide a way to express knowledge about statements.
+Typical use cases for Statement Annotations include:
 
 -   the temporal validity of information,
 -   the origin of information, or
@@ -35,33 +36,37 @@ In the Statement Annotation dialog, you can select the Statement Annotation Temp
 
 ## Setup
 
-In order to have a working Statement Annotation setup, the following steps need to be done:
+In order to have a working Statement Annotation setup, the following steps need to be done in the component **:eccenca-application-explore: Knowledge Graphs**:
 
-### Create a Statement Annotation Graph
+??? note "1. Create a Statement Annotation Graph"
 
-Create a new Graph, edit its metadata and change the type to Statement Annotation Graph.
+    Open the graph selection and create a new graph :material-plus-circle-outline:.
+    Choose **New Statement Annotation Graph** and provide the needed meta data.
 
-![](statementannotation.png){ class="bordered" }
+    ![](23-03-CreateAnnotationGraph.gif){ class="bordered" }
 
-### Setup and import the Statement Annotation Graph in your data graph
+??? note "2. Setup and import the Statement Annotation Graph in your data graph"
 
-In your data graph, where the resources exist which you want to annotate, import the Statement Annotation Graph and select it as an Annotation Graph.
+    Open the graph selection and switch to your data graph where the resources exist which you want to annotate.
+    :material-pencil-circle-outline: Edit the graph description and :material-plus-circle-outline: add the property **Statement Annotation Graph** as well as **Imports**, where your select your newly created annotation graph in both fields.
 
-![](annotations.png){ class="bordered" }
+    ![](23-03-ImportSelectAnnotationGraph.gif){ class="bordered" }
 
-### Create a shaped form which will be used to annotate statements
+??? note "3. Create a shape which will be used to annotate statements"
 
-In your Shape Catalog, select a Node Shape (or create one) which you want to use for statement annotations, and Enable Statement Annotation to true.
+    Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
+    Create a node shape which can be used as an Annotation and configure **Provide as Shape** in the Group **Statement Annotation** to true for this node shape.
 
-![](setannotations.png){ class="bordered" }
+    ![](23-03-CreateAnnotationShape.gif){ class="bordered" }
 
-### Allow statement annotations in your shaped forms on specific Classes or Properties
+??? note "4. Allow statement annotations for specific Classes or Properties"
 
-Finally, select the Node Shape or Property Shape from your Shape Catalog, and enable annotations by setting the Enable option in the Statement Annotations group to true.
+    Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
+    Select the Node or Property Shape from your Shape Catalog and enable annotations by setting the Enable option in the Statement Annotations group to true.
 
-![](setannotations.png){ class="bordered" }
+    ![](23-03-EnableAnnotationsOnData.gif){ class="bordered" }
 
-This will enable the feature on the statements of all resources shown with this Node Shape or on all statements shown with this Property Shape.
+    This will enable the feature on the statements of all resources shown with this Node Shape or on all statements shown with this Property Shape.
 
 ## Technical Background
 
@@ -86,17 +91,15 @@ In order to automate access to Statement Annotations, you can query them with SP
 Here is a query example to start with:
 
 ```sparql
-# Request SPO of all Statement Annotations which annotate a
-# triple of my ResourceIRI (parameter)
-
+# Select resources with statement annotations and statement annotation graph
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT DISTINCT ?StatementAnnotationGraph ?AnnotationResource ?p ?o
+SELECT DISTINCT ?AnnotatedResource ?StatementAnnotationGraph ?AnnotationResource
 WHERE {
   GRAPH ?StatementAnnotationGraph {
-    ?StatementResource a rdf:Statement .
-    ?StatementResource rdf:subject|rdf:predicate|rdf:object <{{ResourceIRI}}> .
-    ?StatementResource rdf:value ?AnnotationResource .
-    ?AnnotationResource ?p ?o
+    [] a rdf:Statement ;
+        rdf:subject ?AnnotatedResource ;
+        rdf:value ?AnnotationResource .
   }
 }
 ```
+
