@@ -14,26 +14,19 @@ Corporate Memory 23.3.0 is the third main release in 2023.
 The highlights of this release are:
 
 -   Build:
-    -   Support for user managed **project variables** in dataset and task parameters.
-    -   All new UIs for **transformation evaluation and reference links**.
 -   Explore:
-    -   New feature in EasyNav like
-        -   **nodes context menu**,
-        -   **long label support**,
-        -   advanced **graph selection dialog** and
-        -   **automatic node layout**.
 -   Automate:
-    -   New **`admin client` command group** for managing client accounts in the Keycloak CMEM realm.
+    -   Full control in your Knowledge Graph build pipelines with the new **project variable** command group.
 
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
 -   eccenca DataIntegration v23.3.0
--   eccenca DataIntegration Python Plugins v4.1.0
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
+
 
 ## eccenca DataIntegration v23.3.0
 
@@ -84,16 +77,6 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message in 'SPARQL endpoint' plugin to mention prohibited URL redirect to a different protocol.
 -   `JDBC endpoint` dataset: Setting the user via JDBC URL while leaving the user parameter blank does not work.
 
-## eccenca DataIntegration Python Plugins v4.1.0
-
-Corporate Memory v23.2 includes the DataIntegration Python Plugins support in version 4.1.0.
-
-v4.1.0 of eccenca DataIntegration Python Plugins adds the following new features:
-
--   use `post_resource` api in `write_to_dataset` function to update dataset file resource
--   use cmempy 23.2
--   upgrade dependencies
--   enforce usage of Python 3.11
 
 ## eccenca DataManager v23.3.0
 
@@ -119,6 +102,7 @@ v23.3.0 of eccenca DataIntegration ships the following fixes:
 -   CMEM Manual Testing 23.2 e2e - Don't do redundant redirects in the Module context.
 -   Navigation tree in the Thesaurus module was collapsed after a subitem select.
 -   Use more space for visualization catalogue if available.
+
 
 ## eccenca DataPlatform v23.3.0
 
@@ -153,6 +137,7 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
     -   Change default system workspace values.
 -   Spring Boot v3.1.x
 
+
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
@@ -160,32 +145,31 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 v23.3.0 of eccenca Corporate Memory Control adds the following new features:
 
 -   `project variable` command group
-    -   `create` command - create a new project variable
-    -   `delete` command - delete a project variable
-    -   `get` command - get the value or other data of a project variable
-    -   `list` command - list available project variables
-    -   `update` command - update data of an existing project variable
--   `admin workspace python open` command
-    -   Open a package pypi.org page in the browser
--   `admin workspace python list` command
-    -   `--available` option lists published packages
--   `admin workspace python uninstall` command
-    -   `--all` option clean ups the whole python environment
--   `dataset update` command
-    -   Update the configuration of an existing dataset
--   `workflow execute` command
-    -   `--progress` option to show a execution progress bar
-    -   more debug info when polling for workflow info
--   `admin store bootstrap` command
-    -   `--remove` option to delete bootstrap data
--   `project create` command
-    -   `--label` option to give a label for the created project
-    -   `--description` option to give a description for the created project
+    - `create` command - create a new project variable
+    - `delete` command - delete a project variable
+    - `get` command - get the value or other data of a project variable
+    - `list` command - list available project variables
+    - `update` command - update data of an existing project variable
+-   `admin workspace python` command group
+    - `open` command - open a package pypi.org page in the browser
+    - `list --available` option - list published packages
+    - `uninstall --all` option - reset the whole python environment
+-   `project` command group
+    - `create --label` option - give a label for the created project
+    - `create --description` option - give a description for the created project
+-   `dataset` command group
+    - `update` command - update the configuration of an existing dataset
+-   `workflow` command group
+    - `execute --progress` option - show a progress bar
+-   `admin store` command group
+    - `bootstrap --remove` option - delete the bootstrap data
 
 v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
+-   `workflow execute` command - more debug info when polling for workflow info
 -   Upgrade to `click` v8 (see Migration Notes).
 -   Upgrade to debian 12 based image: `3.11.6-slim-bookworm`
+
 
 ## Migration Notes
 
@@ -197,18 +181,11 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v23.1 can be imported into DataIntegration v23.2.
 
-### cmemc
-
--   The upgrade to `click` v8 involves new completion functions (see manual)
-    -   <https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface/configuration/completion-setup/>
-    -   Old: `_CMEMC_COMPLETE=source_zsh cmemc`
-    -   New: `_CMEMC_COMPLETE=zsh_source cmemc` (`¯\_(ツ)_/¯`)
-
 ### DataPlatform
 
 Due to the removal of the `authorization.abox.prefix` configuration option, a change in your setup may be required.
 
-!!! info When to migrate?
+!!! info "When to migrate?"
 
     If you have not changed this value (to anything other than `http://eccenca.com/`), you are not affected by this change and no action is required.
 
@@ -227,3 +204,10 @@ Access control rules will now always and only come from the `http://eccenca.com/
         ```sql
         TODO
         ```
+
+### cmemc
+
+-   The upgrade to `click` v8 involves new completion functions (see [completion manual](../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
+    -   Old: `_CMEMC_COMPLETE=source_zsh cmemc`
+    -   New: `_CMEMC_COMPLETE=zsh_source cmemc` (`¯\_(ツ)_/¯`)
+
