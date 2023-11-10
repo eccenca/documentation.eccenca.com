@@ -183,8 +183,24 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 ### DataPlatform
 
-Due to the removal of the `authorization.abox.prefix` configuration option a change might be required in your setup.
+Due to the removal of the `authorization.abox.prefix` configuration option, a change in your setup may be required.
 
-!!! info No action needed
+!!! info When to migrate?
 
-    If you did not change this value (to anything different from "<http://eccenca.com/>") you are not effected by this change and no actions are required.
+    If you have not changed this value (to anything other than `http://eccenca.com/`), you are not affected by this change and no action is required.
+
+Access control rules will now always and only come from the `http://eccenca.com/` graph and all `AccessCondition` resources need to use this IRI as prefix (e.g. have an IRI like `http://eccenca.com/170f25c2-3b92-40d7-b247-5bba42dbe22a`). Required actions:
+
+-   If you have been using a different named graph to store your `AccessCondition`s, please import them into a graph with the IRI `http://eccenca.com/`. E.g. by:
+    -   changing the entry in a `.graph` of a graph backup.
+    -   using `cmemc` like: `cmemc graph import /path/to/your/access-condition-backup.ttl http://eccenca.com/`
+    -   using the EXPLORE UI features to create / import a graph, prior to starting the software update
+    -   using a `SPARQL query` like `COPY GRAPH <urn:your-custom-namespace> TO GRAPH <http://eccenca.com/>`
+
+-   If you have been using a different prefix for your `AccessCondition`s, change the prefix of these resources. E.g. by:
+    -   search / replace the old prefix with the new one
+    -   using a `SPARQL query` like:
+
+        ```sql
+        TODO
+        ```
