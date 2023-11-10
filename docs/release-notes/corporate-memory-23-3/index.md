@@ -159,17 +159,33 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 
 v23.3.0 of eccenca Corporate Memory Control adds the following new features:
 
--   `dataset update` command:
-    -   used to update the configuration of an existing dataset.
--   `admin store bootstrap` command:
-    -   `--remove` option added, to delete existing bootstrap data if present.
--   `project create` command now allows to provide metadata when creating a new project:
-    -   `--label` option, to provide a name to the new project.
-    -   `--description` option, to provide a project description.
+-   `project variable` command group
+    -   `create` command - create a new project variable
+    -   `delete` command - delete a project variable
+    -   `get` command - get the value or other data of a project variable
+    -   `list` command - list available project variables
+    -   `update` command - update data of an existing project variable
+-   `admin workspace python open` command
+    -   Open a package pypi.org page in the browser
+-   `admin workspace python list` command
+    -   `--available` option lists published packages
+-   `admin workspace python uninstall` command
+    -   `--all` option clean ups the whole python environment
+-   `dataset update` command
+    -   Update the configuration of an existing dataset
+-   `workflow execute` command
+    -   `--progress` option to show a execution progress bar
+    -   more debug info when polling for workflow info
+-   `admin store bootstrap` command
+    -   `--remove` option to delete bootstrap data
+-   `project create` command
+    -   `--label` option to give a label for the created project
+    -   `--description` option to give a description for the created project
 
 v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
--   `post_resource` to use generator content.
+-   Upgrade to `click` v8 (see Migration Notes).
+-   Upgrade to debian 12 based image: `3.11.6-slim-bookworm`
 
 ## Migration Notes
 
@@ -180,6 +196,13 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v23.1 can be imported into DataIntegration v23.2.
+
+### cmemc
+
+-   The upgrade to `click` v8 involves new completion functions (see manual)
+    -   <https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface/configuration/completion-setup/>
+    -   Old: `_CMEMC_COMPLETE=source_zsh cmemc`
+    -   New: `_CMEMC_COMPLETE=zsh_source cmemc` (`¯\_(ツ)_/¯`)
 
 ### DataPlatform
 
