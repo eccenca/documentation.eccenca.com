@@ -189,20 +189,30 @@ Due to the removal of the `authorization.abox.prefix` configuration option, a ch
 
     If you have not changed this value (to anything other than `http://eccenca.com/`), you are not affected by this change and no action is required.
 
-Access control rules will now always and only come from the `http://eccenca.com/` graph and all `AccessCondition` resources need to use this IRI as prefix (e.g. have an IRI like `http://eccenca.com/170f25c2-3b92-40d7-b247-5bba42dbe22a`). Required actions:
-
--   If you have been using a different named graph to store your `AccessCondition`s, please import them into a graph with the IRI `http://eccenca.com/`. E.g. by:
-    -   changing the entry in a `.graph` of a graph backup.
-    -   using `cmemc` like: `cmemc graph import /path/to/your/access-condition-backup.ttl http://eccenca.com/`
-    -   using the EXPLORE UI features to create / import a graph, prior to starting the software update
-    -   using a `SPARQL query` like `COPY GRAPH <urn:your-custom-namespace> TO GRAPH <http://eccenca.com/>`
+From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `http://eccenca.com/` (e.g. have an IRI like `http://eccenca.com/170f25c2-3b92-40d7-b247-5bba42dbe22a`). Required action:
 
 -   If you have been using a different prefix for your `AccessCondition`s, change the prefix of these resources. E.g. by:
-    -   search / replace the old prefix with the new one
+    -   search / replace the old prefix with the new one in your RDF graph backup
     -   using a `SPARQL query` like:
 
         ```sql
-        TODO
+        PREFIX eccauth: <https://vocab.eccenca.com/auth/>
+
+        INSERT {
+            GRAPH <urn:elds-backend-access-conditions-graph> {
+                ?new_acl a eccauth:AccessCondition .
+                ?new_acl ?p ?o .
+            }
+        }
+        WHERE {
+            # this Graph IRI corresponds to your `authorization.abox.accessConditions.graph` configuration
+            # default <urn:elds-backend-access-conditions-graph>
+            GRAPH <urn:your-custom-namespace> {
+                ?acl a eccauth:AccessCondition .
+                ?acl ?p ?o .
+                BIND(IRI(REPLACE(STR(?acl), "urn:your-custom-prefix", "http://eccenca.com/")) AS ?new_acl)
+            }
+        } ;
         ```
 
 ### cmemc
