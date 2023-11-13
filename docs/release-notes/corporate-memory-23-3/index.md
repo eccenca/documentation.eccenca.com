@@ -27,7 +27,6 @@ This release delivers the following component versions:
 
 More detailed release notes for these versions are listed below.
 
-
 ## eccenca DataIntegration v23.3.0
 
 We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
@@ -77,7 +76,6 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message in 'SPARQL endpoint' plugin to mention prohibited URL redirect to a different protocol.
 -   `JDBC endpoint` dataset: Setting the user via JDBC URL while leaving the user parameter blank does not work.
 
-
 ## eccenca DataManager v23.3.0
 
 We are excited to announce the latest update to DataManager v23.3.0, which introduces new features, improvements and bug fixes.
@@ -102,7 +100,6 @@ v23.3.0 of eccenca DataIntegration ships the following fixes:
 -   CMEM Manual Testing 23.2 e2e - Don't do redundant redirects in the Module context.
 -   Navigation tree in the Thesaurus module was collapsed after a subitem select.
 -   Use more space for visualization catalogue if available.
-
 
 ## eccenca DataPlatform v23.3.0
 
@@ -137,7 +134,6 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
     -   Change default system workspace values.
 -   Spring Boot v3.1.x
 
-
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
@@ -145,31 +141,30 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 v23.3.0 of eccenca Corporate Memory Control adds the following new features:
 
 -   `project variable` command group
-    - `create` command - create a new project variable
-    - `delete` command - delete a project variable
-    - `get` command - get the value or other data of a project variable
-    - `list` command - list available project variables
-    - `update` command - update data of an existing project variable
+    -   `create` command - create a new project variable
+    -   `delete` command - delete a project variable
+    -   `get` command - get the value or other data of a project variable
+    -   `list` command - list available project variables
+    -   `update` command - update data of an existing project variable
 -   `admin workspace python` command group
-    - `open` command - open a package pypi.org page in the browser
-    - `list --available` option - list published packages
-    - `uninstall --all` option - reset the whole python environment
+    -   `open` command - open a package pypi.org page in the browser
+    -   `list --available` option - list published packages
+    -   `uninstall --all` option - reset the whole python environment
 -   `project` command group
-    - `create --label` option - give a label for the created project
-    - `create --description` option - give a description for the created project
+    -   `create --label` option - give a label for the created project
+    -   `create --description` option - give a description for the created project
 -   `dataset` command group
-    - `update` command - update the configuration of an existing dataset
+    -   `update` command - update the configuration of an existing dataset
 -   `workflow` command group
-    - `execute --progress` option - show a progress bar
+    -   `execute --progress` option - show a progress bar
 -   `admin store` command group
-    - `bootstrap --remove` option - delete the bootstrap data
+    -   `bootstrap --remove` option - delete the bootstrap data
 
 v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 -   `workflow execute` command - more debug info when polling for workflow info
 -   Upgrade to `click` v8 (see Migration Notes).
 -   Upgrade to debian 12 based image: `3.11.6-slim-bookworm`
-
 
 ## Migration Notes
 
