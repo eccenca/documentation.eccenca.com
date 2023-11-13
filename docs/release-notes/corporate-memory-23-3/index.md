@@ -185,9 +185,9 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 Due to the removal of the `authorization.abox.prefix` configuration option, a change in your setup may be required.
 
-!!! info "When to migrate?"
+!!! warning
 
-    If you have not changed this value (to anything other than `http://eccenca.com/`), you are not affected by this change and no action is required.
+    Even if you have not changed this value (to anything other than `http://eccenca.com/`), please remove the `authorization.abox.prefix` configuration property from your DataPlatform `application.yml`. This property must be absent or DataPlatform will not start.
 
 From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `http://eccenca.com/` (e.g. have an IRI like `http://eccenca.com/170f25c2-3b92-40d7-b247-5bba42dbe22a`). Required action:
 
@@ -220,4 +220,3 @@ From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `ht
 -   The upgrade to `click` v8 involves new completion functions (see [completion manual](../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
     -   Old: `_CMEMC_COMPLETE=source_zsh cmemc`
     -   New: `_CMEMC_COMPLETE=zsh_source cmemc` (`¯\_(ツ)_/¯`)
-
