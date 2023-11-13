@@ -22,7 +22,7 @@ This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
 -   eccenca DataIntegration v23.3.0
--   eccenca DataIntegration Python Plugins v4.3.0
+-   eccenca DataIntegration Python Plugins v4.3.0 ([changelog](https://github.com/eccenca/cmem-plugin-base/blob/main/CHANGELOG.md))
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
@@ -76,21 +76,6 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Testing for invalid documents downloaded from GDocs fixed and adapted to new behavior of wrong requests.
 -   Error message in 'SPARQL endpoint' plugin to mention prohibited URL redirect to a different protocol.
 -   `JDBC endpoint` dataset: Setting the user via JDBC URL while leaving the user parameter blank does not work.
-
-## eccenca DataIntegration Python Plugins v4.3.0
-
-Corporate Memory v23.3.0 includes the DataIntegration Python Plugins support in version 4.3.0.
-
-v4.3.0 of eccenca DataIntegration Python Plugins adds the following new features:
-
--   Workflow plugins can specify their input and output ports now.
--   `ResourceParameterType` - for selecting DI dataset resources.
--   `CodeParameterType` - which supports various different code languages.
--   Optional `plugin_icon` parameter in a plugin description to specify a custom plugin icon as data URL.
-
-v4.3.0 of eccenca DataIntegration Python Plugins introduces the following changes:
-
--   dependency to `cmempy` >= 23.3.0
 
 ## eccenca DataManager v23.3.0
 
