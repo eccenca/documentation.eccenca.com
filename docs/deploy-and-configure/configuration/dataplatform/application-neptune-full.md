@@ -9,6 +9,8 @@ uploaded via S3 based bulk loader. The S3 bucket is accessed in this case via an
 role CMEM runs under has write access to the bucket. One of the role the neptune cluster runs under is configured in this setting and has read access to the bucket.
 On bulk load the loading runs parallel in the setting HIGH which causes higher cpu load but better performance.
 
+Also the example disables DPs generation of tracing IDs by micrometer tracing - Neptune needs UUIDs as IDs for queries etc.
+
 ```yaml
 store:
   type: neptune
@@ -24,6 +26,8 @@ store:
       iamRoleArn: "arn:aws:iam::887770733838:role/NeptuneLoadFromS3"
       bulkLoadThresholdInMb: 100
       bulkLoadParallelism: HIGH
+
+management.tracing.enabled: false
 ```
 
 

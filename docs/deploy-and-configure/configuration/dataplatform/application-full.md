@@ -51,7 +51,7 @@ Use this property to specify the location of the license file
 This section provides general configuration settings.
 
 
-### Caching
+### Configuration of Caching
 
 DataPlatform provides caching support which is enabled by default with an in-memory Caffeine cache.
 
@@ -79,6 +79,9 @@ To disable caching, set the type to NONE (not recommended).
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_CACHE_INFINISPAN_MODE |
+
+### Configuration of Servlet Container
+
 
 Multipart upload limits config
 You may need to set the following parameter values to 2048MB for implementations
@@ -110,9 +113,38 @@ Use this property to define the maximum size of HTTP request in number of bytes.
 | Valid values | string |
 | Environment | SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE |
 
-Spring Cloud configuration
+***Property: spring.servlet.multipart.location***
 
-***Property: spring.cloud.config.enabled***
+Temporary storage used for multipart upload. This defaults to system property java.io.tmpdir.
+
+| Category | Value |
+|--- | ---: |
+| Default | *none* |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_SERVLET_MULTIPART_LOCATION |
+
+***Property: management.info.env.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_INFO_ENV_ENABLED |
+
+***Property: management.endpoints.web.exposure.include***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | * |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE |
+
+***Property: management.endpoints.enabled-by-default***
 
 
 | Category | Value |
@@ -120,46 +152,111 @@ Spring Cloud configuration
 | Default | false |
 | Required | false |
 | Valid values | string |
-| Environment | SPRING_CLOUD_CONFIG_ENABLED |
+| Environment | MANAGEMENT_ENDPOINTS_ENABLED_BY_DEFAULT |
 
-Spring Sleuth Zipkin exporter configuration (tracing)
-
-***Property: spring.zipkin.base-url***
+***Property: management.endpoint.health.enabled***
 
 
 | Category | Value |
 |--- | ---: |
-| Default | http://localhost:9411/ |
+| Default | true |
 | Required | false |
 | Valid values | string |
-| Environment | SPRING_ZIPKIN_BASE_URL |
+| Environment | MANAGEMENT_ENDPOINT_HEALTH_ENABLED |
 
-***Property: spring.zipkin.enabled***
+***Property: management.endpoint.health.show-details***
 
-Whether the export to zipkin is enabled
+
+| Category | Value |
+|--- | ---: |
+| Default | when_authorized |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS |
+
+***Property: management.endpoint.info.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_ENDPOINT_INFO_ENABLED |
+
+***Property: management.health.diskspace.enabled***
+
 
 | Category | Value |
 |--- | ---: |
 | Default | false |
 | Required | false |
 | Valid values | string |
-| Environment | SPRING_ZIPKIN_ENABLED |
+| Environment | MANAGEMENT_HEALTH_DISKSPACE_ENABLED |
 
-The service name for DataPlatform under which the traces are stored
-
-***Property: spring.zipkin.service.name***
+***Property: management.health.livenessstate.enabled***
 
 
 | Category | Value |
 |--- | ---: |
-| Default | DP |
+| Default | true |
 | Required | false |
 | Valid values | string |
-| Environment | SPRING_ZIPKIN_SERVICE_NAME |
+| Environment | MANAGEMENT_HEALTH_LIVENESSSTATE_ENABLED |
 
-Spring Cloud Sleuth distributed tracing. This generated IDs for queries/updates and all operations in DataPlatform. Write to tracing exporter s. spring.zipkin.
+***Property: management.health.readinessstate.enabled***
 
-***Property: spring.sleuth.enabled***
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_HEALTH_READINESSSTATE_ENABLED |
+
+***Property: management.health.sparql.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_HEALTH_SPARQL_ENABLED |
+
+***Property: management.health.sparql.fixedDelayInMilliseconds***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 5000 |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_HEALTH_SPARQL_FIXEDDELAYINMILLISECONDS |
+
+***Property: management.health.sparql.timeoutInMilliseconds***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 5000 |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_HEALTH_SPARQL_TIMEOUTINMILLISECONDS |
+
+***Property: management.influx.metrics.export.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_INFLUX_METRICS_EXPORT_ENABLED |
+
+Activate Micrometer Tracing capability (https://micrometer.io/docs/tracing) with Brave (https://github.com/openzipkin/brave)
+
+***Property: management.tracing.enabled***
 
 Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism. Backend store "neptune" is not compatible with tracing enabled.
 
@@ -168,7 +265,7 @@ Whether tracing is enabled. If not then IDs for i.e. queries are generated via U
 | Default | true |
 | Required | false |
 | Valid values | string |
-| Environment | SPRING_SLEUTH_ENABLED |
+| Environment | MANAGEMENT_TRACING_ENABLED |
 
 ## OpenAPI Specification and Swagger UI
 
@@ -418,19 +515,6 @@ Use this property to configure the URI of the public user (see section Public ac
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
 
-***Property: authorization.abox.prefix***
-
-Use this property to set the namespace of URIs created by DataPlatform.
-**Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the URI template), as well as existing URI descriptions and existing access conditions.
-
-
-| Category | Value |
-|--- | ---: |
-| Default | https://ns.eccenca.com/ |
-| Required | false |
-| Valid values | string |
-| Environment | AUTHORIZATION_ABOX_PREFIX |
-
 #### Access conditions
 
 **IMPORTANT:** The following properties are deprecated and have no function anymore!
@@ -627,6 +711,69 @@ Used for resolving titles & comments and loading shaped resources.
 | Required | false |
 | Valid values | RESOURCE_IN_VALUES, FILTER_ONLY |
 | Environment | PROXY_FETCHVALUESSTRATEGY |
+
+## LLM Assistant Supported
+
+Leverage generative AI (LLMs) for ontology creation and exploration (SPARQL query generation).
+
+
+***Property: assist.enabled***
+
+Activate LLM Assistant features.
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | boolean |
+| Environment | ASSIST_ENABLED |
+
+***Property: assist.openAiApiKey***
+
+Your OpenAI API key to use.
+
+| Category | Value |
+|--- | ---: |
+| Default | *none* |
+| Required | true |
+| Valid values | string |
+| Environment | ASSIST_OPENAIAPIKEY |
+
+***Property: assist.baseUrl***
+
+The access token URL for the LLM API. Used to configure an openAI API compatible alternative service (e.g. OpenAI in MS Azure). If empty OpenAI API will be used.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | *none* |
+| Required | false |
+| Valid values | string |
+| Environment | ASSIST_BASEURL |
+
+***Property: assist.chatModel***
+
+The name of the model to use for chat interactions. Defaults to "gpt-3.5-turbo-16k-0613". Use of a `*-0613` model (fine tuned for function calling) is recommended.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | gpt-3.5-turbo-16k-0613 |
+| Required | false |
+| Valid values | string |
+| Environment | ASSIST_CHATMODEL |
+
+***Property: assist.embeddingModel***
+
+The name of the model to use for retrieving embeddings. Defaults to "text-embedding-ada-002".
+
+
+| Category | Value |
+|--- | ---: |
+| Default | text-embedding-ada-002 |
+| Required | false |
+| Valid values | string |
+| Environment | ASSIST_EMBEDDINGMODEL |
 
 ## Syncing graph via git repositories
 
@@ -1188,6 +1335,17 @@ Stored files and saved analysis will be deleted if older than maintenanceExpirat
 | Required | false |
 | Valid values | string |
 | Environment | FILES_MAINTENANCEEXPIRATIONDURATION |
+
+***Property: files.storageDirectory***
+
+A folder where the storage service places the files for later analysis and upload to the store. The folder is cleansed regularly. A temp folder (java.io.tmpdir) is created and used if not set.
+
+| Category | Value |
+|--- | ---: |
+| Default | *none* |
+| Required | false |
+| Valid values | string |
+| Environment | FILES_STORAGEDIRECTORY |
 
 ## Store configuration
 
