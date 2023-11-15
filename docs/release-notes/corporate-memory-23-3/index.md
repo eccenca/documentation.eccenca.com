@@ -7,16 +7,22 @@ tags:
 
 Corporate Memory 23.3.0 is the third main release in 2023.
 
-![23.3.0: Build - Project Variables](23-2-build-project-variables.png "23.3.0: Build - Project Variables"){ class="bordered" }
-![23.3.0: Explore - EasyNav Graph Selection](23-2-easynav-graph-select.png "23.3.0: Explore - EasyNav Graph Selection"){ class="bordered" }
-![23.3.0: Explore - EasyNav Node Autolayout](23-2-easynav-autolayout.gif "23.3.0: Explore - EasyNav Node Autolayout"){ class="bordered" }
+![23.3.0: Charts - Chart Definitions](23-3-explore-charts.png "23.3.0: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
+![23.3.0: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3.0: Build - Keyboard Shortcuts"){ class="bordered" }
+![23.3.0: Build - Workflow Ports](23-3-build-port-menu.png "23.3.0: Build - Workflow Ports"){ class="bordered" }
 
 The highlights of this release are:
 
+-   Charts:
+    -   new module used on define BI widgets / charts based on the [Apache eCharts projects](https://echarts.apache.org)
 -   Build:
+    -   operate BUILD like never before by using the new keyboard shortcuts (press "?" in the build module to learn the details)
+-   Build:
+    -   several improvements to the workflows view: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modeled, show schema or ports
 -   Explore:
+    -   preview release of our generative AI / LLM based Ontology and Query Assistant
 -   Automate:
-    -   Full control in your Knowledge Graph build pipelines with the new **project variable** command group.
+    -   new `project variable` command group plus several addition to existing commands
 
 This release delivers the following component versions:
 
@@ -215,4 +221,4 @@ From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `ht
 
 -   The upgrade to `click` v8 involves new completion functions (see [completion manual](../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
     -   Old: `_CMEMC_COMPLETE=source_zsh cmemc`
-    -   New: `_CMEMC_COMPLETE=zsh_source cmemc` (`¯\_(ツ)_/¯`)
+    -   New: `_CMEMC_COMPLETE=zsh_source cmemc`
