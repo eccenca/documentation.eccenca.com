@@ -98,6 +98,14 @@ Default is false. A value of true means the properties are not editable by the u
 Used Path: `shui:readOnly`
 
 
+### Chart Visualization
+
+
+Integrates a chart visualization in the property shape area. You should setup a property shape with chart visualization as readOnly and showAlways.
+
+Used Path: `shui:provideChartVisualization`
+
+
 ### Provide Workflow Trigger
 
 
@@ -253,14 +261,6 @@ Used Path: `shacl:node`
 !!! info
 
     In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
-
-### URI template
-
-
-A compact sequence of characters for describing a range of URIs through variable expansion.
-
-Used Path: `shui:uriTemplate`
-
 
 ### Ignore on copy
 

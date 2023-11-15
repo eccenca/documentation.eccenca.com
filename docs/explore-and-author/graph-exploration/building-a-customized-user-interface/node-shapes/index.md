@@ -63,6 +63,14 @@ It is only relevant in case multiple node shapes are on the same level in the sh
 
 Used Path: `shacl:order`
 
+
+### Chart Visualization
+
+
+Integrates a chart visualization in the node shape area.
+
+Used Path: `shui:provideChartVisualization`
+
 ## Vocabulary
 
 !!! info
@@ -87,14 +95,6 @@ Used Path: `shacl:targetClass`
 
 !!! info
     In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
-
-### URI template
-
-
-A compact sequence of characters for describing a range of URIs through variable expansion.
-
-Used Path: `shui:uriTemplate`
-
 
 ### On delete update
 
