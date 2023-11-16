@@ -13,22 +13,19 @@ Corporate Memory 23.3.0 is the third main release in 2023.
 
 The highlights of this release are:
 
--   Charts:
-    -   new module used on define BI widgets / charts based on the [Apache eCharts projects](https://echarts.apache.org)
+-   Explore and Author:
+    -   new **[charts catalog](../../explore-and-author/charts-catalog/index.md)** module added, which allows for defining BI widgets / charts which can be integrated into shapes
+    -   preview release of our generative AI / LLM based **Ontology and Query Assistant**
 -   Build:
-    -   operate BUILD like never before by using the new keyboard shortcuts (press "?" in the build module to learn the details)
--   Build:
-    -   several improvements to the workflows view: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modeled, show schema or ports
--   Explore:
-    -   preview release of our generative AI / LLM based Ontology and Query Assistant
+    -   operate BUILD like never before by using the new **keyboard shortcuts** (press "?" in the build module to learn the details)
+    -   several **improvements to the workflows view**: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modelled, show schema or ports
 -   Automate:
-    -   new `project variable` command group plus several addition to existing commands
+    -   new **`project variable` command group** plus several addition to existing commands
 
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
 -   eccenca DataIntegration v23.3.0
--   eccenca DataIntegration Python Plugins v4.3.0 ([changelog](https://github.com/eccenca/cmem-plugin-base/blob/main/CHANGELOG.md))
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
@@ -40,6 +37,7 @@ We're excited to bring you the latest update to DataIntegration v23.3.0, featuri
 
 v23.3.0 of eccenca DataIntegration adds the following new features:
 
+-   plugin base library updated to v4.3.0 ([changelog](https://github.com/eccenca/cmem-plugin-base/blob/main/CHANGELOG.md))
 -   Support for custom plugin icon.
 -   New `distinct by` Workflow operator that removes duplicated entities based on a user-defined path.
 -   Endpoint to download the DataIntegration vocabulary.
