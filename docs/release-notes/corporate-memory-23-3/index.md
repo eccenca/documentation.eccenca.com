@@ -15,10 +15,10 @@ The highlights of this release are:
 
 -   Explore and Author:
     -   new **[charts catalog](../../explore-and-author/charts-catalog/index.md)** module added, which allows for defining BI widgets / charts which can be integrated into shapes
-    -   preview release of our generative AI / LLM based **Ontology and Query Assistant**
+    -   preview release of our generative AI / LLM based **[Ontology](../../explore-and-author/easynav-module/index.md#llm-ontology-assist) and [Query](../../explore-and-author/query-module/index.md#llm-query-assist) Assistant**
 -   Build:
     -   operate BUILD like never before by using the new **keyboard shortcuts** (press "?" in the build module to learn the details)
-    -   several **improvements to the workflows view**: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modelled, show schema or ports
+    -   several **improvements to the workflows view**: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modeled, show schema or ports
 -   Automate:
     -   new **`project variable` command group** plus several addition to existing commands
 
@@ -129,7 +129,7 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
         -   `management.health.sparql.fixedDelayInMilliseconds`: delay in ms between store checks (default: 5000).
         -   `management.health.sparql.timeoutInMilliseconds`: timeout on how long to wait for store to answer check request (default: 5000).
     -   health group `sparql` contributes to readiness state / overall health endpoint.
-    -   Graphdb health check uses Gdb endpoint for repository.
+    -   GraphDB health check uses Gdb endpoint for repository.
 -   Charts configuration API and Shacl integration.
 -   Breaking change: remove property `authorization.abox.prefix` (fixed default: <http://eccenca.com/>).
 -   Workspace configuration adjustments:

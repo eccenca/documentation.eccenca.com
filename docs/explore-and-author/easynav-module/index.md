@@ -103,3 +103,21 @@ The weight can be used to boost the results of one search configuration over ano
 
 `Search Configuration`s will be cumulatively executed when search terms are provided.
 Which means each additional `Search Configuration` increases the time to produce results.
+
+## (LLM) Ontology Assist
+
+Ontology Assist is a preview feature powered by generative AI, LLM, and a Retrieval Augmented Generation (RAG) approach.
+It allows bootstrap and evolve an ontology using natural language and a chat like interaction.
+
+<div class="video-wrapper">
+    <iframe
+        width="100%"
+        height="400px"
+        src="https://www.youtube.com/embed/s3Ghri4LZL0?si=YH4nqSeIfHwhpgBA"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+</div>
+
+The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/dataplatform/application-full.md#llm-assistant-supported).
