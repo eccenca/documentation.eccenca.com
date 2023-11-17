@@ -84,3 +84,13 @@ When you enter `Person` into the `class` placeholder field in the placeholde
 ```sparql
 SELECT * WHERE { ?classInstance a <http://dbpedia.org/ontology/Person> .}
 ```
+
+### (LLM) Query Assist
+
+As a preview feature ...
+
+<div class="video-wrapper">
+<iframe width="100%" height="400px" src="https://www.youtube.com/embed/TZXpI3BmBiY?si=MhIX60wV8s7C-kYC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/dataplatform/application-full.md#llm-assistant-supported).
