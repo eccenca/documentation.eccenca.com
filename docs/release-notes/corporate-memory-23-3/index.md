@@ -161,6 +161,7 @@ v23.3.0 of DataPlatform ships the following changes:
     -   Chart configuration module.
     -   Change default system workspace values.
 -   Spring Boot v3.1.x
+-   Support for the `{label}` parameter in uri templates.
 
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
