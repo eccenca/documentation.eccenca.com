@@ -1,0 +1,308 @@
+@prefix :      <http://ld.company.org/prod-vocab/> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix ecc:   <https://ns.eccenca.com/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf:  <http://purl.org/vocommons/voaf#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dbo:   <http://dbpedia.org/ontology/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+:height_mm  a             owl:DatatypeProperty ;
+        rdfs:comment      "The height of an item measured in millimeter."@en ;
+        rdfs:domain       :Hardware ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "height (mm)"@en ;
+        rdfs:range        xsd:decimal .
+
+cc:license  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  <http://creativecommons.org/ns> .
+
+:phone  a                 owl:DatatypeProperty ;
+        rdfs:comment      "A phone number."@en ;
+        rdfs:domain       :Agent ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "phone number"@en ;
+        rdfs:range        xsd:string .
+
+:Department  a            owl:Class ;
+        rdfs:comment      "A department in an organization."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Department"@en .
+
+:Hardware  a              owl:Class ;
+        rdfs:comment      "The hardware products produced."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Hardware"@en ;
+        rdfs:subClassOf   :Product .
+
+:hasCategory  a           owl:ObjectProperty ;
+        rdfs:comment      "The category name of a product."@en ;
+        rdfs:domain       :Product ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has category"@en ;
+        rdfs:range        :ProductCategory .
+
+:addressCountryCode  a    owl:DatatypeProperty ;
+        rdfs:comment      "The address country code."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "address country code"@en ;
+        rdfs:range        xsd:string .
+
+:email  a                 owl:DatatypeProperty ;
+        rdfs:comment      "The e-mail of an agent."@en ;
+        rdfs:domain       :Agent ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "email"@en ;
+        rdfs:range        xsd:string .
+
+vann:preferredNamespaceUri
+        a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy  vann: .
+
+:memberOf  a              owl:ObjectProperty ;
+        rdfs:comment      "The department to which an agents belongs."@en ;
+        rdfs:domain       :Agent ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "member of"@en ;
+        rdfs:range        :Department .
+
+:Manager  a               owl:Class ;
+        rdfs:comment      "An employee with some direct reports and management duties."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Manager"@en ;
+        rdfs:subClassOf   :Employee .
+
+:Supplier  a              owl:Class ;
+        rdfs:comment      "The Supplier of some item(s)."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Supplier"@en .
+
+:compatibleProduct  a     owl:ObjectProperty ;
+        rdfs:comment      "A compatible product."@en ;
+        rdfs:domain       :Product ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "compatible product"@en ;
+        rdfs:range        :Product .
+
+:managesProduct  a        owl:ObjectProperty ;
+        rdfs:comment      "The product managed by the product manager."@en ;
+        rdfs:domain       :Employee ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "manages product"@en ;
+        rdfs:range        :Product .
+
+:Product  a               owl:Class ;
+        rdfs:comment      "Anything that we make and/or sell."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Product"@en .
+
+dct:creator  a            owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+<http://creativecommons.org/licenses/by/4.0/>
+        rdfs:label  "Creative Commons Attribution 4.0 International" .
+
+:id     a                 owl:DatatypeProperty ;
+        rdfs:comment      "The ID of a thing."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ID" ;
+        rdfs:range        xsd:string .
+
+:Price  a                 owl:Class ;
+        rdfs:comment      "A price object to deal with multiple prices and/or currencies."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Price"@en .
+
+:weight_g  a              owl:DatatypeProperty ;
+        rdfs:comment      "The weight of an item measured in grams."@en ;
+        rdfs:domain       :Hardware ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "weight (g)"@en ;
+        rdfs:range        xsd:decimal .
+
+:price  a                 owl:ObjectProperty ;
+        rdfs:comment      "The price specification of a product."@en ;
+        rdfs:domain       :Product ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "price"@en ;
+        rdfs:range        :Price .
+
+dct:publisher  a          owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:hasDirectReport  a       owl:ObjectProperty ;
+        rdfs:comment      "The employees manager she is reporting to."@en ;
+        rdfs:domain       :Manager ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has direct report"@en ;
+        rdfs:range        :Employee .
+
+:Employee  a              owl:Class ;
+        rdfs:comment      "An employee in my company."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Employee"@en ;
+        rdfs:subClassOf   :Agent .
+
+:areaOfExpertise  a       owl:DatatypeProperty ;
+        rdfs:comment      "The area of expertise."@en ;
+        rdfs:domain       :Agent ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "area of expertise"@en ;
+        rdfs:range        xsd:string .
+
+:country  a               owl:ObjectProperty ;
+        rdfs:comment      "The country where the supplier is located."@en ;
+        rdfs:domain       :Supplier ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "country"@en ;
+        rdfs:range        dbo:Country .
+
+:responsibleFor  a        owl:ObjectProperty ;
+        rdfs:comment      "The product for which a department is responsible."@en ;
+        rdfs:domain       :Department ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "responsible for"@en ;
+        rdfs:range        :Product .
+
+:expertFor  a             owl:ObjectProperty ;
+        rdfs:comment      "The product category she is expert for."@en ;
+        rdfs:domain       :Agent ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "expert for"@en ;
+        rdfs:range        :ProductCategory .
+
+:addressCountry  a        owl:DatatypeProperty ;
+        rdfs:comment      "The address country."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "address country"@en ;
+        rdfs:range        xsd:string .
+
+:addressLocality  a       owl:DatatypeProperty ;
+        rdfs:comment      "The address locality (city)."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "address locality"@en ;
+        rdfs:range        xsd:string .
+
+:name   a                 owl:DatatypeProperty ;
+        rdfs:comment      "The name of something."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "name"@en ;
+        rdfs:range        xsd:string .
+
+:addressText  a           owl:DatatypeProperty ;
+        rdfs:comment      "The address text."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "address text"@en ;
+        rdfs:range        xsd:string .
+
+:currency  a              owl:DatatypeProperty ;
+        rdfs:comment      "The currency."@en ;
+        rdfs:domain       :Price ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "currency"@en ;
+        rdfs:range        xsd:string .
+
+:amount  a                owl:DatatypeProperty ;
+        rdfs:comment      "The amount."@en ;
+        rdfs:domain       :Price ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "amount"@en ;
+        rdfs:range        xsd:decimal .
+
+ecc:rpietzsch  a   dct:Agent , foaf:Person ;
+        foaf:name  "René Pietzsch" .
+
+dct:rights  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:Service  a               owl:Class ;
+        rdfs:comment      "Some value added service realized based on other product(s)."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Service"@en ;
+        rdfs:subClassOf   :Product .
+
+:eligibleFor  a           owl:ObjectProperty ;
+        rdfs:comment      "Valid product service combinations (bundles, accessories)."@en ;
+        rdfs:domain       :Service ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "eligible for"@en ;
+        rdfs:range        :Product .
+
+dct:modified  a           owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:       a                              owl:Ontology ;
+        rdfs:comment                   "Example vocabulary modeled from a simple sentence about products and services."@en ;
+        rdfs:isDefinedBy               : ;
+        rdfs:label                     "Products - Vocab"@en ;
+        cc:license                     <http://creativecommons.org/licenses/by/4.0/> ;
+        dct:created                    "2018-08-29"^^xsd:date ;
+        dct:creator                    ecc:rpietzsch ;
+        dct:modified                   "2018-08-29"^^xsd:date ;
+        dct:publisher                  ecc:eccenca-GmbH ;
+        vann:preferredNamespacePrefix  "pv" ;
+        vann:preferredNamespaceUri     "http://ld.company.org/prod-vocab/" ;
+        void:vocabulary                vann: , foaf: ;
+        owl:versionInfo "v0.0.1-22-gcb08ad0-dirty" .
+
+:hasManager  a            owl:ObjectProperty ;
+        rdfs:comment      "The manager of the employee."@en ;
+        rdfs:domain       :Employee ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has manager"@en ;
+        rdfs:range        :Manager .
+
+vann:preferredNamespacePrefix
+        a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy  vann: .
+
+:depth_mm  a              owl:DatatypeProperty ;
+        rdfs:comment      "The depth of an item measured in millimeter."@en ;
+        rdfs:domain       :Hardware ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "depth (mm)"@en ;
+        rdfs:range        xsd:decimal .
+
+dct:issued  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:hasProductManager  a     owl:ObjectProperty ;
+        rdfs:comment      "The employee acting as the product manager of the product."@en ;
+        rdfs:domain       :Product ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has product manager"@en ;
+        rdfs:range        :Employee .
+
+:ProductCategory  a       owl:Class ;
+        rdfs:comment      "The category of a product."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Product Category"@en .
+
+:hasSupplier  a           owl:ObjectProperty ;
+        rdfs:comment      "The supplier of a product."@en ;
+        rdfs:domain       :Product ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "supplier"@en ;
+        rdfs:range        :Supplier .
+
+:width_mm  a              owl:DatatypeProperty ;
+        rdfs:comment      "The width of an item measured in millimeter."@en ;
+        rdfs:domain       :Hardware ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "width (mm)"@en ;
+        rdfs:range        xsd:decimal .
+
+ecc:eccenca-GmbH  a  dct:Agent , foaf:Organization ;
+        foaf:name  "eccenca GmbH" .
+
+:Agent  a                 owl:Class ;
+        rdfs:comment      "Abstract base class for people, robots or other things that can act."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Agent"@en .
