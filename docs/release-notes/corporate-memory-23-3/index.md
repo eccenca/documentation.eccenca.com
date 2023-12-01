@@ -181,6 +181,14 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v23.1 can be imported into DataIntegration v23.2.
 
+### DataIntegration
+
+There is a known issue and existing workaround with the new dependency port feature: you may receive a message like this when running your workflows:
+
+```Workflow Execution Error: Not all workflow nodes were executed! Executed 2 of 7 nodes.```
+
+In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required). After saving it will work again.
+
 ### DataPlatform
 
 Due to the removal of the `authorization.abox.prefix` configuration option, a change in your setup may be required.
