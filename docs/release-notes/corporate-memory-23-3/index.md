@@ -3,13 +3,13 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.3.0
+# Corporate Memory 23.3.1
 
-Corporate Memory 23.3.0 is the third main release in 2023.
+Corporate Memory 23.3.1 is the first patch release in the 23.3 release line.
 
-![23.3.0: Charts - Chart Definitions](23-3-explore-charts.png "23.3.0: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
-![23.3.0: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3.0: Build - Keyboard Shortcuts"){ class="bordered" }
-![23.3.0: Build - Workflow Ports](23-3-build-port-menu.png "23.3.0: Build - Workflow Ports"){ class="bordered" }
+![23.3: Charts - Chart Definitions](23-3-explore-charts.png "23.3: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
+![23.3: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3: Build - Keyboard Shortcuts"){ class="bordered" }
+![23.3: Build - Workflow Ports](23-3-build-port-menu.png "23.3: Build - Workflow Ports"){ class="bordered" }
 
 The highlights of this release are:
 
@@ -25,15 +25,28 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
--   eccenca DataIntegration v23.3.0
+-   eccenca DataIntegration v23.3.1
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.3.0
+## eccenca DataIntegration v23.3.1
 
 We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.3.1 of eccenca DataIntegration ships the following improvements and fixes:
+
+-   Added
+    -   Workflow operator validates XML datasets against a provided XML Schema.
+    -   Support entering a custom ID when cloning a project or project task.
+    -   "Evaluate Template" operator has a new option for evaluating the template on the entire input set at once.
+-   Fixed
+    -   Long task parameter values cannot be fully seen in task config preview.
+    -   Project export does not fail if project files cannot be read.
+    -   Unexpected inputs of a node are not executed anymore.
+    -   Transform report does not count entities in child mappings.
+    -   Rule operator parameter auto-complete default values do not have a label when creating a new operator.
 
 v23.3.0 of eccenca DataIntegration adds the following new features:
 
