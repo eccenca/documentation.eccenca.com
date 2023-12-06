@@ -35,18 +35,19 @@ More detailed release notes for these versions are listed below.
 
 We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
 
-v23.3.1 of eccenca DataIntegration ships the following improvements and fixes:
+v23.3.1 of eccenca DataIntegration ships the following improvements:
 
--   Added
-    -   Workflow operator validates XML datasets against a provided XML Schema.
-    -   Support entering a custom ID when cloning a project or project task.
-    -   "Evaluate Template" operator has a new option for evaluating the template on the entire input set at once.
--   Fixed
-    -   Long task parameter values cannot be fully seen in task config preview.
-    -   Project export does not fail if project files cannot be read.
-    -   Unexpected inputs of a node are not executed anymore.
-    -   Transform report does not count entities in child mappings.
-    -   Rule operator parameter auto-complete default values do not have a label when creating a new operator.
+-   Workflow operator validates XML datasets against a provided XML Schema.
+-   Support entering a custom ID when cloning a project or project task.
+-   "Evaluate Template" operator has a new option for evaluating the template on the entire input set at once.
+
+v23.3.1 of eccenca DataIntegration ships the following fixes:
+
+-   Long task parameter values cannot be fully seen in task config preview.
+-   Project export does not fail if project files cannot be read.
+-   Unexpected inputs of a node are not executed anymore.
+-   Transform report does not count entities in child mappings.
+-   Rule operator parameter auto-complete default values do not have a label when creating a new operator.
 
 v23.3.0 of eccenca DataIntegration adds the following new features:
 
