@@ -237,6 +237,16 @@ From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `ht
         } ;
         ```
 
+!!! warning "Update of `client-authentication-method` property needed"
+
+    Due to an upgrade of the spring boot library the `client-authentication-method` property needs to be chaged to `client_secret_basic` in your DataPlatform `application.yml`:
+
+    ```yml
+    spring.security.oauth2.client.registration.keycloak.client-authentication-method: client_secret_basic
+    ```
+
+    (was `basic` which is not working anymore)
+
 ### cmemc
 
 -   The upgrade to `click` v8 involves new completion functions (see [completion manual](../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
