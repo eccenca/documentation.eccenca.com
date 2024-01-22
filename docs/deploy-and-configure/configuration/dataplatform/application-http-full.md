@@ -1,7 +1,8 @@
 
 ## Configuration for connecting to arbitrary SPARQL HTTP backend
 
-Use the following set of properties to connect to arbitrary HTTP SPARQL services.
+To registrer a new SPARQL Store you need to make sure the store is availble to the DataPlatform.
+If it is available, use the following set of properties to connect to arbitrary HTTP SPARQL services in your `application.yml` (`conf/dataplatform/application.yml`).
 
 Configuration example:
 
@@ -107,3 +108,89 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 | Valid values | Valid SPARQL query with bound variable "g" |
 | Environment | STORE_HTTP_GRAPHLISTQUERY |
 
+## Example: Jena Fuseki Store
+
+This shows an example of a Corporate Memory Orchestration that uses an [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) as store.
+
+### Add docker-compose File
+
+Add a new docker-compose file to configure the execution of the store: `compose/docker-compose.store.fuseki.yml`. In this case the two environment variables `FUSEKI_DOCKER_USER` and `FUSEKI_ENDPOINT_PORT` are introduced.
+
+```yaml
+# Jena Fuseki
+version: '2.4'
+services:
+  store_base:
+    image: docker.io/secoresearch/fuseki:4.8.0
+    user: ${FUSEKI_DOCKER_USER}
+    ports:
+      - "3030:3030"
+    command: /jena-fuseki/fuseki-server --tdb2 --loc /data --update /cmem
+    volumes:
+      - "store_volume:/data"
+    healthcheck:
+      test: ["CMD", "echo", "true"]
+      interval: 10s
+      timeout: 1s
+      retries: 5
+
+  dataplatform:
+    environment:
+      - "FUSEKI_ENDPOINT_PORT=${FUSEKI_ENDPOINT_PORT}"
+```
+
+### Configure Variables
+
+Now, the orchestration needs to know that it has to bring up the new store. This happens with the variable `DP_STORE`. But also the variables (i.e. `FUSEKI_DOCKER_USER`, `FUSEKI_ENDPOINT_PORT`) introduced in the new docker-compose file need to be set.
+It can be set in `environments/config.env` (see also [Docker Orchestration](../docker-orchestration))
+
+```bash
+#DP_STORE=virtuoso-enterprise
+#DP_STORE=marklogic
+#DP_STORE=neptune
+DP_STORE=fuseki
+
+###################
+# FUSEKI SETTINGS #
+###################
+FUSEKI_DOCKER_USER=0:0
+FUSEKI_ENDPOINT_PORT=3030
+```
+
+### Configure DataPlatform
+
+Finally, the DataPlatform needs to know, how to access the new store. This configuration happens in `conf/dataplatform/application.yml`.
+
+1. Add the store to the section `spring.profiles.group`:
+
+```yaml
+# Profile groups for the supported stores - these groups are selected by DP_STORE
+spring:
+  profiles:
+    group:
+      […]
+      fuseki: fuseki-store, auth-graph
+```
+
+2. At the end of the file add a new section as follows (pay attention to the separator `---`):
+
+```yaml
+
+---
+
+###
+# Configuration for DP with Fuseki
+###
+spring:
+  config:
+    activate:
+      on-profile: fuseki-store
+
+## SPARQL Endpoints (Fuseki config)
+store:
+  type: http
+  authorization: REWRITE_FROM
+  http:
+    query-endpoint-url: "http://store:${FUSEKI_ENDPOINT_PORT}/cmem/query"
+    update-endpoint-url: "http://store:${FUSEKI_ENDPOINT_PORT}/cmem/update"
+```
