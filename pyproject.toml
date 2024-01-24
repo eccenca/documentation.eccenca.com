@@ -27,7 +27,7 @@ mkdocs-autolinks-plugin = "^0.7.0"
 mkdocs-redirects = "^1.2.0"
 mkdocs-swagger-ui-tag = "^0.6.1"
 # if you change this - change also the version ID in Taskfile.yml
-mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "9.4.7-insiders-4.42.3"}
+mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "9.5.5-insiders-4.51.0"}
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
