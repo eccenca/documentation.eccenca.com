@@ -11,7 +11,7 @@ hide:
 
 The Build stage is used to turn your legacy data points from existing datasets into an Enterprise Knowledge Graph structure. The subsections introduce the features of Corporate Memory that support this stage and provide guidance through your first lifting activities.
 
-** :octicons-people-24: Intended audience:** Linked Data Experts
+**:octicons-people-24: Intended audience:** Linked Data Experts
 
 <div class="grid cards" markdown>
 
