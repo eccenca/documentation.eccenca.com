@@ -29,7 +29,7 @@ $ cmemc graph count [OPTIONS] [IRIS]...
 
 
 
-This command lists graphs with their triple count. Counts do not inlude imported graphs.
+This command lists graphs with their triple count. Counts do not include imported graphs.
 
 
 
