@@ -14,7 +14,9 @@ Validate resources in a graph.
 
 This command group is dedicated to the management of resource validation processes. A validation process verifies, that resources in a specific graph are valid according to the node shapes in a shape catalog graph.
 
-Validation processes are identified with a random ID and can be listed with the `graph validation list` command. To start or cancel validation processes, use the `graph validation execute` and `graph validation cancel` command. To inspect the found violations of a validation process, use the `graph validation inspect` command.
+!!! note
+    Validation processes are identified with a random ID and can be listed with the `graph validation list` command. To start or cancel validation processes, use the `graph validation execute` and `graph validation cancel` command. To inspect the found violations of a validation process, use the `graph validation inspect` command.
+
 
 
 ## graph validation execute
@@ -64,7 +66,9 @@ $ cmemc graph validation list [OPTIONS]
 
 This command provides a filterable table or identifier list of validation processes. The command operates on the process summary and provides some statistics.
 
-Detailed information on the found violations can be listed with the 'graph validation inspect' command.
+!!! note
+    Detailed information on the found violations can be listed with the `graph validation inspect` command.
+
 
 
 
@@ -95,7 +99,9 @@ This command provides detailed information on the found violations of a validati
 
 Use the ``--filter`` option to limit the output based on different criteria such as constraint name (`constraint`), origin node shape of the rule (`node-shape`), or the validated resource (`resource`).
 
-Validation processes IDs can be listed with the `graph validation list` command, or by utilizing the tab completion of this command.
+!!! note
+    Validation processes IDs can be listed with the `graph validation list` command, or by utilizing the tab completion of this command.
+
 
 
 
@@ -123,7 +129,9 @@ $ cmemc graph validation cancel PROCESS_ID
 
 
 
-Process IDs of currently running validation processes can be listed with the ``--filter` status running` option of the `graph validation list` command, or by utilizing the tab completion of this command.
+!!! note
+    In order to get the process IDs of all currently running validation processes, use the `graph validation list` command with the option `--filter status running`, or utilize the tab completion of this command.
+
 
 
 
