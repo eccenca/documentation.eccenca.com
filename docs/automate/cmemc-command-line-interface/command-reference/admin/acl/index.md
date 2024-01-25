@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - admin acl"
 description: "List, create, delete and modify and review access conditions."
-icon: octicons/cross-reference-24
+icon: material/server-security
 tags:
   - Security
   - cmemc
