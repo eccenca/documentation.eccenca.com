@@ -187,7 +187,7 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 ## Migration Notes
 
-!!! warning
+!!! info
 
     We do not guarantee forward compatibility for configuration, data or projects.
     I.e. importing a project created with DataIntegration v23.2 into DataIntegration v23.1 (or older) might not work.

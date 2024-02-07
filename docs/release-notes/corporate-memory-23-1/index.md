@@ -302,7 +302,7 @@ v23.1 of eccenca Corporate Memory Control introduced the following deprecations:
 
 ## Migration Notes
 
-!!! warning
+!!! info
 
     We do not guarantee forward compatibility for configuration, data or projects.
     I.e. importing a project created with DataIntegration v23.1 into DataIntegration v22.2 (or older) might not work.
