@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.3.1
+# Corporate Memory 23.3.2
 
-Corporate Memory 23.3.1 is the first patch release in the 23.3 release line.
+Corporate Memory 23.3.2 is the second patch release in the 23.3 release line.
 
 ![23.3: Charts - Chart Definitions](23-3-explore-charts.png "23.3: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
 ![23.3: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3: Build - Keyboard Shortcuts"){ class="bordered" }
@@ -25,15 +25,20 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
--   eccenca DataIntegration v23.3.1
+-   eccenca DataIntegration v23.3.2
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.3.1
+## eccenca DataIntegration v23.3.2
 
-We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to DataIntegration v23.3.2, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.3.2 of eccenca DataIntegration ships the following fixes:
+
+-   Entities with values larger than 65k cannot be serialized.
+-   JSON property path evaluation fails for missing key.
 
 v23.3.1 of eccenca DataIntegration ships the following improvements:
 
