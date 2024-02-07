@@ -24,9 +24,9 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.3.0
 -   eccenca DataIntegration v23.3.2
--   eccenca DataManager v23.3.0
+-   eccenca DataManager v23.3.1
+-   eccenca DataPlatform v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
@@ -100,9 +100,13 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message in 'SPARQL endpoint' plugin to mention prohibited URL redirect to a different protocol.
 -   `JDBC endpoint` dataset: Setting the user via JDBC URL while leaving the user parameter blank does not work.
 
-## eccenca DataManager v23.3.0
+## eccenca DataManager v23.3.1
 
-We are excited to announce the latest update to DataManager v23.3.0, which introduces new features, improvements and bug fixes.
+We are excited to announce the latest update to DataManager v23.3.1, which introduces new features, improvements and bug fixes.
+
+v23.3.1 of eccenca DataManager ships the following fixes:
+
+-   _Workspace configuration:_ explore `defaultGraph` is now correctly evaluated.
 
 v23.3.0 of eccenca DataManager adds the following new features:
 
