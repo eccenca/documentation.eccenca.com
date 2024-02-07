@@ -10578,7 +10578,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 23.3.1
+    Corporate Memory 23.3.2
   
 
     
@@ -10603,7 +10603,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 23.3.1
+    Corporate Memory 23.3.2
   
 
           </label>
@@ -11725,7 +11725,12 @@ To do so, add <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" view
 <p>This means that your Chart must be accessible from the Shape Catalog.
 This can be achieved either by copying the chart and query resources into the Shape Catalog graph or by importing the query catalog graph in the Shape Catalog graph.</p>
 </div>
-<p>To customize the chart in the context of each resource shown, you need to use the placeholder <code>{{shuiResource}}</code> in your queries.</p>
+<p>To customize the chart several placeholders can be used in you queries:</p>
+<ul>
+<li><code>{{shuiResource}}</code>, the resource currently shown with the node shape of this property shape.</li>
+<li><code>{{shuiMainResource}}</code>, refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage).</li>
+<li><code>{{shuiGraph}}</code>, the currently used graph.</li>
+</ul>
 
   
     
