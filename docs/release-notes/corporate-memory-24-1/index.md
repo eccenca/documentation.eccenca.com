@@ -30,9 +30,9 @@ TODO: update highlights section
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v24.1.0
 -   eccenca DataIntegration v24.1.0
 -   eccenca DataManager v24.1.0
+-   eccenca DataPlatform v24.1.0
 -   eccenca Corporate Memory Control (cmemc) v24.1.0
 
 More detailed release notes for these versions are listed below.
@@ -41,7 +41,7 @@ More detailed release notes for these versions are listed below.
 
 We're excited to bring you the latest update to DataIntegration v24.1.0, which introduces new features, improvements and bug fixes:
 
-v24.1.0 of eccenca DataIntegration adds the following new features:
+v24.1.0 of DataIntegration adds the following new features:
 
 -   Error notification
     -   Add badge to error notification menu icon with error count.
@@ -72,7 +72,7 @@ v24.1.0 of eccenca DataIntegration adds the following new features:
     -   Support auto-completion of values paths for fixed input schema.
 -   Added timer for workflow execution and in activity view.
 
-v24.1.0 of eccenca DataIntegration introduces the following changes:
+v24.1.0 of DataIntegration introduces the following changes:
 
 -   Show project variables re-ordering errors (with details) directly in project variables widget.
 -   Support PATCH and DELETE requests in REST operators.
@@ -83,7 +83,7 @@ v24.1.0 of eccenca DataIntegration introduces the following changes:
 -   Shortened workflow execution failure message shown in activity widget.
 -   Added "_Fail workflow_" flag to "_Cancel workflow_" operator.
 
-v24.1.0 of eccenca DataIntegration ships the following fixes:
+v24.1.0 of DataIntegration ships the following fixes:
 
 -   Many errors occurring in a dialog/modal, e.g. from requests, are hidden because they are shown in the global error notification which cannot be accessed while the dialog is open.
 -   Missing or problematic error handling in several dialogs and other places.
@@ -99,17 +99,17 @@ v24.1.0 of eccenca DataIntegration ships the following fixes:
 
 We are excited to announce the latest update to DataManager v24.1.0, which introduces new features, improvements and bug fixes:
 
-v24.1.0 of eccenca DataManager adds the following new features:
+v24.1.0 of DataManager adds the following new features:
 
-v24.1.0 of eccenca DataManager ships the following changes:
+v24.1.0 of DataManager ships the following changes:
 
-v24.1.0 of eccenca DataIntegration ships the following fixes:
+v24.1.0 of DataManager ships the following fixes:
 
 ## eccenca DataPlatform v24.1.0
 
 We're excited to bring you the latest update to DataPlatform v24.1.0, which introduces new features, improvements and bug fixes:
 
-v24.1.0 of eccenca DataManager adds the following new features:
+v24.1.0 of DataPlatform adds the following new features:
 
 -   Add license information to DP actuator info endpoint response.
 -   Added endpoints for SHACL validation / Resource shaping
@@ -123,7 +123,7 @@ v24.1.0 of eccenca DataManager adds the following new features:
 -   Access condition review endpoint
     -   ability to check user rights (access conditions) for a set of groups.
 
-v24.1.0 of eccenca DataManager ships the following changes:
+v24.1.0 of DataPlatform ships the following changes:
 
 -   Static access condition prefix split for newly created access conditions
     -   `<http://eccenca.com/>` – prefix for Access Condition Groups / Users.
@@ -132,7 +132,7 @@ v24.1.0 of eccenca DataManager ships the following changes:
 -   Add feature flag field to workspace configuration.
 -   Add support for GraphDb 10.5.
 
-v24.1.0 of eccenca DataIntegration ships the following fixes:
+v24.1.0 of DataPlatform ships the following fixes:
 
 -   Allow blank nodes in update queries.
 -   DP APIs do not return null values for unset fields anymore.
@@ -141,6 +141,32 @@ v24.1.0 of eccenca DataIntegration ships the following fixes:
 ## eccenca Corporate Memory Control (cmemc) v24.1.0
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1.0, which introduces new features, improvements and bug fixes:
+
+v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
+
+-   Added support for importing vocabulary from standard input (stdin)
+-   `admin acl` command group
+    -   `create` command - Create an access condition
+    -   `delete` command - Delete access conditions
+    -   `inspect` command - Inspects the access condition
+    -   `list` command - List all access conditions
+    -   `review` command - Reviews the graph rights for a given access condition
+    -   `update` command - Updates an access condition
+-   `graph validation` command group
+    -   `execute` command - Start a validation process
+    -   `inspect` command - Inspect validation process results
+    -   `list` command - List validation processes
+    -   `cancel` command - Cancel a running validation process
+-   `admin user list` command
+    -   `--filter` option - filter user list
+-   `admin status` command
+    -   raises an error if the Corporate Memory license is expired (grace period)
+    -   raises a warning if the GraphDB license expires in less than one month
+
+v24.1.0 of Corporate Memory Control (cmemc) ships the following changes:
+
+-   `graph import` command
+    -   importing a directory to a single graph no longer raises an error but imports all turtle files to this graph
 
 ## Migration Notes
 
