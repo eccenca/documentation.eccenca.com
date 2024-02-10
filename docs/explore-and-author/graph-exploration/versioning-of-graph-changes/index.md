@@ -9,11 +9,17 @@ tags:
 
 This feature keeps track of changes to your Knowledge Graphs by creating change set data based on the user's editing activities.
 
+!!! info
+
+    Versioning of graph changes is currently supported for (tracked) graphs of type `void:Dataset` only.
+
+    ![](./24-1-GraphTypes.png){ class="bordered" }
+
 ## Usage
 
 If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.
 
-![](./20-10-ActualChangesets.png)
+![](./20-10-ActualChangesets.png){ class="bordered" }
 
 ## Setup
 
@@ -23,13 +29,13 @@ To enable this feature on a specific graph you need to setup the following steps
 
     In Exploration, create a new graph and define it as a Versioning Graph.
 
-    ![](./20-10-CreateVersioningGraph.png)
+    ![](./20-10-CreateVersioningGraph.png){ class="bordered" }
 
 ??? success "2. Configure a graph to use this Versioning Graph"
 
     In Exploration, edit this graph and add the Versioning Graph property to select the newly created Versioning Graph.
 
-    ![](./20-10-ConfigureVersioningGraph.png)
+    ![](./20-10-ConfigureVersioningGraph.png){ class="bordered" }
 
 ## Technical Background
 
