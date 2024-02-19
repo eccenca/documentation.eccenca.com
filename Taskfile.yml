@@ -155,7 +155,7 @@ tasks:
       - poetry run mike list -b {{.PUBLIC_BRANCH}}
 
   public:deploy:
-    desc: Publish the workding directory as version {{.CURRENT_VERSION}}
+    desc: Publish the working directory as version {{.CURRENT_VERSION}}
     deps:
       - task: install
     cmds:
