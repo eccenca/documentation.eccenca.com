@@ -168,17 +168,25 @@ $ cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 
 
 
-If input is a directory, it scans for file-pairs such as `xyz.ttl` and `xyz.ttl.graph` where `xyz.ttl` is the actual triples file and `xyz.ttl.graph` contains the graph IRI as one string: `https://mygraph.de/xyz/`.
+If input is a file, content will be uploaded to the graph identified with the IRI.
 
-If input is a file, content will be uploaded to IRI. If `--replace` is set, the data will be overwritten, if not, it will be added.
+If input is a directory and NO IRI is given, it scans for file-pairs such as `xyz.ttl` and `xyz.ttl.graph`, where `xyz.ttl` is the actual triples file and `xyz.ttl.graph` contains the graph IRI in the first line: `https://mygraph.de/xyz/`.
+
+If input is a directory AND a graph IRI is given, it scans for all `*.ttl` files in the directory and imports all content to the graph, ignoring the `*.ttl.graph` files.
+
+If the ``--replace`` flag is set, the data in the graphs will be overwritten, if not, it will be added.
+
+!!! note
+    Directories are scanned on the first level only (not recursively).
+
 
 
 
 ??? info "Options"
     ```text
 
-    --replace        Replace / overwrite the graph - instead of just adding new
-                     triples the graph.
+    --replace        Replace / overwrite the graph(s), instead of just adding
+                     the triples to the graph.
     --skip-existing  Skip importing a file if the target graph already exists in
                      the store. Note that the graph list is fetched once at the
                      beginning of the process, so that you can still add
