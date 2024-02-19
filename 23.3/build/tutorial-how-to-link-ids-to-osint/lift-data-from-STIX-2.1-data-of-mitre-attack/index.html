@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Build a Knowledge Graph from STIX 2.1 data such as the MITRE ATT&CK® datasets - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11843,7 +11841,7 @@ This tutorial must be completed in order.</p>
 <p>Description: MITRE ATT&amp;CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.</p>
 </li>
 </ul>
-<p><a class="glightbox" href="23-1-create-project.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-project.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-project.gif" /></a></p>
 <h3 id="import-datasets">Import datasets<a class="headerlink" href="#import-datasets" title="Permanent link">¤</a></h3>
 <p>MITRE ATT&amp;CK® has 3 domains: <a href="https://attack.mitre.org/techniques/enterprise/">Entreprise</a>, <a href="https://attack.mitre.org/techniques/mobile/">Mobile</a> and <a href="https://attack.mitre.org/techniques/ics/">ICS</a>.</p>
 <p>Each domain dataset is saved in GitHub:</p>
@@ -11855,7 +11853,7 @@ This tutorial must be completed in order.</p>
 <ol>
 <li>Download these 3 files</li>
 <li>Create for each JSON file, a JSON dataset:
-<a class="glightbox" href="23-1-import-JSON.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-import-JSON.gif" /></a></li>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-import-JSON.gif" /></a></li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -11864,7 +11862,7 @@ This tutorial must be completed in order.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>Now, you can see these JSON datasets in Corporate Memory:
-<a class="glightbox" href="23-1-import-JSON-result.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-import-JSON-result.png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-import-JSON-result.png" /></a></p>
 </div>
 <h3 id="create-named-graphs">Create named graphs<a class="headerlink" href="#create-named-graphs" title="Permanent link">¤</a></h3>
 <div class="admonition info">
@@ -11906,11 +11904,11 @@ This tutorial must be completed in order.</p>
 <li>Put a URI of named graph</li>
 <li>Enable &ldquo;Clear graph before workflow execution&rdquo;</li>
 </ol>
-<p><a class="glightbox" href="23-1-create-RDF-dataset.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-RDF-dataset.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-RDF-dataset.gif" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>Now, you can see these RDF datasets in Corporate Memory:
-<a class="glightbox" href="23-1-create-RDF-dataset-result.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-RDF-dataset-result.png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-RDF-dataset-result.png" /></a></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -11926,9 +11924,9 @@ This tutorial must be completed in order.</p>
 <p>If it&rsquo;s your first knowledge graph, the best manner to start is with RDFS vocabularies because you can develop it like you develop classes and their instances in an object oriented language. It&rsquo;s exactly the same manner to describe the world. Of course, there are differences but you can start a first functional knowledge graph without being an expert.</p>
 <p>Here, you will create all classes and attributes necessary in your use case case. Not more, not less. So, we are adding each STIX object in your knowledge base with its STIX type, its label, its description and its references. Each reference can have an url, a label, a description and an external ID, like Mitre ID or CAPEC ID.</p>
 <p>In UML, you can represent your targeted model like that: here a RDF model to describe an instance of type &ldquo;course-of-action&rdquo; in MITRE ATT&amp;CK. (you can download the <a href="RDF_model_and_pattern.drawio">File drawio of schemas</a>)</p>
-<p><a class="glightbox" href="rdf-model-course-of-action.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="RDF model to describe an instance of type &quot;course-of-action&quot; in MITRE ATT&amp;CK" src="rdf-model-course-of-action.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RDF model to describe an instance of type &quot;course-of-action&quot; in MITRE ATT&amp;CK" src="rdf-model-course-of-action.png" /></a></p>
 <p>The SPARQL query for this model can be specify in UML with a RDF pattern: here a RDF pattern to select the &ldquo;course-of-action&rdquo; objects with a known Mitre ID</p>
-<p><a class="glightbox" href="rdf-pattern-to-select-a-course-of-action-with-a-mitre-tag.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="RDF pattern to select the &quot;course-of-action&quot; objects with a knowed Mitre ID" src="rdf-pattern-to-select-a-course-of-action-with-a-mitre-tag.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RDF pattern to select the &quot;course-of-action&quot; objects with a knowed Mitre ID" src="rdf-pattern-to-select-a-course-of-action-with-a-mitre-tag.png" /></a></p>
 <p>Without an official vocabulary and its official prefix, we are using the documentation on the Web of its datasets: <a href="https://github.com/mitre/cti/blob/master/USAGE.md">https://github.com/mitre/cti/blob/master/USAGE.md</a></p>
 <p>So, to make a prefix, we choosed a short name, for example &ldquo;ctia&rdquo;, and the IRI will build with the Web address of its documentation with a # at the end (to link to anchors of attributes in the Web page, if they exist):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">prefix</span> <span class="nn">ctia</span><span class="p">:</span> <span class="nv">&lt;https://github.com/mitre/cti/blob/master/USAGE.md#&gt;</span>
@@ -11941,7 +11939,7 @@ This tutorial must be completed in order.</p>
 </code></pre></div>
 </li>
 </ol>
-<p><a class="glightbox" href="23-1-create-prefix.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-prefix.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-prefix.gif" /></a></p>
 <ol start="2">
 <li>Create the (Mitre) STIX 2.1 transformer</li>
 </ol>
@@ -11951,7 +11949,7 @@ This tutorial must be completed in order.</p>
 <li>Input: MA Entreprise (JSON)</li>
 <li>Output: MA Entreprise (knowledge graph)</li>
 </ul>
-<p><a class="glightbox" href="23-1-create-transformer.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-transformer.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-transformer.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In your use case, there is only this transformer to build this named graph, so there is no consequence on the final knowledge graph when we test this transformer on this graph (automatically cleared after each execution of transformer). However, a good practice is to create a tempory graph in ouput for each transformer, so your final knowledge graph is not affected during the modification of your transformer before executing the workflows with this transformer. In this case, you need to hide this tempory graph of your users.</p>
@@ -12001,7 +11999,7 @@ This tutorial must be completed in order.</p>
 <li>RDF type: ctia:Object</li>
 <li>IRI pattern: <a href="https://github.com/mitre-attack/attack-stix-data#{id}">https://github.com/mitre-attack/attack-stix-data#{id}</a></li>
 </ul>
-<p><a class="glightbox" href="23-1-extract-root-object.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-root-object.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-root-object.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can develop an IRI from scratch in the IRI formula editor, like here or directly in the form and improve it after, if necessary (see an example in the next step).</p>
@@ -12010,7 +12008,7 @@ This tutorial must be completed in order.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>During the development of a transformer, you can test your transformation and check all the steps.</p>
-<p><a class="glightbox" href="23-1-see-steps-during-a-transformation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-see-steps-during-a-transformation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-see-steps-during-a-transformation.png" /></a></p>
 </div>
 <ol start="5">
 <li>Link the sub-objects to their root:</li>
@@ -12024,7 +12022,7 @@ This tutorial must be completed in order.</p>
 <li>RDF type: ctia:Object</li>
 <li>IRI pattern: <a href="https://github.com/mitre-attack/attack-stix-data#{id}">https://github.com/mitre-attack/attack-stix-data#{id}</a></li>
 </ul>
-<p><a class="glightbox" href="23-1-extract-objects.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-objects.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-objects.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The RDFS classes start by an uppercase and the property by a lowercase and apply the camel case notation, if possible. The objective is to create cool IRI, ie. lisible IDs for humans and unique on the Web.</p>
@@ -12055,7 +12053,7 @@ This tutorial must be completed in order.</p>
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" href="23-1-extract-properties.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-properties.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-properties.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>STIX type doesn&rsquo;t apply the camel case and doesn&rsquo;t start by an uppercase. We prefers to create a specific property ctia:type for this reason.</p>
@@ -12064,7 +12062,7 @@ This tutorial must be completed in order.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>When you test your transformer, you can see the future instances in your knowledge graph:
-<a class="glightbox" href="23-1-success-transformer.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-transformer.png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-transformer.png" /></a></p>
 </div>
 <ol start="7">
 <li>At the end of the last step, we saw the dataset uses the syntax of Markdown to define a Web link. In the interface of SPLUNK, we need to use the HTML syntax. Modify the formula for the description with the operator &ldquo;regex replace&rdquo;.</li>
@@ -12073,7 +12071,7 @@ This tutorial must be completed in order.</p>
 <li>Regex:  <code>\[([^\[\]]*)\]\(([^\(\)]*)\)</code></li>
 <li>Replace: <code>&lt;a href='$2' target='blank'&gt;$1&lt;/a&gt;</code></li>
 </ul>
-<p><a class="glightbox" href="23-1-regex-replace.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-regex-replace.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-regex-replace.gif" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <div class="highlight"><pre><span></span><code>In the &quot;value formula editor&quot;, you can immediatly check the result of your formula.
@@ -12104,16 +12102,16 @@ This tutorial must be completed in order.</p>
 <li>ctia:url</li>
 <li>ctia:external_id</li>
 </ul>
-<p><a class="glightbox" href="23-1-extract-references.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-references.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-references.gif" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Sometimes, several urls are not correct. You can use the component &ldquo;Fix URI&rdquo; to fix the classic problems.</p>
-<p><a class="glightbox" href="23-2-fix-url.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-2-fix-url.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-2-fix-url.png" /></a></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>When you make a transformer on a dataset, you see quickly the limit of data. For example with Mitre, several references are a set of citations without URL.</p>
-<p><a class="glightbox" href="23-1-warning-bad-uri.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-warning-bad-uri.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-warning-bad-uri.png" /></a></p>
 <p>For example references with this description: <code>(Citation: Palo Alto menuPass Feb 2017)(Citation: DOJ APT10 Dec 2018)(Citation: District Court of NY APT10 Indictment December 2018)</code></p>
 <p>The URL for the majority of citations can be found in the dataset but we need to do a first pass before to link correctly the citations at their URL.</p>
 <p>Moreover, we can find also citation directly in the description of several objects but without URL and without their references in their JSON tree.</p>
@@ -12156,7 +12154,7 @@ This tutorial must be completed in order.</p>
 <a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="p">}</span>
 <a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="k">GROUP BY</span> <span class="nv">?title</span> <span class="nv">?description</span>
 </code></pre></div>
-<p><a class="glightbox" href="23-1-sparql-query.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-query.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-query.gif" /></a></p>
 </div>
 <ol start="9">
 <li>During the building of interfaces, we saw the same MITRE ID of IoC rules is used by the concepts of tactic, mitigation, technique,&hellip; In the final interface, we will print properly the label of each concept for the same Mitre ID, like &ldquo;Technique TXX&rdquo; or &ldquo;Mitigation TXX&rdquo;.</li>
@@ -12169,11 +12167,11 @@ This tutorial must be completed in order.</p>
 <ul>
 <li>In the transformer STIX, add the property rdfs:label (type string) to object <code>ctia:Reference</code>.</li>
 </ul>
-<p><a class="glightbox" href="rdf-model-course-of-action.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="rdf-model-course-of-action.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="rdf-model-course-of-action.png" /></a></p>
 <ul>
 <li>Customize the value of label, like in this RDF model: (try to do this rule alone before to look at this possible response)</li>
 </ul>
-<p><a class="glightbox" href="23-1-extract-rdfslabel.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-rdfslabel.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-extract-rdfslabel.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>You can test the result when you search the Mitre ID via the explorer of knowledge graph &ldquo;MA Entreprise&rdquo;:</p>
@@ -12190,7 +12188,7 @@ This tutorial must be completed in order.</p>
 <li>Execute the workflow to test it</li>
 <li>
 <p>Save it</p>
-<p><a class="glightbox" href="23-1-create-workflow.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-workflow.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-create-workflow.gif" /></a></p>
 </li>
 <li>
 <p>Do the same operations for the two other datasets.</p>
@@ -12199,7 +12197,7 @@ This tutorial must be completed in order.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>At the end, the workflow looks like that:</p>
-<p><a class="glightbox" href="23-1-success-worflow.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-worflow.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-worflow.png" /></a></p>
 </div>
 <h3 id="create-a-global-named-graph">Create a global named graph<a class="headerlink" href="#create-a-global-named-graph" title="Permanent link">¤</a></h3>
 <p>To simplify the requests by a SPARQL query on your knowledge graph, we are offering the possibility to request all data of these 3 datasets in same time.</p>
@@ -12260,12 +12258,12 @@ This tutorial must be completed in order.</p>
 <ol>
 <li>
 <p>In the same workflow add one SPARQL task for each RDF datasets and in output add the RDF dataset &ldquo;MITRE ATT&amp;CK®&rdquo;. Execute it and save it.</p>
-<p><a class="glightbox" href="23-1-sparql-task.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-task.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-task.gif" /></a></p>
 </li>
 </ol>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p><a class="glightbox" href="23-1-workflow-import.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-workflow-import.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-workflow-import.png" /></a></p>
 <p>In the Turtle view of RDF dataset &ldquo;MITRE ATT&amp;CK®&rdquo;, you can see the triples inserted by your SPARQL query.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">&lt;http://attack.mitre.org&gt;</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="nn">owl</span><span class="p">:</span><span class="nt">imports</span> <span class="nv">&lt;https://github.com/mitre-attack/attack-stix-data/tree/master/enterprise-attack/enterprise-attack.json&gt;</span> <span class="p">;</span>
@@ -12312,7 +12310,7 @@ This tutorial must be completed in order.</p>
 </code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p><a class="glightbox" href="23-1-sparql-all_datasets.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-all_datasets.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-all_datasets.gif" /></a></p>
 </div>
 <h3 id="create-the-void-description">Create the Void description<a class="headerlink" href="#create-the-void-description" title="Permanent link">¤</a></h3>
 <p>In theory, RDF datasets in the Linked Open Data have to have a <a href="https://www.w3.org/TR/void/">VoID</a> description with their statistics. The objective is to catalog automatically these datasets.</p>
@@ -12361,7 +12359,7 @@ This tutorial must be completed in order.</p>
 <p class="admonition-title">Tip</p>
 <p>This query uses the variable <code>$outputProperties.uri("graph")</code> (Jinja template). If the name of graph changes, the code of the query stays stable in your workflow.</p>
 </div>
-<p><a class="glightbox" href="23-1-sparql-void.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-void.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-sparql-void.gif" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>The final triples in the graph <code>https://attack.mitre.org</code>after this worflow.</p>
@@ -12419,7 +12417,7 @@ This tutorial must be completed in order.</p>
 <ol start="4">
 <li>You need to know the IDs of your JSON datasets IDs and your workflow ID to implement the command lines with the tool <a href="">Corporate Memory Console</a> (</li>
 </ol>
-<p><a class="glightbox" href="23-1-collect_IDs.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-collect_IDs.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-collect_IDs.gif" /></a></p>
 <p>For example in my demo the JSON datasets and the workflow have these IDs:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>MITREATTCK_3dc114458dfd4c57:MAEntrepriseJSON_14f0f94ed5de5daa
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>MITREATTCK_3dc114458dfd4c57:MAICSJSON_e024c6433ed523e1
@@ -12442,7 +12440,7 @@ This tutorial must be completed in order.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>You can see the result in the shell but also via the &ldquo;Activities Board&rdquo;. It&rsquo;s useful to follow the errors of your workflows, if you execute a script via a Linux Cron, for example.</p>
-<p><a class="glightbox" href="23-1-success-cmemc-activity.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-cmemc-activity.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-cmemc-activity.png" /></a></p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -12494,23 +12492,23 @@ This tutorial must be completed in order.</p>
 <ul>
 <li>
 <p>&ldquo;Transform all STIX data to RDF&rdquo; to calculate the inferences after RDF triples
-        <a class="glightbox" href="23-1-ex-workflow-STIX.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-STIX.png" /></a></p>
+        <a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-STIX.png" /></a></p>
 </li>
 <li>
 <p>&ldquo;Assemble the global knowledge graph&rdquo;, it will import all the graphs of projects
-        <a class="glightbox" href="23-1-ex-workflow-gen.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-gen.png" /></a></p>
+        <a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-gen.png" /></a></p>
 </li>
 </ul>
 <ol start="5">
 <li>
 <p>Create a new workflow &ldquo;MITRE ATT&amp;CK® workflow&rdquo; where you will insert the other workflows, like that:</p>
-<p><a class="glightbox" href="23-1-ex-workflow-global.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-global.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-workflow-global.png" /></a></p>
 </li>
 </ol>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>You can now navigate in your first knowledge graph:
-<a class="glightbox" href="23-1-ex-graph-navigation.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-graph-navigation.gif" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-ex-graph-navigation.gif" /></a></p>
 </div>
 <h3 id="reconcile-automatically-the-stix-concepts-via-the-linking-tasks">Reconcile automatically the STIX concepts via the Linking tasks<a class="headerlink" href="#reconcile-automatically-the-stix-concepts-via-the-linking-tasks" title="Permanent link">¤</a></h3>
 <p><a href="../../active-learning/">The &ldquo;Linking task&rdquo;</a> is very useful to reconcile the instance of concepts in your graphs when their labels are inserted manually with some light differences. For example, you can reconcile the tool, malware, etc of different STIX documents.</p>
@@ -12836,5 +12834,9 @@ This tutorial must be completed in order.</p>
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

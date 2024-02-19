@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Statement Annotations - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/explore-and-author/graph-exploration/statement-annotations/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11669,7 +11667,7 @@ Typical use cases for Statement Annotations include:</p>
 </ul>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
 <p>If enabled on a specific type of statement or type of resource, you see a Statement Annotation text bubble beside every annotatable statement:</p>
-<p><a class="glightbox" href="statementannotationoveriew.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="statementannotationoveriew.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="statementannotationoveriew.png" /></a></p>
 <p>This bubble has different status:</p>
 <ul>
 <li>A <strong>empty text bubble</strong> indicates, that there is no annotation on the statement, but the annotation feature is enabled for this statement.</li>
@@ -11677,34 +11675,34 @@ Typical use cases for Statement Annotations include:</p>
 <li><strong>No bubble</strong> indicates, that the annotation feature is NOT enabled on this type of statement.</li>
 </ul>
 <p>Clicking on one of the text bubbles opens the Statement Annotation dialog for this specific statement:</p>
-<p><a class="glightbox" href="createstatementannotations.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createstatementannotations.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createstatementannotations.png" /></a></p>
 <p>In the Statement Annotation dialog, you can select the Statement Annotation Template and click <strong>Create</strong>.</p>
-<p><a class="glightbox" href="statementedit.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="statementedit.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="statementedit.png" /></a></p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
 <p>In order to have a working Statement Annotation setup, the following steps need to be done in the component <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.707,9.2931a.9992.9992,0,0,0-1.0234-.2417l-9,3a1.001,1.001,0,0,0-.6323.6323l-3,9a1,1,0,0,0,1.2651,1.2651l9-3a1.0013,1.0013,0,0,0,.6323-.6324l3-9A1,1,0,0,0,22.707,9.2931ZM11.5811,20.419l2.2094-6.6284L18.21,18.21Z"/><path d="M16,30A14,14,0,1,1,30,16,14.0158,14.0158,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12.0137,12.0137,0,0,0,16,4Z"/></svg></span> Knowledge Graphs</strong>:</p>
 <details class="note">
 <summary>1. Create a Statement Annotation Graph</summary>
 <p>Open the graph selection and create a new graph <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m1 5h-2v4H7v2h4v4h2v-4h4v-2h-4V7Z"/></svg></span>.
 Choose <strong>New Statement Annotation Graph</strong> and provide the needed meta data.</p>
-<p><a class="glightbox" href="23-03-CreateAnnotationGraph.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-CreateAnnotationGraph.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-CreateAnnotationGraph.gif" /></a></p>
 </details>
 <details class="note">
 <summary>2. Setup and import the Statement Annotation Graph in your data graph</summary>
 <p>Open the graph selection and switch to your data graph where the resources exist which you want to annotate.
 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 14.94 6.06-6.06 2.06 2.06L9.06 17H7v-2.06M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m4.7-10.65-1 1-2.05-2.05 1-1c.21-.22.56-.22.77 0l1.28 1.28c.22.21.22.56 0 .77M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> Edit the graph description and <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m1 5h-2v4H7v2h4v4h2v-4h4v-2h-4V7Z"/></svg></span> add the property <strong>Statement Annotation Graph</strong> as well as <strong>Imports</strong>, where your select your newly created annotation graph in both fields.</p>
-<p><a class="glightbox" href="23-03-ImportSelectAnnotationGraph.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-ImportSelectAnnotationGraph.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-ImportSelectAnnotationGraph.gif" /></a></p>
 </details>
 <details class="note">
 <summary>3. Create a shape which will be used to annotate statements</summary>
 <p>Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
 Create a node shape which can be used as an Annotation and configure <strong>Provide as Shape</strong> in the Group <strong>Statement Annotation</strong> to true for this node shape.</p>
-<p><a class="glightbox" href="23-03-CreateAnnotationShape.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-CreateAnnotationShape.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-CreateAnnotationShape.gif" /></a></p>
 </details>
 <details class="note">
 <summary>4. Allow statement annotations for specific Classes or Properties</summary>
 <p>Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
 Select the Node or Property Shape from your Shape Catalog and enable annotations by setting the Enable option in the Statement Annotations group to true.</p>
-<p><a class="glightbox" href="23-03-EnableAnnotationsOnData.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-EnableAnnotationsOnData.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="23-03-EnableAnnotationsOnData.gif" /></a></p>
 <p>This will enable the feature on the statements of all resources shown with this Node Shape or on all statements shown with this Property Shape.</p>
 </details>
 <h2 id="technical-background">Technical Background<a class="headerlink" href="#technical-background" title="Permanent link">¤</a></h2>
@@ -11713,7 +11711,7 @@ Statement resources can be annotated with custom Annotation Resources.
 These Annotation Resources are based on specific Shapes which are enabled as Statement Annotation shapes.
 Reification Resources as well as Annotation Resources are managed in a Statement Annotation Graph, which need to be configured on a Graph as well as imported to this Graph.
 The following illustration depicts this schema with boxes and arrows:</p>
-<p><a class="glightbox" href="20-10-StatementAnnotationSchema.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="20-10-StatementAnnotationSchema.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="20-10-StatementAnnotationSchema.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Some notes on this:</p>
 <ul>
@@ -12027,5 +12025,9 @@ The following illustration depicts this schema with boxes and arrows:</p>
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

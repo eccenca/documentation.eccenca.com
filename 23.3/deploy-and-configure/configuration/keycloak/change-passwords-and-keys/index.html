@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Changing Passwords and Keys - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/deploy-and-configure/configuration/keycloak/change-passwords-and-keys/index.png" />
  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11675,30 +11673,30 @@
 <p>This page describes how to change passwords and keys for a new deployment (esp. in the context of a <a href="../../../installation/scenario-single-node-cloud-installation/">Single Node Cloud Installation</a>).</p>
 <p>Assuming your instance runs at <code>https://cmem.example.com/</code> in a default installation Keycloak is deployed at <code>https://cmem.example.com/auth</code> (this may vary depending on your setup).</p>
 <p>This is your starting page:</p>
-<p><a class="glightbox" href="22-1-starting-page.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="starting-page" src="22-1-starting-page.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="starting-page" src="22-1-starting-page.png" /></a></p>
 <h2 id="change-credentials-of-keycloak-admin-account">Change credentials of Keycloak admin account<a class="headerlink" href="#change-credentials-of-keycloak-admin-account" title="Permanent link">¤</a></h2>
 <p>To change the admin user&rsquo;s password go to &ldquo;Administration Console&rdquo; and login with username/password admin/admin</p>
 <p>In the upper right corner go to &ldquo;Manage account&rdquo;</p>
-<p><a class="glightbox" href="22-1-managing-account.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="managing-account" src="22-1-managing-account.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="managing-account" src="22-1-managing-account.png" /></a></p>
 <p>In the &ldquo;Account Security&rdquo; field go to &ldquo;Signing In&rdquo;</p>
-<p><a class="glightbox" href="22-1-signing-account.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="signing-account" src="22-1-signing-account.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="signing-account" src="22-1-signing-account.png" /></a></p>
 <p>Click on update in &ldquo;Basic Authentication&rdquo; to set a new admin password for :</p>
-<p><a class="glightbox" href="22-1-basic-auth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="basic-auth" src="22-1-basic-auth.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="basic-auth" src="22-1-basic-auth.png" /></a></p>
 <p>Set a new password.</p>
 <h2 id="change-credentials-of-cmem-service-account">Change credentials of cmem-service-account<a class="headerlink" href="#change-credentials-of-cmem-service-account" title="Permanent link">¤</a></h2>
 <p>Make sure the realm Cmem is selected, go to Clients in left sidebar and edit cmem-service-account:</p>
-<p><a class="glightbox" href="22-1-cmem-selection.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="cmem-selection" src="22-1-cmem-selection.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="cmem-selection" src="22-1-cmem-selection.png" /></a></p>
 <p>Switch to &ldquo;Credentials&rdquo; tab and press &ldquo;Regenerate Secret&rdquo; Button.</p>
-<p><a class="glightbox" href="22-1-credentials-tab.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="credentials-tab" src="22-1-credentials-tab.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="credentials-tab" src="22-1-credentials-tab.png" /></a></p>
 <h2 id="change-credentials-of-user-accounts">Change credentials of user accounts<a class="headerlink" href="#change-credentials-of-user-accounts" title="Permanent link">¤</a></h2>
 <p>In default configuration, there are two users: user and admin. Both are configured with different groups to have different permissions inside Corporate Memory.</p>
 <p>To change the default passwords, select the Cmem Realm and open Users in the left sidebar:</p>
-<p><a class="glightbox" href="22-1-users-lookup.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="users-lookup" src="22-1-users-lookup.png" /></a></p>
-<p><a class="glightbox" href="22-1-user-details.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="user-details" src="22-1-user-details.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="users-lookup" src="22-1-users-lookup.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="user-details" src="22-1-user-details.png" /></a></p>
 <p>Then, select &ldquo;View all users&rdquo; and choose an account you want to change the password for (we start with admin)</p>
-<p><a class="glightbox" href="22-1-view-all-users.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="view-all-users" src="22-1-view-all-users.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="view-all-users" src="22-1-view-all-users.png" /></a></p>
 <p>Here you can change the password and unselect Temporary. Then press &ldquo;Reset Password&rdquo;</p>
-<p><a class="glightbox" href="22-1-reset-password.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="reset-password" src="22-1-reset-password.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="reset-password" src="22-1-reset-password.png" /></a></p>
 <p>Now proceed with the other account(s).</p>
 <h2 id="persisting">Persisting<a class="headerlink" href="#persisting" title="Permanent link">¤</a></h2>
 <div class="admonition warning">
@@ -12000,5 +11998,9 @@
         <script src="../../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

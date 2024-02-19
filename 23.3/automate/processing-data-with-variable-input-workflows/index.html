@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Processing Data with Variable Input Workflows - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/automate/processing-data-with-variable-input-workflows/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11744,28 +11742,28 @@ A variable dataset is created and used inside of a workflow as an input for othe
 <h2 id="1-install-the-required-vocabularies">1 Install the required vocabularies<a class="headerlink" href="#1-install-the-required-vocabularies" title="Permanent link">¤</a></h2>
 <p>First, install all required ontologies/vocabularies which are needed for mappings later in the tab <strong>VOCABULARIES.</strong></p>
 <p>In this tutorial, we need the <em>Schema.org</em> and the <em>RDFS</em> vocabulary. Press the (toggle switch) button on the right to install them.</p>
-<p><a class="glightbox" href="pdwviw-vocab-catalog.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Vocabulary catalog" class="bordered" src="pdwviw-vocab-catalog.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Vocabulary catalog" class="bordered" src="pdwviw-vocab-catalog.png" /></a></p>
 <h2 id="2-create-a-new-project">2 Create a new project<a class="headerlink" href="#2-create-a-new-project" title="Permanent link">¤</a></h2>
 <p>Second, create in the tab <strong>DATA INTEGRATION</strong> a new project. Provide it with a <em>Title</em> and <em>Description</em>.</p>
 <p>The project will include everything you need to build a workflow for extracting Feed XML data, transforming it into RDF, and loading it into a Knowledge Graph.</p>
-<p><a class="glightbox" href="pdwviw-create-new-project.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new project dialog" class="bordered" src="pdwviw-create-new-project.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new project dialog" class="bordered" src="pdwviw-create-new-project.png" /></a></p>
 <h2 id="3-create-an-example-feed-dataset-and-target-graph-dataset">3 Create an (example) feed dataset and target graph dataset<a class="headerlink" href="#3-create-an-example-feed-dataset-and-target-graph-dataset" title="Permanent link">¤</a></h2>
 <p>Upload a sample XML dataset (feed data) into your project: Create → XML → Upload new file.</p>
 <p class="annotate">For this tutorial, you may take this file: <a href="feed.xml">feed.xml</a>(1)</p>
 <ol>
 <li>Original feed source was: <code>https://www.ecdc.europa.eu/en/taxonomy/term/2942/feed</code></li>
 </ol>
-<p><a class="glightbox" href="pdwviw-create-xml-dataset.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create XML dataset dialog" class="bordered" src="pdwviw-create-xml-dataset.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create XML dataset dialog" class="bordered" src="pdwviw-create-xml-dataset.png" /></a></p>
 <h2 id="4-create-the-feed-transformation">4 Create the feed transformation<a class="headerlink" href="#4-create-the-feed-transformation" title="Permanent link">¤</a></h2>
 <p>Based on the added sample feed XML Dataset, create a mapping to generate RDF triples.
 The screenshot provides an example mapping to generate WebPages, which includes a label, a URL, a text, and the date they were published in the feed.
 The mappings are based on classes and properties defined by the <em>Schema.org</em> and <em>RDFS</em> vocabulary.</p>
 <p>In case you need help with mapping data from XML to RDF, feel free to visit your respective tutorial: <a href="../../build/lift-data-from-json-and-xml-sources/">Lift data from JSON and XML sources</a>.</p>
-<p><a class="glightbox" href="pdwviw-feed-transformation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Feed transformation" class="bordered" src="pdwviw-feed-transformation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Feed transformation" class="bordered" src="pdwviw-feed-transformation.png" /></a></p>
 <h2 id="5-create-the-variable-input-and-workflow">5 Create the variable input and workflow<a class="headerlink" href="#5-create-the-variable-input-and-workflow" title="Permanent link">¤</a></h2>
 <p>Create a new workflow in your project.
 Move the <strong>input</strong> XML feed dataset and the <strong>Feed Data</strong> Graph into the workflow editor and connect them with your created <strong>Transform feed</strong>.</p>
-<p><a class="glightbox" href="pdwviw-variable-input-workflow.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow with variable input" class="bordered" src="pdwviw-variable-input-workflow.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow with variable input" class="bordered" src="pdwviw-variable-input-workflow.png" /></a></p>
 <h2 id="6-use-cmemc-to-feed-data-into-the-workflow">6 Use <code>cmemc</code> to feed data into the workflow<a class="headerlink" href="#6-use-cmemc-to-feed-data-into-the-workflow" title="Permanent link">¤</a></h2>
 <p>Finally, you can process all the feeds you want by executing the created workflow with a dynamic XML payload.</p>
 <p>For this, you need to use the <code>workflow io</code> command:</p>
@@ -11790,7 +11788,7 @@ Move the <strong>input</strong> XML feed dataset and the <strong>Feed Data</stro
 </code></pre></div>
 <h2 id="7-explore-the-fetched-knowledge-graph">7 Explore the fetched Knowledge Graph<a class="headerlink" href="#7-explore-the-fetched-knowledge-graph" title="Permanent link">¤</a></h2>
 <p>In <strong>EXPLORATION</strong>, you can study the ingested feed data in your Knowledge Graph.</p>
-<p><a class="glightbox" href="pdwviw-review-knowledge-graph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Explore the result" class="bordered" src="pdwviw-review-knowledge-graph.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Explore the result" class="bordered" src="pdwviw-review-knowledge-graph.png" /></a></p>
 
   
     
@@ -12082,5 +12080,9 @@ Move the <strong>input</strong> XML feed dataset and the <strong>Feed Data</stro
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

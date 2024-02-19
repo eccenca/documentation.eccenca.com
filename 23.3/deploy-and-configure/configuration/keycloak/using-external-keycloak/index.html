@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Configure Corporate Memory with an external Keycloak - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/deploy-and-configure/configuration/keycloak/using-external-keycloak/index.png" />
  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11739,8 +11737,8 @@ For this scenario, this page give some hints.</p>
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" href="CSP-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="CSP-settings" class="bordered" src="CSP-settings.png" /></a></p>
-<p><a class="glightbox" href="client-redirect-uri.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Client redirect URI" class="bordered" src="client-redirect-uri.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CSP-settings" class="bordered" src="CSP-settings.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Client redirect URI" class="bordered" src="client-redirect-uri.png" /></a></p>
 <h2 id="configuration-in-corporate-memory">Configuration in Corporate Memory<a class="headerlink" href="#configuration-in-corporate-memory" title="Permanent link">¤</a></h2>
 <h3 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">¤</a></h3>
 <p>When running the Corporate Memory docker orchestration, you can configure the Keycloak through editing <code>environments/config.env</code>.
@@ -11753,7 +11751,7 @@ You can get those from the <code>.well-known</code> url from your instance, e.g.
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">OAUTH_LOGOUT_REDIRECT_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/logout?redirect_uri<span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">OAUTH_CLIENT_ID</span><span class="o">=</span>cmem
 </code></pre></div>
-<p><a class="glightbox" href="well-known-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="well-known configuration" class="bordered" src="well-known-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="well-known configuration" class="bordered" src="well-known-config.png" /></a></p>
 <h3 id="dataintegration-optional">Dataintegration (optional)<a class="headerlink" href="#dataintegration-optional" title="Permanent link">¤</a></h3>
 <p>By default, Dataintegration is configured through environments.
 However you can also edit this in Dataintegration&rsquo;s config file <code>dataintegration.conf</code>:</p>
@@ -12093,5 +12091,9 @@ In either way you can configure the base realm path in the value section.</p>
         <script src="../../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

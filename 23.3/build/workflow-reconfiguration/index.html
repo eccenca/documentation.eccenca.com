@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Workflow Reconfiguration - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/workflow-reconfiguration/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11639,7 +11637,7 @@
 <p>The operators of a workflow can be reconfigured completely in the context of a workflow.
 During its execution, new parameters are loaded from any possible source and translated by a transformation task to allow an injection into the dataset configuration that overwrites originally set parameters.
 To reconfigure a workflow operator, the transformation task has to be connected to the red dot at the top of this operator as shown in the following image:</p>
-<p><a class="glightbox" href="wf-config-port.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow config port" src="wf-config-port.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow config port" src="wf-config-port.png" /></a></p>
 <p>Although this feature has been developed to support the ingestion of database deltas, the possible applications are various since any parameter can be overwritten to make workflow operators even more dynamic and reusable in various contexts.
 The incremental ingestion of database content that was implemented as a first use-case can be found the application section of this page.
 However, we intend to add other use-cases that have been implemented.
@@ -11980,5 +11978,9 @@ If you want to overwrite the source query of a JDBC endpoint, you need to define
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

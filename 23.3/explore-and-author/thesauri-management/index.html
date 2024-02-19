@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Thesauri Management - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/explore-and-author/thesauri-management/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11746,7 +11744,7 @@ An airport belongs to the sector Airport Services, the broader category Transpor
 You can think of these relations as a hierarchical tree representing the relations as individual branches like shown in the navigation tree on the left side of the Thesaurus view.
 In a concept scheme Industries, a top branch in this tree, as for example the sub-industry Industrials or Health Care, is called a top concept.
 All branches together belong to the concept scheme Industries.</p>
-<p><a class="glightbox" href="navigation-tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Navigation tree with detail view of the concept Airlines" class="bordered" src="navigation-tree.png" title="Navigation tree with detail view of the concept Airlines" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Navigation tree with detail view of the concept Airlines" class="bordered" src="navigation-tree.png" title="Navigation tree with detail view of the concept Airlines" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In order to build thesauri or taxonomies with the Thesaurus module you should be familiar with SKOS structures.</p>
@@ -11764,7 +11762,7 @@ The Thesaurus module allows to create, browse and edit such structures, providin
 <p>In order to get more information on a thesaurus project and edit its metadata, click <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path d="M5 6L0 1 0.7 0.3 5 4.6 9.3 0.3 10 1z"/></svg></span> Show more</strong> in the table row.
 The view expands showing the project metadata.
 Click <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M2 26H30V28H2zM25.4 9c.8-.8.8-2 0-2.8 0 0 0 0 0 0l-3.6-3.6c-.8-.8-2-.8-2.8 0 0 0 0 0 0 0l-15 15V24h6.4L25.4 9zM20.4 4L24 7.6l-3 3L17.4 7 20.4 4zM6 22v-3.6l10-10 3.6 3.6-10 10H6z"/></svg></span> Edit</strong> on the right side of the row to open the edit mode, enter your changes and click <strong>SAVE</strong>.</p>
-<p><a class="glightbox" href="thesaurus-project-catalog.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Thesaurus project catalog" class="bordered" src="thesaurus-project-catalog.png" title="Thesaurus project catalog" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Thesaurus project catalog" class="bordered" src="thesaurus-project-catalog.png" title="Thesaurus project catalog" /></a></p>
 <p>To open the detail view of a thesaurus project, click the project name in the catalog.</p>
 <h3 id="creating-a-new-thesaurus-project">Creating a new thesaurus project<a class="headerlink" href="#creating-a-new-thesaurus-project" title="Permanent link">¤</a></h3>
 <p>In order to create a new thesaurus project, select <strong>Create new thesaurus project</strong> on the upper right of the thesaurus project catalog.
@@ -12146,5 +12144,9 @@ Confirm the dialog and click <strong>REMOVE</strong>.</p>
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

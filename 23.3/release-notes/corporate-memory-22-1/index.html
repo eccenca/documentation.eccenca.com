@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Corporate Memory 22.1 - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/release-notes/corporate-memory-22-1/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11710,9 +11708,9 @@
 
 <h1 id="corporate-memory-221">Corporate Memory 22.1<a class="headerlink" href="#corporate-memory-221" title="Permanent link">¤</a></h1>
 <p>Corporate Memory 22.1 is the first release in 2022.</p>
-<p><a class="glightbox" href="22-1-linking-editor.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="22.1: DataIntegration - Linking Editor" src="22-1-linking-editor.png" title="22.1: DataIntegration - Linking Editor" /></a>
-<a class="glightbox" href="22-1-workflow-execution.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="22.1: DataManager - Workflow Execution" src="22-1-workflow-execution.png" title="22.1: DataManager - Workflow Execution" /></a>
-<a class="glightbox" href="22-1-cmemc-metrics-and-python-list.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="22.1: cmemc - metrics and python list command" src="22-1-cmemc-metrics-and-python-list.png" title="22.1: cmemc - metrics and python list command" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="22.1: DataIntegration - Linking Editor" src="22-1-linking-editor.png" title="22.1: DataIntegration - Linking Editor" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="22.1: DataManager - Workflow Execution" src="22-1-workflow-execution.png" title="22.1: DataManager - Workflow Execution" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="22.1: cmemc - metrics and python list command" src="22-1-cmemc-metrics-and-python-list.png" title="22.1: cmemc - metrics and python list command" /></a></p>
 <p>The highlights of this release are:</p>
 <ul>
 <li>Build:<ul>
@@ -12284,5 +12282,9 @@
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

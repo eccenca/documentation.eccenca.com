@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Production-Ready Settings - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/deploy-and-configure/configuration/production-ready-settings/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11734,7 +11732,7 @@
 </blockquote>
 <p>Corporate Memory uses the <code>cmem</code> client to authenticate against Keycloak, so adjust the <strong>Valid Redirect URIs</strong> field for this client.</p>
 <p>Select<code>cmem</code> realm, then <strong>Clients</strong> → <code>cmem</code> and enter your deploy URL, e.g., <code>https://cmem.example.net/*</code>.</p>
-<p><a class="glightbox" href="23-1-keycloak-client-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings: Valid Redirect URLs" src="23-1-keycloak-client-settings.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings: Valid Redirect URLs" src="23-1-keycloak-client-settings.png" /></a></p>
 <h2 id="password-policies">Password Policies<a class="headerlink" href="#password-policies" title="Permanent link">¤</a></h2>
 <p>If you create users in Keycloak, make sure these users have strong passwords.
 To enforce this, setting up <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_password-policies">password policies</a> can help.</p>
@@ -11745,7 +11743,7 @@ Select <code>cmem</code> realm, then <strong>Realm settings</strong> → <stron
 If you are running Corporate Memory without SSL for testing, you will no longer be able to login after this step.</p>
 <p>Once this is done, make sure DataPlatform and DataIntegration use <code>HTTPS</code> to connect to Keycloak.
 See the usage of <code>DATAPLATFORM_AUTH_URL</code>, <code>OAUTH_AUTHORIZATION_URL</code> and <code>OAUTH_TOKEN_URL</code>.</p>
-<p><a class="glightbox" href="23-1-keycloak-realm-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings" src="23-1-keycloak-realm-settings.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings" src="23-1-keycloak-realm-settings.png" /></a></p>
 <h3 id="dataplatform">DataPlatform<a class="headerlink" href="#dataplatform" title="Permanent link">¤</a></h3>
 <p>For DataPlatform you can uncomment these cookie setting in <code>application.yml</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">## This is important to set flags for DP session cookies</span>
@@ -12093,5 +12091,9 @@ Detailed configuration options can be found <a href="../dataintegration/">here<
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

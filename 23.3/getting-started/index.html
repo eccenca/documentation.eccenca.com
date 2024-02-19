@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Getting Started - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/getting-started/index.png" />
  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11819,7 +11817,7 @@ In case you only have read permission these functions are not available for you.
 <li>The module bar providing access to the various modules of Corporate Memory and to a menu with further options</li>
 <li>The main section for operating the software functions</li>
 </ol>
-<p><a class="glightbox" href="statistic.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Graph statistics view" src="statistic.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Graph statistics view" src="statistic.png" /></a></p>
 <p>Each module provides a set of functionalities and views for specific use cases.
 To access a module, click the module name. The active module is highlighted.</p>
 <p>By default, Corporate Memory provides the following modules:</p>
@@ -11845,7 +11843,7 @@ To access a module, click the module name. The active module is highlighted.</p>
 </div>
 <p>Use the provided search field(s) in each module to search for specific keywords or strings in names and labels of resources.</p>
 <p>The <strong>Knowledge Graphs</strong> module provides more search fields (e.g. in the Graph box, Navigation box, etc.) where you can limit your search to specific graphs or resources.</p>
-<p><a class="glightbox" href="demograph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Explore graph sample" src="demograph.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Explore graph sample" src="demograph.png" /></a></p>
 <h3 id="settings-menu-for-table-views">Settings menu for table views<a class="headerlink" href="#settings-menu-for-table-views" title="Permanent link">¤</a></h3>
 <p>Each table view of Corporate Memory provides a setting menu (3) to adjust the table according to your requirements.
 You can change the sorting of columns, show or hide specific columns or set filters.
@@ -12257,5 +12255,9 @@ To close the context help, click <span class="twemoji"><svg xmlns="http://www.w
         <script src="../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

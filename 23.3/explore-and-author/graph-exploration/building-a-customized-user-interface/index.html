@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Building a Customized User Interface - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/explore-and-author/graph-exploration/building-a-customized-user-interface/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11682,13 +11680,13 @@
 <li>The individual fields are defined as so called <code>PropertyShape</code>. PropertyShapes define which property is used to retrieve data for the field (the path), the name of the field, a description, its cardinality (min and max count), its position in the form (the order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in <a href="#propertyshapes">section PropertyShapes</a>.</li>
 </ol>
 <p>To define a new form, for example for <code>foaf:Person</code> resources, navigate to the CMEM Shapes Catalog graph and select <code>NodeShape</code> in Navigation. The list of existing NodeShapes is shown. Click &ldquo;Create a new SHACL Node shape&rdquo; in the upper right to create a new NodeShape. Enter a name of the resource. An empty NodeShape resource is created and shown.</p>
-<p><a class="glightbox" href="createNodeShape.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createNodeShape.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createNodeShape.png" /></a></p>
 <p>To create the initial definition, click <img alt="" class="off-glb" src="ic_mode_edit_black_18dp_1x.png" /> (Edit). A form is shown to you with input fields Name, Property Shapes, Vocabulary, Target class and Statement Annotation. The initial definition requires the name, and the target class. Fields are attached to the form later. Target class in particular binds the form to the resources it should cover. The Target class field features an auto-complete that displays all classes stored in Corporate Memory. The example form should cover resources of the type <code>foaf:Person</code>, so enter <code>foaf:Person</code> in the Target class field. Click SAVE to save the NodeShape.</p>
-<p><a class="glightbox" href="EditNodeShape.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="EditNodeShape.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="EditNodeShape.png" /></a></p>
 <p>You have now created an &ldquo;empty&rdquo; form that covers <code>foaf:Person</code> resources with tab name &ldquo;Person&rdquo;. Navigating to a <code>foaf:Person</code> resource, you see a new tab as defined. You can still see all properties of the resource in the PROPERTIES tab.</p>
-<p><a class="glightbox" href="nodeshape.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshape.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshape.png" /></a></p>
 <p>To define new fields, for example showing the email address of the person (defined as <code>foaf:mbox</code>), navigate to the CMEM Shapes Catalog graph and select <code>PropertyShape</code> in Navigation. The list of existing PropertyShapes is shown. Click CREATE NEW PROPERTYSHAPE in the upper right to create a new PropertyShape. Enter a name of the resource. An empty PropertyShape resource is created and shown.</p>
-<p>Edit the form using <a class="glightbox" href="ic_mode_edit_black_18dp_1x.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="ic_mode_edit_black_18dp_1x.png" /></a>. A form is shown with all relevant properties of a field definition. Required in this step are:</p>
+<p>Edit the form using <a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="ic_mode_edit_black_18dp_1x.png" /></a>. A form is shown with all relevant properties of a field definition. Required in this step are:</p>
 <ol>
 <li>The name of the field, which will be displayed left of the data content or input field in the form.</li>
 <li>The description, which will be displayed as tooltip on the question mark to the right of the name.</li>
@@ -11696,18 +11694,18 @@
 <li>The form the field should be shown in (Property of). The field provides an auto-complete, so just enter &ldquo;Person&rdquo; and select the NodeShape resource you defined in the previous step.</li>
 </ol>
 <p>Click SAVE after filling out the required fields.</p>
-<p><a class="glightbox" href="nodeshapeedit.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshapeedit.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshapeedit.png" /></a></p>
 <h2 id="using-forms">Using forms<a class="headerlink" href="#using-forms" title="Permanent link">¤</a></h2>
 <p>Once a Node Shape is created for a specific class, you are able to use the specified entry form in the Explore component of Corporate Memory.</p>
 <h3 id="editing-existing-resources">Editing existing resources<a class="headerlink" href="#editing-existing-resources" title="Permanent link">¤</a></h3>
 <p>While browsing your knowledge graph, you will always see your shape in action, when you click on a resource which is an instance of the class which is linked with <code>shacl:targetClass</code> from your Node Shape.</p>
 <p>The next images demonstrate this behavior :</p>
-<p><a class="glightbox" href="nodeshape.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshape.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="nodeshape.png" /></a></p>
 <h3 id="creating-new-resources">Creating new resources<a class="headerlink" href="#creating-new-resources" title="Permanent link">¤</a></h3>
 <p>You can also create new resources by using a shaped form. One way to achieve this, is to select the class in the navigation tree on the lower left part in the Explore component and then click the Floating Action Button at the bottom or use the context menu on upper right side.</p>
 <p>The next images demonstrate this behaviour:</p>
-<p><a class="glightbox" href="createsparqlquery.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createsparqlquery.png" /></a></p>
-<p><a class="glightbox" href="createsparqlqueryeditor.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createsparqlqueryeditor.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createsparqlquery.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="createsparqlqueryeditor.png" /></a></p>
 
   
     
@@ -11999,5 +11997,9 @@
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

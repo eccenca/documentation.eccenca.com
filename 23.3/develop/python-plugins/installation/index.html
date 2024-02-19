@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Python Plugins: Installation and Usage - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/develop/python-plugins/installation/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11689,14 +11687,14 @@ Please have a look at the <a href="../../../automate/cmemc-command-line-interfac
 <p>Depending on the plugin type, an installed plugin can appear in different parts of the <a href="../../../build/introduction-to-the-user-interface/">Build workbench</a>:</p>
 <div style="clear: both">
 <div class="admonition info inline">
-<p><a class="glightbox" href="../../../consume/consume-graphs-in-apache-kafka/create-new-item-kafka.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example: Searching for the Kafka Plugins" src="../../../consume/consume-graphs-in-apache-kafka/create-new-item-kafka.png" title="Example: Searching for the Kafka Plugins" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example: Searching for the Kafka Plugins" src="../../../consume/consume-graphs-in-apache-kafka/create-new-item-kafka.png" title="Example: Searching for the Kafka Plugins" /></a></p>
 </div>
 <p><strong>Workflow Plugins</strong> are listed in the <strong>Create new item</strong> dialog in the <strong>Task</strong> category.
 From there, you can create a task in your project and use it in a workflow.</p>
 </div>
 <div style="clear: both">
 <div class="admonition info inline">
-<p><a class="glightbox" href="example-search-for-lifetime-plugin.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Example: Searching for the Lifetime Plugin" src="example-search-for-lifetime-plugin.png" title="Example: Searching for the Lifetime Plugin" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example: Searching for the Lifetime Plugin" src="example-search-for-lifetime-plugin.png" title="Example: Searching for the Lifetime Plugin" /></a></p>
 </div>
 <p><strong>Transform Plugins</strong> are listed in the sidebar of the <strong>Value formula editor</strong> and the <strong>Linking editor</strong> in the <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M14 8L10 8 10 4 8 4 8 8 4 8 4 10 8 10 8 14 10 14 10 10 14 10 14 8zM4 19H14V21H4zM4 24H14V26H4zM18 8H28V10H18zM24.41 22L28 18.41 26.59 17 23 20.59 19.41 17 18 18.41 21.59 22 18 25.59 19.41 27 23 23.41 26.59 27 28 25.59 24.41 22z"/></svg></span> Transform</strong> tab.
 Drag and drop it on the canvas, and connect it with ingoing and / or outgoing links to other elements.</p>
@@ -12003,5 +12001,9 @@ The problem is <a href="https://github.com/pypa/pip/issues/6327">known by the py
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Link IDS event to a knowledge graph via advanced tools - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11679,7 +11677,7 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>In this tutorial, we are using the Splunk app &ldquo;Investigate lateral movements with a knowledge graph&rdquo;, like example. This app contains several dasboards to help the analysts to navigate in the Hayabusa or Sigma alerts before searching in the Suricata and Sysmon alerts. We hope this method can &ldquo;Accelerate Cyber Threat Hunting&rdquo;.</p>
 <p>In the demo of this Splunk app via the video 1, the user selects the data about one investigation via Splunk and generate a bash script to export these data via the Splunk API in tempory graphs in Corporate Memory for each investigation.</p>
-<p><a class="glightbox" href="splunk-app-demo-poc-app.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="splunk-app-demo-poc-app.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="splunk-app-demo-poc-app.gif" /></a></p>
 <p><em>Video 1: Splunk dashboards of the Splunk app &ldquo;Investigate lateral movements with a knowledge graph&rdquo;</em></p>
 <p>In this page, we are showing how, we :</p>
 <ol>
@@ -11712,20 +11710,20 @@
 <li>one dashboard (see figure 1) to select the data to transfer to knowledge graph: typeA_request.xml</li>
 <li>one dashboard (see figure 2,3,4) to navigate in the knowledge graph: typeA_dashboard.xml</li>
 </ul>
-<p><a class="glightbox" href="poc-app_request.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_request.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_request.png" /></a></p>
 <p><em>Figure 1: Splunk dashboard to select the data before executing a high-level investigation</em></p>
-<p><a class="glightbox" href="poc-app_high_level_computers.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_high_level_computers.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_high_level_computers.png" /></a></p>
 <p><em>Figure 2: High-level investigation dashboard with the list of computers implicated in the incident</em></p>
-<p><a class="glightbox" href="poc-app_high_level_period.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_high_level_period.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_high_level_period.png" /></a></p>
 <p><em>Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details</em></p>
-<p><a class="glightbox" href="poc-app_low_level.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_low_level.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_low_level.png" /></a></p>
 <p><em>Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard.</em></p>
 <p>The idea is the analyst can do an investigation high-level without using a lot of ressources (a little graph) but when he want to see the suspicious processus on one computer in a specific period, he can ask an investigation low-level with a maximum of details.</p>
 <p>To follow the calculation of investigations and free memory when one investigation is closed, we developed another dashboard &ldquo;investigation_list.xml&rdquo; (see figure 5). This dashboard prints the status of investigations actually in the knowledge graph. Here, each investigation is saved in tempory graphs and the analyst can create and delete them directly in Splunk.</p>
-<p><a class="glightbox" href="poc-app_list_investigations.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_list_investigations.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_list_investigations.png" /></a></p>
 <p><em>Figure 5: The dashboard &ldquo;investigation list&rdquo; shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.</em></p>
 <p>With these interfaces to manage and calculate different investigations with different levels of details, we imagined a first method to &ldquo;follow lateral movements&rdquo; (see figure 6) in order to understand the objectives of the incident. We hope this PoC will &ldquo;Accelerate Cyber Threat Hunting&rdquo;.</p>
-<p><a class="glightbox" href="poc-app_hunt.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_hunt.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="poc-app_hunt.png" /></a></p>
 <p><em>Figure 6: Analyst can select a computer and a period to analyze the suspicious processus implicated in Suricata alerts. So, an analyst can follow the &ldquo;lateral movements&rdquo; and see the command lines executed by these suspicious processus.</em></p>
 <h2 id="manage-the-graphs-of-your-application">Manage the graphs of your application<a class="headerlink" href="#manage-the-graphs-of-your-application" title="Permanent link">¤</a></h2>
 <p>A knowledge graph in Corporate Memory is a set of named RDF graphs. Each named graph can be managed and each named graph can have missions very different. In this PoC, when a new investigation is created, the app creates in first the named graph &ldquo;investigation&rdquo; to link all the other tempory named graphs for this investigation with the property &ldquo;owl:imports&rdquo;. So, when an analyst want to delete an investigation, the app can find all the tempory graphs of this investigation and can delete all its tempory graphs simply. Moreover, the analyst can request with SPARQL all these tempory graphs via one named graph &ldquo;investigation&rdquo; (thanks to &ldquo;owl:imports&rdquo;), so the complexity of tempory graphs is invisible for the final user.</p>
@@ -12138,5 +12136,9 @@
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

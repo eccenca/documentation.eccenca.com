@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Build the Knowledge Graph from indicators of compromise rules, like Hayabusa and Sigma rules - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11724,7 +11722,7 @@
 <p>The filename of the same rule between repositories does not change. So, we are making the IRI of rules with their filename and a arbitrary IRI, like &ldquo;<a href="http://example.com/rule/">http://example.com/rule/</a>&rdquo;. However, we want to give the possibility to open the original YAML rule directly via SPLUNK, so we add the property <code>rdfs:isDefinedBy</code> to associate the rule Web URLs to a rule.
 We will not use the guid id or Web address of the rule in its IRI because rules are often duplicate between the repositories and the filename and the title seem to be the used IDs of rules in Splunk and not the guid id.</p>
 <p>This new transformer are building the following RDF model for your use case:</p>
-<p><a class="glightbox" href="23-1-rdf-model-rule.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-rdf-model-rule.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-rdf-model-rule.png" /></a></p>
 <ol>
 <li>
 <p>Create a new project to build the knowledge graph of &ldquo;Rules Hayabusa Sigma&rdquo;</p>
@@ -11734,13 +11732,13 @@ We will not use the guid id or Web address of the rule in its IRI because rules 
 </li>
 <li>
 <p>Create a JSON dataset &ldquo;Rule example (JSON)&rdquo; in Corporate Memory with one example of rule:</p>
-<p><a class="glightbox" href="23-1-add-json-dataset.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-json-dataset.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-json-dataset.gif" /></a></p>
 </li>
 <li>
 <p>Create the prefix of your vocabulary:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">prefix</span> <span class="nn">ctis</span><span class="p">:</span> <span class="nv">&lt;https://github.com/SigmaHQ/sigma-specification/blob/main/Sigma_specification.md#&gt;</span>
 </code></pre></div>
-<p><a class="glightbox" href="23-1-add-prefix-ctis.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-prefix-ctis.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-prefix-ctis.gif" /></a></p>
 </li>
 <li>
 <p>Create the transformer for &ldquo;SIGMA Hayabusa rule&rdquo; to build this RDF model.</p>
@@ -11755,7 +11753,7 @@ We will not use the guid id or Web address of the rule in its IRI because rules 
 <p>IRI: concatenation of &ldquo;<a href="http://example.com/rule/">http://example.com/rule/</a>&rdquo; with the result of this regular expression <code>^.*?([^\/]*)$</code> on the rule path</p>
 </li>
 </ul>
-<p><a class="glightbox" href="23-1-iri-rule.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-iri-rule.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-iri-rule.png" /></a></p>
 <ul>
 <li>property <code>ctis:filename</code> with the result of this regular expression <code>^.*?([^\/]*)$</code> on the value path <code>rulePath</code></li>
 <li>property <code>rdfs:label</code> with the value path <code>title</code></li>
@@ -11767,7 +11765,7 @@ We will not use the guid id or Web address of the rule in its IRI because rules 
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" href="23-1-formula-mitreid.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-formula-mitreid.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-formula-mitreid.png" /></a></p>
 <ul>
 <li>property <code>rdfs:isDefinedBy</code> on the value path <code>rulePath</code> is building with this formula to link the rules to their Web addresses.<ul>
 <li>Add two &ldquo;Regex replace&rdquo;<ul>
@@ -11778,7 +11776,7 @@ We will not use the guid id or Web address of the rule in its IRI because rules 
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" href="23-1-rules-isdefinedby.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-rules-isdefinedby.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-rules-isdefinedby.png" /></a></p>
 <p>So the rulepath <code>./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml</code> becomes the link <code>https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml</code> and <code>./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml</code>becomes <code>https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml</code></p>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
@@ -11788,22 +11786,22 @@ You need only to disable this option when your transformer is finished.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>Your example of rule exists now in your knowledge graph:
-<a class="glightbox" href="23-1-success-extract-rule2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-extract-rule2.png" /></a>
-<a class="glightbox" href="23-1-success-extract-rule.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-extract-rule.png" /></a></p>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-extract-rule2.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-extract-rule.png" /></a></p>
 </div>
 <ol start="6">
 <li>
 <p>Make the workflow &ldquo;Import rules&rdquo; with one input</p>
-<p><a class="glightbox" href="23-1-success-workflow.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-workflow.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-success-workflow.png" /></a></p>
 </li>
 </ol>
 <p>And don&rsquo;t forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.</p>
-<p><a class="glightbox" href="23-1-workflow-allow-replacement.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-workflow-allow-replacement.png" /></a></p>
-<p><a class="glightbox" href="23-1-add-worflow.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-worflow.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-workflow-allow-replacement.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-add-worflow.gif" /></a></p>
 <ol start="7">
 <li>
 <p>Copy the workflow ID</p>
-<p><a class="glightbox" href="23-1-id-worflow.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-id-worflow.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="23-1-id-worflow.gif" /></a></p>
 </li>
 </ol>
 <div class="admonition success">
@@ -12159,5 +12157,9 @@ You need to replace &ldquo;johndo&rdquo; by other thing, &ldquo;johndo@example.c
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

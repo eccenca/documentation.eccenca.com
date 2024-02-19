@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Loading JDBC datasets incrementally - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/loading-jdbc-datasets-incrementally/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11715,7 +11713,7 @@
 <ol>
 <li>
 <p>In Corporate Memory, click Projects under <strong>BUILD</strong> in the navigation on the left side of the page.</p>
-<p><a class="glightbox" href="incr-jdbc-menu-build-projects.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Menu BUILD &gt; Projects" class="bordered" src="incr-jdbc-menu-build-projects.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Menu BUILD &gt; Projects" class="bordered" src="incr-jdbc-menu-build-projects.png" /></a></p>
 </li>
 <li>
 <p>Click <strong>Create</strong> at the top of the page.</p>
@@ -11723,7 +11721,7 @@
 <li>In the Create new item window, select Project and click Add. The Create new item of type Project window appears.</li>
 <li>
 <p>In the Create new item window, select Dataset under <strong>Item Type</strong>, search for JDBC endpoint, and click <strong>Add</strong>.</p>
-<p><a class="glightbox" href="create-dataset-JDBC.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create JDBC Dataset" class="bordered" src="create-dataset-JDBC.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create JDBC Dataset" class="bordered" src="create-dataset-JDBC.png" /></a></p>
 </li>
 <li>
 <p>Provide the required configuration details for the JDBC endpoint:</p>
@@ -11740,8 +11738,8 @@
 </ul>
 </li>
 </ol>
-<p><a class="glightbox" href="configure-JDBC-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Configuration of a JDBC dataset" class="bordered" src="configure-JDBC-1.png" /></a></p>
-<p><a class="glightbox" href="configure-JDBC-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Configuration of a JDBC dataset" class="bordered" src="configure-JDBC-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configuration of a JDBC dataset" class="bordered" src="configure-JDBC-1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configuration of a JDBC dataset" class="bordered" src="configure-JDBC-2.png" /></a></p>
 <h2 id="2-create-a-metadata-graph">2 Create a Metadata Graph<a class="headerlink" href="#2-create-a-metadata-graph" title="Permanent link">¤</a></h2>
 <p>To incrementally extract data in Corporate Memory, we need to store the information about the OFFSET that will change with each extraction. To accomplish this, we need to define a new Graph named <em>Services Metadata Graph</em> that will hold this information. To identify the changing OFFSET with the JDBC endpoint we previously created, we will use the Graph IRI that Corporate Memory created for us.</p>
 <h3 id="to-find-the-jdbc-endpoint-iri">To find the JDBC endpoint IRI<a class="headerlink" href="#to-find-the-jdbc-endpoint-iri" title="Permanent link">¤</a></h3>
@@ -11754,7 +11752,7 @@
 </ol>
 <p>In our example, the JDBC Endpoint IRI looks like this: <em><a href="http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210">http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210</a>_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC</em></p>
 <p>See screenshot below for example:</p>
-<p><a class="glightbox" href="graph-turtle-view.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Turtle view of a graph resource" class="bordered" src="graph-turtle-view.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Turtle view of a graph resource" class="bordered" src="graph-turtle-view.png" /></a></p>
 <p>Now that we have the JDBC endpoint IRI, we will build the Metadata Graph to store the OFFSET information.</p>
 <p>The following three RDF triples hold the (minimal) necessary information we need for this tutorial:</p>
 <ol>
@@ -11790,15 +11788,15 @@
 <li>Provide <strong>Description</strong> (Optional).</li>
 <li>Select the <em>Services Metadata Graph</em> we previously created.</li>
 </ol>
-<p><a class="glightbox" href="incr-jdbc-create-transformation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create Transformation dialog" class="bordered" src="incr-jdbc-create-transformation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create Transformation dialog" class="bordered" src="incr-jdbc-create-transformation.png" /></a></p>
 </li>
 <li>
 <p>Create only a value mapping with the property <strong>sourceQuery</strong>. The sourceQuery will be used as an input for the JDBC endpoint. A root mapping does not need to be defined. In this screenshot everything is already configured while yours will be empty when you create it for the first time.</p>
-<p><a class="glightbox" href="source-query-value-mapping.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="sourceQuery value mapping rule" class="bordered" src="source-query-value-mapping.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="sourceQuery value mapping rule" class="bordered" src="source-query-value-mapping.png" /></a></p>
 </li>
 <li>
 <p>Press the circular pen button to jump into the advanced mapping editor. As source paths we select the data from our Metadata Graph: <strong>table</strong>, <strong>lastOffset</strong> and <strong>limit</strong>. Everything else is defined as a constant as it does not change in the query. For our source paths we defined a &ldquo;di&rdquo; prefix. In case this defintion is missing, your source path may look longer (full IRI).</p>
-<p><a class="glightbox" href="source-path-complex-mapping.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Complex transformation rule" class="bordered" src="source-path-complex-mapping.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complex transformation rule" class="bordered" src="source-path-complex-mapping.png" /></a></p>
 </li>
 </ol>
 <h2 id="4-create-a-transformation-to-update-the-sql-offset">4 Create a Transformation to update the SQL Offset<a class="headerlink" href="#4-create-a-transformation-to-update-the-sql-offset" title="Permanent link">¤</a></h2>
@@ -11856,7 +11854,7 @@ This SQL query will be used to configure the sourceQuery of the JDBC endpoint.
 Next, we do a &ldquo;regular&rdquo; transformation of data from a JDBC endpoint to RDF.
 As this step was omitted here, please feel free to read how this Transformation can be built here: <a href="../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/">Lift data from tabular data such as CSV, XSLX or database tables</a>.
 As a final step, we use our SPARQL update query to select the max service ID in our Knowledge Graph and update the RDF Triples in our Metadata Graph accordingly.</p>
-<p><a class="glightbox" href="incr-jdbc-complete-wf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow using config part for incremental data loading" class="bordered" src="incr-jdbc-complete-wf.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow using config part for incremental data loading" class="bordered" src="incr-jdbc-complete-wf.png" /></a></p>
 
   
     
@@ -12148,5 +12146,9 @@ As a final step, we use our SPARQL update query to select the max service ID in 
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

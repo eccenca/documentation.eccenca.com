@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Keycloak - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/deploy-and-configure/configuration/keycloak/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11772,7 +11770,7 @@ The screenshots displayed in this documentation were taken from Keycloak v20 usi
 <p class="admonition-title">Info</p>
 <p>You do not need these instruction in case you followed the documentation on <a href="../../installation/scenario-local-installation/">Scenario: Local Installation</a> or <a href="../../installation/scenario-single-node-cloud-installation/">Scenario: Single Node Cloud Installation</a> (in this case, everything was done automatically).
 However, in case you need to integrate Corporate Memory with an existing Keycloak, this page may help you.
-Please also have the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak - Server Administration Guide</a> ready <img alt="😄" class="twemoji" src="../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f604.svg" title=":smile:"></p>
+Please also have the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak - Server Administration Guide</a> ready <img alt="😄" class="twemoji" src="../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:"></p>
 </div>
 <h2 id="realm-configuration">Realm configuration<a class="headerlink" href="#realm-configuration" title="Permanent link">¤</a></h2>
 <div class="admonition warning">
@@ -11822,7 +11820,7 @@ This is configured in the DataPlatform configuration or as an environment variab
 <h3 id="option-1-import-the-needed-clients-from-a-json-export">Option 1: Import the needed clients from a JSON export<a class="headerlink" href="#option-1-import-the-needed-clients-from-a-json-export" title="Permanent link">¤</a></h3>
 <p>To import a pre-configured <code>cmem</code> client for using the web interface, follow these steps:</p>
 <div class="admonition quote inline end">
-<p><a class="glightbox" href="import-client-cmem.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog import cmem client" src="import-client-cmem.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog import cmem client" src="import-client-cmem.png" /></a></p>
 </div>
 <ul>
 <li>Login to Keycloak and select the Corporate Memory realm (<code>cmem</code>).</li>
@@ -11835,7 +11833,7 @@ This is configured in the DataPlatform configuration or as an environment variab
 <h3 id="option-2-create-client-configurations-manually">Option 2: Create client configurations manually<a class="headerlink" href="#option-2-create-client-configurations-manually" title="Permanent link">¤</a></h3>
 <h4 id="add-the-cmem-client-for-using-the-web-interface">Add the <code>cmem</code> client for using the web interface<a class="headerlink" href="#add-the-cmem-client-for-using-the-web-interface" title="Permanent link">¤</a></h4>
 <p>This client is intended for the usage with DataManager, DataPlatform and DataIntegration (user login):</p>
-<p><a class="glightbox" href="createClient_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create cmem client" class="bordered" src="createClient_1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create cmem client" class="bordered" src="createClient_1.png" /></a></p>
 <ul>
 <li><strong>Client type</strong>: OpenID Connect</li>
 <li><strong>Client ID</strong>: i.e. <code>cmem</code>, you need to remember this and use this later</li>
@@ -11850,15 +11848,15 @@ This is configured in the DataPlatform configuration or as an environment variab
 </li>
 <li><strong>Save</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create cmem client" class="bordered" src="createClient_2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create cmem client" class="bordered" src="createClient_2.png" /></a></p>
 <p>The dialog above closes and you land on the configuration page of this client:</p>
 <ul>
 <li><strong>Valid redirect URIs</strong>: Add the correct URL pattern (e.g., wildcard <code>https://cmem.example.net/*</code> works) to <code>Valid Redirect URIs</code> (<code>*</code> for testing purposes can be used as well) and <strong>Save</strong></li>
 <li>Switch the Tabs to <strong>Client scopes</strong> and click on the first scope (i.e.: <code>cmem-dedicated</code>)</li>
 </ul>
-<p><a class="glightbox" href="createClient_11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog select cmem-service-account-dedicated" class="bordered" src="createClient_11.png" /></a>
-<a class="glightbox" href="createClient_4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_4.png" /></a>
-<a class="glightbox" href="createClient_5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_5.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog select cmem-service-account-dedicated" class="bordered" src="createClient_11.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_4.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_5.png" /></a></p>
 <ul>
 <li>Click <strong>Configure a new mapper</strong><ul>
 <li>Select Mapper Type <strong>Group Membership</strong></li>
@@ -11872,7 +11870,7 @@ This is configured in the DataPlatform configuration or as an environment variab
 </li>
 <li><strong>Save</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_6.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_6.png" /></a></p>
 <ul>
 <li>In Corporate Memory configuration until v22.2:<ul>
 <li>Configure this client ID under <code>js.config.workspaces.default.authorization.oauth2.clientId</code> in DataManager&rsquo;s configuration file (Datamanager needs implicit flow)</li>
@@ -11888,9 +11886,9 @@ This is configured in the DataPlatform configuration or as an environment variab
 <p>This client is intended for internal use by DataIntegration (scheduler super-user) and data import purposes (<a href="https://documentation.eccenca.com/latest/automate/cmemc-command-line-interface">cmemc</a>).</p>
 <p>This descriptions can also be used to create clients with different permissions than admins.
 For this, just create a different role name later, and create an access condition with this groups name in Corporate Memory as it is described in <a href="../access-conditions/">Access Conditions</a>.</p>
-<p><a class="glightbox" href="createClient_7_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_1.png" /></a>
-<a class="glightbox" href="createClient_7_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_2.png" /></a>
-<a class="glightbox" href="createClient_7_3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_3.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_1.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_2.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_3.png" /></a></p>
 <ul>
 <li><strong>Client type</strong>: OpenID Connect</li>
 <li><strong>Client ID</strong>: i.e. <code>cmem-service-account</code>, you need to remember this and use this later</li>
@@ -11906,37 +11904,37 @@ For this, just create a different role name later, and create an access conditio
 <p>Go to <strong>Credentials</strong> and configure <strong>Client Id and Secret</strong>, copy the client secret for later usage</p>
 </li>
 </ul>
-<p><a class="glightbox" href="createClient_7_4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_4.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7_4.png" /></a></p>
 <ul>
 <li>Go to <strong>Roles</strong> and click <strong>Create role</strong> to create the <code>elds-admins</code> role</li>
 </ul>
-<p><a class="glightbox" href="createClient_7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7.png" /></a>
-<a class="glightbox" href="createClient_8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_8.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_7.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_8.png" /></a></p>
 <ul>
 <li>Click <strong>Action</strong> and select <strong>Add associated roles</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_9.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_9.png" /></a></p>
 <ul>
 <li>Select <strong>Filter by client</strong> from the filter pull-down-menu</li>
 </ul>
-<p><a class="glightbox" href="createClient_10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10.png" /></a></p>
 <ul>
 <li>In this dialog select the client by name which you are currently configuring (here <code>cmem-service-account</code>) and then <strong>Assign</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_10_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10_1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10_1.png" /></a></p>
 <ul>
 <li>Go back to <strong>Client details</strong> e.g., by using the top navigation</li>
 <li>In the <strong>Roles</strong> tab you now see your created role here</li>
 </ul>
-<p><a class="glightbox" href="createClient_10_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10_2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create role" class="bordered" src="createClient_10_2.png" /></a></p>
 <ul>
 <li>Switch the Tabs to <strong>Client scopes</strong> and click on the first scope (i.e.: <code>cmem-service-account-dedicated</code>)</li>
 </ul>
-<p><a class="glightbox" href="createClient_11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_11.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_11.png" /></a></p>
 <ul>
 <li>select <strong>Add mapper</strong> -&gt; <strong>By configuration</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_13_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_13_1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_13_1.png" /></a></p>
 <ul>
 <li>select Mapper Type <code>User Client Role</code><ul>
 <li><strong>Name</strong> <code>roles</code></li>
@@ -11950,25 +11948,25 @@ For this, just create a different role name later, and create an access conditio
 </li>
 <li><strong>Save</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_13.png" /></a></p>
-<p><a class="glightbox" href="createClient_14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_14.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_13.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_14.png" /></a></p>
 <ul>
 <li>After <strong>Save</strong> go back to <strong>Client details</strong></li>
 <li>Go to tab <strong>Service account roles</strong> tab</li>
 <li>Select the link in the center <strong>To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_15.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_15.png" /></a></p>
 <ul>
 <li>Go to tab <strong>Role mapping</strong> and select <strong>Assign role</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16.png" /></a></p>
 <ul>
 <li>Change the filter to <strong>Filter by clients</strong> and select the new Client ID, i.e <code>cmem-service-account</code></li>
 <li>Click <strong>Assign</strong></li>
 </ul>
-<p><a class="glightbox" href="createClient_16_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16_2.png" /></a>
-<a class="glightbox" href="createClient_16_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16_1.png" /></a>
-<a class="glightbox" href="createClient_17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_17.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16_2.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_16_1.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_17.png" /></a></p>
 <h2 id="corporate-memory-configuration-after-setting-up-clients">Corporate Memory configuration after setting up clients<a class="headerlink" href="#corporate-memory-configuration-after-setting-up-clients" title="Permanent link">¤</a></h2>
 <ul>
 <li>If <strong>DataIntegration</strong> schedulers are required, configure this client id and secret under the properties <code>workbench.superuser.client</code> and <code>workbench.superuser.clientSecret</code> in DataIntegration&rsquo;s configuration file or</li>
@@ -12297,5 +12295,9 @@ For this, just create a different role name later, and create an access conditio
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

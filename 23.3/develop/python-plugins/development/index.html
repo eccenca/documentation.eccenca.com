@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Python Plugins: Development - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/develop/python-plugins/development/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -12014,7 +12012,7 @@ A workflow plugin may accept an arbitrary list of inputs and optionally returns 
 </ul>
 <p>The following depiction shows a task of the plugin <strong>My Workflow Plugin</strong>.
 The task has two connected incoming tasks and one connected outgoing task.</p>
-<p><a class="glightbox" href="22-2-my-workflow-plugin.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="workflow-plugins" src="22-2-my-workflow-plugin.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="workflow-plugins" src="22-2-my-workflow-plugin.png" /></a></p>
 <p>The corresponding source code of the plugin is listed below.</p>
 <div class="highlight"><span class="filename">workflow.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">cmem_plugin_base.dataintegration.context</span> <span class="kn">import</span> <span class="n">ExecutionContext</span>
@@ -12037,7 +12035,7 @@ It accepts an arbitrary number of inputs and returns an output.
 Each input as well as the output consists of a sequence of values.</p>
 <p>The image below shows a value transformation that uses the <strong>My Transform Plugin</strong> plugin.
 The plugin splits the input string into a list of words and forwards only the last one.</p>
-<p><a class="glightbox" href="22-1-my-transform-plugin.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="transform-plugins" src="22-1-my-transform-plugin.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="transform-plugins" src="22-1-my-transform-plugin.png" /></a></p>
 <p>The corresponding source code of the plugin is listed below.</p>
 <div class="highlight"><span class="filename">transform.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">cmem_plugin_base.dataintegration.description</span> <span class="kn">import</span> <span class="n">PluginParameter</span><span class="p">,</span> <span class="n">Plugin</span>
@@ -12276,7 +12274,7 @@ The <code>KaggleSearch</code> class is a <code>StringParameterType</code> that a
 </div>
 <h2 id="context-objects">Context Objects<a class="headerlink" href="#context-objects" title="Permanent link">¤</a></h2>
 <p>The <a href="https://github.com/eccenca/cmem-plugin-base/">cmem-plugin-base</a> package describes <a href="https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py">context objects</a>, which are passed to the plugin depending on the executed method.</p>
-<p><a class="glightbox" href="23-1-context-api-flow-diagram.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="context-api-flow-diagram" src="23-1-context-api-flow-diagram.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="context-api-flow-diagram" src="23-1-context-api-flow-diagram.png" /></a></p>
 <h3 id="basic-understanding">Basic Understanding<a class="headerlink" href="#basic-understanding" title="Permanent link">¤</a></h3>
 <p>Context objects have been introduced to provide a way to access context-dependent functionalities during plugin creation, update, or execution.</p>
 <p>These context objects allow accessing various useful functionalities such as the current OAuth token, updating the execution report for workflows, DI version, and current project details.</p>
@@ -12359,7 +12357,7 @@ An entity is identified by a <code>uri</code> and holds <code>values</code>, i.e
 <ol>
 <li>The concrete implementation details of entities can be found in the <a href="https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py">entity module</a> of the cmem-plugin-base package.</li>
 </ol>
-<p><a class="glightbox" href="22-2-entities-flow-diagram.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="entities-flow-diagram" src="22-2-entities-flow-diagram.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="entities-flow-diagram" src="22-2-entities-flow-diagram.png" /></a></p>
 <table>
 <thead>
 <tr>
@@ -12992,5 +12990,9 @@ This JVM-based logger will prefix all plugin logs with <code>plugins.python.&lt;
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

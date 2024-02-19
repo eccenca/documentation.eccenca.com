@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Welcome to your eccenca Corporate Memory Sandbox - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/getting-started/with-your-sandbox/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11577,7 +11575,7 @@
 
 <h1 id="welcome-to-your-eccenca-corporate-memory-sandbox">Welcome to your eccenca Corporate Memory Sandbox<a class="headerlink" href="#welcome-to-your-eccenca-corporate-memory-sandbox" title="Permanent link">¤</a></h1>
 <div class="admonition info inline end">
-<p><a class="glightbox" href="overview-cmem.drawio.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Your are here" src="overview-cmem.drawio.svg" title="You are here" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Your are here" src="overview-cmem.drawio.svg" title="You are here" /></a></p>
 </div>
 <p>Thank you for registering your eccenca Corporate Memory Sandbox! We&rsquo;re excited to have you on board and look forward to showing you how Corporate Memory can help you with your data management needs. We hope that you find this experience valuable and informative. If you have any questions or feedback, please don&rsquo;t hesitate to reach out to us. Thanks again for joining us!</p>
 <p>eccenca&rsquo;s Corporate Memory is a platform for creating and managing Enterprise Knowledge Graphs. It has three main stages: <em>Build</em>, <em>Explore</em>, and <em>Consume</em>. In the <em>Build</em> stage, you can convert legacy data points from existing datasets into a Knowledge Graph structure. The <em>Explore</em> stage allows you to interact with your Knowledge Graph, while the <em>Consume</em> stage is used to retrieve information from the graph and integrate it programmatically with your IT infrastructure.</p>
@@ -11944,5 +11942,9 @@
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

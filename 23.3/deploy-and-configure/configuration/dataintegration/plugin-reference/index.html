@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="DataIntegration: Plugin Reference - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/deploy-and-configure/configuration/dataintegration/plugin-reference/index.png" />
  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -18882,7 +18880,7 @@ The identifier for this plugin is <code>negateTransformer</code>.</p>
 <p>Returns [&mdash;31] for parameters [inputDateFormatId -&gt; w3c MonthDay, outputDateFormatId -&gt; w3c Day] and input values [[&ndash;12-31]].</p>
 <p>Returns [&ndash;12-31] for parameters [inputDateFormatId -&gt; w3c Date, outputDateFormatId -&gt; w3c MonthDay] and input values [[2020-12-31]].</p>
 <p>Fails validation and thus returns [] for parameters [inputDateFormatId -&gt; w3c MonthDay, outputDateFormatId -&gt; w3c Date] and input values [[&ndash;12-31]].</p>
-<p>Returns [2020-02-22T16:34:14] for parameters [alternativeInputFormat -&gt; yyyy-MM-dd HH<img alt="🇲🇲" class="twemoji" src="../../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f2-1f1f2.svg" title=":mm:">ss.SSS, outputDateFormatId -&gt; w3cDateTime] and input values [[2020-02-22 16:34:14.000]].</p>
+<p>Returns [2020-02-22T16:34:14] for parameters [alternativeInputFormat -&gt; yyyy-MM-dd HH<img alt="🇲🇲" class="twemoji" src="../../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1f2-1f1f2.svg" title=":mm:">ss.SSS, outputDateFormatId -&gt; w3cDateTime] and input values [[2020-02-22 16:34:14.000]].</p>
 <h4 id="compare-dates">Compare dates<a class="headerlink" href="#compare-dates" title="Permanent link">¤</a></h4>
 <p>Compares two dates.
 Returns 1 if the comparison yields true and 0 otherwise.
@@ -22253,7 +22251,7 @@ Values are expected of the form &lsquo;{Number}{UnitPrefix}{Symbol}&rsquo; and a
 <p>Returns [&mdash;31] for parameters [inputDateFormatId -&gt; w3c MonthDay, outputDateFormatId -&gt; w3c Day] and input values [[&ndash;12-31]].</p>
 <p>Returns [&ndash;12-31] for parameters [inputDateFormatId -&gt; w3c Date, outputDateFormatId -&gt; w3c MonthDay] and input values [[2020-12-31]].</p>
 <p>Fails validation and thus returns [] for parameters [inputDateFormatId -&gt; w3c MonthDay, outputDateFormatId -&gt; w3c Date] and input values [[&ndash;12-31]].</p>
-<p>Returns [2020-02-22T16:34:14] for parameters [alternativeInputFormat -&gt; yyyy-MM-dd HH<img alt="🇲🇲" class="twemoji" src="../../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f2-1f1f2.svg" title=":mm:">ss.SSS, outputDateFormatId -&gt; w3cDateTime] and input values [[2020-02-22 16:34:14.000]].</p>
+<p>Returns [2020-02-22T16:34:14] for parameters [alternativeInputFormat -&gt; yyyy-MM-dd HH<img alt="🇲🇲" class="twemoji" src="../../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f1f2-1f1f2.svg" title=":mm:">ss.SSS, outputDateFormatId -&gt; w3cDateTime] and input values [[2020-02-22 16:34:14.000]].</p>
 <h4 id="parse-float">Parse float<a class="headerlink" href="#parse-float" title="Permanent link">¤</a></h4>
 <p>Parses and normalizes float values.</p>
 <table>
@@ -23610,5 +23608,9 @@ The identifier for this plugin is <code>quadraticMean</code>.</p>
         <script src="../../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

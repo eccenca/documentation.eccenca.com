@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Embedding Services via the Integrations Module - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/explore-and-author/embedding-services-via-the-integrations-module/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11636,7 +11634,7 @@
 
 <h1 id="embedding-services-via-the-integrations-module">Embedding Services via the Integrations Module<a class="headerlink" href="#embedding-services-via-the-integrations-module" title="Permanent link">¤</a></h1>
 <p>A DataManager module is available that can be used to embed / integrate other web-services in Corporate Memory. The module can be used and configured globally or individually per workspace configuration.</p>
-<p><a class="glightbox" href="integration.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image" class="bordered" src="integration.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" class="bordered" src="integration.png" /></a></p>
 <h2 id="activation-and-configuration-in-datamanager">Activation and configuration in DataManager<a class="headerlink" href="#activation-and-configuration-in-datamanager" title="Permanent link">¤</a></h2>
 <p>In order to use it you need to add respective configuration section(s) into the DataManager <code>application.yml</code> configuration file.</p>
 <p>This is a sample for a global configuration that enables the module and shows two services:</p>
@@ -11695,7 +11693,7 @@
 <p>A restart of DataIntegration will be required in order for the configuration change to become effective.</p>
 <h2 id="redash-dashboard-integration">(Redash) Dashboard Integration<a class="headerlink" href="#redash-dashboard-integration" title="Permanent link">¤</a></h2>
 <p>A typical (eccenca) use case for the Integrations Module is to embed redash dashboards. In order show a dashboard in a Corporate Memory make sure your redash instance use the same protocol as your Corporate Memory instance (typically https). Then open the dashboard that should be embedded and click the sharing button <img alt="" class="off-glb" src="share.png" width="32" />. In the dialog make sure &ldquo;<em>Allow public access</em>&rdquo; is enabled. Copy the &ldquo;<em>Secret address</em>&rdquo; and paste this address into the &ldquo;<code>url</code>&rdquo; property of a tab configuration, as shown above.</p>
-<p><a class="glightbox" href="share_dashboard.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="share_dashboard.png" width="561" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="share_dashboard.png" width="561" /></a></p>
 
   
     
@@ -11987,5 +11985,9 @@
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

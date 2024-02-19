@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Versioning of Graph Changes - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/explore-and-author/graph-exploration/versioning-of-graph-changes/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11652,18 +11650,18 @@
 <p>This feature keeps track of changes to your Knowledge Graphs by creating change set data based on the user&rsquo;s editing activities.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
 <p>If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.</p>
-<p><a class="glightbox" href="20-10-ActualChangesets.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-ActualChangesets.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-ActualChangesets.png" /></a></p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
 <p>To enable this feature on a specific graph you need to setup the following steps.</p>
 <details class="success">
 <summary>1. Create a Versioning Graph</summary>
 <p>In Exploration, create a new graph and define it as a Versioning Graph.</p>
-<p><a class="glightbox" href="20-10-CreateVersioningGraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-CreateVersioningGraph.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-CreateVersioningGraph.png" /></a></p>
 </details>
 <details class="success">
 <summary>2. Configure a graph to use this Versioning Graph</summary>
 <p>In Exploration, edit this graph and add the Versioning Graph property to select the newly created Versioning Graph.</p>
-<p><a class="glightbox" href="20-10-ConfigureVersioningGraph.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-ConfigureVersioningGraph.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="20-10-ConfigureVersioningGraph.png" /></a></p>
 </details>
 <h2 id="technical-background">Technical Background<a class="headerlink" href="#technical-background" title="Permanent link">¤</a></h2>
 <p>For each editing activity (→ Save a Form), a ChangeSet resource will be created.
@@ -11960,5 +11958,9 @@ This resource has some metadata (user, timestamp, label) as well as links to add
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

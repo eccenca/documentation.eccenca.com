@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Extracting data from a Web API - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/extracting-data-from-a-web-api/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11723,11 +11721,11 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the <strong>Create</strong> button (top right) in the data integration workspace and select the type <strong>REST request</strong>.</p>
-<p><a class="glightbox" href="create-new-task-rest.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new REST request task" src="create-new-task-rest.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new REST request task" src="create-new-task-rest.png" /></a></p>
 </li>
 <li>
 <p>Define a <strong>Label, Description</strong> and the <strong>URL</strong> of the Web API. Example input: <code>https://api.github.com/orgs/vocol/repos</code>.</p>
-<p><a class="glightbox" href="create-new-task-rest-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="REST request task configuration" src="create-new-task-rest-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="REST request task configuration" src="create-new-task-rest-config.png" /></a></p>
 </li>
 </ol>
 <h2 id="2-create-a-json-parser">2 Create a JSON parser<a class="headerlink" href="#2-create-a-json-parser" title="Permanent link">¤</a></h2>
@@ -11735,11 +11733,11 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the <strong>Create</strong> button (top right) in the data integration workspace and select the type <strong>Parse JSON.</strong></p>
-<p><a class="glightbox" href="create-new-task-parse-json.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Parse JSON task" src="create-new-task-parse-json.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Parse JSON task" src="create-new-task-parse-json.png" /></a></p>
 </li>
 <li>
 <p>Define a <strong>Label</strong>, a <strong>Description</strong>, and the <strong>Input path.</strong> All other fields can keep the default settings. The default input path is always: <code>&lt;http://silkframework.org/vocab/taskSpec/RestTaskResult/responseBody&gt;</code></p>
-<p><a class="glightbox" href="extract-from-api-parse-json-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Parse JSON task configuration" src="extract-from-api-parse-json-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Parse JSON task configuration" src="extract-from-api-parse-json-config.png" /></a></p>
 </li>
 </ol>
 <h2 id="3-create-a-json-dataset">3 Create a JSON Dataset<a class="headerlink" href="#3-create-a-json-dataset" title="Permanent link">¤</a></h2>
@@ -11747,11 +11745,11 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the <strong>Create</strong> button (top right) in the data integration workspace and select the type <strong>JSON</strong>.</p>
-<p><a class="glightbox" href="create-new-json-dataset.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create JSON dataset" src="create-new-json-dataset.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create JSON dataset" src="create-new-json-dataset.png" /></a></p>
 </li>
 <li>
 <p>Upload the JSON file <a href="repos.json">repos.json</a> (API response) as a Dataset into Corporate Memory.</p>
-<p><a class="glightbox" href="create-new-json-dataset-upload.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create JSON dataset, upload data" src="create-new-json-dataset-upload.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create JSON dataset, upload data" src="create-new-json-dataset-upload.png" /></a></p>
 </li>
 </ol>
 <h2 id="4-create-a-knowledge-graph">4 Create a Knowledge Graph<a class="headerlink" href="#4-create-a-knowledge-graph" title="Permanent link">¤</a></h2>
@@ -11759,11 +11757,11 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the Create button (top right) in the data integration workspace and select the type <strong>Knowledge Graph</strong>.</p>
-<p><a class="glightbox" href="create-new-kg-dataset.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create Knowledge Graph dataset" src="create-new-kg-dataset.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create Knowledge Graph dataset" src="create-new-kg-dataset.png" /></a></p>
 </li>
 <li>
 <p>Provide the Knowledge Graph with a <strong>Label</strong> and <strong>Description</strong>, as well as the following (example) <strong>Graph</strong> URI: <code>http://ld.company.org/repository-data/</code></p>
-<p><a class="glightbox" href="create-new-kg-dataset-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create Knowledge Graph configuration" src="create-new-kg-dataset-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create Knowledge Graph configuration" src="create-new-kg-dataset-config.png" /></a></p>
 </li>
 </ol>
 <h2 id="5-create-a-transformation">5 Create a Transformation<a class="headerlink" href="#5-create-a-transformation" title="Permanent link">¤</a></h2>
@@ -11771,20 +11769,20 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the Create button (top right) in the data integration workspace and select the type <strong>Transform</strong>.</p>
-<p><a class="glightbox" href="extract-from-api-create-transformation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create a transformation" src="extract-from-api-create-transformation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a transformation" src="extract-from-api-create-transformation.png" /></a></p>
 </li>
 <li>
 <p>Provide the Transformation with a <strong>Label</strong> and <strong>Description</strong>, configure the <strong>Input Dataset</strong> (Repos.json) and the <strong>Output Dataset</strong> (Repository Knowledge Graph).</p>
-<p><a class="glightbox" href="extract-from-api-create-transformation-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Transformation task configuration" src="extract-from-api-create-transformation-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Transformation task configuration" src="extract-from-api-create-transformation-config.png" /></a></p>
 </li>
 <li>
 <p>Click the <strong>Mapping Editor</strong> button in the previously defined Transformation.</p>
-<p><a class="glightbox" href="extract-from-api-tf-open.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Open the transformation" src="extract-from-api-tf-open.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Open the transformation" src="extract-from-api-tf-open.png" /></a></p>
 </li>
 <li>
 <p>In the following screenshots, we provide an example mapping for the data received by the GitHub API. For more complex mappings, we recommend the Tutorial <a href="../lift-data-from-json-and-xml-sources/">Lift data from JSON and XML sources</a>.</p>
-<p><a class="glightbox" href="extract-from-api-tf-rule-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Mapping rule example" src="extract-from-api-tf-rule-1.png" /></a></p>
-<p><a class="glightbox" href="extract-from-api-tf-rule-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Mapping rule example" src="extract-from-api-tf-rule-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Mapping rule example" src="extract-from-api-tf-rule-1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Mapping rule example" src="extract-from-api-tf-rule-2.png" /></a></p>
 </li>
 </ol>
 <h2 id="6-create-a-workflow">6 Create a Workflow<a class="headerlink" href="#6-create-a-workflow" title="Permanent link">¤</a></h2>
@@ -11792,23 +11790,23 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
 <ol>
 <li>
 <p>Click the <strong>Create</strong> button (top right) in the data integration workspace and select the type <strong>Workflow</strong>.</p>
-<p><a class="glightbox" href="extract-from-api-create-wf.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create a workflow" src="extract-from-api-create-wf.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a workflow" src="extract-from-api-create-wf.png" /></a></p>
 </li>
 <li>
 <p>Provide the Transformation with a <strong>Label</strong> and a <strong>Description</strong>.</p>
-<p><a class="glightbox" href="extract-from-api-wf-config.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow configuration" src="extract-from-api-wf-config.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow configuration" src="extract-from-api-wf-config.png" /></a></p>
 </li>
 <li>
 <p>Click the <strong>Workflow Editor</strong> button in the menu of the created workflow.</p>
-<p><a class="glightbox" href="extract-from-api-wf-created.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow details view" src="extract-from-api-wf-created.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow details view" src="extract-from-api-wf-created.png" /></a></p>
 </li>
 <li>
 <p>Drag and drop the different items into the Workflow Editor and combine them with one another (see example screenshot). <strong>Save</strong> the workflow, and press the <strong>run symbol</strong> to execute the workflow.</p>
-<p><a class="glightbox" href="extract-from-api-wf-modelling.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow modeling view" src="extract-from-api-wf-modelling.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow modeling view" src="extract-from-api-wf-modelling.png" /></a></p>
 </li>
 <li>
 <p>Validate the result by clicking on the <strong>Workflow</strong> <strong>Report</strong> tab and see the result of your execution. In this example, 15x repositories were found from the GitHub API request.</p>
-<p><a class="glightbox" href="extract-from-api-wf-report.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Workflow execution report" src="extract-from-api-wf-report.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Workflow execution report" src="extract-from-api-wf-report.png" /></a></p>
 </li>
 </ol>
 
@@ -12102,5 +12100,9 @@ The tutorial is based on the <a href="https://developer.github.com/v3/">GitHub A
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

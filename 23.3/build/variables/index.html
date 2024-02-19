@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Build Variables - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/variables/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11755,9 +11753,9 @@ They are set in a section like in the example below:</p>
 Which is described in the following sections.</p>
 <h2 id="project-variables">Project Variables<a class="headerlink" href="#project-variables" title="Permanent link">¤</a></h2>
 <p>In order to add project variables, login to eccenca Corporate Memory, select the build module and click on the project to open.</p>
-<p><a class="glightbox" href="di-var-project-select.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Build projects overview" class="bordered" src="di-var-project-select.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Build projects overview" class="bordered" src="di-var-project-select.png" /></a></p>
 <p>On the right side of the page you can see the variable section Click on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16,4c6.6,0,12,5.4,12,12s-5.4,12-12,12S4,22.6,4,16S9.4,4,16,4 M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14	S23.7,2,16,2z"/><path d="M24 15L17 15 17 8 15 8 15 15 8 15 8 17 15 17 15 24 17 24 17 17 24 17z"/></svg></span> to add the variables.</p>
-<p><a class="glightbox" href="di-var-add-variable.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-add-variable.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-add-variable.png" /></a></p>
 <p>The variable definition dialog opens.
 Type the name, value and description of the variable.</p>
 <div class="admonition note">
@@ -11772,11 +11770,11 @@ In addition, the first character of a variable name cannot be a digit.</p>
 Instead of typing or copy pasting all the mail id we can add all the email ids in variable and use whenever we require.</p>
 </div>
 <p>Type name as <code>email_ids</code>, in values we have updated all the email id’s of the team member’s and in description we have updated as email address then click on <strong>Add</strong>.</p>
-<p><a class="glightbox" href="di-var-email-definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-definition.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-definition.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Step Result</p>
 <p>The email_ids variable is added as shown below.</p>
-<p><a class="glightbox" href="di-var-email-defined.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-defined.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-defined.png" /></a></p>
 </div>
 <h2 id="using-variables">Using Variables<a class="headerlink" href="#using-variables" title="Permanent link">¤</a></h2>
 <p>Let&rsquo;s see how these variables are useful.</p>
@@ -11785,29 +11783,29 @@ Instead of typing or copy pasting all the mail id we can add all the email ids i
 <p class="admonition-title">Note</p>
 <p>Always use double curly brackets <code>{{</code> to use the variables.
 When you start typing the variable name it shows you the variable name that you can use as shown below.</p>
-<p><a class="glightbox" href="di-var-email-usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-usage.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-usage.png" /></a></p>
 </div>
 <p>Select the <code>project.email_ids</code> and include the double curly brackets at last.</p>
-<p><a class="glightbox" href="di-var-email-usage-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-usage-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-usage-2.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Step Result</p>
 <p>The email address of all the team members has been updated in the email field. </p>
 <p>As shown in the below image you can see the Evaluated template value as all the email id addresses we have added in the variable.</p>
-<p><a class="glightbox" href="di-var-value-evaluation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-value-evaluation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-value-evaluation.png" /></a></p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>The password is hard to remember and we used this password frequently then  we can add this password in variable for reusable.</p>
 </div>
 <p>Same as above, add the variable click on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16,4c6.6,0,12,5.4,12,12s-5.4,12-12,12S4,22.6,4,16S9.4,4,16,4 M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14	S23.7,2,16,2z"/><path d="M24 15L17 15 17 8 15 8 15 15 8 15 8 17 15 17 15 24 17 24 17 17 24 17z"/></svg></span> and type name as <code>password</code>, value as <code>xmhnjnnjkmnlbbhbvfhnbjkm</code> and in the description <code>Gmail account password</code> as shown below then click on <strong>Add</strong>.</p>
-<p><a class="glightbox" href="di-var-password-definition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-password-definition.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-password-definition.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Step Result</p>
 <p>The password variable is added.</p>
 </div>
 <p>Let&rsquo;s see how this variable can be used.</p>
 <p>Click on the symbol <strong>{#}</strong> it turns blue in color. It means the variable&rsquo;s feature is active then click in the <strong>Password</strong> option and type <code>{{password}}</code> select the option as shown below and click on <strong>Update</strong>.</p>
-<p><a class="glightbox" href="di-var-password-usage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-password-usage.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-password-usage.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">Step result</p>
 <p>The complex password is added in the password field easily.</p>
@@ -12110,5 +12108,9 @@ When you start typing the variable name it shows you the variable name that you 
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

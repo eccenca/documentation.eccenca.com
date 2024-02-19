@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Provide Data in any Format via a Custom API - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/consume/provide-data-in-any-format-via-a-custom-api/index.png" />
  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11748,8 +11746,8 @@ The query filters (<code>REPLACE</code>) the special characters <code>:</code> a
 <h2 id="define-a-template-for-the-ical-format">Define a Template for the iCal format<a class="headerlink" href="#define-a-template-for-the-ical-format" title="Permanent link">¤</a></h2>
 <p>As a next step, we will define a template that generates iCalendar data from our previously defined SPARQL query.</p>
 <p>Select in <em>Graphs</em> the CMEM Query Catalog graph, select in <em>Navigation</em> the Select Result Template and click <code>Create a new Select Result Template</code> to create a new template.</p>
-<p><a class="glightbox" href="22-1-2-result-template.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="result-template" src="22-1-2-result-template.png" /></a></p>
-<p><a class="glightbox" href="22-1-3-create-query-endpoint.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="create-result-template" src="22-1-3-create-query-endpoint.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="result-template" src="22-1-2-result-template.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="create-result-template" src="22-1-3-create-query-endpoint.png" /></a></p>
 <p>Define a <em>Name</em>, a <em>Description</em> and the <em>Body</em> format.
 You may also define a header and/or a footer, however, this is not necessary for this example.</p>
 <p>The template engine we are using <a href="https://palletsprojects.com/p/jinja/">Jinja</a>.
@@ -11764,7 +11762,7 @@ To define this iteration in the template, the following line needs to be added:<
 <p>and for the conclusion of the iteration, this line needs to be added at the end:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </code></pre></div>
-<p><a class="glightbox" href="22-1-2-sparql-result-template.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="sparql-result-template" src="22-1-2-sparql-result-template.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="sparql-result-template" src="22-1-2-sparql-result-template.png" /></a></p>
 <div class="highlight"><span class="filename">Jira Template for our iCalendar format</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">BEGIN:VCALENDAR</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">VERSION:2.0</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">PRODID:-//hacksw/handcal//NONSGML v1.0//EN</span>
@@ -11783,10 +11781,10 @@ To define this iteration in the template, the following line needs to be added:<
 <h2 id="create-an-api-based-on-your-template">Create an API based on your template<a class="headerlink" href="#create-an-api-based-on-your-template" title="Permanent link">¤</a></h2>
 <p>As a next step, we will set up the API which serves the data in the format we defined in the previous template.</p>
 <p>Select in <em>Graphs</em> the CMEM Query Catalog graph, select in <em>Navigation</em> the Select Query Endpoint and click &ldquo;Create a new Select Query Endpoint&rdquo; to create a new endpoint.</p>
-<p><a class="glightbox" href="22-1-3-query-endpoint.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="query-endpoint" src="22-1-3-query-endpoint.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="query-endpoint" src="22-1-3-query-endpoint.png" /></a></p>
 <p>Define a Name, a human-readable keyword (i.e. the <a href="https://en.wikipedia.org/wiki/Clean_URL#Slug">URL Slug</a>) for the API path, specify if it is a Streaming endpoint (false in our example), enter a Description, and select the defined SPARQL Query from our first step and the Template we created in the second step.
 Once you press save, your endpoint it set up!</p>
-<p><a class="glightbox" href="22-1-3-create-query-endpoint.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="create-query-endpoint" src="22-1-3-create-query-endpoint.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="create-query-endpoint" src="22-1-3-create-query-endpoint.png" /></a></p>
 <h2 id="consume-data-via-the-endpoint">Consume data via the endpoint<a class="headerlink" href="#consume-data-via-the-endpoint" title="Permanent link">¤</a></h2>
 <p>Now that the endpoint is defined, it is possible to make a request to receive the iCal data.
 The endpoint URL consist of the path <code>/dataplatform/api/custom</code> and the previously defined URL Slug (<code>/ical</code>).
@@ -12124,5 +12122,9 @@ If more results are expected <em>Is Streaming</em> should be set to true.</p>
         <script src="../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

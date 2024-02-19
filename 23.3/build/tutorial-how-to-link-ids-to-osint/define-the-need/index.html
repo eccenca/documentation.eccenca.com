@@ -273,17 +273,15 @@
 <meta property="twitter:title" content="Define the need, the expected result and the use cases - documentation.eccenca.com" />
 <meta property="twitter:image" content="https://documentation.eccenca.com/23.3/assets/images/social/build/tutorial-how-to-link-ids-to-osint/define-the-need/index.png" />
  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -11739,7 +11737,7 @@ Analyst are able to read the Mitre information directly in his timeline (e.g. in
 <p>When we know the waited results, we can imagine the necessary use cases.</p>
 <h2 id="first-use-cases">First use cases<a class="headerlink" href="#first-use-cases" title="Permanent link">¤</a></h2>
 <p>We know the final need, the expected results and the limits of knowledge graph with the Linked Data technologies in Splunk. So, we can define the probable use cases to implement and all the actors who will interact with these use cases.</p>
-<p><a class="glightbox" href="basic_use_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="basic_use_cases.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="basic_use_cases.png" /></a></p>
 <p><em>Figure 2. UML use cases to resolve this basic need and several use cases with Wikidata to show the interoperability of knowledge graphs with the Linked data technologies. Each bubble in this type of schema is a use case.</em></p>
 <p>With a simple UML schema of use cases, you can delimited each use case, their priorities and their tasks for the next step, ie. specify the essential interfaces to limit the complexity of future RDF graph.</p>
 <p>In this tutorial, after to test this first result, we claim a knowledge graph can reduce the time required to research details on the Web of each new alerts in the IDS of IN Analysts by 50 to 95%, see figure 1. The next step is to specify the interfaces before starting to think about the graphs.</p>
@@ -11765,7 +11763,7 @@ Analysts need to export data from SPLUNK to Corporate Memory on the fly and exec
 </code></pre></div>
 </div>
 <p>For the moment, we are searching the best way to resolve this need but a demonstrator to manage several investigations in the same knowledge graphs is available with several examples of dasboards in the Splunk app &ldquo;<a href="../link-IDS-event-to-KG-via-cmem/eccenca_poc_investigate.tar.gz">Investigate lateral movements with a knowledge graph</a>&rdquo; (<a href="../link-IDS-event-to-KG/">tutorial page</a>). This need is for advanced users of Corporate Memory and it may be proposed in a future tutorial.</p>
-<p><a class="glightbox" href="advanced_use_cases.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="advanced_use_cases.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="advanced_use_cases.png" /></a></p>
 <p><em>Figure 3. UML use cases to resolve this avanced need.</em></p>
 <hr />
 <p>Tutorial: <a href="../">how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)</a></p>
@@ -12061,5 +12059,9 @@ Analysts need to export data from SPLUNK to Corporate Memory on the fly and exec
         <script src="../../../assets/extra.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script>document$.subscribe(() => {document.querySelectorAll('.glightbox').forEach(function(element) {
+    var imgSrc = element.querySelector('img').src;
+    element.setAttribute('href', imgSrc);
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
