@@ -140,32 +140,34 @@ We're excited to bring you the latest update to DataPlatform v24.1.0, which intr
 
 v24.1.0 of DataPlatform adds the following new features:
 
--   Add license information to DP actuator info endpoint response.
+-   Add license information to DataPlatform actuator info endpoint response
 -   Added endpoints for SHACL validation / Resource shaping
     -   SHACL validation and resource shaping
-        -   endpoints for validation, node shape structure views and data retrieval.
+        -   endpoints for validation, node shape structure views and data retrieval
     -   SHACL batch validation
         -   added application property `scheduler.backgroundQueryPoolSize` (Default: 4)
-            -   maximum numbers of threads for background jobs (i.e. shacl batch validation).
+            -   maximum numbers of threads for background jobs (i.e. SHACL batch validation)
         -   added application property `proxy.shaclBatchResultsMemoryBoundaryInMb` (Default: 100)
-            -   amount in Megabytes (Mb) for shacl batch validation results kept in memory for status retrieval.
+            -   amount in Megabytes (Mb) for SHACL batch validation results kept in memory for status retrieval
 -   Access condition review endpoint
-    -   ability to check user rights (access conditions) for a set of groups.
+    -   ability to check user rights (access conditions) for a set of groups
 
 v24.1.0 of DataPlatform ships the following changes:
 
 -   Static access condition prefix split for newly created access conditions
-    -   `<http://eccenca.com/>` – prefix for Access Condition Groups / Users.
-    -   `<http://eccenca.com/ac/>` – prefix for Access Conditions.
--   Added tracing id to audit logs.
--   Add feature flag field to workspace configuration.
--   Add support for GraphDb 10.5.
+    -   `<http://eccenca.com/>` – prefix for Access Condition Groups / Users
+    -   `<http://eccenca.com/ac/>` – prefix for Access Conditions
+-   Added tracing id to audit logs
+-   Add feature flag field to workspace configuration
+-   Add support for GraphDB 10.5
 
 v24.1.0 of DataPlatform ships the following fixes:
 
--   Allow blank nodes in update queries.
--   API endpoints do not return null values for unset fields anymore.
--   Correct documentation of API endpoints for named query execution.
+-   Allow blank nodes in update queries
+-   API endpoints do not return `null` values for unset fields anymore
+-   Correct documentation of API endpoints for named query execution
+-   Default language order is changed to: `["en", "", "de"]`
+
 
 ## eccenca Corporate Memory Control (cmemc) v24.1.0
 
