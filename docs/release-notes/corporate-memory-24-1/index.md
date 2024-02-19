@@ -114,7 +114,7 @@ v24.1.0 of DataManager adds the following new features:
     -   validation
     -   context graph
 -   SVG support for the object view
--   A link to the DP api doc
+-   A link to the DataPlatform API documentation
 
 v24.1.0 of DataManager ships the following changes:
 
