@@ -1,7 +1,11 @@
+---
+tags:
+    - Configuration
+---
 
 ## License
 
-By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license. 
+By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license.
 To change the default configuration, you have several options. If the properties under license are not provided the default license included (PEDAL) is used.
 
 In case a dedicated license file is used, different configuration options can overwrite each other. The license is read in the following sequence:
@@ -554,7 +558,7 @@ SPARQL endpoints declare how DataPlatform connects to a SPARQL-capable store or 
 
 With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available, unless a store supporting data persistence is configured.
 
-The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
+The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated.
 If nothing matches here, skos:prefLabel is examined in the same way
 
 ```yaml
@@ -610,7 +614,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 ***Property: proxy.languagePreferences***
 
-Specifies base language preferences for this instance. 
+Specifies base language preferences for this instance.
 
 **Note:** This configuration property affects results of SELECT-queries when the resolveLabels property is set to LABELS.
 
@@ -1293,7 +1297,7 @@ Limits how many analytical requests can be run in parallel. Analytical requests 
 
 ## Asynchronous file uploads
 
-Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file. 
+Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file.
 Please s. API documentation under /api/upload/ for further information.
 
 

@@ -1,3 +1,7 @@
+---
+tags:
+    - Configuration
+---
 
 ## Configuration for connecting to GraphDB backend
 
