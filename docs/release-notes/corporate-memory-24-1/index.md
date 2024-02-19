@@ -7,26 +7,20 @@ tags:
 
 Corporate Memory 24.1.0 is the first release in the 24.1 release line.
 
-<!--
-TODO: update feature pics
-![23.3: Charts - Chart Definitions](23-3-explore-charts.png "23.3: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
-![23.3: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3: Build - Keyboard Shortcuts"){ class="bordered" }
-![23.3: Build - Workflow Ports](23-3-build-port-menu.png "23.3: Build - Workflow Ports"){ class="bordered" }
--->
+![24.1: Build - Key Shortcuts in Workflow Editor](24-1-build-workflow-editor-shortcuts.png "24.1: Build - Key Shortcuts in Workflow Editor"){ class="bordered" }
+![24.1: Automate - New cmemc command groups Access Condition and Graph Validation](24-1-cmemc-new-command-groups.png "24.1: Automate - New cmemc command groups Access Condition and Graph Validation"){ class="bordered" }
+![24.1: Explore and Author: Preview of our new SHACL Authoring Engine](24-1-explore-shacline2-preview.png "24.1: Explore and Author: Preview of our new SHACL Authoring Engine"){ class="bordered" }
 
 The highlights of this release are:
 
-<!--
-TODO: update highlights section
--   Explore and Author:
-    -   new **[charts catalog](../../explore-and-author/charts-catalog/index.md)** module added, which allows for defining BI widgets / charts which can be integrated into shapes
-    -   preview release of our generative AI / LLM based **[Ontology](../../explore-and-author/easynav-module/index.md#llm-ontology-assist) and [Query](../../explore-and-author/query-module/index.md#llm-query-assist) Assistant**
 -   Build:
-    -   operate BUILD like never before by using the new **keyboard shortcuts** (press "?" in the build module to learn the details)
-    -   several **improvements to the workflows view**: create new datasets and other workflow-operators in place, dependencies and execution order is now explicitly modeled, show schema or ports
+    -   New improved **REST operator** (v2) with lots of additional features
+    -   Extendend **Keyboard Shortcuts** in workflow editor
 -   Automate:
-    -   new **`project variable` command group** plus several addition to existing commands
--->
+    -   New **`admin acl` command group** to automate management of access conditions
+    -   New **`graph validation` command group** to automate batch validation of graph resources against SHACL shapes
+-   Explore and Author:
+    -   Preview of our new **SHACL Authoring Engine** (enable with feature flag `shacl2` on your workspace configuration: `Basics`>`Workspace`>`featureFlags`)
 
 This release delivers the following component versions:
 
@@ -176,7 +170,7 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 
 -   Added support for importing vocabulary from standard input (`stdin`)
-    -   `admin acl` command group
+-   `admin acl` command group
     -   `create` command - Create an access condition
     -   `delete` command - Delete access conditions
     -   `inspect` command - Inspects the access condition
