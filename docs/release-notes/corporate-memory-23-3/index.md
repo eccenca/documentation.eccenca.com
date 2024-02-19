@@ -1,5 +1,4 @@
 ---
-status: new
 tags:
     - ReleaseNote
 ---
@@ -152,6 +151,7 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
     -   Chart configuration module.
     -   Change default system workspace values.
 -   Spring Boot v3.1.x
+-   Support for the `{label}` parameter in uri templates.
 
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
@@ -187,7 +187,7 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 ## Migration Notes
 
-!!! warning
+!!! info
 
     We do not guarantee forward compatibility for configuration, data or projects.
     I.e. importing a project created with DataIntegration v23.2 into DataIntegration v23.1 (or older) might not work.

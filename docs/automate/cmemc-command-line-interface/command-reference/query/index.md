@@ -125,7 +125,7 @@ The command accepts multiple query URIs or files which results in opening multip
 Get status information of executed and running queries.
 
 ```shell-session title="Usage"
-$ cmemc query status [OPTIONS] [QUERY_UUID]
+$ cmemc query status [OPTIONS] [QUERY_ID]
 ```
 
 
@@ -144,12 +144,9 @@ You can filter queries based on status and runtime in order to investigate slow 
                              metadata. This is useful for piping the ids into
                              other cmemc commands.
     --raw                    Outputs raw JSON response of the query status API.
-    --filter <TEXT TEXT>...  Filter queries based on execution status and time.
-                             First parameter --filter CHOICE can be one of
-                             ['graph', 'regex', 'slower-than', 'status', 'trace-
-                             id', 'type', 'user']. The second parameter is based
-                             on CHOICE, e.g. int in case of slower-than, or a
-                             regular expression string.
+    --filter <TEXT TEXT>...  Filter queries by one of the following filter names
+                             and a corresponding value: status, type, trace-id,
+                             user, graph, slower-than, regex.
     ```
 
 ## query replay

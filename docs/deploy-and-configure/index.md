@@ -7,7 +7,7 @@ hide:
 
 Deploy and configure eccenca Corporate Memory in your own environment.
 
-**Intended audience**: Deployment Engineers and System Administrators.
+**:octicons-people-24: Intended audience:** Deployment Engineers and System Administrators.
 
 <div class="grid cards" markdown>
 

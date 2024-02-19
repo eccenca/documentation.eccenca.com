@@ -56,6 +56,7 @@ extra:
     ExpertTutorial: expert
     Project: project
     Keycloak: keycloak
+    Validation: validation
     Variables: variables
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
@@ -177,6 +178,7 @@ theme:
       expert: material/list-status
       project: eccenca/artefact-project
       keycloak: material/openid
+      validation: octicons/verified-16
       variables: material/variable-box
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
@@ -273,14 +275,8 @@ plugins:
       cards: true
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   - tags:
-      tags_compare: !!python/name:material.plugins.tags.casefold
-      tags_file: tags.md
-      # https://squidfunk.github.io/mkdocs-material/insiders/
-      tags_extra_files:
-        tutorials/index.md:
-          - beginners
-          - advanced
-          - expert
+      listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
+      listings_sort_by: !!python/name:material.plugins.tags.item_title
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true

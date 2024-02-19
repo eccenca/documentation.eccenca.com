@@ -154,3 +154,12 @@ img.bordered {
     border-radius: 5px
 }
 
+/* 2024-02-19: Update lists to be more concise */
+.md-typeset ol li, .md-typeset ul li {
+    margin-bottom: 0.125em;
+}
+.md-typeset ol li ol, .md-typeset ol li ul, .md-typeset ul li ol, .md-typeset ul li ul {
+    margin-bottom: 0.125em;
+    margin-top: 0.125em;
+}
+

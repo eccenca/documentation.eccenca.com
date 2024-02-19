@@ -4,7 +4,7 @@ tags:
   - KnowledgeGraph
   - Variables
 ---
-# Build Variables
+# Project and Global Build Variables
 
 ## Introduction
 

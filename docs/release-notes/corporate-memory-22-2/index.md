@@ -316,7 +316,7 @@ In addition to that, multiple performance and stability issues are addressed.
 
 ## Migration Notes
 
-!!! warning
+!!! info
 
     We do not guarantee forward compatibility for configuration, data or projects.
     I.e. importing a project created with DataIntegration v22.2 into DataIntegration v22.1 (or older) might not work.
