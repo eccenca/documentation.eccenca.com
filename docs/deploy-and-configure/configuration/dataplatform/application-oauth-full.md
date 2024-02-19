@@ -1,3 +1,8 @@
+---
+tags:
+    - Configuration
+    - Security
+---
 
 ### Authentication
 
@@ -99,7 +104,7 @@ Use this property to specify the claim providing the OAuth 2.0 client ID to whic
 
 #### OAuth 2.0 client configuration
 
-In order to protect access to it's resources, DataPlatform acts as an OAuth 2.0 Client which provides authentication its own clients by means of a session cookie. For this type of authentication a JSON Web Token (JWT) 
+In order to protect access to it's resources, DataPlatform acts as an OAuth 2.0 Client which provides authentication its own clients by means of a session cookie. For this type of authentication a JSON Web Token (JWT)
 is not necessary. The registration which is configured is named "keycloak" and provides a login page redirecting to a keycloak backend. For specific customizations please s. https://docs.spring.io/spring-security/reference/servlet/oauth2/client/index.html
 
 

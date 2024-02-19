@@ -1,12 +1,15 @@
+---
+tags:
+    - Configuration
+    - Docker
+---
 
 ## Configuration for connecting to arbitrary SPARQL HTTP backend
 
-To registrer a new SPARQL Store you need to make sure the store is availble to the DataPlatform.
+To register a new SPARQL Store you need to make sure the store is available to the DataPlatform.
 If it is available, use the following set of properties to connect to arbitrary HTTP SPARQL services in your `application.yml` (`conf/dataplatform/application.yml`).
 
-Configuration example:
-
-```yaml
+``` yaml title="Configuration Example"
 store:
   type: http
   authorization: REWRITE_FROM
@@ -21,7 +24,7 @@ store:
 
 ***Property: store.type***
 
-The type of the store must be set to "http"
+The type of the store must be set to `http`.
 
 | Category | Value |
 |--- | ---: |
@@ -110,13 +113,14 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 
 ## Example: Jena Fuseki Store
 
-This shows an example of a Corporate Memory Orchestration that uses an [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) as store.
+This section provides an example configuration that uses an [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) as store.
 
 ### Add docker-compose File
 
-Add a new docker-compose file to configure the execution of the store: `compose/docker-compose.store.fuseki.yml`. In this case the two environment variables `FUSEKI_DOCKER_USER` and `FUSEKI_ENDPOINT_PORT` are introduced.
+Add a new docker-compose file to configure the execution of the store: `compose/docker-compose.store.fuseki.yml`.
+In this case the two environment variables `FUSEKI_DOCKER_USER` and `FUSEKI_ENDPOINT_PORT` are introduced.
 
-```yaml
+``` yaml title="docker-compose.store.fuseki.yml"
 # Jena Fuseki
 version: '2.4'
 services:
@@ -141,13 +145,15 @@ services:
 
 ### Configure Variables
 
-Now, the orchestration needs to know that it has to bring up the new store. This happens with the variable `DP_STORE`. But also the variables (i.e. `FUSEKI_DOCKER_USER`, `FUSEKI_ENDPOINT_PORT`) introduced in the new docker-compose file need to be set.
-It can be set in `environments/config.env` (see also [Docker Orchestration](../docker-orchestration))
+Now, the orchestration needs to know that it has to bring up the new store.
+This happens with the variable `DP_STORE`.
+But also the new variables (i.e. `FUSEKI_DOCKER_USER`, `FUSEKI_ENDPOINT_PORT`) introduced in the new docker-compose file need to be set.
+This can be done in `environments/config.env` (see also [Docker Orchestration](../docker-orchestration/index.md))
 
-```bash
-#DP_STORE=virtuoso-enterprise
-#DP_STORE=marklogic
-#DP_STORE=neptune
+``` bash title="environments/config.env (partially)"
+# DP_STORE=virtuoso-enterprise
+# DP_STORE=marklogic
+# DP_STORE=neptune
 DP_STORE=fuseki
 
 ###################
@@ -159,11 +165,12 @@ FUSEKI_ENDPOINT_PORT=3030
 
 ### Configure DataPlatform
 
-Finally, the DataPlatform needs to know, how to access the new store. This configuration happens in `conf/dataplatform/application.yml`.
+Finally, the DataPlatform needs to know, how to access the new store.
+This configuration happens in `conf/dataplatform/application.yml`.
 
 1. Add the store to the section `spring.profiles.group`:
 
-```yaml
+``` yaml title="conf/dataplaform/application.yml (partially"
 # Profile groups for the supported stores - these groups are selected by DP_STORE
 spring:
   profiles:
@@ -172,10 +179,9 @@ spring:
       fuseki: fuseki-store, auth-graph
 ```
 
-2. At the end of the file add a new section as follows (pay attention to the separator `---`):
+2. At the end of the file, add a new section as follows (pay attention to the separator `---`):
 
-```yaml
-
+``` yaml title="conf/dataplaform/application.yml (partially"
 ---
 
 ###
@@ -194,3 +200,4 @@ store:
     query-endpoint-url: "http://store:${FUSEKI_ENDPOINT_PORT}/cmem/query"
     update-endpoint-url: "http://store:${FUSEKI_ENDPOINT_PORT}/cmem/update"
 ```
+

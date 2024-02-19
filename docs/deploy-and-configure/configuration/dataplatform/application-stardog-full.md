@@ -1,9 +1,13 @@
+---
+tags:
+    - Configuration
+---
 
 ## Configuration for connecting to Stardog backend
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote stardog store (https://remote:5820). All SPARQL updates have a 
+This example configures a connection with HTTPS to a remote stardog store (https://remote:5820). All SPARQL updates have a
 timout of 5 minutes configured.
 
 ```yaml

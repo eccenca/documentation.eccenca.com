@@ -1,9 +1,13 @@
+---
+tags:
+    - Configuration
+---
 
 ## Configuration for connecting to internal memory backend
 
-You can configure a in-memory SPARQL backend. Based on Jena Models, in-memory backends do not provide persistent storage. 
+You can configure a in-memory SPARQL backend. Based on Jena Models, in-memory backends do not provide persistent storage.
 Hence, shutting down a DataPlatform configured with an in-memory backend deletes your data and therefore you should use it only for testing purposes.
- 
+
 Configuration example:
 
 This example configures an in-memory store which initializes with the triples contained in the given file.
@@ -14,7 +18,7 @@ store:
   authorization: REWRITE_FROM
   memory:
     files:
-      - "/data/data.trig" 
+      - "/data/data.trig"
 ```
 
 
