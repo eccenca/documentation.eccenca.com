@@ -145,7 +145,7 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 
 -   Added support for importing vocabulary from standard input (stdin)
--   `admin acl` command group
+    -   `admin acl` command group
     -   `create` command - Create an access condition
     -   `delete` command - Delete access conditions
     -   `inspect` command - Inspects the access condition
@@ -162,11 +162,15 @@ v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 -   `admin status` command
     -   raises an error if the Corporate Memory license is expired (grace period)
     -   raises a warning if the GraphDB license expires in less than one month
+-   `dataset create` command
+    -   support to use JSON Lines files as JSON datasets
+    -   support to use YAML files as TEXT datasets
 
 v24.1.0 of Corporate Memory Control (cmemc) ships the following changes:
 
 -   `graph import` command
     -   importing a directory to a single graph no longer raises an error but imports all turtle files to this graph
+-   docker image: python 3.11.8
 
 ## Migration Notes
 
@@ -182,9 +186,13 @@ v24.1.0 of Corporate Memory Control (cmemc) ships the following changes:
 
 There is a known issue and existing workaround with the new dependency port feature: you may receive a message like this when running your workflows:
 
-```Workflow Execution Error: Not all workflow nodes were executed! Executed 2 of 7 nodes.```
+```
+Workflow Execution Error:
+Not all workflow nodes were executed! Executed 2 of 7 nodes.
+```
 
-In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required). After saving it will work again.
+In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required).
+After saving it will work again.
 
 ### DataPlatform
 
@@ -192,6 +200,9 @@ DP APIs do not return null values for unset fields anymore.
 
 !!! warning
 
-    Check if null values of non mandatory fields are expected.
+    Check if null values of non mandatory fields are expected if you are using the DataPlatform APIs with a custom client.
 
 ### cmemc
+
+No migrations are required going from cmemc 23.3.x to 24.1.x.
+
