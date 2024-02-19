@@ -43,57 +43,62 @@ We're excited to bring you the latest update to DataIntegration v24.1.0, which i
 
 v24.1.0 of DataIntegration adds the following new features:
 
+-   Multiline editing of template values
+-   Added loose connection of workflow nodes similar to linking editor
+-   XML, JSON, Excel and CSV datasets support retrieving the line and column numbers
+-   Error report for (validation) errors in transform and linking rule editors and transform execution report
+    -   Shows additional details like a stacktrace and input values
+-   Added hotkey integration for creating new items in the workflow editor
+-   Improved REST operator (v2)
+    -   With support for multiple REST requests, one per input entity
+    -   Paging support: If the API does not return all results in a single request, this features allows to page via multiple requests and merge the results of all requests
+    -   Better error handling and retry mechanism: Retries requests and collects errors for execution report
+    -   Rate limiting of requests by setting a delay between subsequent requests
+    -   Limit and offset: Only executes a specific "window" of the input entities/requests
+    -   URL property: Allows to define a property that is injected into the result JSON that contains the original request URL
+    -   Support dataset file output, i.e. a file based dataset can be connected to the operator output, which overwrites the dataset file with the results from the REST requests
+      -   This allows to handle REST results as any dataset content
+      -   Supports zip files. If a dataset (currently JSON, XML, RDF file, CSV) specifies a zip file (ending in .zip) a zip archive is written that contains one file per request result
+-   JSON dataset
+    -   Support bulk resources, i.e. JSON files in a zip file
+    -   Support reading JSON Lines files
+-   Python workflow plugins can now consume and produce hierarchical entities
+-   Additions to the workflow config ports:
+    -   Allow to reconfigure transform and linking tasks in workflows
+    -   Datasets can be connected directly to the config port
+-   Extended auto-completion support when opening the mapping (rule) editor in a workflow context:
+    -   Support auto-completion of target properties for fixed target schema and config port schema (transformation connected to config port)
+    -   Support auto-completion of values paths for fixed input schema
+-   Added timer for workflow execution and in activity view
 -   Error notification
     -   Add badge to error notification menu icon with error count.
--   Multiline editing of template values.
--   Added loose connection of workflow nodes similar to linking editor.
--   XML, JSON, Excel and CSV datasets support retrieving the line and column numbers.
-    -   TODO: add the special paths here ...
--   Error report for (validation) errors in transform and linking rule editors and transform execution report
-    -   Shows additional details like a stack-trace and input values.
--   Added hotkey integration for creating new items in the workflow editor.
--   Improved REST operator (v2)
-    -   Support for multiple REST requests, one per input entity.
-    -   _Paging support:_ If the API does not return all results in a single request, this features allows to page via multiple requests and merge the results of all requests.
-    -   _Better error handling and retry mechanism:_ Retries requests and collects errors for execution report.
-    -   _Rate limiting:_ Setting a delay between subsequent requests.
-    -   _Limit and Offset:_ Only executes a specific "_window_" of the input entities/requests.
-    -   _URL property:_ Allows to define a property that is injected into the result JSON that contains the original request URL.
-    -   _Dataset file output:_ A file based dataset can be connected to the operator output, which overwrites the dataset file with the results from the REST requests
-        -   This allows to handle REST results as any dataset content.
-        -   Supports zip files. If a dataset (currently JSON, XML, RDF file, CSV) specifies a zip file (ending in `.zip`) a zip archive is written that contains one file per request result.
--   _Json dataset:_ Support bulk resources, i.e. JSON files in a zip file.
--   Python workflow plugins can now consume or produce hierarchical entities.
--   Additions to the workflow config ports:
-    -   Allow to reconfigure transform and linking tasks in workflows.
-    -   Datasets can be connected directly to the config port.
--   Extended auto-completion support when opening the mapping (rule) editor in a workflow context:
-    -   Support auto-completion of target properties for fixed target schema and config port schema (transformation connected to config port).
-    -   Support auto-completion of values paths for fixed input schema.
--   Added timer for workflow execution and in activity view.
 
 v24.1.0 of DataIntegration introduces the following changes:
 
--   Show project variables re-ordering errors (with details) directly in project variables widget.
--   Support PATCH and DELETE requests in REST operators.
--   Upgraded libraries, in particular Play to v2.9.1 and Spark to v3.5.0.
--   Support of custom tasks as input for transform and linking tasks.
+-   Show project variables re-ordering errors (with details) directly in project variables widget
+-   Support PATCH and DELETE requests in REST operators
+-   Upgraded libraries, in particular Play to v2.9.1 and Spark to v3.5.0
+-   Support of custom tasks as input for transform and linking tasks
 -   Create/update dialog:
-    -   When a parameter value is changed that other parameters are depending on, those parameter values are reset because they might not be valid anymore.
--   Shortened workflow execution failure message shown in activity widget.
--   Added "_Fail workflow_" flag to "_Cancel workflow_" operator.
+    - When a parameter value is changed that other parameters are depending on, those parameter values are reset because they might not be valid anymore
+-   Shortened workflow execution failure message shown in activity widget
+-   Added `Fail workflow` flag to `Cancel workflow` operator
 
 v24.1.0 of DataIntegration ships the following fixes:
 
--   Many errors occurring in a dialog/modal, e.g. from requests, are hidden because they are shown in the global error notification which cannot be accessed while the dialog is open.
--   Missing or problematic error handling in several dialogs and other places.
--   Transform editor should show plugin labels instead of ids.
--   Transform execution report validation icons in mapping tree do not update after running the execution.
--   When upgrading a plugin, new parameters are not shown in transform editor.
--   _Workflow editor:_ Creating a new connected task that has no input port connects to the output port.
--   Copying a project with custom prefixes into a project that misses these prefixes fails.
--   Workflow report always states "_...has not finished execution yet._".
--   Cannot add a new project variable after adding it empty valued.
+-   Many errors occurring in a dialog/modal, e.g. from requests, are hidden because they are shown in the global error notification which cannot be accessed while the dialog is open
+-   Missing or problematic error handling in several dialogs and other places
+-   Transform editor should show plugin labels instead of ids
+-   Transform execution report validation icons in mapping tree do not update after running the execution
+-   When upgrading a plugin, new parameters are not shown in transform editor
+-   Workflow editor: Creating a new connected task that has no input port connects to the output port
+-   Copying a project with custom prefixes into a project that misses these prefixes fails
+-   Workflow report always states `...has not finished execution yet.`
+-   Cannot add a new project variable after having tried to add it with an empty value
+-   Support for arm64 architecture
+-   View completely crashes when error is not caught in any tab view (plugin) - there should be an error boundary
+-   Mapping editor shows spinner when no network is available when switching to it
+-   Linking editor does not load when network unavailable instead of showing error
 
 ## eccenca DataManager v24.1.0
 
