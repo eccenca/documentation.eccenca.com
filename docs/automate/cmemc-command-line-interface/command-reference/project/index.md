@@ -218,7 +218,7 @@ $ cmemc project reload [OPTIONS] [PROJECT_IDS]...
 This command reloads all tasks of a project from the workspace provider. This is similar to the `workspace reload` command, but for a single project only.
 
 !!! note
-    You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterwards.
+    You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterward.
 
 
 !!! warning

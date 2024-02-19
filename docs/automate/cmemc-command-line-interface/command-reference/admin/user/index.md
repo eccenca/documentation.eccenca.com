@@ -10,8 +10,6 @@ tags:
 # admin user Command Group
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 List, create, delete and modify user accounts.
 
 This command group is an opinionated interface to the Keycloak realm of your Corporate Memory instance. In order to be able to manage user data, the configured cmemc connection account needs to be equipped with the `manage-users` role in the used realm.
@@ -32,8 +30,6 @@ $ cmemc admin user list [OPTIONS]
 
 
 
-
-
 Outputs a list of user accounts, which can be used to get an overview as well as a reference for the other commands of the `admin user` command group.
 
 
@@ -41,9 +37,12 @@ Outputs a list of user accounts, which can be used to get an overview as well as
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only username. This is useful for piping the IDs into
-                other commands.
+    --raw                    Outputs raw JSON.
+    --filter <TEXT TEXT>...  Filter users by one of the following filter names
+                             and a corresponding value: enabled, email,
+                             username.
+    --id-only                Lists only username. This is useful for piping the
+                             IDs into other commands.
     ```
 
 ## admin user create
@@ -53,8 +52,6 @@ Create a user account.
 ```shell-session title="Usage"
 $ cmemc admin user create USERNAME
 ```
-
-
 
 
 
@@ -74,8 +71,6 @@ Update a user account.
 ```shell-session title="Usage"
 $ cmemc admin user update [OPTIONS] USERNAME
 ```
-
-
 
 
 
@@ -111,8 +106,6 @@ $ cmemc admin user delete USERNAME
 
 
 
-
-
 This command deletes a user account from a realm.
 
 !!! note
@@ -132,12 +125,10 @@ $ cmemc admin user password [OPTIONS] USERNAME
 
 
 
-
-
 With this command, the password of a user account can be changed. The default execution mode of this command is an interactive prompt which asks for the password (twice). In order automate password changes, you can use the ``--value`` option.
 
 !!! warning
-    Providing passwords on the command line can be dangerous (e.g. due to a potential exploitation in the shell history). A suggested more save way for automation is to provide the password in a variable first (e.g. with `NEW_PASS=$(pwgen -1 40)`) and use it afterwards in the cmemc call: `cmemc admin user password max --value ${NEW_PASS}`.
+    Providing passwords on the command line can be dangerous (e.g. due to a potential exploitation in the shell history). A suggested more save way for automation is to provide the password in a variable first (e.g. with `NEW_PASS=$(pwgen -1 40)`) and use it afterward in the cmemc call: `cmemc admin user password max --value ${NEW_PASS}`.
 
 
 

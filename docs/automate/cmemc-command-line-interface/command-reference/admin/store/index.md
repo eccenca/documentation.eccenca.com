@@ -28,7 +28,7 @@ $ cmemc admin store showcase [OPTIONS]
 This command creates a showcase scenario of multiple graphs including integration graphs, shapes, statement annotations, etc.
 
 !!! note
-    There is currently no deletion mechanism for the showcase data and you need to remove the showcase graphs manually (or just remove all graphs).
+    There is currently no deletion mechanism for the showcase data, and you need to remove the showcase graphs manually (or just remove all graphs).
 
 
 

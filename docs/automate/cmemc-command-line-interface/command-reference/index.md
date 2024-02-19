@@ -20,6 +20,12 @@ tags:
 | ------------: | :------ | :---------- |
 | [admin](admin/index.md) | [status](admin/index.md#admin-status) | Output health and version information. |
 | [admin](admin/index.md) | [token](admin/index.md#admin-token) | Fetch and output an access token. |
+| [admin acl](admin/acl/index.md) | [list](admin/acl/index.md#admin-acl-list) | List access conditions. |
+| [admin acl](admin/acl/index.md) | [inspect](admin/acl/index.md#admin-acl-inspect) | Inspect an access condition. |
+| [admin acl](admin/acl/index.md) | [create](admin/acl/index.md#admin-acl-create) | Create an access condition. |
+| [admin acl](admin/acl/index.md) | [update](admin/acl/index.md#admin-acl-update) | Update an access condition. |
+| [admin acl](admin/acl/index.md) | [delete](admin/acl/index.md#admin-acl-delete) | Delete access conditions. |
+| [admin acl](admin/acl/index.md) | [review](admin/acl/index.md#admin-acl-review) | Review grants for a given account. |
 | [admin client](admin/client/index.md) | [list](admin/client/index.md#admin-client-list) | List client accounts. |
 | [admin client](admin/client/index.md) | [secret](admin/client/index.md#admin-client-secret) | Get or generate a new secret for a client account. |
 | [admin client](admin/client/index.md) | [open](admin/client/index.md#admin-client-open) | Open clients in the browser. |
@@ -67,6 +73,10 @@ tags:
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
 | [graph](graph/index.md) | [import](graph/index.md#graph-import) | Import graph(s) to the store. |
 | [graph](graph/index.md) | [open](graph/index.md#graph-open) | Open / explore a graph in the browser. |
+| [graph validation](graph/validation/index.md) | [execute](graph/validation/index.md#graph-validation-execute) | Start a new validation process. |
+| [graph validation](graph/validation/index.md) | [list](graph/validation/index.md#graph-validation-list) | List running and finished validation processes. |
+| [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
+| [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |

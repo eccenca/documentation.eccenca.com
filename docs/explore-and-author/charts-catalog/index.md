@@ -65,4 +65,8 @@ To do so, add :material-plus-circle-outline: the **Chart Visualization** propert
     This means that your Chart must be accessible from the Shape Catalog.
     This can be achieved either by copying the chart and query resources into the Shape Catalog graph or by importing the query catalog graph in the Shape Catalog graph.
 
-To customize the chart in the context of each resource shown, you need to use the placeholder `{{shuiResource}}` in your queries.
+To customize the chart several placeholders can be used in you queries:
+
+-   `{{shuiResource}}`, the resource currently shown with the node shape of this property shape.
+-   `{{shuiMainResource}}`, refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage).
+-   `{{shuiGraph}}`, the currently used graph.

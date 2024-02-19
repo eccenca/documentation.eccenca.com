@@ -42,7 +42,7 @@ List and edit configs as well as get config values.
 
     In order to get credential information from an external process, you can
     use the parameter OAUTH_PASSWORD_PROCESS, OAUTH_CLIENT_SECRET_PROCESS and
-    OAUTH_ACCESS_TOKEN_PROCESS to setup an external executable.
+    OAUTH_ACCESS_TOKEN_PROCESS to set up an external executable.
 
     
     OAUTH_CLIENT_SECRET_PROCESS=/path/to/getpass.sh

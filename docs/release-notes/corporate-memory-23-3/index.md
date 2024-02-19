@@ -1,15 +1,14 @@
 ---
-status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.3.0
+# Corporate Memory 23.3.1
 
-Corporate Memory 23.3.0 is the third main release in 2023.
+Corporate Memory 23.3.1 is the first patch release in the 23.3 release line.
 
-![23.3.0: Charts - Chart Definitions](23-3-explore-charts.png "23.3.0: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
-![23.3.0: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3.0: Build - Keyboard Shortcuts"){ class="bordered" }
-![23.3.0: Build - Workflow Ports](23-3-build-port-menu.png "23.3.0: Build - Workflow Ports"){ class="bordered" }
+![23.3: Charts - Chart Definitions](23-3-explore-charts.png "23.3: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
+![23.3: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3: Build - Keyboard Shortcuts"){ class="bordered" }
+![23.3: Build - Workflow Ports](23-3-build-port-menu.png "23.3: Build - Workflow Ports"){ class="bordered" }
 
 The highlights of this release are:
 
@@ -25,15 +24,29 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataPlatform v23.3.0
--   eccenca DataIntegration v23.3.0
+-   eccenca DataIntegration v23.3.1
 -   eccenca DataManager v23.3.0
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.3.0
+## eccenca DataIntegration v23.3.1
 
 We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.3.1 of eccenca DataIntegration ships the following improvements:
+
+-   Workflow operator validates XML datasets against a provided XML Schema.
+-   Support entering a custom ID when cloning a project or project task.
+-   "Evaluate Template" operator has a new option for evaluating the template on the entire input set at once.
+
+v23.3.1 of eccenca DataIntegration ships the following fixes:
+
+-   Long task parameter values cannot be fully seen in task config preview.
+-   Project export does not fail if project files cannot be read.
+-   Unexpected inputs of a node are not executed anymore.
+-   Transform report does not count entities in child mappings.
+-   Rule operator parameter auto-complete default values do not have a label when creating a new operator.
 
 v23.3.0 of eccenca DataIntegration adds the following new features:
 
@@ -174,13 +187,21 @@ v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
 
 ## Migration Notes
 
-!!! warning
+!!! info
 
     We do not guarantee forward compatibility for configuration, data or projects.
     I.e. importing a project created with DataIntegration v23.2 into DataIntegration v23.1 (or older) might not work.
 
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v23.1 can be imported into DataIntegration v23.2.
+
+### DataIntegration
+
+There is a known issue and existing workaround with the new dependency port feature: you may receive a message like this when running your workflows:
+
+```Workflow Execution Error: Not all workflow nodes were executed! Executed 2 of 7 nodes.```
+
+In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required). After saving it will work again.
 
 ### DataPlatform
 
@@ -215,6 +236,16 @@ From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `ht
             }
         } ;
         ```
+
+!!! warning "Update of `client-authentication-method` property needed"
+
+    Due to an upgrade of the spring boot library the `client-authentication-method` property needs to be chaged to `client_secret_basic` in your DataPlatform `application.yml`:
+
+    ```yml
+    spring.security.oauth2.client.registration.keycloak.client-authentication-method: client_secret_basic
+    ```
+
+    (was `basic` which is not working anymore)
 
 ### cmemc
 

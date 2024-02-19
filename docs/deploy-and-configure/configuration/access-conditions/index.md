@@ -5,16 +5,15 @@ tags:
 ---
 # Access Conditions
 
+!!! warning "Users and groups cannot have the same name"
+
+    Since both user and group resources use the same IRI prefix in DataPlatform, users and groups cannot have the same name.
+
 ## Introduction
 
 The Access control module shows the list of all access conditions manageable by your account.
 Access conditions specify access rights for users and groups to graphs and actions.
 To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical: in the Module bar and click Access control.
-
-!!! bug
-
-    In the current version of Corporate Memory, access conditions are visible in the user interface only for user accounts, which are in the super-admin / root group (usually `elds-admins`, see property `authorization.rootAccess` [here](../dataplatform/application-full.md#authorization)).
-    This will be fixed in the next release.
 
 ## Access conditions
 
@@ -32,9 +31,9 @@ Click a specific condition to get an expanded view with more details.
 
 To add a new access condition:
 
-- Click the context menu :fontawesome-solid-ellipsis-vertical: in the upper right
-- Select "Create access condition"
-- In the dialog box, enter the new access condition rule as needed. Each access condition can have a **Name** and a **Description** as well as conditions and grants for actions and graphs.
+-   Click the context menu :fontawesome-solid-ellipsis-vertical: in the upper right
+-   Select "Create access condition"
+-   In the dialog box, enter the new access condition rule as needed. Each access condition can have a **Name** and a **Description** as well as conditions and grants for actions and graphs.
 
 ???+ note
     The application uses a set of specific URIs with a precise meaning as listed below:
@@ -117,4 +116,3 @@ With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can d
 $ cmemc -c my-cmem-instance graph import --replace access-conditions.ttl urn:elds-backend-access-conditions-graph
 Import graph 1/1: urn:elds-backend-access-conditions-graph from access-conditions.ttl ... done
 ```
-
