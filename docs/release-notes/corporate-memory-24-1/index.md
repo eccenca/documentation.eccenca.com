@@ -63,9 +63,9 @@ v24.1.0 of DataIntegration adds the following new features:
     -   Support bulk resources, i.e. JSON files in a zip file
     -   Support reading JSON Lines files
 -   Python workflow plugins can now consume and produce hierarchical entities
--   Additions to the workflow config ports:
+-   Additions to the workflow configuration ports:
     -   Allow to reconfigure transform and linking tasks in workflows
-    -   Datasets can be connected directly to the config port
+    -   Datasets can be connected directly to the configuration port
 -   Extended auto-completion support when opening the mapping (rule) editor in a workflow context:
     -   Support auto-completion of target properties for fixed target schema and config port schema (transformation connected to config port)
     -   Support auto-completion of values paths for fixed input schema
@@ -79,15 +79,15 @@ v24.1.0 of DataIntegration introduces the following changes:
 -   Support PATCH and DELETE requests in REST operators
 -   Upgraded libraries, in particular Play to v2.9.1 and Spark to v3.5.0
 -   Support of custom tasks as input for transform and linking tasks
--   Create/update dialog:
+-   Create/update dialogue:
     - When a parameter value is changed that other parameters are depending on, those parameter values are reset because they might not be valid anymore
 -   Shortened workflow execution failure message shown in activity widget
 -   Added `Fail workflow` flag to `Cancel workflow` operator
 
 v24.1.0 of DataIntegration ships the following fixes:
 
--   Many errors occurring in a dialog/modal, e.g. from requests, are hidden because they are shown in the global error notification which cannot be accessed while the dialog is open
--   Missing or problematic error handling in several dialogs and other places
+-   Many errors occurring in a form/modal, e.g. from requests, are hidden because they are shown in the global error notification which cannot be accessed while the form is open
+-   Missing or problematic error handling in several forms and other places
 -   Transform editor should show plugin labels instead of ids
 -   Transform execution report validation icons in mapping tree do not update after running the execution
 -   When upgrading a plugin, new parameters are not shown in transform editor
@@ -95,7 +95,7 @@ v24.1.0 of DataIntegration ships the following fixes:
 -   Copying a project with custom prefixes into a project that misses these prefixes fails
 -   Workflow report always states `...has not finished execution yet.`
 -   Cannot add a new project variable after having tried to add it with an empty value
--   Support for arm64 architecture
+-   Support for ARM64 architecture
 -   View completely crashes when error is not caught in any tab view (plugin) - there should be an error boundary
 -   Mapping editor shows spinner when no network is available when switching to it
 -   Linking editor does not load when network unavailable instead of showing error
@@ -106,9 +106,33 @@ We are excited to announce the latest update to DataManager v24.1.0, which intro
 
 v24.1.0 of DataManager adds the following new features:
 
+-   License warnings for Corporate Memory and GraphDB license
+-   Added validation for invalid URI format in vocabulary registration form
+-   SHACL2 (beta feature, disable per default)
+    -   support for literals
+    -   support for object properties
+    -   validation
+    -   context graph
+-   SVG support for the object view
+-   A link to the DP api doc
+
 v24.1.0 of DataManager ships the following changes:
 
+-   Explore Navigation Component, now supports depictions and pre-loading of the concepts list
+-   I18N
+    -   Increased coverage
+    -   Enabled nesting of the keys in translations
+    -   Improvements in the application header in explore
+
 v24.1.0 of DataManager ships the following fixes:
+
+-   Security Update of Java wrapper
+-   Workspace selection resets module selection
+-   Considering `exploreModuleConfiguration.defaultGraph` during the Explore module mount
+-   Added navigation blocker for the EasyNav module
+-   Keeping EasyNav viewport parameters during visualization save
+-   Installing a vocabulary now fully refreshes the application state
+-   Workspaces, which are prefix of an other workspace, are now correctly handled
 
 ## eccenca DataPlatform v24.1.0
 
@@ -140,7 +164,7 @@ v24.1.0 of DataPlatform ships the following changes:
 v24.1.0 of DataPlatform ships the following fixes:
 
 -   Allow blank nodes in update queries.
--   DP APIs do not return null values for unset fields anymore.
+-   API endpoints do not return null values for unset fields anymore.
 -   Correct documentation of API endpoints for named query execution.
 
 ## eccenca Corporate Memory Control (cmemc) v24.1.0
@@ -149,7 +173,7 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 
--   Added support for importing vocabulary from standard input (stdin)
+-   Added support for importing vocabulary from standard input (`stdin`)
     -   `admin acl` command group
     -   `create` command - Create an access condition
     -   `delete` command - Delete access conditions
