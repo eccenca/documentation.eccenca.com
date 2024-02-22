@@ -14,3 +14,4 @@ nav:
     - Link Intrusion Detection Systems to Open-Source INTelligence: tutorial-how-to-link-ids-to-osint
     - Project and Global Variables: variables
     - Evaluate Template Operator: evaluate-template
+    - Build Knowledge Graphs from Kafka Topics: kafka-consumer
