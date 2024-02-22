@@ -43,7 +43,7 @@ Once you installed the package, you can create a Kafka Consumer task. This task 
 
 !!! warning
 
-    The Kafka Consumer task will be executed inside a workflow. This means on each workflow execution this task retrieves new messages from the topic. Hence, the respective workflow needs to be [scheduled](../../automate/scheduling-workflows/index.md) regularly. It will not run continuously inside the workflow and produce messages. The Kafka Consumer task is finished when there are no more messages in the queue or a configurable message limit has been reached.
+    The Kafka Consumer task will be executed inside a workflow. This means on each workflow execution this task retrieves new messages from the topic. Hence, the respective workflow needs to be [scheduled](../../automate/scheduling-workflows/index.md) regularly. It will not run continuously inside the workflow and consume messages. The Kafka Consumer task is finished when there are no more messages in the queue or a configurable message limit has been reached.
 
 ### Create and configure a Kafka Consumer
 
@@ -52,6 +52,7 @@ In Create new item window, select Kafka Consumer (Receive Messages) and click Ad
 ![Create a new Kafka Consumer task](create-kafka-consumer.png)<!-- 24.1 -->
 
 Configure the Kafka Consumer according to the topic that shall be consumed:
+
 - **Bootstrap Server** - URL of the Kafka broker including the port number (commonly port ´9092)
 - **Security Protocol** - Security mechanism used for authentication
 - **Topic** - Name / ID of the topic where messages are published
@@ -84,6 +85,7 @@ To execute the Kafka Consumer it needs to be placed inside a Workflow. The messa
 ### Messages as Entities
 
 In the "message streaming mode" (**Messages Dataset** is not set) the received messages will be generated as entities and forwarded to the subsequent operator in the workflow. This mode is not limited to any message format. The generated message entities will have the following flat schema:
+
 - **key** — the optional key of the message,
 - **content** — the message itself as plain text,
 - **offset** — the given offset of the message in the topic,
