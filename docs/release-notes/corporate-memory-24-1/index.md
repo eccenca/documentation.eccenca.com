@@ -235,9 +235,9 @@ Previously, unsetting the `exploreModuleConfiguration.defaultGraph` of the defau
 The configuraion now follows the standard config pattern and expects an explicitly blocked value (i.e. setting it to `null`).
 All non-default workspaces that previsouly set the `exploreModuleConfiguration.defaultGraph` to the empty string "" need to be migrated by:
 1. Open the workspace in the workspace configuration.
-2. Open MOdules -> Explore
-3. Delete the value of defaultGraph by clicking on the trashcan icon
-4. Click on the block icon to set it to `null`
+2. Open Modules -> Explore
+3. Delete the value of *defaultGraph* by clicking on the trashcan icon
+4. Click on the *block button* to set it to `null`
 5. Save the workspace
 
 
