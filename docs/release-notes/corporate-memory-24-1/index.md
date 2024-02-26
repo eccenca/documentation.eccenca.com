@@ -223,22 +223,24 @@ After saving it will work again.
 ### DataManager
 
 #### Migrate Default Graph Override
-If the default workspace sets a  `exploreModuleConfiguration.defaultGraph` but an additional workspace is configured to show graph lists, you might see the following error message:
 
-``` 
+If the default workspace sets a `exploreModuleConfiguration.defaultGraph` but an additional workspace is configured to show graph lists, you might see the following error message:
+
+```
 Missing Graph configuration for Context. Please check that the graph
 ""
 actually exists.
 ```
 
-Previously, unsetting the `exploreModuleConfiguration.defaultGraph` of the default workspace required setting its value to the empty string "".
-The configuraion now follows the standard config pattern and expects an explicitly blocked value (i.e. setting it to `null`).
-All non-default workspaces that previsouly set the `exploreModuleConfiguration.defaultGraph` to the empty string "" need to be migrated by:
-1. Open the workspace in the workspace configuration.
-2. Open Modules -> Explore
-3. Delete the value of *defaultGraph* by clicking on the trashcan icon
-4. Click on the *block button* to set it to `null`
-5. Save the workspace
+Previously, un-setting the `exploreModuleConfiguration.defaultGraph` of the default workspace required setting its value to the empty string `""`.
+The configuration now follows the standard pattern and expects an explicitly blocked value (i.e. setting it to `null`).
+All non-default workspaces that previously set the `exploreModuleConfiguration.defaultGraph` to the empty string `""` need to be migrated by:
+
+1.  Open the workspace in the (workspace) **:material-cog-outline: Configuration**.
+1.  Open **Modules** > **Explore**.
+1.  Delete the empty `""` value of **defaultGraph** by clicking on the :material-trash-can-outline: icon.
+1.  Click on the **block button** to set it to `null`.
+1.  **Save** the workspace.
 
 
 ### DataPlatform
@@ -248,7 +250,7 @@ DP APIs do not return null values for unset fields anymore.
 !!! warning
 
     Check if null values of non mandatory fields are expected if you are using the DataPlatform APIs with a custom client.
-    
+
 
 ### cmemc
 
