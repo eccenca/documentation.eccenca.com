@@ -11945,6 +11945,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#datamanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DataManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DataManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrate-default-graph-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate Default Graph Override
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dataplatform" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -12253,6 +12281,23 @@ I.e. projects created with DataIntegration v23.3.0 can be imported into DataInte
 </code></pre></div>
 <p>In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required).
 After saving it will work again.</p>
+<h3 id="datamanager">DataManager<a class="headerlink" href="#datamanager" title="Permanent link">¤</a></h3>
+<h4 id="migrate-default-graph-override">Migrate Default Graph Override<a class="headerlink" href="#migrate-default-graph-override" title="Permanent link">¤</a></h4>
+<p>If the default workspace sets a <code>exploreModuleConfiguration.defaultGraph</code> but an additional workspace is configured to show graph lists, you might see the following error message:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Missing Graph configuration for Context. Please check that the graph
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&quot;&quot;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>actually exists.
+</code></pre></div>
+<p>Previously, un-setting the <code>exploreModuleConfiguration.defaultGraph</code> of the default workspace required setting its value to the empty string <code>""</code>.
+The configuration now follows the standard pattern and expects an explicitly blocked value (i.e. setting it to <code>null</code>).
+All non-default workspaces that previously set the <code>exploreModuleConfiguration.defaultGraph</code> to the empty string <code>""</code> need to be migrated by:</p>
+<ol>
+<li>Open the workspace in the (workspace) <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1-.07 1 2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42h-4m1.25-18-.37 2.61c-1.2.25-2.26.89-3.03 1.78L5.44 7.35l-.75 1.3L6.8 10.2a5.55 5.55 0 0 0 0 3.6l-2.12 1.56.75 1.3 2.43-1.04c.77.88 1.82 1.52 3.01 1.76l.37 2.62h1.52l.37-2.61c1.19-.25 2.24-.89 3.01-1.77l2.43 1.04.75-1.3-2.12-1.55c.4-1.17.4-2.44 0-3.61l2.11-1.55-.75-1.3-2.41 1.04a5.42 5.42 0 0 0-3.03-1.77L12.75 4h-1.5Z"/></svg></span> Configuration</strong>.</li>
+<li>Open <strong>Modules</strong> &gt; <strong>Explore</strong>.</li>
+<li>Delete the empty <code>""</code> value of <strong>defaultGraph</strong> by clicking on the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg></span> icon.</li>
+<li>Click on the <strong>block button</strong> to set it to <code>null</code>.</li>
+<li><strong>Save</strong> the workspace.</li>
+</ol>
 <h3 id="dataplatform">DataPlatform<a class="headerlink" href="#dataplatform" title="Permanent link">¤</a></h3>
 <p>DP APIs do not return null values for unset fields anymore.</p>
 <div class="admonition warning">
@@ -12283,7 +12328,7 @@ After saving it will work again.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-02-19T15:40:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-02-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-02-26T11:19:04+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-02-26</span>
   </span>
 
     
