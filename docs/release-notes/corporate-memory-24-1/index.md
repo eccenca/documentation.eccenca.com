@@ -219,6 +219,28 @@ Not all workflow nodes were executed! Executed 2 of 7 nodes.
 In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required).
 After saving it will work again.
 
+
+### DataManager
+
+#### Migrate Default Graph Override
+If the default workspace sets a  `exploreModuleConfiguration.defaultGraph` but an additional workspace is configured to show graph lists, you might see the following error message:
+
+``` 
+Missing Graph configuration for Context. Please check that the graph
+""
+actually exists.
+```
+
+Previously, unsetting the `exploreModuleConfiguration.defaultGraph` of the default workspace required setting its value to the empty string "".
+The configuraion now follows the standard config pattern and expects an explicitly blocked value (i.e. setting it to `null`).
+All non-default workspaces that previsouly set the `exploreModuleConfiguration.defaultGraph` to the empty string "" need to be migrated by:
+1. Open the workspace in the workspace configuration.
+2. Open MOdules -> Explore
+3. Delete the value of defaultGraph by clicking on the trashcan icon
+4. Click on the block icon to set it to `null`
+5. Save the workspace
+
+
 ### DataPlatform
 
 DP APIs do not return null values for unset fields anymore.
@@ -226,6 +248,7 @@ DP APIs do not return null values for unset fields anymore.
 !!! warning
 
     Check if null values of non mandatory fields are expected if you are using the DataPlatform APIs with a custom client.
+    
 
 ### cmemc
 
