@@ -49,7 +49,7 @@ Once you installed the package, you can create a Kafka Consumer task. This task 
 
 In Create new item window, select Kafka Consumer (Receive Messages) and click Add.
 
-![Create a new Kafka Consumer task](create-kafka-consumer.png)<!-- 24.1 -->
+![Create a new Kafka Consumer task](create-kafka-consumer.png){ class="bordered" }<!-- 24.1 -->
 
 Configure the Kafka Consumer according to the topic that shall be consumed:
 
@@ -66,7 +66,7 @@ Configure the Kafka Consumer according to the topic that shall be consumed:
     -   **Message Limit** - The maximum number of messages to fetch and process in each run. If `0` or less, all messages will be fetched.
     -   **Disable Commit** Setting this to `true` will disable committing messages after retrival. This means you will receive the same messages on the next execution (for testing, development, or debugging).
 
-![Configuration options](configure-kafka-consumer.png)<!-- 24.1 -->
+![Configuration options](configure-kafka-consumer.png){ class="bordered" }<!-- 24.1 -->
 
 ## Execute a Kafka Consumer within a Workflow
 
@@ -76,11 +76,11 @@ There are two main modes how the consumer handles received messages: either the 
 
 In order to write the received messages to a dataset, the option **Messages Dataset** needs to be set. Only JSON and XML message formats are supported in this mode. So depending on the message format a [JSON](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#json) or [XML Dataset](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#xml) needs to be created and configured as the **Messages Dataset**.
 
-![Choose a dataset according to the message format](configure-message-dataset.png)<!-- 24.1 -->
+![Choose a dataset according to the message format](configure-message-dataset.png){ class="bordered" }<!-- 24.1 -->
 
 To execute the Kafka Consumer it needs to be placed inside a Workflow. The messages will be written to the dataset, which can then be used as a source for [further processing](../lift-data-from-json-and-xml-sources/index.md).
 
-![](demo-wf-1.png)<!-- 24.1 -->
+![](demo-wf-1.png){ class="bordered" }<!-- 24.1 -->
 
 ### Messages as Entities
 
@@ -94,15 +94,15 @@ In the "message streaming mode" (**Messages Dataset** is not set) the received m
 
 Connect the output of Kafka Consumer inside a Workflow to a tabular dataset (e.g. a [CSV Dataset](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#csv)) or directly to a transformation task.
 
-![](demo-wf-2.png)<!-- 24.1 -->
+![](demo-wf-2.png){ class="bordered" }<!-- 24.1 -->
 
 The message content is captured as plain text. In order to process complex message content, the `content` path needs to be parsed with operators such as [Parse JSON](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#parse-json) or [Parse XML](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#parse-xml) to process the message content in a transformation.
 
-![](demo-wf-3.png)<!-- 24.1 -->
+![](demo-wf-3.png){ class="bordered" }<!-- 24.1 -->
 
 Any modifications to the message set, such as filtering, can be done prior to parsing the content. One could for example remove duplicates (according to the message key) from the messages by using the [Distinct-by task](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#distinct-by).
 
-![](demo-wf-4.png)<!-- 24.1 -->
+![](demo-wf-4.png){ class="bordered" }<!-- 24.1 -->
 
 ## Sample Project
 
