@@ -16,15 +16,28 @@ For this scenario, this page give some hints.
 
 When using a Keycloak in a different domain, you have to allow this domain in the Keycloak settings:
 
--   In **Realm Settings**, go to **Security defenses** tab
-    -   `X-Frame-Options` need to be cleared
-    -   The `Content-Security-Policy` header needs to be defined for allowing the framing of the login mask of Keycloak for the deployment `frame-src <https://cmem.example.com/>;`
--   In **Clients** go to i.e. `cmem` client
+- In **Clients** go to i.e. `cmem` client
     -   add `https://cmem.example.com/*` to Valid redirect URIs
-
-![CSP-settings](CSP-settings.png){ class="bordered" }
-
 ![Client redirect URI](client-redirect-uri.png){ class="bordered" }
+
+- Headers for Keycloak and CMEM
+    - Keycloak header needed: `Access-Control-Allow-Origin: https://cmem.example.com`
+    - CMEM header needed: `Access-Control-Allow-Origin: *`
+
+- Kubernetes Ingress Annotations
+
+``` yaml
+  # KEYCLOAK ingress
+  nginx.ingress.kubernetes.io/enable-cors: "true"
+  nginx.ingress.kubernetes.io/cors-allow-origin: "https://cmem.example.com"
+```
+
+``` yaml
+  # CMEM ingress
+  nginx.ingress.kubernetes.io/enable-cors: "true"
+  nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+```
+
 
 ## Configuration in Corporate Memory
 
