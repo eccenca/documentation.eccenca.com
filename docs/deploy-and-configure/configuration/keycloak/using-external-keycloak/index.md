@@ -9,22 +9,21 @@ tags:
 ## Introduction
 
 Maybe you already operate a central Keycloak deployment in your infrastructure or you want to deploy multiple stages of Corporate Memory with a single Keycloak.
-Very often this results a Keycloak which is deployed in a different domain than your Corporate Memory, i.e. `cmem.example.com` and `keycloak.example.com`.
-For this scenario, this page give some hints.
+Very often this results in a Keycloak which is deployed in a different domain than your Corporate Memory (such as Corporate Memory is available on `https://cmem.example.com` and Keycloak is available on `https://keycloak.example.com`).
+For this scenario, this page provides additional configuration requirements.
 
-## Configuration in Keycloak
+## Configuration
 
-When using a Keycloak in a different domain, you have to allow this domain in the Keycloak settings:
+### Infrastructure
 
-- In **Clients** go to i.e. `cmem` client
-    -   add `https://cmem.example.com/*` to Valid redirect URIs
-![Client redirect URI](client-redirect-uri.png){ class="bordered" }
+Depending on your infrastructure around Corporate Memory, you need to change some provisioned HTTP header on the following services:
 
-- Headers for Keycloak and CMEM
-    - Keycloak header needed: `Access-Control-Allow-Origin: https://cmem.example.com`
-    - CMEM header needed: `Access-Control-Allow-Origin: *`
+- Headers for Keycloak URLs:
+    -   `Access-Control-Allow-Origin: https://cmem.example.com`
+- Headers for Corporate Memory URLs:
+    -   `Access-Control-Allow-Origin: *`
 
-- Kubernetes Ingress Annotations
+For example, if you are using our helm charts, adapt the followin ingress annotations:
 
 ``` yaml
   # KEYCLOAK ingress
@@ -33,15 +32,21 @@ When using a Keycloak in a different domain, you have to allow this domain in th
 ```
 
 ``` yaml
-  # CMEM ingress
+  # Corporate Memory ingress
   nginx.ingress.kubernetes.io/enable-cors: "true"
   nginx.ingress.kubernetes.io/cors-allow-origin: "*"
 ```
 
 
-## Configuration in Corporate Memory
+### Keycloak
 
-### Environments
+You have to allow the Corporate Memory domain in the Keycloak settings.
+
+In your realm, in **Clients** go to i.e. `cmem` client and add `https://cmem.example.com/*` to **Valid redirect URIs**:
+
+![Client redirect URI](client-redirect-uri.png){ class="bordered" }
+
+### Corporate Memory
 
 When running the Corporate Memory docker orchestration, you can configure the Keycloak through editing `environments/config.env`.
 Then just add the variables below.
@@ -58,10 +63,7 @@ OAUTH_CLIENT_ID=cmem
 
 ![well-known configuration](well-known-config.png){ class="bordered" }
 
-### Dataintegration (optional)
-
-By default, Dataintegration is configured through environments.
-However you can also edit this in Dataintegration's config file `dataintegration.conf`:
+By using variables in the DataIntegration configuration file `dataintegration.conf`, this environment is used automatically in the docker orchestration:
 
 ``` bash
 oauth.clientId = ${OAUTH_CLIENT_ID}
@@ -70,10 +72,7 @@ oauth.tokenUrl = ${OAUTH_TOKEN_URL}
 oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
 ```
 
-### Dataplatform (optional)
-
-By default, Dataplatform is configured through environments.
-However you can also edit this in Dataplatform's config file `application.yml`:
+By using variables in the DataPlatform configuration file `application.yml`, this environment is used automatically in the docker orchestration:
 
 ``` yaml
 spring.security.oauth2:
@@ -103,22 +102,24 @@ spring.security.oauth2:
 
 ### cmemc
 
-In cmemc you also need to change the Keycloak cmemc tries to authenticate before connecting to Corporate Memory.
-You have to add this:
+In cmemc you need to change the Keycloak endpoint, which is used for authentication before connecting to Corporate Memory:
 
 ``` ini
 KEYCLOAK_BASE_URI=https://keycloak.example.com/
 KEYCLOAK_REALM_ID=cmem
 ```
 
-### Helm charts (optional)
+### Helm charts
 
-In the helm charts, we assumed you deploy Keycloak by official charts, either via operator, or via helm charts.
-In either way you can configure the base realm path in the value section.
+In the helm charts, we assumed you deploy Keycloak by using the official charts, either via operator, or via helm charts.
+In either way you can configure the base realm path in the global value section:
 
 ``` yaml
-  # This is the base Keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
-  .Values.global.keycloakIssuerUrl: https://keycloak.example.com/auth/realms/cmem
-  .Values.global.oauthClientId: cmem
+  # keycloak base url (e.g. https://cmem.example.com/auth)
+  keycloakBaseUrl: https://keycloak.example.com/auth/
+  # keycloak cmem realm url (e.g. https://cmem.example.com/auth/realms/cmem)
+  keycloakIssuerUrl: https://keycloak.example.com/auth/realms/cmem
+  # keycloak oauth client id (used for DataPlatform connection and DataIntegration cmem service client)
+  oauthClientId: cmem
 ```
 
