@@ -10881,7 +10881,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 24.1.0
+    Corporate Memory 24.1.2
   
 
     
@@ -10906,7 +10906,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 24.1.0
+    Corporate Memory 24.1.2
   
 
           </label>
@@ -11961,33 +11961,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-in-keycloak" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration in Keycloak
+        Configuration
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-in-corporate-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration in Corporate Memory
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration in Corporate Memory">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environments" class="md-nav__link">
+  <a href="#infrastructure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environments
+        Infrastructure
       
     </span>
   </a>
@@ -11995,10 +11984,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataintegration-optional" class="md-nav__link">
+  <a href="#keycloak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dataintegration (optional)
+        Keycloak
       
     </span>
   </a>
@@ -12006,10 +11995,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataplatform-optional" class="md-nav__link">
+  <a href="#corporate-memory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dataplatform (optional)
+        Corporate Memory
       
     </span>
   </a>
@@ -12028,10 +12017,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#helm-charts-optional" class="md-nav__link">
+  <a href="#helm-charts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Helm charts (optional)
+        Helm charts
       
     </span>
   </a>
@@ -12106,83 +12095,91 @@
 <h1 id="configure-corporate-memory-with-an-external-keycloak">Configure Corporate Memory with an external Keycloak<a class="headerlink" href="#configure-corporate-memory-with-an-external-keycloak" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>Maybe you already operate a central Keycloak deployment in your infrastructure or you want to deploy multiple stages of Corporate Memory with a single Keycloak.
-Very often this results a Keycloak which is deployed in a different domain than your Corporate Memory, i.e. <code>cmem.example.com</code> and <code>keycloak.example.com</code>.
-For this scenario, this page give some hints.</p>
-<h2 id="configuration-in-keycloak">Configuration in Keycloak<a class="headerlink" href="#configuration-in-keycloak" title="Permanent link">¤</a></h2>
-<p>When using a Keycloak in a different domain, you have to allow this domain in the Keycloak settings:</p>
+Very often this results in a Keycloak which is deployed in a different domain than your Corporate Memory (such as Corporate Memory is available on <code>https://cmem.example.com</code> and Keycloak is available on <code>https://keycloak.example.com</code>).
+For this scenario, this page provides additional configuration requirements.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¤</a></h2>
+<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">¤</a></h3>
+<p>Depending on your infrastructure around Corporate Memory, you need to change some provisioned HTTP header on the following services:</p>
 <ul>
-<li>In <strong>Realm Settings</strong>, go to <strong>Security defenses</strong> tab<ul>
-<li><code>X-Frame-Options</code> need to be cleared</li>
-<li>The <code>Content-Security-Policy</code> header needs to be defined for allowing the framing of the login mask of Keycloak for the deployment <code>frame-src &lt;https://cmem.example.com/&gt;;</code></li>
+<li>Headers for Keycloak URLs:<ul>
+<li><code>Access-Control-Allow-Origin: https://cmem.example.com</code></li>
 </ul>
 </li>
-<li>In <strong>Clients</strong> go to i.e. <code>cmem</code> client<ul>
-<li>add <code>https://cmem.example.com/*</code> to Valid redirect URIs</li>
+<li>Headers for Corporate Memory URLs:<ul>
+<li><code>Access-Control-Allow-Origin: *</code></li>
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CSP-settings" class="bordered" src="CSP-settings.png" /></a></p>
+<p>For example, if you are using our helm charts, adapt the followin ingress annotations:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="c1"># KEYCLOAK ingress</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">nginx.ingress.kubernetes.io/enable-cors</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">nginx.ingress.kubernetes.io/cors-allow-origin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cmem.example.com&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="c1"># Corporate Memory ingress</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">nginx.ingress.kubernetes.io/enable-cors</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">nginx.ingress.kubernetes.io/cors-allow-origin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+</code></pre></div>
+<h3 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">¤</a></h3>
+<p>You have to allow the Corporate Memory domain in the Keycloak settings.</p>
+<p>In your realm, in <strong>Clients</strong> go to i.e. <code>cmem</code> client and add <code>https://cmem.example.com/*</code> to <strong>Valid redirect URIs</strong>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Client redirect URI" class="bordered" src="client-redirect-uri.png" /></a></p>
-<h2 id="configuration-in-corporate-memory">Configuration in Corporate Memory<a class="headerlink" href="#configuration-in-corporate-memory" title="Permanent link">¤</a></h2>
-<h3 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">¤</a></h3>
+<h3 id="corporate-memory">Corporate Memory<a class="headerlink" href="#corporate-memory" title="Permanent link">¤</a></h3>
 <p>When running the Corporate Memory docker orchestration, you can configure the Keycloak through editing <code>environments/config.env</code>.
 Then just add the variables below.
 You can get those from the <code>.well-known</code> url from your instance, e.g. <code>https://keycloak.example.com/auth/realms/cmem/.well-known/openid-configuration</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">OAUTH_AUTHORIZATION_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/auth
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">OAUTH_TOKEN_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/token
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">OAUTH_JWK_SET_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/certs
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">OAUTH_USERINFO_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/userinfo
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">OAUTH_LOGOUT_REDIRECT_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/logout?redirect_uri<span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">OAUTH_CLIENT_ID</span><span class="o">=</span>cmem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">OAUTH_AUTHORIZATION_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/auth
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">OAUTH_TOKEN_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/token
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">OAUTH_JWK_SET_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/certs
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">OAUTH_USERINFO_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/userinfo
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">OAUTH_LOGOUT_REDIRECT_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>/auth/realms/cmem/protocol/openid-connect/logout?redirect_uri<span class="o">=</span><span class="si">${</span><span class="nv">EXTERNAL_BASE_URL</span><span class="si">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nv">OAUTH_CLIENT_ID</span><span class="o">=</span>cmem
 </code></pre></div>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="well-known configuration" class="bordered" src="well-known-config.png" /></a></p>
-<h3 id="dataintegration-optional">Dataintegration (optional)<a class="headerlink" href="#dataintegration-optional" title="Permanent link">¤</a></h3>
-<p>By default, Dataintegration is configured through environments.
-However you can also edit this in Dataintegration&rsquo;s config file <code>dataintegration.conf</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>oauth.clientId<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_CLIENT_ID</span><span class="si">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oauth.authorizationUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_AUTHORIZATION_URL</span><span class="si">}</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oauth.tokenUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_TOKEN_URL</span><span class="si">}</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>oauth.logoutRedirectUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_LOGOUT_REDIRECT_URL</span><span class="si">}</span>
+<p>By using variables in the DataIntegration configuration file <code>dataintegration.conf</code>, this environment is used automatically in the docker orchestration:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oauth.clientId<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_CLIENT_ID</span><span class="si">}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>oauth.authorizationUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_AUTHORIZATION_URL</span><span class="si">}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>oauth.tokenUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_TOKEN_URL</span><span class="si">}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>oauth.logoutRedirectUrl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">${</span><span class="nv">OAUTH_LOGOUT_REDIRECT_URL</span><span class="si">}</span>
 </code></pre></div>
-<h3 id="dataplatform-optional">Dataplatform (optional)<a class="headerlink" href="#dataplatform-optional" title="Permanent link">¤</a></h3>
-<p>By default, Dataplatform is configured through environments.
-However you can also edit this in Dataplatform&rsquo;s config file <code>application.yml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">spring.security.oauth2</span><span class="p">:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">resourceserver</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">anonymous</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${DATAPLATFORM_ANONYMOUS}&quot;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">jwt</span><span class="p">:</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_JWK_SET_URL}&quot;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">client</span><span class="p">:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">registration</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">keycloak</span><span class="p">:</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">client-id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_CLIENT_ID}&quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">authorization-grant-type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">client-authentication-method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;basic&quot;</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${DEPLOY_BASE_URL:</span><span class="nv"> </span><span class="s">&#39;http://localhost&#39;</span><span class="nv"> </span><span class="s">}/dataplatform/login/oauth2/code/{registrationId}&quot;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="c1"># openid is mandatory as spring somehow does not add it to the userinfo request</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openid</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profile</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">provider</span><span class="p">:</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nt">keycloak</span><span class="p">:</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_JWK_SET_URL}&quot;</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="nt">authorization-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_AUTHORIZATION_URL}&quot;</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="nt">token-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_TOKEN_URL}&quot;</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="nt">user-info-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_USERINFO_URL}&quot;</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nt">user-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;preferred_username&quot;</span>
+<p>By using variables in the DataPlatform configuration file <code>application.yml</code>, this environment is used automatically in the docker orchestration:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">spring.security.oauth2</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">resourceserver</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">anonymous</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${DATAPLATFORM_ANONYMOUS}&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">jwt</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_JWK_SET_URL}&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">client</span><span class="p">:</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">registration</span><span class="p">:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">keycloak</span><span class="p">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="nt">client-id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_CLIENT_ID}&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="nt">authorization-grant-type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;authorization_code&quot;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="nt">client-authentication-method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;basic&quot;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nt">redirectUri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${DEPLOY_BASE_URL:</span><span class="nv"> </span><span class="s">&#39;http://localhost&#39;</span><span class="nv"> </span><span class="s">}/dataplatform/login/oauth2/code/{registrationId}&quot;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="c1"># openid is mandatory as spring somehow does not add it to the userinfo request</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openid</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">profile</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="nt">provider</span><span class="p">:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="nt">keycloak</span><span class="p">:</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nt">jwk-set-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_JWK_SET_URL}&quot;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="nt">authorization-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_AUTHORIZATION_URL}&quot;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="nt">token-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_TOKEN_URL}&quot;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="nt">user-info-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OAUTH_USERINFO_URL}&quot;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="nt">user-name-attribute</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;preferred_username&quot;</span>
 </code></pre></div>
 <h3 id="cmemc">cmemc<a class="headerlink" href="#cmemc" title="Permanent link">¤</a></h3>
-<p>In cmemc you also need to change the Keycloak cmemc tries to authenticate before connecting to Corporate Memory.
-You have to add this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">KEYCLOAK_BASE_URI</span><span class="o">=</span><span class="s">https://keycloak.example.com/</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">KEYCLOAK_REALM_ID</span><span class="o">=</span><span class="s">cmem</span>
+<p>In cmemc you need to change the Keycloak endpoint, which is used for authentication before connecting to Corporate Memory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">KEYCLOAK_BASE_URI</span><span class="o">=</span><span class="s">https://keycloak.example.com/</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">KEYCLOAK_REALM_ID</span><span class="o">=</span><span class="s">cmem</span>
 </code></pre></div>
-<h3 id="helm-charts-optional">Helm charts (optional)<a class="headerlink" href="#helm-charts-optional" title="Permanent link">¤</a></h3>
-<p>In the helm charts, we assumed you deploy Keycloak by official charts, either via operator, or via helm charts.
-In either way you can configure the base realm path in the value section.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span><span class="c1"># This is the base Keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">.Values.global.keycloakIssuerUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://keycloak.example.com/auth/realms/cmem</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">.Values.global.oauthClientId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmem</span>
+<h3 id="helm-charts">Helm charts<a class="headerlink" href="#helm-charts" title="Permanent link">¤</a></h3>
+<p>In the helm charts, we assumed you deploy Keycloak by using the official charts, either via operator, or via helm charts.
+In either way you can configure the base realm path in the global value section:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">  </span><span class="c1"># keycloak base url (e.g. https://cmem.example.com/auth)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">keycloakBaseUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://keycloak.example.com/auth/</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1"># keycloak cmem realm url (e.g. https://cmem.example.com/auth/realms/cmem)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">keycloakIssuerUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://keycloak.example.com/auth/realms/cmem</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="c1"># keycloak oauth client id (used for DataPlatform connection and DataIntegration cmem service client)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">oauthClientId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmem</span>
 </code></pre></div>
 
 
@@ -12206,7 +12203,7 @@ In either way you can configure the base realm path in the value section.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-26T11:07:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-03-25T14:58:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-25</span>
   </span>
 
     
