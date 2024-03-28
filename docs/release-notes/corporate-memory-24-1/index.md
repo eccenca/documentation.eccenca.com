@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.1.0
+# Corporate Memory 24.1.2
 
-Corporate Memory 24.1.0 is the first release in the 24.1 release line.
+Corporate Memory 24.1.2 is the second patch release in the 24.1 release line.
 
 ![24.1: Build - Key Shortcuts in Workflow Editor](24-1-build-workflow-editor-shortcuts.png "24.1: Build - Key Shortcuts in Workflow Editor"){ class="bordered" }
 ![24.1: Automate - New cmemc command groups Access Condition and Graph Validation](24-1-cmemc-new-command-groups.png "24.1: Automate - New cmemc command groups Access Condition and Graph Validation"){ class="bordered" }
@@ -25,15 +25,15 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v24.1.0
--   eccenca DataManager v24.1.0
--   eccenca DataPlatform v24.1.0
+-   eccenca DataManager v24.1.2
+-   eccenca DataPlatform v24.1.1
 -   eccenca Corporate Memory Control (cmemc) v24.1.0
 
 More detailed release notes for these versions are listed below.
 
 ## eccenca DataIntegration v24.1.0
 
-We're excited to bring you the latest update to DataIntegration v24.1.0, which introduces new features, improvements and bug fixes:
+We're excited to bring you the latest update to DataIntegration v24.1, which introduces new features, improvements and bug fixes:
 
 v24.1.0 of DataIntegration adds the following new features:
 
@@ -94,9 +94,21 @@ v24.1.0 of DataIntegration ships the following fixes:
 -   Mapping editor shows spinner when no network is available when switching to it
 -   Linking editor does not load when network unavailable instead of showing error
 
-## eccenca DataManager v24.1.0
+## eccenca DataManager v24.1.2
 
-We are excited to announce the latest update to DataManager v24.1.0, which introduces new features, improvements and bug fixes:
+We are excited to announce the latest update to DataManager v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.2 of DataManager ships the following fixes:
+
+-   Version string is no longer suffixed by the dirty flag due to re-generated clients
+
+v24.1.1 of DataManager ships the following fixes:
+
+-   Inline View is used when opening a Knowledge Graph Dataset in DataIntegration
+-   Delete Thesaurus dialog is now working as expected
+-   Order of graph lists is respected, when determining the first graph to explore
+-   Fixed several issues with the unshaped-properties view mode of easynav, new visualizations and creating new, inverted, edges
+-   Hide license info for store, if no expiration date is available
 
 v24.1.0 of DataManager adds the following new features:
 
@@ -128,9 +140,13 @@ v24.1.0 of DataManager ships the following fixes:
 -   Installing a vocabulary now fully refreshes the application state
 -   Workspaces, which are prefix of an other workspace, are now correctly handled
 
-## eccenca DataPlatform v24.1.0
+## eccenca DataPlatform v24.1.1
 
-We're excited to bring you the latest update to DataPlatform v24.1.0, which introduces new features, improvements and bug fixes:
+We're excited to bring you the latest update to DataPlatform v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.1 of DataPlatform ships the following fixes:
+
+-   GraphDB license endpoints returns an empty value, if the GraphDB free is configured.
 
 v24.1.0 of DataPlatform adds the following new features:
 
@@ -165,7 +181,7 @@ v24.1.0 of DataPlatform ships the following fixes:
 
 ## eccenca Corporate Memory Control (cmemc) v24.1.0
 
-We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1.0, which introduces new features, improvements and bug fixes:
+We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1, which introduces new features, improvements and bug fixes:
 
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 

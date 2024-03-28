@@ -32,7 +32,7 @@ More detailed release notes for these versions are listed below.
 
 ## eccenca DataIntegration v23.3.1
 
-We're excited to bring you the latest update to DataIntegration v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to DataIntegration v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
 v23.3.1 of eccenca DataIntegration ships the following improvements:
 
@@ -96,7 +96,7 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 
 ## eccenca DataManager v23.3.0
 
-We are excited to announce the latest update to DataManager v23.3.0, which introduces new features, improvements and bug fixes.
+We are excited to announce the latest update to DataManager v23.3, which introduces new features, improvements and bug fixes.
 
 v23.3.0 of eccenca DataManager adds the following new features:
 
@@ -121,7 +121,7 @@ v23.3.0 of eccenca DataIntegration ships the following fixes:
 
 ## eccenca DataPlatform v23.3.0
 
-We're excited to bring you the latest update to DataPlatform v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to DataPlatform v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
 v23.3.0 of eccenca DataPlatform ships following fixes:
 
@@ -155,7 +155,7 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
 
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
-We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
 v23.3.0 of eccenca Corporate Memory Control adds the following new features:
 
