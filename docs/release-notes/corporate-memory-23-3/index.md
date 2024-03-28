@@ -2,9 +2,9 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.3.1
+# Corporate Memory 23.3.2
 
-Corporate Memory 23.3.1 is the first patch release in the 23.3 release line.
+Corporate Memory 23.3.2 is the second patch release in the 23.3 release line.
 
 ![23.3: Charts - Chart Definitions](23-3-explore-charts.png "23.3: Charts - Definition of CHarts based on eCharts "){ class="bordered" }
 ![23.3: Build - Keyboard Shortcuts](23-3-build-keyboard-shortcuts.png "23.3: Build - Keyboard Shortcuts"){ class="bordered" }
@@ -23,24 +23,29 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataPlatform v23.3.0
--   eccenca DataIntegration v23.3.1
--   eccenca DataManager v23.3.0
+-   eccenca DataIntegration v23.3.2
+-   eccenca DataManager v23.3.1
+-   eccenca DataPlatform v23.3.1
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
 
-## eccenca DataIntegration v23.3.1
+## eccenca DataIntegration v23.3.2
 
 We're excited to bring you the latest update to DataIntegration v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
-v23.3.1 of eccenca DataIntegration ships the following improvements:
+v23.3.2 of DataIntegration ships the following fixes:
+
+-   Entities with values larger than 65k cannot be serialized.
+-   JSON property path evaluation fails for missing key.
+
+v23.3.1 of DataIntegration ships the following improvements:
 
 -   Workflow operator validates XML datasets against a provided XML Schema.
 -   Support entering a custom ID when cloning a project or project task.
 -   "Evaluate Template" operator has a new option for evaluating the template on the entire input set at once.
 
-v23.3.1 of eccenca DataIntegration ships the following fixes:
+v23.3.1 of DataIntegration ships the following fixes:
 
 -   Long task parameter values cannot be fully seen in task config preview.
 -   Project export does not fail if project files cannot be read.
@@ -48,7 +53,7 @@ v23.3.1 of eccenca DataIntegration ships the following fixes:
 -   Transform report does not count entities in child mappings.
 -   Rule operator parameter auto-complete default values do not have a label when creating a new operator.
 
-v23.3.0 of eccenca DataIntegration adds the following new features:
+v23.3.0 of DataIntegration adds the following new features:
 
 -   plugin base library updated to v4.3.0 ([changelog](https://github.com/eccenca/cmem-plugin-base/blob/main/CHANGELOG.md))
 -   Support for custom plugin icon.
@@ -63,7 +68,7 @@ v23.3.0 of eccenca DataIntegration adds the following new features:
     -   Have menu option to show input/output schema for ports that either expect or output a fixed schema.
     -   Support dependency connections between workflow nodes to specify non-data execution dependencies.
 
-v23.3.0 of eccenca DataIntegration introduces the following changes:
+v23.3.0 of DataIntegration introduces the following changes:
 
 -   The threshold field for distance measures has been improved:
     -   For boolean distance measures, the threshold is not shown as it has no effect.
@@ -82,7 +87,7 @@ v23.3.0 of eccenca DataIntegration introduces the following changes:
 -   Transform page: When switching between tabs, e.g. from mapping editor to evaluation tab, the currently active rule stays active.
 -   JSON `#text` path now returns the formatted JSON as documented.
 
-v23.2 of eccenca DataIntegration ships the following fixes:
+v23.2 of DataIntegration ships the following fixes:
 
 -   Project variables widget showing the variables of the wrong project.
 -   Python package uninstall is not able to remove crucial packages anymore.
@@ -94,17 +99,21 @@ v23.2 of eccenca DataIntegration ships the following fixes:
 -   Error message in 'SPARQL endpoint' plugin to mention prohibited URL redirect to a different protocol.
 -   `JDBC endpoint` dataset: Setting the user via JDBC URL while leaving the user parameter blank does not work.
 
-## eccenca DataManager v23.3.0
+## eccenca DataManager v23.3.1
 
 We are excited to announce the latest update to DataManager v23.3, which introduces new features, improvements and bug fixes.
 
-v23.3.0 of eccenca DataManager adds the following new features:
+v23.3.1 of DataManager ships the following fixes:
+
+-   _Workspace configuration:_ explore `defaultGraph` is now correctly evaluated.
+
+v23.3.0 of DataManager adds the following new features:
 
 -   Implemented Charts module with Shacl integration.
 -   Added option to show edges without the shapes on the EasyNav canvas and in the sidebar, i.e. the node expansion is still shaped.
 -   Query module allows simple query creation with an form assisted dialogue.
 
-v23.3.0 of eccenca DataManager ships the following changes:
+v23.3.0 of DataManager ships the following changes:
 
 -   Internal:
     -   Query module is migrated from Redux to a Context storage.
@@ -112,28 +121,32 @@ v23.3.0 of eccenca DataManager ships the following changes:
 -   ResourceSelect doesn't request options anymore if they have already been requested earlier.
 -   `shui:listQuery` allows usage of the `{{username}}` placeholder, which is replaced by the name (i.e.not the IRI) of the logged in user.
 
-v23.3.0 of eccenca DataIntegration ships the following fixes:
+v23.3.0 of DataManager ships the following fixes:
 
 -   Fixed broken navigation (workspace part of URL was lost).
 -   CMEM Manual Testing 23.2 e2e - Don't do redundant redirects in the Module context.
 -   Navigation tree in the Thesaurus module was collapsed after a subitem select.
 -   Use more space for visualization catalogue if available.
 
-## eccenca DataPlatform v23.3.0
+## eccenca DataPlatform v23.3.1
 
 We're excited to bring you the latest update to DataPlatform v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
-v23.3.0 of eccenca DataPlatform ships following fixes:
+v23.3.1 of DataPlatform ships following fixes:
+
+-   Backport of fix for URI Template ordering, when storing shaped resource + sub-resource with uriTemplate for each
+
+v23.3.0 of DataPlatform ships following fixes:
 
 -   Fixed non-working query cancelling in GraphDb 10.3
 -   Wrong caching on facet query calls
 
-v23.3.0 of eccenca DataPlatform adds the following new features:
+v23.3.0 of DataPlatform adds the following new features:
 
 -   Added endpoint for removal of system resources i.e. bootstrap data
 -   GraphDb embedded development build
 
-v23.3.0 of eccenca DataPlatform ships the following changes:
+v23.3.0 of DataPlatform ships the following changes:
 
 -   Dataplatform health check update:
     -   activation of spring boot kubernetes health groups `liveness/readiness`.
@@ -157,7 +170,7 @@ v23.3.0 of eccenca DataPlatform ships the following changes:
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
-v23.3.0 of eccenca Corporate Memory Control adds the following new features:
+v23.3.0 of Corporate Memory Control adds the following new features:
 
 -   `project variable` command group
     -   `create` command - create a new project variable
@@ -179,7 +192,7 @@ v23.3.0 of eccenca Corporate Memory Control adds the following new features:
 -   `admin store` command group
     -   `bootstrap --remove` option - delete the bootstrap data
 
-v23.3.0 of eccenca Corporate Memory Control introduces the following changes:
+v23.3.0 of Corporate Memory Control introduces the following changes:
 
 -   `workflow execute` command - more debug info when polling for workflow info
 -   Upgrade to `click` v8 (see Migration Notes).
