@@ -26,14 +26,14 @@ This release delivers the following component versions:
 
 -   eccenca DataIntegration v23.3.2
 -   eccenca DataManager v23.3.1
--   eccenca DataPlatform v23.3.0
+-   eccenca DataPlatform v23.3.1
 -   eccenca Corporate Memory Control (cmemc) v23.3.0
 
 More detailed release notes for these versions are listed below.
 
 ## eccenca DataIntegration v23.3.2
 
-We're excited to bring you the latest update to DataIntegration v23.3.2, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to DataIntegration v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
 v23.3.2 of DataIntegration ships the following fixes:
 
@@ -102,7 +102,7 @@ v23.2 of DataIntegration ships the following fixes:
 
 ## eccenca DataManager v23.3.1
 
-We are excited to announce the latest update to DataManager v23.3.1, which introduces new features, improvements and bug fixes.
+We are excited to announce the latest update to DataManager v23.3, which introduces new features, improvements and bug fixes.
 
 v23.3.1 of DataManager ships the following fixes:
 
@@ -129,9 +129,13 @@ v23.3.0 of DataManager ships the following fixes:
 -   Navigation tree in the Thesaurus module was collapsed after a subitem select.
 -   Use more space for visualization catalogue if available.
 
-## eccenca DataPlatform v23.3.0
+## eccenca DataPlatform v23.3.1
 
-We're excited to bring you the latest update to DataPlatform v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to DataPlatform v23.3, featuring numerous enhancements, bug fixes, and deprecations.
+
+v23.3.1 of DataPlatform ships following fixes:
+
+-   Backport of fix for URI Template ordering, when storing shaped resource + sub-resource with uriTemplate for each
 
 v23.3.0 of DataPlatform ships following fixes:
 
@@ -165,7 +169,7 @@ v23.3.0 of DataPlatform ships the following changes:
 
 ## eccenca Corporate Memory Control (cmemc) v23.3.0
 
-We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3.0, featuring numerous enhancements, bug fixes, and deprecations.
+We're excited to bring you the latest update to Corporate Memory Control (cmemc) v23.3, featuring numerous enhancements, bug fixes, and deprecations.
 
 v23.3.0 of Corporate Memory Control adds the following new features:
 
