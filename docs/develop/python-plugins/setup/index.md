@@ -52,7 +52,7 @@ This section describes which backend components are needed on the DataIntegratio
     An installation of the CPython distribution (at least version 3.3) is required.
     Although other distributions, such as Anaconda, should work as well, only CPython is officially supported.
 
-    The official image ships with a tested python interpreter (currenty - 2024 - Python 3.11).
+    The official image ships with a tested python interpreter (currently - 2024 - Python 3.11).
 
 ??? note "Java Embedded Python (Jep)"
 
@@ -76,8 +76,8 @@ This section describes which backend components are needed on the DataIntegratio
 The basic setup allows for installation of packages from the [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) python package index, maintained by the [Python Software Foundation](https://www.python.org/psf-landing/).
 In order to change the index server, from where you can install python packages, you can use the following environment variables:
 
--   `PIP_INDEX_URL` - Base URL of the default python package index. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/).
-    -   Example Value: `https://pypi.eccenca.com/simple`
+-   `PIP_INDEX_URL` - Base URL of the default python package index Base URL. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/).
+    -   Default Value: `https://pypi.python.org/simple`
     -   Changing this value means, that you can install packages **only** from this repository.
 -   `PIP_EXTRA_INDEX_URL` - Extra URLs of package indexes to use in addition to the default package index.
     -   Example Value: `https://pypi.eccenca.com/simple https://example.org/simple`
@@ -90,6 +90,6 @@ Please have a look at the [pip documentation](https://pip.pypa.io/en/stable/topi
 ### Package Path
 
 The basic setup provides a `/data` directory inside of the DataIntegration container, where all changed files are managed in subdirectories.
-The environment variable `PYTHONPATH` defines the directory, where the user managed python packages are saved.
+The environment variable `PYTHONPATH` defines the directory, where the user-managed python packages are saved.
+This directory shall be persisted between restarts of DataIntegration.
 The default value of this variable is `/data/python-packages/`.
-
