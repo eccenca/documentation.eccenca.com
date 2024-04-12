@@ -76,8 +76,8 @@ This section describes which backend components are needed on the DataIntegratio
 The basic setup allows for installation of packages from the [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) python package index, maintained by the [Python Software Foundation](https://www.python.org/psf-landing/).
 In order to change the index server, from where you can install python packages, you can use the following environment variables:
 
--   `PIP_INDEX_URL` - Base URL of the default python package index Base URL. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/).
-    -   Default Value: `https://pypi.python.org/simple`
+-   `PIP_INDEX_URL` - Base URL of the default python package index Base URL. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/). If this variable is not set, the [official Python Package Index](https://pypi.python.org/simple) is used.
+    -   Example Value: `https://pypi.eccenca.com/simple` (the eccenca Python Package Index holds only published Corporate Memory Python Plugins and respective dependencies)
     -   Changing this value means, that you can install packages **only** from this repository.
 -   `PIP_EXTRA_INDEX_URL` - Extra URLs of package indexes to use in addition to the default package index.
     -   Example Value: `https://pypi.eccenca.com/simple https://example.org/simple`
