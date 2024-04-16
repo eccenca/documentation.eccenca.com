@@ -24,10 +24,10 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v24.1.0
--   eccenca DataManager v24.1.2
--   eccenca DataPlatform v24.1.1
--   eccenca Corporate Memory Control (cmemc) v24.1.0
+-   eccenca DataIntegration v24.1.1
+-   eccenca DataManager v24.1.3
+-   eccenca DataPlatform v24.1.2
+-   eccenca Corporate Memory Control (cmemc) v24.1.1
 
 More detailed release notes for these versions are listed below.
 
@@ -54,7 +54,8 @@ v24.1.1 of DataIntegration ships the following fixes:
 -   Notification menu was fixed regarding its opening and closing behavior.
 -   XML Dataset produces wrong tags if the target property is a full URI
 -   Macro support for Jinja templates
-
+-   docker image: bump zlibg to mitigate CVE-2023-45853
+-   docker image: remove libaom to mitigate CVE-2023-6879
 
 v24.1.0 of DataIntegration adds the following new features:
 
@@ -115,9 +116,13 @@ v24.1.0 of DataIntegration ships the following fixes:
 -   Mapping editor shows spinner when no network is available when switching to it
 -   Linking editor does not load when network unavailable instead of showing error
 
-## eccenca DataManager v24.1.2
+## eccenca DataManager v24.1.3
 
 We are excited to announce the latest update to DataManager v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.3 of DataManager ships the following fixes:
+
+-   docker image: bump zlib package to mitigate CVE-2023-45853
 
 v24.1.2 of DataManager ships the following fixes:
 
@@ -161,9 +166,13 @@ v24.1.0 of DataManager ships the following fixes:
 -   Installing a vocabulary now fully refreshes the application state
 -   Workspaces, which are prefix of an other workspace, are now correctly handled
 
-## eccenca DataPlatform v24.1.1
+## eccenca DataPlatform v24.1.2
 
 We're excited to bring you the latest update to DataPlatform v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.2 of DataPlatform ships the following fixes:
+
+-   docker image: bump zlib package to mitigate CVE-2023-45853
 
 v24.1.1 of DataPlatform ships the following fixes:
 
