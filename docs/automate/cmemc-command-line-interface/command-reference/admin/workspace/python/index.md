@@ -33,6 +33,10 @@ This command is essentially a `pip install` in the remote python environment.
 
 You can install a package by uploading a source distribution .tar.gz file, by uploading a build distribution .whl file, or by specifying a package name, i.e., a pip requirement specifier with a package name available on pypi.org (e.g. `requests==2.27.1`).
 
+!!! note
+    The tab-completion of this command lists only public packages from pypi.org and not from additional or changed python package repositories you may have configured on the server.
+
+
 
 
 ## admin workspace python uninstall
