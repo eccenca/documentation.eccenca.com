@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.1.2
+# Corporate Memory 24.1.3
 
-Corporate Memory 24.1.2 is the second patch release in the 24.1 release line.
+Corporate Memory 24.1.3 is the third patch release in the 24.1 release line.
 
 ![24.1: Build - Key Shortcuts in Workflow Editor](24-1-build-workflow-editor-shortcuts.png "24.1: Build - Key Shortcuts in Workflow Editor"){ class="bordered" }
 ![24.1: Automate - New cmemc command groups Access Condition and Graph Validation](24-1-cmemc-new-command-groups.png "24.1: Automate - New cmemc command groups Access Condition and Graph Validation"){ class="bordered" }
@@ -179,9 +179,22 @@ v24.1.0 of DataPlatform ships the following fixes:
 -   Default language order is changed to: `["en", "", "de"]`
 
 
-## eccenca Corporate Memory Control (cmemc) v24.1.0
+## eccenca Corporate Memory Control (cmemc) v24.1.1
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.1 of Corporate Memory Control (cmemc) ships the following fixes:
+
+-   In case of using env-only configuration + SSL_VERIFY=false
+    -   InsecureRequestWarning output from urllib3 is now suppressed
+    -   Normal user warning is given to stderr
+-   `admin workspace python install` command
+    -   completion of plugin packages does not list non-plugin packages anymore
+
+v24.1.1 of Corporate Memory Control (cmemc) ships the following security updates:
+
+-   docker image: upgrade zlib package to 1:1.3.dfsg-3 in order to mitigate CVE-2023-45853
+
 
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 
@@ -212,6 +225,7 @@ v24.1.0 of Corporate Memory Control (cmemc) ships the following changes:
 -   `graph import` command
     -   importing a directory to a single graph no longer raises an error but imports all turtle files to this graph
 -   docker image: python 3.11.8
+
 
 ## Migration Notes
 
