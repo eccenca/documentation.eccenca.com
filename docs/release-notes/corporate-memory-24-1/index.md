@@ -35,6 +35,27 @@ More detailed release notes for these versions are listed below.
 
 We're excited to bring you the latest update to DataIntegration v24.1, which introduces new features, improvements and bug fixes:
 
+v24.1.1 of DataIntegration adds the following new features:
+
+-   A new facet has been added to the workspace search that allows to filter for read-only dataset
+-   The "Evaluate template" operator now supports hierarchical input entities if full evaluation is set
+-   Better preview of hierarchical formats, such as XML and JSON
+
+v24.1.1 of DataIntegration introduces the following changes:
+
+-   Icon of notification menu was aligned to DM, it's now a bell.
+
+v24.1.1 of DataIntegration ships the following fixes:
+
+-   Fixed various vulnerabilities
+-   AWS S3 workspace: IO Error Attempted read on closed stream
+-   Secret values (passwords) in DI task configurations not shown to users once entered
+-   The create project endpoint returns a custom error format instead of HTTP problem details
+-   Notification menu was fixed regarding its opening and closing behavior.
+-   XML Dataset produces wrong tags if the target property is a full URI
+-   Macro support for Jinja templates
+
+
 v24.1.0 of DataIntegration adds the following new features:
 
 -   Multiline editing of template values
