@@ -29,7 +29,13 @@ This release delivers the following component versions:
 -   eccenca DataPlatform v24.1.2
 -   eccenca Corporate Memory Control (cmemc) v24.1.1
 
-More detailed release notes for these versions are listed below.
+We tested this release with the following dependency components:
+
+-   Ontotext GraphDB v10.6.2
+-   Keycloak v24.0.3
+
+More detailed information for this release is provided in the next sections.
+
 
 ## eccenca DataIntegration v24.1.0
 
