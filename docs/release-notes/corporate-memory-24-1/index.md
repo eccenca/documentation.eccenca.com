@@ -27,7 +27,7 @@ This release delivers the following component versions:
 -   eccenca DataIntegration v24.1.1
 -   eccenca DataManager v24.1.3
 -   eccenca DataPlatform v24.1.2
--   eccenca Corporate Memory Control (cmemc) v24.1.1
+-   eccenca Corporate Memory Control (cmemc) v24.1.2
 
 We tested this release with the following dependency components:
 
@@ -218,6 +218,10 @@ v24.1.0 of DataPlatform ships the following fixes:
 ## eccenca Corporate Memory Control (cmemc) v24.1.1
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.2 of Corporate Memory Control (cmemc) ships the following security patches:
+
+-   docker image: bump zlib1g to 1.3.dfsg+really1.3.1-1 to mitigate CVE-2023-45853
 
 v24.1.1 of Corporate Memory Control (cmemc) ships the following fixes:
 
