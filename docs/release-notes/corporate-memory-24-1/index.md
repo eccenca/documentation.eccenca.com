@@ -36,10 +36,23 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-
-## eccenca DataIntegration v24.1.0
+## eccenca DataIntegration v24.1.2
 
 We're excited to bring you the latest update to DataIntegration v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.2 of DataIntegration introduces the following changes:
+
+-   Description fields provide a Markdown-editor now.
+-   Removed Dependency ports menu item from transform and linking nodes.
+
+v24.1.2 of DataIntegration ships the following fixes:
+
+-   Removed bloated Amazon AWS bundle from dependencies.
+-   Include Snowflake JDBC driver.
+-   docker image: bump zlibg to mitigate CVE-2023-45853.
+-   docker image: remove libaom to mitigate CVE-2023-6879.
+-   Cannot create XML with defined DTD in output template.
+-   Fixed upload process in DI project files widget.
 
 v24.1.1 of DataIntegration adds the following new features:
 
@@ -60,8 +73,6 @@ v24.1.1 of DataIntegration ships the following fixes:
 -   Notification menu was fixed regarding its opening and closing behavior.
 -   XML Dataset produces wrong tags if the target property is a full URI
 -   Macro support for Jinja templates
--   docker image: bump zlibg to mitigate CVE-2023-45853
--   docker image: remove libaom to mitigate CVE-2023-6879
 
 v24.1.0 of DataIntegration adds the following new features:
 
