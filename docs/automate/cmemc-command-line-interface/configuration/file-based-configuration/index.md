@@ -254,11 +254,11 @@ This variable defaults to `none`.
 
 #### SSL_VERIFY
 
-Setting this to `True` will disable certification verification (not recommended).
+Setting this to `false` will disable certification verification (not recommended).
 
 Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
 
-This variable defaults to `False`.
+This variable defaults to `true`.
 
 #### REQUESTS_CA_BUNDLE
 
