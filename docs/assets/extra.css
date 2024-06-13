@@ -163,3 +163,43 @@ img.bordered {
     margin-top: 0.125em;
 }
 
+/**
+ * simplify layout for print:
+ * - only use logo and page title from header
+ * - remove footer completely
+ * - remove whitespace around main content
+ * - remove comment section
+ */
+@media print {
+    body {
+        background-color: transparent;
+    }
+    .md-header {
+        box-shadow: none;
+        background-color: transparent;
+    }
+    .md-header__inner {
+        padding: 0;
+        margin: 0 0.8rem;
+        max-width: none;
+    }
+    .md-header__inner > * {
+        display: none !important;
+    }
+    .md-header__inner > .md-logo,
+    .md-header__inner > .md-header__title {
+        display: inline-block !important;
+        margin: 0;
+    }
+
+    .md-footer {
+        display: none !important;
+    }
+    .md-main__inner {
+        max-width: none;
+        margin: 0;
+    }
+    #__comments, .giscus {
+        display: none !important;
+    }
+}
