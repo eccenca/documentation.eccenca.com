@@ -105,7 +105,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiGraph}}` - the currently used graph.
-    
+
 
 Used Path: `shui:onDeleteUpdate`
 
@@ -120,7 +120,7 @@ The query should be saved in the same graph as the shape (or imported).
 The query can use these placeholders:
 
 - `{{shuiResource}}` - the resource currently shown with the node shape of this property shape,
-- `{{shuiGraph}}` - the currently used graph. 
+- `{{shuiGraph}}` - the currently used graph.
 
 
 Used Path: `shui:onUpdateUpdate`
@@ -128,6 +128,10 @@ Used Path: `shui:onUpdateUpdate`
 
 ### Target Graph Template
 
+!!! info
+    The `shape` system default behavior is to write new data or changes into the currently selected graph.
+    This might mean data would be written into an integration graph, if exploring a knowledge graph using the integration graph as an entry point.
+    The use of a _Target Graph Template_ addresses this problem.
 
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 
