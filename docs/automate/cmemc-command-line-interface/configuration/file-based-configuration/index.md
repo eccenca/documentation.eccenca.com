@@ -188,6 +188,8 @@ The following values can be used:
 - `password` - this refers to the [OAuth 2.0 Password Grant Type](https://oauth.net/2/grant-types/password/). Mandatory variables for this grant type are `OAUTH_CLIENT_ID`, `OAUTH_USER`, `OAUTH_PASSWORD` **or** `OAUTH_PASSWORD_PROCESS`.
 - `prefetched_token` - this value can be used in case you can provide a token that was fetched outside of cmemc. Mandatory variables for this grant type are `OAUTH_ACCESS_TOKEN` **or** `OAUTH_ACCESS_TOKEN_PROCESS`.
 
+This variable defaults to `client_credentials`.
+
 #### OAUTH_CLIENT_ID
 
 This configures the used client ID.
