@@ -27,7 +27,7 @@ This release delivers the following component versions:
 -   eccenca DataIntegration v24.1.1
 -   eccenca DataManager v24.1.3
 -   eccenca DataPlatform v24.1.2
--   eccenca Corporate Memory Control (cmemc) v24.1.2
+-   eccenca Corporate Memory Control (cmemc) v24.1.4
 
 We tested this release with the following dependency components:
 
@@ -90,8 +90,8 @@ v24.1.0 of DataIntegration adds the following new features:
     -   Limit and offset: Only executes a specific "window" of the input entities/requests
     -   URL property: Allows to define a property that is injected into the result JSON that contains the original request URL
     -   Support dataset file output, i.e. a file based dataset can be connected to the operator output, which overwrites the dataset file with the results from the REST requests
-      -   This allows to handle REST results as any dataset content
-      -   Supports zip files. If a dataset (currently JSON, XML, RDF file, CSV) specifies a zip file (ending in .zip) a zip archive is written that contains one file per request result
+    -   This allows to handle REST results as any dataset content
+    -   Supports zip files. If a dataset (currently JSON, XML, RDF file, CSV) specifies a zip file (ending in .zip) a zip archive is written that contains one file per request result
 -   JSON dataset
     -   Support bulk resources, i.e. JSON files in a zip file
     -   Support reading JSON Lines files
@@ -113,7 +113,7 @@ v24.1.0 of DataIntegration introduces the following changes:
 -   Upgraded libraries, in particular Play to v2.9.1 and Spark to v3.5.0
 -   Support of custom tasks as input for transform and linking tasks
 -   Create/update dialogue:
-    - When a parameter value is changed that other parameters are depending on, those parameter values are reset because they might not be valid anymore
+    -   When a parameter value is changed that other parameters are depending on, those parameter values are reset because they might not be valid anymore
 -   Shortened workflow execution failure message shown in activity widget
 -   Added `Fail workflow` flag to `Cancel workflow` operator
 
@@ -225,10 +225,15 @@ v24.1.0 of DataPlatform ships the following fixes:
 -   Correct documentation of API endpoints for named query execution
 -   Default language order is changed to: `["en", "", "de"]`
 
-
-## eccenca Corporate Memory Control (cmemc) v24.1.1
+## eccenca Corporate Memory Control (cmemc) v24.1.4
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.1, which introduces new features, improvements and bug fixes:
+
+v24.1.4 of Corporate Memory Control (cmemc) ships the following fixes:
+
+-   restore python 3.10 compatibility
+
+v24.1.3 of Corporate Memory Control (cmemc) was a redacted build.
 
 v24.1.2 of Corporate Memory Control (cmemc) ships the following security patches:
 
@@ -245,7 +250,6 @@ v24.1.1 of Corporate Memory Control (cmemc) ships the following fixes:
 v24.1.1 of Corporate Memory Control (cmemc) ships the following security updates:
 
 -   docker image: upgrade zlib package to 1:1.3.dfsg-3 in order to mitigate CVE-2023-45853
-
 
 v24.1.0 of Corporate Memory Control (cmemc) adds the following new features:
 
@@ -277,7 +281,6 @@ v24.1.0 of Corporate Memory Control (cmemc) ships the following changes:
     -   importing a directory to a single graph no longer raises an error but imports all turtle files to this graph
 -   docker image: python 3.11.8
 
-
 ## Migration Notes
 
 !!! info
@@ -300,7 +303,6 @@ Not all workflow nodes were executed! Executed 2 of 7 nodes.
 In this case, open the affected workflow in DataIntegration and click the save button once (no changes are required).
 After saving it will work again.
 
-
 ### DataManager
 
 #### Migrate Default Graph Override
@@ -317,12 +319,11 @@ Previously, un-setting the `exploreModuleConfiguration.defaultGraph` of the defa
 The configuration now follows the standard pattern and expects an explicitly blocked value (i.e. setting it to `null`).
 All non-default workspaces that previously set the `exploreModuleConfiguration.defaultGraph` to the empty string `""` need to be migrated by:
 
-1.  Open the workspace in the (workspace) **:material-cog-outline: Configuration**.
-1.  Open **Modules** > **Explore**.
-1.  Delete the empty `""` value of **defaultGraph** by clicking on the :material-trash-can-outline: icon.
-1.  Click on the **block button** to set it to `null`.
-1.  **Save** the workspace.
-
+1. Open the workspace in the (workspace) **:material-cog-outline: Configuration**.
+1. Open **Modules** > **Explore**.
+1. Delete the empty `""` value of **defaultGraph** by clicking on the :material-trash-can-outline: icon.
+1. Click on the **block button** to set it to `null`.
+1. **Save** the workspace.
 
 ### DataPlatform
 
@@ -332,8 +333,6 @@ DP APIs do not return null values for unset fields anymore.
 
     Check if null values of non mandatory fields are expected if you are using the DataPlatform APIs with a custom client.
 
-
 ### cmemc
 
 No migrations are required going from cmemc 23.3.x to 24.1.x.
-

@@ -60,7 +60,7 @@ We support all (LTS/ESR) versions of the below listed browsers that are actively
 
 ### Command Line Client (cmemc)
 
-For cmemc, currently Python >= 3.11 (and < 4.0) is required.
+cmemc is supported by the following Python versions: [![Python Version](https://img.shields.io/pypi/pyversions/cmem-cmemc.svg "Python Version"){ .off-glb }](https://pypi.org/project/cmem-cmemc/)
 
 There is also a [docker image](../../automate/cmemc-command-line-interface/invocation/docker-image/index.md) available.
 
