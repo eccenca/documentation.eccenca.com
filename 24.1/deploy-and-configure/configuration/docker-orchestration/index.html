@@ -12302,7 +12302,7 @@
 
 <h1 id="docker-orchestration">Docker Orchestration<a class="headerlink" href="#docker-orchestration" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
-<p>This page describes the configuration for the docker-compose based orchestration.</p>
+<p>This page describes the configuration for the <code>docker compose</code> based orchestration.</p>
 <p>The Docker Orchestration (hereafter simply orchestration) is configured via environment files.
 In this document we provide an overview on how the environment files are loaded, how to modify the configuration inside those files and available configuration parameters.</p>
 <h2 id="environment-files-loading-sequence">Environment Files: Loading Sequence<a class="headerlink" href="#environment-files-loading-sequence" title="Permanent link">¤</a></h2>
@@ -12355,7 +12355,7 @@ For example, to replicate the minimum configuration from <code>config.env</code>
 <tr>
 <td>DOCKER_CMD_ADD</td>
 <td>(optional)</td>
-<td>Additional command line arguments to be supplied to docker-compose such as &ndash;tlscacert, &ndash;tlscert, &ndash;tlskey or &ndash;tlsverify</td>
+<td>Additional command line arguments to be supplied to <code>docker compose</code> such as <code>--tlscacert</code>, <code>--tlscert</code>, <code>--tlskey</code> or <code>--tlsverify</code></td>
 </tr>
 <tr>
 <td>ECC_HOST</td>
@@ -12397,7 +12397,7 @@ For example, to replicate the minimum configuration from <code>config.env</code>
 <tr>
 <td>APACHE_BASE_FILE</td>
 <td>docker-compose.apache2-exposed.yml</td>
-<td>docker-compose extension file for apache2, see SSL configuration section below for an example</td>
+<td><code>docker compose</code> extension file for apache2, see SSL configuration section below for an example</td>
 </tr>
 <tr>
 <td>APACHE_CONFIG</td>
@@ -12422,7 +12422,7 @@ For example, to replicate the minimum configuration from <code>config.env</code>
 <tr>
 <td>DATAINTEGRATION_BASE_FILE</td>
 <td>docker-compose.dataintegration-base.yml</td>
-<td>docker-compose extension file for DataIntegration, see SSL configuration section below for an example</td>
+<td><code>docker compose</code> extension file for DataIntegration, see SSL configuration section below for an example</td>
 </tr>
 <tr>
 <td>TRUSTSTOREPASS</td>
@@ -12449,7 +12449,7 @@ For example, to replicate the minimum configuration from <code>config.env</code>
 <tr>
 <td>PROJECT_NAME_SUFFIX</td>
 <td>(empty) (optional)</td>
-<td>will append to the docker-compose project environment variable <a href="https://docs.docker.com/compose/reference/envvars/#compose_project_name">COMPOSE_PROJECT_NAME</a></td>
+<td>will append to the <code>docker compose</code> project environment variable <a href="https://docs.docker.com/compose/reference/envvars/#compose_project_name">COMPOSE_PROJECT_NAME</a></td>
 </tr>
 </tbody>
 </table>
@@ -12746,7 +12746,7 @@ For example, to replicate the minimum configuration from <code>config.env</code>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-11-01T15:31:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-07-22T07:29:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-22</span>
   </span>
 
     

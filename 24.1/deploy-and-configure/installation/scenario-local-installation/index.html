@@ -12146,12 +12146,12 @@
 
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h1>
-<p>This page describes a docker-compose based orchestration running on your local machine and accessible via browser.</p>
+<p>This page describes a <code>docker compose</code> based orchestration running on your local machine and accessible via browser.</p>
 <p>The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¤</a></h2>
 <ul>
 <li>Access credentials to eccenca Artifactory and eccenca Docker Registry → <a href="https://eccenca.com/en/contact">contact us to get yours</a></li>
-<li><a href="https://www.docker.com/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> (v1) installed locally</li>
+<li><a href="https://www.docker.com/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker compose</a> (v2) installed locally</li>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed locally</li>
 <li>At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker</li>
 </ul>
@@ -12171,17 +12171,17 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="gp">$ </span>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;stub&quot;</span>
 </code></pre></div>
 <p>Check your local environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp"># </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="o">(</span>without<span class="w"> </span>$<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>check<span class="w"> </span>your<span class="w"> </span>docker<span class="w"> </span>server<span class="w"> </span>version,<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">19</span>.03
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp"># </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="o">(</span>without<span class="w"> </span>$<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>check<span class="w"> </span>your<span class="w"> </span>docker<span class="w"> </span>server<span class="w"> </span>version,<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">26</span>.1
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp"># </span>to<span class="w"> </span>have<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>security<span class="w"> </span>patches,<span class="w"> </span>always<span class="w"> </span>update<span class="w"> </span>your<span class="w"> </span>docker<span class="w"> </span>version<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>one
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gp">$ </span>docker<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>version
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">Server Version: 19.03.8</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gp">$ </span>docker<span class="w"> </span>version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>version
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">Version:    26.1.4</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="gp"># </span>check<span class="w"> </span>docker-compose<span class="w"> </span>version,<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span><span class="m">1</span>.25.0
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="gp"># </span>check<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>version,<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="gp"># </span>update<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version<span class="w"> </span><span class="k">if</span><span class="w"> </span>necessary
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="gp">$ </span>docker-compose<span class="w"> </span>--version
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="go">docker-compose version 1.25.4, build 8d51620a</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="gp">$ </span>docker<span class="w"> </span>compose<span class="w"> </span>version
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="go">Docker Compose version v2.27.1</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="gp"># </span>login<span class="w"> </span>into<span class="w"> </span>eccenca<span class="w"> </span>docker<span class="w"> </span>registry
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
@@ -12223,12 +12223,12 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="gp">$ </span>make<span class="w"> </span>clean-pull-start-bootstrap
 </code></pre></div>
 <p>You should see the output as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">/usr/local/bin/docker-compose kill</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">/usr/local/bin/docker-compose stop</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">/usr/local/bin/docker-compose down --volumes --remove-orphans</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">/usr/local/bin/docker compose kill</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">/usr/local/bin/docker compose stop</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">/usr/local/bin/docker compose down --volumes --remove-orphans</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">Removing network dockerlocal_default</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="go">Removing volume dockerlocal_stardog</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">/usr/local/bin/docker-compose rm -v --force</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">/usr/local/bin/docker compose rm -v --force</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="go">No stopped containers</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="go">Pulling apache2         ... done</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="go">Pulling datamanager     ... done</span>
@@ -12238,7 +12238,7 @@
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="go">Pulling dataplatform    ... done</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="go">Pulling dataintegration ... done</span>
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="go">Pulling cmemc           ... done</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="go">/usr/local/bin/docker-compose  up -d</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="go">/usr/local/bin/docker compose  up -d</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="go">Creating network &quot;dockerlocalhost_default&quot; with the default driver</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="go">Creating volume &quot;dockerlocalhost_postgres_volume&quot; with default driver</span>
 <a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="go">Creating volume &quot;dockerlocalhost_import_volume&quot; with default driver</span>
@@ -12305,7 +12305,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-01T12:37:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-07-22T08:03:02+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-22</span>
   </span>
 
     

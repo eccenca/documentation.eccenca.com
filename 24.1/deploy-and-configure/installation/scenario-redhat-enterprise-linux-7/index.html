@@ -12147,7 +12147,7 @@
 
 <h1 id="scenario-redhat-enterprise-linux-7">Scenario: RedHat Enterprise Linux 7<a class="headerlink" href="#scenario-redhat-enterprise-linux-7" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
-<p>This page describes a docker-compose based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.</p>
+<p>This page describes a <code>docker compose</code> based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¤</a></h2>
 <ul>
 <li><a href="https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html">Virtualbox</a> and <a href="https://www.vagrantup.com/downloads.html">vagrant</a> installed locally</li>
@@ -12321,11 +12321,7 @@
 <span class="normal"><a href="#__codelineno-3-28">28</a></span>
 <span class="normal"><a href="#__codelineno-3-29">29</a></span>
 <span class="normal"><a href="#__codelineno-3-30">30</a></span>
-<span class="normal"><a href="#__codelineno-3-31">31</a></span>
-<span class="normal"><a href="#__codelineno-3-32">32</a></span>
-<span class="normal"><a href="#__codelineno-3-33">33</a></span>
-<span class="normal"><a href="#__codelineno-3-34">34</a></span>
-<span class="normal"><a href="#__codelineno-3-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># switch to superuser</span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># switch to superuser</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>sudo<span class="w"> </span>su
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Register your RHEL instance</span>
@@ -12338,79 +12334,41 @@
 <a id="__codelineno-3-11" name="__codelineno-3-11"></a>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>rhel-7-server-extras-rpms
 <a id="__codelineno-3-12" name="__codelineno-3-12"></a>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>rhel-7-server-optional-rpms
 <a id="__codelineno-3-13" name="__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="c1"># install and start docker</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>yum<span class="w"> </span>install<span class="w"> </span>docker<span class="w"> </span>device-mapper-libs<span class="w"> </span>device-mapper-event-libs
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>systemctl<span class="w"> </span>start<span class="w"> </span>docker.service
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker.service
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="c1"># install and start docker (including compose)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="c1"># please have a look at https://docs.docker.com/desktop/install/rhel/ </span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1"># this could also be helpful: https://docs.docker.com/compose/install/standalone/</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18"></a>
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="c1"># install docker-compose</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>/bin/docker-compose
-<a id="__codelineno-3-21" name="__codelineno-3-21"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/bin/docker-compose
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a>
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1"># Install necessary system utilities</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24"></a>yum<span class="w"> </span>install<span class="w"> </span>unzip<span class="w"> </span>git<span class="w"> </span>jq
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="c1"># get corporate memory orchestration package</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27"></a>curl<span class="w"> </span>-u<span class="w"> </span>username<span class="w"> </span>https://releases.eccenca.com/docker-orchestration/cmem-orchestration-v21.11.5.zip<span class="w"> </span>&gt;<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-3-28" name="__codelineno-3-28"></a>unzip<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-3-29" name="__codelineno-3-29"></a>rm<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-3-30" name="__codelineno-3-30"></a>mv<span class="w"> </span>cmem-orchestration-v*<span class="w"> </span>/opt/corporate-memory
-<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="nb">cd</span><span class="w"> </span>/opt/corporate-memory
-<a id="__codelineno-3-32" name="__codelineno-3-32"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>README.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;init&quot;</span>
-<a id="__codelineno-3-33" name="__codelineno-3-33"></a>
-<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="c1"># give docker daemon access to /opt/corporate-memory directory</span>
-<a id="__codelineno-3-35" name="__codelineno-3-35"></a>chcon<span class="w"> </span>-Rt<span class="w"> </span>svirt_sandbox_file_t<span class="w"> </span>/opt/corporate-memory
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="c1"># Install necessary system utilities</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>yum<span class="w"> </span>install<span class="w"> </span>unzip<span class="w"> </span>git<span class="w"> </span>jq
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="c1"># get corporate memory orchestration package</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>curl<span class="w"> </span>-u<span class="w"> </span>username<span class="w"> </span>https://releases.eccenca.com/docker-orchestration/cmem-orchestration-v21.11.5.zip<span class="w"> </span>&gt;<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>unzip<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>rm<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>mv<span class="w"> </span>cmem-orchestration-v*<span class="w"> </span>/opt/corporate-memory
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="nb">cd</span><span class="w"> </span>/opt/corporate-memory
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>README.md<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;init&quot;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="c1"># give docker daemon access to /opt/corporate-memory directory</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>chcon<span class="w"> </span>-Rt<span class="w"> </span>svirt_sandbox_file_t<span class="w"> </span>/opt/corporate-memory
 </code></pre></div></td></tr></table></div>
 <p>Create <code>/opt/corporate-memory/environments/prod.env</code> file with the following contents:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span>
-<span class="normal"><a href="#__codelineno-4-24">24</a></span>
-<span class="normal"><a href="#__codelineno-4-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="ch">#!/bin/bash linenums=&quot;1&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="ch">#!/bin/bash linenums=&quot;1&quot;</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nv">CMEM_SERVICE_ACCOUNT_CLIENT_SECRET</span><span class="o">=</span>c8c12828-000c-467b-9b6d-2d6b5e16df4a
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nv">STARDOG_PASSWORD</span><span class="o">=</span>admin
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nv">TRUSTSTOREPASS</span><span class="o">=</span>Aimeik5Ocho5riuC
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nv">DEPLOYHOST</span><span class="o">=</span>corporate.memory
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nv">DI_VERSION</span><span class="o">=</span>v20.03
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="nv">DP_VERSION</span><span class="o">=</span>v20.03
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="nv">DM_VERSION</span><span class="o">=</span>v20.03
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="nv">APACHE2_VERSION</span><span class="o">=</span>v2.6.0
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="nv">KEYCLOAK_VERSION</span><span class="o">=</span>v6.0.1-2
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="nv">POSTGRES_VERSION</span><span class="o">=</span><span class="m">11</span>.5-alpine
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="nv">STARDOG_VERSION</span><span class="o">=</span>v7.2.0-1
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="nv">DATAINTEGRATION_JAVA_TOOL_OPTIONS</span><span class="o">=</span>-Xmx2g
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="nv">DATAPLATFORM_JAVA_TOOL_OPTIONS</span><span class="o">=</span>-Xms1g<span class="w"> </span>-Xmx2g
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="nv">STARDOG_SERVER_JAVA_ARGS</span><span class="o">=</span>-Xms1g<span class="w"> </span>-Xmx1g<span class="w"> </span>-XX:MaxDirectMemorySize<span class="o">=</span>2g
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="nv">DEPLOYPROTOCOL</span><span class="o">=</span>https
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="nv">PORT</span><span class="o">=</span><span class="m">443</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="nv">APACHE_BASE_FILE</span><span class="o">=</span>docker-compose.apache2-ssl.yml
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="nv">DATAINTEGRATION_BASE_FILE</span><span class="o">=</span>docker-compose.dataintegration-ssl.yml
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="nv">APACHE_CONFIG</span><span class="o">=</span>default.ssl.conf
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="nv">PROXY_ADDRESS_FORWARDING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nv">DEPLOYHOST</span><span class="o">=</span>corporate.memory
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nv">DEPLOYPROTOCOL</span><span class="o">=</span>https
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nv">PORT</span><span class="o">=</span><span class="m">443</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nv">APACHE_BASE_FILE</span><span class="o">=</span>docker-compose.apache2-ssl.yml
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nv">DATAINTEGRATION_BASE_FILE</span><span class="o">=</span>docker-compose.dataintegration-ssl.yml
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nv">APACHE_CONFIG</span><span class="o">=</span>default.ssl.conf
 </code></pre></div></td></tr></table></div>
 <p>Login into eccenca docker registry:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>docker<span class="w"> </span>login<span class="w"> </span>docker-registry.eccenca.com
@@ -12578,7 +12536,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-08-01T12:37:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-07-22T08:03:02+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-22</span>
   </span>
 
     

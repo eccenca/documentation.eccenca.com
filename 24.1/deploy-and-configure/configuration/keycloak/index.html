@@ -12332,7 +12332,7 @@ To use groups from Keycloak in Corporate Memory access conditions, all Keycloak 
   By creating a mapper to re-define roles from groups, we allow Corporate Memory to read roles as groups attached to the client token.</p>
 </li>
 </ul>
-<p>In the default setup in helm or docker-compose deployments, we often refer to the <code>elds-admins</code> group, acting as a super-admin / root group.
+<p>In the default setup in helm or <code>docker compose</code> deployments, we often refer to the <code>elds-admins</code> group, acting as a super-admin / root group.
 Every user in this group has all possible rights in Corporate Memory, no matter which access conditions are available.
 This is configured in the DataPlatform configuration or as an environment variable <code>AUTHORIZATION_ABOX_ADMINGROUP=elds-admins</code> (see also <a href="../dataplatform/application-full/#authorization">Dataplatform configuration authorization</a>).</p>
 <h3 id="option-1-import-the-needed-clients-from-a-json-export">Option 1: Import the needed clients from a JSON export<a class="headerlink" href="#option-1-import-the-needed-clients-from-a-json-export" title="Permanent link">¤</a></h3>
@@ -12488,7 +12488,7 @@ For this, just create a different role name later, and create an access conditio
 <h2 id="corporate-memory-configuration-after-setting-up-clients">Corporate Memory configuration after setting up clients<a class="headerlink" href="#corporate-memory-configuration-after-setting-up-clients" title="Permanent link">¤</a></h2>
 <ul>
 <li>If <strong>DataIntegration</strong> schedulers are required, configure this client id and secret under the properties <code>workbench.superuser.client</code> and <code>workbench.superuser.clientSecret</code> in DataIntegration&rsquo;s configuration file or</li>
-<li>in docker-compose-orchestration you can edit this in the environment as:
+<li>in <code>docker compose</code>-orchestration you can edit this in the environment as:
       <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span><span class="nv">CMEM_SERVICE_ACCOUNT_CLIENT_ID</span><span class="o">=</span>cmem-service-account
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nv">CMEM_SERVICE_ACCOUNT_CLIENT_SECRET</span><span class="o">=</span>YourSecret
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nv">DATAINTEGRATION_CMEM_SERVICE_CLIENT</span><span class="o">=</span>cmem-service-account
@@ -12544,7 +12544,7 @@ For this, just create a different role name later, and create an access conditio
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-11-01T15:31:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-07-22T07:29:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-22</span>
   </span>
 
     
