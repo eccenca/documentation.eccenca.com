@@ -122,7 +122,6 @@ In this case the two environment variables `FUSEKI_DOCKER_USER` and `FUSEKI_ENDP
 
 ``` yaml title="docker-compose.store.fuseki.yml"
 # Jena Fuseki
-version: '2.4'
 services:
   store_base:
     image: docker.io/secoresearch/fuseki:4.8.0

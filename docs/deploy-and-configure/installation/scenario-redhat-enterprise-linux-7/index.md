@@ -113,14 +113,10 @@ subscription-manager repos --enable=rhel-7-server-rpms
 subscription-manager repos --enable=rhel-7-server-extras-rpms
 subscription-manager repos --enable=rhel-7-server-optional-rpms
 
-# install and start docker
-yum install docker device-mapper-libs device-mapper-event-libs
-systemctl start docker.service
-systemctl enable docker.service
+# install and start docker (including compose)
 
-# install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /bin/docker-compose
-chmod +x /bin/docker-compose
+# please have a look at https://docs.docker.com/desktop/install/rhel/ 
+# this could also be helpful: https://docs.docker.com/compose/install/standalone/
 
 # Install necessary system utilities
 yum install unzip git jq
@@ -142,29 +138,12 @@ Create `/opt/corporate-memory/environments/prod.env` file with the following c
 ```bash linenums="1"
 #!/bin/bash linenums="1"
 
-CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
-STARDOG_PASSWORD=admin
-TRUSTSTOREPASS=Aimeik5Ocho5riuC
 DEPLOYHOST=corporate.memory
-
-DI_VERSION=v20.03
-DP_VERSION=v20.03
-DM_VERSION=v20.03
-APACHE2_VERSION=v2.6.0
-KEYCLOAK_VERSION=v6.0.1-2
-POSTGRES_VERSION=11.5-alpine
-STARDOG_VERSION=v7.2.0-1
-
-DATAINTEGRATION_JAVA_TOOL_OPTIONS=-Xmx2g
-DATAPLATFORM_JAVA_TOOL_OPTIONS=-Xms1g -Xmx2g
-STARDOG_SERVER_JAVA_ARGS=-Xms1g -Xmx1g -XX:MaxDirectMemorySize=2g
-
 DEPLOYPROTOCOL=https
 PORT=443
 APACHE_BASE_FILE=docker-compose.apache2-ssl.yml
 DATAINTEGRATION_BASE_FILE=docker-compose.dataintegration-ssl.yml
 APACHE_CONFIG=default.ssl.conf
-PROXY_ADDRESS_FORWARDING=true
 ```
 
 Login into eccenca docker registry:

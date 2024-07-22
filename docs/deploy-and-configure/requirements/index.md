@@ -17,11 +17,11 @@ A minimal single-node deployment for testing/evaluation purposes means:
 
 Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up to several million triples can be built and served.
 
--   Operating System / Hardware
-    -   Bare metal server or VM with Debian based linux OS (see [Installation](./../installation/index.md) for details)
-    -   16 GB RAM
-    -   100 GB free disk space (10 GB for docker images + data + logs over time)
-    -   docker and docker compose (we deliver an orchestration including all needed components)
+- Operating System / Hardware
+    - Bare metal server or VM with Debian based linux OS (see [Installation](./../installation/index.md) for details)
+    - 16 GB RAM
+    - 100 GB free disk space (10 GB for docker images + data + logs over time)
+    - docker and docker compose (we deliver an orchestration including all needed components)
 
 For an example of a single-node installation refer to the following scenarios:
 
