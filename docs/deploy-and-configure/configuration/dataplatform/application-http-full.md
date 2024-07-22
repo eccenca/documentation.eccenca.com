@@ -115,14 +115,13 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 
 This section provides an example configuration that uses an [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) as store.
 
-### Add docker-compose File
+### Add docker `compose` File
 
-Add a new docker-compose file to configure the execution of the store: `compose/docker-compose.store.fuseki.yml`.
+Add a new docker `compose` file to configure the execution of the store: `compose/docker-compose.store.fuseki.yml`.
 In this case the two environment variables `FUSEKI_DOCKER_USER` and `FUSEKI_ENDPOINT_PORT` are introduced.
 
 ``` yaml title="docker-compose.store.fuseki.yml"
 # Jena Fuseki
-version: '2.4'
 services:
   store_base:
     image: docker.io/secoresearch/fuseki:4.8.0
@@ -147,7 +146,7 @@ services:
 
 Now, the orchestration needs to know that it has to bring up the new store.
 This happens with the variable `DP_STORE`.
-But also the new variables (i.e. `FUSEKI_DOCKER_USER`, `FUSEKI_ENDPOINT_PORT`) introduced in the new docker-compose file need to be set.
+But also the new variables (i.e. `FUSEKI_DOCKER_USER`, `FUSEKI_ENDPOINT_PORT`) introduced in the new docker `compose` file need to be set.
 This can be done in `environments/config.env` (see also [Docker Orchestration](../docker-orchestration/index.md))
 
 ``` bash title="environments/config.env (partially)"

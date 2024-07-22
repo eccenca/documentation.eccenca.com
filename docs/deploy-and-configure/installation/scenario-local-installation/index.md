@@ -3,14 +3,14 @@ icon: material/laptop
 ---
 # Introduction
 
-This page describes a docker-compose based orchestration running on your local machine and accessible via browser.
+This page describes a `docker compose` based orchestration running on your local machine and accessible via browser.
 
 The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).
 
 ## Requirements
 
 -   Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
--   [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/install/) (v1) installed locally
+-   [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
 -   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
@@ -37,17 +37,17 @@ $ git init && git add . && git commit -m "stub"
 Check your local environment:
 
 ```shell-session
-# run the following command (without $) to check your docker server version, should be at least 19.03
+# run the following command (without $) to check your docker server version, should be at least 26.1
 # to have the current security patches, always update your docker version to the latest one
 
-$ docker info | grep -i version
-Server Version: 19.03.8
+$ docker version | grep -i version
+Version:    26.1.4
 
-# check docker-compose version, should be at least 1.25.0
+# check docker compose version, should be at least 
 # update to the latest version if necessary
 
-$ docker-compose --version
-docker-compose version 1.25.4, build 8d51620a
+$ docker compose version
+Docker Compose version v2.27.1
 
 # login into eccenca docker registry
 
@@ -107,12 +107,12 @@ $ make clean-pull-start-bootstrap
 You should see the output as follows:
 
 ```shell-session
-/usr/local/bin/docker-compose kill
-/usr/local/bin/docker-compose stop
-/usr/local/bin/docker-compose down --volumes --remove-orphans
+/usr/local/bin/docker compose kill
+/usr/local/bin/docker compose stop
+/usr/local/bin/docker compose down --volumes --remove-orphans
 Removing network dockerlocal_default
 Removing volume dockerlocal_stardog
-/usr/local/bin/docker-compose rm -v --force
+/usr/local/bin/docker compose rm -v --force
 No stopped containers
 Pulling apache2         ... done
 Pulling datamanager     ... done
@@ -122,7 +122,7 @@ Pulling keycloak        ... done
 Pulling dataplatform    ... done
 Pulling dataintegration ... done
 Pulling cmemc           ... done
-/usr/local/bin/docker-compose  up -d
+/usr/local/bin/docker compose  up -d
 Creating network "dockerlocalhost_default" with the default driver
 Creating volume "dockerlocalhost_postgres_volume" with default driver
 Creating volume "dockerlocalhost_import_volume" with default driver
