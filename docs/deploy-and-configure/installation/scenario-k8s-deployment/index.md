@@ -1,14 +1,11 @@
 ---
-icon: material/laptop
-tags:
-    - helm
-    - kubernetes
+icon: simple/kubernetes
 ---
-# Helm deployment
+# Kubernetes deployment with Helm
 
 ## Introduction
 
-This page describes a docker-compose based orchestration running on your local machine and accessible via browser.
+This page describes basic principles to install corporate memory a docker-compose based orchestration running on your local machine and accessible via browser.
 
 The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).
 
