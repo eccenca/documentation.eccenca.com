@@ -100,7 +100,7 @@ ecc:5318ffd4-4ca7-46bb-8e0c-8a910376c6b9
     eccauth:writeGraph <urn:elds-backend-all-graphs> .
 ```
 
-In this example, we have listed default access conditions for the [docker-compose based orchestration](../docker-orchestration/index.md).
+In this example, we have listed default access conditions for the [`docker compose` based orchestration](../docker-orchestration/index.md).
 
 The file defines two access conditions.
 The `eccauth:allowedActions` correspond to the URIs listed in the table above.

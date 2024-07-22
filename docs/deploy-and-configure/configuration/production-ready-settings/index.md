@@ -51,7 +51,7 @@ server.servlet.session.cookie.secure: true
 
 ### DataIntegration
 
-Similar to DataPlatform, you can also set cookie settings for DataIntegration inside `productions.conf` for docker-compose deployments or in `dataintegration.conf` in helm deployments
+Similar to DataPlatform, you can also set cookie settings for DataIntegration inside `productions.conf` for `docker compose` deployments or in `dataintegration.conf` in helm deployments
 
 ```yaml
 # sets "secure" flag in PLAY_SESSION cookie
