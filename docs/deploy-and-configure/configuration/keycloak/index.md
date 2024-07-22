@@ -59,7 +59,7 @@ To use groups from Keycloak in Corporate Memory access conditions, all Keycloak 
   To work around this limitation, we are using **ROLES** instead.
   By creating a mapper to re-define roles from groups, we allow Corporate Memory to read roles as groups attached to the client token.
 
-In the default setup in helm or docker-compose deployments, we often refer to the `elds-admins` group, acting as a super-admin / root group.
+In the default setup in helm or `docker compose` deployments, we often refer to the `elds-admins` group, acting as a super-admin / root group.
 Every user in this group has all possible rights in Corporate Memory, no matter which access conditions are available.
 This is configured in the DataPlatform configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Dataplatform configuration authorization](../dataplatform/application-full.md#authorization)).
 
@@ -219,7 +219,7 @@ For this, just create a different role name later, and create an access conditio
 ## Corporate Memory configuration after setting up clients
 
   - If **DataIntegration** schedulers are required, configure this client id and secret under the properties `workbench.superuser.client` and `workbench.superuser.clientSecret` in DataIntegration's configuration file or
-  - in docker-compose-orchestration you can edit this in the environment as:
+  - in `docker compose`-orchestration you can edit this in the environment as:
       ``` bash
         CMEM_SERVICE_ACCOUNT_CLIENT_ID=cmem-service-account
         CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=YourSecret

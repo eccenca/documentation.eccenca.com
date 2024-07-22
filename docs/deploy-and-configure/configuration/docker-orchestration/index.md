@@ -7,7 +7,7 @@ tags:
 
 ## Introduction
 
-This page describes the configuration for the docker-compose based orchestration.
+This page describes the configuration for the `docker compose` based orchestration.
 
 The Docker Orchestration (hereafter simply orchestration) is configured via environment files.
 In this document we provide an overview on how the environment files are loaded, how to modify the configuration inside those files and available configuration parameters.
@@ -66,7 +66,7 @@ All available configuration environment variables are listed in `environments/de
 | Variable | Default Value | Description |
 | -------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Docker | | |
-| DOCKER_CMD_ADD | (optional) | Additional command line arguments to be supplied to docker-compose such as --tlscacert, --tlscert, --tlskey or --tlsverify |
+| DOCKER_CMD_ADD | (optional) | Additional command line arguments to be supplied to `docker compose` such as `--tlscacert`, `--tlscert`, `--tlskey` or `--tlsverify` |
 | ECC_HOST | (internal) | |
 
 ### Deployment Settings
@@ -77,12 +77,12 @@ All available configuration environment variables are listed in `environments/de
 | DEPLOYHOST | docker.localhost | Deploy host such as docker.localhost or corporate-memory.example.com |
 | PORT | 80 | Port for apache2 to listen on, for SSL configuration see section below. |
 | DEST | $(dir $(abspath Makefile))              | Directory where the orchestration is located (by default resolves to the directory where this Makefile is located) |
-| APACHE_BASE_FILE          | docker-compose.apache2-exposed.yml      | docker-compose extension file for apache2, see SSL configuration section below for an example                      |
+| APACHE_BASE_FILE          | docker-compose.apache2-exposed.yml      | `docker compose` extension file for apache2, see SSL configuration section below for an example                      |
 | APACHE_CONFIG             | default.conf                            | Apache2 virtual host configuration                                                                                 |
 | SSLCONF                   | ssl.default.conf                        | Apache2 virtual host configuration for SSL setup                                                                   |
 | HTTP_PORT                 | 80                                      | APACHE_HTTP_PORT is used as a standard port 80 in SSL setup                                                        |
 | LETSENCRYPT_MAIL          | administration@eccenca.com            | email to be used when requesting letsencrypt certificates                                                          |
-| DATAINTEGRATION_BASE_FILE | docker-compose.dataintegration-base.yml | docker-compose extension file for DataIntegration, see SSL configuration section below for an example              |
+| DATAINTEGRATION_BASE_FILE | docker-compose.dataintegration-base.yml | `docker compose` extension file for DataIntegration, see SSL configuration section below for an example              |
 | TRUSTSTOREPASS            | (empty)                                 | Truststore password, see self-signed certificates configuration section below for an example                       |
 
 ### Project Settings
@@ -90,7 +90,7 @@ All available configuration environment variables are listed in `environments/de
 | Variable            | Default Value      | Description                                                                                                                                                    |
 | ------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | BOOTSTRAP           | false              | "false" or "true", indicates whether to load the Corporate Memory bootstrap data                                                                               |
-| PROJECT_NAME_SUFFIX | (empty) (optional) | will append to the docker-compose project environment variable [COMPOSE_PROJECT_NAME](https://docs.docker.com/compose/reference/envvars/#compose_project_name) |
+| PROJECT_NAME_SUFFIX | (empty) (optional) | will append to the `docker compose` project environment variable [COMPOSE_PROJECT_NAME](https://docs.docker.com/compose/reference/envvars/#compose_project_name) |
 
 ### DataManager Settings
 

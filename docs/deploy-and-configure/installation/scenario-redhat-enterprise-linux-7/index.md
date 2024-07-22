@@ -5,7 +5,7 @@ icon: material/redhat
 
 ## Introduction
 
-This page describes a docker-compose based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.
+This page describes a `docker compose` based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.
 
 ## Requirements
 
