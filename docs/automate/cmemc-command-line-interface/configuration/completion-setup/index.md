@@ -33,6 +33,12 @@ In order to enable tab completion with **zsh** run the following command:
 $ eval "$(_CMEMC_COMPLETE=zsh_source cmemc)"
 ```
 
+To enable the interactive menu as seen above in **zsh** run the following command:
+
+``` shell-session title="interactive menu for zsh"
+$ zstyle ':completion:*' menu select
+```
+
 In order to enable tab completion with **bash** run the following command:
 
 ``` shell-session title="completion setup for bash"
