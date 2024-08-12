@@ -71,20 +71,40 @@ $ cmemc admin acl create [OPTIONS]
 
 
 
+With this command, new access conditions can be created.
+
+An access condition captures information about WHO gets access to WHAT. In order to specify WHO gets access, use the ``--user`` and / or ``--group`` options. In order to specify WHAT an account get access to, use the ``--read-graph``, ``--write-graph`` and ``--action`` options.`
+
+In addition to that, you can specify a name, a description and an ID (all optional).
+
+A special case are dynamic access conditions, based on a SPARQL query: Here you have to provide a query with the projection variables `user`, `group` `readGraph` and `writeGraph` to create multiple grants at once. You can either provide a query file or a query URL from the query catalog.
+
+!!! note
+    Queries for dynamic access conditions are copied into the ACL, so changing the query in the query catalog does not change it in the access condition.
+
+
+```shell-session title="Example"
+$ cmemc admin acl create --group local-users --write-graph https://example.org/
+```
+
+
+
 
 ??? info "Options"
     ```text
 
-    --name TEXT         A short name or label.
-    --id TEXT           An optional ID (will be an UUID otherwise).
-    --description TEXT  An optional description.
     --user TEXT         A specific user account required by the access
                         condition.
     --group TEXT        A membership in a user group required by the access
-                        condition
+                        condition.
     --read-graph TEXT   Grants read access to a graph.
     --write-graph TEXT  Grants write access to a graph (includes read access).
     --action TEXT       Grants usage permissions to an action / functionality.
+    --query TEXT        Dynamic access condition query (file or the query
+                        catalog IRI).
+    --id TEXT           An optional ID (will be an UUID otherwise).
+    --name TEXT         A optional name.
+    --description TEXT  An optional description.
     ```
 
 ## admin acl update
@@ -105,15 +125,17 @@ Given an access condition URL, you can change specific options to new values.
 ??? info "Options"
     ```text
 
-    --name TEXT         A short name or label.
+    --name TEXT         A optional name.
     --description TEXT  An optional description.
     --user TEXT         A specific user account required by the access
                         condition.
     --group TEXT        A membership in a user group required by the access
-                        condition
+                        condition.
     --read-graph TEXT   Grants read access to a graph.
     --write-graph TEXT  Grants write access to a graph (includes read access).
     --action TEXT       Grants usage permissions to an action / functionality.
+    --query TEXT        Dynamic access condition query (file or the query
+                        catalog IRI).
     ```
 
 ## admin acl delete
@@ -153,7 +175,7 @@ $ cmemc admin acl review [OPTIONS] USER
 
 
 
-This command has two working modes: (1) You can review the access conditions of an actual account - this needs access to keycloak and the access condition API, (2) You can review the access conditions of an imaginary account with a set of freely added groups (what-if-scenario) - this only needs access to the access condition API.
+This command has two working modes: (1) You can review the access conditions of an actual account, (2) You can review the access conditions of an imaginary account with a set of freely added groups (what-if-scenario).
 
 The output of the command is a list of grants the account has based on your input and all access conditions loaded in the store. In addition to that, some metadata of the account is shown.
 

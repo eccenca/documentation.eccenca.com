@@ -116,3 +116,24 @@ This command will create lots of load on the server. It can take a long time to 
 
 
 
+## admin store migrate
+
+Migrate configuration resources to the current version.
+
+```shell-session title="Usage"
+$ cmemc admin store migrate [OPTIONS]
+```
+
+
+
+
+This command serves two purposes: (1) When invoked without an option, it lists all migrateable configuration resources. (2) When invoked with the ``--workspaces`` option, it migrates the workspace configurations to the current version.
+
+
+
+??? info "Options"
+    ```text
+
+    --workspaces  Migrate workspace configurations to the current version.
+    ```
+

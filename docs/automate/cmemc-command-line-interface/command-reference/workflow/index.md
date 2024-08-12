@@ -58,7 +58,11 @@ $ cmemc workflow io [OPTIONS] WORKFLOW_ID
 
 
 
-With this command, you can execute a workflow that uses variable datasets as input, output or for configuration. Use the input parameter to feed data into the workflow. Likewise, use output for retrieval of the workflow result. Workflows without a variable dataset will throw an error.
+With this command, you can execute a workflow that uses replaceable datasets as input, output or for configuration. Use the input parameter to feed data into the workflow. Likewise, use output for retrieval of the workflow result. Workflows without a replaceable dataset will throw an error.
+
+!!! note
+    Regarding the input dataset configuration - the following rules apply: If autoconfig is enabled ('--autoconfig', the default), the dataset configuration is guessed. If autoconfig is disabled ('--no-autoconfig') and the type of the dataset file is the same as the replaceable dataset in the workflow, the configuration from this dataset is copied. If autoconfig is disabled and the type of the dataset file is different from the replaceable dataset in the workflow, the default config is used.
+
 
 
 
@@ -75,12 +79,12 @@ With this command, you can execute a workflow that uses variable datasets as inp
                                     Please note that the io command will not
                                     warn you on overwriting existing output
                                     files.
-    --input-mimetype [application/x-plugin-csv|application/x-plugin-json|application/xml|application/x-plugin-excel|application/octet-stream|application/x-plugin-multiCsv|text/plain|guess]
+    --input-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/json|application/xml|text/csv|guess]
                                     Which input format should be processed: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
                                     fail.
-    --output-mimetype [application/x-plugin-csv|application/x-plugin-excel|application/n-triples|application/n-triples|application/x-plugin-json|application/xml|guess]
+    --output-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/json|application/xml|application/n-triples|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|text/csv|guess]
                                     Which output format should be requested: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will

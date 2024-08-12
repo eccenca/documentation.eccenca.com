@@ -36,6 +36,7 @@ tags:
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
+| [admin store](admin/store/index.md) | [migrate](admin/store/index.md#admin-store-migrate) | Migrate configuration resources to the current version. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
@@ -77,6 +78,7 @@ tags:
 | [graph validation](graph/validation/index.md) | [list](graph/validation/index.md#graph-validation-list) | List running and finished validation processes. |
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
+| [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
