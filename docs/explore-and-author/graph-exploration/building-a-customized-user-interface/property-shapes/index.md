@@ -38,13 +38,17 @@ Used Path: `shacl:description`
 ### Query: Table Report
 
 
-Use this property to provide a tabular read-only report of a custom SPARQL query at the place where this property shape is used in the user interface.
+Use this property to provide a tabular report of a custom SPARQL query at the place where this property shape is used in the user interface.
 
 The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
 - `{{shuiGraph}}` - the currently used graph.
+
+Beta Feature: This query will be used as well to populate the related resources for the advanced editor. In this case, you need to have the projection variables `resource` (the resource IRI which is linked to the shaped resource) and `graph` or _graph (the graph IRI where the relation statement is saved) in your query.
+
+If your table report is not intended to be used with the advanced editor, you can set the property as read only.
 
 
 Used Path: `shui:valueQuery`
@@ -101,7 +105,7 @@ Used Path: `shui:readOnly`
 ### Chart Visualization
 
 
-Integrates a chart visualization in the property shape area. You should setup a property shape with chart visualization as readOnly and showAlways.
+Integrates a chart visualization in the property shape area. Shapes with an integrated chart are ALWAYS shown in read mode and NEVER shown in edit mode.
 
 Used Path: `shui:provideChartVisualization`
 
@@ -109,7 +113,7 @@ Used Path: `shui:provideChartVisualization`
 ### Provide Workflow Trigger
 
 
-Integrates a workflow trigger button in order to execute workflows from or with this resource.
+Integrates a workflow trigger button in order to execute workflows from or with this resource. Shapes with an integrated workflow trigger are ALWAYS shown in read mode and NEVER shown in edit mode.
 
 Used Path: `shui:provideWorkflowTrigger`
 
@@ -230,6 +234,10 @@ Used Path: `shacl:class`
 
 This query allows for listing selectable resources in the dropdown list for this property shape.
 
+You need to provide the projection variable `resource` in your query.
+
+Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in EasyNav.
+
 Used Path: `shui:uiQuery`
 
 
@@ -249,6 +257,14 @@ A value of true disables the option to create new resources.
 Used Path: `shui:denyNewResources`
 
 
+### Resource viewer widget
+
+
+Selects default object relation resource viewer widget. (NOTE: shacl2 only)
+
+Used Path: `shui:viewResourcesWithWidget`
+
+
 ### Node shape
 
 
@@ -261,6 +277,14 @@ Used Path: `shacl:node`
 !!! info
 
     In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
+
+### Severity
+
+
+Categorize validation results (:Info, :Warning, :Violation). Defaults to :Violation.
+
+Used Path: `shacl:severity`
+
 
 ### Ignore on copy
 
@@ -280,7 +304,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
 - `{{shuiGraph}}` - the currently used graph.
-
+    
 
 Used Path: `shui:onInsertUpdate`
 
@@ -294,17 +318,13 @@ The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiGraph}}` - the currently used graph.
-
+    
 
 Used Path: `shui:onDeleteUpdate`
 
 
 ### Target Graph Template
 
-!!! info
-    The `shape` system default behavior is to write new data or changes into the currently selected graph.
-    This might mean data would be written into an integration graph, if exploring a knowledge graph using the integration graph as an entry point.
-    The use of a _Target Graph Template_ addresses this problem.
 
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 

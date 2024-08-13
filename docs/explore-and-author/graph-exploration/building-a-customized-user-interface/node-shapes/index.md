@@ -39,7 +39,7 @@ Used Path: `rdfs:comment`
 ### Navigation list query
 
 
-This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section. Additionally, {{GRAPH}} can be used to access the graph in the FROM section.
+This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section.
 
 Used Path: `shui:navigationListQuery`
 
@@ -96,6 +96,30 @@ Used Path: `shacl:targetClass`
 !!! info
     In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
 
+### Severity
+
+
+Categorize validation results (:Info, :Warning, :Violation). Defaults to :Violation.
+
+Used Path: `shacl:severity`
+
+
+### URI template
+
+
+The URI template which is used, when a user manually creates new resources with this Node Shape.
+
+Used Path: `shui:uriTemplate`
+
+
+### Closed Node
+
+
+Enabling this will result in failing validation if the resource / node has properties which are NOT described with attached property shapes.
+
+Used Path: `shacl:closed`
+
+
 ### On delete update
 
 
@@ -105,7 +129,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiGraph}}` - the currently used graph.
-
+    
 
 Used Path: `shui:onDeleteUpdate`
 
@@ -120,7 +144,7 @@ The query should be saved in the same graph as the shape (or imported).
 The query can use these placeholders:
 
 - `{{shuiResource}}` - the resource currently shown with the node shape of this property shape,
-- `{{shuiGraph}}` - the currently used graph.
+- `{{shuiGraph}}` - the currently used graph. 
 
 
 Used Path: `shui:onUpdateUpdate`
@@ -128,10 +152,6 @@ Used Path: `shui:onUpdateUpdate`
 
 ### Target Graph Template
 
-!!! info
-    The `shape` system default behavior is to write new data or changes into the currently selected graph.
-    This might mean data would be written into an integration graph, if exploring a knowledge graph using the integration graph as an entry point.
-    The use of a _Target Graph Template_ addresses this problem.
 
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 
