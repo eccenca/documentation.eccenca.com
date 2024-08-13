@@ -119,8 +119,8 @@ v24.2.0 of DataManager adds the following new features:
 
 v24.2.0 of DataManager ships the following changes:
 
--   Removed old AC component from "Administration" module, removed feature flag for the new AC module.
--   Shacl2 engine is now the system default, removed `shacl2` feature flag, introduced `shacl` feature flag to enforce the use of the old shacl-engine.
+-   (AC) "Administration" module replaced with a new UI.
+-   Shacl2 engine is now the system default.
 
 v24.2.0 of DataManager ships the following fixes:
 
@@ -257,12 +257,9 @@ TODO
 
 ### DataManager
 
--   `TODO` feature flag:
-    -   The feature flag `TODO` for the new AC module has been removed as well as the legacy AC component itself. If you used the feature flag `TODO` in your workspace configurations remove it. The old module can not be used any more.
--   `shacl2` feature flag:
+-   `shacl2` feature flag was removed:
     -   Shacl2 engine is now the system default.
-    -   `shacl2` feature flag has been removed. If you used the feature flag `shacl2` in your workspace configurations remove it.
-    -   Use the feature flag `shacl` instead, to enforce the use of the old shacl-engine.
+    -   In case it was set, the feature flag `shacl2` can be removed from the workspace configuration.
 
 ### DataPlatform
 
