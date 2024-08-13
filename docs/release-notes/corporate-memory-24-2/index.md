@@ -253,7 +253,18 @@ v24.2.0 of Corporate Memory Control (cmemc) ships the following fixes:
 
 ### DataIntegration
 
-TODO
+-   Writing via JDBC to MySQL/MariaDB
+    -   If during writing to a MySQL/MariaDB a `You have an error in your SQL syntax` error is encountered make sure `ANSIquotes` are used.
+
+        `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
+
+        ```txt
+        # MySQL
+        jdbc:mysql://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
+
+        # MariaDB
+        jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
+        ```
 
 ### DataManager
 
