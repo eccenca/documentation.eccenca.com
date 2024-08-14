@@ -7,6 +7,5 @@ nav:
         - HTTP: application-http-full.md
         - In-Memory: application-inmemory-full.md
         - Neptune: application-neptune-full.md
-        - Stardog: application-stardog-full.md
         - Virtuoso: application-virtuoso-full.md
 
