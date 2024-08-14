@@ -7,10 +7,11 @@ tags:
 
 Corporate Memory 24.2.0 is the first release in the 24.2 release line.
 
+![24.2: Explore - New Shacl(2) based Data Exploration](24-2-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
+
 <!--
-![24.1: Build - Key Shortcuts in Workflow Editor](24-1-build-workflow-editor-shortcuts.png "24.1: Build - Key Shortcuts in Workflow Editor"){ class="bordered" }
-![24.1: Automate - New cmemc command groups Access Condition and Graph Validation](24-1-cmemc-new-command-groups.png "24.1: Automate - New cmemc command groups Access Condition and Graph Validation"){ class="bordered" }
-![24.1: Explore and Author: Preview of our new SHACL Authoring Engine](24-1-explore-shacline2-preview.png "24.1: Explore and Author: Preview of our new SHACL Authoring Engine"){ class="bordered" }
+![24.2: Explore - New Shacl(2) based Data Exploration](24-2-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
+![24.2: Explore - New Shacl(2) based Data Exploration](24-2-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
 -->
 
 The highlights of this release are:
