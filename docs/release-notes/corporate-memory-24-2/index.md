@@ -9,6 +9,7 @@ Corporate Memory 24.2.0 is the first release in the 24.2 release line.
 
 ![24.2: Explore - New Shacl(2) based Data Exploration](24-2-explore-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
 ![24.2: Explore - Sankey Chart Type](24-2-explore-charts-sankey.png "24.2: Explore - Sankey Chart Type"){ class="bordered" }
+![24.2: Build - Add new Datasets to Workflows by File Drag and Drop](24-2-build-add-ds-via-dnd.png "24.2: Build - Add new Datasets to Workflows by File Drag and Drop"){ class="bordered" }
 
 The highlights of this release are:
 
