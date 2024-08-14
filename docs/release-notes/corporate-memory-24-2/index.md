@@ -97,49 +97,59 @@ We are excited to announce the latest update to DataManager v24.2, which introdu
 
 v24.2.0 of DataManager adds the following new features:
 
--   Support for grouping chart series.
--   Support for Sankey chart type.
--   A global notifications queue with the dropdown menu besides the user menu.
--   Spring Wrapper to Spring Boot 3.2.
--   Possibility to add properties that are not visible to shacl2.
--   Annotations to shacl2.
--   Icons for read-only graphs.
--   Validation for the creation items, added links to grid items.
--   AC review page.
--   Check for simple widget using `defaultResourceViewerIri`.
--   "algorithm" param in workspace configuration and `/proxy/:id/resource` queries.
--   Notification feature for retrieving the query catalog data when the backend response contains validation errors with the code "DOUBLE_TRIPLE".
--   EasyNav
-    -   Create new, directly connected resources via the browse dialogue.
+-   _Charts module_
+    -   Support for grouping chart series.
+    -   Support for Sankey chart type.
+-   _Business Knowledge Editor - EasyNav_
+    -   Easynav allows to create new, directly connected resources with the via the browse dialogue.
     -   Improved undo/redo functionality.
     -   Improved internal structure and robustness.
     -   Improved selection and searching.
     -   Adding new connections via shacl shape queries.
     -   Adding new connections on unsaved nodes.
--   Value and UI Query are used in relation manager, if provided.
--   Added the multi-source turtle component.
+    -   Unique Visualization names are enforced.
+-   _Other_
+    -   Added a global notifications queue with the dropdown menu besides the user menu.
+    -   Update Spring Wrapper to Spring Boot 3.2.
+    -   Added icons for read-only graphs.
+    -   Added "algorithm" param in workspace configuration and `/proxy/:id/resource` queries.
+    -   Added a notification feature for retrieving the query catalog data when the backend response contains validation errors with the code "DOUBLE_TRIPLE".
+    -   Added the multi-source turtle component.
 
 v24.2.0 of DataManager ships the following changes:
 
--   (AC) "Administration" module replaced with a new UI.
--   Shacl2 engine is now the system default.
+-   _SHACL Component_ - SHACL2 replaces now our default SHACL viewer/editor and brings in lot of new features and enhancements.
+    Note: this component was already introduced in v24.1, so this list is not exhaustive.
+    -   Improved Validation of inputs.
+    -   Added the possibility to add properties that are not visible to shacl2.
+    -   Migrated annotations to shacl2.
+    -   Value and UI Query are used in relation manager, if provided.
+    -   Added check for simple widget using `defaultResourceViewerIri`.
+    -   Improved editor for highly connected resources.
+    -   Improved access condition handling when creating new resources.
+    -   Improved default language handling.
+    -   Improved Layout for long labels.
+    -   Partial support for qualified value shapes.
+    -   Sticky toolbar for better usability.
+-   _Access Conditions_ - New Access conditions management interface replaces the former component.
+    -   Validation for the creation items, added links to grid items.
+    -   AC review page.
 
 v24.2.0 of DataManager ships the following fixes:
 
--   Improved error messages format, now they are more informative and user-friendly with title and details sections
+-   _Error messages_
+    -   Improved error messages format, now they are more informative and user-friendly with title and details sections.
+    -   Warnings are shown locally where triggered and errors are added to the global notifications queue.
+    -   Warnings are shown properly without breaking the UI, closer to the place that triggered it.
 -   Workflow triggers reload the page after the workflow is finished.
--   E2E tests are fixed, improved and stabilized.
 -   Resource tags are links.
--   Default language for literal editor.
--   Layout broken for long labels.
--   Align object relation data fetching.
--   Labels with more than approx. 24 characters and no white space are now correctly split into two lines.
--   Navigation component honors the module settings for `navigationItemsPerPage`.
--   Navigation component shows correct pagination for search.
--   Unique Visualization names are enforced.
--   Fixed UX issues for AC.
--   Easynav inverse properties are shown in the correct direction.
--   Explore: Turtle tab is visible, even if the user has no write access.
+-   _Explore_
+    -   Navigation component honors the module settings for navigationItemsPerPage.
+    -   Navigation component shows correct pagination for search.
+    -   Turtle tab is visible, even if the user has no write access.
+-   _Easynav_
+    -   inverse properties are shown in the correct direction.
+    -   Labels with more than approx. 24 characters and no white space are now correctly split into two lines.
 
 ## eccenca DataPlatform v24.2.0
 
