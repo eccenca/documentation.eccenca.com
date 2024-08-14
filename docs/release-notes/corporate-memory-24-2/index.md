@@ -147,8 +147,8 @@ v24.2.0 of DataManager ships the following fixes:
     -   Navigation component honors the module settings for navigationItemsPerPage.
     -   Navigation component shows correct pagination for search.
     -   Turtle tab is visible, even if the user has no write access.
--   _Easynav_
-    -   inverse properties are shown in the correct direction.
+-   _Business Knowledge Editor - EasyNav_
+    -   Inverse properties are shown in the correct direction.
     -   Labels with more than approx. 24 characters and no white space are now correctly split into two lines.
 
 ## eccenca DataPlatform v24.2.0
