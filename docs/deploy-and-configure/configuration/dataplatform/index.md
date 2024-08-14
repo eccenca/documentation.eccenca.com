@@ -18,5 +18,4 @@ Every subsection is presented with a property key overview and a details section
     -   [HTTP](application-http-full.md)
     -   [In-Memory](application-inmemory-full.md)
     -   [AWS Neptune](application-neptune-full.md)
-    -   [Stardog](application-stardog-full.md)
     -   [Openlink Virtuoso](application-virtuoso-full.md)
