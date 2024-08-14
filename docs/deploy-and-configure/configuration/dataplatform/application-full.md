@@ -128,6 +128,16 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Valid values | string |
 | Environment | SPRING_SERVLET_MULTIPART_LOCATION |
 
+***Property: spring.jackson.default-property-inclusion***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | non_null |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_JACKSON_DEFAULT_PROPERTY_INCLUSION |
+
 ***Property: management.info.env.enabled***
 
 
@@ -621,7 +631,7 @@ Specifies base language preferences for this instance.
 
 | Category | Value |
 |--- | ---: |
-| Default | [de, en, ] |
+| Default | [en, , de, fr] |
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_LANGUAGEPREFERENCES |
@@ -650,6 +660,19 @@ Increasing the max fetch will support deeper constructs, but will also add to lo
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_MAXCBDDEPTH |
+
+***Property: proxy.maxCBDStatements***
+
+The max amount of statements which the Concise Bound Description can contain.
+(S)CBDs surpassing this will not load but return an error
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 1000000 |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_MAXCBDSTATEMENTS |
 
 ***Property: proxy.shapedMaxValueCount***
 
@@ -691,7 +714,7 @@ Indicates whether the DataPlatform caches should selectively invalidate based up
 
 ***Property: proxy.queryMonitorMaxMemoryInMb***
 
-Maximum memory entries in the query monitor can take in the heap space. The actual usage is an estimated usage only!
+Maximum amount of memory entries in the query monitor can take up.
 
 | Category | Value |
 |--- | ---: |
@@ -699,6 +722,17 @@ Maximum memory entries in the query monitor can take in the heap space. The actu
 | Required | false |
 | Valid values | Value in MB |
 | Environment | PROXY_QUERYMONITORMAXMEMORYINMB |
+
+***Property: proxy.shaclBatchResultsMemoryBoundaryInMb***
+
+Maximum amount of memory entries for shacl batch validation results can take up.
+
+| Category | Value |
+|--- | ---: |
+| Default | 100 |
+| Required | false |
+| Valid values | Value in MB |
+| Environment | PROXY_SHACLBATCHRESULTSMEMORYBOUNDARYINMB |
 
 ***Property: proxy.fetchValuesStrategy***
 
@@ -757,24 +791,24 @@ The access token URL for the LLM API. Used to configure an openAI API compatible
 
 ***Property: assist.chatModel***
 
-The name of the model to use for chat interactions. Defaults to "gpt-3.5-turbo-16k-0613". Use of a `*-0613` model (fine tuned for function calling) is recommended.
+The name of the model to use for chat interactions. Defaults to "gpt-4o-2024-08-06". Use a model fine tuned for function calling.
 
 
 | Category | Value |
 |--- | ---: |
-| Default | gpt-3.5-turbo-16k-0613 |
+| Default | gpt-4o-2024-08-06 |
 | Required | false |
 | Valid values | string |
 | Environment | ASSIST_CHATMODEL |
 
 ***Property: assist.embeddingModel***
 
-The name of the model to use for retrieving embeddings. Defaults to "text-embedding-ada-002".
+The name of the model to use for retrieving embeddings. Defaults to "text-embedding-3-large".
 
 
 | Category | Value |
 |--- | ---: |
-| Default | text-embedding-ada-002 |
+| Default | text-embedding-3-large |
 | Required | false |
 | Valid values | string |
 | Environment | ASSIST_EMBEDDINGMODEL |
@@ -1026,16 +1060,6 @@ logging:
 | Required | false |
 | Valid values | string |
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_WEBAPP_WEB_GLOBALCONTROLLEREXCEPTIONHANDLER |
-
-***Property: logging.level.com.eccenca.elds.backend.stardog.StardogTemplate***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | INFO |
-| Required | false |
-| Valid values | string |
-| Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_STARDOG_STARDOGTEMPLATE |
 
 ***Property: logging.level.com.eccenca.elds.backend.cache.logging***
 
@@ -1295,6 +1319,17 @@ Limits how many analytical requests can be run in parallel. Analytical requests 
 | Valid values | integer |
 | Environment | SCHEDULER_ANALYTICALPOOLSIZE |
 
+***Property: scheduler.backgroundQueryPoolSize***
+
+Limits how many background query requests can be run in parallel. This applies to scheduled processes which query the triple store
+
+| Category | Value |
+|--- | ---: |
+| Default | 4 |
+| Required | false |
+| Valid values | integer |
+| Environment | SCHEDULER_BACKGROUNDQUERYPOOLSIZE |
+
 ## Asynchronous file uploads
 
 Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file.
@@ -1363,7 +1398,7 @@ One of the supported types of backends DataPlatform can connect to
 |--- | ---: |
 | Default | *none* |
 | Required | true |
-| Valid values | MEMORY, HTTP, GRAPHDB, STARDOG, VIRTUOSO, NEPTUNE |
+| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE |
 | Environment | STORE_TYPE |
 
 ***Property: store.owlImportsResolution***

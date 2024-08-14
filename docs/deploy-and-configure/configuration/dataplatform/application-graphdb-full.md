@@ -158,7 +158,7 @@ Whether to make use of GraphDB change tracking during SPARQL updates (s. <https:
 
 | Category | Value |
 |--- | ---: |
-| Default | true |
+| Default | false |
 | Required | false |
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGACTIVE |
