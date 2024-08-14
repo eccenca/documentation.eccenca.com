@@ -27,7 +27,7 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v24.2.0
+-   eccenca DataIntegration v24.2.1
 -   eccenca DataManager v24.2.0
 -   eccenca DataPlatform v24.2.0
 -   eccenca Corporate Memory Control (cmemc) v24.2.0
@@ -39,11 +39,16 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v24.2.0
+## eccenca DataIntegration v24.2.1
 
 We're excited to bring you the latest update to DataIntegration v24.2, which introduces new features, improvements and bug fixes:
 
-v24.1.0 of DataIntegration adds the following new features:
+v24.2.1 of DataIntegration ships the following fixes:
+
+-   Drag and drop in react flow editors used in Linking and Transform tasks work again.
+-   Dragging operators in the react flow based editors when text is selected leads to large artifacts.
+
+v24.2.0 of DataIntegration adds the following new features:
 
 -   Quick creation of file based datasets in the workflow editor.
     -   Dropping files into the workflow editor will automatically create a new dataset.
@@ -254,24 +259,21 @@ v24.2.0 of Corporate Memory Control (cmemc) ships the following fixes:
 
 ### DataIntegration
 
--   Writing via JDBC to MySQL/MariaDB
-    -   If during writing to a MySQL/MariaDB a `You have an error in your SQL syntax` error is encountered make sure `ANSIquotes` are used.
+If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure `ANSIquotes` are used.
 
-        `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
+`sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
 
-        ```txt
-        # MySQL
-        jdbc:mysql://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
+```txt
+# MySQL
+jdbc:mysql://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
 
-        # MariaDB
-        jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
-        ```
+# MariaDB
+jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
+```
 
 ### DataManager
 
--   `shacl2` feature flag was removed:
-    -   Shacl2 engine is now the system default.
-    -   In case it was set, the feature flag `shacl2` can be removed from the workspace configuration.
+`shacl2` feature flag was removed, the Shacl2 engine is now the system default. In case you had the `shacl2` feature flag set in the workspace configuration, it can now be removed.
 
 ### DataPlatform
 
