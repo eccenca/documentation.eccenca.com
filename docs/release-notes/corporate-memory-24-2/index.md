@@ -7,7 +7,8 @@ tags:
 
 Corporate Memory 24.2.0 is the first release in the 24.2 release line.
 
-![24.2: Explore - New Shacl(2) based Data Exploration](24-2-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
+![24.2: Explore - New Shacl(2) based Data Exploration](24-2-explore-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
+![24.2: Explore - Sankey Chart Type](24-2-explore-charts-sankey.png "24.2: Explore - Sankey Chart Type"){ class="bordered" }
 
 <!--
 ![24.2: Explore - New Shacl(2) based Data Exploration](24-2-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
@@ -34,8 +35,8 @@ This release delivers the following component versions:
 
 We tested this release with the following dependency components:
 
--   Ontotext GraphDB v10.7.1
--   Keycloak v24.0.5
+-   Ontotext GraphDB v10.7.2
+-   Keycloak v25.0.2
 
 More detailed information for this release is provided in the next sections.
 
