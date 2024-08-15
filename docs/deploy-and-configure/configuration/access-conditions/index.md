@@ -7,7 +7,7 @@ tags:
 
 ## Introduction
 
-Access conditions specify access rights for users and groups to graphs and actions (1).
+Access Conditions specify access rights for users and groups to graphs and actions (1).
 { .annotate }
 
 1.  Graphs identify specific Knowledge Graphs.
@@ -20,7 +20,7 @@ The management of access conditions can be done either by using the browser base
 
 In order to understand the different user interfaces to manage access conditions, it is crucial to understand what details can be described with a single access condition.
 The following list describes the different attributes, a single access condition can have.
-They are all optional except that a single access condition needs to provide at least a one grant or has a dynamic access condition query.
+They are all optional except that a single access condition needs to provide at least one grant or has a dynamic access condition query.
 
 ### **Metadata**
 
@@ -36,7 +36,7 @@ They are all optional except that a single access condition needs to provide at 
 
 | Resource | Explanation |
 | ---------| ------------|
-| `urn:elds-backend-anonymous-user`| Represents the anonymous user account. You can use it in the **Requires account** field. |
+| `urn:elds-backend-anonymous-user`| Represents the anonymous user account. You can use it in the **Requires account** field. |
 
 - Use **Requires group** to specify the group, the account must be member of in order to match the access condition.
   If the account of a given request is member of this group, this access condition is used to identify the grants for this request.
@@ -44,7 +44,7 @@ They are all optional except that a single access condition needs to provide at 
 
 | Resource | Explanation |
 | ---------| ------------|
-| `urn:elds-backend-public-group`| Represents the group which every user is member of (incl. anonymous users). You can use it in the Requires group field. |
+| `urn:elds-backend-public-group`| Represents the group which every user is member of (incl. anonymous users). You can use it in the *Requires group* field. |
 
 !!! warning "Users and groups cannot have the same name"
 
@@ -57,15 +57,15 @@ They are all optional except that a single access condition needs to provide at 
 
 | Resource | Explanation |
 | ---------| ------------|
-| `urn:elds-backend-all-graphs`| Represents all RDF named graphs. You can use it in the Allow reading graph or Allow writing graph field.|
+| `urn:elds-backend-all-graphs`| Represents all RDF named graphs. You can use it in the *Allow reading graph* or *Allow writing graph* field.|
 
-- **Allow writing graph** is a list of graph IRI to allow to write these graphs.
-  The grant to write to a graph implicitly give the grant to read the graph.
+- **Allow writing graph** is a list of graph IRIs to allow to write these graphs.
+  The grant to write to a graph implicitly grants to read the graph.
   Instead of an actual graph, the following meta graph can be used.
 
 | Resource | Explanation |
 | ---------| ------------|
-| `urn:elds-backend-all-graphs`| Represents all RDF named graphs. You can use it in the Allow reading graph or Allow writing graph field.|
+| `urn:elds-backend-all-graphs`| Represents all RDF named graphs. You can use it in the *Allow reading graph* or *Allow writing graph* field.|
 
 - **Allowed action** is a list of action IRI to allow to use the components or capabilities which are identified with this action.
   You can use the following actions identifier with this attribute.
