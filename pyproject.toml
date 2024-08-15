@@ -15,19 +15,19 @@ dec-tool = 'tools:cli'
 
 [tool.poetry.dependencies]
 python = "^3.11"
-Pillow = "^9.4.0"
-CairoSVG = "^2.7.0"
-mkdocs = "^1.5.1"
-mike = "^1.1.2"
-mkdocs-git-revision-date-localized-plugin = "^1.2.0"
-mkdocs-awesome-pages-plugin = "^2.8.0"
-mkdocs-glightbox = "^0.3.2"
-mkdocs-macros-plugin = "^0.7.0"
-mkdocs-autolinks-plugin = "^0.7.0"
-mkdocs-redirects = "^1.2.0"
-mkdocs-swagger-ui-tag = "^0.6.1"
+Pillow = "^10.4.0"
+CairoSVG = "^2.7.1"
+mkdocs = "^1.6.0"
+mike = "^2.1.2"
+mkdocs-git-revision-date-localized-plugin = "^1.2.6"
+mkdocs-awesome-pages-plugin = "^2.9.3"
+mkdocs-glightbox = "^0.4.0"
+mkdocs-macros-plugin = "^1.0.5"
+mkdocs-autolinks-plugin = "^0.7.1"
+mkdocs-redirects = "^1.2.1"
+mkdocs-swagger-ui-tag = "^0.6.10"
 # if you change this - change also the version ID in Taskfile.yml
-mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "9.5.17-insiders-4.53.6"}
+mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", rev = "9.5.31-insiders-4.53.12"}
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
