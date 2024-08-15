@@ -72,13 +72,13 @@ They are all optional except that a single access condition needs to provide at 
 
 | Resource | Explanation |
 | ---------| ------------|
-| `urn:elds-backend-actions-auth-access-control` | Represents the Authorization management API (see the Developer Manual).|
+| `urn:elds-backend-actions-auth-access-control` | Represents the Authorization Management API (see the Developer Manual).|
 | `urn:eccenca:di`| Represents the action needed to use the eccenca DataIntegration component of eccenca Corporate Memory.|
 | `urn:eccenca:ThesaurusUserInterface`| Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well).|
 | `urn:eccenca:AccessInternalGraphs`| Represents the action needed to list Corporate Memory Internal graphs in the exploration tab.|
-| `urn:eccenca:QueryUserInterface`| Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed).|
+| `urn:eccenca:QueryUserInterface`| Represents the action needed to use the Query Catalog (needs access to query catalog graph as well).|
 | `urn:eccenca:VocabularyUserInterface`| Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well).|
-| `urn:eccenca:ExploreUserInterface`| Represents the action needed to use the Explore Tab (needs access to at least one graph as well).|
+| `urn:eccenca:ExploreUserInterface`| Represents the action needed to use the Explore Tab (needs access to shape catalog graph as well).|
 
 In addition to these attributes, you can use the following special attributes to grant partial access to the access conditions itself:
 
@@ -90,11 +90,11 @@ In addition to these attributes, you can use the following special attributes to
 
 ### Dynamic Conditions
 
-Use this attribute to dynamically compute **who** get access and **what graphs**, based on background information from your Knowledge Graphs:
+Use this attribute to dynamically compute **who** get access on **which graphs**, based on background information from your Knowledge Graphs:
 
 - **Dynamic access condition** is an attribute which requires a SPARQL Select query which returns the following projection variables: `user`, `group`, `readGraph`, `writeGraph`.
 
-The following example query grants write access to all users which are described as creators (using Dublin Core) in graph itself.
+The following example query grants write access to all users which are described as creators (using Dublin Core) in the graph itself.
 
 ``` sparql
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -120,7 +120,7 @@ PREFIX void: <http://rdfs.org/ns/void#>
 
 <https://example.org/my-data/>
   rdf:type void:Dataset ;
-  rdfs:label"My Data"@en;
+  rdfs:label "My Data"@en;
   dct:creator <http://eccenca.com/tester> .
 ```
 
@@ -181,7 +181,7 @@ This screen is split into two main areas:
 
 ## Using the command line interface (cmemc)
 
-With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can use an additional command line based interface to manage access conditions.
+With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can use an additional command line based interface to manage access conditions.
 This interface is primarily used for the automation of provisioning tasks.
 The important command groups for managing principals and access conditions are:
 
