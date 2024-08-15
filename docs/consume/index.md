@@ -20,7 +20,7 @@ Since not all applications allow the direct use of SPARQL, this section includes
 
 <div class="grid cards" markdown>
 
--   :simple-powerbi: [Power BI](consuming-graphs-in-power-bi/index.md)
+-   :other-powerbi: [Power BI](consuming-graphs-in-power-bi/index.md)
 
     ---
 

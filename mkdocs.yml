@@ -170,7 +170,7 @@ theme:
       api: material/api
       reference: octicons/cross-reference-24
       workflow: eccenca/artefact-workflow
-      automate: simple/powerautomate
+      automate: other/powerautomate
       cmemc: octicons/terminal-16
       docker: fontawesome/brands/docker
       python: fontawesome/brands/python

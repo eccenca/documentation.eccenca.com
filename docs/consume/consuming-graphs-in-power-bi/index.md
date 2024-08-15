@@ -1,5 +1,5 @@
 ---
-icon: simple/powerbi
+icon: other/powerbi
 tags:
   - Dashboards
   - KnowledgeGraph
