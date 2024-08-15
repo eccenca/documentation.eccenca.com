@@ -5,7 +5,7 @@ version: '3'
 
 vars:
   PUBLIC_BRANCH: published
-  CURRENT_VERSION: 24.1
+  CURRENT_VERSION: 24.2
   MATERIAL_TAG: 9.5.17
   MATERIAL_INSIDER_TAG: 9.5.17-insiders-4.53.6
 
