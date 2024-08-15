@@ -79,7 +79,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     [:octicons-arrow-right-24: Learn more about _Consume_](../../consume/index.md){target=_blank}
 
--   :simple-powerautomate:{ .lg .middle } __AUTOMATE__
+-   :other-powerautomate:{ .lg .middle } __AUTOMATE__
 
     ---
 
