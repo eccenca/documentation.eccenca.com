@@ -1,1 +1,39 @@
-[{"version": "24.1", "title": "24.1", "aliases": ["latest"]}, {"version": "23.3", "title": "23.3", "aliases": []}, {"version": "23.2", "title": "23.2", "aliases": []}, {"version": "23.1", "title": "23.1", "aliases": []}, {"version": "22.2", "title": "22.2", "aliases": []}, {"version": "22.1", "title": "22.1", "aliases": []}]
+[
+  {
+    "version": "24.2",
+    "title": "24.2",
+    "aliases": [
+      "latest"
+    ]
+  },
+  {
+    "version": "24.1",
+    "title": "24.1",
+    "aliases": []
+  },
+  {
+    "version": "23.3",
+    "title": "23.3",
+    "aliases": []
+  },
+  {
+    "version": "23.2",
+    "title": "23.2",
+    "aliases": []
+  },
+  {
+    "version": "23.1",
+    "title": "23.1",
+    "aliases": []
+  },
+  {
+    "version": "22.2",
+    "title": "22.2",
+    "aliases": []
+  },
+  {
+    "version": "22.1",
+    "title": "22.1",
+    "aliases": []
+  }
+]
