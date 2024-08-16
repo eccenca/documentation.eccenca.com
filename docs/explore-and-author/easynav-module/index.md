@@ -97,7 +97,7 @@ Then click edit to provide the necessary details.
 At least a `Name` and `Search Weight` need to be specified.
 The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
 
-`Graph Resource Patter` are a topic on its own and explained [here](./GraphResourcePattern/index.md).
+`Graph Resource Pattern` are a topic on its own and explained [here](../../deploy-and-configure/configuration/datamanager/graph-resource-pattern/index.md).
 
 ## Technical Background
 
