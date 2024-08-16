@@ -731,9 +731,9 @@ WHERE {
             ctia:relationship_type ?property .
     }
 
-    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?source)) as ?sourceIRI)
-    BIND (IRI(CONCAT("https://github.com/mitre/cti/blob/master/USAGE.md#",?property)) as ?propertyIRI)
-    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",?target)) as ?targetIRI)
+    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",STR(?source))) as ?sourceIRI)
+    BIND (IRI(CONCAT("https://github.com/mitre/cti/blob/master/USAGE.md#",STR(?property))) as ?propertyIRI)
+    BIND (IRI(CONCAT("https://github.com/mitre-attack/attack-stix-data#",STR(?target))) as ?targetIRI)
 }
 ```
 
