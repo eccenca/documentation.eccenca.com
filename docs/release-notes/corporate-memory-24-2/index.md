@@ -214,6 +214,9 @@ v24.2.0 of Corporate Memory Control (cmemc) adds the following new features:
 
 -   `admin store migrate` command
     -   Migrate configuration resources to the current version.
+-   `admin status` command
+-   -   will warn in case there a workspace configurations, which can be migrated
+-   -   will exit with exit code 1 in case option `--exit-1 always` is given and migratable workspaces are found
 -   `graph validation export` command
     -   export validation reports as JSON or jUnit XML
 -   `graph import` command
@@ -298,4 +301,6 @@ jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI
 
 ### cmemc
 
-No migrations are required going from cmemc 23.1.x to 24.2.x.
+- The [`admin status`](../../automate/cmemc-command-line-interface/command-reference/admin/index.md#admin-status) command in combination with the `--exit-1 always` option now exits with status code 1 in the additional case that migrate-able workspace configurations are found
+    -   To avoid this, you can automatically migrate the configurations with the [`admin store migrate`](../../automate/cmemc-command-line-interface/command-reference/admin/store/index.md#admin-store-migrate) command.
+
