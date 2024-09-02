@@ -97,6 +97,7 @@ Use this attribute to dynamically compute **who** get access on **which graphs**
 The following example query grants write access to all users which are described as creators (using Dublin Core) in the graph itself.
 
 ``` sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX void: <http://rdfs.org/ns/void#>
 
@@ -104,7 +105,7 @@ SELECT  ?user ?group ?readGraph ?writeGraph
 WHERE
 {
   GRAPH ?writeGraph {
-    ?writeGraph a void:Dataset .
+    ?writeGraph rdf:type void:Dataset .
     ?writeGraph dct:creator ?user .
   }
 }
