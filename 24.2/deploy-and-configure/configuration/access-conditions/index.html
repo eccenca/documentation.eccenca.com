@@ -12281,22 +12281,34 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-web-interface" class="md-nav__link">
+  <a href="#managing-access-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using the web interface
+        Managing Access Conditions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Using the web interface">
+    <nav class="md-nav" aria-label="Managing Access Conditions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manage-access-conditions" class="md-nav__link">
+  <a href="#web-interface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manage access conditions
+        Web interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-edit-and-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View, edit and update
       
     </span>
   </a>
@@ -12304,10 +12316,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-access-conditions" class="md-nav__link">
+  <a href="#review" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Review access conditions
+        Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command line interface
       
     </span>
   </a>
@@ -12320,13 +12348,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-command-line-interface-cmemc" class="md-nav__link">
+  <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using the command line interface (cmemc)
+        Typical Use Cases
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Typical Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular-administration-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regular administration user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-with-limited-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User with limited access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -12541,17 +12597,18 @@ They are all optional except that a single access condition needs to provide at 
 <li><strong>Dynamic access condition</strong> is an attribute which requires a SPARQL Select query which returns the following projection variables: <code>user</code>, <code>group</code>, <code>readGraph</code>, <code>writeGraph</code>.</li>
 </ul>
 <p>The following example query grants write access to all users which are described as creators (using Dublin Core) in the graph itself.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">PREFIX</span> <span class="nn">dct</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/terms/&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">PREFIX</span> <span class="nn">void</span><span class="p">:</span> <span class="nl">&lt;http://rdfs.org/ns/void#&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">SELECT</span>  <span class="nv">?user</span> <span class="nv">?group</span> <span class="nv">?readGraph</span> <span class="nv">?writeGraph</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">WHERE</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="k">GRAPH</span> <span class="nv">?writeGraph</span> <span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="nv">?writeGraph</span> <span class="k">a</span> <span class="nn">void</span><span class="p">:</span><span class="nt">Dataset</span> <span class="p">.</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="nv">?writeGraph</span> <span class="nn">dct</span><span class="p">:</span><span class="nt">creator</span> <span class="nv">?user</span> <span class="p">.</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  <span class="p">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">PREFIX</span> <span class="nn">rdf</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">PREFIX</span> <span class="nn">dct</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/terms/&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">PREFIX</span> <span class="nn">void</span><span class="p">:</span> <span class="nl">&lt;http://rdfs.org/ns/void#&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">SELECT</span>  <span class="nv">?user</span> <span class="nv">?group</span> <span class="nv">?readGraph</span> <span class="nv">?writeGraph</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">WHERE</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  <span class="k">GRAPH</span> <span class="nv">?writeGraph</span> <span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="nv">?writeGraph</span> <span class="nn">rdf</span><span class="p">:</span><span class="nt">type</span> <span class="nn">void</span><span class="p">:</span><span class="nt">Dataset</span> <span class="p">.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="nv">?writeGraph</span> <span class="nn">dct</span><span class="p">:</span><span class="nt">creator</span> <span class="nv">?user</span> <span class="p">.</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  <span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
 </code></pre></div>
 <p>Given the following Knowledge Graph <code>https://example.org/my-data/</code>, the account <code>tester</code> will get access to it, because the IRI of the account is related to the graph.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">PREFIX</span><span class="w"> </span><span class="nn">dct:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/dc/terms/&gt;</span>
@@ -12569,7 +12626,8 @@ They are all optional except that a single access condition needs to provide at 
 <p>The IRI identifier for users and groups need have the namespace <code>http://eccenca.com/</code>.
 If your data does not match this requirement, you can manipulate the IRIs with SPARQL functions on-the-fly.</p>
 </div>
-<h2 id="using-the-web-interface">Using the web interface<a class="headerlink" href="#using-the-web-interface" title="Permanent link">¤</a></h2>
+<h2 id="managing-access-conditions">Managing Access Conditions<a class="headerlink" href="#managing-access-conditions" title="Permanent link">¤</a></h2>
+<h3 id="web-interface">Web interface<a class="headerlink" href="#web-interface" title="Permanent link">¤</a></h3>
 <p>The access control module can be selected in the <strong>Admin</strong> section of the left main menu of the <strong>Explore</strong> component.
 After clicking it, you will see a screen similar to this:</p>
 <figure>
@@ -12581,7 +12639,7 @@ After clicking it, you will see a screen similar to this:</p>
 <li>In the <strong>Manage</strong> tab, you can view, edit, add and delete all access conditions, which are manageable by your account.</li>
 <li>In the <strong>Review</strong> tab, you can see the <strong>effective rights</strong> based on a selection of an account and groups.</li>
 </ul>
-<h3 id="manage-access-conditions">Manage access conditions<a class="headerlink" href="#manage-access-conditions" title="Permanent link">¤</a></h3>
+<h4 id="view-edit-and-update">View, edit and update<a class="headerlink" href="#view-edit-and-update" title="Permanent link">¤</a></h4>
 <p>Use the following icon buttons for a specific action with a certain access condition:</p>
 <ul>
 <li>Use <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0Z"/></svg></span> to view an access condition.</li>
@@ -12589,7 +12647,7 @@ After clicking it, you will see a screen similar to this:</p>
 <li>Use <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg></span> to delete an access condition.</li>
 </ul>
 <p>Use the <strong>Create access condition</strong> button to create a new access condition.</p>
-<h3 id="review-access-conditions">Review access conditions<a class="headerlink" href="#review-access-conditions" title="Permanent link">¤</a></h3>
+<h4 id="review">Review<a class="headerlink" href="#review" title="Permanent link">¤</a></h4>
 <p>In the <strong>Review</strong> tab, you can see the <strong>effective rights</strong> based on a selection of an account and groups.
 This allows for debugging your access condition system as a whole.
 In order to see the rights select a user and / or group combination from the drop-down list on top (principal).
@@ -12614,7 +12672,7 @@ Then you will see a screen similar to this:</p>
 <p>Second, the list of all access conditions which contributed to the effective access rights. This section allows to see which access conditions matched the principal and which access rights they grant.</p>
 </li>
 </ul>
-<h2 id="using-the-command-line-interface-cmemc">Using the command line interface (cmemc)<a class="headerlink" href="#using-the-command-line-interface-cmemc" title="Permanent link">¤</a></h2>
+<h3 id="command-line-interface">Command line interface<a class="headerlink" href="#command-line-interface" title="Permanent link">¤</a></h3>
 <p>With <a href="../../../automate/cmemc-command-line-interface/">cmemc</a> you can use an additional command line based interface to manage access conditions.
 This interface is primarily used for the automation of provisioning tasks.
 The important command groups for managing principals and access conditions are:</p>
@@ -12655,6 +12713,73 @@ The important command groups for managing principals and access conditions are:<
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="go">┃ :tester-rights             ┃ Condition for user: tester        ┃</span>
 <a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="go">┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛</span>
 </code></pre></div>
+<h2 id="typical-use-cases">Typical Use Cases<a class="headerlink" href="#typical-use-cases" title="Permanent link">¤</a></h2>
+<h3 id="regular-administration-user"><a name="create-regular-admin-user"></a> Regular administration user<a class="headerlink" href="#regular-administration-user" title="Permanent link">¤</a></h3>
+<p>In order to create a regular administration user account, you need to grant the following rights:</p>
+<ul>
+<li>Allowed Actions: <strong>All Actions</strong> (<code>urn:elds-backend-all-actions</code>)</li>
+<li>Allow writing graphs: <strong>All Graphs</strong> (<code>urn:elds-backend-all-graphs</code>)</li>
+</ul>
+<p>In the web interface, this will look like:</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Access Control: Create a regular Administration user" src="24-1-create-admin-user.png" /></a></p>
+<figcaption>Access Control: Create a regular Administration user</figcaption>
+</figure>
+<p>With cmemc, you can achieve this with the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>cmemc<span class="w"> </span>admin<span class="w"> </span>acl<span class="w"> </span>create<span class="w"> </span>--id<span class="w"> </span>my-admin-account-acl<span class="w"> </span>--user<span class="w"> </span>my-admin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>--action<span class="w"> </span>urn:elds-backend-all-actions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span>--write-graph<span class="w"> </span>urn:elds-backend-all-graphs
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Creating<span class="w"> </span>access<span class="w"> </span>condition<span class="w"> </span><span class="s1">&#39;Condition for user: my-admin&#39;</span><span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<p>In case you need to create the user account, you can do this as well:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>cmemc<span class="w"> </span>admin<span class="w"> </span>user<span class="w"> </span>create<span class="w"> </span>my-admin
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Creating<span class="w"> </span>user<span class="w"> </span>my-admin<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>$<span class="w"> </span>cmemc<span class="w"> </span>admin<span class="w"> </span>user<span class="w"> </span>password<span class="w"> </span>my-admin
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Changing<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>account<span class="w"> </span>my-admin<span class="w"> </span>...
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>New<span class="w"> </span>password:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Retype<span class="w"> </span>new<span class="w"> </span>password:
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">done</span>
+</code></pre></div>
+<h3 id="user-with-limited-access">User with limited access<a class="headerlink" href="#user-with-limited-access" title="Permanent link">¤</a></h3>
+<p>In order to limit access to specific parts of the application, you need to know which actions and graphs should be combined to achieve a certain goal.</p>
+<p>The following list, provides grants which work together:</p>
+<ul>
+<li>Access the Explore User Interface:<ul>
+<li>Allowed Actions: <strong>Explore User Interface</strong> (<code>urn:eccenca:ExploreUserInterface</code>)</li>
+<li>Allow read graphs:<ul>
+<li><strong>CMEM Shape Catalog</strong> (<code>https://vocab.eccenca.com/shacl/</code>)</li>
+<li>Any other graph the user should be able to explore</li>
+</ul>
+</li>
+<li>Allow write graphs:<ul>
+<li>(optional) Any graph the user should be able to change</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Access the Query Catalog:<ul>
+<li>Allowed Actions: <strong>Query Catalog User Interface</strong> (<code>urn:eccenca:QueryUserInterface</code>)</li>
+<li>Allow read graphs:<ul>
+<li>(optional) Any graph the user should be able to query</li>
+</ul>
+</li>
+<li>Allow write graphs:<ul>
+<li><strong>CMEM Query Catalog</strong> (<code>https://ns.eccenca.com/data/queries/</code>)</li>
+<li>(optional) Any graph the user should be able to change</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Access the Knowledge Graph Build Component / DataIntegration:<ul>
+<li>Allowed Actions: <strong>eccenca DataIntegration</strong> (<code>urn:eccenca:di</code>)</li>
+<li>Allow write graphs:<ul>
+<li><strong>All Graphs</strong> (<code>urn:elds-backend-all-graphs</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -12677,7 +12802,7 @@ The important command groups for managing principals and access conditions are:<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-15T09:27:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-09-03T13:08:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-09-03</span>
   </span>
 
     
@@ -12783,7 +12908,7 @@ The important command groups for managing principals and access conditions are:<
 <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-        Copyright &copy; 2023 <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
+        Copyright &copy; 2024 <a target="_blank" rel="noopener" href="https://eccenca.com">eccenca GmbH</a>
  -
         <a href="https://github.com/eccenca/documentation.eccenca.com/blob/main/LICENSE" target="_blank" rel="license noopener" title="Creative Commons Attribution-ShareAlike 4.0 International License">CC-BY-SA-4.0</a> -
         <a href="https://eccenca.com/imprint" target="_blank" rel="noopener">Imprint</a>
