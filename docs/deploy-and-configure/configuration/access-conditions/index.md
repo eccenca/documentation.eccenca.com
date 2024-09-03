@@ -130,8 +130,9 @@ PREFIX void: <http://rdfs.org/ns/void#>
     The IRI identifier for users and groups need have the namespace `http://eccenca.com/`.
     If your data does not match this requirement, you can manipulate the IRIs with SPARQL functions on-the-fly.
 
+## Managing Access Conditions
 
-## Using the web interface
+### Web interface
 
 The access control module can be selected in the **Admin** section of the left main menu of the **Explore** component.
 After clicking it, you will see a screen similar to this:
@@ -146,7 +147,7 @@ You have two major application areas (tabs) here:
 - In the **Manage** tab, you can view, edit, add and delete all access conditions, which are manageable by your account.
 - In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
 
-### Manage access conditions
+#### View, edit and update
 
 Use the following icon buttons for a specific action with a certain access condition:
 
@@ -156,7 +157,7 @@ Use the following icon buttons for a specific action with a certain access condi
 
 Use the **Create access condition** button to create a new access condition.
 
-### Review access conditions
+#### Review
 
 In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
 This allows for debugging your access condition system as a whole.
@@ -180,7 +181,7 @@ This screen is split into two main areas:
 - Second, the list of all access conditions which contributed to the effective access rights. This section allows to see which access conditions matched the principal and which access rights they grant.
 
 
-## Using the command line interface (cmemc)
+### Command line interface
 
 With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can use an additional command line based interface to manage access conditions.
 This interface is primarily used for the automation of provisioning tasks.
@@ -225,4 +226,67 @@ Creating access condition 'Condition for user: tester' ... done
 ┃ :tester-rights             ┃ Condition for user: tester        ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
+
+## Typical Use Cases
+
+### <a name="create-regular-admin-user"></a> Regular administration user
+
+In order to create a regular administration user account, you need to grant the following rights:
+
+- Allowed Actions: **All Actions** (`urn:elds-backend-all-actions`)
+- Allow writing graphs: **All Graphs** (`urn:elds-backend-all-graphs`)
+
+In the web interface, this will look like:
+
+<figure markdown>
+![Access Control: Create a regular Administration user](24-1-create-admin-user.png)
+<figcaption>Access Control: Create a regular Administration user</figcaption>
+</figure>
+
+With cmemc, you can achieve this with the following command:
+
+``` shell
+$ cmemc admin acl create --id my-admin-account-acl --user my-admin \
+    --action urn:elds-backend-all-actions \
+    --write-graph urn:elds-backend-all-graphs
+Creating access condition 'Condition for user: my-admin' ... done
+```
+
+In case you need to create the user account, you can do this as well:
+
+``` shell
+$ cmemc admin user create my-admin
+Creating user my-admin ... done
+
+$ cmemc admin user password my-admin
+Changing password for account my-admin ...
+New password:
+Retype new password:
+done
+```
+
+### User with limited access
+
+In order to limit access to specific parts of the application, you need to know which actions and graphs should be combined to achieve a certain goal.
+
+The following list, provides grants which work together:
+
+- Access the Explore User Interface:
+    - Allowed Actions: **Explore User Interface** (`urn:eccenca:ExploreUserInterface`)
+    - Allow read graphs:
+        - **CMEM Shape Catalog** (`https://vocab.eccenca.com/shacl/`)
+        - Any other graph the user should be able to explore
+    - Allow write graphs:
+        - (optional) Any graph the user should be able to change
+- Access the Query Catalog:
+    - Allowed Actions: **Query Catalog User Interface** (`urn:eccenca:QueryUserInterface`)
+    - Allow read graphs:
+        - (optional) Any graph the user should be able to query
+    - Allow write graphs:
+        - **CMEM Query Catalog** (`https://ns.eccenca.com/data/queries/`)
+        - (optional) Any graph the user should be able to change
+- Access the Knowledge Graph Build Component / DataIntegration:
+    - Allowed Actions: **eccenca DataIntegration** (`urn:eccenca:di`)
+    - Allow write graphs:
+        - **All Graphs** (`urn:elds-backend-all-graphs`)
 
