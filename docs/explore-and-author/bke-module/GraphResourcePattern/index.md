@@ -6,8 +6,8 @@ tags:
 
 # GraphResourcePattern
 
-This chapter specifies the JSON object used to provide a EasyNav Search (query) configuration.
-The `GraphResourcePattern` is part of an optional advanced configuration of the EasyNav module.
+This chapter specifies the JSON object used to provide a Business Knowledge Editor Search (query) configuration.
+The `GraphResourcePattern` is part of an optional advanced configuration of the Business Knowledge Editor module.
 It can be used to provide search filter / facets in order to tailor the search results presented to the end user.
 
 The `GraphResourcePattern` object reference is provided in different ways depending on your preferences:
@@ -537,4 +537,3 @@ This configuration produces the following result, it only shows results where:
 
 -   `resource` is of type `http://example.com/vocab/Company`
 -   a `subResource` exists which is related to `resource` via the `http://example.com/vocab/hasParent` property
-

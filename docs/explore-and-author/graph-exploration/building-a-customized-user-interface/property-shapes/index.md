@@ -134,7 +134,7 @@ Used Path: `shacl:property`
 ### Path
 
 
-The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Easynav, this path can always be used for exploration.
+The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Business Knowledge Editor, this path can always be used for exploration.
 
 Used Path: `shacl:path`
 
@@ -142,7 +142,7 @@ Used Path: `shacl:path`
 ### Node kind
 
 
-The type of the linked nodes. In Easynav, if these nodes are literals, they cannot be explored, but will be shown as metadata.
+The type of the linked nodes. In Business Knowledge Editor, if these nodes are literals, they cannot be explored, but will be shown as metadata.
 
 Used Path: `shacl:nodeKind`
 
@@ -224,7 +224,7 @@ Used Path: `shacl:uniqueLang`
 ### Class
 
 
-Class of the connected IRI if its nodeKind is sh:IRI. In Easynav, any new node that a user creates by means of this property shape, will be an instance this class.
+Class of the connected IRI if its nodeKind is sh:IRI. In Business Knowledge Editor, any new node that a user creates by means of this property shape, will be an instance this class.
 
 Used Path: `shacl:class`
 
@@ -236,7 +236,7 @@ This query allows for listing selectable resources in the dropdown list for this
 
 You need to provide the projection variable `resource` in your query.
 
-Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in EasyNav.
+Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in Business Knowledge Editor.
 
 Used Path: `shui:uiQuery`
 
@@ -304,7 +304,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
 - `{{shuiGraph}}` - the currently used graph.
-    
+
 
 Used Path: `shui:onInsertUpdate`
 
@@ -318,7 +318,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
 - `{{shuiGraph}}` - the currently used graph.
-    
+
 
 Used Path: `shui:onDeleteUpdate`
 

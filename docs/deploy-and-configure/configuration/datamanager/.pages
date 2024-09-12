@@ -5,7 +5,6 @@ nav:
     - workspaces-authorization
     - dataset-module
     - explore-module
-    - easynav-module
     - query-module
     - vocabs-module
     - thesaurus-module

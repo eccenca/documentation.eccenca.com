@@ -5,7 +5,7 @@ tags:
     - KnowledgeGraph
 ---
 
-# EasyNav Module
+# Business Knowledge Editor Module
 
 ## Introduction
 
@@ -17,7 +17,7 @@ Furthermore, sophisticated individual search settings (filter presets) can be cr
 
 If enabled, content of Knowledge Graphs can be explored in a visual way, rendering nodes and edges and allowing the user to expand along the relationships between the nodes.
 
-Start using `EasyNav` by selecting the respective module entry in the main navigation.
+Start using `Business Knowledge Editor` by selecting the respective module entry in the main navigation.
 
 ![](easynav-start.png)
 
@@ -25,9 +25,9 @@ At the module welcome screen the user can either load a saved visualization of s
 
 !!! Note
 
-    The graph selection drop-down might or might not be visible depending the existence of an (optional) `EasyNav Module` configuration.
+    The graph selection drop-down might or might not be visible depending the existence of an (optional) `Business Knowledge Editor Module` configuration.
     In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown.
-    A `EasyNav Module` configuration pre-configures a graph.
+    A `EasBusiness Knowledge EditoryNav Module` configuration pre-configures a graph.
     Thus, the dropdown will not be shown if such has been configured for the current workspace.
 
 ![Initial search on the welcome screen.](easynav-welcome-search.png)
@@ -59,21 +59,21 @@ The `Visualization catalog` dialog shows the saved exploration and allows to :oc
 ## Setup
 
 This feature needs to be initially enabled in the DataManager configuration file (`application.yml`).
-See [configuration of EasyNav module](../../deploy-and-configure/configuration/datamanager/easynav-module/index.md) for details how to enable it.
+See [configuration of Business Knowledge Editor module](../../deploy-and-configure/configuration/datamanager/easynav-module/index.md) for details how to enable it.
 
 Without further (workspace) specific configuration the feature can be used asking for the graph that shall be explored every time a new exploration is started.
 
-Optionally a `EasyNav Module` configuration can be created to provide a fixed graph selection and search filter settings.
+Optionally a `Business Knowledge Editor Module` configuration can be created to provide a fixed graph selection and search filter settings.
 
-### Create a EasyNav Module Configuration
+### Create a Business Knowledge Editor Module Configuration
 
-![Create a `EasyNav Module` Configuration](easynav-config-EasyNavModule.png)
+![Create a `Business Knowledge Editor Module` Configuration](easynav-config-EasyNavModule.png)
 
 In the `Knowledge Graphs` module navigate to the `CMEM Configuration` graph.
 
-Select the class `EasyNav Module` and `Create a new "EasyNav Module"`.
+Select the class `Business Knowledge Editor Module` and `Create a new "Business Knowledge Editor Module"`.
 
-![New `EasyNav Module` dialog](easynav-config-newEasyNavModule-dialog.png)
+![New `Business Knowledge Editor Module` dialog](easynav-config-newEasyNavModule-dialog.png)
 
 Provide a `Name` for your configuration and select the `Default Graph` which contains the nodes you want to explore visually.
 This graph can of course be an integration graph.
@@ -81,11 +81,11 @@ This graph can of course be an integration graph.
 `Search Configuration` is optional but a powerful feature to create predefined search filter/facets.
 If want to use this capability select existing `Search Configuration`s in the drop down or create stubs for the configurations you want to setup.
 
-### Set the EasyNav Module in the Workspace configuration
+### Set the Business Knowledge Editor Module in the Workspace configuration
 
-![Select `EasyNav Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
+![Select `Business Knowledge Editor Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
 
-After creating the `EasyNav Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
+After creating the `Business Knowledge Editor Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
 
 ### Create a Search Configuration
 
