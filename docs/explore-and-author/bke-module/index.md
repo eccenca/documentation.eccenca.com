@@ -58,8 +58,8 @@ The `Visualization catalog` dialog shows the saved exploration and allows to :oc
 
 ## Setup
 
-This feature needs to be initially enabled in the DataManager configuration file (`application.yml`).
-See [configuration of Business Knowledge Editor module](../../deploy-and-configure/configuration/datamanager/easynav-module/index.md) for details how to enable it.
+This feature is enabled by default.
+It can be customized or disabled in the respective workspace configuration section.
 
 Without further (workspace) specific configuration the feature can be used asking for the graph that shall be explored every time a new exploration is started.
 
