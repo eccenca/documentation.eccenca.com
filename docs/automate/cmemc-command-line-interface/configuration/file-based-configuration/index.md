@@ -99,7 +99,8 @@ Below is a minimal example using the `client_credentials` grant type.
     OAUTH_CLIENT_SECRET=...
     ```
 
-This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
+This creates a named section (connection identifier) `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
+In order to use this connection, you need to use the `--connection / -c` option with this identifier or [set the default connection](../environment-based-configuration/index.md#example-set-a-default-connection) to this configuration.
 The authorization will be done with a system account `cmem-service-account` and the given client secret.
 Using this combination of configuration parameters is based on a typical installation where all components are available under the same host name.
 

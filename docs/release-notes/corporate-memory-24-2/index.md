@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.2.0
+# Corporate Memory 24.2.1
 
-Corporate Memory 24.2.0 is the first release in the 24.2 release line.
+Corporate Memory 24.2.1 is the first patch release in the 24.2 release line.
 
 ![24.2: Explore - New Shacl(2) based Data Exploration](24-2-explore-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" }
 ![24.2: Explore - Sankey Chart Type](24-2-explore-charts-sankey.png "24.2: Explore - Sankey Chart Type"){ class="bordered" }
@@ -25,14 +25,14 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v24.2.1
--   eccenca DataManager v24.2.0
--   eccenca DataPlatform v24.2.0
+-   eccenca DataManager v24.2.1
+-   eccenca DataPlatform v24.2.1
 -   eccenca Corporate Memory Control (cmemc) v24.2.0
 
 We tested this release with the following dependency components:
 
 -   Ontotext GraphDB v10.7.2
--   Keycloak v25.0.2
+-   Keycloak v25.0.6
 
 More detailed information for this release is provided in the next sections.
 
@@ -92,9 +92,20 @@ v24.2.0 of DataIntegration ships the following fixes:
 -   JDBC: Cannot rerun Data preview without reopening JDBC dataset update dialog.
 -   JDBC: naming the URI column `uri` causes `is ambiguous` error.
 
-## eccenca DataManager v24.2.0
+## eccenca DataManager v24.2.1
 
 We are excited to announce the latest update to DataManager v24.2, which introduces new features, improvements and bug fixes.
+
+v24.2.1 of DataManager ships the following fixes:
+
+-   Fixed _Create `<type>`_-Button in explore
+-   Select NodeShapes according to their `sh:order`
+-   Resolve NodeShapes sequentially, instead of parallel
+-   Node selection clears its state when deleting nodes
+-   Easynav: non-saved values disappear after search value change
+-   Resource list is updated after the creation of a new resource
+-   Newly created relations based on inverted shapes are pointing in the right direction
+-   Setting language for text areas
 
 v24.2.0 of DataManager adds the following new features:
 
@@ -152,9 +163,16 @@ v24.2.0 of DataManager ships the following fixes:
     -   Inverse properties are shown in the correct direction.
     -   Labels with more than approx. 24 characters and no white space are now correctly split into two lines.
 
-## eccenca DataPlatform v24.2.0
+## eccenca DataPlatform v24.2.1
 
 We're excited to bring you the latest update to DataPlatform v24.2, which introduces new features, improvements and bug fixes:
+
+v24.2.1 of DataPlatform ships the following fixes:
+
+-   Backup archives are zipped with ZIP64 option to allow >=4G archives
+-   Prevent issues with long-running shacl batch jobs on single node deployments
+-   Include subclasses in validation of `sh:class`
+-   Improved validation of file uploads
 
 v24.2.0 of DataPlatform adds the following new features:
 
@@ -214,6 +232,9 @@ v24.2.0 of Corporate Memory Control (cmemc) adds the following new features:
 
 -   `admin store migrate` command
     -   Migrate configuration resources to the current version.
+-   `admin status` command
+-   -   will warn in case there a workspace configurations, which can be migrated
+-   -   will exit with exit code 1 in case option `--exit-1 always` is given and migratable workspaces are found
 -   `graph validation export` command
     -   export validation reports as JSON or jUnit XML
 -   `graph import` command
@@ -298,4 +319,6 @@ jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI
 
 ### cmemc
 
-No migrations are required going from cmemc 23.1.x to 24.2.x.
+- The [`admin status`](../../automate/cmemc-command-line-interface/command-reference/admin/index.md#admin-status) command in combination with the `--exit-1 always` option now exits with status code 1 in the additional case that migrate-able workspace configurations are found
+    -   To avoid this, you can automatically migrate the configurations with the [`admin store migrate`](../../automate/cmemc-command-line-interface/command-reference/admin/store/index.md#admin-store-migrate) command.
+
