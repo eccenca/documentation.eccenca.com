@@ -6,8 +6,8 @@ tags:
 
 # Graph Resource Pattern
 
-This chapter specifies the JSON object used to provide a EasyNav Search (query) configuration.
-The `GraphResourcePattern` is part of an optional advanced configuration of the EasyNav module.
+This chapter specifies the JSON object used to provide a Business Knowledge Editor search (query) configuration.
+The `GraphResourcePattern` is part of an optional advanced configuration of the Business Knowledge Editor module.
 It can be used to provide search filter / facets in order to tailor the search results presented to the end user.
 
 The `GraphResourcePattern` object reference is provided in different ways depending on your preferences:
