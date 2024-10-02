@@ -205,7 +205,7 @@ The `GraphResourcePattern` object reference is provided in different ways depend
     }
     ```
 
-A _human friendly_ representation can be generatled using [json-schema-for-humans](https://json-schema-viewer.vercel.app/view?url=https%3A%2F%2Fdev.documentation.eccenca.com%2Fexplore-and-author%2Feasynav-module%2FGraphResourcePattern%2Fschema.json&description_is_markdown=on&expand_buttons=on&show_breadcrumbs=on&with_footer=on&template_name=js#pathFilters).
+A _human friendly_ representation can be generatled using [json-schema-for-humans](https://json-schema-viewer.vercel.app/view?url=https%3A%2F%2Fdev.documentation.eccenca.com%2Fdeploy-and-configure%2Fconfiguration%2Fdatamanager%2Fgraph-resource-pattern%2Fschema.json&description_is_markdown=on&expand_buttons=on&show_breadcrumbs=on&with_footer=on&template_name=js#pathFilters).
 
 A valid configuration must use a `subjectVarName` called `resource`. This is the binding that yields results.
 
