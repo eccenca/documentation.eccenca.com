@@ -25,7 +25,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v24.2.1
--   eccenca DataManager v24.2.1
+-   eccenca DataManager v24.2.2
 -   eccenca DataPlatform v24.2.1
 -   eccenca Corporate Memory Control (cmemc) v24.2.0
 
@@ -92,9 +92,13 @@ v24.2.0 of DataIntegration ships the following fixes:
 -   JDBC: Cannot rerun Data preview without reopening JDBC dataset update dialog.
 -   JDBC: naming the URI column `uri` causes `is ambiguous` error.
 
-## eccenca DataManager v24.2.1
+## eccenca DataManager v24.2.2
 
 We are excited to announce the latest update to DataManager v24.2, which introduces new features, improvements and bug fixes.
+
+v24.2.2 of DataManager ships the following fixes:
+
+-   Fixed the statistics display for link rules with inverted properties
 
 v24.2.1 of DataManager ships the following fixes:
 
