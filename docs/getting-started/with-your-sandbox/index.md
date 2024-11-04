@@ -27,7 +27,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     Community support for the sandbox is provided in this [:simple-github: forum](https://github.com/eccenca/documentation.eccenca.com/discussions){target=_blank}, use it seek for help, report issues or suggestions, or discuss solution ideas.
 
-    Find and contact us at: [:simple-github:](https://github.com/eccenca){target=_blank} • [:simple-twitter:](https://twitter.com/eccenca){target=_blank} • [:simple-linkedin:](https://de.linkedin.com/company/eccenca-gmbh){target=_blank} • [:octicons-mail-24:](mailto:info@eccenca.com)
+    Find and contact us at: [:simple-github:](https://github.com/eccenca){target=_blank} • [:simple-x:](https://x.com/eccenca){target=_blank} • [:simple-linkedin:](https://de.linkedin.com/company/eccenca-gmbh){target=_blank} • [:octicons-mail-24:](mailto:info@eccenca.com)
 
 -   :fontawesome-brands-dropbox:{ .lg .middle } __Sandbox Resources__
 
