@@ -6,8 +6,8 @@ version: '3'
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 24.2
-  MATERIAL_TAG: 9.5.31
-  MATERIAL_INSIDER_TAG: 9.5.31-insiders-4.53.12
+  MATERIAL_TAG: 9.5.44
+  MATERIAL_INSIDER_TAG: 9.5.44-insiders-4.53.14
 
 tasks:
 
