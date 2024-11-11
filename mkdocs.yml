@@ -26,8 +26,8 @@ extra:
       link: https://github.com/eccenca
     - icon: fontawesome/brands/python
       link: https://pypi.org/user/eccenca/
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/eccenca
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/eccenca
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/eccenca-gmbh/
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
