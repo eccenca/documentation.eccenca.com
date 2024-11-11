@@ -31,7 +31,7 @@ The file name is optional and will be generated with by the template if absent.
 ??? info "Options"
     ```text
 
-    -o, --overwrite               Overwrite existing files. This is a dangerous
+    --replace                     Replace existing files. This is a dangerous
                                   option, so use it with care.
     --type TEXT                   Type of the exported workspace file.
                                   [default: xmlZip]

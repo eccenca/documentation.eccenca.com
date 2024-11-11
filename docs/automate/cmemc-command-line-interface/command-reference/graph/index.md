@@ -135,6 +135,7 @@ In case of file export, data from all selected graphs will be concatenated in on
     --mime-type [application/n-triples|text/turtle]
                                     Define the requested mime type  [default:
                                     application/n-triples]
+    --compress [gzip]               Compress the exported graph files.
     ```
 
 ## graph delete

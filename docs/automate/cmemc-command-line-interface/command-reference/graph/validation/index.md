@@ -61,6 +61,8 @@ Validation is performed on all typed resources of the data / context graph (and 
     --id-only                       Return the validation process identifier
                                     only. This is useful for piping the ID into
                                     other commands.
+    --inspect                       Return the list of violations instead of the
+                                    summary (includes --wait).
     --polling-interval INTEGER RANGE
                                     How many seconds to wait between status
                                     polls. Status polls are cheap, so a higher
@@ -125,7 +127,7 @@ Use the ``--filter`` option to limit the output based on different criteria such
 
     --filter <TEXT TEXT>...  Filter violations by one of the following filter
                              names and a corresponding value: constraint,
-                             severity, resource, node-shape, property-shape.
+                             severity, resource, node-shape, source.
     --id-only                Return violated resource identifier only. This is
                              useful for piping the ID into other commands.
     --summary                Outputs the summary of the graph validation instead
