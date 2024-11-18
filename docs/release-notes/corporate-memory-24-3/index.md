@@ -5,7 +5,7 @@ tags:
 ---
 # Corporate Memory 24.3.0
 
-Corporate Memory 24.3.0 is the third major release in 2023.
+Corporate Memory 24.3.0 is the third major release in 2024.
 
 <!-- ![24.2: Explore - New Shacl(2) based Data Exploration](24-2-explore-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" } -->
 <!-- ![24.2: Explore - Sankey Chart Type](24-2-explore-charts-sankey.png "24.2: Explore - Sankey Chart Type"){ class="bordered" } -->
