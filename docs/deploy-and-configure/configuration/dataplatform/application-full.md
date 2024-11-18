@@ -268,7 +268,7 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Valid values | string |
 | Environment | MANAGEMENT_INFLUX_METRICS_EXPORT_ENABLED |
 
-Activate Micrometer Tracing capability (https://micrometer.io/docs/tracing) with Brave (https://github.com/openzipkin/brave)
+Activate [Micrometer Tracing capability](https://docs.micrometer.io/micrometer/reference/) with [Brave](https://github.com/openzipkin/brave).
 
 ***Property: management.tracing.enabled***
 

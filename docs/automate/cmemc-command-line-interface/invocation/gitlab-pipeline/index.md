@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-[Gitlab CI/CD](https://docs.gitlab.com/ee/ci/introduction/index.html) allows for the automation and execution of workflows based on pushes, merge requests and other trigger events to your git repository.
+[Gitlab CI/CD](https://docs.gitlab.com/ee/topics/build_your_application.html) allows for the automation and execution of workflows based on pushes, merge requests and other trigger events to your git repository.
 In order to control eccenca Corporate Memory instances from within Gitlab CI/CD based workflows you need to provide cmemc and the credentials for your instance to the Gitlab CI/CD pipeline.
 
 ## Runner Provisioning

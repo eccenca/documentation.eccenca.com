@@ -6,7 +6,10 @@ tags:
 
 ## Virtuoso setup
 
-This section only covers setup options that have a direct impact on the interoperability between DataPlatform and Virtuoso. There are far more options which can significantly improve the overall performance. For an overview of all configuration files and options of Virtuoso refer to the document [Database Server Administration](http://docs.openlinksw.com/virtuoso/databaseadmsrv.html) of the official product documentation. Ensure to add the suggested parameters to the corresponding subsections of the configuration file before starting the server.
+This section only covers setup options that have a direct impact on the interoperability between DataPlatform and Virtuoso.
+There are far more options which can significantly improve the overall performance.
+For an overview of all configuration files and options of Virtuoso refer to the [OpenLink Virtuoso Universal Server Documentation](https://docs.openlinksw.com/virtuoso/).
+Ensure to add the suggested parameters to the corresponding subsections of the configuration file before starting the server.
 
 ### Compatibility
 

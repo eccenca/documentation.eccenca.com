@@ -109,8 +109,7 @@ To enforce this policy, the following restriction applies to incoming [SPARQL 1.
 
 ### Default RDF dataset
 
-The interpretation of the RDF dataset of a query differs between various SPARQL service implementations (as shown [here](http://depressiverobot.com/2015/07/29/sparql-datasets.html)).
-
+The interpretation of the RDF dataset of a query differs between various SPARQL service implementations.
 In the case a query declares no RDF dataset, DataPlatform uses the following default RDF dataset declaration to provide a uniform behavior for all supported SPARQL services:
 
 - The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
