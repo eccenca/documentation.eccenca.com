@@ -32,6 +32,8 @@ tags:
 | [admin metrics](admin/metrics/index.md) | [get](admin/metrics/index.md#admin-metrics-get) | Get sample data of a metric. |
 | [admin metrics](admin/metrics/index.md) | [inspect](admin/metrics/index.md#admin-metrics-inspect) | Inspect a metric. |
 | [admin metrics](admin/metrics/index.md) | [list](admin/metrics/index.md#admin-metrics-list) | List metrics for a specific job. |
+| [admin migration](admin/migration/index.md) | [list](admin/migration/index.md#admin-migration-list) | List migration recipies. |
+| [admin migration](admin/migration/index.md) | [execute](admin/migration/index.md#admin-migration-execute) | Execute needed migration recipes. |
 | [admin store](admin/store/index.md) | [showcase](admin/store/index.md#admin-store-showcase) | Create showcase data. |
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |

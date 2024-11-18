@@ -78,7 +78,7 @@ Use ``--remove`` to delete bootstrap data.
 Backup all knowledge graphs to a ZIP archive.
 
 ```shell-session title="Usage"
-$ cmemc admin store export [OPTIONS] BACKUP_FILE
+$ cmemc admin store export [OPTIONS] [BACKUP_FILE]
 ```
 
 
@@ -93,8 +93,8 @@ This command will create lots of load on the server. It can take a long time to 
 ??? info "Options"
     ```text
 
-    --overwrite  Overwrite existing files. This is a dangerous option, so use it
-                 with care.
+    --replace   Replace existing files. This is a dangerous option, so use it
+                with care.
     ```
 
 ## admin store import
