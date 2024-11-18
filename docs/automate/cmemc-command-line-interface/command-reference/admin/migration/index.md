@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - admin migration"
 description: "List and apply migration recipes."
-icon: octicons/cross-reference-24
+icon: material/database-arrow-up-outline
 tags:
   - cmemc
 ---

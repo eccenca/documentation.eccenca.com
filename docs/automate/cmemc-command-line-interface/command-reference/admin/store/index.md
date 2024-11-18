@@ -63,6 +63,10 @@ Use ``--remove`` to delete bootstrap data.
     The removal of existing bootstrap data will search for resources which are flagged with the isSystemResource property.
 
 
+!!! note
+    The import part of this command is equivalent to the 'bootstrap-data' migration recipe
+
+
 
 
 ??? info "Options"
