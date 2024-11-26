@@ -118,7 +118,7 @@ All available configuration environment variables are listed in `environments/de
 | DATAPLATFORM_URL | ${INTERNAL_BASE_URL}${DATAPLATFORM_CONTEXTPATH} | DataIntegration eccencaDataPlatform.url parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
 | OAUTH_AUTHORIZATION_URL | ${DEPLOY_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth | DataIntegration oauth.authorizationUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
 | OAUTH_TOKEN_URL | ${INTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token | DataIntegration oauth.tokenUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
-| DATAINTEGRATION_PRODUCTION_CONFIG_FILE | /opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/production.conf | Path to DataIntegration production.conf, for injecting production related parameters, like encryption keys |
+| DATAINTEGRATION_PRODUCTION_CONFIG_FILE | /opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/dataintegration.conf | Path to DataIntegration configuration file |
 | DATAINTEGRATION_JAVA_TOOL_OPTIONS | -Xmx4g | Java options, modify to increase memory allocation |
 
 ### Keycloak Settings
