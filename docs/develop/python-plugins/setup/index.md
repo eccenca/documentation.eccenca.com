@@ -126,3 +126,10 @@ The basic setup provides a `/data` directory inside of the DataIntegration conta
 The environment variable `PYTHONPATH` defines the directory, where the user-managed python packages are saved.
 This directory shall be persisted between restarts of DataIntegration.
 The default value of this variable is `/data/python-packages/`.
+DataIntegration won't start if the directory defined by `PYTHONPATH` is not present and can't be created.
+In addition DataIntegration needs write access to that folder. 
+This is tested on DataIntegration startup.
+
+!!! info
+    By setting environment variable `PYTHONPATH_FAILURE` (default: `true`) to other values than `true` this behavior can be skipped.
+    However this might effect the usability of python plugins.
