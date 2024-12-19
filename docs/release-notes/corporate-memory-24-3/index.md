@@ -174,15 +174,122 @@ We are excited to announce Explore v24.3, which introduces new features, improve
 
 v24.3.0 of Explore adds the following new features:
 
--   …
+-   Help system
+    -   Implemented a renovated help system with global and local context of documentation
+-   BusinessKnowledgeEditor (BKE)
+    -   Rename "EasyNav" to "Business Knowledge Editor"
+    -   Keep search bar state when visualization is saved
+    -   Set BKE as default
+    -   Creation of customizable class on a property shape path
+    -   Edge type selection shows shape description on hover
+    -   Keep search bar state when visualization is saved
+-   Notifications
+    -   Added a warning message, if a user is part of a fallback admin group
+-   Query module
+    -   Icons added to the query dropdown functionalities
+-   Access Condition
+    -   Provided custom search function for graphs in ACDetails
+-   SHACL
+    -   Creation of customizable class on a property shape path
+    -   Workflows are triggered upon editing the resource
+-   Workspace configuration
+    -   Added a support for `GRAPH` placeholder in the `navigationSearchQuery`
+-   Other
+    -   Added endpoint for resolving node shapes of a resource evaluating target class only for explore
+    -   Added flag to `/userinfo` response if user is root user
+    -   Added support for multiline in turtle editor
+    -   Added actuator proxy endpoint for graphdb actuators
+        -   hidden endpoints under `/dataplatform/actuator/proxy/graphdb/**`
+    -   Added support for gzip payload compression in SPARQL Graph Store endpoints
+        -   Content-Encoding / Accept-Encoding used with value gzip
+        -   Added simple zip-bomb check for gzipped content
+            -   Configuration: `proxy.gspUploadGzipContentLimit` sets limit in bytes of uncompressed graph file in gzip (default 5 GB)
+    -   Added endpoint for retrieval of resource descriptions (i.e. rdfs:comment)
+        -   signature same as for title resolving
+    -   Added additional prometheus endpoint under different port and no authentication
+        -   Configuration under deploy
+            -   `deploy.additional-prometheus-endpoint.enabled` (default: false)
+            -   `deploy.additional-prometheus-endpoint.port` (default: 9091)
+            -   `deploy.additional-prometheus-endpoint.context` (default: /metrics)
 
 v24.3.0 of Explore ships the following changes:
 
--   …
+-   EasyNav
+    -   Createad a fallback module, marked as deprecated
+    -   Used the old EP for saving data in easynav
+-   Charts Module
+    -   Sunburst chart in the Explore module - `Statistics` tab reimplemented with ECharts
+-   CodeMirror editor
+    -   Replaced the library for the common usage, added linters for the Editor
+-   SHACL
+    -   Splitted `ShaclContextProvider` into controlled and uncontrolled versions to maintain changes from outer component
+    -   Hardcoded descriptions endpoint replaced with a proper one from DP
+    -   Added information about different validation types to the validation control
+-   `RDFResourceLinkRule` Component
+    -   Renamed to `RDFResourceTag`, added the titles query for cases where only the item resource is provided, added the `RTKLoadingErrorElement` wrapper
+-   Thesaurus
+    -   Translate the Thesaurus Module to our modern UI Stack
+-   Other
+    -   docker image: switch to `eclipse-temurin:17-ubi9-minimal` base image
+    -   Library Updates
+        -   Spring Boot 3.3
+        -   Apache Jena 5.2.0
+    -   Removed access conditions from bootstrap data
+    -   Add username to unauthorized graph access error in log
+    -   Replace account information placeholders in customized queries
+        -   Renamed `{{username}}` placeholder in the _GraphTemplateJinjaTemplate_ to `{{shuiAccountName}}`
+        -   Renamed `{{username}}` SPARQL Query placeholder (available in `onDeleteUpdate`, `onInsertUpdate`, `onUpdateUpdate`, `shui:uiQuery` and `shui:valueQuery`) to `{{shuiAccount}}`
+    -   Changed integration of non-validating property shapes in SHACL node shape model
+        -   Added concept of widget integration linked to node shape which have basic SHACL Properties for form UI
+            -   Label, Description, Order, Group, link to widget
+        -   Widget integrations carry one of the types Workflow Trigger, Table Report or Chart
+        -   Deprecated / Removed link from node shape to chart i.e. node shape charts are not possible anymore
+    -   Always check GraphDb license information on `/actuator/info` call
+    -   Changed retrieval of installed vocabulary prefixes
+    -   Actuator info endpoint secured
+    -   Change class hierarchy resolving to SPARQL property path instead of recursion
+    -   Removed `ValueView` and `ValueEdit` components from resource view components group
 
 v24.3.0 of Explore ships the following fixes:
 
--   …
+-   BusinessKnowledgeEditor (BKE)
+    -   Disabled creation of new resources via `shui:denyNewResources` property
+    -   Added functionality to delete a resource to the node panel
+    -   Show a notification in case of viewing details of an unshaped node
+    -   Changed the save request payload to include a separate change for each node shape
+    -   Added missed "remove from the canvas" functionality
+    -   Set correct node shapes order
+    -   Prevent Modal key event propagation
+    -   Create new node shows node shapes instead of classes
+-   Turtle editor
+    -   Cursor prevented from jumping upon error
+-   `MultiSourceView` Component
+    -   Not imported warning displaying
+    -   Prevent loosing state while navigation is triggered
+    -   Starting with a blank resource gives a blank screen
+-   SHACL
+    -   Source link from the validation log points to the correct graph
+    -   Node shape description toggle shows markdown both when collapsed and opened
+    -   Slow request getting the resources per node shape is replaced with the more performant one
+    -   Tooltip on the resource list is shown correctly
+    -   Adjusted "Add resource" disable state for simple and complex widgets
+    -   `sh:name` shows as property shape title instead of using title helper in the dropdown
+    -   Depictions are shown based on the vocab `foaf:depiction` property and no longer for a specific property shape
+    -   Fetching of property values is now done purely based on pre-parameterized SPARQL queries
+    -   Changed replacement of SHUI `{{username}}` to `{{shuiAccountName}}`
+    -   Replace SHACL Save API
+    -   Also use `?_graph` variables for deleting when using a value query
+    -   Display custom `sh:message` in validation results
+    -   Expose `sh:name` of node shape in SHACL as primary name - `rdfs:label` fallback
+-   Charts
+    -   Info notification shows when query results are empty
+    -   Context graph is conveyed to the charts query replacement
+-   Image widget
+    -   The check for image widget is replaced with the regex
+-   Other
+    -   Notifications: Improved rendering behavior, prevent loops
+    -   Fixed the statistics display for link rules with inverted properties
+    -   Exit application with code 1 on expired license
 
 ## eccenca Corporate Memory Control (cmemc) v24.2.0
 
