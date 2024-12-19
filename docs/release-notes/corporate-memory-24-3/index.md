@@ -42,7 +42,7 @@ More detailed information for this release is provided in the next sections.
 
 We're excited to bring you the latest update to DataIntegration v24.3, which introduces new features, improvements and bug fixes:
 
-v24.3.0 of DataIntegration adds the following new features:
+**v24.3.0 of DataIntegration adds the following new features:**
 
 -   Workspace search:
     -   Support to filter workflows that contain replaceable datasets.
@@ -65,7 +65,7 @@ v24.3.0 of DataIntegration adds the following new features:
 -   Add link from a task parameter description into the task's Markdown documentation for this parameter, if available.
 -   Show sample (output) entities for workflow operators in the workflow reports.
 -   Text dataset allows to configure the zip regex.
--   Support setting the locale for the 'Parse date pattern' and 'Parse date' transform operators.
+-   Support setting the locale for the `Parse date pattern` and `Parse date` transform operators.
     -   `*` selects all direct children of the current token
 -   More fine-grained access control:
     -   In addition to a base action, it is possible to specify as many specific actions that protect specific endpoints.
@@ -91,7 +91,7 @@ v24.3.0 of DataIntegration adds the following new features:
 -   Delete project files operator: Allows to delete project files in a workflow based on a regex.
 -   Added Snowflake dataset type.
 
-v24.3.0 of DataIntegration introduces the following changes:
+**v24.3.0 of DataIntegration introduces the following changes:**
 
 -   Optimized writing to Neo4j, resulting in a 25x speed improvement.
 -   Upgraded Spark to 3.5.3.
@@ -108,7 +108,7 @@ v24.3.0 of DataIntegration introduces the following changes:
 -   Increase visibility of breadcrumbs in application header.
 -   Configurable Favicon in DataIntegration.
 
-v24.3.0 of DataIntegration ships the following fixes:
+**v24.3.0 of DataIntegration ships the following fixes:**
 
 -   Jinja templates can lead to OutOfMemory issues.
 -   Loading of JDBC Type 4 Drivers from Jar at runtime.
@@ -172,7 +172,7 @@ v24.3.0 of DataIntegration ships the following fixes:
 
 We are excited to announce Explore v24.3, which introduces new features, improvements and bug fixes.
 
-v24.3.0 of Explore adds the following new features:
+**v24.3.0 of Explore adds the following new features:**
 
 -   Help system
     -   Implemented a renovated help system with global and local context of documentation
@@ -198,7 +198,7 @@ v24.3.0 of Explore adds the following new features:
     -   Added endpoint for resolving node shapes of a resource evaluating target class only for explore
     -   Added flag to `/userinfo` response if user is root user
     -   Added support for multiline in turtle editor
-    -   Added actuator proxy endpoint for graphdb actuators
+    -   Added actuator proxy endpoint for GraphDB actuators
         -   hidden endpoints under `/dataplatform/actuator/proxy/graphdb/**`
     -   Added support for gzip payload compression in SPARQL Graph Store endpoints
         -   Content-Encoding / Accept-Encoding used with value gzip
@@ -212,17 +212,17 @@ v24.3.0 of Explore adds the following new features:
             -   `deploy.additional-prometheus-endpoint.port` (default: 9091)
             -   `deploy.additional-prometheus-endpoint.context` (default: /metrics)
 
-v24.3.0 of Explore ships the following changes:
+**v24.3.0 of Explore ships the following changes:**
 
 -   EasyNav
-    -   Createad a fallback module, marked as deprecated
+    -   Created a fallback module, marked as deprecated
     -   Used the old EP for saving data in easynav
 -   Charts Module
     -   Sunburst chart in the Explore module - `Statistics` tab reimplemented with ECharts
 -   CodeMirror editor
     -   Replaced the library for the common usage, added linters for the Editor
 -   SHACL
-    -   Splitted `ShaclContextProvider` into controlled and uncontrolled versions to maintain changes from outer component
+    -   Split `ShaclContextProvider` into controlled and uncontrolled versions to maintain changes from outer component
     -   Hardcoded descriptions endpoint replaced with a proper one from DP
     -   Added information about different validation types to the validation control
 -   `RDFResourceLinkRule` Component
@@ -250,7 +250,7 @@ v24.3.0 of Explore ships the following changes:
     -   Change class hierarchy resolving to SPARQL property path instead of recursion
     -   Removed `ValueView` and `ValueEdit` components from resource view components group
 
-v24.3.0 of Explore ships the following fixes:
+**v24.3.0 of Explore ships the following fixes:**
 
 -   BusinessKnowledgeEditor (BKE)
     -   Disabled creation of new resources via `shui:denyNewResources` property
@@ -291,9 +291,11 @@ v24.3.0 of Explore ships the following fixes:
     -   Fixed the statistics display for link rules with inverted properties
     -   Exit application with code 1 on expired license
 
-## eccenca Corporate Memory Control (cmemc) v24.2.0
+## eccenca Corporate Memory Control (cmemc) v24.3.0
 
-This version of cmemc adds the following new features:
+We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.3, which introduces new features, improvements and bug fixes.
+
+**This version of cmemc adds the following new features:**
 
 -   `graph validation execute` command
     -   `--inspect` option to return the list of violations instead of the summary (includes `--wait`)
@@ -324,7 +326,7 @@ This version of cmemc adds the following new features:
 -   `admin acl` command group
     -   support for updated 24.3 access condition vocabulary and ACL graph
 -   `admin migration` command group
-    -   `admin migration list` command - List migration recipies
+    -   `admin migration list` command - List migration recipes
     -   `admin migration execute` command - Execute needed migration recipes
     -   The following migration recipes are available:
         -   `bootstrap-data` - Re-import bootstrap system data to match current version
@@ -334,7 +336,7 @@ This version of cmemc adds the following new features:
         -   `chart-widgets-24.3` - Migrate Chart Property Shapes to Widget Integrations
         -   `workflow-trigger-widgets-24.3` - Migrate Workflow Trigger Property Shapes to Widget Integrations
 
-In addition to that, these changes and fixes are included:
+**In addition to that, these changes and fixes are included:**
 
 -   cmemc will not fail anymore when the config dir is not creatable (message in debug)
 -   cmemc will not fail anymore when the config ini is not readable (message in debug)
@@ -365,7 +367,7 @@ In addition to that, these changes and fixes are included:
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v24.2.0 can be imported into DataIntegration v24.3.0.
 
-### DataIntegration
+### eccenca DataIntegration
 
 -   CSV files are no longer deleted by default at the beginning of a workflow execution. This behavior can be changed in the CSV dataset configuration.
 -   Access control changes. Action URIs have been renamed and new actions are introduced by default:
@@ -374,7 +376,7 @@ In addition to that, these changes and fixes are included:
     -   Python plugin management endpoints are now secured via `<https://vocab.eccenca.com/auth/Action/Build-AdminPython>` action.
     -   Workspace admin functions (reload workspace, import workspace) are now secured via `<https://vocab.eccenca.com/auth/Action/Build-AdminWorkspace>` action.
 
-### Explore
+### eccenca Explore
 
 !!! info inline end "Important info"
 
@@ -383,7 +385,7 @@ In addition to that, these changes and fixes are included:
 
 ...
 
-### cmemc
+### eccenca Corporate Memory Control (cmemc)
 
 -   All scripts which used the `admin status` command with the `--key` option:
     -   adapt the key prefixes accordingly:
