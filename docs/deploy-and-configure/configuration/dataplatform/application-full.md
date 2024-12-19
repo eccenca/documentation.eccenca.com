@@ -3,6 +3,62 @@ tags:
     - Configuration
 ---
 
+## Deployment options for explore container
+
+
+***Property: deploy.apiPrefix***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_APIPREFIX |
+
+***Property: deploy.apiPrefixription***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | API prefix for former dataplatform endpoints i.e. /dataplatform |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_APIPREFIXRIPTION |
+
+### Options for additional prometheus metrics endpoint
+
+
+***Property: deploy.additional-prometheus-endpoint.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_ADDITIONAL_PROMETHEUS_ENDPOINT_ENABLED |
+
+***Property: deploy.additional-prometheus-endpoint.port***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 9091 |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_ADDITIONAL_PROMETHEUS_ENDPOINT_PORT |
+
+***Property: deploy.additional-prometheus-endpoint.context***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | /metrics |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_ADDITIONAL_PROMETHEUS_ENDPOINT_CONTEXT |
+
 ## License
 
 By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license.
@@ -84,6 +140,36 @@ To disable caching, set the type to NONE (not recommended).
 | Valid values | string |
 | Environment | SPRING_CACHE_INFINISPAN_MODE |
 
+***Property: spring.mvc.pathmatch.matching-strategy***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | ant_path_matcher |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_MVC_PATHMATCH_MATCHING_STRATEGY |
+
+***Property: spring.thymeleaf.prefix***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | classpath:/public/ |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_THYMELEAF_PREFIX |
+
+***Property: spring.thymeleaf.mode***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | HTML |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_THYMELEAF_MODE |
+
 ### Configuration of Servlet Container
 
 
@@ -147,6 +233,16 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Required | false |
 | Valid values | string |
 | Environment | MANAGEMENT_INFO_ENV_ENABLED |
+
+***Property: management.endpoints.web.base-path***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform/actuator |
+| Required | false |
+| Valid values | string |
+| Environment | MANAGEMENT_ENDPOINTS_WEB_BASE_PATH |
 
 ***Property: management.endpoints.web.exposure.include***
 
@@ -268,7 +364,7 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Valid values | string |
 | Environment | MANAGEMENT_INFLUX_METRICS_EXPORT_ENABLED |
 
-Activate [Micrometer Tracing capability](https://docs.micrometer.io/micrometer/reference/) with [Brave](https://github.com/openzipkin/brave).
+Activate Micrometer Tracing capability (https://micrometer.io/docs/tracing) with Brave (https://github.com/openzipkin/brave)
 
 ***Property: management.tracing.enabled***
 
@@ -511,7 +607,7 @@ Use this property to configure the URI of the public user group (see section Pub
 
 | Category | Value |
 |--- | ---: |
-| Default | urn:elds-backend-public-group |
+| Default | https://vocab.eccenca.com/auth/PublicGroup |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_PUBLICGROUP |
@@ -524,7 +620,7 @@ Use this property to configure the URI of the public user (see section Public ac
 
 | Category | Value |
 |--- | ---: |
-| Default | urn:elds-backend-anonymous-user |
+| Default | https://vocab.eccenca.com/auth/AnonymousUser |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
@@ -556,7 +652,7 @@ Use this property to set the graph containing the access conditions model.
 
 | Category | Value |
 |--- | ---: |
-| Default | urn:elds-backend-access-conditions-graph |
+| Default | https://ns.eccenca.com/data/ac/ |
 | Required | false |
 | Valid values | string |
   | Conflicts with | url |
@@ -749,6 +845,17 @@ Used for resolving titles & comments and loading shaped resources.
 | Required | false |
 | Valid values | RESOURCE_IN_VALUES, FILTER_ONLY |
 | Environment | PROXY_FETCHVALUESSTRATEGY |
+
+***Property: proxy.gspUploadGzipContentLimit***
+
+The limit of data for the GSP zip-bomb check in bytes. If this limit is exceeded the upload is aborted
+
+| Category | Value |
+|--- | ---: |
+| Default | 5368709120 |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_GSPUPLOADGZIPCONTENTLIMIT |
 
 ## LLM Assistant Supported
 
@@ -1070,6 +1177,16 @@ logging:
 | Required | false |
 | Valid values | string |
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_CACHE_LOGGING |
+
+***Property: logging.level.org.hibernate.search.backend.lucene.impl***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | ERROR |
+| Required | false |
+| Valid values | string |
+| Environment | LOGGING_LEVEL_ORG_HIBERNATE_SEARCH_BACKEND_LUCENE_IMPL |
 
 ## Audit trail logging
 
