@@ -238,13 +238,6 @@ normalizedString represents white space normalized strings. The ·value space· 
 
 IRI: `http://www.w3.org/2001/XMLSchema#normalizedString`
 
-#### PlainLiteral
-
-
-The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2
-
-IRI: `http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral`
-
 #### positiveInteger
 
 

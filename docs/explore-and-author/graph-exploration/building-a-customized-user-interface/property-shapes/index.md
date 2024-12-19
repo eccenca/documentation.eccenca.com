@@ -42,9 +42,11 @@ Use this property to provide a tabular report of a custom SPARQL query at the pl
 
 The following placeholder can be used in the query text of the SPARQL query:
 
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
-- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
-- `{{shuiGraph}}` - the currently used graph.
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 Beta Feature: This query will be used as well to populate the related resources for the advanced editor. In this case, you need to have the projection variables `resource` (the resource IRI which is linked to the shaped resource) and `graph` or _graph (the graph IRI where the relation statement is saved) in your query.
 
@@ -102,18 +104,21 @@ Default is false. A value of true means the properties are not editable by the u
 Used Path: `shui:readOnly`
 
 
-### Chart Visualization
+### Chart Visualization (deprecated)
 
 
-Integrates a chart visualization in the property shape area. Shapes with an integrated chart are ALWAYS shown in read mode and NEVER shown in edit mode.
+Integrates a chart visualization in the property shape area. Shapes with an integrated chart are ALWAYS shown in read mode and NEVER shown in edit mode. This Property is deprecated - please use a Widget Integration instead.
 
 Used Path: `shui:provideChartVisualization`
 
 
-### Provide Workflow Trigger
+### Provide Workflow Trigger (deprecated)
 
 
 Integrates a workflow trigger button in order to execute workflows from or with this resource. Shapes with an integrated workflow trigger are ALWAYS shown in read mode and NEVER shown in edit mode.
+
+This property is deprecated - use a Widget Integration instead.
+
 
 Used Path: `shui:provideWorkflowTrigger`
 
@@ -134,7 +139,7 @@ Used Path: `shacl:property`
 ### Path
 
 
-The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Business Knowledge Editor, this path can always be used for exploration.
+The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in Easynav, this path can always be used for exploration.
 
 Used Path: `shacl:path`
 
@@ -142,7 +147,7 @@ Used Path: `shacl:path`
 ### Node kind
 
 
-The type of the linked nodes. In Business Knowledge Editor, if these nodes are literals, they cannot be explored, but will be shown as metadata.
+The type of the linked nodes. In BKE, if these nodes are literals, they cannot be explored, but will be shown as metadata.
 
 Used Path: `shacl:nodeKind`
 
@@ -224,9 +229,17 @@ Used Path: `shacl:uniqueLang`
 ### Class
 
 
-Class of the connected IRI if its nodeKind is sh:IRI. In Business Knowledge Editor, any new node that a user creates by means of this property shape, will be an instance this class.
+Class of the connected IRI if its nodeKind is sh:IRI. In Easynav, any new node that a user creates by means of this property shape, will be an instance this class.
 
 Used Path: `shacl:class`
+
+
+### Used Class for Resource Creation
+
+
+Use this property to overrule which class is used when a user creates a new resource inside of this property shape on-the-fly.
+
+Used Path: `shui:usedClassForResourceCreation`
 
 
 ### Query: Selectable Resources
@@ -236,7 +249,15 @@ This query allows for listing selectable resources in the dropdown list for this
 
 You need to provide the projection variable `resource` in your query.
 
-Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in Business Knowledge Editor.
+The following placeholder can be used in the query text of the SPARQL query:
+
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+
+Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in EasyNav.
 
 Used Path: `shui:uiQuery`
 
@@ -286,6 +307,14 @@ Categorize validation results (:Info, :Warning, :Violation). Defaults to :Violat
 Used Path: `shacl:severity`
 
 
+### Message
+
+
+If there is a message value, then all validation results produced as a result of this shape will have exactly this message.
+
+Used Path: `shacl:message`
+
+
 ### Ignore on copy
 
 
@@ -301,24 +330,33 @@ This query is executed when a property value is added or changed.
 
 The following placeholder can be used in the query text of the SPARQL query:
 
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
-- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape) ;
-- `{{shuiGraph}}` - the currently used graph.
-
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+- `{{shuiObject}}` - the object value of the statement matched by the property shape
+- `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
+    
 
 Used Path: `shui:onInsertUpdate`
 
 
-### On delete update
+### Query: On delete update
 
 
-A query which is executed when the resource the node shape applies to gets deleted.
+A query which is executed when the statement the property shape applies to gets deleted.
 
 The following placeholder can be used in the query text of the SPARQL query:
 
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
-- `{{shuiGraph}}` - the currently used graph.
-
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+- `{{shuiObject}}` - the object value of the statement matched by the property shape
+- `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
+    
 
 Used Path: `shui:onDeleteUpdate`
 
