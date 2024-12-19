@@ -132,9 +132,9 @@ In case of file export, data from all selected graphs will be concatenated in on
                                     the current date as YYYY-MM-DD. The file
                                     suffix will be appended. Needed directories
                                     will be created.  [default: {{hash}}]
-    --mime-type [application/n-triples|text/turtle]
+    --mime-type [application/n-triples|text/turtle|application/rdf+xml]
                                     Define the requested mime type  [default:
-                                    application/n-triples]
+                                    text/turtle]
     --compress [gzip]               Compress the exported graph files.
     ```
 
