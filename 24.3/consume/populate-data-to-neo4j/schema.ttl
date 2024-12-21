@@ -1,0 +1,175 @@
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix :      <https://vocab.eccenca.com/northwind/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix ecc:   <https://ns.eccenca.com/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf:  <http://purl.org/vocommons/voaf#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+cc:license  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  <http://creativecommons.org/ns> .
+
+:unitPrice  a               owl:DatatypeProperty ;
+        rdfs:domain         :Product ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "unit price" ;
+        rdfs:range          xsd:decimal ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+:Category  a              owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Category" .
+
+:contains  a                owl:ObjectProperty ;
+        rdfs:domain         :Order ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "contains" ;
+        rdfs:range          :Product ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+vann:preferredNamespaceUri
+        a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy  vann: .
+
+:title  a                   owl:DatatypeProperty ;
+        rdfs:domain         :Employee ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "title" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+:id     a                   owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :Category :Employee :Order :Product :Supplier )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "ID" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+:sold   a                   owl:ObjectProperty ;
+        rdfs:domain         :Employee ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "sold" ;
+        rdfs:range          :Order ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+:Product  a               owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Product" .
+
+dct:creator  a            owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+<http://creativecommons.org/licenses/by/4.0/>
+        rdfs:label  "Creative Commons Attribution 4.0 International" .
+
+:name   a                   owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :Category :Employee :Order :Product :Supplier )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "name" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dct:publisher  a          owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:       a                              owl:Ontology , voaf:Vocabulary ;
+        rdfs:comment                   "Demo Vocabulary for the Northwind dataset."@en ;
+        rdfs:label                     "nw: Northwind Vocab"@en ;
+        cc:license                     <http://creativecommons.org/licenses/by/4.0/> ;
+        dct:creator                    ecc:rpietzsch ;
+        dct:issued                     "2021-11-05"^^xsd:date ;
+        dct:modified                   "2021-11-05"^^xsd:date ;
+        dct:publisher                  ecc:eccenca-GmbH ;
+        dct:rights                     "Copyright © 2021 eccenca GmbH" ;
+        vann:preferredNamespacePrefix  "nw" ;
+        vann:preferredNamespaceUri     "https://vocab.eccenca.com/northwind/" ;
+        void:vocabulary                vann: , dct: , foaf: ;
+        owl:versionInfo "4c337a6-dirty" .
+
+:supplies  a                owl:ObjectProperty ;
+        rdfs:domain         :Supplier ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "supplies" ;
+        rdfs:range          :Product ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+:description  a             owl:DatatypeProperty ;
+        rdfs:domain         :Category ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "description" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+:partOf  a                  owl:ObjectProperty ;
+        rdfs:domain         :Product ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "part of" ;
+        rdfs:range          :Category ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+ecc:rpietzsch  a   dct:Agent , foaf:Person ;
+        foaf:name  "René Pietzsch" .
+
+dct:rights  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:Order  a                 owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Order" .
+
+dct:modified  a           owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:reportsTo  a               owl:ObjectProperty ;
+        rdfs:domain         :Employee ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "reports to" ;
+        rdfs:range          :Employee ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+vann:preferredNamespacePrefix
+        a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy  vann: .
+
+dct:issued  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  dct: .
+
+:Employee  a              owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Employee" .
+
+:Supplier  a              owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Supplier" .
+
+:lastName  a                owl:DatatypeProperty ;
+        rdfs:domain         :Employee ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "last name" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+:firstName  a               owl:DatatypeProperty ;
+        rdfs:domain         :Employee ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "first name" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+ecc:eccenca-GmbH  a  dct:Agent , foaf:Organization ;
+        foaf:name  "eccenca GmbH" .
+
+[ a            owl:AllDisjointClasses ;
+  owl:members  ( :Category :Employee :Order :Product :Supplier )
+] .
