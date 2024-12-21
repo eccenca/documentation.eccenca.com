@@ -7,18 +7,18 @@ tags:
 
 Corporate Memory 24.3.0 is the third major release in 2024.
 
-<!-- ![24.2: Explore - New Shacl(2) based Data Exploration](24-2-explore-shacl2.png "24.2: Explore - New Shacl(2) based Data Exploration"){ class="bordered" } -->
-<!-- ![24.2: Explore - Sankey Chart Type](24-2-explore-charts-sankey.png "24.2: Explore - Sankey Chart Type"){ class="bordered" } -->
-<!-- ![24.2: Build - Add new Datasets to Workflows by File Drag and Drop](24-2-build-add-ds-via-dnd.png "24.2: Build - Add new Datasets to Workflows by File Drag and Drop"){ class="bordered" } -->
+![24.3: Explore - New Shacl(2) based dossier view](24-3-explore-shacl2-dossier.png "24.3: Explore - New Shacl(2) based dossier view"){ class="bordered" }
+![24.3: Build - Workflow report entity preview](24-3-build-wf-report-preview.png "24.3: Build - Workflow report entity preview"){ class="bordered" }
+![24.3: Automate - Migration recipe list](24-3-automate-admin-migration-list.png "24.3: Automate - Migration recipe list"){ class="bordered" }
 
 The highlights of this release are:
 
 -   Explore and Author:
-    -   …
+    -   New shacl2 engine now used in the Business Knowledge Editor sidebar for a whole new experience when viewing and editing node details.
 -   Build:
-    -   …
+    -   Workflow reports now show a preview of the output entities being produced, allowing quick review and verification of the underlying workflow tasks..
 -   Automate:
-    -   …
+    -   The `cmem` command group `admin migration`, which adds various migration recipes to make it easier to upgrade to new versions of Corporate Memory.
 
 !!! info inline end "Important info"
 
@@ -371,8 +371,8 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 
 -   CSV files are no longer deleted by default at the beginning of a workflow execution. This behavior can be changed in the CSV dataset configuration.
 -   Access control changes. Action URIs have been renamed and new actions are introduced by default:
-    -   `urn:eccenca:di` -> `<https://vocab.eccenca.com/auth/Action/Build>`
-    -   `urn:elds-backend-all-actions` -> `<https://vocab.eccenca.com/auth/Action/AllActions>`
+    -   `urn:eccenca:di` -> `<https://vocab.eccenca.com/auth/Action/Build>` (will be handled by `cmemc admin migration`, see below).
+    -   `urn:elds-backend-all-actions` -> `<https://vocab.eccenca.com/auth/Action/AllActions>` (will be handled by `cmemc admin migration`, see below).
     -   Python plugin management endpoints are now secured via `<https://vocab.eccenca.com/auth/Action/Build-AdminPython>` action.
     -   Workspace admin functions (reload workspace, import workspace) are now secured via `<https://vocab.eccenca.com/auth/Action/Build-AdminWorkspace>` action.
 
@@ -383,7 +383,15 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
     Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
     into a single component eccenca Explore.
 
-...
+This release introduces changes to internally used graphs (access control graph) and data structures (ACL actions, workspace configuration, chart integration, workflow trigger integration, table report integration).
+
+For easy migration, we introduce a new cmemc command group that automates the necessary adjustments to use your configuration with v24.3: `cmemc admin migration`.
+
+Test if migrations are required: `cmemc admin migration execute --test-only --all`.
+
+Run a specific migration: `cmemc admin migration execute <recipe-id>`.
+
+Run all migrations: `cmemc admin migration execute --all`.
 
 ### eccenca Corporate Memory Control (cmemc)
 
