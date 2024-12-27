@@ -1,4 +1,5 @@
 ---
+status: new
 title: "cmemc: Command Group - admin migration"
 description: "List and apply migration recipes."
 icon: material/database-arrow-up-outline

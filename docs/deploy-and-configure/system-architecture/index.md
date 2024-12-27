@@ -1,4 +1,5 @@
 ---
+status: new
 icon: eccenca/application-homepage
 title: "Deployment: System Architecture"
 description: This page describes the overall system architecture of eccenca Corporate Memory and its components.

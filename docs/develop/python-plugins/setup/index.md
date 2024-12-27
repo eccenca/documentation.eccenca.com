@@ -1,4 +1,5 @@
 ---
+status: new
 title: "Python Plugins: Setup and Configuration"
 icon: material/cog-outline
 tags:
@@ -127,7 +128,7 @@ The environment variable `PYTHONPATH` defines the directory, where the user-mana
 This directory shall be persisted between restarts of DataIntegration.
 The default value of this variable is `/data/python-packages/`.
 DataIntegration won't start if the directory defined by `PYTHONPATH` is not present and can't be created.
-In addition DataIntegration needs write access to that folder. 
+In addition DataIntegration needs write access to that folder.
 This is tested on DataIntegration startup.
 
 !!! info

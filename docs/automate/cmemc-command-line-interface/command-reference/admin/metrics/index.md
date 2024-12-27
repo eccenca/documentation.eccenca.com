@@ -1,4 +1,5 @@
 ---
+status: new
 title: "cmemc: Command Group - admin metrics"
 description: "List and get metrics."
 icon: material/chart-line-variant

@@ -1,4 +1,5 @@
 ---
+status: new
 icon: octicons/cross-reference-24
 tags:
     - Reference
@@ -337,7 +338,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 - `{{shuiObject}}` - the object value of the statement matched by the property shape
 - `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
-    
+
 
 Used Path: `shui:onInsertUpdate`
 
@@ -356,7 +357,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 - `{{shuiObject}}` - the object value of the statement matched by the property shape
 - `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
-    
+
 
 Used Path: `shui:onDeleteUpdate`
 

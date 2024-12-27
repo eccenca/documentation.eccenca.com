@@ -1,6 +1,5 @@
 ---
 icon: eccenca/application-config
-status: new
 tags:
     - KnowledgeGraph
 ---

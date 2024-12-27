@@ -1,6 +1,6 @@
 ---
-icon: eccenca/module-bke
 status: new
+icon: eccenca/module-bke
 tags:
     - KnowledgeGraph
 ---
