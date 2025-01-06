@@ -78,7 +78,7 @@ To import a pre-configured `cmem` client for using the web interface, follow the
 - **Browse** for the downloaded `cmem.json` and select it.
 - **Save** new client.
 
-To import a pre-configured `cmem-service-account` client, repeat the process with the [client configuration with credentials for the technical account (`cmem-service-account`)](cmem-service-account.json) (`cmem-service-account.json`).
+To import a pre-configured `cmem-service-account` client, repeat the process with the [client configuration with credentials for the technical account (`cmem-service-account`)](cmem-service-account.json) (`cmem-service-account.json`). After importing add the `elds-admins` role mapper to the client. See in the manual section of [Add the `cmem-service-account` client](#serviceaccountroles)
 
 
 ### Option 2: Create client configurations manually
@@ -199,7 +199,7 @@ For this, just create a different role name later, and create an access conditio
 ![Dialog create mapper](createClient_14.png){ class="bordered" }
 
   - After **Save** go back to **Client details**
-  - Go to tab **Service account roles** tab
+  - Go to **<a name="serviceaccountroles">Service account roles**</a> tab
   - Select the link in the center **To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID**
 
 ![Dialog add role to client](createClient_15.png){ class="bordered" }
@@ -236,18 +236,15 @@ For this, just create a different role name later, and create an access conditio
 ### Groups configuration
 
 - Go to **Groups** and add the following groups:
-  - These groups are used only to assign them to user accounts (clients have roles-to-group mappers).
   - `elds-admins`
+  - These groups are used only to assign them to user accounts (clients have roles-to-group mappers).
   - Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak
-  - In Corporate Memory docker orchestration, `local-users`, `local-admins`
+  - Corporate Memory does not come with any other groups. Those are optional and can be defined here.
 
 ### Users configuration
 
 - This applies to the [Docker Orchestration](./../docker-orchestration/index.md), for other setups consult the [Keycloak manual](https://www.keycloak.org/docs/latest/server_admin/).
 - Go to `Users`
 - Add the following users and assign their groups respectively (for each user go to credentials, add password and disable `Temporary`)
-  - `user:user`
-    - groups: `local-users`
   - `admin:admin`
-    - groups: `local-admin`
-
+    - groups: `elds-admins`
