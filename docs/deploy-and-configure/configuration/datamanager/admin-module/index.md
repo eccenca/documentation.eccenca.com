@@ -32,5 +32,5 @@ js.config.modules:
   administration:
     enable: true
     accessConditions:
-      graph: "urn:elds-backend-access-conditions-graph"
+      graph: "https://ns.eccenca.com/data/ac/"
 ```

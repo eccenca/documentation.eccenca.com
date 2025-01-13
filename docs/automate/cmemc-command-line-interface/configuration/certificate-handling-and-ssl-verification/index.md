@@ -41,8 +41,7 @@ $ cmemc --debug -c ssltest.eccenca.com graph list
 [2020-03-11 17:50:59.137760] OAUTH_CLIENT_ID set by config to cmem-service-account
 [2020-03-11 17:50:59.137804] OAUTH_CLIENT_SECRET set by config
 [2020-03-11 17:50:59.137978] CA bundle loaded from /home/user/cacert.pem
-http://di.eccenca.com/project/cmem
-urn:elds-backend-access-conditions-graph
+...
 ```
 
 The CA bundle must be available in PEM format.
@@ -68,7 +67,6 @@ However, this will lead to warnings:
 ``` shell-session
 $ cmemc -c ssltest.eccenca.com graph list
 SSL verification is disabled (SSL_VERIFY=False).
-http://di.eccenca.com/project/cmem
-urn:elds-backend-access-conditions-graph
+...
 ```
 

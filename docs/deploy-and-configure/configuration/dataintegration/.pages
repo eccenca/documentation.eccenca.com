@@ -1,3 +1,5 @@
 nav:
+    - DataIntegration: index.md
     - Plugin Reference: plugin-reference
     - Activity Reference: activity-reference
+

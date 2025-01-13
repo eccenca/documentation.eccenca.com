@@ -40,13 +40,12 @@ $ chmod a+x ./count-graphs.sh
 ``` shell-session
 $ ./count-graphs.sh
 graph,triples
-https://vocab.eccenca.com/shacl/,1796
-https://vocab.eccenca.com/dsm/,736
-https://vocab.eccenca.com/sketch/,395
-https://ns.eccenca.com/example/data/dataset/,233
-https://ns.eccenca.com/example/data/vocabs/,128
-urn:elds-backend-access-conditions-graph,97
-https://ns.eccenca.com/data/queries/,32
-http://di.eccenca.com/project/cmem,7
+https://vocab.eccenca.com/shacl/,4510
+https://vocab.eccenca.com/auth/,240
+https://ns.eccenca.com/example/data/vocabs/,169
+https://ns.eccenca.com/data/ac/,66
+https://ns.eccenca.com/data/queries/,39
+https://ns.eccenca.com/data/config/,4
+https://ns.eccenca.com/data/userinfo/,4
 ```
 
