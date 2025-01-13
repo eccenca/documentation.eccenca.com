@@ -57,7 +57,12 @@ The use of variables provides flexibility, efficiency, and consistency, making i
 ## Global Variables
 
 Global variables are statically defined in the `dataintegration.conf` configuration file.
-They are set in a section like in the example below:
+
+Global variables can be marked as sensitive (`isSensitive = true`) for storing passwords.
+Sensitive variables can only be used in password fields.
+Using sensitive variables in other fields or in variable templates fails and does not expose the value.
+
+Global variables are set in a section like in the example below:
 
 ```conf
 ###############################################
@@ -71,9 +76,16 @@ config.variables = {
 
   global = {
     # Insert global variables here
-    jdbcPassword = "secret"
+    jdbcHost = "my-jdbc-host"
     # more key/value pairs ...
     # key = "value"
+    #
+    # sensitive (password) variable example
+    # non-sensitive variables could use this notation, too
+    jdbcPassword = {
+        value = "my-secret-password"
+        isSensitive = true
+    }
   }
 }
 ```
