@@ -4769,6 +4769,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -4785,8 +4789,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -4799,8 +4805,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5_3">
@@ -4812,6 +4824,8 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4836,7 +4850,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
         
           
           
@@ -4859,8 +4873,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4903,7 +4917,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_3" >
         
           
           
@@ -4926,8 +4940,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -12470,8 +12484,12 @@ Instead of repeating the same information in multiple places, project variables 
 </ol>
 <p>The use of variables provides flexibility, efficiency, and consistency, making it easier to manage complex or frequently used values across various tasks and documents.</p>
 <h2 id="global-variables">Global Variables<a class="headerlink" href="#global-variables" title="Permanent link">¤</a></h2>
-<p>Global variables are statically defined in the <code>dataintegration.conf</code> configuration file.
-They are set in a section like in the example below:</p>
+<p>Global variables are statically defined in the <code>dataintegration.conf</code> configuration file.</p>
+<p>Global variables can be marked as sensitive (<code>isSensitive = true</code>) for storing passwords.
+Sensitive variables can only be used in password fields.
+Using sensitive variables in other fields or in variable templates fails and does not expose the value.</p>
+<p>Global variables can have an optional description (<code>description = "the description of my global variable"</code>).</p>
+<p>Global variables are set in a section like in the example below:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>###############################################
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>### Global Variables
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>###############################################
@@ -12483,11 +12501,22 @@ They are set in a section like in the example below:</p>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  global = {
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    # Insert global variables here
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    jdbcPassword = &quot;secret&quot;
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    # more key/value pairs ...
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    # key = &quot;value&quot;
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  }
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>}
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    # simple notation: key = &quot;value&quot;
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    jdbcHost = &quot;my-jdbc-host&quot;
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    # more variables …
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    # advanced notation: to add `isSensitive` and/or `description`
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    jdbcPassword = {
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        value = &quot;my-secret-password&quot;
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        description = &quot;the JDBC password for my-jdbc-host&quot;
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        isSensitive = true
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    }
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    # more variables …
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  }
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>}
 </code></pre></div>
 <p>Global variables are used in the same way as project variables.
 Which is described in the following sections.</p>
@@ -12579,7 +12608,7 @@ When you start typing the variable name it shows you the variable name that you 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-24T14:13:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-24</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-01-13T14:57:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-01-13</span>
   </span>
 
     

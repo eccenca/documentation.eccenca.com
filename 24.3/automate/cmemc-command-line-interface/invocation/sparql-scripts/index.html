@@ -4762,6 +4762,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -4778,8 +4782,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -4792,8 +4798,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5_3">
@@ -4805,6 +4817,8 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4829,7 +4843,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
         
           
           
@@ -4852,8 +4866,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4896,7 +4910,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_3" >
         
           
           
@@ -4919,8 +4933,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -12380,14 +12394,13 @@ To give an example, below is a simple text file with a generic SPARQL query that
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>./count-graphs.sh
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">graph,triples</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">https://vocab.eccenca.com/shacl/,1796</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">https://vocab.eccenca.com/dsm/,736</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">https://vocab.eccenca.com/sketch/,395</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">https://ns.eccenca.com/example/data/dataset/,233</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="go">https://ns.eccenca.com/example/data/vocabs/,128</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="go">urn:elds-backend-access-conditions-graph,97</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="go">https://ns.eccenca.com/data/queries/,32</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="go">http://di.eccenca.com/project/cmem,7</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">https://vocab.eccenca.com/shacl/,4510</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">https://vocab.eccenca.com/auth/,240</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">https://ns.eccenca.com/example/data/vocabs/,169</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">https://ns.eccenca.com/data/ac/,66</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="go">https://ns.eccenca.com/data/queries/,39</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="go">https://ns.eccenca.com/data/config/,4</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="go">https://ns.eccenca.com/data/userinfo/,4</span>
 </code></pre></div>
 
 
@@ -12411,7 +12424,7 @@ To give an example, below is a simple text file with a generic SPARQL query that
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-23T16:46:50+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-01-13T14:45:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-01-13</span>
   </span>
 
     

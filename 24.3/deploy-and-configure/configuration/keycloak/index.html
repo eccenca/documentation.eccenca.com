@@ -4769,6 +4769,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -4785,8 +4789,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../dataintegration/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     
@@ -4799,8 +4805,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5_3">
@@ -4812,6 +4824,8 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4836,7 +4850,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
         
           
           
@@ -4859,8 +4873,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4903,7 +4917,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_3" >
         
           
           
@@ -4926,8 +4940,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -12570,7 +12584,7 @@ This is configured in the DataPlatform configuration or as an environment variab
 <li><strong>Browse</strong> for the downloaded <code>cmem.json</code> and select it.</li>
 <li><strong>Save</strong> new client.</li>
 </ul>
-<p>To import a pre-configured <code>cmem-service-account</code> client, repeat the process with the <a href="cmem-service-account.json">client configuration with credentials for the technical account (<code>cmem-service-account</code>)</a> (<code>cmem-service-account.json</code>).</p>
+<p>To import a pre-configured <code>cmem-service-account</code> client, repeat the process with the <a href="cmem-service-account.json">client configuration with credentials for the technical account (<code>cmem-service-account</code>)</a> (<code>cmem-service-account.json</code>). After importing add the <code>elds-admins</code> role mapper to the client. See in the manual section of <a href="#serviceaccountroles">Add the <code>cmem-service-account</code> client</a></p>
 <h3 id="option-2-create-client-configurations-manually">Option 2: Create client configurations manually<a class="headerlink" href="#option-2-create-client-configurations-manually" title="Permanent link">¤</a></h3>
 <h4 id="add-the-cmem-client-for-using-the-web-interface">Add the <code>cmem</code> client for using the web interface<a class="headerlink" href="#add-the-cmem-client-for-using-the-web-interface" title="Permanent link">¤</a></h4>
 <p>This client is intended for the usage with DataManager, DataPlatform and DataIntegration (user login):</p>
@@ -12693,7 +12707,7 @@ For this, just create a different role name later, and create an access conditio
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog create mapper" class="bordered" src="createClient_14.png" /></a></p>
 <ul>
 <li>After <strong>Save</strong> go back to <strong>Client details</strong></li>
-<li>Go to tab <strong>Service account roles</strong> tab</li>
+<li>Go to <strong><a name="serviceaccountroles">Service account roles</strong></a> tab</li>
 <li>Select the link in the center <strong>To manage detail and group mappings, click on the username service-account-YOUR_CLIENT_ID</strong></li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Dialog add role to client" class="bordered" src="createClient_15.png" /></a></p>
@@ -12726,22 +12740,18 @@ For this, just create a different role name later, and create an access conditio
 <h3 id="groups-configuration">Groups configuration<a class="headerlink" href="#groups-configuration" title="Permanent link">¤</a></h3>
 <ul>
 <li>Go to <strong>Groups</strong> and add the following groups:</li>
-<li>These groups are used only to assign them to user accounts (clients have roles-to-group mappers).</li>
 <li><code>elds-admins</code></li>
+<li>These groups are used only to assign them to user accounts (clients have roles-to-group mappers).</li>
 <li>Any groups provided by your user management system (e.g. LDAP) that must be recognized/mapped by Keycloak</li>
-<li>In Corporate Memory docker orchestration, <code>local-users</code>, <code>local-admins</code></li>
+<li>Corporate Memory does not come with any other groups. Those are optional and can be defined here.</li>
 </ul>
 <h3 id="users-configuration">Users configuration<a class="headerlink" href="#users-configuration" title="Permanent link">¤</a></h3>
 <ul>
 <li>This applies to the <a href="../docker-orchestration/">Docker Orchestration</a>, for other setups consult the <a href="https://www.keycloak.org/docs/latest/server_admin/">Keycloak manual</a>.</li>
 <li>Go to <code>Users</code></li>
 <li>Add the following users and assign their groups respectively (for each user go to credentials, add password and disable <code>Temporary</code>)</li>
-<li><code>user:user</code><ul>
-<li>groups: <code>local-users</code></li>
-</ul>
-</li>
 <li><code>admin:admin</code><ul>
-<li>groups: <code>local-admin</code></li>
+<li>groups: <code>elds-admins</code></li>
 </ul>
 </li>
 </ul>
@@ -12767,7 +12777,7 @@ For this, just create a different role name later, and create an access conditio
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-07-22T07:29:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-07-22</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-17T17:19:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-17</span>
   </span>
 
     

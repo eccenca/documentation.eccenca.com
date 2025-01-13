@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://documentation.eccenca.com/24.3/deploy-and-configure/configuration/dataintegration/">
       
       
-        <link rel="prev" href="../caveats/">
+        <link rel="prev" href="../docker-orchestration/">
       
       
-        <link rel="next" href="activity-reference/">
+        <link rel="next" href="plugin-reference/">
       
       
         
@@ -4771,6 +4771,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -4787,8 +4791,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   <span class="md-ellipsis">
     
@@ -4801,8 +4807,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5_3">
@@ -4814,6 +4826,8 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -4838,7 +4852,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
         
           
           
@@ -4861,8 +4875,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4905,7 +4919,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3_3" >
         
           
           
@@ -4928,8 +4942,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5_3_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -12316,15 +12330,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dataplatform-configuration" class="md-nav__link">
+  <a href="#explore-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DataPlatform configuration
+        Explore configuration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="DataPlatform configuration">
+    <nav class="md-nav" aria-label="Explore configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -13014,10 +13028,15 @@
 
 
 <h1 id="dataintegration">DataIntegration<a class="headerlink" href="#dataintegration" title="Permanent link">¤</a></h1>
-<p>This section is intended to be a reference for all available eccenca DataIntegration configuration options.The configuration format is based on <a href="https://github.com/typesafehub/config">HOCON</a>.</p>
-<p>The following sections introduce the most important configuration parameters. The entire list of available configuration parameters can be found in the dataintegration.conf file found in the release package.</p>
+<p>This section is intended to be a reference for all available eccenca DataIntegration configuration options.
+The configuration format is based on <a href="https://github.com/typesafehub/config">HOCON</a>.</p>
+<p>The following sections introduce the most important configuration parameters.
+The entire list of available configuration parameters can be found in the dataintegration.conf file found in the release package.</p>
 <h2 id="oauth">OAuth<a class="headerlink" href="#oauth" title="Permanent link">¤</a></h2>
-<p>Authorization in eccenca DataIntegration is based on OAuth. Typically the eccenca DataPlatform is used as an OAuth endpoint, but external endpoints can be used as well. The Authorization Code Grant workflow is used for retrieving the OAuth token. The default configuration is the following:</p>
+<p>Authorization in eccenca DataIntegration is based on OAuth.
+Typically the eccenca DataPlatform is used as an OAuth endpoint, but external endpoints can be used as well.
+The Authorization Code Grant workflow is used for retrieving the OAuth token.
+The default configuration is the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -13102,57 +13121,43 @@
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a># Additional request parameters to append to all OAuth authentication requests.
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a># oauth.requestParameters = &quot;&amp;resource=value&quot;
 </code></pre></div></td></tr></table></div>
-<h2 id="dataplatform-configuration">DataPlatform configuration<a class="headerlink" href="#dataplatform-configuration" title="Permanent link">¤</a></h2>
-<p>eccenca DataIntegration can only be run by OAuth users that are granted the <code>urn:eccenca:di</code> action by the DataPlatform. An example configuration that grants all users from a predefined group <code>dataIntegrators</code> access to DataIntegration is shown in the following:</p>
+<h2 id="explore-configuration">Explore configuration<a class="headerlink" href="#explore-configuration" title="Permanent link">¤</a></h2>
+<p>eccenca DataIntegration can only be run by OAuth users that are granted the <code>https://vocab.eccenca.com/auth/Action/Build</code> action by the Explore component (aka DataPlatform/DataManager).
+An example condition can be seen at <a href="../access-conditions/#access-to-dataintegration">Access Conditions &gt; Access to DataIntegration</a></p>
+<p>In the shown example, the users also get access to all graphs in the RDF store.
+This is not a requirement for working with DataIntegration.
+Access may also be restricted to graphs that the data integration users are allowed to work with.</p>
+<p>In order to activate OAuth using the eccenca Explore (Dataplatform), the following minimal configuration is required:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span>
-<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">@prefix</span><span class="w"> </span><span class="nn">eccauth:</span><span class="w"> </span><span class="nv">&lt;https://vocab.eccenca.com/auth/&gt;</span><span class="w"> </span><span class="p">.</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">@prefix</span><span class="w"> </span><span class="nn">:</span><span class="w"> </span><span class="nv">&lt;http://eccenca.com/&gt;</span><span class="w"> </span><span class="p">.</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nv">&lt;urn:readAndWriteAllGraphs&gt;</span> <span class="kt">a</span> <span class="nn">eccauth</span><span class="p">:</span><span class="nt">AccessCondition</span> <span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="nn">eccauth</span><span class="p">:</span><span class="nt">requiresGroup</span> <span class="p">:</span><span class="nt">dataIntegrators</span> <span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="nn">eccauth</span><span class="p">:</span><span class="nt">allowedAction</span> <span class="nv">&lt;urn:eccenca:di&gt;</span> <span class="p">;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="nn">eccauth</span><span class="p">:</span><span class="nt">readGraph</span> <span class="nv">&lt;urn:elds-backend-all-graphs&gt;</span> <span class="p">;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="nn">eccauth</span><span class="p">:</span><span class="nt">writeGraph</span> <span class="nv">&lt;urn:elds-backend-all-graphs&gt;</span> <span class="p">.</span>
-</code></pre></div></td></tr></table></div>
-<p>In the shown configuration, the users also get access to all graphs in the RDF store. This is not a requirement for working with DataIntegration. Access may also be restricted to graphs that the data integration users are allowed to work with.</p>
-<details class="note">
-<summary>Note</summary>
-<p>The <code>urn:elds-backend-all-actions</code> action set also includes the <code>urn:eccenca:di</code> action, i.e., users that are granted <code>urn:elds-backend-all-actions</code> also get access to eccencca DataIntegration.</p>
-</details>
-<p>In order to activate OAuth using the eccenca DataPlatform, the following minimal configuration is required:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>eccencaDataPlatform.url = &quot;http://localhost:9090&quot;
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>eccencaDataPlatform.oauth = true
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>oauth.clientId = &quot;eldsClient&quot;
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>oauth.clientSecret = &quot;secret&quot;
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>eccencaDataPlatform.url = &quot;http://localhost:9090&quot;
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>eccencaDataPlatform.oauth = true
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>oauth.clientId = &quot;eldsClient&quot;
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>oauth.clientSecret = &quot;secret&quot;
 </code></pre></div></td></tr></table></div>
 <h3 id="super-user">Super User<a class="headerlink" href="#super-user" title="Permanent link">¤</a></h3>
-<p>By default, the workspace is loaded the first time a user opens eccenca DataIntegration in the browser using their credentials. Any scheduler that is part of a project must be started manually.</p>
-<p>By configuring a super user, the workspace will be loaded at startup. After loading, all schedulers will be started using the credentials of the super user.</p>
-<p>In addition to the configuration of the eccencaDataPlatform according to the previous section, a super user is configured by specifying the following two parameters:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>workbench.superuser.client<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;superUserClient&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>workbench.superuser.clientSecret<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;superUserClientSecret&quot;</span>
+<p>By default, the workspace is loaded the first time a user opens eccenca DataIntegration in the browser using their credentials.
+Any scheduler that is part of a project must be started manually.</p>
+<p>By configuring a super user, the workspace will be loaded at startup.
+After loading, all schedulers will be started using the credentials of the super user.</p>
+<p>In addition to the configuration of eccenca Explore according to the previous section, a super user is configured by specifying the following two parameters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>workbench.superuser.client<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;superUserClient&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>workbench.superuser.clientSecret<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;superUserClientSecret&quot;</span>
 </code></pre></div></td></tr></table></div>
 <details class="note">
 <summary>Note</summary>
-<p>The client credentials grant type is used to retrieve a token for the super user. Note that the schedulers are only started automatically when running in production mode.</p>
+<p>The client credentials grant type is used to retrieve a token for the super user.
+Note that the schedulers are only started automatically when running in production mode.</p>
 </details>
 <h2 id="workspace-providers">Workspace Providers<a class="headerlink" href="#workspace-providers" title="Permanent link">¤</a></h2>
 <p>The backend that holds the workspace can be configured using the <code>workspace.provider.plugin</code> parameter in <code>dataintegration.conf</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>workspace.provider.plugin<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;workspace-provider-plugin-name&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>workspace.provider.plugin<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;workspace-provider-plugin-name&gt;
 </code></pre></div></td></tr></table></div>
 <p>The following sections describe the available workspace provider plugins and how they are configured.</p>
 <h3 id="rdf-store-workspace-backend">RDF-store Workspace - backend<a class="headerlink" href="#rdf-store-workspace-backend" title="Permanent link">¤</a></h3>
-<p>When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca DataPlatform.</p>
+<p>When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca DataPlatform (Explore).</p>
 <p>The workspace is held using the eccenca DataPlatform, i.e., it requires the <code>eccencaDataPlatform.url</code> parameter to be configured.</p>
 <p>This workspace can be configured using the following parameter:</p>
 <table>
@@ -13193,20 +13198,20 @@
 </table>
 <p>By default, prefixes are loaded from all installed vocabularies. Only one of loadAllVocabularyPrefixes and loadInstalledVocabularyPrefixes can be set to true.</p>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>eccencaDataPlatform.url = &lt;DATAPLATFORM_URL&gt;
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>...
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>workspace.provider.plugin = backend
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>...
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>workspace.provider.backend = {
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  # Load prefixes defined by all known vocabularies.
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  loadAllVocabularyPrefixes = false
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  loadInstalledVocabularyPrefixes = true
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  # The graph that contains the vocabulary meta data.
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  # Optional directory to persist caches between restarts. If empty, caches will be held in-memory and will be reloaded on each start.
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  cacheDir = &quot;&quot;
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>eccencaDataPlatform.url = &lt;DATAPLATFORM_URL&gt;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>...
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>workspace.provider.plugin = backend
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>workspace.provider.backend = {
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  # Load prefixes defined by all known vocabularies.
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  loadAllVocabularyPrefixes = false
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  loadInstalledVocabularyPrefixes = true
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  # The graph that contains the vocabulary meta data.
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  # Optional directory to persist caches between restarts. If empty, caches will be held in-memory and will be reloaded on each start.
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  cacheDir = &quot;&quot;
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>}
 </code></pre></div>
 <h3 id="file-based-workspace-file">File-based Workspace - file<a class="headerlink" href="#file-based-workspace-file" title="Permanent link">¤</a></h3>
 <p>The workspace can also be held on the filesystem.</p>
@@ -13230,17 +13235,17 @@
 </tbody>
 </table>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>workspace.provider.plugin = file
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>...
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>workspace.provider.file = {
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  # The directory to which the workspace is persisted.
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>  dir = ${user.home}&quot;/myWorkspace&quot;
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>workspace.provider.plugin = file
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>...
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>workspace.provider.file = {
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  # The directory to which the workspace is persisted.
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  dir = ${user.home}&quot;/myWorkspace&quot;
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="hybrid-workspace-fileanddataplatform">Hybrid workspace - fileAndDataPlatform<a class="headerlink" href="#hybrid-workspace-fileanddataplatform" title="Permanent link">¤</a></h3>
 <p>The so called hybrid workspace holds the workspace in the filesystem and in eccenca DataPlatform simultaneously. Each time a task is updated, it is written to both the filesystem and to the project RDF graph. In addition, on each (re)load of the Workspace, the contents of the file based workspace are pushed to the RDF store, to make sure that both workspace backends stay synchronized. Contents of the file system may be changed manually (reload the workspace afterwards). Contents of the RDF store are supposed to be read only and will be overwritten on reload.</p>
@@ -13290,42 +13295,42 @@
 </table>
 <p>By default, prefixes are loaded from all installed vocabularies. Only one of loadAllVocabularyPrefixes and loadInstalledVocabularyPrefixes can be set to true.</p>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>eccencaDataPlatform.url = &lt;DATAPLATFORM_URL&gt;
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>...
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>workspace.provider.plugin = fileAndDataPlatform
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>...
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>workspace.provider.fileAndDataPlatform = {
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  # The directory to which the workspace is persisted.
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  dir = ${user.home}&quot;/myWorkspace&quot;
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  # Load prefixes defined by all known vocabularies.
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  loadAllVocabularyPrefixes = false
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  loadInstalledVocabularyPrefixes = true
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  # The graph that contains the vocabulary meta data.
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>  # If true, whenever an update is triggered that has been pushed to the xml backend, but failed to be pushed to the DataPlatform, the entire request fails. If false, an update error in the DataPlatform will only log a warning.
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>  failOnDataPlatformError = false
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>eccencaDataPlatform.url = &lt;DATAPLATFORM_URL&gt;
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>...
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>workspace.provider.plugin = fileAndDataPlatform
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>...
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>workspace.provider.fileAndDataPlatform = {
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>  # The directory to which the workspace is persisted.
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  dir = ${user.home}&quot;/myWorkspace&quot;
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>  # Load prefixes defined by all known vocabularies.
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>  loadAllVocabularyPrefixes = false
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>  loadInstalledVocabularyPrefixes = true
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>  # The graph that contains the vocabulary meta data.
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>  # If true, whenever an update is triggered that has been pushed to the xml backend, but failed to be pushed to the DataPlatform, the entire request fails. If false, an update error in the DataPlatform will only log a warning.
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>  failOnDataPlatformError = false
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="in-memory-workspace-inmemory">In-memory Workspace - inMemory<a class="headerlink" href="#in-memory-workspace-inmemory" title="Permanent link">¤</a></h3>
 <p>A workspace provider that holds all projects in memory. All contents will be gone on restart.</p>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>workspace.provider.plugin = inMemory
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>workspace.provider.plugin = inMemory
 </code></pre></div></td></tr></table></div>
 <h4 id="in-memory-rdf-workspace-inmemoryrdfworkspace"><strong>In-memory RDF Workspace - inMemoryRdfWorkspace</strong><a class="headerlink" href="#in-memory-rdf-workspace-inmemoryrdfworkspace" title="Permanent link">¤</a></h4>
 <p>A workspace that is held in a in-memory RDF store and loses all its content on restart (mainly used for testing). Needed if operators are used that require an RDF store backend.</p>
@@ -13362,29 +13367,29 @@
 </table>
 <p>By default, prefixes are loaded from all installed vocabularies. Only one of loadAllVocabularyPrefixes and loadInstalledVocabularyPrefixes can be set to true.</p>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>workspace.provider.plugin = inMemoryRdfWorkspace
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>...
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>workspace.provider.inMemoryRdfWorkspace = {
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>  # Load prefixes defined by all known vocabularies.
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  loadAllVocabularyPrefixes = false
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a>  loadInstalledVocabularyPrefixes = true
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a>  # The graph that contains the vocabulary meta data.
-<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>workspace.provider.plugin = inMemoryRdfWorkspace
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>...
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>workspace.provider.inMemoryRdfWorkspace = {
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  # Load prefixes defined by all known vocabularies.
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  loadAllVocabularyPrefixes = false
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>  # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>  loadInstalledVocabularyPrefixes = true
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>  # The graph that contains the vocabulary meta data.
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>  vocabularyGraph = &quot;https://ns.eccenca.com/example/data/vocabs/&quot;
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>}
 </code></pre></div></td></tr></table></div>
 <h2 id="resource-repositories">Resource Repositories<a class="headerlink" href="#resource-repositories" title="Permanent link">¤</a></h2>
 <p>Project resources are held by a resource repository which is configured using the <code>workspace.repository.plugin</code>  parameter in <code>dataintegration.conf</code></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>workspace.repository.plugin = &lt;resource-repository-plugin-name&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>workspace.repository.plugin = &lt;resource-repository-plugin-name&gt;
 </code></pre></div></td></tr></table></div>
 <p>The following sections describe the available resource repository plugins and how they are configured.</p>
 <h3 id="project-specific-directories-projectfile">Project Specific Directories - projectFile<a class="headerlink" href="#project-specific-directories-projectfile" title="Permanent link">¤</a></h3>
@@ -13409,15 +13414,15 @@
 </tbody>
 </table>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span>
-<span class="normal"><a href="#__codelineno-11-4">4</a></span>
-<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>workspace.repository.plugin = projectFile
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>...
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>workspace.repository.projectFile = {
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a>  dir = ${elds.home}&quot;/var/dataintegration/workspace/&quot;
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>workspace.repository.plugin = projectFile
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>...
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>workspace.repository.projectFile = {
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>  dir = ${elds.home}&quot;/var/dataintegration/workspace/&quot;
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="shared-directory-file">Shared Directory - file<a class="headerlink" href="#shared-directory-file" title="Permanent link">¤</a></h3>
 <p>Alternatively, all resources across all DataIntegration projects can be held in a single directory on the file system.</p>
@@ -13441,15 +13446,15 @@
 </tbody>
 </table>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span>
-<span class="normal"><a href="#__codelineno-12-4">4</a></span>
-<span class="normal"><a href="#__codelineno-12-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>workspace.repository.plugin = file
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>...
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>workspace.repository.file = {
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  dir = ${elds.home}&quot;/var/dataintegration/resources/&quot;
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>workspace.repository.plugin = file
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>...
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>workspace.repository.file = {
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>  dir = ${elds.home}&quot;/var/dataintegration/resources/&quot;
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="hdfs-resources-hdfs">HDFS resources - hdfs<a class="headerlink" href="#hdfs-resources-hdfs" title="Permanent link">¤</a></h3>
 <p>Holds all resources on the HDFS file system.</p>
@@ -13479,21 +13484,21 @@
 </tbody>
 </table>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span>
-<span class="normal"><a href="#__codelineno-13-7">7</a></span>
-<span class="normal"><a href="#__codelineno-13-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>workspace.repository.plugin = hdfs
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>...
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>workspace.repository.hdfs = {
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  # The directory to which the resources are persisted.
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>  dir = &quot;/data/hdfs-datalake/&quot;
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>  # The hadoop user.
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>  user = &quot;hadoopuser&quot;
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>workspace.repository.plugin = hdfs
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>...
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>workspace.repository.hdfs = {
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  # The directory to which the resources are persisted.
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>  dir = &quot;/data/hdfs-datalake/&quot;
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>  # The hadoop user.
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>  user = &quot;hadoopuser&quot;
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="s3-bucket-project-specific-projects3">S3 Bucket, Project Specific - projectS3<a class="headerlink" href="#s3-bucket-project-specific-projects3" title="Permanent link">¤</a></h3>
 <p>In addition to storing files in the local filesystem an AWS S3 bucket can be used as the resource repository backend.</p>
@@ -13542,80 +13547,80 @@
 </tbody>
 </table>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-14-10">10</a></span>
-<span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span>
-<span class="normal"><a href="#__codelineno-14-13">13</a></span>
-<span class="normal"><a href="#__codelineno-14-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>workspace.repository.plugin = projectS3 # project individual resources
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a>...
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>workspace.repository.projectS3 = {
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  # The S3 bucket name.
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a>  bucket = &quot;your-bucket-name&quot;
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a>  # The S3 access key ID.
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a>  accessKeyId = &quot;BUCKET-ACCESS-KEY&quot;
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a>  # The S3 secret key.
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a>  secretKey = &quot;BUCKET-SECRET-KEY&quot;
-<a id="__codelineno-14-10" name="__codelineno-14-10"></a>  # The AWS region the S3 bucket is located in.
-<a id="__codelineno-14-11" name="__codelineno-14-11"></a>  region = &quot;eu-central-1&quot;
-<a id="__codelineno-14-12" name="__codelineno-14-12"></a>  # OPTIONAL path in the bucket used to hold the DataIntegration workspace
-<a id="__codelineno-14-13" name="__codelineno-14-13"></a>  # /path/to/my-workspace/
-<a id="__codelineno-14-14" name="__codelineno-14-14"></a>}
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>workspace.repository.plugin = projectS3 # project individual resources
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>...
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>workspace.repository.projectS3 = {
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  # The S3 bucket name.
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>  bucket = &quot;your-bucket-name&quot;
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>  # The S3 access key ID.
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>  accessKeyId = &quot;BUCKET-ACCESS-KEY&quot;
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>  # The S3 secret key.
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>  secretKey = &quot;BUCKET-SECRET-KEY&quot;
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>  # The AWS region the S3 bucket is located in.
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>  region = &quot;eu-central-1&quot;
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>  # OPTIONAL path in the bucket used to hold the DataIntegration workspace
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>  # /path/to/my-workspace/
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>}
 </code></pre></div></td></tr></table></div>
-For this S3 plugin make sure the account has at least these permissions attached: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;YOUR_BUCKET_NAME&gt;&quot;</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">        </span><span class="p">},</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor1&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:ListAllMyBuckets&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">        </span><span class="p">},</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor2&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">                </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">                </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">                </span><span class="s2">&quot;s3:DeleteObject&quot;</span>
-<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">            </span><span class="p">],</span>
-<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;YOUR_BUCKET_NAME&gt;/*&quot;</span>
-<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="p">}</span>
+For this S3 plugin make sure the account has at least these permissions attached:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;YOUR_BUCKET_NAME&gt;&quot;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor1&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:ListAllMyBuckets&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor2&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">                </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">                </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">                </span><span class="s2">&quot;s3:DeleteObject&quot;</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">            </span><span class="p">],</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;YOUR_BUCKET_NAME&gt;/*&quot;</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="s3-bucket-shared-directory-s3">S3 Bucket, Shared Directory - s3<a class="headerlink" href="#s3-bucket-shared-directory-s3" title="Permanent link">¤</a></h3>
 <p>Holds all resources shared across all your DataIntegration projects in a single S3 bucket.</p>
 <p>The available configuration options are the same as for <code>projectS3</code> .</p>
 <p>The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span>
-<span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span>
-<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>workspace.repository.plugin = s3 # resources shared across projects
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>...
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>workspace.repository.s3 = {
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  ... # same configuration as for projectS3
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>workspace.repository.plugin = s3 # resources shared across projects
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>...
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>workspace.repository.s3 = {
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  ... # same configuration as for projectS3
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="in-memory-inmemory">In-Memory - inMemory<a class="headerlink" href="#in-memory-inmemory" title="Permanent link">¤</a></h3>
 <p>Resources can also be held in-memory. The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>workspace.repository.plugin = inMemory
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>workspace.repository.plugin = inMemory
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -13624,63 +13629,63 @@ For this S3 plugin make sure the account has at least these permissions attached
 <h4 id="no-resources-empty">No resources - empty<a class="headerlink" href="#no-resources-empty" title="Permanent link">¤</a></h4>
 <p>In case you do not want to allow to store file resources you can define an <em>empty</em> repository. The <code>empty</code> resource repository that does not allow storing any resources.</p>
 <p>The resource repository can also be specified as empty. The corresponding configuration in your <code>dataintegration.conf</code> looks like the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>workspace.repository.plugin = empty
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>workspace.repository.plugin = empty
 </code></pre></div></td></tr></table></div>
 <h2 id="execution-report-manager">Execution Report Manager<a class="headerlink" href="#execution-report-manager" title="Permanent link">¤</a></h2>
 <p>The execution report manager is used to persist execution reports. It allows to retrieve previous reports. you can use it with file and in-memory models. In addition you can specify a retention time. Reports older than this time will be deleted, if a new report is added. The retention time is expressed as a Java <code>Duration</code> string, see <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-">https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-</a> for details.</p>
 <h3 id="disabled-none">Disabled - None<a class="headerlink" href="#disabled-none" title="Permanent link">¤</a></h3>
 <p>Discards execution reports and does not persist them.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>workspace.reportManager.plugin = none # Discards execution reports and does not persist them.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>workspace.reportManager.plugin = none # Discards execution reports and does not persist them.
 </code></pre></div></td></tr></table></div>
 <h3 id="in-memory-inmemory_1">In-Memory - inMemory<a class="headerlink" href="#in-memory-inmemory_1" title="Permanent link">¤</a></h3>
 <p>Holds the reports in memory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>workspace.reportManager.plugin = inMemory # Holds the reports in memory.
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>workspace.reportManager.inMemory = {
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>  retentionTime = &quot;P30D&quot; # duration how long to keep - default is 30 Days
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>}
+</code></pre></div></td></tr></table></div>
+<h3 id="file-based-file">File based - file<a class="headerlink" href="#file-based-file" title="Permanent link">¤</a></h3>
+<p>Holds the reports in a specified directory on the filesystem.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
 <span class="normal"><a href="#__codelineno-20-2">2</a></span>
 <span class="normal"><a href="#__codelineno-20-3">3</a></span>
 <span class="normal"><a href="#__codelineno-20-4">4</a></span>
-<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>workspace.reportManager.plugin = inMemory # Holds the reports in memory.
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>workspace.reportManager.plugin = file # Holds the reports in a specified directory on the filesystem.
 <a id="__codelineno-20-2" name="__codelineno-20-2"></a>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>workspace.reportManager.inMemory = {
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a>  retentionTime = &quot;P30D&quot; # duration how long to keep - default is 30 Days
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a>}
-</code></pre></div></td></tr></table></div>
-<h3 id="file-based-file">File based - file<a class="headerlink" href="#file-based-file" title="Permanent link">¤</a></h3>
-<p>Holds the reports in a specified directory on the filesystem.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
-<span class="normal"><a href="#__codelineno-21-2">2</a></span>
-<span class="normal"><a href="#__codelineno-21-3">3</a></span>
-<span class="normal"><a href="#__codelineno-21-4">4</a></span>
-<span class="normal"><a href="#__codelineno-21-5">5</a></span>
-<span class="normal"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>workspace.reportManager.plugin = file # Holds the reports in a specified directory on the filesystem.
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a>workspace.reportManager.file = {
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a>  dir = &quot;/data/reports&quot; # directory where the reports will be stored
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a>  retentionTime = &quot;P30D&quot; # duration how long to keep - default is 30 Days
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a>}
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>workspace.reportManager.file = {
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>  dir = &quot;/data/reports&quot; # directory where the reports will be stored
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>  retentionTime = &quot;P30D&quot; # duration how long to keep - default is 30 Days
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>}
 </code></pre></div></td></tr></table></div>
 <h2 id="internal-datasets">Internal Datasets<a class="headerlink" href="#internal-datasets" title="Permanent link">¤</a></h2>
 <p>Internal datasets hold intermediate results during the execution of a DataIntegration Workflow. The type of internal dataset that is used can be configured. By default an in memory dataset is used for storing data between tasks:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>dataset.internal.plugin = inMemory
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>dataset.internal.plugin = inMemory
 </code></pre></div></td></tr></table></div>
 <p>Alternatively, the internal data can also be held in the eccenca DataPlatform:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>dataset.internal.plugin = eccencaDataPlatform
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>dataset.internal.eccencaDataPlatform = {
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>  graph = &quot;https://ns.eccenca.com/dataintegration/internal&quot;
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>}
+</code></pre></div></td></tr></table></div>
+<p>If the eccenca DataPlatform is not available, an external store may also be specified:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
 <span class="normal"><a href="#__codelineno-23-2">2</a></span>
 <span class="normal"><a href="#__codelineno-23-3">3</a></span>
-<span class="normal"><a href="#__codelineno-23-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>dataset.internal.plugin = eccencaDataPlatform
-<a id="__codelineno-23-2" name="__codelineno-23-2"></a>dataset.internal.eccencaDataPlatform = {
-<a id="__codelineno-23-3" name="__codelineno-23-3"></a>  graph = &quot;https://ns.eccenca.com/dataintegration/internal&quot;
-<a id="__codelineno-23-4" name="__codelineno-23-4"></a>}
-</code></pre></div></td></tr></table></div>
-<p>If the eccenca DataPlatform is not available, an external store may also be specified:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span>
-<span class="normal"><a href="#__codelineno-24-3">3</a></span>
-<span class="normal"><a href="#__codelineno-24-4">4</a></span>
-<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>dataset.internal.plugin = sparqlEndpoint
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a>dataset.internal.sparqlEndpoint = {
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>  endpointURI = &quot;http://localhost:8890/sparql&quot;
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a>  graph = &quot;https://ns.eccenca.com/dataintegration/internal&quot;
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a>}
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>dataset.internal.plugin = sparqlEndpoint
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>dataset.internal.sparqlEndpoint = {
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>  endpointURI = &quot;http://localhost:8890/sparql&quot;
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>  graph = &quot;https://ns.eccenca.com/dataintegration/internal&quot;
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>}
 </code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -13698,50 +13703,50 @@ For this S3 plugin make sure the account has at least these permissions attached
 </div>
 <h3 id="request-timeout">Request timeout<a class="headerlink" href="#request-timeout" title="Permanent link">¤</a></h3>
 <p>The request timeout specifies how long a HTTP(S) request may take until it times out and is closed:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>play.server.akka.requestTimeout = 10m
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>play.server.akka.requestTimeout = 10m
 </code></pre></div></td></tr></table></div>
 <p>This timeout mechanism can be disabled, by setting the timeout to <code>"infinite"</code>.</p>
 <h3 id="idle-request-timeout">Idle request timeout<a class="headerlink" href="#idle-request-timeout" title="Permanent link">¤</a></h3>
 <p>The idle timeout specifies the maximum inactivity time of a HTTP(S) connection:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>play.server.http.idleTimeout = 10m
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>play.server.http.idleTimeout = 10m
 </code></pre></div></td></tr></table></div>
 <p>The connection will be closed after it has been open for the configured idle timeout, without any request or response being written. This timeout mechanism can be disabled, by setting the timeout to <code>"infinite"</code>.</p>
 <h3 id="dataplatform-timeouts">DataPlatform timeouts<a class="headerlink" href="#dataplatform-timeouts" title="Permanent link">¤</a></h3>
 <p>As DataIntegration depends on DataPlatform for managing the Knowledge Graph, it will query the health of DataPlatform as part of its own health check. The timeout to wait for DataPlatform&rsquo;s response to a health request can be configured:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>healthCheck.dataplatform.timeout = 10000 # milliseconds
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>healthCheck.dataplatform.timeout = 10000 # milliseconds
 </code></pre></div></td></tr></table></div>
 <p>In addition, there is a timeout when requesting authorization information from the eccenca DataPlatform, which is fixed to 61 seconds.</p>
 <h3 id="rdf-store-timeouts">RDF store timeouts<a class="headerlink" href="#rdf-store-timeouts" title="Permanent link">¤</a></h3>
 <p>When reading and writing RDF there are a number of timeouts applied, depending on whether the Graph Store protocol or the SPARQL endpoint are used.</p>
 <p>For the Graph Store protocol, the following timeouts can be configured:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-28-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>graphstore.default = {
-<a id="__codelineno-28-2" name="__codelineno-28-2"></a>  # Timeout in which a connection must be established
-<a id="__codelineno-28-3" name="__codelineno-28-3"></a>  connection.timeout.ms = 15000 # 15s
-<a id="__codelineno-28-4" name="__codelineno-28-4"></a>  # Timeout in which a response must be read
-<a id="__codelineno-28-5" name="__codelineno-28-5"></a>  read.timeout.ms = 150000 # 150s
-<a id="__codelineno-28-6" name="__codelineno-28-6"></a>  # Max request size of a single GraphStore request, larger data is split into multiple requests
-<a id="__codelineno-28-7" name="__codelineno-28-7"></a>  max.request.size = 300000000 # 300MB
-<a id="__codelineno-28-8" name="__codelineno-28-8"></a>  # Timeout in which a file upload of size max.request.size must be uploaded
-<a id="__codelineno-28-9" name="__codelineno-28-9"></a>  fileUpload.timeout.ms = 1800000 # half hour
-<a id="__codelineno-28-10" name="__codelineno-28-10"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>graphstore.default = {
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>  # Timeout in which a connection must be established
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  connection.timeout.ms = 15000 # 15s
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>  # Timeout in which a response must be read
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>  read.timeout.ms = 150000 # 150s
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>  # Max request size of a single GraphStore request, larger data is split into multiple requests
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>  max.request.size = 300000000 # 300MB
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>  # Timeout in which a file upload of size max.request.size must be uploaded
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a>  fileUpload.timeout.ms = 1800000 # half hour
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a>}
 </code></pre></div></td></tr></table></div>
 <p>For the SPARQL endpoint, the following parameters are applicable:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
-<span class="normal"><a href="#__codelineno-29-2">2</a></span>
-<span class="normal"><a href="#__codelineno-29-3">3</a></span>
-<span class="normal"><a href="#__codelineno-29-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>silk.remoteSparqlEndpoint.defaults = {
-<a id="__codelineno-29-2" name="__codelineno-29-2"></a>  connection.timeout.ms = 15000 # 15s
-<a id="__codelineno-29-3" name="__codelineno-29-3"></a>  read.timeout.ms = 180000 # 180s
-<a id="__codelineno-29-4" name="__codelineno-29-4"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>silk.remoteSparqlEndpoint.defaults = {
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>  connection.timeout.ms = 15000 # 15s
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>  read.timeout.ms = 180000 # 180s
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>}
 </code></pre></div></td></tr></table></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -13749,31 +13754,31 @@ For this S3 plugin make sure the account has at least these permissions attached
 </div>
 <h3 id="linking-execution-timeout">Linking execution timeout<a class="headerlink" href="#linking-execution-timeout" title="Permanent link">¤</a></h3>
 <p>When executing linking rules there are a number of timeouts to prevent possibly erroneous linkage rules from generating too many links or staling the execution:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-30-10">10</a></span>
-<span class="normal"><a href="#__codelineno-30-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>linking.execution = {
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a>  # The maximum amount of links that are generated in the linking execution/evaluation
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a>  linkLimit = {
-<a id="__codelineno-30-4" name="__codelineno-30-4"></a>    # The default value a link spec is initialized with, this can be changed for each link spec.
-<a id="__codelineno-30-5" name="__codelineno-30-5"></a>    default = 1000000 # 1 million
-<a id="__codelineno-30-6" name="__codelineno-30-6"></a>    # The absolute maximum of links that can be generated. This is necessary since the links are kept in-memory.
-<a id="__codelineno-30-7" name="__codelineno-30-7"></a>    max = 10000000 # 10 million
-<a id="__codelineno-30-8" name="__codelineno-30-8"></a>  }
-<a id="__codelineno-30-9" name="__codelineno-30-9"></a>  # The maximum time the matching task is allowed to run, this does not limit the loading time.
-<a id="__codelineno-30-10" name="__codelineno-30-10"></a>  matching.timeout.seconds = 3600 # 1 hour
-<a id="__codelineno-30-11" name="__codelineno-30-11"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>linking.execution = {
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>  # The maximum amount of links that are generated in the linking execution/evaluation
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>  linkLimit = {
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>    # The default value a link spec is initialized with, this can be changed for each link spec.
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>    default = 1000000 # 1 million
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>    # The absolute maximum of links that can be generated. This is necessary since the links are kept in-memory.
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    max = 10000000 # 10 million
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>  }
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>  # The maximum time the matching task is allowed to run, this does not limit the loading time.
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>  matching.timeout.seconds = 3600 # 1 hour
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a>}
 </code></pre></div></td></tr></table></div>
 <h2 id="maximum-upload-size">Maximum Upload Size<a class="headerlink" href="#maximum-upload-size" title="Permanent link">¤</a></h2>
 <p>By default, the size of uploaded resources is limited to 10 MB. The upload limit can be increased:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>play.http.parser.maxDiskBuffer = 100MB
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>play.http.parser.maxDiskBuffer = 100MB
 </code></pre></div></td></tr></table></div>
 <p>While uploading, resources are cached on the disk, i.e., the limit may exceed the size of the available memory.</p>
 <h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">¤</a></h2>
@@ -13804,9 +13809,9 @@ For this S3 plugin make sure the account has at least these permissions attached
 </tbody>
 </table>
 <p>To enable provenance output, the following lines can be added to <code>dataintegration.conf</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
-<span class="normal"><a href="#__codelineno-32-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>provenance.graph = https://ns.eccenca.com/example/data/dataset/
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a>provenance.persistWorkflowProvenancePlugin.plugin = rdfWorkflowProvenance
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>provenance.graph = https://ns.eccenca.com/example/data/dataset/
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>provenance.persistWorkflowProvenancePlugin.plugin = rdfWorkflowProvenance
 </code></pre></div></td></tr></table></div>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">¤</a></h2>
 <p>Logging for eccenca DataIntegration is based on the <a href="https://logback.qos.ch/">Logback</a> logging framework. There are two ways to change the logging behavior from the default, the first is to provide a logback.xml file, the second is to set various logging properties in the dataintegration.conf file.</p>
@@ -13814,63 +13819,63 @@ For this S3 plugin make sure the account has at least these permissions attached
 <p>The <code>logback.xml</code> file can be added to the <code>${ELDS_HOME}/etc/dataintegration/conf/</code> folder, from where it is read on application start-up and replaces the default logging config.</p>
 <h4 id="configuration-example">Configuration Example<a class="headerlink" href="#configuration-example" title="Permanent link">¤</a></h4>
 <p>The following example <code>logback.xml</code> file defines a rolling file strategy where files are rotated on a time base (1 day) with a limit of 7 files, which means that the logging files contain a log history of a maximum of 1 week.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nt">&lt;configuration&gt;</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TIME_BASED_FILE&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="nt">&lt;file&gt;</span>/opt/elds/var/log/dataintegration.log<span class="nt">&lt;/file&gt;</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="nt">&lt;rollingPolicy</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">      </span><span class="cm">&lt;!-- daily rollover, history for 1 week --&gt;</span>
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">      </span><span class="nt">&lt;fileNamePattern&gt;</span>/opt/elds/var/log/dataintegration.%d{yyyy-MM-dd}.log<span class="nt">&lt;/fileNamePattern&gt;</span>
-<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">      </span><span class="nt">&lt;maxHistory&gt;</span>7<span class="nt">&lt;/maxHistory&gt;</span>
-<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">    </span><span class="nt">&lt;/rollingPolicy&gt;</span>
-<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">    </span><span class="nt">&lt;encoder&gt;</span>
-<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">      </span><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd<span class="w"> </span>HH:mm:ss}<span class="w"> </span>[%thread]<span class="w"> </span>%-5level<span class="w"> </span>%logger{36}<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
-<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">    </span><span class="nt">&lt;/encoder&gt;</span>
-<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">  </span><span class="nt">&lt;/appender&gt;</span>
-<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="w">  </span><span class="nt">&lt;logger</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;com.eccenca&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="w">    </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;TIME_BASED_FILE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="w">  </span><span class="nt">&lt;/logger&gt;</span>
-<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="nt">&lt;/configuration&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nt">&lt;configuration&gt;</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TIME_BASED_FILE&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="nt">&lt;file&gt;</span>/opt/elds/var/log/dataintegration.log<span class="nt">&lt;/file&gt;</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">    </span><span class="nt">&lt;rollingPolicy</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">      </span><span class="cm">&lt;!-- daily rollover, history for 1 week --&gt;</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">      </span><span class="nt">&lt;fileNamePattern&gt;</span>/opt/elds/var/log/dataintegration.%d{yyyy-MM-dd}.log<span class="nt">&lt;/fileNamePattern&gt;</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">      </span><span class="nt">&lt;maxHistory&gt;</span>7<span class="nt">&lt;/maxHistory&gt;</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">    </span><span class="nt">&lt;/rollingPolicy&gt;</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">    </span><span class="nt">&lt;encoder&gt;</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">      </span><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd<span class="w"> </span>HH:mm:ss}<span class="w"> </span>[%thread]<span class="w"> </span>%-5level<span class="w"> </span>%logger{36}<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">    </span><span class="nt">&lt;/encoder&gt;</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">  </span><span class="nt">&lt;/appender&gt;</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="w">  </span><span class="nt">&lt;logger</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;com.eccenca&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="w">    </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;TIME_BASED_FILE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a><span class="w">  </span><span class="nt">&lt;/logger&gt;</span>
+<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a><span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
 <h3 id="logging-properties">Logging Properties<a class="headerlink" href="#logging-properties" title="Permanent link">¤</a></h3>
 <p>For debugging purposes and smaller adaptions it is possible to change log levels for any logger in the DataIntegration config file. There are following possibilities:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-34-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-34-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-34-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-34-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-34-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-34-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-34-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-34-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-34-10">10</a></span>
-<span class="normal"><a href="#__codelineno-34-11">11</a></span>
-<span class="normal"><a href="#__codelineno-34-12">12</a></span>
-<span class="normal"><a href="#__codelineno-34-13">13</a></span>
-<span class="normal"><a href="#__codelineno-34-14">14</a></span>
-<span class="normal"><a href="#__codelineno-34-15">15</a></span>
-<span class="normal"><a href="#__codelineno-34-16">16</a></span>
-<span class="normal"><a href="#__codelineno-34-17">17</a></span>
-<span class="normal"><a href="#__codelineno-34-18">18</a></span>
-<span class="normal"><a href="#__codelineno-34-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a># The following log level properties will overwrite the config from the logback.xml file
-<a id="__codelineno-34-2" name="__codelineno-34-2"></a>
-<a id="__codelineno-34-3" name="__codelineno-34-3"></a># Set the root logger level, valid values are: OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL.
-<a id="__codelineno-34-4" name="__codelineno-34-4"></a># This affects any logger that is not explicitly defined in the logback.xml config file
-<a id="__codelineno-34-5" name="__codelineno-34-5"></a>logging.root.level = DEBUG
-<a id="__codelineno-34-6" name="__codelineno-34-6"></a>
-<a id="__codelineno-34-7" name="__codelineno-34-7"></a># Set the DI root log level. This affects all logger in DI packages that are not explicitly specified in the logback.xml
-<a id="__codelineno-34-8" name="__codelineno-34-8"></a>logging.di.level = TRACE
-<a id="__codelineno-34-9" name="__codelineno-34-9"></a>
-<a id="__codelineno-34-10" name="__codelineno-34-10"></a># Set the Silk root log level. This affects all logger in Silk packages that are not explicitly specified in the logback.xml
-<a id="__codelineno-34-11" name="__codelineno-34-11"></a>logging.silk.level = WARN
-<a id="__codelineno-34-12" name="__codelineno-34-12"></a>
-<a id="__codelineno-34-13" name="__codelineno-34-13"></a># Generic log level config: inside logging.level enter package path as key and log level as value.
-<a id="__codelineno-34-14" name="__codelineno-34-14"></a># Valid values are: OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL
-<a id="__codelineno-34-15" name="__codelineno-34-15"></a># This can be used to override any log level, also these defined in the logback.xml file.
-<a id="__codelineno-34-16" name="__codelineno-34-16"></a>logging.level {
-<a id="__codelineno-34-17" name="__codelineno-34-17"></a>  # Set log level of oauth package to TRACE, this overrides the config in the default logback config
-<a id="__codelineno-34-18" name="__codelineno-34-18"></a>  oauth=TRACE
-<a id="__codelineno-34-19" name="__codelineno-34-19"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-33-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-33-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-33-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-33-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-33-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-33-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-33-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-33-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-33-10">10</a></span>
+<span class="normal"><a href="#__codelineno-33-11">11</a></span>
+<span class="normal"><a href="#__codelineno-33-12">12</a></span>
+<span class="normal"><a href="#__codelineno-33-13">13</a></span>
+<span class="normal"><a href="#__codelineno-33-14">14</a></span>
+<span class="normal"><a href="#__codelineno-33-15">15</a></span>
+<span class="normal"><a href="#__codelineno-33-16">16</a></span>
+<span class="normal"><a href="#__codelineno-33-17">17</a></span>
+<span class="normal"><a href="#__codelineno-33-18">18</a></span>
+<span class="normal"><a href="#__codelineno-33-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a># The following log level properties will overwrite the config from the logback.xml file
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a># Set the root logger level, valid values are: OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL.
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a># This affects any logger that is not explicitly defined in the logback.xml config file
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>logging.root.level = DEBUG
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a># Set the DI root log level. This affects all logger in DI packages that are not explicitly specified in the logback.xml
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a>logging.di.level = TRACE
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a># Set the Silk root log level. This affects all logger in Silk packages that are not explicitly specified in the logback.xml
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a>logging.silk.level = WARN
+<a id="__codelineno-33-12" name="__codelineno-33-12"></a>
+<a id="__codelineno-33-13" name="__codelineno-33-13"></a># Generic log level config: inside logging.level enter package path as key and log level as value.
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a># Valid values are: OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL
+<a id="__codelineno-33-15" name="__codelineno-33-15"></a># This can be used to override any log level, also these defined in the logback.xml file.
+<a id="__codelineno-33-16" name="__codelineno-33-16"></a>logging.level {
+<a id="__codelineno-33-17" name="__codelineno-33-17"></a>  # Set log level of oauth package to TRACE, this overrides the config in the default logback config
+<a id="__codelineno-33-18" name="__codelineno-33-18"></a>  oauth=TRACE
+<a id="__codelineno-33-19" name="__codelineno-33-19"></a>}
 </code></pre></div></td></tr></table></div>
 <h2 id="plugin-configuration">Plugin Configuration<a class="headerlink" href="#plugin-configuration" title="Permanent link">¤</a></h2>
 <p>The plugin architecture of eccenca DataIntegration allows to configure certain characteristics of the application, e.g. the persistence backend for the workspace.\
@@ -13878,26 +13883,51 @@ A full list over all plugins are given in the eccenca DataIntegration user manua
 <h3 id="blacklisting-plugins">Blacklisting Plugins<a class="headerlink" href="#blacklisting-plugins" title="Permanent link">¤</a></h3>
 <p>In some cases the usage of specific plugins might pose a risk. In order to avoid to load a specific plugin, it can be blacklisted in the configuration file by setting the <code>pluginRegistry.plugins.{pluginID}.enabled</code>  config parameter to false. The parameter takes a comma-separated list of plugin IDs. The corresponding plugins will not be loaded into the plugin registry and can thus not be selected or executed anymore. The plugin ID for each plugin can be found in the <em>Plugin Reference</em> and <em>Activity Reference</em> section of the eccenca DataIntegration user manual.</p>
 <p>Example config:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
-<span class="normal"><a href="#__codelineno-35-2">2</a></span>
-<span class="normal"><a href="#__codelineno-35-3">3</a></span>
-<span class="normal"><a href="#__codelineno-35-4">4</a></span>
-<span class="normal"><a href="#__codelineno-35-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>pluginRegistry {
-<a id="__codelineno-35-2" name="__codelineno-35-2"></a>  plugins {
-<a id="__codelineno-35-3" name="__codelineno-35-3"></a>    pluginToBeBlacklisted.enabled = false
-<a id="__codelineno-35-4" name="__codelineno-35-4"></a>  }
-<a id="__codelineno-35-5" name="__codelineno-35-5"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span>
+<span class="normal"><a href="#__codelineno-34-3">3</a></span>
+<span class="normal"><a href="#__codelineno-34-4">4</a></span>
+<span class="normal"><a href="#__codelineno-34-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>pluginRegistry {
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>  plugins {
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>    pluginToBeBlacklisted.enabled = false
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a>  }
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>}
 </code></pre></div></td></tr></table></div>
 <h2 id="spark-configuration">Spark configuration<a class="headerlink" href="#spark-configuration" title="Permanent link">¤</a></h2>
 <p>The following chapters describe configuration options relevant for the execution of eccenca DataIntegration workflows on Spark. All options regarding the execution of DataIntegration on Spark are set in the <code>dataintegration.conf</code> file. The option to define SparkExecutor as the execution engine is <code>execution.manager.plugin</code> and needs to be changed from the default value:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>execution.manager.plugin = LocalExecutionManager
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>execution.manager.plugin = LocalExecutionManager
 </code></pre></div></td></tr></table></div>
 <p>To the value that specifies the use of the SparkExecutor:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>execution.manager.plugin = SparkExecutionManager
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>execution.manager.plugin = SparkExecutionManager
 </code></pre></div></td></tr></table></div>
 <h3 id="execution-in-spark-client-mode">Execution in Spark client Mode<a class="headerlink" href="#execution-in-spark-client-mode" title="Permanent link">¤</a></h3>
 <p>Spark provides a simple standalone cluster manager. You can launch a <a href="http://spark.apache.org/docs/latest/spark-standalone.html">standalone</a> cluster either manually, by starting a master and workers by hand, or by using the provided launch scripts. Spark can still run alongside Hive, Hadoop and other services in this mode. But in general this mode is preferred if only Spark applications are running in a cluster. When multiple cluster applications are running in parallel (e.g. different databases, interpreters or any software running on top of Yarn) or more advanced monitoring is needed the execution with Yarn is often recommended.</p>
 <p>For running DataIntegration in client mode the following configuration can be used</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-37-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-37-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-37-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-37-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-37-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-37-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-37-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-37-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-37-10">10</a></span>
+<span class="normal"><a href="#__codelineno-37-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>spark.interpreter.options = {
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a>  # Specifies local or client-mode, required: local, cluster or client
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>  deploymentMode = &quot;client&quot;
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>  # URL of the Spark cluster master node
+<a id="__codelineno-37-5" name="__codelineno-37-5"></a>  sparkMaster = &quot;spark://spark.master:7077&quot;
+<a id="__codelineno-37-6" name="__codelineno-37-6"></a>  # The IP of the driver/client program machine in client-mode, required for client mode
+<a id="__codelineno-37-7" name="__codelineno-37-7"></a>  sparkLocalIP = &quot;IP or hostname where DataIntegration runs&quot;
+<a id="__codelineno-37-8" name="__codelineno-37-8"></a>  # Jars containing the dependencies, required only for client and cluster modes
+<a id="__codelineno-37-9" name="__codelineno-37-9"></a>  # In client mode the artifact &#39;eccenca-DataIntegration-assembly.jar&#39; must be included
+<a id="__codelineno-37-10" name="__codelineno-37-10"></a>  sparkJars = &quot;eccenca-DataIntegration-assembly.jar&quot;
+<a id="__codelineno-37-11" name="__codelineno-37-11"></a>}
+</code></pre></div></td></tr></table></div>
+<h3 id="execution-in-cluster-mode">Execution in cluster mode<a class="headerlink" href="#execution-in-cluster-mode" title="Permanent link">¤</a></h3>
+<h4 id="dataintegration-application-configuration">DataIntegration application configuration<a class="headerlink" href="#dataintegration-application-configuration" title="Permanent link">¤</a></h4>
+<p>Cluster mode is supported with Apache Yarn only at the moment. To run DataIntegration in cluster mode the following configuration can be used:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-38-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-38-3"> 3</a></span>
@@ -13910,40 +13940,15 @@ A full list over all plugins are given in the eccenca DataIntegration user manua
 <span class="normal"><a href="#__codelineno-38-10">10</a></span>
 <span class="normal"><a href="#__codelineno-38-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a>spark.interpreter.options = {
 <a id="__codelineno-38-2" name="__codelineno-38-2"></a>  # Specifies local or client-mode, required: local, cluster or client
-<a id="__codelineno-38-3" name="__codelineno-38-3"></a>  deploymentMode = &quot;client&quot;
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>  deploymentMode = &quot;cluster&quot;
 <a id="__codelineno-38-4" name="__codelineno-38-4"></a>  # URL of the Spark cluster master node
-<a id="__codelineno-38-5" name="__codelineno-38-5"></a>  sparkMaster = &quot;spark://spark.master:7077&quot;
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a>  sparkMaster = &quot;yarn-master-hostname&quot;
 <a id="__codelineno-38-6" name="__codelineno-38-6"></a>  # The IP of the driver/client program machine in client-mode, required for client mode
 <a id="__codelineno-38-7" name="__codelineno-38-7"></a>  sparkLocalIP = &quot;IP or hostname where DataIntegration runs&quot;
 <a id="__codelineno-38-8" name="__codelineno-38-8"></a>  # Jars containing the dependencies, required only for client and cluster modes
-<a id="__codelineno-38-9" name="__codelineno-38-9"></a>  # In client mode the artifact &#39;eccenca-DataIntegration-assembly.jar&#39; must be included
+<a id="__codelineno-38-9" name="__codelineno-38-9"></a>  # In cluster mode the artifact &#39;eccenca-DataIntegration-assembly.jar&#39; must be included
 <a id="__codelineno-38-10" name="__codelineno-38-10"></a>  sparkJars = &quot;eccenca-DataIntegration-assembly.jar&quot;
 <a id="__codelineno-38-11" name="__codelineno-38-11"></a>}
-</code></pre></div></td></tr></table></div>
-<h3 id="execution-in-cluster-mode">Execution in cluster mode<a class="headerlink" href="#execution-in-cluster-mode" title="Permanent link">¤</a></h3>
-<h4 id="dataintegration-application-configuration">DataIntegration application configuration<a class="headerlink" href="#dataintegration-application-configuration" title="Permanent link">¤</a></h4>
-<p>Cluster mode is supported with Apache Yarn only at the moment. To run DataIntegration in cluster mode the following configuration can be used:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-39-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-39-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-39-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-39-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-39-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-39-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-39-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-39-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-39-10">10</a></span>
-<span class="normal"><a href="#__codelineno-39-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>spark.interpreter.options = {
-<a id="__codelineno-39-2" name="__codelineno-39-2"></a>  # Specifies local or client-mode, required: local, cluster or client
-<a id="__codelineno-39-3" name="__codelineno-39-3"></a>  deploymentMode = &quot;cluster&quot;
-<a id="__codelineno-39-4" name="__codelineno-39-4"></a>  # URL of the Spark cluster master node
-<a id="__codelineno-39-5" name="__codelineno-39-5"></a>  sparkMaster = &quot;yarn-master-hostname&quot;
-<a id="__codelineno-39-6" name="__codelineno-39-6"></a>  # The IP of the driver/client program machine in client-mode, required for client mode
-<a id="__codelineno-39-7" name="__codelineno-39-7"></a>  sparkLocalIP = &quot;IP or hostname where DataIntegration runs&quot;
-<a id="__codelineno-39-8" name="__codelineno-39-8"></a>  # Jars containing the dependencies, required only for client and cluster modes
-<a id="__codelineno-39-9" name="__codelineno-39-9"></a>  # In cluster mode the artifact &#39;eccenca-DataIntegration-assembly.jar&#39; must be included
-<a id="__codelineno-39-10" name="__codelineno-39-10"></a>  sparkJars = &quot;eccenca-DataIntegration-assembly.jar&quot;
-<a id="__codelineno-39-11" name="__codelineno-39-11"></a>}
 </code></pre></div></td></tr></table></div>
 <h4 id="dataintegration-cluster-deployment-configuration">DataIntegration cluster deployment configuration<a class="headerlink" href="#dataintegration-cluster-deployment-configuration" title="Permanent link">¤</a></h4>
 <p>In cluster mode one should keep in mind that, normally, DataIntegration will generate a jar and a project export. These artifacts can be copied or send to a cluster and will be executed there via the <code>spark-submit</code> command. That means the data processing is running in its own remote process separate from the DataIntegration application.</p>
@@ -13970,77 +13975,77 @@ A full list over all plugins are given in the eccenca DataIntegration user manua
 <li><code>spark.deployment.options.overwriteExecution</code> Boolean value that decides if the ExecuteSparkWorkflow action is overwritten by the deployment action and will run this instead.</li>
 </ul>
 <p><em>Example:</em></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-40-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-40-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-40-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-40-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-40-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-40-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-40-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-40-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-40-10">10</a></span>
-<span class="normal"><a href="#__codelineno-40-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a>spark.deployment.options = {
-<a id="__codelineno-40-2" name="__codelineno-40-2"></a>  # Specifies artifacts: Stage the project export and the executable assembly jar
-<a id="__codelineno-40-3" name="__codelineno-40-3"></a>  artifact = &quot;project-jar&quot;
-<a id="__codelineno-40-4" name="__codelineno-40-4"></a>  # Type of the deployment: Copy project and jar to /data folder, then run a script to start processing the data
-<a id="__codelineno-40-5" name="__codelineno-40-5"></a>  staging.type = &quot;copy&quot;
-<a id="__codelineno-40-6" name="__codelineno-40-6"></a>  staging.copy = &quot;/data&quot;
-<a id="__codelineno-40-7" name="__codelineno-40-7"></a>  transform.type = &quot;script&quot;
-<a id="__codelineno-40-8" name="__codelineno-40-8"></a>  transform.script = &quot;conf/runWorkflow.sh&quot;
-<a id="__codelineno-40-9" name="__codelineno-40-9"></a>  # Bind the 2 actions to the &quot;run workflow&quot; button
-<a id="__codelineno-40-10" name="__codelineno-40-10"></a>  overwriteExecution = true
-<a id="__codelineno-40-11" name="__codelineno-40-11"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-39-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-39-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-39-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-39-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-39-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-39-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-39-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-39-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-39-10">10</a></span>
+<span class="normal"><a href="#__codelineno-39-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>spark.deployment.options = {
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>  # Specifies artifacts: Stage the project export and the executable assembly jar
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>  artifact = &quot;project-jar&quot;
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>  # Type of the deployment: Copy project and jar to /data folder, then run a script to start processing the data
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>  staging.type = &quot;copy&quot;
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>  staging.copy = &quot;/data&quot;
+<a id="__codelineno-39-7" name="__codelineno-39-7"></a>  transform.type = &quot;script&quot;
+<a id="__codelineno-39-8" name="__codelineno-39-8"></a>  transform.script = &quot;conf/runWorkflow.sh&quot;
+<a id="__codelineno-39-9" name="__codelineno-39-9"></a>  # Bind the 2 actions to the &quot;run workflow&quot; button
+<a id="__codelineno-39-10" name="__codelineno-39-10"></a>  overwriteExecution = true
+<a id="__codelineno-39-11" name="__codelineno-39-11"></a>}
 </code></pre></div></td></tr></table></div>
 <h5 id="activity-parameters-to-skip-deployment-phases">Activity parameters to skip deployment phases<a class="headerlink" href="#activity-parameters-to-skip-deployment-phases" title="Permanent link">¤</a></h5>
 <p>In some scenarios (especially deployments where a jar has to be copied to a remote location) it is required that a deployment phase can be skipped. E.g. the jar upload only has to be done once, the upload is defined in the &ldquo;staging&rdquo; phase and the spark-submit call in the &ldquo;transform&rdquo; phase. The parameter &ldquo;executeTransform&rdquo; (reachable via the activity tab) can\
 be set to false on the second run to avoid re-uploading artifacts.</p>
 <h4 id="configuration-of-the-assembly-jar">Configuration of the assembly jar<a class="headerlink" href="#configuration-of-the-assembly-jar" title="Permanent link">¤</a></h4>
 <p>In cluster mode, usually, we run a Spark Job by submitting an assembly jar to the cluster. This can be seen a command line version of DataIntegration and can also be used manually with &lsquo;spark-submit&rsquo;. In this case the configuration in the environment the jar runs in should look like this (options are set by the spark-submit configuration and parameters):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
-<span class="normal"><a href="#__codelineno-41-2">2</a></span>
-<span class="normal"><a href="#__codelineno-41-3">3</a></span>
-<span class="normal"><a href="#__codelineno-41-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a>spark.interpreter.options = {
-<a id="__codelineno-41-2" name="__codelineno-41-2"></a>  # Specifies deployment mode, requires: local, cluster, client or submit
-<a id="__codelineno-41-3" name="__codelineno-41-3"></a>  deploymentMode = &quot;submit&quot;
-<a id="__codelineno-41-4" name="__codelineno-41-4"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span>
+<span class="normal"><a href="#__codelineno-40-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a>spark.interpreter.options = {
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>  # Specifies deployment mode, requires: local, cluster, client or submit
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>  deploymentMode = &quot;submit&quot;
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a>}
 </code></pre></div></td></tr></table></div>
 <h3 id="execution-in-local-mode">Execution in local mode<a class="headerlink" href="#execution-in-local-mode" title="Permanent link">¤</a></h3>
 <p>Local mode is mainly for testing, but can be used for deployment on a single server. HDFS and Hive are not required. The following configuration parameters have to be set:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
-<span class="normal"><a href="#__codelineno-42-2">2</a></span>
-<span class="normal"><a href="#__codelineno-42-3">3</a></span>
-<span class="normal"><a href="#__codelineno-42-4">4</a></span>
-<span class="normal"><a href="#__codelineno-42-5">5</a></span>
-<span class="normal"><a href="#__codelineno-42-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>spark.interpreter.options = {
-<a id="__codelineno-42-2" name="__codelineno-42-2"></a>  # Specifies deployment mode, requires: local, cluster, client or submit
-<a id="__codelineno-42-3" name="__codelineno-42-3"></a>  deploymentMode = &quot;local&quot;
-<a id="__codelineno-42-4" name="__codelineno-42-4"></a>  # URL of the Spark cluster master node, the [*] denotes the number of executors
-<a id="__codelineno-42-5" name="__codelineno-42-5"></a>  sparkMaster = &quot;local[4]&quot;
-<a id="__codelineno-42-6" name="__codelineno-42-6"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
+<span class="normal"><a href="#__codelineno-41-2">2</a></span>
+<span class="normal"><a href="#__codelineno-41-3">3</a></span>
+<span class="normal"><a href="#__codelineno-41-4">4</a></span>
+<span class="normal"><a href="#__codelineno-41-5">5</a></span>
+<span class="normal"><a href="#__codelineno-41-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a>spark.interpreter.options = {
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a>  # Specifies deployment mode, requires: local, cluster, client or submit
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>  deploymentMode = &quot;local&quot;
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a>  # URL of the Spark cluster master node, the [*] denotes the number of executors
+<a id="__codelineno-41-5" name="__codelineno-41-5"></a>  sparkMaster = &quot;local[4]&quot;
+<a id="__codelineno-41-6" name="__codelineno-41-6"></a>}
 </code></pre></div></td></tr></table></div>
 <p>In this mode the parameters and Spark settings appended to the &lsquo;spark-submit&rsquo; command will always be used and overwrite configuration settings in other sources.</p>
 <h3 id="configuration-and-usage-of-the-sqlendpoint-dataset">Configuration and usage of the SqlEndpoint dataset<a class="headerlink" href="#configuration-and-usage-of-the-sqlendpoint-dataset" title="Permanent link">¤</a></h3>
 <h4 id="server-side-configuration">Server Side Configuration<a class="headerlink" href="#server-side-configuration" title="Permanent link">¤</a></h4>
 <h5 id="general-settings">General Settings<a class="headerlink" href="#general-settings" title="Permanent link">¤</a></h5>
 <p>The SqlEndpoint dataset is a table or view behaving analog to a table in a relational database like MySQL. When data is written to an SqlEndpoint dataset, a JDBC server is started and can be queried with any JDBC client. In DataIntegration the SqlEndpoint dataset behaves like any other dataset. It can be used as a target for workflows, be profiled, used as a source for an operation or workflow etc. There are a two of configuration options that are relevant for the JDBC endpoints:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1">1</a></span>
-<span class="normal"><a href="#__codelineno-43-2">2</a></span>
-<span class="normal"><a href="#__codelineno-43-3">3</a></span>
-<span class="normal"><a href="#__codelineno-43-4">4</a></span>
-<span class="normal"><a href="#__codelineno-43-5">5</a></span>
-<span class="normal"><a href="#__codelineno-43-6">6</a></span>
-<span class="normal"><a href="#__codelineno-43-7">7</a></span>
-<span class="normal"><a href="#__codelineno-43-8">8</a></span>
-<span class="normal"><a href="#__codelineno-43-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a>spark.sql.options = {
-<a id="__codelineno-43-2" name="__codelineno-43-2"></a>  # Specifies if DataIntegration is allowed to start a thrift server for external JDBC access. SqlEndpoint
-<a id="__codelineno-43-3" name="__codelineno-43-3"></a>  # datasets can still be started but can only be accessed internally if set to false.
-<a id="__codelineno-43-4" name="__codelineno-43-4"></a>  startThriftServer = true
-<a id="__codelineno-43-5" name="__codelineno-43-5"></a>  # Enable Hive integration
-<a id="__codelineno-43-6" name="__codelineno-43-6"></a>  # Sets Spark to use an infrastructure for meta data that is compatible with the hive metastore
-<a id="__codelineno-43-7" name="__codelineno-43-7"></a>  enableHiveSupport = true
-<a id="__codelineno-43-8" name="__codelineno-43-8"></a>  ...
-<a id="__codelineno-43-9" name="__codelineno-43-9"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
+<span class="normal"><a href="#__codelineno-42-2">2</a></span>
+<span class="normal"><a href="#__codelineno-42-3">3</a></span>
+<span class="normal"><a href="#__codelineno-42-4">4</a></span>
+<span class="normal"><a href="#__codelineno-42-5">5</a></span>
+<span class="normal"><a href="#__codelineno-42-6">6</a></span>
+<span class="normal"><a href="#__codelineno-42-7">7</a></span>
+<span class="normal"><a href="#__codelineno-42-8">8</a></span>
+<span class="normal"><a href="#__codelineno-42-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>spark.sql.options = {
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a>  # Specifies if DataIntegration is allowed to start a thrift server for external JDBC access. SqlEndpoint
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a>  # datasets can still be started but can only be accessed internally if set to false.
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a>  startThriftServer = true
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a>  # Enable Hive integration
+<a id="__codelineno-42-6" name="__codelineno-42-6"></a>  # Sets Spark to use an infrastructure for meta data that is compatible with the hive metastore
+<a id="__codelineno-42-7" name="__codelineno-42-7"></a>  enableHiveSupport = true
+<a id="__codelineno-42-8" name="__codelineno-42-8"></a>  ...
+<a id="__codelineno-42-9" name="__codelineno-42-9"></a>}
 </code></pre></div></td></tr></table></div>
 <p>The port on which the JDBC connections will be available is <code>10005</code> by default and can be changed in the <code>hive-site.xml</code> and <code>spark-defaults.conf</code> configuration files.</p>
 <h5 id="security-settings">Security Settings<a class="headerlink" href="#security-settings" title="Permanent link">¤</a></h5>
@@ -14055,32 +14060,32 @@ be set to false on the second run to avoid re-uploading artifacts.</p>
 <li>Server and Client Certificates</li>
 </ul>
 <p>Eccenca provides a custom Authentification provider which allows to set 1 user/password combination for JDBC connections via:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>spark.sql.options = {
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>  endpointUser = &quot;user&quot;
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>  endpointPassword = &quot;password&quot;
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>spark.sql.options = {
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>  endpointUser = &quot;user&quot;
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>  endpointPassword = &quot;password&quot;
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>}
 </code></pre></div>
 <p>The authentication provider class name is <code>com.eccenca.di.sql.endpoint.security.SqlEndpointAuth</code> . To use it the following configuration is needed:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">  </span><span class="nt">&lt;configuration&gt;</span>
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">      </span><span class="nt">&lt;name&gt;</span>hive.server2.authentication<span class="nt">&lt;/name&gt;</span>
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">      </span><span class="nt">&lt;value&gt;</span>CUSTOM<span class="nt">&lt;/value&gt;</span>
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
-<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">      </span><span class="nt">&lt;name&gt;</span>hive.server2.custom.authentication.class<span class="nt">&lt;/name&gt;</span>
-<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="w">      </span><span class="nt">&lt;value&gt;</span>com.eccenca.di.sql.endpoint.security.SqlEndpointAuth<span class="nt">&lt;/value&gt;</span>
-<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">      </span><span class="nt">&lt;description&gt;</span>
-<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="w">        </span>Custom<span class="w"> </span>authentication<span class="w"> </span>class.<span class="w"> </span>Used<span class="w"> </span>when<span class="w"> </span>property
-<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">        </span>&#39;hive.server2.authentication&#39;<span class="w"> </span>is<span class="w"> </span>set<span class="w"> </span>to<span class="w"> </span>&#39;CUSTOM&#39;.<span class="w"> </span>Provided<span class="w"> </span>class
-<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="w">        </span>must<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>proper<span class="w"> </span>implementation<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>interface
-<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="w">        </span>org.apache.hive.service.auth.PasswdAuthenticationProvider.<span class="w"> </span>HiveServer2
-<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a><span class="w">        </span>will<span class="w"> </span>call<span class="w"> </span>its<span class="w"> </span>Authenticate(user,<span class="w"> </span>password)<span class="w"> </span>method<span class="w"> </span>to<span class="w"> </span>authenticate<span class="w"> </span>requests.
-<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a><span class="w">        </span>The<span class="w"> </span>implementation<span class="w"> </span>may<span class="w"> </span>optionally<span class="w"> </span>implement<span class="w"> </span>Hadoop&#39;s
-<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="w">        </span>org.apache.hadoop.conf.Configurable<span class="w"> </span>class<span class="w"> </span>to<span class="w"> </span>grab<span class="w"> </span>Hive&#39;s<span class="w"> </span>Configuration<span class="w"> </span>object.
-<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a><span class="w">      </span><span class="nt">&lt;/description&gt;</span>
-<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
-<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a><span class="w">    </span>...
-<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a><span class="w">  </span><span class="nt">&lt;/configuration&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w">  </span><span class="nt">&lt;configuration&gt;</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">      </span><span class="nt">&lt;name&gt;</span>hive.server2.authentication<span class="nt">&lt;/name&gt;</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">      </span><span class="nt">&lt;value&gt;</span>CUSTOM<span class="nt">&lt;/value&gt;</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">      </span><span class="nt">&lt;name&gt;</span>hive.server2.custom.authentication.class<span class="nt">&lt;/name&gt;</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">      </span><span class="nt">&lt;value&gt;</span>com.eccenca.di.sql.endpoint.security.SqlEndpointAuth<span class="nt">&lt;/value&gt;</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">      </span><span class="nt">&lt;description&gt;</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">        </span>Custom<span class="w"> </span>authentication<span class="w"> </span>class.<span class="w"> </span>Used<span class="w"> </span>when<span class="w"> </span>property
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">        </span>&#39;hive.server2.authentication&#39;<span class="w"> </span>is<span class="w"> </span>set<span class="w"> </span>to<span class="w"> </span>&#39;CUSTOM&#39;.<span class="w"> </span>Provided<span class="w"> </span>class
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w">        </span>must<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>proper<span class="w"> </span>implementation<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>interface
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="w">        </span>org.apache.hive.service.auth.PasswdAuthenticationProvider.<span class="w"> </span>HiveServer2
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="w">        </span>will<span class="w"> </span>call<span class="w"> </span>its<span class="w"> </span>Authenticate(user,<span class="w"> </span>password)<span class="w"> </span>method<span class="w"> </span>to<span class="w"> </span>authenticate<span class="w"> </span>requests.
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a><span class="w">        </span>The<span class="w"> </span>implementation<span class="w"> </span>may<span class="w"> </span>optionally<span class="w"> </span>implement<span class="w"> </span>Hadoop&#39;s
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a><span class="w">        </span>org.apache.hadoop.conf.Configurable<span class="w"> </span>class<span class="w"> </span>to<span class="w"> </span>grab<span class="w"> </span>Hive&#39;s<span class="w"> </span>Configuration<span class="w"> </span>object.
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a><span class="w">      </span><span class="nt">&lt;/description&gt;</span>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a><span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a><span class="w">    </span>...
+<a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a><span class="w">  </span><span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
 <p>Check the Hive documentation for details: <a href="https://cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration#AdminManualConfiguration-ConfigurationVariables">Hive admin manual</a> or the documentation of a Hadoop Distribution (MapR, Hortenworks or AWS and Azure in he cloud etc.). Hadoop distributions usually provides instructions for configuring secure endpoints.</p>
 <p>Integration with various authentication providers can be configured and is mostly set up in <code>hive-site.xml</code> .</p>
@@ -14106,6 +14111,25 @@ The multi platform database client <a href="https://dbeaver.io/">DBeaver</a> c
 <h3 id="partitioning-and-merging-of-data-sets">Partitioning and merging of data sets<a class="headerlink" href="#partitioning-and-merging-of-data-sets" title="Permanent link">¤</a></h3>
 <p>The execution on Spark is possible independent of the used file system as long as it can be referenced/is accessible for all cluster nodes. HDFS is recommended and the default settings are recommended for the best performance on a small cluster. Especially when working in local mode on the local file systems some problems can occur with the parallelism settings of Spark and the resulting partitioned output resources.</p>
 <p>Problems can be avoided by changing the following are the default settings:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span>
+<span class="normal"><a href="#__codelineno-45-2">2</a></span>
+<span class="normal"><a href="#__codelineno-45-3">3</a></span>
+<span class="normal"><a href="#__codelineno-45-4">4</a></span>
+<span class="normal"><a href="#__codelineno-45-5">5</a></span>
+<span class="normal"><a href="#__codelineno-45-6">6</a></span>
+<span class="normal"><a href="#__codelineno-45-7">7</a></span>
+<span class="normal"><a href="#__codelineno-45-8">8</a></span>
+<span class="normal"><a href="#__codelineno-45-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a>spark.interpreter.options = {
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a>  # If true, data will be repartitioned before execution,
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a>  # otherwise the existing partitioning or no partitioning will be used
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a>  partitionOnImport = false
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a>  # Number of partitions for repartitioning on import, default = 16
+<a id="__codelineno-45-6" name="__codelineno-45-6"></a>  partitionNumber = 16
+<a id="__codelineno-45-7" name="__codelineno-45-7"></a>  # Specifies if data is combined before output is written to disk
+<a id="__codelineno-45-8" name="__codelineno-45-8"></a>  combineOutput = false
+<a id="__codelineno-45-9" name="__codelineno-45-9"></a>}
+</code></pre></div></td></tr></table></div>
+<p>When running only locally the configuration should be like the following example (especially <code>combineOutput</code> has to be true):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
 <span class="normal"><a href="#__codelineno-46-2">2</a></span>
 <span class="normal"><a href="#__codelineno-46-3">3</a></span>
@@ -14119,156 +14143,137 @@ The multi platform database client <a href="https://dbeaver.io/">DBeaver</a> c
 <a id="__codelineno-46-3" name="__codelineno-46-3"></a>  # otherwise the existing partitioning or no partitioning will be used
 <a id="__codelineno-46-4" name="__codelineno-46-4"></a>  partitionOnImport = false
 <a id="__codelineno-46-5" name="__codelineno-46-5"></a>  # Number of partitions for repartitioning on import, default = 16
-<a id="__codelineno-46-6" name="__codelineno-46-6"></a>  partitionNumber = 16
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a>  partitionNumber = 4
 <a id="__codelineno-46-7" name="__codelineno-46-7"></a>  # Specifies if data is combined before output is written to disk
-<a id="__codelineno-46-8" name="__codelineno-46-8"></a>  combineOutput = false
+<a id="__codelineno-46-8" name="__codelineno-46-8"></a>  combineOutput = true
 <a id="__codelineno-46-9" name="__codelineno-46-9"></a>}
 </code></pre></div></td></tr></table></div>
-<p>When running only locally the configuration should be like the following example (especially <code>combineOutput</code> has to be true):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span>
-<span class="normal"><a href="#__codelineno-47-2">2</a></span>
-<span class="normal"><a href="#__codelineno-47-3">3</a></span>
-<span class="normal"><a href="#__codelineno-47-4">4</a></span>
-<span class="normal"><a href="#__codelineno-47-5">5</a></span>
-<span class="normal"><a href="#__codelineno-47-6">6</a></span>
-<span class="normal"><a href="#__codelineno-47-7">7</a></span>
-<span class="normal"><a href="#__codelineno-47-8">8</a></span>
-<span class="normal"><a href="#__codelineno-47-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a>spark.interpreter.options = {
-<a id="__codelineno-47-2" name="__codelineno-47-2"></a>  # If true, data will be repartitioned before execution,
-<a id="__codelineno-47-3" name="__codelineno-47-3"></a>  # otherwise the existing partitioning or no partitioning will be used
-<a id="__codelineno-47-4" name="__codelineno-47-4"></a>  partitionOnImport = false
-<a id="__codelineno-47-5" name="__codelineno-47-5"></a>  # Number of partitions for repartitioning on import, default = 16
-<a id="__codelineno-47-6" name="__codelineno-47-6"></a>  partitionNumber = 4
-<a id="__codelineno-47-7" name="__codelineno-47-7"></a>  # Specifies if data is combined before output is written to disk
-<a id="__codelineno-47-8" name="__codelineno-47-8"></a>  combineOutput = true
-<a id="__codelineno-47-9" name="__codelineno-47-9"></a>}
-</code></pre></div></td></tr></table></div>
 <h3 id="other-options-specific-to-spark">Other options specific to Spark<a class="headerlink" href="#other-options-specific-to-spark" title="Permanent link">¤</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-48-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-48-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-48-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-48-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-48-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-48-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-48-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-48-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-48-10">10</a></span>
-<span class="normal"><a href="#__codelineno-48-11">11</a></span>
-<span class="normal"><a href="#__codelineno-48-12">12</a></span>
-<span class="normal"><a href="#__codelineno-48-13">13</a></span>
-<span class="normal"><a href="#__codelineno-48-14">14</a></span>
-<span class="normal"><a href="#__codelineno-48-15">15</a></span>
-<span class="normal"><a href="#__codelineno-48-16">16</a></span>
-<span class="normal"><a href="#__codelineno-48-17">17</a></span>
-<span class="normal"><a href="#__codelineno-48-18">18</a></span>
-<span class="normal"><a href="#__codelineno-48-19">19</a></span>
-<span class="normal"><a href="#__codelineno-48-20">20</a></span>
-<span class="normal"><a href="#__codelineno-48-21">21</a></span>
-<span class="normal"><a href="#__codelineno-48-22">22</a></span>
-<span class="normal"><a href="#__codelineno-48-23">23</a></span>
-<span class="normal"><a href="#__codelineno-48-24">24</a></span>
-<span class="normal"><a href="#__codelineno-48-25">25</a></span>
-<span class="normal"><a href="#__codelineno-48-26">26</a></span>
-<span class="normal"><a href="#__codelineno-48-27">27</a></span>
-<span class="normal"><a href="#__codelineno-48-28">28</a></span>
-<span class="normal"><a href="#__codelineno-48-29">29</a></span>
-<span class="normal"><a href="#__codelineno-48-30">30</a></span>
-<span class="normal"><a href="#__codelineno-48-31">31</a></span>
-<span class="normal"><a href="#__codelineno-48-32">32</a></span>
-<span class="normal"><a href="#__codelineno-48-33">33</a></span>
-<span class="normal"><a href="#__codelineno-48-34">34</a></span>
-<span class="normal"><a href="#__codelineno-48-35">35</a></span>
-<span class="normal"><a href="#__codelineno-48-36">36</a></span>
-<span class="normal"><a href="#__codelineno-48-37">37</a></span>
-<span class="normal"><a href="#__codelineno-48-38">38</a></span>
-<span class="normal"><a href="#__codelineno-48-39">39</a></span>
-<span class="normal"><a href="#__codelineno-48-40">40</a></span>
-<span class="normal"><a href="#__codelineno-48-41">41</a></span>
-<span class="normal"><a href="#__codelineno-48-42">42</a></span>
-<span class="normal"><a href="#__codelineno-48-43">43</a></span>
-<span class="normal"><a href="#__codelineno-48-44">44</a></span>
-<span class="normal"><a href="#__codelineno-48-45">45</a></span>
-<span class="normal"><a href="#__codelineno-48-46">46</a></span>
-<span class="normal"><a href="#__codelineno-48-47">47</a></span>
-<span class="normal"><a href="#__codelineno-48-48">48</a></span>
-<span class="normal"><a href="#__codelineno-48-49">49</a></span>
-<span class="normal"><a href="#__codelineno-48-50">50</a></span>
-<span class="normal"><a href="#__codelineno-48-51">51</a></span>
-<span class="normal"><a href="#__codelineno-48-52">52</a></span>
-<span class="normal"><a href="#__codelineno-48-53">53</a></span>
-<span class="normal"><a href="#__codelineno-48-54">54</a></span>
-<span class="normal"><a href="#__codelineno-48-55">55</a></span>
-<span class="normal"><a href="#__codelineno-48-56">56</a></span>
-<span class="normal"><a href="#__codelineno-48-57">57</a></span>
-<span class="normal"><a href="#__codelineno-48-58">58</a></span>
-<span class="normal"><a href="#__codelineno-48-59">59</a></span>
-<span class="normal"><a href="#__codelineno-48-60">60</a></span>
-<span class="normal"><a href="#__codelineno-48-61">61</a></span>
-<span class="normal"><a href="#__codelineno-48-62">62</a></span>
-<span class="normal"><a href="#__codelineno-48-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a>#################################################
-<a id="__codelineno-48-2" name="__codelineno-48-2"></a># Spark                                        #
-<a id="__codelineno-48-3" name="__codelineno-48-3"></a>#################################################
-<a id="__codelineno-48-4" name="__codelineno-48-4"></a>
-<a id="__codelineno-48-5" name="__codelineno-48-5"></a>spark.interpreter.options = {
-<a id="__codelineno-48-6" name="__codelineno-48-6"></a>  # the default name used when creating a SparkContext (will override spark.app.name in spark-defaults.conf)
-<a id="__codelineno-48-7" name="__codelineno-48-7"></a>  sparkAppName = &quot;eccenca DataIntegration Spark exe
-<a id="__codelineno-48-8" name="__codelineno-48-8"></a>
-<a id="__codelineno-48-9" name="__codelineno-48-9"></a>  # Enables more detailed logging, counting of transformed records, etc.
-<a id="__codelineno-48-10" name="__codelineno-48-10"></a>  debugMode = false
-<a id="__codelineno-48-11" name="__codelineno-48-11"></a>
-<a id="__codelineno-48-12" name="__codelineno-48-12"></a>  # Enable or disable a spark executor event log for debugging purposes
-<a id="__codelineno-48-13" name="__codelineno-48-13"></a>  eventLog = true
-<a id="__codelineno-48-14" name="__codelineno-48-14"></a>
-<a id="__codelineno-48-15" name="__codelineno-48-15"></a>  # Folder for logs that people don&#39;t want in the log even though the information is necessary for debugging
-<a id="__codelineno-48-16" name="__codelineno-48-16"></a>  logFolder = ${elds.home}&quot;/var/dataintegration/logs/&quot;
-<a id="__codelineno-48-17" name="__codelineno-48-17"></a>
-<a id="__codelineno-48-18" name="__codelineno-48-18"></a>  # Enable or disable an execution time log for benchmarking purposes
-<a id="__codelineno-48-19" name="__codelineno-48-19"></a>  timeLog = true
-<a id="__codelineno-48-20" name="__codelineno-48-20"></a>
-<a id="__codelineno-48-21" name="__codelineno-48-21"></a>  # Enable or disable Sparks built-in log for debugging purposes (will override spark.eventLog.enabled in spark-defaults.conf)
-<a id="__codelineno-48-22" name="__codelineno-48-22"></a>  sparkLog = true
-<a id="__codelineno-48-23" name="__codelineno-48-23"></a>
-<a id="__codelineno-48-24" name="__codelineno-48-24"></a>  # If true, data will be repartitioned before execution, otherwise the existing partitioning or no partitioning will be used
-<a id="__codelineno-48-25" name="__codelineno-48-25"></a>  partitionOnImport = false
-<a id="__codelineno-48-26" name="__codelineno-48-26"></a>
-<a id="__codelineno-48-27" name="__codelineno-48-27"></a>  # Number of partitions for repartitioning on Import
-<a id="__codelineno-48-28" name="__codelineno-48-28"></a>  partitionNumber = 16
-<a id="__codelineno-48-29" name="__codelineno-48-29"></a>
-<a id="__codelineno-48-30" name="__codelineno-48-30"></a>  # Specifies number of Spark SQL shuffle partitions (will override spark.sql.shuffle.partitions in spark-defaults.conf)
-<a id="__codelineno-48-31" name="__codelineno-48-31"></a>  shufflePartitions = 32
-<a id="__codelineno-48-32" name="__codelineno-48-32"></a>
-<a id="__codelineno-48-33" name="__codelineno-48-33"></a>  # Minimum partition number for Spark execution
-<a id="__codelineno-48-34" name="__codelineno-48-34"></a>  defaultMinPartitions = 4
-<a id="__codelineno-48-35" name="__codelineno-48-35"></a>
-<a id="__codelineno-48-36" name="__codelineno-48-36"></a>  # Default parallelism partition number for Spark execution (will override spark.sql.shuffle.partitions in spark-defaults.conf)
-<a id="__codelineno-48-37" name="__codelineno-48-37"></a>  defaultParallelism = 4
-<a id="__codelineno-48-38" name="__codelineno-48-38"></a>
-<a id="__codelineno-48-39" name="__codelineno-48-39"></a>  # Specifies if data is combined before output is written to disk. If true the final output will be in a single file on a single partition
-<a id="__codelineno-48-40" name="__codelineno-48-40"></a>  combineOutput = true
-<a id="__codelineno-48-41" name="__codelineno-48-41"></a>
-<a id="__codelineno-48-42" name="__codelineno-48-42"></a>  # Specifies if DataIntegration is allowed to start a thrift server for external JDBC access. Views/virtual datasets can still be started but can only be accessed internally if set to false.
-<a id="__codelineno-48-43" name="__codelineno-48-43"></a>  startThriftServer = false
-<a id="__codelineno-48-44" name="__codelineno-48-44"></a>
-<a id="__codelineno-48-45" name="__codelineno-48-45"></a>  # Internal data model used in Spark Data Frames: &#39;sequence&#39; or &#39;simple&#39;. Sequence behaves like the entities used by the local executor of DataIntegration and is
-<a id="__codelineno-48-46" name="__codelineno-48-46"></a>  # sometimes be needed to work with non relational data (i.e. triple stores, dataplatform). The default value is &#39;simple&#39; and casts most data objects to Strings
-<a id="__codelineno-48-47" name="__codelineno-48-47"></a>  # which is fast and works in most situations may lead to less clean data.
-<a id="__codelineno-48-48" name="__codelineno-48-48"></a>  columnType = sequence
-<a id="__codelineno-48-49" name="__codelineno-48-49"></a>
-<a id="__codelineno-48-50" name="__codelineno-48-50"></a>  # General additional Java options that will be passed to the executors (worker nodes) in the cluster, default is &quot;&quot;.
-<a id="__codelineno-48-51" name="__codelineno-48-51"></a>  sparkExecutorJavaOptions = &quot;&quot;
-<a id="__codelineno-48-52" name="__codelineno-48-52"></a>
-<a id="__codelineno-48-53" name="__codelineno-48-53"></a>  # General additional Java options that will be passed to the driver application (DataIntegration), default is &quot;&quot;.
-<a id="__codelineno-48-54" name="__codelineno-48-54"></a>  sparkDriverJavaOptions = &quot;&quot;
-<a id="__codelineno-48-55" name="__codelineno-48-55"></a>
-<a id="__codelineno-48-56" name="__codelineno-48-56"></a>  # Enable or disable the Spark UI. This UI provides an overview of the Spark cluster and running jobs. It will start on port 4040
-<a id="__codelineno-48-57" name="__codelineno-48-57"></a>  # and increase the port number by 1 if the port is already in use. The final port will be shown in the logs. False by default.
-<a id="__codelineno-48-58" name="__codelineno-48-58"></a>  enableSparkUI = true
-<a id="__codelineno-48-59" name="__codelineno-48-59"></a>
-<a id="__codelineno-48-60" name="__codelineno-48-60"></a>  # This property decides if Hive integration is enabled orr not.
-<a id="__codelineno-48-61" name="__codelineno-48-61"></a>  # To use hive an external DB (such as MYSQL), the meta store, is needed. Please specify the necessary properties in the hive-site.xml. Note that Hive&#39;s default meta store (derby) should not be used in production and may lead to issues.
-<a id="__codelineno-48-62" name="__codelineno-48-62"></a>  enableHiveSupport = false
-<a id="__codelineno-48-63" name="__codelineno-48-63"></a>}
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-47-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-47-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-47-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-47-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-47-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-47-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-47-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-47-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-47-10">10</a></span>
+<span class="normal"><a href="#__codelineno-47-11">11</a></span>
+<span class="normal"><a href="#__codelineno-47-12">12</a></span>
+<span class="normal"><a href="#__codelineno-47-13">13</a></span>
+<span class="normal"><a href="#__codelineno-47-14">14</a></span>
+<span class="normal"><a href="#__codelineno-47-15">15</a></span>
+<span class="normal"><a href="#__codelineno-47-16">16</a></span>
+<span class="normal"><a href="#__codelineno-47-17">17</a></span>
+<span class="normal"><a href="#__codelineno-47-18">18</a></span>
+<span class="normal"><a href="#__codelineno-47-19">19</a></span>
+<span class="normal"><a href="#__codelineno-47-20">20</a></span>
+<span class="normal"><a href="#__codelineno-47-21">21</a></span>
+<span class="normal"><a href="#__codelineno-47-22">22</a></span>
+<span class="normal"><a href="#__codelineno-47-23">23</a></span>
+<span class="normal"><a href="#__codelineno-47-24">24</a></span>
+<span class="normal"><a href="#__codelineno-47-25">25</a></span>
+<span class="normal"><a href="#__codelineno-47-26">26</a></span>
+<span class="normal"><a href="#__codelineno-47-27">27</a></span>
+<span class="normal"><a href="#__codelineno-47-28">28</a></span>
+<span class="normal"><a href="#__codelineno-47-29">29</a></span>
+<span class="normal"><a href="#__codelineno-47-30">30</a></span>
+<span class="normal"><a href="#__codelineno-47-31">31</a></span>
+<span class="normal"><a href="#__codelineno-47-32">32</a></span>
+<span class="normal"><a href="#__codelineno-47-33">33</a></span>
+<span class="normal"><a href="#__codelineno-47-34">34</a></span>
+<span class="normal"><a href="#__codelineno-47-35">35</a></span>
+<span class="normal"><a href="#__codelineno-47-36">36</a></span>
+<span class="normal"><a href="#__codelineno-47-37">37</a></span>
+<span class="normal"><a href="#__codelineno-47-38">38</a></span>
+<span class="normal"><a href="#__codelineno-47-39">39</a></span>
+<span class="normal"><a href="#__codelineno-47-40">40</a></span>
+<span class="normal"><a href="#__codelineno-47-41">41</a></span>
+<span class="normal"><a href="#__codelineno-47-42">42</a></span>
+<span class="normal"><a href="#__codelineno-47-43">43</a></span>
+<span class="normal"><a href="#__codelineno-47-44">44</a></span>
+<span class="normal"><a href="#__codelineno-47-45">45</a></span>
+<span class="normal"><a href="#__codelineno-47-46">46</a></span>
+<span class="normal"><a href="#__codelineno-47-47">47</a></span>
+<span class="normal"><a href="#__codelineno-47-48">48</a></span>
+<span class="normal"><a href="#__codelineno-47-49">49</a></span>
+<span class="normal"><a href="#__codelineno-47-50">50</a></span>
+<span class="normal"><a href="#__codelineno-47-51">51</a></span>
+<span class="normal"><a href="#__codelineno-47-52">52</a></span>
+<span class="normal"><a href="#__codelineno-47-53">53</a></span>
+<span class="normal"><a href="#__codelineno-47-54">54</a></span>
+<span class="normal"><a href="#__codelineno-47-55">55</a></span>
+<span class="normal"><a href="#__codelineno-47-56">56</a></span>
+<span class="normal"><a href="#__codelineno-47-57">57</a></span>
+<span class="normal"><a href="#__codelineno-47-58">58</a></span>
+<span class="normal"><a href="#__codelineno-47-59">59</a></span>
+<span class="normal"><a href="#__codelineno-47-60">60</a></span>
+<span class="normal"><a href="#__codelineno-47-61">61</a></span>
+<span class="normal"><a href="#__codelineno-47-62">62</a></span>
+<span class="normal"><a href="#__codelineno-47-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a>#################################################
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a># Spark                                        #
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a>#################################################
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a>
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a>spark.interpreter.options = {
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a>  # the default name used when creating a SparkContext (will override spark.app.name in spark-defaults.conf)
+<a id="__codelineno-47-7" name="__codelineno-47-7"></a>  sparkAppName = &quot;eccenca DataIntegration Spark exe
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a>
+<a id="__codelineno-47-9" name="__codelineno-47-9"></a>  # Enables more detailed logging, counting of transformed records, etc.
+<a id="__codelineno-47-10" name="__codelineno-47-10"></a>  debugMode = false
+<a id="__codelineno-47-11" name="__codelineno-47-11"></a>
+<a id="__codelineno-47-12" name="__codelineno-47-12"></a>  # Enable or disable a spark executor event log for debugging purposes
+<a id="__codelineno-47-13" name="__codelineno-47-13"></a>  eventLog = true
+<a id="__codelineno-47-14" name="__codelineno-47-14"></a>
+<a id="__codelineno-47-15" name="__codelineno-47-15"></a>  # Folder for logs that people don&#39;t want in the log even though the information is necessary for debugging
+<a id="__codelineno-47-16" name="__codelineno-47-16"></a>  logFolder = ${elds.home}&quot;/var/dataintegration/logs/&quot;
+<a id="__codelineno-47-17" name="__codelineno-47-17"></a>
+<a id="__codelineno-47-18" name="__codelineno-47-18"></a>  # Enable or disable an execution time log for benchmarking purposes
+<a id="__codelineno-47-19" name="__codelineno-47-19"></a>  timeLog = true
+<a id="__codelineno-47-20" name="__codelineno-47-20"></a>
+<a id="__codelineno-47-21" name="__codelineno-47-21"></a>  # Enable or disable Sparks built-in log for debugging purposes (will override spark.eventLog.enabled in spark-defaults.conf)
+<a id="__codelineno-47-22" name="__codelineno-47-22"></a>  sparkLog = true
+<a id="__codelineno-47-23" name="__codelineno-47-23"></a>
+<a id="__codelineno-47-24" name="__codelineno-47-24"></a>  # If true, data will be repartitioned before execution, otherwise the existing partitioning or no partitioning will be used
+<a id="__codelineno-47-25" name="__codelineno-47-25"></a>  partitionOnImport = false
+<a id="__codelineno-47-26" name="__codelineno-47-26"></a>
+<a id="__codelineno-47-27" name="__codelineno-47-27"></a>  # Number of partitions for repartitioning on Import
+<a id="__codelineno-47-28" name="__codelineno-47-28"></a>  partitionNumber = 16
+<a id="__codelineno-47-29" name="__codelineno-47-29"></a>
+<a id="__codelineno-47-30" name="__codelineno-47-30"></a>  # Specifies number of Spark SQL shuffle partitions (will override spark.sql.shuffle.partitions in spark-defaults.conf)
+<a id="__codelineno-47-31" name="__codelineno-47-31"></a>  shufflePartitions = 32
+<a id="__codelineno-47-32" name="__codelineno-47-32"></a>
+<a id="__codelineno-47-33" name="__codelineno-47-33"></a>  # Minimum partition number for Spark execution
+<a id="__codelineno-47-34" name="__codelineno-47-34"></a>  defaultMinPartitions = 4
+<a id="__codelineno-47-35" name="__codelineno-47-35"></a>
+<a id="__codelineno-47-36" name="__codelineno-47-36"></a>  # Default parallelism partition number for Spark execution (will override spark.sql.shuffle.partitions in spark-defaults.conf)
+<a id="__codelineno-47-37" name="__codelineno-47-37"></a>  defaultParallelism = 4
+<a id="__codelineno-47-38" name="__codelineno-47-38"></a>
+<a id="__codelineno-47-39" name="__codelineno-47-39"></a>  # Specifies if data is combined before output is written to disk. If true the final output will be in a single file on a single partition
+<a id="__codelineno-47-40" name="__codelineno-47-40"></a>  combineOutput = true
+<a id="__codelineno-47-41" name="__codelineno-47-41"></a>
+<a id="__codelineno-47-42" name="__codelineno-47-42"></a>  # Specifies if DataIntegration is allowed to start a thrift server for external JDBC access. Views/virtual datasets can still be started but can only be accessed internally if set to false.
+<a id="__codelineno-47-43" name="__codelineno-47-43"></a>  startThriftServer = false
+<a id="__codelineno-47-44" name="__codelineno-47-44"></a>
+<a id="__codelineno-47-45" name="__codelineno-47-45"></a>  # Internal data model used in Spark Data Frames: &#39;sequence&#39; or &#39;simple&#39;. Sequence behaves like the entities used by the local executor of DataIntegration and is
+<a id="__codelineno-47-46" name="__codelineno-47-46"></a>  # sometimes be needed to work with non relational data (i.e. triple stores, dataplatform). The default value is &#39;simple&#39; and casts most data objects to Strings
+<a id="__codelineno-47-47" name="__codelineno-47-47"></a>  # which is fast and works in most situations may lead to less clean data.
+<a id="__codelineno-47-48" name="__codelineno-47-48"></a>  columnType = sequence
+<a id="__codelineno-47-49" name="__codelineno-47-49"></a>
+<a id="__codelineno-47-50" name="__codelineno-47-50"></a>  # General additional Java options that will be passed to the executors (worker nodes) in the cluster, default is &quot;&quot;.
+<a id="__codelineno-47-51" name="__codelineno-47-51"></a>  sparkExecutorJavaOptions = &quot;&quot;
+<a id="__codelineno-47-52" name="__codelineno-47-52"></a>
+<a id="__codelineno-47-53" name="__codelineno-47-53"></a>  # General additional Java options that will be passed to the driver application (DataIntegration), default is &quot;&quot;.
+<a id="__codelineno-47-54" name="__codelineno-47-54"></a>  sparkDriverJavaOptions = &quot;&quot;
+<a id="__codelineno-47-55" name="__codelineno-47-55"></a>
+<a id="__codelineno-47-56" name="__codelineno-47-56"></a>  # Enable or disable the Spark UI. This UI provides an overview of the Spark cluster and running jobs. It will start on port 4040
+<a id="__codelineno-47-57" name="__codelineno-47-57"></a>  # and increase the port number by 1 if the port is already in use. The final port will be shown in the logs. False by default.
+<a id="__codelineno-47-58" name="__codelineno-47-58"></a>  enableSparkUI = true
+<a id="__codelineno-47-59" name="__codelineno-47-59"></a>
+<a id="__codelineno-47-60" name="__codelineno-47-60"></a>  # This property decides if Hive integration is enabled orr not.
+<a id="__codelineno-47-61" name="__codelineno-47-61"></a>  # To use hive an external DB (such as MYSQL), the meta store, is needed. Please specify the necessary properties in the hive-site.xml. Note that Hive&#39;s default meta store (derby) should not be used in production and may lead to issues.
+<a id="__codelineno-47-62" name="__codelineno-47-62"></a>  enableHiveSupport = false
+<a id="__codelineno-47-63" name="__codelineno-47-63"></a>}
 </code></pre></div></td></tr></table></div>
 
 
@@ -14292,7 +14297,7 @@ The multi platform database client <a href="https://dbeaver.io/">DBeaver</a> c
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-20T07:29:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-01-13T14:45:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-01-13</span>
   </span>
 
     
