@@ -4,15 +4,20 @@ tags:
 ---
 # DataIntegration
 
-This section is intended to be a reference for all available eccenca DataIntegration configuration options.The configuration format is based on [HOCON](https://github.com/typesafehub/config).
+This section is intended to be a reference for all available eccenca DataIntegration configuration options.
+The configuration format is based on [HOCON](https://github.com/typesafehub/config).
 
-The following sections introduce the most important configuration parameters. The entire list of available configuration parameters can be found in the dataintegration.conf file found in the release package.
+The following sections introduce the most important configuration parameters.
+The entire list of available configuration parameters can be found in the dataintegration.conf file found in the release package.
 
 ## OAuth
 
-Authorization in eccenca DataIntegration is based on OAuth. Typically the eccenca DataPlatform is used as an OAuth endpoint, but external endpoints can be used as well. The Authorization Code Grant workflow is used for retrieving the OAuth token. The default configuration is the following:
+Authorization in eccenca DataIntegration is based on OAuth.
+Typically the eccenca DataPlatform is used as an OAuth endpoint, but external endpoints can be used as well.
+The Authorization Code Grant workflow is used for retrieving the OAuth token.
+The default configuration is the following:
 
-```conf linenums="1"
+``` conf linenums="1"
 # The URL of the eccenca DataPlatform.
 eccencaDataPlatform.url = "http://localhost:9090"
 
@@ -57,29 +62,18 @@ oauth.clientSecret = "secret"
 # oauth.requestParameters = "&resource=value"
 ```
 
-## DataPlatform configuration
+## Explore configuration
 
-eccenca DataIntegration can only be run by OAuth users that are granted the `urn:eccenca:di` action by the DataPlatform. An example configuration that grants all users from a predefined group `dataIntegrators` access to DataIntegration is shown in the following:
+eccenca DataIntegration can only be run by OAuth users that are granted the `https://vocab.eccenca.com/auth/Action/Build` action by the Explore component (aka DataPlatform/DataManager).
+An example condition can be seen at [Access Conditions > Access to DataIntegration](../access-conditions/index.md#access-to-dataintegration)
 
-```turtle linenums="1"
-@prefix eccauth: <https://vocab.eccenca.com/auth/> .
-@prefix : <http://eccenca.com/> .
+In the shown example, the users also get access to all graphs in the RDF store.
+This is not a requirement for working with DataIntegration.
+Access may also be restricted to graphs that the data integration users are allowed to work with.
 
-<urn:readAndWriteAllGraphs> a eccauth:AccessCondition ;
-    eccauth:requiresGroup :dataIntegrators ;
-    eccauth:allowedAction <urn:eccenca:di> ;
-    eccauth:readGraph <urn:elds-backend-all-graphs> ;
-    eccauth:writeGraph <urn:elds-backend-all-graphs> .
-```
+In order to activate OAuth using the eccenca Explore (Dataplatform), the following minimal configuration is required:
 
-In the shown configuration, the users also get access to all graphs in the RDF store. This is not a requirement for working with DataIntegration. Access may also be restricted to graphs that the data integration users are allowed to work with.
-
-??? note
-    The `urn:elds-backend-all-actions` action set also includes the `urn:eccenca:di` action, i.e., users that are granted `urn:elds-backend-all-actions` also get access to eccencca DataIntegration.
-
-In order to activate OAuth using the eccenca DataPlatform, the following minimal configuration is required:
-
-```conf linenums="1"
+``` conf linenums="1"
 eccencaDataPlatform.url = "http://localhost:9090"
 eccencaDataPlatform.oauth = true
 oauth.clientId = "eldsClient"
@@ -88,25 +82,29 @@ oauth.clientSecret = "secret"
 
 ### Super User
 
-By default, the workspace is loaded the first time a user opens eccenca DataIntegration in the browser using their credentials. Any scheduler that is part of a project must be started manually.
+By default, the workspace is loaded the first time a user opens eccenca DataIntegration in the browser using their credentials.
+Any scheduler that is part of a project must be started manually.
 
-By configuring a super user, the workspace will be loaded at startup. After loading, all schedulers will be started using the credentials of the super user.
+By configuring a super user, the workspace will be loaded at startup.
+After loading, all schedulers will be started using the credentials of the super user.
 
-In addition to the configuration of the eccencaDataPlatform according to the previous section, a super user is configured by specifying the following two parameters:
+In addition to the configuration of eccenca Explore according to the previous section, a super user is configured by specifying the following two parameters:
 
-```bash linenums="1"
+``` bash linenums="1"
 workbench.superuser.client = "superUserClient"
 workbench.superuser.clientSecret = "superUserClientSecret"
 ```
 
 ??? note
-    The client credentials grant type is used to retrieve a token for the super user. Note that the schedulers are only started automatically when running in production mode.
+
+    The client credentials grant type is used to retrieve a token for the super user.
+    Note that the schedulers are only started automatically when running in production mode.
 
 ## Workspace Providers
 
 The backend that holds the workspace can be configured using the `workspace.provider.plugin` parameter in `dataintegration.conf`
 
-```bash linenums="1"
+``` bash linenums="1"
 workspace.provider.plugin = <workspace-provider-plugin-name>
 ```
 
@@ -114,7 +112,7 @@ The following sections describe the available workspace provider plugins and how
 
 ### RDF-store Workspace - backend
 
-When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca DataPlatform.
+When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca DataPlatform (Explore).
 
 The workspace is held using the eccenca DataPlatform, i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
 
@@ -356,7 +354,7 @@ workspace.repository.projectS3 = {
   # /path/to/my-workspace/
 }
 ```
-For this S3 plugin make sure the account has at least these permissions attached: 
+For this S3 plugin make sure the account has at least these permissions attached:
 
 ``` json
 {
