@@ -62,6 +62,8 @@ Global variables can be marked as sensitive (`isSensitive = true`) for storing p
 Sensitive variables can only be used in password fields.
 Using sensitive variables in other fields or in variable templates fails and does not expose the value.
 
+Global variables can have an optional description (`description = "the description of my global variable"`).
+
 Global variables are set in a section like in the example below:
 
 ```conf
@@ -76,16 +78,20 @@ config.variables = {
 
   global = {
     # Insert global variables here
+
+    # simple notation: key = "value"
     jdbcHost = "my-jdbc-host"
-    # more key/value pairs ...
-    # key = "value"
-    #
-    # sensitive (password) variable example
-    # non-sensitive variables could use this notation, too
+
+    # more variables …
+
+    # advanced notation: to add `isSensitive` and/or `description`
     jdbcPassword = {
         value = "my-secret-password"
+        description = "the JDBC password for my-jdbc-host"
         isSensitive = true
     }
+
+    # more variables …
   }
 }
 ```
