@@ -26,7 +26,7 @@ The listed IRIs in this section use the following prefix declarations:
 
 ``` turtle
 PREFIX eccauth: <https://vocab.eccenca.com/auth/>
-PREFIX :        <https://vocab.eccenca.com/auth/action/>
+PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 ```
 
 ### **Metadata**
