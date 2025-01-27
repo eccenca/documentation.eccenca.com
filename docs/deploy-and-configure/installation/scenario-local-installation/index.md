@@ -15,6 +15,78 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
+
+## wsl installation and configuration
+
+
+for all you need to start powershell in admin mode
+
+install wsl
+```
+$ wsl --install
+```
+then restart windows
+
+all available distributions
+```
+$ wsl --list --online
+```
+
+install a distribution (use the distribution name from the list you got in the step before)
+```
+$ wsl --install <Distribution>
+```
+
+entering the the wsl-machine
+```
+$ wsl -d <distribution name>
+```
+
+check if you use wsl version 2 (this is nessessary to use systemd services)
+```
+$ wsl -l -v
+```
+
+install version 2 components (this requires a windows restart)
+```
+$ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+make sure you enable 'generateHosts = false' in your /etc/hosts file to make sure 
+that this file wont be overwritten from the host system every time you restart this distribution
+
+to be able to use systemd services and commands create /etc/wsl.conf with 
+```
+[boot]
+systemd=true
+```
+
+if you need to restart your wsl use in powershell:
+```
+$ wsl --shutdown
+```
+
+check if a apache2 service is running
+```
+$ sudo service apache2 status
+```
+
+remove the service with:
+```
+$ sudo apt remove apache2
+```
+restart wsl afterwars
+
+(optional) you can create a .wslconfig file under C:\users\<your username> to specify some system resources like:
+```
+[wsl2]
+memory=16GB # restrict ram wsl can use
+processors=4 # restrict cpu-cores
+swap=8GB # set swap size
+swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
+```
+
+
 ## Setup & Check Installation Environment
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
