@@ -29,7 +29,7 @@ This release delivers the following component versions:
 
 -   eccenca DataIntegration v24.3.0
 -   eccenca Explore v24.3.0 (formerly DataPlatform and DataManager)
--   eccenca Corporate Memory Control (cmemc) v24.3.1
+-   eccenca Corporate Memory Control (cmemc) v24.3.2
 
 We tested this release with the following dependency components:
 
@@ -291,9 +291,13 @@ We are excited to announce Explore v24.3, which introduces new features, improve
     -   Fixed the statistics display for link rules with inverted properties
     -   Exit application with code 1 on expired license
 
-## eccenca Corporate Memory Control (cmemc) v24.3.1
+## eccenca Corporate Memory Control (cmemc) v24.3.2
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.3, which introduces new features, improvements and bug fixes.
+
+**v24.3.2 of cmemc provides the following fixes:**
+
+-   remove accidentally added pip dependency
 
 **v24.3.1 of cmemc provides the following fixes:**
 
