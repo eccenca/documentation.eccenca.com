@@ -16,62 +16,68 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   make - build tools (apt-get install make) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
-
 ## wsl installation and configuration
 
-
-For all you need to start Powershell started as administrator. Alternatively you can also install a WSL distribution from Microsoft Store.
+For all you need to start Powershell started as administrator.
+Alternatively you can also install a WSL distribution from Microsoft Store.
 
 Install WSL, then restart your Windows machine.
-```
-$ wsl --install
+
+```shell
+wsl --install
 ```
 
 List available distributions
-```
-$ wsl --list --online
+
+```shell
+wsl --list --online
 ```
 
-Install a distribution. 
-Chose from the ```Name``` column.
+Install a distribution.
+Chose from the `Name` column.
 Here we use a Debian based distribution like Debian or any Ubuntu.
 However other Distributions might work as well.
 
-```
-$ wsl --install Debian
+```shell
+wsl --install Debian
 ```
 
 Check if you use wsl version 2 (this is nessessary to use systemd services)
-```
-$ wsl -l -v
+
+```shell
+wsl -l -v
 ```
 
 Install version 2 components (this requires a windows restart)
-```
-$ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+```shell
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
 Enter WSL machine
-```
-$ wsl -d Debian
+
+```shell
+wsl -d Debian
 ```
 
-Enable ```generateHosts = false``` in your ```/etc/hosts``` file
-to make sure that this file won't be overwritten from the host system on every restart.
+Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
 
-To be able to use systemd services and commands make sure ```/etc/wsl.conf``` is available with this content:
-```
+To be able to use systemd services and commands make sure `/etc/wsl.conf` is available with this content:
+
+```shell
 [boot]
 systemd=true
 ```
 
 (Optional) If you need to restart your WSL use in Powershell:
-```
-$ wsl --shutdown
+
+```shell
+wsl --shutdown
 ```
 
-(optional) you can create a .wslconfig file under C:\users\<your username> to specify some system resources like:
-```
+(optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
+
+```shell
 [wsl2]
 memory=16GB # restrict ram wsl can use
 processors=4 # restrict cpu-cores
@@ -79,13 +85,12 @@ swap=8GB # set swap size
 swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
 ```
 
-
 ## Setup & Check Installation Environment
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
 
-```
-# Create eccenca-corporate-memory directory in your ${HOME} and set as a 
+```shell
+# Create eccenca-corporate-memory directory in your ${HOME} and set as a
 # working dir.
 
 $ mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
@@ -94,7 +99,7 @@ $ mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
 $ curl https://releases.eccenca.com/docker-orchestration/latest.zip \
     > cmem-orchestration.zip
 
-# unzip the orchestration and move the unzipped directory 
+# unzip the orchestration and move the unzipped directory
 $ unzip cmem-orchestration.zip
 $ rm cmem-orchestration.zip
 $ mv cmem-orchestration-v* cmem-orchestration
@@ -104,7 +109,7 @@ $ git init && git add . && git commit -m "stub"
 
 Check your local environment:
 
-```
+```shell
 # Run the following command to check your docker server version.
 # To have the current security patches, always update your docker version
 # to the latest one.
@@ -130,7 +135,7 @@ Login Succeeded
 
 To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
 
-```
+```shell
 ##
 # Host Database
 #
@@ -143,16 +148,17 @@ To install Corporate Memory, you need to modify your local hosts file (located i
 
 Corporate Memory uses Ontotext GraphDB triple store as default backend.
 Graphdb is available as free version and does not requires a license.
-If you have a license for Ontotext GraphDB you can copy the file to the ```license```folder inside Corporate Memory's root folder.
-Then edit the file ```compose/docker-compose.store.graphdb.yml``` and adjust to fit your filename like this:
-```
+If you have a license for Ontotext GraphDB you can copy the file to the `license`folder inside Corporate Memory's root folder.
+Then edit the file `compose/docker-compose.store.graphdb.yml` and adjust to fit your filename like this:
+
+```shell
 # adapt this line if a license ca be provided
 #      - "{DEST}/licenses/graphdb.license:/opt/graphdb/dist/conf/graphdb.license"
 ```
 
 Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:
 
-```
+```shell
 # Pulling the images will take time
 
 $ make clean-pull-start-bootstrap
@@ -160,7 +166,7 @@ $ make clean-pull-start-bootstrap
 
 You should see the output as follows:
 
-```
+```shell
 make[1]: Entering directory '/home/ttelleis/cmem-dist/cmem-orchestration'
 The target cleans up everything and esp. REMOVES ALL YOUR DATA. Do you want to continue?
 
@@ -206,9 +212,9 @@ Run make logs to see log output
 
 Open your browser and navigate to <http://docker.localhost>
 
-| account | password | description                                                                                 |
-| ------- | -------- | ------------------------------------------------------------------------------------------- |
-| `admin` | `admin`  | Is member of the global admin group (can see and do anything)                               |
+| account | password | description |
+| ------- | -------- | ----------- |
+| `admin` | `admin`  | Is member of the global admin group (can see and do anything) |
 
 After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
 
@@ -216,7 +222,7 @@ After successful login, you will see Corporate Memory interface. You can now pro
 
 To create a backup you have to prepare the backup folders. Make sure these folders exists and have write permissions. Run this:
 
-```
+```shell
 # assuming you are currently in the the cmem-orchestration folder
 $ mkdir -p data/backups/graphs data/backups/workspace
 $ chmod 777 data/backups/graphs data/backups/workspace
@@ -245,16 +251,16 @@ zip -r data/backups/2024-07-26_14-15.zip data/backups/keycloak/2024-07-26_14-15.
   adding: data/backups/graphs/2024-07-26_14-15.zip (stored 0%)
   adding: data/backups/python-packages/2024-07-26_14-15.zip (stored 0%)
 ln -sf 2024-07-26_14-15.zip data/backups/latest.zip
-
 ```
-The full backup is now at `data/backups/latest.zip`.
 
+The full backup is now at `data/backups/latest.zip`.
 
 ### Caveats
 
 In case you have problems starting and receive error messages like Port 80 already assigned.
 Then check if a apache2 service is running and remove it.
-```
-$ sudo service apache2 status
-$ sudo service stop apache2
+
+```shell
+sudo service apache2 status
+sudo service stop apache2
 ```
