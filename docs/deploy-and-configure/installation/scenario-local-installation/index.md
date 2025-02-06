@@ -13,69 +13,62 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
 -   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
+-   make - build tools (apt-get install make) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
 
 ## wsl installation and configuration
 
 
-for all you need to start powershell in admin mode
+For all you need to start Powershell started as administrator. Alternatively you can also install a WSL distribution from Microsoft Store.
 
-install wsl
+Install WSL, then restart your Windows machine.
 ```
 $ wsl --install
 ```
-then restart windows
 
-all available distributions
+List available distributions
 ```
 $ wsl --list --online
 ```
 
-install a distribution (use the distribution name from the list you got in the step before)
+Install a distribution. 
+Chose from the ```Name``` column.
+Here we use a Debian based distribution like Debian or any Ubuntu.
+However other Distributions might work as well.
+
 ```
-$ wsl --install <Distribution>
+$ wsl --install Debian
 ```
 
-entering the the wsl-machine
-```
-$ wsl -d <distribution name>
-```
-
-check if you use wsl version 2 (this is nessessary to use systemd services)
+Check if you use wsl version 2 (this is nessessary to use systemd services)
 ```
 $ wsl -l -v
 ```
 
-install version 2 components (this requires a windows restart)
+Install version 2 components (this requires a windows restart)
 ```
 $ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-make sure you enable 'generateHosts = false' in your /etc/hosts file to make sure 
-that this file wont be overwritten from the host system every time you restart this distribution
+Enter WSL machine
+```
+$ wsl -d Debian
+```
 
-to be able to use systemd services and commands create /etc/wsl.conf with 
+Enable ```generateHosts = false``` in your ```/etc/hosts``` file
+to make sure that this file won't be overwritten from the host system on every restart.
+
+To be able to use systemd services and commands make sure ```/etc/wsl.conf``` is available with this content:
 ```
 [boot]
 systemd=true
 ```
 
-if you need to restart your wsl use in powershell:
+(Optional) If you need to restart your WSL use in Powershell:
 ```
 $ wsl --shutdown
 ```
-
-check if a apache2 service is running
-```
-$ sudo service apache2 status
-```
-
-remove the service with:
-```
-$ sudo apt remove apache2
-```
-restart wsl afterwars
 
 (optional) you can create a .wslconfig file under C:\users\<your username> to specify some system resources like:
 ```
@@ -117,13 +110,13 @@ Check your local environment:
 # to the latest one.
 
 $ docker version | grep -i version
-Version:    26.1.4
+Docker version: 27.5.1, build 9f9e405
 
 # Check docker compose version, should be at least v2.*.*
 # update to the latest version if necessary
 
 $ docker compose version
-Docker Compose version v2.29.1
+Docker Compose version v2.32.4
 
 # login into eccenca docker registry
 
@@ -148,22 +141,13 @@ To install Corporate Memory, you need to modify your local hosts file (located i
 127.0.0.1 docker.localhost
 ```
 
-Corporate Memory uses Ontotext GraphDB triple store as default backend. Graphdb is available as free version and does not requires a license. If you have a license for graphdb you can copy the file to the ```license```folder inside Corporate Memory's root folder.
-
+Corporate Memory uses Ontotext GraphDB triple store as default backend.
+Graphdb is available as free version and does not requires a license.
+If you have a license for Ontotext GraphDB you can copy the file to the ```license```folder inside Corporate Memory's root folder.
+Then edit the file ```compose/docker-compose.store.graphdb.yml``` and adjust to fit your filename like this:
 ```
-$ cp YOUR_SE_LICENSE_FILE \
-    ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
-# or
-$ cp YOUR_EE_LICENSE_FILE \
-    ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
-```
-
-Then change the file ```environments/config.env``` to use the correct version:
-
-```
-# Use Free, 'se' or 'ee' or adjust the mountpoint in 
-# compose/docker-compose.store.graphdb.yaml
-GRAPHDB_LICENSE=se
+# adapt this line if a license ca be provided
+#      - "{DEST}/licenses/graphdb.license:/opt/graphdb/dist/conf/graphdb.license"
 ```
 
 Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:
@@ -264,3 +248,13 @@ ln -sf 2024-07-26_14-15.zip data/backups/latest.zip
 
 ```
 The full backup is now at `data/backups/latest.zip`.
+
+
+### Caveats
+
+In case you have problems starting and receive error messages like Port 80 already assigned.
+Then check if a apache2 service is running and remove it.
+```
+$ sudo service apache2 status
+$ sudo service stop apache2
+```
