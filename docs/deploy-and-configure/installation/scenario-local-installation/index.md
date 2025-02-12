@@ -42,7 +42,7 @@ However other Distributions might work as well.
 wsl --install Debian
 ```
 
-Check if you use wsl version 2 (this is nessessary to use systemd services)
+Ensure you use wsl version 2 (this is necessary to use `systemd` services).
 
 ```shell
 wsl -l -v
@@ -62,7 +62,7 @@ wsl -d Debian
 
 Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
 
-To be able to use systemd services and commands make sure `/etc/wsl.conf` is available with this content:
+To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with wsl v2):
 
 ```shell
 [boot]
@@ -75,7 +75,7 @@ systemd=true
 wsl --shutdown
 ```
 
-(optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
+(Optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
 
 ```shell
 [wsl2]
@@ -85,13 +85,20 @@ swap=8GB # set swap size
 swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
 ```
 
+Alternatively, (with wsl v2) you may use the graphical configuration application _WSL Settings_.
+
 ## Setup & Check Installation Environment
+
+For docker we recommend to use the linux docker within wsl.
+Follow the instruction in [Server Provisioning in Scenario: Single Node Cloud Installation](../scenario-single-node-cloud-installation/index.md#server-provisioning).
+Alternatively, you may use docker for desktop and enable wsl integration in the settings.
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
 
 ```shell
 # Create eccenca-corporate-memory directory in your ${HOME} and set as a
 # working dir.
+sudo apt install -y curl jq make git unzip gpg
 
 $ mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
 
@@ -102,7 +109,8 @@ $ curl https://releases.eccenca.com/docker-orchestration/latest.zip \
 # unzip the orchestration and move the unzipped directory
 $ unzip cmem-orchestration.zip
 $ rm cmem-orchestration.zip
-$ mv cmem-orchestration-v* cmem-orchestration
+# adapt the version number, here we assume v24.3.2 was been downloaded
+$ ln -fs cmem-orchestration-v24.3.2 cmem-orchestration
 $ cd cmem-orchestration
 $ git init && git add . && git commit -m "stub"
 ```
