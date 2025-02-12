@@ -27,7 +27,7 @@ $ sudo timedatectl set-timezone Europe/Berlin
 
 # install needed packages
 $ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 \
-    software-properties-common gnupg lsb-release gettext zip unzip git \ 
+    software-properties-common gnupg lsb-release gettext zip unzip git \
     make vim jq
 
 # install docker and docker-compose
@@ -42,6 +42,7 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io \
     docker-compose-plugin
 
 # (optional) add a user to docker group
+# may require logout/login to reload group assignments
 # sudo usermod -a -G docker admin
 ```
 
@@ -62,7 +63,7 @@ $ cd /opt
 $ curl https://releases.eccenca.com/docker-orchestration/latest.zip \
     > cmem-orchestration.zip
 
-# unzip the orchestration and move the unzipped directory to 
+# unzip the orchestration and move the unzipped directory to
 # /opt/cmem-orchestration
 $ unzip cmem-orchestration.zip
 $ rm cmem-orchestration.zip
