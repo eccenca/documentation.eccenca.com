@@ -226,38 +226,38 @@ In this tutotrial, the Execute Instruction Task will be used to transform the in
 
 2. On the **Create New Item** window, select **Execute Instruction** and click **Add** to create a new task.
 
-3. Fill out the the details leaving the **target vocabularies** field at its default value **all installed vocabularies,** which will enable us to create a transformation to the previously installed products vocabulary. You will need an OpenAI API Key. _In this example we will use:_
+3. Fill out the the details leaving the **target vocabularies** field at its default value **all installed vocabularies,** which will enable us to create a transformation to the previously installed products vocabulary. You will need an OpenAI API Key. 
+_In this example we will use:_
 
     -   Name: _**Agentic Lifting Service Database**_
     -   _In the field **API key** set your OpenAI API key._
-    -   Instruction Template:
+    -   _**Instruction Template**_:
         Here you will need to add a prompt that will instruct the LLM to lift the service data.
         Use the following prompt:
         ```
-            Create an N-triple from the following entity: ${entity}     
+        Create an N-triple from the following entity: ${entity}     
 
-            - The namespace is http://ld.company.org/prod-instances/
-            - Use RDFS and RDF vocabularies
-            - Output plain triples without any explanation and without escaping 
-            - Remove the markup escaping from the generated answer such as ``` 
+        - The namespace is http://ld.company.org/prod-instances/
+        - Use RDFS and RDF vocabularies
+        - Output plain triples without any explanation and without escaping 
+        - Remove the markup escaping from the generated answer such as ``` 
 
+        Example template:
 
-            Example template:
+        <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/2000/01/rdf-schema#label> \"{ServiceName}\"@en . 
+        <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
+        <http://ld.company.org/prod-instances/{ProductID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
 
-            <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/2000/01/rdf-schema#label> \"{ServiceName}\"@en . 
-            <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
-            <http://ld.company.org/prod-instances/{ProductID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
+        Example triples:
 
-            Example triples:
-
-            <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/2000/01/rdf-schema#label> \"Product Analysis\"@en . 
-            <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
-            <http://ld.company.org/prod-instances/O491-3823912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
+        <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/2000/01/rdf-schema#label> \"Product Analysis\"@en . 
+        <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
+        <http://ld.company.org/prod-instances/O491-3823912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
 
         ```
-        This prompt will instruct the LLM to create the servivce triples using ```ServiceID``` and ```ProductID``` as identifiers.
-        It also instruct how to assign the correct service and product data types.
-    -   Click **Create**.** Leave all other parameters at their default values.
+        This prompt will instruct the LLM to create the service triples using ```ServiceID``` and ```ProductID``` as identifiers.
+        It also instruct how to assign the correct service and product rdf:types.
+    -   Click **Create**. Leave all other parameters at their _default_ values.
     -   Connect the Service CSV/JDBC output port to the _**Agentic Lifting Service Database**_ input port.
 
 ---
@@ -270,15 +270,15 @@ Create a CSV dataset to evaluate the _**Agentic Lifting Service Database**_  res
 
 2.  In the **Create new item** dialog, select **CSV**.
 
-3. Fill out a label and create , under **File** select **Create empty file** add a name i.e. **agentic_serice_lifting_result.csv**.
+3. Fill out a label and create , under **File** select **Create empty file** add a name i.e. _**aagentic_service_result.csv**_.
 
 4. Click **Create**. Leave all other parameters at their default values.
 
-5.  Connect the _**Agentic Lifting Service Database**_ ouput port to the newly create **agentic_serice.lifting_result.csv** input port.
+5.  Connect the _**Agentic Lifting Service Database**_ ouput port to the newly create _**agentic_service_result.csv**_ input port.
 
 6. Press the ![](button-play.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
-7.  Check the output generated by the Workflow in **agentic_serice.lifting_result.csv**.
+7.  Check the output generated by the Workflow in _**agentic_service_result.csv**_.
 
 ---
 
