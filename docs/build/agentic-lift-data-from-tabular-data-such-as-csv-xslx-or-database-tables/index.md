@@ -5,7 +5,7 @@ tags:
   - BeginnersTutorial
   - KnowledgeGraph
 ---
-# Lift data from tabular data such as CSV, XSLX or database tables
+# Agentic lifting tabular data such as CSV, XSLX or database tables
 
 ## Introduction
 
@@ -26,6 +26,10 @@ It is based on the [lift tabular data tutorial using transformation rules](../..
     This step is optional and makes some of the following steps of the tutorial superfluous.
 
 The documentation consists of the following steps, which are described in detail below:
+
+!!! Notice
+
+    You can reuse the workflow from the tutorial [lift tabular data using transformation rules](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) and jump to _**setp 5**_.
 
 1. Registration of the target vocabulary
 2. Uploading of the data (file)/Connect to JDBC endpoint
