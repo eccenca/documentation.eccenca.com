@@ -46,15 +46,35 @@ We're excited to bring you the latest update to DataIntegration v25.1, which int
 
 **v25.1.0 of DataIntegration adds the following new features:**
 
--   TODO
+-   Use colors for workbench tags.
+-   Added a new operator for concatenating input values into a file.
+-   Enabled copy & paste functionality in rule editors.
+-   Datasets with explicit schemas can now be directly connected to workflow operators.
+    -   Supported for CSV and text datasets.
+    -   If a supported dataset is connected to a workflow operator with a flexible input schema, the entire dataset (i.e., all properties of its primary type) is read.
+    -   For CSV datasets, this results in entities being read with all columns included.
+-   Allow changing the width of blocks in the mapping editor.
 
 **v25.1.0 of DataIntegration introduces the following changes:**
 
--   TODO
+-   Invisible parameters are now part of the config port schema.
+-   Improved file names for downloaded projects and workspaces.
+-   SPARQL results are streamed as JSON instead of XML.
+-   The root breadcrumb and the _Build_ logo in the navigation sidebar now direct to the _projects_ search facet instead of _All types_.
 
 **v25.1.0 of DataIntegration ships the following fixes:**
 
--   TODO
+-   Fixed URI rule evaluation failure for empty object mappings.
+-   No duplicate JDBC jar configuration is required anymore.
+-   Fixed issue with JSON datasets not always navigating into arrays.
+-   Fixed issue where direct transform execution does not use project variables.
+-   Fixed Transform Evaluation failure when a rule contains a template transformer.
+-   Fixed issue where URI pattern input sometimes resets to its initial value or crashes the mapping editor.
+-   Fixed issue where SPARQL restriction expands the wrong SPARQL pattern when using property paths with prefixed names.
+-   Fixed RDF file upload issue.
+-   Fixed issue where the reference entities cache fails to load a large number of entities from the RDF store.
+-   Fixed issue where tasks created in the workflow editor are not added to the recently viewed list.
+-   Fixed issue where adding a note to a linking rule fails to save.
 
 ## eccenca Explore v25.1.0
 
