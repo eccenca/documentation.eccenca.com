@@ -87,15 +87,61 @@ We are excited to announce Explore v25.1, which introduces new features, improve
 
 **v25.1.0 of Explore adds the following new features:**
 
--   TODO
+-   Other
+    -   Added support for Virtuoso 8.3:
+        -   Uses the eccenca Docker image for GitLab CI tests.
+        -   Includes adjustments in the store connection to address specific Virtuoso issues.
+-   SHACL
+    -   Added a download option for value queries in the complex view.
+    -   Values in the table view are now sorted by IRI by default; this can be overridden by setting `shui:disableDefaultValueSorting true`.
+    -   Added a new SHACL form to the graph creation interface.
+    -   Added a debug node shape option for quick access.
+    -   Corrected the display of lists of `xsd:anyURI` literals with long URIs.
+-   BKE
+    -   Improved whitespace formatting in the BKE dossier.
 
 **v25.1.0 of Explore ships the following changes:**
 
--   TODO
+-   SHACL
+    -   Conditionally hid the remove, create, and clone buttons.
+    -   Added support for GraphDB 10.8.3.
+    -   Removed quad upload support for GSP and the upload endpoint
+    (GSP quads are not supported by stores or are uploaded as triples to a single graph only).
+-   Link Rules
+    -   Adjusted link rules to use the new ACL API.
+-   SHACL
+    -   Stabilized the UI during loading.
+    -   Updated graph creation forms to the current SHACL system.
+-   BKE
+    -   Merged the display of relations when property shape mode is deactivated.
+    -   Saved graph changes while preserving the visualization state.
+-   Query Module
+    -   Catalogue queries are now deleted using resource deletion (CBD).
+-   Other
+    -   Switched the backend build system to use _Maven Central_ instead of _Artifactory_, which also removes the blocking Virtuoso dependency.
+    -   Added `POST` endpoints for `GET` data requests that may result in long IRIs.
+    -   Updated to Spring Boot 3.4.
+    -   Made Apache Jena SPARQL query result streaming adjustable via the `proxy.proxy-sparql-streaming-format` configuration (default: `XML`; possible values: `JSON`, `XML`).
+    -   Updated Apache Jena to version 5.3.0.
+    -   Implemented a new serialization method for paged responses (currently relevant only for access condition management endpoints/clients).
 
 **v25.1.0 of Explore ships the following fixes:**
 
--   TOFO
+-   Other
+    -   Render node shapes without property shapes correctly—that is, display their widgets.
+    -   The root admin username now resolves to the actual account name rather than a fixed `admin`.
+    -   GSP file uploads via multipart requests now allow file suffixes in uppercase.
+    -   Re-enabled Prometheus cache metrics.
+    -   URIs with escaped characters are now preserved.
+    -   Added an indication for broken workspace configurations in the UI.
+    -   Fixed missing translations in messages prompting necessary re-login.
+-   SHACL
+    -   Resolved the `shuiObject` placeholder correctly in custom queries when a resource is created.
+    -   In Shacline, subshapes now have a cutoff of 20; a warning is displayed when the limit is reached.
+    -   Fixed an issue where adding a new subshape caused unwanted duplication of existing subshapes of the same type.
+    -   Subshapes are now removed if their removal is revoked.
+-   BusinessKnowledgeEditor (BKE)
+    -   Added support for value queries in BKE.
 
 ## eccenca Corporate Memory Control (cmemc) v25.1.0
 
@@ -103,11 +149,13 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 
 **v25.1.0 of cmemc adds the following new features:**
 
--   TODO
+-   `query execute` command
+    -   shell completion of placeholder values (using annotated QueryPlaceholder resources)
 
 **In addition the following changes and fixes are included:**
 
--   TODO
+-   `admin workspace python uninstall` command
+    -   shell completion uses correct connection now
 
 ## Migration Notes
 
