@@ -7,6 +7,17 @@ tags:
 ---
 # Agentic lifting tabular data such as CSV, XSLX or database tables
 
+!!! Requirements
+
+    This tutorial requires the installation of Corporate Memory LLM Plugin.
+
+    For installing the LLM plugin, you will need to execute the following cmemc command on your cmem installation.
+
+    ``` shell-session
+    $ cmemc admin workspace python install cmem-plugin-llm
+    Install package cmem-plugin-llm ... done
+    ```
+
 ## Introduction
 
 This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a **comma-separated value file** (.csv), an **excel file** (.xlsx) or a **database table** (jdbc).
@@ -225,73 +236,104 @@ To validate that the input data is correct, you can preview the data table in Co
 ## 5 Creation of the execute instruction agentic workflow
 
 In this tutotrial, the Execute Instruction Task will be used to transform the input dataset (e.g. CSV) into an output dataset (e.g. Knowledge Graph).
+In this example, we instruct the LLM to generate triples in Turtle format and then feed it to the **Service Knolwedge Graph** created in the previous step.
 
 1. Click **Create** in your project.  
 
 2. On the **Create New Item** window, select **Execute Instruction** and click **Add** to create a new task.
 
-3. Fill out the the details leaving the **target vocabularies** field at its default value **all installed vocabularies,** which will enable us to create a transformation to the previously installed products vocabulary. You will need an OpenAI API Key. 
+3. Fill out the the details leaving the **URL** field at its default value **https://api.openai.com/v1**. You will need an OpenAI API Key. 
 _In this example we will use:_
 
-    -   Name: _**Agentic Lifting Service Database**_
+    -   Name: _**Agentic Service Transformation**_
     -   _In the field **API key** set your OpenAI API key._
+    -   _Select the model **gpt-4o** in the field **Intruct Model**._
     -   _**Instruction Template**_:
         Here you will need to add a prompt that will instruct the LLM to lift the service data.
         Use the following prompt:
         ```
-        Create an N-triple from the following entity: ${entity}     
+        Create triples in turtle format from the following entity: 
 
-        - The namespace is http://ld.company.org/prod-instances/
+        ${entity}
+
+        - The namespace of the triples is http://ld.company.org/prod-instances/
         - Use RDFS and RDF vocabularies
         - Output plain triples without any explanation and without escaping 
         - Remove the markup escaping from the generated answer such as ``` 
 
         Example template:
 
-        <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/2000/01/rdf-schema#label> \"{ServiceName}\"@en . 
-        <http://ld.company.org/prod-instances/{ServiceID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
-        <http://ld.company.org/prod-instances/{ProductID}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-        Example triples:
+        <http://ld.company.org/prod-instances/{ServiceID}> rdfs:label \"{ServiceName}\"@en ; 
+                                                        rdf:type <http://ld.company.org/prod-vocab/Service> .
+        <http://ld.company.org/prod-instances/{ProductID}> rdf:type <http://ld.company.org/prod-vocab/Product> .
 
-        <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/2000/01/rdf-schema#label> \"Product Analysis\"@en . 
-        <http://ld.company.org/prod-instances/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service> .
-        <http://ld.company.org/prod-instances/O491-3823912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .
+        Example ouput:
+
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+        <http://ld.company.org/prod-instances/Y704-9764759> rdfs:label \"Product Analysis\"@en ; 
+                                                            rdf:type <http://ld.company.org/prod-vocab/Service> .
+        <http://ld.company.org/prod-instances/O491-3823912> rdf:type <http://ld.company.org/prod-vocab/Product> .
 
         ```
         This prompt will instruct the LLM to create the service triples using ```ServiceID``` and ```ProductID``` as identifiers.
         It also instruct how to assign the correct service and product rdf:types.
     -   Click **Create**. Leave all other parameters at their _default_ values.
-    -   Connect the Service CSV/JDBC output port to the _**Agentic Lifting Service Database**_ input port.
+    -   Connect the Service CSV/JDBC output port to the _**Agentic Lifting Service**_ input port.
 
 ---
 
-## 6 Evaluate the results
+## 6 Concatenate Instruct Outputs
 
-Create a CSV dataset to evaluate the _**Agentic Lifting Service Database**_  results.
+Create a Concatenate File to concatenate all triples generated by the _**Agentic Service Lifting**_.
 
-1.  Within your project, click **Create** or **Create item**.
+1. Within your project, click **Create** or **Create item**.
 
-2.  In the **Create new item** dialog, select **CSV**.
+2. In the **Create new item** dialog, select **Concatenate File**.
 
-3. Fill out a label and create , under **File** select **Create empty file** add a name i.e. _**aagentic_service_result.csv**_.
+3. Fill out a label _**Concatenate Triples**_, under **Path** write **_instruction_output** add click in **create**.
 
 4. Click **Create**. Leave all other parameters at their default values.
 
-5.  Connect the _**Agentic Lifting Service Database**_ ouput port to the newly create _**agentic_service_result.csv**_ input port.
-
-6. Press the ![](button-play.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
-
-7.  Check the output generated by the Workflow in _**agentic_service_result.csv**_.
+5. Connect the _**Agentic Service Transformation**_ ouput port to the newly create _**Concatenate Triples**_ input port.
 
 ---
 
-## 7 Build the Knowledge Graph
+## 7 Evaluate the results
 
-1. Connect the _**Agentic Lifting Service Database**_ output pot to the Go into the mapping and visit the _**Service Knowledge Graph**_ input port created previously.
+Create a CSV dataset to evaluate the _**Agentic Service Lifting**_  results.
 
-2. Press the ![](button-play.png) button and validate the results. In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
+1. Within your project, click **Create** or **Create item**.
+
+2. In the **Create new item** dialog, select **CSV**.
+
+3. Fill out a label _**Agentic Service Result**_ and create , under **File** select **Create empty file** add a name i.e. _**agentic_service_result.csv**_.
+
+4. Click **Create**. Leave all other parameters at their default values.
+
+5. Connect the _**Concatenate Triples**_ ouput port to the newly create _**Agentic Service Result**_ input port.
+
+6. Press the ![](button-play.png) button and validate the results. In this example, the triples were written in the CSV field **_instruction_output**.
+
+    ![](agentic-service-csv-pipeline.png){ style="width:500px;" class="bordered" }
+
+7. Check the output generated by the Workflow in _**Agentic Service Result**_ under **Raw** tab.
+
+    ![](agentic-service-result.png){ style="width:400px;" class="bordered" }
+
+
+---
+
+## 8 Build the Knowledge Graph
+
+1. Connect the _**Concatenate Triples**_ output port to the _**Service Knowledge Graph**_ input port created previously.
+
+2. Press the ![](button-play.png) button and validate the results. In this example, 9x Services and 911x Products were created in our Knowledge Graph based on the mapping.
 
 3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: <http://ld.company.org/prod-instances/>
 
-    ![](kg-result.png){ class="bordered" }
+    ![](agentic-kg-result.png){ class="bordered" }
