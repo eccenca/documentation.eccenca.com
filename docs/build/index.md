@@ -29,6 +29,7 @@ The Build stage is used to turn your legacy data points from existing datasets i
     ---
 
      - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from from Tabular Data such as CSV, XSLX or Database Tables.
+     - [Agentic Data Lifting from Tabular Data](agentic-lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from Tabular Data such as CSV, XSLX or Database Tables through an agentic data pipeline.
      - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
      - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
      - [Reconfigure Workflow Tasks](workflow-reconfiguration/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
