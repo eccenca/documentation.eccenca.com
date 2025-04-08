@@ -5,6 +5,7 @@ nav:
     - Define Prefixes / Namespaces: define-prefixes-namespaces
     - Cool IRIs: cool-iris
     - Lift Tabular Data: lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
+    - Agentic Tabular Data Lifting: agentic-lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables 
     - Lift Hierarchical Data: lift-data-from-json-and-xml-sources
     - Lift Web API Data: extracting-data-from-a-web-api
     - Workflow Reconfiguration: workflow-reconfiguration
