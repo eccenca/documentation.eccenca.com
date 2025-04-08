@@ -54,11 +54,11 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
--   Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
+-   Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/products_vocabulary.nt)
 
     ![](products-vocab.png){ class="bordered" }
 
--   Sample CSV file: [services.csv](services.csv)
+-   Sample CSV file: [services.csv](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/services.csv)
 
     !!! info
 
@@ -68,7 +68,7 @@ The following material is used in this tutorial, you should download the files a
         | I241-8776317 | Component Confabulation | Z249-1364492, L557-1467804, C721-7900144, ... | Corinna.Ludwig@company.org | 1082,00 EUR |
         | …            | …                       | …                                             | …                          | …           |
 
--   Sample Excel file: [products.xlsx](products.xlsx)
+-   Sample Excel file: [products.xlsx](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/products.xlsx)
 
     !!! info
 
@@ -202,15 +202,15 @@ To validate that the input data is correct, you can preview the data table in Co
 
 1. On the dataset page, press the **Load preview** button
 
-    ![](dataset-services.png){ class="bordered" }
+    ![](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/dataset-services.png){ class="bordered" }
 
 2. Once the preview is loaded, you can view a couple of rows to check that your data is accessible.
 
-    ![](dataset-services-preview.png){ class="bordered" }
+    ![](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/dataset-services-preview.png){ class="bordered" }
 
 3. Optionally, you can click **start profiling** and explore statistics about the dataset.
 
-    ![](dataset-services-profiling.png){ class="bordered" }
+    ![](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/dataset-services-profiling.png){ class="bordered" }
 
 ---
 
@@ -220,7 +220,7 @@ To validate that the input data is correct, you can preview the data table in Co
 
 2. In Create new item window, select Knowledge Graph and click Add.
 
-    ![](build-dataset-types-kg.png){ class="bordered" }
+    ![](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/build-dataset-types-kg.png){ class="bordered" }
 
 3. The Create new item of type Knowledge Graph window appears.
 
