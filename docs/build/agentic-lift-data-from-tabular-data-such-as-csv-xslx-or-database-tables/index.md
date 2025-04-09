@@ -99,7 +99,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - Name: _**Product Vocabulary**_
         - Graph URI: _**http://ld.company.org/prod-vocab/**_
         - Description: _**Example vocabulary modeled to describe relations between products and services.**_
-        - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
+        - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/products_vocabulary.nt)** file and select it to be uploaded.
 
         ![](register-new-vocab.png){ class="bordered" width="50%" }
 
@@ -133,17 +133,17 @@ The vocabulary contains the classes and properties needed to map the data into t
 
         ![](build-dataset-types-csv.png){ class="bordered" }
 
-    8. Fill out a label and upload the **[services.csv](services.csv) sample file**.
+    8. Fill out a label and upload the **[services.csv](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/services.csv) sample file**.
 
         ![](create new-dataset-csv.png){ class="bordered" }
 
     9.  Click **Create**.** Leave all other parameters at their default values.
 
-    10. Create a second **dataset**. Choose **Excel** and upload the [products.xlsx](products.xlsx) file.
+    10. Create a second **dataset**. Choose **Excel** and upload the [products.xlsx](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/products.xlsx) file.
 
 === "JDBC"
 
-    Instead of uploading the [services.csv](services.csv) sample file into Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
+    Instead of uploading the [services.csv](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/services.csv) sample file into Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
 
     1. In the project, Click **Create** and select the **JDBC endpoint** type.
 
