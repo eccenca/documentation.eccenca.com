@@ -9,7 +9,7 @@ tags:
 This page describes how to configure the eccenca Explore component which is done in two parts:
 
 1.  The Explore frontend (DataManager) is configured visually through the :eccenca-module-workspace-configuration: _Workspace configuration_ module.
-2.  [The Explore backend (DataPlatform)](dataplatform), all details are described on the respective sub-page
+2.  [The Explore backend (DataPlatform)](dataplatform/index.md), all details are described on the respective sub-page
 
 eccenca Explore frontend (DataManager) is a single-page JavaScript application, which means the application consists of a single HTML page which loads all needed web resources in the browser after loading the page itself.
 
