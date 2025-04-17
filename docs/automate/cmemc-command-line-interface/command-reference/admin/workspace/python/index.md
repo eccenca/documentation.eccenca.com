@@ -11,7 +11,7 @@ tags:
 
 List, install, or uninstall python packages.
 
-Python packages are used to extend the DataIntegration workspace with python plugins. To get a list of installed packages, execute the list command.
+Python packages are used to extend the Build (DataIntegration) workspace with python plugins. To get a list of installed packages, execute the list command.
 
 !!! warning
     Installing packages from unknown sources is not recommended. Plugins are not verified for malicious code.

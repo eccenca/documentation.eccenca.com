@@ -500,7 +500,7 @@ Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory.
 
 | Parameter | Type | Description | Default |
 |  -------------------- | ---------- | ------------------------- | ------------------------- |
-| endpoint | String | The named endpoint within the eccenca DataPlatform. | default |
+| endpoint | String | The named endpoint within the eccenca Explore backend (DataPlatform). | default |
 | graph | String | The URI of the named graph. | *no default* |
 | pageSize | int | The number of solutions to be retrieved per SPARQL query. | 100000 |
 | pauseTime | int | The number of milliseconds to wait between subsequent query | 0 |
@@ -509,7 +509,7 @@ Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory.
 | strategy | Enum | The strategy use for retrieving entities: simple: Retrieve all entities using a single query; subQuery: Use a single query, but wrap it for improving the performance on Virtuoso; parallel: Use a separate Query for each entity property. | parallel |
 | clearGraphBeforeExecution | boolean | If set to true this will clear the specified graph before executing a workflow that writes to it. | false |
 | entityList | MultilineStringParameter | A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace. |  |
-| sparqlTimeout | int | SPARQL query timeout (select/update) in milliseconds. A value of zero means that there is no timeout. If a value greater zero is specified this overwrites possible default timeouts. This timeout is also propagated to DataPlatform and may overwrite default timeouts there. | 0 |
+| sparqlTimeout | int | SPARQL query timeout (select/update) in milliseconds. A value of zero means that there is no timeout. If a value greater zero is specified this overwrites possible default timeouts. This timeout is also propagated to Explore backend (DataPlatform) and may overwrite default timeouts there. | 0 |
 | optimizedRetrieve | boolean | Optimized retrieval method to remove load from the underlying triple store. Query parallelism is limited and cheaper queries are executed against the backend. By putting the main work on DataIntegration side, the RDF backend is kept responsive. | true |
 
 The identifier for this plugin is `eccencaDataPlatform`.
