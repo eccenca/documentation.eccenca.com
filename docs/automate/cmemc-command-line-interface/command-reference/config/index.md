@@ -33,8 +33,8 @@ List and edit configs as well as get config values.
 
     
     SSL_VERIFY=False    - for ignoring certificate issues (not recommended)
-    DP_API_ENDPOINT=URL - to point to a non-standard DataPlatform location
-    DI_API_ENDPOINT=URL - to point to a non-standard DataIntegration location
+    DP_API_ENDPOINT=URL - to point to a non-standard Explore backend (DataPlatform) location
+    DI_API_ENDPOINT=URL - to point to a non-standard Build (DataIntegration) location
     OAUTH_TOKEN_URI=URL - to point to an external IdentityProvider location
     OAUTH_USER=username - only if OAUTH_GRANT_TYPE=password
     OAUTH_PASSWORD=password - only if OAUTH_GRANT_TYPE=password
@@ -56,7 +56,7 @@ List and edit configs as well as get config values.
     of stdout. In addition to that, the process needs to exit with exit
     code 0 (without failure). There are examples available in the online
     manual.
-    
+
 ```
 
 ## config list
