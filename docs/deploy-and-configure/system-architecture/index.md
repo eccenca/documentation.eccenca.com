@@ -16,7 +16,7 @@ This page describes the overall system architecture of eccenca Corporate Memory 
 eccenca Corporate Memory consists of three core components:
 
 - (2) [eccenca Build](../configuration/dataintegration/index.md)
-- (3) [eccenca Explore](../configuration/datamanager/index.md), and
+- (3) [eccenca Explore](../configuration/explore/index.md), and
 - (12) [cmemc (Corporate Memory Control)](../../automate/cmemc-command-line-interface/index.md)
 
 _Build_ (2) is the Corporate Memory component which enables integration of datasets into a single consistent knowledge graph.

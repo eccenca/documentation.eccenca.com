@@ -9,7 +9,7 @@ hide:
 ---
 # Python Plugins
 
-Beginning from version 22.1, we support the extension of DataIntegration with build plugins.
+Beginning from version 22.1, we support the extension of Build (DataIntegration) with build plugins.
 
 The following pages give an overview about this feature:
 

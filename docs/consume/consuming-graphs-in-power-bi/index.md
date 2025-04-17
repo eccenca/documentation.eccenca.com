@@ -99,10 +99,10 @@ Use the Power-BI-Connector to login with your Corporate Memory Instance:
             - Password / Client Secret
 
     === "Advanced Configuration"
-        In case you installation uses a custom service endpoint layout the individual URIs for DataPlatform and Keycloak can be configured individually. The configuration keys are the same as for cmemc.
+        In case you installation uses a custom service endpoint layout the individual URIs for Explore backend (DataPlatform) and Keycloak can be configured individually. The configuration keys are the same as for cmemc.
 
         - The following configuration parameter can be provided:
-            - `DP_API_ENDPOINT` - specifies the DataPlatform URI
+            - `DP_API_ENDPOINT` - specifies the Explore backend (DataPlatform) URI
             - `OAUTH_TOKEN_URI` - specifies the keycloak token URI
             - `SSL_VERIFY` - can be used to set certificate verification to `False`
         ![advance-configuration](22-1-2-advance-config.png)

@@ -82,7 +82,7 @@ All available configuration environment variables are listed in `environments/de
 | SSLCONF                   | ssl.default.conf                        | Apache2 virtual host configuration for SSL setup                                                                   |
 | HTTP_PORT                 | 80                                      | APACHE_HTTP_PORT is used as a standard port 80 in SSL setup                                                        |
 | LETSENCRYPT_MAIL          | administration@eccenca.com            | email to be used when requesting letsencrypt certificates                                                          |
-| DATAINTEGRATION_BASE_FILE | docker-compose.dataintegration-base.yml | `docker compose` extension file for DataIntegration, see SSL configuration section below for an example              |
+| DATAINTEGRATION_BASE_FILE | docker-compose.dataintegration-base.yml | `docker compose` extension file for Build (DataIntegration), see SSL configuration section below for an example              |
 | TRUSTSTOREPASS            | (empty)                                 | Truststore password, see self-signed certificates configuration section below for an example                       |
 
 ### Project Settings
@@ -92,15 +92,15 @@ All available configuration environment variables are listed in `environments/de
 | BOOTSTRAP           | false              | "false" or "true", indicates whether to load the Corporate Memory bootstrap data                                                                               |
 | PROJECT_NAME_SUFFIX | (empty) (optional) | will append to the `docker compose` project environment variable [COMPOSE_PROJECT_NAME](https://docs.docker.com/compose/reference/envvars/#compose_project_name) |
 
-### DataManager Settings
+### Explore frontend (DataManager) Settings
 
 | Variable                                       | Default Value            | Description                               |
 | ---------------------------------------------- | ------------------------ | ----------------------------------------- |
-| DATAMANAGER_CONFIG_WORKSPACES_DEFAULT_NAME     | CMEM Orchestration       | Name of the default DataManager workspace |
-| DATAMANAGER_CONFIG_APPPRESENTATION_HEADERNAME  | eccenca Corporate Memory | DataManager header name                   |
-| DATAMANAGER_CONFIG_APPPRESENTATION_WINDOWTITLE | eccenca Corporate Memory | DataManager windows title                 |
+| DATAMANAGER_CONFIG_WORKSPACES_DEFAULT_NAME     | CMEM Orchestration       | Name of the default Explore frontend (DataManager) workspace |
+| DATAMANAGER_CONFIG_APPPRESENTATION_HEADERNAME  | eccenca Corporate Memory | Explore frontend (DataManager) header name                   |
+| DATAMANAGER_CONFIG_APPPRESENTATION_WINDOWTITLE | eccenca Corporate Memory | Explore frontend (DataManager) windows title                 |
 
-### DataPlatform Settings
+### Explore backend (DataPlatform) Settings
 
 | Variable                       | Default Value         | Description                                                                                                                   |
 | ------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -109,16 +109,16 @@ All available configuration environment variables are listed in `environments/de
 | DATAPLATFORM_CONTEXTPATH       | /dataplatform         | Context path for the dataplatform, meaning that dataplatform will run under `http://dataplatform.host/dataplatform`           |
 | DATAPLATFORM_JAVA_TOOL_OPTIONS | -Xms512m -Xmx2g       | Java options, modify to increase memory allocation                                                                            |
 
-### DataIntegration Settings
+### Build (DataIntegration) Settings
 
 | Variable                               | Default Value                                                                   | Description                                                                                                                                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| DATAINTEGRATION_EXECUTOR               | LocalExecutionManager                                                           | DataIntegration execution.manager.plugin parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
+| DATAINTEGRATION_EXECUTOR               | LocalExecutionManager                                                           | Build (DataIntegration) execution.manager.plugin parameter, see [Build (DataIntegration)](../../configuration/dataintegration/index.md) manual for more details |
 | INTERNAL_BASE_URL                      | ${DEPLOYPROTOCOL}://${DEPLOYHOST} | Used for DATAPLATFORM_URL and OAUTH_TOKEN_URL variables |
-| DATAPLATFORM_URL | ${INTERNAL_BASE_URL}${DATAPLATFORM_CONTEXTPATH} | DataIntegration eccencaDataPlatform.url parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
-| OAUTH_AUTHORIZATION_URL | ${DEPLOY_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth | DataIntegration oauth.authorizationUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
-| OAUTH_TOKEN_URL | ${INTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token | DataIntegration oauth.tokenUrl parameter, see [DataIntegration](../../configuration/dataintegration/index.md) manual for more details |
-| DATAINTEGRATION_PRODUCTION_CONFIG_FILE | /opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/dataintegration.conf | Path to DataIntegration configuration file |
+| DATAPLATFORM_URL | ${INTERNAL_BASE_URL}${DATAPLATFORM_CONTEXTPATH} | Build (DataIntegration) eccencaDataPlatform.url parameter, see [Build (DataIntegration)](../../configuration/dataintegration/index.md) manual for more details |
+| OAUTH_AUTHORIZATION_URL | ${DEPLOY_BASE_URL}/auth/realms/cmem/protocol/openid-connect/auth | Build (DataIntegration) oauth.authorizationUrl parameter, see [Build (DataIntegration)](../../configuration/dataintegration/index.md) manual for more details |
+| OAUTH_TOKEN_URL | ${INTERNAL_BASE_URL}/auth/realms/cmem/protocol/openid-connect/token | Build (DataIntegration) oauth.tokenUrl parameter, see [Build (DataIntegration)](../../configuration/dataintegration/index.md) manual for more details |
+| DATAINTEGRATION_PRODUCTION_CONFIG_FILE | /opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/dataintegration.conf | Path to Build (DataIntegration) configuration file |
 | DATAINTEGRATION_JAVA_TOOL_OPTIONS | -Xmx4g | Java options, modify to increase memory allocation |
 
 ### Keycloak Settings
@@ -126,8 +126,8 @@ All available configuration environment variables are listed in `environments/de
 | Variable | Default Value | Description |
 | ------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | PROXY_ADDRESS_FORWARDING | false | Keycloak proxy forwarding, necessary for SSL configuration |
-| KEYCLOAK_AUTH_URL_INTERNAL | `http://keycloak:8080/auth/realms/cmem/protocol/openid-connect/token` (internal) | used in scripts/utils.sh to restore DataIntegration projects |
-| CMEM_SERVICE_ACCOUNT_CLIENT_ID | (internal) | used in scripts/utils.sh to restore DataIntegration projects |
+| KEYCLOAK_AUTH_URL_INTERNAL | `http://keycloak:8080/auth/realms/cmem/protocol/openid-connect/token` (internal) | used in scripts/utils.sh to restore Build (DataIntegration) projects |
+| CMEM_SERVICE_ACCOUNT_CLIENT_ID | (internal) | used in scripts/utils.sh to restore Build (DataIntegration) projects |
 
 ### Stardog Settings
 
@@ -140,9 +140,9 @@ All available configuration environment variables are listed in `environments/de
 
 | Variable | Default Value | Description |
 | ---------------- | ------------- | ----------------------------------------------- |
-| DI_VERSION | develop | DataIntegration docker image version to be used |
-| DP_VERSION | develop | DataPlatform docker image version to be used |
-| DM_VERSION | develop | DataManager docker image version to be used |
+| DI_VERSION | develop | Build (DataIntegration) docker image version to be used |
+| DP_VERSION | develop | Explore backend (DataPlatform) docker image version to be used |
+| DM_VERSION | develop | Explore frontend (DataManager) docker image version to be used |
 | APACHE2_VERSION | v2.6.0 | Apache2 docker image version to be used |
 | KEYCLOAK_VERSION | v6.0.1-2 | Keycloak docker image version to be used |
 | POSTGRES_VERSION | 11.5-alpine | Postgresql docker image version to be used |

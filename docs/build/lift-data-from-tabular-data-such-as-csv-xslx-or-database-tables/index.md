@@ -304,6 +304,6 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
     ![](mapping-execution-result.png){ class="bordered" }
 
-3. Finally you can use the DataManager **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: <http://ld.company.org/prod-instances/>
+3. Finally you can use the Explore **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: <http://ld.company.org/prod-instances/>
 
     ![](kg-result.png){ class="bordered" }
