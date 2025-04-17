@@ -899,7 +899,7 @@ The operator has a *compatibility mode*. Using it will avoid complex types such
 
 #### SqlEndpoint Activity
 
-The activity will *start* automatically, when the SqlEndpoint is used as a data sink and Dataintegration is configured to make the SqlEndpoint accessible remotely.
+The activity will *start* automatically, when the SqlEndpoint is used as a data sink and Build (DataIntegration) is configured to make the SqlEndpoint accessible remotely.
 
 When the activity is started and *running* it returns the server status and JDBC Url as its value.
 
@@ -907,7 +907,7 @@ When the activity is started and *running* it returns the server status and JD
 
 #### Remote Client Configuration (via JDBC and ODBC)
 
-Within Dataintegration the SqlEndpoint can be used as a source or sink like any other dataset. If the *startThriftServer* option is set to `true` access via JDBC or ODBC is possible.
+Within Build (DataIntegration) the SqlEndpoint can be used as a source or sink like any other dataset. If the *startThriftServer* option is set to `true` access via JDBC or ODBC is possible.
 
 [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) drivers can be used to connect to relational databases. These drivers are used by clients like, Excel, PowerBI or other BI tools and transform standard SQL-queries to Hive-QL queries and handle the respective query results. Hive-QL support a subset of the SQL-92 standard. Depending on the complexity of the driver it -- in case of a simple driver -- supports the same subset or more modern standards. JDBC drivers are similar to ODBC ones, but serve as connectors for Java applications. When selecting a version of a driver the client operating system and its type (32bit/64 bit) are the most important factors. The version of the client drivers sometimes is the same as the servers. When no version of a driver is given the newest driver of the vendor should work, as it *should* be backwards compatible.
 

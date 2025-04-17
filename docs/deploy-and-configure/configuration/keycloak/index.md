@@ -59,7 +59,7 @@ To use groups from Keycloak in Corporate Memory access conditions, all Keycloak 
 
 In the default setup in helm or `docker compose` deployments, we often refer to the `elds-admins` group, acting as a super-admin / root group.
 Every user in this group has all possible rights in Corporate Memory, no matter which access conditions are available.
-This is configured in the Explore backend (DataPlatform) configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Dataplatform configuration authorization](../explore/dataplatform/application-full.md#authorization)).
+This is configured in the Explore backend (DataPlatform) configuration or as an environment variable `AUTHORIZATION_ABOX_ADMINGROUP=elds-admins` (see also [Explore backend authorization configuration](../explore/dataplatform/application-full.md#authorization)).
 
 ### Option 1: Import the needed clients from a JSON export
 
