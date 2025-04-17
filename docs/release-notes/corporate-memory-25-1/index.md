@@ -36,7 +36,7 @@ This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.1.0
 -   eccenca Explore v25.1.0 (formerly DataPlatform and DataManager)
--   eccenca Corporate Memory Control (cmemc) v25.1.0
+-   eccenca Corporate Memory Control (cmemc) v25.1.1
 
 We tested this release with the following dependency components:
 
@@ -148,9 +148,14 @@ We are excited to announce Explore v25.1, which introduces new features, improve
 -   BusinessKnowledgeEditor (BKE)
     -   Added support for value queries in BKE.
 
-## eccenca Corporate Memory Control (cmemc) v25.1.0
+## eccenca Corporate Memory Control (cmemc) v25.1.1
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v25.1, which introduces new features, improvements and bug fixes.
+
+**v25.1.1 of cmemc introduces the following changes:**
+
+-   corrected target versions
+-   corrected migration target versions
 
 **v25.1.0 of cmemc adds the following new features:**
 
@@ -172,10 +177,6 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v24.3.0 can be imported into DataIntegration v25.1.0.
 
-### eccenca DataIntegration
-
--   TODO
-
 ### eccenca Explore
 
 !!! info inline end "Important info"
@@ -183,8 +184,7 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
     Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
     into a single component eccenca Explore.
 
--   TODO
-
 ### eccenca Corporate Memory Control (cmemc)
 
--   TODO
+-   `query execute` command
+    -   use `--accept` in case you need explicit CSV output
