@@ -8,6 +8,7 @@ tags:
 
 ***Property: deploy.apiPrefix***
 
+API prefix for former dataplatform endpoints i.e. /dataplatform
 
 | Category | Value |
 |--- | ---: |
@@ -15,16 +16,6 @@ tags:
 | Required | false |
 | Valid values | string |
 | Environment | DEPLOY_APIPREFIX |
-
-***Property: deploy.apiPrefixription***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | API prefix for former dataplatform endpoints i.e. /dataplatform |
-| Required | false |
-| Valid values | string |
-| Environment | DEPLOY_APIPREFIXRIPTION |
 
 ### Options for additional prometheus metrics endpoint
 
@@ -393,7 +384,7 @@ Configuration example:
 springdoc:
   swagger-ui:
    enabled: true
- api-docs:
+  api-docs:
    enabled: true
 ```
 
@@ -856,6 +847,17 @@ The limit of data for the GSP zip-bomb check in bytes. If this limit is exceeded
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_GSPUPLOADGZIPCONTENTLIMIT |
+
+***Property: proxy.proxy-sparql-streaming-format***
+
+The format in which internally SPARQL results are fetched from the store. For streaming either JSON or XML
+
+| Category | Value |
+|--- | ---: |
+| Default | xml |
+| Required | false |
+| Valid values | JSON,XML |
+| Environment | PROXY_PROXY_SPARQL_STREAMING_FORMAT |
 
 ## LLM Assistant Supported
 

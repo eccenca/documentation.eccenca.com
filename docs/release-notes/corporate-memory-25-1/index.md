@@ -16,12 +16,17 @@ todo
 
 The highlights of this release are:
 
--   Explore and Author:
-    -   TODO
--   Build:
-    -   TODO
--   Automate:
-    -   TODO
+-   Build: **Seamless Workflow Integration**
+    -   Directly connecting datasets with explicit schemas to workflow operators simplifies data ingestion and processing, allowing users to quickly incorporate CSV and text data into their workflows.
+
+-   Build: **Improved Rule Editing Experience**
+    -   Enhanced copy & paste functionality in rule editors boosts productivity by making it easier to manage and edit rules accurately and efficiently.
+
+-   Explore and Autor: **Streamlined Shape Management**
+    -   The introduction of new SHACL shape quick-access options empowers users to effortlessly build, validate, and troubleshoot complex shape configuration.
+
+-   Automate: **Lightning-fast Parameterized Queries**
+    -   The new `cmemc` query placeholder specifications enable super-fast execution of parameterized queries by running background value queries to provide dynamic completions, significantly enhancing data query responsiveness.
 
 !!! info inline end "Important info"
 
