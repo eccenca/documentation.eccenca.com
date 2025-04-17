@@ -7,7 +7,7 @@ This resolution and, by extension, the full text search is configurable for diff
 
 ## Configuration
 
-eccenca DataPlatform offers three configuration options: `labelProperties` (line 2) `languagePreferences` (line 5) and `languagePreferencesAnyLangFallback` (line 8).
+eccenca Explore backend (DataPlatform) offers three configuration options: `labelProperties` (line 2) `languagePreferences` (line 5) and `languagePreferencesAnyLangFallback` (line 8).
 
 ``` yaml linenums="1"
 proxy:
@@ -30,7 +30,7 @@ The retrieval process can be simplified to the following procedure:
     2. A literal of the property `rdfs:label` without a language tag is searched (which is why there is an entry `""`).
     3. An english value of `skos:prefLabel` is searched.
     4. A literal of the property `skos:prefLabel` without a language tag is searched.
-    5. If nothing is found, DataPlatform tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.
+    5. If nothing is found, Explore backend (DataPlatform) tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.
 
 Additionally, in case more than one label could be retrieved, for example by conflicting values, the alphabetically first entry is used.
 

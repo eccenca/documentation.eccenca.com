@@ -58,10 +58,6 @@ Type the **Id** and **Label** name then click on **Add**
 
     ![Workspace created](enable.png){ class="bordered" }
 
-!!! note
-
-    Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
-
 ## Delete a workspace
 
 Click on **User Icon** on the right side of the page then click on **Configuration** then click on **Workspace**

@@ -2,9 +2,9 @@
 tags:
     - Configuration
 ---
-# DataIntegration
+# Build (DataIntegration)
 
-This section is intended to be a reference for all available eccenca DataIntegration configuration options.
+This section is intended to be a reference for all available eccenca Build (DataIntegration) configuration options.
 The configuration format is based on [HOCON](https://github.com/typesafehub/config).
 
 The following sections introduce the most important configuration parameters.
@@ -12,8 +12,8 @@ The entire list of available configuration parameters can be found in the datai
 
 ## OAuth
 
-Authorization in eccenca DataIntegration is based on OAuth.
-Typically the eccenca DataPlatform is used as an OAuth endpoint, but external endpoints can be used as well.
+Authorization in eccenca Build (DataIntegration) is based on OAuth.
+Typically, the eccenca Explore backend (DataPlatform) is used as an OAuth endpoint, but external endpoints can be used as well.
 The Authorization Code Grant workflow is used for retrieving the OAuth token.
 The default configuration is the following:
 
@@ -64,14 +64,14 @@ oauth.clientSecret = "secret"
 
 ## Explore configuration
 
-eccenca DataIntegration can only be run by OAuth users that are granted the `https://vocab.eccenca.com/auth/Action/Build` action by the Explore component (aka DataPlatform/DataManager).
-An example condition can be seen at [Access Conditions > Access to DataIntegration](../access-conditions/index.md#access-to-dataintegration)
+eccenca Build (DataIntegration) can only be run by OAuth users that are granted the `https://vocab.eccenca.com/auth/Action/Build` action by the Explore component (aka DataPlatform/DataManager).
+An example condition can be seen at [Access Conditions > Access to Build (DataIntegration)](../access-conditions/index.md#access-to-dataintegration)
 
 In the shown example, the users also get access to all graphs in the RDF store.
-This is not a requirement for working with DataIntegration.
+This is not a requirement for working with Build (DataIntegration).
 Access may also be restricted to graphs that the data integration users are allowed to work with.
 
-In order to activate OAuth using the eccenca Explore (Dataplatform), the following minimal configuration is required:
+In order to activate OAuth using the eccenca Explore (DataPlatform), the following minimal configuration is required:
 
 ``` conf linenums="1"
 eccencaDataPlatform.url = "http://localhost:9090"
@@ -82,7 +82,7 @@ oauth.clientSecret = "secret"
 
 ### Super User
 
-By default, the workspace is loaded the first time a user opens eccenca DataIntegration in the browser using their credentials.
+By default, the workspace is loaded the first time a user opens eccenca Build (DataIntegration) in the browser using their credentials.
 Any scheduler that is part of a project must be started manually.
 
 By configuring a super user, the workspace will be loaded at startup.
@@ -112,9 +112,9 @@ The following sections describe the available workspace provider plugins and how
 
 ### RDF-store Workspace - backend
 
-When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca DataPlatform (Explore).
+When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca Explore.
 
-The workspace is held using the eccenca DataPlatform, i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
+The workspace is held using the eccenca Explore backend (DataPlatform), i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
 
 This workspace can be configured using the following parameter:
 
@@ -169,9 +169,9 @@ workspace.provider.file = {
 
 ### Hybrid workspace - fileAndDataPlatform
 
-The so called hybrid workspace holds the workspace in the filesystem and in eccenca DataPlatform simultaneously. Each time a task is updated, it is written to both the filesystem and to the project RDF graph. In addition, on each (re)load of the Workspace, the contents of the file based workspace are pushed to the RDF store, to make sure that both workspace backends stay synchronized. Contents of the file system may be changed manually (reload the workspace afterwards). Contents of the RDF store are supposed to be read only and will be overwritten on reload.
+The so called hybrid workspace holds the workspace in the filesystem and in eccenca Explore backend (DataPlatform) simultaneously. Each time a task is updated, it is written to both the filesystem and to the project RDF graph. In addition, on each (re)load of the Workspace, the contents of the file based workspace are pushed to the RDF store, to make sure that both workspace backends stay synchronized. Contents of the file system may be changed manually (reload the workspace afterwards). Contents of the RDF store are supposed to be read only and will be overwritten on reload.
 
-The workspace is held using the eccenca DataPlatform, i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
+The workspace is held using the eccenca Explore backend (DataPlatform), i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
 
 This workspace can be configured using the following parameter:
 
@@ -181,7 +181,7 @@ This workspace can be configured using the following parameter:
 | loadAllVocabularyPrefixes | boolean | Load prefixes defined by all known vocabularies. | false |
 | loadInstalledVocabularyPrefixes | boolean | Load prefixes defined by vocabularies that are actually loaded in the RDF store. | true |
 | vocabularyGraph | String | The graph that contains the vocabulary meta data. | <https://ns.eccenca.com/example/data/vocabs/> |
-| failOnDataPlatformError | boolean | If true, whenever an update is triggered that has been pushed to the xml backend, but failed to be pushed to the DataPlatform, the entire request fails. If false, an update error in the DataPlatform will only log a warning. | false |
+| failOnDataPlatformError | boolean | If true, whenever an update is triggered that has been pushed to the xml backend, but failed to be pushed to the Explore backend (DataPlatform), the entire request fails. If false, an update error in the Explore backend (DataPlatform) will only log a warning. | false |
 
 By default, prefixes are loaded from all installed vocabularies. Only one of loadAllVocabularyPrefixes and loadInstalledVocabularyPrefixes can be set to true.
 
@@ -277,7 +277,7 @@ workspace.repository.projectFile = {
 
 ### Shared Directory - file
 
-Alternatively, all resources across all DataIntegration projects can be held in a single directory on the file system.
+Alternatively, all resources across all Build (DataIntegration) projects can be held in a single directory on the file system.
 
 This plugin can be configured using the following parameter:
 
@@ -388,7 +388,7 @@ For this S3 plugin make sure the account has at least these permissions attached
 
 ### S3 Bucket, Shared Directory - s3
 
-Holds all resources shared across all your DataIntegration projects in a single S3 bucket.
+Holds all resources shared across all your Build (DataIntegration) projects in a single S3 bucket.
 
 The available configuration options are the same as for `projectS3` .
 
@@ -463,13 +463,13 @@ workspace.reportManager.file = {
 
 ## Internal Datasets
 
-Internal datasets hold intermediate results during the execution of a DataIntegration Workflow. The type of internal dataset that is used can be configured. By default an in memory dataset is used for storing data between tasks:
+Internal datasets hold intermediate results during the execution of a Build (DataIntegration) Workflow. The type of internal dataset that is used can be configured. By default, an in memory dataset is used for storing data between tasks:
 
 ```conf linenums="1"
 dataset.internal.plugin = inMemory
 ```
 
-Alternatively, the internal data can also be held in the eccenca DataPlatform:
+Alternatively, the internal data can also be held in the eccenca Explore backend (DataPlatform):
 
 ```conf linenums="1"
 dataset.internal.plugin = eccencaDataPlatform
@@ -478,7 +478,7 @@ dataset.internal.eccencaDataPlatform = {
 }
 ```
 
-If the eccenca DataPlatform is not available, an external store may also be specified:
+If the eccenca Explore backend (DataPlatform) is not available, an external store may also be specified:
 
 ```conf linenums="1"
 dataset.internal.plugin = sparqlEndpoint
@@ -493,7 +493,7 @@ dataset.internal.sparqlEndpoint = {
 
 ## Timeouts
 
-DataIntegration has a number of timeouts to maintain operation while connection issues or problems in other applications occur. The following sections list the most important global timeouts.
+Build (DataIntegration) has a number of timeouts to maintain operation while connection issues or problems in other applications occur. The following sections list the most important global timeouts.
 
 ??? note
     In addition to these global timeouts, many datasets, such as the Knowledge Graph dataset, do provide additional timeout parameters. Refer to the documentation of datasets for individual timeout mechanisms of different datasets.
@@ -521,15 +521,15 @@ play.server.http.idleTimeout = 10m
 
 The connection will be closed after it has been open for the configured idle timeout, without any request or response being written. This timeout mechanism can be disabled, by setting the timeout to `"infinite"`.
 
-### DataPlatform timeouts
+### Explore backend (DataPlatform) timeouts
 
-As DataIntegration depends on DataPlatform for managing the Knowledge Graph, it will query the health of DataPlatform as part of its own health check. The timeout to wait for DataPlatform's response to a health request can be configured:
+As Build (DataIntegration) depends on the Explore backend (DataPlatform) for managing the Knowledge Graph, it will query the health of Explore backend (DataPlatform) as part of its own health check. The timeout to wait for Explore backend (DataPlatform)'s response to a health request can be configured:
 
 ```conf linenums="1"
 healthCheck.dataplatform.timeout = 10000 # milliseconds
 ```
 
-In addition, there is a timeout when requesting authorization information from the eccenca DataPlatform, which is fixed to 61 seconds.
+In addition, there is a timeout when requesting authorization information from the eccenca Explore backend (DataPlatform), which is fixed to 61 seconds.
 
 ### RDF store timeouts
 
@@ -610,7 +610,7 @@ provenance.persistWorkflowProvenancePlugin.plugin = rdfWorkflowProvenance
 
 ## Logging
 
-Logging for eccenca DataIntegration is based on the [Logback](https://logback.qos.ch/) logging framework. There are two ways to change the logging behavior from the default, the first is to provide a logback.xml file, the second is to set various logging properties in the dataintegration.conf file.
+Logging for eccenca Build (DataIntegration) is based on the [Logback](https://logback.qos.ch/) logging framework. There are two ways to change the logging behavior from the default, the first is to provide a logback.xml file, the second is to set various logging properties in the `dataintegration.conf` file.
 
 ### Logback Configuration File
 
@@ -643,7 +643,7 @@ The following example `logback.xml` file defines a rolling file strategy where
 
 ### Logging Properties
 
-For debugging purposes and smaller adaptions it is possible to change log levels for any logger in the DataIntegration config file. There are following possibilities:
+For debugging purposes and smaller adaptions it is possible to change log levels for any logger in the Build (DataIntegration) config file. There are following possibilities:
 
 ```conf linenums="1"
 # The following log level properties will overwrite the config from the logback.xml file
@@ -670,12 +670,12 @@ logging.level {
 
 ## Plugin Configuration
 
-The plugin architecture of eccenca DataIntegration allows to configure certain characteristics of the application, e.g. the persistence backend for the workspace.\
-A full list over all plugins are given in the eccenca DataIntegration user manual in the sections *Plugin Reference* as well as *Activity Reference*.
+The plugin architecture of eccenca Build (DataIntegration) allows to configure certain characteristics of the application, e.g. the persistence backend for the workspace.\
+A full list over all plugins are given in the eccenca Build (DataIntegration) user manual in the sections *Plugin Reference* as well as *Activity Reference*.
 
 ### Blacklisting Plugins
 
-In some cases the usage of specific plugins might pose a risk. In order to avoid to load a specific plugin, it can be blacklisted in the configuration file by setting the `pluginRegistry.plugins.{pluginID}.enabled`  config parameter to false. The parameter takes a comma-separated list of plugin IDs. The corresponding plugins will not be loaded into the plugin registry and can thus not be selected or executed anymore. The plugin ID for each plugin can be found in the *Plugin Reference* and *Activity Reference* section of the eccenca DataIntegration user manual.
+In some cases the usage of specific plugins might pose a risk. In order to avoid to load a specific plugin, it can be blacklisted in the configuration file by setting the `pluginRegistry.plugins.{pluginID}.enabled`  config parameter to false. The parameter takes a comma-separated list of plugin IDs. The corresponding plugins will not be loaded into the plugin registry and can thus not be selected or executed anymore. The plugin ID for each plugin can be found in the *Plugin Reference* and *Activity Reference* section of the eccenca Build (DataIntegration) user manual.
 
 Example config:
 
@@ -689,7 +689,7 @@ pluginRegistry {
 
 ## Spark configuration
 
-The following chapters describe configuration options relevant for the execution of eccenca DataIntegration workflows on Spark. All options regarding the execution of DataIntegration on Spark are set in the `dataintegration.conf` file. The option to define SparkExecutor as the execution engine is `execution.manager.plugin` and needs to be changed from the default value:
+The following chapters describe configuration options relevant for the execution of eccenca Build (DataIntegration) workflows on Spark. All options regarding the execution of Build (DataIntegration) on Spark are set in the `dataintegration.conf` file. The option to define SparkExecutor as the execution engine is `execution.manager.plugin` and needs to be changed from the default value:
 
 ```conf linenums="1"
 execution.manager.plugin = LocalExecutionManager
@@ -705,7 +705,7 @@ execution.manager.plugin = SparkExecutionManager
 
 Spark provides a simple standalone cluster manager. You can launch a [standalone](http://spark.apache.org/docs/latest/spark-standalone.html) cluster either manually, by starting a master and workers by hand, or by using the provided launch scripts. Spark can still run alongside Hive, Hadoop and other services in this mode. But in general this mode is preferred if only Spark applications are running in a cluster. When multiple cluster applications are running in parallel (e.g. different databases, interpreters or any software running on top of Yarn) or more advanced monitoring is needed the execution with Yarn is often recommended.
 
-For running DataIntegration in client mode the following configuration can be used
+For running Build (DataIntegration) in client mode the following configuration can be used
 
 ```conf linenums="1"
 spark.interpreter.options = {
@@ -723,9 +723,9 @@ spark.interpreter.options = {
 
 ### Execution in cluster mode
 
-#### DataIntegration application configuration
+#### Build (DataIntegration) application configuration
 
-Cluster mode is supported with Apache Yarn only at the moment. To run DataIntegration in cluster mode the following configuration can be used:
+Cluster mode is supported with Apache Yarn only at the moment. To run Build (DataIntegration) in cluster mode the following configuration can be used:
 
 ```conf linenums="1"
 spark.interpreter.options = {
@@ -741,9 +741,9 @@ spark.interpreter.options = {
 }
 ```
 
-#### DataIntegration cluster deployment configuration
+#### Build (DataIntegration) cluster deployment configuration
 
-In cluster mode one should keep in mind that, normally, DataIntegration will generate a jar and a project export. These artifacts can be copied or send to a cluster and will be executed there via the `spark-submit` command. That means the data processing is running in its own remote process separate from the DataIntegration application.
+In cluster mode one should keep in mind that, normally, Build (DataIntegration) will generate a jar and a project export. These artifacts can be copied or send to a cluster and will be executed there via the `spark-submit` command. That means the data processing is running in its own remote process separate from the Build (DataIntegration) application.
 
 An assembly jar and a workflow can be exported by an activity that belongs to each defined workflow. The activity can be configured in the `dataintegration.conf` . There are 3 phases of a deployment: staging, transform, loading and 3 types of artifact compositions as well as some other options deciding the target of the export. First the specified resource are copied to the configured resource folder of a project or a temp folder (staging) and then an action decides how the files are deployed.
 
@@ -792,7 +792,7 @@ be set to false on the second run to avoid re-uploading artifacts.
 
 #### Configuration of the assembly jar
 
-In cluster mode, usually, we run a Spark Job by submitting an assembly jar to the cluster. This can be seen a command line version of DataIntegration and can also be used manually with 'spark-submit'. In this case the configuration in the environment the jar runs in should look like this (options are set by the spark-submit configuration and parameters):
+In cluster mode, usually, we run a Spark Job by submitting an assembly jar to the cluster. This can be seen a command line version of Build (DataIntegration) and can also be used manually with 'spark-submit'. In this case the configuration in the environment the jar runs in should look like this (options are set by the spark-submit configuration and parameters):
 
 ```conf linenums="1"
 spark.interpreter.options = {
@@ -822,7 +822,7 @@ In this mode the parameters and Spark settings appended to the 'spark-submit' co
 
 ##### General Settings
 
-The SqlEndpoint dataset is a table or view behaving analog to a table in a relational database like MySQL. When data is written to an SqlEndpoint dataset, a JDBC server is started and can be queried with any JDBC client. In DataIntegration the SqlEndpoint dataset behaves like any other dataset. It can be used as a target for workflows, be profiled, used as a source for an operation or workflow etc. There are a two of configuration options that are relevant for the JDBC endpoints:
+The SqlEndpoint dataset is a table or view behaving analog to a table in a relational database like MySQL. When data is written to an SqlEndpoint dataset, a JDBC server is started and can be queried with any JDBC client. In Build (DataIntegration) the SqlEndpoint dataset behaves like any other dataset. It can be used as a target for workflows, be profiled, used as a source for an operation or workflow etc. There are a two of configuration options that are relevant for the JDBC endpoints:
 
 ```conf linenums="1"
 spark.sql.options = {
@@ -899,7 +899,7 @@ The operator has a *compatibility mode*. Using it will avoid complex types such
 
 #### SqlEndpoint Activity
 
-The activity will *start* automatically, when the SqlEndpoint is used as a data sink and Dataintegration is configured to make the SqlEndpoint accessible remotely.
+The activity will *start* automatically, when the SqlEndpoint is used as a data sink and Build (DataIntegration) is configured to make the SqlEndpoint accessible remotely.
 
 When the activity is started and *running* it returns the server status and JDBC Url as its value.
 
@@ -907,7 +907,7 @@ When the activity is started and *running* it returns the server status and JD
 
 #### Remote Client Configuration (via JDBC and ODBC)
 
-Within Dataintegration the SqlEndpoint can be used as a source or sink like any other dataset. If the *startThriftServer* option is set to `true` access via JDBC or ODBC is possible.
+Within Build (DataIntegration) the SqlEndpoint can be used as a source or sink like any other dataset. If the *startThriftServer* option is set to `true` access via JDBC or ODBC is possible.
 
 [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) drivers can be used to connect to relational databases. These drivers are used by clients like, Excel, PowerBI or other BI tools and transform standard SQL-queries to Hive-QL queries and handle the respective query results. Hive-QL support a subset of the SQL-92 standard. Depending on the complexity of the driver it -- in case of a simple driver -- supports the same subset or more modern standards. JDBC drivers are similar to ODBC ones, but serve as connectors for Java applications. When selecting a version of a driver the client operating system and its type (32bit/64 bit) are the most important factors. The version of the client drivers sometimes is the same as the servers. When no version of a driver is given the newest driver of the vendor should work, as it *should* be backwards compatible.
 

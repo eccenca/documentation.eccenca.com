@@ -27,9 +27,7 @@ API documentation and programming recipes.
 
     API Specifications are available for
 
-    - [DataIntegration (Build)](dataintegration-apis/index.md) and
-    - [DataPlatform (Explore/Consume)](dataplatform-apis/index.md).
-
+    - [Build (DataIntegration) (Build)](dataintegration-apis/index.md) and
+    - [Explore backend (Explore/Consume)](dataplatform-apis/index.md).
 
 </div>
-

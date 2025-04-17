@@ -32,14 +32,14 @@ In Keycloak you should enforce the secure flag for Keycloak cookies.
 Select `cmem` realm, then **Realm settings** → **General** and change **Require SSL** to `All requests`.
 If you are running Corporate Memory without SSL for testing, you will no longer be able to login after this step.
 
-Once this is done, make sure DataPlatform and DataIntegration use `HTTPS` to connect to Keycloak.
+Once this is done, make sure Explore backend (DataPlatform) and Build (DataIntegration) use `HTTPS` to connect to Keycloak.
 See the usage of `DATAPLATFORM_AUTH_URL`, `OAUTH_AUTHORIZATION_URL` and `OAUTH_TOKEN_URL`.
 
 ![Keycloak: Client Settings](23-1-keycloak-realm-settings.png)
 
-### DataPlatform
+### Explore backend (DataPlatform)
 
-For DataPlatform you can uncomment these cookie setting in `application.yml`.
+For Explore backend (DataPlatform) you can uncomment these cookie setting in `application.yml`.
 
 ```yaml
 ## This is important to set flags for DP session cookies
@@ -49,9 +49,9 @@ server.servlet.session.cookie.same-site: Strict
 server.servlet.session.cookie.secure: true
 ```
 
-### DataIntegration
+### Build (DataIntegration)
 
-Similar to DataPlatform, you can also set cookie settings for DataIntegration inside `productions.conf` for `docker compose` deployments or in `dataintegration.conf` in helm deployments
+Similar to Explore backend (DataPlatform), you can also set cookie settings for Build (DataIntegration) inside `productions.conf` for `docker compose` deployments or in `dataintegration.conf` in helm deployments
 
 ```yaml
 # sets "secure" flag in PLAY_SESSION cookie
@@ -59,22 +59,22 @@ Similar to DataPlatform, you can also set cookie settings for DataIntegration in
 play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}
 ```
 
-In the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession), you can find further information, i.e. also setting `sameSite = "lax"`or `strict`. By default DataIntegration sets this to `lax`
+In the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession), you can find further information, i.e. also setting `sameSite = "lax"`or `strict`. By default Build (DataIntegration) sets this to `lax`
 
 
 ## CORS Settings
 
-### DataPlatform
+### Explore backend (DataPlatform)
 
-DataPlatform uses `http.cors.allowedOrigins *` as the default setting.
+Explore backend (DataPlatform) uses `http.cors.allowedOrigins *` as the default setting.
 It is recommended to set custom values for the following headers:
 
 - `Access-Control-Allow-Origin`:  specifies which domains can access a site's resources. For example, if ABC Corp. has domains `ABC.com` and `XYZ.com`, then its developers can use this header to securely grant `XYZ.com` access to ABC.com's resources.
 - `Access-Control-Allow-Methods`: specifies which HTTP request methods (`GET`, `PUT`, `DELETE`, etc.) can be used to access resources. This header lets developers further enhance security by specifying what methods are valid when XYZ accesses ABC's resources.
 
-Detailed configuration options can be found [here](./../dataplatform/index.md).
+Detailed configuration options can be found [here](../explore/dataplatform/index.md).
 
-This is an example section from DataPlatform `application.yml`:
+This is an example section from Explore backend (DataPlatform) `application.yml`:
 
 ```yaml
 ## Cross-Origin Resource Sharing (CORS) settings
@@ -94,7 +94,7 @@ http:
 
 ### DataIntegration
 
-DataIntegration uses `cors.config.allowOrigins *` as the default setting. 
+DataIntegration uses `cors.config.allowOrigins *` as the default setting.
 It is recommended to set custom values for the `Access-Control-Allow-Origin` header.
 It specifies which domains can access a site's resources.
 For example, if ABC Corp. has the domains `ABC.com` and `XYZ.com`, you can use this header to securely grant `XYZ.com` access to `ABC.com`'s resources.
