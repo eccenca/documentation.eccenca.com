@@ -1,5 +1,4 @@
 ---
-status: new
 title: "cmemc: Command Group - admin migration"
 description: "List and apply migration recipes."
 icon: material/database-arrow-up-outline
@@ -15,7 +14,7 @@ With this command group, you can check your instance for needed migration activi
 
 Beside an ID and a description, migration recipes have the following metadata: 'First Version' is the first Corporate Memory version, where this recipe is maybe applicable. The recipe will never be applied to a version below this version. 'Tags' is a classification of the recipe with regard to the target data, it migrates.
 
-The following tags are important: 'system' recipes target data structures which are needed to run the most basic functionality properly. These recipes can and should be applied after each version upgrade. 'user' recipes can change user and / or customizing data. 'acl' recipes migrate access condition data. 'shapes' recipes migrate shape data. 'config' recipes migrate configuration data.
+The following tags are important: `system` recipes target data structures which are needed to run the most basic functionality properly. These recipes can and should be applied after each version upgrade. `user` recipes can change user and / or customizing data. `acl` recipes migrate access condition data. `shapes` recipes migrate shape data. `config` recipes migrate configuration data.
 
 
 ## admin migration list
@@ -59,7 +58,7 @@ This command executes one or more migration recipes. Each recipe has a check met
 
 Recipes are executed ordered by first_version.
 
-Here are some argument examples, in order to see how to use this command: `execute `--all` `--test-only`` will list all needed migrations (but not execute them), `execute `--filter` tag system` will apply all migrations which target system data, `execute bootstrap-data` will apply bootstrap-data migration if needed.
+Here are some argument examples, in order to see how to use this command: execute `--all` `--test-only` will list all needed migrations (but not execute them), execute `--filter` tag system will apply all migrations which target system data, execute bootstrap-data will apply bootstrap-data migration if needed.
 
 
 

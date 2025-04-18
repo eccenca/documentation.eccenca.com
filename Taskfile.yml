@@ -108,7 +108,7 @@ tasks:
     desc: re-generates the cmemc command reference
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
-      - CMEMC_MANUAL_DIR={{.REFERENCE_DIR}} cmemc -q config
+      - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 

@@ -11,7 +11,7 @@ tags:
 
 List, install, or uninstall python packages.
 
-Python packages are used to extend the DataIntegration workspace with python plugins. To get a list of installed packages, execute the list command.
+Python packages are used to extend the Build (DataIntegration) workspace with python plugins. To get a list of installed packages, execute the list command.
 
 !!! warning
     Installing packages from unknown sources is not recommended. Plugins are not verified for malicious code.
@@ -130,6 +130,21 @@ $ cmemc admin workspace python open PACKAGE
 
 
 With this command, you can open the pypi.org page of a published package in your browser. From there, you can follow links, review the version history as well as the origin of the package, and read the provided documentation.
+
+
+
+## admin workspace python reload
+
+Reload / Register all installed plugins.
+
+```shell-session title="Usage"
+$ cmemc admin workspace python reload
+```
+
+
+
+
+This command will register all installed plugins into the Build (DataIntegration) workspace. This command is useful, when you are installing packages into the Build Python environment without using the provided cmemc commands (e.g. by mounting a prepared filesystem in the docker container).
 
 
 

@@ -53,6 +53,7 @@ tags:
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
 | [admin workspace python](admin/workspace/python/index.md) | [list-plugins](admin/workspace/python/index.md#admin-workspace-python-list-plugins) | List installed workspace plugins. |
 | [admin workspace python](admin/workspace/python/index.md) | [open](admin/workspace/python/index.md#admin-workspace-python-open) | Open a package pypi.org page in the browser. |
+| [admin workspace python](admin/workspace/python/index.md) | [reload](admin/workspace/python/index.md#admin-workspace-python-reload) | Reload / Register all installed plugins. |
 | [config](config/index.md) | [list](config/index.md#config-list) | List configured connections. |
 | [config](config/index.md) | [edit](config/index.md#config-edit) | Edit the user-scope configuration file. |
 | [config](config/index.md) | [get](config/index.md#config-get) | Get the value of a known cmemc configuration key. |

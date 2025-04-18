@@ -46,11 +46,7 @@ Limitations: All optional parameters (e.g. accept, base64, ...) are provided for
 
     --accept TEXT                   Accept header for the HTTP request(s).
                                     Setting this to 'default' means that cmemc
-                                    uses an appropriate accept header for
-                                    terminal output (text/csv for tables,
-                                    text/turtle for graphs, * otherwise). Please
-                                    refer to the Corporate Memory system manual
-                                    for a list of accepted mime types.
+                                    uses an appropriate output for terminals.
                                     [default: default]
     --no-imports                    Graphs which include other graphs (using
                                     owl:imports) will be queried as merged
@@ -131,7 +127,7 @@ $ cmemc query status [OPTIONS] [QUERY_ID]
 
 
 
-With this command, you can access the latest executed SPARQL queries on the DataPlatform. These queries are identified by UUIDs and listed ordered by starting timestamp.
+With this command, you can access the latest executed SPARQL queries on the Explore backend (DataPlatform). These queries are identified by UUIDs and listed ordered by starting timestamp.
 
 You can filter queries based on status and runtime in order to investigate slow queries. In addition to that, you can get the details of a specific query by using the ID as a parameter.
 
