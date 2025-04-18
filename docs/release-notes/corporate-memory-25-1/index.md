@@ -157,10 +157,32 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
 -   corrected target versions
 -   corrected migration target versions
 
-**v25.1.0 of cmemc adds the following new features:**
+**v25.1.0 of cmemc adds the following new features and change behaviour:**
 
 -   `query execute` command
     -   shell completion of placeholder values (using annotated QueryPlaceholder resources)
+-   `admin workspace python reload` command
+    -   reload / register all installed plugins into the DataIntegration workspace
+-   `admin workspace python list-plugins` command
+    -   will warn now if plugins are installed but not registered
+-   `admin migration` command group
+    -   `hide-header-footer-25.1` migration recipe
+    -   Remove triples using deprecated shui:valueQueryHideHeader|Footer terms
+-   `query execute` command
+    -   in case the user does not request a specific content type, some results are shown as a table (instead of `text/csv`)
+    -   `--accept` option now has completion support
+-   base command
+    -   `--external-http-timeout` option to specify the timeout for non-CMEM HTTP requests
+-   configuration via INI config file
+    -   allow debug and proxy settings for a connection
+    -   allow settings in the `DEFAULT` section of the config file for all connections
+-   change in configuration loading order, to integrate the values from the `DEFAULT` section:
+    1.   load environment variables into options-dict (click is doing this for `CMEMC_` variables)
+    2.   load options from command line and overwrite environment (only `CMEMC_` variables)
+    3.   load `DEFAULT` value keys, but not for keys which are already set (i.e not override cli options or env variables)
+    4.   load named INI section values (in case there is an INI section given) -> this will not overwrite everything
+    5.   use API defaults if there are not enough config keys (use default `CMEM_BASE_URI`, default `OAUTH_GRANT_TYPE` and default `OAUTH_CLIENT_ID`|`SECRET` if not present)
+
 
 **In addition the following changes and fixes are included:**
 
