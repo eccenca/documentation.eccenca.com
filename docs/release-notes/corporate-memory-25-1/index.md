@@ -7,12 +7,9 @@ tags:
 
 Corporate Memory 25.1.0 is the first major release in 2025.
 
-<!--
-todo
-![24.3: Explore - New Shacl(2) based dossier view](24-3-explore-shacl2-dossier.png "24.3: Explore - New Shacl(2) based dossier view"){ class="bordered" }
-![24.3: Build - Workflow report entity preview](24-3-build-wf-report-preview.png "24.3: Build - Workflow report entity preview"){ class="bordered" }
-![24.3: Automate - Migration recipe list](24-3-automate-admin-migration-list.png "24.3: Automate - Migration recipe list"){ class="bordered" }
--->
+![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
+![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
+![25.1: Explore - Streamlined Shape Management](25-1-explore-node-shape-quick-access.png "25.1: Explore - Streamlined Shape Management"){ class="bordered" }
 
 The highlights of this release are:
 
@@ -199,9 +196,7 @@ We're excited to bring you the latest update to Corporate Memory Control (cmemc)
     Backward compatibility will be ensured or migration paths explained.
     I.e. projects created with DataIntegration v24.3.0 can be imported into DataIntegration v25.1.0.
 
-### eccenca Explore
-
-!!! info inline end "Important info"
+!!! info "Important info"
 
     Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
     into a single component eccenca Explore.
