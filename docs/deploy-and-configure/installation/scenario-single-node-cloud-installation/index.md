@@ -19,26 +19,26 @@ This page describes a docker-compose based orchestration running on a server ins
 In this step, you install necessary software on the server and execute the following commands as root:
 
 ```
-$ sudo apt-get update
+sudo apt-get update
 
 # install ntp and set timezone
-$ sudo apt-get install -y ntp
-$ sudo timedatectl set-timezone Europe/Berlin
+sudo apt-get install -y ntp
+sudo timedatectl set-timezone Europe/Berlin
 
 # install needed packages
-$ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 \
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 \
     software-properties-common gnupg lsb-release gettext zip unzip git \ 
     make vim jq
 
 # install docker and docker-compose
-$ curl -fsSL https://download.docker.com/linux/debian/gpg \
+curl -fsSL https://download.docker.com/linux/debian/gpg \
     | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-$ echo "deb \
+echo "deb \
     [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
     https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
     | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-$ sudo apt-get update
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io \
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io \
     docker-compose-plugin
 
 # (optional) add a user to docker group
@@ -55,22 +55,22 @@ Connect to the server and navigate to the directory with the Corporate Memory do
 
 ```
 # login to the eccenca docker registry
-$ docker login docker-registry.eccenca.com
+docker login docker-registry.eccenca.com
 
 # download the Corporate Memory orchestration distribution
-$ cd /opt
-$ curl https://releases.eccenca.com/docker-orchestration/latest.zip \
+cd /opt
+curl https://releases.eccenca.com/docker-orchestration/latest.zip \
     > cmem-orchestration.zip
 
 # unzip the orchestration and move the unzipped directory to 
 # /opt/cmem-orchestration
-$ unzip cmem-orchestration.zip
-$ rm cmem-orchestration.zip
-$ mv cmem-orchestration-v* /opt/cmem-orchestration
+unzip cmem-orchestration.zip
+rm cmem-orchestration.zip
+mv cmem-orchestration-v* /opt/cmem-orchestration
 
 # configure git in order to commit changes to the orchestration
-$ cd /opt/cmem-orchestration
-$ git config --global user.email "you@example.com" && git init && git add . \
+cd /opt/cmem-orchestration
+git config --global user.email "you@example.com" && git init && git add . \
     && git commit -m "stub"
 
 ```
@@ -85,11 +85,11 @@ For now, you can use the provided file `config.ssl-letsencrypt.env` as a templ
     You need to change the lines with DEPLOYHOST and LETSENCRYPT_MAIL to your actual values.
 
 ```
-$ cd /opt/cmem-orchestration/environments
-$ cp config.ssl-letsencrypt.env prod.env
+cd /opt/cmem-orchestration/environments
+cp config.ssl-letsencrypt.env prod.env
 
 # change DEPLOYHOST and LETSENCRYPT_MAIL values
-$ vi prod.env
+vi prod.env
 ```
 
 In addition that, you need to remove the default config and link it to your prod.env
@@ -114,8 +114,8 @@ Change `CMEM_BASE_URI` according to your `DEPLOYHOST`.
 
 ```
 # update cmemc configuration
-$ rm conf/cmemc/cmemc.ini
-$ cat <<EOF > conf/cmemc/cmemc.ini
+rm conf/cmemc/cmemc.ini
+cat <<EOF > conf/cmemc/cmemc.ini
 [cmem]
 CMEM_BASE_URI=https://corporate-memory.eccenca.dev/
 OAUTH_GRANT_TYPE=client_credentials
@@ -170,10 +170,10 @@ To create a backup you have to prepare the backup folders. Make sure these folde
 
 ```
 # assuming you are currently in the the cmem-orchestration folder
-$ mkdir -p data/backups/graphs data/backups/workspace
-$ chmod 777 data/backups/graphs data/backups/workspace
+mkdir -p data/backups/graphs data/backups/workspace
+chmod 777 data/backups/graphs data/backups/workspace
 
-$ make backup
+make backup
 mkdir -p data/backups/keycloak
 Started Keycloak database backup to data/backups/keycloak/keycloak.sql ...
 Finished Keycloak database backup.

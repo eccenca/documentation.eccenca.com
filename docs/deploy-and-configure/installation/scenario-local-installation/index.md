@@ -23,18 +23,18 @@ Open a terminal window, create a directory, copy and extract docker orchestratio
 # Create eccenca-corporate-memory directory in your ${HOME} and set as a 
 # working dir.
 
-$ mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
+mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
 
 # download the Corporate Memory orchestration distribution
-$ curl https://releases.eccenca.com/docker-orchestration/latest.zip \
+curl https://releases.eccenca.com/docker-orchestration/latest.zip \
     > cmem-orchestration.zip
 
 # unzip the orchestration and move the unzipped directory 
-$ unzip cmem-orchestration.zip
-$ rm cmem-orchestration.zip
-$ mv cmem-orchestration-v* cmem-orchestration
-$ cd cmem-orchestration
-$ git init && git add . && git commit -m "stub"
+unzip cmem-orchestration.zip
+rm cmem-orchestration.zip
+mv cmem-orchestration-v* cmem-orchestration
+cd cmem-orchestration
+git init && git add . && git commit -m "stub"
 ```
 
 Check your local environment:
@@ -44,18 +44,18 @@ Check your local environment:
 # To have the current security patches, always update your docker version
 # to the latest one.
 
-$ docker version | grep -i version
+docker version | grep -i version
 Version:    26.1.4
 
 # Check docker compose version, should be at least v2.*.*
 # update to the latest version if necessary
 
-$ docker compose version
+docker compose version
 Docker Compose version v2.29.1
 
 # login into eccenca docker registry
 
-$ docker login docker-registry.eccenca.com
+docker login docker-registry.eccenca.com
 Username: yourusername
 Password:
 Login Succeeded
@@ -79,11 +79,11 @@ To install Corporate Memory, you need to modify your local hosts file (located i
 Corporate Memory uses Ontotext GraphDB triple store as default backend. Graphdb is available as free version and does not requires a license. If you have a license for graphdb you can copy the file to the ```license```folder inside Corporate Memory's root folder.
 
 ```
-$ cp YOUR_SE_LICENSE_FILE \
-    ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
+cp YOUR_SE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
 # or
-$ cp YOUR_EE_LICENSE_FILE \
-    ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+cp YOUR_EE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
 ```
 
 Then change the file ```environments/config.env``` to use the correct version:
@@ -99,7 +99,7 @@ Run the command to clean workspace, pull the images, start the Corporate Memory 
 ```
 # Pulling the images will take time
 
-$ make clean-pull-start-bootstrap
+make clean-pull-start-bootstrap
 ```
 
 You should see the output as follows:
@@ -162,10 +162,10 @@ To create a backup you have to prepare the backup folders. Make sure these folde
 
 ```
 # assuming you are currently in the the cmem-orchestration folder
-$ mkdir -p data/backups/graphs data/backups/workspace
-$ chmod 777 data/backups/graphs data/backups/workspace
+mkdir -p data/backups/graphs data/backups/workspace
+chmod 777 data/backups/graphs data/backups/workspace
 
-$ make backup
+make backup
 mkdir -p data/backups/keycloak
 Started Keycloak database backup to data/backups/keycloak/keycloak.sql ...
 Finished Keycloak database backup.

@@ -48,7 +48,7 @@ end
 Spin up the virtual machine:
 
 ```bash linenums="1"
-$ vagrant up
+vagrant up
 Bringing machine 'rhel7' up with 'virtualbox' provider...
 ==> rhel7: Importing base box 'generic/rhel7'...
 ==> rhel7: Matching MAC address for NAT networking...
@@ -156,13 +156,13 @@ Provide a stardog license or request a trial license:
 
 ```bash linenums="1"
 # check validity of your license
-$ make stardog-license-check
+make stardog-license-check
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 The license is invalid: java.io.EOFException
 make: *** [custom.dist.Makefile:5: stardog-license-check] Error 1
 
 # request stardog trial license
-$ make stardog-license-request
+make stardog-license-request
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license request --force --output /data/stardog-license-key.bin
 Thank you for downloading Stardog.
 A valid license was not found in /data.
@@ -199,7 +199,7 @@ Email validated. You now have a 60-day Stardog trial license. Starting Stardog..
 Thank you!
 
 # check the license again
-$ make stardog-license-check
+make stardog-license-check
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 Licensee: Stardog Trial User (ivan.ermilov@eccenca.com), Stardog Union
 Version: Stardog *
