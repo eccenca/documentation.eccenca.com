@@ -1,0 +1,492 @@
+<orgmap>
+    <dept id="73191" name="Engineering">
+        <manager>
+            <email>Thomas.Mueller@company.org</email>
+            <name>Thomas Mueller</name>
+            <address>Karl-Liebknecht-Straße 885, 82003 Tettnang</address>
+            <phone>+49-8200-38218301</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Corinna.Ludwig@company.org</email>
+                <name>Corinna Ludwig</name>
+                <address>Ringstraße 276</address>
+                <phone>+49-1743-24836762</phone>
+                <productExpert>Memristor, Gauge, Encoder</productExpert>
+            </employee>
+            <employee>
+                <email>Karen.Brant@company.org</email>
+                <name>Karen Brant</name>
+                <address>Friedrichstraße 664, 30805 Willich</address>
+                <phone>(00530) 5040048</phone>
+                <productExpert>Inductor</productExpert>
+            </employee>
+            <employee>
+                <email>Manfred.Foth@company.org</email>
+                <name>Manfred Foth</name>
+                <address />
+                <phone />
+                <productExpert>Coil, Transistor, Warp</productExpert>
+            </employee>
+            <employee>
+                <email>Lukas.Gerver@company.org</email>
+                <name>Lukas Gerver</name>
+                <address />
+                <phone />
+                <productExpert>Memristor, Strain</productExpert>
+            </employee>
+            <employee>
+                <email>Herr.Haan.Bader@company.org</email>
+                <name>Herr Haan Bader</name>
+                <address>Cologne Ring 674, 99978 Aach</address>
+                <phone>(05126) 3204437</phone>
+                <productExpert>Oscillator</productExpert>
+            </employee>
+            <employee>
+                <email>Karch.Moeller@company.org</email>
+                <name>Karch Moeller</name>
+                <address />
+                <phone />
+                <productExpert>Breaker, Crystal, Encoder, Capacitor</productExpert>
+            </employee>
+            <employee>
+                <email>Ida.Halle@company.org</email>
+                <name>Ida Halle</name>
+                <address>Lintgasse 557, 40300 Gummersbach</address>
+                <phone>+49-0300-21370617</phone>
+                <productExpert>Transistor, Breaker, Oscillator, Switch, Potentiometer</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="Z249-1364492" />
+            <product id="O184-6903943" />
+            <product id="V404-9975399" />
+            <product id="F344-7012314" />
+            <product id="N463-8050264" />
+            <product id="M605-5951566" />
+            <product id="N733-1946687" />
+        </products>
+        <services>
+            <service id="I241-8776317" />
+            <service id="D215-3449390" />
+        </services>
+    </dept>
+    <dept id="22183" name="Product Management">
+        <manager>
+            <email>Franz.Kornhaeusel@company.org</email>
+            <name>Franz Kornhaeusel</name>
+            <address />
+            <phone>(02065) 4946239</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Arendt.Beitel@company.org</email>
+                <name>Arendt Beitel</name>
+                <address>Dessauer Ufer 116, 08763 Olpe</address>
+                <phone>+49-8763-66514379</phone>
+                <productExpert>Coil, Sensor, Encoder, Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Emil.Gotti@company.org</email>
+                <name>Emil Gotti</name>
+                <address>Kurfürstendamm 465, 91702 Meldorf</address>
+                <phone>(0101) 854043584</phone>
+                <productExpert>Inductor</productExpert>
+            </employee>
+            <employee>
+                <email>Berlin.Schulz@company.org</email>
+                <name>Berlin Schulz</name>
+                <address>Schleißheimer Straße 219</address>
+                <phone />
+                <productExpert>Encoder</productExpert>
+            </employee>
+            <employee>
+                <email>Franziska.Acker@company.org</email>
+                <name>Franziska Acker</name>
+                <address>Berliner Straße 428, 50920 Tann</address>
+                <phone>(01908) 6892372</phone>
+                <productExpert>Memristor</productExpert>
+            </employee>
+            <employee>
+                <email>Dieterich.Blau@company.org</email>
+                <name>Dieterich Blau</name>
+                <address>Esplanade 372, 63144 Löwenstein</address>
+                <phone>+49-2961-28181571</phone>
+                <productExpert>Resistor, Breaker</productExpert>
+            </employee>
+            <employee>
+                <email>Xochitl.Aue@company.org</email>
+                <name>Xochitl Aue</name>
+                <address>Bundesautobahn 1387</address>
+                <phone />
+                <productExpert>LCD, Resistor, Crystal, Compensator, Sensor</productExpert>
+            </employee>
+            <employee>
+                <email>Sigmund.Gros@company.org</email>
+                <name>Sigmund Gros</name>
+                <address>Schadowstraße 785</address>
+                <phone>(0916) 071777489</phone>
+                <productExpert>Multiplexer, Potentiometer, Breaker, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Wanja.Hoffmann@company.org</email>
+                <name>Wanja Hoffmann</name>
+                <address />
+                <phone>+49-1083-38194095</phone>
+                <productExpert>Inductor, Oscillator, Compensator, Switch, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Adolfina.Hoch@company.org</email>
+                <name>Adolfina Hoch</name>
+                <address>Motzstraße 26, 13611 Gartz</address>
+                <phone>+49-109-5719002</phone>
+                <productExpert>Coil, Breaker, Transducer, Strain, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Frauke.Faerber@company.org</email>
+                <name>Frauke Faerber</name>
+                <address>Holstenwall 430, 31356 Gießen</address>
+                <phone>(01356) 2318280</phone>
+                <productExpert>LCD, Inductor, Network, Resistor, Crystal</productExpert>
+            </employee>
+            <employee>
+                <email>Ratt.Beyer@company.org</email>
+                <name>Ratt Beyer</name>
+                <address>Elbchaussee 1310, 02276 Werdau</address>
+                <phone>+49-2117-55002657</phone>
+                <productExpert>Potentiometer, Breaker, Transducer</productExpert>
+            </employee>
+            <employee>
+                <email>Jarvis.Jans@company.org</email>
+                <name>Jarvis Jans</name>
+                <address>Palmaille 837</address>
+                <phone>(0322) 517636576</phone>
+                <productExpert>Coil, Potentiometer, Network, Crystal</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="H274-5987347" />
+            <product id="T291-4144066" />
+            <product id="U836-7709298" />
+            <product id="O857-5463957" />
+            <product id="L316-4863597" />
+            <product id="W501-5990901" />
+            <product id="I980-1040313" />
+            <product id="G144-5498082" />
+            <product id="L128-5499058" />
+            <product id="Q774-7287508" />
+            <product id="L536-5185541" />
+            <product id="A688-6056899" />
+        </products>
+        <services />
+    </dept>
+    <dept id="41622" name="Data Services">
+        <manager>
+            <email>Elena.Herzog@company.org</email>
+            <name>Elena Herzog</name>
+            <address>Kirchgasse 806, 76088 Kamen</address>
+            <phone>+49-7608-83268331</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Gretel.Roth@company.org</email>
+                <name>Gretel Roth</name>
+                <address>Schaumainkai 488</address>
+                <phone>+49-9456-94517553</phone>
+                <productExpert>Sensor, Gauge, Breaker, Warp</productExpert>
+            </employee>
+            <employee>
+                <email>Wolfgang.Martin@company.org</email>
+                <name>Wolfgang Martin</name>
+                <address />
+                <phone>+49-701-5973041</phone>
+                <productExpert>Network, Crystal, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Nadia.Schubert@company.org</email>
+                <name>Nadia Schubert</name>
+                <address />
+                <phone>+49-1805-80560374</phone>
+                <productExpert>Network, Crystal, Warp</productExpert>
+            </employee>
+            <employee>
+                <email>Rebecca.Hall@company.org</email>
+                <name>Rebecca Hall</name>
+                <address />
+                <phone>+49-2776-10372538</phone>
+                <productExpert>Inductor</productExpert>
+            </employee>
+            <employee>
+                <email>Sylvester.Brant@company.org</email>
+                <name>Sylvester Brant</name>
+                <address>Holstenwall 310, 68139 Aue</address>
+                <phone>(08514) 9139423</phone>
+                <productExpert>Network, Sensor, Strain, Oscillator</productExpert>
+            </employee>
+            <employee>
+                <email>Frau.Irmalinda‘.Becker@company.org</email>
+                <name>Frau Irmalinda‘ Becker</name>
+                <address>Deichstraße 594, 03337 Greifswald</address>
+                <phone />
+                <productExpert>Network, Strain</productExpert>
+            </employee>
+            <employee>
+                <email>Siglind.Brinkerhoff@company.org</email>
+                <name>Siglind Brinkerhoff</name>
+                <address />
+                <phone>+49-4855-99936426</phone>
+                <productExpert>Strain, Compensator, Switch, Resonator, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Ratt.Hartmann@company.org</email>
+                <name>Ratt Hartmann</name>
+                <address>Lintgasse 1310, 47063 Oranienburg</address>
+                <phone>(00636) 1323749</phone>
+                <productExpert>LCD, Resonator, Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Anamchara.Foerstner@company.org</email>
+                <name>Anamchara Foerstner</name>
+                <address>Jüdenstraße 79, 61467 Leonberg</address>
+                <phone>+49-360-5655698</phone>
+                <productExpert>Inductor, Transistor, Sensor, Gauge, Resonator</productExpert>
+            </employee>
+            <employee>
+                <email>Arnelle.Gerber@company.org</email>
+                <name>Arnelle Gerber</name>
+                <address>Konstablerwache 137, 41750 Beelitz</address>
+                <phone>(03586) 7240528</phone>
+                <productExpert>Driver, Transformer, Compensator, Potentiometer, Meter</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="Q986-9996088" />
+            <product id="Z272-2955088" />
+            <product id="D228-6993564" />
+            <product id="X375-4984404" />
+            <product id="D762-3837218" />
+            <product id="H609-2196524" />
+            <product id="O125-6715778" />
+            <product id="A145-1240844" />
+            <product id="M558-2275045" />
+            <product id="C697-6765940" />
+        </products>
+        <services>
+            <service id="Y274-1029755" />
+        </services>
+    </dept>
+    <dept id="84279" name="Procurement">
+        <manager>
+            <email>Waldtraud.Kuttner@company.org</email>
+            <name>Waldtraud Kuttner</name>
+            <address />
+            <phone>(08798) 5416209</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Erhard.Fried@company.org</email>
+                <name>Erhard Fried</name>
+                <address>Kaiserhofstraße 484, 13104 Wittenburg</address>
+                <phone>+49-400-5290537</phone>
+                <productExpert>Transistor</productExpert>
+            </employee>
+            <employee>
+                <email>Miles.Amsel@company.org</email>
+                <name>Miles Amsel</name>
+                <address />
+                <phone>+49-528-8615329</phone>
+                <productExpert>Multiplexer, Memristor, Gauge</productExpert>
+            </employee>
+            <employee>
+                <email>Minnie.Kuehn@company.org</email>
+                <name>Minnie Kuehn</name>
+                <address />
+                <phone>+49-551-5670308</phone>
+                <productExpert>Transformer, Network, Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Heinrich.Hoch@company.org</email>
+                <name>Heinrich Hoch</name>
+                <address>Motzstraße 741, 44446 Glückstadt</address>
+                <phone>+49-4446-26033173</phone>
+                <productExpert>Coil, Gauge, Crystal, Transformer</productExpert>
+            </employee>
+            <employee>
+                <email>Elisabeth.Harman@company.org</email>
+                <name>Elisabeth Harman</name>
+                <address>Lintgasse 338, 66427 Tegernsee</address>
+                <phone>+49-4278-55203507</phone>
+                <productExpert>Coil, Warp</productExpert>
+            </employee>
+            <employee>
+                <email>Herr.Burgh.Eichel@company.org</email>
+                <name>Herr Burgh Eichel</name>
+                <address>Hohe Straße 288, 09116 Hofheim</address>
+                <phone />
+                <productExpert>Coil, Encoder, Breaker, Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Lili.Geier@company.org</email>
+                <name>Lili Geier</name>
+                <address>Kirchgasse 781, 21956 Neuenhaus</address>
+                <phone>(0938) 228702909</phone>
+                <productExpert>Inductor, Transistor, Compensator, Sensor, Meter</productExpert>
+            </employee>
+            <employee>
+                <email>Kristen.Bauers@company.org</email>
+                <name>Kristen Bauers</name>
+                <address>Colonnaden 721, 44353 Baumholder</address>
+                <phone />
+                <productExpert>Warp</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="T782-3734983" />
+            <product id="O311-4466005" />
+            <product id="V450-8692412" />
+            <product id="U286-4664935" />
+            <product id="H173-1200706" />
+            <product id="Y968-9133870" />
+            <product id="R860-6284767" />
+            <product id="V654-5789502" />
+        </products>
+        <services />
+    </dept>
+    <dept id="66469" name="Production">
+        <manager>
+            <email>Reiner.Widmann@company.org</email>
+            <name>Reiner Widmann</name>
+            <address>Mönckebergstraße 489, 40885 Dillenburg</address>
+            <phone>+49-408-8516878</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Ulrik.Denzel@company.org</email>
+                <name>Ulrik Denzel</name>
+                <address>Steintorwall 416, 26077 Baunatal</address>
+                <phone />
+                <productExpert>Strain</productExpert>
+            </employee>
+            <employee>
+                <email>Sabrina.Bayer@company.org</email>
+                <name>Sabrina Bayer</name>
+                <address />
+                <phone>+49-82-534-91423</phone>
+                <productExpert>Crystal</productExpert>
+            </employee>
+            <employee>
+                <email>Baldwin.Guenther@company.org</email>
+                <name>Baldwin Guenther</name>
+                <address>Leopoldstrasse 157, 05861 Münster</address>
+                <phone />
+                <productExpert>Multiplexer, Oscillator</productExpert>
+            </employee>
+            <employee>
+                <email>Marius.Fux@company.org</email>
+                <name>Marius Fux</name>
+                <address />
+                <phone>+49-73-917-19816</phone>
+                <productExpert>Resistor, Rheostat, Capacitor, Warp</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="D331-6211280" />
+            <product id="Z439-5790785" />
+            <product id="X716-6172862" />
+            <product id="R726-8194447" />
+        </products>
+        <services>
+            <service id="N558-1730215" />
+            <service id="P925-8919074" />
+        </services>
+    </dept>
+    <dept id="85880" name="Marketing">
+        <manager>
+            <email>Dietlinde.Boehme@company.org</email>
+            <name>Dietlinde Boehme</name>
+            <address>Biebricher Allee 880, 65826 Neukalen</address>
+            <phone>(06582) 6550636</phone>
+        </manager>
+        <employees>
+            <employee>
+                <email>Valda.Everhart@company.org</email>
+                <name>Valda Everhart</name>
+                <address />
+                <phone>+49-04-969-14255</phone>
+                <productExpert>Inductor, Memristor, Transformer, Potentiometer, Resonator</productExpert>
+            </employee>
+            <employee>
+                <email>Kevin.Feigenbaum@company.org</email>
+                <name>Kevin Feigenbaum</name>
+                <address />
+                <phone />
+                <productExpert>Network, Oscillator, Resonator, Encoder</productExpert>
+            </employee>
+            <employee>
+                <email>Henny.Foth@company.org</email>
+                <name>Henny Foth</name>
+                <address>Kaiserdamm 531, 66812 Dornburg-Camburg</address>
+                <phone>(0686) 108701699</phone>
+                <productExpert>Capacitor</productExpert>
+            </employee>
+            <employee>
+                <email>Liese.Adam@company.org</email>
+                <name>Liese Adam</name>
+                <address>Berliner Straße 773, 28609 Ginsheim-Gustavsburg</address>
+                <phone>+49-6092-34516857</phone>
+                <productExpert>Potentiometer, Crystal, Warp, Sensor, Transducer</productExpert>
+            </employee>
+            <employee>
+                <email>Bert.Blumstein@company.org</email>
+                <name>Bert Blumstein</name>
+                <address>Wilhelmstraße 232, 15114 Königsberg</address>
+                <phone />
+                <productExpert>Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Baldwin.Dirksen@company.org</email>
+                <name>Baldwin Dirksen</name>
+                <address>Hauptwache 159, 16200 Heppenheim</address>
+                <phone>+49-6200-33069465</phone>
+                <productExpert>Capacitor</productExpert>
+            </employee>
+            <employee>
+                <email>Sabrina.Geiger@company.org</email>
+                <name>Sabrina Geiger</name>
+                <address />
+                <phone>+49-8295-77923757</phone>
+                <productExpert>Potentiometer, Compensator</productExpert>
+            </employee>
+            <employee>
+                <email>Yanka.Schreiber@company.org</email>
+                <name>Yanka Schreiber</name>
+                <address />
+                <phone />
+                <productExpert>Rheostat, Breaker</productExpert>
+            </employee>
+            <employee>
+                <email>Lambert.Faust@company.org</email>
+                <name>Lambert Faust</name>
+                <address />
+                <phone>(0673) 525930320</phone>
+                <productExpert>Coil, Breaker, Network, Warp, Transducer</productExpert>
+            </employee>
+        </employees>
+        <products>
+            <product id="R771-3893828" />
+            <product id="Y299-9772513" />
+            <product id="L586-5133830" />
+            <product id="Q442-2123335" />
+            <product id="D844-3535311" />
+            <product id="C831-2580759" />
+            <product id="H402-6061531" />
+            <product id="G251-8414984" />
+            <product id="D334-6681399" />
+        </products>
+        <services>
+            <service id="P516-8211068" />
+            <service id="U360-2815908" />
+            <service id="O662-4012383" />
+        </services>
+    </dept>
+</orgmap>
