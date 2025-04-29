@@ -18,7 +18,7 @@ This page describes a docker-compose based orchestration running on a server ins
 
 In this step, you install necessary software on the server and execute the following commands as root:
 
-```
+```bash
 sudo apt-get update
 
 # install ntp and set timezone
@@ -53,7 +53,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io \
 
 Connect to the server and navigate to the directory with the Corporate Memory docker orchestration:
 
-```
+```bash
 # login to the eccenca docker registry
 docker login docker-registry.eccenca.com
 
@@ -84,7 +84,7 @@ For now, you can use the provided file `config.ssl-letsencrypt.env` as a templ
 
     You need to change the lines with DEPLOYHOST and LETSENCRYPT_MAIL to your actual values.
 
-```
+```bash
 cd /opt/cmem-orchestration/environments
 cp config.ssl-letsencrypt.env prod.env
 
@@ -94,7 +94,7 @@ vi prod.env
 
 In addition that, you need to remove the default config and link it to your prod.env
 
-```
+```bash
 cd /opt/cmem-orchestration/environments
 
 rm config.env
@@ -105,14 +105,14 @@ To see all available configuration options refer to [Docker Orchestration confi
 
 Next, request SSL certificates from [letsencrypt](https://letsencrypt.org/) service:
 
-```
+```bash
 cd /opt/cmem-orchestration
 make letsencrypt-create
 ```
 
 Change `CMEM_BASE_URI` according to your `DEPLOYHOST`.
 
-```
+```bash
 # update cmemc configuration
 rm conf/cmemc/cmemc.ini
 cat <<EOF > conf/cmemc/cmemc.ini
@@ -126,14 +126,14 @@ EOF
 
 Finally deploy the Corporate Memory instance:
 
-```
+```bash
 make clean-pull-start-bootstrap
 make tutorials-import
 ```
 
 Optional: you can install cmem as a systemd service for this use these commands as root or sudo:
 
-```
+```bash
 cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \
     /etc/systemd/system
 systemctl enable cmem-orchestration
@@ -157,7 +157,7 @@ Do not forget to change the passwords of your deployment, especially if it is av
 For this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
 
 
-```
+```bash
 cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \
     /etc/systemd/system
 systemctl enable cmem-orchestration
@@ -168,7 +168,7 @@ systemctl start cmem-orchestration
 
 To create a backup you have to prepare the backup folders. Make sure these folders exists and have write permissions. Run this:
 
-```
+```bash
 # assuming you are currently in the the cmem-orchestration folder
 mkdir -p data/backups/graphs data/backups/workspace
 chmod 777 data/backups/graphs data/backups/workspace

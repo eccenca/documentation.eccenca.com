@@ -17,7 +17,7 @@ This page describes a `docker compose` based orchestration running on RedHat Ent
 
 Create a working directory for this scenario and inside the working directory `Vagrantfile` with the following contents:
 
-```bash linenums="1"
+```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -47,7 +47,7 @@ end
 
 Spin up the virtual machine:
 
-```bash linenums="1"
+```ruby
 vagrant up
 Bringing machine 'rhel7' up with 'virtualbox' provider...
 ==> rhel7: Importing base box 'generic/rhel7'...
@@ -86,7 +86,7 @@ Bringing machine 'rhel7' up with 'virtualbox' provider...
 
 Now you can connect to the virtual machine using `~/.vagrant.d/insecure_private_key` ssh key:
 
-```bash linenums="1"
+```bash
 # add vagrant ssh key to your keychain
 ssh-add ~/.vagrant.d/insecure_private_key
 
@@ -99,7 +99,7 @@ ssh vagrant@10.10.10.10
 
 Install the necessary software Inside the virtual machine and download the Corporate Memory orchestration from [releases.eccenca.com](http://releases.eccenca.com/):
 
-```bash linenums="1"
+```bash
 # switch to superuser
 sudo su
 
@@ -135,8 +135,8 @@ chcon -Rt svirt_sandbox_file_t /opt/corporate-memory
 
 Create `/opt/corporate-memory/environments/prod.env` file with the following contents:
 
-```bash linenums="1"
-#!/bin/bash linenums="1"
+```bash
+#!/bin/bash
 
 DEPLOYHOST=corporate.memory
 DEPLOYPROTOCOL=https
@@ -148,13 +148,13 @@ APACHE_CONFIG=default.ssl.conf
 
 Login into eccenca docker registry:
 
-```bash linenums="1"
+```bash
 docker login docker-registry.eccenca.com
 ```
 
 Provide a stardog license or request a trial license:
 
-```bash linenums="1"
+```bash
 # check validity of your license
 make stardog-license-check
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
@@ -212,7 +212,7 @@ Quantity: 3
 
 Finally deploy the Corporate Memory instance:
 
-```bash linenums="1"
+```bash
 # create local truststore
 CONFIGFILE=environments/prod.env make buildTrustStore
 
@@ -226,7 +226,7 @@ You have successfully deployed a Corporate Memory instance.
 
 On your localhost where you are running VirtualBox, modify /etc/hosts file:
 
-```bash linenums="1"
+```bash
 echo "10.10.10.10 corporate.memory" >> /etc/hosts
 ```
 
