@@ -13,11 +13,43 @@ As stated in the [Keycloak Server Administration Guide](https://www.keycloak.org
 
 > Make your registered redirect URIs as specific as possible. Registering vague redirect URIs for Authorization Code Flows may allow malicious clients to impersonate another client with broader access.
 
-Corporate Memory uses the `cmem` client to authenticate against Keycloak, so adjust the **Valid Redirect URIs** field for this client.
+Corporate Memory uses the `cmem` client to authenticate against Keycloak, so adjust the **Valid Redirect URIs** and **Valid Logout Redirect URIs** fields for this client.
 
 Select`cmem` realm, then **Clients** → `cmem` and enter your deploy URL, e.g., `https://cmem.example.net/*`.
+As valid-logout-redirect-uri we suggest the base basic URL of your deployment. e.g. `https://cmem.example.net/`.
+Once you restrict these URLs in Keycloak you might see error messages in your keycloak log indicating that those redirect uri's are not valid.
+Please update the settings accordingly.
 
 ![Keycloak: Client Settings: Valid Redirect URLs](23-1-keycloak-client-settings.png)
+
+### Explore backend (DataPlatform) valid post redirect settings
+
+For Explore backend (DataPlatform) you set this in `application.yml` or as environment variable
+
+```yaml
+deploy.post-logout-redirect-uri: "${DEPLOY_BASE_URL}"
+```
+```bash
+DEPLOY_POST_LOGOUT_REDIRECT_URI=${DEPLOY_BASE_URL}
+```
+
+### Build (DataIntegration) valid post redirect settings
+
+For in Build backend (DataIntegration) you set this in `dataintegration.conf`.
+The following parameter are relevant that for:
+
+- The first (```endSessionUrl```) is the keycloak logout url, like ```KEYCLOAK_URL/auth/realms/cmem/protocol/openid-connect/logout```
+- Number two (```logoutRedirectUrl```) sets the URL where the redirect should happen to, after a successful logout.
+- And the last (```idToken```) is required now and always default to ```true```.
+
+This is part of the OIDC flow.
+
+```conf
+oauth.endSessionUrl = ${OAUTH_LOGOUT_URL}
+oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
+oauth.idToken = true
+```
+
 
 ## Password Policies
 
