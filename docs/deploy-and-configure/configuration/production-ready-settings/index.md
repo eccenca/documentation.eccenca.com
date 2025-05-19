@@ -36,8 +36,16 @@ DEPLOY_POST_LOGOUT_REDIRECT_URI=${DEPLOY_BASE_URL}
 ### Build (DataIntegration) valid post redirect settings
 
 For in Build backend (DataIntegration) you set this in `dataintegration.conf`.
+The following parameter are relevant that for.
+The first (```endSessionUrl```) is the keycloak logout url, like ```KEYCLOAK_URL/auth/realms/cmem/protocol/openid-connect/logout```
+Number two (```logoutRedirectUrl```) sets the URL where the redirect should happen to, after a successful logout.
+And the last (```idToken```) is required now and always default to ```true```.
+This is part of the OIDC flow.
+
 ```conf
-TODO: post-logout-redirect-uri: "${DEPLOY_BASE_URL}"
+oauth.endSessionUrl = ${OAUTH_LOGOUT_URL}
+oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
+oauth.idToken = true
 ```
 
 
