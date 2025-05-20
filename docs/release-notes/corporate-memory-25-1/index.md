@@ -32,7 +32,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.1.1
--   eccenca Explore v25.1.0 (formerly DataPlatform and DataManager)
+-   eccenca Explore v25.1.1 (formerly DataPlatform and DataManager)
 -   eccenca Corporate Memory Control (cmemc) v25.1.1
 
 We tested this release with the following dependency components:
@@ -87,7 +87,7 @@ We're excited to bring you the latest update to DataIntegration v25.1, which int
 -   Fixed issue where tasks created in the workflow editor are not added to the recently viewed list.
 -   Fixed issue where adding a note to a linking rule fails to save.
 
-## eccenca Explore v25.1.0
+## eccenca Explore v25.1.1
 
 !!! info inline end "Important info"
 
@@ -95,6 +95,17 @@ We're excited to bring you the latest update to DataIntegration v25.1, which int
     into a single component eccenca Explore.
 
 We are excited to announce Explore v25.1, which introduces new features, improvements and bug fixes.
+
+**v25.1.1 of Explore ships the following fixes:**
+
+-   Other
+    -   Add deployment property for post logout redirect uri (CMEM-6519)
+-   Shacl
+    -   Disable adding properties if the max amount of properties is reached (CMEM-6501)
+    -   Show fields of subshapes (CMEM-6594)
+-   BKE
+-   Prevent loading candidates queries for readonly properties (CMEM-6580)
+-   Switching between nodeshapes (CMEM-6593)
 
 **v25.1.0 of Explore adds the following new features:**
 
