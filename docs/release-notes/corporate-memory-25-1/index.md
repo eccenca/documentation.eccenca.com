@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.1.0
+# Corporate Memory 25.1.1
 
-Corporate Memory 25.1.0 is the first major release in 2025.
+Corporate Memory 25.1.1 is the first major release in 2025.
 
 ![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
 ![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
@@ -31,7 +31,7 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.1.0
+-   eccenca DataIntegration v25.1.1
 -   eccenca Explore v25.1.0 (formerly DataPlatform and DataManager)
 -   eccenca Corporate Memory Control (cmemc) v25.1.1
 
@@ -42,9 +42,18 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.1.0
+## eccenca DataIntegration v25.1.1
 
 We're excited to bring you the latest update to DataIntegration v25.1, which introduces new features, improvements and bug fixes:
+
+**v25.1.1 of DataIntegration adds support for Request Party-Initiated Logout as specified by OpenID Connect.**
+
+**v25.1.1 of DataIntegration ships the following fixes:**
+
+- **S3:** Now defaults to the AWS credentials provider chain if S3 access and secret keys are not configured.
+- **Python:** Prevented redundant re-imports of already loaded modules.
+- **Python:** Updated `FileEntitySchema` in `cmem-plugin-base` for improved compatibility with datasets.
+- **RegexExtractionTransformer:** Resolved an issue that incorrectly generated null values.
 
 **v25.1.0 of DataIntegration adds the following new features:**
 
