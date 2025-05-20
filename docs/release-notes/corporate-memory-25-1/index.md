@@ -46,14 +46,17 @@ More detailed information for this release is provided in the next sections.
 
 We're excited to bring you the latest update to DataIntegration v25.1, which introduces new features, improvements and bug fixes:
 
-**v25.1.1 of DataIntegration adds support for Request Party-Initiated Logout as specified by OpenID Connect.**
+**v25.1.1 of DataIntegration ships the following fixes and additions:**
 
-**v25.1.1 of DataIntegration ships the following fixes:**
-
-- **S3:** Now defaults to the AWS credentials provider chain if S3 access and secret keys are not configured.
-- **Python:** Prevented redundant re-imports of already loaded modules.
-- **Python:** Updated `FileEntitySchema` in `cmem-plugin-base` for improved compatibility with datasets.
-- **RegexExtractionTransformer:** Resolved an issue that incorrectly generated null values.
+- OIDC
+    -   added support for Request Party-Initiated Logout as specified by OpenID Connect
+- S3
+    -   Now defaults to the AWS credentials provider chain if S3 access and secret keys are not configured.
+- Python
+    -   Prevented redundant re-imports of already loaded modules.
+    -   Updated `FileEntitySchema` in `cmem-plugin-base` for improved compatibility with datasets.
+- RegexExtractionTransformer
+    -   Resolved an issue that incorrectly generated null values.
 
 **v25.1.0 of DataIntegration adds the following new features:**
 
@@ -98,14 +101,14 @@ We are excited to announce Explore v25.1, which introduces new features, improve
 
 **v25.1.1 of Explore ships the following fixes:**
 
--   Other
-    -   Add deployment property for post logout redirect uri (CMEM-6519)
+-   OIDC
+    -   Add deployment property for post logout redirect uri
 -   Shacl
-    -   Disable adding properties if the max amount of properties is reached (CMEM-6501)
-    -   Show fields of subshapes (CMEM-6594)
+    -   Disable adding properties if the max amount of properties is reached
+    -   Show fields of subshapes
 -   BKE
--   Prevent loading candidates queries for readonly properties (CMEM-6580)
--   Switching between nodeshapes (CMEM-6593)
+    -   Prevent loading candidates queries for readonly properties
+    -   Switching between nodeshapes
 
 **v25.1.0 of Explore adds the following new features:**
 
