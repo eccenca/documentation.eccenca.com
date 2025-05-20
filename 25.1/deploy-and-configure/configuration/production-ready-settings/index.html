@@ -9981,7 +9981,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 25.1.0
+    Corporate Memory 25.1.1
   
 
     
@@ -10006,7 +10006,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 25.1.0
+    Corporate Memory 25.1.1
   
 
           </label>
@@ -11289,6 +11289,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Restrict Redirect URLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-backend-dataplatform-valid-post-redirect-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore backend (DataPlatform) valid post redirect settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-dataintegration-valid-post-redirect-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build (DataIntegration) valid post redirect settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -11446,9 +11474,31 @@
 <blockquote>
 <p>Make your registered redirect URIs as specific as possible. Registering vague redirect URIs for Authorization Code Flows may allow malicious clients to impersonate another client with broader access.</p>
 </blockquote>
-<p>Corporate Memory uses the <code>cmem</code> client to authenticate against Keycloak, so adjust the <strong>Valid Redirect URIs</strong> field for this client.</p>
-<p>Select<code>cmem</code> realm, then <strong>Clients</strong> → <code>cmem</code> and enter your deploy URL, e.g., <code>https://cmem.example.net/*</code>.</p>
+<p>Corporate Memory uses the <code>cmem</code> client to authenticate against Keycloak, so adjust the <strong>Valid Redirect URIs</strong> and <strong>Valid Logout Redirect URIs</strong> fields for this client.</p>
+<p>Select<code>cmem</code> realm, then <strong>Clients</strong> → <code>cmem</code> and enter your deploy URL, e.g., <code>https://cmem.example.net/*</code>.
+As valid-logout-redirect-uri we suggest the base basic URL of your deployment. e.g. <code>https://cmem.example.net/</code>.
+Once you restrict these URLs in Keycloak you might see error messages in your keycloak log indicating that those redirect uri&rsquo;s are not valid.
+Please update the settings accordingly.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings: Valid Redirect URLs" src="23-1-keycloak-client-settings.png" /></a></p>
+<h3 id="explore-backend-dataplatform-valid-post-redirect-settings">Explore backend (DataPlatform) valid post redirect settings<a class="headerlink" href="#explore-backend-dataplatform-valid-post-redirect-settings" title="Permanent link">¤</a></h3>
+<p>For Explore backend (DataPlatform) you set this in <code>application.yml</code> or as environment variable</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">deploy.post-logout-redirect-uri</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${DEPLOY_BASE_URL}&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">DEPLOY_POST_LOGOUT_REDIRECT_URI</span><span class="o">=</span><span class="si">${</span><span class="nv">DEPLOY_BASE_URL</span><span class="si">}</span>
+</code></pre></div></p>
+<h3 id="build-dataintegration-valid-post-redirect-settings">Build (DataIntegration) valid post redirect settings<a class="headerlink" href="#build-dataintegration-valid-post-redirect-settings" title="Permanent link">¤</a></h3>
+<p>For in Build backend (DataIntegration) you set this in <code>dataintegration.conf</code>.
+The following parameter are relevant that for:</p>
+<ul>
+<li>The first (<code>endSessionUrl</code>) is the keycloak logout url, like <code>KEYCLOAK_URL/auth/realms/cmem/protocol/openid-connect/logout</code></li>
+<li>Number two (<code>logoutRedirectUrl</code>) sets the URL where the redirect should happen to, after a successful logout.</li>
+<li>And the last (<code>idToken</code>) is required now and always default to <code>true</code>.</li>
+</ul>
+<p>This is part of the OIDC flow.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>oauth.endSessionUrl = ${OAUTH_LOGOUT_URL}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>oauth.idToken = true
+</code></pre></div>
 <h2 id="password-policies">Password Policies<a class="headerlink" href="#password-policies" title="Permanent link">¤</a></h2>
 <p>If you create users in Keycloak, make sure these users have strong passwords.
 To enforce this, setting up <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_password-policies">password policies</a> can help.</p>
@@ -11462,17 +11512,17 @@ See the usage of <code>DATAPLATFORM_AUTH_URL</code>, <code>OAUTH_AUTHORIZATION
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Keycloak: Client Settings" src="23-1-keycloak-realm-settings.png" /></a></p>
 <h3 id="explore-backend-dataplatform">Explore backend (DataPlatform)<a class="headerlink" href="#explore-backend-dataplatform" title="Permanent link">¤</a></h3>
 <p>For Explore backend (DataPlatform) you can uncomment these cookie setting in <code>application.yml</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">## This is important to set flags for DP session cookies</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">server.servlet.session.cookie.same-site</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Strict</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># If this is enabled it only allows usage of cookies if TLS connection are available</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">server.servlet.session.cookie.secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">## This is important to set flags for DP session cookies</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">server.servlet.session.cookie.same-site</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Strict</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># If this is enabled it only allows usage of cookies if TLS connection are available</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">server.servlet.session.cookie.secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h3 id="build-dataintegration">Build (DataIntegration)<a class="headerlink" href="#build-dataintegration" title="Permanent link">¤</a></h3>
 <p>Similar to Explore backend (DataPlatform), you can also set cookie settings for Build (DataIntegration) inside <code>productions.conf</code> for <code>docker compose</code> deployments or in <code>dataintegration.conf</code> in helm deployments</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># sets &quot;secure&quot; flag in PLAY_SESSION cookie</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># https://www.playframework.com/documentation/2.8.x/SettingsSession</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="l l-Scalar l-Scalar-Plain">play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># sets &quot;secure&quot; flag in PLAY_SESSION cookie</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># https://www.playframework.com/documentation/2.8.x/SettingsSession</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="l l-Scalar l-Scalar-Plain">play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}</span>
 </code></pre></div>
 <p>In the <a href="https://www.playframework.com/documentation/2.8.x/SettingsSession">Play documentation</a>, you can find further information, i.e. also setting <code>sameSite = "lax"</code>or <code>strict</code>. By default Build (DataIntegration) sets this to <code>lax</code></p>
 <h2 id="cors-settings">CORS Settings<a class="headerlink" href="#cors-settings" title="Permanent link">¤</a></h2>
@@ -11485,19 +11535,19 @@ It is recommended to set custom values for the following headers:</p>
 </ul>
 <p>Detailed configuration options can be found <a href="../explore/dataplatform/">here</a>.</p>
 <p>This is an example section from Explore backend (DataPlatform) <code>application.yml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">## Cross-Origin Resource Sharing (CORS) settings</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">http</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">cors</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">allowedOrigins</span><span class="p">:</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;https://cmem.example.net&quot;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">allowedMethods</span><span class="p">:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;OPTIONS&quot;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;HEAD&quot;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;PATCH&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">## Cross-Origin Resource Sharing (CORS) settings</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">http</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">cors</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">allowedOrigins</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;https://cmem.example.net&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">allowedMethods</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;OPTIONS&quot;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;HEAD&quot;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;PATCH&quot;</span>
 </code></pre></div>
 <h3 id="dataintegration">DataIntegration<a class="headerlink" href="#dataintegration" title="Permanent link">¤</a></h3>
 <p>DataIntegration uses <code>cors.config.allowOrigins *</code> as the default setting.
@@ -11506,15 +11556,15 @@ It specifies which domains can access a site&rsquo;s resources.
 For example, if ABC Corp. has the domains <code>ABC.com</code> and <code>XYZ.com</code>, you can use this header to securely grant <code>XYZ.com</code> access to <code>ABC.com</code>&rsquo;s resources.
 Detailed configuration options can be found <a href="../dataintegration/">here</a>.</p>
 <p>This is an example section from <code>dataintegration.conf</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>## Cross-Origin Resource Sharing (CORS) settings
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># CORS configuration ###
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cors.enabled = true
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># List of domains that are allowed to do requests.
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a># Wildcard &#39;*&#39; means &quot;All domains&quot;.
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cors.config.allowOrigins = &quot;*&quot;
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Support cookies, auth etc. for the configured domain under allowOrigins.
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a># If set to true, allowOrigins must not have &#39;*&#39; configured.
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>cors.config.allowCredentials = false
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>## Cross-Origin Resource Sharing (CORS) settings
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a># CORS configuration ###
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cors.enabled = true
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># List of domains that are allowed to do requests.
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a># Wildcard &#39;*&#39; means &quot;All domains&quot;.
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>cors.config.allowOrigins = &quot;*&quot;
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a># Support cookies, auth etc. for the configured domain under allowOrigins.
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a># If set to true, allowOrigins must not have &#39;*&#39; configured.
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>cors.config.allowCredentials = false
 </code></pre></div>
 
 
@@ -11538,7 +11588,7 @@ Detailed configuration options can be found <a href="../dataintegration/">here<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 17, 2025 14:14:06"><span class="timeago" datetime="2025-04-17T14:14:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 17, 2025 14:14:06">2025-04-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 19, 2025 14:51:56"><span class="timeago" datetime="2025-05-19T14:51:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 19, 2025 14:51:56">2025-05-19</span>
   </span>
 
     
