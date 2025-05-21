@@ -3,6 +3,7 @@ nav:
     - Accessing Graphs with Java Applications: accessing-graphs-with-java-applications
     - Python Plugins: python-plugins
     - cmempy - Python API: cmempy-python-api
+    - cmemc - Python Scripts: cmemc-scripts
     - Build (DataIntegration) APIs: dataintegration-apis
     - Explore backend APIs: dataplatform-apis
 
