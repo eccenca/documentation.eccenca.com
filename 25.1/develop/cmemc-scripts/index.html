@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://documentation.eccenca.com/25.1/automate/cmemc-command-line-interface/invocation/docker-image/">
+        <link rel="canonical" href="https://documentation.eccenca.com/25.1/develop/cmemc-scripts/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../cmempy-python-api/">
       
       
-        <link rel="next" href="../github-action/">
+        <link rel="next" href="../dataintegration-apis/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/favicon.svg">
+      <link rel="icon" href="../../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12+insiders-4.53.16">
     
     
       
-        <title>cmemc: Using the Docker Image - documentation.eccenca.com</title>
+        <title>cmemc - Python Scripts - documentation.eccenca.com</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ff49f96f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ff49f96f.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -260,16 +260,16 @@
         
         
         
-        <link rel="stylesheet" href="../../../../assets/externals/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../assets/externals/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../../css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -287,16 +287,16 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="cmemc: Using the Docker Image - documentation.eccenca.com" />
-<meta property="og:image" content="https://documentation.eccenca.com/25.1/assets/images/social/automate/cmemc-command-line-interface/invocation/docker-image/index.png" />
+<meta property="og:title" content="cmemc - Python Scripts - documentation.eccenca.com" />
+<meta property="og:image" content="https://documentation.eccenca.com/25.1/assets/images/social/develop/cmemc-scripts/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://documentation.eccenca.com/25.1/automate/cmemc-command-line-interface/invocation/docker-image/" />
+<meta property="og:url" content="https://documentation.eccenca.com/25.1/develop/cmemc-scripts/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="cmemc: Using the Docker Image - documentation.eccenca.com" />
-<meta property="twitter:image" content="https://documentation.eccenca.com/25.1/assets/images/social/automate/cmemc-command-line-interface/invocation/docker-image/index.png" />
- <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta property="twitter:title" content="cmemc - Python Scripts - documentation.eccenca.com" />
+<meta property="twitter:image" content="https://documentation.eccenca.com/25.1/assets/images/social/develop/cmemc-scripts/index.png" />
+ <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -305,7 +305,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -324,7 +324,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-the-docker-image" class="md-skip">
+        <a href="#cmemc-python-scripts" class="md-skip">
           Skip to content
         </a>
       
@@ -339,12 +339,12 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../../../..">
+  <a href="../../..">
     <strong>Click here to go to latest.</strong>
   </a>
 
             </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
           </aside>
         
       </div>
@@ -387,14 +387,14 @@
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="../.."
       title="documentation.eccenca.com"
       class="md-header__button md-logo"
       aria-label="documentation.eccenca.com"
       data-md-component="logo"
     >
       
-  <img src="../../../../assets/favicon.svg" alt="logo">
+  <img src="../../assets/favicon.svg" alt="logo">
 
     </a>
 
@@ -414,7 +414,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              cmemc: Using the Docker Image
+              cmemc - Python Scripts
             
           </span>
         </div>
@@ -525,7 +525,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../build/" class="md-tabs__link">
+        <a href="../../build/" class="md-tabs__link">
           
   
   
@@ -549,7 +549,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../explore-and-author/" class="md-tabs__link">
+        <a href="../../explore-and-author/" class="md-tabs__link">
           
   
   
@@ -573,7 +573,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../consume/" class="md-tabs__link">
+        <a href="../../consume/" class="md-tabs__link">
           
   
   
@@ -597,7 +597,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../deploy-and-configure/" class="md-tabs__link">
+        <a href="../../deploy-and-configure/" class="md-tabs__link">
           
   
   
@@ -617,13 +617,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../automate/" class="md-tabs__link">
           
   
   
@@ -643,11 +641,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../develop/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -678,7 +678,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../release-notes/corporate-memory-25-1/" class="md-tabs__link">
+        <a href="../../release-notes/corporate-memory-25-1/" class="md-tabs__link">
           
   
   
@@ -703,7 +703,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
   
@@ -747,9 +747,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="documentation.eccenca.com" class="md-nav__button md-logo" aria-label="documentation.eccenca.com" data-md-component="logo">
+    <a href="../.." title="documentation.eccenca.com" class="md-nav__button md-logo" aria-label="documentation.eccenca.com" data-md-component="logo">
       
-  <img src="../../../../assets/favicon.svg" alt="logo">
+  <img src="../../assets/favicon.svg" alt="logo">
 
     </a>
     documentation.eccenca.com
@@ -827,7 +827,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/" class="md-nav__link ">
+            <a href="../../build/" class="md-nav__link ">
               
   
   
@@ -894,7 +894,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/introduction-to-the-user-interface/" class="md-nav__link ">
+            <a href="../../build/introduction-to-the-user-interface/" class="md-nav__link ">
               
   
   
@@ -964,7 +964,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/rule-operators/" class="md-nav__link ">
+            <a href="../../build/rule-operators/" class="md-nav__link ">
               
   
   
@@ -1034,7 +1034,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/define-prefixes-namespaces/" class="md-nav__link ">
+            <a href="../../build/define-prefixes-namespaces/" class="md-nav__link ">
               
   
   
@@ -1104,7 +1104,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/cool-iris/" class="md-nav__link ">
+            <a href="../../build/cool-iris/" class="md-nav__link ">
               
   
   
@@ -1174,7 +1174,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/" class="md-nav__link ">
+            <a href="../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/" class="md-nav__link ">
               
   
   
@@ -1247,7 +1247,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/lift-data-from-json-and-xml-sources/" class="md-nav__link ">
+            <a href="../../build/lift-data-from-json-and-xml-sources/" class="md-nav__link ">
               
   
   
@@ -1320,7 +1320,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/extracting-data-from-a-web-api/" class="md-nav__link ">
+            <a href="../../build/extracting-data-from-a-web-api/" class="md-nav__link ">
               
   
   
@@ -1390,7 +1390,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/workflow-reconfiguration/" class="md-nav__link ">
+            <a href="../../build/workflow-reconfiguration/" class="md-nav__link ">
               
   
   
@@ -1460,7 +1460,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/loading-jdbc-datasets-incrementally/" class="md-nav__link ">
+            <a href="../../build/loading-jdbc-datasets-incrementally/" class="md-nav__link ">
               
   
   
@@ -1530,7 +1530,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/snowflake-tutorial/" class="md-nav__link ">
+            <a href="../../build/snowflake-tutorial/" class="md-nav__link ">
               
   
   
@@ -1611,7 +1611,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/active-learning/" class="md-nav__link ">
+            <a href="../../build/active-learning/" class="md-nav__link ">
               
   
   
@@ -1696,7 +1696,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/" class="md-nav__link ">
               
   
   
@@ -1766,7 +1766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/" class="md-nav__link ">
               
   
   
@@ -1834,7 +1834,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/define-the-need/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/define-the-need/" class="md-nav__link ">
               
   
   
@@ -1902,7 +1902,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/" class="md-nav__link ">
               
   
   
@@ -1970,7 +1970,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/" class="md-nav__link ">
               
   
   
@@ -2038,7 +2038,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/" class="md-nav__link ">
               
   
   
@@ -2106,7 +2106,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/" class="md-nav__link ">
+            <a href="../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/" class="md-nav__link ">
               
   
   
@@ -2182,7 +2182,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/variables/" class="md-nav__link ">
+            <a href="../../build/variables/" class="md-nav__link ">
               
   
   
@@ -2252,7 +2252,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/evaluate-template/" class="md-nav__link ">
+            <a href="../../build/evaluate-template/" class="md-nav__link ">
               
   
   
@@ -2322,7 +2322,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../build/kafka-consumer/" class="md-nav__link ">
+            <a href="../../build/kafka-consumer/" class="md-nav__link ">
               
   
   
@@ -2415,7 +2415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/" class="md-nav__link ">
+            <a href="../../explore-and-author/" class="md-nav__link ">
               
   
   
@@ -2482,7 +2482,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/workspace-configuration/" class="md-nav__link ">
+            <a href="../../explore-and-author/workspace-configuration/" class="md-nav__link ">
               
   
   
@@ -2558,7 +2558,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/" class="md-nav__link ">
               
   
   
@@ -2633,7 +2633,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/building-a-customized-user-interface/" class="md-nav__link ">
               
   
   
@@ -2700,7 +2700,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/" class="md-nav__link ">
               
   
   
@@ -2770,7 +2770,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/" class="md-nav__link ">
               
   
   
@@ -2840,7 +2840,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/" class="md-nav__link ">
               
   
   
@@ -2910,7 +2910,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/" class="md-nav__link ">
               
   
   
@@ -2988,7 +2988,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/statement-annotations/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/statement-annotations/" class="md-nav__link ">
               
   
   
@@ -3058,7 +3058,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/graph-exploration/versioning-of-graph-changes/" class="md-nav__link ">
+            <a href="../../explore-and-author/graph-exploration/versioning-of-graph-changes/" class="md-nav__link ">
               
   
   
@@ -3136,7 +3136,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/bke-module/" class="md-nav__link ">
+            <a href="../../explore-and-author/bke-module/" class="md-nav__link ">
               
   
   
@@ -3214,7 +3214,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/query-module/" class="md-nav__link ">
+            <a href="../../explore-and-author/query-module/" class="md-nav__link ">
               
   
   
@@ -3284,7 +3284,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/thesauri-management/" class="md-nav__link ">
+            <a href="../../explore-and-author/thesauri-management/" class="md-nav__link ">
               
   
   
@@ -3354,7 +3354,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/vocabulary-catalog/" class="md-nav__link ">
+            <a href="../../explore-and-author/vocabulary-catalog/" class="md-nav__link ">
               
   
   
@@ -3424,7 +3424,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/charts-catalog/" class="md-nav__link ">
+            <a href="../../explore-and-author/charts-catalog/" class="md-nav__link ">
               
   
   
@@ -3502,7 +3502,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../explore-and-author/embedding-services-via-the-integrations-module/" class="md-nav__link ">
+            <a href="../../explore-and-author/embedding-services-via-the-integrations-module/" class="md-nav__link ">
               
   
   
@@ -3591,7 +3591,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/" class="md-nav__link ">
+            <a href="../../consume/" class="md-nav__link ">
               
   
   
@@ -3658,7 +3658,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/consuming-graphs-in-power-bi/" class="md-nav__link ">
+            <a href="../../consume/consuming-graphs-in-power-bi/" class="md-nav__link ">
               
   
   
@@ -3728,7 +3728,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/consuming-graphs-with-redash/" class="md-nav__link ">
+            <a href="../../consume/consuming-graphs-with-redash/" class="md-nav__link ">
               
   
   
@@ -3798,7 +3798,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/consuming-graphs-with-sql-databases/" class="md-nav__link ">
+            <a href="../../consume/consuming-graphs-with-sql-databases/" class="md-nav__link ">
               
   
   
@@ -3868,7 +3868,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/provide-data-in-any-format-via-a-custom-api/" class="md-nav__link ">
+            <a href="../../consume/provide-data-in-any-format-via-a-custom-api/" class="md-nav__link ">
               
   
   
@@ -3938,7 +3938,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/populate-data-to-neo4j/" class="md-nav__link ">
+            <a href="../../consume/populate-data-to-neo4j/" class="md-nav__link ">
               
   
   
@@ -4008,7 +4008,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../consume/consume-graphs-in-apache-kafka/" class="md-nav__link ">
+            <a href="../../consume/consume-graphs-in-apache-kafka/" class="md-nav__link ">
               
   
   
@@ -4101,7 +4101,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/" class="md-nav__link ">
               
   
   
@@ -4168,7 +4168,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/system-architecture/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/system-architecture/" class="md-nav__link ">
               
   
   
@@ -4246,7 +4246,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/requirements/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/requirements/" class="md-nav__link ">
               
   
   
@@ -4324,7 +4324,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/installation/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/installation/" class="md-nav__link ">
               
   
   
@@ -4391,7 +4391,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/installation/scenario-single-node-cloud-installation/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/installation/scenario-single-node-cloud-installation/" class="md-nav__link ">
               
   
   
@@ -4461,7 +4461,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/installation/scenario-local-installation/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/installation/scenario-local-installation/" class="md-nav__link ">
               
   
   
@@ -4531,7 +4531,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/installation/scenario-redhat-enterprise-linux-7/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/installation/scenario-redhat-enterprise-linux-7/" class="md-nav__link ">
               
   
   
@@ -4601,7 +4601,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/installation/migrating-stores/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/installation/migrating-stores/" class="md-nav__link ">
               
   
   
@@ -4699,7 +4699,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/" class="md-nav__link ">
               
   
   
@@ -4766,7 +4766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/docker-orchestration/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/docker-orchestration/" class="md-nav__link ">
               
   
   
@@ -4838,7 +4838,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
               
   
   
@@ -4903,7 +4903,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/dataintegration/plugin-reference/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/dataintegration/plugin-reference/" class="md-nav__link ">
               
   
   
@@ -4971,7 +4971,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/dataintegration/activity-reference/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/dataintegration/activity-reference/" class="md-nav__link ">
               
   
   
@@ -5051,7 +5051,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/explore/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/explore/" class="md-nav__link ">
               
   
   
@@ -5122,7 +5122,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/explore/dataplatform/" class="md-nav__link ">
               
   
   
@@ -5166,7 +5166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-full/" class="md-nav__link">
         
   
   
@@ -5194,7 +5194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/" class="md-nav__link">
         
   
   
@@ -5284,7 +5284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full/" class="md-nav__link">
         
   
   
@@ -5312,7 +5312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-http-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-http-full/" class="md-nav__link">
         
   
   
@@ -5340,7 +5340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full/" class="md-nav__link">
         
   
   
@@ -5368,7 +5368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-neptune-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-neptune-full/" class="md-nav__link">
         
   
   
@@ -5396,7 +5396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full/" class="md-nav__link">
+      <a href="../../deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full/" class="md-nav__link">
         
   
   
@@ -5461,7 +5461,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/explore/graph-resource-pattern/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/explore/graph-resource-pattern/" class="md-nav__link ">
               
   
   
@@ -5541,7 +5541,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/keycloak/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/keycloak/" class="md-nav__link ">
               
   
   
@@ -5606,7 +5606,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/keycloak/change-passwords-and-keys/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/keycloak/change-passwords-and-keys/" class="md-nav__link ">
               
   
   
@@ -5674,7 +5674,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/keycloak/using-external-keycloak/" class="md-nav__link ">
               
   
   
@@ -5750,7 +5750,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/quad-store-configuration/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/quad-store-configuration/" class="md-nav__link ">
               
   
   
@@ -5818,7 +5818,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/reverse-proxy/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/reverse-proxy/" class="md-nav__link ">
               
   
   
@@ -5886,7 +5886,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/access-conditions/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/access-conditions/" class="md-nav__link ">
               
   
   
@@ -5954,7 +5954,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/label-resolution-and-full-text-search/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/label-resolution-and-full-text-search/" class="md-nav__link ">
               
   
   
@@ -6022,7 +6022,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/production-ready-settings/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/production-ready-settings/" class="md-nav__link ">
               
   
   
@@ -6090,7 +6090,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../deploy-and-configure/configuration/caveats/" class="md-nav__link ">
+            <a href="../../deploy-and-configure/configuration/caveats/" class="md-nav__link ">
               
   
   
@@ -6149,8 +6149,6 @@
       
   
   
-    
-  
   
   
     
@@ -6172,21 +6170,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../automate/" class="md-nav__link ">
               
   
   
@@ -6206,13 +6201,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6229,8 +6224,6 @@
                 
   
   
-    
-  
   
   
     
@@ -6259,15 +6252,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/" class="md-nav__link ">
               
   
   
@@ -6296,7 +6289,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6337,7 +6330,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../installation/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/installation/" class="md-nav__link ">
               
   
   
@@ -6417,7 +6410,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/" class="md-nav__link ">
               
   
   
@@ -6484,7 +6477,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/file-based-configuration/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/file-based-configuration/" class="md-nav__link ">
               
   
   
@@ -6557,7 +6550,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/environment-based-configuration/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/environment-based-configuration/" class="md-nav__link ">
               
   
   
@@ -6630,7 +6623,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/completion-setup/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/completion-setup/" class="md-nav__link ">
               
   
   
@@ -6700,7 +6693,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/getting-credentials-from-external-processes/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/" class="md-nav__link ">
               
   
   
@@ -6773,7 +6766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/certificate-handling-and-ssl-verification/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/" class="md-nav__link ">
               
   
   
@@ -6830,8 +6823,6 @@
                 
   
   
-    
-  
   
   
     
@@ -6856,15 +6847,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/invocation/" class="md-nav__link ">
               
   
   
@@ -6890,7 +6881,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -6907,8 +6898,6 @@
                 
   
   
-    
-  
   
   
     
@@ -6925,15 +6914,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../automate/cmemc-command-line-interface/invocation/docker-image/" class="md-nav__link ">
               
   
   
@@ -6954,7 +6943,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -7003,7 +6992,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../github-action/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/invocation/github-action/" class="md-nav__link ">
               
   
   
@@ -7073,7 +7062,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../gitlab-pipeline/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/invocation/gitlab-pipeline/" class="md-nav__link ">
               
   
   
@@ -7143,7 +7132,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../sparql-scripts/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/invocation/sparql-scripts/" class="md-nav__link ">
               
   
   
@@ -7221,7 +7210,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../workflow-execution-and-orchestration/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/" class="md-nav__link ">
               
   
   
@@ -7294,7 +7283,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../troubleshooting-and-caveats/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/troubleshooting-and-caveats/" class="md-nav__link ">
               
   
   
@@ -7383,7 +7372,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/" class="md-nav__link ">
               
   
   
@@ -7464,7 +7453,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/" class="md-nav__link ">
               
   
   
@@ -7531,7 +7520,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/acl/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/acl/" class="md-nav__link ">
               
   
   
@@ -7601,7 +7590,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/client/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/client/" class="md-nav__link ">
               
   
   
@@ -7671,7 +7660,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/metrics/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/metrics/" class="md-nav__link ">
               
   
   
@@ -7741,7 +7730,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/migration/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/migration/" class="md-nav__link ">
               
   
   
@@ -7811,7 +7800,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/store/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/store/" class="md-nav__link ">
               
   
   
@@ -7881,7 +7870,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/user/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/user/" class="md-nav__link ">
               
   
   
@@ -7953,7 +7942,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/workspace/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/workspace/" class="md-nav__link ">
               
   
   
@@ -8020,7 +8009,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/admin/workspace/python/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/" class="md-nav__link ">
               
   
   
@@ -8106,7 +8095,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/config/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/config/" class="md-nav__link ">
               
   
   
@@ -8178,7 +8167,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/dataset/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/dataset/" class="md-nav__link ">
               
   
   
@@ -8245,7 +8234,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/dataset/resource/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/dataset/resource/" class="md-nav__link ">
               
   
   
@@ -8325,7 +8314,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/graph/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/graph/" class="md-nav__link ">
               
   
   
@@ -8392,7 +8381,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/graph/validation/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/graph/validation/" class="md-nav__link ">
               
   
   
@@ -8472,7 +8461,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/project/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/project/" class="md-nav__link ">
               
   
   
@@ -8539,7 +8528,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/project/variable/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/project/variable/" class="md-nav__link ">
               
   
   
@@ -8617,7 +8606,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/query/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/query/" class="md-nav__link ">
               
   
   
@@ -8689,7 +8678,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/vocabulary/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/vocabulary/" class="md-nav__link ">
               
   
   
@@ -8756,7 +8745,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/vocabulary/cache/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/vocabulary/cache/" class="md-nav__link ">
               
   
   
@@ -8836,7 +8825,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/workflow/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/workflow/" class="md-nav__link ">
               
   
   
@@ -8903,7 +8892,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../command-reference/workflow/scheduler/" class="md-nav__link ">
+            <a href="../../automate/cmemc-command-line-interface/command-reference/workflow/scheduler/" class="md-nav__link ">
               
   
   
@@ -8997,7 +8986,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../processing-data-with-variable-input-workflows/" class="md-nav__link ">
+            <a href="../../automate/processing-data-with-variable-input-workflows/" class="md-nav__link ">
               
   
   
@@ -9067,7 +9056,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../scheduling-workflows/" class="md-nav__link ">
+            <a href="../../automate/scheduling-workflows/" class="md-nav__link ">
               
   
   
@@ -9137,7 +9126,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../continuous-integration/" class="md-nav__link ">
+            <a href="../../automate/continuous-integration/" class="md-nav__link ">
               
   
   
@@ -9193,6 +9182,8 @@
       
   
   
+    
+  
   
   
     
@@ -9218,18 +9209,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -9249,13 +9243,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -9296,7 +9290,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/accessing-graphs-with-java-applications/" class="md-nav__link ">
+            <a href="../accessing-graphs-with-java-applications/" class="md-nav__link ">
               
   
   
@@ -9372,7 +9366,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/python-plugins/" class="md-nav__link ">
+            <a href="../python-plugins/" class="md-nav__link ">
               
   
   
@@ -9447,7 +9441,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/python-plugins/installation/" class="md-nav__link ">
+            <a href="../python-plugins/installation/" class="md-nav__link ">
               
   
   
@@ -9517,7 +9511,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/python-plugins/development/" class="md-nav__link ">
+            <a href="../python-plugins/development/" class="md-nav__link ">
               
   
   
@@ -9587,7 +9581,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/python-plugins/setup/" class="md-nav__link ">
+            <a href="../python-plugins/setup/" class="md-nav__link ">
               
   
   
@@ -9673,7 +9667,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/cmempy-python-api/" class="md-nav__link ">
+            <a href="../cmempy-python-api/" class="md-nav__link ">
               
   
   
@@ -9719,6 +9713,8 @@
                 
   
   
+    
+  
   
   
     
@@ -9735,15 +9731,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/cmemc-scripts/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -9772,7 +9768,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -9821,7 +9817,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/dataintegration-apis/" class="md-nav__link ">
+            <a href="../dataintegration-apis/" class="md-nav__link ">
               
   
   
@@ -9891,7 +9887,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../develop/dataplatform-apis/" class="md-nav__link ">
+            <a href="../dataplatform-apis/" class="md-nav__link ">
               
   
   
@@ -10056,7 +10052,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-25-1/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-25-1/" class="md-nav__link ">
               
   
   
@@ -10132,7 +10128,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-24-3/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-24-3/" class="md-nav__link ">
               
   
   
@@ -10200,7 +10196,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-24-2/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-24-2/" class="md-nav__link ">
               
   
   
@@ -10268,7 +10264,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-24-1/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-24-1/" class="md-nav__link ">
               
   
   
@@ -10336,7 +10332,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-23-3/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-23-3/" class="md-nav__link ">
               
   
   
@@ -10404,7 +10400,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-23-2/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-23-2/" class="md-nav__link ">
               
   
   
@@ -10472,7 +10468,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-23-1/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-23-1/" class="md-nav__link ">
               
   
   
@@ -10540,7 +10536,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-22-2/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-22-2/" class="md-nav__link ">
               
   
   
@@ -10608,7 +10604,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-22-1/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-22-1/" class="md-nav__link ">
               
   
   
@@ -10676,7 +10672,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-21-11/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-21-11/" class="md-nav__link ">
               
   
   
@@ -10744,7 +10740,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-21-06/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-21-06/" class="md-nav__link ">
               
   
   
@@ -10812,7 +10808,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-21-04/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-21-04/" class="md-nav__link ">
               
   
   
@@ -10880,7 +10876,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-21-02/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-21-02/" class="md-nav__link ">
               
   
   
@@ -10948,7 +10944,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-20-12/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-20-12/" class="md-nav__link ">
               
   
   
@@ -11016,7 +11012,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-20-10/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-20-10/" class="md-nav__link ">
               
   
   
@@ -11084,7 +11080,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-20-06/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-20-06/" class="md-nav__link ">
               
   
   
@@ -11152,7 +11148,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-20-03/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-20-03/" class="md-nav__link ">
               
   
   
@@ -11220,7 +11216,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../release-notes/corporate-memory-19-10/" class="md-nav__link ">
+            <a href="../../release-notes/corporate-memory-19-10/" class="md-nav__link ">
               
   
   
@@ -11295,7 +11291,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorials/" class="md-nav__link ">
+            <a href="../../tutorials/" class="md-nav__link ">
               
   
   
@@ -11374,10 +11370,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#image-and-tags" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Image and Tags
+        Installation
       
     </span>
   </a>
@@ -11385,10 +11381,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#volumes" class="md-nav__link">
+  <a href="#configure-a-connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Volumes
+        Configure a connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-shebang-to-create-an-executable-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using a shebang to create an executable file
       
     </span>
   </a>
@@ -11421,7 +11439,7 @@
         
       
       
-        <a href="../../../../tags/#tag:docker" class="md-tag md-tag-icon md-tag--docker">Docker</a>
+        <a href="../../tags/#tag:automate" class="md-tag md-tag-icon md-tag--automate">Automate</a>
       
     
       
@@ -11433,7 +11451,19 @@
         
       
       
-        <a href="../../../../tags/#tag:cmemc" class="md-tag md-tag-icon md-tag--cmemc">cmemc</a>
+        <a href="../../tags/#tag:python" class="md-tag md-tag-icon md-tag--python">Python</a>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <a href="../../tags/#tag:cmemc" class="md-tag md-tag-icon md-tag--cmemc">cmemc</a>
       
     
   </nav>
@@ -11443,57 +11473,130 @@
   
 
 
-<h1 id="using-the-docker-image">Using the Docker Image<a class="headerlink" href="#using-the-docker-image" title="Permanent link">¤</a></h1>
+<h1 id="cmemc-python-scripts">cmemc - Python Scripts<a class="headerlink" href="#cmemc-python-scripts" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
-<p>In addition to the cmemc distribution package, you can use the eccenca cmemc docker image, which is based on the <a href="https://catalog.redhat.com/software/containers/ubi9/ubi-minimal/615bd9b4075b022acc111bf5">Red Hat Universal Base Image 9 Minimal</a>.
-This is especially needed if you want to use cmemc in orchestrations.</p>
-<h2 id="image-and-tags">Image and Tags<a class="headerlink" href="#image-and-tags" title="Permanent link">¤</a></h2>
-<p>The following image - tag combinations are available for public use:</p>
+<p>As a more lightweight and fault-tolerant alternative to using cmempy directly, we recommend to call <a href="../../automate/cmemc-command-line-interface/command-reference/">cmemc commands</a> directly in your Python automation scripts.</p>
+<p>The advantages of this approach are:</p>
 <ul>
-<li><code>docker-registry.eccenca.com/eccenca-cmemc:v24.3.0</code> - a specific release</li>
-<li><code>docker-registry.eccenca.com/eccenca-cmemc:latest</code> - same as the latest release</li>
+<li>You can test and use your calls in the command line before integrating them.</li>
+<li>You don&rsquo;t have to worry about internal details and have a well-documented and stable interface.</li>
+<li>Authorization is done in the same way, cmemc is doing this.</li>
 </ul>
-<div class="highlight"><span class="filename">Image retrieval and check cmemc version</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>docker-registry.eccenca.com/eccenca-cmemc:v24.3.0<span class="w"> </span>--version
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">Unable to find image &#39;docker-registry.eccenca.com/eccenca-cmemc:v24.3.0&#39; locally</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">v24.3.0: Pulling from eccenca-cmemc</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">...</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">Digest: sha256:....</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">Status: Downloaded newer image for docker-registry.eccenca.com/eccenca-cmemc:v24.3.0</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">cmemc, version 24.3.0, running under python 3.11.9</span>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¤</a></h2>
+<p>cmemc is published as an Apache 2 licensed open source python package at <a href="https://pypi.org/project/cmem-cmempy/">pypi.org</a>, hence you are able to install it with a simple pip command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>cmem-cmemc
 </code></pre></div>
-<h2 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Permanent link">¤</a></h2>
-<p>cmemc processes a configuration file and can import and export files which represent graph, project or workspace payloads.
-These files need to be mounted via <a href="https://docs.docker.com/storage/volumes/">docker volumes</a> to be accessible for the dockerized cmemc.</p>
-<ul>
-<li><code>/config/cmemc.ini</code> (file) - the loaded configuration file</li>
-<li><code>/data</code> (directory) - the working directory</li>
-</ul>
-<div class="highlight"><span class="filename">Using a volume to mount the config.</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>cat<span class="w"> </span>cmemc.ini
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">[my-deployment]</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">CMEM_BASE_URI=https://data.example.org/</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="go">OAUTH_GRANT_TYPE=client_credentials</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">OAUTH_CLIENT_ID=cmem-service-account</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="go">OAUTH_CLIENT_SECRET=credentialshere</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/cmemc.ini:/config/cmemc.ini<span class="w"> </span>docker-registry.eccenca.com/eccenca-cmemc:v24.1<span class="w"> </span>config<span class="w"> </span>list
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="go">my-deployment</span>
+<h2 id="configure-a-connection">Configure a connection<a class="headerlink" href="#configure-a-connection" title="Permanent link">¤</a></h2>
+<p>Assuming you have already <a href="../../automate/cmemc-command-line-interface/configuration/file-based-configuration/">configured your cmemc connection</a>, using it in Python scripts is quite easy.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># use the cmemc connection</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CMEMC_CONNECTION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;my-dev-cmem&quot;</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">Using a volume to additionally mount the data directory.</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>cat<span class="w"> </span>list-graphs.sparql
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">SELECT DISTINCT ?graph (COUNT(?graph) AS ?triples)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">WHERE {</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="go">    GRAPH ?graph</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="go">    {</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="go">        ?s ?p ?o</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="go">    }</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="go">}</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="go">GROUP BY ?graph</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="go">ORDER BY DESC(?triples)</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/cmemc.ini:/config/cmemc.ini<span class="w"> </span>docker-registry.eccenca.com/eccenca-cmemc:v24.3.0<span class="w"> </span>-c<span class="w"> </span>my-deployment<span class="w"> </span>query<span class="w"> </span>execute<span class="w"> </span>./list-graphs.sparql
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="go">graph,triples</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="go">http://schema.org/,8809</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="go">https://vocab.eccenca.com/shacl/,1752</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="go">[...]</span>
+<p>This will tell cmemc to use the configured connection <code>my-dev-cmem</code>.</p>
+<h2 id="running-commands">Running commands<a class="headerlink" href="#running-commands" title="Permanent link">¤</a></h2>
+<p>In order to execute a command and process the results, you can use this wrapper function:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">click.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">CliRunner</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cmem_cmemc.cli</span><span class="w"> </span><span class="kn">import</span> <span class="n">cli</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">cmemc</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a cmemc command and provide the output.</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="sd">    When using the --raw option, output is a parsed list of dictionaries.</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="sd">    When using the --id-only option, output is a parsed list of strings.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="sd">    Returns plain text output otherwise.</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="sd">    Have a look at click API documentation for more options:</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="sd">    https://click.palletsprojects.com/en/stable/api/#click.testing.CliRunner</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">CliRunner</span><span class="p">()</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">cli</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">exit_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="k">if</span> <span class="s2">&quot;--id-only&quot;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="k">if</span> <span class="s2">&quot;--raw&quot;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div>
+<p>This function will use the configured connection to execute a command and return the result.
+Please note that the output can bei either a multi-line string, a list of strings or a list of dictionaries.
+This is because we made sure that <code>--raw</code> outputs JSON and <code>--id-only</code> only identifier.</p>
+<p>As a last step, you can iterate and process the results:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># specify the command as a list of arguments - in this case: list all existing worflows</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;workflow&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;--raw&quot;</span><span class="p">]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># iterate and process the output</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">for</span> <span class="n">workflow</span> <span class="ow">in</span> <span class="n">cmemc</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">project_id</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;projectId&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">workflow_id</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Workflow &#39;</span><span class="si">{</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">&#39; in &#39;</span><span class="si">{</span><span class="n">project_id</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="using-a-shebang-to-create-an-executable-file">Using a shebang to create an executable file<a class="headerlink" href="#using-a-shebang-to-create-an-executable-file" title="Permanent link">¤</a></h2>
+<p>As a nice addon, you could extend your script with a <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a> to start <a href="https://docs.astral.sh/uv/">uv</a>.
+This will also install and manage dependencies and python versions for you:</p>
+<p>The complete script looks like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/usr/bin/env -S uv run --script</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># /// script</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># dependencies = [</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#   &quot;cmem-cmemc&quot;,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># ]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># ///</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">click.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">CliRunner</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cmem_cmemc.cli</span><span class="w"> </span><span class="kn">import</span> <span class="n">cli</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">cmemc</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a cmemc command and provide the output.</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="sd">    When using the cmemc --raw option, output is a parsed list of dictionaries.</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="sd">    When using the cmemc --id-only option, output is a parsed list of strings.</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="sd">    Have a look at click API documentation for more options:</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="sd">    https://click.palletsprojects.com/en/stable/api/#click.testing.CliRunner</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">CliRunner</span><span class="p">()</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">cli</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">exit_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="p">)</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="k">if</span> <span class="s2">&quot;--id-only&quot;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="k">if</span> <span class="s2">&quot;--raw&quot;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="k">return</span> <span class="n">output</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="c1"># use the cmemc connection</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CMEMC_CONNECTION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;my-dev-cmem&quot;</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="c1"># specify the command as a list of arguments</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="c1"># in this case: list all existing worflows</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;workflow&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;--raw&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="c1"># iterate and process the output</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="k">for</span> <span class="n">workflow</span> <span class="ow">in</span> <span class="n">cmemc</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>    <span class="n">project_id</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;projectId&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    <span class="n">workflow_id</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Workflow &#39;</span><span class="si">{</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">&#39; in &#39;</span><span class="si">{</span><span class="n">project_id</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Executing this python script will look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>./cmemc-script.py
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">Workflow &#39;input-output&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">Workflow &#39;input-output-replaceable&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="go">Workflow &#39;normal&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="go">Workflow &#39;only-input&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="go">Workflow &#39;only-input-included&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="go">Workflow &#39;only-input-replaceable&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="go">Workflow &#39;only-output&#39; in &#39;io&#39;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="go">Workflow &#39;only-output-replaceable&#39; in &#39;io&#39;</span>
 </code></pre></div>
 
 
@@ -11517,7 +11620,7 @@ These files need to be mounted via <a href="https://docs.docker.com/storage/volu
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 19, 2024 16:30:57"><span class="timeago" datetime="2024-12-19T16:30:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 19, 2024 16:30:57">2024-12-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 21, 2025 11:39:47"><span class="timeago" datetime="2025-05-21T11:39:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 21, 2025 11:39:47">2025-05-21</span>
   </span>
 
     
@@ -11527,7 +11630,7 @@ These files need to be mounted via <a href="https://docs.docker.com/storage/volu
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 20, 2022 14:56:07"><span class="timeago" datetime="2022-09-20T14:56:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 20, 2022 14:56:07">2022-09-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 21, 2025 11:39:47"><span class="timeago" datetime="2025-05-21T11:39:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 21, 2025 11:39:47">2025-05-21</span>
   </span>
 
     
@@ -11784,20 +11887,20 @@ These files need to be mounted via <a href="https://docs.docker.com/storage/volu
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["announce.dismiss", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.annotate", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.c7c1ca2c.min.js", "tags": {"API": "api", "AdvancedTutorial": "advanced", "Automate": "automate", "BeginnersTutorial": "beginners", "BestPractice": "best-practice", "Configuration": "configuration", "Dashboards": "dashboards", "Docker": "docker", "ExpertTutorial": "expert", "Filesystem": "material-file-tree", "Java": "java", "Keycloak": "keycloak", "KnowledgeGraph": "knowledge-graph", "Load Balancer": "simple-awselasticloadbalancing", "Project": "project", "Python": "python", "PythonPlugin": "python-plugin", "Reference": "reference", "ReleaseNote": "release-note", "SPARQL": "sparql", "Security": "security", "Validation": "validation", "Variables": "variables", "Video": "video", "Vocabulary": "vocabulary", "Volume": "fontawesome-solid-hard-drive", "Workflow": "workflow", "cmemc": "cmemc"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.annotate", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.c7c1ca2c.min.js", "tags": {"API": "api", "AdvancedTutorial": "advanced", "Automate": "automate", "BeginnersTutorial": "beginners", "BestPractice": "best-practice", "Configuration": "configuration", "Dashboards": "dashboards", "Docker": "docker", "ExpertTutorial": "expert", "Filesystem": "material-file-tree", "Java": "java", "Keycloak": "keycloak", "KnowledgeGraph": "knowledge-graph", "Load Balancer": "simple-awselasticloadbalancing", "Project": "project", "Python": "python", "PythonPlugin": "python-plugin", "Reference": "reference", "ReleaseNote": "release-note", "SPARQL": "sparql", "Security": "security", "Validation": "validation", "Variables": "variables", "Video": "video", "Vocabulary": "vocabulary", "Volume": "fontawesome-solid-hard-drive", "Workflow": "workflow", "cmemc": "cmemc"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f807c082.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f807c082.min.js"></script>
       
-        <script src="../../../../js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../../../assets/externals/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+        <script src="../../assets/externals/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="../../../../assets/tablesort.js"></script>
+        <script src="../../assets/tablesort.js"></script>
       
-        <script src="../../../../assets/extra.js"></script>
+        <script src="../../assets/extra.js"></script>
       
     
   <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
