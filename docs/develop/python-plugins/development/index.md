@@ -660,3 +660,16 @@ self.log.info("Successfully executed Workflow Plugin")
 
 On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal Build (DataIntegration) log stream.
 This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
+
+## Concurrency
+
+CMEM uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
+Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor) relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:
+
+* Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.
+* A missing `__main__` context can also result in deadlocks.
+* JEP shares memory between Python and Java, which conflicts with multiprocessing’s requirement for isolated memory spaces.
+
+In contrast, Python’s [concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) does not encounter these issues. It uses threads that share the same memory space and operate within a single process, avoiding the need for subprocess creation.
+
+**Recommendation:** Always use `ThreadPoolExecutor` in CMEM Python plugins running under JEP, as `ProcessPoolExecutor` may cause deadlocks.
