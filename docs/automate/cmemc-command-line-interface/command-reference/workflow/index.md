@@ -79,12 +79,12 @@ With this command, you can execute a workflow that uses replaceable datasets as 
                                     Please note that the io command will not
                                     warn you on overwriting existing output
                                     files.
-    --input-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/json|application/xml|text/csv|guess]
+    --input-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/json|application/xml|text/csv|application/octet-stream|guess]
                                     Which input format should be processed: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
                                     fail.
-    --output-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/json|application/xml|application/n-triples|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|text/csv|guess]
+    --output-mimetype [application/x-plugin-file|application/x-plugin-file|application/x-plugin-csv|application/x-plugin-json|application/x-plugin-xml|application/x-plugin-text|application/x-plugin-text|application/x-plugin-excel|application/x-plugin-multiCsv|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/x-plugin-binaryFile|application/json|application/xml|application/n-triples|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|text/csv|application/octet-stream|guess]
                                     Which output format should be requested: If
                                     not given, cmemc will try to guess the mime
                                     type based on the file extension or will
