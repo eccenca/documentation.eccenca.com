@@ -11,7 +11,7 @@ tags:
 
 List, create, delete and show graph imports.
 
-Graphs are identified by an IRI. Statement imports are managed by creating owl:imports statements such as '`FROM_GRAPH` owl:imports `TO_GRAPH`' in the `FROM_GRAPH`. All statements in the `TO_GRAPH` are then available in the `FROM_GRAPH`.
+Graphs are identified by an IRI. Statement imports are managed by creating owl:imports statements such as "`FROM_GRAPH` owl:imports `TO_GRAPH`" in the `FROM_GRAPH`. All statements in the `TO_GRAPH` are then available in the `FROM_GRAPH`.
 
 !!! note
     The get a list of existing graphs, execute the `graph list` command or use tab-completion.
