@@ -98,6 +98,5 @@ We are excited to announce cmemc v25.4.0, which introduces new features, improve
 
 ### eccenca Corporate Memory Control (cmemc)
 
-- With the intoduction of the `graph imports` command group, the `graph tree` command is now deprecated.
+-   With the introduction of the `graph imports` command group, the `graph tree` command is now deprecated.
     -   use `graph imports tree` instead
-
