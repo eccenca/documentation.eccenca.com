@@ -46,7 +46,43 @@ More detailed information for this release is provided in the next sections.
 
 ## eccenca DataIntegration v25.2.0
 
-...
+We are excited to announce the release of DataIntegration v25.2.0, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+
+**v25.2.0 of DataIntegration adds the following new features:**
+
+-   New operators and dataset for improved file handling in workflows:
+    -   **Add project files** workflow operator - Add files to projects directly from workflows
+    -   **Get project files** workflow operator - Retrieve and process project files within workflow executions
+    -   **Binary file dataset** - Handle binary files (PDF, images, etc.) in data integration pipelines
+-   **Neo4j database configuration** - Added parameter to configure specific databases in Neo4j connections
+-   **Project variable autocompletion** - All template operators now support autocompletion for project variables
+-   **Camel case transform operator** - Convert text to camel case format for data standardization
+-   **Project page URL suffix configuration** - New config key `workbench.project.defaultUrlSuffix` to configure the project page view (defaults to `?itemType=workflow&page=1&limit=10`)
+-   **Path auto-completion** - Mapping and linking rule editors now feature intelligent path auto-completion like in value mapping forms
+
+**v25.2.0 of DataIntegration introduces the following changes:**
+
+-   **Infrastructure updates:**
+    -   Migrated to Java 21 for improved performance and latest language features
+    -   Updated Docker base image to `eclipse-temurin:21-ubi9-minimal`
+-   **"Internal dataset (single graph)"** added to plugins to properly display reports using this dataset type
+-   **Configurable favicon** - Organizations can customize the application favicon
+-   **JSON dataset improvements:**
+    -   New parameter to control automatic navigation into JSON arrays
+    -   New `#arrayPath` path operator for explicit navigation into JSON arrays (available when automatic JSON array navigation is set to `false`)
+    -   New `#uuid` path operator generates type 3 (name-based) UUIDs from JSON node string representations
+    -   New `#arrayText` path operator for enhanced array value extraction
+
+**v25.2.0 of DataIntegration ships the following fixes:**
+
+-   Fixed queries with ORDER BY clauses in SQL dataset
+-   Fixed create task dialog focus issues when opened via 'connect to newly created...' menu option
+-   Fixed errors in Office365 dataset tests and adapted to Microsoft API changes
+-   Fixed display issues for workflow reports containing internal datasets
+-   Fixed drag-and-drop problems when adding operators to nested workflow editors
+-   Non-printable characters in CSV datasets are now preserved during read/write transformations
+-   XML datasets now return empty values for empty tags when string values are expected
+-   Project variable updates now properly use the triggering user's credentials
 
 ## eccenca Explore v25.2.0
 
@@ -95,6 +131,15 @@ We are excited to announce cmemc v25.4.0, which introduces new features, improve
     -   `--include-import-statements` option to delete imports from other graphs to the deleted graph
 
 ## Migration Notes
+
+### eccenca DataIntegration
+
+-   The following plugins have been deprecated and will be removed in a future release:
+    -   Old Python plugins depending on Jython (Python 2.x)
+    -   Spark scripting plugins
+    -   Spark virtual dataset
+    -   Legacy REST operator
+-   To check if your instance uses any deprecated plugins, use the endpoint: `GET {DataIntegrationURL}/api/core/usages/deprecatedPlugins`
 
 ### eccenca Corporate Memory Control (cmemc)
 
