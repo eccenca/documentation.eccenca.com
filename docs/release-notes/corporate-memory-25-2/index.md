@@ -33,13 +33,13 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.1.1
--   eccenca Explore v25.1.1 (formerly DataPlatform and DataManager)
+-   eccenca DataIntegration v25.2.0
+-   eccenca Explore v25.2.0 (formerly DataPlatform and DataManager)
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
 
--   Ontotext GraphDB v10.8.5
+-   Ontotext GraphDB v11.0.2
 -   Keycloak v25.0.6
 
 More detailed information for this release is provided in the next sections.
@@ -86,7 +86,53 @@ We are excited to announce the release of DataIntegration v25.2.0, which introdu
 
 ## eccenca Explore v25.2.0
 
-...
+We are pleased to announce Explore v25.2.0, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.0 of Explore adds the following new features:**
+
+-   **Enhanced SHACL Shape Management:**
+    -   Create target classes for node shapes on-the-fly during shape definition
+    -   Create properties for property shapes on-the-fly without leaving the shape editor
+    -   Create classes for property shapes on-the-fly for better data modeling
+    -   Support for defining properties with `domainIncludes` and `rangeIncludes` predicates (as defined in either `schema:`,`dcam:` or `gist:`)
+)
+-   **Query Catalog Enhancements:**
+    -   Graph selection support for Query Catalog, allowing multiple query catalog graphs and editing queries in arbitrary graphs
+    -   Graph selection support for Charts visualization, allowing to store and edit chart visualization in arbitrary graphs
+-   **GraphDB 11.0.x Support** - Full compatibility with the latest GraphDB version
+-   **Unified Error Handling** - New RTKAction handler provides consistent error handling across the application
+
+**v25.2.0 of Explore introduces the following changes:**
+
+-   **Infrastructure Updates:**
+    -   Upgraded to Spring Boot 3.5.x and Apache Jena 5.4
+    -   Migrated to Java 21 runtime for improved performance
+-   **Timetracker Module** - Complete rework of the Timetracker and reports module for better performance and usability
+-   **Knowledge Graph Editor (BKE) Improvements:**
+    -   Updated to React Flow v12 for enhanced graph visualization
+    -   Automatic canvas scrolling when dragging items beyond visible area
+    -   Advanced multi-select functionality on canvas for bulk operations
+-   **SPARQL Query Endpoints** - Changed to use an explicit list of allowed content-types for better security
+-   **Catalog Query Management** - Update and SELECT queries are now differentiated by `rdf:type` using `shui:SparqlQuery` or `shui:UpdateQuery`
+
+**v25.2.0 of Explore ships the following fixes:**
+
+-   **Query Catalog:**
+    -   Fixed SPARQL Query editor behavior after "save as" operation
+    -   Improved error handling in Query Catalog API
+-   **Knowledge Graph Editor (BKE):**
+    -   Property shape descriptions now consistently display as tooltips
+    -   Fixed selection issues with expanded nodes
+    -   Fixed greyed-out entries in Initial Search & Explore Navigation Box
+    -   Resolved highlight lag issues for better performance
+-   **General Fixes:**
+    -   Added warning when "New graph from File" overwrites existing graphs
+    -   Empty node shapes are now properly hidden
+    -   Fixed SHACL Edit Validation Button stability issues
+    -   Fixed SHACL MaxCount property behavior
+    -   Resolved duplicate entries in ResourceManager table
+    -   Fixed broken resource selection for domain and range when graphs contain complex classes
+    -   Enabled empty GSP multipart file uploads
 
 ## eccenca Corporate Memory Control (cmemc) v25.4.0
 
@@ -140,6 +186,12 @@ We are excited to announce cmemc v25.4.0, which introduces new features, improve
     -   Spark virtual dataset
     -   Legacy REST operator
 -   To check if your instance uses any deprecated plugins, use the endpoint: `GET {DataIntegrationURL}/api/core/usages/deprecatedPlugins`
+
+### eccenca Explore
+
+-   **Query Catalog Query Type Changes** - Catalog managed queries no longer persist `shui:queryType`. Update and SELECT queries are now differentiated by `rdf:type`:
+    -   SELECT queries use `shui:SparqlQuery`
+    -   UPDATE queries use `shui:UpdateQuery`
 
 ### eccenca Corporate Memory Control (cmemc)
 
