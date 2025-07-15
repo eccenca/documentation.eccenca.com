@@ -15,17 +15,17 @@ Corporate Memory 25.2.0 is the second major release in 2025.
 
 The highlights of this release are:
 
--   Build: **Seamless Workflow Integration**
-    -   Directly connecting datasets with explicit schemas to workflow operators simplifies data ingestion and processing, allowing users to quickly incorporate CSV and text data into their workflows.
+-   Build: **Mapping Creator**
+    -   New visual mapping management and GenAI based mapping environment, allowing unparalleled clarity, speed and ease in building and maintaining your mapping rules.
 
--   Build: **Improved Rule Editing Experience**
-    -   Enhanced copy & paste functionality in rule editors boosts productivity by making it easier to manage and edit rules accurately and efficiently.
+-   Build: **Enhanced File Management in Workflows**
+    -   New binary file dataset and project file operators enable seamless integration of PDFs, images, and other binary files directly into workflows, streamlining document processing pipelines.
 
--   Explore and Autor: **Streamlined Shape Management**
-    -   The introduction of new SHACL shape quick-access options empowers users to effortlessly build, validate, and troubleshoot complex shape configuration.
+-   Explore: **Dynamic SHACL Shape Creation**
+    -   Create classes and properties on-the-fly while defining SHACL shapes, dramatically accelerating ontology development and data modeling workflows without context switching.
 
--   Automate: **Lightning-fast Parameterized Queries**
-    -   The new `cmemc` query placeholder specifications enable super-fast execution of parameterized queries by running background value queries to provide dynamic completions, significantly enhancing data query responsiveness.
+-   Explore and Automate: **Multi-Graph Query Management**
+    -   The enhanced query catalog now supports multiple query graphs and arbitrary graph selection, enabling better organization and management of SPARQL queries across different knowledge domains.
 
 !!! info inline end "Important info"
 
@@ -34,7 +34,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.2.0
--   eccenca Explore v25.2.0 (formerly DataPlatform and DataManager)
+-   eccenca Explore v25.2.0
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
