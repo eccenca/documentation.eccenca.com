@@ -26,7 +26,7 @@ $ cmemc admin status [OPTIONS]
 
 This command outputs version and health information of the selected deployment. If the version information cannot be retrieved, UNKNOWN is shown.
 
-Additionally, this command informs you in one of these cases: (1) A warning, if the target version of your cmemc client is newer than the version of your backend. (2) A warning, if the ShapeCatalog has a different version than your DataPlatform component. (3) An error, if your Corporate Memory license is expired (grace period). (4) A warning, if your Graph DB license will expire in less than a month.
+Additionally, this command informs you in one of these cases: (1) A warning, if the target version of your cmemc client is newer than the version of your backend. (2) A warning, if the ShapeCatalog has a different version than your Explore component. (3) An error, if your Corporate Memory license is expired (grace period). (4) A warning, if your Graph DB license will expire in less than a month.
 
 To get status information of all configured deployments use this command in combination with parallel.
 

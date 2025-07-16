@@ -15,8 +15,8 @@ cmempy is also the underlying Python module which powers the [cmemc - Command Li
 
 cmempy is published as an Apache 2 licensed open source python package at [pypi.org](https://pypi.org/project/cmem-cmempy/), hence you are able to install it with a simple pip command:
 
-``` shell-session
-$ pip install cmem-cmempy
+```shell
+pip install cmem-cmempy
 ```
 
 ## Configure a Connection
@@ -31,8 +31,8 @@ The following table lists all processed environment variables:
 | Variable            | Description                                           | Default Value                                                |
 | ------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
 | CMEM_BASE_URI       | Base URL of your Corporate Memory                     | http://docker.localhost                                      |
-| DI_API_ENDPOINT     | Data Integration API endpoint                         | CMEM_BASE_URI/dataintegration                                |
-| DP_API_ENDPOINT     | Data Platform API endpoint                            | CMEM_BASE_URI/dataplatform                                   |
+| DI_API_ENDPOINT     | Build (Data Integration) API endpoint                 | CMEM_BASE_URI/dataintegration                                |
+| DP_API_ENDPOINT     | Explore backend API endpoint                          | CMEM_BASE_URI/dataplatform                                   |
 | OAUTH_TOKEN_URI     | OAuth 2.0 Token endpoint                              | CMEM_BASE_URI/auth/realms/cmem/protocol/openid-connect/token |
 | OAUTH_GRANT_TYPE    | OAuth 2.0 grant type (password or client_credentials) | client_credentials                                           |
 | OAUTH_USER          | Username to retrieve the token                        | admin                                                        |
@@ -46,9 +46,9 @@ The following table lists all processed environment variables:
 
 Here is a commented code example how to configure and use cmempy.
 
-The example demonstrates, how to execute SPARQL queries on DataPlatform, as well as how to work with the DataIntegration workspace and retrieve workflow status information:
+The example demonstrates, how to execute SPARQL queries via Explore backend, as well as how to work with the Build (DataIntegration) workspace and retrieve workflow status information:
 
-``` python title="example_usage.py"
+```python title="example_usage.py"
 """Basic example, how to use cmempy"""
 
 from os import environ
@@ -117,4 +117,3 @@ $ python example_usage.py
 Project: cmem:
 - Workflow: my-workflow (Idle):
 ```
-

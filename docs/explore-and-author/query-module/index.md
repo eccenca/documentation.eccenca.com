@@ -102,4 +102,4 @@ Describe the insights you need in plain English sentences and have a SPARQL quer
         allowfullscreen></iframe>
 </div>
 
-The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/dataplatform/application-full.md#llm-assistant-supported).
+The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#llm-assistant-supported).

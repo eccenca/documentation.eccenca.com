@@ -39,7 +39,7 @@ Used Path: `rdfs:comment`
 ### Navigation list query
 
 
-This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section. Additionally, {{GRAPH}} can be used to access the graph in the FROM section.
+This property links the node shape to a SPARQL 1.1 Query in order to provide a sophisticated user navigation list query e.g. to add specific additional columns. The query should use {{FROM}} as a placeholder for the FROM section.
 
 Used Path: `shui:navigationListQuery`
 
@@ -67,9 +67,17 @@ Used Path: `shacl:order`
 ### Chart Visualization
 
 
-Integrates a chart visualization in the node shape area.
+Integrates a chart visualization in the node shape area. This Property is deprecated - charts on node shape level are not supported anymore.
 
 Used Path: `shui:provideChartVisualization`
+
+
+### Widgets
+
+
+Integrate non-validating visualization widget in the node shape area.
+
+Used Path: `shui:WidgetIntegration_integrate`
 
 ## Vocabulary
 
@@ -91,36 +99,73 @@ Class this NodeShape applies to. This is a direct link to a class resource from 
 
 Used Path: `shacl:targetClass`
 
-## Processing
+## Processing / User Interaction
 
 !!! info
-    In this group, all shape properties are managed, have an effect on how new or existing resources are processed or created.
+    In this group all shape properties are managed, which have an effect on how new or existing resources are processed or created.
 
-### On delete update
+### Severity
+
+
+Categorize validation results (:Info, :Warning, :Violation). Defaults to :Violation.
+
+Used Path: `shacl:severity`
+
+
+### SPARQL Constraints
+
+
+Add additional SPARQL based validation to your Node Shape.
+
+Used Path: `shacl:sparql`
+
+
+### URI template
+
+
+The URI template which is used, when a user manually creates new resources with this Node Shape.
+
+Used Path: `shui:uriTemplate`
+
+
+### Closed Node
+
+
+Enabling this will result in failing validation if the resource / node has properties which are NOT described with attached property shapes.
+
+Used Path: `shacl:closed`
+
+
+### Query: On delete update
 
 
 A query which is executed when the resource the node shape applies to gets deleted.
 
 The following placeholder can be used in the query text of the SPARQL query:
 
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage) ;
-- `{{shuiGraph}}` - the currently used graph.
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
     
 
 Used Path: `shui:onDeleteUpdate`
 
 
-### On update update
+### Query: On update update
 
 
 
-A query which is executed when this nodeshape is submitted.
+A query which is executed when this node shape is submitted.
 The query should be saved in the same graph as the shape (or imported).
 
 The query can use these placeholders:
 
-- `{{shuiResource}}` - the resource currently shown with the node shape of this property shape,
-- `{{shuiGraph}}` - the currently used graph. 
+- `{{shuiGraph}}` - the currently used graph
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 
 Used Path: `shui:onUpdateUpdate`
@@ -132,6 +177,68 @@ Used Path: `shui:onUpdateUpdate`
 Graph templates can be used to enforce writing statement in specific graphs rather than into the selected graph. Graph templates can be added to node and property shapes. A template on a property shape is used only for overwriting a template on a node shape (without a node shape graph template, they do not have an effect).
 
 Used Path: `shui:targetGraphTemplate`
+
+
+### Query: Is Creatable Resource
+
+
+This query is executed to check if users get the controls to create resources (described with the node shape).
+
+The query needs to be an ASK query and can include the following placeholders, which will be substituted before execution:
+
+- `{{shuiGraph}}` - the IRI of the current working graph
+- `{{shuiAccount}}` - the IRI of the active user account
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+
+
+Used Path: `shui:askIfCreatableQuery`
+
+
+### Query: Is Removable Resource
+
+
+This query is executed to check if users get the controls to remove resources (described with the node shape).
+
+The query needs to be an ASK query and can include the following placeholders, which will be substituted before execution:
+
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiGraph}}` - the IRI of the current working graph
+- `{{shuiAccount}}` - the IRI of the active user account
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+
+
+
+Used Path: `shui:askIfRemovableQuery`
+
+
+### Query: Is Cloneable Resource
+
+
+This query is executed to check if users get the controls to remove resources (described with the node shape).
+
+The query needs to be an ASK query and can include the following placeholders, which will be substituted before execution:
+
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiGraph}}` - the IRI of the current working graph
+- `{{shuiAccount}}` - the IRI of the active user account
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+
+
+
+Used Path: `shui:askIfCloneableQuery`
+
+
+### On update trigger workflow
+
+
+
+A workflow trigger which is executed when this nodeshape is submitted. The workflow(s) run
+instantaneously upon submitting the form.
+
+
+Used Path: `shui:onUpdateTriggerWorkflow`
 
 ## Statement Annotation
 

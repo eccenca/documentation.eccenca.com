@@ -88,7 +88,7 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
     ```text
 
     -a, --all                     Export all projects.
-    -o, --overwrite               Overwrite existing files. This is a dangerous
+    --replace                     Replace existing files. This is a dangerous
                                   option, so use it with care.
     --output-dir DIRECTORY        The base directory, where the project files
                                   will be created. If this directory does not
@@ -135,8 +135,8 @@ $ cmemc project import my_project.zip my_project
 ??? info "Options"
     ```text
 
-    -o, --overwrite  Overwrite an existing project. This is a dangerous option,
-                     so use it with care.
+    --replace   Replace an existing project. This is a dangerous option, so use
+                it with care.
     ```
 
 ## project delete

@@ -60,11 +60,11 @@ Prefixes in Data Integration are defined on a project basis. When creating a new
 
 After selecting a project from the search results the prefix management is available in the project configuration in the lower right area:
 
-![DataIntegration workspace](DI-workspace.png)
+![Build (DataIntegration) workspace](DI-workspace.png)
 
 By using the **Edit Prefix Settings** button in this Configuration area, you will see the **Manage Prefixes** dialog:
 
-![DataIntegration workspace prefix setup dialog](DI-workspace-prefix-dialog.png)
+![Build (DataIntegration) workspace prefix setup dialog](DI-workspace-prefix-dialog.png)
 
 In this dialog, you are able to
 

@@ -100,7 +100,7 @@ The message content is captured as plain text. In order to process complex messa
 
 ![](demo-wf-3.png){ class="bordered" }<!-- 24.1 -->
 
-Any modifications to the message set, such as filtering, can be done prior to parsing the content. One could for example remove duplicates (according to the message key) from the messages by using the [Distinct-by task](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#distinct-by).
+Any modifications to the message set, such as filtering, can be done prior to parsing the content. One could for example remove duplicates (according to the message key) from the messages by using the [Distinct-by task](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md).
 
 ![](demo-wf-4.png){ class="bordered" }<!-- 24.1 -->
 

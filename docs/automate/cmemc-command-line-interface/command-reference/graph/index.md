@@ -42,18 +42,13 @@ This command lists graphs with their triple count. Counts do not include importe
 
 ## graph tree
 
-Show graph tree(s) of the owl:imports hierarchy.
+(Hidden) Deprecated: use 'graph imports tree' instead.
 
 ```shell-session title="Usage"
 $ cmemc graph tree [OPTIONS] [IRIS]...
 ```
 
 
-
-
-You can output one or more trees of the import hierarchy.
-
-Imported graphs which do not exist are shown as `[missing: IRI]`. Imported graphs which will result in an import cycle are shown as `[ignored: IRI]`. Each graph is shown with label and IRI.
 
 
 
@@ -117,6 +112,9 @@ In case of file export, data from all selected graphs will be concatenated in on
     --include-imports               Export selected graph(s) and all graphs
                                     which are imported from these selected
                                     graph(s).
+    --include-import-statements     Save graph imports information from other
+                                    graphs to the exported graphs and write
+                                    *.imports files.
     --create-catalog                In addition to the .ttl and .graph files,
                                     cmemc will create an XML catalog file
                                     (catalog-v001.xml) which can be used by
@@ -132,9 +130,10 @@ In case of file export, data from all selected graphs will be concatenated in on
                                     the current date as YYYY-MM-DD. The file
                                     suffix will be appended. Needed directories
                                     will be created.  [default: {{hash}}]
-    --mime-type [application/n-triples|text/turtle]
+    --mime-type [application/n-triples|text/turtle|application/rdf+xml]
                                     Define the requested mime type  [default:
-                                    application/n-triples]
+                                    text/turtle]
+    --compress [gzip]               Compress the exported graph files.
     ```
 
 ## graph delete
@@ -152,9 +151,11 @@ $ cmemc graph delete [OPTIONS] [IRIS]...
 ??? info "Options"
     ```text
 
-    -a, --all          Delete all writeable graphs.
-    --include-imports  Delete selected graph(s) and all writeable graphs which
-                       are imported from these selected graph(s).
+    -a, --all                    Delete all writeable graphs.
+    --include-imports            Delete selected graph(s) and all writeable
+                                 graphs which are imported from these selected
+                                 graph(s).
+    --include-import-statements  Delete import reference of deleted graphs
     ```
 
 ## graph import
@@ -185,12 +186,16 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 ??? info "Options"
     ```text
 
-    --replace        Replace / overwrite the graph(s), instead of just adding
-                     the triples to the graph.
-    --skip-existing  Skip importing a file if the target graph already exists in
-                     the store. Note that the graph list is fetched once at the
-                     beginning of the process, so that you can still add
-                     multiple files to one single graph (if it does not exist).
+    --replace                    Replace / overwrite the graph(s), instead of
+                                 just adding the triples to the graph.
+    --skip-existing              Skip importing a file if the target graph
+                                 already exists in the store. Note that the
+                                 graph list is fetched once at the beginning of
+                                 the process, so that you can still add multiple
+                                 files to one single graph (if it does not
+                                 exist).
+    --include-import-statements  Use *.imports files to re-apply the graph
+                                 imports of the imported graphs.
     ```
 
 ## graph open

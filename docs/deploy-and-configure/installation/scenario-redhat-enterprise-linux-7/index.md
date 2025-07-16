@@ -5,7 +5,7 @@ icon: material/redhat
 
 ## Introduction
 
-This page describes a docker-compose based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.
+This page describes a `docker compose` based orchestration running on RedHat Enterprise Linux 7 (RHEL 7) inside a VirtualBox virtual machine.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ This page describes a docker-compose based orchestration running on RedHat Enter
 
 Create a working directory for this scenario and inside the working directory `Vagrantfile` with the following contents:
 
-```bash linenums="1"
+```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -47,8 +47,8 @@ end
 
 Spin up the virtual machine:
 
-```bash linenums="1"
-$ vagrant up
+```ruby
+vagrant up
 Bringing machine 'rhel7' up with 'virtualbox' provider...
 ==> rhel7: Importing base box 'generic/rhel7'...
 ==> rhel7: Matching MAC address for NAT networking...
@@ -86,7 +86,7 @@ Bringing machine 'rhel7' up with 'virtualbox' provider...
 
 Now you can connect to the virtual machine using `~/.vagrant.d/insecure_private_key` ssh key:
 
-```bash linenums="1"
+```bash
 # add vagrant ssh key to your keychain
 ssh-add ~/.vagrant.d/insecure_private_key
 
@@ -99,7 +99,7 @@ ssh vagrant@10.10.10.10
 
 Install the necessary software Inside the virtual machine and download the Corporate Memory orchestration from [releases.eccenca.com](http://releases.eccenca.com/):
 
-```bash linenums="1"
+```bash
 # switch to superuser
 sudo su
 
@@ -113,14 +113,10 @@ subscription-manager repos --enable=rhel-7-server-rpms
 subscription-manager repos --enable=rhel-7-server-extras-rpms
 subscription-manager repos --enable=rhel-7-server-optional-rpms
 
-# install and start docker
-yum install docker device-mapper-libs device-mapper-event-libs
-systemctl start docker.service
-systemctl enable docker.service
+# install and start docker (including compose)
 
-# install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /bin/docker-compose
-chmod +x /bin/docker-compose
+# please have a look at https://docs.docker.com/desktop/install/rhel/ 
+# this could also be helpful: https://docs.docker.com/compose/install/standalone/
 
 # Install necessary system utilities
 yum install unzip git jq
@@ -139,51 +135,34 @@ chcon -Rt svirt_sandbox_file_t /opt/corporate-memory
 
 Create `/opt/corporate-memory/environments/prod.env` file with the following contents:
 
-```bash linenums="1"
-#!/bin/bash linenums="1"
+```bash
+#!/bin/bash
 
-CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
-STARDOG_PASSWORD=admin
-TRUSTSTOREPASS=Aimeik5Ocho5riuC
 DEPLOYHOST=corporate.memory
-
-DI_VERSION=v20.03
-DP_VERSION=v20.03
-DM_VERSION=v20.03
-APACHE2_VERSION=v2.6.0
-KEYCLOAK_VERSION=v6.0.1-2
-POSTGRES_VERSION=11.5-alpine
-STARDOG_VERSION=v7.2.0-1
-
-DATAINTEGRATION_JAVA_TOOL_OPTIONS=-Xmx2g
-DATAPLATFORM_JAVA_TOOL_OPTIONS=-Xms1g -Xmx2g
-STARDOG_SERVER_JAVA_ARGS=-Xms1g -Xmx1g -XX:MaxDirectMemorySize=2g
-
 DEPLOYPROTOCOL=https
 PORT=443
 APACHE_BASE_FILE=docker-compose.apache2-ssl.yml
 DATAINTEGRATION_BASE_FILE=docker-compose.dataintegration-ssl.yml
 APACHE_CONFIG=default.ssl.conf
-PROXY_ADDRESS_FORWARDING=true
 ```
 
 Login into eccenca docker registry:
 
-```bash linenums="1"
+```bash
 docker login docker-registry.eccenca.com
 ```
 
 Provide a stardog license or request a trial license:
 
-```bash linenums="1"
+```bash
 # check validity of your license
-$ make stardog-license-check
+make stardog-license-check
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 The license is invalid: java.io.EOFException
 make: *** [custom.dist.Makefile:5: stardog-license-check] Error 1
 
 # request stardog trial license
-$ make stardog-license-request
+make stardog-license-request
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license request --force --output /data/stardog-license-key.bin
 Thank you for downloading Stardog.
 A valid license was not found in /data.
@@ -220,7 +199,7 @@ Email validated. You now have a 60-day Stardog trial license. Starting Stardog..
 Thank you!
 
 # check the license again
-$ make stardog-license-check
+make stardog-license-check
 docker run -it --rm --name stardog-license-check -v data:/data -v /opt/corporate-memory//conf/stardog/stardog-license-key.bin:/data/stardog-license-key.bin docker-registry.eccenca.com/complexible-stardog:v7.2.0-1 stardog-admin license info /data/stardog-license-key.bin
 Licensee: Stardog Trial User (ivan.ermilov@eccenca.com), Stardog Union
 Version: Stardog *
@@ -233,7 +212,7 @@ Quantity: 3
 
 Finally deploy the Corporate Memory instance:
 
-```bash linenums="1"
+```bash
 # create local truststore
 CONFIGFILE=environments/prod.env make buildTrustStore
 
@@ -247,7 +226,7 @@ You have successfully deployed a Corporate Memory instance.
 
 On your localhost where you are running VirtualBox, modify /etc/hosts file:
 
-```bash linenums="1"
+```bash
 echo "10.10.10.10 corporate.memory" >> /etc/hosts
 ```
 

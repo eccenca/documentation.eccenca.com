@@ -1,5 +1,4 @@
 ---
-status: new
 title: cmemc (Overview)
 subtitle: Command Line Interface
 description: cmemc is the eccenca Corporate Memory command line interface.
@@ -38,7 +37,7 @@ tags:
 
     ---
 
-    Battle tested in many projects to **:simple-powerautomate: Automate Activities** and **:material-remote: Remote Control** eccenca Corporate Memory instances.
+    Battle tested in many projects to **:other-powerautomate: Automate Activities** and **:material-remote: Remote Control** eccenca Corporate Memory instances.
 
     ``` shell-session title="Example: List datasets with a specific tag and project."
     $ cmemc -c prod.knowledge.company.org # (1)!

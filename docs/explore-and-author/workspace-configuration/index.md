@@ -1,6 +1,5 @@
 ---
 icon: eccenca/application-config
-status: new
 tags:
     - KnowledgeGraph
 ---
@@ -58,10 +57,6 @@ Type the **Id** and **Label** name then click on **Add**
     The workspace created sucessfully and now you can enable or disabled the modules and change modeule configuration as per your requirement.
 
     ![Workspace created](enable.png){ class="bordered" }
-
-!!! note
-
-    Refer to the system manual of eccenca DataManager to get more information on all the options that can be configured here.
 
 ## Delete a workspace
 

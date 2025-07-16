@@ -238,13 +238,6 @@ normalizedString represents white space normalized strings. The ·value space· 
 
 IRI: `http://www.w3.org/2001/XMLSchema#normalizedString`
 
-#### PlainLiteral
-
-
-The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2
-
-IRI: `http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral`
-
 #### positiveInteger
 
 
@@ -258,27 +251,6 @@ IRI: `http://www.w3.org/2001/XMLSchema#positiveInteger`
 short is ·derived· from int by setting the value of ·maxInclusive· to be 32767 and ·minInclusive· to be -32768. short has a lexical representation consisting of an optional sign followed by a finite-length sequence of decimal digits (#x30-#x39). If the sign is omitted, '+' is assumed. For example: -1, 0, 12678, +10000.
 
 IRI: `http://www.w3.org/2001/XMLSchema#short`
-
-#### sparqlOperation
-
-
-sparql operation datatype (query or update)
-
-IRI: `https://vocab.eccenca.com/shui/sparqlOperation`
-
-#### sparqlQuery
-
-
-SPARQL 1.1 Query
-
-IRI: `https://vocab.eccenca.com/shui/sparqlQuery`
-
-#### sparqlUpdate
-
-
-SPARQL 1.1 Update
-
-IRI: `https://vocab.eccenca.com/shui/sparqlUpdate`
 
 #### string
 

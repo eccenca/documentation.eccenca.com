@@ -63,6 +63,10 @@ Use ``--remove`` to delete bootstrap data.
     The removal of existing bootstrap data will search for resources which are flagged with the isSystemResource property.
 
 
+!!! note
+    The import part of this command is equivalent to the 'bootstrap-data' migration recipe
+
+
 
 
 ??? info "Options"
@@ -78,7 +82,7 @@ Use ``--remove`` to delete bootstrap data.
 Backup all knowledge graphs to a ZIP archive.
 
 ```shell-session title="Usage"
-$ cmemc admin store export [OPTIONS] BACKUP_FILE
+$ cmemc admin store export [OPTIONS] [BACKUP_FILE]
 ```
 
 
@@ -93,8 +97,8 @@ This command will create lots of load on the server. It can take a long time to 
 ??? info "Options"
     ```text
 
-    --overwrite  Overwrite existing files. This is a dangerous option, so use it
-                 with care.
+    --replace   Replace existing files. This is a dangerous option, so use it
+                with care.
     ```
 
 ## admin store import
@@ -115,4 +119,25 @@ The command will load a single backup ZIP archive into the triple store by repla
 This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer the network connection is not used anymore and may be closed by proxies. This does not mean that the import failed.
 
 
+
+## admin store migrate
+
+Migrate configuration resources to the current version.
+
+```shell-session title="Usage"
+$ cmemc admin store migrate [OPTIONS]
+```
+
+
+
+
+This command serves two purposes: (1) When invoked without an option, it lists all migrateable configuration resources. (2) When invoked with the ``--workspaces`` option, it migrates the workspace configurations to the current version.
+
+
+
+??? info "Options"
+    ```text
+
+    --workspaces  Migrate workspace configurations to the current version.
+    ```
 

@@ -99,7 +99,8 @@ Below is a minimal example using the `client_credentials` grant type.
     OAUTH_CLIENT_SECRET=...
     ```
 
-This creates a named section `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
+This creates a named section (connection identifier) `my-local` which is a connection to a Corporate Memory deployment on `http://localhost/`.
+In order to use this connection, you need to use the `--connection / -c` option with this identifier or [set the default connection](../environment-based-configuration/index.md#example-set-a-default-connection) to this configuration.
 The authorization will be done with a system account `cmem-service-account` and the given client secret.
 Using this combination of configuration parameters is based on a typical installation where all components are available under the same host name.
 
@@ -187,6 +188,8 @@ The following values can be used:
 - `client_credentials` - this refers to the [OAuth 2.0 Client Credentials Grant Type](https://oauth.net/2/grant-types/client-credentials/). Mandatory variables for this grant type are `OAUTH_CLIENT_ID`, `OAUTH_CLIENT_SECRET` **or** `OAUTH_CLIENT_SECRET_PROCESS`.
 - `password` - this refers to the [OAuth 2.0 Password Grant Type](https://oauth.net/2/grant-types/password/). Mandatory variables for this grant type are `OAUTH_CLIENT_ID`, `OAUTH_USER`, `OAUTH_PASSWORD` **or** `OAUTH_PASSWORD_PROCESS`.
 - `prefetched_token` - this value can be used in case you can provide a token that was fetched outside of cmemc. Mandatory variables for this grant type are `OAUTH_ACCESS_TOKEN` **or** `OAUTH_ACCESS_TOKEN_PROCESS`.
+
+This variable defaults to `client_credentials`.
 
 #### OAUTH_CLIENT_ID
 

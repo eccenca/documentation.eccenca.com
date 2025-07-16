@@ -5,9 +5,9 @@ version: '3'
 
 vars:
   PUBLIC_BRANCH: published
-  CURRENT_VERSION: 24.1
-  MATERIAL_TAG: 9.5.17
-  MATERIAL_INSIDER_TAG: 9.5.17-insiders-4.53.6
+  CURRENT_VERSION: 25.2
+  MATERIAL_TAG: 9.6.14
+  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
 
 tasks:
 
@@ -108,7 +108,7 @@ tasks:
     desc: re-generates the cmemc command reference
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
-      - CMEMC_MANUAL_DIR={{.REFERENCE_DIR}} cmemc -q config
+      - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 

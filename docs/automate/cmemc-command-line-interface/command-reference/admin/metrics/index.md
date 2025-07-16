@@ -35,8 +35,6 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
 ??? info "Options"
     ```text
 
-    --job [DP]               The job from which the metrics data is fetched.
-                             [default: DP]
     --filter <TEXT TEXT>...  A set of label name/value pairs in order to filter
                              the samples of the requested metric family. Each
                              metric has a different set of labels with different
@@ -71,7 +69,6 @@ This command outputs the data of a metric. The first table includes basic metada
 ??? info "Options"
     ```text
 
-    --job [DP]  The job from which the metrics data is fetched.  [default: DP]
     --raw       Outputs raw JSON of the table data.
     ```
 
@@ -93,9 +90,11 @@ For each metric, the output table shows the metric ID, the type of the metric, a
 ??? info "Options"
     ```text
 
-    --job [DP]  The job from which the metrics data is fetched.  [default: DP]
-    --id-only   Lists metric identifier only. This is useful for piping the IDs
-                into other commands.
-    --raw       Outputs (sorted) JSON dict, parsed from the metrics API output.
+    --filter <TEXT TEXT>...  Filter metrics by one of the following filter names
+                             and a corresponding value: job, name, type, id.
+    --id-only                Lists metric identifier only. This is useful for
+                             piping the IDs into other commands.
+    --raw                    Outputs (sorted) JSON dict, parsed from the metrics
+                             API output.
     ```
 

@@ -56,7 +56,7 @@ We first run a cmemc command via command line parameter:
 $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
 [
   {
-    "iri": "urn:elds-backend-access-conditions-graph",
+    "iri": "https://ns.eccenca.com/data/userinfo/",
 ... more JSON output ...
 ```
 

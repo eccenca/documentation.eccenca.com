@@ -5,114 +5,313 @@ tags:
 ---
 # Access Conditions
 
-!!! warning "Users and groups cannot have the same name"
-
-    Since both user and group resources use the same IRI prefix in DataPlatform, users and groups cannot have the same name.
-
 ## Introduction
 
-The Access control module shows the list of all access conditions manageable by your account.
-Access conditions specify access rights for users and groups to graphs and actions.
-To open the Access control, open the menu :fontawesome-solid-ellipsis-vertical: in the Module bar and click Access control.
+Access Conditions specify access rights for users and groups to graphs and actions (1).
+{ .annotate }
 
-## Access conditions
+1.  Graphs identify specific Knowledge Graphs.
+    Actions identify specific parts or components of the platform, such as the query catalog or the data integration system (Build).
 
-The main window shows the list of all access conditions manageable by your account.
-Access conditions specify access rights for users and groups to graphs and actions.
+Access Conditions are managed in a special system graph, so write access to this graph needs to be handled carefully.
+The management of access conditions can be done either by using the browser based user interface or the command line based user interface (cmemc).
 
-Click a specific condition to get an expanded view with more details.
+## Attributes of Access Conditions
 
-<figure markdown>
-![Expanded view of an access condition](22-1-expanded-access-condition.png)
-<figcaption>Expanded view of an access condition</figcaption>
-</figure>
+In order to understand the different user interfaces to manage access conditions, it is crucial to understand what details can be described with a single access condition.
+The following list describes the different attributes, a single access condition can have.
+They are all optional except that a single access condition needs to provide at least one grant or has a dynamic access condition query.
 
-## Adding a new condition
+The listed IRIs in this section use the following prefix declarations:
 
-To add a new access condition:
-
--   Click the context menu :fontawesome-solid-ellipsis-vertical: in the upper right
--   Select "Create access condition"
--   In the dialog box, enter the new access condition rule as needed. Each access condition can have a **Name** and a **Description** as well as conditions and grants for actions and graphs.
-
-???+ note
-    The application uses a set of specific URIs with a precise meaning as listed below:
-
-| Resource                                       | Explanation                                                                                                                                                                                                    |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `urn:elds-backend-all-graphs`                  | Represents all RDF named graphs. You can use it in the Allow reading graph or Allow writing graph field.                                                                                                       |
-| `urn:elds-backend-all-actions`                 | Represents all actions. You can use it in the **Allowed actions** field.                                                                                                                                       |
-| `urn:elds-backend-public-group`                | Represents the group which every user is member of (incl. anonymous users). You can use it in the Requires group field.                                                                                        |
-| `urn:elds-backend-anonymous-user`              | Represents the anonymous user account. You can use it in the **Requires account** field.                                                                                                                       |                                                                                     |
-| `urn:elds-backend-actions-auth-access-control` | Represents the Authorization management API (see the Developer Manual). You can use it in the Allowed actions field.                                                                                           |
-| `urn:eccenca:di`                               | Represents the action needed to use the eccenca DataIntegration component of eccenca Corporate Memory. You can use it in the **Allowed actions** field.                                                            |
-| `urn:eccenca:ThesaurusUserInterface`           | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well). You can use it in the **Allowed actions** field. |
-| `urn:eccenca:AccessInternalGraphs`             | Represents the action needed to list Corporate Memory Internal graphs in the exploration tab. You can use it in the **Allowed actions** field.                                                                 |
-| `urn:eccenca:QueryUserInterface`               | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed). You can use it in the **Allowed actions** field.                                   |
-| `urn:eccenca:VocabularyUserInterface`          | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well). You can use it in the **Allowed actions** field.                                              |
-| `urn:eccenca:ExploreUserInterface`             | Represents the action needed to use the Explore Tab (needs access to at least one graph as well). You can use it in the **Allowed actions** field.                                                             |
-
-Click CREATE to create the new condition or abort your action with CANCEL.
-
-<figure markdown>
-![Create a new condition](22-1-new-access-condition.png)
-<figcaption>Create a new condition</figcaption>
-</figure>
-
-## Edit an existing condition
-
-In the expanded view of an access condition, click DELETE to remove the access condition or EDIT to apply changes.
-
-Click on SAVE to apply your changes or discard them with CANCEL.
-
-## Adding Access Conditions with cmemc
-
-In addition to the Access Control module you can add the access conditions directly to the triple store.
-In this case, the access conditions need to be defined in a Turtle file, for example:
-
-```turtle
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix eccurn: <urn:eccenca:> .
-@prefix ecc: <http://eccenca.com/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix eccauth: <https://vocab.eccenca.com/auth/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-ecc:f7f3b9c5-4e94-4e7f-a14b-15e39ae046ed
-    dcterms:created "2020-06-12T11:10:19Z"^^xsd:dateTime ;
-    dcterms:creator ecc:admin ;
-    a eccauth:AccessCondition ;
-    rdfs:comment "single access condition which describes all rights for users in the local-admins group" ;
-    rdfs:label "Active: access rights of all users of the local-admins group" ;
-    eccauth:allowedAction eccurn:AccessInternalGraphs, eccurn:QueryUserInterface, eccurn:ThesaurusUserInterface, eccurn:VocabularyUserInterface, eccurn:di, <urn:elds-backend-actions-auth-access-control> ;
-    eccauth:requiresGroup ecc:local-admins ;
-    eccauth:writeGraph <urn:elds-backend-all-graphs> .
-
-ecc:5318ffd4-4ca7-46bb-8e0c-8a910376c6b9
-    dcterms:created "2020-06-12T11:10:32Z"^^xsd:dateTime ;
-    dcterms:creator ecc:admin ;
-    a eccauth:AccessCondition ;
-    rdfs:comment "single access conditions which describes the rights of users from the local-users group" ;
-    rdfs:label "Active: access rights of all users of the local-users group" ;
-    eccauth:allowedAction eccurn:ExploreUserInterface, eccurn:QueryUserInterface, eccurn:ThesaurusUserInterface, eccurn:VocabularyUserInterface, eccurn:di ;
-    eccauth:requiresGroup ecc:local-users ;
-    eccauth:writeGraph <urn:elds-backend-all-graphs> .
+``` turtle
+PREFIX eccauth: <https://vocab.eccenca.com/auth/>
+PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 ```
 
-In this example, we have listed default access conditions for the [docker-compose based orchestration](../docker-orchestration/index.md).
+### **Metadata**
 
-The file defines two access conditions.
-The `eccauth:allowedActions` correspond to the URIs listed in the table above.
-Both access conditions allow the corresponding users (admins or non-admins) to write to all graphs.
+- **Name** is a short and human readable text you can give to your access condition in order to identify them.
 
-You can define several access conditions for the same group.
+- **Description** is an optional and longer text you can add, to provide more context.
 
-When you are finished with creating your access conditions Turtle file, you can add it directly to the `urn:elds-backend-access-conditions-graph` graph (defined in [DataPlatform configuration](./../dataplatform/index.md)).
+### Define **who** gets access
 
-With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can do this with the following command line:
+- Use **Requires account** to specify the user account, which is required by the access condition.
+  If the account matches the account of a given request, this access condition is used to identify the grants for this request.
+  Instead of an actual account, the following meta account can be used.
+
+| Resource | Explanation |
+| ---------| ------------|
+| `eccauth:AnonymousUser`| Represents the anonymous user account. You can use it in the **Requires account** field. |
+
+- Use **Requires group** to specify the group, the account must be member of in order to match the access condition.
+  If the account of a given request is member of this group, this access condition is used to identify the grants for this request.
+  Instead of an actual group, the following meta group can be used.
+
+| Resource | Explanation |
+| ---------| ------------|
+| `eccauth:PublicGroup`| Represents the group which every user is member of (incl. anonymous users). You can use it in the *Requires group* field. |
+
+!!! warning "Users and groups cannot have the same name"
+
+    Since both user and group resource are represented in the same namespace in the internal graph representation, users and groups cannot have the same identifier.
+
+### Define **what** grants are given
+
+- **Allow reading graph** is a list of graph IRI to allow to read these graphs.
+  Instead of an actual graph, the following meta graph can be used.
+
+| Resource | Explanation |
+| ---------| ------------|
+| `eccauth:AllGraphs`| Represents all RDF named graphs. You can use it in the *Allow reading graph* or *Allow writing graph* field.|
+
+- **Allow writing graph** is a list of graph IRIs to allow to write these graphs.
+  The grant to write to a graph implicitly grants to read the graph.
+  Instead of an actual graph, the following meta graph can be used.
+
+| Resource | Explanation |
+| ---------| ------------|
+| `eccauth:AllGraphs`| Represents all RDF named graphs. You can use it in the *Allow reading graph* or *Allow writing graph* field.|
+
+- **Allowed action** is a list of action IRI to allow to use the components or capabilities which are identified with this action.
+  You can use the following actions identifier with this attribute.
+
+| Resource | Explanation |
+| ---------| ------------|
+| `:AllActions` | Represents all actions. You can use it to grant execution rights to all actions |
+| `:Build` | Represents the action needed to use eccenca Build (DataIntegration) component of eccenca Corporate Memory. |
+| `:Build-AdminPython` | Represents the action needed to use eccenca Build (DataIntegration)'s Python plugin management component of eccenca Corporate Memory. |
+| `:Build-AdminWorkspace` | Represents the action needed to use eccenca Build (DataIntegration)'s workspace administration component of eccenca Corporate Memory. |
+| `:ChangeAccessConditions` | Represents the action needed to use the Authorization management API (see Developer Manual). You can use it as object of the `eccauth:allowedAction` property to grant access to the Authorization management API if the user fulfills the access condition. |
+| `:Explore-BKE-Manage` | Represents the action needed to view, create, edit and delete visualisations in the BKE-Module (needs access to config graph as well). |
+| `:Explore-BKE-Read` | Allows to use the BKE-Module interface in read-only mode (needs access to config graph as well). |
+| `:Explore-KnowledgeGraphs` | Represents the action needed to use the Explore Tab (needs access to at least one graph as well) |
+| `:Explore-ListSystemGraphs` | Represents the action needed to list Corporate Memory system graphs (tagged with shui:isSystemResource) in the Knowledge Graph list. |
+| `:Explore-QueryCatalog` | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed) |
+| `:Explore-ThesaurusCatalog` | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well) |
+| `:Explore-VocabularyCatalog` | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well) |
+
+In addition to these attributes, you can use the following special attributes to grant partial access to the access conditions itself:
+
+- **Graph pattern for granting read access** is a pattern to allow users to manage access conditions which grant read access to graphs identified by IRI matching the pattern.
+
+- **Graph pattern for granting write access** is a pattern to allow users to manage access conditions which grant write access to graphs identified by IRI matching the pattern.
+
+- **Pattern for granting actions** is a pattern to allow users to manage access conditions which grant action usage to action identified by IRI matching the pattern.
+
+### Dynamic Conditions
+
+Use this attribute to dynamically compute **who** get access on **which graphs**, based on background information from your Knowledge Graphs:
+
+- **Dynamic access condition** is an attribute which requires a SPARQL Select query which returns the following projection variables: `user`, `group`, `readGraph`, `writeGraph`.
+
+The following example query grants write access to all users which are described as creators (using Dublin Core) in the graph itself.
+
+``` sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT  ?user ?group ?readGraph ?writeGraph
+WHERE
+{
+  GRAPH ?writeGraph {
+    ?writeGraph rdf:type void:Dataset .
+    ?writeGraph dct:creator ?user .
+  }
+}
+```
+
+Given the following Knowledge Graph `https://example.org/my-data/`, the account `tester` will get access to it, because the IRI of the account is related to the graph.
+
+``` turtle
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+<https://example.org/my-data/>
+  rdf:type void:Dataset ;
+  rdfs:label "My Data"@en;
+  dct:creator <http://eccenca.com/tester> .
+```
+
+!!! info "User and group namespace"
+
+    The IRI identifier for users and groups need have the namespace `http://eccenca.com/`.
+    If your data does not match this requirement, you can manipulate the IRIs with SPARQL functions on-the-fly.
+
+## Managing Access Conditions
+
+### Web interface
+
+The access control module can be selected in the **Admin** section of the left main menu of the **Explore** component.
+After clicking it, you will see a screen similar to this:
+
+<figure markdown>
+![Access Control: List Access Conditions](24-3-access-condition-module-list.png)
+<figcaption>Access Control: List Access Conditions</figcaption>
+</figure>
+
+You have two major application areas (tabs) here:
+
+- In the **Manage** tab, you can view, edit, add and delete all access conditions, which are manageable by your account.
+- In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
+
+#### View, edit and update
+
+Use the following icon buttons for a specific action with a certain access condition:
+
+- Use :material-eye-outline: to view an access condition.
+- Use :material-pencil-outline: to edit an access condition.
+- Use :material-trash-can-outline: to delete an access condition.
+
+Use the **Create access condition** button to create a new access condition.
+
+#### Review
+
+In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
+This allows for debugging your access condition system as a whole.
+In order to see the rights select a user and / or group combination from the drop-down list on top (principal).
+Then you will see a screen similar to this:
+
+<figure markdown>
+![Access Control: Review Access Conditions](24-3-access-condition-module-review.png)
+<figcaption>Access Control: Review Access Conditions</figcaption>
+</figure>
+
+This screen is split into two main areas:
+
+- First, the effective rights are listed, which summarize the resulting access rights.
+    - The **Root access** field shows if the principal has root access.
+    - The **Read all** and **Write all** fields show if the principal has read or write access to all graphs.
+    - The **All actions are allowed** field shows if the principal has permission to execute all actions.
+    - The **Allowed actions** field lists the actions the principal is allowed to execute.
+    - The **Readable graphs** and **Writable graphs** fields list the graphs the principal is allowed to read or write.
+
+- Second, the list of all access conditions which contributed to the effective access rights. This section allows to see which access conditions matched the principal and which access rights they grant.
+
+
+### Command line interface
+
+With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can use an additional command line based interface to manage access conditions.
+This interface is primarily used for the automation of provisioning tasks.
+The important command groups for managing principals and access conditions are:
+
+- [`admin acl`](../../../automate/cmemc-command-line-interface/command-reference/admin/acl/index.md) - List, create, delete, modify and review access conditions.
+- [`admin user`](../../../automate/cmemc-command-line-interface/command-reference/admin/user/index.md) - List, create, delete and modify user accounts.
+- [`admin client`](../../../automate/cmemc-command-line-interface/command-reference/admin/client/index.md) - List client accounts, get or generate client account secrets.
+
+The following session demonstrates how to create a new user, set a password and grant access to certain areas.
+
 
 ``` shell-session
-$ cmemc -c my-cmem-instance graph import --replace access-conditions.ttl urn:elds-backend-access-conditions-graph
-Import graph 1/1: urn:elds-backend-access-conditions-graph from access-conditions.ttl ... done
+$ cmemc admin acl list
+No access conditions found. Use the `admin acl create` command to create a new access condition.
+
+$ cmemc admin user create tester
+Creating user tester ... done
+
+$ cmemc admin user update tester --assign-group local-users
+Updating user tester ... done
+
+$ cmemc admin user password tester
+Changing password for account tester ...
+New password:
+Retype new password:
+done
+
+$ cmemc admin acl create --id local-users-access --group local-users \
+    --write-graph https://example.org/ \
+    --write-graph https://ns.eccenca.com/data/queries/ \
+    --read-graph https://vocab.eccenca.com/shacl/ \
+    --action :Explore-QueryCatalog \
+    --action :Explore-KnowledgeGraphs \
+    --description "Access to query catalog and basic exploration of example.org"
+Creating access condition 'Condition for group local-users' ... done
+
+$ cmemc admin acl list
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ URI                 ┃ Name                            ┃
+┣━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ :local-users-access ┃ Condition for group local-users ┃
+┗━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
+
+## Typical Use Cases
+
+### <a name="create-regular-admin-user"></a> Regular administration user
+
+In order to create a regular administration user account, you need to grant the following rights:
+
+- Allowed Actions: **All Actions** (`https://vocab.eccenca.com/auth/Action/AllActions`)
+- Allow writing graphs: **All Graphs** (`https://vocab.eccenca.com/auth/AllGraphs`)
+
+In the web interface, this will look like:
+
+<figure markdown>
+![Access Control: Create a regular Administration user](24-3-create-admin-user.png)
+<figcaption>Access Control: Create a regular Administration user</figcaption>
+</figure>
+
+With cmemc, you can achieve this with the following command:
+
+``` shell-session
+$ cmemc admin acl create --id my-admin-account-acl \
+    --user my-admin --action :AllActions \
+    --write-graph https://vocab.eccenca.com/auth/AllGraphs
+Creating access condition 'Condition for user: my-admin' ... done
+
+∴ cmemc admin acl list
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ URI                   ┃ Name                            ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ :local-users-access   ┃ Condition for group local-users ┃
+┃ :my-admin-account-acl ┃ Condition for user: my-admin    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+In case you need to create the user account, you can do this as well:
+
+``` shell-session
+$ cmemc admin user create my-admin
+Creating user my-admin ... done
+
+$ cmemc admin user password my-admin
+Changing password for account my-admin ...
+New password:
+Retype new password:
+done
+```
+
+### User with limited access
+
+In order to limit access to specific parts of the application, you need to know which actions and graphs should be combined to achieve a certain goal.
+
+The following list, provides grants which work together:
+
+#### Access to the Explore User Interface
+
+- Allowed Actions: **Explore - Knowledge Graphs Exploration** (`:Explore-KnowledgeGraphs`)
+- Allow read graphs:
+    - **CMEM Shape Catalog** (`https://vocab.eccenca.com/shacl/`)
+    - Any other graph the user should be able to explore
+- Allow write graphs:
+    - (optional) Any graph the user should be able to change
+
+#### Access to the Query Catalog
+
+- Allowed Actions: **Explore - Query Catalog** (`:Explore-QueryCatalog`)
+- Allow read graphs:
+    - (optional) Any graph the user should be able to query
+- Allow write graphs:
+    - **CMEM Query Catalog** (`https://ns.eccenca.com/data/queries/`)
+    - (optional) Any graph the user should be able to change
+
+#### Access to DataIntegration
+
+- Allowed Actions: **Build - Workspace** (`:Build`)
+- Allow write graphs:
+    - **All Graphs** (`https://vocab.eccenca.com/auth/AllGraphs`)
+

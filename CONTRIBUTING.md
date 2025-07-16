@@ -94,6 +94,11 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 
 </details>
 
+## Icons
+
+Where possible, please use icons as described on [the material for mkdocs documention](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/).
+On this page is search function for icons available as well.
+
 ## Admonitions
 
 <details>

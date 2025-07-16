@@ -3,7 +3,7 @@ icon: material/api
 tags:
     - API
 ---
-# DataPlatform APIs
+# Explore backend APIs
 
 The latest OpenAPI specification is available at [https://releases.eccenca.com/OpenAPI/](https://releases.eccenca.com/OpenAPI/).
 
@@ -11,7 +11,7 @@ You can (re)view it with the [redoc web UI](https://redocly.github.io/redoc/?url
 
 ## Introduction
 
-eccenca DataPlatform APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.
+eccenca Explore backend (DataPlatform) APIs can be used to import, export, query and extract information from graphs as well as to check access conditions.
 
 This section describes common characteristics and features of all provided APIs.
 
@@ -21,7 +21,7 @@ The default [media type](https://en.wikipedia.org/wiki/Media_type) of most respo
 
 Possible values of this HTTP header field are API dependent and listed as part of the specific HTTP method.
 
-Dependent on the specific API, eccenca DataPlatform works with the following application media types which correspond to the following specification documents:
+Dependent on the specific API, eccenca Explore backend works with the following application media types which correspond to the following specification documents:
 
 | Media Type                                                        | Specification Document                                                                                                                                                  |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ Dependent on the specific API, eccenca DataPlatform works with the following app
 
 ## Media type request by URI
 
-The desired response media type can be requested by adding a format query parameter. The parameter value is interpreted as a media type abbreviation that is expanded to a proper media type string. eccenca DataPlatform maps the following abbreviations to media types it supports:
+The desired response media type can be requested by adding a format query parameter. The parameter value is interpreted as a media type abbreviation that is expanded to a proper media type string. eccenca Explore backend maps the following abbreviations to media types it supports:
 
 | Abbreviation | Media Type                      |
 | ------------ | ------------------------------- |
@@ -94,40 +94,39 @@ Furthermore, it says:
 >
 > The FROM and FROM NAMED keywords allow a query to specify an RDF dataset by reference; they indicate that the dataset should include graphs that are obtained from representations of the resources identified by the given IRIs (i.e. the absolute form of the given IRI references). The dataset resulting from a number of FROM and FROM NAMED clauses is:
 >
-> - a default graph consisting of the RDF merge of the graphs referred to in the FROM clauses, and
-> - a set of (IRI, graph) pairs, one from each FROM NAMED clause.
+> -   a default graph consisting of the RDF merge of the graphs referred to in the FROM clauses, and
+> -   a set of (IRI, graph) pairs, one from each FROM NAMED clause.
 >
 > If there is no FROM clause, but there is one or more FROM NAMED clauses, then the dataset includes an empty graph for the default graph.
 
 That means the default graph of a SPARQL service cannot be explicitly referenced in the RDF dataset of a SPARQL query using FROM / FROM NAMED.
 
-For this reason, DataPlatform **does not allow the manipulation of the service's default graph.**
+For this reason, Explore backend **does not allow the manipulation of the service's default graph.**
 
 To enforce this policy, the following restriction applies to incoming [SPARQL 1.1](https://www.w3.org/TR/sparql11-update/) Update queries:
 
-- Update queries (INSERT DATA, DELETE DATA and DELETE/INSERT) targeted against the service's default graph will not be accepted by returning an HTTP 400 Bad Request status code.
+-   Update queries (INSERT DATA, DELETE DATA and DELETE/INSERT) targeted against the service's default graph will not be accepted by returning an HTTP 400 Bad Request status code.
 
 ### Default RDF dataset
 
-The interpretation of the RDF dataset of a query differs between various SPARQL service implementations (as shown [here](http://depressiverobot.com/2015/07/29/sparql-datasets.html)).
+The interpretation of the RDF dataset of a query differs between various SPARQL service implementations.
+In the case a query declares no RDF dataset, Explore backend uses the following default RDF dataset declaration to provide a uniform behavior for all supported SPARQL services:
 
-In the case a query declares no RDF dataset, DataPlatform uses the following default RDF dataset declaration to provide a uniform behavior for all supported SPARQL services:
-
-- The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
-- The set of named graphs contains all named graphs the user is allowed to access.
+-   The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
+-   The set of named graphs contains all named graphs the user is allowed to access.
 
 ## HTTP error responses
 
 The default format for HTTP error responses is compliant with [RFC 7807 Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
 An HTTP error response contains a JSON object that provides at least two fields:
 
-- `title`: A short, human-readable summary of the problem type.
-- `detail`: A human-readable explanation specific to this occurrence of the problem.
+-   `title`: A short, human-readable summary of the problem type.
+-   `detail`: A human-readable explanation specific to this occurrence of the problem.
 
 The following optional non-standard fields may also be set:
 
-- `status`: The HTTP status code for this occurrence of the problem.
-- `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
+-   `status`: The HTTP status code for this occurrence of the problem.
+-   `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
 
 The following example shows an HTTP response containing JSON problem details using the `application/problem+json` media type:
 
@@ -146,4 +145,3 @@ Content-Type: application/problem+json
   }
 }
 ```
-

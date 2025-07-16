@@ -32,10 +32,13 @@ tags:
 | [admin metrics](admin/metrics/index.md) | [get](admin/metrics/index.md#admin-metrics-get) | Get sample data of a metric. |
 | [admin metrics](admin/metrics/index.md) | [inspect](admin/metrics/index.md#admin-metrics-inspect) | Inspect a metric. |
 | [admin metrics](admin/metrics/index.md) | [list](admin/metrics/index.md#admin-metrics-list) | List metrics for a specific job. |
+| [admin migration](admin/migration/index.md) | [list](admin/migration/index.md#admin-migration-list) | List migration recipies. |
+| [admin migration](admin/migration/index.md) | [execute](admin/migration/index.md#admin-migration-execute) | Execute needed migration recipes. |
 | [admin store](admin/store/index.md) | [showcase](admin/store/index.md#admin-store-showcase) | Create showcase data. |
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
+| [admin store](admin/store/index.md) | [migrate](admin/store/index.md#admin-store-migrate) | Migrate configuration resources to the current version. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
@@ -50,6 +53,7 @@ tags:
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
 | [admin workspace python](admin/workspace/python/index.md) | [list-plugins](admin/workspace/python/index.md#admin-workspace-python-list-plugins) | List installed workspace plugins. |
 | [admin workspace python](admin/workspace/python/index.md) | [open](admin/workspace/python/index.md#admin-workspace-python-open) | Open a package pypi.org page in the browser. |
+| [admin workspace python](admin/workspace/python/index.md) | [reload](admin/workspace/python/index.md#admin-workspace-python-reload) | Reload / Register all installed plugins. |
 | [config](config/index.md) | [list](config/index.md#config-list) | List configured connections. |
 | [config](config/index.md) | [edit](config/index.md#config-edit) | Edit the user-scope configuration file. |
 | [config](config/index.md) | [get](config/index.md#config-get) | Get the value of a known cmemc configuration key. |
@@ -67,16 +71,21 @@ tags:
 | [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
 | [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
-| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | Show graph tree(s) of the owl:imports hierarchy. |
+| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | (Hidden) Deprecated: use 'graph imports tree' instead. |
 | [graph](graph/index.md) | [list](graph/index.md#graph-list) | List accessible graphs. |
 | [graph](graph/index.md) | [export](graph/index.md#graph-export) | Export graph(s) as NTriples to stdout (-), file or directory. |
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
 | [graph](graph/index.md) | [import](graph/index.md#graph-import) | Import graph(s) to the store. |
 | [graph](graph/index.md) | [open](graph/index.md#graph-open) | Open / explore a graph in the browser. |
+| [graph imports](graph/imports/index.md) | [tree](graph/imports/index.md#graph-imports-tree) | Show graph tree(s) of the imports statement hierarchy. |
+| [graph imports](graph/imports/index.md) | [list](graph/imports/index.md#graph-imports-list) | List accessible graph imports statements. |
+| [graph imports](graph/imports/index.md) | [create](graph/imports/index.md#graph-imports-create) | Add statement to import a TO_GRAPH into a FROM_GRAPH. |
+| [graph imports](graph/imports/index.md) | [delete](graph/imports/index.md#graph-imports-delete) | Delete statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph validation](graph/validation/index.md) | [execute](graph/validation/index.md#graph-validation-execute) | Start a new validation process. |
 | [graph validation](graph/validation/index.md) | [list](graph/validation/index.md#graph-validation-list) | List running and finished validation processes. |
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
+| [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
