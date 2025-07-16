@@ -115,7 +115,7 @@ This version of eccenca DataManager adds the following new features:
     - Add support for 'sh:languageIn' (as multiple values) in literal properties
 - Resource Tables
     - Allow Lucene syntax in the search field of any resource table ([Query Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html))
-        - This search will be applied to the label(s) configured in proxy.labelProperties (cf. [DataPlatform](../../deploy-and-configure/configuration/dataplatform/index.md)); by default the search will only be applied to the first column, the labels of the selected resource
+        - This search will be applied to the label(s) configured in `proxy.labelProperties`; by default the search will only be applied to the first column, the labels of the selected resource
 
 In addition to that, these changes are shipped:
 

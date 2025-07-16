@@ -97,7 +97,7 @@ Then click edit to provide the necessary details.
 At least a `Name` and `Search Weight` need to be specified.
 The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
 
-`Graph Resource Pattern` are a topic on its own and explained [here](../../deploy-and-configure/configuration/datamanager/graph-resource-pattern/index.md).
+`Graph Resource Pattern` are a topic on its own and explained [here](../../deploy-and-configure/configuration/explore/graph-resource-pattern/index.md).
 
 ## Technical Background
 
@@ -120,4 +120,4 @@ It allows bootstrap and evolve an ontology using natural language and a chat lik
         allowfullscreen></iframe>
 </div>
 
-The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/dataplatform/application-full.md#llm-assistant-supported).
+The query assist can be enabled in the [dataplatform configuration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#llm-assistant-supported).

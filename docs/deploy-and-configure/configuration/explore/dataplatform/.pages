@@ -1,5 +1,5 @@
 nav:
-    - DataPlatform: index.md
+    - Explore backend: index.md
     - General: application-full.md
     - OAuth: application-oauth-full.md
     - Store:

@@ -1,11 +1,10 @@
 ---
-status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.3.0
+# Corporate Memory 24.3.2
 
-Corporate Memory 24.3.0 is the third major release in 2024.
+Corporate Memory 24.3.2 is the third major release in 2024.
 
 ![24.3: Explore - New Shacl(2) based dossier view](24-3-explore-shacl2-dossier.png "24.3: Explore - New Shacl(2) based dossier view"){ class="bordered" }
 ![24.3: Build - Workflow report entity preview](24-3-build-wf-report-preview.png "24.3: Build - Workflow report entity preview"){ class="bordered" }
@@ -22,25 +21,38 @@ The highlights of this release are:
 
 !!! info inline end "Important info"
 
-    Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
-    into a single component eccenca Explore.
+    Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged into a single component eccenca Explore.
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v24.3.0
+-   eccenca DataIntegration v24.3.1
 -   eccenca Explore v24.3.0 (formerly DataPlatform and DataManager)
--   eccenca Corporate Memory Control (cmemc) v24.3.1
+-   eccenca Corporate Memory Control (cmemc) v24.3.3
 
 We tested this release with the following dependency components:
 
--   Ontotext GraphDB v10.8.2
+-   Ontotext GraphDB v10.8.3
 -   Keycloak v25.0.6
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v24.3.0
+## eccenca DataIntegration v24.3.1
 
 We're excited to bring you the latest update to DataIntegration v24.3, which introduces new features, improvements and bug fixes:
+
+**v24.3.1 of DataIntegration adds the following new features:**
+
+-   Added download button to workflow report tab.
+
+**v24.3.1 of DataIntegration ships the following fixes:**
+
+-   Task descriptions with long strings do not lead to horizontal scroll bars.
+-   Tag search might very shortly show old search suggestions.
+-   Missing unit for _Matching timeout_.
+-   _Regex selection_ transformer has mis-formatted documentation.
+-   Added JDBC dataset documentation on how to configure ANSI quotes for MySQL.
+-   Superfluous `CREATE SILENT GRAPH` leads to slow update performance.
+-   Fix SQL editor inputs.
 
 **v24.3.0 of DataIntegration adds the following new features:**
 
@@ -291,14 +303,22 @@ We are excited to announce Explore v24.3, which introduces new features, improve
     -   Fixed the statistics display for link rules with inverted properties
     -   Exit application with code 1 on expired license
 
-## eccenca Corporate Memory Control (cmemc) v24.3.1
+## eccenca Corporate Memory Control (cmemc) v24.3.3
 
 We're excited to bring you the latest update to Corporate Memory Control (cmemc) v24.3, which introduces new features, improvements and bug fixes.
+
+**v24.3.3 of cmemc provides the following fixes:**
+
+-   add missing migration recipe for deprecated SPARQL datatypes
+
+**v24.3.2 of cmemc provides the following fixes:**
+
+-   remove accidentally added pip dependency
 
 **v24.3.1 of cmemc provides the following fixes:**
 
 -   `graph import` command
-    - use python stdlib instead rdflib to guess mime types (lower memory footprint)
+    -   use python stdlib instead rdflib to guess mime types (lower memory footprint)
 
 **v24.3.0 of cmemc adds the following new features:**
 

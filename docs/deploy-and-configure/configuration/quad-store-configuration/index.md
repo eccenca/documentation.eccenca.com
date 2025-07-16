@@ -6,22 +6,22 @@ tags:
 
 ## Virtuoso setup
 
-This section only covers setup options that have a direct impact on the interoperability between DataPlatform and Virtuoso.
+This section only covers setup options that have a direct impact on the interoperability between Explore and Virtuoso.
 There are far more options which can significantly improve the overall performance.
 For an overview of all configuration files and options of Virtuoso refer to the [OpenLink Virtuoso Universal Server Documentation](https://docs.openlinksw.com/virtuoso/).
 Ensure to add the suggested parameters to the corresponding subsections of the configuration file before starting the server.
 
 ### Compatibility
 
-- **Virtuoso 7.2.4.2** - DataPlatform is compatible with [Virtuoso 7.2.4.2](https://github.com/openlink/virtuoso-opensource/releases/tag/v7.2.4.2). Compatibility with other versions is not guaranteed.
+-   **Virtuoso 7.2.4.2** - Explore is compatible with [Virtuoso 7.2.4.2](https://github.com/openlink/virtuoso-opensource/releases/tag/v7.2.4.2). Compatibility with other versions is not guaranteed.
 
 ### Configuration
 
-The following options apply to the Virtuoso configuration file `virtuoso.ini`. Check these options before starting DataPlatform and adjust them if necessary.
+The following options apply to the Virtuoso configuration file `virtuoso.ini`. Check these options before starting Explore and adjust them if necessary.
 
 #### SSL support
 
-Mandatory configuration if `sparqlEndpoints.virtuoso[i].sslEnabled=true`. The server must have a valid certificate, which must be trusted by the system where DataPlatform runs. In this case, the `sparqlEndpoints.virtuoso[i].port` property must point to the `SSLServerPort`.
+Mandatory configuration if `sparqlEndpoints.virtuoso[i].sslEnabled=true`. The server must have a valid certificate, which must be trusted by the system where Explore backend (DataPlatform) runs. In this case, the `sparqlEndpoints.virtuoso[i].port` property must point to the `SSLServerPort`.
 
 ```conf
 [Parameters]
@@ -29,7 +29,6 @@ SSLServerPort      = 2111
 ;; Make sure that <PATH_TO_CERTS_DIR> is contained by DirsAllowed
 SSLCertificate     = <PATH_TO_CERTS_DIR>/public-cert.pem
 SSLPrivateKey      = <PATH_TO_CERTS_DIR>/private-key.pem
-
 ```
 
 #### Transaction size limit (optional)
@@ -40,7 +39,6 @@ The maximum value you can set for this option is `2147483000` bytes.
 ```conf
 [Parameters]
 TransactionAfterImageLimit = <size_limit_in_bytes> # default 50000000
-
 ```
 
 #### Database buffers
@@ -51,7 +49,6 @@ These options determine the amount of RAM used by Virtuoso to cache database fil
 [Parameters]
 NumberOfBuffers          = <size>
 MaxDirtyBuffers          = <size>
-
 ```
 
 #### ResultSet max rows
@@ -61,46 +58,45 @@ This setting is used to limit the number of rows in a result. The effective limi
 ```turtle
 [SPARQL]
 ResultSetMaxRows = 0 # default 10000
-
 ```
 
 ## Stardog setup
 
-This section only covers limitations and options which have a direct impact on the interoperability between DataPlatform and Stardog. For an overview of all configuration options of Stardog refer to the official [Stardog documentation](http://docs.stardog.com/). Make sure to add the parameters described in this section to the `stardog.properties` [configuration file](http://docs.stardog.com/#_configuring_stardog_server) before starting the server.
+This section only covers limitations and options which have a direct impact on the interoperability between Explore and Stardog. For an overview of all configuration options of Stardog refer to the official [Stardog documentation](http://docs.stardog.com/). Make sure to add the parameters described in this section to the `stardog.properties` [configuration file](http://docs.stardog.com/#_configuring_stardog_server) before starting the server.
 
 ### Compatibility  <!-- stardog setup -->
 
-- **Stardog 7.2.1 -**DataPlatform is compatible with [Stardog version 7.1.1](http://docs.stardog.com/). Compatibility with newer versions is not guaranteed.
-- Stardog 6.2.3 (deprecated) - DataPlatform is compatible with [Stardog version 6.2.3](https://www.stardog.com/docs/6.2.3/).
+-   **Stardog 7.2.1** - Explore is compatible with [Stardog version 7.1.1](http://docs.stardog.com/). Compatibility with newer versions is not guaranteed.
+-   Stardog 6.2.3 (deprecated) - Explore is compatible with [Stardog version 6.2.3](https://www.stardog.com/docs/6.2.3/).
 
  !!! note
-    Support for 6.2.3 is deprecated and will be removed in later DataPlatform releases.
+    Support for 6.2.3 is deprecated and will be removed in later Explore releases.
 
 ### Configuration  <!-- stardog setup -->
 
-- **Search enabled**\
-    DataPlatform relies on the Stardog Semantic Search, which has to be enabled by setting:
-  - `search.enabled=true`\
+-   **Search enabled**\
+    Explore relies on the Stardog Semantic Search, which has to be enabled by setting:
+    -   `search.enabled=true`\
         You can set this property using either Stardog Studio or the `stardog-admin` commands.\
         Refer to the [Stardog documentation](https://www.stardog.com/docs/#_configuration_options) for more detailed information.
-- **Server side named graph security**\
+-   **Server side named graph security**\
     If the `PROVISIONED` access control strategy is used for the configured endpoint, you have to set the property `security.named.graphs=true` for the configured database as explained in the [Stardog documentation](http://docs.stardog.com/#_named_graph_security). Additionally, the following properties are required:
-  - `password.length.max`: For the provisioned mode to work properly. This property should have a value of at least 64.
-  - `password.regex`: The default value configured in Stardog is not compatible with the passwords generated by DataPlatform. The regex should be `[\\w+\\/=]+`
+    -   `password.length.max`: For the provisioned mode to work properly. This property should have a value of at least 64.
+    -   `password.regex`: The default value configured in Stardog is not compatible with the passwords generated by Explore. The regex should be `[\\w+\\/=]+`
 
-- **SSL support**\
-    Mandatory configuration if `sparqlEndpoints.stardog[i].sslEnabled=true`. The server must have a valid certificate which must be trusted by the system where DataPlatform runs. In this case, the `sparqlEndpoints.stardog[i].port` property must point to the SSL port (which default value is `5821`).\
+-   **SSL support**\
+    Mandatory configuration if `sparqlEndpoints.stardog[i].sslEnabled=true`. The server must have a valid certificate which must be trusted by the system where Explore runs. In this case, the `sparqlEndpoints.stardog[i].port` property must point to the SSL port (which default value is `5821`).\
     Consult the [Configuring Stardog to use SSL](https://www.stardog.com/docs/#_configuring_stardog_to_use_ssl) section of Stardog's manual for more information on the topic.
-- **Query timeout override**\
-    In order to allow DataPlatform to override the query timeout for individual queries, you have to ensure that the property `query.timeout.override.enabled` for the database is set to `true` (which is the default).\
+-   **Query timeout override**\
+    In order to allow Explore to override the query timeout for individual queries, you have to ensure that the property `query.timeout.override.enabled` for the database is set to `true` (which is the default).\
     Consult the [Configuring Query Management](https://www.stardog.com/docs/#_configuring_query_management) section of Stardog's manual for further information.
 
 ### Limitations
 
-- **Quad format upload**\
+-   **Quad format upload**\
     The Graph Store Protocol implementation for Stardog does not support uploading of RDF quad data (TriG, N-Quads).
-- **Initial connection**\
-    The first request to DataPlatform can take several seconds due to connection startup to the Stardog server.
+-   **Initial connection**\
+    The first request to Explore can take several seconds due to connection startup to the Stardog server.
 
 ### Caveats
 
@@ -139,7 +135,6 @@ xsd:unsignedLong <urn:example:value> "42"^^xsd:unsignedLong .
 xsd:unsignedInt <urn:example:value> "42"^^xsd:unsignedInt .
 xsd:unsignedShort <urn:example:value> "42"^^xsd:unsignedShort .
 xsd:unsignedByte <urn:example:value> "42"^^xsd:unsignedByte .
-
 ```
 
 in a Stardog database with `index.literals.canonical` set to `true` (default), it will be stored as
@@ -159,7 +154,6 @@ xsd:unsignedLong <urn:example:value> "42"^^xsd:integer .
 xsd:unsignedInt <urn:example:value> "42"^^xsd:integer .
 xsd:unsignedShort <urn:example:value> "42"^^xsd:integer .
 xsd:unsignedByte <urn:example:value> "42"^^xsd:integer .
-
 ```
 
 If data is to be copied between CMEM setups backed by Stardog, the `index.literals.canonical` options of the corresponding databases must be set to the same value on both setups.
@@ -168,11 +162,11 @@ It is recommended to only turn this canonicalization off when it is strictly nec
 
 ## GraphDB setup
 
-This section covers only limitations and options which have a direct impact on the interoperability between DataPlatform and GraphDB. For an overview of all configuration options of GraphDB refer to the official [GraphDB documentation](http://graphdb.ontotext.com/documentation/).
+This section covers only limitations and options which have a direct impact on the interoperability between Explore and GraphDB. For an overview of all configuration options of GraphDB refer to the official [GraphDB documentation](http://graphdb.ontotext.com/documentation/).
 
 ### Compatibility  <!-- graphdb setup -->
 
-- GraphDB 9.2.0 - DataPlatform is compatible with [GraphDB version 9.2.0](http://graphdb.ontotext.com/documentation/standard/release-notes.html#graphdb-9-2-0). Compatibility with newer versions is not guaranteed.
+-   GraphDB 9.2.0 - Explore is compatible with [GraphDB version 9.2.0](http://graphdb.ontotext.com/documentation/standard/release-notes.html#graphdb-9-2-0). Compatibility with newer versions is not guaranteed.
 
 ### Configuration  <!-- graphdb setup -->
 

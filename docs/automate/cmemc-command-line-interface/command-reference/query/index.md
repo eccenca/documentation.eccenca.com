@@ -44,13 +44,11 @@ Limitations: All optional parameters (e.g. accept, base64, ...) are provided for
 ??? info "Options"
     ```text
 
+    --catalog-graph TEXT            The used query catalog graph.  [default:
+                                    https://ns.eccenca.com/data/queries/]
     --accept TEXT                   Accept header for the HTTP request(s).
                                     Setting this to 'default' means that cmemc
-                                    uses an appropriate accept header for
-                                    terminal output (text/csv for tables,
-                                    text/turtle for graphs, * otherwise). Please
-                                    refer to the Corporate Memory system manual
-                                    for a list of accepted mime types.
+                                    uses an appropriate output for terminals.
                                     [default: default]
     --no-imports                    Graphs which include other graphs (using
                                     owl:imports) will be queried as merged
@@ -99,8 +97,11 @@ Outputs a list of query URIs which can be used as reference for the query execut
 ??? info "Options"
     ```text
 
-    --id-only   Lists only query identifier and no labels or other metadata.
-                This is useful for piping the ids into other cmemc commands.
+    --catalog-graph TEXT  The used query catalog graph.  [default:
+                          https://ns.eccenca.com/data/queries/]
+    --id-only             Lists only query identifier and no labels or other
+                          metadata. This is useful for piping the ids into other
+                          cmemc commands.
     ```
 
 ## query open
@@ -108,7 +109,7 @@ Outputs a list of query URIs which can be used as reference for the query execut
 Open queries in the editor of the query catalog in your browser.
 
 ```shell-session title="Usage"
-$ cmemc query open QUERIES...
+$ cmemc query open [OPTIONS] QUERIES...
 ```
 
 
@@ -119,6 +120,13 @@ With this command, you can open (remote) queries from the query catalog in the q
 The command accepts multiple query URIs or files which results in opening multiple browser tabs.
 
 
+
+??? info "Options"
+    ```text
+
+    --catalog-graph TEXT  The used query catalog graph.  [default:
+                          https://ns.eccenca.com/data/queries/]
+    ```
 
 ## query status
 
@@ -131,7 +139,7 @@ $ cmemc query status [OPTIONS] [QUERY_ID]
 
 
 
-With this command, you can access the latest executed SPARQL queries on the DataPlatform. These queries are identified by UUIDs and listed ordered by starting timestamp.
+With this command, you can access the latest executed SPARQL queries on the Explore backend (DataPlatform). These queries are identified by UUIDs and listed ordered by starting timestamp.
 
 You can filter queries based on status and runtime in order to investigate slow queries. In addition to that, you can get the details of a specific query by using the ID as a parameter.
 

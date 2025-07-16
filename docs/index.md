@@ -8,7 +8,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-calendar: [Release Notes](release-notes/corporate-memory-22-2/index.md)
+-   :material-calendar: [Release Notes](release-notes/corporate-memory-24-3/index.md)
 
     ---
 

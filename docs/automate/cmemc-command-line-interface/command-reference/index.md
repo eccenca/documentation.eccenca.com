@@ -53,6 +53,7 @@ tags:
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
 | [admin workspace python](admin/workspace/python/index.md) | [list-plugins](admin/workspace/python/index.md#admin-workspace-python-list-plugins) | List installed workspace plugins. |
 | [admin workspace python](admin/workspace/python/index.md) | [open](admin/workspace/python/index.md#admin-workspace-python-open) | Open a package pypi.org page in the browser. |
+| [admin workspace python](admin/workspace/python/index.md) | [reload](admin/workspace/python/index.md#admin-workspace-python-reload) | Reload / Register all installed plugins. |
 | [config](config/index.md) | [list](config/index.md#config-list) | List configured connections. |
 | [config](config/index.md) | [edit](config/index.md#config-edit) | Edit the user-scope configuration file. |
 | [config](config/index.md) | [get](config/index.md#config-get) | Get the value of a known cmemc configuration key. |
@@ -70,12 +71,16 @@ tags:
 | [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
 | [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
-| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | Show graph tree(s) of the owl:imports hierarchy. |
+| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | (Hidden) Deprecated: use 'graph imports tree' instead. |
 | [graph](graph/index.md) | [list](graph/index.md#graph-list) | List accessible graphs. |
 | [graph](graph/index.md) | [export](graph/index.md#graph-export) | Export graph(s) as NTriples to stdout (-), file or directory. |
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
 | [graph](graph/index.md) | [import](graph/index.md#graph-import) | Import graph(s) to the store. |
 | [graph](graph/index.md) | [open](graph/index.md#graph-open) | Open / explore a graph in the browser. |
+| [graph imports](graph/imports/index.md) | [tree](graph/imports/index.md#graph-imports-tree) | Show graph tree(s) of the imports statement hierarchy. |
+| [graph imports](graph/imports/index.md) | [list](graph/imports/index.md#graph-imports-list) | List accessible graph imports statements. |
+| [graph imports](graph/imports/index.md) | [create](graph/imports/index.md#graph-imports-create) | Add statement to import a TO_GRAPH into a FROM_GRAPH. |
+| [graph imports](graph/imports/index.md) | [delete](graph/imports/index.md#graph-imports-delete) | Delete statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph validation](graph/validation/index.md) | [execute](graph/validation/index.md#graph-validation-execute) | Start a new validation process. |
 | [graph validation](graph/validation/index.md) | [list](graph/validation/index.md#graph-validation-list) | List running and finished validation processes. |
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |

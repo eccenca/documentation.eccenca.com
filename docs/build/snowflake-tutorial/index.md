@@ -46,7 +46,7 @@ For Snowflake supported (e.g. 3.13.34) JDBC drivers can be found at:
 -   [MVN Repository](https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/) ([direct jar download](https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.34/snowflake-jdbc-3.13.34.jar))
 -   to verify and build yourself: [github.com/snowflakedb/snowflake-jdbc](https://github.com/snowflakedb/snowflake-jdbc)
 
-To use the driver it needs to be part of the classpath of eccenca DataIntegration.
+To use the driver it needs to be part of the classpath of eccenca Build (DataIntegration).
 That can be achieved in multiple ways but it is recommended to register the driver via the `dataintegration.conf` configuration file.
 
 There are 3 settings to specify:

@@ -19,7 +19,7 @@ This page gives an overview of the concepts you need to understand in order to d
 
 ## Base Package
 
-`cmem-plugin-base` is a Python library that provides a set of base classes for developing plugins for the eccenca Corporate Memory (CMEM) platform. These base classes provide a consistent interface for defining new plugins, handling configuration, and communicating with the DataIntegration of CMEM.
+`cmem-plugin-base` is a Python library that provides a set of base classes for developing plugins for the eccenca Corporate Memory (CMEM) platform. These base classes provide a consistent interface for defining new plugins, handling configuration, and communicating with the Build (DataIntegration) of CMEM.
 
 ## Plugin Types
 
@@ -216,7 +216,7 @@ Each concrete parameter type implements the `from_string` and `to_string` method
 
     ```
 
-### DataIntegration Parameter Types
+### Build (DataIntegration) Parameter Types
 
 In addition to concrete parameter types, the base package offers some special types that are derived from data integration. These special types include Password, Dataset, Multiline, Choice Type, and others. These types are provided to enhance the development of plugins and offer greater flexibility when creating custom parameters.
 
@@ -234,7 +234,7 @@ In addition to concrete parameter types, the base package offers some special ty
 
 #### Multiline ParameterType
 
-[`MultilineStringParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/multiline.py) is used to represent a multiline string parameter type in a DataIntegration, which allows multiline text entry from users. [Example](https://github.com/eccenca/cmem-plugin-graphql/blob/263c3b712990d80d6ef180baad2e0cfdef836e93/cmem_plugin_graphql/workflow/graphql.py#L51)
+[`MultilineStringParameterType`](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/parameter/multiline.py) is used to represent a multiline string parameter type in a Build (DataIntegration), which allows multiline text entry from users. [Example](https://github.com/eccenca/cmem-plugin-graphql/blob/263c3b712990d80d6ef180baad2e0cfdef836e93/cmem_plugin_graphql/workflow/graphql.py#L51)
 
 #### Password ParameterType
 
@@ -360,11 +360,11 @@ These context objects allow accessing various useful functionalities such as the
 
 !!! Note
 
-    Having a basic understanding of context objects and their functionalities can help developers effectively use them to create and execute plugins in DataIntegration.
+    Having a basic understanding of context objects and their functionalities can help developers effectively use them to create and execute plugins in Build (DataIntegration).
 
 ### System Context
 
-SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The `di_version()` returns the version of the running [DataIntegration](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
+SystemContext can be used to obtain important system information. It has three methods: di_version, encrypt, and decrypt. The `di_version()` returns the version of the running [Build (DataIntegration)](../../dataintegration-apis/index.md) instance. The encrypt and decrypt methods can be used to secure values using a secret key that is configured in the system. Overall, the SystemContext is useful when needing to obtain system information or encrypt/decrypt values in a secure manner.
 
 !!! Example
 
@@ -658,5 +658,18 @@ Logging should be done with the [PluginLogger](https://github.com/eccenca/cmem-p
 self.log.info("Successfully executed Workflow Plugin")
 ```
 
-On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal DataIntegration log stream.
+On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal Build (DataIntegration) log stream.
 This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin id>`.
+
+## Concurrency
+
+CMEM uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
+Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor) relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:
+
+* Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.
+* A missing `__main__` context can also result in deadlocks.
+* JEP shares memory between Python and Java, which conflicts with multiprocessing’s requirement for isolated memory spaces.
+
+In contrast, Python’s [concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) does not encounter these issues. It uses threads that share the same memory space and operate within a single process, avoiding the need for subprocess creation.
+
+**Recommendation:** Always use `ThreadPoolExecutor` in CMEM Python plugins running under JEP, as `ProcessPoolExecutor` may cause deadlocks.

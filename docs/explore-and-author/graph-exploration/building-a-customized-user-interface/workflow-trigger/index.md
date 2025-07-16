@@ -14,7 +14,7 @@ Workflow trigger are associated to Node Shapes by defining special-purpose non-v
 
 ## Setup
 
-To specify the DataIntegration workflow which should be executed via the shape element, a Workflow Trigger resource has to be created first.
+To specify the Build (DataIntegration) workflow which should be executed via the shape element, a Workflow Trigger resource has to be created first.
 Workflow Trigger can be defined and used in any active [Shape Catalog](../index.md) (active means, it is imported from the main Shape Catalog).
 A workflow trigger resource references a data integration workflow by URI.
 
