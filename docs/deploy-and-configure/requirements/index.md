@@ -31,18 +31,18 @@ For an example of a single-node installation refer to the following scenarios:
 
 ## Typical Setup
 
-In a typical deployment all components are installed on separate VMs (nodes).
-Therefore, six separate VMs are required.
+In a typical deployment all components are installed in a kubernetes cluster.
 
-The following numbers are based on existing customer deployments running Knowledge Graphs up to 300 million triples with 40 concurrent users.
+The following numbers are based on existing customer deployments running Knowledge Graphs up to 300 million triples.
 
 |                       Component | CPU             | Memory           |
 | ------------------------------: | :-------------- | :--------------- |
-|                 eccenca Explore | \>= 4 cores[^u] | \>= 8 GB RAM     |
+|                 eccenca Explore | \>= 2 cores[^u] | \>= 4 GB RAM     |
 | eccenca Build (DataIntegration) | \>= 4 cores[^w] | \>= 8 GB RAM[^w] |
-|             Triple / Quad Store | \>= 4 cores[^u] | \>= 8 GB RAM[^t] |
-|   Keycloak incl. PostgreSQL[^c] | 2 cores         | \>= 4 GB RAM     |
-|                Proxy Server[^c] | \>= 2 cores[^u] | \>= 2 GB RAM     |
+|             Triple / Quad Store | \>= 8 cores[^u] | \>= 16 GB RAM[^t] |
+|   Keycloak incl. PostgreSQL[^c] | 2 cores         | \>= 2 GB RAM     |
+
+For GraphDB always also have a look at [GraphDB recommendations](https://graphdb.ontotext.com/documentation/11.0/requirements.html#hardware-sizing).
 
 ## Clients
 
