@@ -42,6 +42,7 @@ The following numbers are based on existing customer deployments running Knowled
 |             Triple / Quad Store | \>= 8 cores[^u] | \>= 16 GB RAM[^t] |
 |   Keycloak incl. PostgreSQL[^c] | 2 cores         | \>= 2 GB RAM     |
 
+For GraphDB always also have a look at [GraphDB recommendations](https://graphdb.ontotext.com/documentation/11.0/requirements.html#hardware-sizing).
 
 ## Clients
 
