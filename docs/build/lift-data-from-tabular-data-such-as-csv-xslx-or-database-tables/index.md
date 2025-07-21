@@ -81,7 +81,7 @@ The vocabulary contains the classes and properties needed to map the data into t
     3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
         - Name: _**Product Vocabulary**_
-        - Graph URI: _**http://ld.company.org/prod-vocab/**_
+        - Graph URI: _**<http://ld.company.org/prod-vocab/>**_
         - Description: _**Example vocabulary modeled to describe relations between products and services.**_
         - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
 
@@ -111,19 +111,30 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     5. Click **Create**. Your project is created.
 
-    6. Within your project, click **Create** or **Create item**.
+    6. Optionally, click **Edit** within your project
 
-    7. In the **Create new item** dialog, select **CSV**.
+        ![](edit-prefix.png){ class="bordered" }
+
+    7. Add a prefix and a URI
+
+        - Prefix: _**pv**_
+        - URI: _**<http://ld.company.org/prod-vocab/>**_
+
+        ![](edit-prefix-add.png){ class="bordered" }
+
+    8. Click **Create** or **Create item**.
+
+    9. In the **Create new item** dialog, select **CSV**.
 
         ![](build-dataset-types-csv.png){ class="bordered" }
 
-    8. Fill out a label and upload the **[services.csv](services.csv) sample file**.
+    10. Fill out a label and upload the **[services.csv](services.csv) sample file**.
 
         ![](create new-dataset-csv.png){ class="bordered" }
 
-    9.  Click **Create**.** Leave all other parameters at their default values.
+    11.  Click **Create**.** Leave all other parameters at their default values.
 
-    10. Create a second **dataset**. Choose **Excel** and upload the [products.xlsx](products.xlsx) file.
+    12. Create a second **dataset**. Choose **Excel** and upload the [products.xlsx](products.xlsx) file.
 
 === "JDBC"
 
@@ -276,7 +287,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 11. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
 
     -   Target Property: **_name_**
-    -   Data type: _**StringValueType**_
+    -   Data type: _**String**_
     -   Value path: _**ServiceName**_ (which corresponds to the column of that name)
     -   An optional Label: _**service name**_
 
