@@ -16,7 +16,7 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   make - build tools (apt-get install make) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
-## wsl installation and configuration
+## WSL installation and configuration
 
 For all you need to start Powershell started as administrator.
 Alternatively you can also install a WSL distribution from Microsoft Store.
@@ -42,7 +42,7 @@ However other Distributions might work as well.
 wsl --install Debian
 ```
 
-Ensure you use wsl version 2 (this is necessary to use `systemd` services).
+Ensure you use WSL version 2 (this is necessary to use `systemd` services).
 
 ```shell
 wsl -l -v
@@ -62,7 +62,7 @@ wsl -d Debian
 
 Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
 
-To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with wsl v2):
+To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with WSL v2):
 
 ```shell
 [boot]
@@ -79,19 +79,19 @@ wsl --shutdown
 
 ```shell
 [wsl2]
-memory=16GB # restrict ram wsl can use
+memory=16GB # restrict ram WSL can use
 processors=4 # restrict cpu-cores
 swap=8GB # set swap size
 swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
 ```
 
-Alternatively, (with wsl v2) you may use the graphical configuration application _WSL Settings_.
+Alternatively, (with WSL v2) you may use the graphical configuration application _WSL Settings_.
 
 ## Setup & Check Installation Environment
 
-For docker we recommend to use the linux docker within wsl.
+For docker we recommend to use the linux docker within WSL.
 Follow the instruction in [Server Provisioning in Scenario: Single Node Cloud Installation](../scenario-single-node-cloud-installation/index.md#server-provisioning).
-Alternatively, you may use docker for desktop and enable wsl integration in the settings.
+Alternatively, you may use docker for desktop and enable WSL integration in the settings.
 
 Open a terminal window, create a directory, copy and extract docker orchestration there.
 
