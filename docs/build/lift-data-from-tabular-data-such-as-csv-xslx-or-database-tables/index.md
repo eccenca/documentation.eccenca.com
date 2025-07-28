@@ -147,7 +147,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. In the project, Click **Create** and select the **JDBC endpoint** type.
 
-        ![](build-dataset-types-jdbc.png){ class="bordered" }
+        ![](build-dataset-types-jdbc.png){ class="bordered" width="50%" }
 
     2. Define a **Label** for the dataset, specify the **JDBC Driver connection URL**, the **table** name and the **user** and **password** to connect to the database. _In this example we will use:_
 
@@ -157,7 +157,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - username: _**root**_
         - password: _**\*\*\*\***_
 
-        ![](create new-dataset-jdbc.png){ class="bordered" }
+        ![](create new-dataset-jdbc.png){ class="bordered" width="50%" }
 
         The general form of the JDBC connection string is:
 
