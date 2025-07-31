@@ -80,12 +80,12 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
-        - Name: _**Product Vocabulary**_
-        - Graph URI: _**<http://ld.company.org/prod-vocab/>**_
-        - Description: _**Example vocabulary modeled to describe relations between products and services.**_
-        - Vocabulary File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
+        - Label: `Product Vocabulary`
+        - Graph URI: `http://ld.company.org/prod-vocab/`
+        - Description: `Example vocabulary modeled to describe relations between products and services.`
+        - Upload File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
 
-        ![](register-new-vocab.png){ class="bordered" width="50%" }
+        ![Register new Vocabulary](register-new-vocab.png){ class="bordered" width="50%" }
 
 
 === "cmemc"
@@ -98,13 +98,13 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 ## 2 Uploading of the data (file)
 
-1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
+1. In Corporate Memory, click **:fontawesome-regular-folder: Projects** under **BUILD** in the navigation on the left side of the page.
 
     ![](menu-build-projects.png){ class="bordered" width="50%" }
 
-2. Click **Create** at the top of the page. 
+2. Click **Create :octicons-plus-circle-24:** at the top right of the page. 
 
-3. In **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.  
+3. In the **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.  
 
 4. Fill in the required details such as Title and Description. Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
 
@@ -119,13 +119,13 @@ The vocabulary contains the classes and properties needed to map the data into t
 
         ![](create-workflow.png){ class="bordered" width="50%" }
 
-    2. Fill out a label and click **create**.
+    2. Fill out a label and click **Create**.
 
         ![](workflow.png){ class="bordered" width="50%" }
 
     3. Drag and drop the **[services.csv](services.csv) sample file** on the grid.
 
-    4. Optionally change the Label, then click on **create**.
+    4. Optionally change the Label, then click on **Create**.
 
         ![](add-services-csv.png){ class="bordered" width="50%" }
 
@@ -157,7 +157,7 @@ The vocabulary contains the classes and properties needed to map the data into t
         - username: _**root**_
         - password: _**\*\*\*\***_
 
-        ![](create new-dataset-jdbc.png){ class="bordered" width="50%" }
+        ![](create-new-dataset-jdbc.png){ class="bordered" width="50%" }
 
         The general form of the JDBC connection string is:
 
@@ -203,7 +203,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
     ![](select-vocabulary.png){ class="bordered" width="50%" }
 
-4. Click on **create**.
+4. Click on **Create**.
 
 ---
 
@@ -223,21 +223,21 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
     -   URI pattern:
 
         -   Click **Create custom pattern**
-        -   Insert _**<http://ld.company.org/prod-inst/{ServiceID}>**_
-        -   where _<http://ld.company.org/prod-inst/>_ is a common prefix for the instances in this use case,
-        -   and _{ServiceID}_ is a placeholder that will resolve to the column of that name
+        -   Insert `http://ld.company.org/prod-inst/{ServiceID}`, where `http://ld.company.org/prod-inst/` is a common prefix for the instances in this use case, and `{ServiceID}` is a placeholder that will resolve to the column of that name.
 
-    -   _An optional Label: **Service**_
+    -   An optional Label: `Service`
 
     ![](services-mapping-class.png){ class="bordered" width="50%" }
 
-5. Click **Save** _Example RDF triple in our Knowledge Graph based on the mapping definition:_
+5. Click **Save**
 
-    ```nt
-    <http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
-    ```
+_Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
-6. Evaluate your mapping by clicking the Expand ![](button-expand.png) button in the **Examples of target data** property to see at most three generated base URIs.
+``` text
+<http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
+```
+
+6. Evaluate your mapping by clicking the Expand :material-greater-than: button in the **Examples of target data** property to see at most three generated base URIs.
 
     ![](mapping-inline-preview.png){ class="bordered" width="50%" }
 
@@ -279,14 +279,14 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. _In this example we will use:_
 
-    -   Label: _**Service Knowledge Graph**_
-    -   Graph: _**<http://ld.company.org/prod-instances/>**_
+    -   Label: `Service Knowledge Graph`
+    -   Graph: `http://ld.company.org/prod-instances/`
 
     ![](knowledge-graph.png){ class="bordered" width="50%" }
 
 4. Click **Create**.
 
-5. Press the ![](button-play.png) button and click on **Save and run workflow**.
+5. Press the :material-play: button and click on **Save and run workflow**.
 
 6. Validate the results by selecting **Workflow report** In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
@@ -301,11 +301,11 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
     ![](graph-settings.png){ class="bordered" width="50%" }
 
-9. Here you can add **Names** for example.
+9. Here you can add `name` for example.
 
     ![](add-name-column.png){ class="bordered" width="50%" }
 
-10. Finally you can use the Explore **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: <http://ld.company.org/prod-instances/>
+10. Finally you can use the Explore **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: `http://ld.company.org/prod-instances/`
 
     ![](kg-result.png){ class="bordered" width="50%" }
 
