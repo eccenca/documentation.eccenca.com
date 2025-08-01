@@ -7,10 +7,10 @@ tags:
 
 Corporate Memory 25.2.0 is the second major release in 2025.
 
+![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" }
+![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" }
+![25.2: Explore - Multi-Graph Query Management](25-2-explore-multiple-query-catalogs.png "25.2: Explore - Multi-Graph Query Management"){ class="bordered" }
 <!--
-![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
-![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
-![25.1: Explore - Streamlined Shape Management](25-1-explore-node-shape-quick-access.png "25.1: Explore - Streamlined Shape Management"){ class="bordered" }
 -->
 
 The highlights of this release are:
