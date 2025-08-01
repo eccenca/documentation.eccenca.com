@@ -15,17 +15,17 @@ Corporate Memory 25.2.0 is the second major release in 2025.
 
 The highlights of this release are:
 
--   Build: **Mapping Creator**
-    -   New visual mapping management and GenAI based mapping environment, allowing unparalleled clarity, speed and ease in building and maintaining your mapping rules.
-
 -   Build: **Enhanced File Management in Workflows**
     -   New binary file dataset and project file operators enable seamless integration of PDFs, images, and other binary files directly into workflows, streamlining document processing pipelines.
 
--   Explore: **Dynamic SHACL Shape Creation**
+-   Explore: **Dynamic Class and Property Creation**
     -   Create classes and properties on-the-fly while defining SHACL shapes, dramatically accelerating ontology development and data modeling workflows without context switching.
 
 -   Explore and Automate: **Multi-Graph Query Management**
     -   The enhanced query catalog now supports multiple query graphs and arbitrary graph selection, enabling better organization and management of SPARQL queries across different knowledge domains.
+
+-   Build: **Mapping Creator** (BETA)
+    -   New visual mapping management and GenAI based mapping environment, allowing unparalleled clarity, speed and ease in building and maintaining your mapping rules.
 
 !!! info inline end "Important info"
 
