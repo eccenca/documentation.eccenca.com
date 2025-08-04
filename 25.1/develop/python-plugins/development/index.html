@@ -10061,7 +10061,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 25.1.1
+    Corporate Memory 25.1.2
   
 
     
@@ -10086,7 +10086,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 25.1.1
+    Corporate Memory 25.1.2
   
 
           </label>
@@ -11748,6 +11748,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -12494,6 +12505,16 @@ The <code>get</code> method of this object returns a JSON string of the configur
 </code></pre></div>
 <p>On runtime, this logger will be replaced with a JVM based logging function feeding the plugin logs to the normal Build (DataIntegration) log stream.
 This JVM-based logger will prefix all plugin logs with <code>plugins.python.&lt;plugin id&gt;</code>.</p>
+<h2 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">¤</a></h2>
+<p>CMEM uses <a href="https://github.com/ninia/jep">JEP</a> to run Python plugins inside the JVM.
+Python’s <a href="https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor">concurrent.futures.ProcessPoolExecutor</a> relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:</p>
+<ul>
+<li>Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.</li>
+<li>A missing <code>__main__</code> context can also result in deadlocks.</li>
+<li>JEP shares memory between Python and Java, which conflicts with multiprocessing’s requirement for isolated memory spaces.</li>
+</ul>
+<p>In contrast, Python’s <a href="https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor">concurrent.futures.ThreadPoolExecutor</a> does not encounter these issues. It uses threads that share the same memory space and operate within a single process, avoiding the need for subprocess creation.</p>
+<p><strong>Recommendation:</strong> Always use <code>ThreadPoolExecutor</code> in CMEM Python plugins running under JEP, as <code>ProcessPoolExecutor</code> may cause deadlocks.</p>
 
 
 
@@ -12516,7 +12537,7 @@ This JVM-based logger will prefix all plugin logs with <code>plugins.python.&lt;
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 17, 2025 14:14:06"><span class="timeago" datetime="2025-04-17T14:14:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 17, 2025 14:14:06">2025-04-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="June 10, 2025 07:28:57"><span class="timeago" datetime="2025-06-10T07:28:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 10, 2025 07:28:57">2025-06-10</span>
   </span>
 
     
