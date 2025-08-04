@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.1.1
+# Corporate Memory 25.1.2
 
-Corporate Memory 25.1.1 is the first major release in 2025.
+Corporate Memory 25.1 is the first major release in 2025.
 
 ![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
 ![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
@@ -32,7 +32,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.1.1
--   eccenca Explore v25.1.1 (formerly DataPlatform and DataManager)
+-   eccenca Explore v25.1.2 (formerly DataPlatform and DataManager)
 -   eccenca Corporate Memory Control (cmemc) v25.1.1
 
 We tested this release with the following dependency components:
@@ -90,7 +90,7 @@ We're excited to bring you the latest update to DataIntegration v25.1, which int
 -   Fixed issue where tasks created in the workflow editor are not added to the recently viewed list.
 -   Fixed issue where adding a note to a linking rule fails to save.
 
-## eccenca Explore v25.1.1
+## eccenca Explore v25.1.2
 
 !!! info inline end "Important info"
 
@@ -98,6 +98,13 @@ We're excited to bring you the latest update to DataIntegration v25.1, which int
     into a single component eccenca Explore.
 
 We are excited to announce Explore v25.1, which introduces new features, improvements and bug fixes.
+
+**v25.1.2 of Explore ships the following fixes:**
+
+-   Spring Boot Gradle plugin patch upgrade to address CVE-2025-31651
+-   Consider owl import resolution in QUERY CBD resolution strategy
+-   Link Rules - Rule Setup: parameters of paths retain values, changes on save are shown, even if requests in the background still run.
+-   Fix ACL Management rights for writing access conditions
 
 **v25.1.1 of Explore ships the following fixes:**
 
