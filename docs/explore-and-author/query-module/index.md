@@ -14,6 +14,13 @@ These tables can then be exported as CSV, Excel or JSON documents.
 
 The Query module features two areas, the catalog and the editor.
 
+## Catalog graph selection
+
+The Query module lists all the graphs containing queries.
+Use the **Queries catalogue** graph selector in the top left to select the graph whose queries should be listed and edited.
+
+![](Query-Graph-Selection.png){ class="bordered" width="30%"}
+
 ## Query catalog
 
 The catalog lists all existing SPARQL queries including name, type and description.
