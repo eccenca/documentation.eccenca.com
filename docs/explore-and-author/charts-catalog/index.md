@@ -1,6 +1,5 @@
 ---
 icon: eccenca/module-charts
-status: new
 tags:
     - KnowledgeGraph
     - Dashboards
