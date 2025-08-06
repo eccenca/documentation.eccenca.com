@@ -11452,32 +11452,32 @@
 
 <h1 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">¤</a></h1>
 <p>This page describes the overall system architecture of eccenca Corporate Memory and its components.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="cmem-System-Architecture" src="Corporate-Memory-System-Architecture.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="cmem-System-Architecture" src="Corporate-Memory-System-Architecture_v2.jpg" /></a></p>
 <p>eccenca Corporate Memory consists of three core components:</p>
 <ul>
-<li>(2) <a href="../configuration/dataintegration/">eccenca Build</a></li>
-<li>(3) <a href="../configuration/explore/">eccenca Explore</a>, and</li>
-<li>(12) <a href="../../automate/cmemc-command-line-interface/">cmemc (Corporate Memory Control)</a></li>
+<li><a href="../configuration/dataintegration/">eccenca Build</a></li>
+<li><a href="../configuration/explore/">eccenca Explore</a>, and</li>
+<li><a href="../../automate/cmemc-command-line-interface/">cmemc (Corporate Memory Control)</a></li>
 </ul>
-<p><em>Build</em> (2) is the Corporate Memory component which enables integration of datasets into a single consistent knowledge graph.
+<p><em>Build</em> is the Corporate Memory component which enables integration of datasets into a single consistent knowledge graph.
 Datasets in their original format are mapped to RDF schemata and then linked to and persisted into a knowledge graph.
 The data integration is performed semi-automatically based on domain-specific integration rules and vocabularies (OWL ontologies).
-Corporate Memory supports multiple kinds of source integration data sources (6) such as SQL databases or files of different formats.
-These files can be processed with <em>Build</em> either locally or on a remote Spark cluster (7).</p>
-<p><em>Explore</em> (3) is a single-page JavaScript application which enables creating and managing knowledge graphs based on established W3C standards.
+Corporate Memory supports multiple kinds of source integration data sources such as SQL databases or files of different formats.
+These files can be processed with <em>Build</em>.</p>
+<p><em>Explore</em> is a single-page JavaScript application which enables creating and managing knowledge graphs based on established W3C standards.
 It is a generic data browser suitable to edit, explore and query the created knowledge graph.
 <em>Explore</em> provides convenient options to create specific data views by using <a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language</a> (SHACL).</p>
-<p><em>Explore</em> (3) also acts as the semantic middleware application which provides a unified access to semantic graph data.
+<p><em>Explore</em> also acts as the semantic middleware application which provides a unified access to semantic graph data.
 Additionally, <em>Explore</em> manages authorization of the users according to the access control lists defined in the Triple Store.
-The knowledge graph is stored in a quad store (5) connected to <em>Explore</em>.
+The knowledge graph is stored in a quad store connected to <em>Explore</em>.
 This can either be a physical store like <a href="http://graphdb.ontotext.com/">GraphDB</a>, <a href="https://virtuoso.openlinksw.com/">Virtuoso</a> or a remotely accessible SPARQL 1.1 compliant HTTP endpoint.</p>
-<p>Keycloak (8) provides authentication.
-Keycloak can act as an authentication broker for already existing, external OpenId Connect or SAML infrastructures (9).
-In addition to that, Keycloak supports a wide variety of internal user management configuration scenarios and the option to connect to an external LDAP server for user and group synchronization (10).
+<p>Keycloak provides authentication.
+Keycloak can act as an authentication broker for already existing, external OpenId Connect or SAML infrastructures.
+In addition to that, Keycloak supports a wide variety of internal user management configuration scenarios and the option to connect to an external LDAP server for user and group synchronization.
 Keycloak uses the embedded Java-based relational database H2 as a default to store its configuration data.
-However, it is highly recommended to <a href="https://www.keycloak.org/server/db">use a relational database</a> (11) for production use instead.
+However, it is highly recommended to <a href="https://www.keycloak.org/server/db">use a relational database</a> for production use instead.
 Refer to the <a href="https://www.keycloak.org/guides#server">Keycloak manual</a> for further information on possible setups.</p>
-<p><a href="../../automate/cmemc-command-line-interface/">cmemc</a> (12) (<strong>C</strong>orporate <strong>Mem</strong>ory <strong>C</strong>ontrol) is the eccenca Corporate Memory Command Line Interface (CLI).
+<p><a href="../../automate/cmemc-command-line-interface/">cmemc</a> (<strong>C</strong>orporate <strong>Mem</strong>ory <strong>C</strong>ontrol) is the eccenca Corporate Memory Command Line Interface (CLI).
 cmemc is intended for System Administrators and Linked Data Experts who wants to automate and remote control activities on Corporate Memory.</p>
 
 
@@ -11501,7 +11501,7 @@ cmemc is intended for System Administrators and Linked Data Experts who wants to
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 17, 2025 14:14:06 UTC"><span class="timeago" datetime="2025-04-17T14:14:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 17, 2025 14:14:06 UTC">2025-04-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 6, 2025 06:50:34 UTC"><span class="timeago" datetime="2025-08-06T06:50:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 6, 2025 06:50:34 UTC">2025-08-06</span>
   </span>
 
     
