@@ -1,0 +1,11 @@
+nav:
+    - index.md
+    - "And": min.md
+    - "Average": average.md
+    - "Euclidian distance": quadraticMean.md
+    - "First non-empty score": firstNonEmpty.md
+    - "Geometric mean": geometricMean.md
+    - "Handle missing values": handleMissingValues.md
+    - "Negate": negate.md
+    - "Or": max.md
+    - "Scale": scale.md

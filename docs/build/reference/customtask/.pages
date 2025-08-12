@@ -1,0 +1,67 @@
+nav:
+    - index.md
+    - "Add project files": addProjectFiles.md
+    - "Cancel Workflow": CancelWorkflow.md
+    - "Combine CSV files": combine-csv.md
+    - "Concatenate to file": ConcatenateToFile.md
+    - "Create Embeddings": cmem_plugin_llm-CreateEmbeddings.md
+    - "Create/Update Salesforce Objects": cmem_plugin_salesforce-workflow-operations-SobjectCreate.md
+    - "Delete project files": deleteProjectFiles.md
+    - "Distinct by": DistinctBy.md
+    - "Download file": downloadFile.md
+    - "Download Nextcloud files": cmem_plugin_nextcloud-Download.md
+    - "Download Office 365 Files": cmem_plugin_office365-Download.md
+    - "Download SSH files": cmem_plugin_ssh-Download.md
+    - "Evaluate template": Template.md
+    - "Execute commands via SSH": cmem_plugin_ssh-Execute.md
+    - "Execute Instructions": cmem_plugin_llm-ExecuteInstructions.md
+    - "Execute REST requests": eccencaRestOperator.md
+    - "Execute Spark function": SparkFunction.md
+    - "Extract from PDF files": cmem_plugin_pdf_extract-pdf_extract-PdfExtract.md
+    - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
+    - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
+    - "Get project files": getProjectFiles.md
+    - "GraphQL query": cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
+    - "Join tables": Merge.md
+    - "jq": cmem-plugin-jq-workflow.md
+    - "JQL query": cmem_plugin_jira-JqlQuery.md
+    - "Kafka Consumer (Receive Messages)": cmem_plugin_kafka-ReceiveMessages.md
+    - "Kafka Producer (Send Messages)": cmem_plugin_kafka-SendMessages.md
+    - "List Nextcloud files": cmem_plugin_nextcloud-List.md
+    - "List Office 365 Files": cmem_plugin_office365-List.md
+    - "List project files": cmem_plugin_project_resources-List.md
+    - "List SSH files": cmem_plugin_ssh-List.md
+    - "Merge tables": MultiTableMerge.md
+    - "Normalize units of measurement": ucumNormalizationTask.md
+    - "OAuth2 Authentication": cmem_plugin_auth-workflow-auth-OAuth2.md
+    - "Office 365 Upload Files": cmem_plugin_office365-Upload.md
+    - "Parse JSON": JsonParserOperator.md
+    - "Parse XML": XmlParserOperator.md
+    - "Parse YAML": cmem_plugin_yaml-parse.md
+    - "Pivot": Pivot.md
+    - "Request RDF triples": tripleRequestOperator.md
+    - "Scheduler": Scheduler.md
+    - "Search addresses": SearchAddresses.md
+    - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
+    - "Send eMail": SendEMail.md
+    - "Send Mattermost messages": cmem_plugin_mattermost.md
+    - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
+    - "SHACL validation with pySHACL": shacl-pyshacl.md
+    - "SOQL query (Salesforce)": cmem_plugin_salesforce-SoqlQuery.md
+    - "SPARQL Construct query": sparqlCopyOperator.md
+    - "SPARQL Select query": sparqlSelectOperator.md
+    - "SPARQL Update query": sparqlUpdateOperator.md
+    - "Split file": cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md
+    - "SQL query": CustomSQLExecution.md
+    - "Start Workflow per Entity": cmem_plugin_loopwf-task-StartWorkflow.md
+    - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
+    - "Unpivot": Unpivot.md
+    - "Update SemSpect": cmem_plugin_semspect-task-Update.md
+    - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
+    - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
+    - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md
+    - "Upload SSH files": cmem_plugin_ssh-Upload.md
+    - "Validate Entities": cmem_plugin_validation-validate-ValidateEntities.md
+    - "Validate Knowledge Graph": cmem_plugin_validation-validate-ValidateGraph.md
+    - "Validate XML": validateXsdOperator.md
+    - "XSLT": xsltOperator.md

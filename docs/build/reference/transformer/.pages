@@ -1,0 +1,231 @@
+nav:
+    - index.md
+    - "Abs": Excel_ABS.md
+    - "Acos": Excel_ACOS.md
+    - "Acosh": Excel_ACOSH.md
+    - "Aggregate numbers": aggregateNumbers.md
+    - "And": Excel_AND.md
+    - "Asin": Excel_ASIN.md
+    - "Asinh": Excel_ASINH.md
+    - "Atan": Excel_ATAN.md
+    - "Atan2": Excel_ATAN2.md
+    - "Atanh": Excel_ATANH.md
+    - "Avedev": Excel_AVEDEV.md
+    - "Average": Excel_AVERAGE.md
+    - "Averagea": Excel_AVERAGEA.md
+    - "Camel case": camelCase.md
+    - "Camel case tokenizer": camelcasetokenizer.md
+    - "Capitalize": capitalize.md
+    - "Ceiling": Excel_CEILING.md
+    - "Choose": Excel_CHOOSE.md
+    - "Clean": Excel_CLEAN.md
+    - "Clean HTML": htmlCleaner.md
+    - "Coalesce (first non-empty input)": coalesce.md
+    - "Code": Excel_CODE.md
+    - "Combin": Excel_COMBIN.md
+    - "Compare dates": compareDates.md
+    - "Compare numbers": compareNumbers.md
+    - "Concatenate": concat.md
+    - "Concatenate multiple values": concatMultiValues.md
+    - "Concatenate pairwise": concatPairwise.md
+    - "Constant": constant.md
+    - "Constant URI": constantUri.md
+    - "Contains all of": containsAllOf.md
+    - "Contains any of": containsAnyOf.md
+    - "Convert charset": convertCharset.md
+    - "Convert currency values": cmem_plugin_currencies-transform.md
+    - "Convert Number Base": cmem-plugin-number-conversion.md
+    - "Correl": Excel_CORREL.md
+    - "Cos": Excel_COS.md
+    - "Cosh": Excel_COSH.md
+    - "Count": Excel_COUNT.md
+    - "Count values": count.md
+    - "Counta": Excel_COUNTA.md
+    - "Covar": Excel_COVAR.md
+    - "Current date": currentDate.md
+    - "Dataset parameter": datasetParameter.md
+    - "Date to timestamp": datetoTimestamp.md
+    - "Default Value": defaultValue.md
+    - "Degrees": Excel_DEGREES.md
+    - "Devsq": Excel_DEVSQ.md
+    - "Duration": duration.md
+    - "Duration in days": durationInDays.md
+    - "Duration in seconds": durationInSeconds.md
+    - "Duration in years": durationInYears.md
+    - "Empty value": emptyValue.md
+    - "Encode URL": urlEncode.md
+    - "Evaluate template": TemplateTransformer.md
+    - "Even": Excel_EVEN.md
+    - "Exact": Excel_EXACT.md
+    - "Excel map": excelMap.md
+    - "Exp": Excel_EXP.md
+    - "Extract physical quantity": extractPhysicalQuantity.md
+    - "Fact": Excel_FACT.md
+    - "False": Excel_FALSE.md
+    - "File hash": fileHash.md
+    - "Filter by length": filterByLength.md
+    - "Filter by regex": filterByRegex.md
+    - "Find": Excel_FIND.md
+    - "Fix URI": uriFix.md
+    - "Floor": Excel_FLOOR.md
+    - "Forecast": Excel_FORECAST.md
+    - "Format number": formatNumber.md
+    - "Fv": Excel_FV.md
+    - "Geomean": Excel_GEOMEAN.md
+    - "Get value by index": getValueByIndex.md
+    - "If": Excel_IF.md
+    - "If contains": ifContains.md
+    - "If exists": ifExists.md
+    - "If matches regex": ifMatchesRegex.md
+    - "Input file attributes": inputFileAttributes.md
+    - "Input hash": inputHash.md
+    - "Input task attributes": inputTaskAttributes.md
+    - "Int": Excel_INT.md
+    - "Intercept": Excel_INTERCEPT.md
+    - "Ipmt": Excel_IPMT.md
+    - "Irr": Excel_IRR.md
+    - "jq": cmem-plugin-jq-transform.md
+    - "Large": Excel_LARGE.md
+    - "Left": Excel_LEFT.md
+    - "Ln": Excel_LN.md
+    - "Log": Excel_LOG.md
+    - "Log10": Excel_LOG10.md
+    - "Logarithm": log.md
+    - "Lower case": lowerCase.md
+    - "Map": map.md
+    - "Map with default": mapWithDefaultInput.md
+    - "Max": Excel_MAX.md
+    - "Maxa": Excel_MAXA.md
+    - "Median": Excel_MEDIAN.md
+    - "Merge": merge.md
+    - "Metaphone": metaphone.md
+    - "Mid": Excel_MID.md
+    - "Min": Excel_MIN.md
+    - "Mina": Excel_MINA.md
+    - "Mirr": Excel_MIRR.md
+    - "Mod": Excel_MOD.md
+    - "Mode": Excel_MODE.md
+    - "Negate binary (NOT)": negateTransformer.md
+    - "Normalize chars": normalizeChars.md
+    - "Normalize physical quantity": PhysicalQuantitiesNormalizer.md
+    - "Normdist": Excel_NORMDIST.md
+    - "Norminv": Excel_NORMINV.md
+    - "Normsdist": Excel_NORMSDIST.md
+    - "Normsinv": Excel_NORMSINV.md
+    - "Not": Excel_NOT.md
+    - "Nper": Excel_NPER.md
+    - "Npv": Excel_NPV.md
+    - "Number to duration": numberToDuration.md
+    - "Numeric operation": numOperation.md
+    - "Numeric reduce": numReduce.md
+    - "NYSIIS": NYSIIS.md
+    - "Odd": Excel_ODD.md
+    - "Or": Excel_OR.md
+    - "Parse date": DateTypeParser.md
+    - "Parse date pattern": parseDate.md
+    - "Parse float": FloatTypeParser.md
+    - "Parse geo coordinate": GeoCoordinateParser.md
+    - "Parse geo location": GeoLocationParser.md
+    - "Parse integer": IntegerParser.md
+    - "Parse ISIN": IsinParser.md
+    - "Parse SKOS term": SkosTypeParser.md
+    - "Parse string": StringParser.md
+    - "Pearson": Excel_PEARSON.md
+    - "Percentile": Excel_PERCENTILE.md
+    - "Percentrank": Excel_PERCENTRANK.md
+    - "Pi": Excel_PI.md
+    - "Pmt": Excel_PMT.md
+    - "Poisson": Excel_POISSON.md
+    - "Power": Excel_POWER.md
+    - "Ppmt": Excel_PPMT.md
+    - "Product": Excel_PRODUCT.md
+    - "Proper": Excel_PROPER.md
+    - "Pv": Excel_PV.md
+    - "Radians": Excel_RADIANS.md
+    - "Rand": Excel_RAND.md
+    - "Random number": randomNumber.md
+    - "Rank": Excel_RANK.md
+    - "Rate": Excel_RATE.md
+    - "Read parameter": readParameter.md
+    - "Regex extract": regexExtract.md
+    - "Regex replace": regexReplace.md
+    - "Regex selection": regexSelect.md
+    - "Remove blanks": removeBlanks.md
+    - "Remove duplicates": removeDuplicates.md
+    - "Remove empty values": removeEmptyValues.md
+    - "Remove parentheses": removeParentheses.md
+    - "Remove special chars": removeSpecialChars.md
+    - "Remove stopwords": removeStopwords.md
+    - "Remove stopwords (remote stopword list)": removeRemoteStopwords.md
+    - "Remove values": removeValues.md
+    - "Replace": replace.md
+    - "Replace": Excel_REPLACE.md
+    - "Rept": Excel_REPT.md
+    - "Retrieve coordinates": RetrieveCoordinates.md
+    - "Retrieve latitude": RetrieveLatitude.md
+    - "Retrieve longitude": RetrieveLongitude.md
+    - "Right": Excel_RIGHT.md
+    - "Roman": Excel_ROMAN.md
+    - "Round": Excel_ROUND.md
+    - "Rounddown": Excel_ROUNDDOWN.md
+    - "Roundup": Excel_ROUNDUP.md
+    - "Search": Excel_SEARCH.md
+    - "Sequence values to indexes": toSequenceIndex.md
+    - "Sign": Excel_SIGN.md
+    - "Sin": Excel_SIN.md
+    - "Sinh": Excel_SINH.md
+    - "Slope": Excel_SLOPE.md
+    - "Small": Excel_SMALL.md
+    - "Sort": sort.md
+    - "Sort words": sortWords.md
+    - "Soundex": soundex.md
+    - "Sqrt": Excel_SQRT.md
+    - "Standardize": Excel_STANDARDIZE.md
+    - "Stdev": Excel_STDEV.md
+    - "Stdeva": Excel_STDEVA.md
+    - "Stdevp": Excel_STDEVP.md
+    - "Stdevpa": Excel_STDEVPA.md
+    - "Stem": stem.md
+    - "Strip non-alphabetic characters": alphaReduce.md
+    - "Strip postfix": stripPostfix.md
+    - "Strip prefix": stripPrefix.md
+    - "Strip URI prefix": stripUriPrefix.md
+    - "Substitute": Excel_SUBSTITUTE.md
+    - "Substring": substring.md
+    - "Sum": Excel_SUM.md
+    - "Sumproduct": Excel_SUMPRODUCT.md
+    - "Sumsq": Excel_SUMSQ.md
+    - "Sumx2my2": Excel_SUMX2MY2.md
+    - "Sumx2py2": Excel_SUMX2PY2.md
+    - "Sumxmy2": Excel_SUMXMY2.md
+    - "Tan": Excel_TAN.md
+    - "Tanh": Excel_TANH.md
+    - "Tdist": Excel_TDIST.md
+    - "Timestamp to date": timeToDate.md
+    - "Tokenize": tokenize.md
+    - "Trim": trim.md
+    - "True": Excel_TRUE.md
+    - "Trunc": Excel_TRUNC.md
+    - "ULID": cmem-plugin-ulid.md
+    - "Until character": untilCharacter.md
+    - "Upper case": upperCase.md
+    - "UUID": uuid.md
+    - "UUID Convert": cmem_plugin_uuid-plugin_uuid-UUIDConvert.md
+    - "UUID Version": cmem_plugin_uuid-plugin_uuid-UUIDVersion.md
+    - "UUID1": cmem_plugin_uuid-plugin_uuid-UUID1.md
+    - "UUID1 to UUID6": cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6.md
+    - "UUID3": cmem_plugin_uuid-plugin_uuid-UUID3.md
+    - "UUID4": cmem_plugin_uuid-plugin_uuid-UUID4.md
+    - "UUID5": cmem_plugin_uuid-plugin_uuid-UUID5.md
+    - "UUID6": cmem_plugin_uuid-plugin_uuid-UUID6.md
+    - "UUID7": cmem_plugin_uuid-plugin_uuid-UUID7.md
+    - "UUID8": cmem_plugin_uuid-plugin_uuid-UUID8.md
+    - "Validate date after": validateDateAfter.md
+    - "Validate date range": validateDateRange.md
+    - "Validate number of values": validateNumberOfValues.md
+    - "Validate numeric range": validateNumericRange.md
+    - "Validate regex": validateRegex.md
+    - "Var": Excel_VAR.md
+    - "Vara": Excel_VARA.md
+    - "Varp": Excel_VARP.md
+    - "Varpa": Excel_VARPA.md

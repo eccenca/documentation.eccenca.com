@@ -3,6 +3,7 @@ nav:
     - Introduction to the User Interface: introduction-to-the-user-interface
     - Rule Operators: rule-operators
     - Define Prefixes / Namespaces: define-prefixes-namespaces
+    - Task and Operator Reference: reference
     - Cool IRIs: cool-iris
     - Lift Tabular Data: lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
     - Lift Hierarchical Data: lift-data-from-json-and-xml-sources
