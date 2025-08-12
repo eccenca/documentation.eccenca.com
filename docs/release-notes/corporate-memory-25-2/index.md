@@ -3,9 +3,9 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.2.0
+# Corporate Memory 25.2.1
 
-Corporate Memory 25.2.0 is the second major release in 2025.
+Corporate Memory 25.2 is the second major release in 2025.
 
 ![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" }
 ![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" }
@@ -34,7 +34,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.2.0
--   eccenca Explore v25.2.0
+-   eccenca Explore v25.2.1
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
@@ -84,9 +84,15 @@ We are excited to announce the release of DataIntegration v25.2.0, which introdu
 -   XML datasets now return empty values for empty tags when string values are expected
 -   Project variable updates now properly use the triggering user's credentials
 
-## eccenca Explore v25.2.0
+## eccenca Explore v25.2.1
 
 We are pleased to announce Explore v25.2.0, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.1 of Explore ships the following fixes and additions:**
+
+-   Pagination for inline views of Dataset (used for preview in cmem build)
+-   Widgets for shaped resources without properties to display are shown
+-   Update/Replace in the explore graph list
 
 **v25.2.0 of Explore adds the following new features:**
 
@@ -95,7 +101,6 @@ We are pleased to announce Explore v25.2.0, which brings significant enhancement
     -   Create properties for property shapes on-the-fly without leaving the shape editor
     -   Create classes for property shapes on-the-fly for better data modeling
     -   Support for defining properties with `domainIncludes` and `rangeIncludes` predicates (as defined in either `schema:`,`dcam:` or `gist:`)
-)
 -   **Query Catalog Enhancements:**
     -   Graph selection support for Query Catalog, allowing multiple query catalog graphs and editing queries in arbitrary graphs
     -   Graph selection support for Charts visualization, allowing to store and edit chart visualization in arbitrary graphs
@@ -177,6 +182,19 @@ We are excited to announce cmemc v25.4.0, which introduces new features, improve
     -   `--include-import-statements` option to delete imports from other graphs to the deleted graph
 
 ## Migration Notes
+
+!!! info "Backward and Forward Compatibility"
+
+    We do not guarantee forward compatibility for configuration, data or projects.
+    I.e. importing a project created with DataIntegration v25.2.0 into DataIntegration v25.1.0 (or older) might not work.
+
+    Backward compatibility will be ensured or migration paths explained.
+    I.e. projects created with DataIntegration v24.3.0 can be imported into DataIntegration v25.1.0.
+
+!!! info "Important info"
+
+    Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
+    into a single component eccenca Explore.
 
 ### eccenca DataIntegration
 
