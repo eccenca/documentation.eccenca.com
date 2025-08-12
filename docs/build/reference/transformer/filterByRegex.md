@@ -12,6 +12,7 @@ tags:
 
 Removes all strings that do NOT match a regex. If 'negate' is true, only strings will be removed that match the regex.
 
+
 ## Parameter
 
 ### Regex

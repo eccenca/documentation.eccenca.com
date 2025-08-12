@@ -12,6 +12,7 @@ tags:
 
 Sends an eMail using an SMTP server. If connected to a dataset that is based on a file in a workflow, it will send that file whenever the workflow is executed It can be used to send the result of a workflow via Mail.
 
+
 ## Parameter
 
 ### Host

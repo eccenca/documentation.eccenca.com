@@ -10,6 +10,7 @@ tags:
 
 
 
+Strips a prefix of a string.
 
 ### Examples
 

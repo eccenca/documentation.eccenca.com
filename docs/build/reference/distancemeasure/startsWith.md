@@ -10,6 +10,7 @@ tags:
 
 
 
+Returns success if the first string starts with the second string, failure otherwise.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

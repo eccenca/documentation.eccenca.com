@@ -9,6 +9,7 @@ tags:
 
 
 
+Calculates the Euclidian distance.
 
 ### Examples
 

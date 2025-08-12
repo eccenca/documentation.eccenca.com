@@ -12,6 +12,7 @@ tags:
 
 Metaphone phonetic encoding.
 
+
 ## Parameter
 
 `None`

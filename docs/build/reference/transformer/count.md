@@ -10,6 +10,7 @@ tags:
 
 
 
+Counts the number of values.
 
 ### Examples
 

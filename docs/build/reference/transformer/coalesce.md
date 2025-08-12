@@ -10,6 +10,7 @@ tags:
 
 
 
+Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value.
 
 ### Examples
 

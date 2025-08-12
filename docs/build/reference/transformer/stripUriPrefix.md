@@ -10,6 +10,7 @@ tags:
 
 
 
+Strips the URI prefix and decodes the remainder. Leaves values unchanged which are not a valid URI.
 
 ### Examples
 

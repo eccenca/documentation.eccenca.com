@@ -12,6 +12,7 @@ tags:
 
 Connect to an existing SPARQL endpoint.
 
+
 ## Parameter
 
 ### Endpoint URI

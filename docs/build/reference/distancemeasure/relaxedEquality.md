@@ -10,6 +10,7 @@ tags:
 
 
 
+Return success if strings are equal, failure otherwise. Lower/upper case and differences like ö/o, n/ñ, c/ç etc. are treated as equal.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

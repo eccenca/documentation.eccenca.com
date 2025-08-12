@@ -12,6 +12,7 @@ tags:
 
 Generates a constant URI.
 
+
 ## Parameter
 
 ### Value

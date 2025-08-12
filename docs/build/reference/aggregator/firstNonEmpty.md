@@ -9,6 +9,7 @@ tags:
 
 
 
+Forwards the first input that provides a non-empty similarity score.
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+Extracts the substring until the character given.
 
 ### Examples
 

@@ -10,7 +10,15 @@ tags:
 
 
 
+Normalizes physical quantities.
+Can either convert to a configured unit or to SI base units.
+For instance for lengths, values will be converted to metres if no target unit is configured.
+Will output the pure numeric value without the unit.
+If one input is provided, the physical quantities are parsed from the provided strings of the form "1 km".
+If two inputs are provided, the numeric values are parsed from the first input and the units are parsed from the second inputs.
+
 SI units and common derived units are supported. The following section lists all supported units. By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
+
 ### Supported units
 
 #### Time

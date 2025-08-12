@@ -9,6 +9,7 @@ tags:
 
 
 
+At least one input score must be within the threshold. Selects the maximum score.
 
 ### Examples
 

@@ -12,6 +12,7 @@ tags:
 
 Removes all strings that are shorter than 'min' characters and longer than 'max' characters.
 
+
 ## Parameter
 
 ### Min

@@ -10,6 +10,7 @@ tags:
 
 
 
+Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix Epoch (1970-01-01).
 
 ### Examples
 

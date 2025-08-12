@@ -9,6 +9,7 @@ tags:
 
 
 
+All input scores must be within the threshold. Selects the minimum score.
 
 ### Examples
 

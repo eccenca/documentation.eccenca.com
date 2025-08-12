@@ -10,6 +10,7 @@ tags:
 
 
 
+Strip all non-numeric characters from a string.
 
 ### Examples
 

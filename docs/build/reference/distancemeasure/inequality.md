@@ -10,6 +10,7 @@ tags:
 
 
 
+Returns success if values are not equal, failure otherwise.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

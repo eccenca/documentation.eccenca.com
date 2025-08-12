@@ -10,6 +10,7 @@ tags:
 
 
 
+Evaluates a template. Input values can be addressed using the variables 'input1', 'input2', etc. Global variables are available in the 'global' scope, e.g., 'global.myVar'.
 
 ### Examples
 

@@ -12,6 +12,7 @@ tags:
 
 Removes values that contain words from a blacklist. The blacklist values are separated with commas.
 
+
 ## Parameter
 
 ### Blacklist

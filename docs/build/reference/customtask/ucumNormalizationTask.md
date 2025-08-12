@@ -1,6 +1,6 @@
 ---
 title: "Normalize units of measurement"
-description: "Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation in three columns: * The normalized numeric value. * The unit symbol of the SI-system-unit pertaining to the value. * The origin unit symbol from which it was normalized (so we are able to reverse this action)."
+description: "Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
@@ -10,7 +10,11 @@ tags:
 
 
 
-Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation in three columns: * The normalized numeric value. * The unit symbol of the SI-system-unit pertaining to the value. * The origin unit symbol from which it was normalized (so we are able to reverse this action).
+Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation in three columns:
+* The normalized numeric value.
+* The unit symbol of the SI-system-unit pertaining to the value.
+* The origin unit symbol from which it was normalized (so we are able to reverse this action).
+
 
 ## Parameter
 

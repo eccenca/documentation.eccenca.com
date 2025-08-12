@@ -10,6 +10,7 @@ tags:
 
 
 
+Validates if the first input date is after the second input date. Outputs the first input if the validation is successful.
 
 ### Examples
 

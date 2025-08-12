@@ -10,6 +10,7 @@ tags:
 
 
 
+Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

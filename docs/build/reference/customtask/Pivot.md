@@ -1,6 +1,6 @@
 ---
 title: "Pivot"
-description: "The pivot operator takes data in separate rows, aggregates it and converts it into columns. The operator works on a flat input schema only and creates a flat output schema. A pivot table is a data summarization that is used to automatically sort, count, total, or average data in a dataset. It allows you to view the data from a different perspective. The following aggregation (summary) functions are available: - **first** - Shows the first value (works with numbers and strings) - **min** - Shows the lowest value (works with numbers and strings) - **max** - Shows the highest value (works with numbers and strings) - **sum** - Adds up the values (works with numbers only) - **average** - Finds the average of the values (works with numbers only)"
+description: "The pivot operator takes data in separate rows, aggregates it and converts it into columns."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
@@ -10,7 +10,22 @@ tags:
 
 
 
-The pivot operator takes data in separate rows, aggregates it and converts it into columns. The operator works on a flat input schema only and creates a flat output schema. A pivot table is a data summarization that is used to automatically sort, count, total, or average data in a dataset. It allows you to view the data from a different perspective. The following aggregation (summary) functions are available: - **first** - Shows the first value (works with numbers and strings) - **min** - Shows the lowest value (works with numbers and strings) - **max** - Shows the highest value (works with numbers and strings) - **sum** - Adds up the values (works with numbers only) - **average** - Finds the average of the values (works with numbers only)
+The pivot operator takes data in separate rows, aggregates it and converts it into columns.
+
+The operator works on a flat input schema only and creates a flat output schema.
+
+A pivot table is a data summarization that is used to automatically sort, count, total,
+or average data in a dataset.
+It allows you to view the data from a different perspective.
+
+The following aggregation (summary) functions are available:
+
+- **first** -  Shows the first value (works with numbers and strings)
+- **min** - Shows the lowest value (works with numbers and strings)
+- **max** - Shows the highest value (works with numbers and strings)
+- **sum** - Adds up the values (works with numbers only)
+- **average** - Finds the average of the values (works with numbers only)
+
 
 ## Parameter
 

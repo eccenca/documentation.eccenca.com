@@ -9,6 +9,7 @@ tags:
 
 
 
+Computes the weighted average.
 
 ### Examples
 

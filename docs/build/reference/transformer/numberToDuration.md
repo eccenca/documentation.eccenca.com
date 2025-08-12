@@ -12,6 +12,7 @@ tags:
 
 Converts a number to an xsd:duration.
 
+
 ## Parameter
 
 ### Unit

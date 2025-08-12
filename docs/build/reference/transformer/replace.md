@@ -1,6 +1,6 @@
 ---
 title: "Replace"
-description: "Replace all occurrences of a string "search" with "replace" in a string."
+description: "Replace all occurrences of a string 'search' with 'replace' in a string."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -11,6 +11,7 @@ tags:
 
 
 Replace all occurrences of a string "search" with "replace" in a string.
+
 
 ## Parameter
 

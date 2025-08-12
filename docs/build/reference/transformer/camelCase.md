@@ -10,6 +10,7 @@ tags:
 
 
 
+Converts a string to camel case. Upper camel case is the default, lower camel case can be chosen.
 
 ### Examples
 

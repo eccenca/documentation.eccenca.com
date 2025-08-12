@@ -10,6 +10,7 @@ tags:
 
 
 
+Jaccard similarity coefficient. Divides the matching tokens by the number of distinct tokens from both inputs.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

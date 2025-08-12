@@ -10,6 +10,7 @@ tags:
 
 
 
+Strips a postfix of a string.
 
 ### Examples
 

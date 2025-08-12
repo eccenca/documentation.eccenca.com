@@ -10,6 +10,7 @@ tags:
 
 
 
+Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+Checks if the source value is lower than the target value.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

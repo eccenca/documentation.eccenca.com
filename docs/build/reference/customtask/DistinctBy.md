@@ -12,6 +12,7 @@ tags:
 
 Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities.
 
+
 ## Parameter
 
 ### Distinct path

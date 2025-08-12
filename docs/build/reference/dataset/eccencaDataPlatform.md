@@ -12,6 +12,7 @@ tags:
 
 Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory.
 
+
 ## Parameter
 
 ### Endpoint

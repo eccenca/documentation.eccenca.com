@@ -12,6 +12,7 @@ tags:
 
 Reads a parameter from a Java Properties file.
 
+
 ## Parameter
 
 ### Resource

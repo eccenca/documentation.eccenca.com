@@ -10,6 +10,7 @@ tags:
 
 
 
+Convert a timestamp to xsd:date format. Expects an integer that denotes the passed time since the Unix Epoch (1970-01-01)
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+Parses a date based on a specified pattern, returning an xsd:date.
 
 ### Examples
 

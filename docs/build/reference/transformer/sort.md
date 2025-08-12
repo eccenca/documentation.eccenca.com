@@ -10,6 +10,7 @@ tags:
 
 
 
+Sorts values lexicographically.
 
 ### Examples
 

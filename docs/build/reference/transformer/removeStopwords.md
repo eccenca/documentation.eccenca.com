@@ -12,6 +12,7 @@ tags:
 
 Removes stopwords from all values. Each line in the stopword list contains a stopword. The separator defines a regex that is used for detecting words.
 
+
 ## Parameter
 
 ### Stopword list

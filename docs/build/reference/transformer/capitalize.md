@@ -10,6 +10,7 @@ tags:
 
 
 
+Capitalizes the string i.e. converts the first character to upper case. If 'allWords' is set to true, all words are capitalized and not only the first character.
 
 ### Examples
 

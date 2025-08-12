@@ -10,6 +10,7 @@ tags:
 
 
 
+Merges the values of all inputs.
 
 ### Examples
 

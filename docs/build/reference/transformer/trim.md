@@ -12,6 +12,7 @@ tags:
 
 Remove leading and trailing whitespaces.
 
+
 ## Parameter
 
 `None`

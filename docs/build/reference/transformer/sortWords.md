@@ -10,6 +10,7 @@ tags:
 
 
 
+Sorts all words in each value lexicographically.
 
 ### Examples
 

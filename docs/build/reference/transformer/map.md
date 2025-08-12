@@ -10,6 +10,7 @@ tags:
 
 
 
+Replaces values based on a map of values.
 
 ### Examples
 

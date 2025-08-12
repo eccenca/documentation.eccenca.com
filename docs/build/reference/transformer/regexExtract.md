@@ -1,6 +1,6 @@
 ---
 title: "Regex extract"
-description: "Extracts occurrences of a regex "regex" in a string. If there is at least one capture group, it will return the string of the first capture group instead."
+description: "Extracts occurrences of a regex 'regex' in a string. If there is at least one capture group, it will return the string of the first capture group instead."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,6 +10,7 @@ tags:
 
 
 
+Extracts occurrences of a regex "regex" in a string. If there is at least one capture group, it will return the string of the first capture group instead.
 
 ### Examples
 

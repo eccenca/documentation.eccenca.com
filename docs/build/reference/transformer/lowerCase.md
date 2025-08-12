@@ -10,6 +10,7 @@ tags:
 
 
 
+Converts a string to lower case.
 
 ### Examples
 

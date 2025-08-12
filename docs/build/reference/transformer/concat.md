@@ -10,6 +10,7 @@ tags:
 
 
 
+Concatenates strings from multiple inputs.
 
 ### Examples
 

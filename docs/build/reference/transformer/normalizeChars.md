@@ -12,6 +12,7 @@ tags:
 
 Replaces diacritical characters with non-diacritical ones (eg, ö -> o), plus some specialities like transforming æ -> ae, ß -> ss.
 
+
 ## Parameter
 
 `None`

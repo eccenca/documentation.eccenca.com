@@ -10,6 +10,7 @@ tags:
 
 
 
+Normalized Levenshtein distance. Divides the edit distance by the length of the longer string.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

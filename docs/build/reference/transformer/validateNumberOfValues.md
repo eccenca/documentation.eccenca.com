@@ -10,6 +10,7 @@ tags:
 
 
 
+Validates that the number of values lies in a specified range.
 
 ### Examples
 

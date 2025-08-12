@@ -1,6 +1,6 @@
 ---
 title: "Substring comparison"
-description: "Return 0 to 1 for strong similarity to weak similarity. Based on the paper: Stoilos, Giorgos, Giorgos Stamou, and Stefanos Kollias. "A string metric for ontology alignment." The Semantic Web-ISWC 2005. Springer Berlin Heidelberg, 2005. 624-637."
+description: "Return 0 to 1 for strong similarity to weak similarity. Based on the paper: Stoilos, Giorgos, Giorgos Stamou, and Stefanos Kollias. 'A string metric for ontology alignment.' The Semantic Web-ISWC 2005. Springer Berlin Heidelberg, 2005. 624-637."
 icon: octicons/cross-reference-24
 tags: 
     - DistanceMeasure
@@ -10,6 +10,7 @@ tags:
 
 
 
+Return 0 to 1 for strong similarity to weak similarity. Based on the paper: Stoilos, Giorgos, Giorgos Stamou, and Stefanos Kollias. "A string metric for ontology alignment." The Semantic Web-ISWC 2005. Springer Berlin Heidelberg, 2005. 624-637.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

@@ -12,6 +12,7 @@ tags:
 
 Parses integer values.
 
+
 ## Parameter
 
 ### Comma as decimal point

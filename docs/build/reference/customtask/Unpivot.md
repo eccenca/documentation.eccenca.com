@@ -12,6 +12,7 @@ tags:
 
 Given a list of table columns, transforms those columns into attribute-value pairs.
 
+
 ## Parameter
 
 ### First pivot property

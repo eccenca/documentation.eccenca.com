@@ -12,6 +12,7 @@ tags:
 
 Executes a custom SQL query on the first input dataset and returns the result as its output.
 
+
 ## Parameter
 
 ### Command

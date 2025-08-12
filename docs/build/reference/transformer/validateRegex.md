@@ -12,6 +12,7 @@ tags:
 
 Validates if all values match a regular expression.
 
+
 ## Parameter
 
 ### Regex

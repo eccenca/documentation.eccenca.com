@@ -10,6 +10,7 @@ tags:
 
 
 
+Soft Jaccard similarity coefficient. Same as Jaccard distance but values within an levenhstein distance of 'maxDistance' are considered equivalent.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

@@ -12,6 +12,7 @@ tags:
 
 Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links.
 
+
 ## Parameter
 
 `None`

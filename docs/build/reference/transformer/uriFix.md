@@ -10,6 +10,7 @@ tags:
 
 
 
+Generates valid absolute URIs from the given values. Already valid absolute URIs are left untouched.
 
 ### Examples
 

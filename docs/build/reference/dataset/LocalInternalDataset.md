@@ -12,6 +12,7 @@ tags:
 
 Dataset for storing entities between workflow steps. This variant does use the same graph for all internal datasets in a workflow. The underlying dataset type can be configured using the `dataset.internal.*` configuration parameters.
 
+
 ## Parameter
 
 `None`

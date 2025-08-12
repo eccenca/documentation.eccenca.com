@@ -10,6 +10,7 @@ tags:
 
 
 
+Applies a numeric operation to the values of multiple input operators. Uses double-precision floating-point numbers for computation.
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+URL encodes the string.
 
 ### Examples
 

@@ -12,6 +12,7 @@ tags:
 
 Validates if a number is within a specified range.
 
+
 ## Parameter
 
 ### Min

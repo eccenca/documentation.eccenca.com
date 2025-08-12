@@ -12,6 +12,7 @@ tags:
 
 Parses and normalizes geo locations like continents, countries, states and cities.
 
+
 ## Parameter
 
 ### Parse type id

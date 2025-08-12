@@ -63,19 +63,10 @@ class PluginDescription(BaseModel):
     actions: dict[str, ActionDescription]
     required: list[str]
     distanceMeasureRange: str | None = None
-    is_python: bool | None = None
+    backendType: str
     is_deprecated: bool | None = None
     tags: list[str] = Field(default_factory=list)
     pluginType: str | None = None
-
-    @model_validator(mode="after")
-    def set_python(self) -> Self:
-        self.is_python = False
-        if self.pluginId.startswith("cmem-plugin"):
-            self.is_python = True
-        if self.pluginId.startswith("cmem_plugin"):
-            self.is_python = True
-        return self
 
     @model_validator(mode="after")
     def check_tags(self) -> Self:
@@ -87,7 +78,7 @@ class PluginDescription(BaseModel):
             self.tags.append("DistanceMeasure")
         if self.pluginType == "transformer":
             self.tags.append("TransformOperator")
-        if self.is_python:
+        if self.backendType == "python":
             self.tags.append("PythonPlugin")
         return self
 

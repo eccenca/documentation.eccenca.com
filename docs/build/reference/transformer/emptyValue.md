@@ -12,6 +12,7 @@ tags:
 
 Generates an empty value.
 
+
 ## Parameter
 
 `None`

@@ -10,6 +10,7 @@ tags:
 
 
 
+Generates a constant value.
 
 ### Examples
 

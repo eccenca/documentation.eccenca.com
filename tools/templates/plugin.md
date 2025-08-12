@@ -1,6 +1,6 @@
 ---
-title: "{{plugin.title}}"
-description: "{{plugin.description}}"
+title: "{{plugin.title | replace('"', "'") }}"
+description: "{{plugin.description | replace('"', "'") }}"
 icon: octicons/cross-reference-24
 tags: {% for tag in plugin.tags %}
     - {{tag}}{% endfor %}
@@ -8,7 +8,7 @@ tags: {% for tag in plugin.tags %}
 # {{plugin.title}}
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-{% if plugin.is_python -%}
+{% if plugin.backendType == "python" -%}
 !!! note inline end "Python Plugin"
 
     This is a [Python Plugin](../../../develop/python-plugins/index.md).

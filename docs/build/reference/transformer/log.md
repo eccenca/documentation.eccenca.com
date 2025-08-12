@@ -12,6 +12,7 @@ tags:
 
 Transforms all numbers by applying the logarithm function. Non-numeric values are left unchanged.
 
+
 ## Parameter
 
 ### Base

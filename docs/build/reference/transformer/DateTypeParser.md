@@ -10,6 +10,7 @@ tags:
 
 
 
+Parses and normalizes dates in different formats.
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+Checks if a source value is a substring of a target value.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

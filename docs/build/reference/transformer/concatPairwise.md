@@ -10,6 +10,7 @@ tags:
 
 
 
+Concatenates the values of multiple inputs pairwise.
 
 ### Examples
 

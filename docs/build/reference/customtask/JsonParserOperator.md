@@ -12,6 +12,7 @@ tags:
 
 Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed.
 
+
 ## Parameter
 
 ### Input path

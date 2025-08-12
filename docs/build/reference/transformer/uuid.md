@@ -10,6 +10,11 @@ tags:
 
 
 
+ Generates UUIDs.
+If no input value is provided, a random UUID (type 4) is generated using a cryptographically strong pseudo random number generator.
+If input values are provided, a name-based UUID (type 3) is generated for each input value.
+Each input value will generate a separate UUID. For building a UUID from multiple inputs, the Concatenate operator can be used.
+
 
 ### Examples
 

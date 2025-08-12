@@ -12,6 +12,7 @@ tags:
 
 Remove whitespace from a string.
 
+
 ## Parameter
 
 `None`

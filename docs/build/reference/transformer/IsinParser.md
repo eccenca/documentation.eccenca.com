@@ -12,6 +12,7 @@ tags:
 
 Parses International Securities Identification Numbers (ISIN) values and fails if the String is no valid ISIN.
 
+
 ## Parameter
 
 `None`

@@ -10,6 +10,9 @@ tags:
 
 
 
+Compares values numerically instead of their string representation as the 'String Equality' operator does.
+Allows to set the needed precision of the comparison. A value of 0.0 means that the values must represent exactly the same
+(floating point) value, values higher than that allow for a margin of tolerance.
 
 ### Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.

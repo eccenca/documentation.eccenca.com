@@ -9,6 +9,7 @@ tags:
 
 
 
+Compute the (weighted) geometric mean.
 
 ### Examples
 

@@ -9,6 +9,7 @@ tags:
 
 
 
+Scales a similarity score by a factor.
 
 ### Examples
 

@@ -10,6 +10,7 @@ tags:
 
 
 
+Accepts two or three inputs. If the first input contains the given value, the second input is forwarded. Otherwise, the third input is forwarded (if present).
 
 ### Examples
 

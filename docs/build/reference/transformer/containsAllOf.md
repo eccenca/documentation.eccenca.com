@@ -10,6 +10,7 @@ tags:
 
 
 
+Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned.
 
 ### Examples
 

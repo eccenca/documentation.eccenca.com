@@ -10,6 +10,7 @@ tags:
 
 
 
+Generates a default value, if the input values are empty. Forwards any non-empty values.
 
 ### Examples
 

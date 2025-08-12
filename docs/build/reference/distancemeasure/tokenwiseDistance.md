@@ -10,6 +10,7 @@ tags:
 
 
 
+Token-wise string distance using the specified metric.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

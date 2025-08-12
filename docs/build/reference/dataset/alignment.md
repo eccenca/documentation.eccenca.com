@@ -12,6 +12,7 @@ tags:
 
 Writes the alignment format specified at http://alignapi.gforge.inria.fr/format.html.
 
+
 ## Parameter
 
 ### File

@@ -12,6 +12,7 @@ tags:
 
 A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected.
 
+
 ## Parameter
 
 ### Select query

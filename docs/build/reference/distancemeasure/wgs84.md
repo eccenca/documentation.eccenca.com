@@ -10,6 +10,7 @@ tags:
 
 
 
+Computes the geographical distance between two points. Author: Konrad Höffner (MOLE subgroup of Research Group AKSW, University of Leipzig)
 
 ### Characteristics
 This distance measure is not normalized, i.e., all distances start at 0 (exact match) and increase the more different the values are.

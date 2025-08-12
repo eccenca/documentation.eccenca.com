@@ -12,6 +12,7 @@ tags:
 
 Read from or write to an embedded Apache Hive endpoint.
 
+
 ## Parameter
 
 ### Schema

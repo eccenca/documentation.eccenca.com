@@ -12,6 +12,7 @@ tags:
 
 Uploads an N-Triples or Turtle (limited support) file from the file repository to a 'Knowledge Graph' dataset. The output of this operatorcan be the input of datasets that support graph store file upload, e.g. 'Knowledge Graph'. The file will be uploaded to the graph specified in that dataset.
 
+
 ## Parameter
 
 ### RDF resource

@@ -12,6 +12,7 @@ tags:
 
 Converts an xsd:duration to seconds.
 
+
 ## Parameter
 
 `None`

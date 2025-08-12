@@ -12,6 +12,7 @@ tags:
 
 A task that requests all triples from an RDF dataset.
 
+
 ## Parameter
 
 `None`

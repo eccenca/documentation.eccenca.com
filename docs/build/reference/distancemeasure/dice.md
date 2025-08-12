@@ -10,6 +10,7 @@ tags:
 
 
 
+Dice similarity coefficient.
 
 ### Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).

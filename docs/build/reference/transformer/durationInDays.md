@@ -12,6 +12,7 @@ tags:
 
 Converts an xsd:duration to days.
 
+
 ## Parameter
 
 `None`
