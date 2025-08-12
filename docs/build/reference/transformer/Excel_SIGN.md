@@ -1,6 +1,6 @@
 ---
 title: "Sign"
-description: "Excel SIGN(number): Returns the sign of the given number. The function returns the result 1 for a positive sign,  1 for a negative sign, and 0 for zero."
+description: "Excel SIGN(number): Returns the sign of the given number. The function returns the result 1 for a positive sign, -1 for a negative sign, and 0 for zero."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,7 +10,7 @@ tags:
 
 
 
-Excel SIGN(number): Returns the sign of the given number. The function returns the result 1 for a positive sign,  1 for a negative sign, and 0 for zero.
+Excel SIGN(number): Returns the sign of the given number. The function returns the result 1 for a positive sign, -1 for a negative sign, and 0 for zero.
 
 ## Parameter
 
