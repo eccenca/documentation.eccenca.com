@@ -1,0 +1,31 @@
+nav:
+    - index.md
+    - "CJK reading distance": cjkReadingDistance.md
+    - "Compare physical quantities": PhysicalQuantitiesDistance.md
+    - "Constant similarity value": constantDistance.md
+    - "Cosine": cosine.md
+    - "Date": date.md
+    - "DateTime": dateTime.md
+    - "Dice coefficient": dice.md
+    - "Geographical distance": wgs84.md
+    - "Greater than": greaterThan.md
+    - "Inequality": inequality.md
+    - "Inside numeric interval": insideNumericInterval.md
+    - "Is substring": isSubstring.md
+    - "Jaccard": jaccard.md
+    - "Jaro distance": jaro.md
+    - "Jaro-Winkler distance": jaroWinkler.md
+    - "Korean phoneme distance": koreanPhonemeDistance.md
+    - "Korean translit distance": koreanTranslitDistance.md
+    - "Levenshtein distance": levenshteinDistance.md
+    - "Lower than": lowerThan.md
+    - "Normalized Levenshtein distance": levenshtein.md
+    - "Numeric equality": numericEquality.md
+    - "Numeric similarity": num.md
+    - "qGrams": qGrams.md
+    - "Relaxed equality": relaxedEquality.md
+    - "Soft Jaccard": softjaccard.md
+    - "Starts with": startsWith.md
+    - "String equality": equality.md
+    - "Substring comparison": substringDistance.md
+    - "Token-wise distance": tokenwiseDistance.md
