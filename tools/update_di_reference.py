@@ -69,15 +69,13 @@ class PluginDescription(BaseModel):
 
     @model_validator(mode="after")
     def create_main_category(self) -> Self:
-        """main_category is used for navigation"""
-        if self.pluginType != "transformer":
-            return self
+        """main_category is used for transformer navigation"""
         with suppress(ValueError):
             self.categories.remove("Recommended")
         try:
             self.main_category = self.categories[0]
         except IndexError:
-            raise ValueError(f"Plugin '{self.pluginId}' has no main category.")
+            self.main_category = "Uncategorized"
         return self
 
 
@@ -149,7 +147,7 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
     content = plugin_template.render(plugin=plugin, parameters=parameter_content)
 
     # create the file (incl. directory)
-    if plugin.main_category:
+    if plugin.pluginType == "transformer":
         directory = base_dir / plugin_type / plugin.main_category
     else:
         directory = base_dir / plugin_type
@@ -179,9 +177,12 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
     - "Transformers": transformer"""
         f.write(content)
 
-    table_template = jinja_environment.get_template(f"operator_table.md")
     for plugin_type in plugins:
         plugins_of_type = plugins[plugin_type]
+        if plugin_type == "transformer":
+            table_template = jinja_environment.get_template(f"operator_table_with_category.md")
+        else:
+            table_template = jinja_environment.get_template(f"operator_table.md")
 
         # Create type-specific index.md file
         index_file = base_dir / f"{plugin_type}/index.md"
