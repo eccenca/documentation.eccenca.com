@@ -11,9 +11,9 @@ tags: {% for tag in plugin.tags %}
 {% if plugin.backendType == "python" -%}
 !!! note inline end "Python Plugin"
 
-    This is a [Python Plugin](../../../develop/python-plugins/index.md).
+    This operator is part of a Python Plugin Package.
     In order to use it, you need to install it,
-    e.g. [with cmemc](../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md).
+    e.g. with cmemc.
 {%- endif %}
 
 {{ plugin.markdownDocumentation if plugin.markdownDocumentation else plugin.description }}

@@ -2,6 +2,7 @@
 
 import json
 import re
+from contextlib import suppress
 from pathlib import Path
 from shutil import rmtree
 from typing import List, Annotated, Self
@@ -12,13 +13,10 @@ from cmem.cmempy.api import send_request
 from jinja2 import Environment, PackageLoader, select_autoescape, StrictUndefined
 from pydantic import (
     BaseModel,
-    validator,
     AfterValidator,
     model_validator,
-    field_validator,
     Field,
 )
-from pydantic_core.core_schema import ValidationInfo
 
 jinja_environment = Environment(
     loader=PackageLoader("tools"),
@@ -56,6 +54,7 @@ class PluginDescription(BaseModel):
     pluginId: str
     title: str
     categories: List[str]
+    main_category: str | None = None
     description: Annotated[str, AfterValidator(stripped_single_line)]
     markdownDocumentation: str | None = None
     pluginIcon: str | None = None
@@ -67,6 +66,20 @@ class PluginDescription(BaseModel):
     is_deprecated: bool | None = None
     tags: list[str] = Field(default_factory=list)
     pluginType: str | None = None
+
+    @model_validator(mode="after")
+    def create_main_category(self) -> Self:
+        """main_category is used for navigation"""
+        if self.pluginType != "transformer":
+            return self
+        with suppress(ValueError):
+            self.categories.remove("Recommended")
+        try:
+            self.main_category = self.categories[0]
+        except IndexError:
+            raise ValueError(f"Plugin '{self.pluginId}' has no main category.")
+        return self
+
 
     @model_validator(mode="after")
     def check_tags(self) -> Self:
@@ -126,13 +139,22 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
         click.echo(f"Ignore deprecated plugin {plugin.pluginId}")
         return
     click.echo(f"Create reference documentation for {plugin.pluginId}")
+
+    # create content
     plugin_template = jinja_environment.get_template(f"plugin.md")
     parameter_template = jinja_environment.get_template(f"parameter.md")
     parameter_content = ""
     for _ in plugin.properties.values():
         parameter_content += parameter_template.render(property=_) + "\n\n"
     content = plugin_template.render(plugin=plugin, parameters=parameter_content)
-    file = base_dir / plugin_type / f"{plugin.pluginId}.md"
+
+    # create the file (incl. directory)
+    if plugin.main_category:
+        directory = base_dir / plugin_type / plugin.main_category
+    else:
+        directory = base_dir / plugin_type
+    directory.mkdir(parents=True, exist_ok=True)
+    file = directory / f"{plugin.pluginId}.md"
     with file.open("w", encoding="utf-8") as f:
         f.write(content)
 
@@ -169,13 +191,29 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
             click.echo(f"Create {plugin_type} index file in {index_file}")
             f.write(index_template.render(items=items))
 
-        # Create the .pages file
-        pages_file = base_dir / f"{plugin_type}/.pages"
+        # Create the .pages files
+        pages_file = base_dir / plugin_type / ".pages"
         pages_content = "nav:\n    - index.md"
-        for plugin in plugins_of_type:
-            if plugin.is_deprecated:
-                continue
-            pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
+        if plugin_type == "transformer":
+            # transformer get separated per main_category
+            categories = list(set([plugin.main_category for plugin in plugins[plugin_type]]))
+            categories.sort()
+            for category in categories:
+                pages_content += f'\n    - "{category}": {category}'
+
+                sub_pages_file = base_dir / plugin_type / category / ".pages"
+                sub_pages_content = "nav:"
+                category_plugins = [plugin for plugin in plugins[plugin_type] if plugin.main_category == category]
+                for plugin in category_plugins:
+                    sub_pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
+                with sub_pages_file.open("w", encoding="utf-8") as f:
+                    click.echo(f"Create .pages file {sub_pages_file}")
+                    f.write(sub_pages_content)
+        else:
+            for plugin in plugins_of_type:
+                if plugin.is_deprecated:
+                    continue
+                pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
         with pages_file.open("w", encoding="utf-8") as f:
             click.echo(f"Create .pages file {pages_file}")
             f.write(pages_content)
