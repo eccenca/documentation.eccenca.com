@@ -1,0 +1,21 @@
+@prefix : <https://ns.eccenca.com/data/config/> .
+@prefix di: <https://vocab.eccenca.com/di/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shui: <https://vocab.eccenca.com/shui/> .
+
+<https://ns.eccenca.com/data/linkruletemplates/> a void:Dataset ;
+  rdfs:comment """This is an internal Corporate Memory dataset, not visible to non-admin users.
+It contains a catalog of link rule templates.
+You can use the LINK RULES tab in order to create and manage your link rules based on these templates."""@en ;
+  rdfs:label "CMEM Regeltemplates Katalog"@de , "CMEM Link Rule Template Catalog"@en ;
+  <http://purl.org/dc/terms/creator> <https://ns.eccenca.com/junbehauen> ;
+  <http://purl.org/dc/terms/publisher> <https://ns.eccenca.com/eccenca-GmbH> ;
+  <http://purl.org/dc/terms/rights> "Copyright © 2025 eccenca GmbH" ;
+  shui:isSystemResource true ;
+  shui:managedClasses di:Theme ;
+.
+
+di:Theme a rdfs:Class ;
+  rdfs:label "Link Rule Template"@en , "Regeltemplate"@de ;
+.
