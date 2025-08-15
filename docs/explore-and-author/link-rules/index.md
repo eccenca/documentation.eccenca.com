@@ -95,13 +95,27 @@ Inside this project you need to create *Knowledge Graph datasets* for every grap
 
 ### Access condition
 
-Create a dedicated access condition that allows users to execute link rules and write results to the output graphs of created link rules.
+Create a dedicated access condition that allows respective users to execute link rules and write results to the output graphs of created link rules.
 
 This access conditions is used by the Link Rules module to grant write access to the output graph whenever a new rule is created.
 
 !!! info
 
     It is currently not possible to set a *Access Condition Identifier* nor to simply retrieve the IRI of an existing access condition. Hence the admin needs to retrieve the IRI of this access condition from the CMEM Access Conditions graph.
+
+In order to enable users to use the Link Rules Module, the following must be allowed (this can be granted in this rule or be defined separately):
+
+- **Allow reading graph**
+    -   Respective data graphs
+- **Allow writing graph**
+    -   *CMEM DI Project Config* graph of the "Link Rules" project
+    -   `{IRI of the Link Rules project}_meta`
+- **Allowed action**
+    -   *Build - Workspace*
+    -   *Explore - Knowledge Graph Exploration*
+    -   *Explore - Link Rules Module*
+- **Graph pattern for granting write access**
+    -   Pattern according to the *Output Graph Template*, e.g. `http://eccenca.com/user_rules/result_*`
 
 ### Workspace configuration
 
@@ -130,13 +144,13 @@ Templates can be managed at *Link Rules module* -> *Manage Templates*.
 
 Create a new Link Rule Template. Such a template describes an abstract link rule with pre-defined settings.
 
--   **Label**: A mandatory label for the template.
--   **Target Property**: The (default) connecting property for the derived link rules. The property can be individually set for each link rule later on.
--   **Input** group: The datasets which hold the subjects (source) and objects (target) to link.
--   **Source/Target Dataset**: The dataset holding the resources to link.
--   **Source/Target Resource Pattern**: A filter description template for the resources to link. This is a JSON object as described in [Graph Resource Pattern](#graph-resource-pattern). When creating a Link Rule based on this template these resource patterns can be altered. So this template may remain simple, but should provide sufficient help for the end user to define a proper resource selection.
--   **Output** group: The dataset which will hold the Link Rule results.
--   **Output Graph**: The graph IRI where to write the Link Rule results. Available placeholders: `{name}` for the Link Rules name.
+-  **Label**: A mandatory label for the template.
+-  **Target Property**: The (default) connecting property for the derived link rules. The property can be individually set for each link rule later on.
+-  **Input** group: The datasets which hold the subjects (source) and objects (target) to link.
+-  **Source/Target Dataset**: The dataset holding the resources to link.
+-  **Source/Target Resource Pattern**: A filter description template for the resources to link. This is a JSON object as described in [Graph Resource Pattern](#graph-resource-pattern). When creating a Link Rule based on this template these resource patterns can be altered. So this template may remain simple, but should provide sufficient help for the end user to define a proper resource selection.
+-  **Output** group: The dataset which will hold the Link Rule results.
+-  **Output Graph**: The graph IRI where to write the Link Rule results. Available placeholders: `{name}` for the Link Rules name.
 
 ##### <a name="graph-resource-pattern"></a> Graph Resource Pattern
 
