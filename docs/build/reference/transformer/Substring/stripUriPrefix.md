@@ -17,47 +17,39 @@ Strips the URI prefix and decodes the remainder. Leaves values unchanged which a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[http://example.org/some/path/to/value]`
+    1. `[http://example.org/some/path/to/value]`
 
-* Returns:
-
-  → `[value]`
+* Returns: `[value]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[urn:scheme:value]`
+    1. `[urn:scheme:value]`
 
-* Returns:
-
-  → `[value]`
+* Returns: `[value]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[http://example.org/some/path/to/encoded%20v%C3%A4lue]`
+    1. `[http://example.org/some/path/to/encoded%20v%C3%A4lue]`
 
-* Returns:
-
-  → `[encoded välue]`
+* Returns: `[encoded välue]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Input values:
-  1. `[value]`
+    1. `[value]`
 
-* Returns:
-
-  → `[value]`
+* Returns: `[value]`
 
 
 

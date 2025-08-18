@@ -17,87 +17,73 @@ Accepts two inputs. If the first input contains all of the second input values i
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[A, B, C]`
-  2. `[A, B]`
+    1. `[A, B, C]`
+    2. `[A, B]`
 
-* Returns:
-
-  → `[true]`
+* Returns: `[true]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[A, B, C]`
-  2. `[A, D]`
+    1. `[A, B, C]`
+    2. `[A, D]`
 
-* Returns:
-
-  → `[false]`
+* Returns: `[false]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[A, B, C]`
-  2. `[D]`
+    1. `[A, B, C]`
+    2. `[D]`
 
-* Returns:
-
-  → `[false]`
+* Returns: `[false]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Input values:
-  1. `[A, B, C]`
-  2. `[A, B, C]`
+    1. `[A, B, C]`
+    2. `[A, B, C]`
 
-* Returns:
-
-  → `[true]`
+* Returns: `[true]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Input values:
-  1. `[A, B, C]`
-  2. `[]`
+    1. `[A, B, C]`
+    2. `[]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Input values:
-  1. `[A]`
-  2. `[A]`
-  3. `[A]`
+    1. `[A]`
+    2. `[A]`
+    3. `[A]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Input values:
-  1. `[A]`
+    1. `[A]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

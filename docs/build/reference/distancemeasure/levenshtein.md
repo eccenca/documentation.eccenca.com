@@ -21,43 +21,43 @@ Compares single values (as opposed to sequences of values). If multiple values a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Returns 0 for equal strings:
+**Returns 0 for equal strings:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[John]`
+    - Source: `[John]`
+    - Target: `[John]`
 
-* Returns: → `0.0`
+* Returns: `0.0`
 
 
 ---
-#### Returns 1/4 if two strings of length 4 differ by one edit operation:
+**Returns 1/4 if two strings of length 4 differ by one edit operation:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[Jxhn]`
+    - Source: `[John]`
+    - Target: `[Jxhn]`
 
-* Returns: → `0.25`
+* Returns: `0.25`
 
 
 ---
-#### Normalizes the edit distance by the length of the longer string:
+**Normalizes the edit distance by the length of the longer string:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[Jhn]`
+    - Source: `[John]`
+    - Target: `[Jhn]`
 
-* Returns: → `0.25`
+* Returns: `0.25`
 
 
 ---
-#### Returns the maximum distance of 1 for completely different strings:
+**Returns the maximum distance of 1 for completely different strings:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[Clara]`
+    - Source: `[John]`
+    - Target: `[Clara]`
 
-* Returns: → `1.0`
+* Returns: `1.0`
 
 
 

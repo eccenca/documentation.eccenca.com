@@ -12,11 +12,11 @@ tags:
 
 This dataset supports connections to the Snowflake JDBC endpoint.
 
-#### <a id="parameter_doc_connection-host">Account URL hostname</a>
+## <a id="parameter_doc_connection-host">Account URL hostname</a>
 
 The supplied account URL hostname needs to contain the account identifier. Refer to the Snowflake documentation on [account identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier) for details.
 
-#### Reading
+## Reading
 
 Either a table or a queries can be specified to retrieve data from Snowflake.
 
@@ -27,7 +27,7 @@ Read strategies decide how the database is queried:
 - **query**: The given source query is passed to the database.
   The table name is not necessary in this case but a valid query must be provided.
 
-#### Writing
+## Writing
 
 When the dataset is used as a sink, queries are ignored and only schema and table parameters are used.
 If the dataset is used as a sink for a hierarchical mapping, one table is created per entity type.

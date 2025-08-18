@@ -21,25 +21,21 @@ Each input value will generate a separate UUID. For building a UUID from multipl
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[input value]`
+    1. `[input value]`
 
-* Returns:
-
-  → `[cee963a2-8f70-3e97-b51a-85ef732e66dd]`
+* Returns: `[cee963a2-8f70-3e97-b51a-85ef732e66dd]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[üöä!, êéè]`
+    1. `[üöä!, êéè]`
 
-* Returns:
-
-  → `[690802dd-a317-335f-807c-e4e1e32b7b5b, 925cbd7f-377b-3fbd-8f4c-ca41529b74ad]`
+* Returns: `[690802dd-a317-335f-807c-e4e1e32b7b5b, 925cbd7f-377b-3fbd-8f4c-ca41529b74ad]`
 
 
 

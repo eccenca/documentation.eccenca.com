@@ -16,25 +16,25 @@ Computes the weighted average.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Computes the arithmetic mean of all similarity scores:
+**Computes the arithmetic mean of all similarity scores:**
 
-* Input values: [0.4, 0.5, 0.9]
+* Input values: `[0.4, 0.5, 0.9]`
 * Returns: `0.6`
 
 
 ---
-#### Multiplies individual similarity scores with their weight before averaging:
+**Multiplies individual similarity scores with their weight before averaging:**
 
-* Weights: [1, 1, 2]
-* Input values: [0.3, 0.5, 0.6]
+* Weights: `[1, 1, 2]`
+* Input values: `[0.3, 0.5, 0.6]`
 * Returns: `0.5`
 
 
 ---
-#### Missing scores always lead to an output of none:
+**Missing scores always lead to an output of none:**
 
-* Input values: [-1.0, (none), 1.0]
-* Returns: `(none)`
+* Input values: `[-1.0, null, 1.0]`
+* Returns: `null`
 
 
 

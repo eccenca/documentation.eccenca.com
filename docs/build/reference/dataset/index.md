@@ -32,7 +32,7 @@ Datasets are collections of data that can be read or written.
  | [Neo4j](neo4j.md) | Neo4j graph |
  | [ORC](orc.md) | Read from or write to an Apache ORC file. |
  | [Parquet](parquet.md) | Read from or write to an Apache Parquet file. |
- | [RDF](file.md) | Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead. |
+ | [RDF file](file.md) | Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead. |
  | [Snowflake JDBC endpoint](SnowflakeJdbc.md) | Connect to Snowflake JDBC endpoint. |
  | [SparkSQL view](sparkView.md) | Use the SQL endpoint dataset instead. |
  | [SPARQL endpoint](sparqlEndpoint.md) | Connect to an existing SPARQL endpoint. |

@@ -17,268 +17,234 @@ Parses and normalizes dates in different formats.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *inputDateFormatId*: `German style date format`
-  * *outputDateFormatId*: `w3c Date`
+    * inputDateFormatId: `German style date format`
+    * outputDateFormatId: `w3c Date`
 
 * Input values:
-  1. `[20.03.1999]`
+    1. `[20.03.1999]`
 
-* Returns:
-
-  → `[1999-03-20]`
+* Returns: `[1999-03-20]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *inputDateFormatId*: `w3c Date`
-  * *outputDateFormatId*: `German style date format`
+    * inputDateFormatId: `w3c Date`
+    * outputDateFormatId: `German style date format`
 
 * Input values:
-  1. `[1999-03-20]`
+    1. `[1999-03-20]`
 
-* Returns:
-
-  → `[20.03.1999]`
+* Returns: `[20.03.1999]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *inputDateFormatId*: `common ISO8601`
-  * *outputDateFormatId*: `w3c Date`
+    * inputDateFormatId: `common ISO8601`
+    * outputDateFormatId: `w3c Date`
 
 * Input values:
-  1. `[2017-04-04T00:00:00.000+02:00]`
+    1. `[2017-04-04T00:00:00.000+02:00]`
 
-* Returns:
-
-  → `[2017-04-04]`
+* Returns: `[2017-04-04]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *inputDateFormatId*: `common ISO8601`
-  * *outputDateFormatId*: `w3c Date`
+    * inputDateFormatId: `common ISO8601`
+    * outputDateFormatId: `w3c Date`
 
 * Input values:
-  1. `[2017-04-04T00:00:00+02:00]`
+    1. `[2017-04-04T00:00:00+02:00]`
 
-* Returns:
-
-  → `[2017-04-04]`
+* Returns: `[2017-04-04]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *inputDateFormatId*: `common ISO8601`
-  * *outputDateFormatId*: `dateTime with month abbr. (US)`
+    * inputDateFormatId: `common ISO8601`
+    * outputDateFormatId: `dateTime with month abbr. (US)`
 
 * Input values:
-  1. `[2021-06-24T14:50:05.895+02:00]`
+    1. `[2021-06-24T14:50:05.895+02:00]`
 
-* Returns:
-
-  → `[24-Jun-2021 14:50:05 +02:00]`
+* Returns: `[24-Jun-2021 14:50:05 +02:00]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *inputDateFormatId*: `dateTime with month abbr. (US)`
-  * *outputDateFormatId*: `dateTime with month abbr. (DE)`
+    * inputDateFormatId: `dateTime with month abbr. (US)`
+    * outputDateFormatId: `dateTime with month abbr. (DE)`
 
 * Input values:
-  1. `[24-Dec-2021 14:50:05 +02:00]`
+    1. `[24-Dec-2021 14:50:05 +02:00]`
 
-* Returns:
-
-  → `[24-Dez.-2021 14:50:05 +02:00]`
+* Returns: `[24-Dez.-2021 14:50:05 +02:00]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Parameters
-  * *alternativeInputFormat*: `dd.MM.yyyy HH:mm.ss`
-  * *alternativeOutputFormat*: `yyyy-MM-dd'T'HH:mm.ss`
+    * alternativeInputFormat: `dd.MM.yyyy HH:mm.ss`
+    * alternativeOutputFormat: `yyyy-MM-dd'T'HH:mm.ss`
 
 * Input values:
-  1. `[20.03.1999 20:34.44]`
+    1. `[20.03.1999 20:34.44]`
 
-* Returns:
-
-  → `[1999-03-20T20:34.44]`
+* Returns: `[1999-03-20T20:34.44]`
 
 
 ---
-#### Example 8:
+**Example 8:**
 
 * Parameters
-  * *inputDateFormatId*: `excelDateTime`
-  * *outputDateFormatId*: `xsdTime`
+    * inputDateFormatId: `excelDateTime`
+    * outputDateFormatId: `xsdTime`
 
 * Input values:
-  1. `[12:20:00.000]`
+    1. `[12:20:00.000]`
 
-* Returns:
-
-  → `[12:20:00.000]`
+* Returns: `[12:20:00.000]`
 
 
 ---
-#### Example 9:
+**Example 9:**
 
 * Parameters
-  * *inputDateFormatId*: `w3c YearMonth`
-  * *outputDateFormatId*: `w3c Month`
+    * inputDateFormatId: `w3c YearMonth`
+    * outputDateFormatId: `w3c Month`
 
 * Input values:
-  1. `[2020-01]`
+    1. `[2020-01]`
 
-* Returns:
-
-  → `[--01]`
+* Returns: `[--01]`
 
 
 ---
-#### Example 10:
+**Example 10:**
 
 * Parameters
-  * *inputDateFormatId*: `w3c MonthDay`
-  * *outputDateFormatId*: `w3c Day`
+    * inputDateFormatId: `w3c MonthDay`
+    * outputDateFormatId: `w3c Day`
 
 * Input values:
-  1. `[--12-31]`
+    1. `[--12-31]`
 
-* Returns:
-
-  → `[---31]`
+* Returns: `[---31]`
 
 
 ---
-#### Example 11:
+**Example 11:**
 
 * Parameters
-  * *inputDateFormatId*: `w3c Date`
-  * *outputDateFormatId*: `w3c MonthDay`
+    * inputDateFormatId: `w3c Date`
+    * outputDateFormatId: `w3c MonthDay`
 
 * Input values:
-  1. `[2020-12-31]`
+    1. `[2020-12-31]`
 
-* Returns:
-
-  → `[--12-31]`
+* Returns: `[--12-31]`
 
 
 ---
-#### Example 12:
+**Example 12:**
 
 * Parameters
-  * *inputDateFormatId*: `w3c MonthDay`
-  * *outputDateFormatId*: `w3c Date`
+    * inputDateFormatId: `w3c MonthDay`
+    * outputDateFormatId: `w3c Date`
 
 * Input values:
-  1. `[--12-31]`
+    1. `[--12-31]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 13:
+**Example 13:**
 
 * Parameters
-  * *alternativeInputFormat*: `yyyy-MM-dd HH:mm:ss.SSS`
-  * *outputDateFormatId*: `w3cDateTime`
+    * alternativeInputFormat: `yyyy-MM-dd HH:mm:ss.SSS`
+    * outputDateFormatId: `w3cDateTime`
 
 * Input values:
-  1. `[2020-02-22 16:34:14.000]`
+    1. `[2020-02-22 16:34:14.000]`
 
-* Returns:
-
-  → `[2020-02-22T16:34:14]`
+* Returns: `[2020-02-22T16:34:14]`
 
 
 ---
-#### Example 14:
+**Example 14:**
 
 * Parameters
-  * *inputDateFormatId*: `dateTime with month abbr. (DE)`
-  * *outputDateFormatId*: `dateTime with month abbr. (US)`
-  * *inputLocale*: `en_US`
-  * *outputLocale*: `de`
+    * inputDateFormatId: `dateTime with month abbr. (DE)`
+    * outputDateFormatId: `dateTime with month abbr. (US)`
+    * inputLocale: `en_US`
+    * outputLocale: `de`
 
 * Input values:
-  1. `[24-Dec-2021 14:50:05 +02:00]`
+    1. `[24-Dec-2021 14:50:05 +02:00]`
 
-* Returns:
-
-  → `[24-Dez.-2021 14:50:05 +02:00]`
+* Returns: `[24-Dez.-2021 14:50:05 +02:00]`
 
 
 ---
-#### Example 15:
+**Example 15:**
 
 * Parameters
-  * *inputDateFormatId*: `dateTime with month abbr. (US)`
-  * *outputDateFormatId*: `dateTime with month abbr. (DE)`
-  * *inputLocale*: `de`
-  * *outputLocale*: `en`
+    * inputDateFormatId: `dateTime with month abbr. (US)`
+    * outputDateFormatId: `dateTime with month abbr. (DE)`
+    * inputLocale: `de`
+    * outputLocale: `en`
 
 * Input values:
-  1. `[24-Dez.-2021 14:50:05 +02:00]`
+    1. `[24-Dez.-2021 14:50:05 +02:00]`
 
-* Returns:
-
-  → `[24-Dec-2021 14:50:05 +02:00]`
+* Returns: `[24-Dec-2021 14:50:05 +02:00]`
 
 
 ---
-#### Example 16:
+**Example 16:**
 
 * Parameters
-  * *outputLocale*: `fr`
-  * *alternativeInputFormat*: `MMM yyyy`
-  * *outputDateFormatId*: `dateTime with month abbr. (DE)`
-  * *inputLocale*: `de`
-  * *alternativeOutputFormat*: `MMM uuuu`
-  * *inputDateFormatId*: `dateTime with month abbr. (US)`
+    * outputLocale: `fr`
+    * alternativeInputFormat: `MMM yyyy`
+    * outputDateFormatId: `dateTime with month abbr. (DE)`
+    * inputLocale: `de`
+    * alternativeOutputFormat: `MMM uuuu`
+    * inputDateFormatId: `dateTime with month abbr. (US)`
 
 * Input values:
-  1. `[Dez. 2021]`
+    1. `[Dez. 2021]`
 
-* Returns:
-
-  → `[déc. 2021]`
+* Returns: `[déc. 2021]`
 
 
 ---
-#### Example 17:
+**Example 17:**
 
 * Parameters
-  * *alternativeInputFormat*: `MMMM, uuuu`
-  * *alternativeOutputFormat*: `MMMM, uuuu`
-  * *inputLocale*: `en_US`
-  * *outputLocale*: `de`
+    * alternativeInputFormat: `MMMM, uuuu`
+    * alternativeOutputFormat: `MMMM, uuuu`
+    * inputLocale: `en_US`
+    * outputLocale: `de`
 
 * Input values:
-  1. `[February, 2024]`
+    1. `[February, 2024]`
 
-* Returns:
-
-  → `[Februar, 2024]`
+* Returns: `[Februar, 2024]`
 
 
 

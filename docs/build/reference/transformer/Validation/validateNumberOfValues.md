@@ -17,33 +17,29 @@ Validates that the number of values lies in a specified range.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *min*: `0`
-  * *max*: `1`
+    * min: `0`
+    * max: `1`
 
 * Input values:
-  1. `[value1]`
+    1. `[value1]`
 
-* Returns:
-
-  → `[value1]`
+* Returns: `[value1]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *min*: `0`
-  * *max*: `1`
+    * min: `0`
+    * max: `1`
 
 * Input values:
-  1. `[value1, value2]`
+    1. `[value1, value2]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

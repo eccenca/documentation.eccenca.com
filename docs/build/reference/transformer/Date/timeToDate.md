@@ -17,43 +17,37 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[1499117572000]`
+    1. `[1499117572000]`
 
-* Returns:
-
-  → `[2017-07-03T21:32:52Z]`
+* Returns: `[2017-07-03T21:32:52Z]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *format*: `yyyy-MM-dd`
+    * format: `yyyy-MM-dd`
 
 * Input values:
-  1. `[1499040000000]`
+    1. `[1499040000000]`
 
-* Returns:
-
-  → `[2017-07-03]`
+* Returns: `[2017-07-03]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *format*: `yyyy-MM-dd`
-  * *unit*: `seconds`
+    * format: `yyyy-MM-dd`
+    * unit: `seconds`
 
 * Input values:
-  1. `[1499040000]`
+    1. `[1499040000]`
 
-* Returns:
-
-  → `[2017-07-03]`
+* Returns: `[2017-07-03]`
 
 
 

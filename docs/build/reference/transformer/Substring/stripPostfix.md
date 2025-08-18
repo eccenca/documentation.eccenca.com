@@ -17,31 +17,27 @@ Strips a postfix of a string.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *postfix*: `Postfix`
+    * postfix: `Postfix`
 
 * Input values:
-  1. `[valuePostfix]`
+    1. `[valuePostfix]`
 
-* Returns:
-
-  → `[value]`
+* Returns: `[value]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *postfix*: `Postfix`
+    * postfix: `Postfix`
 
 * Input values:
-  1. `[Value]`
+    1. `[Value]`
 
-* Returns:
-
-  → `[Value]`
+* Returns: `[Value]`
 
 
 

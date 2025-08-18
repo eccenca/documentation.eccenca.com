@@ -17,33 +17,29 @@ Replaces values based on a map of values.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *map*: `Key1:Value1,Key2:Value2`
-  * *default*: `Undefined`
+    * map: `Key1:Value1,Key2:Value2`
+    * default: `Undefined`
 
 * Input values:
-  1. `[Key1]`
+    1. `[Key1]`
 
-* Returns:
-
-  → `[Value1]`
+* Returns: `[Value1]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *map*: `Key1:Value1,Key2:Value2`
-  * *default*: `Undefined`
+    * map: `Key1:Value1,Key2:Value2`
+    * default: `Undefined`
 
 * Input values:
-  1. `[Key1X]`
+    1. `[Key1X]`
 
-* Returns:
-
-  → `[Undefined]`
+* Returns: `[Undefined]`
 
 
 

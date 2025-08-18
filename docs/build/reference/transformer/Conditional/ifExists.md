@@ -17,41 +17,35 @@ Accepts two or three inputs. If the first input provides a value, the second inp
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[value]`
-  2. `[yes]`
-  3. `[no]`
+    1. `[value]`
+    2. `[yes]`
+    3. `[no]`
 
-* Returns:
-
-  → `[yes]`
+* Returns: `[yes]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[]`
-  2. `[yes]`
-  3. `[no]`
+    1. `[]`
+    2. `[yes]`
+    3. `[no]`
 
-* Returns:
-
-  → `[no]`
+* Returns: `[no]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[value]`
-  2. `[]`
+    1. `[value]`
+    2. `[]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

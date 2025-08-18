@@ -17,14 +17,12 @@ Transforms the sequence of values to their respective indexes in the sequence. I
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Transforms the sequence of values to their respective indexes in the sequence:
+**Transforms the sequence of values to their respective indexes in the sequence:**
 
 * Input values:
-  1. `[a, b, c]`
+    1. `[a, b, c]`
 
-* Returns:
-
-  → `[0, 1, 2]`
+* Returns: `[0, 1, 2]`
 
 
 

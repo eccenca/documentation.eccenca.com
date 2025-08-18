@@ -17,14 +17,12 @@ Converts a string to lower case.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Transforms all values to lower case:
+**Transforms all values to lower case:**
 
 * Input values:
-  1. `[JoHN, LeNA]`
+    1. `[JoHN, LeNA]`
 
-* Returns:
-
-  → `[john, lena]`
+* Returns: `[john, lena]`
 
 
 

@@ -17,76 +17,70 @@ Concatenates multiple values received for an input. If applied to multiple input
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[a]`
+    1. `[a]`
 
-* Returns:
-
-  → `[a]`
+* Returns: `[a]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[a, b]`
+    1. `[a, b]`
 
-* Returns:
-
-  → `[ab]`
+* Returns: `[ab]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *glue*: `x`
+    * glue: `x`
 
 * Input values:
-  1. `[a, b]`
+    1. `[a, b]`
 
-* Returns:
-
-  → `[axb]`
+* Returns: `[axb]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Input values:
-  1. `[a, b]`
-  2. `[1, 2]`
+    1. `[a, b]`
+    2. `[1, 2]`
 
-* Returns:
-
-  → `[ab, 12]`
+* Returns: `[ab, 12]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *glue*: `\n\t\\`
+    * glue: `\n\t\\`
 
 * Input values:
-  1. `[a
-	\b, c]`
+    1. 
+    ```
+    [a
+    	\b, c]
+    ```
 
-* Returns:
-
-  → `[a
-	\b
-	\c]`
+* Returns: 
+    ```
+    [a
+    	\b
+    	\c]
+    ```
 
 
 

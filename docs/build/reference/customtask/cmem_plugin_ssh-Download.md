@@ -67,7 +67,7 @@ The port on which the connection will be tried on. Default is 22.
 
 ### Username
 
-The username of which a connection will be instantiated.
+The username with which a connection will be instantiated.
 
 - Datatype: `string`
 - Default Value: `None`
@@ -94,7 +94,7 @@ Your private key to connect via SSH.
 
 ### Password
 
-Depending on your authentication method this will either be used toconnect via password to SSH or is used to decrypt the SSH private key
+Depending on your authentication method this will either be used toconnect via password to SSH, or to decrypt the SSH private key
 
 - Datatype: `password`
 - Default Value: `None`
@@ -103,7 +103,7 @@ Depending on your authentication method this will either be used toconnect via p
 
 ### Path
 
-The currently selected path withing your SSH instance.
+The currently selected path within your SSH instance. Auto-completion starts from user home folder, use '..' for parent directory or '/' for root directory.
 
 - Datatype: `string`
 - Default Value: `None`

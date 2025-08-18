@@ -17,50 +17,42 @@ Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix E
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[2017-07-03T21:32:52Z]`
+    1. `[2017-07-03T21:32:52Z]`
 
-* Returns:
-
-  → `[1499117572000]`
+* Returns: `[1499117572000]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[2017-07-03T21:32:52+01:00]`
+    1. `[2017-07-03T21:32:52+01:00]`
 
-* Returns:
-
-  → `[1499113972000]`
+* Returns: `[1499113972000]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *unit*: `seconds`
+    * unit: `seconds`
 
 * Input values:
-  1. `[2017-07-03T21:32:52+01:00]`
+    1. `[2017-07-03T21:32:52+01:00]`
 
-* Returns:
-
-  → `[1499113972]`
+* Returns: `[1499113972]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Input values:
-  1. `[2017-07-03]`
+    1. `[2017-07-03]`
 
-* Returns:
-
-  → `[1499040000000]`
+* Returns: `[1499040000000]`
 
 
 

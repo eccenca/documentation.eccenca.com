@@ -10,7 +10,7 @@ tags:
 
 
 
-_General usage_
+## General usage
 
 The JDBC dataset supports connections to Hive, Microsoft SQL Server, MySQL, MariaDB, SnowFlake, Oracle Database, DB2 and PostgreSQL databases.
 A login, password and JDBC URL need to be provided.
@@ -25,7 +25,7 @@ The names of the written tables are generated as follows:
   Special characters are removed and the name is truncated to a maximum of 128 characters.
 - For each object mapping, the table name is generated from its type.
 
-_JDBC Connection Strings/URLs_
+## JDBC Connection Strings/URLs
 
 Most of the dataset parameters are passed directly to the driver.
 Please make sure that you use the correct syntax for each DBMS, otherwise you may get unintuitive errors.
@@ -54,7 +54,7 @@ Trino (external driver needed)
 jdbc:trino//{host}:8080/catalog/schema
 ```
 
-_Read and write strategies_
+## Read and write strategies
 
 There are multiple read and write strategies which can be selected depending on the purpose of the dataset in a workflow.
 
@@ -73,7 +73,7 @@ Write strategies decide how a new table is written:
 - **append**: Data will be appended to the existing table.
   The schema of the data written has to be the same as the existing table schema.
 
-_Optimized Writing_
+## Optimized Writing
 
 Usually specific database systems have custom commands for loading large amounts of data, e.g. from a CSV file into a database table.
 For some DBMS and specific JDBC dataset configurations we support these optimized methods of loading data.
@@ -99,7 +99,7 @@ Supported DBMS:
     jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES
     ```
 
-_Registering JDBC drivers_
+## Registering JDBC drivers
 
 More 3rd party databases are supported via adding their JDBC drivers to the classpath of Data Integration.
 Drivers are usually provided by the database manufactures.
@@ -128,7 +128,7 @@ spark.sql.options {
 }
 ```
 
-_Driver Priority_
+## Driver Priority
 
 In general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
 

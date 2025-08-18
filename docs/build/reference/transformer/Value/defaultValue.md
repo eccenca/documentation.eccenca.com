@@ -17,28 +17,24 @@ Generates a default value, if the input values are empty. Forwards any non-empty
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Forwards input values:
+**Forwards input values:**
 
 * Input values:
-  1. `[input value]`
+    1. `[input value]`
 
-* Returns:
-
-  → `[input value]`
+* Returns: `[input value]`
 
 
 ---
-#### Outputs the default value, if the inputs are empty:
+**Outputs the default value, if the inputs are empty:**
 
 * Parameters
-  * *value*: `default value`
+    * value: `default value`
 
 * Input values:
-  1. `[]`
+    1. `[]`
 
-* Returns:
-
-  → `[default value]`
+* Returns: `[default value]`
 
 
 

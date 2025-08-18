@@ -17,125 +17,109 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *beginIndex*: `0`
-  * *endIndex*: `1`
+    * beginIndex: `0`
+    * endIndex: `1`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[a]`
+* Returns: `[a]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *beginIndex*: `2`
-  * *endIndex*: `3`
+    * beginIndex: `2`
+    * endIndex: `3`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[c]`
+* Returns: `[c]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *beginIndex*: `3`
-  * *endIndex*: `3`
+    * beginIndex: `3`
+    * endIndex: `3`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *beginIndex*: `2`
-  * *endIndex*: `4`
+    * beginIndex: `2`
+    * endIndex: `4`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[c]`
+* Returns: `[c]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *beginIndex*: `2`
-  * *endIndex*: `4`
-  * *stringMustBeInRange*: `false`
+    * beginIndex: `2`
+    * endIndex: `4`
+    * stringMustBeInRange: `false`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[c]`
+* Returns: `[c]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *beginIndex*: `10`
-  * *endIndex*: `20`
-  * *stringMustBeInRange*: `false`
+    * beginIndex: `10`
+    * endIndex: `20`
+    * stringMustBeInRange: `false`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Parameters
-  * *beginIndex*: `0`
-  * *endIndex*: `-1`
+    * beginIndex: `0`
+    * endIndex: `-1`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[ab]`
+* Returns: `[ab]`
 
 
 ---
-#### Example 8:
+**Example 8:**
 
 * Parameters
-  * *beginIndex*: `1`
-  * *endIndex*: `0`
+    * beginIndex: `1`
+    * endIndex: `0`
 
 * Input values:
-  1. `[abc]`
+    1. `[abc]`
 
-* Returns:
-
-  → `[bc]`
+* Returns: `[bc]`
 
 
 

@@ -17,87 +17,75 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### A sentence with several words is converted to a single word written in UpperCamelCase:
+**A sentence with several words is converted to a single word written in UpperCamelCase:**
 
 * Parameters
-  * *isDromedary*: `false`
+    * isDromedary: `false`
 
 * Input values:
-  1. `[hello world]`
+    1. `[hello world]`
 
-* Returns:
-
-  → `[HelloWorld]`
+* Returns: `[HelloWorld]`
 
 
 ---
-#### A sentence with several words is converted to a single word written in lowerCamelCase:
+**A sentence with several words is converted to a single word written in lowerCamelCase:**
 
 * Parameters
-  * *isDromedary*: `true`
+    * isDromedary: `true`
 
 * Input values:
-  1. `[hello world]`
+    1. `[hello world]`
 
-* Returns:
-
-  → `[helloWorld]`
+* Returns: `[helloWorld]`
 
 
 ---
-#### A single lowercase letter is converted to UpperCamelCase, i.e. capitalized:
+**A single lowercase letter is converted to UpperCamelCase, i.e. capitalized:**
 
 * Parameters
-  * *isDromedary*: `false`
+    * isDromedary: `false`
 
 * Input values:
-  1. `[h]`
+    1. `[h]`
 
-* Returns:
-
-  → `[H]`
+* Returns: `[H]`
 
 
 ---
-#### A single lowercase letter is converted to lowerCamelCase (aka. dromedary case), i.e. uncapitalized:
+**A single lowercase letter is converted to lowerCamelCase (aka. dromedary case), i.e. uncapitalized:**
 
 * Parameters
-  * *isDromedary*: `true`
+    * isDromedary: `true`
 
 * Input values:
-  1. `[h]`
+    1. `[h]`
 
-* Returns:
-
-  → `[h]`
+* Returns: `[h]`
 
 
 ---
-#### An empty space is removed. The dromedary/lower case is irrelevant here:
+**An empty space is removed. The dromedary/lower case is irrelevant here:**
 
 * Parameters
-  * *isDromedary*: `true`
+    * isDromedary: `true`
 
 * Input values:
-  1. `[ ]`
+    1. `[ ]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### An empty space is removed. The upper case is irrelevant here:
+**An empty space is removed. The upper case is irrelevant here:**
 
 * Parameters
-  * *isDromedary*: `false`
+    * isDromedary: `false`
 
 * Input values:
-  1. `[ ]`
+    1. `[ ]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

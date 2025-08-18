@@ -23,49 +23,49 @@ Compares single values (as opposed to sequences of values). If multiple values a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Returns 0 for equal numbers:
+**Returns 0 for equal numbers:**
 
 * Input values:
-  - Source: `[4.2]`
-  - Target: `[4.2]`
+    - Source: `[4.2]`
+    - Target: `[4.2]`
 
-* Returns: → `0.0`
+* Returns: `0.0`
 
 
 ---
-#### Returns 1 if at least one value is not a number:
+**Returns 1 if at least one value is not a number:**
 
 * Input values:
-  - Source: `[1]`
-  - Target: `[one]`
+    - Source: `[1]`
+    - Target: `[one]`
 
-* Returns: → `1.0`
+* Returns: `1.0`
 
 
 ---
-#### Returns 0 for numbers within the configured precision:
+**Returns 0 for numbers within the configured precision:**
 
 * Parameters
-  * *precision*: `0.1`
+    * precision: `0.1`
 
 * Input values:
-  - Source: `[1.3]`
-  - Target: `[1.35]`
+    - Source: `[1.3]`
+    - Target: `[1.35]`
 
-* Returns: → `0.0`
+* Returns: `0.0`
 
 
 ---
-#### Returns 1 for numbers outside the configured precision:
+**Returns 1 for numbers outside the configured precision:**
 
 * Parameters
-  * *precision*: `0.1`
+    * precision: `0.1`
 
 * Input values:
-  - Source: `[1.3]`
-  - Target: `[1.5]`
+    - Source: `[1.3]`
+    - Target: `[1.5]`
 
-* Returns: → `1.0`
+* Returns: `1.0`
 
 
 

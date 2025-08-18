@@ -18,14 +18,12 @@ This operator supports using different hash algorithms from the [Secure Hash Alg
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[input value]`
+    1. `[input value]`
 
-* Returns:
-
-  → `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
+* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
 
 
 

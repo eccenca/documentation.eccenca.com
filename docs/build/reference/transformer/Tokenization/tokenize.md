@@ -17,28 +17,24 @@ Tokenizes all input values.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### By default, splits values at whitespaces:
+**By default, splits values at whitespaces:**
 
 * Input values:
-  1. `[Hello World]`
+    1. `[Hello World]`
 
-* Returns:
-
-  → `[Hello, World]`
+* Returns: `[Hello, World]`
 
 
 ---
-#### Optionally, splits values at the provided regex:
+**Optionally, splits values at the provided regex:**
 
 * Parameters
-  * *regex*: `,`
+    * regex: `,`
 
 * Input values:
-  1. `[.175,.050]`
+    1. `[.175,.050]`
 
-* Returns:
-
-  → `[.175, .050]`
+* Returns: `[.175, .050]`
 
 
 

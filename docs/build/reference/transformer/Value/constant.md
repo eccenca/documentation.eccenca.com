@@ -17,14 +17,12 @@ Generates a constant value.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Always outputs the specified value:
+**Always outputs the specified value:**
 
 * Parameters
-  * *value*: `John`
+    * value: `John`
 
-* Returns:
-
-  → `[John]`
+* Returns: `[John]`
 
 
 

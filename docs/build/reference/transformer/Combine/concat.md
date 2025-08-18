@@ -17,144 +17,127 @@ Concatenates strings from multiple inputs.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[a]`
+    1. `[a]`
 
-* Returns:
-
-  → `[a]`
+* Returns: `[a]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[a]`
-  2. `[b]`
+    1. `[a]`
+    2. `[b]`
 
-* Returns:
-
-  → `[ab]`
+* Returns: `[ab]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *glue*: `-`
+    * glue: `-`
 
 * Input values:
-  1. `[First]`
-  2. `[Last]`
+    1. `[First]`
+    2. `[Last]`
 
-* Returns:
-
-  → `[First-Last]`
+* Returns: `[First-Last]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *glue*: `-`
+    * glue: `-`
 
 * Input values:
-  1. `[First]`
-  2. `[Second, Third]`
+    1. `[First]`
+    2. `[Second, Third]`
 
-* Returns:
-
-  → `[First-Second, First-Third]`
+* Returns: `[First-Second, First-Third]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *glue*: `-`
+    * glue: `-`
 
 * Input values:
-  1. `[First]`
-  2. `[]`
-  3. `[Second]`
+    1. `[First]`
+    2. `[]`
+    3. `[Second]`
 
-* Returns:
-
-  → `[First--Second]`
+* Returns: `[First--Second]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Parameters
-  * *glue*: `-`
+    * glue: `-`
 
 * Input values:
-  1. `[First]`
-  2. `[]`
-  3. `[Second]`
+    1. `[First]`
+    2. `[]`
+    3. `[Second]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 8:
+**Example 8:**
 
 * Parameters
-  * *glue*: `-`
-  * *missingValuesAsEmptyStrings*: `true`
+    * glue: `-`
+    * missingValuesAsEmptyStrings: `true`
 
 * Input values:
-  1. `[First]`
-  2. `[]`
-  3. `[Second]`
+    1. `[First]`
+    2. `[]`
+    3. `[Second]`
 
-* Returns:
-
-  → `[First--Second]`
+* Returns: `[First--Second]`
 
 
 ---
-#### Example 9:
+**Example 9:**
 
 * Parameters
-  * *glue*: `\n`
+    * glue: `\n`
 
 * Input values:
-  1. `[First]`
-  2. `[Second]`
+    1. `[First]`
+    2. `[Second]`
 
-* Returns:
-
-  → `[First
-Second]`
+* Returns: 
+    ```
+    [First
+    Second]
+    ```
 
 
 ---
-#### Example 10:
+**Example 10:**
 
 * Parameters
-  * *glue*: `\t\\\a`
+    * glue: `\t\\\a`
 
 * Input values:
-  1. `[First]`
-  2. `[Second]`
+    1. `[First]`
+    2. `[Second]`
 
-* Returns:
-
-  → `[First	\\aSecond]`
+* Returns: `[First	\\aSecond]`
 
 
 

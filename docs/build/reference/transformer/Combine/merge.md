@@ -17,23 +17,19 @@ Merges the values of all inputs.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[a, b]`
-  2. `[c]`
+    1. `[a, b]`
+    2. `[c]`
 
-* Returns:
-
-  → `[a, b, c]`
+* Returns: `[a, b, c]`
 
 
 

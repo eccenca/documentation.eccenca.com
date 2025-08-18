@@ -17,87 +17,81 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *template*: `Hello {{input1}} {{input2}},
-
-How are you today?`
+    * template: 
+    ```
+    Hello {{input1}} {{input2}},
+    
+    How are you today?
+    ```
 
 * Input values:
-  1. `[John]`
-  2. `[Doe]`
+    1. `[John]`
+    2. `[Doe]`
 
-* Returns:
-
-  → `[Hello John Doe,
-
-How are you today?]`
+* Returns: 
+    ```
+    [Hello John Doe,
+    
+    How are you today?]
+    ```
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *template*: `Hello {{badVariable}} {{input1}}`
+    * template: `Hello {{badVariable}} {{input1}}`
 
 * Input values:
-  1. `[John]`
-  2. `[Doe]`
+    1. `[John]`
+    2. `[Doe]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *template*: `Hello {{input01}}`
+    * template: `Hello {{input01}}`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *template*: `Hello {{input1}}`
+    * template: `Hello {{input1}}`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *template*: `Hello {{input1}}`
+    * template: `Hello {{input1}}`
 
 * Input values:
-  1. `[A, B]`
+    1. `[A, B]`
 
-* Returns:
-
-  → `[Hello AB]`
+* Returns: `[Hello AB]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *template*: `Hello {% for value in input1 %}{{value}}, {% endfor %}how are you doing?`
+    * template: `Hello {% for value in input1 %}{{value}}, {% endfor %}how are you doing?`
 
 * Input values:
-  1. `[Bob, Eve]`
+    1. `[Bob, Eve]`
 
-* Returns:
-
-  → `[Hello Bob, Eve, how are you doing?]`
+* Returns: `[Hello Bob, Eve, how are you doing?]`
 
 
 

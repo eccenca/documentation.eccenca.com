@@ -17,31 +17,27 @@ Strips a prefix of a string.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *prefix*: `prefix`
+    * prefix: `prefix`
 
 * Input values:
-  1. `[prefixValue]`
+    1. `[prefixValue]`
 
-* Returns:
-
-  → `[Value]`
+* Returns: `[Value]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *prefix*: `prefix`
+    * prefix: `prefix`
 
 * Input values:
-  1. `[ValueWithoutPrefix]`
+    1. `[ValueWithoutPrefix]`
 
-* Returns:
-
-  → `[ValueWithoutPrefix]`
+* Returns: `[ValueWithoutPrefix]`
 
 
 

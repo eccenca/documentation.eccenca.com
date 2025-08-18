@@ -10,7 +10,7 @@ tags:
 
 
 
-#### Core parameter overview
+## Core parameter overview
 
 - <a id="parameter_doc_url">`URL`</a>: The URL the request will be executed against. This value can be overwritten at execution time when the 'Read parameters from input' option
          is enabled. This value will also be adapted when a paging approach is configured, see the paging section for more details. 
@@ -21,7 +21,7 @@ tags:
 - <a id="parameter_doc_content"></a>`Content`: The text content of a POST, PUT or PATCH request. This value can be overwritten at execution time when the
              'Read parameters from input' option is enabled.
 
-#### Authorization
+## Authorization
 
 If the request needs authorization following parameters should be set, else there is no authorization header sent.
 
@@ -30,7 +30,7 @@ If the request needs authorization following parameters should be set, else ther
                                 and cannot be accessed in the user interface anymore after saving it.
                                 E.g. for OAuth the value would have the following form: `bearer <TOKEN_VALUE>`.
 
-#### Sending multiple requests
+## Sending multiple requests
 
 In the default configuration a single requests is sent. If multiple requests should be sent with different URLs and/or content,
 the configurations for these requests must be defined via the input port of the REST operator.
@@ -48,7 +48,7 @@ If the option 'Read parameters from input' is enabled, it is currently always as
 The responses must either be of type JSON, then the results are merged into a JSON array, or the 'Output result as file'
 option must be enabled in order to write a merged JSON or a ZIP file. See section 'Output options' for more details.
 
-#### Paging
+## Paging
 
 If the REST endpoint does not return all results in a single response, multiple requests (one per page) must usually be sent in order
 to fetch all results. This is currently only supported for JSON requests.
@@ -76,7 +76,7 @@ to fetch all results. This is currently only supported for JSON requests.
   be attached to the original request URL in combination with the 'next page' value of the current response in order
   to request the next page.
 
-#### <a id="parameter_doc_httpHeaders">Setting HTTP headers</a>
+## <a id="parameter_doc_httpHeaders">Setting HTTP headers</a>
 
 - `HTTP headers`: This parameter allows to set HTTP headers of the request being made. Each line of the multi-line value should contain a single header, e.g.
   ```
@@ -84,7 +84,7 @@ to fetch all results. This is currently only supported for JSON requests.
   Cache-Control: max-age=0
   ```
   
-#### Sending a multipart HTTP file request
+## Sending a multipart HTTP file request
 
 If the content of a POST request should be sent as file content of a multipart HTTP request, instead of the request body,
 following parameter must be configured:
@@ -93,7 +93,7 @@ following parameter must be configured:
                                file upload request will be executed.
                                The value of this parameter is used as the form parameter name.
   
-#### Output options
+## Output options
 
 By default, the response body of a request is output as value of the 'result' property of a single output entity.
 If the response body needs to be processed this can e.g. be achieved with the 'Parse JSON' operator. Alternatively
@@ -111,7 +111,7 @@ If the option 'Read parameters from input' is enabled, it is currently always as
 The responses must either be JSON, then the results are merged into a JSON array or the 'Output result as file'
 option must be enabled in order to write a merged JSON or ZIP file.
   
-#### Fine-tuning timeouts
+## Fine-tuning timeouts
 
 If requests can take a much longer time than what can usually be expected, it is possible to increase the timeouts to
 control when a request should eventually fail.
@@ -121,14 +121,14 @@ control when a request should eventually fail.
 - `Read timeout`: The maximum time a request is allowed to stay idle, i.e. the time while it receives no data. Usually this
    should be greater than the time span between the request being sent and the first data being received. Default: `10000`
 
-#### Throttling requests
+## Throttling requests
 
 If a lot of requests are sent via the 'Read parameters from input' option, it can make sense to throttle the number
 of requests sent in a specific time span.
 
 - `Delay between requests`: The delay between subsequent requests in milliseconds. Default: `0`.
 
-#### Error handling
+## Error handling
 
 Following parameters can be tuned in order to decide when an execution should be considered as failed.
 
@@ -140,7 +140,7 @@ Following parameters can be tuned in order to decide when an execution should be
                          have failed (reached max. retries). This can be used if a number of failed requests can be tolerated.
                          When 'Abort when request fails' is enabled, this option is ignored.
 
-#### Propagating the request URL
+## Propagating the request URL
 
 If having the request URL in the response data is needed, following parameter needs to be configured:
 

@@ -17,25 +17,21 @@ Counts the number of values.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[value1]`
+    1. `[value1]`
 
-* Returns:
-
-  → `[1]`
+* Returns: `[1]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[value1, value2]`
+    1. `[value1, value2]`
 
-* Returns:
-
-  → `[2]`
+* Returns: `[2]`
 
 
 

@@ -17,74 +17,64 @@ Extracts occurrences of a regex "regex" in a string. If there is at least one ca
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### returns the first match:
+**returns the first match:**
 
 * Parameters
-  * *regex*: `[a-z]{2,4}123`
+    * regex: `[a-z]{2,4}123`
 
 * Input values:
-  1. `[afe123_abc123]`
+    1. `[afe123_abc123]`
 
-* Returns:
-
-  → `[afe123]`
+* Returns: `[afe123]`
 
 
 ---
-#### returns all matches, if extractAll = true:
+**returns all matches, if extractAll = true:**
 
 * Parameters
-  * *regex*: `[a-z]{2,4}123`
-  * *extractAll*: `true`
+    * regex: `[a-z]{2,4}123`
+    * extractAll: `true`
 
 * Input values:
-  1. `[afe123_abc123]`
+    1. `[afe123_abc123]`
 
-* Returns:
-
-  → `[afe123, abc123]`
+* Returns: `[afe123, abc123]`
 
 
 ---
-#### returns an empty list if nothing matches:
+**returns an empty list if nothing matches:**
 
 * Parameters
-  * *regex*: `^[a-z]{2,4}123`
+    * regex: `^[a-z]{2,4}123`
 
 * Input values:
-  1. `[abcdef123]`
+    1. `[abcdef123]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### returns the match of the first capture group that matches:
+**returns the match of the first capture group that matches:**
 
 * Parameters
-  * *regex*: `^([a-z]{2,4})123([a-z]+)`
+    * regex: `^([a-z]{2,4})123([a-z]+)`
 
 * Input values:
-  1. `[abcd123xyz]`
+    1. `[abcd123xyz]`
 
-* Returns:
-
-  → `[abcd]`
+* Returns: `[abcd]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *regex*: `"bedeutungen"\s*:\s*\[\s*(?:"([^"]*)"(?:\s*,\s*"([^"]*)")*)*\s*\]`
+    * regex: `"bedeutungen"\s*:\s*\[\s*(?:"([^"]*)"(?:\s*,\s*"([^"]*)")*)*\s*\]`
 
 * Input values:
-  1. `["bedeutungen" : [ ]]`
+    1. `["bedeutungen" : [ ]]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

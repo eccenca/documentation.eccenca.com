@@ -20,93 +20,81 @@ For instance, {2014-08-02,2014-08-03} < {2014-08-03} yields 0 as not all dates i
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *comparator*: `<`
+    * comparator: `<`
 
 * Input values:
-  1. `[2017-01-01]`
-  2. `[2017-01-02]`
+    1. `[2017-01-01]`
+    2. `[2017-01-02]`
 
-* Returns:
-
-  → `[1]`
+* Returns: `[1]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *comparator*: `<`
+    * comparator: `<`
 
 * Input values:
-  1. `[2017-01-02]`
-  2. `[2017-01-01]`
+    1. `[2017-01-02]`
+    2. `[2017-01-01]`
 
-* Returns:
-
-  → `[0]`
+* Returns: `[0]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *comparator*: `>`
+    * comparator: `>`
 
 * Input values:
-  1. `[2017-01-02]`
-  2. `[2017-01-01]`
+    1. `[2017-01-02]`
+    2. `[2017-01-01]`
 
-* Returns:
-
-  → `[1]`
+* Returns: `[1]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *comparator*: `>`
+    * comparator: `>`
 
 * Input values:
-  1. `[2017-01-01]`
-  2. `[2017-01-02]`
+    1. `[2017-01-01]`
+    2. `[2017-01-02]`
 
-* Returns:
-
-  → `[0]`
+* Returns: `[0]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *comparator*: `=`
+    * comparator: `=`
 
 * Input values:
-  1. `[2017-01-01]`
-  2. `[2017-01-01]`
+    1. `[2017-01-01]`
+    2. `[2017-01-01]`
 
-* Returns:
-
-  → `[1]`
+* Returns: `[1]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *comparator*: `=`
+    * comparator: `=`
 
 * Input values:
-  1. `[2017-01-02]`
-  2. `[2017-01-01]`
+    1. `[2017-01-02]`
+    2. `[2017-01-01]`
 
-* Returns:
-
-  → `[0]`
+* Returns: `[0]`
 
 
 

@@ -17,57 +17,49 @@ Validates if the first input date is after the second input date. Outputs the fi
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[2015-04-02]`
-  2. `[2015-04-03]`
+    1. `[2015-04-02]`
+    2. `[2015-04-03]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[2015-04-04]`
-  2. `[2015-04-03]`
+    1. `[2015-04-04]`
+    2. `[2015-04-03]`
 
-* Returns:
-
-  → `[2015-04-04]`
+* Returns: `[2015-04-04]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *allowEqual*: `true`
+    * allowEqual: `true`
 
 * Input values:
-  1. `[2015-04-03]`
-  2. `[2015-04-03]`
+    1. `[2015-04-03]`
+    2. `[2015-04-03]`
 
-* Returns:
-
-  → `[2015-04-03]`
+* Returns: `[2015-04-03]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *allowEqual*: `false`
+    * allowEqual: `false`
 
 * Input values:
-  1. `[2015-04-03]`
-  2. `[2015-04-03]`
+    1. `[2015-04-03]`
+    2. `[2015-04-03]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

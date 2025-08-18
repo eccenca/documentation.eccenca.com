@@ -19,9 +19,9 @@ If two inputs are provided, the numeric values are parsed from the first input a
 
 SI units and common derived units are supported. The following section lists all supported units. By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
 
-### Supported units
+## Supported units
 
-#### Time
+### Time
 
 Time is expressed in seconds (symbol: `s`).
 The following alternative symbols are supported:
@@ -38,7 +38,7 @@ The following alternative symbols are supported:
 * `d`: day
 
 
-#### Length
+### Length
 
 Length is expressed in metres (symbol: `m`).
 The following alternative symbols are supported:
@@ -55,7 +55,7 @@ The following alternative symbols are supported:
 * `hd`: (c(cm*254.0))*4.0
 
 
-#### Mass
+### Mass
 
 Mass is expressed in kilograms (symbol: `kg`).
 The following alternative symbols are supported:
@@ -73,7 +73,7 @@ The following alternative symbols are supported:
 * `lton`: (lb*112.0)*20.0
 
 
-#### Electric current
+### Electric current
 
 Electric current is expressed in amperes (symbol: `A`).
 The following alternative symbols are supported:
@@ -81,22 +81,22 @@ The following alternative symbols are supported:
 * `Gb`: cm·(A/m)*250.0/[one?]
 
 
-#### Temperature
+### Temperature
 
 Temperature is expressed in kelvins (symbol: `K`).
 The following alternative symbols are supported:
 * `Cel`: ℃
 
 
-#### Amount of substance
+### Amount of substance
 
 Amount of substance is expressed in moles (symbol: `mol`).
 
-#### Luminous intensity
+### Luminous intensity
 
 Luminous intensity is expressed in candelas (symbol: `cd`).
 
-#### Area
+### Area
 
 Area is expressed in square metres (symbol: `m²`).
 The following alternative symbols are supported:
@@ -109,7 +109,7 @@ The following alternative symbols are supported:
 * `sin`: c(cm*254.0)²
 
 
-#### Volume
+### Volume
 
 Volume is expressed in cubic metres (symbol: `㎥`).
 The following alternative symbols are supported:
@@ -124,7 +124,7 @@ The following alternative symbols are supported:
 * `m3`: ㎥
 
 
-#### Energy
+### Energy
 
 Energy is expressed in joules (symbol: `J`).
 The following alternative symbols are supported:
@@ -135,7 +135,7 @@ The following alternative symbols are supported:
 * `cal_th`: m(J*4184.0)
 
 
-#### Angle
+### Angle
 
 Angle is expressed in radians (symbol: `rad`).
 The following alternative symbols are supported:
@@ -146,7 +146,7 @@ The following alternative symbols are supported:
 * `''`: (([one?]·rad/180.0)/60.0)/60.0
 
 
-#### Others
+### Others
 
 - `1/m`, derived units: `Ky`: c(1/m)
 - `kg/(m·s)`, derived units: `P`: g/(s·cm)
@@ -189,158 +189,132 @@ The following alternative symbols are supported:
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[1 km]`
+    1. `[1 km]`
 
-* Returns:
-
-  → `[1000.0]`
+* Returns: `[1000.0]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[1.0000     ft]`
+    1. `[1.0000     ft]`
 
-* Returns:
-
-  → `[0.3048]`
+* Returns: `[0.3048]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[1.0lb]`
+    1. `[1.0lb]`
 
-* Returns:
-
-  → `[0.45359237]`
+* Returns: `[0.45359237]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Input values:
-  1. `[1000000000.0 nm]`
+    1. `[1000000000.0 nm]`
 
-* Returns:
-
-  → `[1.0]`
+* Returns: `[1.0]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Input values:
-  1. `[-1E6 m]`
+    1. `[-1E6 m]`
 
-* Returns:
-
-  → `[-1000000.0]`
+* Returns: `[-1000000.0]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *numberFormat*: `de`
+    * numberFormat: `de`
 
 * Input values:
-  1. `[1.000,5 m]`
+    1. `[1.000,5 m]`
 
-* Returns:
-
-  → `[1000.5]`
+* Returns: `[1000.5]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Input values:
-  1. `[1,000.5 m]`
+    1. `[1,000.5 m]`
 
-* Returns:
-
-  → `[1000.5]`
+* Returns: `[1000.5]`
 
 
 ---
-#### Example 8:
+**Example 8:**
 
 * Parameters
-  * *targetUnit*: `mi`
+    * targetUnit: `mi`
 
 * Input values:
-  1. `[1 km]`
+    1. `[1 km]`
 
-* Returns:
-
-  → `[0.621371192237334]`
+* Returns: `[0.621371192237334]`
 
 
 ---
-#### Example 9:
+**Example 9:**
 
 * Parameters
-  * *targetUnit*: `m`
+    * targetUnit: `m`
 
 * Input values:
-  1. `[1 kg]`
+    1. `[1 kg]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 10:
+**Example 10:**
 
 * Input values:
-  1. `[100.0]`
+    1. `[100.0]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 11:
+**Example 11:**
 
 * Input values:
-  1. `[1]`
-  2. `[km]`
+    1. `[1]`
+    2. `[km]`
 
-* Returns:
-
-  → `[1000.0]`
+* Returns: `[1000.0]`
 
 
 ---
-#### Example 12:
+**Example 12:**
 
 * Input values:
-  1. `[1, 10000]`
-  2. `[km, mm]`
+    1. `[1, 10000]`
+    2. `[km, mm]`
 
-* Returns:
-
-  → `[1000.0, 10.0]`
+* Returns: `[1000.0, 10.0]`
 
 
 ---
-#### Example 13:
+**Example 13:**
 
 * Input values:
-  1. `[1, 10000, 10]`
-  2. `[km, mm]`
+    1. `[1, 10000, 10]`
+    2. `[km, mm]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 

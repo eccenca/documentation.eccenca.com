@@ -17,108 +17,94 @@ Applies a numeric operation to the values of multiple input operators. Uses doub
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *operator*: `+`
+    * operator: `+`
 
 * Input values:
-  1. `[1]`
-  2. `[1]`
+    1. `[1]`
+    2. `[1]`
 
-* Returns:
-
-  → `[2.0]`
+* Returns: `[2.0]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *operator*: `-`
+    * operator: `-`
 
 * Input values:
-  1. `[1]`
-  2. `[1]`
+    1. `[1]`
+    2. `[1]`
 
-* Returns:
-
-  → `[0.0]`
+* Returns: `[0.0]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Parameters
-  * *operator*: `*`
+    * operator: `*`
 
 * Input values:
-  1. `[5]`
-  2. `[6]`
+    1. `[5]`
+    2. `[6]`
 
-* Returns:
-
-  → `[30.0]`
+* Returns: `[30.0]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Parameters
-  * *operator*: `/`
+    * operator: `/`
 
 * Input values:
-  1. `[5]`
-  2. `[2]`
+    1. `[5]`
+    2. `[2]`
 
-* Returns:
-
-  → `[2.5]`
+* Returns: `[2.5]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Parameters
-  * *operator*: `+`
+    * operator: `+`
 
 * Input values:
-  1. `[1]`
-  2. `[no number]`
+    1. `[1]`
+    2. `[no number]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Parameters
-  * *operator*: `*`
+    * operator: `*`
 
 * Input values:
-  1. `[1]`
-  2. `[]`
+    1. `[1]`
+    2. `[]`
 
-* Returns:
-
-  → `[1.0]`
+* Returns: `[1.0]`
 
 
 ---
-#### Example 7:
+**Example 7:**
 
 * Parameters
-  * *operator*: `+`
+    * operator: `+`
 
 * Input values:
-  1. `[1, 1]`
-  2. `[1]`
+    1. `[1, 1]`
+    2. `[1]`
 
-* Returns:
-
-  → `[3.0]`
+* Returns: `[3.0]`
 
 
 

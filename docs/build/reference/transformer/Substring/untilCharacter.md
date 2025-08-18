@@ -17,31 +17,27 @@ Extracts the substring until the character given.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *untilCharacter*: `c`
+    * untilCharacter: `c`
 
 * Input values:
-  1. `[abcde]`
+    1. `[abcde]`
 
-* Returns:
-
-  → `[ab]`
+* Returns: `[ab]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *untilCharacter*: `c`
+    * untilCharacter: `c`
 
 * Input values:
-  1. `[abab]`
+    1. `[abab]`
 
-* Returns:
-
-  → `[abab]`
+* Returns: `[abab]`
 
 
 

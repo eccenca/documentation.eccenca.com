@@ -14,7 +14,7 @@ The dataset needs the URL of a "share via link" sheet on Office 365/OneDrive as 
 It will automatically construct a direct download URL, cache the download file handle it like
 an XLSX file in the Excel Dataset.
 
-### Notes
+## Notes
 
 There are 2 types of URLs that can be shared:
 Onedrive links look like `https://1drv.ms/x/s!AucULvzmJ-dsdfsfgaIcyWP_XY_G4w?e=yx65uu`
@@ -40,7 +40,7 @@ com.eccenca.di.office365 = {
 }
 ```
 
-### Caching
+## Caching
 
 The advanced parameter `invalidateCacheAfter` allows the user to specify a duration of the file cache
 after which it is refreshed.

@@ -17,36 +17,30 @@ URL encodes the string.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[ab]`
+    1. `[ab]`
 
-* Returns:
-
-  → `[ab]`
+* Returns: `[ab]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[a&b]`
+    1. `[a&b]`
 
-* Returns:
-
-  → `[a%26b]`
+* Returns: `[a%26b]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[http://example.org/some/path]`
+    1. `[http://example.org/some/path]`
 
-* Returns:
-
-  → `[http%3A%2F%2Fexample.org%2Fsome%2Fpath]`
+* Returns: `[http%3A%2F%2Fexample.org%2Fsome%2Fpath]`
 
 
 

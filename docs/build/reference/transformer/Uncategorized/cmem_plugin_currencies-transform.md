@@ -69,7 +69,7 @@ The currency code you want to convert from (e.g. USD).
 Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - Datatype: `string`
-- Default Value: `2025-08-13`
+- Default Value: `2025-08-18`
 
 
 

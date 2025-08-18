@@ -19,9 +19,9 @@ If two inputs are provided, the numeric values are parsed from the first input a
 
 SI units and common derived units are supported. The following section lists all supported units. By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
 
-### Supported units
+## Supported units
 
-#### Time
+### Time
 
 Time is expressed in seconds (symbol: `s`).
 The following alternative symbols are supported:
@@ -38,7 +38,7 @@ The following alternative symbols are supported:
 * `d`: day
 
 
-#### Length
+### Length
 
 Length is expressed in metres (symbol: `m`).
 The following alternative symbols are supported:
@@ -55,7 +55,7 @@ The following alternative symbols are supported:
 * `hd`: (c(cm*254.0))*4.0
 
 
-#### Mass
+### Mass
 
 Mass is expressed in kilograms (symbol: `kg`).
 The following alternative symbols are supported:
@@ -73,7 +73,7 @@ The following alternative symbols are supported:
 * `lton`: (lb*112.0)*20.0
 
 
-#### Electric current
+### Electric current
 
 Electric current is expressed in amperes (symbol: `A`).
 The following alternative symbols are supported:
@@ -81,22 +81,22 @@ The following alternative symbols are supported:
 * `Gb`: cm·(A/m)*250.0/[one?]
 
 
-#### Temperature
+### Temperature
 
 Temperature is expressed in kelvins (symbol: `K`).
 The following alternative symbols are supported:
 * `Cel`: ℃
 
 
-#### Amount of substance
+### Amount of substance
 
 Amount of substance is expressed in moles (symbol: `mol`).
 
-#### Luminous intensity
+### Luminous intensity
 
 Luminous intensity is expressed in candelas (symbol: `cd`).
 
-#### Area
+### Area
 
 Area is expressed in square metres (symbol: `m²`).
 The following alternative symbols are supported:
@@ -109,7 +109,7 @@ The following alternative symbols are supported:
 * `sin`: c(cm*254.0)²
 
 
-#### Volume
+### Volume
 
 Volume is expressed in cubic metres (symbol: `㎥`).
 The following alternative symbols are supported:
@@ -124,7 +124,7 @@ The following alternative symbols are supported:
 * `m3`: ㎥
 
 
-#### Energy
+### Energy
 
 Energy is expressed in joules (symbol: `J`).
 The following alternative symbols are supported:
@@ -135,7 +135,7 @@ The following alternative symbols are supported:
 * `cal_th`: m(J*4184.0)
 
 
-#### Angle
+### Angle
 
 Angle is expressed in radians (symbol: `rad`).
 The following alternative symbols are supported:
@@ -146,7 +146,7 @@ The following alternative symbols are supported:
 * `''`: (([one?]·rad/180.0)/60.0)/60.0
 
 
-#### Others
+### Others
 
 - `1/m`, derived units: `Ky`: c(1/m)
 - `kg/(m·s)`, derived units: `P`: g/(s·cm)
@@ -193,33 +193,33 @@ Compares single values (as opposed to sequences of values). If multiple values a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Convert SI unit prefixes:
+**Convert SI unit prefixes:**
 
 * Input values:
-  - Source: `[1 km]`
-  - Target: `[500 m]`
+    - Source: `[1 km]`
+    - Target: `[500 m]`
 
-* Returns: → `500.0`
+* Returns: `500.0`
 
 
 ---
-#### Convert imperial and metric values:
+**Convert imperial and metric values:**
 
 * Input values:
-  - Source: `[1 km]`
-  - Target: `[1 mi]`
+    - Source: `[1 km]`
+    - Target: `[1 mi]`
 
-* Returns: → `609.344`
+* Returns: `609.344`
 
 
 ---
-#### Validate if the compared units of measurement are compatible:
+**Validate if the compared units of measurement are compatible:**
 
 * Input values:
-  - Source: `[1 km]`
-  - Target: `[1 kg]`
+    - Source: `[1 km]`
+    - Target: `[1 kg]`
 
-* Returns: → `NaN`
+* Returns: `NaN`
 
 
 

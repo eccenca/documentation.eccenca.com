@@ -17,31 +17,27 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *allWords*: `false`
+    * allWords: `false`
 
 * Input values:
-  1. `[capitalize me]`
+    1. `[capitalize me]`
 
-* Returns:
-
-  → `[Capitalize me]`
+* Returns: `[Capitalize me]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *allWords*: `true`
+    * allWords: `true`
 
 * Input values:
-  1. `[capitalize me]`
+    1. `[capitalize me]`
 
-* Returns:
-
-  → `[Capitalize Me]`
+* Returns: `[Capitalize Me]`
 
 
 

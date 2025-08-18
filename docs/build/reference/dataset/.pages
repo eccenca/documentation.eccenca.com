@@ -18,7 +18,7 @@ nav:
     - "Neo4j": neo4j.md
     - "ORC": orc.md
     - "Parquet": parquet.md
-    - "RDF": file.md
+    - "RDF file": file.md
     - "Snowflake JDBC endpoint": SnowflakeJdbc.md
     - "SparkSQL view": sparkView.md
     - "SPARQL endpoint": sparqlEndpoint.md

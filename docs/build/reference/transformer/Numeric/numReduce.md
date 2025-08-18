@@ -17,31 +17,27 @@ Strip all non-numeric characters from a string.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Parameters
-  * *keepPunctuation*: `false`
+    * keepPunctuation: `false`
 
 * Input values:
-  1. `[some1.2Value]`
+    1. `[some1.2Value]`
 
-* Returns:
-
-  → `[12]`
+* Returns: `[12]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Parameters
-  * *keepPunctuation*: `true`
+    * keepPunctuation: `true`
 
 * Input values:
-  1. `[some1.2Value]`
+    1. `[some1.2Value]`
 
-* Returns:
-
-  → `[1.2]`
+* Returns: `[1.2]`
 
 
 

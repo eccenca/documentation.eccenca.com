@@ -17,74 +17,62 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[]`
-  2. `[]`
-  3. `[]`
+    1. `[]`
+    2. `[]`
+    3. `[]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[]`
-  2. `[]`
+    1. `[]`
+    2. `[]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 4:
+**Example 4:**
 
 * Input values:
-  1. `[]`
-  2. `[first]`
-  3. `[second]`
+    1. `[]`
+    2. `[first]`
+    3. `[second]`
 
-* Returns:
-
-  → `[first]`
+* Returns: `[first]`
 
 
 ---
-#### Example 5:
+**Example 5:**
 
 * Input values:
-  1. `[]`
-  2. `[first A, first B]`
-  3. `[second]`
+    1. `[]`
+    2. `[first A, first B]`
+    3. `[second]`
 
-* Returns:
-
-  → `[first A, first B]`
+* Returns: `[first A, first B]`
 
 
 ---
-#### Example 6:
+**Example 6:**
 
 * Input values:
-  1. `[first]`
-  2. `[second]`
+    1. `[first]`
+    2. `[second]`
 
-* Returns:
-
-  → `[first]`
+* Returns: `[first]`
 
 
 

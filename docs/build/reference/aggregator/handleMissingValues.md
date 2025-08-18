@@ -16,19 +16,19 @@ Generates a default similarity score, if no similarity score is provided (e.g., 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Forwards input similarity scores:
+**Forwards input similarity scores:**
 
-* Input values: [0.1]
+* Input values: `[0.1]`
 * Returns: `0.1`
 
 
 ---
-#### Outputs the default score, if no input score is provided:
+**Outputs the default score, if no input score is provided:**
 
 * Parameters
-  * *defaultValue*: `1.0`
+    * defaultValue: `1.0`
 
-* Input values: [(none)]
+* Input values: `[null]`
 * Returns: `1.0`
 
 

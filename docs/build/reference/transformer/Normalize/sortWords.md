@@ -17,36 +17,30 @@ Sorts all words in each value lexicographically.
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Example 1:
+**Example 1:**
 
 * Input values:
-  1. `[]`
+    1. `[]`
 
-* Returns:
-
-  → `[]`
+* Returns: `[]`
 
 
 ---
-#### Example 2:
+**Example 2:**
 
 * Input values:
-  1. `[c a b]`
+    1. `[c a b]`
 
-* Returns:
-
-  → `[a b c]`
+* Returns: `[a b c]`
 
 
 ---
-#### Example 3:
+**Example 3:**
 
 * Input values:
-  1. `[Hans Hansa    Hamburg, München Marburg]`
+    1. `[Hans Hansa    Hamburg, München Marburg]`
 
-* Returns:
-
-  → `[Hamburg Hans Hansa, Marburg München]`
+* Returns: `[Hamburg Hans Hansa, Marburg München]`
 
 
 

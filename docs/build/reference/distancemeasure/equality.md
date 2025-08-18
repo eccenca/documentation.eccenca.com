@@ -21,23 +21,23 @@ Compares single values (as opposed to sequences of values). If multiple values a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Returns distance 0, if at least one value matches:
+**Returns distance 0, if at least one value matches:**
 
 * Input values:
-  - Source: `[max, helmut]`
-  - Target: `[max]`
+    - Source: `[max, helmut]`
+    - Target: `[max]`
 
-* Returns: → `0.0`
+* Returns: `0.0`
 
 
 ---
-#### Returns distance 1, if no value matches:
+**Returns distance 1, if no value matches:**
 
 * Input values:
-  - Source: `[max, helmut]`
-  - Target: `[john]`
+    - Source: `[max, helmut]`
+    - Target: `[john]`
 
-* Returns: → `1.0`
+* Returns: `1.0`
 
 
 

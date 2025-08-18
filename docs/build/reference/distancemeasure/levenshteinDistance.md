@@ -21,33 +21,33 @@ Compares single values (as opposed to sequences of values). If multiple values a
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-#### Returns 0 for equal strings:
+**Returns 0 for equal strings:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[John]`
+    - Source: `[John]`
+    - Target: `[John]`
 
-* Returns: → `0.0`
+* Returns: `0.0`
 
 
 ---
-#### Returns 1 for strings that differ by one edit operation:
+**Returns 1 for strings that differ by one edit operation:**
 
 * Input values:
-  - Source: `[John]`
-  - Target: `[Jxhn]`
+    - Source: `[John]`
+    - Target: `[Jxhn]`
 
-* Returns: → `1.0`
+* Returns: `1.0`
 
 
 ---
-#### Returns 3 for strings that differ by three edit operations:
+**Returns 3 for strings that differ by three edit operations:**
 
 * Input values:
-  - Source: `[Saturday]`
-  - Target: `[Sunday]`
+    - Source: `[Saturday]`
+    - Target: `[Sunday]`
 
-* Returns: → `3.0`
+* Returns: `3.0`
 
 
 
