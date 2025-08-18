@@ -195,7 +195,9 @@ Specifies how text is extracted from a PDF page. Options include "raw", "layout"
 Custom table extraction strategy in YAML format.
 
 - Datatype: `multiline string`
-- Default Value: `# edge_min_length: 3
+- Default Value:
+``` text
+# edge_min_length: 3
 # explicit_horizontal_lines: []
 # explicit_vertical_lines: []
 # horizontal_strategy: lines
@@ -218,7 +220,8 @@ Custom table extraction strategy in YAML format.
 #   vertical_ttb: true
 #   x_tolerance: 2
 #   y_tolerance: 2
-# vertical_strategy: lines`
+# vertical_strategy: lines
+```
 
 
 
@@ -227,7 +230,9 @@ Custom table extraction strategy in YAML format.
 Custom text extraction strategy in YAML format.
 
 - Datatype: `multiline string`
-- Default Value: `# extra_attrs: []
+- Default Value:
+``` text
+# extra_attrs: []
 # horizontal_ltr: true
 # keep_blank_chars: false
 # layout: false
@@ -237,7 +242,8 @@ Custom text extraction strategy in YAML format.
 # x_density: 7.25
 # x_tolerance: 1
 # y_density: 13
-# y_tolerance: 1`
+# y_tolerance: 1
+```
 
 
 

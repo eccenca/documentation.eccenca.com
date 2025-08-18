@@ -81,10 +81,13 @@ In this graph, the validation results are materialized. If left empty, results a
 The query to select the resources to validate. Use {{context_graph}} as a placeholder for the select context graph for validation.
 
 - Datatype: `code-sparql`
-- Default Value: `SELECT DISTINCT ?resource
+- Default Value:
+``` sparql
+SELECT DISTINCT ?resource
 FROM <{{context_graph}}>
 WHERE { ?resource a ?class . FILTER isIRI(?resource) }
-`
+
+```
 
 
 

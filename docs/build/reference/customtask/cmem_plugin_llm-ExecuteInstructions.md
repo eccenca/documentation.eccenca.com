@@ -215,7 +215,9 @@ The entity path where the instruction result will be provided.
 A list of messages comprising the conversation compatible with OpenAI chat completion API message object.
 
 - Datatype: `code-json`
-- Default Value: `[
+- Default Value:
+``` json
+[
     {
         "role": "developer",
         "content": "You are a helpful assistant."
@@ -224,7 +226,8 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
         "role": "user",
         "content": "{{ instruction_prompt }}"
     }
-]`
+]
+```
 
 
 
@@ -260,13 +263,16 @@ Specifying the format that the model must output.
 The Pydantic schema definition with a mandatory class named `StructuredOutput(BaseModel)`.
 
 - Datatype: `code-python`
-- Default Value: `from pydantic import BaseModel
+- Default Value:
+``` python
+from pydantic import BaseModel
 
 class StructuredOutput(BaseModel):
     title: str
     abstract: str
     keywords: list[str]
-`
+
+```
 
 
 

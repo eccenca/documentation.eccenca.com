@@ -54,8 +54,7 @@ The names of the written tables are generated as follows:
 
 Connection parameters
 
-- Datatype: `objectParameter`
-- Default Value: `{'parameters': {'database': '', 'privateKeyPassword': '', 'host': '<orgname>-<account_name>.snowflakecomputing.com', 'privateKey': '', 'user': '', 'schema': '', 'port': '443', 'warehouse': '', 'table': '', 'password': '', 'additionalParameters': ''}}`
+
 
 
 #### Account URL hostname
@@ -151,8 +150,7 @@ Table name. Can be empty if the read-strategy is not set to read the full table.
 
 Parameters related to reading from the database.
 
-- Datatype: `objectParameter`
-- Default Value: `{'parameters': {'queryStrategy': 'access-complete-table', 'restriction': '', 'groupBy': '', 'orderBy': '', 'sourceQuery': '', 'limit': '10'}}`
+
 
 
 #### Source query
@@ -208,8 +206,7 @@ An SQL WHERE clause to filter the records to be retrieved.
 
 Parameters related to writing to the database.
 
-- Datatype: `objectParameter`
-- Default Value: `{'parameters': {'writeStrategy': 'default', 'multipleValuesStrategy': 'concatenateValuesStrategy'}}`
+
 
 
 #### Write strategy
@@ -233,8 +230,7 @@ How multiple values per entity property are written.
 
 Query execution parameters.
 
-- Datatype: `objectParameter`
-- Default Value: `{'parameters': {'retries': '0', 'pause': '2000'}}`
+
 
 
 #### Retries

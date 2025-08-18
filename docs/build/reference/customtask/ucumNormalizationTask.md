@@ -77,7 +77,9 @@ An absolute file path for a unit CSV configuration file (for syntax see 'configu
 While all SI units and decimal prefixes are supported by default, custom or obsolete units have to be added via this configuration. NOTE: when constructing formulae depending on other units defined in the configuration, make sure to order them dependently. ALSO: Rational numbers are not supported by the UCUM syntax, express them as a fraction (see 'grain' example below).
 
 - Datatype: `multiline string`
-- Default Value: `
+- Default Value:
+``` text
+
 # Example configuration, don't forget to remove the '#' in front of each row.
 #      CSV COLUMNS:
 #       * unit name - the human readable name of the unit
@@ -91,7 +93,8 @@ While all SI units and decimal prefixes are supported by default, custom or obso
 #       Denier  , true    , den   , g/(9.km)
 #       Grain   , true    , gr    , (45.g)/100
 #       Pound   , true    , lb    , (45359237.kg)/100000000 , # , lbm
-     `
+     
+```
 
 
 

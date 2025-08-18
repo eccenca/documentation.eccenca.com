@@ -2,8 +2,13 @@
 
 {{property.description}}
 
-- Datatype: `{{property.parameterType}}`
-- Default Value: `{{property.value if property.value != "" else "None"}}`
+{% if property.parameterType != "objectParameter" -%}- Datatype: `{{property.parameterType}}`
+{% if property.value and '\n' in property.value -%}- Default Value:
+``` {{ property.get_pygments_code() }}
+{{ property.value }}
+```
+{%- else %}- Default Value: `{{property.value if property.value != "" else "None"}}`
+{%- endif %}{%- endif %}
 
 {% for sub_property in property.properties.values() %}
 #### {{sub_property.title}}

@@ -47,6 +47,20 @@ class PropertyDescription(BaseModel):
     visibleInDialog: bool
     properties: dict[str, dict] = {}
 
+    def get_pygments_code(self) -> str:
+        """Get a markdown pygments code based on the parameterType
+
+        https://pygments.org/docs/lexers/
+        """
+        codes = {
+            "code-json": "json",
+            "code-python": "python",
+            "code-yaml": "yaml",
+            "code-sql": "sql",
+            "code-sparql": "sparql",
+        }
+        return codes.get(self.parameterType, "text")
+
 
 class PluginDescription(BaseModel):
     """Plugin description."""
