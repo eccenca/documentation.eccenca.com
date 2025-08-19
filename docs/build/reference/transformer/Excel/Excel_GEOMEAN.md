@@ -18,8 +18,14 @@ Excel GEOMEAN(number_1; number_2; ... number_30): Returns the geometric mean of 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `GEOMEAN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

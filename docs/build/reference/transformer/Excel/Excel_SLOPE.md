@@ -18,8 +18,14 @@ Excel SLOPE(data_Y; data_X): Returns the slope of the linear regression line. Da
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SLOPE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

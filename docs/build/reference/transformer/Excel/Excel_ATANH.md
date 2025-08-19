@@ -18,8 +18,14 @@ Excel ATANH(number): Returns the inverse hyperbolic tangent of the given number.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ATANH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

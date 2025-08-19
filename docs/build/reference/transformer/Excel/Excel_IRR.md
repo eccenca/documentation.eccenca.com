@@ -18,8 +18,14 @@ Excel IRR(values; guess): Calculates the internal rate of return for an investme
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `IRR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

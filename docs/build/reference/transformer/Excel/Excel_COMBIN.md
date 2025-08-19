@@ -18,8 +18,14 @@ Excel COMBIN(count_1; count_2): Returns the number of combinations for a given n
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `COMBIN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

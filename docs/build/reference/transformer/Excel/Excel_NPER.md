@@ -18,8 +18,14 @@ Excel NPER(rate; PMT; PV; FV; type): Returns the number of periods for an invest
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NPER`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel TDIST(number; degrees_freedom; mode): Returns the t-distribution for the g
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `TDIST`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

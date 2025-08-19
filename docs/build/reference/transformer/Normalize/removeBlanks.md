@@ -16,3 +16,7 @@ Remove whitespace from a string.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -19,6 +19,7 @@ Get file resources from the project.
 
 The path of the project file to retrieve. Leave empty if the file regex parameter should be used.
 
+- ID: `fileName`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ The path of the project file to retrieve. Leave empty if the file regex paramete
 
 Optional regular expression for retrieving files. The regex needs to match the full path (i.e. from beginning to end, including sub-directories).
 
+- ID: `filesRegex`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -16,3 +16,7 @@ Remove special characters (including punctuation) from a string.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

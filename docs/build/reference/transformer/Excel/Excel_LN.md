@@ -18,8 +18,14 @@ Excel LN(number): Returns the natural logarithm based on the constant e of the g
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `LN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

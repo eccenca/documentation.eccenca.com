@@ -19,6 +19,7 @@ Validates if a number is within a specified range.
 
 Minimum allowed number
 
+- ID: `min`
 - Datatype: `double`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ Minimum allowed number
 
 Maximum allowed number
 
+- ID: `max`
 - Datatype: `double`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -25,6 +25,7 @@ Transform plugin allows users to easily convert numbers
 
 Source Number Base
 
+- ID: `source_base`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -34,8 +35,14 @@ Source Number Base
 
 Source Number Base
 
+- ID: `target_base`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

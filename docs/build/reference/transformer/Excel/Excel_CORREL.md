@@ -18,8 +18,14 @@ Excel CORREL(data_1; data_2): Returns the correlation coefficient between two da
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `CORREL`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

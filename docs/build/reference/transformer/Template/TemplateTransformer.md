@@ -50,6 +50,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
     2. `[Doe]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -59,6 +60,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
     * template: `Hello {{input01}}`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -68,6 +70,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
     * template: `Hello {{input1}}`
 
 * Returns: `[]`
+* **Throws error:** `UnboundVariablesException`
 
 
 ---
@@ -102,6 +105,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 
 The template
 
+- ID: `template`
 - Datatype: `template`
 - Default Value: `None`
 
@@ -111,8 +115,14 @@ The template
 
 The template language. Currently, Jinja is supported.
 
+- ID: `language`
 - Datatype: `string`
 - Default Value: `jinja`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

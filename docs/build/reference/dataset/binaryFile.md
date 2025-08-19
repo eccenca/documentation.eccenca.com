@@ -35,6 +35,7 @@ The generic MIME type for files of this dataset is `application/octet-stream`.
 
 The file to read or write.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -44,8 +45,14 @@ The file to read or write.
 
 If the file is a ZIP file, read files are filtered via this regex. If empty, the zip itself will be returned to readers.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

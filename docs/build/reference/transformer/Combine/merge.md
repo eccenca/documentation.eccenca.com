@@ -37,3 +37,7 @@ Merges the values of all inputs.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

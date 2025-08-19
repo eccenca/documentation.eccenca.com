@@ -19,6 +19,7 @@ Parses integer values.
 
 Use comma as decimal point (uses a point, otherwise)
 
+- ID: `commaAsDecimalPoint`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -28,8 +29,14 @@ Use comma as decimal point (uses a point, otherwise)
 
 Use comma or point to separate digits
 
+- ID: `thousandSeparator`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

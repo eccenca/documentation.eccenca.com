@@ -53,6 +53,7 @@ model in order to get an overview of the available objects and fields.
 
 Username of the Salesforce Account. This is typically your email address.
 
+- ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -62,6 +63,7 @@ Username of the Salesforce Account. This is typically your email address.
 
 
 
+- ID: `password`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -71,6 +73,7 @@ Username of the Salesforce Account. This is typically your email address.
 
 In addition to your standard account credentials, you need to provide a security token to access your data. Refer to the [Salesforce Reset Token Documentation](https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm&type=5) to learn how to retrieve or reset your token.
 
+- ID: `security_token`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -80,15 +83,21 @@ In addition to your standard account credentials, you need to provide a security
 
 The query text of your SOQL query. SOQL uses the SELECT statement combined with filtering statements to return sets of data, which can optionally be ordered. For a complete description of the syntax, see [Salesforce SOQL SELECT Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select.htm).
 
+- ID: `soql_query`
 - Datatype: `multiline string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
 ### Dataset
 
 In addition to have direct output of the fetched entities of your SOQL query, you can directly write the response to a JSON dataset (mostly for debugging purpose).
 
+- ID: `dataset`
 - Datatype: `string`
 - Default Value: `None`
 

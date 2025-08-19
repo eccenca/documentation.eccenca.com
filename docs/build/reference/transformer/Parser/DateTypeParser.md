@@ -170,6 +170,7 @@ Parses and normalizes dates in different formats.
     1. `[--12-31]`
 
 * Returns: `[]`
+* **Throws error:** `DateTimeException`
 
 
 ---
@@ -255,6 +256,7 @@ Parses and normalizes dates in different formats.
 
 The input date/time format used for parsing the date/time string.
 
+- ID: `inputDateFormatId`
 - Datatype: `option[enumeration]`
 - Default Value: `w3c Date`
 
@@ -264,6 +266,7 @@ The input date/time format used for parsing the date/time string.
 
 An input format string that should be used instead of the selected input format. Java DateFormat string.
 
+- ID: `alternativeInputFormat`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -273,6 +276,7 @@ An input format string that should be used instead of the selected input format.
 
 Optional locale for the (alternative) input format. If not set the system's locale will be used or the locale of the input format, if set.
 
+- ID: `inputLocale`
 - Datatype: `option[locale]`
 - Default Value: `None`
 
@@ -282,6 +286,7 @@ Optional locale for the (alternative) input format. If not set the system's loca
 
 The output date/time format used for parsing the date/time string.
 
+- ID: `outputDateFormatId`
 - Datatype: `option[enumeration]`
 - Default Value: `w3c Date`
 
@@ -291,6 +296,7 @@ The output date/time format used for parsing the date/time string.
 
 An output format string that should be used instead of the selected output format. Java DateFormat string.
 
+- ID: `alternativeOutputFormat`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -300,8 +306,14 @@ An output format string that should be used instead of the selected output forma
 
 Optional locale for the (alternative) output format. If not set the system's locale will be used or the locale of the output format, if set.
 
+- ID: `outputLocale`
 - Datatype: `option[locale]`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

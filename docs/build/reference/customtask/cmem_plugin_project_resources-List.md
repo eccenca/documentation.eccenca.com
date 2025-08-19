@@ -60,8 +60,14 @@ provides a test bed using the example files and the last expression from the lis
 
 The regex for filtering the file names. The regex needs to match the full path (i.e. from beginning to end, including sub-directories) in order for the file to be deleted.
 
+- ID: `files_regex`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

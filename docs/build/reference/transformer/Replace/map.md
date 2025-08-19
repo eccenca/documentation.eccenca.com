@@ -50,6 +50,7 @@ Replaces values based on a map of values.
 
 A map of values
 
+- ID: `map`
 - Datatype: `stringmap`
 - Default Value: `None`
 
@@ -59,8 +60,14 @@ A map of values
 
 Default if the map defines no value
 
+- ID: `default`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -75,3 +75,7 @@ Calculates the Euclidian distance.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel VARPA(value_1; value_2; .. .value_30): Calculates the variance based on th
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `VARPA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

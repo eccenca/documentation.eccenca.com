@@ -18,8 +18,14 @@ Excel PERCENTRANK(data; value): Returns the percentage rank (percentile) of the 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PERCENTRANK`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -24,6 +24,7 @@ Combines CSV files with the same structure to one dataset.
 
 Regular expression for filtering resources of the project.
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -33,6 +34,7 @@ Regular expression for filtering resources of the project.
 
 Delimiter in the input CSV files.
 
+- ID: `delimiter`
 - Datatype: `string`
 - Default Value: `,`
 
@@ -42,6 +44,7 @@ Delimiter in the input CSV files.
 
 Quotechar in the input CSV files.
 
+- ID: `quotechar`
 - Datatype: `string`
 - Default Value: `"`
 
@@ -51,6 +54,7 @@ Quotechar in the input CSV files.
 
 The number of rows to skip before the header row.
 
+- ID: `skip_lines`
 - Datatype: `Long`
 - Default Value: `0`
 
@@ -60,8 +64,14 @@ The number of rows to skip before the header row.
 
 Stop the workflow if no input files are found or all input files are empty.
 
+- ID: `stop`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

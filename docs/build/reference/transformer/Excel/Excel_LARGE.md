@@ -18,8 +18,14 @@ Excel LARGE(data; rank_c): Returns the Rank_c-th largest value in a data set. Da
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `LARGE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

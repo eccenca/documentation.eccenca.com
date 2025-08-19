@@ -19,6 +19,7 @@ Convert the string from "sourceCharset" to "targetCharset".
 
 No description
 
+- ID: `sourceCharset`
 - Datatype: `string`
 - Default Value: `ISO-8859-1`
 
@@ -28,8 +29,14 @@ No description
 
 No description
 
+- ID: `targetCharset`
 - Datatype: `string`
 - Default Value: `UTF-8`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

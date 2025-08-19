@@ -58,6 +58,7 @@ representations that capture semantic meaning.
 
 URL of the OpenAI API (without endpoint path and without trailing slash)
 
+- ID: `base_url`
 - Datatype: `string`
 - Default Value: `https://api.openai.com/v1`
 
@@ -67,6 +68,7 @@ URL of the OpenAI API (without endpoint path and without trailing slash)
 
 Fill the OpenAI API key if needed (or give a dummy value in case you access an unsecured endpoint).
 
+- ID: `api_key`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -76,15 +78,21 @@ Fill the OpenAI API key if needed (or give a dummy value in case you access an u
 
 
 
+- ID: `model`
 - Datatype: `string`
 - Default Value: `text-embedding-3-small`
 
 
 
+
+
+## Advanced Parameter
+
 ### Timeout (Single Request, in Milliseconds)
 
 
 
+- ID: `timout_single_request`
 - Datatype: `Long`
 - Default Value: `10000`
 
@@ -94,6 +102,7 @@ Fill the OpenAI API key if needed (or give a dummy value in case you access an u
 
 How many input values do you want to send per request?
 
+- ID: `entries_processing_buffer`
 - Datatype: `Long`
 - Default Value: `100`
 
@@ -103,6 +112,7 @@ How many input values do you want to send per request?
 
 Changing this value will change, which input paths are used by the workflow task. A blank value means, all paths are used.
 
+- ID: `embedding_paths`
 - Datatype: `string`
 - Default Value: `text`
 
@@ -112,6 +122,7 @@ Changing this value will change, which input paths are used by the workflow task
 
 Changing this value will change the output schema accordingly. Default: _embedding_source
 
+- ID: `embedding_output_text`
 - Datatype: `string`
 - Default Value: `_embedding_source`
 
@@ -121,6 +132,7 @@ Changing this value will change the output schema accordingly. Default: _embeddi
 
 Changing this value will change the output schema accordingly. Default: _embedding
 
+- ID: `embedding_output_path`
 - Datatype: `string`
 - Default Value: `_embedding`
 

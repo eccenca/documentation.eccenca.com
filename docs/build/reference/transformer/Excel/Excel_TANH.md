@@ -18,8 +18,14 @@ Excel TANH(number): Returns the hyperbolic tangent of the given number (angle in
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `TANH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

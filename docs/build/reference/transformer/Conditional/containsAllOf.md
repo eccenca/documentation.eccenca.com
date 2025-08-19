@@ -64,6 +64,7 @@ Accepts two inputs. If the first input contains all of the second input values i
     2. `[]`
 
 * Returns: `[]`
+* **Throws error:** `IllegalArgumentException`
 
 
 ---
@@ -75,6 +76,7 @@ Accepts two inputs. If the first input contains all of the second input values i
     3. `[A]`
 
 * Returns: `[]`
+* **Throws error:** `IllegalArgumentException`
 
 
 ---
@@ -84,10 +86,15 @@ Accepts two inputs. If the first input contains all of the second input values i
     1. `[A]`
 
 * Returns: `[]`
+* **Throws error:** `IllegalArgumentException`
 
 
 
 
 ## Parameter
+
+`None`
+
+## Advanced Parameter
 
 `None`

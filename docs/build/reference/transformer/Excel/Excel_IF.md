@@ -18,8 +18,14 @@ Excel IF(test; then_value; otherwise_value): Returns different values based on t
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `IF`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

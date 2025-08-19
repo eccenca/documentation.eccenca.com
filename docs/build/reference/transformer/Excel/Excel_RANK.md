@@ -18,8 +18,14 @@ Excel RANK(value; data; type): Returns the rank of the given Value in a sample. 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `RANK`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -19,17 +19,9 @@ Read from or write to an Excel workbook in Open XML format (XLSX).
 
 File name inside the resources directory.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
-
-
-
-### Streaming
-
-Streaming enables reading and writing large Excels files. Warning: Be careful to disable streaming for large datasets (> 10MB), because of high memory consumption.
-
-- Datatype: `boolean`
-- Default Value: `true`
 
 
 
@@ -37,6 +29,7 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 
 The number of lines to skip in the beginning when reading files.
 
+- ID: `linesToSkip`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -46,6 +39,7 @@ The number of lines to skip in the beginning when reading files.
 
 If true, the first line will be read as the table header, which defines the column names. If false, the first line will be read as data. In that case, the columns need to be adressed using #A, #B, etc.
 
+- ID: `hasHeader`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -55,6 +49,21 @@ If true, the first line will be read as the table header, which defines the colu
 
 Output results from object rules (URIs).
 
+- ID: `outputObjectValues`
+- Datatype: `boolean`
+- Default Value: `true`
+
+
+
+
+
+## Advanced Parameter
+
+### Streaming
+
+Streaming enables reading and writing large Excels files. Warning: Be careful to disable streaming for large datasets (> 10MB), because of high memory consumption.
+
+- ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
 

@@ -23,8 +23,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 No description
 
+- ID: `separator`
 - Datatype: `string`
 - Default Value: `—|–|-`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

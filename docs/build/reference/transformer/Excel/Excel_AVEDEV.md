@@ -18,8 +18,14 @@ Excel AVEDEV(number1; number2; ... number_30): Returns the average of the absolu
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `AVEDEV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -27,3 +27,7 @@ Implementations SHOULD utilize UUIDv7 over UUIDv1 and
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

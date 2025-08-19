@@ -76,8 +76,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The range of tolerance in floating point number comparisons. Must be 0 or a non-negative number smaller than 1.
 
+- ID: `precision`
 - Datatype: `double`
 - Default Value: `0.0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

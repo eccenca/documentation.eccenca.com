@@ -18,8 +18,14 @@ Excel DEVSQ(number_1; number_2; ... number_30): Returns the sum of squares of de
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `DEVSQ`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

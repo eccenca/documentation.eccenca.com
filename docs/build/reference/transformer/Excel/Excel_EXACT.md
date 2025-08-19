@@ -18,8 +18,14 @@ Excel EXACT(text_1; text_2): Compares two text strings and returns TRUE if they 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `EXACT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

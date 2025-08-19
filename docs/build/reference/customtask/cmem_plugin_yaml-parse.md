@@ -23,6 +23,7 @@ This workflow task is basically a yaml2json command.
 
 
 
+- ID: `source_mode`
 - Datatype: `string`
 - Default Value: `code`
 
@@ -32,6 +33,7 @@ This workflow task is basically a yaml2json command.
 
 
 
+- ID: `target_mode`
 - Datatype: `string`
 - Default Value: `entities`
 
@@ -41,15 +43,21 @@ This workflow task is basically a yaml2json command.
 
 
 
+- ID: `source_code`
 - Datatype: `code-yaml`
 - Default Value: `# Add your YAML code here (and select 'code' as input mode).`
 
 
 
+
+
+## Advanced Parameter
+
 ### YAML File (when using the *file* input)
 
 Which YAML file do you want to load into a JSON dataset? The dropdown shows file resources from the current project.
 
+- ID: `source_file`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -59,6 +67,7 @@ Which YAML file do you want to load into a JSON dataset? The dropdown shows file
 
 Where do you want to save the result of the conversion? The dropdown shows JSON datasets from the current project.
 
+- ID: `target_dataset`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -68,6 +77,7 @@ Where do you want to save the result of the conversion? The dropdown shows JSON 
 
 In case of source mode 'entities', you can specify the requested input type.
 
+- ID: `input_schema_type`
 - Datatype: `string`
 - Default Value: `urn:x-eccenca:yaml-document`
 
@@ -77,6 +87,7 @@ In case of source mode 'entities', you can specify the requested input type.
 
 In case of source mode 'entities', you can specify the requested input path.
 
+- ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `text`
 

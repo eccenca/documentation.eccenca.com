@@ -18,8 +18,14 @@ Excel SUBSTITUTE(text; search_text; new text; occurrence): Substitutes new text 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUBSTITUTE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

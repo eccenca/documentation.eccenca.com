@@ -47,6 +47,7 @@ limit: 5
 
 Your parameter configuration in YAML Syntax. One 'parameter: value' pair per line. url: http://example.org method: GET query: | SELECT ?s WHERE {{ ?s ?p ?o }} execute_once: True limit: 5
 
+- ID: `parameters`
 - Datatype: `code-yaml`
 - Default Value:
 ``` yaml
@@ -64,3 +65,8 @@ limit: 5
 
 
 
+
+
+## Advanced Parameter
+
+`None`

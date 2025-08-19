@@ -30,6 +30,7 @@ metadata.
 
 The hostname of the postgres database service.
 
+- ID: `host`
 - Datatype: `string`
 - Default Value: `pgvector`
 
@@ -39,6 +40,7 @@ The hostname of the postgres database service.
 
 The port number of the postgres database service.
 
+- ID: `port`
 - Datatype: `Long`
 - Default Value: `5432`
 
@@ -48,6 +50,7 @@ The port number of the postgres database service.
 
 The account name used to login to the postgres database service.
 
+- ID: `user`
 - Datatype: `string`
 - Default Value: `pgvector`
 
@@ -57,6 +60,7 @@ The account name used to login to the postgres database service.
 
 The password of the database account.
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -66,6 +70,7 @@ The password of the database account.
 
 The database name.
 
+- ID: `database`
 - Datatype: `string`
 - Default Value: `pgvector`
 
@@ -75,6 +80,7 @@ The database name.
 
 The name of the collection that will be used for search.
 
+- ID: `collection_name`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -84,15 +90,21 @@ The name of the collection that will be used for search.
 
 If set to true, then the collection will removed at the beginning.
 
+- ID: `pre_delete_collection`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
 ### Source Path
 
 The name of the path to use for reading the embedding source.
 
+- ID: `source_path`
 - Datatype: `string`
 - Default Value: `_embedding_source`
 
@@ -102,6 +114,7 @@ The name of the path to use for reading the embedding source.
 
 The name of the path to use for reading the embeddings.
 
+- ID: `embedding_path`
 - Datatype: `string`
 - Default Value: `_embedding`
 
@@ -111,6 +124,7 @@ The name of the path to use for reading the embeddings.
 
 The comma separated list path names to be used as metadata. Empty name means all paths (except embedding source and embedding) will be used
 
+- ID: `metadata_paths`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -120,6 +134,7 @@ The comma separated list path names to be used as metadata. Empty name means all
 
 The number of entries to be processed in batch.
 
+- ID: `batch_processing_size`
 - Datatype: `Long`
 - Default Value: `100`
 

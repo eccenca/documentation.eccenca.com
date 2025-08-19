@@ -59,6 +59,7 @@ this parameter has no effect.
 
 The input file to be split.
 
+- ID: `input_filename`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -68,6 +69,7 @@ The input file to be split.
 
 The maximum size of the chunk files.
 
+- ID: `chunk_size`
 - Datatype: `double`
 - Default Value: `None`
 
@@ -77,6 +79,7 @@ The maximum size of the chunk files.
 
 The unit of the size value: kilobyte (KB), megabyte (MB), gigabyte (GB), or number of lines (Lines).
 
+- ID: `size_unit`
 - Datatype: `string`
 - Default Value: `MB`
 
@@ -86,6 +89,7 @@ The unit of the size value: kilobyte (KB), megabyte (MB), gigabyte (GB), or numb
 
 Include the header in each split. The first line of the input file is treated as the header.
 
+- ID: `include_header`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -95,15 +99,21 @@ Include the header in each split. The first line of the input file is treated as
 
 Delete the input file after splitting.
 
+- ID: `delete_file`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
 ### Use internal projects directory
 
 Use the internal projects directory of DataIntegration to fetch and store files, instead of using the API. If enabled, the "Internal projects directory" parameter has to be set.
 
+- ID: `use_directory`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -113,6 +123,7 @@ Use the internal projects directory of DataIntegration to fetch and store files,
 
 The path to the internal projects directory. If "Use internal projects directory" is disabled, this parameter has no effect.
 
+- ID: `projects_path`
 - Datatype: `string`
 - Default Value: `/data/datalake`
 

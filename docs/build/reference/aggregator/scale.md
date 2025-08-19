@@ -37,6 +37,7 @@ Scales a similarity score by a factor.
 
 * Input values: `[0.1, 0.2]`
 * Returns: `null`
+* **Throws error:** `IllegalArgumentException`
 
 
 
@@ -47,8 +48,14 @@ Scales a similarity score by a factor.
 
 All input similarity values are multiplied with this factor.
 
+- ID: `factor`
 - Datatype: `double`
 - Default Value: `1.0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

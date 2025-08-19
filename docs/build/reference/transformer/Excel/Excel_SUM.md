@@ -18,8 +18,14 @@ Excel SUM(number_1; number_2; ... number_30): Adds all the numbers in a range of
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUM`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

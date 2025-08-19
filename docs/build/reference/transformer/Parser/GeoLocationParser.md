@@ -19,6 +19,7 @@ Parses and normalizes geo locations like continents, countries, states and citie
 
 What type of location should be parsed.
 
+- ID: `parseTypeId`
 - Datatype: `enumeration`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ What type of location should be parsed.
 
 Set to true if the full state name should be output instead of the 2-letter code.
 
+- ID: `fullStateName`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

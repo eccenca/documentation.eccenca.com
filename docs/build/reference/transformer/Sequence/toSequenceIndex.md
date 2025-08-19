@@ -30,3 +30,7 @@ Transforms the sequence of values to their respective indexes in the sequence. I
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

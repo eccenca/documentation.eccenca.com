@@ -39,6 +39,7 @@ It does not support any input entities.
 
 Number of values to generate per entity.
 
+- ID: `number_of_values`
 - Datatype: `Long`
 - Default Value: `1`
 
@@ -48,8 +49,14 @@ Number of values to generate per entity.
 
 Generate 'urn:x-ulid:*' strings.
 
+- ID: `generate_urn`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

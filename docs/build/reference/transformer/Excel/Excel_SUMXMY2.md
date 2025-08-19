@@ -18,8 +18,14 @@ Excel SUMXMY2(array_X; array_Y): Adds the squares of the variance between corres
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUMXMY2`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

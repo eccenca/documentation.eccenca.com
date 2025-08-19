@@ -19,6 +19,7 @@ Parses and normalizes float values.
 
 No description
 
+- ID: `commaAsDecimalPoint`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -28,6 +29,7 @@ No description
 
 No description
 
+- ID: `thousandSeparator`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -37,8 +39,14 @@ No description
 
 No description
 
+- ID: `bracketsForNegative`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

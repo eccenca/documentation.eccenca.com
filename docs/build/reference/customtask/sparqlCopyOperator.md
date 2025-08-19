@@ -19,6 +19,7 @@ A task that executes a SPARQL Construct query on a SPARQL enabled data source an
 
 A SPARQL 1.1 construct query
 
+- ID: `query`
 - Datatype: `code-sparql`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ A SPARQL 1.1 construct query
 
 When copying directly to the same SPARQL Endpoint or when copying large amounts of triples, set to True by default
 
+- ID: `tempFile`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

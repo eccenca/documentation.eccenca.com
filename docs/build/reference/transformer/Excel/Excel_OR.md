@@ -18,8 +18,14 @@ Excel OR(logical_value_1; logical_value_2; ...logical_value_30): Returns TRUE if
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `OR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -19,6 +19,7 @@ Reads a parameter from a Java Properties file.
 
 The Java properties file to read the parameter from.
 
+- ID: `resource`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ The Java properties file to read the parameter from.
 
 The name of the parameter.
 
+- ID: `parameter`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

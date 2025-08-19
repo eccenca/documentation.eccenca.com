@@ -18,8 +18,14 @@ Excel CEILING(number; significance; mode): Rounds the given number to the neares
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `CEILING`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

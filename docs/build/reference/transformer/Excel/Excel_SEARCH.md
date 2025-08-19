@@ -18,8 +18,14 @@ Excel SEARCH(find_text; text; position): Returns the position of a text segment 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SEARCH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

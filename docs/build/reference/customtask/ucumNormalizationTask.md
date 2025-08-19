@@ -22,6 +22,7 @@ Custom task that will substitute numeric values and pertaining unit symbols with
 
 The names (comma-separated) of columns containing numeric values interpreted as quantities of the dimension indicated by the pertaining unit.
 
+- ID: `valueProperties`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -31,6 +32,7 @@ The names (comma-separated) of columns containing numeric values interpreted as 
 
 The names (comma-separated) of dedicated columns containing the unit symbol for the pertaining value in the value column (the positions in this list have to align with the pertaining value columns). Either this param or 'static unit' has to be set.
 
+- ID: `unitProperties`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -40,6 +42,7 @@ The names (comma-separated) of dedicated columns containing the unit symbol for 
 
 Unit symbols (comma-separated) defining the unit for all values in the pertaining value column. If set, the 'unitProperty' param will be ignored and all values of the value column have to be numbers without unit symbols (the positions in this list have to align with the pertaining value columns).
 
+- ID: `staticUnits`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -49,6 +52,7 @@ Unit symbols (comma-separated) defining the unit for all values in the pertainin
 
 Unit symbols (comma-separated) defining the target unit to which the value column will be converted (Note: Make sure the input unit can be converted to the target unit). By default the pertaining SI-base unit will be used as normalization unit (the positions in this list have to align with the pertaining value columns)
 
+- ID: `targetUnits`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -58,6 +62,7 @@ Unit symbols (comma-separated) defining the target unit to which the value colum
 
 If true, will ignore any parsing or value conversion error and return an empty result (might happen because of unknown unit symbols or non-numbers as values). Beware, the value will be lost completely!
 
+- ID: `suppressErrors`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -67,6 +72,7 @@ If true, will ignore any parsing or value conversion error and return an empty r
 
 An absolute file path for a unit CSV configuration file (for syntax see 'configuration' param). If set, the 'configuration' param will be ignored.
 
+- ID: `configFilePath`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -76,6 +82,7 @@ An absolute file path for a unit CSV configuration file (for syntax see 'configu
 
 While all SI units and decimal prefixes are supported by default, custom or obsolete units have to be added via this configuration. NOTE: when constructing formulae depending on other units defined in the configuration, make sure to order them dependently. ALSO: Rational numbers are not supported by the UCUM syntax, express them as a fraction (see 'grain' example below).
 
+- ID: `configuration`
 - Datatype: `multiline string`
 - Default Value:
 ``` text
@@ -98,3 +105,8 @@ While all SI units and decimal prefixes are supported by default, custom or obso
 
 
 
+
+
+## Advanced Parameter
+
+`None`

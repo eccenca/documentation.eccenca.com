@@ -19,6 +19,7 @@ Replace all occurrences of a string "search" with "replace" in a string.
 
 The string to search for
 
+- ID: `search`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ The string to search for
 
 The string that will replace each match
 
+- ID: `replace`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

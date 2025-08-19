@@ -23,8 +23,14 @@ values to map, the last default value is replicated to match the count.
 
 A map of values
 
+- ID: `map`
 - Datatype: `stringmap`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

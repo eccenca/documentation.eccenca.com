@@ -19,6 +19,7 @@ Connect to an existing SPARQL endpoint.
 
 The URI of the SPARQL endpoint, e.g., http://dbpedia.org/sparql
 
+- ID: `endpointURI`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ The URI of the SPARQL endpoint, e.g., http://dbpedia.org/sparql
 
 Login required for authentication
 
+- ID: `login`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ Login required for authentication
 
 Password required for authentication
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -46,60 +49,7 @@ Password required for authentication
 
 Only retrieve entities from a specific graph
 
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Page size
-
-The number of solutions to be retrieved per SPARQL query.
-
-- Datatype: `int`
-- Default Value: `1000`
-
-
-
-### Entity list
-
-A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace.
-
-- Datatype: `multiline string`
-- Default Value: `None`
-
-
-
-### Pause time
-
-The number of milliseconds to wait between subsequent query
-
-- Datatype: `int`
-- Default Value: `0`
-
-
-
-### Retry count
-
-The number of retries if a query fails
-
-- Datatype: `int`
-- Default Value: `3`
-
-
-
-### Retry pause
-
-The number of milliseconds to wait until a failed query is retried.
-
-- Datatype: `int`
-- Default Value: `1000`
-
-
-
-### Query parameters
-
-Additional parameters to be appended to every request e.g. &soft-limit=1
-
+- ID: `graph`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -109,6 +59,7 @@ Additional parameters to be appended to every request e.g. &soft-limit=1
 
 The strategy use for retrieving entities: simple: Retrieve all entities using a single query; subQuery: Use a single query, but wrap it for improving the performance on Virtuoso; parallel: Use a separate Query for each entity property.
 
+- ID: `strategy`
 - Datatype: `enumeration`
 - Default Value: `parallel`
 
@@ -118,6 +69,7 @@ The strategy use for retrieving entities: simple: Retrieve all entities using a 
 
 Include useOrderBy in queries to enforce correct order of values.
 
+- ID: `useOrderBy`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -127,6 +79,7 @@ Include useOrderBy in queries to enforce correct order of values.
 
 If set to true this will clear the specified graph before executing a workflow that writes to it.
 
+- ID: `clearGraphBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -136,8 +89,73 @@ If set to true this will clear the specified graph before executing a workflow t
 
 SPARQL query timeout (select/update) in milliseconds. A value of zero means that the timeout configured via property is used (e.g. configured via silk.remoteSparqlEndpoint.defaults.read.timeout.ms). To overwrite the configured value specify a value greater than zero.
 
+- ID: `sparqlTimeout`
 - Datatype: `int`
 - Default Value: `0`
+
+
+
+
+
+## Advanced Parameter
+
+### Page size
+
+The number of solutions to be retrieved per SPARQL query.
+
+- ID: `pageSize`
+- Datatype: `int`
+- Default Value: `1000`
+
+
+
+### Entity list
+
+A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace.
+
+- ID: `entityList`
+- Datatype: `multiline string`
+- Default Value: `None`
+
+
+
+### Pause time
+
+The number of milliseconds to wait between subsequent query
+
+- ID: `pauseTime`
+- Datatype: `int`
+- Default Value: `0`
+
+
+
+### Retry count
+
+The number of retries if a query fails
+
+- ID: `retryCount`
+- Datatype: `int`
+- Default Value: `3`
+
+
+
+### Retry pause
+
+The number of milliseconds to wait until a failed query is retried.
+
+- ID: `retryPause`
+- Datatype: `int`
+- Default Value: `1000`
+
+
+
+### Query parameters
+
+Additional parameters to be appended to every request e.g. &soft-limit=1
+
+- ID: `queryParameters`
+- Datatype: `string`
+- Default Value: `None`
 
 
 

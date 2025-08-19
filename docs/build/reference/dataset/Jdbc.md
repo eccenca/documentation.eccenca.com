@@ -152,6 +152,7 @@ Queries can achieve a similar outcome if `groupBy` is not supported.
 
 JDBC URL, must contain the database as parameter, i.g. with ;database=DBNAME or /database depending on the vendor.
 
+- ID: `url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -161,6 +162,7 @@ JDBC URL, must contain the database as parameter, i.g. with ;database=DBNAME or 
 
 Table name. Can be empty if the read-strategy is not set to read the full table. If non-empty it has to contain at least an existing table.
 
+- ID: `table`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -170,6 +172,7 @@ Table name. Can be empty if the read-strategy is not set to read the full table.
 
 Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Warning: Uses Driver (mySql, HiveQL, MSSql, Postgres) specific syntax. Can be left empty when full tables are loaded. Note: Even if columns with spaces/special characters are named in the query, they need to be referred to URL-encoded in subsequent transformations.
 
+- ID: `sourceQuery`
 - Datatype: `code-sql`
 - Default Value: `None`
 
@@ -179,6 +182,7 @@ Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Warning: Uses Dr
 
 Comma separated list of attributes appearing in the outer SELECT clause that should be grouped by. The attributes are matched case-insensitive. All other attributes will be grouped via an aggregation function that depends on the supported DBMS, e.g. (JSON) array aggregation.
 
+- ID: `groupBy`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -188,6 +192,7 @@ Comma separated list of attributes appearing in the outer SELECT clause that sho
 
 Optional column to sort the result set.
 
+- ID: `orderBy`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -197,6 +202,7 @@ Optional column to sort the result set.
 
 Optional limit of returned records. This limit should be pushed to the source. No value implies that no limit will be applied.
 
+- ID: `limit`
 - Datatype: `option[int]`
 - Default Value: `10`
 
@@ -206,6 +212,7 @@ Optional limit of returned records. This limit should be pushed to the source. N
 
 The strategy decides how the source system is queried.
 
+- ID: `queryStrategy`
 - Datatype: `enumeration`
 - Default Value: `access-complete-table`
 
@@ -215,6 +222,7 @@ The strategy decides how the source system is queried.
 
 If this dataset is written to, it can be selected if data is overwritten or appended.'
 
+- ID: `writeStrategy`
 - Datatype: `enumeration`
 - Default Value: `default`
 
@@ -224,6 +232,7 @@ If this dataset is written to, it can be selected if data is overwritten or appe
 
 How multiple values per entity property are written.
 
+- ID: `multipleValuesStrategy`
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
@@ -233,6 +242,7 @@ How multiple values per entity property are written.
 
 If set to true this will clear the specified table before executing a workflow that writes to it.
 
+- ID: `clearTableBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -242,6 +252,7 @@ If set to true this will clear the specified table before executing a workflow t
 
 Username. Must be empty in some cases e.g. if secret key and client id are used. If non-empty this will also overwrite any value set in the JDBC URL string.
 
+- ID: `user`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -251,42 +262,7 @@ Username. Must be empty in some cases e.g. if secret key and client id are used.
 
 Password. Can be empty in some cases e.g. secret key and client id are used or if it is just an empty string. The password must be set here and cannot be set in the JDBC URL connection string.
 
-- Datatype: `password`
-- Default Value: `None`
-
-
-
-### Token endpoint URL (Azure Active Directory)
-
-URL for retrieving tokens, when using MS SQL Active Directory token based authentication. Can be found in the Azure AD Admin Center under OAuth2 endpoint or cab be constructed with the general endpoint URL combined with the tenant id and the suffix /outh/v2/authortized.
-
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Service principal name (Azure Active Directory)
-
-Service Principal Name identifying the resource. Usually a static URL like https://database.windows.net.
-
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Client id (Azure Active Directory)
-
-Client id or application id. Client id used for MS SQL token based authentication. String seperated by - char.
-
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Client secret (Azure Active Directory)
-
-Client secret. Client secret used for MS SQL token based authentication. Can be generated in Azure AD admin center.
-
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -296,7 +272,52 @@ Client secret. Client secret used for MS SQL token based authentication. Can be 
 
 An SQL WHERE clause to filter the records to be retrieved.
 
+- ID: `restriction`
 - Datatype: `string`
+- Default Value: `None`
+
+
+
+
+
+## Advanced Parameter
+
+### Token endpoint URL (Azure Active Directory)
+
+URL for retrieving tokens, when using MS SQL Active Directory token based authentication. Can be found in the Azure AD Admin Center under OAuth2 endpoint or cab be constructed with the general endpoint URL combined with the tenant id and the suffix /outh/v2/authortized.
+
+- ID: `tokenEndpoint`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### Service principal name (Azure Active Directory)
+
+Service Principal Name identifying the resource. Usually a static URL like https://database.windows.net.
+
+- ID: `spnName`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### Client id (Azure Active Directory)
+
+Client id or application id. Client id used for MS SQL token based authentication. String seperated by - char.
+
+- ID: `clientId`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### Client secret (Azure Active Directory)
+
+Client secret. Client secret used for MS SQL token based authentication. Can be generated in Azure AD admin center.
+
+- ID: `clientSecret`
+- Datatype: `password`
 - Default Value: `None`
 
 
@@ -305,6 +326,7 @@ An SQL WHERE clause to filter the records to be retrieved.
 
 Optional number of retries per query
 
+- ID: `retries`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -314,6 +336,7 @@ Optional number of retries per query
 
 Optional pause between queries in ms.
 
+- ID: `pause`
 - Datatype: `int`
 - Default Value: `2000`
 
@@ -323,6 +346,7 @@ Optional pause between queries in ms.
 
 The source internal encoding, e.g., UTF-8, ISO-8859-1
 
+- ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
 
@@ -332,6 +356,7 @@ The source internal encoding, e.g., UTF-8, ISO-8859-1
 
 If set to true, Spark will be used for querying the database, even if the local execution manager is configured.
 
+- ID: `forceSparkExecution`
 - Datatype: `boolean`
 - Default Value: `false`
 

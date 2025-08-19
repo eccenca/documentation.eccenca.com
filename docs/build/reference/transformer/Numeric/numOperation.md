@@ -115,8 +115,14 @@ Applies a numeric operation to the values of multiple input operators. Uses doub
 
 The operator to be applied to all values. One of '+', '-', '*', '/'
 
+- ID: `operator`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

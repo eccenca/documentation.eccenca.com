@@ -34,6 +34,7 @@ for your Atlassian account, to access the API of your atlassian.net hosted Jira 
 
 Base URL of the jira service, e.g. 'https://jira.example.org'
 
+- ID: `base_url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -43,6 +44,7 @@ Base URL of the jira service, e.g. 'https://jira.example.org'
 
 
 
+- ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -52,6 +54,7 @@ Base URL of the jira service, e.g. 'https://jira.example.org'
 
 
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -61,6 +64,7 @@ Base URL of the jira service, e.g. 'https://jira.example.org'
 
 Warning: An empty query string retrieves all issues.
 
+- ID: `jql_query`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -70,15 +74,21 @@ Warning: An empty query string retrieves all issues.
 
 Maximum number of issues to retrieve (0 = retrieve all issues).
 
+- ID: `limit`
 - Datatype: `Long`
 - Default Value: `0`
 
 
 
+
+
+## Advanced Parameter
+
 ### Verify SSL Connection
 
 
 
+- ID: `ssl_verify`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -88,6 +98,7 @@ Maximum number of issues to retrieve (0 = retrieve all issues).
 
 Number of seconds, the plugin will wait to establish a connection to the Jira Service.
 
+- ID: `timeout`
 - Datatype: `Long`
 - Default Value: `300`
 
@@ -97,6 +108,7 @@ Number of seconds, the plugin will wait to establish a connection to the Jira Se
 
 Number of items to return per request.
 
+- ID: `results_per_page`
 - Datatype: `Long`
 - Default Value: `100`
 

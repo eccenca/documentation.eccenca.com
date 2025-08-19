@@ -62,15 +62,21 @@ When writing XML, all entities need to possess a unique URI. Writing multiple ro
 
 The XML file. This may also be a zip archive of multiple XML files that share the same schema.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
 ### Base path
 
 The base path when writing XML. For instance: /RootElement/Entity. Should no longer be used for reading XML! Instead, set the base path by specifying it as input type on the subsequent transformation or linking tasks.
 
+- ID: `basePath`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -80,6 +86,7 @@ The base path when writing XML. For instance: /RootElement/Entity. Should no lon
 
 A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relative paths to elements
 
+- ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -89,6 +96,7 @@ A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relativ
 
 The output template used for writing XML. Must be valid XML. The generated entity is identified through a processing instruction of the form <?MyEntity?>.
 
+- ID: `outputTemplate`
 - Datatype: `code-xml`
 - Default Value: `<Root><?Entity?></Root>`
 
@@ -98,6 +106,7 @@ The output template used for writing XML. Must be valid XML. The generated entit
 
 Streaming allows for reading large XML files.
 
+- ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -107,6 +116,7 @@ Streaming allows for reading large XML files.
 
 Maximum depth of written XML. This acts as a safe guard if a recursive structure is written.
 
+- ID: `maxDepth`
 - Datatype: `int`
 - Default Value: `15`
 
@@ -116,6 +126,7 @@ Maximum depth of written XML. This acts as a safe guard if a recursive structure
 
 If the input resource is a ZIP file, files inside the file are filtered via this regex.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.xml$`
 

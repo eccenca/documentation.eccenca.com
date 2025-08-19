@@ -31,6 +31,7 @@ Note that the mapping table will be cached in memory. If the Excel file is updat
 
 Excel file inside the resources directory containing one or more sheets with mapping tables.
 
+- ID: `excelFile`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -40,6 +41,7 @@ Excel file inside the resources directory containing one or more sheets with map
 
 The sheet that contains the mapping table or empty if the first sheet should be taken.
 
+- ID: `sheetName`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -49,6 +51,7 @@ The sheet that contains the mapping table or empty if the first sheet should be 
 
 How many rows to skip before reading the mapping table. By default the expected header row is skipped.
 
+- ID: `skipLines`
 - Datatype: `int`
 - Default Value: `1`
 
@@ -58,6 +61,7 @@ How many rows to skip before reading the mapping table. By default the expected 
 
 If set to true, the operator throws validation errors for values it cannot map. If set to false, the chosen conflict strategy will be applied for missing values.
 
+- ID: `strict`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -67,8 +71,14 @@ If set to true, the operator throws validation errors for values it cannot map. 
 
 Determines how values that cannot be found in the mapping table are treated. Only has an effect if 'strict' is set to false. If 'retain' is chosen, the original value will be forwarded. If 'remove' is chosen, no value will be output.
 
+- ID: `conflictStrategy`
 - Datatype: `enumeration`
 - Default Value: `retain`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

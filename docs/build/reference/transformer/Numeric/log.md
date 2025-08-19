@@ -19,8 +19,14 @@ Transforms all numbers by applying the logarithm function. Non-numeric values ar
 
 No description
 
+- ID: `base`
 - Datatype: `int`
 - Default Value: `10`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

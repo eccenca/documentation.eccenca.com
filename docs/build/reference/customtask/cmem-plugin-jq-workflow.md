@@ -82,15 +82,21 @@ Types can be `arrays`, `objects`, `iterables`, `booleans`, `numbers`, `normals`,
 
 The jq program to apply to the input JSON string.
 
+- ID: `jq_expression`
 - Datatype: `string`
 - Default Value: `.`
 
 
 
+
+
+## Advanced Parameter
+
 ### JSON source which can be used with the validate expression action
 
 
 
+- ID: `validation_source`
 - Datatype: `code-json`
 - Default Value: `None`
 

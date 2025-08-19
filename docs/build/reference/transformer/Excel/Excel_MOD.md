@@ -18,8 +18,14 @@ Excel MOD(dividend; divisor): Returns the remainder after a number is divided by
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MOD`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

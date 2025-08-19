@@ -23,6 +23,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 No description
 
+- ID: `ignoreCase`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -32,6 +33,7 @@ No description
 
 No description
 
+- ID: `metricName`
 - Datatype: `string`
 - Default Value: `levenshtein`
 
@@ -41,6 +43,7 @@ No description
 
 No description
 
+- ID: `splitRegex`
 - Datatype: `string`
 - Default Value: `[\s\d\p{Punct}]+`
 
@@ -50,35 +53,9 @@ No description
 
 No description
 
+- ID: `stopwords`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-### Stopword weight
-
-Weight assigned to stopwords
-
-- Datatype: `double`
-- Default Value: `0.01`
-
-
-
-### Non stopword weight
-
-Weight assigned to non-stopwords
-
-- Datatype: `double`
-- Default Value: `0.1`
-
-
-
-### Use incremental idf weights
-
-Use incremental IDF weights
-
-- Datatype: `boolean`
-- Default Value: `false`
 
 
 
@@ -86,6 +63,7 @@ Use incremental IDF weights
 
 No description
 
+- ID: `matchThreshold`
 - Datatype: `double`
 - Default Value: `0.0`
 
@@ -95,6 +73,7 @@ No description
 
 No description
 
+- ID: `orderingImpact`
 - Datatype: `double`
 - Default Value: `0.0`
 
@@ -104,6 +83,41 @@ No description
 
 No description
 
+- ID: `adjustByTokenLength`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
+
+
+## Advanced Parameter
+
+### Stopword weight
+
+Weight assigned to stopwords
+
+- ID: `stopwordWeight`
+- Datatype: `double`
+- Default Value: `0.01`
+
+
+
+### Non stopword weight
+
+Weight assigned to non-stopwords
+
+- ID: `nonStopwordWeight`
+- Datatype: `double`
+- Default Value: `0.1`
+
+
+
+### Use incremental idf weights
+
+Use incremental IDF weights
+
+- ID: `useIncrementalIdfWeights`
 - Datatype: `boolean`
 - Default Value: `false`
 

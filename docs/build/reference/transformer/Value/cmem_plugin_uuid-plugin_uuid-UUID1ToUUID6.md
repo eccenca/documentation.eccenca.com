@@ -25,3 +25,7 @@ not involve legacy UUIDv1 SHOULD consider using UUIDv7 instead.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

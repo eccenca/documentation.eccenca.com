@@ -18,8 +18,14 @@ Excel COSH(number): Returns the hyperbolic cosine of the given number (angle in 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `COSH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

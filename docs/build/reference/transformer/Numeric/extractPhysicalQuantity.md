@@ -26,6 +26,7 @@ Example:
 
 The symbol of the dimension, e.g., 'm' for meter.
 
+- ID: `symbol`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -35,6 +36,7 @@ The symbol of the dimension, e.g., 'm' for meter.
 
 The IETF BCP 47 language tag, e.g. 'en'.
 
+- ID: `numberFormat`
 - Datatype: `string`
 - Default Value: `en`
 
@@ -44,6 +46,7 @@ The IETF BCP 47 language tag, e.g. 'en'.
 
 Only extracts from values that contain the given regex (case-insensitive).
 
+- ID: `filter`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -53,8 +56,14 @@ Only extracts from values that contain the given regex (case-insensitive).
 
 If there are multiple matches, retrieve the value with the given index (zero-based).
 
+- ID: `index`
 - Datatype: `int`
 - Default Value: `0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

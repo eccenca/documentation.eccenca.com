@@ -18,8 +18,14 @@ Excel STDEVPA(value_1; value_2; ... value_30): Calculates the standard deviation
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `STDEVPA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

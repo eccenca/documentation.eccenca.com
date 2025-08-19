@@ -19,6 +19,7 @@ Stores sets of instance and mapping inputs as relational tables with the mapping
 
 test
 
+- ID: `multiTableOutput`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -28,6 +29,7 @@ test
 
 Name of the pivot table.
 
+- ID: `pivotTableName`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ Name of the pivot table.
 
 Name of the mapping tables. Comma separated list.
 
+- ID: `mappingNames`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -46,8 +49,14 @@ Name of the mapping tables. Comma separated list.
 
 Name of the tables joined to the pivot. Comma separated list.
 
+- ID: `instanceSetNames`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -15,3 +15,7 @@ Negates the result of the input comparison. A single input is expected. Using th
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

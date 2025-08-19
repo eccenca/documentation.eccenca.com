@@ -18,8 +18,14 @@ Excel ROUNDUP(number; count): Rounds the given number up. Count (optional) is th
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ROUNDUP`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

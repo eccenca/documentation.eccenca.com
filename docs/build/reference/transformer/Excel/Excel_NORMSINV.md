@@ -18,8 +18,14 @@ Excel NORMSINV(number): Returns the inverse of the standard normal distribution 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NORMSINV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

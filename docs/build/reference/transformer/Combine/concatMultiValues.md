@@ -91,6 +91,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 No description
 
+- ID: `glue`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -100,8 +101,14 @@ No description
 
 No description
 
+- ID: `removeDuplicates`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel NORMDIST(number; mean; STDEV; C): Returns the normal distribution for the 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NORMDIST`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

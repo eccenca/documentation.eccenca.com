@@ -19,6 +19,7 @@ Accepts two or three inputs. If any value of the first input matches the regex, 
 
 No description
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ No description
 
 No description
 
+- ID: `negate`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

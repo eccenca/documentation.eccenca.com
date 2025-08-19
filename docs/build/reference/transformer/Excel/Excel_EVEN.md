@@ -18,8 +18,14 @@ Excel EVEN(number): Rounds the given number up to the nearest even integer.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `EVEN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -160,6 +160,7 @@ class StructuredOutput(BaseModel):
 
 The base URL of the OpenAI compatible API (without endpoint path).
 
+- ID: `base_url`
 - Datatype: `string`
 - Default Value: `https://api.openai.com/v1`
 
@@ -169,6 +170,7 @@ The base URL of the OpenAI compatible API (without endpoint path).
 
 An optional OpenAI API key.
 
+- ID: `api_key`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -178,15 +180,31 @@ An optional OpenAI API key.
 
 The instruct model.
 
+- ID: `model`
 - Datatype: `string`
 - Default Value: `gpt-4o-mini`
 
 
 
+### Instruction Prompt Template
+
+The instruction prompt template.
+
+- ID: `instruct_prompt_template`
+- Datatype: `code-jinja2`
+- Default Value: `Write a paragraph about this entity: {{ entity }}`
+
+
+
+
+
+## Advanced Parameter
+
 ### Temperature (between 0 and 2)
 
 Higher values like 0.8 will make the output more random,while lower values like 0.2 will make it more focused and deterministic.
 
+- ID: `temperature`
 - Datatype: `double`
 - Default Value: `1.0`
 
@@ -196,6 +214,7 @@ Higher values like 0.8 will make the output more random,while lower values like 
 
 The timeout of a single request in seconds.
 
+- ID: `timeout`
 - Datatype: `double`
 - Default Value: `300`
 
@@ -205,6 +224,7 @@ The timeout of a single request in seconds.
 
 The entity path where the instruction result will be provided.
 
+- ID: `instruction_output_path`
 - Datatype: `string`
 - Default Value: `_instruction_output`
 
@@ -214,6 +234,7 @@ The entity path where the instruction result will be provided.
 
 A list of messages comprising the conversation compatible with OpenAI chat completion API message object.
 
+- ID: `messages_template`
 - Datatype: `code-json`
 - Default Value:
 ``` json
@@ -231,19 +252,11 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 
 
 
-### Instruction Prompt Template
-
-The instruction prompt template.
-
-- Datatype: `code-jinja2`
-- Default Value: `Write a paragraph about this entity: {{ entity }}`
-
-
-
 ### Consume all entities from additional input ports
 
 If true, all entities from additional input ports will be consumed. Otherwise, only the first entity of the additional ports will be used.
 
+- ID: `consume_all_entities`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -253,6 +266,7 @@ If true, all entities from additional input ports will be consumed. Otherwise, o
 
 Specifying the format that the model must output.
 
+- ID: `output_format`
 - Datatype: `enumeration`
 - Default Value: `TEXT`
 
@@ -262,6 +276,7 @@ Specifying the format that the model must output.
 
 The Pydantic schema definition with a mandatory class named `StructuredOutput(BaseModel)`.
 
+- ID: `pydantic_schema`
 - Datatype: `code-python`
 - Default Value:
 ``` python

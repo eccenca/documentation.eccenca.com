@@ -48,8 +48,14 @@ Strip all non-numeric characters from a string.
 
 No description
 
+- ID: `keepPunctuation`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

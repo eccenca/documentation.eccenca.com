@@ -16,3 +16,7 @@ Converts an xsd:duration to seconds.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

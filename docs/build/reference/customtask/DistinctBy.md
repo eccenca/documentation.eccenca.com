@@ -19,6 +19,7 @@ Removes duplicated entities based on a user-defined path. Note that this operato
 
 Entities that share this path will be deduplicated.
 
+- ID: `distinctPath`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ Entities that share this path will be deduplicated.
 
 Strategy to resolve duplicates.
 
+- ID: `resolveDuplicates`
 - Datatype: `enumeration`
 - Default Value: `keepLast`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

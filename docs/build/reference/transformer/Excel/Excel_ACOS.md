@@ -18,8 +18,14 @@ Excel ACOS(number): Returns the inverse cosine of the given number in radians.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ACOS`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -19,6 +19,7 @@ Removes all strings that are shorter than 'min' characters and longer than 'max'
 
 No description
 
+- ID: `min`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -28,8 +29,14 @@ No description
 
 No description
 
+- ID: `max`
 - Datatype: `int`
 - Default Value: `2147483647`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -105,8 +105,14 @@ For instance, {2014-08-02,2014-08-03} < {2014-08-03} yields 0 as not all dates i
 
 No description
 
+- ID: `comparator`
 - Datatype: `enumeration`
 - Default Value: `<`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

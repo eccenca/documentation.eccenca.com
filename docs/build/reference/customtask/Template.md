@@ -54,6 +54,7 @@ In this example, the child mapping defines a `chapter` target property from whic
 
 The template
 
+- ID: `template`
 - Datatype: `template`
 - Default Value: `None`
 
@@ -63,6 +64,7 @@ The template
 
 The template language. Currently, Jinja is supported.
 
+- ID: `language`
 - Datatype: `string`
 - Default Value: `jinja`
 
@@ -72,6 +74,7 @@ The template language. Currently, Jinja is supported.
 
 The attribute in the output that will hold the evaluated template.
 
+- ID: `outputAttribute`
 - Datatype: `string`
 - Default Value: `output`
 
@@ -81,6 +84,7 @@ The attribute in the output that will hold the evaluated template.
 
 If enabled, the entire input set will be evaluated at once. The template will receive a hierarchical 'entities' variable that can be iterated over. A single output entity will be generated that contains the evaluated template.
 
+- ID: `fullEvaluation`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -90,8 +94,14 @@ If enabled, the entire input set will be evaluated at once. The template will re
 
 If true, the input attributes will be forwarded to the output.
 
+- ID: `forwardInputAttributes`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

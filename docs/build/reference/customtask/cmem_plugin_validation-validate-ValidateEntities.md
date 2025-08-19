@@ -53,6 +53,7 @@ The error handling behavior is configurable through the `Fail on violations` par
 
 
 
+- ID: `source_mode`
 - Datatype: `string`
 - Default Value: `entities`
 
@@ -62,6 +63,7 @@ The error handling behavior is configurable through the `Fail on violations` par
 
 
 
+- ID: `target_mode`
 - Datatype: `string`
 - Default Value: `entities`
 
@@ -71,6 +73,7 @@ The error handling behavior is configurable through the `Fail on violations` par
 
 This dataset holds the JSON schema to use for validation.
 
+- ID: `json_schema_dataset`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -80,15 +83,21 @@ This dataset holds the JSON schema to use for validation.
 
 If enabled, the task will fail on the first data violation.
 
+- ID: `fail_on_violations`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
 ### Source JSON Dataset
 
 This dataset holds the resources you want to validate.
 
+- ID: `source_dataset`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -98,6 +107,7 @@ This dataset holds the resources you want to validate.
 
 This dataset will be used to store the valid JSON objects after validation.
 
+- ID: `target_dataset`
 - Datatype: `string`
 - Default Value: `None`
 

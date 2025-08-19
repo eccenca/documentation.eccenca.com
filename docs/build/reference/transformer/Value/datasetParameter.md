@@ -19,6 +19,7 @@ Reads a meta data parameter from a dataset in Corporate Memory. If authenticatio
 
 The project of the dataset.
 
+- ID: `project`
 - Datatype: `project`
 - Default Value: `cmem`
 
@@ -28,6 +29,7 @@ The project of the dataset.
 
 The dataset the meta data parameter is read from.
 
+- ID: `dataset`
 - Datatype: `task`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ The dataset the meta data parameter is read from.
 
 No description
 
+- ID: `key`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -46,8 +49,14 @@ No description
 
 No description
 
+- ID: `lang`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

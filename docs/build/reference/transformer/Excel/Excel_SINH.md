@@ -18,8 +18,14 @@ Excel SINH(number): Returns the hyperbolic sine of the given number (angle in ra
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SINH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

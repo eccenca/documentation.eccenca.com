@@ -19,6 +19,7 @@ Given a list of table columns, transforms those columns into attribute-value pai
 
 The name of the first pivot column in the range.
 
+- ID: `firstPivotProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ The name of the first pivot column in the range.
 
 the name of the last pivot column in the range. If left empty, all columns starting with the first pivot column are used.
 
+- ID: `lastPivotProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ the name of the last pivot column in the range. If left empty, all columns start
 
 The URI of the output column used to hold the attribute.
 
+- ID: `attributeProperty`
 - Datatype: `string`
 - Default Value: `attribute`
 
@@ -46,6 +49,7 @@ The URI of the output column used to hold the attribute.
 
 The URI of the output column used to hold the value.
 
+- ID: `valueProperty`
 - Datatype: `string`
 - Default Value: `value`
 
@@ -55,8 +59,14 @@ The URI of the output column used to hold the value.
 
 Comma separated list of pivot column names. This property will override all inferred columns of the first two arguments.
 
+- ID: `pivotColumns`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel CLEAN(text): Removes all non-printing characters from the string. Text ref
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `CLEAN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

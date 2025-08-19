@@ -48,8 +48,14 @@ Extracts the substring until the character given.
 
 No description
 
+- ID: `untilCharacter`
 - Datatype: `char`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel VARA(value_1; value_2; ... value_30): Estimates a variance based on a samp
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `VARA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

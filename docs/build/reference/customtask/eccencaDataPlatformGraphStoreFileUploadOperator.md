@@ -19,6 +19,7 @@ Uploads an N-Triples or Turtle (limited support) file from the file repository t
 
 RDF file (N-Triples or Turtle) from the resource repository that should be uploaded to the Knowledge Graph.
 
+- ID: `fileNT`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ RDF file (N-Triples or Turtle) from the resource repository that should be uploa
 
 The N-Triples file will be split into multiple chunks if the file size exceeds the max chunk size. For Turtle files this parameter is ignored since no chunking is supported.
 
+- ID: `maxChunkSizeInMB`
 - Datatype: `option[int]`
 - Default Value: `None`
 
@@ -37,8 +39,14 @@ The N-Triples file will be split into multiple chunks if the file size exceeds t
 
 The MIME type of the serialization format of the RDF file.
 
+- ID: `contentType`
 - Datatype: `enumeration`
 - Default Value: `application/n-triples`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel LEFT(text; number): Returns the first character or characters in a text st
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `LEFT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

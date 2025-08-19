@@ -85,6 +85,7 @@ Extracts occurrences of a regex "regex" in a string. If there is at least one ca
 
 Regular expression
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -94,8 +95,14 @@ Regular expression
 
 If true, all matches are extracted. If false, only the first match is extracted.
 
+- ID: `extractAll`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

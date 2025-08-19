@@ -40,6 +40,7 @@ recklessly.
 
 ID of your tenant. Can be seen within your registered application
 
+- ID: `tenant_id`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -49,6 +50,7 @@ ID of your tenant. Can be seen within your registered application
 
 Client ID of your registered application.
 
+- ID: `client_id`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -58,6 +60,7 @@ Client ID of your registered application.
 
 Client secret created withing your registered application.
 
+- ID: `client_secret`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -67,6 +70,7 @@ Client secret created withing your registered application.
 
 The type of resource you want the data to be extracted from. This can either be a site or a users share
 
+- ID: `type_resource`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -76,6 +80,7 @@ The type of resource you want the data to be extracted from. This can either be 
 
 Target resource which files will be listed from. This can either be a specific users share address or a microsoft site URL.
 
+- ID: `target_resource`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -85,17 +90,9 @@ Target resource which files will be listed from. This can either be a specific u
 
 A list of drives from the selected target resource.
 
+- ID: `drives`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-### Maximum amount of workers
-
-Specifies the maximum number of threads used for parallel execution of the workflow. The default is 32, and the valid range is 1 to 32. Note: Due to known throttling limits imposed by Microsoft, running with high parallelism may cause errors. If you encounter issues, try reducing the number of threads to 1.
-
-- Datatype: `Long`
-- Default Value: `32`
 
 
 
@@ -103,8 +100,23 @@ Specifies the maximum number of threads used for parallel execution of the workf
 
 The path of a directory that needs to be transformed. Includes all subdirectories by default
 
+- ID: `path`
 - Datatype: `string`
 - Default Value: `None`
+
+
+
+
+
+## Advanced Parameter
+
+### Maximum amount of workers
+
+Specifies the maximum number of threads used for parallel execution of the workflow. The default is 32, and the valid range is 1 to 32. Note: Due to known throttling limits imposed by Microsoft, running with high parallelism may cause errors. If you encounter issues, try reducing the number of threads to 1.
+
+- ID: `max_workers`
+- Datatype: `Long`
+- Default Value: `32`
 
 
 

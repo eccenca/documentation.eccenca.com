@@ -18,8 +18,14 @@ Excel NORMINV(number; mean; STDEV): Returns the inverse of the normal distributi
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NORMINV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

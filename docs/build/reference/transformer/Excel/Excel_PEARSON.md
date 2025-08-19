@@ -18,8 +18,14 @@ Excel PEARSON(data_1; data_2): Returns the Pearson product moment correlation co
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PEARSON`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

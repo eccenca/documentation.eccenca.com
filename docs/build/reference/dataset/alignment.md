@@ -19,8 +19,14 @@ Writes the alignment format specified at http://alignapi.gforge.inria.fr/format.
 
 The alignment file.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

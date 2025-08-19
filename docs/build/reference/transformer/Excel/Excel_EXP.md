@@ -18,8 +18,14 @@ Excel EXP(number): Returns e raised to the power of the given number.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `EXP`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

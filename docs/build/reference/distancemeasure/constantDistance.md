@@ -21,8 +21,14 @@ This distance measure is not normalized, i.e., all distances start at 0 (exact m
 
 No description
 
+- ID: `value`
 - Datatype: `double`
 - Default Value: `1.0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

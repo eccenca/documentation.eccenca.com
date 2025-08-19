@@ -16,3 +16,7 @@ Outputs the current date.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

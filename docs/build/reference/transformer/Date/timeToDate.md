@@ -58,6 +58,7 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 
 Custom output format (e.g., 'yyyy-MM-dd'). If left empty, a full xsd:dateTime (UTC) is returned.
 
+- ID: `format`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -67,8 +68,14 @@ Custom output format (e.g., 'yyyy-MM-dd'). If left empty, a full xsd:dateTime (U
 
 No description
 
+- ID: `unit`
 - Datatype: `enumeration`
 - Default Value: `milliseconds`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

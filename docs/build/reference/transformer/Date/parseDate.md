@@ -89,6 +89,7 @@ Parses a date based on a specified pattern, returning an xsd:date.
     1. `[May 2024]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -102,6 +103,7 @@ Parses a date based on a specified pattern, returning an xsd:date.
     1. `[20150000]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 
@@ -112,6 +114,7 @@ Parses a date based on a specified pattern, returning an xsd:date.
 
 The date pattern used to parse the input values
 
+- ID: `format`
 - Datatype: `string`
 - Default Value: `dd-MM-yyyy`
 
@@ -121,6 +124,7 @@ The date pattern used to parse the input values
 
 If set to true, the parser tries to use heuristics to parse dates with invalid fields (such as a day of zero).
 
+- ID: `lenient`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -130,8 +134,14 @@ If set to true, the parser tries to use heuristics to parse dates with invalid f
 
 Optional locale for the date format. If not set the system's locale will be used.
 
+- ID: `locale`
 - Datatype: `option[locale]`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

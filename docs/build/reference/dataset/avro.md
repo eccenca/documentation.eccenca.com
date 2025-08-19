@@ -19,6 +19,7 @@ Read from or write to an Apache Avro file.
 
 Path (e.g. relative like 'path/filename.avro' or absolute 'hdfs:///path/filename.avro').
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ Path (e.g. relative like 'path/filename.avro' or absolute 'hdfs:///path/filename
 
 A pattern used to construct the entity URI. If not provided the prefix + the line number is used. An example of such a pattern is 'urn:zyx:{id}' where *id* is a name of a property.
 
+- ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ A pattern used to construct the entity URI. If not provided the prefix + the lin
 
 Comma-separated list of URL-encoded properties. If not provided, the list of properties is read from the first line.
 
+- ID: `properties`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -46,8 +49,14 @@ Comma-separated list of URL-encoded properties. If not provided, the list of pro
 
 The file encoding, e.g., UTF8, ISO-8859-1
 
+- ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

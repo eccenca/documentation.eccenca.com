@@ -19,8 +19,14 @@ Soundex algorithm.
 
 No description
 
+- ID: `refined`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

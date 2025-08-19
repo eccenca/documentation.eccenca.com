@@ -18,8 +18,14 @@ Excel SUMX2PY2(array_X; array_Y): Returns the sum of the sum of squares of corre
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUMX2PY2`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

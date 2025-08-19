@@ -16,3 +16,7 @@ Parses and normalizes geo coordinates.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

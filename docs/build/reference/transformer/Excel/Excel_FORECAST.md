@@ -18,8 +18,14 @@ Excel FORECAST(value; data_Y; data_X): Extrapolates future values based on exist
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `FORECAST`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel FACT(number): Returns the factorial of the given number.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `FACT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

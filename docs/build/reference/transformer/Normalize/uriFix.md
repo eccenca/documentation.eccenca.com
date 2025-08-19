@@ -114,8 +114,14 @@ Generates valid absolute URIs from the given values. Already valid absolute URIs
 
 No description
 
+- ID: `uriPrefix`
 - Datatype: `string`
 - Default Value: `urn:url-encoded-value:`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

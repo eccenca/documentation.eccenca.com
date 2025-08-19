@@ -18,8 +18,14 @@ Excel MODE(number_1; number_2; ... number_30): Returns the most common value in 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MODE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

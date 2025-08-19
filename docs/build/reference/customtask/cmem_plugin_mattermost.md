@@ -48,6 +48,7 @@ input paths are recognized:
 
 The base URL of your Mattermost deployment. Example: https://mattermost.example.org
 
+- ID: `url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -57,6 +58,7 @@ The base URL of your Mattermost deployment. Example: https://mattermost.example.
 
 The Personal Access Token of the bot account.
 
+- ID: `access_token`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -66,6 +68,7 @@ The Personal Access Token of the bot account.
 
 The name or display name of the bot you want to use to connect.
 
+- ID: `bot_name`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -75,6 +78,7 @@ The name or display name of the bot you want to use to connect.
 
 The user account which will receive the message. You can search for users if the connection was successful (Base URl, bot + token).
 
+- ID: `user`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -84,6 +88,7 @@ The user account which will receive the message. You can search for users if the
 
 The channel which will receive the message. You can search for channels if the connection was successful (Base URl, bot + token). If you want to send your message to multiple channels, separate them with a comma.
 
+- ID: `channel`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -93,8 +98,14 @@ The channel which will receive the message. You can search for channels if the c
 
 The message size is limited to a configured maximum (e.g. 16383 characters).
 
+- ID: `message`
 - Datatype: `multiline string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

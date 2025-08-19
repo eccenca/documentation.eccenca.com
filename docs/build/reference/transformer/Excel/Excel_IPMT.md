@@ -18,8 +18,14 @@ Excel IPMT(rate; period; NPER; PV; FV; type): Calculates the periodic amortizati
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `IPMT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

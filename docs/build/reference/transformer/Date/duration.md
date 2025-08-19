@@ -16,3 +16,7 @@ Computes the time difference between two data times.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

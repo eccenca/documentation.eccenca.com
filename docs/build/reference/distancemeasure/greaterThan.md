@@ -23,6 +23,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 Accept equal values
 
+- ID: `orEqual`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -32,15 +33,21 @@ Accept equal values
 
 Per default, if both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used. Choose a more specific order for improved performance.
 
+- ID: `order`
 - Datatype: `enumeration`
 - Default Value: `Autodetect`
 
 
 
+
+
+## Advanced Parameter
+
 ### Reverse
 
 Reverse source and target inputs
 
+- ID: `reverse`
 - Datatype: `boolean`
 - Default Value: `false`
 

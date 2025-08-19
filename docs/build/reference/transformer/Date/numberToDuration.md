@@ -19,8 +19,14 @@ Converts a number to an xsd:duration.
 
 No description
 
+- ID: `unit`
 - Datatype: `enumeration`
 - Default Value: `day`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

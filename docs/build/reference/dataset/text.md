@@ -27,6 +27,7 @@ The entire text will be read as a single entity with a single property. Note tha
 
 The plain text file. May also be a zip archive containing multiple text files.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -36,15 +37,21 @@ The plain text file. May also be a zip archive containing multiple text files.
 
 The file encoding, e.g., UTF-8, UTF-8-BOM, ISO-8859-1
 
+- ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
 
 
 
+
+
+## Advanced Parameter
+
 ### Type name
 
 A type name that represents this file.
 
+- ID: `typeName`
 - Datatype: `string`
 - Default Value: `document`
 
@@ -54,6 +61,7 @@ A type name that represents this file.
 
 The single property that holds the text.
 
+- ID: `property`
 - Datatype: `string`
 - Default Value: `text`
 
@@ -63,6 +71,7 @@ The single property that holds the text.
 
 If the input resource is a ZIP file, files inside the file are filtered via this regex.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
 

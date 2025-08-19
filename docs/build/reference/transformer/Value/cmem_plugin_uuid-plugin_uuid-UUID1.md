@@ -27,6 +27,7 @@ time.
 
 Node value in the form "01:23:45:67:89:AB", 01-23-45-67-89-AB", or "0123456789AB". If not given, it is attempted to obtain the hardware address. If this is unsuccessful, a random 48-bit number is chosen.
 
+- ID: `node`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -36,8 +37,14 @@ Node value in the form "01:23:45:67:89:AB", 01-23-45-67-89-AB", or "0123456789AB
 
 If clock sequence is given, it is used as the sequence number. Otherwise a random 14-bit sequence number is chosen.
 
+- ID: `clock_seq`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

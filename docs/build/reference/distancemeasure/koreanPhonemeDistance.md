@@ -23,6 +23,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 No description
 
+- ID: `minChar`
 - Datatype: `char`
 - Default Value: `0`
 
@@ -32,8 +33,14 @@ No description
 
 No description
 
+- ID: `maxChar`
 - Datatype: `char`
 - Default Value: `z`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

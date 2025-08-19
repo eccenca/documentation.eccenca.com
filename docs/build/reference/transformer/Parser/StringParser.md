@@ -16,3 +16,7 @@ Parses string values, basically an identity function.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -48,8 +48,14 @@ Strips a postfix of a string.
 
 No description
 
+- ID: `postfix`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

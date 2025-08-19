@@ -19,8 +19,14 @@ A task that converts an XML resource via an XSLT script and writes the transform
 
 The XSLT file to be used for transforming XML.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

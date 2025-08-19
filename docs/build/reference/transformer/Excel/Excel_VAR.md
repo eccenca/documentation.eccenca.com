@@ -18,8 +18,14 @@ Excel VAR(number_1; number_2; ... number_30): Estimates the variance based on a 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `VAR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -96,8 +96,14 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
 
 If true, lower camel case (aka. dromedary case) is used, otherwise upper camel case is used.
 
+- ID: `isDromedary`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

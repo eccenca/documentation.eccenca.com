@@ -35,6 +35,7 @@ If no input path is configured, values are read from the URIs of the input (Tran
 
 Graph in which the Item Code (IC) counter is stored
 
+- ID: `graph`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -44,6 +45,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
+- ID: `icd`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -53,6 +55,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
+- ID: `oi`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -62,6 +65,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
+- ID: `opi`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -71,6 +75,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
+- ID: `opis`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -80,6 +85,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
+- ID: `ai`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -89,24 +95,7 @@ Graph in which the Item Code (IC) counter is stored
 
 
 
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Counted object
-
-The class of objects that are counted. (IRI)
-
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-### Input Schema Path / Property
-
-Path from which input values are taken. If empty, values are read from the URIs of the input
-
+- ID: `csi`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -116,6 +105,31 @@ Path from which input values are taken. If empty, values are read from the URIs 
 
 Path or property that will connect input values and their generated IRDIs
 
+- ID: `output_schema_path`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+
+
+## Advanced Parameter
+
+### Counted object
+
+The class of objects that are counted. (IRI)
+
+- ID: `counted_object`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### Input Schema Path / Property
+
+Path from which input values are taken. If empty, values are read from the URIs of the input
+
+- ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `None`
 

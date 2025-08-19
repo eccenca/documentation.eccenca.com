@@ -2,7 +2,8 @@
 
 {{property.description}}
 
-{% if property.parameterType != "objectParameter" -%}- Datatype: `{{property.parameterType}}`
+{% if property.parameterType != "objectParameter" -%}- ID: `{{property.name}}`
+- Datatype: `{{property.parameterType}}`
 {% if property.value and '\n' in property.value -%}- Default Value:
 ``` {{ property.get_pygments_code() }}
 {{ property.value }}
@@ -15,7 +16,13 @@
 
 {{sub_property.description}}
 
+- ID: `{{property.name}}.{{sub_property.name}}`
 - Datatype: `{{sub_property.parameterType}}`
-- Default Value: `{{sub_property.value if sub_property.value != "" else "None"}}`
+{% if sub_property.value and '\n' in sub_property.value -%}- Default Value:
+``` {{ sub_property.get_pygments_code() }}
+{{ sub_property.value }}
+```
+{%- else %}- Default Value: `{{sub_property.value if sub_property.value != "" else "None"}}`
+{%- endif %}
 
 {% endfor %}

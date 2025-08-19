@@ -18,8 +18,14 @@ Excel MINA(value_1; value_2; ... value_30): Returns the minimum value in a list 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MINA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

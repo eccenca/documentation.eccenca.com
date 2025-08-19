@@ -18,8 +18,14 @@ Excel PMT(rate; NPER; PV; FV; type): Returns the periodic payment for an annuity
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PMT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

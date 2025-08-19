@@ -54,10 +54,15 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 ## Parameter
 
+`None`
+
+## Advanced Parameter
+
 ### Q-grams size
 
 The size of the q-grams to be indexed. Setting this to zero will disable indexing.
 
+- ID: `qGramsSize`
 - Datatype: `int`
 - Default Value: `2`
 
@@ -67,6 +72,7 @@ The size of the q-grams to be indexed. Setting this to zero will disable indexin
 
 The minimum character that is used for indexing
 
+- ID: `minChar`
 - Datatype: `char`
 - Default Value: `0`
 
@@ -76,6 +82,7 @@ The minimum character that is used for indexing
 
 The maximum character that is used for indexing
 
+- ID: `maxChar`
 - Datatype: `char`
 - Default Value: `z`
 

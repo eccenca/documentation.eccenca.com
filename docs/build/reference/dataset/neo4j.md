@@ -80,6 +80,7 @@ This is meant to help understanding and does not aim to provide a precise mappin
 
 The URL to the Neo4j instance
 
+- ID: `uri`
 - Datatype: `string`
 - Default Value: `bolt://localhost:7687`
 
@@ -89,6 +90,7 @@ The URL to the Neo4j instance
 
 The Neo4j username for basic authentication.
 
+- ID: `user`
 - Datatype: `string`
 - Default Value: `neo4j`
 
@@ -98,6 +100,7 @@ The Neo4j username for basic authentication.
 
 The Neo4j password for basic authentication.
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `PASSWORD_PARAMETER:7vIY2uNcIiwSSo+/MNozEg==`
 
@@ -107,6 +110,7 @@ The Neo4j password for basic authentication.
 
 Database (leave empty for default)
 
+- ID: `database`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -116,6 +120,7 @@ Database (leave empty for default)
 
 Neo4j label for all entities to be covered by this dataset. When reading, all nodes with this label will be read. When writing, this label will be added to all generated nodes. If the dataset is cleared, only nodes with this label will be deleted.
 
+- ID: `nodeLabel`
 - Datatype: `string`
 - Default Value: `Any`
 
@@ -125,8 +130,14 @@ Neo4j label for all entities to be covered by this dataset. When reading, all no
 
 If set to true, all nodes with the specified label will be removed, before executing a workflow that writes to this graph.
 
+- ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

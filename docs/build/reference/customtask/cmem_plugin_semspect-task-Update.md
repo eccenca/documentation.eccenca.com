@@ -23,6 +23,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `base_url`
 - Datatype: `string`
 - Default Value: `http://semspect:8080/semspect/`
 
@@ -32,6 +33,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `database_id`
 - Datatype: `string`
 - Default Value: `cmem`
 
@@ -41,15 +43,21 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `graph`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
 ### The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect.
 
 
 
+- ID: `dataplatform_base`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -59,6 +67,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `timeout`
 - Datatype: `Long`
 - Default Value: `300`
 
@@ -68,6 +77,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `request_timeout`
 - Datatype: `Long`
 - Default Value: `10`
 
@@ -77,6 +87,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `ignore_proxy`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -86,6 +97,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
+- ID: `verify_ssl`
 - Datatype: `boolean`
 - Default Value: `true`
 

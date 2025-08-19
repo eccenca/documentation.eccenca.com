@@ -18,8 +18,14 @@ Excel NORMSDIST(number): Returns the standard normal cumulative distribution for
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NORMSDIST`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

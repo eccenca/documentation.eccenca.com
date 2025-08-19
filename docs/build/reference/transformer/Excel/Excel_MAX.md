@@ -18,8 +18,14 @@ Excel MAX(number_1; number_2; ... number_30): Returns the maximum value in a lis
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MAX`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

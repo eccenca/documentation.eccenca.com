@@ -19,8 +19,14 @@ Executes a custom SQL query on the first input dataset and returns the result as
 
 SQL command. The name of the table in the statement must be 'dataset', regardless the input.
 
+- ID: `command`
 - Datatype: `code-sql`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

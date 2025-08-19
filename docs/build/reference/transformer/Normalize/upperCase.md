@@ -16,3 +16,7 @@ Converts a string to upper case.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

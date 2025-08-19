@@ -16,3 +16,7 @@ Strips all non-alphabetic characters from a string. Spaces are retained.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

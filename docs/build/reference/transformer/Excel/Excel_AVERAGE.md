@@ -18,8 +18,14 @@ Excel AVERAGE(number_1; number_2; ... number_30): Returns the average of the arg
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `AVERAGE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

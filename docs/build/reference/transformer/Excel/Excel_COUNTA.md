@@ -18,8 +18,14 @@ Excel COUNTA(value_1; value_2; ... value_30): Counts how many values are in the 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `COUNTA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

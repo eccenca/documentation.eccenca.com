@@ -58,15 +58,21 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 No description
 
+- ID: `q`
 - Datatype: `int`
 - Default Value: `2`
 
 
 
+
+
+## Advanced Parameter
+
 ### Min char
 
 The minimum character that is used for indexing
 
+- ID: `minChar`
 - Datatype: `char`
 - Default Value: `0`
 
@@ -76,6 +82,7 @@ The minimum character that is used for indexing
 
 The maximum character that is used for indexing
 
+- ID: `maxChar`
 - Datatype: `char`
 - Default Value: `z`
 

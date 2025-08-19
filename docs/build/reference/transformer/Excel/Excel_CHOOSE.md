@@ -18,8 +18,14 @@ Excel CHOOSE(index; value1; ... value30): Uses an index to return a value from a
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `CHOOSE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -39,3 +39,7 @@ Counts the number of values.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

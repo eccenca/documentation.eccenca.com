@@ -23,6 +23,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 Reverse source and target values
 
+- ID: `reverse`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -32,6 +33,7 @@ Reverse source and target values
 
 The minimum length of the string being contained.
 
+- ID: `minLength`
 - Datatype: `int`
 - Default Value: `2`
 
@@ -41,8 +43,14 @@ The minimum length of the string being contained.
 
 The potential maximum length of the strings that must match. If the max length is greater than the length of the string to match, the full string must match.
 
+- ID: `maxLength`
 - Datatype: `int`
 - Default Value: `2147483647`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

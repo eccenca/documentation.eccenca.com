@@ -71,6 +71,7 @@ The database client _[DBeaver](https://dbeaver.io/)_ can connect to the SQL endp
 
 Prefix of the table that will be shared. In the case of complex mappings more than one table will be created. If one name is given it will be used as a prefix for table names. If left empty the table names will be generated from the user name and time stamps and start with 'root', 'object-mapping'
 
+- ID: `tableNamePrefix`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -80,6 +81,7 @@ Prefix of the table that will be shared. In the case of complex mappings more th
 
 Optional boolean option that selects if the table should be cached by Spark or not (default = true).
 
+- ID: `cache`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -89,6 +91,7 @@ Optional boolean option that selects if the table should be cached by Spark or n
 
 The character that is used to separate the parts of array values. Write \t to specify the tab character.
 
+- ID: `arraySeparator`
 - Datatype: `string`
 - Default Value: `|`
 
@@ -98,6 +101,7 @@ The character that is used to separate the parts of array values. Write \t to sp
 
 If true, basic types will be used for unusual data types that otherwise may result in client errors. Try switching this on, if a client has weird error messages. (Default = true)
 
+- ID: `useCompatibleTypes`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -107,8 +111,14 @@ If true, basic types will be used for unusual data types that otherwise may resu
 
 Mapping of column names. Similar to aliases E.g. 'c1:c2' would rename column c1 into c2.
 
+- ID: `map`
 - Datatype: `stringmap`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

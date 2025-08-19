@@ -18,8 +18,14 @@ Excel STDEV(number_1; number_2; ... number_30): Estimates the standard deviation
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `STDEV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

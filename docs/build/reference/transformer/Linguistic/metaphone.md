@@ -16,3 +16,7 @@ Metaphone phonetic encoding.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

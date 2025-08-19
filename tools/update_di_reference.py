@@ -38,6 +38,7 @@ class ActionDescription(BaseModel):
 class PropertyDescription(BaseModel):
     """Property description"""
 
+    name: str
     title: str
     description: Annotated[str, AfterValidator(stripped_single_line)]
     type: str
@@ -73,6 +74,7 @@ class PluginDescription(BaseModel):
     markdownDocumentation: str | None = None
     pluginIcon: str | None = None
     properties: dict[str, PropertyDescription]
+    properties_advanced: dict[str, PropertyDescription] = Field(default_factory=dict)
     actions: dict[str, ActionDescription]
     required: list[str]
     distanceMeasureRange: str | None = None
@@ -80,6 +82,13 @@ class PluginDescription(BaseModel):
     is_deprecated: bool | None = None
     tags: list[str] = Field(default_factory=list)
     pluginType: str | None = None
+
+    @model_validator(mode="after")
+    def move_advanced_properties(self) -> Self:
+        """move advanced properties to advanced_properties"""
+        self.properties_advanced = {property.name: property for property in self.properties.values() if property.advanced}
+        self.properties = {property.name: property for property in self.properties.values() if not property.advanced}
+        return self
 
     @model_validator(mode="after")
     def create_main_category(self) -> Self:
@@ -91,7 +100,6 @@ class PluginDescription(BaseModel):
         except IndexError:
             self.main_category = "Uncategorized"
         return self
-
 
     @model_validator(mode="after")
     def check_tags(self) -> Self:
@@ -158,7 +166,16 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
     parameter_content = ""
     for _ in plugin.properties.values():
         parameter_content += parameter_template.render(property=_) + "\n\n"
-    content = plugin_template.render(plugin=plugin, parameters=parameter_content)
+
+    parameter_advanced_content = ""
+    for _ in plugin.properties_advanced.values():
+        parameter_advanced_content += parameter_template.render(property=_) + "\n\n"
+
+    content = plugin_template.render(
+        plugin=plugin,
+        parameters=parameter_content,
+        parameters_advanced=parameter_advanced_content,
+    )
 
     # create the file (incl. directory)
     if plugin.pluginType == "transformer":

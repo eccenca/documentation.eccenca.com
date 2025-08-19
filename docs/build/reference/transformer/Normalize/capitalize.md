@@ -48,8 +48,14 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
 
 No description
 
+- ID: `allWords`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

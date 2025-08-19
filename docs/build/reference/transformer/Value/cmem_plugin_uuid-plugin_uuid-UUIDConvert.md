@@ -28,6 +28,7 @@ Convert a UUID string with 32 hexadecimal digits to a 16-byte
 
 Input string format
 
+- ID: `from_format`
 - Datatype: `string`
 - Default Value: `uuid_hex`
 
@@ -37,8 +38,14 @@ Input string format
 
 Output string format
 
+- ID: `to_format`
 - Datatype: `string`
 - Default Value: `hex`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

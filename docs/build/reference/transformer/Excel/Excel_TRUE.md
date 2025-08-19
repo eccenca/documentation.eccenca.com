@@ -18,8 +18,14 @@ Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not requi
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `TRUE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

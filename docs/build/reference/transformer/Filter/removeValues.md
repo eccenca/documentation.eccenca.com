@@ -19,8 +19,14 @@ Removes values that contain words from a blacklist. The blacklist values are sep
 
 No description
 
+- ID: `blacklist`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

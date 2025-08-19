@@ -18,8 +18,14 @@ Excel COS(number): Returns the cosine of the given number (angle in radians).
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `COS`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

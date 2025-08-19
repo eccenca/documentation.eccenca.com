@@ -18,8 +18,14 @@ Excel REPLACE(text; position; length; new_text): Replaces part of a text string 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `REPLACE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

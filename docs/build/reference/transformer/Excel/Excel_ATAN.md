@@ -18,8 +18,14 @@ Excel ATAN(number): Returns the inverse tangent of the given number in radians.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ATAN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -16,3 +16,7 @@ Remove all parentheses including their content, e.g., transforms 'Berlin (City)'
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

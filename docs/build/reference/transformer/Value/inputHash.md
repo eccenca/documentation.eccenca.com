@@ -34,8 +34,14 @@ This operator supports using different hash algorithms from the [Secure Hash Alg
 
 The hash algorithm to be used.
 
+- ID: `algorithm`
 - Datatype: `string`
 - Default Value: `SHA256`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

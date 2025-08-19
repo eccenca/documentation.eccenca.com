@@ -220,6 +220,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
     - Target: `[1 kg]`
 
 * Returns: `NaN`
+* **Throws error:** `ValidationException`
 
 
 
@@ -230,8 +231,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The IETF BCP 47 language tag, e.g., 'en'.
 
+- ID: `numberFormat`
 - Datatype: `string`
 - Default Value: `en`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

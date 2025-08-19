@@ -19,6 +19,7 @@ Reads from or writes to multiple CSV files from/to a single ZIP file.
 
 Zip file name inside the resources directory/repository.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ Zip file name inside the resources directory/repository.
 
 The character that is used to separate values. If not provided, defaults to ',', i.e., comma-separated values. "\t" for specifying tab-separated values, is also supported.
 
+- ID: `separator`
 - Datatype: `string`
 - Default Value: `,`
 
@@ -37,6 +39,7 @@ The character that is used to separate values. If not provided, defaults to ',',
 
 The character that is used to separate the parts of array values. Write "\t" to specify the tab character.
 
+- ID: `arraySeparator`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -46,6 +49,7 @@ The character that is used to separate the parts of array values. Write "\t" to 
 
 Character used to quote values.
 
+- ID: `quote`
 - Datatype: `string`
 - Default Value: `"`
 
@@ -55,6 +59,7 @@ Character used to quote values.
 
 The file encoding, e.g., UTF8, ISO-8859-1
 
+- ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
 
@@ -64,6 +69,7 @@ The file encoding, e.g., UTF8, ISO-8859-1
 
 The number of lines to skip in the beginning, e.g. copyright, meta information etc.
 
+- ID: `linesToSkip`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -73,6 +79,7 @@ The number of lines to skip in the beginning, e.g. copyright, meta information e
 
 The maximum characters per column. If there are more characters found, the parser will fail.
 
+- ID: `maxCharsPerColumn`
 - Datatype: `int`
 - Default Value: `128000`
 
@@ -82,6 +89,7 @@ The maximum characters per column. If there are more characters found, the parse
 
 If set to true then the parser will ignore lines that have syntax errors or do not have to correct number of fields according to the current config.
 
+- ID: `ignoreBadLines`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -91,6 +99,7 @@ If set to true then the parser will ignore lines that have syntax errors or do n
 
 Escape character to be used inside quotes, used to escape the quote character. It must also be used to escape itself, e.g. by doubling it, e.g. "". If left empty, it defaults to quote.
 
+- ID: `quoteEscapeCharacter`
 - Datatype: `string`
 - Default Value: `"`
 
@@ -100,15 +109,21 @@ Escape character to be used inside quotes, used to escape the quote character. I
 
 If 'True' then files in the ZIP archive are only added or updated, all other files in the ZIP stay untouched. If 'False' then a new ZIP file will be created on every dataset write.
 
+- ID: `append`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
 ### ZIP file regex
 
 Filter file paths inside the ZIP file via this regex. By default sub folders or files not ending with .csv are ignored.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^[^/]*\.csv$`
 
@@ -118,6 +133,7 @@ Filter file paths inside the ZIP file via this regex. By default sub folders or 
 
 If set to true this will clear the specified file before executing a workflow that writes to it.
 
+- ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -127,6 +143,7 @@ If set to true this will clear the specified file before executing a workflow th
 
 If set to true, this will trim whitespace and non-printable characters from the contents of the CSV dataset.
 
+- ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
 

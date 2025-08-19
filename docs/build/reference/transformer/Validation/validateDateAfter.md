@@ -24,6 +24,7 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -60,6 +61,7 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 
@@ -70,8 +72,14 @@ Validates if the first input date is after the second input date. Outputs the fi
 
 Allow both dates to be equal.
 
+- ID: `allowEqual`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

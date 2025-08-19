@@ -19,8 +19,14 @@ Generates a constant URI.
 
 The constant URI to be generated
 
+- ID: `value`
 - Datatype: `uri`
 - Default Value: `owl:Class`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

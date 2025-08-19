@@ -57,7 +57,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
  | [Search Vector Embeddings](cmem_plugin_pgvector-Search.md) | Search for top-k metadata stored in Postgres Vector Store (PGVector). |
- | [Send eMail](SendEMail.md) | Sends an eMail using an SMTP server. If connected to a dataset that is based on a file in a workflow, it will send that file whenever the workflow is executed It can be used to send the result of a workflow via Mail. |
+ | [Send email](SendEmail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |
  | [Set or Overwrite parameters](cmem_plugin_parameters-ParametersPlugin.md) | Connect this task to a config port of another task in order to set or overwrite the parameter values of this task. |
  | [SHACL validation with pySHACL](shacl-pyshacl.md) | Performs SHACL validation with pySHACL. |

@@ -22,8 +22,14 @@ For instance, {1,2} < {2,3} yields 0 as not all numbers in the first set are sma
 
 No description
 
+- ID: `comparator`
 - Datatype: `enumeration`
 - Default Value: `<`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

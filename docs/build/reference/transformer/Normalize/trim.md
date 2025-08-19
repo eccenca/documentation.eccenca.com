@@ -16,3 +16,7 @@ Remove leading and trailing whitespaces.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

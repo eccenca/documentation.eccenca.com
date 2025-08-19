@@ -18,8 +18,14 @@ Excel TRUNC(number; count): Truncates a number to an integer by removing the fra
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `TRUNC`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

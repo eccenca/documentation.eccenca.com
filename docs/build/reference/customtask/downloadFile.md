@@ -19,6 +19,7 @@ Downloads a file from a given URL.
 
 The URL of the file to be downloaded.
 
+- ID: `url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ The URL of the file to be downloaded.
 
 The accept header String.
 
+- ID: `accept`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ The accept header String.
 
 Request timeout in ms. The overall maximum time the request should take.
 
+- ID: `requestTimeout`
 - Datatype: `int`
 - Default Value: `10000`
 
@@ -46,6 +49,7 @@ Request timeout in ms. The overall maximum time the request should take.
 
 Connection timeout in ms. The time until which a connection with the remote end must be established.
 
+- ID: `connectionTimeout`
 - Datatype: `int`
 - Default Value: `5000`
 
@@ -55,6 +59,7 @@ Connection timeout in ms. The time until which a connection with the remote end 
 
 Read timeout in ms. The max. time a request stays idle, i.e. no data is send or received.
 
+- ID: `readTimeout`
 - Datatype: `int`
 - Default Value: `10000`
 
@@ -64,6 +69,7 @@ Read timeout in ms. The max. time a request stays idle, i.e. no data is send or 
 
 Configure additional HTTP headers. One header per line. Each header entry follows the curl syntax.
 
+- ID: `httpHeaders`
 - Datatype: `multiline string`
 - Default Value: `None`
 
@@ -73,6 +79,7 @@ Configure additional HTTP headers. One header per line. Each header entry follow
 
 The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'If left empty, no authorization header is sent.
 
+- ID: `authorizationHeader`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -82,8 +89,14 @@ The authorization header. This is usually either 'Authorization' or 'Proxy-Autho
 
 The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.
 
+- ID: `authorizationHeaderValue`
 - Datatype: `password`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

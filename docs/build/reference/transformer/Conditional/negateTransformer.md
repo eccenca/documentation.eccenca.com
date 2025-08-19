@@ -32,6 +32,7 @@ Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
     1. `[falsee, true]`
 
 * Returns: `[]`
+* **Throws error:** `IllegalArgumentException`
 
 
 ---
@@ -41,10 +42,15 @@ Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
     1. `[]`
 
 * Returns: `[]`
+* **Throws error:** `IllegalArgumentException`
 
 
 
 
 ## Parameter
+
+`None`
+
+## Advanced Parameter
 
 `None`

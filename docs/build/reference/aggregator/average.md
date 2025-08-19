@@ -42,3 +42,7 @@ Computes the weighted average.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

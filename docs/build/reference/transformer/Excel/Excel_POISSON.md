@@ -18,8 +18,14 @@ Excel POISSON(number; mean; C): Returns the Poisson distribution for the given N
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `POISSON`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

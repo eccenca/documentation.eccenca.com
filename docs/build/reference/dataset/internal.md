@@ -19,8 +19,14 @@ Dataset for storing entities between workflow steps. The underlying dataset type
 
 The RDF graph that is used for storing internal data
 
+- ID: `graphUri`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

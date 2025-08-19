@@ -134,8 +134,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 If true, no distance value will be generated if months or days are missing (e.g., 2019-11). If false, missing month or day fields will default to 1.
 
+- ID: `requireMonthAndDay`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

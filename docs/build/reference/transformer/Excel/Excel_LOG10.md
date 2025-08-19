@@ -18,8 +18,14 @@ Excel LOG10(number): Returns the base-10 logarithm of the given number.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `LOG10`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

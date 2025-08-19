@@ -18,8 +18,14 @@ Excel REPT(text; number): Repeats a character string by the given number of copi
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `REPT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

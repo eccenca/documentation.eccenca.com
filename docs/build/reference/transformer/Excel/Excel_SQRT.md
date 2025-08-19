@@ -18,8 +18,14 @@ Excel SQRT(number): Returns the positive square root of the given number. The va
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SQRT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

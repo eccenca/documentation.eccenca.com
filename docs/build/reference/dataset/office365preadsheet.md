@@ -55,15 +55,31 @@ The cache is invalidated after 5 minutes by default.
 
 Link to the document ('share with anyone having a link' must be enabled).
 
+- ID: `url`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+### Lines to skip
+
+The number of lines to skip in the beginning when reading files.
+
+- ID: `linesToSkip`
+- Datatype: `int`
+- Default Value: `0`
+
+
+
+
+
+## Advanced Parameter
+
 ### Streaming
 
 Streaming enables reading and writing large Excels files. Warning: Be careful to disable streaming for large datasets (> 10MB), because of high memory consumption.
 
+- ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -73,17 +89,9 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 
 Duration until file based cache is invalidated.
 
+- ID: `invalidateCacheAfter`
 - Datatype: `duration`
 - Default Value: `PT5M`
-
-
-
-### Lines to skip
-
-The number of lines to skip in the beginning when reading files.
-
-- Datatype: `int`
-- Default Value: `0`
 
 
 

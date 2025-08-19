@@ -28,6 +28,7 @@ This workflow task performs GraphQL operations by sending
 
 The URL of the GraphQL endpoint you want to query. A collective list of public GraphQL APIs is available [here](https://github.com/IvanGoncharov/graphql-apis). Example Endpoint: `https://fruits-api.netlify.app/graphql`
 
+- ID: `graphql_url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +38,7 @@ The URL of the GraphQL endpoint you want to query. A collective list of public G
 
 The query text of the GraphQL Query you want to execute. GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. Learn more on GraphQL [here](https://graphql.org/). Example Query: query allFruits { fruits { id scientific_name tree_name fruit_name family origin description climatic_zone } }
 
+- ID: `graphql_query`
 - Datatype: `multiline string`
 - Default Value: `None`
 
@@ -46,15 +48,21 @@ The query text of the GraphQL Query you want to execute. GraphQL is a query lang
 
 Pass dynamic variables when making a query or mutation. Example Variables: {"id" : 1}
 
+- ID: `graphql_variable_values`
 - Datatype: `multiline string`
 - Default Value: `{}`
 
 
 
+
+
+## Advanced Parameter
+
 ### Target JSON Dataset
 
 The Dataset where this task will save the JSON results.
 
+- ID: `graphql_dataset`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -64,6 +72,7 @@ The Dataset where this task will save the JSON results.
 
 Access token that connects to a GraphQL endpoint to authorize and secure user access to resources and data.
 
+- ID: `oauth_access_token`
 - Datatype: `string`
 - Default Value: `None`
 

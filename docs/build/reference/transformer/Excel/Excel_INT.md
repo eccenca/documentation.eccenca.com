@@ -18,8 +18,14 @@ Excel INT(number): Rounds the given number down to the nearest integer.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `INT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

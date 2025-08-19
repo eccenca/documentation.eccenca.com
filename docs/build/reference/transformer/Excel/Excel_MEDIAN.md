@@ -18,8 +18,14 @@ Excel MEDIAN(number_1; number_2; ... number_30): Returns the median of a set of 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MEDIAN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

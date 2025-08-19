@@ -19,8 +19,14 @@ Retrieves a metadata attribute from the input file (such as the file name).
 
 File attribute to be retrieved from the input dataset.
 
+- ID: `attribute`
 - Datatype: `enumeration`
 - Default Value: `name`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

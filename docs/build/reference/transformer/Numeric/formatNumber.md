@@ -125,6 +125,7 @@ tags:
 
 No description
 
+- ID: `pattern`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -134,8 +135,14 @@ No description
 
 No description
 
+- ID: `locale`
 - Datatype: `string`
 - Default Value: `en`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

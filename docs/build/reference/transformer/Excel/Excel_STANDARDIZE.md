@@ -18,8 +18,14 @@ Excel STANDARDIZE(number; mean; STDEV): Converts a random variable to a normaliz
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `STANDARDIZE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

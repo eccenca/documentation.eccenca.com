@@ -18,8 +18,14 @@ Excel FIND(find_text; text; position): Looks for a string of text within another
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `FIND`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

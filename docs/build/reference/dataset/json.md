@@ -32,6 +32,7 @@ When writing JSON, all entities need to possess a unique URI. Writing multiple r
 
 JSON file. This may also be a zip archive of multiple JSON files that share the same schema.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -41,6 +42,7 @@ JSON file. This may also be a zip archive of multiple JSON files that share the 
 
 Template for writing JSON. The term {{output}} will be replaced by the written JSON.
 
+- ID: `template`
 - Datatype: `code-json`
 - Default Value: `{{output}}`
 
@@ -50,15 +52,21 @@ Template for writing JSON. The term {{output}} will be replaced by the written J
 
 Navigate into arrays automatically. If set to false, the `#array` path operator must be used to navigate into arrays.
 
+- ID: `navigateIntoArrays`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
 ### Base path
 
 The path to the elements to be read, starting from the root element, e.g., '/Persons/Person'. If left empty, all direct children of the root element will be read.
 
+- ID: `basePath`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -68,6 +76,7 @@ The path to the elements to be read, starting from the root element, e.g., '/Per
 
 A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relative paths to elements
 
+- ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -77,6 +86,7 @@ A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relativ
 
 Maximum depth of written JSON. This acts as a safe guard if a recursive structure is written.
 
+- ID: `maxDepth`
 - Datatype: `int`
 - Default Value: `15`
 
@@ -86,6 +96,7 @@ Maximum depth of written JSON. This acts as a safe guard if a recursive structur
 
 Streaming allows for reading large JSON files. If streaming is enabled, backward paths are not supported.
 
+- ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
 
@@ -95,6 +106,7 @@ Streaming allows for reading large JSON files. If streaming is enabled, backward
 
 If the input resource is a ZIP file, files inside the file are filtered via this regex.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.jsonl?$`
 

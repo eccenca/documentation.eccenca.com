@@ -18,8 +18,14 @@ Excel PPMT(rate; period; NPER; PV; FV; type): Returns for a given period the pay
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PPMT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

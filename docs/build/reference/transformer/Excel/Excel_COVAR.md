@@ -18,8 +18,14 @@ Excel COVAR(data_1; data_2): Returns the covariance of the product of paired dev
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `COVAR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

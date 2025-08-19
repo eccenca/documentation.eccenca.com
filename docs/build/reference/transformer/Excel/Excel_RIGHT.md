@@ -18,8 +18,14 @@ Excel RIGHT(text; number): Defines the last character or characters in a text st
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `RIGHT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

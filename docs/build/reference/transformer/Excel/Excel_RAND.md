@@ -18,8 +18,14 @@ Excel RAND(): Returns a random number between 0 and 1.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `RAND`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

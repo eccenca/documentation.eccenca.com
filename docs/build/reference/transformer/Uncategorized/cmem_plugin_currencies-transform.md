@@ -59,6 +59,7 @@ Please be aware that not all of the rates are available for all dates
 
 The currency code you want to convert from (e.g. USD).
 
+- ID: `from_currency`
 - Datatype: `string`
 - Default Value: `USD`
 
@@ -68,8 +69,9 @@ The currency code you want to convert from (e.g. USD).
 
 Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
+- ID: `date`
 - Datatype: `string`
-- Default Value: `2025-08-18`
+- Default Value: `2025-08-19`
 
 
 
@@ -77,15 +79,21 @@ Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 Enter the currency code you want to convert to (e.g.USD).
 
+- ID: `to_currency`
 - Datatype: `string`
 - Default Value: `EUR`
 
 
 
+
+
+## Advanced Parameter
+
 ### Debug Output
 
 Instead of plain values, output additional background information.
 
+- ID: `debug`
 - Datatype: `boolean`
 - Default Value: `false`
 

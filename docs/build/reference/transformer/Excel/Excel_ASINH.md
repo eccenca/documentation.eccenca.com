@@ -18,8 +18,14 @@ Excel ASINH(number): Returns the inverse hyperbolic sine of the given number in 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ASINH`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

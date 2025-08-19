@@ -47,10 +47,15 @@ By default, individual requests to the geocoding service are not logged. To enab
 
 ## Parameter
 
+`None`
+
+## Advanced Parameter
+
 ### Additional parameters
 
 Additional URL parameters to be attached to each HTTP search request. Example: '&countrycodes=de&addressdetails=1'. Consult the API documentation for a list of available parameters.
 
+- ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
 

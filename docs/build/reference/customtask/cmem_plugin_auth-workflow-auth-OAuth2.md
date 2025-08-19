@@ -32,6 +32,7 @@ to use the output this task. You need to connect this task to the
 
 Select the used OAuth Grant Type in order to specify how this plugin gets a valid token. Depending on the value of this parameter, other authentication related parameter will become mandatory or obsolete. The following values can be used: - `client_credentials`: - this refers to the OAuth 2.0 Client Credentials Grant Type. Mandatory parameter for this grant type are Client ID and Client Secret. - `password` - this refers to the OAuth 2.0 Password Grant Type. Mandatory variables for this grant type are Client ID, User name and Password.
 
+- ID: `oauth_grant_type`
 - Datatype: `string`
 - Default Value: `client_credentials`
 
@@ -41,6 +42,7 @@ Select the used OAuth Grant Type in order to specify how this plugin gets a vali
 
 This is the OpenID Connect (OIDC) OAuth 2.0 token endpoint location (a HTTP(S) URL).
 
+- ID: `oauth_token_url`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -50,6 +52,7 @@ This is the OpenID Connect (OIDC) OAuth 2.0 token endpoint location (a HTTP(S) U
 
 The Client ID obtained during registration.
 
+- ID: `oauth_client_id`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -59,6 +62,7 @@ The Client ID obtained during registration.
 
 The Client Secret obtained during registration.
 
+- ID: `oauth_client_secret`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -68,6 +72,7 @@ The Client Secret obtained during registration.
 
 The user account name used for authentication.
 
+- ID: `user_name`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -77,8 +82,14 @@ The user account name used for authentication.
 
 The user account password.
 
+- ID: `password`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

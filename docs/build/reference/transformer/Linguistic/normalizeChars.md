@@ -16,3 +16,7 @@ Replaces diacritical characters with non-diacritical ones (eg, ö -> o), plus so
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -1,7 +1,8 @@
 nav:
     - "Filter by length": filterByLength.md
     - "Filter by regex": filterByRegex.md
+    - "Remove default stop words": removeDefaultStopWords.md
     - "Remove empty values": removeEmptyValues.md
-    - "Remove stopwords": removeStopwords.md
-    - "Remove stopwords (remote stopword list)": removeRemoteStopwords.md
+    - "Remove remote stop words": removeRemoteStopWords.md
+    - "Remove stop words": removeStopWords.md
     - "Remove values": removeValues.md

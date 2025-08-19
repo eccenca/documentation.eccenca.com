@@ -18,8 +18,14 @@ Excel PERCENTILE(data; alpha): Returns the alpha-percentile of data values in an
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PERCENTILE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

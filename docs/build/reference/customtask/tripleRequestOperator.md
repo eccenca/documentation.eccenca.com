@@ -16,3 +16,7 @@ A task that requests all triples from an RDF dataset.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel SUMPRODUCT(array 1; array 2; ...array 30): Multiplies corresponding elemen
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUMPRODUCT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

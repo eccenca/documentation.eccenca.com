@@ -20,3 +20,7 @@ Input: UUID string, output: UUID version number of input.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

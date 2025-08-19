@@ -18,8 +18,14 @@ Excel ROUND(number; count): Rounds the given number to a certain number of decim
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ROUND`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

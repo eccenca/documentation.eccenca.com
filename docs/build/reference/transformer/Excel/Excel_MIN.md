@@ -18,8 +18,14 @@ Excel MIN(number_1; number_2; ... number_30): Returns the minimum value in a lis
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MIN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

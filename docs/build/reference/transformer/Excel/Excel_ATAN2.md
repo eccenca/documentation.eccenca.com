@@ -18,8 +18,14 @@ Excel ATAN2(number_x; number_y): Returns the inverse tangent of the specified x 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ATAN2`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

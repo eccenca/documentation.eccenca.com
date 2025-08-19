@@ -66,6 +66,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
     1. `[abc]`
 
 * Returns: `[c]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -130,6 +131,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 The beginning index, inclusive.
 
+- ID: `beginIndex`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -139,6 +141,7 @@ The beginning index, inclusive.
 
 The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string starting with 'beginIndex' is returned. If negative, -endIndex characters are removed from the end
 
+- ID: `endIndex`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -148,8 +151,14 @@ The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string
 
 If true, only strings will be accepted that are within the start and end indices, throwing a validating error if an index is out of range.
 
+- ID: `stringMustBeInRange`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

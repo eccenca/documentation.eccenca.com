@@ -18,8 +18,14 @@ Excel NPV(Rate; value_1; value_2; ... value_30): Returns the net present value o
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NPV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

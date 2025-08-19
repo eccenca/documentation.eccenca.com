@@ -23,8 +23,14 @@ Compares sets of multiple values.Typically, incoming values are tokenized before
 
 No description
 
+- ID: `maxDistance`
 - Datatype: `int`
 - Default Value: `1`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

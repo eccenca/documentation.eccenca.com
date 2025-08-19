@@ -18,8 +18,14 @@ Excel LOG(number; base): Returns the logarithm of the given number to the specif
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `LOG`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

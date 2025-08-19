@@ -52,6 +52,7 @@ will be used to decrypt it.
 
 Hostname to connect to. Usually in the form of an IP address
 
+- ID: `hostname`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -61,6 +62,7 @@ Hostname to connect to. Usually in the form of an IP address
 
 The port on which the connection will be tried on. Default is 22.
 
+- ID: `port`
 - Datatype: `Long`
 - Default Value: `22`
 
@@ -70,6 +72,7 @@ The port on which the connection will be tried on. Default is 22.
 
 The username with which a connection will be instantiated.
 
+- ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -79,6 +82,7 @@ The username with which a connection will be instantiated.
 
 The method that is used to connect to the SSH server.
 
+- ID: `authentication_method`
 - Datatype: `string`
 - Default Value: `password`
 
@@ -88,6 +92,7 @@ The method that is used to connect to the SSH server.
 
 Your private key to connect via SSH.
 
+- ID: `private_key`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -97,6 +102,7 @@ Your private key to connect via SSH.
 
 Depending on your authentication method this will either be used toconnect via password to SSH, or to decrypt the SSH private key
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -106,6 +112,7 @@ Depending on your authentication method this will either be used toconnect via p
 
 The currently selected path within your SSH instance. Auto-completion starts from user home folder, use '..' for parent directory or '/' for root directory.
 
+- ID: `path`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -115,6 +122,7 @@ The currently selected path within your SSH instance. Auto-completion starts fro
 
 Parameter to decide whether files will be used as stdin or no input is needed. If 'File input' is chosen, the input port will open for all entities withthe FileEntitySchema.
 
+- ID: `input_method`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -124,6 +132,7 @@ Parameter to decide whether files will be used as stdin or no input is needed. I
 
 Parameter to decide which type of output the user wants. This can be either no output, a structured process output with its own schema, or a file based output
 
+- ID: `output_method`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -133,6 +142,7 @@ Parameter to decide which type of output the user wants. This can be either no o
 
 The command that will be executed on the SSH instance. When the inputmethod is set to 'File input', the command will be executed over these files.
 
+- ID: `command`
 - Datatype: `string`
 - Default Value: `ls`
 
@@ -142,8 +152,14 @@ The command that will be executed on the SSH instance. When the inputmethod is s
 
 A timeout for the executed command.
 
+- ID: `timeout`
 - Datatype: `Long`
 - Default Value: `0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

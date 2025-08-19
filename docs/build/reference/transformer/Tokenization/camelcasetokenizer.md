@@ -39,3 +39,7 @@ Tokenizes a camel case string. That is it splits strings between a lower case ch
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

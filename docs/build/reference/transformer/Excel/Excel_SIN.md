@@ -18,8 +18,14 @@ Excel SIN(number): Returns the sine of the given number (angle in radians).
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SIN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

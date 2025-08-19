@@ -24,6 +24,7 @@ UUID5 is based on the SHA1 hash of a namespace identifier (which
 
 If 'namespace' is not given, the input string is used.
 
+- ID: `namespace`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -33,8 +34,14 @@ If 'namespace' is not given, the input string is used.
 
 Applies only if none of the pre-defined namespaces is selected. If enabled, the namespace string needs to be a valid UUID. Otherwise, the namespace UUID is a UUIDv1 derived from the SHA1 hash of the namespace string.
 
+- ID: `namespace_as_uuid`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

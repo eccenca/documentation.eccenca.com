@@ -82,15 +82,21 @@ Types can be `arrays`, `objects`, `iterables`, `booleans`, `numbers`, `normals`,
 
 The jq program to apply to the input JSON string.
 
+- ID: `jq_expression`
 - Datatype: `string`
 - Default Value: `.`
 
 
 
+
+
+## Advanced Parameter
+
 ### Output list with one item as string
 
 
 
+- ID: `single_item_as_string`
 - Datatype: `boolean`
 - Default Value: `true`
 

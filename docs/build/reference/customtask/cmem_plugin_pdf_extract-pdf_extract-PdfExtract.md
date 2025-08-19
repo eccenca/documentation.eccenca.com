@@ -136,19 +136,11 @@ as the entities are not known before execution.
 
 ## Parameter
 
-### File name regex filter
-
-Regular expression for filtering resources of the project. If this parameter is set, the input port will be closed and project files will be compared against the regular expression.
-
-- Datatype: `string`
-- Default Value: `None`
-
-
-
 ### Combine the results from all files into a single value
 
 If set to 'Combine', the results of all files will be combined into a single output value. If set to 'Don't combine', each file result will be output in a separate entity.
 
+- ID: `all_files`
 - Datatype: `string`
 - Default Value: `no_combine`
 
@@ -158,6 +150,7 @@ If set to 'Combine', the results of all files will be combined into a single out
 
 Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files that do not contain any of the specified pages will return empty results with the information logged. If no page selection is specified, all pages will be processed.
 
+- ID: `page_selection`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -167,6 +160,7 @@ Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files
 
 The mode in which errors during the extraction are handled. If set to "Ignore", it will log errors and continue, returning empty or error-marked results for files. When "Raise on errors and warnings" is selected, any warning from the underlying PDF extraction module when extracting text and tables from pages is treated as an error if empty results are returned.
 
+- ID: `error_handling`
 - Datatype: `string`
 - Default Value: `raise_on_error`
 
@@ -176,6 +170,7 @@ The mode in which errors during the extraction are handled. If set to "Ignore", 
 
 Specifies the method used to detect tables in the PDF page. Options include "lines" and "text", each using different cues (such as lines or text alignment) to find tables. If "Custom" is selected, a custom setting needs to defined under advanced options.
 
+- ID: `table_strategy`
 - Datatype: `string`
 - Default Value: `lines`
 
@@ -185,8 +180,23 @@ Specifies the method used to detect tables in the PDF page. Options include "lin
 
 Specifies how text is extracted from a PDF page. Options include "raw", "layout", and others, each interpreting character positions and formatting differently to control how text is grouped and ordered.
 
+- ID: `text_strategy`
 - Datatype: `string`
 - Default Value: `default`
+
+
+
+
+
+## Advanced Parameter
+
+### File name regex filter
+
+Regular expression for filtering resources of the project. If this parameter is set, the input port will be closed and project files will be compared against the regular expression.
+
+- ID: `regex`
+- Datatype: `string`
+- Default Value: `None`
 
 
 
@@ -194,6 +204,7 @@ Specifies how text is extracted from a PDF page. Options include "raw", "layout"
 
 Custom table extraction strategy in YAML format.
 
+- ID: `custom_table_strategy`
 - Datatype: `multiline string`
 - Default Value:
 ``` text
@@ -229,6 +240,7 @@ Custom table extraction strategy in YAML format.
 
 Custom text extraction strategy in YAML format.
 
+- ID: `custom_text_strategy`
 - Datatype: `multiline string`
 - Default Value:
 ``` text
@@ -251,6 +263,7 @@ Custom text extraction strategy in YAML format.
 
 The maximum number of processes to use for processing multiple files concurrently. The default is (number of virtual cores)-1.
 
+- ID: `max_processes`
 - Datatype: `Long`
 - Default Value: `9`
 

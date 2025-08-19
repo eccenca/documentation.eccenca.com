@@ -19,6 +19,7 @@ A task that executes a SPARQL Select query on a SPARQL enabled data source and o
 
 A SPARQL 1.1 select query
 
+- ID: `selectQuery`
 - Datatype: `code-sparql`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ A SPARQL 1.1 select query
 
 If set to a positive integer, the number of results is limited
 
+- ID: `limit`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,6 +39,7 @@ If set to a positive integer, the number of results is limited
 
 An optional SPARQL dataset that can be used for example data, so e.g. the transformation editor shows mapping examples.
 
+- ID: `optionalInputDataset`
 - Datatype: `SPARQL endpoint`
 - Default Value: `None`
 
@@ -46,8 +49,14 @@ An optional SPARQL dataset that can be used for example data, so e.g. the transf
 
 SPARQL query timeout (select/update) in milliseconds. A value of zero means that there is no timeout set explicitly. If a value greater zero is specified this overwrites possible default timeouts.
 
+- ID: `sparqlTimeout`
 - Datatype: `int`
 - Default Value: `0`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

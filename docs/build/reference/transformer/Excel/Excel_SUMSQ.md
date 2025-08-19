@@ -18,8 +18,14 @@ Excel SUMSQ(number_1; number_2; ... number_30): Calculates the sum of the square
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUMSQ`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

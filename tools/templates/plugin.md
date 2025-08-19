@@ -21,3 +21,7 @@ tags: {% for tag in plugin.tags %}
 ## Parameter
 
 {{parameters if plugin.properties else "`None`"}}
+
+## Advanced Parameter
+
+{{parameters_advanced if plugin.properties_advanced else "`None`"}}

@@ -18,8 +18,14 @@ Excel SMALL(data; rank_c): Returns the Rank_c-th smallest value in a data set. D
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SMALL`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

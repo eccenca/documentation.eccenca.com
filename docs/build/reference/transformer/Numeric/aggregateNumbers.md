@@ -19,8 +19,14 @@ Aggregates all numbers in this set using a mathematical operation.
 
 One of '+', '*', 'min', 'max', 'average'.
 
+- ID: `operator`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

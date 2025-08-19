@@ -40,6 +40,7 @@ We recommend testing your regular expression before using it. [regex101.com](htt
 
 The regex for filtering the file names. The regex needs to match the full path (i.e. from beginning to end, including sub-directories) in order for the file to be deleted.
 
+- ID: `filesRegex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -49,8 +50,14 @@ The regex for filtering the file names. The regex needs to match the full path (
 
 If enabled the operator outputs entities, one entity for each deleted file, with the path of the file as attribute 'filePath'.
 
+- ID: `outputEntities`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

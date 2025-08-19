@@ -18,8 +18,14 @@ Excel PRODUCT(number 1 to 30): Multiplies all the numbers given as arguments and
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PRODUCT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

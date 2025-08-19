@@ -18,8 +18,14 @@ Excel NOT(logical_value): Reverses the logical value. Logical_value is any value
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `NOT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

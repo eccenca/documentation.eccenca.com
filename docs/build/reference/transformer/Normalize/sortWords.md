@@ -51,6 +51,7 @@ Sorts all words in each value lexicographically.
 
 The regular expression used to split values into words.
 
+- ID: `splitRegex`
 - Datatype: `string`
 - Default Value: `\s+`
 
@@ -60,8 +61,14 @@ The regular expression used to split values into words.
 
 Separator to be inserted between sorted words.
 
+- ID: `glue`
 - Datatype: `string`
 - Default Value: ` `
 
 
 
+
+
+## Advanced Parameter
+
+`None`

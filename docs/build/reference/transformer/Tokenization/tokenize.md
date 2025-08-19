@@ -45,8 +45,14 @@ Tokenizes all input values.
 
 The regular expression used to split values.
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `\s`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

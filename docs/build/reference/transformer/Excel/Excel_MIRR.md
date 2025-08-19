@@ -18,8 +18,14 @@ Excel MIRR(values; investment; reinvest_rate): Calculates the modified internal 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MIRR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

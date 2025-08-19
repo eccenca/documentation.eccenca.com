@@ -50,6 +50,7 @@ the workflow in order get the result of the SPARQL task as in input for this tas
 
 Username of the Salesforce Account. This is typically your email address.
 
+- ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -59,6 +60,7 @@ Username of the Salesforce Account. This is typically your email address.
 
 
 
+- ID: `password`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -68,6 +70,7 @@ Username of the Salesforce Account. This is typically your email address.
 
 In addition to your standard account credentials, you need to provide a security token to access your data. Refer to the [Salesforce Reset Token Documentation](https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm&type=5) to learn how to retrieve or reset your token.
 
+- ID: `security_token`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -77,8 +80,14 @@ In addition to your standard account credentials, you need to provide a security
 
 Salesforce Object API Name
 
+- ID: `salesforce_object`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

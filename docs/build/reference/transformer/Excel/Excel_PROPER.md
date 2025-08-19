@@ -18,8 +18,14 @@ Excel PROPER(text): Capitalizes the first letter in all words of a text string. 
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `PROPER`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

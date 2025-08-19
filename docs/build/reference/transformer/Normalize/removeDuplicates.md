@@ -16,3 +16,7 @@ Removes duplicated values, making a value sequence distinct.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

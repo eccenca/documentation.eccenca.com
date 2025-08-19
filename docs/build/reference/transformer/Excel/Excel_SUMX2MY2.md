@@ -18,8 +18,14 @@ Excel SUMX2MY2(array_X; array_Y): Returns the sum of the difference of squares o
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SUMX2MY2`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

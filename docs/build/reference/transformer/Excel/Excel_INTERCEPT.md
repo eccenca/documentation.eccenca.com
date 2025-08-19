@@ -18,8 +18,14 @@ Excel INTERCEPT(data_Y; data_X): Calculates the y-value at which a line will int
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `INTERCEPT`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

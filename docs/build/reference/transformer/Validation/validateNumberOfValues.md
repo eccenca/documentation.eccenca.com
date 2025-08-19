@@ -40,6 +40,7 @@ Validates that the number of values lies in a specified range.
     1. `[value1, value2]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 
@@ -50,6 +51,7 @@ Validates that the number of values lies in a specified range.
 
 Minimum allowed number of values
 
+- ID: `min`
 - Datatype: `int`
 - Default Value: `0`
 
@@ -59,8 +61,14 @@ Minimum allowed number of values
 
 Maximum allowed number of values
 
+- ID: `max`
 - Datatype: `int`
 - Default Value: `1`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

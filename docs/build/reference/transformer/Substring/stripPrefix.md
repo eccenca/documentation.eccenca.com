@@ -48,8 +48,14 @@ Strips a prefix of a string.
 
 No description
 
+- ID: `prefix`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

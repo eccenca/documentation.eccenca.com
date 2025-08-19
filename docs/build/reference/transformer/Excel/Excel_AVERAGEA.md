@@ -18,8 +18,14 @@ Excel AVERAGEA(value_1; value_2; ... value_30): Returns the average of the argum
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `AVERAGEA`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

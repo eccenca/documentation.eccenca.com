@@ -19,10 +19,15 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 ## Parameter
 
+`None`
+
+## Advanced Parameter
+
 ### Min index value
 
 The minimum number that is used for indexing
 
+- ID: `minValue`
 - Datatype: `double`
 - Default Value: `-Infinity`
 
@@ -32,6 +37,7 @@ The minimum number that is used for indexing
 
 The maximum number that is used for indexing
 
+- ID: `maxValue`
 - Datatype: `double`
 - Default Value: `Infinity`
 

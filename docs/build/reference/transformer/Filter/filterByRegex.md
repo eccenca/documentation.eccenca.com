@@ -19,6 +19,7 @@ Removes all strings that do NOT match a regex. If 'negate' is true, only strings
 
 No description
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ No description
 
 No description
 
+- ID: `negate`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

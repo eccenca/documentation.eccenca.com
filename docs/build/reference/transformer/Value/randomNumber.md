@@ -19,6 +19,7 @@ Generates a set of random numbers.
 
 The smallest number that could be generated.
 
+- ID: `min`
 - Datatype: `double`
 - Default Value: `0.0`
 
@@ -28,6 +29,7 @@ The smallest number that could be generated.
 
 The largest number that could be generated.
 
+- ID: `max`
 - Datatype: `double`
 - Default Value: `100.0`
 
@@ -37,6 +39,7 @@ The largest number that could be generated.
 
 The minimum number of values to generate in each set.
 
+- ID: `minCount`
 - Datatype: `int`
 - Default Value: `1`
 
@@ -46,8 +49,14 @@ The minimum number of values to generate in each set.
 
 The maximum number of values to generate in each set.
 
+- ID: `maxCount`
 - Datatype: `int`
 - Default Value: `1`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

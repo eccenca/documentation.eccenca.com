@@ -26,6 +26,7 @@ according to the node shapes in a shape catalog graph.
 
 This graph holds the resources you want to validate.
 
+- ID: `context_graph`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -35,6 +36,7 @@ This graph holds the resources you want to validate.
 
 This graph holds the shapes you want to use for validation.
 
+- ID: `shape_graph`
 - Datatype: `string`
 - Default Value: `https://vocab.eccenca.com/shacl/`
 
@@ -44,6 +46,7 @@ This graph holds the shapes you want to use for validation.
 
 In this graph, the validation results are materialized. If left empty, results are not materialized.
 
+- ID: `result_graph`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -53,6 +56,7 @@ In this graph, the validation results are materialized. If left empty, results a
 
 
 
+- ID: `clear_result_graph`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -62,6 +66,7 @@ In this graph, the validation results are materialized. If left empty, results a
 
 
 
+- ID: `fail_on_violations`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -71,15 +76,21 @@ In this graph, the validation results are materialized. If left empty, results a
 
 
 
+- ID: `output_results`
 - Datatype: `boolean`
 - Default Value: `true`
 
 
 
+
+
+## Advanced Parameter
+
 ### Resource Selection Query
 
 The query to select the resources to validate. Use {{context_graph}} as a placeholder for the select context graph for validation.
 
+- ID: `sparql_query`
 - Datatype: `code-sparql`
 - Default Value:
 ``` sparql

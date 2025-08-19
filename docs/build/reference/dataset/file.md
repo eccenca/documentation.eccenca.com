@@ -19,6 +19,7 @@ Dataset which retrieves and writes all entities from/to an RDF file. For reading
 
 The RDF file. This may also be a zip archive of multiple RDF files.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -28,6 +29,7 @@ The RDF file. This may also be a zip archive of multiple RDF files.
 
 Optional RDF format. If left empty, it will be auto-detected based on the file extension. N-Triples is the only format that can be written, while other formats can only be read.
 
+- ID: `format`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -37,15 +39,21 @@ Optional RDF format. If left empty, it will be auto-detected based on the file e
 
 The graph name to be read. If not provided, the default graph will be used. Must be provided if the format is N-Quads.
 
+- ID: `graph`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
 ### Entity list
 
 A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace.
 
+- ID: `entityList`
 - Datatype: `multiline string`
 - Default Value: `None`
 
@@ -55,6 +63,7 @@ A list of entities to be retrieved. If not given, all entities will be retrieved
 
 If the input resource is a ZIP file, files inside the file are filtered via this regex.
 
+- ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
 

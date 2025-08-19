@@ -18,8 +18,14 @@ Excel ABS(number): Returns the absolute value of the given number.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `ABS`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

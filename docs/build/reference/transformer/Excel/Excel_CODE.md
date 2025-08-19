@@ -18,8 +18,14 @@ Excel CODE(text): Returns a numeric code for the first character in a text strin
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `CODE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

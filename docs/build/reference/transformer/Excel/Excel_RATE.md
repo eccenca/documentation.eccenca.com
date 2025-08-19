@@ -18,8 +18,14 @@ Excel RATE(NPER; PMT; PV; FV; type; guess): Returns the constant interest rate p
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `RATE`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

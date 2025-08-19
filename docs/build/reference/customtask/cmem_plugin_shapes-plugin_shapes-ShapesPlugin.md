@@ -70,6 +70,7 @@ Add information about the plugin and plugin settings to the shapes graph.
 
 The knowledge graph containing the instance data to be analyzed for the SHACL shapes generation.
 
+- ID: `data_graph_iri`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -79,6 +80,7 @@ The knowledge graph containing the instance data to be analyzed for the SHACL sh
 
 The knowledge graph the generated shapes will be added to.
 
+- ID: `shapes_graph_iri`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -88,6 +90,7 @@ The knowledge graph the generated shapes will be added to.
 
 The label for the shape catalog graph. If no label is specified for a new shapes graph, a label will be generated. If no label is specified when adding to a shapes graph, the original label will be kept, or, if the existing graph does not have a label, a label will be generated. Only labels with language tag "en" or without language tag are considered.
 
+- ID: `label`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -97,6 +100,7 @@ The label for the shape catalog graph. If no label is specified for a new shapes
 
 Add result to the existing graph (add result to graph), overwrite the existing graph with the result (replace existing graph with result), or stop the workflow if the output graph already exists (stop workflow if output graph exists).
 
+- ID: `existing_graph`
 - Datatype: `string`
 - Default Value: `stop`
 
@@ -106,15 +110,21 @@ Add result to the existing graph (add result to graph), overwrite the existing g
 
 Import the SHACL shapes graph in the CMEM shapes catalog by adding an `owl:imports` statement to the central CMEM shapes catalog. If the graph is not imported, the new shapes are not activated and used.
 
+- ID: `import_shapes`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
 ### Fetch namespace prefixes from prefix.cc
 
 Fetch the list of namespace prefixes from https://prefix.cc instead of using the local prefix database. If unavailable, fall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this option exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See https://prefix.cc/about.
 
+- ID: `prefix_cc`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -124,6 +134,7 @@ Fetch the list of namespace prefixes from https://prefix.cc instead of using the
 
 Provide the list of properties (as IRIs) to ignore.
 
+- ID: `ignore_properties`
 - Datatype: `multiline string`
 - Default Value: `http://www.w3.org/1999/02/22-rdf-syntax-ns#type`
 
@@ -133,6 +144,7 @@ Provide the list of properties (as IRIs) to ignore.
 
 Add information about the plugin and plugin settings to the shapes graph.
 
+- ID: `plugin_provenance`
 - Datatype: `boolean`
 - Default Value: `false`
 

@@ -57,3 +57,7 @@ Strips the URI prefix and decodes the remainder. Leaves values unchanged which a
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

@@ -36,6 +36,7 @@ Current notes and limitations:
 
 Which workflow do you want to start per entity.
 
+- ID: `workflow`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -45,6 +46,7 @@ Which workflow do you want to start per entity.
 
 
 
+- ID: `parallel_execution`
 - Datatype: `Long`
 - Default Value: `1`
 
@@ -54,15 +56,21 @@ Which workflow do you want to start per entity.
 
 
 
+- ID: `forward_entities`
 - Datatype: `boolean`
 - Default Value: `false`
 
 
 
+
+
+## Advanced Parameter
+
 ### Mime-type for file by file processing (beta)
 
 When working with file entities, setting this to a proper value will send the file to the workflow instead of the meta-data. Examples are: 'application/x-plugin-binaryFile', 'application/json', 'application/xml', 'text/csv', 'application/octet-stream' or 'application/x-plugin-excel'.
 
+- ID: `input_mime_type`
 - Datatype: `string`
 - Default Value: `None`
 

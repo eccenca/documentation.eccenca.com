@@ -31,6 +31,7 @@ Make sure to use always use the preview function to avoid overloading you projec
 
 The local directory where the files are located.
 
+- ID: `directory`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -40,15 +41,21 @@ The local directory where the files are located.
 
 The regex for filtering the file names. The regex needs to fully match the local name without directory.
 
+- ID: `regex_string`
 - Datatype: `string`
 - Default Value: `.*`
 
 
 
+
+
+## Advanced Parameter
+
 ### Working mode
 
 Which activity should be done with the selected local files.
 
+- ID: `working_mode`
 - Datatype: `enumeration`
 - Default Value: `SEND_TO_TASK`
 

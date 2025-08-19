@@ -18,8 +18,14 @@ Excel RADIANS(number): Converts the given number in degrees to radians.
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `RADIANS`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

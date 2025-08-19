@@ -18,8 +18,14 @@ Excel MID(text; start; number): Returns a text segment of a character string. Th
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `MID`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

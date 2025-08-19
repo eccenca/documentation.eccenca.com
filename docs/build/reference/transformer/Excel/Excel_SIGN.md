@@ -18,8 +18,14 @@ Excel SIGN(number): Returns the sign of the given number. The function returns t
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `SIGN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -19,6 +19,7 @@ Replace all occurrences of a regex "regex" with "replace" in a string.
 
 The regular expression to search for
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ The regular expression to search for
 
 The string that will replace each match
 
+- ID: `replace`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

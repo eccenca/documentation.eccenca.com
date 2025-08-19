@@ -119,6 +119,7 @@ In this case, a sample response from the consumer will appear as follows:
 
 Where do you want to save the messages? The dropdown lists usable datasets from the current project only. In case you miss your dataset, check for the correct type (XML/JSON) and build project.
 
+- ID: `message_dataset`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -128,6 +129,7 @@ Where do you want to save the messages? The dropdown lists usable datasets from 
 
 This is URL of one of the Kafka brokers. The task fetches the initial metadata about your Kafka cluster from this URL.
 
+- ID: `bootstrap_servers`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -137,15 +139,31 @@ This is URL of one of the Kafka brokers. The task fetches the initial metadata a
 
 Which security mechanisms need to be applied to connect? Use PLAINTEXT in case you connect to a plain Kafka, which is available inside your VPN. Use SASL in case you connect to a [confluent.cloud](https://confluent.cloud) cluster (then you also need to specify your SASL credentials in the advanced options section).
 
+- ID: `security_protocol`
 - Datatype: `string`
 - Default Value: `PLAINTEXT`
 
 
 
+### Topic
+
+The name of the category/feed where messages were published.
+
+- ID: `kafka_topic`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+
+
+## Advanced Parameter
+
 ### SASL Mechanisms
 
 
 
+- ID: `sasl_mechanisms`
 - Datatype: `string`
 - Default Value: `PLAIN`
 
@@ -155,6 +173,7 @@ Which security mechanisms need to be applied to connect? Use PLAINTEXT in case y
 
 The account identifier for the SASL authentication. In case you are using a [confluent.cloud](https://confluent.cloud) cluster, this is the API key.
 
+- ID: `sasl_username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -164,16 +183,8 @@ The account identifier for the SASL authentication. In case you are using a [con
 
 The credentials for the SASL Account. In case you are using a [confluent.cloud](https://confluent.cloud) cluster, this is the API secret.
 
+- ID: `sasl_password`
 - Datatype: `password`
-- Default Value: `None`
-
-
-
-### Topic
-
-The name of the category/feed where messages were published.
-
-- Datatype: `string`
 - Default Value: `None`
 
 
@@ -182,6 +193,7 @@ The name of the category/feed where messages were published.
 
 What to do when there is no initial offset in Kafka or if the current offset does not exist any more on the server (e.g. because that data has been deleted). - `earliest` will fetch the whole topic beginning from the oldest record. - `latest` will receive nothing but will get any new records on the next run.
 
+- ID: `auto_offset_reset`
 - Datatype: `string`
 - Default Value: `latest`
 
@@ -191,6 +203,7 @@ What to do when there is no initial offset in Kafka or if the current offset doe
 
 When a topic is consumed by consumers in the same group, every record will be delivered to only one consumer of that group. If all the consumers of a topic are labeled the same consumer group, then the records will effectively be load-balanced over these consumers. If all the consumer of a topic are labeled different consumer groups, then each record will be broadcast to all the consumers. When the Group Id field is empty, the plugin defaults to DNS:PROJECT ID:TASK ID.
 
+- ID: `group_id`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -200,6 +213,7 @@ When a topic is consumed by consumers in the same group, every record will be de
 
 An optional identifier of a Kafka client (producer/consumer) that is passed to a Kafka broker with every request. The sole purpose of this is to be able to track the source of requests beyond just ip and port by allowing a logical application name to be included in Kafka logs and monitoring aggregates. When the Client Id field is empty, the plugin defaults to DNS:PROJECT ID:TASK ID.
 
+- ID: `client_id`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -209,6 +223,7 @@ An optional identifier of a Kafka client (producer/consumer) that is passed to a
 
 Maximum total message size in kilobytes that the consumer can buffer for a specific partition. The consumer will stop fetching from the partition if it hits this limit. This helps prevent consumers from running out of memory.
 
+- ID: `local_consumer_queue_size`
 - Datatype: `Long`
 - Default Value: `5000`
 
@@ -218,6 +233,7 @@ Maximum total message size in kilobytes that the consumer can buffer for a speci
 
 The maximum number of messages to fetch and process in each run. If 0 or less, all messages will be fetched.
 
+- ID: `message_limit`
 - Datatype: `Long`
 - Default Value: `100000`
 
@@ -227,6 +243,7 @@ The maximum number of messages to fetch and process in each run. If 0 or less, a
 
 Setting this to true will disable committing messages after retrival. This means you will receive the same messages on the next execution (for debugging).
 
+- ID: `disable_commit`
 - Datatype: `boolean`
 - Default Value: `false`
 

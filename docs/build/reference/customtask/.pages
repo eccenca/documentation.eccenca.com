@@ -43,7 +43,7 @@ nav:
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
     - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
-    - "Send eMail": SendEMail.md
+    - "Send email": SendEmail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
     - "SHACL validation with pySHACL": shacl-pyshacl.md

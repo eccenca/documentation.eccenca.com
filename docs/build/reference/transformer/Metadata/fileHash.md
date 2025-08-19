@@ -22,6 +22,7 @@ Note: This transform operator ignores any inputs.
 
 File for which the hash sum will be calculated. If left empty, the file of the input dataset is used.
 
+- ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -31,8 +32,14 @@ File for which the hash sum will be calculated. If left empty, the file of the i
 
 The hash algorithm to be used.
 
+- ID: `algorithm`
 - Datatype: `string`
 - Default Value: `SHA256`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

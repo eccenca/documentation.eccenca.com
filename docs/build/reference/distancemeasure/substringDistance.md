@@ -23,8 +23,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The minimum length of a possible substring match.
 
+- ID: `granularity`
 - Datatype: `string`
 - Default Value: `3`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

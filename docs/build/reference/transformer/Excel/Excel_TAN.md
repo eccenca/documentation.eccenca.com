@@ -18,8 +18,14 @@ Excel TAN(number): Returns the tangent of the given number (angle in radians).
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `TAN`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

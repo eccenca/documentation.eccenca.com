@@ -276,6 +276,7 @@ The following alternative symbols are supported:
     1. `[1 kg]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -285,6 +286,7 @@ The following alternative symbols are supported:
     1. `[100.0]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 ---
@@ -315,6 +317,7 @@ The following alternative symbols are supported:
     2. `[km, mm]`
 
 * Returns: `[]`
+* **Throws error:** `ValidationException`
 
 
 
@@ -325,6 +328,7 @@ The following alternative symbols are supported:
 
 Target unit. Can be left empty to convert to the respective SI base units.
 
+- ID: `targetUnit`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -334,8 +338,14 @@ Target unit. Can be left empty to convert to the respective SI base units.
 
 The IETF BCP 47 language tag, e.g., 'en'.
 
+- ID: `numberFormat`
 - Datatype: `string`
 - Default Value: `en`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -67,3 +67,7 @@ Compute the (weighted) geometric mean.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

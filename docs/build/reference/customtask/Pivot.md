@@ -33,6 +33,7 @@ The following aggregation (summary) functions are available:
 
 The pivot column refers to the column in the input data that is used to organize the data along the horizontal axis of the pivot table.
 
+- ID: `pivotProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -42,6 +43,7 @@ The pivot column refers to the column in the input data that is used to organize
 
 The name of the first group column in the range. All columns starting with this will be grouped.
 
+- ID: `firstGroupProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -51,6 +53,7 @@ The name of the first group column in the range. All columns starting with this 
 
 The name of the last group column in the range. If left empty, only the first column is grouped.
 
+- ID: `lastGroupProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -60,6 +63,7 @@ The name of the last group column in the range. If left empty, only the first co
 
 The property that contains the grouped values that will be aggregated.
 
+- ID: `valueProperty`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -69,6 +73,7 @@ The property that contains the grouped values that will be aggregated.
 
 The aggregation function used to aggregate values.
 
+- ID: `aggregationFunction`
 - Datatype: `enumeration`
 - Default Value: `sum`
 
@@ -78,8 +83,14 @@ The aggregation function used to aggregate values.
 
 Prefix to prepend to all generated pivot columns.
 
+- ID: `uriPrefix`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -51,6 +51,7 @@ the amount of files is too large
 
 Hostname to connect to. Usually in the form of an IP address
 
+- ID: `hostname`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -60,6 +61,7 @@ Hostname to connect to. Usually in the form of an IP address
 
 The port on which the connection will be tried on. Default is 22.
 
+- ID: `port`
 - Datatype: `Long`
 - Default Value: `22`
 
@@ -69,6 +71,7 @@ The port on which the connection will be tried on. Default is 22.
 
 The username with which a connection will be instantiated.
 
+- ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -78,6 +81,7 @@ The username with which a connection will be instantiated.
 
 The method that is used to connect to the SSH server.
 
+- ID: `authentication_method`
 - Datatype: `string`
 - Default Value: `password`
 
@@ -87,6 +91,7 @@ The method that is used to connect to the SSH server.
 
 Your private key to connect via SSH.
 
+- ID: `private_key`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -96,6 +101,7 @@ Your private key to connect via SSH.
 
 Depending on your authentication method this will either be used toconnect via password to SSH, or to decrypt the SSH private key
 
+- ID: `password`
 - Datatype: `password`
 - Default Value: `None`
 
@@ -105,6 +111,7 @@ Depending on your authentication method this will either be used toconnect via p
 
 The currently selected path within your SSH instance. Auto-completion starts from user home folder, use '..' for parent directory or '/' for root directory.
 
+- ID: `path`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -114,6 +121,7 @@ The currently selected path within your SSH instance. Auto-completion starts fro
 
 A choice on how to handle errors concerning the permissions rights.When choosing 'ignore' all files get skipped if the current user has correct permission rights.When choosing 'warning' all files get downloaded however there will be a mention that some of the files are not under the users permissionsif there are any and these get skipped.When choosing 'error' the files will not get downloaded if thereis even a single file the user has no access to.
 
+- ID: `error_handling`
 - Datatype: `string`
 - Default Value: `error`
 
@@ -123,6 +131,7 @@ A choice on how to handle errors concerning the permissions rights.When choosing
 
 When this flag is set, only files from the current directory will be downloaded.
 
+- ID: `no_subfolder`
 - Datatype: `boolean`
 - Default Value: `false`
 
@@ -132,15 +141,21 @@ When this flag is set, only files from the current directory will be downloaded.
 
 A regular expression used to define which files will get downloaded.
 
+- ID: `regex`
 - Datatype: `string`
 - Default Value: `^.*$`
 
 
 
+
+
+## Advanced Parameter
+
 ### Maximum amount of workers.
 
 Determines the amount of workers used for concurrent thread execution of the task. Default is 1, maximum is 32. Note that too many workers can cause a ChannelException.
 
+- ID: `max_workers`
 - Datatype: `Long`
 - Default Value: `1`
 

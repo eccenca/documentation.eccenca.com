@@ -30,3 +30,7 @@ Converts a string to lower case.
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

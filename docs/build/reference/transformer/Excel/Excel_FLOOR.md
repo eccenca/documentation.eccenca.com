@@ -18,8 +18,14 @@ Excel FLOOR(number; significance; mode): Rounds the given number down to the nea
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `FLOOR`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -18,8 +18,14 @@ Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `AND`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

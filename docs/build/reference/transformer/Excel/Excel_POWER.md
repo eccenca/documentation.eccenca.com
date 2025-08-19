@@ -18,8 +18,14 @@ Excel POWER(base; power): Returns the result of a number raised to a power. Base
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `POWER`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

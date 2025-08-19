@@ -16,3 +16,7 @@ Joins a set of inputs into a single table. Expects a list of entity tables and l
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`

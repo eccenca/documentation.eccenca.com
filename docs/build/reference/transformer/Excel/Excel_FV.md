@@ -18,8 +18,14 @@ Excel FV(rate; NPER; PMT; PV; type): Returns the future value of an investment b
 
 The name of the Excel function
 
+- ID: `functionName`
 - Datatype: `string`
 - Default Value: `FV`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -19,6 +19,7 @@ Validates if dates are within a specified range.
 
 Earliest allowed date in YYYY-MM-DD
 
+- ID: `minDate`
 - Datatype: `string`
 - Default Value: `None`
 
@@ -28,8 +29,14 @@ Earliest allowed date in YYYY-MM-DD
 
 Latest allowed data in YYYY-MM-DD
 
+- ID: `maxDate`
 - Datatype: `string`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
+`None`

@@ -51,6 +51,7 @@ By default, individual requests to the geocoding service are not logged. To enab
 
 List of attributes that contain search terms. Multiple attributes (comma-separated) will be concatenated into a single search.
 
+- ID: `searchAttributes`
 - Datatype: `traversable[string]`
 - Default Value: `None`
 
@@ -60,15 +61,21 @@ List of attributes that contain search terms. Multiple attributes (comma-separat
 
 Optionally limits the number of results for each search.
 
+- ID: `limit`
 - Datatype: `option[int]`
 - Default Value: `None`
 
 
 
+
+
+## Advanced Parameter
+
 ### JSON-LD context
 
 Optional JSON-LD context to be used for converting the returned JSON to RDF. If not provided, a default context will be used.
 
+- ID: `jsonLdContext`
 - Datatype: `resource`
 - Default Value: `None`
 
@@ -78,6 +85,7 @@ Optional JSON-LD context to be used for converting the returned JSON to RDF. If 
 
 Additional URL parameters to be attached to each HTTP search request. Example: '&countrycodes=de&addressdetails=1'. Consult the API documentation for a list of available parameters.
 
+- ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
 

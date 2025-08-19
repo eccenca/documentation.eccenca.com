@@ -16,3 +16,7 @@ Parses International Securities Identification Numbers (ISIN) values and fails i
 ## Parameter
 
 `None`
+
+## Advanced Parameter
+
+`None`
