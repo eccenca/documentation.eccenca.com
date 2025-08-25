@@ -1,5 +1,6 @@
 ---
 icon: eccenca/application-queries
+status: new
 tags:
     - LinkRules
     - KnowledgeGraph
@@ -64,10 +65,11 @@ Create a new graph that holds templates for Link Rules. The graph IRI will be ne
 !!! info
 
     Suggestion for Template Catalog Graph IRI: `https://ns.eccenca.com/data/linkruletemplates/`. You may use [this file](./CMEM_Link_Rule_Template_Catalog.ttl) as the graphs content.
+    If you use `cmemc` you can run:
 
-!!! info
-
-    This graph could be prepared even it is not used in many setups.
+    ```sh
+    cmemc graph import CMEM_Link_Rule_Template_Catalog.ttl https://ns.eccenca.com/data/linkruletemplates/
+    ```
 
 !!! info
 
@@ -79,9 +81,9 @@ Create a new project in Build that holds all linking tasks created in the Link R
 
 ![](create_project.png){ class="bordered" }
 
-In the *Advanced Options* section set a *Project Identifier* as this needs to be configured in the next steps.
+In the *Advanced Options* section set a *Project Identifier* as this needs to be configured in the next steps (we will be using `linkrules` in this example).
 
-Inside this project create a new workflow that will be used to register all published rules, so that all these rules can be executed at once. Again it is recommended to set a *Item Identifier* as this needs to be configured in the next steps.
+Inside this project create a new workflow that will be used to register all published rules, so that all these rules can be executed at once. Again it is recommended to set a *Item Identifier* as this needs to be configured in the next steps (we will be using `execute-published-rules` in this example).
 
 ![](create_wf.png){ class="bordered" }
 
@@ -105,16 +107,16 @@ This access conditions is used by the Link Rules module to grant write access to
 
 In order to enable users to use the Link Rules Module, the following must be allowed (this can be granted in this rule or be defined separately):
 
-- **Allow reading graph**
+-   **Allow reading graph**
     -   Respective data graphs
-- **Allow writing graph**
+-   **Allow writing graph**
     -   *CMEM DI Project Config* graph of the "Link Rules" project
-    -   `{IRI of the Link Rules project}_meta`
-- **Allowed action**
+    -   `{IRI of the Link Rules project}-meta` (e.g., `http://di.eccenca.com/project/linkrules-meta` according to the project identifier in this example)
+-   **Allowed action**
     -   *Build - Workspace*
     -   *Explore - Knowledge Graph Exploration*
     -   *Explore - Link Rules Module*
-- **Graph pattern for granting write access**
+-   **Graph pattern for granting write access**
     -   Pattern according to the *Output Graph Template*, e.g. `http://eccenca.com/user_rules/result_*`
 
 ### Workspace configuration
@@ -124,13 +126,13 @@ Enable the *Link Rules* module.
 In the following let us walk through the configuration options.
 
 -   **Order**: The position of the Link Rules module in the menu.
--   **Template Catalog IRI**: The IRI of the template catalog we just created. As the name implies, the Template Catalog holds all templates for usage in the Link Rules module. Templates allow preselecting patterns for easier rule creation.
--   **Project ID**: The *Project Identifier* of the Link Rules Build project we just created. Link Rules will be managing this project and add the rules to it. To get the id of a project, open the project in the build component, select the project and choose 'Show identifier' in the context menu, in the top right. The project needs to have a workflow, which is used to execute the rules and has to be configured in this section. Furthermore, the projects needs one or more Datasets, which can be selected in the templates.
+-   **Template Catalog IRI**: The IRI of the template catalog we just created. As the name implies, the Template Catalog holds all templates for usage in the Link Rules module. Templates allow preselecting patterns for easier rule creation. (`https://ns.eccenca.com/data/linkruletemplates/` in this example)
+-   **Project ID**: The *Project Identifier* of the Link Rules Build project we just created. Link Rules will be managing this project and add the rules to it. To get the id of a project, open the project in the build component, select the project and choose 'Show identifier' in the context menu, in the top right. The project needs to have a workflow, which is used to execute the rules and has to be configured in this section. Furthermore, the projects needs one or more Datasets, which can be selected in the templates. (`linkrules` in this example)
+-   **Access Condition IRI**: The IRI of the Access Condition we just created. Explore the `CMEM Access Conditions` graph to find the `Access Condition` rule and its respective IRI.
 -   **Published Rules Workflow ID**: The *Item Identifier* of the workflow in the Link Rules Build project we just created.
--   **Access Condition IRI**: The IRI of the Access Condition we just created.
 -   **Output Graph Template**: A jinja template for the graph IRIs which will hold the results of a linking rule. It needs to include the placeholder `{name}`, for example `http://eccenca.com/user_rules/result_{name}`.
 -   **Publication Graph Template**: A jinja template, that generates the IRI of the graph, into which the output graph is imported via an `owl:imports`. This can be a simple graph IRI, for example `http://eccenca.com/user_rules/results_published`.
--   **Result Download Query**: A query that will be used to download the results of a linking rule. By default all resource IRIs will be listed as `resource1` and `resource2`. Whenever you want to provide other data via the *Download results* function, such as a specific identifier or a label instead of the IRI, this query can be adapted here.
+-   **Result Download Query** (optional): A query that will be used to download the results of a linking rule. By default all resource IRIs will be listed as `resource1` and `resource2`. Whenever you want to provide other data via the *Download results* function, such as a specific identifier or a label instead of the IRI, this query can be adapted here.
 -   **Annotation Class IRI** (optional): Rule results can be enriched with annotations. Instances of this class can be selected in the link rules interface. Instances have both a connection to the rule and the result. The connection is defined by the *Annotation Link Property IRI*. The values of the annotation are defined by the *Annotation Value Property IRI*. This relation is materialized as `rdf:value` in the output graph upon execution.
 -   **Annotation Value Property IRI** (optional): Values of sub-properties of this property are actually connected as `rdf:values` to the generated links of a rule.
 -   **Annotation Link Property IRI** (optional): The connection between a rule and an annotation resource (i.e. instance of *Annotation Class IRI*) is defined by this property.
@@ -144,13 +146,13 @@ Templates can be managed at *Link Rules module* -> *Manage Templates*.
 
 Create a new Link Rule Template. Such a template describes an abstract link rule with pre-defined settings.
 
--  **Label**: A mandatory label for the template.
--  **Target Property**: The (default) connecting property for the derived link rules. The property can be individually set for each link rule later on.
--  **Input** group: The datasets which hold the subjects (source) and objects (target) to link.
--  **Source/Target Dataset**: The dataset holding the resources to link.
--  **Source/Target Resource Pattern**: A filter description template for the resources to link. This is a JSON object as described in [Graph Resource Pattern](#graph-resource-pattern). When creating a Link Rule based on this template these resource patterns can be altered. So this template may remain simple, but should provide sufficient help for the end user to define a proper resource selection.
--  **Output** group: The dataset which will hold the Link Rule results.
--  **Output Graph**: The graph IRI where to write the Link Rule results. Available placeholders: `{name}` for the Link Rules name.
+-   **Label**: A mandatory label for the template.
+-   **Target Property**: The (default) connecting property for the derived link rules. The property can be individually set for each link rule later on.
+-   **Input** group: The datasets which hold the subjects (source) and objects (target) to link.
+-   **Source/Target Dataset**: The dataset holding the resources to link.
+-   **Source/Target Resource Pattern**: A filter description template for the resources to link. This is a JSON object as described in [Graph Resource Pattern](#graph-resource-pattern). When creating a Link Rule based on this template these resource patterns can be altered. So this template may remain simple, but should provide sufficient help for the end user to define a proper resource selection.
+-   **Output** group: The dataset which will hold the Link Rule results.
+-   **Output Graph**: The graph IRI where to write the Link Rule results. Available placeholders: `{name}` for the Link Rules name.
 
 ##### <a name="graph-resource-pattern"></a> Graph Resource Pattern
 
