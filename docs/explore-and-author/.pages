@@ -7,5 +7,6 @@ nav:
     - Thesauri Management: thesauri-management
     - Vocabulary Catalog: vocabulary-catalog
     - Charts Catalog: charts-catalog
+    - Link Rules: link-rules
     - Embedding Services via the Integrations Module: embedding-services-via-the-integrations-module
 
