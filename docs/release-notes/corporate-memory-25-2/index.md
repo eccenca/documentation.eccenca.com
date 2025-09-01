@@ -3,7 +3,7 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.2.1
+# Corporate Memory 25.2.2
 
 Corporate Memory 25.2 is the second major release in 2025.
 
@@ -33,8 +33,8 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.2.0
--   eccenca Explore v25.2.1
+-   eccenca DataIntegration v25.2.1
+-   eccenca Explore v25.2.2
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
@@ -44,9 +44,15 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.2.0
+## eccenca DataIntegration v25.2.1
 
-We are excited to announce the release of DataIntegration v25.2.0, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+We are excited to announce the release of DataIntegration v25.2.1, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+
+**v25.2.1 of DataIntegration ships the following fixes and additions:**
+
+-   Icon button tooltips do not pop-up out of control
+-   Edge markers are displayed in workflow editor
+-   If a project is imported to the knowledge graph backend, the graph is deleted before import
 
 **v25.2.0 of DataIntegration adds the following new features:**
 
@@ -84,9 +90,13 @@ We are excited to announce the release of DataIntegration v25.2.0, which introdu
 -   XML datasets now return empty values for empty tags when string values are expected
 -   Project variable updates now properly use the triggering user's credentials
 
-## eccenca Explore v25.2.1
+## eccenca Explore v25.2.2
 
-We are pleased to announce Explore v25.2.0, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+We are pleased to announce Explore v25.2.2, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.2 of Explore ships the following fixes and additions:**
+
+-   Update the gui-elements version to solve the edges cut problem
 
 **v25.2.1 of Explore ships the following fixes and additions:**
 
