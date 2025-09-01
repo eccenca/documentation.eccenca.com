@@ -50,7 +50,7 @@ We are excited to announce the release of DataIntegration v25.2.1, which introdu
 
 **v25.2.1 of DataIntegration ships the following fixes and additions:**
 
--   Icon button tooltips do not pop-up out of control
+-   Icon button tooltips do not pop up out of control
 -   Edge markers are displayed in workflow editor
 -   If a project is imported to the knowledge graph backend, the graph is deleted before import
 
@@ -83,7 +83,7 @@ We are excited to announce the release of DataIntegration v25.2.1, which introdu
 
 -   Fixed queries with ORDER BY clauses in SQL dataset
 -   Fixed create task dialog focus issues when opened via 'connect to newly created...' menu option
--   Fixed errors in Office365 dataset tests and adapted to Microsoft API changes
+-   Fixed errors in Office 365 dataset tests and adapted to Microsoft API changes
 -   Fixed display issues for workflow reports containing internal datasets
 -   Fixed drag-and-drop problems when adding operators to nested workflow editors
 -   Non-printable characters in CSV datasets are now preserved during read/write transformations
@@ -127,7 +127,7 @@ We are pleased to announce Explore v25.2.2, which brings significant enhancement
     -   Updated to React Flow v12 for enhanced graph visualization
     -   Automatic canvas scrolling when dragging items beyond visible area
     -   Advanced multi-select functionality on canvas for bulk operations
--   **SPARQL Query Endpoints** - Changed to use an explicit list of allowed content-types for better security
+-   **SPARQL Query Endpoints** - Changed to use an explicit list of allowed content types for better security
 -   **Catalog Query Management** - Update and SELECT queries are now differentiated by `rdf:type` using `shui:SparqlQuery` or `shui:UpdateQuery`
 
 **v25.2.0 of Explore ships the following fixes:**
