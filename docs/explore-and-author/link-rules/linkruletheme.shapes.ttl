@@ -1,0 +1,159 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shui: <https://vocab.eccenca.com/shui/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://vocab.eccenca.com/shacl/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# {{{ Link Rule Theme
+# {{{ Node Shape
+shapes:LinkRuleThemeNodeShape
+    a sh:NodeShape ;
+    shui:isSystemResource true ;
+    sh:property
+        shapes:defaultShapeLabel ,
+        shapes:ThemeTargetProperty ,
+        shapes:linkRuleTemplateSourceInput ,
+        shapes:linkRuleTemplateSourceGraphResourcePattern ,
+        shapes:linkRuleTemplateTargetInput ,
+        shapes:linkRuleTemplateTargetGraphResourcePattern ,
+        shapes:linkRuleTemplateOutputGraph ,
+        shapes:linkRuleTemplateIntegrationGraph ;
+    sh:targetClass <https://vocab.eccenca.com/di/Theme> ;
+    sh:name "Link Rule Theme"@en , "Regeltemplate"@de ;
+    rdfs:label "Link Rule Theme"@en , "Regeltemplate"@de ;
+.
+# }}}
+
+# {{{ Group: Input
+shapes:linkRuleTemplateGroupInput
+    a sh:PropertyGroup ;
+    shui:isSystemResource true ;
+    rdfs:label "Input"@en ;
+    sh:order 20 ;
+.
+
+shapes:ThemeTargetProperty
+    a sh:PropertyShape ;
+    rdfs:label  "Target Property" ;
+    shui:isSystemResource true ;
+    sh:description "The (default) connecting property."@en ;
+    sh:nodeKind sh:IRI ;
+    sh:class rdfs:Property ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "Target Property"@en ;
+    sh:order 9 ;
+    sh:path <https://vocab.eccenca.com/di/targetProperty> ;
+    shui:denyNewResources true ;
+    shui:showAlways true .
+
+shapes:linkRuleTemplateSourceInput
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "The DataIntegration Dataset to be used for the link subjects."@en ;
+    sh:nodeKind sh:IRI ;
+    sh:class <https://vocab.eccenca.com/di/Dataset> ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    rdfs:label "Source Dataset" ;
+    sh:name "Source Dataset"@en ;
+    sh:order 10 ;
+    sh:path <https://vocab.eccenca.com/di/sourceInput> ;
+    shui:showAlways true ;
+    shui:denyNewResources true ;
+    sh:group shapes:linkRuleTemplateGroupInput ;
+.
+
+shapes:linkRuleTemplateSourceGraphResourcePattern
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "A filter description template for resources used as the link subjects."@en ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    rdfs:label "Source Resource Pattern" ;
+    sh:name "Source Resource Pattern"@en ;
+    sh:order 20 ;
+    sh:path <https://vocab.eccenca.com/di/sourceGraphResourcePattern> ;
+    shui:showAlways true ;
+    shui:textarea true ;
+    shui:denyLanguageTag true ;
+    sh:group shapes:linkRuleTemplateGroupInput ;
+.
+
+shapes:linkRuleTemplateTargetInput
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "The DataIntegration Dataset to be used for the link objects."@en ;
+    sh:nodeKind sh:IRI ;
+    sh:class <https://vocab.eccenca.com/di/Dataset> ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    rdfs:label "Target Dataset" ;
+    sh:name "Target Dataset"@en ;
+    sh:order 30 ;
+    sh:path <https://vocab.eccenca.com/di/targetInput> ;
+    shui:showAlways true ;
+    shui:denyNewResources true ;
+    sh:group shapes:linkRuleTemplateGroupInput ;
+.
+
+shapes:linkRuleTemplateTargetGraphResourcePattern
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "A filter description template for resources used as the link objects."@en ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    rdfs:label "Target Resource Pattern" ;
+    sh:name "Target Resource Pattern"@en ;
+    sh:order 40 ;
+    sh:path <https://vocab.eccenca.com/di/targetGraphResourcePattern> ;
+    shui:showAlways true ;
+    shui:textarea true ;
+    shui:denyLanguageTag true ;
+    sh:group shapes:linkRuleTemplateGroupInput ;
+.
+# }}}
+
+# {{{ Group: Output
+shapes:linkRuleTemplateGroupOutput
+    a sh:PropertyGroup ;
+    shui:isSystemResource true ;
+    rdfs:label "Output"@en ;
+    sh:order 30 ;
+.
+
+shapes:linkRuleTemplateOutputGraph
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "The graph where to write the Link Rule results. Available placeholders: `{name}` for the Link Rules name."@en ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    rdfs:label "Output Graph" ;
+    sh:name "Output Graph"@en ;
+    sh:order 10 ;
+    sh:path <https://vocab.eccenca.com/di/outputgraph> ;
+    shui:showAlways true ;
+    shui:denyLanguageTag true ;
+    sh:group shapes:linkRuleTemplateGroupOutput ;
+.
+
+shapes:linkRuleTemplateIntegrationGraph
+    a sh:PropertyShape ;
+    shui:isSystemResource true ;
+    sh:description "The graph where to import the Output Graph on Publication."@en ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    rdfs:label "Integration Graph" ;
+    sh:name "Integration Graph"@en ;
+    sh:order 20 ;
+    sh:path <https://vocab.eccenca.com/di/integrationGraph> ;
+    sh:group shapes:linkRuleTemplateGroupOutput ;
+.
+# }}}
+
