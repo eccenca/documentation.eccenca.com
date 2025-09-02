@@ -1,6 +1,5 @@
 ---
 icon: material/apache-kafka
-status: new
 tags:
     - Automate
     - KnowledgeGraph

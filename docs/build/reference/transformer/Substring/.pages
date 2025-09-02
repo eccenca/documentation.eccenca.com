@@ -1,0 +1,6 @@
+nav:
+    - "Strip postfix": stripPostfix.md
+    - "Strip prefix": stripPrefix.md
+    - "Strip URI prefix": stripUriPrefix.md
+    - "Substring": substring.md
+    - "Until character": untilCharacter.md

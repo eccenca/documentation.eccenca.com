@@ -10,6 +10,14 @@ tags:
 
 The **Charts Catalog** is a module suitable to visualize your data in a chart.
 
+## Graph Selection
+
+The charts module lists all the graphs containing queries - which will be the data foundation for your charts.
+Select the graphs that contains the queries you want to user to get started.
+You will see the charts that are already defined based select any to edit or add a new with **Create chart**.
+
+![](Chart-graph-selection.png){ class="bordered" }
+
 ## Charts Management
 
 You can open the Charts Catalog from the main menu on the left.

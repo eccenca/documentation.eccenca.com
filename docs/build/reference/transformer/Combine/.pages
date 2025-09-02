@@ -1,0 +1,5 @@
+nav:
+    - "Concatenate": concat.md
+    - "Concatenate multiple values": concatMultiValues.md
+    - "Concatenate pairwise": concatPairwise.md
+    - "Merge": merge.md

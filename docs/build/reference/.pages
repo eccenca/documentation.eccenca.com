@@ -1,0 +1,7 @@
+nav:
+    - "Task and Operator Reference": index.md
+    - "Aggregators": aggregator
+    - "Custom Workflow Tasks": customtask
+    - "Datasets": dataset
+    - "Distance Measures": distancemeasure
+    - "Transformers": transformer

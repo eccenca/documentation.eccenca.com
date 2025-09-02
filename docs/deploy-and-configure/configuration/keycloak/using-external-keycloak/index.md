@@ -63,7 +63,7 @@ OAUTH_CLIENT_ID=cmem
 
 ![well-known configuration](well-known-config.png){ class="bordered" }
 
-By using variables in the DataIntegration configuration file `dataintegration.conf`, this environment is used automatically in the docker orchestration:
+By using variables in the Build (DataIntegration) configuration file `dataintegration.conf`, this environment is used automatically in the docker orchestration:
 
 ``` bash
 oauth.clientId = ${OAUTH_CLIENT_ID}
@@ -72,7 +72,7 @@ oauth.tokenUrl = ${OAUTH_TOKEN_URL}
 oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
 ```
 
-By using variables in the DataPlatform configuration file `application.yml`, this environment is used automatically in the docker orchestration:
+By using variables in the Explore backend (DataPlatform) configuration file `application.yml`, this environment is used automatically in the docker orchestration:
 
 ``` yaml
 spring.security.oauth2:

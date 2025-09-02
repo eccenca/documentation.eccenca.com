@@ -1,9 +1,8 @@
 nav:
     - Configuration: index.md
     - Docker Orchestration: docker-orchestration
-    - DataIntegration: dataintegration
-    - DataManager: datamanager
-    - DataPlatform: dataplatform
+    - Build: dataintegration
+    - Explore: explore
     - Keycloak: keycloak
     - Quad-Store: quad-store-configuration
     - Reverse Proxy: reverse-proxy

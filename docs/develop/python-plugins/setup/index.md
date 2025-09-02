@@ -7,7 +7,7 @@ tags:
 ---
 # Setup and Configuration
 
-This section describes which backend components are needed on the DataIntegration server, in order to use python plugins.
+This section describes which backend components are needed on the Build (DataIntegration) server, in order to use python plugins.
 
 
 ## Basic Configuration and Dependencies
@@ -17,9 +17,9 @@ This section describes which backend components are needed on the DataIntegratio
     When using the official eccenca docker images, setup and basic configuration is already done.
 
 
-??? note "DataIntegration Configuration"
+??? note "Build (DataIntegration) Configuration"
 
-    The following DataIntegration configuration section describes how to setup and enable the Python Plugin system.
+    The following Build (DataIntegration) configuration section describes how to setup and enable the Python Plugin system.
 
     ```text
     #################################################
@@ -59,7 +59,7 @@ This section describes which backend components are needed on the DataIntegratio
 
     The [Jep](https://github.com/ninia/jep) package needs to be installed.
 
-    The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running DataIntegration.
+    The libraries contained in the Jep module need to be accessible from the Java Virtual Machine running Build (DataIntegration).
     This can be achieved by setting an environment variable to the directory path where the Jep module is located:
 
     -   :simple-linux: **Linux**: set `LD_LIBRARY_PATH`.
@@ -123,13 +123,13 @@ To do so, use the [`pip download`](https://pip.pypa.io/en/stable/cli/pip_downloa
 
 ### Package Path
 
-The basic setup provides a `/data` directory inside of the DataIntegration container, where all changed files are managed in subdirectories.
+The basic setup provides a `/data` directory inside of the Build (DataIntegration) container, where all changed files are managed in subdirectories.
 The environment variable `PYTHONPATH` defines the directory, where the user-managed python packages are saved.
-This directory shall be persisted between restarts of DataIntegration.
+This directory shall be persisted between restarts of Build (DataIntegration).
 The default value of this variable is `/data/python-packages/`.
 DataIntegration won't start if the directory defined by `PYTHONPATH` is not present and can't be created.
-In addition DataIntegration needs write access to that folder.
-This is tested on DataIntegration startup.
+In addition Build (DataIntegration) needs write access to that folder.
+This is tested on Build (DataIntegration) startup.
 
 !!! info
     By setting environment variable `PYTHONPATH_FAILURE` (default: `true`) to other values than `true` this behavior can be skipped.

@@ -13,7 +13,7 @@ See the documentation of the JDBC dataset for more details.
 
 ## Writing a single table into a SQL database
 
-Three buildings blocks are required in eccenca DataIntegration to write into a remote SQL database:
+Three buildings blocks are required in eccenca Build (DataIntegration) to write into a remote SQL database:
 
 - A dataset that allows access to the Knowledge Graph.
 - A transformation that builds tables from specified resources in the Knowledge Graph.
