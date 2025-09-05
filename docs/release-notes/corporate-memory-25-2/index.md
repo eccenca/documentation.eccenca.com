@@ -33,7 +33,7 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.2.1
+-   eccenca DataIntegration v25.2.2
 -   eccenca Explore v25.2.2
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
@@ -44,9 +44,13 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.2.1
+## eccenca DataIntegration v25.2.2
 
-We are excited to announce the release of DataIntegration v25.2.1, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+We are excited to announce the release of DataIntegration v25.2.2, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+
+**v25.2.2 of DataIntegration ships the following fixes and additions:**
+
+-   Added optional parameter to **Get project files** operator to set the MIME type of the retrieved files, required for uploading RDF files to a Knowledge Graph dataset
 
 **v25.2.1 of DataIntegration ships the following fixes and additions:**
 
