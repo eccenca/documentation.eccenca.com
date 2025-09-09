@@ -31,14 +31,14 @@ Then we add a SPARQL Constrain shape, which ...
 
 ### Install needed Vocabularies
 
-Go to the **:eccenca-application-vocabularies: [Vocabulary catalog](../../../vocabulary-catalog)** and install the RDF Schema and FOAF Vocabulary.
+Go to the **:eccenca-application-vocabularies: [Vocabulary catalog](../../../vocabulary-catalog/index.md)** and install the RDF Schema and FOAF Vocabulary.
 Your vocabulary catalog should look like this after installation
 
 ![Vocabulary Catalog with Installed Vocabularies](vocabulary-catalog.png){ class="bordered" }
 
 ### Create a Shape Catalog
 
-Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration)** and create a **New Shape Catalog**.
+Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration/index.md)** and create a **New Shape Catalog**.
 Name the graph e.g. *My Shapes*.
 After this step, the browser shows you a nearly empty graph which shows SHACL classes such as **SHACL Node Shape** and **SHACL SPARQL Constraint** in the navigation.
 
@@ -94,7 +94,7 @@ Before you create your new Node Shape (and new Property Shape) your screen shoul
 
 Now we can validate the shape by creating a Person with a label which contains the term `eccenca`.
 
-- Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration)** and create a **New Knowledge Graph**.
+- Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration/index.md)** and create a **New Knowledge Graph**.
     - Name: `My Person Data`
     - Imports: `foaf: Friend of a Friend vocabulary`
 - Select **Person** in the Navigation component, then use the **Create a new "Person"** button in the top right corner to create a new resource.

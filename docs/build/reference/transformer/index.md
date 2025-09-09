@@ -169,9 +169,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Remove duplicates](Normalize/removeDuplicates.md) | Normalize | Removes duplicated values, making a value sequence distinct. |
  | [Remove empty values](Filter/removeEmptyValues.md) | Filter | Removes empty values. |
  | [Remove parentheses](Normalize/removeParentheses.md) | Normalize | Remove all parentheses including their content, e.g., transforms 'Berlin (City)' -> 'Berlin'. |
- | [Remove remote stop words](Filter/removeRemoteStopWords.md) | Filter | Removes stop words based on a stop word list remote URL. |
  | [Remove special chars](Normalize/removeSpecialChars.md) | Normalize | Remove special characters (including punctuation) from a string. |
- | [Remove stop words](Filter/removeStopWords.md) | Filter | Removes stop words based on a stop word list resource. |
  | [Remove values](Filter/removeValues.md) | Filter | Removes values that contain words from a blacklist. The blacklist values are separated with commas. |
  | [Replace](Replace/replace.md) | Replace | Replace all occurrences of a string "search" with "replace" in a string. |
  | [Replace](Excel/Excel_REPLACE.md) | Excel | Excel REPLACE(text; position; length; new_text): Replaces part of a text string with a different text string. This function can be used to replace both characters and numbers (which are automatically converted to text). The result of the function is always displayed as text. To perform further calculations with a number which has been replaced by text, convert it back to a number using the VALUE function. Any text containing numbers must be enclosed in quotation marks so it is not interpreted as a number and automatically converted to text. Text is text of which a part will be replaced. Position is the position within the text where the replacement will begin. Length is the number of characters in text to be replaced. New_text is the text which replaces text.. |
