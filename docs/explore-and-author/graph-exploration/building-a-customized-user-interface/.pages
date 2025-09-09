@@ -4,4 +4,5 @@ nav:
     - Node Shapes: node-shapes
     - Property Shapes: property-shapes
     - Datatypes: datatype-reference
+    - SPARQL Constraints: sparql-constraints
 
