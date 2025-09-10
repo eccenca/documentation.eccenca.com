@@ -4,6 +4,7 @@ status: new
 tags:
     - SPARQL
     - KnowledgeGraph
+    - Video
 ---
 # Query Module
 
