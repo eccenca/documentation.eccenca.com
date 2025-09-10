@@ -6,35 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Removes stop words based on a stop word list remote URL.">
       
       
-      
-        <link rel="canonical" href="https://documentation.eccenca.com/25.2/build/reference/transformer/Filter/removeRemoteStopwords/">
-      
-      
-        <link rel="prev" href="../removeEmptyValues/">
+        <link rel="canonical" href="https://documentation.eccenca.com/25.2/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/">
       
       
-        <link rel="next" href="../removeStopwords/">
+        <link rel="prev" href="../datatype-reference/">
+      
+      
+        <link rel="next" href="../../statement-annotations/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../assets/favicon.svg">
+      <link rel="icon" href="../../../../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14+insiders-4.53.16">
     
     
       
-        <title>Remove remote stop words - documentation.eccenca.com</title>
+        <title>Using SPARQL Constraints for Custom Resource Validation - documentation.eccenca.com</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.8cce3a28.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8cce3a28.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
   
@@ -262,16 +260,16 @@
         
         
         
-        <link rel="stylesheet" href="../../../../../assets/externals/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../../../assets/externals/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../../../css/timeago.css">
+      <link rel="stylesheet" href="../../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../../../../assets/extra.css">
+      <link rel="stylesheet" href="../../../../assets/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -289,18 +287,16 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Remove remote stop words - documentation.eccenca.com" />
-<meta property="og:description" content="Removes stop words based on a stop word list remote URL." />
-<meta property="og:image" content="https://documentation.eccenca.com/25.2/assets/images/social/build/reference/transformer/Filter/removeRemoteStopwords.png" />
+<meta property="og:title" content="Using SPARQL Constraints for Custom Resource Validation - documentation.eccenca.com" />
+<meta property="og:image" content="https://documentation.eccenca.com/25.2/assets/images/social/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://documentation.eccenca.com/25.2/build/reference/transformer/Filter/removeRemoteStopwords/" />
+<meta property="og:url" content="https://documentation.eccenca.com/25.2/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Remove remote stop words - documentation.eccenca.com" />
-<meta property="twitter:description" content="Removes stop words based on a stop word list remote URL." />
-<meta property="twitter:image" content="https://documentation.eccenca.com/25.2/assets/images/social/build/reference/transformer/Filter/removeRemoteStopwords.png" />
- <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta property="twitter:title" content="Using SPARQL Constraints for Custom Resource Validation - documentation.eccenca.com" />
+<meta property="twitter:image" content="https://documentation.eccenca.com/25.2/assets/images/social/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/index.png" />
+ <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -309,7 +305,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -328,7 +324,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#remove-remote-stop-words" class="md-skip">
+        <a href="#using-sparql-constraints-for-custom-resource-validation" class="md-skip">
           Skip to content
         </a>
       
@@ -343,12 +339,12 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../../../../..">
+  <a href="../../../../..">
     <strong>Click here to go to latest.</strong>
   </a>
 
             </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
           </aside>
         
       </div>
@@ -391,14 +387,14 @@
 
     <!-- Link to home -->
     <a
-      href="../../../../.."
+      href="../../../.."
       title="documentation.eccenca.com"
       class="md-header__button md-logo"
       aria-label="documentation.eccenca.com"
       data-md-component="logo"
     >
       
-  <img src="../../../../../assets/favicon.svg" alt="logo">
+  <img src="../../../../assets/favicon.svg" alt="logo">
 
     </a>
 
@@ -418,7 +414,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Remove remote stop words
+              Using SPARQL Constraints for Custom Resource Validation
             
           </span>
         </div>
@@ -525,13 +521,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../build/" class="md-tabs__link">
           
   
   
@@ -551,11 +545,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../../explore-and-author/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
           
   
   
@@ -579,7 +575,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../consume/" class="md-tabs__link">
+        <a href="../../../../consume/" class="md-tabs__link">
           
   
   
@@ -603,7 +599,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../deploy-and-configure/" class="md-tabs__link">
+        <a href="../../../../deploy-and-configure/" class="md-tabs__link">
           
   
   
@@ -627,7 +623,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../automate/" class="md-tabs__link">
+        <a href="../../../../automate/" class="md-tabs__link">
           
   
   
@@ -651,7 +647,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../develop/" class="md-tabs__link">
+        <a href="../../../../develop/" class="md-tabs__link">
           
   
   
@@ -682,7 +678,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../release-notes/corporate-memory-25-2/" class="md-tabs__link">
+        <a href="../../../../release-notes/corporate-memory-25-2/" class="md-tabs__link">
           
   
   
@@ -707,7 +703,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../tutorials/" class="md-tabs__link">
+        <a href="../../../../tutorials/" class="md-tabs__link">
           
   
   
@@ -751,9 +747,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="documentation.eccenca.com" class="md-nav__button md-logo" aria-label="documentation.eccenca.com" data-md-component="logo">
+    <a href="../../../.." title="documentation.eccenca.com" class="md-nav__button md-logo" aria-label="documentation.eccenca.com" data-md-component="logo">
       
-  <img src="../../../../../assets/favicon.svg" alt="logo">
+  <img src="../../../../assets/favicon.svg" alt="logo">
 
     </a>
     documentation.eccenca.com
@@ -777,8 +773,6 @@
       
   
   
-    
-  
   
   
     
@@ -824,21 +818,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../" class="md-nav__link ">
+            <a href="../../../../build/" class="md-nav__link ">
               
   
   
@@ -858,13 +849,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -905,7 +896,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../introduction-to-the-user-interface/" class="md-nav__link ">
+            <a href="../../../../build/introduction-to-the-user-interface/" class="md-nav__link ">
               
   
   
@@ -975,7 +966,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../rule-operators/" class="md-nav__link ">
+            <a href="../../../../build/rule-operators/" class="md-nav__link ">
               
   
   
@@ -1045,7 +1036,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../define-prefixes-namespaces/" class="md-nav__link ">
+            <a href="../../../../build/define-prefixes-namespaces/" class="md-nav__link ">
               
   
   
@@ -1091,8 +1082,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1119,15 +1108,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../../build/reference/" class="md-nav__link ">
               
   
   
@@ -1153,7 +1142,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1212,7 +1201,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../aggregator/" class="md-nav__link ">
+            <a href="../../../../build/reference/aggregator/" class="md-nav__link ">
               
   
   
@@ -1258,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/min/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/min/" class="md-nav__link">
         
   
   
@@ -1288,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/average/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/average/" class="md-nav__link">
         
   
   
@@ -1318,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/quadraticMean/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/quadraticMean/" class="md-nav__link">
         
   
   
@@ -1348,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/firstNonEmpty/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/firstNonEmpty/" class="md-nav__link">
         
   
   
@@ -1378,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/geometricMean/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/geometricMean/" class="md-nav__link">
         
   
   
@@ -1408,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/handleMissingValues/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/handleMissingValues/" class="md-nav__link">
         
   
   
@@ -1438,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/negate/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/negate/" class="md-nav__link">
         
   
   
@@ -1468,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/max/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/max/" class="md-nav__link">
         
   
   
@@ -1498,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregator/scale/" class="md-nav__link">
+      <a href="../../../../build/reference/aggregator/scale/" class="md-nav__link">
         
   
   
@@ -1672,6 +1661,8 @@
       
         
       
+        
+      
     
     
     
@@ -1687,7 +1678,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../customtask/" class="md-nav__link ">
+            <a href="../../../../build/reference/customtask/" class="md-nav__link ">
               
   
   
@@ -1733,7 +1724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/addProjectFiles/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/addProjectFiles/" class="md-nav__link">
         
   
   
@@ -1763,7 +1754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/CancelWorkflow/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/CancelWorkflow/" class="md-nav__link">
         
   
   
@@ -1793,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/combine-csv/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/combine-csv/" class="md-nav__link">
         
   
   
@@ -1823,7 +1814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/ConcatenateToFile/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/ConcatenateToFile/" class="md-nav__link">
         
   
   
@@ -1853,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_llm-CreateEmbeddings/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings/" class="md-nav__link">
         
   
   
@@ -1883,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate/" class="md-nav__link">
         
   
   
@@ -1913,7 +1904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/deleteProjectFiles/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/deleteProjectFiles/" class="md-nav__link">
         
   
   
@@ -1943,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/DistinctBy/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/DistinctBy/" class="md-nav__link">
         
   
   
@@ -1973,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/downloadFile/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/downloadFile/" class="md-nav__link">
         
   
   
@@ -2003,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_nextcloud-Download/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_nextcloud-Download/" class="md-nav__link">
         
   
   
@@ -2033,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_office365-Download/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_office365-Download/" class="md-nav__link">
         
   
   
@@ -2063,7 +2054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_ssh-Download/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_ssh-Download/" class="md-nav__link">
         
   
   
@@ -2093,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/Template/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/Template/" class="md-nav__link">
         
   
   
@@ -2123,7 +2114,37 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_ssh-Execute/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_kubernetes-Execute/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Execute a command in a kubernetes pod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/reference/customtask/cmem_plugin_ssh-Execute/" class="md-nav__link">
         
   
   
@@ -2153,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_llm-ExecuteInstructions/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions/" class="md-nav__link">
         
   
   
@@ -2183,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/eccencaRestOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/eccencaRestOperator/" class="md-nav__link">
         
   
   
@@ -2213,7 +2234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/SparkFunction/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/SparkFunction/" class="md-nav__link">
         
   
   
@@ -2243,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract/" class="md-nav__link">
         
   
   
@@ -2273,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin/" class="md-nav__link">
         
   
   
@@ -2303,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin/" class="md-nav__link">
         
   
   
@@ -2333,7 +2354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/getProjectFiles/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/getProjectFiles/" class="md-nav__link">
         
   
   
@@ -2363,7 +2384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin/" class="md-nav__link">
         
   
   
@@ -2393,7 +2414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/Merge/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/Merge/" class="md-nav__link">
         
   
   
@@ -2423,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem-plugin-jq-workflow/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem-plugin-jq-workflow/" class="md-nav__link">
         
   
   
@@ -2453,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_jira-JqlQuery/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_jira-JqlQuery/" class="md-nav__link">
         
   
   
@@ -2483,7 +2504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_kafka-ReceiveMessages/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_kafka-ReceiveMessages/" class="md-nav__link">
         
   
   
@@ -2513,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_kafka-SendMessages/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_kafka-SendMessages/" class="md-nav__link">
         
   
   
@@ -2543,7 +2564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_nextcloud-List/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_nextcloud-List/" class="md-nav__link">
         
   
   
@@ -2573,7 +2594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_office365-List/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_office365-List/" class="md-nav__link">
         
   
   
@@ -2603,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_project_resources-List/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_project_resources-List/" class="md-nav__link">
         
   
   
@@ -2633,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_ssh-List/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_ssh-List/" class="md-nav__link">
         
   
   
@@ -2663,7 +2684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/MultiTableMerge/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/MultiTableMerge/" class="md-nav__link">
         
   
   
@@ -2693,7 +2714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/ucumNormalizationTask/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/ucumNormalizationTask/" class="md-nav__link">
         
   
   
@@ -2723,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_auth-workflow-auth-OAuth2/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_auth-workflow-auth-OAuth2/" class="md-nav__link">
         
   
   
@@ -2753,7 +2774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_office365-Upload/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_office365-Upload/" class="md-nav__link">
         
   
   
@@ -2783,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/JsonParserOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/JsonParserOperator/" class="md-nav__link">
         
   
   
@@ -2813,7 +2834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/XmlParserOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/XmlParserOperator/" class="md-nav__link">
         
   
   
@@ -2843,7 +2864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_yaml-parse/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_yaml-parse/" class="md-nav__link">
         
   
   
@@ -2873,7 +2894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/Pivot/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/Pivot/" class="md-nav__link">
         
   
   
@@ -2903,7 +2924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/tripleRequestOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/tripleRequestOperator/" class="md-nav__link">
         
   
   
@@ -2933,7 +2954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/Scheduler/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/Scheduler/" class="md-nav__link">
         
   
   
@@ -2963,7 +2984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/SearchAddresses/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/SearchAddresses/" class="md-nav__link">
         
   
   
@@ -2993,7 +3014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_pgvector-Search/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_pgvector-Search/" class="md-nav__link">
         
   
   
@@ -3023,9 +3044,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../SendEmail.md" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/SendEMail/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -3051,7 +3074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_mattermost/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_mattermost/" class="md-nav__link">
         
   
   
@@ -3081,7 +3104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_parameters-ParametersPlugin/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_parameters-ParametersPlugin/" class="md-nav__link">
         
   
   
@@ -3111,7 +3134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/shacl-pyshacl/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/shacl-pyshacl/" class="md-nav__link">
         
   
   
@@ -3141,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_salesforce-SoqlQuery/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_salesforce-SoqlQuery/" class="md-nav__link">
         
   
   
@@ -3171,7 +3194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/sparqlCopyOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/sparqlCopyOperator/" class="md-nav__link">
         
   
   
@@ -3201,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/sparqlSelectOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/sparqlSelectOperator/" class="md-nav__link">
         
   
   
@@ -3231,7 +3254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/sparqlUpdateOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/sparqlUpdateOperator/" class="md-nav__link">
         
   
   
@@ -3261,7 +3284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin/" class="md-nav__link">
         
   
   
@@ -3291,7 +3314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/CustomSQLExecution/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/CustomSQLExecution/" class="md-nav__link">
         
   
   
@@ -3321,7 +3344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_loopwf-task-StartWorkflow/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_loopwf-task-StartWorkflow/" class="md-nav__link">
         
   
   
@@ -3351,7 +3374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_pgvector-Store/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_pgvector-Store/" class="md-nav__link">
         
   
   
@@ -3381,7 +3404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/Unpivot/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/Unpivot/" class="md-nav__link">
         
   
   
@@ -3411,7 +3434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_semspect-task-Update/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_semspect-task-Update/" class="md-nav__link">
         
   
   
@@ -3441,7 +3464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/eccencaDataPlatformGraphStoreFileUploadOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/eccencaDataPlatformGraphStoreFileUploadOperator/" class="md-nav__link">
         
   
   
@@ -3471,7 +3494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_nextcloud-Upload/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_nextcloud-Upload/" class="md-nav__link">
         
   
   
@@ -3501,7 +3524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_project_resources-UploadLocalFiles/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_project_resources-UploadLocalFiles/" class="md-nav__link">
         
   
   
@@ -3531,7 +3554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_ssh-Upload/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_ssh-Upload/" class="md-nav__link">
         
   
   
@@ -3561,7 +3584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_validation-validate-ValidateEntities/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_validation-validate-ValidateEntities/" class="md-nav__link">
         
   
   
@@ -3591,7 +3614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/cmem_plugin_validation-validate-ValidateGraph/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/cmem_plugin_validation-validate-ValidateGraph/" class="md-nav__link">
         
   
   
@@ -3621,7 +3644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/validateXsdOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/validateXsdOperator/" class="md-nav__link">
         
   
   
@@ -3651,7 +3674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../customtask/xsltOperator/" class="md-nav__link">
+      <a href="../../../../build/reference/customtask/xsltOperator/" class="md-nav__link">
         
   
   
@@ -3760,7 +3783,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../dataset/" class="md-nav__link ">
+            <a href="../../../../build/reference/dataset/" class="md-nav__link ">
               
   
   
@@ -3806,7 +3829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/alignment/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/alignment/" class="md-nav__link">
         
   
   
@@ -3836,7 +3859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/avro/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/avro/" class="md-nav__link">
         
   
   
@@ -3866,7 +3889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/binaryFile/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/binaryFile/" class="md-nav__link">
         
   
   
@@ -3896,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/csv/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/csv/" class="md-nav__link">
         
   
   
@@ -3926,7 +3949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/excel/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/excel/" class="md-nav__link">
         
   
   
@@ -3956,7 +3979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/googlespreadsheet/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/googlespreadsheet/" class="md-nav__link">
         
   
   
@@ -3986,7 +4009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/office365preadsheet/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/office365preadsheet/" class="md-nav__link">
         
   
   
@@ -4016,7 +4039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/Hive/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/Hive/" class="md-nav__link">
         
   
   
@@ -4046,7 +4069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/inMemory/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/inMemory/" class="md-nav__link">
         
   
   
@@ -4076,7 +4099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/internal/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/internal/" class="md-nav__link">
         
   
   
@@ -4106,7 +4129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/LocalInternalDataset/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/LocalInternalDataset/" class="md-nav__link">
         
   
   
@@ -4136,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/Jdbc/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/Jdbc/" class="md-nav__link">
         
   
   
@@ -4166,7 +4189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/json/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/json/" class="md-nav__link">
         
   
   
@@ -4196,7 +4219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/eccencaDataPlatform/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/eccencaDataPlatform/" class="md-nav__link">
         
   
   
@@ -4226,7 +4249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/multiCsv/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/multiCsv/" class="md-nav__link">
         
   
   
@@ -4256,7 +4279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/neo4j/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/neo4j/" class="md-nav__link">
         
   
   
@@ -4286,7 +4309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/orc/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/orc/" class="md-nav__link">
         
   
   
@@ -4316,7 +4339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/parquet/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/parquet/" class="md-nav__link">
         
   
   
@@ -4346,7 +4369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/file/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/file/" class="md-nav__link">
         
   
   
@@ -4376,7 +4399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/SnowflakeJdbc/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/SnowflakeJdbc/" class="md-nav__link">
         
   
   
@@ -4406,7 +4429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/sparkView/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/sparkView/" class="md-nav__link">
         
   
   
@@ -4436,7 +4459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/sparqlEndpoint/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/sparqlEndpoint/" class="md-nav__link">
         
   
   
@@ -4466,7 +4489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/sqlEndpoint/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/sqlEndpoint/" class="md-nav__link">
         
   
   
@@ -4496,7 +4519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/text/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/text/" class="md-nav__link">
         
   
   
@@ -4526,7 +4549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dataset/xml/" class="md-nav__link">
+      <a href="../../../../build/reference/dataset/xml/" class="md-nav__link">
         
   
   
@@ -4643,7 +4666,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../distancemeasure/" class="md-nav__link ">
+            <a href="../../../../build/reference/distancemeasure/" class="md-nav__link ">
               
   
   
@@ -4689,7 +4712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/cjkReadingDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/cjkReadingDistance/" class="md-nav__link">
         
   
   
@@ -4719,7 +4742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/PhysicalQuantitiesDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/PhysicalQuantitiesDistance/" class="md-nav__link">
         
   
   
@@ -4749,7 +4772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/constantDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/constantDistance/" class="md-nav__link">
         
   
   
@@ -4779,7 +4802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/cosine/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/cosine/" class="md-nav__link">
         
   
   
@@ -4809,7 +4832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/date/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/date/" class="md-nav__link">
         
   
   
@@ -4839,7 +4862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/dateTime/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/dateTime/" class="md-nav__link">
         
   
   
@@ -4869,7 +4892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/dice/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/dice/" class="md-nav__link">
         
   
   
@@ -4899,7 +4922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/wgs84/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/wgs84/" class="md-nav__link">
         
   
   
@@ -4929,7 +4952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/greaterThan/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/greaterThan/" class="md-nav__link">
         
   
   
@@ -4959,7 +4982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/inequality/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/inequality/" class="md-nav__link">
         
   
   
@@ -4989,7 +5012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/insideNumericInterval/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/insideNumericInterval/" class="md-nav__link">
         
   
   
@@ -5019,7 +5042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/isSubstring/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/isSubstring/" class="md-nav__link">
         
   
   
@@ -5049,7 +5072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/jaccard/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/jaccard/" class="md-nav__link">
         
   
   
@@ -5079,7 +5102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/jaro/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/jaro/" class="md-nav__link">
         
   
   
@@ -5109,7 +5132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/jaroWinkler/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/jaroWinkler/" class="md-nav__link">
         
   
   
@@ -5139,7 +5162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/koreanPhonemeDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/koreanPhonemeDistance/" class="md-nav__link">
         
   
   
@@ -5169,7 +5192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/koreanTranslitDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/koreanTranslitDistance/" class="md-nav__link">
         
   
   
@@ -5199,7 +5222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/levenshteinDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/levenshteinDistance/" class="md-nav__link">
         
   
   
@@ -5229,7 +5252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/lowerThan/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/lowerThan/" class="md-nav__link">
         
   
   
@@ -5259,7 +5282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/levenshtein/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/levenshtein/" class="md-nav__link">
         
   
   
@@ -5289,7 +5312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/numericEquality/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/numericEquality/" class="md-nav__link">
         
   
   
@@ -5319,7 +5342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/num/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/num/" class="md-nav__link">
         
   
   
@@ -5349,7 +5372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/qGrams/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/qGrams/" class="md-nav__link">
         
   
   
@@ -5379,7 +5402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/relaxedEquality/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/relaxedEquality/" class="md-nav__link">
         
   
   
@@ -5409,7 +5432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/softjaccard/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/softjaccard/" class="md-nav__link">
         
   
   
@@ -5439,7 +5462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/startsWith/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/startsWith/" class="md-nav__link">
         
   
   
@@ -5469,7 +5492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/equality/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/equality/" class="md-nav__link">
         
   
   
@@ -5499,7 +5522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/substringDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/substringDistance/" class="md-nav__link">
         
   
   
@@ -5529,7 +5552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distancemeasure/tokenwiseDistance/" class="md-nav__link">
+      <a href="../../../../build/reference/distancemeasure/tokenwiseDistance/" class="md-nav__link">
         
   
   
@@ -5564,8 +5587,6 @@
                 
   
   
-    
-  
   
   
     
@@ -5626,15 +5647,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../build/reference/transformer/" class="md-nav__link ">
               
   
   
@@ -5660,7 +5681,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_5_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_5_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_5_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5740,7 +5761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combine/concat/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Combine/concat/" class="md-nav__link">
         
   
   
@@ -5770,7 +5791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combine/concatMultiValues/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Combine/concatMultiValues/" class="md-nav__link">
         
   
   
@@ -5800,7 +5821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combine/concatPairwise/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Combine/concatPairwise/" class="md-nav__link">
         
   
   
@@ -5830,7 +5851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combine/merge/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Combine/merge/" class="md-nav__link">
         
   
   
@@ -5932,7 +5953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/containsAllOf/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/containsAllOf/" class="md-nav__link">
         
   
   
@@ -5962,7 +5983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/containsAnyOf/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/containsAnyOf/" class="md-nav__link">
         
   
   
@@ -5992,7 +6013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/ifContains/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/ifContains/" class="md-nav__link">
         
   
   
@@ -6022,7 +6043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/ifExists/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/ifExists/" class="md-nav__link">
         
   
   
@@ -6052,7 +6073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/ifMatchesRegex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/ifMatchesRegex/" class="md-nav__link">
         
   
   
@@ -6082,7 +6103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conditional/negateTransformer/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conditional/negateTransformer/" class="md-nav__link">
         
   
   
@@ -6174,7 +6195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Conversion/convertCharset/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Conversion/convertCharset/" class="md-nav__link">
         
   
   
@@ -6284,7 +6305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/compareDates/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/compareDates/" class="md-nav__link">
         
   
   
@@ -6314,7 +6335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/currentDate/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/currentDate/" class="md-nav__link">
         
   
   
@@ -6344,7 +6365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/datetoTimestamp/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/datetoTimestamp/" class="md-nav__link">
         
   
   
@@ -6374,7 +6395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/duration/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/duration/" class="md-nav__link">
         
   
   
@@ -6404,7 +6425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/durationInDays/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/durationInDays/" class="md-nav__link">
         
   
   
@@ -6434,7 +6455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/durationInSeconds/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/durationInSeconds/" class="md-nav__link">
         
   
   
@@ -6464,7 +6485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/durationInYears/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/durationInYears/" class="md-nav__link">
         
   
   
@@ -6494,7 +6515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/numberToDuration/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/numberToDuration/" class="md-nav__link">
         
   
   
@@ -6524,7 +6545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/parseDate/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/parseDate/" class="md-nav__link">
         
   
   
@@ -6554,7 +6575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Date/timeToDate/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Date/timeToDate/" class="md-nav__link">
         
   
   
@@ -6870,7 +6891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ABS/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ABS/" class="md-nav__link">
         
   
   
@@ -6900,7 +6921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ACOS/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ACOS/" class="md-nav__link">
         
   
   
@@ -6930,7 +6951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ACOSH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ACOSH/" class="md-nav__link">
         
   
   
@@ -6960,7 +6981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_AND/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_AND/" class="md-nav__link">
         
   
   
@@ -6990,7 +7011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ASIN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ASIN/" class="md-nav__link">
         
   
   
@@ -7020,7 +7041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ASINH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ASINH/" class="md-nav__link">
         
   
   
@@ -7050,7 +7071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ATAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ATAN/" class="md-nav__link">
         
   
   
@@ -7080,7 +7101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ATAN2/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ATAN2/" class="md-nav__link">
         
   
   
@@ -7110,7 +7131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ATANH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ATANH/" class="md-nav__link">
         
   
   
@@ -7140,7 +7161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_AVEDEV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_AVEDEV/" class="md-nav__link">
         
   
   
@@ -7170,7 +7191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_AVERAGE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_AVERAGE/" class="md-nav__link">
         
   
   
@@ -7200,7 +7221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_AVERAGEA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_AVERAGEA/" class="md-nav__link">
         
   
   
@@ -7230,7 +7251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_CEILING/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_CEILING/" class="md-nav__link">
         
   
   
@@ -7260,7 +7281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_CHOOSE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_CHOOSE/" class="md-nav__link">
         
   
   
@@ -7290,7 +7311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_CLEAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_CLEAN/" class="md-nav__link">
         
   
   
@@ -7320,7 +7341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_CODE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_CODE/" class="md-nav__link">
         
   
   
@@ -7350,7 +7371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COMBIN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COMBIN/" class="md-nav__link">
         
   
   
@@ -7380,7 +7401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_CORREL/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_CORREL/" class="md-nav__link">
         
   
   
@@ -7410,7 +7431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COS/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COS/" class="md-nav__link">
         
   
   
@@ -7440,7 +7461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COSH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COSH/" class="md-nav__link">
         
   
   
@@ -7470,7 +7491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COUNT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COUNT/" class="md-nav__link">
         
   
   
@@ -7500,7 +7521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COUNTA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COUNTA/" class="md-nav__link">
         
   
   
@@ -7530,7 +7551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_COVAR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_COVAR/" class="md-nav__link">
         
   
   
@@ -7560,7 +7581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_DEGREES/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_DEGREES/" class="md-nav__link">
         
   
   
@@ -7590,7 +7611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_DEVSQ/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_DEVSQ/" class="md-nav__link">
         
   
   
@@ -7620,7 +7641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_EVEN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_EVEN/" class="md-nav__link">
         
   
   
@@ -7650,7 +7671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_EXACT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_EXACT/" class="md-nav__link">
         
   
   
@@ -7680,7 +7701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_EXP/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_EXP/" class="md-nav__link">
         
   
   
@@ -7710,7 +7731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FACT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FACT/" class="md-nav__link">
         
   
   
@@ -7740,7 +7761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FALSE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FALSE/" class="md-nav__link">
         
   
   
@@ -7770,7 +7791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FIND/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FIND/" class="md-nav__link">
         
   
   
@@ -7800,7 +7821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FLOOR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FLOOR/" class="md-nav__link">
         
   
   
@@ -7830,7 +7851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FORECAST/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FORECAST/" class="md-nav__link">
         
   
   
@@ -7860,7 +7881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_FV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_FV/" class="md-nav__link">
         
   
   
@@ -7890,7 +7911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_GEOMEAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_GEOMEAN/" class="md-nav__link">
         
   
   
@@ -7920,7 +7941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_IF/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_IF/" class="md-nav__link">
         
   
   
@@ -7950,7 +7971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_INT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_INT/" class="md-nav__link">
         
   
   
@@ -7980,7 +8001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_INTERCEPT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_INTERCEPT/" class="md-nav__link">
         
   
   
@@ -8010,7 +8031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_IPMT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_IPMT/" class="md-nav__link">
         
   
   
@@ -8040,7 +8061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_IRR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_IRR/" class="md-nav__link">
         
   
   
@@ -8070,7 +8091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_LARGE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_LARGE/" class="md-nav__link">
         
   
   
@@ -8100,7 +8121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_LEFT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_LEFT/" class="md-nav__link">
         
   
   
@@ -8130,7 +8151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_LN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_LN/" class="md-nav__link">
         
   
   
@@ -8160,7 +8181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_LOG/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_LOG/" class="md-nav__link">
         
   
   
@@ -8190,7 +8211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_LOG10/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_LOG10/" class="md-nav__link">
         
   
   
@@ -8220,7 +8241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MAX/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MAX/" class="md-nav__link">
         
   
   
@@ -8250,7 +8271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MAXA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MAXA/" class="md-nav__link">
         
   
   
@@ -8280,7 +8301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MEDIAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MEDIAN/" class="md-nav__link">
         
   
   
@@ -8310,7 +8331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MID/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MID/" class="md-nav__link">
         
   
   
@@ -8340,7 +8361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MIN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MIN/" class="md-nav__link">
         
   
   
@@ -8370,7 +8391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MINA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MINA/" class="md-nav__link">
         
   
   
@@ -8400,7 +8421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MIRR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MIRR/" class="md-nav__link">
         
   
   
@@ -8430,7 +8451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MOD/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MOD/" class="md-nav__link">
         
   
   
@@ -8460,7 +8481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_MODE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_MODE/" class="md-nav__link">
         
   
   
@@ -8490,7 +8511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NORMDIST/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NORMDIST/" class="md-nav__link">
         
   
   
@@ -8520,7 +8541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NORMINV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NORMINV/" class="md-nav__link">
         
   
   
@@ -8550,7 +8571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NORMSDIST/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NORMSDIST/" class="md-nav__link">
         
   
   
@@ -8580,7 +8601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NORMSINV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NORMSINV/" class="md-nav__link">
         
   
   
@@ -8610,7 +8631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NOT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NOT/" class="md-nav__link">
         
   
   
@@ -8640,7 +8661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NPER/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NPER/" class="md-nav__link">
         
   
   
@@ -8670,7 +8691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_NPV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_NPV/" class="md-nav__link">
         
   
   
@@ -8700,7 +8721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ODD/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ODD/" class="md-nav__link">
         
   
   
@@ -8730,7 +8751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_OR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_OR/" class="md-nav__link">
         
   
   
@@ -8760,7 +8781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PEARSON/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PEARSON/" class="md-nav__link">
         
   
   
@@ -8790,7 +8811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PERCENTILE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PERCENTILE/" class="md-nav__link">
         
   
   
@@ -8820,7 +8841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PERCENTRANK/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PERCENTRANK/" class="md-nav__link">
         
   
   
@@ -8850,7 +8871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PI/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PI/" class="md-nav__link">
         
   
   
@@ -8880,7 +8901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PMT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PMT/" class="md-nav__link">
         
   
   
@@ -8910,7 +8931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_POISSON/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_POISSON/" class="md-nav__link">
         
   
   
@@ -8940,7 +8961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_POWER/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_POWER/" class="md-nav__link">
         
   
   
@@ -8970,7 +8991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PPMT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PPMT/" class="md-nav__link">
         
   
   
@@ -9000,7 +9021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PRODUCT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PRODUCT/" class="md-nav__link">
         
   
   
@@ -9030,7 +9051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PROPER/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PROPER/" class="md-nav__link">
         
   
   
@@ -9060,7 +9081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_PV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_PV/" class="md-nav__link">
         
   
   
@@ -9090,7 +9111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_RADIANS/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_RADIANS/" class="md-nav__link">
         
   
   
@@ -9120,7 +9141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_RAND/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_RAND/" class="md-nav__link">
         
   
   
@@ -9150,7 +9171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_RANK/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_RANK/" class="md-nav__link">
         
   
   
@@ -9180,7 +9201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_RATE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_RATE/" class="md-nav__link">
         
   
   
@@ -9210,7 +9231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_REPLACE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_REPLACE/" class="md-nav__link">
         
   
   
@@ -9240,7 +9261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_REPT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_REPT/" class="md-nav__link">
         
   
   
@@ -9270,7 +9291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_RIGHT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_RIGHT/" class="md-nav__link">
         
   
   
@@ -9300,7 +9321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ROMAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ROMAN/" class="md-nav__link">
         
   
   
@@ -9330,7 +9351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ROUND/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ROUND/" class="md-nav__link">
         
   
   
@@ -9360,7 +9381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ROUNDDOWN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ROUNDDOWN/" class="md-nav__link">
         
   
   
@@ -9390,7 +9411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_ROUNDUP/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_ROUNDUP/" class="md-nav__link">
         
   
   
@@ -9420,7 +9441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SEARCH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SEARCH/" class="md-nav__link">
         
   
   
@@ -9450,7 +9471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SIGN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SIGN/" class="md-nav__link">
         
   
   
@@ -9480,7 +9501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SIN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SIN/" class="md-nav__link">
         
   
   
@@ -9510,7 +9531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SINH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SINH/" class="md-nav__link">
         
   
   
@@ -9540,7 +9561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SLOPE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SLOPE/" class="md-nav__link">
         
   
   
@@ -9570,7 +9591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SMALL/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SMALL/" class="md-nav__link">
         
   
   
@@ -9600,7 +9621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SQRT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SQRT/" class="md-nav__link">
         
   
   
@@ -9630,7 +9651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_STANDARDIZE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_STANDARDIZE/" class="md-nav__link">
         
   
   
@@ -9660,7 +9681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_STDEV/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_STDEV/" class="md-nav__link">
         
   
   
@@ -9690,7 +9711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_STDEVA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_STDEVA/" class="md-nav__link">
         
   
   
@@ -9720,7 +9741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_STDEVP/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_STDEVP/" class="md-nav__link">
         
   
   
@@ -9750,7 +9771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_STDEVPA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_STDEVPA/" class="md-nav__link">
         
   
   
@@ -9780,7 +9801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUBSTITUTE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUBSTITUTE/" class="md-nav__link">
         
   
   
@@ -9810,7 +9831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUM/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUM/" class="md-nav__link">
         
   
   
@@ -9840,7 +9861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUMPRODUCT/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUMPRODUCT/" class="md-nav__link">
         
   
   
@@ -9870,7 +9891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUMSQ/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUMSQ/" class="md-nav__link">
         
   
   
@@ -9900,7 +9921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUMX2MY2/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUMX2MY2/" class="md-nav__link">
         
   
   
@@ -9930,7 +9951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUMX2PY2/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUMX2PY2/" class="md-nav__link">
         
   
   
@@ -9960,7 +9981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_SUMXMY2/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_SUMXMY2/" class="md-nav__link">
         
   
   
@@ -9990,7 +10011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_TAN/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_TAN/" class="md-nav__link">
         
   
   
@@ -10020,7 +10041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_TANH/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_TANH/" class="md-nav__link">
         
   
   
@@ -10050,7 +10071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_TDIST/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_TDIST/" class="md-nav__link">
         
   
   
@@ -10080,7 +10101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_TRUE/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_TRUE/" class="md-nav__link">
         
   
   
@@ -10110,7 +10131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_TRUNC/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_TRUNC/" class="md-nav__link">
         
   
   
@@ -10140,7 +10161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_VAR/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_VAR/" class="md-nav__link">
         
   
   
@@ -10170,7 +10191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_VARA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_VARA/" class="md-nav__link">
         
   
   
@@ -10200,7 +10221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_VARP/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_VARP/" class="md-nav__link">
         
   
   
@@ -10230,7 +10251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Excel/Excel_VARPA/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Excel/Excel_VARPA/" class="md-nav__link">
         
   
   
@@ -10322,7 +10343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Extract/regexExtract/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Extract/regexExtract/" class="md-nav__link">
         
   
   
@@ -10357,10 +10378,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -10385,11 +10404,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_6_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_6_8" >
         
           
           <label class="md-nav__link" for="__nav_1_5_6_8" id="__nav_1_5_6_8_label" tabindex="0">
@@ -10410,7 +10429,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_6_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_6_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_5_6_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -10428,7 +10447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filterByLength/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/filterByLength/" class="md-nav__link">
         
   
   
@@ -10458,7 +10477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filterByRegex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/filterByRegex/" class="md-nav__link">
         
   
   
@@ -10488,7 +10507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../removeDefaultStopWords/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/removeDefaultStopWords/" class="md-nav__link">
         
   
   
@@ -10518,7 +10537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../removeEmptyValues/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/removeEmptyValues/" class="md-nav__link">
         
   
   
@@ -10548,9 +10567,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../removeRemoteStopWords.md" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/removeRemoteStopWords/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -10576,9 +10597,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../removeStopWords.md" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/removeStopWords/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -10604,7 +10627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../removeValues/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Filter/removeValues/" class="md-nav__link">
         
   
   
@@ -10700,7 +10723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Geo/RetrieveCoordinates/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Geo/RetrieveCoordinates/" class="md-nav__link">
         
   
   
@@ -10730,7 +10753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Geo/RetrieveLatitude/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Geo/RetrieveLatitude/" class="md-nav__link">
         
   
   
@@ -10760,7 +10783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Geo/RetrieveLongitude/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Geo/RetrieveLongitude/" class="md-nav__link">
         
   
   
@@ -10860,7 +10883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linguistic/metaphone/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Linguistic/metaphone/" class="md-nav__link">
         
   
   
@@ -10890,7 +10913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linguistic/normalizeChars/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Linguistic/normalizeChars/" class="md-nav__link">
         
   
   
@@ -10920,7 +10943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linguistic/NYSIIS/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Linguistic/NYSIIS/" class="md-nav__link">
         
   
   
@@ -10950,7 +10973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linguistic/soundex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Linguistic/soundex/" class="md-nav__link">
         
   
   
@@ -10980,7 +11003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linguistic/stem/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Linguistic/stem/" class="md-nav__link">
         
   
   
@@ -11076,7 +11099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Metadata/fileHash/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Metadata/fileHash/" class="md-nav__link">
         
   
   
@@ -11106,7 +11129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Metadata/inputFileAttributes/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Metadata/inputFileAttributes/" class="md-nav__link">
         
   
   
@@ -11136,7 +11159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Metadata/inputTaskAttributes/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Metadata/inputTaskAttributes/" class="md-nav__link">
         
   
   
@@ -11254,7 +11277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/camelCase/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/camelCase/" class="md-nav__link">
         
   
   
@@ -11284,7 +11307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/capitalize/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/capitalize/" class="md-nav__link">
         
   
   
@@ -11314,7 +11337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/htmlCleaner/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/htmlCleaner/" class="md-nav__link">
         
   
   
@@ -11344,7 +11367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/urlEncode/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/urlEncode/" class="md-nav__link">
         
   
   
@@ -11374,7 +11397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/uriFix/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/uriFix/" class="md-nav__link">
         
   
   
@@ -11404,7 +11427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/lowerCase/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/lowerCase/" class="md-nav__link">
         
   
   
@@ -11434,7 +11457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/removeBlanks/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/removeBlanks/" class="md-nav__link">
         
   
   
@@ -11464,7 +11487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/removeDuplicates/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/removeDuplicates/" class="md-nav__link">
         
   
   
@@ -11494,7 +11517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/removeParentheses/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/removeParentheses/" class="md-nav__link">
         
   
   
@@ -11524,7 +11547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/removeSpecialChars/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/removeSpecialChars/" class="md-nav__link">
         
   
   
@@ -11554,7 +11577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/sortWords/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/sortWords/" class="md-nav__link">
         
   
   
@@ -11584,7 +11607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/alphaReduce/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/alphaReduce/" class="md-nav__link">
         
   
   
@@ -11614,7 +11637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/trim/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/trim/" class="md-nav__link">
         
   
   
@@ -11644,7 +11667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Normalize/upperCase/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Normalize/upperCase/" class="md-nav__link">
         
   
   
@@ -11752,7 +11775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/aggregateNumbers/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/aggregateNumbers/" class="md-nav__link">
         
   
   
@@ -11782,7 +11805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/compareNumbers/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/compareNumbers/" class="md-nav__link">
         
   
   
@@ -11812,7 +11835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/cmem-plugin-number-conversion/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/cmem-plugin-number-conversion/" class="md-nav__link">
         
   
   
@@ -11842,7 +11865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/extractPhysicalQuantity/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/extractPhysicalQuantity/" class="md-nav__link">
         
   
   
@@ -11872,7 +11895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/formatNumber/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/formatNumber/" class="md-nav__link">
         
   
   
@@ -11902,7 +11925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/log/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/log/" class="md-nav__link">
         
   
   
@@ -11932,7 +11955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/PhysicalQuantitiesNormalizer/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/PhysicalQuantitiesNormalizer/" class="md-nav__link">
         
   
   
@@ -11962,7 +11985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/numOperation/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/numOperation/" class="md-nav__link">
         
   
   
@@ -11992,7 +12015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Numeric/numReduce/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Numeric/numReduce/" class="md-nav__link">
         
   
   
@@ -12098,7 +12121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/DateTypeParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/DateTypeParser/" class="md-nav__link">
         
   
   
@@ -12128,7 +12151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/FloatTypeParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/FloatTypeParser/" class="md-nav__link">
         
   
   
@@ -12158,7 +12181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/GeoCoordinateParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/GeoCoordinateParser/" class="md-nav__link">
         
   
   
@@ -12188,7 +12211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/GeoLocationParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/GeoLocationParser/" class="md-nav__link">
         
   
   
@@ -12218,7 +12241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/IntegerParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/IntegerParser/" class="md-nav__link">
         
   
   
@@ -12248,7 +12271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/IsinParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/IsinParser/" class="md-nav__link">
         
   
   
@@ -12278,7 +12301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/SkosTypeParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/SkosTypeParser/" class="md-nav__link">
         
   
   
@@ -12308,7 +12331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Parser/StringParser/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Parser/StringParser/" class="md-nav__link">
         
   
   
@@ -12408,7 +12431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Replace/excelMap/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Replace/excelMap/" class="md-nav__link">
         
   
   
@@ -12438,7 +12461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Replace/map/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Replace/map/" class="md-nav__link">
         
   
   
@@ -12468,7 +12491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Replace/mapWithDefaultInput/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Replace/mapWithDefaultInput/" class="md-nav__link">
         
   
   
@@ -12498,7 +12521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Replace/regexReplace/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Replace/regexReplace/" class="md-nav__link">
         
   
   
@@ -12528,7 +12551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Replace/replace/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Replace/replace/" class="md-nav__link">
         
   
   
@@ -12622,7 +12645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Selection/coalesce/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Selection/coalesce/" class="md-nav__link">
         
   
   
@@ -12652,7 +12675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Selection/regexSelect/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Selection/regexSelect/" class="md-nav__link">
         
   
   
@@ -12750,7 +12773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Sequence/count/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Sequence/count/" class="md-nav__link">
         
   
   
@@ -12780,7 +12803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Sequence/getValueByIndex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Sequence/getValueByIndex/" class="md-nav__link">
         
   
   
@@ -12810,7 +12833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Sequence/toSequenceIndex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Sequence/toSequenceIndex/" class="md-nav__link">
         
   
   
@@ -12840,7 +12863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Sequence/sort/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Sequence/sort/" class="md-nav__link">
         
   
   
@@ -12940,7 +12963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Substring/stripPostfix/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Substring/stripPostfix/" class="md-nav__link">
         
   
   
@@ -12970,7 +12993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Substring/stripPrefix/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Substring/stripPrefix/" class="md-nav__link">
         
   
   
@@ -13000,7 +13023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Substring/stripUriPrefix/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Substring/stripUriPrefix/" class="md-nav__link">
         
   
   
@@ -13030,7 +13053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Substring/substring/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Substring/substring/" class="md-nav__link">
         
   
   
@@ -13060,7 +13083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Substring/untilCharacter/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Substring/untilCharacter/" class="md-nav__link">
         
   
   
@@ -13152,7 +13175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Template/TemplateTransformer/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Template/TemplateTransformer/" class="md-nav__link">
         
   
   
@@ -13246,7 +13269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tokenization/camelcasetokenizer/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Tokenization/camelcasetokenizer/" class="md-nav__link">
         
   
   
@@ -13276,7 +13299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tokenization/tokenize/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Tokenization/tokenize/" class="md-nav__link">
         
   
   
@@ -13370,7 +13393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Uncategorized/cmem_plugin_currencies-transform/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Uncategorized/cmem_plugin_currencies-transform/" class="md-nav__link">
         
   
   
@@ -13400,7 +13423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Uncategorized/cmem-plugin-jq-transform/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Uncategorized/cmem-plugin-jq-transform/" class="md-nav__link">
         
   
   
@@ -13500,7 +13523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Validation/validateDateAfter/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Validation/validateDateAfter/" class="md-nav__link">
         
   
   
@@ -13530,7 +13553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Validation/validateDateRange/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Validation/validateDateRange/" class="md-nav__link">
         
   
   
@@ -13560,7 +13583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Validation/validateNumberOfValues/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Validation/validateNumberOfValues/" class="md-nav__link">
         
   
   
@@ -13590,7 +13613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Validation/validateNumericRange/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Validation/validateNumericRange/" class="md-nav__link">
         
   
   
@@ -13620,7 +13643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Validation/validateRegex/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Validation/validateRegex/" class="md-nav__link">
         
   
   
@@ -13750,7 +13773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/constant/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/constant/" class="md-nav__link">
         
   
   
@@ -13780,7 +13803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/constantUri/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/constantUri/" class="md-nav__link">
         
   
   
@@ -13810,7 +13833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/datasetParameter/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/datasetParameter/" class="md-nav__link">
         
   
   
@@ -13840,7 +13863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/defaultValue/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/defaultValue/" class="md-nav__link">
         
   
   
@@ -13870,7 +13893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/emptyValue/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/emptyValue/" class="md-nav__link">
         
   
   
@@ -13900,7 +13923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/inputHash/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/inputHash/" class="md-nav__link">
         
   
   
@@ -13930,7 +13953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/randomNumber/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/randomNumber/" class="md-nav__link">
         
   
   
@@ -13960,7 +13983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/readParameter/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/readParameter/" class="md-nav__link">
         
   
   
@@ -13990,7 +14013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem-plugin-ulid/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem-plugin-ulid/" class="md-nav__link">
         
   
   
@@ -14020,7 +14043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/uuid/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/uuid/" class="md-nav__link">
         
   
   
@@ -14050,7 +14073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert/" class="md-nav__link">
         
   
   
@@ -14080,7 +14103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion/" class="md-nav__link">
         
   
   
@@ -14110,7 +14133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID1/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1/" class="md-nav__link">
         
   
   
@@ -14140,7 +14163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6/" class="md-nav__link">
         
   
   
@@ -14170,7 +14193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID3/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID3/" class="md-nav__link">
         
   
   
@@ -14200,7 +14223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID4/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID4/" class="md-nav__link">
         
   
   
@@ -14230,7 +14253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID5/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID5/" class="md-nav__link">
         
   
   
@@ -14260,7 +14283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID6/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID6/" class="md-nav__link">
         
   
   
@@ -14290,7 +14313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID7/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID7/" class="md-nav__link">
         
   
   
@@ -14320,7 +14343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Value/cmem_plugin_uuid-plugin_uuid-UUID8/" class="md-nav__link">
+      <a href="../../../../build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8/" class="md-nav__link">
         
   
   
@@ -14395,7 +14418,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../cool-iris/" class="md-nav__link ">
+            <a href="../../../../build/cool-iris/" class="md-nav__link ">
               
   
   
@@ -14465,7 +14488,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/" class="md-nav__link ">
+            <a href="../../../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/" class="md-nav__link ">
               
   
   
@@ -14538,7 +14561,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../lift-data-from-json-and-xml-sources/" class="md-nav__link ">
+            <a href="../../../../build/lift-data-from-json-and-xml-sources/" class="md-nav__link ">
               
   
   
@@ -14611,7 +14634,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../extracting-data-from-a-web-api/" class="md-nav__link ">
+            <a href="../../../../build/extracting-data-from-a-web-api/" class="md-nav__link ">
               
   
   
@@ -14681,7 +14704,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../workflow-reconfiguration/" class="md-nav__link ">
+            <a href="../../../../build/workflow-reconfiguration/" class="md-nav__link ">
               
   
   
@@ -14751,7 +14774,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../loading-jdbc-datasets-incrementally/" class="md-nav__link ">
+            <a href="../../../../build/loading-jdbc-datasets-incrementally/" class="md-nav__link ">
               
   
   
@@ -14821,7 +14844,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../snowflake-tutorial/" class="md-nav__link ">
+            <a href="../../../../build/snowflake-tutorial/" class="md-nav__link ">
               
   
   
@@ -14902,7 +14925,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../active-learning/" class="md-nav__link ">
+            <a href="../../../../build/active-learning/" class="md-nav__link ">
               
   
   
@@ -14987,7 +15010,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/" class="md-nav__link ">
               
   
   
@@ -15057,7 +15080,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/define-the-interfaces/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/" class="md-nav__link ">
               
   
   
@@ -15125,7 +15148,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/define-the-need/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/define-the-need/" class="md-nav__link ">
               
   
   
@@ -15193,7 +15216,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/" class="md-nav__link ">
               
   
   
@@ -15261,7 +15284,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/" class="md-nav__link ">
               
   
   
@@ -15329,7 +15352,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/" class="md-nav__link ">
               
   
   
@@ -15397,7 +15420,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/" class="md-nav__link ">
+            <a href="../../../../build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/" class="md-nav__link ">
               
   
   
@@ -15473,7 +15496,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../variables/" class="md-nav__link ">
+            <a href="../../../../build/variables/" class="md-nav__link ">
               
   
   
@@ -15543,7 +15566,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../evaluate-template/" class="md-nav__link ">
+            <a href="../../../../build/evaluate-template/" class="md-nav__link ">
               
   
   
@@ -15613,7 +15636,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../kafka-consumer/" class="md-nav__link ">
+            <a href="../../../../build/kafka-consumer/" class="md-nav__link ">
               
   
   
@@ -15666,6 +15689,8 @@
       
   
   
+    
+  
   
   
     
@@ -15691,22 +15716,27 @@
       
         
       
-    
-    
-    
-      
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/" class="md-nav__link ">
+            <a href="../../../" class="md-nav__link ">
               
   
   
@@ -15726,13 +15756,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -15773,7 +15803,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/workspace-configuration/" class="md-nav__link ">
+            <a href="../../../workspace-configuration/" class="md-nav__link ">
               
   
   
@@ -15819,6 +15849,8 @@
                 
   
   
+    
+  
   
   
     
@@ -15841,15 +15873,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -15875,7 +15907,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -15892,6 +15924,8 @@
                 
   
   
+    
+  
   
   
     
@@ -15909,6 +15943,8 @@
       
         
       
+        
+      
     
     
     
@@ -15916,15 +15952,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -15950,7 +15986,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -15991,7 +16027,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/" class="md-nav__link ">
+            <a href="../workflow-trigger/" class="md-nav__link ">
               
   
   
@@ -16061,7 +16097,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/" class="md-nav__link ">
+            <a href="../node-shapes/" class="md-nav__link ">
               
   
   
@@ -16131,7 +16167,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/" class="md-nav__link ">
+            <a href="../property-shapes/" class="md-nav__link ">
               
   
   
@@ -16201,7 +16237,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/" class="md-nav__link ">
+            <a href="../datatype-reference/" class="md-nav__link ">
               
   
   
@@ -16228,6 +16264,86 @@
             
   
     Datatypes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="22" cy="24" r="2"/><path d="M29.7769,23.4785A8.64,8.64,0,0,0,22,18a8.64,8.64,0,0,0-7.7769,5.4785L14,24l.2231.5215A8.64,8.64,0,0,0,22,30a8.64,8.64,0,0,0,7.7769-5.4785L30,24ZM22,28a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,22,28Z"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="8" cy="24" r="1"/><path d="M5,21h7V19H5V13H21v3h2V5a2,2,0,0,0-2-2H5A2,2,0,0,0,3,5V27a2,2,0,0,0,2,2h7V27H5ZM5,5H21v6H5Z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SPARQL Constraints
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="Recently added or extended">
+    </span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SPARQL Constraints
   
 
           </label>
@@ -16279,7 +16395,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/statement-annotations/" class="md-nav__link ">
+            <a href="../../statement-annotations/" class="md-nav__link ">
               
   
   
@@ -16349,7 +16465,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/graph-exploration/versioning-of-graph-changes/" class="md-nav__link ">
+            <a href="../../versioning-of-graph-changes/" class="md-nav__link ">
               
   
   
@@ -16427,7 +16543,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/bke-module/" class="md-nav__link ">
+            <a href="../../../bke-module/" class="md-nav__link ">
               
   
   
@@ -16505,7 +16621,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/query-module/" class="md-nav__link ">
+            <a href="../../../query-module/" class="md-nav__link ">
               
   
   
@@ -16583,7 +16699,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/thesauri-management/" class="md-nav__link ">
+            <a href="../../../thesauri-management/" class="md-nav__link ">
               
   
   
@@ -16653,7 +16769,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/vocabulary-catalog/" class="md-nav__link ">
+            <a href="../../../vocabulary-catalog/" class="md-nav__link ">
               
   
   
@@ -16723,7 +16839,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/charts-catalog/" class="md-nav__link ">
+            <a href="../../../charts-catalog/" class="md-nav__link ">
               
   
   
@@ -16801,7 +16917,85 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../explore-and-author/embedding-services-via-the-integrations-module/" class="md-nav__link ">
+            <a href="../../../link-rules/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23,16a7,7,0,0,0-4.18,1.39L14.6,13.17A6.86,6.86,0,0,0,16,9a7,7,0,1,0-2.81,5.59l4.21,4.22A7,7,0,1,0,23,16ZM4,9a5,5,0,1,1,5,5A5,5,0,0,1,4,9Z" transform="translate(0 .01)"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Link Rules
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="Recently added or extended">
+    </span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Link Rules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../embedding-services-via-the-integrations-module/" class="md-nav__link ">
               
   
   
@@ -16822,8 +17016,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -16890,7 +17084,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/" class="md-nav__link ">
+            <a href="../../../../consume/" class="md-nav__link ">
               
   
   
@@ -16957,7 +17151,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/consuming-graphs-in-power-bi/" class="md-nav__link ">
+            <a href="../../../../consume/consuming-graphs-in-power-bi/" class="md-nav__link ">
               
   
   
@@ -17027,7 +17221,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/consuming-graphs-with-redash/" class="md-nav__link ">
+            <a href="../../../../consume/consuming-graphs-with-redash/" class="md-nav__link ">
               
   
   
@@ -17097,7 +17291,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/consuming-graphs-with-sql-databases/" class="md-nav__link ">
+            <a href="../../../../consume/consuming-graphs-with-sql-databases/" class="md-nav__link ">
               
   
   
@@ -17167,7 +17361,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/provide-data-in-any-format-via-a-custom-api/" class="md-nav__link ">
+            <a href="../../../../consume/provide-data-in-any-format-via-a-custom-api/" class="md-nav__link ">
               
   
   
@@ -17237,7 +17431,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/populate-data-to-neo4j/" class="md-nav__link ">
+            <a href="../../../../consume/populate-data-to-neo4j/" class="md-nav__link ">
               
   
   
@@ -17307,7 +17501,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../consume/consume-graphs-in-apache-kafka/" class="md-nav__link ">
+            <a href="../../../../consume/consume-graphs-in-apache-kafka/" class="md-nav__link ">
               
   
   
@@ -17392,7 +17586,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/" class="md-nav__link ">
               
   
   
@@ -17459,7 +17653,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/system-architecture/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/system-architecture/" class="md-nav__link ">
               
   
   
@@ -17537,7 +17731,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/requirements/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/requirements/" class="md-nav__link ">
               
   
   
@@ -17613,7 +17807,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/installation/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/installation/" class="md-nav__link ">
               
   
   
@@ -17680,7 +17874,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/installation/scenario-single-node-cloud-installation/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/installation/scenario-single-node-cloud-installation/" class="md-nav__link ">
               
   
   
@@ -17750,7 +17944,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/installation/scenario-local-installation/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/installation/scenario-local-installation/" class="md-nav__link ">
               
   
   
@@ -17820,7 +18014,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/installation/migrating-stores/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/installation/migrating-stores/" class="md-nav__link ">
               
   
   
@@ -17918,7 +18112,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/" class="md-nav__link ">
               
   
   
@@ -17985,7 +18179,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/docker-orchestration/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/docker-orchestration/" class="md-nav__link ">
               
   
   
@@ -18057,7 +18251,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/dataintegration/" class="md-nav__link ">
               
   
   
@@ -18122,7 +18316,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/dataintegration/plugin-reference/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/dataintegration/plugin-reference/" class="md-nav__link ">
               
   
   
@@ -18190,7 +18384,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/dataintegration/activity-reference/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/dataintegration/activity-reference/" class="md-nav__link ">
               
   
   
@@ -18270,7 +18464,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/explore/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/explore/" class="md-nav__link ">
               
   
   
@@ -18341,7 +18535,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/" class="md-nav__link ">
               
   
   
@@ -18385,7 +18579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-full/" class="md-nav__link">
         
   
   
@@ -18413,7 +18607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/" class="md-nav__link">
         
   
   
@@ -18503,7 +18697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full/" class="md-nav__link">
         
   
   
@@ -18531,7 +18725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-http-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-http-full/" class="md-nav__link">
         
   
   
@@ -18559,7 +18753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full/" class="md-nav__link">
         
   
   
@@ -18587,7 +18781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-neptune-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-neptune-full/" class="md-nav__link">
         
   
   
@@ -18615,7 +18809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full/" class="md-nav__link">
+      <a href="../../../../deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full/" class="md-nav__link">
         
   
   
@@ -18680,7 +18874,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/explore/graph-resource-pattern/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/explore/graph-resource-pattern/" class="md-nav__link ">
               
   
   
@@ -18760,7 +18954,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/keycloak/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/keycloak/" class="md-nav__link ">
               
   
   
@@ -18825,7 +19019,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/keycloak/change-passwords-and-keys/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/keycloak/change-passwords-and-keys/" class="md-nav__link ">
               
   
   
@@ -18893,7 +19087,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/keycloak/using-external-keycloak/" class="md-nav__link ">
               
   
   
@@ -18969,7 +19163,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/quad-store-configuration/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/quad-store-configuration/" class="md-nav__link ">
               
   
   
@@ -19037,7 +19231,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/reverse-proxy/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/reverse-proxy/" class="md-nav__link ">
               
   
   
@@ -19105,7 +19299,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/access-conditions/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/access-conditions/" class="md-nav__link ">
               
   
   
@@ -19173,7 +19367,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/label-resolution-and-full-text-search/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/label-resolution-and-full-text-search/" class="md-nav__link ">
               
   
   
@@ -19241,7 +19435,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/production-ready-settings/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/production-ready-settings/" class="md-nav__link ">
               
   
   
@@ -19309,7 +19503,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../deploy-and-configure/configuration/caveats/" class="md-nav__link ">
+            <a href="../../../../deploy-and-configure/configuration/caveats/" class="md-nav__link ">
               
   
   
@@ -19400,7 +19594,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/" class="md-nav__link ">
+            <a href="../../../../automate/" class="md-nav__link ">
               
   
   
@@ -19479,7 +19673,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/" class="md-nav__link ">
               
   
   
@@ -19549,7 +19743,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/installation/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/installation/" class="md-nav__link ">
               
   
   
@@ -19629,7 +19823,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/" class="md-nav__link ">
               
   
   
@@ -19696,7 +19890,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/file-based-configuration/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/file-based-configuration/" class="md-nav__link ">
               
   
   
@@ -19769,7 +19963,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/environment-based-configuration/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/environment-based-configuration/" class="md-nav__link ">
               
   
   
@@ -19842,7 +20036,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/completion-setup/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/completion-setup/" class="md-nav__link ">
               
   
   
@@ -19912,7 +20106,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/" class="md-nav__link ">
               
   
   
@@ -19985,7 +20179,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/" class="md-nav__link ">
               
   
   
@@ -20074,7 +20268,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/invocation/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/invocation/" class="md-nav__link ">
               
   
   
@@ -20141,7 +20335,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/invocation/docker-image/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/invocation/docker-image/" class="md-nav__link ">
               
   
   
@@ -20211,7 +20405,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/invocation/github-action/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/invocation/github-action/" class="md-nav__link ">
               
   
   
@@ -20281,7 +20475,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/invocation/gitlab-pipeline/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/invocation/gitlab-pipeline/" class="md-nav__link ">
               
   
   
@@ -20351,7 +20545,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/invocation/sparql-scripts/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/invocation/sparql-scripts/" class="md-nav__link ">
               
   
   
@@ -20429,7 +20623,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/" class="md-nav__link ">
               
   
   
@@ -20502,7 +20696,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/troubleshooting-and-caveats/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/troubleshooting-and-caveats/" class="md-nav__link ">
               
   
   
@@ -20591,7 +20785,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/" class="md-nav__link ">
               
   
   
@@ -20672,7 +20866,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/" class="md-nav__link ">
               
   
   
@@ -20739,7 +20933,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/acl/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/acl/" class="md-nav__link ">
               
   
   
@@ -20809,7 +21003,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/client/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/client/" class="md-nav__link ">
               
   
   
@@ -20879,7 +21073,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/metrics/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/metrics/" class="md-nav__link ">
               
   
   
@@ -20949,7 +21143,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/migration/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/migration/" class="md-nav__link ">
               
   
   
@@ -21019,7 +21213,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/store/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/store/" class="md-nav__link ">
               
   
   
@@ -21089,7 +21283,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/user/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/user/" class="md-nav__link ">
               
   
   
@@ -21161,7 +21355,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/" class="md-nav__link ">
               
   
   
@@ -21228,7 +21422,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/admin/workspace/python/" class="md-nav__link ">
               
   
   
@@ -21314,7 +21508,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/config/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/config/" class="md-nav__link ">
               
   
   
@@ -21386,7 +21580,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/dataset/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/dataset/" class="md-nav__link ">
               
   
   
@@ -21453,7 +21647,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/dataset/resource/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/dataset/resource/" class="md-nav__link ">
               
   
   
@@ -21535,7 +21729,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/graph/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/graph/" class="md-nav__link ">
               
   
   
@@ -21602,7 +21796,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/graph/imports/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/graph/imports/" class="md-nav__link ">
               
   
   
@@ -21672,7 +21866,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/graph/validation/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/graph/validation/" class="md-nav__link ">
               
   
   
@@ -21752,7 +21946,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/project/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/project/" class="md-nav__link ">
               
   
   
@@ -21819,7 +22013,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/project/variable/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/project/variable/" class="md-nav__link ">
               
   
   
@@ -21897,7 +22091,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/query/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/query/" class="md-nav__link ">
               
   
   
@@ -21969,7 +22163,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/vocabulary/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/vocabulary/" class="md-nav__link ">
               
   
   
@@ -22036,7 +22230,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/vocabulary/cache/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/vocabulary/cache/" class="md-nav__link ">
               
   
   
@@ -22116,7 +22310,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/workflow/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/workflow/" class="md-nav__link ">
               
   
   
@@ -22183,7 +22377,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/cmemc-command-line-interface/command-reference/workflow/scheduler/" class="md-nav__link ">
+            <a href="../../../../automate/cmemc-command-line-interface/command-reference/workflow/scheduler/" class="md-nav__link ">
               
   
   
@@ -22277,7 +22471,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/processing-data-with-variable-input-workflows/" class="md-nav__link ">
+            <a href="../../../../automate/processing-data-with-variable-input-workflows/" class="md-nav__link ">
               
   
   
@@ -22347,7 +22541,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/scheduling-workflows/" class="md-nav__link ">
+            <a href="../../../../automate/scheduling-workflows/" class="md-nav__link ">
               
   
   
@@ -22417,7 +22611,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../automate/continuous-integration/" class="md-nav__link ">
+            <a href="../../../../automate/continuous-integration/" class="md-nav__link ">
               
   
   
@@ -22509,7 +22703,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/" class="md-nav__link ">
+            <a href="../../../../develop/" class="md-nav__link ">
               
   
   
@@ -22576,7 +22770,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/accessing-graphs-with-java-applications/" class="md-nav__link ">
+            <a href="../../../../develop/accessing-graphs-with-java-applications/" class="md-nav__link ">
               
   
   
@@ -22652,7 +22846,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/python-plugins/" class="md-nav__link ">
+            <a href="../../../../develop/python-plugins/" class="md-nav__link ">
               
   
   
@@ -22727,7 +22921,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/python-plugins/installation/" class="md-nav__link ">
+            <a href="../../../../develop/python-plugins/installation/" class="md-nav__link ">
               
   
   
@@ -22797,7 +22991,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/python-plugins/development/" class="md-nav__link ">
+            <a href="../../../../develop/python-plugins/development/" class="md-nav__link ">
               
   
   
@@ -22867,7 +23061,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/python-plugins/setup/" class="md-nav__link ">
+            <a href="../../../../develop/python-plugins/setup/" class="md-nav__link ">
               
   
   
@@ -22953,7 +23147,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/cmempy-python-api/" class="md-nav__link ">
+            <a href="../../../../develop/cmempy-python-api/" class="md-nav__link ">
               
   
   
@@ -23023,7 +23217,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/cmemc-scripts/" class="md-nav__link ">
+            <a href="../../../../develop/cmemc-scripts/" class="md-nav__link ">
               
   
   
@@ -23101,7 +23295,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/dataintegration-apis/" class="md-nav__link ">
+            <a href="../../../../develop/dataintegration-apis/" class="md-nav__link ">
               
   
   
@@ -23171,7 +23365,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../develop/dataplatform-apis/" class="md-nav__link ">
+            <a href="../../../../develop/dataplatform-apis/" class="md-nav__link ">
               
   
   
@@ -23338,7 +23532,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-25-2/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-25-2/" class="md-nav__link ">
               
   
   
@@ -23414,7 +23608,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-25-1/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-25-1/" class="md-nav__link ">
               
   
   
@@ -23482,7 +23676,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-24-3/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-24-3/" class="md-nav__link ">
               
   
   
@@ -23550,7 +23744,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-24-2/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-24-2/" class="md-nav__link ">
               
   
   
@@ -23618,7 +23812,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-24-1/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-24-1/" class="md-nav__link ">
               
   
   
@@ -23686,7 +23880,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-23-3/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-23-3/" class="md-nav__link ">
               
   
   
@@ -23754,7 +23948,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-23-2/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-23-2/" class="md-nav__link ">
               
   
   
@@ -23822,7 +24016,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-23-1/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-23-1/" class="md-nav__link ">
               
   
   
@@ -23890,7 +24084,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-22-2/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-22-2/" class="md-nav__link ">
               
   
   
@@ -23958,7 +24152,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-22-1/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-22-1/" class="md-nav__link ">
               
   
   
@@ -24026,7 +24220,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-21-11/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-21-11/" class="md-nav__link ">
               
   
   
@@ -24094,7 +24288,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-21-06/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-21-06/" class="md-nav__link ">
               
   
   
@@ -24162,7 +24356,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-21-04/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-21-04/" class="md-nav__link ">
               
   
   
@@ -24230,7 +24424,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-21-02/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-21-02/" class="md-nav__link ">
               
   
   
@@ -24298,7 +24492,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-20-12/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-20-12/" class="md-nav__link ">
               
   
   
@@ -24366,7 +24560,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-20-10/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-20-10/" class="md-nav__link ">
               
   
   
@@ -24434,7 +24628,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-20-06/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-20-06/" class="md-nav__link ">
               
   
   
@@ -24502,7 +24696,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-20-03/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-20-03/" class="md-nav__link ">
               
   
   
@@ -24570,7 +24764,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../release-notes/corporate-memory-19-10/" class="md-nav__link ">
+            <a href="../../../../release-notes/corporate-memory-19-10/" class="md-nav__link ">
               
   
   
@@ -24645,7 +24839,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../tutorials/" class="md-nav__link ">
+            <a href="../../../../tutorials/" class="md-nav__link ">
               
   
   
@@ -24713,10 +24907,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples
+        Introduction
       
     </span>
   </a>
@@ -24724,22 +24918,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameter" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameter
+        Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Parameter">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stop-word-list-url" class="md-nav__link">
+  <a href="#install-vocabularies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stop word list url
+        Install Vocabularies
       
     </span>
   </a>
@@ -24747,10 +24952,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#separator" class="md-nav__link">
+  <a href="#create-shape-catalog" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Separator
+        Create Shape Catalog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Shapes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Data
       
     </span>
   </a>
@@ -24759,17 +24986,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-parameter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Parameter
-      
-    </span>
-  </a>
   
 </li>
       
@@ -24795,9 +25011,35 @@
       
         
         
+          
+        
       
       
-        <a href="../../../../../tags/#tag:transformoperator" class="md-tag md-tag-icon">TransformOperator</a>
+        <a href="../../../../tutorials/#tag:advancedtutorial" class="md-tag md-tag-icon md-tag--advanced">AdvancedTutorial</a>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <a href="../../../../tags/#tag:sparql" class="md-tag md-tag-icon md-tag--sparql">SPARQL</a>
+      
+    
+      
+      
+      
+        
+        
+          
+        
+      
+      
+        <a href="../../../../tags/#tag:validation" class="md-tag md-tag-icon md-tag--validation">Validation</a>
       
     
   </nav>
@@ -24807,69 +25049,94 @@
   
 
 
-<h1 id="remove-remote-stop-words">Remove remote stop words<a class="headerlink" href="#remove-remote-stop-words" title="Permanent link">¤</a></h1>
-<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-<p>The stop word list is retrieved from a remote URL such as
-<a href="https://raw.githubusercontent.com/stopwords-iso/stopwords-de/refs/heads/master/stopwords-de.txt">this German stop word list</a>.</p>
-<p>Such an overridable stop word list file may be used, for instance, to specify the stop words of a different
-language, such as German instead of the
-<a href="https://gist.githubusercontent.com/rg089/35e00abf8941d72d419224cfd5b5925d/raw/12d899b70156fd0041fa9778d657330b024b959c/stopwords.txt">default stop word list</a>
-for the English language.</p>
-<p>Regardless of the stop word list used, the following comments apply:</p>
-<ul>
-<li>Each line in the stop word list should contain a single stop word.</li>
-<li>The removal of stop words is case-insensitive. For example, &lsquo;The&rsquo; and &lsquo;the&rsquo; are considered the same.</li>
-<li>In the case of German words, notice that the upper-case letter of the lower-case &lsquo;ß&rsquo; is &lsquo;ẞ&rsquo;, not &lsquo;SS&rsquo;.</li>
-<li>The separator defines a regular expression (regex) that is used for detecting words.</li>
-<li>By default, the separator is a regular expression for non-whitespace characters.</li>
-</ul>
-<p>Additionally, notice the simpler filter &lsquo;removeDefaultStopWords&rsquo;, which uses a default stop word list.</p>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¤</a></h3>
-<p><strong>Notation:</strong> List of values are represented via square brackets. Example: <code>[first, second]</code> represents a list of two values &ldquo;first&rdquo; and &ldquo;second&rdquo;.</p>
-<hr />
-<p><strong>Example 1:</strong></p>
+<h1 id="using-sparql-constraints-for-custom-resource-validation">Using SPARQL Constraints for Custom Resource Validation<a class="headerlink" href="#using-sparql-constraints-for-custom-resource-validation" title="Permanent link">¤</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
+<p>SHACL (Shapes Constraint Language) is a language for validating RDF data based on predefined shapes or constraints.
+SHACL SPARQL Constraints are a set of rules defined using SPARQL queries within SHACL shapes to express more complex validation logic that cannot be easily represented by other SHACL constructs.</p>
+<p>Key advantages:</p>
 <ul>
 <li>
-<p>Input values:</p>
-<ol>
-<li><code>[To be or not to be, that is the question]</code></li>
-</ol>
+<p><strong>Complex logic</strong>: You can implement any logic supported by SPARQL, such as aggregation, advanced pattern matching, or value ranges.</p>
 </li>
 <li>
-<p>Returns: <code>[To, question]</code></p>
+<p><strong>Reusable queries</strong>: SPARQL constraints allow the reuse of sophisticated query logic across different shapes and data types.</p>
 </li>
 </ul>
-<hr />
-<p><strong>Example 2:</strong></p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
+<p>SPARQL Constraints are resources which need to be managed in a Shape Catalog.
+This catalog graph needs to be imported (virtually, with <code>owl:imports</code>) into the main CMEM Shapes Catalog.
+Similar to property shapes, SPARQL Constraints needed to be linked from a Node Shape in order to select the set of shapes which are used for a given selection of resources.</p>
+<h2 id="step-by-step-example">Step-by-Step Example<a class="headerlink" href="#step-by-step-example" title="Permanent link">¤</a></h2>
+<p>In our running example, we create a Node Shape for <code>foaf:Person</code> resources.
+Then we add a SPARQL Constrain shape, which checks if the label of these resources contains the term <code>eccenca</code>.</p>
+<h3 id="install-vocabularies">Install Vocabularies<a class="headerlink" href="#install-vocabularies" title="Permanent link">¤</a></h3>
+<p>Go to the <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M26,2H8A2,2,0,0,0,6,4V8H4v2H6v5H4v2H6v5H4v2H6v4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V4A2,2,0,0,0,26,2Zm0,26H8V24h2V22H8V17h2V15H8V10h2V8H8V4H26Z"/><path d="M14 8H22V10H14zM14 15H22V17H14zM14 22H22V24H14z"/></svg></span> <a href="../../../vocabulary-catalog/">Vocabulary catalog</a></strong> and install the RDF Schema and FOAF Vocabulary.
+Your vocabulary catalog should look like this after installation</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Vocabulary Catalog with Installed Vocabularies" class="bordered" src="vocabulary-catalog.png" /></a></p>
+<h3 id="create-shape-catalog">Create Shape Catalog<a class="headerlink" href="#create-shape-catalog" title="Permanent link">¤</a></h3>
+<p>Go to <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.707,9.2931a.9992.9992,0,0,0-1.0234-.2417l-9,3a1.001,1.001,0,0,0-.6323.6323l-3,9a1,1,0,0,0,1.2651,1.2651l9-3a1.0013,1.0013,0,0,0,.6323-.6324l3-9A1,1,0,0,0,22.707,9.2931ZM11.5811,20.419l2.2094-6.6284L18.21,18.21Z"/><path d="M16,30A14,14,0,1,1,30,16,14.0158,14.0158,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12.0137,12.0137,0,0,0,16,4Z"/></svg></span> <a href="../../">Knowledge graphs</a></strong> and create a <strong>New Shape Catalog</strong>.
+Name the graph e.g. <em>My Shapes</em>.
+After this step, the browser shows you a nearly empty graph which shows SHACL classes such as <strong>SHACL Node Shape</strong> and <strong>SHACL SPARQL Constraint</strong> in the navigation.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Empty Shapes Graph" class="bordered" src="empty-shapes-graph.png" /></a></p>
+<h3 id="create-shapes">Create Shapes<a class="headerlink" href="#create-shapes" title="Permanent link">¤</a></h3>
+<p>Select <strong>SHACL SPARQL Constraint</strong> in the Navigation component, then use the <strong>Create a new &ldquo;SHACL SPARQL Constraint&rdquo;</strong> button in the top right corner to create a new resource.
+Fill in a label and a SPARQL SELECT Query.</p>
+<p>For our example, we use the following values:</p>
 <ul>
-<li>
-<p>Input values:</p>
-<ol>
-<li><code>[It always seems impossible, until it's done]</code></li>
-</ol>
+<li>Label: <code>The term eccenca is not allowed in a Person label</code></li>
+<li>SPARQL Select:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">PREFIX</span> <span class="nn">foaf</span><span class="p">:</span> <span class="nl">&lt;http://xmlns.com/foaf/0.1/&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">PREFIX</span>  <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">SELECT</span> <span class="nv">$this</span> <span class="p">(</span><span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="k">as</span> <span class="nv">?path</span><span class="p">)</span> <span class="p">(</span><span class="nv">?label</span> <span class="k">as</span> <span class="nv">?value</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">WHERE</span> <span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="nv">$this</span> <span class="k">a</span> <span class="nn">foaf</span><span class="p">:</span><span class="nt">Person</span> <span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?label</span> <span class="p">.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  <span class="k">FILTER</span><span class="p">(</span> <span class="nf">REGEX</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="nv">?label</span><span class="p">),</span> <span class="s">&quot;eccenca&quot;</span> <span class="p">))</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Note that the projection variables of SPARQL Constraint queries need to be named according to the <a href="https://www.w3.org/TR/shacl/#sparql-constraints-example">SHACL Specificaton</a> (<code>$this</code>, <code>?path</code>, <code>?value</code>).
+After you clicked on <strong>Create</strong> you should see your new resource in a list.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New SPARQL Constraint" class="bordered" src="new-sparql-constraint.png" /></a></p>
+<p>As a next step select <strong>SHACL Node Shape</strong> in the Navigation component, then use the <strong>Create a new &ldquo;SHACL Node Shape&rdquo;</strong> button in the top right corner to create a new resource.</p>
+<p>Enter the following values:</p>
+<ul>
+<li>Name: <code>Person Shape</code></li>
+<li>Target class: Select <code>Person</code> from the FOAF vocabulary</li>
+<li>SPARQL Constraints: Select your new constraint from the list (your have to use the <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m1 5h-2v4H7v2h4v4h2v-4h4v-2h-4z"/></svg></span> Add data</strong> menu to extend the form with this non-default input field)</li>
+<li>Property Shapes: Create a new property shape with<ul>
+<li>Name: <code>Name</code></li>
+<li>Show always: <code>true</code></li>
+<li>Path: <code>rdfs:label</code></li>
+<li>Node Kind: <code>Literal</code></li>
+</ul>
 </li>
-<li>
-<p>Returns: <code>[It impossible, ]</code></p>
+</ul>
+<p>Before you create your new Node Shape (and new Property Shape) your screen should look like this:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create New Node Shape" class="bordered" src="create-node-shape.png" /></a></p>
+<h3 id="validate-data">Validate Data<a class="headerlink" href="#validate-data" title="Permanent link">¤</a></h3>
+<p>Now we can validate the shape by creating a Person with a label which contains the term <code>eccenca</code>.</p>
+<ul>
+<li>Go to <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.707,9.2931a.9992.9992,0,0,0-1.0234-.2417l-9,3a1.001,1.001,0,0,0-.6323.6323l-3,9a1,1,0,0,0,1.2651,1.2651l9-3a1.0013,1.0013,0,0,0,.6323-.6324l3-9A1,1,0,0,0,22.707,9.2931ZM11.5811,20.419l2.2094-6.6284L18.21,18.21Z"/><path d="M16,30A14,14,0,1,1,30,16,14.0158,14.0158,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12.0137,12.0137,0,0,0,16,4Z"/></svg></span> <a href="../../">Knowledge graphs</a></strong> and create a <strong>New Knowledge Graph</strong>.<ul>
+<li>Name: <code>My Data</code></li>
+<li>Imports: <code>foaf: Friend of a Friend vocabulary</code></li>
+</ul>
+</li>
+<li>Select <strong>Person</strong> in the Navigation component, then use the <strong>Create a new &ldquo;Person&rdquo;</strong> button in the top right corner to create a new resource.<ul>
+<li>Name: <code>The term eccenca is not allowed</code></li>
+</ul>
 </li>
 </ul>
-<h2 id="parameter">Parameter<a class="headerlink" href="#parameter" title="Permanent link">¤</a></h2>
-<h3 id="stop-word-list-url">Stop word list url<a class="headerlink" href="#stop-word-list-url" title="Permanent link">¤</a></h3>
-<p>URL of the stop word list</p>
+<p>To validate a single resource, click the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5.14v14l11-7z"/></svg></span> validation button.
+You will see a screen like this:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Invalid Resource" class="bordered" src="invalid-resource.png" /></a></p>
+<p>When you open the validation report, you will see a error message such as: <strong>The value does not conform to SPARQL constraint</strong>.</p>
+<p>In addition to manual validation of a single resource, you have the following other options:</p>
 <ul>
-<li>ID: <code>stopWordListUrl</code></li>
-<li>Datatype: <code>string</code></li>
-<li>Default Value: <code>https://gist.githubusercontent.com/rg089/35e00abf8941d72d419224cfd5b5925d/raw/12d899b70156fd0041fa9778d657330b024b959c/stopwords.txt</code></li>
+<li>use the <a href="../../../../build/reference/customtask/cmem_plugin_validation-validate-ValidateGraph/">Validation Knowledge Graph task</a> in a workflow</li>
+<li>use the cmemc command <a href="../../../../automate/cmemc-command-line-interface/command-reference/graph/validation/#graph-validation-execute">graph validation execute</a></li>
 </ul>
-<h3 id="separator">Separator<a class="headerlink" href="#separator" title="Permanent link">¤</a></h3>
-<p>RegEx for detecting words</p>
-<ul>
-<li>ID: <code>separator</code></li>
-<li>Datatype: <code>string</code></li>
-<li>Default Value: <code>[\s-]+</code></li>
-</ul>
-<h2 id="advanced-parameter">Advanced Parameter<a class="headerlink" href="#advanced-parameter" title="Permanent link">¤</a></h2>
-<p><code>None</code></p>
 
 
 
@@ -24892,7 +25159,7 @@ for the English language.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 19, 2025 13:10:11 UTC"><span class="timeago" datetime="2025-08-19T13:10:11+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 19, 2025 13:10:11 UTC">2025-08-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 10, 2025 09:05:08 UTC"><span class="timeago" datetime="2025-09-10T09:05:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 10, 2025 09:05:08 UTC">2025-09-10</span>
   </span>
 
     
@@ -24902,7 +25169,7 @@ for the English language.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 12, 2025 07:45:49 UTC"><span class="timeago" datetime="2025-08-12T07:45:49+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 12, 2025 07:45:49 UTC">2025-08-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 9, 2025 14:42:38 UTC"><span class="timeago" datetime="2025-09-09T14:42:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 9, 2025 14:42:38 UTC">2025-09-09</span>
   </span>
 
     
@@ -25159,20 +25426,20 @@ for the English language.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["announce.dismiss", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.annotate", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.ad38c271.min.js", "tags": {"API": "api", "AdvancedTutorial": "advanced", "Automate": "automate", "BeginnersTutorial": "beginners", "BestPractice": "best-practice", "Configuration": "configuration", "Dashboards": "dashboards", "Docker": "docker", "ExpertTutorial": "expert", "Filesystem": "material-file-tree", "Java": "java", "Keycloak": "keycloak", "KnowledgeGraph": "knowledge-graph", "Load Balancer": "simple-awselasticloadbalancing", "Project": "project", "Python": "python", "PythonPlugin": "python-plugin", "Reference": "reference", "ReleaseNote": "release-note", "SPARQL": "sparql", "Security": "security", "Validation": "validation", "Variables": "variables", "Video": "video", "Vocabulary": "vocabulary", "Volume": "fontawesome-solid-hard-drive", "Workflow": "workflow", "cmemc": "cmemc"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["announce.dismiss", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.annotate", "content.tabs.link", "content.tooltips", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.ad38c271.min.js", "tags": {"API": "api", "AdvancedTutorial": "advanced", "Automate": "automate", "BeginnersTutorial": "beginners", "BestPractice": "best-practice", "Configuration": "configuration", "Dashboards": "dashboards", "Docker": "docker", "ExpertTutorial": "expert", "Filesystem": "material-file-tree", "Java": "java", "Keycloak": "keycloak", "KnowledgeGraph": "knowledge-graph", "Load Balancer": "simple-awselasticloadbalancing", "Project": "project", "Python": "python", "PythonPlugin": "python-plugin", "Reference": "reference", "ReleaseNote": "release-note", "SPARQL": "sparql", "Security": "security", "Validation": "validation", "Variables": "variables", "Video": "video", "Vocabulary": "vocabulary", "Volume": "fontawesome-solid-hard-drive", "Workflow": "workflow", "cmemc": "cmemc"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.eb438620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.eb438620.min.js"></script>
       
-        <script src="../../../../../js/timeago.min.js"></script>
+        <script src="../../../../js/timeago.min.js"></script>
       
-        <script src="../../../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../../../../assets/externals/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+        <script src="../../../../assets/externals/unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="../../../../../assets/tablesort.js"></script>
+        <script src="../../../../assets/tablesort.js"></script>
       
-        <script src="../../../../../assets/extra.js"></script>
+        <script src="../../../../assets/extra.js"></script>
       
     
   <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {

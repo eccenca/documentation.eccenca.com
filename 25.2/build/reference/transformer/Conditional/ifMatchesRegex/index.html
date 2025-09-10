@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Accepts two or three inputs. If any value of the first input matches the regex, the second input is forwarded. Otherwise, the third input is forwarded (if present).">
+        <meta name="description" content="This transformer uses a regular expression as a matching condition, in order to distinguish which input to take.">
       
       
       
@@ -290,7 +290,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="If matches regex - documentation.eccenca.com" />
-<meta property="og:description" content="Accepts two or three inputs. If any value of the first input matches the regex, the second input is forwarded. Otherwise, the third input is forwarded (if present)." />
+<meta property="og:description" content="This transformer uses a regular expression as a matching condition, in order to distinguish which input to take." />
 <meta property="og:image" content="https://documentation.eccenca.com/25.2/assets/images/social/build/reference/transformer/Conditional/ifMatchesRegex.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -298,7 +298,7 @@
 <meta property="og:url" content="https://documentation.eccenca.com/25.2/build/reference/transformer/Conditional/ifMatchesRegex/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="If matches regex - documentation.eccenca.com" />
-<meta property="twitter:description" content="Accepts two or three inputs. If any value of the first input matches the regex, the second input is forwarded. Otherwise, the third input is forwarded (if present)." />
+<meta property="twitter:description" content="This transformer uses a regular expression as a matching condition, in order to distinguish which input to take." />
 <meta property="twitter:image" content="https://documentation.eccenca.com/25.2/assets/images/social/build/reference/transformer/Conditional/ifMatchesRegex.png" />
  <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
@@ -1672,6 +1672,8 @@
       
         
       
+        
+      
     
     
     
@@ -2103,6 +2105,36 @@
     
   
     Evaluate template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../customtask/cmem_plugin_kubernetes-Execute/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Execute a command in a kubernetes pod
   
 
     
@@ -3023,9 +3055,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../SendEmail.md" class="md-nav__link">
+      <a href="../../../customtask/SendEMail/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -6116,6 +6150,78 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-calling-the-conditional-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and calling the conditional transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on regular expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-for-advanced-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note for advanced users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relation-to-other-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relation to other plugins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#parameter" class="md-nav__link">
@@ -10647,9 +10753,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../removeRemoteStopWords.md" class="md-nav__link">
+      <a href="../../Filter/removeRemoteStopWords/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -10675,9 +10783,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../removeStopWords.md" class="md-nav__link">
+      <a href="../../Filter/removeStopWords/" class="md-nav__link">
         
   
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -15790,6 +15900,8 @@
       
         
       
+        
+      
     
     
     
@@ -15998,6 +16110,8 @@
       
         
           
+        
+      
         
       
         
@@ -16327,6 +16441,84 @@
             
   
     Datatypes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="22" cy="24" r="2"/><path d="M29.7769,23.4785A8.64,8.64,0,0,0,22,18a8.64,8.64,0,0,0-7.7769,5.4785L14,24l.2231.5215A8.64,8.64,0,0,0,22,30a8.64,8.64,0,0,0,7.7769-5.4785L30,24ZM22,28a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,22,28Z"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="8" cy="24" r="1"/><path d="M5,21h7V19H5V13H21v3h2V5a2,2,0,0,0-2-2H5A2,2,0,0,0,3,5V27a2,2,0,0,0,2,2h7V27H5ZM5,5H21v6H5Z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SPARQL Constraints
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="Recently added or extended">
+    </span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SPARQL Constraints
   
 
           </label>
@@ -16900,6 +17092,84 @@
         
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../../../../explore-and-author/link-rules/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23,16a7,7,0,0,0-4.18,1.39L14.6,13.17A6.86,6.86,0,0,0,16,9a7,7,0,1,0-2.81,5.59l4.21,4.22A7,7,0,1,0,23,16ZM4,9a5,5,0,1,1,5,5A5,5,0,0,1,4,9Z" transform="translate(0 .01)"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Link Rules
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--new" title="Recently added or extended">
+    </span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Link Rules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../../../../explore-and-author/embedding-services-via-the-integrations-module/" class="md-nav__link ">
               
   
@@ -16921,8 +17191,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -24812,6 +25082,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-calling-the-conditional-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and calling the conditional transformer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on regular expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note-for-advanced-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note for advanced users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relation-to-other-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relation to other plugins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#parameter" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -24898,7 +25240,115 @@
 <h1 id="if-matches-regex">If matches regex<a class="headerlink" href="#if-matches-regex" title="Permanent link">¤</a></h1>
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-<p>Accepts two or three inputs. If any value of the first input matches the regex, the second input is forwarded. Otherwise, the third input is forwarded (if present).</p>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">¤</a></h2>
+<p>The <code>ifMatchesRegex</code> plugin uses a regular expression as a matching condition in order to distinguish which input to
+take.</p>
+<p>This plugin is a <em>conditional transformer</em> plugin. This means that a <em>regular expression</em> is used as a matching
+condition, i.e. it is used in order to answer the question &ldquo;does the regular expression match the provided text?&rdquo;.
+If it does match, then the next input is taken as output. Otherwise, the last input is taken as output, provided it
+exists. If it doesn&rsquo;t, the output is empty.</p>
+<h3 id="creating-and-calling-the-conditional-transformer">Creating and calling the conditional transformer<a class="headerlink" href="#creating-and-calling-the-conditional-transformer" title="Permanent link">¤</a></h3>
+<p>For <em>creating</em> an instance of this transformer, we need to give it a <em>regular expression</em> with the parameter <code>regex</code>
+and, optionally, tell with the parameter <code>negate</code> whether we will <em>take</em> or <em>exclude</em> the second input value upon
+calling it (by default, we take it). In other words: the <code>negate</code> parameter tells us which &lsquo;way&rsquo; we want to go after the
+comparison.</p>
+<p>For <em>calling</em> this transformer, we need to give it <em>two</em> or <em>three</em> values as its input. The <em>first</em> input value is
+what the regular expression should match (or not, depending on <code>negate</code>), and the following values are the branches of
+the condition, i.e. the output if the regex matches the first input value, and the alternative if it doesn&rsquo;t.</p>
+<p>The following list summarizes the creation and the behavior of the conditional transformer:</p>
+<ul>
+<li>The regular condition within the transformer is used as a matching condition on the first input.</li>
+<li>If it matches, then the <em>second</em> input is returned.</li>
+<li>If it doesn&rsquo;t match, then the <em>third</em> input is returned, provided it exists.</li>
+<li>If the third input doesn&rsquo;t exist, an empty sequence is returned.</li>
+</ul>
+<h3 id="notes-on-regular-expressions">Notes on regular expressions<a class="headerlink" href="#notes-on-regular-expressions" title="Permanent link">¤</a></h3>
+<p>The most commonly used examples of regular expressions are <code>"\\s*"</code> for representing whitespace characters, <code>[^0-9]*</code>
+for numbers, and <code>[a-z]*</code> for the usual English characters between <code>a</code> and <code>z</code>. The star (<code>*</code>) represents an arbitrary
+number of occurrences (zero included), whereas the plus sign (<code>+</code>) indicates a strictly positive number of occurrences
+(zero excluded).</p>
+<p>An uppercase version of the predefined character classes means <em>negation</em>, such as <code>"\\S*"</code> for <em>non</em>-whitespace
+characters, or <code>"\\D*"</code> for <em>non</em>-digits.
+Similarly, the hat sign <code>^</code> can be used for negating (arbitrary) character classes, such as <code>[^xyz]</code> for any character
+except <code>x</code>, <code>y</code> or <code>z</code>.</p>
+<p><strong>Attention</strong>: Slashes in regular expressions have to be <em>escaped</em>, e.g. instead of <code>\s</code> we need to escape it as <code>\\s</code>.</p>
+<h3 id="note-for-advanced-users">Note for advanced users<a class="headerlink" href="#note-for-advanced-users" title="Permanent link">¤</a></h3>
+<p>A compilation of the available constructs for building regular expressions is available in the
+<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum">API of the Java <code>Pattern</code></a>.</p>
+<h2 id="relation-to-other-plugins">Relation to other plugins<a class="headerlink" href="#relation-to-other-plugins" title="Permanent link">¤</a></h2>
+<p>Additionally to the <code>ifMatchesRegex</code> plugin, there are related plugins such as <code>validateRegex</code>, <code>regexReplace</code> and
+<code>regexExtract</code>.</p>
+<p>The distinctive feature of each of these plugins lies in what happens whenever the regular expression
+matches the input value(s): the <code>ifMatchesRegex</code> plugin is useful for <em>conditionally distinguishing</em> which input to
+take, <code>validateRegex</code> is used for <em>validating</em> the input, <code>regexReplace</code> <em>replaces</em> all occurrences, and
+<code>regexExtract</code> <em>extracts</em> them.</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¤</a></h2>
+<p><strong>Notation:</strong> List of values are represented via square brackets. Example: <code>[first, second]</code> represents a list of two values &ldquo;first&rdquo; and &ldquo;second&rdquo;.</p>
+<hr />
+<p><strong>returns the second input if the regex matches the first input:</strong></p>
+<ul>
+<li>
+<p>Parameters</p>
+<ul>
+<li>regex: <code>[abc]{2}</code></li>
+<li>negate: <code>false</code></li>
+</ul>
+</li>
+<li>
+<p>Input values:</p>
+<ol>
+<li><code>[black]</code></li>
+<li><code>[should be taken]</code></li>
+<li><code>[last value should be left]</code></li>
+</ol>
+</li>
+<li>
+<p>Returns: <code>[should be taken]</code></p>
+</li>
+</ul>
+<hr />
+<p><strong>returns the third input if the regex does not match the first input:</strong></p>
+<ul>
+<li>
+<p>Parameters</p>
+<ul>
+<li>regex: <code>[abc]{2}</code></li>
+<li>negate: <code>false</code></li>
+</ul>
+</li>
+<li>
+<p>Input values:</p>
+<ol>
+<li><code>[xyz]</code></li>
+<li><code>[should be left]</code></li>
+<li><code>[last value should be taken]</code></li>
+</ol>
+</li>
+<li>
+<p>Returns: <code>[last value should be taken]</code></p>
+</li>
+</ul>
+<hr />
+<p><strong>returns an empty value if the regex does not match the first input:</strong></p>
+<ul>
+<li>
+<p>Parameters</p>
+<ul>
+<li>regex: <code>[abc]{2}</code></li>
+<li>negate: <code>false</code></li>
+</ul>
+</li>
+<li>
+<p>Input values:</p>
+<ol>
+<li><code>[xyz]</code></li>
+<li><code>[should be left]</code></li>
+</ol>
+</li>
+<li>
+<p>Returns: <code>[]</code></p>
+</li>
+</ul>
 <h2 id="parameter">Parameter<a class="headerlink" href="#parameter" title="Permanent link">¤</a></h2>
 <h3 id="regex">Regex<a class="headerlink" href="#regex" title="Permanent link">¤</a></h3>
 <p>No description</p>
@@ -24938,7 +25388,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 19, 2025 13:10:11 UTC"><span class="timeago" datetime="2025-08-19T13:10:11+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 19, 2025 13:10:11 UTC">2025-08-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 10, 2025 06:37:48 UTC"><span class="timeago" datetime="2025-09-10T06:37:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 10, 2025 06:37:48 UTC">2025-09-10</span>
   </span>
 
     
