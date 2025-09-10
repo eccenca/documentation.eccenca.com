@@ -12,7 +12,7 @@ tags:
 
 Parses a date based on a specified pattern, returning an xsd:date.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

@@ -12,7 +12,7 @@ tags:
 
 Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix Epoch (1970-01-01).
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

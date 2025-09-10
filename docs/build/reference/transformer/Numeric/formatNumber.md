@@ -16,7 +16,7 @@ tags:
   https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html
 
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

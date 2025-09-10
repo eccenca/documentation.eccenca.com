@@ -12,7 +12,7 @@ tags:
 
 Validates if the first input date is after the second input date. Outputs the first input if the validation is successful.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

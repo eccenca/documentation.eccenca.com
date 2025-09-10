@@ -11,7 +11,7 @@ tags:
 
 At least one input score must be within the threshold. Selects the maximum score.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

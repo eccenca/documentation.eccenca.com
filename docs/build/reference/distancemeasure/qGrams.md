@@ -12,11 +12,11 @@ tags:
 
 String similarity based on q-grams (by default q=2).
 
-### Characteristics
+## Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

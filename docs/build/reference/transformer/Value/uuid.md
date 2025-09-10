@@ -16,7 +16,7 @@ If input values are provided, a name-based UUID (type 3) is generated for each i
 Each input value will generate a separate UUID. For building a UUID from multiple inputs, the Concatenate operator can be used.
 
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

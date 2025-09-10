@@ -1,6 +1,6 @@
 ---
 title: "Parse string"
-description: "Parses string values, basically an identity function."
+description: "Parses string values. This is basically an identity function."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,7 +10,30 @@ tags:
 
 
 
-Parses string values, basically an identity function.
+Parses string values. This is basically an identity function.
+
+## Examples
+
+**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
+
+---
+**Example 1:**
+
+* Input values:
+    1. `[eccenca]`
+
+* Returns: `[eccenca]`
+
+
+---
+**Example 2:**
+
+* Input values:
+    1. `[these, strings, won't, be, changed, at, all]`
+
+* Returns: `[these, strings, won't, be, changed, at, all]`
+
+
 
 
 ## Parameter

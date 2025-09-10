@@ -17,7 +17,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Abs](Excel/Excel_ABS.md) | Excel | Excel ABS(number): Returns the absolute value of the given number. |
  | [Acos](Excel/Excel_ACOS.md) | Excel | Excel ACOS(number): Returns the inverse cosine of the given number in radians. |
  | [Acosh](Excel/Excel_ACOSH.md) | Excel | Excel ACOSH(number): Returns the inverse hyperbolic cosine of the given number in radians. |
- | [Aggregate numbers](Numeric/aggregateNumbers.md) | Numeric | Aggregates all numbers in this set using a mathematical operation. |
+ | [Aggregate numbers](Numeric/aggregateNumbers.md) | Numeric | Applies one of the aggregation operators (`+`, `*`, `min`, `max` or `average`) to the sequence of input values. |
  | [And](Excel/Excel_AND.md) | Excel | Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise. |
  | [Asin](Excel/Excel_ASIN.md) | Excel | Excel ASIN(number): Returns the inverse sine of the given number in radians. |
  | [Asinh](Excel/Excel_ASINH.md) | Excel | Excel ASINH(number): Returns the inverse hyperbolic sine of the given number in radians. |
@@ -33,7 +33,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Ceiling](Excel/Excel_CEILING.md) | Excel | Excel CEILING(number; significance; mode): Rounds the given number to the nearest integer or multiple of significance. Significance is the value to whose multiple of ten the value is to be rounded up (.01, .1, 1, 10, etc.). Mode is an optional value. If it is indicated and non-zero and if the number and significance are negative, rounding up is carried out based on that value. |
  | [Choose](Excel/Excel_CHOOSE.md) | Excel | Excel CHOOSE(index; value1; ... value30): Uses an index to return a value from a list of up to 30 values. Index is a reference or number between 1 and 30 indicating which value is to be taken from the list. Value1; ... value30 is the list of values entered as a reference to a cell or as individual values. |
  | [Clean](Excel/Excel_CLEAN.md) | Excel | Excel CLEAN(text): Removes all non-printing characters from the string. Text refers to the text from which to remove all non-printable characters. |
- | [Clean HTML](Normalize/htmlCleaner.md) | Normalize | Cleans HTML using a tag white list and allows selection of HTML sections with XPath or CSS selector expressions. |
+ | [Clean HTML](Normalize/htmlCleaner.md) | Normalize | Cleans HTML markup using a tag whitelist and allows selection of HTML sections with XPath or CSS selector expressions. |
  | [Coalesce (first non-empty input)](Selection/coalesce.md) | Selection | Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value. |
  | [Code](Excel/Excel_CODE.md) | Excel | Excel CODE(text): Returns a numeric code for the first character in a text string. Text is the text for which the code of the first character is to be found. |
  | [Combin](Excel/Excel_COMBIN.md) | Excel | Excel COMBIN(count_1; count_2): Returns the number of combinations for a given number of objects. Count_1 is the total number of elements. Count_2 is the selected count from the elements. This is the same as the nCr function on a calculator. |
@@ -47,8 +47,6 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Contains all of](Conditional/containsAllOf.md) | Conditional | Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned. |
  | [Contains any of](Conditional/containsAnyOf.md) | Conditional | Accepts two inputs. If the first input contains any of the second input values it returns 'true', else 'false' is returned. |
  | [Convert charset](Conversion/convertCharset.md) | Conversion | Convert the string from "sourceCharset" to "targetCharset". |
- | [Convert currency values](Uncategorized/cmem_plugin_currencies-transform.md) | Uncategorized | Converts currencies values with current and historical exchange rates |
- | [Convert Number Base](Numeric/cmem-plugin-number-conversion.md) | Numeric | Convert numbers between different number bases (binary, octal, decimal, hexadecimal). |
  | [Correl](Excel/Excel_CORREL.md) | Excel | Excel CORREL(data_1; data_2): Returns the correlation coefficient between two data sets. Data_1 is the first data set. Data_2 is the second data set. |
  | [Cos](Excel/Excel_COS.md) | Excel | Excel COS(number): Returns the cosine of the given number (angle in radians). |
  | [Cosh](Excel/Excel_COSH.md) | Excel | Excel COSH(number): Returns the hyperbolic cosine of the given number (angle in radians). |
@@ -73,7 +71,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Exact](Excel/Excel_EXACT.md) | Excel | Excel EXACT(text_1; text_2): Compares two text strings and returns TRUE if they are identical. This function is case- sensitive. Text_1 is the first text to compare. Text_2 is the second text to compare. |
  | [Excel map](Replace/excelMap.md) | Replace | Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: mapFrom,mapTo <source string>,<target string> ... and more An empty string can be created in Excel and alternatives by inserting ="" in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds. |
  | [Exp](Excel/Excel_EXP.md) | Excel | Excel EXP(number): Returns e raised to the power of the given number. |
- | [Extract physical quantity](Numeric/extractPhysicalQuantity.md) | Numeric | Extracts physical quantities, such as length or weight values. Values are expected of the form '{Number}{UnitPrefix}{Symbol}' and are converted to the base unit. |
+ | [Extract physical quantity](Numeric/extractPhysicalQuantity.md) | Numeric | Extracts physical quantities, such as length or weight values. Values are expected to be formatted as `{Number}{UnitPrefix}{Symbol}` and are converted to the base unit. |
  | [Fact](Excel/Excel_FACT.md) | Excel | Excel FACT(number): Returns the factorial of the given number. |
  | [False](Excel/Excel_FALSE.md) | Excel | Excel FALSE(): Set the logical value to FALSE. The FALSE() function does not require any arguments. |
  | [File hash](Metadata/fileHash.md) | Metadata | Calculates the hash sum of a file. The hash sum is cached so that subsequent calls to this operator are fast. Note that initially and every time the specified resource has been updated, this operator might take a long time (depending on the file size). This operator supports using different hash algorithms from the [Secure Hash Algorithms family](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) (SHA, e.g. SHA256) and two algorithms from the [Message-Digest Algorithm family](https://en.wikipedia.org/wiki/MD5) (MD2 / MD5). Please be aware that some of these algorithms are not secure regarding collision- and other attacks. Note: This transform operator ignores any inputs. |
@@ -90,7 +88,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [If](Excel/Excel_IF.md) | Excel | Excel IF(test; then_value; otherwise_value): Returns different values based on the test value. Note that in this implementation it will not actually evaluate logical conditions. Then_value is the value that is returned if the test is TRUE. Otherwise_value (optional) is the value that is returned if the test is FALSE. |
  | [If contains](Conditional/ifContains.md) | Conditional | Accepts two or three inputs. If the first input contains the given value, the second input is forwarded. Otherwise, the third input is forwarded (if present). |
  | [If exists](Conditional/ifExists.md) | Conditional | Accepts two or three inputs. If the first input provides a value, the second input is forwarded. Otherwise, the third input is forwarded (if present). |
- | [If matches regex](Conditional/ifMatchesRegex.md) | Conditional | Accepts two or three inputs. If any value of the first input matches the regex, the second input is forwarded. Otherwise, the third input is forwarded (if present). |
+ | [If matches regex](Conditional/ifMatchesRegex.md) | Conditional | This transformer uses a regular expression as a matching condition, in order to distinguish which input to take. |
  | [Input file attributes](Metadata/inputFileAttributes.md) | Metadata | Retrieves a metadata attribute from the input file (such as the file name). |
  | [Input hash](Value/inputHash.md) | Value | Calculates the hash sum of the input values. Generates a single hash sum for all input values combined. |
  | [Input task attributes](Metadata/inputTaskAttributes.md) | Metadata | Retrieves individual attributes from the input task (such as the modified date) or the entire task as JSON. |
@@ -98,7 +96,6 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Intercept](Excel/Excel_INTERCEPT.md) | Excel | Excel INTERCEPT(data_Y; data_X): Calculates the y-value at which a line will intersect the y-axis by using known x-values and y-values. Data_Y is the dependent set of observations or data. Data_X is the independent set of observations or data. Names, arrays or references containing numbers must be used here. Numbers can also be entered directly. |
  | [Ipmt](Excel/Excel_IPMT.md) | Excel | Excel IPMT(rate; period; NPER; PV; FV; type): Calculates the periodic amortization for an investment with regular payments and a constant interest rate. Rate is the periodic interest rate. Period is the period for which the compound interest is calculated. NPER is the total number of periods during which annuity is paid. Period=NPER, if compound interest for the last period is calculated. PV is the present cash value in sequence of payments. FV (optional) is the desired value (future value) at the end of the periods. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. |
  | [Irr](Excel/Excel_IRR.md) | Excel | Excel IRR(values; guess): Calculates the internal rate of return for an investment. The values represent cash flow values at regular intervals; at least one value must be negative (payments), and at least one value must be positive (income). Values is an array containing the values. Guess (optional) is the estimated value. If you can provide only a few values, you should provide an initial guess to enable the iteration. |
- | [jq](Uncategorized/cmem-plugin-jq-transform.md) | Uncategorized | Process a JSON path with a jq filter / program. |
  | [Large](Excel/Excel_LARGE.md) | Excel | Excel LARGE(data; rank_c): Returns the Rank_c-th largest value in a data set. Data is the cell range of data. Rank_c is the ranking of the value (2nd largest, 3rd largest, etc.) written as an integer. |
  | [Left](Excel/Excel_LEFT.md) | Excel | Excel LEFT(text; number): Returns the first character or characters in a text string. Text is the text where the initial partial words are to be determined. Number (optional) is the number of characters for the start text. If this parameter is not defined, one character is returned. |
  | [Ln](Excel/Excel_LN.md) | Excel | Excel LN(number): Returns the natural logarithm based on the constant e of the given number. |
@@ -107,7 +104,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Logarithm](Numeric/log.md) | Numeric | Transforms all numbers by applying the logarithm function. Non-numeric values are left unchanged. |
  | [Lower case](Normalize/lowerCase.md) | Normalize | Converts a string to lower case. |
  | [Map](Replace/map.md) | Replace | Replaces values based on a map of values. |
- | [Map with default](Replace/mapWithDefaultInput.md) | Replace | Takes two inputs. Tries to map the first input based on the map of values parameter config. If the input value is not found in the map, it takes the value of the second input. |
+ | [Map with default](Replace/mapWithDefaultInput.md) | Replace | Maps input values from the first input using a predefined map, with fallback to default values provided by the second input. |
  | [Max](Excel/Excel_MAX.md) | Excel | Excel MAX(number_1; number_2; ... number_30): Returns the maximum value in a list of arguments. Number_1; number_2; ... number_30 are numerical values or ranges. |
  | [Maxa](Excel/Excel_MAXA.md) | Excel | Excel MAXA(value_1; value_2; ... value_30): Returns the maximum value in a list of arguments. Unlike MAX, text can be entered. The value of the text is 0. Value_1; value_2; ... value_30 are values or ranges. |
  | [Median](Excel/Excel_MEDIAN.md) | Excel | Excel MEDIAN(number_1; number_2; ... number_30): Returns the median of a set of numbers. Number_1; number_2; ... number_30 are values or ranges, which represent a sample. Each number can also be replaced by a reference. |
@@ -121,7 +118,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Mode](Excel/Excel_MODE.md) | Excel | Excel MODE(number_1; number_2; ... number_30): Returns the most common value in a data set. Number_1; number_2; ... number_30 are numerical values or ranges. If several values have the same frequency, it returns the smallest value. An error occurs when a value does not appear twice. |
  | [Negate binary (NOT)](Conditional/negateTransformer.md) | Conditional | Accepts one input, which is either 'true', '1' or 'false', '0' and negates it. |
  | [Normalize chars](Linguistic/normalizeChars.md) | Linguistic | Replaces diacritical characters with non-diacritical ones (eg, ö -> o), plus some specialities like transforming æ -> ae, ß -> ss. |
- | [Normalize physical quantity](Numeric/PhysicalQuantitiesNormalizer.md) | Numeric | Normalizes physical quantities. Can either convert to a configured unit or to SI base units. For instance for lengths, values will be converted to metres if no target unit is configured. |
+ | [Normalize physical quantity](Numeric/PhysicalQuantitiesNormalizer.md) | Numeric | Normalizes physical quantities. By default, all quantities are normalized to their base unit (SI), which is overridable. For instance, lengths will be normalized to metres by default. |
  | [Normdist](Excel/Excel_NORMDIST.md) | Excel | Excel NORMDIST(number; mean; STDEV; C): Returns the normal distribution for the given Number in the distribution. Mean is the mean value of the distribution. STDEV is the standard deviation of the distribution. C = 0 calculates the density function, and C = 1 calculates the distribution. |
  | [Norminv](Excel/Excel_NORMINV.md) | Excel | Excel NORMINV(number; mean; STDEV): Returns the inverse of the normal distribution for the given Number in the distribution. Mean is the mean value in the normal distribution. STDEV is the standard deviation of the normal distribution. |
  | [Normsdist](Excel/Excel_NORMSDIST.md) | Excel | Excel NORMSDIST(number): Returns the standard normal cumulative distribution for the given Number. |
@@ -130,7 +127,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Nper](Excel/Excel_NPER.md) | Excel | Excel NPER(rate; PMT; PV; FV; type): Returns the number of periods for an investment based on periodic, constant payments and a constant interest rate. Rate is the periodic interest rate. PMT is the constant annuity paid in each period. PV is the present value (cash value) in a sequence of payments. FV (optional) is the future value, which is reached at the end of the last period. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. |
  | [Npv](Excel/Excel_NPV.md) | Excel | Excel NPV(Rate; value_1; value_2; ... value_30): Returns the net present value of an investment based on a series of periodic cash flows and a discount rate. Rate is the discount rate for a period. Value_1; value_2;... value_30 are values representing deposits or withdrawals. |
  | [Number to duration](Date/numberToDuration.md) | Date | Converts a number to an xsd:duration. |
- | [Numeric operation](Numeric/numOperation.md) | Numeric | Applies a numeric operation to the values of multiple input operators. Uses double-precision floating-point numbers for computation. |
+ | [Numeric operation](Numeric/numOperation.md) | Numeric | Applies one of the four basic arithmetic operators to the sequence of input values. |
  | [Numeric reduce](Numeric/numReduce.md) | Numeric | Strip all non-numeric characters from a string. |
  | [NYSIIS](Linguistic/NYSIIS.md) | Linguistic | NYSIIS phonetic encoding. |
  | [Odd](Excel/Excel_ODD.md) | Excel | Excel ODD(number): Rounds the given number up to the nearest odd integer. |
@@ -143,7 +140,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Parse integer](Parser/IntegerParser.md) | Parser | Parses integer values. |
  | [Parse ISIN](Parser/IsinParser.md) | Parser | Parses International Securities Identification Numbers (ISIN) values and fails if the String is no valid ISIN. |
  | [Parse SKOS term](Parser/SkosTypeParser.md) | Parser | Parses values from a SKOS ontology. |
- | [Parse string](Parser/StringParser.md) | Parser | Parses string values, basically an identity function. |
+ | [Parse string](Parser/StringParser.md) | Parser | Parses string values. This is basically an identity function. |
  | [Pearson](Excel/Excel_PEARSON.md) | Excel | Excel PEARSON(data_1; data_2): Returns the Pearson product moment correlation coefficient r. Data_1 is the array of the first data set. Data_2 is the array of the second data set. |
  | [Percentile](Excel/Excel_PERCENTILE.md) | Excel | Excel PERCENTILE(data; alpha): Returns the alpha-percentile of data values in an array. Data is the array of data. Alpha is the percentage of the scale between 0 and 1. |
  | [Percentrank](Excel/Excel_PERCENTRANK.md) | Excel | Excel PERCENTRANK(data; value): Returns the percentage rank (percentile) of the given value in a sample. Data is the array of data in the sample. |
@@ -161,17 +158,19 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Rank](Excel/Excel_RANK.md) | Excel | Excel RANK(value; data; type): Returns the rank of the given Value in a sample. Data is the array or range of data in the sample. Type (optional) is the sequence order, either ascending (0) or descending (1). |
  | [Rate](Excel/Excel_RATE.md) | Excel | Excel RATE(NPER; PMT; PV; FV; type; guess): Returns the constant interest rate per period of an annuity. NPER is the total number of periods, during which payments are made (payment period). PMT is the constant payment (annuity) paid during each period. PV is the cash value in the sequence of payments. FV (optional) is the future value, which is reached at the end of the periodic payments. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. Guess (optional) determines the estimated value of the interest with iterative calculation. |
  | [Read parameter](Value/readParameter.md) | Value | Reads a parameter from a Java Properties file. |
- | [Regex extract](Extract/regexExtract.md) | Extract | Extracts occurrences of a regex "regex" in a string. If there is at least one capture group, it will return the string of the first capture group instead. |
- | [Regex replace](Replace/regexReplace.md) | Replace | Replace all occurrences of a regex "regex" with "replace" in a string. |
+ | [Regex extract](Extract/regexExtract.md) | Extract | Extracts one or all matches of a regular expression within the input. If the regular expression contains one or more capturing groups, only the first group will be considered. |
+ | [Regex replace](Replace/regexReplace.md) | Replace | Replace all occurrences of a regular expression in a string. If no replacement is given, the occurrences of the regular expression will be deleted. |
  | [Regex selection](Selection/regexSelect.md) | Selection | This transformer takes 3 inputs: one output value, multiple regex patterns, and a value to check against those patterns. It returns the output value at positions where regex patterns match the input value. |
  | [Remove blanks](Normalize/removeBlanks.md) | Normalize | Remove whitespace from a string. |
  | [Remove default stop words](Filter/removeDefaultStopWords.md) | Filter | Removes stop words based on a default stop word list. |
  | [Remove duplicates](Normalize/removeDuplicates.md) | Normalize | Removes duplicated values, making a value sequence distinct. |
  | [Remove empty values](Filter/removeEmptyValues.md) | Filter | Removes empty values. |
  | [Remove parentheses](Normalize/removeParentheses.md) | Normalize | Remove all parentheses including their content, e.g., transforms 'Berlin (City)' -> 'Berlin'. |
+ | [Remove remote stop words](Filter/removeRemoteStopWords.md) | Filter | Removes stop words based on a stop word list remote URL. |
  | [Remove special chars](Normalize/removeSpecialChars.md) | Normalize | Remove special characters (including punctuation) from a string. |
+ | [Remove stop words](Filter/removeStopWords.md) | Filter | Removes stop words based on a stop word list resource. |
  | [Remove values](Filter/removeValues.md) | Filter | Removes values that contain words from a blacklist. The blacklist values are separated with commas. |
- | [Replace](Replace/replace.md) | Replace | Replace all occurrences of a string "search" with "replace" in a string. |
+ | [Replace](Replace/replace.md) | Replace | Replace all occurrences of a string with another string. |
  | [Replace](Excel/Excel_REPLACE.md) | Excel | Excel REPLACE(text; position; length; new_text): Replaces part of a text string with a different text string. This function can be used to replace both characters and numbers (which are automatically converted to text). The result of the function is always displayed as text. To perform further calculations with a number which has been replaced by text, convert it back to a number using the VALUE function. Any text containing numbers must be enclosed in quotation marks so it is not interpreted as a number and automatically converted to text. Text is text of which a part will be replaced. Position is the position within the text where the replacement will begin. Length is the number of characters in text to be replaced. New_text is the text which replaces text.. |
  | [Rept](Excel/Excel_REPT.md) | Excel | Excel REPT(text; number): Repeats a character string by the given number of copies. Text is the text to be repeated. Number is the number of repetitions. The result can be a maximum of 255 characters. |
  | [Retrieve coordinates](Geo/RetrieveCoordinates.md) | Geo | Retrieves geographic coordinates using Nominatim. |
@@ -219,20 +218,9 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Trim](Normalize/trim.md) | Normalize | Remove leading and trailing whitespaces. |
  | [True](Excel/Excel_TRUE.md) | Excel | Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not require any arguments. |
  | [Trunc](Excel/Excel_TRUNC.md) | Excel | Excel TRUNC(number; count): Truncates a number to an integer by removing the fractional part of the number according to the precision specified in Tools > Options > OpenOffice.org Calc > Calculate. Number is the number whose decimal places are to be cut off. Count is the number of decimal places which are not cut off. |
- | [ULID](Value/cmem-plugin-ulid.md) | Value | Generate ULID strings - Universally Unique Lexicographically Sortable Identifiers. |
  | [Until character](Substring/untilCharacter.md) | Substring | Extracts the substring until the character given. |
  | [Upper case](Normalize/upperCase.md) | Normalize | Converts a string to upper case. |
  | [UUID](Value/uuid.md) | Value | Generates UUIDs. If no input value is provided, a random UUID (type 4) is generated using a cryptographically strong pseudo random number generator. If input values are provided, a name-based UUID (type 3) is generated for each input value. Each input value will generate a separate UUID. For building a UUID from multiple inputs, the Concatenate operator can be used. |
- | [UUID Convert](Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert.md) | Value | Convert a UUID string representation |
- | [UUID Version](Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion.md) | Value | Outputs UUID version number of input |
- | [UUID1](Value/cmem_plugin_uuid-plugin_uuid-UUID1.md) | Value | Generate a UUIDv1 from a host ID, sequence number, and the current time |
- | [UUID1 to UUID6](Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6.md) | Value | Generate UUIDv6 from a UUIDv1. |
- | [UUID3](Value/cmem_plugin_uuid-plugin_uuid-UUID3.md) | Value | Generate a UUIDv3 |
- | [UUID4](Value/cmem_plugin_uuid-plugin_uuid-UUID4.md) | Value | Generate a random UUIDv4. |
- | [UUID5](Value/cmem_plugin_uuid-plugin_uuid-UUID5.md) | Value | Generate a UUIDv5 |
- | [UUID6](Value/cmem_plugin_uuid-plugin_uuid-UUID6.md) | Value | Generate a UUIDv6 from a host ID, sequence number, and the current time |
- | [UUID7](Value/cmem_plugin_uuid-plugin_uuid-UUID7.md) | Value | Generate a UUIDv7 from a random number, and the current time. |
- | [UUID8](Value/cmem_plugin_uuid-plugin_uuid-UUID8.md) | Value | Generate a UUIDv8 from a random number, and the current time. |
  | [Validate date after](Validation/validateDateAfter.md) | Validation | Validates if the first input date is after the second input date. Outputs the first input if the validation is successful. |
  | [Validate date range](Validation/validateDateRange.md) | Validation | Validates if dates are within a specified range. |
  | [Validate number of values](Validation/validateNumberOfValues.md) | Validation | Validates that the number of values lies in a specified range. |

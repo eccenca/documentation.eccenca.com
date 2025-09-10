@@ -12,11 +12,11 @@ tags:
 
 Checks for equality of the string representation of the given values. Returns success if string values are equal, failure otherwise. For a numeric comparison of values use the 'Numeric Equality' comparator.
 
-### Characteristics
+## Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

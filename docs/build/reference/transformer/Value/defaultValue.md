@@ -12,7 +12,7 @@ tags:
 
 Generates a default value, if the input values are empty. Forwards any non-empty values.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

@@ -10,10 +10,13 @@ tags:
 
 
 
-Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation in three columns:
-* The normalized numeric value.
-* The unit symbol of the SI-system-unit pertaining to the value.
-* The origin unit symbol from which it was normalized (so we are able to reverse this action).
+This custom task substitutes numeric values and pertaining units by its normalized representation in the International System of Units (SI).
+
+The resulting representation consists of the following three columns:
+
+1. The normalized numeric value.
+2. The unit symbol of the International System of Units (SI) pertaining to the value.
+3. The original unit symbol, from which it was normalized. This information is kept to be able to reverse this action.
 
 
 ## Parameter

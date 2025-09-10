@@ -1,6 +1,6 @@
 ---
 title: "Normalize physical quantity"
-description: "Normalizes physical quantities. Can either convert to a configured unit or to SI base units. For instance for lengths, values will be converted to metres if no target unit is configured."
+description: "Normalizes physical quantities. By default, all quantities are normalized to their base unit (SI), which is overridable. For instance, lengths will be normalized to metres by default."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,14 +10,25 @@ tags:
 
 
 
-Normalizes physical quantities.
-Can either convert to a configured unit or to SI base units.
-For instance for lengths, values will be converted to metres if no target unit is configured.
-Will output the pure numeric value without the unit.
-If one input is provided, the physical quantities are parsed from the provided strings of the form "1 km".
-If two inputs are provided, the numeric values are parsed from the first input and the units are parsed from the second inputs.
+This transformer normalizes physical quantities.
 
-SI units and common derived units are supported. The following section lists all supported units. By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
+Upon its creation, the Physical Quantities Normalizer can be configured by specifying a _target unit_ and a _number format_. Both parameters are optional.
+
+The _target unit_ parameter stands for a metric system such as the _International System of Units_ (SI), which is the default unit system, unless overridden.
+
+Upon its execution, the Physical Quantities Normalizer will convert the given _physical magnitude_ to a _numerical value_ without the physical unit. For example, `"1 km"` will be converted to `"1000.0"`. This is called a _normalization_.
+
+By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
+
+The physical magnitudes are expected to be expressed in the form `{Number}{UnitPrefix}{Symbol}`. In our previous example `"1 km"`, the _number_ is `1`, the _unit prefix_ is `k` (kilo), and the _symbol_ is `m` (meter).
+
+Spaces between the number and the physical unit, consisting of unit prefix and symbol, are optional.
+
+Additionally:
+* If one input is provided, the physical quantities are parsed from the provided strings of the form `"1 km"`.
+* If two inputs are provided, the numeric values are parsed from the first input and the units from the second input.
+
+* SI units and common derived units are supported. The following section lists all supported units.
 
 ## Supported units
 
@@ -184,7 +195,7 @@ The following alternative symbols are supported:
 - `S`
 
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

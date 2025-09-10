@@ -1,6 +1,6 @@
 ---
 title: "Clean HTML"
-description: "Cleans HTML using a tag white list and allows selection of HTML sections with XPath or CSS selector expressions."
+description: "Cleans HTML markup using a tag whitelist and allows selection of HTML sections with XPath or CSS selector expressions."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,10 +10,11 @@ tags:
 
 
 
-Cleans HTML using a tag white list and allows selection of HTML sections with XPath or CSS selector expressions.
-If the tag or attribute white lists are left empty default white lists will be used (this behaviour can be changed).
-To remove all HTML markup and retain text, keep the defaults and turn off the "Default tags and attributes" toggle.
-The operator takes two inputs: the page HTML and (optional) the page Url which may be needed to resolve relative links in the page HTML.
+This transformer cleans HTML markup using a whitelist of HTML tags.
+It allows the selection of HTML sections with XPath or CSS selector expressions.
+If the tag or attribute whitelists are left empty, default whitelists will be used. This behaviour can be changed.
+To remove all the HTML tags and retain plain text, keep the defaults and turn off the "Default tags and attributes" toggle.
+The operator takes two inputs: the page HTML and, optionally, the page URL which may be needed to resolve relative links in the HTML page.
 
 
 ## Parameter

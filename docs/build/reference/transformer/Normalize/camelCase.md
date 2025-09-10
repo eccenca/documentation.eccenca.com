@@ -12,7 +12,7 @@ tags:
 
 Converts a string to camel case. Upper camel case is the default, lower camel case can be chosen.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

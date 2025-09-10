@@ -1,7 +1,6 @@
 nav:
     - "Aggregate numbers": aggregateNumbers.md
     - "Compare numbers": compareNumbers.md
-    - "Convert Number Base": cmem-plugin-number-conversion.md
     - "Extract physical quantity": extractPhysicalQuantity.md
     - "Format number": formatNumber.md
     - "Logarithm": log.md

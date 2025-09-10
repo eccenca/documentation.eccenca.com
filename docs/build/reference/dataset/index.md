@@ -18,7 +18,7 @@ Datasets are collections of data that can be read or written.
  | [Avro](avro.md) | Read from or write to an Apache Avro file. |
  | [Binary file](binaryFile.md) | Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images. |
  | [CSV](csv.md) | Read from or write to an CSV file. |
- | [Excel](excel.md) | Read from or write to an Excel workbook in Open XML format (XLSX). |
+ | [Excel](excel.md) | Read from or write to an Excel workbook in Open XML format (XLSX). The sheet is selected by specifying it as type in the subsequent workflow operator. |
  | [Excel (Google Drive)](googlespreadsheet.md) | Read data from a remote Google Spreadsheet. |
  | [Excel (OneDrive, Office365)](office365preadsheet.md) | Read data from a remote onedrive or Office365 Spreadsheet. |
  | [Hive database](Hive.md) | Read from or write to an embedded Apache Hive endpoint. |
@@ -35,7 +35,7 @@ Datasets are collections of data that can be read or written.
  | [RDF file](file.md) | Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead. |
  | [Snowflake JDBC endpoint](SnowflakeJdbc.md) | Connect to Snowflake JDBC endpoint. |
  | [SparkSQL view](sparkView.md) | Use the SQL endpoint dataset instead. |
- | [SPARQL endpoint](sparqlEndpoint.md) | Connect to an existing SPARQL endpoint. |
+ | [SPARQL endpoint](sparqlEndpoint.md) | Connects to an existing SPARQL endpoint. |
  | [SQL endpoint](sqlEndpoint.md) | Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL. |
  | [Text](text.md) | Reads and writes plain text files. |
  | [XML](xml.md) | Read from or write to an XML file. |

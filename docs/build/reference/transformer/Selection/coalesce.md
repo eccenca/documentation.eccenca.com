@@ -12,7 +12,7 @@ tags:
 
 Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

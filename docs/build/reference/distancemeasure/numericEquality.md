@@ -14,11 +14,11 @@ Compares values numerically instead of their string representation as the 'Strin
 Allows to set the needed precision of the comparison. A value of 0.0 means that the values must represent exactly the same
 (floating point) value, values higher than that allow for a margin of tolerance.
 
-### Characteristics
+## Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

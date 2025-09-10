@@ -12,7 +12,7 @@ tags:
 
 Validates that the number of values lies in a specified range.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

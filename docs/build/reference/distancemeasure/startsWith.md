@@ -12,7 +12,7 @@ tags:
 
 Returns success if the first string starts with the second string, failure otherwise.
 
-### Characteristics
+## Characteristics
 This is a boolean distance measure, i.e., all distances are either 0 or 1.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.

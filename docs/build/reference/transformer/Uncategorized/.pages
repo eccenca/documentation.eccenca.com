@@ -1,3 +1,0 @@
-nav:
-    - "Convert currency values": cmem_plugin_currencies-transform.md
-    - "jq": cmem-plugin-jq-transform.md
