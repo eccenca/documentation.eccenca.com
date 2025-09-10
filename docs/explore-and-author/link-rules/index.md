@@ -1,6 +1,6 @@
 ---
-icon: eccenca/application-queries
 status: new
+icon: eccenca/artefact-linking
 tags:
     - LinkRules
     - KnowledgeGraph
@@ -11,7 +11,7 @@ tags:
 
 The Link Rules module provides mechanisms to simplify creating data linking and to imposes role specific workflows over the whole process.
 
-Linking tasks allow the creation of links between resources based on rules in the Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your knowlege graph internals and may become a repetitive task. The Link rules module allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
+Linking tasks allow the creation of links between resources based on rules in the Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your Knowledge Graph internals and may become a repetitive task. The Link rules module allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
 
 ## Usage
 
@@ -21,20 +21,20 @@ This guide explains how to navigate, search, create, and manage Link Rules in th
 
 ### Open the Link Rules Section
 
-In the main navigation menu, under *BUILD* section, click *Link rules* (①).
+In the main navigation menu, under **BUILD** section, click **:eccenca-artefact-linking: Link rules** (①).
 This opens the list of existing link rules.
 
 ### Manage Templates (Optional)
 
-If you want to work with predefined templates for link rules, click *Manage Templates* in the top right corner (②).
+If you want to work with predefined templates for link rules, click **Manage Templates** in the top right corner (②).
 
 ### Search for Link Rules
 
-Use the Search field (③) to quickly locate an existing link rule by name or keyword in the description.
+Use the **Search** field (③) to quickly locate an existing link rule by name or keyword in the description.
 
 ### Expand or Collapse Rule Details
 
-Click the arrow icon (④) next to a rule to expand or collapse its details.
+Click the :eccenca-toggler-showmore: toggler icon (④) next to a rule to expand or collapse its details.
 
 In the Details tab (⑦), you’ll find:
 
@@ -45,7 +45,7 @@ In the Details tab (⑦), you’ll find:
 -   Activities
 -   The Custom tab contains any additional user-defined properties.
 
-In the rule execution panel (⑥), you can *Execute* the rule (▶ icon), *Delete* the rule (🗑 icon) and *Clone* (⿻ icon) it or modify its configuration (✎ icon).
+In the rule execution panel (⑥), you can **:eccenca-item-start: Execute** the rule, **:eccenca-item-remove: Delete** the rule, **:fontawesome-regular-clone: Clone** the rule, or **:eccenca-item-edit: Modify** its configuration.
 
 ### Open the Link Rule editor
 
@@ -53,14 +53,15 @@ Click on the rule name in the *Linking* column (⑤) to open the link rule edito
 
 ### Create a New Link Rule
 
-To create a new rule, click the blue plus button (⑧) in the bottom-right corner.
+To create a new rule, click the blue :material-plus-circle-outline: button (⑧) in the bottom-right corner.
 Follow the prompts to define the template, connecting predicate, etc.
 
 ## Setup
 
 ### Template Catalog
 
-Create a new graph that holds templates for Link Rules. The graph IRI will be needed for configuration later on.
+Create a new graph that holds templates for Link Rules.
+The graph IRI will be needed for configuration later on.
 
 !!! info
 
@@ -162,29 +163,29 @@ The source / target resources are always referred as variable `a`.
 
 In the example below, resources are selected which are of type variable `class` and are referenced another resource named `subResource` by the property `http://example.com/vocab/hasParent`. The `class` variable is restricted to be one of `http://example.com/vocab/Company` or `http://example.com/vocab/Department`.
 
-```json
+``` json
 {
-    "paths": [
-        {
-            "subjectVarName": "a",
-            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-            "objectVarName": "class"
-        },
-        {
-            "subjectVarName": "subResource",
-            "predicate": "http://example.com/vocab/hasParent",
-            "objectVarName": "a"
-        }
-    ],
-    "pathFilters": [
-        {
-            "varname": "class",
-            "varIsAnyOneOfResource": [
-                "http://example.com/vocab/Company",
-                "http://example.com/vocab/Department"
-            ]
-        }
-    ]
+  "paths":[
+    {
+      "subjectVarName":"a",
+      "predicate":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "objectVarName":"class"
+    },
+    {
+      "subjectVarName":"subResource",
+      "predicate":"http://example.com/vocab/hasParent",
+      "objectVarName":"a"
+    }
+  ],
+  "pathFilters":[
+    {
+      "varname":"class",
+      "varIsAnyOneOfResource":[
+        "http://example.com/vocab/Company",
+        "http://example.com/vocab/Department"
+      ]
+    }
+  ]
 }
 ```
 
