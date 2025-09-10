@@ -1,4 +1,5 @@
 ---
+status: new
 icon: eccenca/application-queries
 tags:
     - SPARQL
@@ -24,19 +25,19 @@ SPARQL Constraints are resources which need to be managed in a Shape Catalog.
 This catalog graph needs to be imported (virtually, with `owl:imports`) into the main CMEM Shapes Catalog.
 Similar to property shapes, SPARQL Constraints needed to be linked from a Node Shape in order to select the set of shapes which are used for a given selection of resources.
 
-## Example
+## Step-by-Step Example
 
 In our running example, we create a Node Shape for `foaf:Person` resources.
-Then we add a SPARQL Constrain shape, which ...
+Then we add a SPARQL Constrain shape, which checks if the label of these resources contains the term `eccenca`.
 
-### Install needed Vocabularies
+### Install Vocabularies
 
 Go to the **:eccenca-application-vocabularies: [Vocabulary catalog](../../../vocabulary-catalog/index.md)** and install the RDF Schema and FOAF Vocabulary.
 Your vocabulary catalog should look like this after installation
 
 ![Vocabulary Catalog with Installed Vocabularies](vocabulary-catalog.png){ class="bordered" }
 
-### Create a Shape Catalog
+### Create Shape Catalog
 
 Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration/index.md)** and create a **New Shape Catalog**.
 Name the graph e.g. *My Shapes*.
@@ -44,7 +45,7 @@ After this step, the browser shows you a nearly empty graph which shows SHACL cl
 
 ![Empty Shapes Graph](empty-shapes-graph.png){ class="bordered" }
 
-### Create a SPARQL Constraint
+### Create Shapes
 
 Select **SHACL SPARQL Constraint** in the Navigation component, then use the **Create a new "SHACL SPARQL Constraint"** button in the top right corner to create a new resource.
 Fill in a label and a SPARQL SELECT Query.
@@ -71,9 +72,7 @@ After you clicked on **Create** you should see your new resource in a list.
 
 ![New SPARQL Constraint](new-sparql-constraint.png){ class="bordered" }
 
-### Create a Node Shape
-
-Select **SHACL Node Shape** in the Navigation component, then use the **Create a new "SHACL Node Shape"** button in the top right corner to create a new resource.
+As a next step select **SHACL Node Shape** in the Navigation component, then use the **Create a new "SHACL Node Shape"** button in the top right corner to create a new resource.
 
 Enter the following values:
 
@@ -90,19 +89,24 @@ Before you create your new Node Shape (and new Property Shape) your screen shoul
 
 ![Create New Node Shape](create-node-shape.png){ class="bordered" }
 
-### Validate the Shape
+### Validate Data
 
 Now we can validate the shape by creating a Person with a label which contains the term `eccenca`.
 
 - Go to **:eccenca-application-explore: [Knowledge graphs](../../../graph-exploration/index.md)** and create a **New Knowledge Graph**.
-    - Name: `My Person Data`
+    - Name: `My Data`
     - Imports: `foaf: Friend of a Friend vocabulary`
 - Select **Person** in the Navigation component, then use the **Create a new "Person"** button in the top right corner to create a new resource.
     - Name: `The term eccenca is not allowed`
 
-The validate the resource with the validation button. You will see a screen like this:
+To validate a single resource, click the :material-play: validation button.
+You will see a screen like this:
 
 ![Invalid Resource](invalid-resource.png){ class="bordered" }
 
 When you open the validation report, you will see a error message such as: **The value does not conform to SPARQL constraint**.
 
+In addition to manual validation of a single resource, you have the following other options:
+
+- use the [Validation Knowledge Graph task](../../../../build/reference/customtask/cmem_plugin_validation-validate-ValidateGraph.md) in a workflow
+- use the cmemc command [graph validation execute](../../../../automate/cmemc-command-line-interface/command-reference/graph/validation/index.md#graph-validation-execute)
