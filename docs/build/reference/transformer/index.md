@@ -47,6 +47,8 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Contains all of](Conditional/containsAllOf.md) | Conditional | Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned. |
  | [Contains any of](Conditional/containsAnyOf.md) | Conditional | Accepts two inputs. If the first input contains any of the second input values it returns 'true', else 'false' is returned. |
  | [Convert charset](Conversion/convertCharset.md) | Conversion | Convert the string from "sourceCharset" to "targetCharset". |
+ | [Convert currency values](Uncategorized/cmem_plugin_currencies-transform.md) | Uncategorized | Converts currencies values with current and historical exchange rates |
+ | [Convert Number Base](Numeric/cmem-plugin-number-conversion.md) | Numeric | Convert numbers between different number bases (binary, octal, decimal, hexadecimal). |
  | [Correl](Excel/Excel_CORREL.md) | Excel | Excel CORREL(data_1; data_2): Returns the correlation coefficient between two data sets. Data_1 is the first data set. Data_2 is the second data set. |
  | [Cos](Excel/Excel_COS.md) | Excel | Excel COS(number): Returns the cosine of the given number (angle in radians). |
  | [Cosh](Excel/Excel_COSH.md) | Excel | Excel COSH(number): Returns the hyperbolic cosine of the given number (angle in radians). |
@@ -96,6 +98,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Intercept](Excel/Excel_INTERCEPT.md) | Excel | Excel INTERCEPT(data_Y; data_X): Calculates the y-value at which a line will intersect the y-axis by using known x-values and y-values. Data_Y is the dependent set of observations or data. Data_X is the independent set of observations or data. Names, arrays or references containing numbers must be used here. Numbers can also be entered directly. |
  | [Ipmt](Excel/Excel_IPMT.md) | Excel | Excel IPMT(rate; period; NPER; PV; FV; type): Calculates the periodic amortization for an investment with regular payments and a constant interest rate. Rate is the periodic interest rate. Period is the period for which the compound interest is calculated. NPER is the total number of periods during which annuity is paid. Period=NPER, if compound interest for the last period is calculated. PV is the present cash value in sequence of payments. FV (optional) is the desired value (future value) at the end of the periods. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. |
  | [Irr](Excel/Excel_IRR.md) | Excel | Excel IRR(values; guess): Calculates the internal rate of return for an investment. The values represent cash flow values at regular intervals; at least one value must be negative (payments), and at least one value must be positive (income). Values is an array containing the values. Guess (optional) is the estimated value. If you can provide only a few values, you should provide an initial guess to enable the iteration. |
+ | [jq](Uncategorized/cmem-plugin-jq-transform.md) | Uncategorized | Process a JSON path with a jq filter / program. |
  | [Large](Excel/Excel_LARGE.md) | Excel | Excel LARGE(data; rank_c): Returns the Rank_c-th largest value in a data set. Data is the cell range of data. Rank_c is the ranking of the value (2nd largest, 3rd largest, etc.) written as an integer. |
  | [Left](Excel/Excel_LEFT.md) | Excel | Excel LEFT(text; number): Returns the first character or characters in a text string. Text is the text where the initial partial words are to be determined. Number (optional) is the number of characters for the start text. If this parameter is not defined, one character is returned. |
  | [Ln](Excel/Excel_LN.md) | Excel | Excel LN(number): Returns the natural logarithm based on the constant e of the given number. |
@@ -218,9 +221,20 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Trim](Normalize/trim.md) | Normalize | Remove leading and trailing whitespaces. |
  | [True](Excel/Excel_TRUE.md) | Excel | Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not require any arguments. |
  | [Trunc](Excel/Excel_TRUNC.md) | Excel | Excel TRUNC(number; count): Truncates a number to an integer by removing the fractional part of the number according to the precision specified in Tools > Options > OpenOffice.org Calc > Calculate. Number is the number whose decimal places are to be cut off. Count is the number of decimal places which are not cut off. |
+ | [ULID](Value/cmem-plugin-ulid.md) | Value | Generate ULID strings - Universally Unique Lexicographically Sortable Identifiers. |
  | [Until character](Substring/untilCharacter.md) | Substring | Extracts the substring until the character given. |
  | [Upper case](Normalize/upperCase.md) | Normalize | Converts a string to upper case. |
  | [UUID](Value/uuid.md) | Value | Generates UUIDs. If no input value is provided, a random UUID (type 4) is generated using a cryptographically strong pseudo random number generator. If input values are provided, a name-based UUID (type 3) is generated for each input value. Each input value will generate a separate UUID. For building a UUID from multiple inputs, the Concatenate operator can be used. |
+ | [UUID Convert](Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert.md) | Value | Convert a UUID string representation |
+ | [UUID Version](Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion.md) | Value | Outputs UUID version number of input |
+ | [UUID1](Value/cmem_plugin_uuid-plugin_uuid-UUID1.md) | Value | Generate a UUIDv1 from a host ID, sequence number, and the current time |
+ | [UUID1 to UUID6](Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6.md) | Value | Generate UUIDv6 from a UUIDv1. |
+ | [UUID3](Value/cmem_plugin_uuid-plugin_uuid-UUID3.md) | Value | Generate a UUIDv3 |
+ | [UUID4](Value/cmem_plugin_uuid-plugin_uuid-UUID4.md) | Value | Generate a random UUIDv4. |
+ | [UUID5](Value/cmem_plugin_uuid-plugin_uuid-UUID5.md) | Value | Generate a UUIDv5 |
+ | [UUID6](Value/cmem_plugin_uuid-plugin_uuid-UUID6.md) | Value | Generate a UUIDv6 from a host ID, sequence number, and the current time |
+ | [UUID7](Value/cmem_plugin_uuid-plugin_uuid-UUID7.md) | Value | Generate a UUIDv7 from a random number, and the current time. |
+ | [UUID8](Value/cmem_plugin_uuid-plugin_uuid-UUID8.md) | Value | Generate a UUIDv8 from a random number, and the current time. |
  | [Validate date after](Validation/validateDateAfter.md) | Validation | Validates if the first input date is after the second input date. Outputs the first input if the validation is successful. |
  | [Validate date range](Validation/validateDateRange.md) | Validation | Validates if dates are within a specified range. |
  | [Validate number of values](Validation/validateNumberOfValues.md) | Validation | Validates that the number of values lies in a specified range. |
