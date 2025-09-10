@@ -1,0 +1,5 @@
+nav:
+    - "Count values": count.md
+    - "Get value by index": getValueByIndex.md
+    - "Sequence values to indexes": toSequenceIndex.md
+    - "Sort": sort.md

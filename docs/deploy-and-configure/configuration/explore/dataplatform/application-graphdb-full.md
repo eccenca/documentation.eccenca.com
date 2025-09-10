@@ -110,7 +110,7 @@ The credentials of the given user
 
 ***Property: store.graphdb.importDirectory***
 
-Import directory to be utilized in the "workbench import with shared folder" approach. Not relevant when useDirectTransfer is true. Must be set when useDirectTransfer is false.
+Import directory to be utilized in the "workbench import with shared folder" approach. Not relevant when `useDirectTransfer` is true. Must be set when `useDirectTransfer` is false.
 
 | Category | Value |
 |--- | ---: |
@@ -143,7 +143,7 @@ Whether to create the given repository on startup if it does not exist
 
 ***Property: store.graphdb.gdbBaseIndex***
 
-The iri of the lucene index to be used for searches. If the default index is used, Dataplatform syncs the index with the configured 'proxy.labelProperties'
+The iri of the lucene index to be used for searches. If the default index is used, Explore backend (DataPlatform) syncs the index with the configured `proxy.labelProperties`
 
 | Category | Value |
 |--- | ---: |
@@ -154,7 +154,7 @@ The iri of the lucene index to be used for searches. If the default index is use
 
 ***Property: store.graphdb.graphDbChangeTrackingActive***
 
-Whether to make use of GraphDB change tracking during SPARQL updates (s. <https://graphdb.ontotext.com/documentation/10.0/change-tracking.html>). This setting is relevant in regards to selectively evicting DP caches depending on the outcome of the SPARQL update s. also proxy.cacheSelectiveInvalidation
+Whether to make use of GraphDB change tracking during SPARQL updates (s. <https://graphdb.ontotext.com/documentation/10.0/change-tracking.html>). This setting is relevant in regards to selectively evicting DP caches depending on the outcome of the SPARQL update s. also `proxy.cacheSelectiveInvalidation`
 
 | Category | Value |
 |--- | ---: |

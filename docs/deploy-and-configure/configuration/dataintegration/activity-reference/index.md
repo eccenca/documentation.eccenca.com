@@ -3,14 +3,15 @@ title: "DataIntegration: Activity Reference"
 tags:
     - Reference
 ---
-# Activity Reference
 <!-- Auto-Generated. Do not edit directly! -->
+
+# Activity Reference
 
 ## Project Activities
 
 The following activities are available for each project.
 
-#### Dataset matcher
+### Dataset matcher
 
 Generates matches between schema paths and datasets based on the schema discovery and profiling information
          of the datasets.
@@ -53,11 +54,11 @@ Generates profiling data of a dataset, e.g. data types, statistics etc.
 |  ---------------------- | ------------- | ------------------ | -------------------------- |
 | datasetUri | String | Optional URI of the dataset resource that should be profiled. If not specified an URI will be generated. |
 | uriPrefix | String | Optional URI prefix that is prepended to every generated URI, e.g. property URIs for every schema path.  If not specified an URI prefix will be generated. |
-| entitySampleLimit | String | How many entities should be sampled for the profiling. If left blank, all entities will be considered. |
+| entitySampleLimit | String | How many entities should be sampled for the profiling. If set to zero or a negative value, all entities will be considered. If left blank the configured default value is used. |
 | timeLimit | String | The time in milliseconds that each of the schema extraction step and profiling step should spend on. Leave blank for unlimited time. |
 | classProfilingLimit | int | The maximum number of classes that are profiled from the extracted schema. |
 | schemaEntityLimit | int | The maximum number of overall schema entities (types, properties/attributes) that will be extracted. |
-| executionType | String | The execution type to be used: SPARK, LEGACY. The legacy execution uses large in-memory maps and takes longer! |
+| executionType | String | The execution type to be used. At the moment, only 'LEGACY' is supported. |
 
 The identifier for this plugin is `DatasetProfiler`.
 
@@ -72,7 +73,7 @@ Shows the SQL endpoint status.
 This plugin does not require any parameters.
 The identifier for this plugin is `SqlEndpointStatus`.
 
-It can be found in the package `com.eccenca.di.sql.endpoint.activity`.
+It can be found in the package `com.eccenca.di.sql.spark.endpoint.activity`.
 
 
 
@@ -100,6 +101,20 @@ Executes an active learning iteration.
 The identifier for this plugin is `ActiveLearning`.
 
 It can be found in the package `org.silkframework.learning.active`.
+
+
+
+#### Active learning (find comparison pairs)
+
+Suggest comparison pairs for the current linking task.
+
+| Parameter | Type | Description | Example |
+|  ---------------------- | ------------- | ------------------ | -------------------------- |
+| fixedRandomSeed | boolean | No description |
+
+The identifier for this plugin is `ActiveLearning-ComparisonPairs`.
+
+It can be found in the package `org.silkframework.learning.active.comparisons`.
 
 
 
@@ -153,17 +168,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ReferenceEntitiesCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.linking`.
-
-
-
-#### Supervised learning
-
-Executes the supervised learning.
-
-This plugin does not require any parameters.
-The identifier for this plugin is `SupervisedLearning`.
-
-It can be found in the package `org.silkframework.learning.active`.
 
 
 
@@ -306,6 +310,7 @@ Executes a workflow with custom payload.
 |  ---------------------- | ------------- | ------------------ | -------------------------- |
 | configuration | MultilineStringParameter | No description |
 | configurationType | String | No description |
+| optionalPrimaryResourceManager | PluginObjectParameter |  |
 
 The identifier for this plugin is `ExecuteWorkflowWithPayload`.
 
@@ -324,4 +329,7 @@ Generate and share a view on a workflow executed by the Spark executor. Executes
 
 The identifier for this plugin is `GenerateSparkView`.
 
-It can be found in the package `com.eccenca.di.sql.virtual`.
+It can be found in the package `com.eccenca.di.sql.spark.virtual`.
+
+
+

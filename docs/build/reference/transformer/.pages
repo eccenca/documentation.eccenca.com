@@ -1,0 +1,24 @@
+nav:
+    - index.md
+    - "Combine": Combine
+    - "Conditional": Conditional
+    - "Conversion": Conversion
+    - "Date": Date
+    - "Excel": Excel
+    - "Extract": Extract
+    - "Filter": Filter
+    - "Geo": Geo
+    - "Linguistic": Linguistic
+    - "Metadata": Metadata
+    - "Normalize": Normalize
+    - "Numeric": Numeric
+    - "Parser": Parser
+    - "Replace": Replace
+    - "Selection": Selection
+    - "Sequence": Sequence
+    - "Substring": Substring
+    - "Template": Template
+    - "Tokenization": Tokenization
+    - "Uncategorized": Uncategorized
+    - "Validation": Validation
+    - "Value": Value

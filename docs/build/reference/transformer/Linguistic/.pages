@@ -1,0 +1,6 @@
+nav:
+    - "Metaphone": metaphone.md
+    - "Normalize chars": normalizeChars.md
+    - "NYSIIS": NYSIIS.md
+    - "Soundex": soundex.md
+    - "Stem": stem.md

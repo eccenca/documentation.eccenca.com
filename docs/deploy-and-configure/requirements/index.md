@@ -26,7 +26,6 @@ Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up 
 For an example of a single-node installation refer to the following scenarios:
 
 -   [Scenario: Local Installation](../installation/scenario-local-installation/index.md)
--   [Scenario: RedHat Enterprise Linux 7](../installation/scenario-redhat-enterprise-linux-7/index.md)
 -   [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md)
 
 ## Typical Setup

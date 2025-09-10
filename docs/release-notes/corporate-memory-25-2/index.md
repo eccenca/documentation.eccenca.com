@@ -3,29 +3,29 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.2.0
+# Corporate Memory 25.2.2
 
-Corporate Memory 25.2.0 is the second major release in 2025.
+Corporate Memory 25.2 is the second major release in 2025.
 
+![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" }
+![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" }
+![25.2: Explore - Multi-Graph Query Management](25-2-explore-multiple-query-catalogs.png "25.2: Explore - Multi-Graph Query Management"){ class="bordered" }
 <!--
-![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
-![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
-![25.1: Explore - Streamlined Shape Management](25-1-explore-node-shape-quick-access.png "25.1: Explore - Streamlined Shape Management"){ class="bordered" }
 -->
 
 The highlights of this release are:
 
--   Build: **Mapping Creator**
-    -   New visual mapping management and GenAI based mapping environment, allowing unparalleled clarity, speed and ease in building and maintaining your mapping rules.
-
 -   Build: **Enhanced File Management in Workflows**
     -   New binary file dataset and project file operators enable seamless integration of PDFs, images, and other binary files directly into workflows, streamlining document processing pipelines.
 
--   Explore: **Dynamic SHACL Shape Creation**
+-   Explore: **Dynamic Class and Property Creation**
     -   Create classes and properties on-the-fly while defining SHACL shapes, dramatically accelerating ontology development and data modeling workflows without context switching.
 
 -   Explore and Automate: **Multi-Graph Query Management**
     -   The enhanced query catalog now supports multiple query graphs and arbitrary graph selection, enabling better organization and management of SPARQL queries across different knowledge domains.
+
+-   Build: **Mapping Creator** (BETA)
+    -   New visual mapping management and GenAI based mapping environment, allowing unparalleled clarity, speed and ease in building and maintaining your mapping rules.
 
 !!! info inline end "Important info"
 
@@ -33,8 +33,8 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.2.0
--   eccenca Explore v25.2.0
+-   eccenca DataIntegration v25.2.2
+-   eccenca Explore v25.2.2
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
@@ -44,9 +44,19 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.2.0
+## eccenca DataIntegration v25.2.2
 
-We are excited to announce the release of DataIntegration v25.2.0, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+We are excited to announce the release of DataIntegration v25.2.2, which introduces powerful new file handling capabilities, enhanced workflow features, and important infrastructure updates.
+
+**v25.2.2 of DataIntegration ships the following fixes and additions:**
+
+-   Added optional parameter to **Get project files** operator to set the MIME type of the retrieved files, required for uploading RDF files to a Knowledge Graph dataset
+
+**v25.2.1 of DataIntegration ships the following fixes and additions:**
+
+-   Icon button tooltips do not pop up out of control
+-   Edge markers are displayed in workflow editor
+-   If a project is imported to the knowledge graph backend, the graph is deleted before import
 
 **v25.2.0 of DataIntegration adds the following new features:**
 
@@ -77,16 +87,26 @@ We are excited to announce the release of DataIntegration v25.2.0, which introdu
 
 -   Fixed queries with ORDER BY clauses in SQL dataset
 -   Fixed create task dialog focus issues when opened via 'connect to newly created...' menu option
--   Fixed errors in Office365 dataset tests and adapted to Microsoft API changes
+-   Fixed errors in Office 365 dataset tests and adapted to Microsoft API changes
 -   Fixed display issues for workflow reports containing internal datasets
 -   Fixed drag-and-drop problems when adding operators to nested workflow editors
 -   Non-printable characters in CSV datasets are now preserved during read/write transformations
 -   XML datasets now return empty values for empty tags when string values are expected
 -   Project variable updates now properly use the triggering user's credentials
 
-## eccenca Explore v25.2.0
+## eccenca Explore v25.2.2
 
-We are pleased to announce Explore v25.2.0, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+We are pleased to announce Explore v25.2.2, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.2 of Explore ships the following fixes and additions:**
+
+-   Update the gui-elements version to solve the edges cut problem
+
+**v25.2.1 of Explore ships the following fixes and additions:**
+
+-   Pagination for inline views of Dataset (used for preview in cmem build)
+-   Widgets for shaped resources without properties to display are shown
+-   Update/Replace in the explore graph list
 
 **v25.2.0 of Explore adds the following new features:**
 
@@ -95,7 +115,6 @@ We are pleased to announce Explore v25.2.0, which brings significant enhancement
     -   Create properties for property shapes on-the-fly without leaving the shape editor
     -   Create classes for property shapes on-the-fly for better data modeling
     -   Support for defining properties with `domainIncludes` and `rangeIncludes` predicates (as defined in either `schema:`,`dcam:` or `gist:`)
-)
 -   **Query Catalog Enhancements:**
     -   Graph selection support for Query Catalog, allowing multiple query catalog graphs and editing queries in arbitrary graphs
     -   Graph selection support for Charts visualization, allowing to store and edit chart visualization in arbitrary graphs
@@ -112,7 +131,7 @@ We are pleased to announce Explore v25.2.0, which brings significant enhancement
     -   Updated to React Flow v12 for enhanced graph visualization
     -   Automatic canvas scrolling when dragging items beyond visible area
     -   Advanced multi-select functionality on canvas for bulk operations
--   **SPARQL Query Endpoints** - Changed to use an explicit list of allowed content-types for better security
+-   **SPARQL Query Endpoints** - Changed to use an explicit list of allowed content types for better security
 -   **Catalog Query Management** - Update and SELECT queries are now differentiated by `rdf:type` using `shui:SparqlQuery` or `shui:UpdateQuery`
 
 **v25.2.0 of Explore ships the following fixes:**
@@ -177,6 +196,19 @@ We are excited to announce cmemc v25.4.0, which introduces new features, improve
     -   `--include-import-statements` option to delete imports from other graphs to the deleted graph
 
 ## Migration Notes
+
+!!! info "Backward and Forward Compatibility"
+
+    We do not guarantee forward compatibility for configuration, data or projects.
+    I.e. importing a project created with DataIntegration v25.2.0 into DataIntegration v25.1.0 (or older) might not work.
+
+    Backward compatibility will be ensured or migration paths explained.
+    I.e. projects created with DataIntegration v24.3.0 can be imported into DataIntegration v25.1.0.
+
+!!! info "Important info"
+
+    Since v24.3.0, the components eccenca DataPlatform and eccenca DataManager are merged
+    into a single component eccenca Explore.
 
 ### eccenca DataIntegration
 

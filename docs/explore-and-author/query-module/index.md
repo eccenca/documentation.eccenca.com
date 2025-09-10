@@ -1,8 +1,10 @@
 ---
 icon: eccenca/application-queries
+status: new
 tags:
     - SPARQL
     - KnowledgeGraph
+    - Video
 ---
 # Query Module
 
@@ -13,6 +15,13 @@ The queries are evaluated on the Knowledge Graph and provide a way to granularly
 These tables can then be exported as CSV, Excel or JSON documents.
 
 The Query module features two areas, the catalog and the editor.
+
+## Catalog graph selection
+
+The Query module lists all the graphs containing queries.
+Use the **Queries catalogue** graph selector in the top left to select the graph whose queries should be listed and edited.
+
+![](Query-Graph-Selection.png){ class="bordered" width="30%"}
 
 ## Query catalog
 

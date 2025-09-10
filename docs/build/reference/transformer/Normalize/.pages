@@ -1,0 +1,15 @@
+nav:
+    - "Camel case": camelCase.md
+    - "Capitalize": capitalize.md
+    - "Clean HTML": htmlCleaner.md
+    - "Encode URL": urlEncode.md
+    - "Fix URI": uriFix.md
+    - "Lower case": lowerCase.md
+    - "Remove blanks": removeBlanks.md
+    - "Remove duplicates": removeDuplicates.md
+    - "Remove parentheses": removeParentheses.md
+    - "Remove special chars": removeSpecialChars.md
+    - "Sort words": sortWords.md
+    - "Strip non-alphabetic characters": alphaReduce.md
+    - "Trim": trim.md
+    - "Upper case": upperCase.md

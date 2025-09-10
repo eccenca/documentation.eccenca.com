@@ -1,0 +1,4 @@
+nav:
+    - "Retrieve coordinates": RetrieveCoordinates.md
+    - "Retrieve latitude": RetrieveLatitude.md
+    - "Retrieve longitude": RetrieveLongitude.md

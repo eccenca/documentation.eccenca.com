@@ -1,0 +1,11 @@
+nav:
+    - "Compare dates": compareDates.md
+    - "Current date": currentDate.md
+    - "Date to timestamp": datetoTimestamp.md
+    - "Duration": duration.md
+    - "Duration in days": durationInDays.md
+    - "Duration in seconds": durationInSeconds.md
+    - "Duration in years": durationInYears.md
+    - "Number to duration": numberToDuration.md
+    - "Parse date pattern": parseDate.md
+    - "Timestamp to date": timeToDate.md
