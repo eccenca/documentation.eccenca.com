@@ -249,10 +249,10 @@ _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
 8. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
 
-    -   Target Property: **_name_**
+    -   Target Property: `name`
     -   Data type: _**String**_
-    -   Value path: _**ServiceName**_ (which corresponds to the column of that name)
-    -   An optional Label: _**service name**_
+    -   Value path: `ServiceName` (which corresponds to the column of that name)
+    -   An optional Label: `service name`
 
     ![](services-mapping-rule-edit.png){ class="bordered" width="50%" }
 
