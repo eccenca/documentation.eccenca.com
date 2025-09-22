@@ -22,6 +22,13 @@ The following services and applications can be easily integrated in Corporate Me
 to interact with Anthropic / Claude provided Large Language Models (LLMs).
 
 
+-   :fontawesome-solid-paper-plane:{ .lg .middle } Avro
+
+    ---
+
+    Use the [Avro](../../build/reference/dataset/avro.md) dataset to read and write files in the [Avro](https://avro.apache.org/) format.
+
+
 -   :material-microsoft-azure:{ .lg .middle } Azure AI Foundry
 
     ---
@@ -66,6 +73,13 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
     You can execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
 
 
+-   :simple-apachehive:{ .lg .middle } Hive
+
+    ---
+
+    Read from or write to an embedded Apache [Hive database](../../build/reference/dataset/Hive.md) endpoint.
+
+
 -   :simple-jira:{ .lg .middle } Jira
 
     ---
@@ -106,7 +120,7 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
 
     ---
 
-    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -121,21 +135,21 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
 
 -   :simple-mysql:{ .lg .middle } MySQL
 
     ---
 
-    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-neo4j:{ .lg .middle } Neo4J
 
     ---
 
-    Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing Neo4j graphs.
+    Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
 
 
 -   :simple-nextcloud:{ .lg .middle } Nextcloud
@@ -177,11 +191,32 @@ to interact with OpenAI provided Large Language Models (LLMs).
 to interact with Anthropic / Claude provided Large Language Models (LLMs).
 
 
+-   :other-apacheorc:{ .lg .middle } ORC
+
+    ---
+
+    Use the [ORC](../../build/reference/dataset/orc.md) dataset to read and write files in the [ORC](https://orc.apache.org/) format.
+
+
+-   :simple-apacheparquet:{ .lg .middle } Parquet
+
+    ---
+
+    Use the [Parquet](../../build/reference/dataset/parquet.md) dataset to read and write files in the [Parquet](https://parquet.apache.org/) format.
+
+
+-   :black_large_square:{ .lg .middle } pgvector
+
+    ---
+
+    Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugin_pgvector-Search.md).
+
+
 -   :simple-postgresql:{ .lg .middle } PostgreSQL
 
     ---
 
-    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
 
 -   :fontawesome-brands-salesforce:{ .lg .middle } Salesforce
@@ -192,11 +227,18 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
 execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin_salesforce-SoqlQuery.md).
 
 
+-   :simple-snowflake:{ .lg .middle } Snowflake
+
+    ---
+
+    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+
+
 -   :simple-sqlite:{ .lg .middle } SQLite
 
     ---
 
-    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
 
 -   :material-ssh:{ .lg .middle } SSH
