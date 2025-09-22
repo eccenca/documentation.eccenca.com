@@ -14,6 +14,22 @@ The following services and applications can be easily integrated in Corporate Me
 
 <div class="grid cards" markdown>
 
+-   :simple-anthropic:{ .lg .middle } Anthropic / Claude
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with Anthropic / Claude provided Large Language Models (LLMs).
+
+
+-   :material-microsoft-azure:{ .lg .middle } Azure AI Foundry
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with Azure AI Foundry provided Large Language Models (LLMs).
+
+
 -   :fontawesome-solid-file-csv:{ .lg .middle } CSV
 
     ---
@@ -90,7 +106,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    Use a Nextcloud instance to [Download Nextcloud files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) or [Upload files to Nextcloud](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md).
+    Use a Nextcloud instance to [download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) you created with Corporate Memory.
 
 
 -   :material-microsoft-office:{ .lg .middle } Office 365
@@ -98,6 +114,30 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     ---
 
     Use the [Excel (OneDrive, Office365)](../../build/reference/dataset/office365preadsheet.md) to read and write to Excel workbooks in Office 365.
+
+
+-   :simple-ollama:{ .lg .middle } Ollama
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with Ollama provided Large Language Models (LLMs).
+
+
+-   :simple-openai:{ .lg .middle } OpenAI
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with OpenAI provided Large Language Models (LLMs).
+
+
+-   :octicons-ai-model-24:{ .lg .middle } OpenRouter
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with Anthropic / Claude provided Large Language Models (LLMs).
 
 
 -   :simple-postgresql:{ .lg .middle } PostgreSQL
