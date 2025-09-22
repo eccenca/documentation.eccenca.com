@@ -109,6 +109,16 @@ integrations:
       Send workflow reports or any other message to user and groups in you Mattermost with
       the {{p.cmem_plugin_mattermost}} task.
 
+  - name: Spark
+    icon: ":simple-apachespark:"
+    content: |
+      Apply a [Spark](https://spark.apache.org/) function to a specified field using {{p.SparkFunction}}.
+
+  - name: REST
+    icon: ":material-application-braces-outline:"
+    content: |
+      Execute REST requests using {{p.eccencaRestOperator}}.
+
   #####
   # Files
   #####

@@ -219,6 +219,13 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
     PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
 
+-   :material-application-braces-outline:{ .lg .middle } REST
+
+    ---
+
+    Execute REST requests using [Execute REST requests](../../build/reference/customtask/eccencaRestOperator.md).
+
+
 -   :fontawesome-brands-salesforce:{ .lg .middle } Salesforce
 
     ---
@@ -232,6 +239,13 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     ---
 
     Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+
+
+-   :simple-apachespark:{ .lg .middle } Spark
+
+    ---
+
+    Apply a [Spark](https://spark.apache.org/) function to a specified field using [Execute Spark function](../../build/reference/customtask/SparkFunction.md).
 
 
 -   :simple-sqlite:{ .lg .middle } SQLite
