@@ -219,6 +219,13 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
     PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
 
+-   :simple-semanticweb:{ .lg .middle } RDF
+
+    ---
+
+    Use the [RDF file](../../build/reference/dataset/file.md) dataset to read and write files in the RDF formats like ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/), [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+
+
 -   :material-application-braces-outline:{ .lg .middle } REST
 
     ---
