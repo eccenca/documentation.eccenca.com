@@ -1,0 +1,187 @@
+# Integrations content
+---
+integrations:
+  # Template (do not remove)
+  #
+  # - name: "Mandatory Short Name of the Service or Application (plain text)"
+  #   icon: "icon spec - have a look at https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/"
+  #   content: |
+  #     Mandatory small markdown paragraph which describes, what you can do with the service or application.
+  #     The content should have at least one link.
+  #     Possible placeholders:
+  #     - {{p.pluginID}} - markdownlink to plugin (replace all '-' with '_')
+  #     - {{p.pluginID_ref}} - relative link to plugin (replace all '-' with '_')
+
+  #####
+  # LLM Provider
+  #####
+
+  - name: Ollama
+    icon: ":simple-ollama:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with Ollama provided Large Language Models (LLMs).
+
+  - name: Azure AI Foundry
+    icon: ":material-microsoft-azure:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with Azure AI Foundry provided Large Language Models (LLMs).
+
+  - name: OpenRouter
+    icon: ":octicons-ai-model-24:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+
+  - name: Anthropic / Claude
+    icon: ":simple-anthropic:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+
+  - name: OpenAI
+    icon: ":simple-openai:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with OpenAI provided Large Language Models (LLMs).
+
+
+  #####
+  # Services
+  #####
+
+  - name: Office 365
+    icon: ":material-microsoft-office:"
+    content: |
+      Use the {{p.office365preadsheet}} to read and write to Excel workbooks in Office 365.
+
+  - name: Google Drive
+    icon: ":material-google-drive:"
+    content: |
+      Use the {{p.googlespreadsheet}} to read and write to Excel workbooks in Google Drive.
+
+  - name: SSH
+    icon: ":material-ssh:"
+    content: |
+      Interact with SSH servers to {{p.cmem_plugin_ssh_Download}} or {{p.cmem_plugin_ssh_Execute}}.
+
+  - name: Kubernetes
+    icon: ":simple-kubernetes:"
+    content: |
+      You can {{p.cmem_plugin_kubernetes_Execute}} and captures its output to process it.
+
+  - name: GraphQL
+    icon: ":simple-graphql:"
+    content: |
+      You can execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
+
+  - name: eMail / SMTP
+    icon: ":material-email-outline:"
+    content: |
+      Send plain text or HTML formatted [eMail messages]({{p.SendEMail_ref}}) using an SMTP server.
+
+  - name: Jira
+    icon: ":simple-jira:"
+    content: |
+      Execute a {{p.cmem_plugin_jira_JqlQuery}} on a Jira instance to fetch and integrate issue data.
+
+  - name: Kafka
+    icon: ":simple-apachekafka:"
+    content: |
+      You can [send]({{p.cmem_plugin_kafka_SendMessages_ref}}) and
+      [receive messages]({{p.cmem_plugin_kafka_ReceiveMessages_ref}}) to and from a Kafka topic.
+
+  - name: Nextcloud
+    icon: ":simple-nextcloud:"
+    content: |
+      Use a Nextcloud instance to [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process
+      them or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) you created with Corporate Memory.
+
+  - name: Salesforce
+    icon: ":fontawesome-brands-salesforce:"
+    content: |
+      Interact with your Salesforce data, such as {{p.cmem_plugin_salesforce_workflow_operations_SobjectCreate}} or
+      execute a {{p.cmem_plugin_salesforce_SoqlQuery}}.
+
+  - name: Mattermost
+    icon: ":simple-mattermost:"
+    content: |
+      Send workflow reports or any other message to user and groups in you Mattermost with
+      the {{p.cmem_plugin_mattermost}} task.
+
+  #####
+  # Files
+  #####
+
+  - name: YAML
+    icon: ":simple-yaml:"
+    content: |
+      Load and integrate data from YAML files with the {{p.cmem_plugin_yaml_parse}} task.
+
+  - name: XML
+    icon: ":material-xml:"
+    content: |
+      Load and write data to XML files with the {{p.xml}} dataset as well as
+      {{p.XmlParserOperator}} from external services.
+
+  - name: CSV
+    icon: ":fontawesome-solid-file-csv:"
+    content: |
+      Comma-separated values (CSV) is a text data format which can be processed
+      (read and write) with the [CSV Dataset]({{p.csv_ref}}).
+
+  - name: Excel
+    icon: ":fontawesome-solid-file-csv:"
+    content: |
+      Use the {{p.excel}} task to read and write to Excel workbooks in the Open XML format (XLSX).
+
+  - name: JSON
+    icon: ":material-code-json:"
+    content: |
+      Use the {{p.json}} dataset to read and write JSON files (JavaScript Object Notation).
+
+  - name: Zipped JSON
+    icon: ":material-code-json:"
+    content: |
+      Use the {{p.json}} dataset to read and write JSON files in a ZIP Archive.
+
+  - name: JSON Lines
+    icon: ":material-code-json:"
+    content: |
+      Use the {{p.json}} dataset to read and write files in the [JSON Lines](https://jsonlines.org/) text file format.
+
+  #####
+  # Databases
+  #####
+
+  - name: Neo4J
+    icon: ":simple-neo4j:"
+    content: |
+      Use the {{p.neo4j}} dataset for reading and writing Neo4j graphs.
+
+  - name: PostgreSQL
+    icon: ":simple-postgresql:"
+    content: |
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+
+  - name: MariaDB
+    icon: ":simple-mariadb:"
+    content: |
+      MariaDB can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+
+  - name: SQLite
+    icon: ":simple-sqlite:"
+    content: |
+      SQLite can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+
+  - name: MySQL
+    icon: ":simple-mysql:"
+    content: |
+      MySQL can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+
+  - name: Microsoft SQL
+    icon: ":material-microsoft:"
+    content: |
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+
