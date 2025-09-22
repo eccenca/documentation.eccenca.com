@@ -66,10 +66,37 @@ integrations:
     content: |
       Interact with SSH servers to {{p.cmem_plugin_ssh_Download}} or {{p.cmem_plugin_ssh_Execute}}.
 
+  - name: Kubernetes
+    icon: ":simple-kubernetes:"
+    content: |
+      You can {{p.cmem_plugin_kubernetes_Execute}} and captures its output to process it.
+
+  - name: GraphQL
+    icon: ":simple-graphql:"
+    content: |
+      You can execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
+
+  - name: eMail / SMTP
+    icon: ":material-email-outline:"
+    content: |
+      Send plain text or HTML formatted [eMail messages]({{p.SendEMail_ref}}) using an SMTP server.
+
+  - name: Jira
+    icon: ":simple-jira:"
+    content: |
+      Execute a {{p.cmem_plugin_jira_JqlQuery}} on a Jira instance to fetch and integrate issue data.
+
+  - name: Kafka
+    icon: ":simple-apachekafka:"
+    content: |
+      You can [send]({{p.cmem_plugin_kafka_SendMessages_ref}}) and
+      [receive messages]({{p.cmem_plugin_kafka_ReceiveMessages_ref}}) to and from a Kafka topic.
+
   - name: Nextcloud
     icon: ":simple-nextcloud:"
     content: |
-      Use a Nextcloud instance to [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process them or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) you created with Corporate Memory.
+      Use a Nextcloud instance to [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process
+      them or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) you created with Corporate Memory.
 
   - name: Salesforce
     icon: ":fontawesome-brands-salesforce:"

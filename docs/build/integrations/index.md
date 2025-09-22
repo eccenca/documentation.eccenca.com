@@ -38,6 +38,13 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
 (read and write) with the [CSV Dataset](../../build/reference/dataset/csv.md).
 
 
+-   :material-email-outline:{ .lg .middle } eMail / SMTP
+
+    ---
+
+    Send plain text or HTML formatted [eMail messages](../../build/reference/customtask/SendEMail.md) using an SMTP server.
+
+
 -   :fontawesome-solid-file-csv:{ .lg .middle } Excel
 
     ---
@@ -52,6 +59,20 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
     Use the [Excel (Google Drive)](../../build/reference/dataset/googlespreadsheet.md) to read and write to Excel workbooks in Google Drive.
 
 
+-   :simple-graphql:{ .lg .middle } GraphQL
+
+    ---
+
+    You can execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
+
+
+-   :simple-jira:{ .lg .middle } Jira
+
+    ---
+
+    Execute a [JQL query](../../build/reference/customtask/cmem_plugin_jira-JqlQuery.md) on a Jira instance to fetch and integrate issue data.
+
+
 -   :material-code-json:{ .lg .middle } JSON
 
     ---
@@ -64,6 +85,21 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
     ---
 
     Use the [JSON](../../build/reference/dataset/json.md) dataset to read and write files in the [JSON Lines](https://jsonlines.org/) text file format.
+
+
+-   :simple-apachekafka:{ .lg .middle } Kafka
+
+    ---
+
+    You can [send](../../build/reference/customtask/cmem_plugin_kafka-SendMessages.md) and
+[receive messages](../../build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) to and from a Kafka topic.
+
+
+-   :simple-kubernetes:{ .lg .middle } Kubernetes
+
+    ---
+
+    You can [Execute a command in a kubernetes pod](../../build/reference/customtask/cmem_plugin_kubernetes-Execute.md) and captures its output to process it.
 
 
 -   :simple-mariadb:{ .lg .middle } MariaDB
@@ -106,7 +142,8 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    Use a Nextcloud instance to [download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) you created with Corporate Memory.
+    Use a Nextcloud instance to [download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process
+them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) you created with Corporate Memory.
 
 
 -   :material-microsoft-office:{ .lg .middle } Office 365
