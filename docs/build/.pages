@@ -1,5 +1,6 @@
 nav:
     - Build: index.md
+    - Integrations: Integrations
     - Introduction to the User Interface: introduction-to-the-user-interface
     - Rule Operators: rule-operators
     - Define Prefixes / Namespaces: define-prefixes-namespaces

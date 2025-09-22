@@ -8,6 +8,9 @@ integrations:
   #   content: |
   #     Mandatory small markdown paragraph which describes, what you can do with the service or application.
   #     The content should have at least one link.
+  #     Possible placeholders:
+  #     - {{p.pluginID}} - markdownlink to plugin (replace all '-' with '_')
+  #     - {{p.pluginID_ref}} - relative link to plugin (replace all '-' with '_')
 
   #####
   # Services
@@ -26,18 +29,18 @@ integrations:
   - name: SSH
     icon: ":material-ssh:"
     content: |
-      Interact with SSH servers to {{p.cmem_plugin_ssh-Download}} or {{p.cmem_plugin_ssh-Execute}}.
+      Interact with SSH servers to {{p.cmem_plugin_ssh_Download}} or {{p.cmem_plugin_ssh_Execute}}.
 
   - name: Nextcloud
     icon: ":simple-nextcloud:"
     content: |
-      Use a Nextcloud instance to {{p.cmem_plugin_nextcloud-Download}} or {{p.cmem_plugin_nextcloud-Upload}}.
+      Use a Nextcloud instance to {{p.cmem_plugin_nextcloud_Download}} or {{p.cmem_plugin_nextcloud_Upload}}.
 
   - name: Salesforce
     icon: ":fontawesome-brands-salesforce:"
     content: |
-      Interact with your Salesforce data, such as {{p.cmem_plugin_salesforce-workflow-operations-SobjectCreate}} or
-      execute a {{p.cmem_plugin_salesforce-SoqlQuery}}.
+      Interact with your Salesforce data, such as {{p.cmem_plugin_salesforce_workflow_operations_SobjectCreate}} or
+      execute a {{p.cmem_plugin_salesforce_SoqlQuery}}.
 
   - name: Mattermost
     icon: ":simple-mattermost:"
@@ -52,7 +55,7 @@ integrations:
   - name: YAML
     icon: ":simple-yaml:"
     content: |
-      Load and integrate data from YAML files with the {{p.cmem_plugin_yaml-parse}} task.
+      Load and integrate data from YAML files with the {{p.cmem_plugin_yaml_parse}} task.
 
   - name: XML
     icon: ":material-xml:"
@@ -64,7 +67,7 @@ integrations:
     icon: ":fontawesome-solid-file-csv:"
     content: |
       Comma-separated values (CSV) is a text data format which can be processed
-      (read and write) with the {{p.csv}} dataset.
+      (read and write) with the [CSV Dataset]({{p.csv_ref}}).
 
   - name: Excel
     icon: ":fontawesome-solid-file-csv:"
