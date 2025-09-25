@@ -120,7 +120,7 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
 
     ---
 
-    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -135,14 +135,14 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
 
 -   :simple-mysql:{ .lg .middle } MySQL
 
     ---
 
-    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-neo4j:{ .lg .middle } Neo4J
@@ -216,7 +216,14 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
 
     ---
 
-    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+
+
+-   :other-powerbi:{ .lg .middle } PowerBI
+
+    ---
+
+    Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
 
 
 -   :simple-semanticweb:{ .lg .middle } RDF
@@ -245,7 +252,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
 
 
 -   :simple-apachespark:{ .lg .middle } Spark
@@ -259,7 +266,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -267,6 +274,13 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     ---
 
     Interact with SSH servers to [Download SSH files](../../build/reference/customtask/cmem_plugin_ssh-Download.md) or [Execute commands via SSH](../../build/reference/customtask/cmem_plugin_ssh-Execute.md).
+
+
+-   :simple-trino:{ .lg .middle } Trino
+
+    ---
+
+    [Trino](https://github.com/trinodb/trino) can be access with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 
 
 -   :material-xml:{ .lg .middle } XML

@@ -119,6 +119,11 @@ integrations:
     content: |
       Execute REST requests using {{p.eccencaRestOperator}}.
 
+  - name: PowerBI
+    icon: ":other-powerbi:"
+    content: |
+      Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+
   #####
   # Files
   #####
@@ -193,22 +198,22 @@ integrations:
   - name: PostgreSQL
     icon: ":simple-postgresql:"
     content: |
-      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
   - name: MariaDB
     icon: ":simple-mariadb:"
     content: |
-      MariaDB can be accessed with the {{p.Jdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      MariaDB can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: SQLite
     icon: ":simple-sqlite:"
     content: |
-      SQLite can be accessed with the {{p.Jdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+      SQLite can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
   - name: MySQL
     icon: ":simple-mysql:"
     content: |
-      MySQL can be accessed with the {{p.Jdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      MySQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: Hive
     icon: ":simple-apachehive:"
@@ -218,14 +223,19 @@ integrations:
   - name: Microsoft SQL
     icon: ":material-microsoft:"
     content: |
-      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
   - name: Snowflake
     icon: ":simple-snowflake:"
     content: |
-      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a proper [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
 
   - name: pgvector
     icon: ":black_large_square:"
     content: |
       Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the {{p.cmem_plugin_pgvector_Search}}.
+
+  - name: Trino
+    icon: ":simple-trino:"
+    content: |
+      [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
