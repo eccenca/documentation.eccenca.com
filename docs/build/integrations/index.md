@@ -19,7 +19,7 @@ The following services and applications can be easily integrated in Corporate Me
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Anthropic / Claude provided Large Language Models (LLMs).
+to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
 
 
 -   :fontawesome-solid-paper-plane:{ .lg .middle } Avro
@@ -34,7 +34,7 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Azure AI Foundry provided Large Language Models (LLMs).
+to interact with any [Azure AI Foundry provided Large Language Models](https://ai.azure.com/catalog) (LLMs).
 
 
 -   :fontawesome-solid-file-csv:{ .lg .middle } CSV
@@ -180,7 +180,7 @@ to interact with Ollama provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with OpenAI provided Large Language Models (LLMs).
+to interact with any [OpenAI provided Large Language Models](https://platform.openai.com/docs/models) (LLMs).
 
 
 -   :octicons-ai-model-24:{ .lg .middle } OpenRouter
@@ -188,7 +188,7 @@ to interact with OpenAI provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Anthropic / Claude provided Large Language Models (LLMs).
+to interact with any [OpenRouter provided Large Language Models](https://openrouter.ai/models) (LLMs).
 
 
 -   :other-apacheorc:{ .lg .middle } ORC

@@ -26,25 +26,25 @@ integrations:
     icon: ":material-microsoft-azure:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Azure AI Foundry provided Large Language Models (LLMs).
+      to interact with any [Azure AI Foundry provided Large Language Models](https://ai.azure.com/catalog) (LLMs).
 
   - name: OpenRouter
     icon: ":octicons-ai-model-24:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+      to interact with any [OpenRouter provided Large Language Models](https://openrouter.ai/models) (LLMs).
 
   - name: Anthropic / Claude
     icon: ":simple-anthropic:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+      to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
 
   - name: OpenAI
     icon: ":simple-openai:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with OpenAI provided Large Language Models (LLMs).
+      to interact with any [OpenAI provided Large Language Models](https://platform.openai.com/docs/models) (LLMs).
 
   #####
   # Services
