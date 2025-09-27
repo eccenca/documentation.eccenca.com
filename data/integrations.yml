@@ -4,13 +4,68 @@ integrations:
   # Template (do not remove)
   #
   # - name: "Mandatory Short Name of the Service or Application (plain text)"
-  #   icon: "icon spec - have a look at https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/"
+  #   icon: ":black_large_square:"
+  #   # icon spec - have a look at https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/"
   #   content: |
   #     Mandatory small markdown paragraph which describes, what you can do with the service or application.
   #     The content should have at least one link.
   #     Possible placeholders:
   #     - {{p.pluginID}} - markdownlink to plugin (replace all '-' with '_')
   #     - {{p.pluginID_ref}} - relative link to plugin (replace all '-' with '_')
+
+  #####
+  # Triple / Quad Stores
+  #####
+
+  - name: Neptune
+    icon: ":other-neptune:"
+    content: |
+      Load and write Knowledge Graphs to Amazon Neptune by using the {{p.sparqlEndpoint}} dataset.
+      Query data from Amazon Neptune by using the SPARQL
+      [Construct]({{p.sparqlCopyOperator_ref}}),
+      [Select]({{p.sparqlSelectOperator_ref}}) and
+      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
+      Amazon Neptune can be used as the integrated Quad Store as well (beta).
+
+  - name: GraphDB
+    icon: ":other-graphdb:"
+    content: |
+      Load and write Knowledge Graphs to an external GraphDB store by using the {{p.sparqlEndpoint}} dataset.
+      Query data from GraphDB by using the SPARQL
+      [Construct]({{p.sparqlCopyOperator_ref}}),
+      [Select]({{p.sparqlSelectOperator_ref}}) and
+      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
+      GraphDB can be used as the integrated Quad Store as well.
+
+  - name: Qlever
+    icon: ":other-qlever:"
+    content: |
+      Load and write Knowledge Graphs to an external Qlever store by using the {{p.sparqlEndpoint}} dataset.
+      Query data from Qlever by using the SPARQL
+      [Construct]({{p.sparqlCopyOperator_ref}}),
+      [Select]({{p.sparqlSelectOperator_ref}}) and
+      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
+      Qlever can be used as the integrated Quad Store as well (beta).
+
+  - name: Tentris
+    icon: ":other-tentris:"
+    content: |
+      Load and write Knowledge Graphs to an external Tentris store by using the {{p.sparqlEndpoint}} dataset.
+      Query data from Tentris by using the SPARQL
+      [Construct]({{p.sparqlCopyOperator_ref}}),
+      [Select]({{p.sparqlSelectOperator_ref}}) and
+      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
+      Tentris can be used as the integrated Quad Store as well (beta).
+
+  - name: Virtuoso
+    icon: ":black_large_square:"
+    content: |
+      Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the {{p.sparqlEndpoint}} dataset.
+      Query data from Virtuoso by using the SPARQL
+      [Construct]({{p.sparqlCopyOperator_ref}}),
+      [Select]({{p.sparqlSelectOperator_ref}}) and
+      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
+      Virtuoso can be used as the integrated Quad Store as well (beta).
 
   #####
   # LLM Provider
@@ -38,7 +93,9 @@ integrations:
     icon: ":simple-anthropic:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
+      to interact with any
+      [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview)
+      (LLMs).
 
   - name: OpenAI
     icon: ":simple-openai:"
@@ -122,7 +179,14 @@ integrations:
   - name: PowerBI
     icon: ":other-powerbi:"
     content: |
-      Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+      Leverage your Knowledge Graphs in PowerBI by using our
+      [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+
+  - name: Redash
+    icon: ":other-redash:"
+    content: |
+      Leverage your Knowledge Graphs in Redash using the integrated
+      [Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
 
   #####
   # Files
@@ -146,7 +210,7 @@ integrations:
       (read and write) with the [CSV Dataset]({{p.csv_ref}}).
 
   - name: Excel
-    icon: ":fontawesome-solid-file-csv:"
+    icon: ":material-file-excel:"
     content: |
       Use the {{p.excel}} task to read and write to Excel workbooks in the Open XML format (XLSX).
 
@@ -166,10 +230,9 @@ integrations:
       Use the {{p.json}} dataset to read and write files in the [JSON Lines](https://jsonlines.org/) text file format.
 
   - name: Avro
-    icon: ":fontawesome-solid-paper-plane:"
-    #icon: ":other-apacheavro:"
+    icon: ":other-apacheavro:"
     content: |
-      Use the {{p.avro}} dataset to read and write files in the [Avro](https://avro.apache.org/) format.
+      Use the {{p.avro}} dataset to read and write files in the [Avro format](https://avro.apache.org/).
 
   - name: Parquet
     icon: ":simple-apacheparquet:"
@@ -184,7 +247,10 @@ integrations:
   - name: RDF
     icon: ":simple-semanticweb:"
     content: |
-      Use the {{p.file}} dataset to read and write files in the RDF formats ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/), [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+      Use the {{p.file}} dataset to read and write files in the RDF formats
+      ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/),
+      [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or
+      [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
 
   #####
   # Databases
@@ -198,22 +264,26 @@ integrations:
   - name: PostgreSQL
     icon: ":simple-postgresql:"
     content: |
-      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
   - name: MariaDB
     icon: ":simple-mariadb:"
     content: |
-      MariaDB can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      MariaDB can be accessed with the {{p.Jdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: SQLite
     icon: ":simple-sqlite:"
     content: |
-      SQLite can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+      SQLite can be accessed with the {{p.Jdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
   - name: MySQL
     icon: ":simple-mysql:"
     content: |
-      MySQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      MySQL can be accessed with the {{p.Jdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: Hive
     icon: ":simple-apachehive:"
@@ -223,19 +293,24 @@ integrations:
   - name: Microsoft SQL
     icon: ":material-microsoft:"
     content: |
-      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
   - name: Snowflake
     icon: ":simple-snowflake:"
     content: |
-      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a
+      [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
 
   - name: pgvector
     icon: ":black_large_square:"
     content: |
-      Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the {{p.cmem_plugin_pgvector_Search}}.
+      Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector)
+      using the {{p.cmem_plugin_pgvector_Search}}.
 
   - name: Trino
     icon: ":simple-trino:"
     content: |
-      [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+      [Trino](https://github.com/trinodb/trino) can be access with the
+      {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+

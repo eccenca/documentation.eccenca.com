@@ -19,14 +19,16 @@ The following services and applications can be easily integrated in Corporate Me
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
+to interact with any
+[Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview)
+(LLMs).
 
 
--   :fontawesome-solid-paper-plane:{ .lg .middle } Avro
+-   :other-apacheavro:{ .lg .middle } Avro
 
     ---
 
-    Use the [Avro](../../build/reference/dataset/avro.md) dataset to read and write files in the [Avro](https://avro.apache.org/) format.
+    Use the [Avro](../../build/reference/dataset/avro.md) dataset to read and write files in the [Avro format](https://avro.apache.org/).
 
 
 -   :material-microsoft-azure:{ .lg .middle } Azure AI Foundry
@@ -52,7 +54,7 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     Send plain text or HTML formatted [eMail messages](../../build/reference/customtask/SendEMail.md) using an SMTP server.
 
 
--   :fontawesome-solid-file-csv:{ .lg .middle } Excel
+-   :material-file-excel:{ .lg .middle } Excel
 
     ---
 
@@ -64,6 +66,18 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     ---
 
     Use the [Excel (Google Drive)](../../build/reference/dataset/googlespreadsheet.md) to read and write to Excel workbooks in Google Drive.
+
+
+-   :other-graphdb:{ .lg .middle } GraphDB
+
+    ---
+
+    Load and write Knowledge Graphs to an external GraphDB store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
+Query data from GraphDB by using the SPARQL
+[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
+[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
+[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
+GraphDB can be used as the integrated Quad Store as well.
 
 
 -   :simple-graphql:{ .lg .middle } GraphQL
@@ -120,7 +134,8 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
 
     ---
 
-    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -135,14 +150,16 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
 
 -   :simple-mysql:{ .lg .middle } MySQL
 
     ---
 
-    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-neo4j:{ .lg .middle } Neo4J
@@ -150,6 +167,18 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     ---
 
     Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
+
+
+-   :other-neptune:{ .lg .middle } Neptune
+
+    ---
+
+    Load and write Knowledge Graphs to Amazon Neptune by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
+Query data from Amazon Neptune by using the SPARQL
+[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
+[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
+[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
+Amazon Neptune can be used as the integrated Quad Store as well (beta).
 
 
 -   :simple-nextcloud:{ .lg .middle } Nextcloud
@@ -209,28 +238,54 @@ to interact with any [OpenRouter provided Large Language Models](https://openrou
 
     ---
 
-    Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugin_pgvector-Search.md).
+    Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector)
+using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugin_pgvector-Search.md).
 
 
 -   :simple-postgresql:{ .lg .middle } PostgreSQL
 
     ---
 
-    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
 
 -   :other-powerbi:{ .lg .middle } PowerBI
 
     ---
 
-    Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+    Leverage your Knowledge Graphs in PowerBI by using our
+[Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+
+
+-   :other-qlever:{ .lg .middle } Qlever
+
+    ---
+
+    Load and write Knowledge Graphs to an external Qlever store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
+Query data from Qlever by using the SPARQL
+[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
+[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
+[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
+Qlever can be used as the integrated Quad Store as well (beta).
 
 
 -   :simple-semanticweb:{ .lg .middle } RDF
 
     ---
 
-    Use the [RDF file](../../build/reference/dataset/file.md) dataset to read and write files in the RDF formats ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/), [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+    Use the [RDF file](../../build/reference/dataset/file.md) dataset to read and write files in the RDF formats
+([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/),
+[Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or
+[RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+
+
+-   :other-redash:{ .lg .middle } Redash
+
+    ---
+
+    Leverage your Knowledge Graphs in Redash using the integrated
+[Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
 
 
 -   :material-application-braces-outline:{ .lg .middle } REST
@@ -252,7 +307,8 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
 
 
 -   :simple-apachespark:{ .lg .middle } Spark
@@ -266,7 +322,8 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -276,11 +333,36 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     Interact with SSH servers to [Download SSH files](../../build/reference/customtask/cmem_plugin_ssh-Download.md) or [Execute commands via SSH](../../build/reference/customtask/cmem_plugin_ssh-Execute.md).
 
 
+-   :other-tentris:{ .lg .middle } Tentris
+
+    ---
+
+    Load and write Knowledge Graphs to an external Tentris store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
+Query data from Tentris by using the SPARQL
+[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
+[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
+[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
+Tentris can be used as the integrated Quad Store as well (beta).
+
+
 -   :simple-trino:{ .lg .middle } Trino
 
     ---
 
-    [Trino](https://github.com/trinodb/trino) can be access with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+    [Trino](https://github.com/trinodb/trino) can be access with the
+[JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+
+
+-   :black_large_square:{ .lg .middle } Virtuoso
+
+    ---
+
+    Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
+Query data from Virtuoso by using the SPARQL
+[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
+[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
+[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
+Virtuoso can be used as the integrated Quad Store as well (beta).
 
 
 -   :material-xml:{ .lg .middle } XML
