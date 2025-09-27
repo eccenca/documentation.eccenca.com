@@ -26,26 +26,25 @@ integrations:
     icon: ":material-microsoft-azure:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Azure AI Foundry provided Large Language Models (LLMs).
+      to interact with any [Azure AI Foundry provided Large Language Models](https://ai.azure.com/catalog) (LLMs).
 
   - name: OpenRouter
     icon: ":octicons-ai-model-24:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+      to interact with any [OpenRouter provided Large Language Models](https://openrouter.ai/models) (LLMs).
 
   - name: Anthropic / Claude
     icon: ":simple-anthropic:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with Anthropic / Claude provided Large Language Models (LLMs).
+      to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
 
   - name: OpenAI
     icon: ":simple-openai:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
-      to interact with OpenAI provided Large Language Models (LLMs).
-
+      to interact with any [OpenAI provided Large Language Models](https://platform.openai.com/docs/models) (LLMs).
 
   #####
   # Services
@@ -110,6 +109,21 @@ integrations:
       Send workflow reports or any other message to user and groups in you Mattermost with
       the {{p.cmem_plugin_mattermost}} task.
 
+  - name: Spark
+    icon: ":simple-apachespark:"
+    content: |
+      Apply a [Spark](https://spark.apache.org/) function to a specified field using {{p.SparkFunction}}.
+
+  - name: REST
+    icon: ":material-application-braces-outline:"
+    content: |
+      Execute REST requests using {{p.eccencaRestOperator}}.
+
+  - name: PowerBI
+    icon: ":other-powerbi:"
+    content: |
+      Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+
   #####
   # Files
   #####
@@ -151,6 +165,27 @@ integrations:
     content: |
       Use the {{p.json}} dataset to read and write files in the [JSON Lines](https://jsonlines.org/) text file format.
 
+  - name: Avro
+    icon: ":fontawesome-solid-paper-plane:"
+    #icon: ":other-apacheavro:"
+    content: |
+      Use the {{p.avro}} dataset to read and write files in the [Avro](https://avro.apache.org/) format.
+
+  - name: Parquet
+    icon: ":simple-apacheparquet:"
+    content: |
+      Use the {{p.parquet}} dataset to read and write files in the [Parquet](https://parquet.apache.org/) format.
+
+  - name: ORC
+    icon: ":other-apacheorc:"
+    content: |
+      Use the {{p.orc}} dataset to read and write files in the [ORC](https://orc.apache.org/) format.
+
+  - name: RDF
+    icon: ":simple-semanticweb:"
+    content: |
+      Use the {{p.file}} dataset to read and write files in the RDF formats ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/), [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+
   #####
   # Databases
   #####
@@ -158,30 +193,49 @@ integrations:
   - name: Neo4J
     icon: ":simple-neo4j:"
     content: |
-      Use the {{p.neo4j}} dataset for reading and writing Neo4j graphs.
+      Use the {{p.neo4j}} dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
 
   - name: PostgreSQL
     icon: ":simple-postgresql:"
     content: |
-      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
   - name: MariaDB
     icon: ":simple-mariadb:"
     content: |
-      MariaDB can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+      MariaDB can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: SQLite
     icon: ":simple-sqlite:"
     content: |
-      SQLite can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+      SQLite can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
   - name: MySQL
     icon: ":simple-mysql:"
     content: |
-      MySQL can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+      MySQL can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+
+  - name: Hive
+    icon: ":simple-apachehive:"
+    content: |
+      Read from or write to an embedded Apache {{p.Hive}} endpoint.
 
   - name: Microsoft SQL
     icon: ":material-microsoft:"
     content: |
-      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a proper JDBC driver.
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
+  - name: Snowflake
+    icon: ":simple-snowflake:"
+    content: |
+      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+
+  - name: pgvector
+    icon: ":black_large_square:"
+    content: |
+      Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the {{p.cmem_plugin_pgvector_Search}}.
+
+  - name: Trino
+    icon: ":simple-trino:"
+    content: |
+      [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).

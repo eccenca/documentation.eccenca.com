@@ -19,7 +19,14 @@ The following services and applications can be easily integrated in Corporate Me
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Anthropic / Claude provided Large Language Models (LLMs).
+to interact with any [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview) (LLMs).
+
+
+-   :fontawesome-solid-paper-plane:{ .lg .middle } Avro
+
+    ---
+
+    Use the [Avro](../../build/reference/dataset/avro.md) dataset to read and write files in the [Avro](https://avro.apache.org/) format.
 
 
 -   :material-microsoft-azure:{ .lg .middle } Azure AI Foundry
@@ -27,7 +34,7 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Azure AI Foundry provided Large Language Models (LLMs).
+to interact with any [Azure AI Foundry provided Large Language Models](https://ai.azure.com/catalog) (LLMs).
 
 
 -   :fontawesome-solid-file-csv:{ .lg .middle } CSV
@@ -64,6 +71,13 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
     ---
 
     You can execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
+
+
+-   :simple-apachehive:{ .lg .middle } Hive
+
+    ---
+
+    Read from or write to an embedded Apache [Hive database](../../build/reference/dataset/Hive.md) endpoint.
 
 
 -   :simple-jira:{ .lg .middle } Jira
@@ -106,7 +120,7 @@ to interact with Azure AI Foundry provided Large Language Models (LLMs).
 
     ---
 
-    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -121,21 +135,21 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
 
 -   :simple-mysql:{ .lg .middle } MySQL
 
     ---
 
-    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
 -   :simple-neo4j:{ .lg .middle } Neo4J
 
     ---
 
-    Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing Neo4j graphs.
+    Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
 
 
 -   :simple-nextcloud:{ .lg .middle } Nextcloud
@@ -166,7 +180,7 @@ to interact with Ollama provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with OpenAI provided Large Language Models (LLMs).
+to interact with any [OpenAI provided Large Language Models](https://platform.openai.com/docs/models) (LLMs).
 
 
 -   :octicons-ai-model-24:{ .lg .middle } OpenRouter
@@ -174,14 +188,56 @@ to interact with OpenAI provided Large Language Models (LLMs).
     ---
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
-to interact with Anthropic / Claude provided Large Language Models (LLMs).
+to interact with any [OpenRouter provided Large Language Models](https://openrouter.ai/models) (LLMs).
+
+
+-   :other-apacheorc:{ .lg .middle } ORC
+
+    ---
+
+    Use the [ORC](../../build/reference/dataset/orc.md) dataset to read and write files in the [ORC](https://orc.apache.org/) format.
+
+
+-   :simple-apacheparquet:{ .lg .middle } Parquet
+
+    ---
+
+    Use the [Parquet](../../build/reference/dataset/parquet.md) dataset to read and write files in the [Parquet](https://parquet.apache.org/) format.
+
+
+-   :black_large_square:{ .lg .middle } pgvector
+
+    ---
+
+    Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector) using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugin_pgvector-Search.md).
 
 
 -   :simple-postgresql:{ .lg .middle } PostgreSQL
 
     ---
 
-    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+
+
+-   :other-powerbi:{ .lg .middle } PowerBI
+
+    ---
+
+    Leverage your Knowledge Graphs in PowerBI using our [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
+
+
+-   :simple-semanticweb:{ .lg .middle } RDF
+
+    ---
+
+    Use the [RDF file](../../build/reference/dataset/file.md) dataset to read and write files in the RDF formats ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/), [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+
+
+-   :material-application-braces-outline:{ .lg .middle } REST
+
+    ---
+
+    Execute REST requests using [Execute REST requests](../../build/reference/customtask/eccencaRestOperator.md).
 
 
 -   :fontawesome-brands-salesforce:{ .lg .middle } Salesforce
@@ -192,11 +248,25 @@ to interact with Anthropic / Claude provided Large Language Models (LLMs).
 execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin_salesforce-SoqlQuery.md).
 
 
+-   :simple-snowflake:{ .lg .middle } Snowflake
+
+    ---
+
+    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+
+
+-   :simple-apachespark:{ .lg .middle } Spark
+
+    ---
+
+    Apply a [Spark](https://spark.apache.org/) function to a specified field using [Execute Spark function](../../build/reference/customtask/SparkFunction.md).
+
+
 -   :simple-sqlite:{ .lg .middle } SQLite
 
     ---
 
-    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a proper JDBC driver.
+    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -204,6 +274,13 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     ---
 
     Interact with SSH servers to [Download SSH files](../../build/reference/customtask/cmem_plugin_ssh-Download.md) or [Execute commands via SSH](../../build/reference/customtask/cmem_plugin_ssh-Execute.md).
+
+
+-   :simple-trino:{ .lg .middle } Trino
+
+    ---
+
+    [Trino](https://github.com/trinodb/trino) can be access with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 
 
 -   :material-xml:{ .lg .middle } XML
