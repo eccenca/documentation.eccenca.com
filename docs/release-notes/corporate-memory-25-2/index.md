@@ -95,7 +95,7 @@ We are excited to announce the release of DataIntegration v25.2.2, which introdu
 
 ## eccenca Explore v25.2.5
 
-We are pleased to announce Explore v25.2.4, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+We are pleased to announce Explore v25.2.5, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
 
 **v25.2.5 of Explore ships the following fix:**
 
