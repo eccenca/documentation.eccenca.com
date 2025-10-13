@@ -1,11 +1,11 @@
 ---
-title: "JDBC endpoint"
+title: "Remote SQL endpoint"
 description: "Connect to an existing JDBC endpoint."
 icon: octicons/cross-reference-24
 tags: 
     - Dataset
 ---
-# JDBC endpoint
+# Remote SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 

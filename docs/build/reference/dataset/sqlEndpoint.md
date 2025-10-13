@@ -1,11 +1,11 @@
 ---
-title: "SQL endpoint"
+title: "Embedded SQL endpoint"
 description: "Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL."
 icon: octicons/cross-reference-24
 tags: 
     - Dataset
 ---
-# SQL endpoint
+# Embedded SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 

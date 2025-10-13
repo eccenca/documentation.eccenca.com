@@ -1,16 +1,16 @@
 ---
-title: "SparkSQL view"
-description: "Use the SQL endpoint dataset instead."
+title: "Embedded Spark SQL view"
+description: "Deprecated: Use the embedded SQL endpoint dataset instead."
 icon: octicons/cross-reference-24
 tags: 
     - Dataset
 ---
-# SparkSQL view
+# Embedded Spark SQL view
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
 
-Use the SQL endpoint dataset instead.
+Deprecated: Use the embedded SQL endpoint dataset instead.
 
 
 ## Parameter

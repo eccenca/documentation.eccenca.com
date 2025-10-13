@@ -75,6 +75,16 @@ Pods are an abstraction that represent groups of one or more application contain
 
 
 
+### Container
+
+In case there is more than one container in the pod OR the default container selection does not work, you need to specify the container ID in addition to the pod ID.
+
+- ID: `container`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
 ### Command
 
 The command to execute.
