@@ -3,7 +3,7 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.2.5
+# Corporate Memory 25.2.6
 
 Corporate Memory 25.2 is the second major release in 2025.
 
@@ -34,7 +34,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.2.2
--   eccenca Explore v25.2.3
+-   eccenca Explore v25.2.4
 -   eccenca Corporate Memory Control (cmemc) v25.4.0
 
 We tested this release with the following dependency components:
@@ -94,9 +94,13 @@ We are excited to announce the release of DataIntegration v25.2.2, which introdu
 -   XML datasets now return empty values for empty tags when string values are expected
 -   Project variable updates now properly use the triggering user's credentials
 
-## eccenca Explore v25.2.3
+## eccenca Explore v25.2.4
 
-We are pleased to announce Explore v25.2.3, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+We are pleased to announce Explore v25.2.4, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.4 of Explore ships the following fix:**
+
+-   Add missing property for setting lifetime of stale (facet) caches
 
 **v25.2.3 of Explore ships the following fixes and additions:**
 
