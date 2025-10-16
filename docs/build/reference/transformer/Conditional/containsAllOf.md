@@ -12,7 +12,7 @@ tags:
 
 Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

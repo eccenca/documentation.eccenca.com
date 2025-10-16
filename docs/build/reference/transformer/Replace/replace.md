@@ -1,6 +1,6 @@
 ---
 title: "Replace"
-description: "Replace all occurrences of a string 'search' with 'replace' in a string."
+description: "Replace all occurrences of a string with another string."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,7 +10,38 @@ tags:
 
 
 
-Replace all occurrences of a string "search" with "replace" in a string.
+Replace all occurrences of a string with another string.
+
+## Examples
+
+**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
+
+---
+**Example 1:**
+
+* Parameters
+    * search: ` `
+    * replace: ``
+
+* Input values:
+    1. `[a b c]`
+
+* Returns: `[abc]`
+
+
+---
+**Example 2:**
+
+* Parameters
+    * search: `abc`
+    * replace: ``
+
+* Input values:
+    1. `[abcdef]`
+
+* Returns: `[def]`
+
+
 
 
 ## Parameter
@@ -27,7 +58,7 @@ The string to search for
 
 ### Replace
 
-The string that will replace each match
+The replacement of each match
 
 - ID: `replace`
 - Datatype: `string`

@@ -12,11 +12,11 @@ tags:
 
 Jaccard similarity coefficient. Divides the matching tokens by the number of distinct tokens from both inputs.
 
-### Characteristics
+## Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares sets of multiple values.Typically, incoming values are tokenized before being fed into this measure.
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

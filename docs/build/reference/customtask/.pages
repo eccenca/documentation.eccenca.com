@@ -13,6 +13,7 @@ nav:
     - "Download Office 365 Files": cmem_plugin_office365-Download.md
     - "Download SSH files": cmem_plugin_ssh-Download.md
     - "Evaluate template": Template.md
+    - "Execute a command in a kubernetes pod": cmem_plugin_kubernetes-Execute.md
     - "Execute commands via SSH": cmem_plugin_ssh-Execute.md
     - "Execute Instructions": cmem_plugin_llm-ExecuteInstructions.md
     - "Execute REST requests": eccencaRestOperator.md
@@ -43,16 +44,17 @@ nav:
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
     - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
-    - "Send email": SendEmail.md
+    - "Send email": SendEMail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
     - "SHACL validation with pySHACL": shacl-pyshacl.md
     - "SOQL query (Salesforce)": cmem_plugin_salesforce-SoqlQuery.md
+    - "Spark SQL query": CustomSQLExecution.md
     - "SPARQL Construct query": sparqlCopyOperator.md
     - "SPARQL Select query": sparqlSelectOperator.md
     - "SPARQL Update query": sparqlUpdateOperator.md
     - "Split file": cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md
-    - "SQL query": CustomSQLExecution.md
+    - "SQL Update query": sqlUpdateQueryOperator.md
     - "Start Workflow per Entity": cmem_plugin_loopwf-task-StartWorkflow.md
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md

@@ -15,7 +15,7 @@ Distance Measures compute a distance metric between two sets of strings.
 |         Name | Description              |
 |-------------:|:-------------------------|
  | [CJK reading distance](cjkReadingDistance.md) | CJK Reading Distance. |
- | [Compare physical quantities](PhysicalQuantitiesDistance.md) | Computes the distance between two physical quantities. The distance is normalized to the SI base unit of the dimension. For instance for lengths, the distance will be in metres. Comparing incompatible units will yield a validation error. |
+ | [Compare physical quantities](PhysicalQuantitiesDistance.md) | Computes the distance between two physical quantities. |
  | [Constant similarity value](constantDistance.md) | Always returns a constant similarity value. |
  | [Cosine](cosine.md) | Cosine Distance Measure. |
  | [Date](date.md) | The distance in days between two dates ('YYYY-MM-DD' format). |

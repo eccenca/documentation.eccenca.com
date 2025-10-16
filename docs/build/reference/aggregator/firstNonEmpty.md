@@ -11,7 +11,7 @@ tags:
 
 Forwards the first input that provides a non-empty similarity score.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

@@ -12,7 +12,7 @@ tags:
 
 Tokenizes a camel case string. That is it splits strings between a lower case character and an upper case character.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

@@ -15,7 +15,7 @@ A custom workflow task is an operator that can be used in a workflow.
 |         Name | Description              |
 |-------------:|:-------------------------|
  | [Add project files](addProjectFiles.md) | Adds file resources to the project that are piped into the input port. |
- | [Cancel Workflow](CancelWorkflow.md) | Cancels a workflow if a specified condition is fulfilled. |
+ | [Cancel Workflow](CancelWorkflow.md) | Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty. |
  | [Combine CSV files](combine-csv.md) | Combine CSV files with the same structure to one dataset. |
  | [Concatenate to file](ConcatenateToFile.md) | Concatenates values into a file. |
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
@@ -27,6 +27,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Download Office 365 Files](cmem_plugin_office365-Download.md) | Download files from Microsoft OneDrive or Sites |
  | [Download SSH files](cmem_plugin_ssh-Download.md) | Download files from a given SSH instance |
  | [Evaluate template](Template.md) | Evaluates a template on a sequence of entities. Can be used after a transformation or directly after datasets that output a single table, such as CSV or Excel. |
+ | [Execute a command in a kubernetes pod](cmem_plugin_kubernetes-Execute.md) | Connect to a cluster, execute a command and gather the output. |
  | [Execute commands via SSH](cmem_plugin_ssh-Execute.md) | Execute commands on a given SSH instance. |
  | [Execute Instructions](cmem_plugin_llm-ExecuteInstructions.md) | Send instructions (prompt) to an LLM and process the result. |
  | [Execute REST requests](eccencaRestOperator.md) | REST operator that fetches and optionally merges data from a REST endpoint. It supports executing multiple requests either via input entities that each overwrite config parameters or via paging. If you only need to download a single file, the "Download file" operator might be the better option. Most features are currently only supported for JSON REST APIs. From multiple requests the REST operator can produce a merged JSON result, i.e. for JSON it will concatenate all results in a JSON array. Alternatively multiple results can be written directly to file (of a JSON dataset), either as a merged JSON file or one file per request inside a ZIP file. By default the output of this operator is an entity with a single property 'result', which is the (concatenated) JSON string. |
@@ -57,16 +58,17 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
  | [Search Vector Embeddings](cmem_plugin_pgvector-Search.md) | Search for top-k metadata stored in Postgres Vector Store (PGVector). |
- | [Send email](SendEmail.md) | Sends an email using an SMTP server. |
+ | [Send email](SendEMail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |
  | [Set or Overwrite parameters](cmem_plugin_parameters-ParametersPlugin.md) | Connect this task to a config port of another task in order to set or overwrite the parameter values of this task. |
  | [SHACL validation with pySHACL](shacl-pyshacl.md) | Performs SHACL validation with pySHACL. |
  | [SOQL query (Salesforce)](cmem_plugin_salesforce-SoqlQuery.md) | Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization’s Salesforce account. |
+ | [Spark SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input Spark dataframe and returns the result as its output. |
  | [SPARQL Construct query](sparqlCopyOperator.md) | A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable. |
  | [SPARQL Select query](sparqlSelectOperator.md) | A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected. |
- | [SPARQL Update query](sparqlUpdateOperator.md) | A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written. In contrast to the SPARQL select operator, no FROM clause gets injected into the query. |
+ | [SPARQL Update query](sparqlUpdateOperator.md) | A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written. |
  | [Split file](cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md) | Split a file into multiple parts with a specified size. |
- | [SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input dataset and returns the result as its output. |
+ | [SQL Update query](sqlUpdateQueryOperator.md) | A task that outputs SQL queries. The output of this operator should be connected to a remote SQL endpoint on which queries should be executed. |
  | [Start Workflow per Entity](cmem_plugin_loopwf-task-StartWorkflow.md) | Loop over the output of a task and start a sub-workflow for each entity. |
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |

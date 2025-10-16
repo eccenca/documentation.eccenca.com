@@ -1,6 +1,6 @@
 ---
 title: "Compare physical quantities"
-description: "Computes the distance between two physical quantities. The distance is normalized to the SI base unit of the dimension. For instance for lengths, the distance will be in metres. Comparing incompatible units will yield a validation error."
+description: "Computes the distance between two physical quantities."
 icon: octicons/cross-reference-24
 tags: 
     - DistanceMeasure
@@ -10,14 +10,11 @@ tags:
 
 
 
-Normalizes physical quantities.
-Can either convert to a configured unit or to SI base units.
-For instance for lengths, values will be converted to metres if no target unit is configured.
-Will output the pure numeric value without the unit.
-If one input is provided, the physical quantities are parsed from the provided strings of the form "1 km".
-If two inputs are provided, the numeric values are parsed from the first input and the units are parsed from the second inputs.
-
-SI units and common derived units are supported. The following section lists all supported units. By default, all quantities are normalized to their base unit. For instance, lengths will be normalized to metres.
+Computes the distance between two physical quantities.
+This "distance" is to be understood in a mathematical or abstract sense of _absolute difference_.
+The distance is normalized to the SI base unit of the dimension.
+For instance: for lengths, the distance will be in metres.
+Comparing incompatible units will yield a validation error.
 
 ## Supported units
 
@@ -184,11 +181,11 @@ The following alternative symbols are supported:
 - `S`
 
 
-### Characteristics
+## Characteristics
 This distance measure is not normalized, i.e., all distances start at 0 (exact match) and increase the more different the values are.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

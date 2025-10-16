@@ -21,7 +21,7 @@ In the case of German words, notice that the upper-case letter of the lower-case
 Should you want to provide your own stop word list, either as a resource (e.g. a file) or a remote URL, see the filters
 'removeStopWords' and 'removeRemoteStopWords'.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

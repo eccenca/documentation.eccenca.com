@@ -12,7 +12,7 @@ tags:
 
 Strips the URI prefix and decodes the remainder. Leaves values unchanged which are not a valid URI.
 
-### Examples
+## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 

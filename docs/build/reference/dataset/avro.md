@@ -17,7 +17,7 @@ Read from or write to an Apache Avro file.
 
 ### File
 
-Path (e.g. relative like 'path/filename.avro' or absolute 'hdfs:///path/filename.avro').
+Path (e.g. relative like `path/filename.avro` or absolute `hdfs:///path/filename.avro`).
 
 - ID: `file`
 - Datatype: `resource`
@@ -27,7 +27,7 @@ Path (e.g. relative like 'path/filename.avro' or absolute 'hdfs:///path/filename
 
 ### Uri pattern
 
-A pattern used to construct the entity URI. If not provided the prefix + the line number is used. An example of such a pattern is 'urn:zyx:{id}' where *id* is a name of a property.
+A pattern used to construct the entity URI. If not provided the prefix + the line number is used. An example of such a pattern is `urn:zyx:{id}` where `*id*` is a name of a property.
 
 - ID: `uriPattern`
 - Datatype: `string`

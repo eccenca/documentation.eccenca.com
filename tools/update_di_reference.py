@@ -262,9 +262,18 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
 def update_di_reference(output_dir):
     """Update DI Reference documentation."""
     basedir = Path(output_dir)
-    click.echo(f"Creating DI reference documentation in {basedir}")
     plugins = get_plugin_descriptions()
 
+    click.echo(f"Dump plugins descriptions to {(plugins_json := Path('data/plugins.json'))}")
+    plugins_dump: dict[str, dict] = {}
+    for category, plugins_list in plugins.items():
+        for plugin in plugins_list:
+            if plugin.pluginId in plugins_dump:
+                raise Exception(f"Duplicate plugin ID: {plugin.pluginId}")
+            plugins_dump[plugin.pluginId] = plugin.model_dump()
+    plugins_json.write_text(json.dumps(plugins_dump, indent=2))
+
+    click.echo(f"Creating DI reference documentation in {basedir}")
     # create directory structure
     rmtree(basedir, ignore_errors=True)
     basedir.mkdir(parents=True, exist_ok=True)

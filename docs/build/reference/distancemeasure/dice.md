@@ -12,7 +12,7 @@ tags:
 
 Dice similarity coefficient.
 
-### Characteristics
+## Characteristics
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares sets of multiple values.Typically, incoming values are tokenized before being fed into this measure.
