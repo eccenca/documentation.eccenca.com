@@ -296,8 +296,8 @@ with their IRI and the property ctia:object:
 ![](23-1-regex-replace.gif)
 
 !!! Success
-        In the "value formula editor", you can immediatly check the result of your formula.
-        ![](23-1-regex-replace.png)
+    In the "value formula editor", you can immediatly check the result of your formula.
+    ![](23-1-regex-replace.png)
 
 !!! Tip
 
