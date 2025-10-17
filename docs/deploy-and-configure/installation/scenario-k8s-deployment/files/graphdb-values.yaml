@@ -1,0 +1,38 @@
+---
+
+# We use a separate, simpler ingress definition
+ingress:
+  enabled: false
+
+# Commercial license is required for using GraphDB Enterprise Edition features.
+# license:
+  # Reference to a secret containing 'graphdb.license' file that will be mounted in the GraphDB pod.
+  # The value is processed as a Helm template.
+  # existingSecret: ""
+  # File name of the GraphDB license file in the existing license secret.
+  # The default is graphdb.license, but it can be changed to map to a different secret key.
+  # licenseFilename: graphdb.license
+
+resources:
+  limits:
+    memory: 4Gi
+    cpu: 2000m
+  requests:
+    memory: 4Gi
+    cpu: 500m
+
+security:
+  enabled: true
+  provisioningUsername: provisioner
+  # bcrypt encrypted password. default: iHaveSuperpowers
+  provisioningPassword: iHaveSuperpowers
+
+persistence:
+  enabled: true
+  volumeClaimTemplate:
+    name: "storage"
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
