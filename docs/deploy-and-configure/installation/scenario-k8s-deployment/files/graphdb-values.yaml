@@ -4,14 +4,13 @@
 ingress:
   enabled: false
 
-# Commercial license is required for using GraphDB Enterprise Edition features.
-# license:
+license:
   # Reference to a secret containing 'graphdb.license' file that will be mounted in the GraphDB pod.
   # The value is processed as a Helm template.
-  # existingSecret: ""
+  existingSecret: "graphdb-license"
   # File name of the GraphDB license file in the existing license secret.
   # The default is graphdb.license, but it can be changed to map to a different secret key.
-  # licenseFilename: graphdb.license
+  licenseFilename: graphdb.license
 
 resources:
   limits:

@@ -19,24 +19,39 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   If deploying on K3D, download a static binary from https://github.com/k3d-io/k3d/releases (or use the script at https://k3d.io/ to do the same).
 
 
-
 ## Architecture
  ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.svg)
 
 
+## General notice
+
+Though in this document value files for the three charts are listed we suggest to always have a look at the default value.yaml file from archive or repository. The examples shown here are very basic and should not represent a production environment. Also the CHANGELOG.md and README.md files in the archives or repositories can give some insights.
+
+We assume a namespaces are already created. You can either deploy all three components into one namespace or into separate ones.
+
+```console
+kubectl create namespace graphdb
+kubectl create namespace keycloak
+kubectl create namespace cmem
+```
 
 ## Installation GraphDB
 
 To install GraphDB, we will use the Ontotext Helm chart.
+You can get the source code from [github](https://github.com/Ontotext-AD/graphdb-helm/tree/main).
+Also always have a look at GraphDBs [documentation page](https://graphdb.ontotext.com/documentation/).
 
-### 1. Add the Ontotext Helm repository
+Be aware, that with Version 11 of GraphDB you are required to deploy a license file, even in the Free edition.
+You can [aquire one by filling a form.](https://www.ontotext.com/products/graphdb/). See also documentation [here](https://graphdb.ontotext.com/documentation/11.1/licensing.html).
 
-First, add the Ontotext repository to Helm:
+### 1. Obtain the chart
+
+You can download their chart from [github](https://github.com/Ontotext-AD/graphdb-helm/releases) or add their repository
+to your environment with Helm:
 
 ```console
 helm repo add ontotext https://maven.ontotext.com/repository/helm-public/
 helm repo update
-
 ```
 
 ### 2. Create a `graphdb-values.yaml` file
@@ -46,7 +61,7 @@ For a basic setup, you can start with an empty file and add configurations as ne
 For production, you should configure persistence, resource limits, and any specific GraphDB settings.
 Download a [basic example value file](files/graphdb-values.yaml) (`graphdb-values.yaml`).
 
-Here is an example that disables ingress and sets resources, persistence and security:
+Here is a minimal example that disables ingress and sets resources, persistence and security:
 
 ```yaml
 ingress:
@@ -59,6 +74,14 @@ resources:
   requests:
     memory: 4Gi
     cpu: 500m
+
+license:
+  # Reference to a secret containing 'graphdb.license' file that will be mounted in the GraphDB pod.
+  # The value is processed as a Helm template.
+  existingSecret: "graphdb-license"
+  # File name of the GraphDB license file in the existing license secret.
+  # The default is graphdb.license, but it can be changed to map to a different secret key.
+  licenseFilename: graphdb.license
 
 security:
   enabled: true
@@ -78,11 +101,13 @@ persistence:
 
 ### 3. Install the GraphDB chart
 
-Now, install the GraphDB chart using Helm:
+First create the license mentioned above, then install the GraphDB chart using Helm:
 
 ```console
+kubectl --namespace graphdb create secret generic graphdb-license --from-file graphdb.license
+
 helm upgrade -i graphdb ontotext/graphdb \
-  --namespace graphdb --create-namespace \
+  --namespace graphdb \
   -f graphdb-values.yaml
 ```
 
@@ -95,13 +120,13 @@ To access the GraphDB UI without exposing it via an Ingress, you can use `kubect
 First, get the name of the GraphDB service:
 
 ```console
-kubectl get svc -n graphdb
+kubectl get svc --namespace graphdb
 ```
 
 Assuming the service is named `graphdb`, forward a local port to the service port (7200):
 
 ```console
-kubectl port-forward svc/graphdb 7200:7200 -n graphdb
+kubectl port-forward svc/graphdb 7200:7200 --namespace graphdb
 ```
 
 Now you can access the GraphDB workbench in your browser at [http://localhost:7200](http://localhost:7200).
@@ -111,7 +136,7 @@ Now you can access the GraphDB workbench in your browser at [http://localhost:72
 
 This guide provides instructions on how to install Keycloak using the provided Helm chart.
 
-### 1. Obtain the Chart
+### 1. Obtain the chart
 
 ```console
 helm repo add --force-update eccenca https://helm.eccenca.com
@@ -135,18 +160,11 @@ cd keycloak-helm
 
 Assuming you have the chart in a local directory named `keycloak-chart`.
 
-### 2. Create a namespace
-
-We will use the `keycloak` namespace.
-
-```console
-kubectl create namespace keycloak
-```
-
 ### 3. Create a `keycloak-values.yaml` file
 
 Create a file named `keycloak-values.yaml` to configure your Keycloak deployment. At a minimum, you should configure the initial admin credentials and the ingress settings.
 You can also [download the minimum file here:](files/keycloak-values.yaml) (`keycloak-values.yaml`).
+
 ```yaml
 ---
 postgres:
@@ -184,7 +202,7 @@ Use `helm` to deploy the chart into the `keycloak` namespace.
 With local extracted helm chart:
 ```console
 helm upgrade -i keycloak ./keycloak-helm \
-  --namespace keycloak --create-namespace\
+  --namespace keycloak \
   -f keycloak-values.yaml
 ```
 
@@ -192,8 +210,11 @@ Or from helm repository:
 
 ```console
 helm upgrade -i keycloak eccenca/keycloak-helm \
-  --namespace keycloak --create-namespace\
+  --namespace keycloak \
   -f keycloak-values.yaml
+
+# if you use sqldump provisioning you have to restart keycloak:
+kubectl --namespace keycloak delete pods/keycloak-0
 ```
 
 This command will install the Keycloak chart in the `gemkeycloak` namespace using your custom configuration.
@@ -213,7 +234,7 @@ echo "https://<your-keycloak-hostname>/auth"
 This guide provides instructions on how to install the chart using `kubectl` and `helm`.
 You need to have a keycloak instance and a supported graph database installed.
 
-### 1. Download the chart or use our helm repository or clone the repository
+### 1. Obtain the chart
 
 ```console
 wget https://releases.eccenca.com/cmem-helm/latest.tgz
@@ -232,16 +253,7 @@ git clone https://gitlab.eccenca.com/cmem/cmem-helm.git
 cd cmem-helm
 ```
 
-### 2. Create a namespace
-
-It is recommended to install CMEM in its own namespace.
-
-```console
-kubectl create namespace <your-namespace>
-```
-Replace `<your-namespace>` with the desired namespace (e.g., `cmem`).
-
-### 3. Create Docker registry credentials
+### 2. Create Docker registry credentials
 
 To pull the CMEM images, you need to provide credentials to your Docker registry.
 
@@ -250,11 +262,11 @@ kubectl create secret docker-registry eccenca-docker-registry-credentials \
   --docker-server=https://docker-registry.eccenca.com \
   --docker-username=<your-docker-username> \
   --docker-password=<your-docker-password> \
-  -n <your-namespace>
+  --namespace <your-namespace>
 ```
 Replace the placeholders with the provided registry details and credentials.
 
-### 3b. (optional) Create cmem license secret
+### 2b. (optional) Create cmem license secret
 
 By default, Corporate Memory is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage.
 
@@ -263,23 +275,26 @@ If you have a dedicated license file, create a secret with a `license.asc` data 
 ```console
 kubectl create secret generic cmem-license \
   --from-file license.asc
-  -n <your-namespace>
+  --namespace <your-namespace>
 ```
 
 Then, add the secret name to your `values.yaml` file for the key `global.license`.
 
 For more background on license, see also: https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataplatform/application-full/
 
-### 4. Configure your deployment
+### 3. Configure your deployment
 
-Copy the `values.sample.yaml` to a new file, for example `my-values.yaml`.
+Create a file named `cmem-values.yaml` to configure your Corporate Memory deployment.
+At a minimum, you should configure the
+- `hostname`, under which the deployment is reachable later
+- `cmemClientSecret`, if you use the postgres provisioning dump the default is fine
+- `keycloakBaseUrl` and `keycloakIssuerUrl`, where keycloak and the realm can be found
+- `explore.store.graphdb`-values as database connection
+- `ingress`-values like host and tls.secretName, if you use certmanager.
 
-```console
-cp values.sample.yaml my-values.yaml
-```
+You can also [download the minimum file here:](files/cmem-values.yaml) (`cmem-values.yaml`).
 
-Edit `my-values.yaml` and adjust the configuration to your needs.
-At a minimum, you will need to configure the hostname, and connection details for your Ingress or Route, Keycloak and GraphDB.
+Edit `cmem-values.yaml` and adjust the configuration to your needs.
 
 ```yaml
 ingress:
@@ -308,14 +323,14 @@ global:
   cmemClientId: cmem-service-account
   cmemClientSecret: c8c12828-000c-467b-9b6d-2d6b5e16df4a
   hostname: "<your-hostname>"
-  keycloakBaseUrl: https://<your-keycloak-hostname>/auth/'
-  keycloakIssuerUrl: https://<your-keycloak-hostname>/auth/realms/cmem'
+  keycloakBaseUrl: https://<your-keycloak-hostname>/auth/
+  keycloakIssuerUrl: https://<your-keycloak-hostname>/auth/realms/cmem
 
   # If you specified customCACerts, an initContainer is added to DI and EXPLORE to append your custom CA to the system-wide TrustStore.
   # Here you can optionally specify resource requests and limits for that initContainer.
   customCACerts: {}
 
-  # (optional if 3b was created)
+  # (optional if 2b was created)
   # license: cmem-license
 
 explore:
@@ -360,12 +375,12 @@ _See [helm install](https://helm.sh/docs/helm/helm_install/) for command documen
 After the installation is complete, you can check the status of the pods:
 
 ```console
-kubectl get pods -n <your-namespace>
+kubectl get pods --namespace <your-namespace>
 ```
 
-You can also check the rollout status of the statefulsets:
+You can also check the rollout status of the StatefulSets:
 
 ```console
-kubectl rollout status statefulset/explore -n <your-namespace>
-kubectl rollout status statefulset/dataintegration -n <your-namespace>
+kubectl rollout status statefulset/explore --namespace <your-namespace>
+kubectl rollout status statefulset/dataintegration --namespace <your-namespace>
 ```
