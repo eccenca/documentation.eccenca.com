@@ -17,6 +17,17 @@ API prefix for former dataplatform endpoints i.e. /dataplatform
 | Valid values | string |
 | Environment | DEPLOY_APIPREFIX |
 
+***Property: deploy.post-logout-redirect-uri***
+
+URI where to redirect to when the user logs out
+
+| Category | Value |
+|--- | ---: |
+| Default | / |
+| Required | false |
+| Valid values | string |
+| Environment | DEPLOY_POST_LOGOUT_REDIRECT_URI |
+
 ### Options for additional prometheus metrics endpoint
 
 

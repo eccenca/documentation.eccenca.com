@@ -1,0 +1,9 @@
+nav:
+    - "Parse date": DateTypeParser.md
+    - "Parse float": FloatTypeParser.md
+    - "Parse geo coordinate": GeoCoordinateParser.md
+    - "Parse geo location": GeoLocationParser.md
+    - "Parse integer": IntegerParser.md
+    - "Parse ISIN": IsinParser.md
+    - "Parse SKOS term": SkosTypeParser.md
+    - "Parse string": StringParser.md

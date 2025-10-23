@@ -35,40 +35,6 @@ Special note on RHEL SELinux Support: there is no limitation for RedHat SELinux.
 
 eccenca is heavily using `docker compose` for all kinds of internal and customer deployments. For more details on how to use `docker compose` based orchestration refer to [Scenario: Local Installation](../installation/scenario-local-installation/index.md) and [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md).
 
-## DataIntegration
-
-### Running on a Spark Cluster
-
-eccenca Build (DataIntegration) supports the execution of Build (DataIntegration) workflows in a cluster environment with Apache Spark.
-
-#### Prerequisites
-
-For the execution of Build (DataIntegration) in a Spark cluster the following software components from the Hadoop eco-system are recommended:
-
--   Scala 2.11 or 2.10
--   Apache Spark 2.1.2 (compiled for Scala 2.11)
--   Apache Hadoop 2.7 (HDFS)
--   Apache Hive 1.2, with a relational data bases as meta store (e.g. Derby)
-
-Recent versions of the following Hadoop distributions are generally supported as well:
-
--   Hortonworks (HDP 2.5)
--   Cloudera (CDH 5.8)
--   Oracle Big Data Lite (4.6)
--   Microsoft HDInsight (based on HDP)
-
-#### Installation <!-- Different Modes of Installation-->
-
-A Spark application can run in three different modes:
-
--   local mode
--   client mode
--   cluster mode
-
-The local mode is for running Spark applications on one local machine. In the client mode the Build (DataIntegration) application will run outside of the cluster and create Spark Jobs to be executed in the cluster at run time. The cluster mode requires that the application using Spark runs completely in the cluster and is managed by the software running on the cluster (e.g. Spark, Apache Yarn, Mesos). Build (DataIntegration) supports local mode (for testing), client mode (for production, only with clusters managed by Spark) or cluster mode on Yarn (for production, integrates best with other distributed applications).
-
-When running Build (DataIntegration) in a cluster, the same installation procedure and prerequisites apply as for the local installation. The application can be installed outside the cluster or on any cluster node. A number of configuration options have to be set to be able to connect to and use a Spark cluster. The necessary configuration options are described in [Build (DataIntegration)](./../configuration/dataintegration/index.md).
-
 ## Explore
 
 ### Scaling

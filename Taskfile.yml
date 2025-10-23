@@ -147,6 +147,16 @@ tasks:
       DATATYPES_MD: "{{.DIR}}/datatype-reference/index.md"
       SRC: tools/update-shape-reference
 
+  update:di-reference:
+    desc: update the task and operator reference pages
+    cmds:
+      - poetry run dec-tool update-di-reference
+
+  update:integrations:
+    desc: update integrations page
+    cmds:
+      - poetry run dec-tool update-integrations
+
   public:versions:
     desc: List public documentation versions
     deps:

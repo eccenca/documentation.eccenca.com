@@ -1,0 +1,7 @@
+nav:
+    - "Contains all of": containsAllOf.md
+    - "Contains any of": containsAnyOf.md
+    - "If contains": ifContains.md
+    - "If exists": ifExists.md
+    - "If matches regex": ifMatchesRegex.md
+    - "Negate binary (NOT)": negateTransformer.md

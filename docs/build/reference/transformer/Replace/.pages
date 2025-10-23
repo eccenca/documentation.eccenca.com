@@ -1,0 +1,6 @@
+nav:
+    - "Excel map": excelMap.md
+    - "Map": map.md
+    - "Map with default": mapWithDefaultInput.md
+    - "Regex replace": regexReplace.md
+    - "Replace": replace.md

@@ -1,0 +1,27 @@
+nav:
+    - index.md
+    - "Alignment": alignment.md
+    - "Avro": avro.md
+    - "Binary file": binaryFile.md
+    - "CSV": csv.md
+    - "Embedded Spark SQL view": sparkView.md
+    - "Embedded SQL endpoint": sqlEndpoint.md
+    - "Excel": excel.md
+    - "Excel (Google Drive)": googlespreadsheet.md
+    - "Excel (OneDrive, Office365)": office365preadsheet.md
+    - "Hive database": Hive.md
+    - "In-memory dataset": inMemory.md
+    - "Internal dataset": internal.md
+    - "Internal dataset (single graph)": LocalInternalDataset.md
+    - "JSON": json.md
+    - "Knowledge Graph": eccencaDataPlatform.md
+    - "Multi CSV ZIP": multiCsv.md
+    - "Neo4j": neo4j.md
+    - "ORC": orc.md
+    - "Parquet": parquet.md
+    - "RDF file": file.md
+    - "Remote SQL endpoint": Jdbc.md
+    - "Snowflake SQL endpoint": SnowflakeJdbc.md
+    - "SPARQL endpoint": sparqlEndpoint.md
+    - "Text": text.md
+    - "XML": xml.md
