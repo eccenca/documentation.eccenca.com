@@ -262,7 +262,7 @@ kubectl create secret docker-registry eccenca-docker-registry-credentials \
   --docker-server=https://docker-registry.eccenca.com \
   --docker-username=<your-docker-username> \
   --docker-password=<your-docker-password> \
-  --namespace <your-namespace>
+  --namespace cmem
 ```
 Replace the placeholders with the provided registry details and credentials.
 
@@ -275,16 +275,16 @@ If you have a dedicated license file, create a secret with a `license.asc` data 
 ```console
 kubectl create secret generic cmem-license \
   --from-file license.asc
-  --namespace <your-namespace>
+  --namespace cmem
 ```
 
 Then, add the secret name to your `values.yaml` file for the key `global.license`.
 
 For more background on license, see also: https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataplatform/application-full/
 
-### 3. Configure your deployment
+### 3. Create a `cmem-values.yaml` file
 
-Create a file named `cmem-values.yaml` to configure your Corporate Memory deployment.
+To configure your Corporate Memory deployment create a file named `cmem-values.yaml`.
 At a minimum, you should configure the
 - `hostname`, under which the deployment is reachable later
 - `cmemClientSecret`, if you use the postgres provisioning dump the default is fine
@@ -351,18 +351,15 @@ Use `helm` to deploy the chart.
 
 ```console
 # In case you have the chart or repostiory locally available
-helm upgrade --install <release-name> .
-  --namespace <your-namespace> \
+helm upgrade --install cmem .
+  --namespace cmem \
   -f my-values.yaml
 
 # or use our helm repository
-helm upgrade --install <release-name> cmem-helm/cmem
-  --namespace <your-namespace> \
+helm upgrade --install cmem cmem-helm/cmem
+  --namespace cmem \
   -f my-values.yaml
 ```
-
-- `<release-name>`: A name for this release (e.g., `cmem`).
-- `<your-namespace>`: The namespace created in step 2.
 
 This command will install the chart in the specified namespace using your custom configuration.
 
@@ -375,12 +372,12 @@ _See [helm install](https://helm.sh/docs/helm/helm_install/) for command documen
 After the installation is complete, you can check the status of the pods:
 
 ```console
-kubectl get pods --namespace <your-namespace>
+kubectl get pods --namespace cmem
 ```
 
 You can also check the rollout status of the StatefulSets:
 
 ```console
-kubectl rollout status statefulset/explore --namespace <your-namespace>
-kubectl rollout status statefulset/dataintegration --namespace <your-namespace>
+kubectl rollout status statefulset/explore --namespace cmem
+kubectl rollout status statefulset/dataintegration --namespace cmem
 ```
