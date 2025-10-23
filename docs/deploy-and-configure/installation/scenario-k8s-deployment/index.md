@@ -5,15 +5,16 @@ icon: simple/kubernetes
 
 ## Introduction
 
-This page describes basic principles to install corporate memory in a kubernetes cluster with ```helm``` and ```kubectl```.
-It will not explain you basic principles of kubernetes or help in installing the tools.
-In the next section you will find useful links for installing the required tools. 
+This page describes the basic principles of installing Corporate Memory in a Kubernetes cluster with `helm` and `kubectl`.
+It will not explain the basic principles of Kubernetes or help in installing the tools.
+In the next section, you will find useful links for installing the required tools.
 
-The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows), a working ```KUBECONFIG``` and a full provisioned cluster.
+The code examples in this section assume that you have a POSIX-compliant shell (Linux, macOS, or WSL for Windows), a working `KUBECONFIG`, and a fully provisioned cluster.
 
 ## Requirements
 
 -   Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
+-   A license for GraphDB https://www.ontotext.com/products/graphdb/
 -   Kubectl from https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 -   Helm from https://helm.sh/docs/intro/install/
 -   If deploying on K3D, download a static binary from https://github.com/k3d-io/k3d/releases (or use the script at https://k3d.io/ to do the same).
@@ -23,11 +24,11 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
  ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.svg)
 
 
-## General notice
+## General Notice
 
-Though in this document value files for the three charts are listed we suggest to always have a look at the default value.yaml file from archive or repository. The examples shown here are very basic and should not represent a production environment. Also the CHANGELOG.md and README.md files in the archives or repositories can give some insights.
+Although this document lists value files for the three charts, we suggest always looking at the default `values.yaml` file from the archive or repository. The examples shown here are very basic and should not represent a production environment. The `CHANGELOG.md` and `README.md` files in the archives or repositories can also give some insights.
 
-We assume a namespaces are already created. You can either deploy all three components into one namespace or into separate ones.
+We assume that namespaces are already created. You can either deploy all three components into one namespace or into separate ones.
 
 ```console
 kubectl create namespace graphdb
@@ -54,7 +55,7 @@ helm repo add ontotext https://maven.ontotext.com/repository/helm-public/
 helm repo update
 ```
 
-### 2. Create a `graphdb-values.yaml` file
+### 2. Configuration
 
 Create a file named `graphdb-values.yaml` to configure your GraphDB deployment.
 For a basic setup, you can start with an empty file and add configurations as needed.
@@ -101,17 +102,17 @@ persistence:
 
 ### 3. Install the GraphDB chart
 
-First create the license mentioned above, then install the GraphDB chart using Helm:
+First, create the license secret as mentioned above. Then, install the GraphDB chart using Helm:
 
 ```console
 kubectl --namespace graphdb create secret generic graphdb-license --from-file graphdb.license
 
-helm upgrade -i graphdb ontotext/graphdb \
+helm upgrade --install graphdb ontotext/graphdb \
   --namespace graphdb \
   -f graphdb-values.yaml
 ```
 
-This will deploy GraphDB into the `graphdb` namespace and it will create the namespace if it not exist.
+This will deploy GraphDB into the `graphdb` namespace.
 
 ### 4. Accessing GraphDB
 
@@ -141,7 +142,6 @@ This guide provides instructions on how to install Keycloak using the provided H
 ```console
 helm repo add --force-update eccenca https://helm.eccenca.com
 helm repo update eccenca
-helm search repo eccenca
 ```
 
 You can also download the latest version here:
@@ -149,18 +149,14 @@ You can also download the latest version here:
 ```console
 wget https://helm.eccenca.com/keycloak/latest.tgz
 tar -xzf latest.tgz
-cd keycloak-helm
 ```
 
 ```console
 # this requires gitlab.eccenca.com access
 git clone ssh://git@gitlab.eccenca.com:8101/devops/keycloak-helm.git
-cd keycloak-helm
 ```
 
-Assuming you have the chart in a local directory named `keycloak-chart`.
-
-### 3. Create a `keycloak-values.yaml` file
+### 2. Configuration
 
 Create a file named `keycloak-values.yaml` to configure your Keycloak deployment. At a minimum, you should configure the initial admin credentials and the ingress settings.
 You can also [download the minimum file here:](files/keycloak-values.yaml) (`keycloak-values.yaml`).
@@ -193,9 +189,9 @@ ingress:
 ```
 
 You will also need to configure TLS, for example by using `cert-manager`.
-Please se the `README.md` file in the chart repository for explanations.
+Please see the `README.md` file in the chart repository for explanations.
 
-### 4. Install the chart
+### 3. Install the Keycloak chart
 
 Use `helm` to deploy the chart into the `keycloak` namespace.
 
@@ -209,7 +205,7 @@ helm upgrade -i keycloak ./keycloak-helm \
 Or from helm repository:
 
 ```console
-helm upgrade -i keycloak eccenca/keycloak-helm \
+helm upgrade --install keycloak eccenca/keycloak-helm \
   --namespace keycloak \
   -f keycloak-values.yaml
 
@@ -217,16 +213,17 @@ helm upgrade -i keycloak eccenca/keycloak-helm \
 kubectl --namespace keycloak delete pods/keycloak-0
 ```
 
-This command will install the Keycloak chart in the `gemkeycloak` namespace using your custom configuration.
-Be aware, that the example tries to restore the database from a dump provided inside the chart. You can disable this, if you like.
+This command will install the Keycloak chart in the `keycloak` namespace using your custom configuration.
+Be aware that the example tries to restore the database from a dump provided inside the chart. You can disable this if you like.
 
-### 5. Accessing Keycloak
+### 4. Accessing Keycloak
 
 Once deployed, you can access the Keycloak UI via the hostname you configured in your `keycloak-values.yaml`.
 
 ```bash
 echo "https://<your-keycloak-hostname>/auth"
 ```
+
 
 
 ## Installation Corporate Memory
@@ -250,23 +247,9 @@ helm repo update cmem-helm
 ```console
 # this requires gitlab.eccenca.com access
 git clone https://gitlab.eccenca.com/cmem/cmem-helm.git
-cd cmem-helm
 ```
 
-### 2. Create Docker registry credentials
-
-To pull the CMEM images, you need to provide credentials to your Docker registry.
-
-```console
-kubectl create secret docker-registry eccenca-docker-registry-credentials \
-  --docker-server=https://docker-registry.eccenca.com \
-  --docker-username=<your-docker-username> \
-  --docker-password=<your-docker-password> \
-  --namespace cmem
-```
-Replace the placeholders with the provided registry details and credentials.
-
-### 2b. (optional) Create cmem license secret
+### 2. Configuration
 
 By default, Corporate Memory is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage.
 
@@ -281,8 +264,6 @@ kubectl create secret generic cmem-license \
 Then, add the secret name to your `values.yaml` file for the key `global.license`.
 
 For more background on license, see also: https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataplatform/application-full/
-
-### 3. Create a `cmem-values.yaml` file
 
 To configure your Corporate Memory deployment create a file named `cmem-values.yaml`.
 At a minimum, you should configure the
@@ -326,11 +307,7 @@ global:
   keycloakBaseUrl: https://<your-keycloak-hostname>/auth/
   keycloakIssuerUrl: https://<your-keycloak-hostname>/auth/realms/cmem
 
-  # If you specified customCACerts, an initContainer is added to DI and EXPLORE to append your custom CA to the system-wide TrustStore.
-  # Here you can optionally specify resource requests and limits for that initContainer.
-  customCACerts: {}
-
-  # (optional if 2b was created)
+  # (if license secret was created)
   # license: cmem-license
 
 explore:
@@ -345,29 +322,35 @@ explore:
 
 ```
 
-### 5. Install the chart
+### 3. Install the Corporate Memory chart
 
-Use `helm` to deploy the chart.
+To pull the Corporate Memory images, you need to provide credentials to your Docker registry.
+
+```console
+kubectl create secret docker-registry eccenca-docker-registry-credentials \
+  --docker-server=https://docker-registry.eccenca.com \
+  --docker-username=<your-docker-username> \
+  --docker-password=<your-docker-password> \
+  --namespace cmem
+```
+Replace the placeholders with the provided registry details and credentials.
+
+Now use `helm` to deploy the chart.
+This command will install the chart in the specified namespace using your custom configuration.
 
 ```console
 # In case you have the chart or repostiory locally available
-helm upgrade --install cmem .
+helm upgrade --install cmem . \
   --namespace cmem \
-  -f my-values.yaml
+  -f cmem-values.yaml
 
 # or use our helm repository
-helm upgrade --install cmem cmem-helm/cmem
+helm upgrade --install cmem cmem-helm/cmem \
   --namespace cmem \
-  -f my-values.yaml
+  -f cmem-values.yaml
 ```
 
-This command will install the chart in the specified namespace using your custom configuration.
-
-_See [configuration](#configuration) below for more details on available options._
-
-_See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation._
-
-### 6. Verify the installation
+### 4. Verify the installation
 
 After the installation is complete, you can check the status of the pods:
 
