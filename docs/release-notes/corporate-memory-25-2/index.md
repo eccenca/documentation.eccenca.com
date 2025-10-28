@@ -101,6 +101,10 @@ We are pleased to announce Explore v25.2.5, which brings significant enhancement
 
 -   Anonymous classes are not considered when resolving the `rdfs:subClassOf` based class hierarchy
 
+**v25.2.5 of Explore ships the following fix:**
+
+-   Anonymous classes are not considered when resolving the `rdfs:subClassOf` based class hierarchy
+
 **v25.2.4 of Explore ships the following fix:**
 
 -   Add missing property for setting lifetime of stale (facet) caches
