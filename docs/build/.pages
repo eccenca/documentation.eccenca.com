@@ -3,6 +3,7 @@ nav:
     - Introduction to the User Interface: introduction-to-the-user-interface
     - Integrations: integrations
     - Task and Operator Reference: reference
+    - Mapping Creator: mapping-creator
     - Rule Operators: rule-operators
     - Define Prefixes / Namespaces: define-prefixes-namespaces
     - Cool IRIs: cool-iris
