@@ -42,7 +42,7 @@ More detailed information for this release is provided in the next sections.
 
 ## eccenca DataIntegration v25.3.0
 
-We are excited to announce the release of DataIntegration v25.3.0, bringing explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
+We are excited to announce the release of DataIntegration v25.3.0, bringing the new LLM powered Mapping Creator experience, explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
 
 **v25.3.0 of DataIntegration adds the following new features:**
 
