@@ -201,12 +201,12 @@ We are excited to announce cmemc v25.5.0, which introduces new features, improve
     -   `workspace.reportManager.plugin`: `inMemory` → `inMemoryExecutionReportManager`, `file` → `fileExecutionReportManager`.
 -   **Python autocomplete:** Dropped support for autocomplete functions that omit the `depend_on_parameter_values` parameter. This was deprecated in 23.1; earlier versions logged warnings referencing “legacy autocomplete function”.
 -   **Python sub-system upgrade:** The Python runtime now uses Python 3.13 with uv-based package management.
-    -   If you previously set `PIP_INDEX_URL`/`PIP_EXTRA_INDEX_URL`, switch to `UV_DEFAULT_INDEX`/`UV_EXTRA_INDEX_URL`.
+    -   If you previously set `PIP_INDEX_URL`/`PIP_EXTRA_INDEX_URL`, switch to [`UV_DEFAULT_INDEX`](https://docs.astral.sh/uv/reference/environment/#uv_default_index)/[`UV_EXTRA_INDEX_URL`](https://docs.astral.sh/uv/reference/environment/#uv_extra_index_url).
     -   Custom CA bundles now reside at `/usr/local/venv/lib/python3.13/site-packages/certifi/cacert.pem`.
     -   Clean up the complete `python-packages` directory before or directly after upgrading (e.g., via `cmemc admin workspace python uninstall --all`).
     -   Re-install required Python packages afterwards and ensure they are Python 3.13 compatible.
         -   Please note that your packages need to be python 3.13 ready.
-        -   All eccenca packages are published as a new python 3.13 ready minor version.
+        -   All [eccenca published plugins](https://documentation.eccenca.com/latest/tags/#tag:pythonplugin) are published as a new python 3.13 ready minor version.
     -   If you maintain custom plugins using the [cmem-plugin-template](https://github.com/eccenca/cmem-plugin-template), update the template via copier as [described in the repository documentation](https://github.com/eccenca/cmem-plugin-template?tab=readme-ov-file#template-updates).
 
 ### eccenca Explore
