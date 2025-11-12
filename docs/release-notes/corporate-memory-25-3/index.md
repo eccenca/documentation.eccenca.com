@@ -42,19 +42,79 @@ More detailed information for this release is provided in the next sections.
 
 ## eccenca DataIntegration v25.3.0
 
-We are excited to announce the release of DataIntegration v25.3.0, which introduces …
+We are excited to announce the release of DataIntegration v25.3.0, bringing explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
 
 **v25.3.0 of DataIntegration adds the following new features:**
 
--   …
+-   **Data sources and workflow operators:**
+    -   Added explicit Databricks support.
+    -   Added an operator that allows arbitrary SQL statements as input for `SqlDataset`.
+    -   Added an endpoint for browsing files to simplify file selection.
+    -   Added a documentation link to the comparison task node to surface guidance in-context.
+    -   Added the `**` operator to the JSON dataset so all child nodes can be selected recursively.
+-   **Text preparation:**
+    -   Introduced a new default stop word remover and improved the existing stop word transformers.
+-   **Plugin APIs:**
+    -   Added the `pluginType` attribute to the `/core/plugins` endpoint response.
+    -   Added a `/pluginTypes` endpoint to list all plugin types.
+    -   Added the `backendType` attribute to plugin JSON payloads to highlight whether a plugin is native or Python-based.
+-   **Python plugin development:**
+    -   Added `autocomplete_query` to `ParameterType`, providing a more flexible alternative to the legacy `autocomplete` function.
 
 **v25.3.0 of DataIntegration introduces the following changes:**
 
--   …
+-   **Data connectors and storage workflows:**
+    -   Adapted the Google Drive Spreadsheet dataset tests to accommodate Google’s changed behavior.
+    -   Projects imported into a knowledge graph backend now delete the target graph before import to avoid stale data.
+-   **Mapping Creator experience:**
+    -   Mapping rules opened from the Mapping Creator no longer need to be saved immediately.
+    -   Newly created mapping rules that are not yet persisted can now be edited directly in the Mapping Creator.
+-   **UI and documentation improvements:**
+    -   Improved the formatting of operator examples for better readability.
+    -   Updated the application to the new color palette.
+    -   Made decoding underscores to spaces an explicit option in the **Strip URI prefix** transformer.
+-   **Python subsystem and plugin lifecycle:**
+    -   Loading a Python plugin that reuses an existing identifier now records an error in the discovery result.
+    -   The `/listPlugins` and `/updatePlugins` endpoints now return HTTP 500 if at least one plugin fails to load (previously HTTP 200).
+    -   Upgraded the embedded Python subsystem:
+        -   Installation now relies on uv 0.9.2.
+        -   Updated the packaged Python distribution to Python 3.13.8.
+        -   Replaced the Red Hat UBI system Python with a uv-installed runtime.
+        -   Uses a read-only virtual environment from `/usr/local/venv`.
+        -   Plugin package installation now uses uv instead of pip.
 
 **v25.3.0 of DataIntegration ships the following fixes:**
 
--   …
+-   **Workflow editor and execution:**
+    -   Edge arrows are displayed again in the workflow editor via React Flow v12.
+    -   Nested workflows no longer expose data input ports.
+    -   Workflow nodes loaded from the store retain their original positions.
+    -   Multiple operators created via “Connect to newly created operator” no longer overlap.
+    -   Fixed the display of workflow reports inside the modal dialog.
+    -   The workflow report now correctly marks failed workflows with a red danger icon and shows “Execution failed” on failed operators.
+    -   Transform execution reports no longer show successful executions for rules that were not run.
+    -   Fixed graph uploads for large files or chunk sizes.
+    -   Exporting a workspace without project resources now succeeds.
+    -   Downloading a project/workspace with empty files stored in AWS S3 works again.
+    -   Fixed the display of workflow reports in Plugin Custom Action Reports so the code area stays within bounds.
+-   **Mapping and rule authoring:**
+    -   Restrictions no longer expand the wrong SPARQL pattern.
+    -   URI rules are no longer created automatically when the default rule is opened in the rule editor.
+    -   Mapping Creator undo/redo actions behave as expected.
+    -   Suggest mappings now adds all selected rows, not just the ones currently visible after a text filter.
+    -   Rule editor nodes are no longer copied when text is selected in Firefox.
+-   **Python plugins and orchestration:**
+    -   Listing Python plugins no longer fails when the orchestration feature `enable-extension EXTENSION=plugins` is used.
+-   **Transformations, datasets, and templates:**
+    -   JSON `#arrayText` now returns an empty array representation for empty arrays.
+    -   Jinja templates no longer error when the `loop` variable is used inside functions within `for` loops.
+    -   Previewing parameter descriptions no longer renders broken Markdown.
+    -   Use `FROM` instead of `GRAPH` in the vocabulary loader to respect graph imports.
+-   **Graph and project handling:**
+    -   When importing into a knowledge graph backend, the graph is only deleted if it exists.
+-   **User interaction fixes:**
+    -   Global and workflow-specific hotkeys no longer trigger when another modal is open.
+    -   Display the template toggle consistently in the artefact creation dialog.
 
 ## eccenca Explore v25.3.0
 
@@ -135,7 +195,19 @@ We are excited to announce cmemc v25.5.0, which introduces new features, improve
 
 ### eccenca DataIntegration
 
--   …
+-   **Updated plugin identifiers:** To guarantee unique plugin identifiers, several configuration keys changed. The updates only affect configuration references—existing projects remain intact.
+    -   `workspace.provider.plugin`: `inMemory` → `inMemoryWorkspaceProvider`, `file` → `fileWorkspaceProvider`.
+    -   `workspace.repository.plugin`: `inMemory` → `inMemoryResourceRepository`, `file` → `sharedFileRepository`.
+    -   `workspace.reportManager.plugin`: `inMemory` → `inMemoryExecutionReportManager`, `file` → `fileExecutionReportManager`.
+-   **Python autocomplete:** Dropped support for autocomplete functions that omit the `depend_on_parameter_values` parameter. This was deprecated in 23.1; earlier versions logged warnings referencing “legacy autocomplete function”.
+-   **Python sub-system upgrade:** The Python runtime now uses Python 3.13 with uv-based package management.
+    -   If you previously set `PIP_INDEX_URL`/`PIP_EXTRA_INDEX_URL`, switch to `UV_DEFAULT_INDEX`/`UV_EXTRA_INDEX_URL`.
+    -   Custom CA bundles now reside at `/usr/local/venv/lib/python3.13/site-packages/certifi/cacert.pem`.
+    -   Clean up the complete `python-packages` directory before or directly after upgrading (e.g., via `cmemc admin workspace python uninstall --all`).
+    -   Re-install required Python packages afterwards and ensure they are Python 3.13 compatible.
+        -   Please note that your packages need to be python 3.13 ready.
+        -   All eccenca packages are published as a new python 3.13 ready minor version.
+    -   If you maintain custom plugins using the [cmem-plugin-template](https://github.com/eccenca/cmem-plugin-template), update the template via copier as [described in the repository documentation](https://github.com/eccenca/cmem-plugin-template?tab=readme-ov-file#template-updates).
 
 ### eccenca Explore
 
