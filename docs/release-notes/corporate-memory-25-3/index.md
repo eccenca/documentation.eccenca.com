@@ -58,14 +58,15 @@ We are excited to announce the release of DataIntegration v25.3.0, which introdu
 
 ## eccenca Explore v25.3.0
 
-We are pleased to announce Explore v25.3.0, which delivers experimental Tentris backend support, cmem companion integration, major BKE authoring enhancements and a wide range of usability and stability fixes.
+We are pleased to announce Explore v25.3.0, which delivers the new **Companion** LLM data interaction, a whole new way to explore your data relationships in **Graph Insights**, experimental Tentris support, major BKE authoring enhancements and a wide range of usability and stability fixes.
 
 **v25.3.0 of Explore adds the following new features:**
 
 -   **Graph Insights**
     -   New visual graph exploration and visual query UI for easy relation analysis.
 -   **Companion:**
-    -   Integrated the cmem companion into Explore.
+    -   LLM based integrated chat to interact with your data, generate or user SPARQL queries, providing a deep integration with Corporate Memory features
+    -   MCP Server SSE endpoint to provide the tool powering _Compaion_ to external clients
 -   **Backend:**
     -   Added experimental support for the Tentris store backend.
     -   Added support for configuring a fixed authorization bearer token in the HTTP store backend.
