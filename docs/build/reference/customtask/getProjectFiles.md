@@ -35,6 +35,16 @@ Optional regular expression for retrieving files. The regex needs to match the f
 
 
 
+### MIME type
+
+Optional MIME type to assign to all retrieved files. If left empty, the MIME type will be not be set.
+
+- ID: `mimeType`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
 
 
 ## Advanced Parameter
