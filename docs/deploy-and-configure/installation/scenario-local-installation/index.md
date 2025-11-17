@@ -1,7 +1,9 @@
 ---
 icon: material/laptop
 ---
-# Introduction
+# Scenario: Local Installation
+
+## Introduction
 
 This page describes a `docker compose` based orchestration running on your local machine and accessible via browser.
 
@@ -106,7 +108,7 @@ mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
 curl https://releases.eccenca.com/docker-orchestration/latest.zip \
     > cmem-orchestration.zip
 
-# unzip the orchestration and move the unzipped directory 
+# unzip the orchestration and move the unzipped directory
 unzip cmem-orchestration.zip
 rm cmem-orchestration.zip
 mv cmem-orchestration-v* cmem-orchestration
@@ -168,7 +170,7 @@ cp YOUR_EE_LICENSE_FILE \
 Then change the file `environments/config.env` to use the correct version:
 
 ```shell
-# Use Free, 'se' or 'ee' or adjust the mountpoint in 
+# Use Free, 'se' or 'ee' or adjust the mountpoint in
 # compose/docker-compose.store.graphdb.yaml
 GRAPHDB_LICENSE=se
 ```
