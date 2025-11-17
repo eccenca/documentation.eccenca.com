@@ -245,7 +245,17 @@ Once deployed, you can access the Keycloak user interface via the hostname you
 configured in your `keycloak-values.yaml`.
 
 ``` bash
-echo "https://<your-keycloak-hostname>/auth"
+Release "keycloak" does not exist. Installing it now.
+NAME: keycloak
+LAST DEPLOYED: Mon Nov 17 22:54:46 2025
+NAMESPACE: keycloak
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+1. Get the application URL by running these commands:
+  https://kc.docker.localhost/auth
 ```
 
 ## Installation Corporate Memory
