@@ -63,11 +63,12 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Set or Overwrite parameters](cmem_plugin_parameters-ParametersPlugin.md) | Connect this task to a config port of another task in order to set or overwrite the parameter values of this task. |
  | [SHACL validation with pySHACL](shacl-pyshacl.md) | Performs SHACL validation with pySHACL. |
  | [SOQL query (Salesforce)](cmem_plugin_salesforce-SoqlQuery.md) | Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization’s Salesforce account. |
+ | [Spark SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input Spark dataframe and returns the result as its output. |
  | [SPARQL Construct query](sparqlCopyOperator.md) | A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable. |
  | [SPARQL Select query](sparqlSelectOperator.md) | A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected. |
- | [SPARQL Update query](sparqlUpdateOperator.md) | A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written. In contrast to the SPARQL select operator, no FROM clause gets injected into the query. |
+ | [SPARQL Update query](sparqlUpdateOperator.md) | A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written. |
  | [Split file](cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md) | Split a file into multiple parts with a specified size. |
- | [SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input dataset and returns the result as its output. |
+ | [SQL Update query](sqlUpdateQueryOperator.md) | A task that outputs SQL queries. The output of this operator should be connected to a remote SQL endpoint on which queries should be executed. |
  | [Start Workflow per Entity](cmem_plugin_loopwf-task-StartWorkflow.md) | Loop over the output of a task and start a sub-workflow for each entity. |
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |

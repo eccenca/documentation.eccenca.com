@@ -1,11 +1,11 @@
 ---
-title: "Snowflake JDBC endpoint"
+title: "Snowflake SQL endpoint"
 description: "Connect to Snowflake JDBC endpoint."
 icon: octicons/cross-reference-24
 tags: 
     - Dataset
 ---
-# Snowflake JDBC endpoint
+# Snowflake SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 

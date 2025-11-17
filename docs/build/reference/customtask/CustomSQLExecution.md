@@ -1,16 +1,16 @@
 ---
-title: "SQL query"
-description: "Executes a custom SQL query on the first input dataset and returns the result as its output."
+title: "Spark SQL query"
+description: "Executes a custom SQL query on the first input Spark dataframe and returns the result as its output."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
 ---
-# SQL query
+# Spark SQL query
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
 
-Executes a custom SQL query on the first input dataset and returns the result as its output.
+Executes a custom SQL query on the first input Spark dataframe and returns the result as its output.
 
 
 ## Parameter

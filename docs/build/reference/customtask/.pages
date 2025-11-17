@@ -49,11 +49,12 @@ nav:
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
     - "SHACL validation with pySHACL": shacl-pyshacl.md
     - "SOQL query (Salesforce)": cmem_plugin_salesforce-SoqlQuery.md
+    - "Spark SQL query": CustomSQLExecution.md
     - "SPARQL Construct query": sparqlCopyOperator.md
     - "SPARQL Select query": sparqlSelectOperator.md
     - "SPARQL Update query": sparqlUpdateOperator.md
     - "Split file": cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md
-    - "SQL query": CustomSQLExecution.md
+    - "SQL Update query": sqlUpdateQueryOperator.md
     - "Start Workflow per Entity": cmem_plugin_loopwf-task-StartWorkflow.md
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md
