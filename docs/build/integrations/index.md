@@ -134,7 +134,7 @@ GraphDB can be used as the integrated Quad Store as well.
 
     ---
 
-    MariaDB can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+    MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
@@ -150,7 +150,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+    The Microsoft SQL Server can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
 
 
@@ -158,7 +158,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    MySQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+    MySQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
 
@@ -246,7 +246,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    PostgreSQL can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+    PostgreSQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
 
 
@@ -307,7 +307,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    Snowflake can be accessed with the [Snowflake JDBC endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a
+    Snowflake can be accessed with the [Snowflake SQL endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
 
 
@@ -322,7 +322,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    SQLite can be accessed with the [JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+    SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
 
@@ -350,7 +350,7 @@ Tentris can be used as the integrated Quad Store as well (beta).
     ---
 
     [Trino](https://github.com/trinodb/trino) can be access with the
-[JDBC endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+[Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 
 
 -   :black_large_square:{ .lg .middle } Virtuoso
