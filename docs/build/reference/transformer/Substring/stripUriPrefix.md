@@ -1,6 +1,6 @@
 ---
 title: "Strip URI prefix"
-description: "Strips the URI prefix and decodes the remainder. Leaves values unchanged which are not a valid URI."
+description: "Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (using java.net.URLDecoder). Leaves values unchanged which are not a valid URI."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,7 +10,7 @@ tags:
 
 
 
-Strips the URI prefix and decodes the remainder. Leaves values unchanged which are not a valid URI.
+Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (using java.net.URLDecoder). Leaves values unchanged which are not a valid URI.
 
 ## Examples
 
@@ -52,11 +52,42 @@ Strips the URI prefix and decodes the remainder. Leaves values unchanged which a
 * Returns: `[value]`
 
 
+---
+**Example 5:**
+
+* Input values:
+    1. `[urn:scheme:Two_words]`
+
+* Returns: `[Two words]`
+
+
+---
+**Example 6:**
+
+* Parameters
+    * decodeUnderscoresToSpaces: `false`
+
+* Input values:
+    1. `[urn:scheme:Two_words]`
+
+* Returns: `[Two_words]`
+
+
 
 
 ## Parameter
 
-`None`
+### Decode underscores to spaces
+
+If true, underscores will be decoded to spaces.
+
+- ID: `decodeUnderscoresToSpaces`
+- Datatype: `boolean`
+- Default Value: `true`
+
+
+
+
 
 ## Advanced Parameter
 

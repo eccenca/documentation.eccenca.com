@@ -19,7 +19,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Combine CSV files](combine-csv.md) | Combine CSV files with the same structure to one dataset. |
  | [Concatenate to file](ConcatenateToFile.md) | Concatenates values into a file. |
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
- | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization’s Salesforce account. |
+ | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization's Salesforce account. |
  | [Delete project files](deleteProjectFiles.md) | Removes file resources from the project based on a regular expression. |
  | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. |
  | [Download file](downloadFile.md) | Downloads a file from a given URL. |
@@ -61,8 +61,9 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Send email](SendEMail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |
  | [Set or Overwrite parameters](cmem_plugin_parameters-ParametersPlugin.md) | Connect this task to a config port of another task in order to set or overwrite the parameter values of this task. |
+ | [Set parameters](setParameters.md) | Set and overwrite parameters of a task. |
  | [SHACL validation with pySHACL](shacl-pyshacl.md) | Performs SHACL validation with pySHACL. |
- | [SOQL query (Salesforce)](cmem_plugin_salesforce-SoqlQuery.md) | Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization’s Salesforce account. |
+ | [SOQL query (Salesforce)](cmem_plugin_salesforce-SoqlQuery.md) | Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization's Salesforce account. |
  | [Spark SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input Spark dataframe and returns the result as its output. |
  | [SPARQL Construct query](sparqlCopyOperator.md) | A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable. |
  | [SPARQL Select query](sparqlSelectOperator.md) | A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected. |
@@ -72,7 +73,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Start Workflow per Entity](cmem_plugin_loopwf-task-StartWorkflow.md) | Loop over the output of a task and start a sub-workflow for each entity. |
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |
- | [Update SemSpect](cmem_plugin_semspect-task-Update.md) | Tell SemSpect to prepare a Knowledge Graph for visualization. |
+ | [Update Graph Insights Snapshots](cmem_plugin_graph_insights-Update.md) | Update one or more snapshots, optionally selected by affected graph. |
  | [Upload File to Knowledge Graph](eccencaDataPlatformGraphStoreFileUploadOperator.md) | Uploads an N-Triples or Turtle (limited support) file from the file repository to a 'Knowledge Graph' dataset. The output of this operatorcan be the input of datasets that support graph store file upload, e.g. 'Knowledge Graph'. The file will be uploaded to the graph specified in that dataset. |
  | [Upload files to Nextcloud](cmem_plugin_nextcloud-Upload.md) | Upload files to a given Nextcloud instance. |
  | [Upload local files](cmem_plugin_project_resources-UploadLocalFiles.md) | Replace a file dataset resource with a local file or upload multiple local files to a project. |

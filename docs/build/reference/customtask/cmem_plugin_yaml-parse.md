@@ -15,7 +15,24 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-This workflow task is basically a yaml2json command.
+
+This workflow task parses YAML content from multiple sources and converts it to various output
+formats.
+
+**Input Sources:**
+- **entities**: Parse YAML from input port entities in a workflow
+- **code**: Parse YAML from directly entered source code
+- **file**: Parse YAML from uploaded project file resources
+
+**Output Formats:**
+- **entities**: Convert parsed structure to entities for workflow processing
+- **json_entities**: Output as single JSON entity to the output port
+- **json_dataset**: Save parsed structure directly to a JSON dataset
+
+The plugin provides flexible YAML-to-JSON conversion with configurable input schema
+types and paths for entity-based processing. It includes comprehensive validation and
+error handling for all supported modes.
+
 
 ## Parameter
 
