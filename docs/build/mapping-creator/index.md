@@ -23,7 +23,7 @@ Every mapping begins by selecting or creating a target class. This defines where
 
 ### Add properties
 
-![Resource edit actions](mapping-creator-edit-actions.png){ class="bordered" }
+![Resource edit actions](mapping-creator-edit-actions.png){ class="bordered" width="40%" }
 
 To complete a mapping properties need to be added to complete your desired target schema (i.e. the graph fragment that your transformation shall yield).
 The following two options exist to add properties.
@@ -55,7 +55,7 @@ Drag from a property in your source data to a class or property in the canvas to
 
 ### Edit saved mapping rule
 
-![Editing a saved rule](mapping-creator-edit-rule.png){ class="bordered" }
+![Editing a saved rule](mapping-creator-edit-rule.png){ class="bordered" width="40%" }
 
 Click on an already saved target element to show more details. With the :eccenca-item-edit: Pencil icon you can edit the mapping rule and rename elements, or adjust configurations. Advanced users can refine transformation logic here.
 
@@ -73,4 +73,4 @@ Note that this feature is only available if a Large Language Model is configured
 Once the smart suggestions have been generated, you need do two steps:
 
 1. For each property, decide whether to accept or reject the AI-generated mapping. Use the checkmark to accept or the cross to reject.
-2. Once you have completed your mapping, click ‘Update Mapping’ to apply and save your changes to the knowledge graph.
+2. Once you have completed your mapping, click the _Update Mapping_ button to apply and save your changes to the transformation task.
