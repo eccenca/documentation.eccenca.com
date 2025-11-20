@@ -81,6 +81,11 @@ tags:
 | [graph imports](graph/imports/index.md) | [list](graph/imports/index.md#graph-imports-list) | List accessible graph imports statements. |
 | [graph imports](graph/imports/index.md) | [create](graph/imports/index.md#graph-imports-create) | Add statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph imports](graph/imports/index.md) | [delete](graph/imports/index.md#graph-imports-delete) | Delete statement to import a TO_GRAPH into a FROM_GRAPH. |
+| [graph insights](graph/insights/index.md) | [list](graph/insights/index.md#graph-insights-list) | List graph insight snapshots. |
+| [graph insights](graph/insights/index.md) | [delete](graph/insights/index.md#graph-insights-delete) | Delete a graph insight snapshot. |
+| [graph insights](graph/insights/index.md) | [create](graph/insights/index.md#graph-insights-create) | Create or update a graph insight snapshot. |
+| [graph insights](graph/insights/index.md) | [update](graph/insights/index.md#graph-insights-update) | Update a graph insight snapshot. |
+| [graph insights](graph/insights/index.md) | [inspect](graph/insights/index.md#graph-insights-inspect) | Inspect the metadata of a graph insight snapshot. |
 | [graph validation](graph/validation/index.md) | [execute](graph/validation/index.md#graph-validation-execute) | Start a new validation process. |
 | [graph validation](graph/validation/index.md) | [list](graph/validation/index.md#graph-validation-list) | List running and finished validation processes. |
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |

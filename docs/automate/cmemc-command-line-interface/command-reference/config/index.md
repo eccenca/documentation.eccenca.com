@@ -105,10 +105,10 @@ $ cmemc config edit
 Get the value of a known cmemc configuration key.
 
 ```shell-session title="Usage"
-$ cmemc config get {CMEM_BASE_URI|SSL_VERIFY|REQUESTS_CA_BUNDLE|DP_API_END
-             POINT|DI_API_ENDPOINT|KEYCLOAK_BASE_URI|KEYCLOAK_REALM_ID|OAUTH_T
-             OKEN_URI|OAUTH_GRANT_TYPE|OAUTH_USER|OAUTH_PASSWORD|OAUTH_CLIENT_
-             ID|OAUTH_CLIENT_SECRET|OAUTH_ACCESS_TOKEN}
+$ cmemc config get {cmem_base_uri|ssl_verify|requests_ca_bundle|dp_api_end
+             point|di_api_endpoint|keycloak_base_uri|keycloak_realm_id|oauth_t
+             oken_uri|oauth_grant_type|oauth_user|oauth_password|oauth_client_
+             id|oauth_client_secret|oauth_access_token}
 ```
 
 
