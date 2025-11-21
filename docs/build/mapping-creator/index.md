@@ -13,9 +13,10 @@ tags:
 
 !!! question "Inline help"
 
+    ![Inline Help](mapping-creator-help.png){ class="bordered" width="20%" align=right padding=40 }
+
     Access inline help and a feature tour via the help menu :eccenca-item-question:.
 
-    ![Inline Help](mapping-creator-help.png){ class="bordered" width="20%" }
 
 Use the Mapping Creator to connect your data to semantic models.
 Using visual tools, drag-and-drop, and suggestions, you’ll create mappings between your source data and knowledge graph classes as well as their properties.
