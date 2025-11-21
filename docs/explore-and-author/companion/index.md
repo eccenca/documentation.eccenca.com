@@ -45,18 +45,20 @@ If your use case or question requires you to limit the available tools (e.g. if 
 -   Query Catalog related
 
     `query_list`
-    :   Query Catalog: Lists all existing SPARQL queries on this corporate memory instance.
+    :   Lists all existing SPARQL queries on this corporate memory instance.
 
     `query_details`
-    :   Query Catalog: Retrieve all information about a certain query in the query catalog.
+    :   Retrieve all information about a certain query in the query catalog.
 
     `query_execute_saved`
-    : Query Catalog: Executes a saved SPARQL query on this corporate memory instance. The query is identified by it's IRI.
+    :   Executes a saved SPARQL query on this corporate memory instance.
+    The query is identified by it's IRI.
 
 -   Query related:
 
-    `query_execute_jsonExecutes`
-    :   a `SPARQL SELECT` query on this corporate memory instance. The query is provided as a string.
+    `query_execute_json`
+    :   Executes a `SPARQL SELECT` query on this corporate memory instance.
+    The query is provided as a string.
 
 -   Introspection related:
 
@@ -73,22 +75,25 @@ If your use case or question requires you to limit the available tools (e.g. if 
     :   Lists all used RDF properties used in this graph.
 
     `graph_classes_list`
-    : Lists all used `owl:Class` etc. used in this graph.
+    :   Lists all used `owl:Class` etc. used in this graph.
 
     `vocabularies_property_list`
-    :   All Properties defined in this knowledge graph by installed vocabularies. While all properties are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
+    :   All Properties defined in this knowledge graph by installed vocabularies.
+    While all properties are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
 
     `vocabularies_class_list`
-    :   All Classes defined in this knowledge graph by installed vocabularies. While all classes are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
+    :   All Classes defined in this knowledge graph by installed vocabularies.
+    While all classes are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
 
 -   Resource related
 
     `resource_search`
-    :   Performs a lucene syntax full text search of labels and descriptions for 'searchTerm' and retrieve list of best matches. The context graph will restrict the search to it includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`. Search will always be on the `?resource`, so adjust the pattern, if needed.
+    :   Performs a lucene syntax full text search of labels and descriptions for 'searchTerm' and retrieve list of best matches.
+    The context graph will restrict the search to it includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`.
+    Search will always be on the `?resource`, so adjust the pattern, if needed.
 
-  `resource_get`
+    `resource_get`
     :   Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
-
 
 ### Interactive answers
 
