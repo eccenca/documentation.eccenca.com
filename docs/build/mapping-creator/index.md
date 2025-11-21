@@ -9,7 +9,7 @@ tags:
 
 ??? info "Configuration"
 
-    See [Mapping Creator and LLM Configuration](../../deploy-and-configure/configuration/dataintegration/#mapping-creator-and-llm-configuration) to learn how to enable and configure this feature.
+    See [Mapping Creator and LLM Configuration](../../deploy-and-configure/configuration/dataintegration/index.md#mapping-creator-and-llm-configuration) to learn how to enable and configure this feature.
 
 !!! question "Inline help"
 
