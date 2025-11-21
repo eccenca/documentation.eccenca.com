@@ -48,8 +48,7 @@ If your use case or question requires you to limit the available tools (e.g. if 
     :   Query Catalog: Lists all existing SPARQL queries on this corporate memory instance.
 
     `query_details`
-    :   Query Catalog: Retrieve all information about a certain query in the query catalog
-    resource_get Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
+    :   Query Catalog: Retrieve all information about a certain query in the query catalog.
 
     `query_execute_saved`
     : Query Catalog: Executes a saved SPARQL query on this corporate memory instance. The query is identified by it's IRI.
@@ -86,6 +85,10 @@ If your use case or question requires you to limit the available tools (e.g. if 
 
     `resource_search`
     :   Performs a lucene syntax full text search of labels and descriptions for 'searchTerm' and retrieve list of best matches. The context graph will restrict the search to it includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`. Search will always be on the `?resource`, so adjust the pattern, if needed.
+
+  `resource_get`
+    :   Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
+
 
 ### Interactive answers
 
