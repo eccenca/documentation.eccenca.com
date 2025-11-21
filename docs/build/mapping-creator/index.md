@@ -82,6 +82,6 @@ Note that this feature is only available if a Large Language Model is configured
 Once the smart suggestions have been generated, you need do two steps:
 
 1. For each property, decide whether to accept or reject the AI-generated mapping.
-    Click :eccenca-application-confirm: Conform to accept or :eccenca-application-decline: Decline to reject.
+    Click :eccenca-application-confirm: Confirm to accept or :eccenca-application-decline: Decline to reject.
 
 2. Once you have completed your mapping, click the _Save Mapping_ button to apply and save your changes to the transformation task.
