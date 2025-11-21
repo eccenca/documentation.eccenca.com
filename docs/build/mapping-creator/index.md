@@ -7,7 +7,11 @@ tags:
 ---
 # Mapping Creator
 
-!!! info
+??? info "Configuration"
+
+    See [Mapping Creator and LLM Configuration](../../deploy-and-configure/configuration/dataintegration/#mapping-creator-and-llm-configuration) to learn how to enable and configure this feature.
+
+!!! question "Inline help"
 
     Access inline help and a feature tour via the help menu :eccenca-item-question:.
 
