@@ -1,9 +1,17 @@
 ---
-icon: octicons/cross-reference-24
+icon: fontawesome/solid/wand-magic-sparkles
+subtitle: build mappings visually and AI supported
+status: new
 tags:
     - Reference
 ---
 # Mapping Creator
+
+!!! info
+
+    Access inline help and a feature tour via the help menu :eccenca-item-question:.
+
+    ![Inline Help](mapping-creator-help.png){ class="bordered" width="20%" }
 
 Use the Mapping Creator to connect your data to semantic models.
 Using visual tools, drag-and-drop, and suggestions, you’ll create mappings between your source data and knowledge graph classes as well as their properties.
@@ -66,22 +74,31 @@ Advanced users can refine transformation logic here.
 
 ## Smart suggestions
 
+!!! info
+    Note that this feature is only available if a Large Language Model is configured.
+
 Click the :eccenca-application-ai-suggestion: Magic Wand to automatically generate mapping suggestions based on your data and the selected class.
-Accept (:eccenca-application-confirm:) or reject (:eccenca-application-decline:) each suggestion as needed.
+Accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion as needed.
 
--   **Class Suggestions:** If you haven't selected a target class yet, the AI tries to suggest classes from the selected vocabularies that fits your source data the most.
-    You can also search manually for classes by typing text into the search field.
+### Class Suggestions
 
--   **Property Suggestions:** Property suggestions are generated that map your source data to elements of the selected target vocabularies.
-    You can accept (:eccenca-application-confirm:) or reject (:eccenca-application-decline:) each suggestion.
+![Smart Class Suggestions](mapping-creator-class-suggestion.png){ class="bordered" }
 
-Note that this feature is only available if a Large Language Model is configured.
+If you haven't selected a target class yet, the AI will suggest classes from the selected vocabularies that best fit your source data.
+Alternatively, you can search for classes manually by typing text into the search field.
 
-![Smart suggestions](smart-suggestions.png){ class="bordered" }
+Hover over the wand icon for each suggestion to understand why this class has been recommended.
+
+### Property Suggestions
+
+Property suggestions are generated that map your source data to elements of the selected target vocabularies.
+You can accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion.
+
+![Smart Property Suggestions](smart-suggestions.png){ class="bordered" }
 
 Once the smart suggestions have been generated, you need do two steps:
 
 1. For each property, decide whether to accept or reject the AI-generated mapping.
-    Click :eccenca-application-confirm: Confirm to accept or :eccenca-application-decline: Decline to reject.
+    Click :octicons-thumbsup-16: Confirm to accept or :octicons-thumbsdown-16: Decline to reject.
 
 2. Once you have completed your mapping, click the _Save Mapping_ button to apply and save your changes to the transformation task.
