@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - graph insights"
 description: "List, create, delete and inspect graph insight snapshots."
-icon: octicons/cross-reference-24
+icon: eccenca/graph-insights
 tags:
   - cmemc
 ---
