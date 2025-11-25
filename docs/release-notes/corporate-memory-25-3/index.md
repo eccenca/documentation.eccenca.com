@@ -167,16 +167,53 @@ We are pleased to announce Explore v25.3.0, which delivers the new **Companion**
 
 ## eccenca Corporate Memory Control (cmemc) v25.5.0
 
-!!! info inline end "Important info"
-
-    This eccenca Corporate Memory release is the first release where we introduced Semantic Versioning for our components.
-    This cmemc release notes section reflects this by reporting multiple minor versions in one section.
-
 We are excited to announce cmemc v25.5.0, which introduces new features, improvements and bug fixes.
 
 **v25.5.0 of cmemc adds the following new features:**
 
--   …
+-   `admin acl create` and `admin acl update` commands
+    -   new `--read-graph-pattern` option for granting read access to graphs matching a pattern
+    -   new `--write-graph-pattern` option for granting write access to graphs matching a pattern
+    -   new `--action-pattern` option for granting action permissions matching a pattern
+    -   patterns support wildcard (`*`) at the end or standalone wildcard for broad access
+-   `admin token` command
+    -   new `--ttl` option to output information about the lifetime of the access token.
+-   `graph insights` command group
+    -   `graph insights create` command - Create or update a graph insight snapshot
+    -   `graph insights delete` command - Delete a graph insight snapshot.
+    -   `graph insights inspect` command - Inspect the metadata of a graph insight snapshot.
+    -   `graph insights list` command - List graph insight snapshots.
+-   `vocabulary install` command
+    -   new `--replace` option to re-install already installed vocabularies
+-   `admin acl create` command
+    -   new `--replace` option to replace (overwrite) existing access condition.
+
+**v25.5.0 of cmemc ships the following fixes:**
+
+-   `dataset create` command
+    -   `*.xls` files are tab-completed and treated as excel datasets
+-   `workflow io` command
+    -   `*.xls` files are tab-completed and treated as excel datasets
+-   `query open` command
+    -   open a file based query in browser now possible again
+-   `admin workspace python install` command
+    -   error handling corrected
+-   `admin workspace python reload` command
+    -   error handling corrected
+-   `graph import` command
+    -   gzipped files into tentris store: now sends correct content encoding header
+-   `dataset resource` command group
+    -   completion of projects with `project` filter does not crash anymore
+-   `project list` command
+    -   projects without label metadata are handled correctly now
+-   `project` command group
+    -   shell completion for projects without label metadata does not crash anymore
+
+**v25.5.0 of cmemc introduces the following changes:**
+
+-   upgrade click to 8.3.0
+-   docker image: upgrade python to 3.13.8 (using uv)
+-   cmemc does warn now if executed with python other than 3.13
 
 ## Migration Notes
 
