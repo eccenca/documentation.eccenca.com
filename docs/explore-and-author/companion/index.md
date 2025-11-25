@@ -97,9 +97,18 @@ If your use case or question requires you to limit the available tools (e.g. if 
 
 ### Interactive answers
 
+![Enriched answers](companion-response-enrichment.png){ class="bordered" }
+
 Your answer may include elements that allow rich interaction with specific Corporate Memory views and modules:
 
-<!-- TODO: add details -->
+`Queries`
+    :   :eccenca-application-queries: links will open the (generated) query in the query module for inspection or reuse.
+
+`Business Knowledge Editor`
+    :   :eccenca-module-bke: links open the respective resource(s) as starting node(s) in the Business Knowledge Editor module for visual exploration.
+
+`Resources`
+    :   ![Resources Links](companion-resource.png){ class="bordered" width="30%" }
 
 - Queries
 - BKE Exploration
