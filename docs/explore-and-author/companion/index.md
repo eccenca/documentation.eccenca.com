@@ -11,7 +11,7 @@ The Companion view enables you to interact with your data, graphs, vocabularies,
 
 ## Configuration
 
-<!-- TODO: add details -->
+**TODO:** add details
 
 ## Usage
 
@@ -102,14 +102,10 @@ If your use case or question requires you to limit the available tools (e.g. if 
 Your answer may include elements that allow rich interaction with specific Corporate Memory views and modules:
 
 `Queries`
-    :   :eccenca-application-queries: links will open the (generated) query in the query module for inspection or reuse.
+    :   :eccenca-application-queries: links will open a (generated) query in the query module for inspection or reuse.
 
 `Business Knowledge Editor`
     :   :eccenca-module-bke: links open the respective resource(s) as starting node(s) in the Business Knowledge Editor module for visual exploration.
 
 `Resources`
-    :   ![Resources Links](companion-resource.png){ class="bordered" width="30%" }
-
-- Queries
-- BKE Exploration
-- Resource
+    :   ![Resources Links](companion-resource.png){ class="bordered" width="30%" } links will open the resource details view in EXPLORE > Knowledge Graph module.
