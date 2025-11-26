@@ -255,7 +255,3 @@ We are excited to announce cmemc v25.5.0, which introduces new features, improve
 ### eccenca Explore
 
 -   With the deprecation of the assistance feature, `assist.*` properties can be removed from your `application.yml`, they are not used any more and have been replaced by `spring.ai` configuration.
-
-### eccenca Corporate Memory Control (cmemc)
-
--   …
