@@ -9,15 +9,16 @@ tags:
 
 The Companion view enables you to interact with your data, graphs, vocabularies, resources and queries in a chat-like way.
 
-## Configuration
+## Configuration Info
+
+A specific configuration is require to activate this feature.
+Our deployment templates (helm charts and docker-compose configurations) provide testes configuration profiles for different LLM providers.
+See the link in the info box for details.
 
 !!! info "Configuration"
 
     See [`spring.ai.*` configuration properties in _Configuration of Servlet Container_](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-servlet-container) to learn how to enable and configure this feature.
     Explore uses _Spring AI_ to connect and configure LLM provider, as such the [Spring AI Chat Model API Configuration Reference](https://docs.spring.io/spring-ai/reference/api/chatmodel.html) applies.
-
-The Companion need to be configured in order to be activated and used.
-Our deployment templates (helm charts and docker-compose configurations) provide testes configuration profiles for different LLM providers.
 
 ## Usage
 
