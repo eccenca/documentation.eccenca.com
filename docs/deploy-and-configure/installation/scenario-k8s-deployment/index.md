@@ -155,12 +155,8 @@ provided Helm chart.
 
 ### 1. Obtain the chart
 
-``` console
-helm repo add --force-update eccenca https://helm.eccenca.com
-helm repo update eccenca
-```
+We strongly recommend to download the chart and execute the install commands against a local environment.
 
-You can also download the latest version here:
 
 ``` console
 wget https://helm.eccenca.com/keycloak/latest.tgz
@@ -170,6 +166,14 @@ tar -xzf latest.tgz
 ``` console
 # this requires gitlab.eccenca.com access
 git clone ssh://git@gitlab.eccenca.com:8101/devops/keycloak-helm.git
+```
+
+You can also use the helm package manger, but then you have to take care about restoring from a backup on your own.
+The mechanism for that is included in the chart, but the helm command requires you have the sql dump file on your local machine.
+
+``` console
+helm repo add --force-update eccenca https://helm.eccenca.com
+helm repo update eccenca
 ```
 
 ### 2. Configuration
