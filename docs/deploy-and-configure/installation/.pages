@@ -2,5 +2,6 @@ nav:
     - Installation: index.md
     - "Scenario: Single Node Cloud Installation": scenario-single-node-cloud-installation
     - "Scenario: Local Installation": scenario-local-installation
+    - "Scenario: Kubernetes Deployment": scenario-k8s-deployment
     - Migrating Stores: migrating-stores
 

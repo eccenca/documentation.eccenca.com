@@ -1033,7 +1033,7 @@ Enable (or disable) the new visual [Mapping Create UI](../../../build/mapping-cr
 com.eccenca.di.mappingCreatorEnabled = true
 ```
 
-The [Mapping Creator can optionally use LLM](../../../build/mapping-creator/index.md#smart-suggestions) to automatically generate class and property mappings.
+The [Mapping Creator can optionally use LLM](../../../build/mapping-creator/index.md#smart-suggestions-with-ai-support) to automatically generate class and property mappings.
 Use the following configuration section as a blueprint to set up your OpenAI-compatible endpoint, providing:
 
 -   the API key,

@@ -7,16 +7,19 @@ tags:
 ---
 # Mapping Creator
 
-## Configuration
+## Configuration Info
+
+A specific configuration is require to activate this feature.
+Furthermore, for best experience an LLM provider configuration is also needed.
+See the link in the info box for details.
 
 !!! info "Configuration"
 
     See [Mapping Creator and LLM Configuration](../../deploy-and-configure/configuration/dataintegration/index.md#mapping-creator-and-llm-configuration) to learn how to enable and configure this feature.
 
-The Mapping Creator need to configured in order to be activated and used.
-Furthermore, for best experience it requires an LLM provider configuration, see the link in the info box for the details.
-
 ## Usage
+
+The Mapping Creator is  a feature of BUILD transformation tasks (_BUILD_> _Project_> (_Workflow_>) _Transformation_> _Mapping Creator_).
 
 !!! question "Help"
 
@@ -24,43 +27,46 @@ Furthermore, for best experience it requires an LLM provider configuration, see 
 
     Access help and a feature tour via the help menu :eccenca-item-question:.
 
-**TODO:** describe how to get there in the first place!!! BUILD > Project > [ Workflow > ] Transformation > Mapping Creator
-
 Use the Mapping Creator to connect your data to semantic models.
-Using visual tools, drag-and-drop, and suggestions, you’ll create mappings between your source data and knowledge graph classes as well as their properties.
+Using visual tools, drag-and-drop, and suggestions, you are able to create mappings between your source data and knowledge graph classes as well as their properties.
 
 ![Mapping Creator](mapping-creator.png){ class="bordered" }
 
-The Mapping Creator is split into three parts:
+The Mapping Creator consists of three parts:
 
--   The left sidebar shows the source schema
--   The right sidebar shows the target schema
--   Mappings between elements in the source schema and elements in the target schema.
-
-**TODO**: rename _sidebar_ and describe the actual _sidebars_ properly (left: schema information, right: see below (Edit saved mapping rule))
+-   Source schema shown on the left side
+-   Target Schema shown on the right side
+-   Mappings between elements in the source schema and in the target schema
 
 You can move, connect or disconnect, and inspect each element visually.
 
+<!--
+**TODO**: Clicking on an element in the source schema opens a detail view showing more schema information and describe the actual _sidebars_ properly (left: schema information, right: see below (Edit saved mapping rule)) **TODO**:@rpietzsch please add Details...
+-->
+
 ### Color Legend
+
+Each color and visual element used in the Mapping Creator has a specific meaning as shown in the screenshot below.
 
 **TODO:** show the color legend here, too
 
-<figure markdown="span">
-    ![Color Legend](mapping-creator-color-legend.png){ class="bordered" }
-    <figcaption>Color Legend Image Caption</figcaption>
-</figure>
+![Color Legend](mapping-creator-color-legend.png){ class="bordered" }
 
 ### Manual creation
 
-Every mapping begins by selecting or creating a target class.
-This defines where your data will be be mapped in the knowledge graph.
+To start a mapping you need to select or define a target class first.
+The target class defines where your data will be be mapped in the knowledge graph.
 
 #### Add properties
 
 ![Resource edit actions](mapping-creator-edit-actions.png){ class="bordered" width="40%" }
 
 To complete a mapping properties need to be added to complete your desired target schema (i.e. the graph fragment that your transformation shall yield).
-The following two options exist to add properties.
+
+There are two options to add properties:
+
+-   during class selection
+-   from vocabularies
 
 ##### During class selection
 
@@ -74,7 +80,7 @@ In the _add target class_ dialog you may select different kind of properties:
 
 The property preview helps to confirm your choice.
 
-##### By adding a property from your vocabularies
+##### From vocabularies
 
 ![Adding a property from your vocabulary](mapping-creator-property-selection.png){ class="bordered" width="80%" }
 
@@ -96,7 +102,7 @@ Click on an already saved target element to show more details.
 With the :eccenca-item-edit: Pencil icon you can edit the mapping rule and rename elements, or adjust configurations.
 Advanced users can refine transformation logic here.
 
-### Smart suggestions
+### Smart suggestions with AI support
 
 !!! info
     Note that this feature is only available if a Large Language Model is configured.
@@ -104,7 +110,7 @@ Advanced users can refine transformation logic here.
 Click the :eccenca-application-ai-suggestion: Magic Wand to automatically generate mapping suggestions based on your data and the selected class.
 Accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion as needed.
 
-#### Class Suggestions
+#### Class suggestions
 
 ![Smart Class Suggestions](mapping-creator-class-suggestion.png){ class="bordered" }
 
@@ -113,7 +119,7 @@ Alternatively, you can search for classes manually by typing text into the searc
 
 Hover over the wand icon for each suggestion to understand why this class has been recommended.
 
-#### Property Suggestions
+#### Property suggestions
 
 Property suggestions are generated that map your source data to elements of the selected target vocabularies.
 You can accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion.
