@@ -7,7 +7,7 @@ tags:
 
 Configuration example:
 
-This example configures a connection to a neptune instance in the AWS region eu-central-1. Authentication is enabled
+This example configures a connection to a neptune instance in the AWS region eu-central-1. Authentication is enabled 
 so it is assumed that CMEM runs on a EC2 VM with configured role for authentication to neptune. Files (uncompressed) greater than 100MB are
 uploaded via S3 based bulk loader. The S3 bucket is accessed in this case via an access point which is configured here. The EC2
 role CMEM runs under has write access to the bucket. One of the role the neptune cluster runs under is configured in this setting and has read access to the bucket.

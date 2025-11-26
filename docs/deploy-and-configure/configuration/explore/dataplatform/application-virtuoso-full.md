@@ -7,7 +7,7 @@ tags:
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote Virtuoso store (https://remote:8080).
+This example configures a connection with HTTPS to a remote Virtuoso store (https://remote:8080). 
 
 ```yaml
 store:

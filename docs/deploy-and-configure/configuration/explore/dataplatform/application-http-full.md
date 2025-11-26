@@ -101,6 +101,17 @@ Basic authentication is used if this parameter is provided.
 | Valid values | string |
 | Environment | STORE_HTTP_PASSWORD |
 
+***Property: store.http.bearerToken***
+
+Bearer token is used and transferred to store in authorization header if this parameter is provided.
+
+| Category | Value |
+|--- | ---: |
+| Default | *none* |
+| Required | false |
+| Valid values | Bearer token |
+| Environment | STORE_HTTP_BEARERTOKEN |
+
 ***Property: store.http.graphListQuery***
 
 Defines how the raw list of graphs is retrieved, and therefore which graphs are visible to the system. Graph must be bound to variable ?g !
