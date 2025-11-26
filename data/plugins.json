@@ -2659,6 +2659,43 @@
     ],
     "pluginType": "customtask"
   },
+  "cmem_plugin_wfreports_get_report": {
+    "pluginId": "cmem_plugin_wfreports_get_report",
+    "title": "Get workflow report",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Output the last report of a workflow as a JSON file.",
+    "markdownDocumentation": "\nThis workflow operator retrieves the most recent execution report of a specified workflow\nand outputs it as a JSON file.\n\nThe plugin queries the backend API to list all available reports for the given workflow,\nsorts them by timestamp, and downloads the latest report. The report contains detailed information\nabout the workflow execution, including task results, execution times, and any errors or warnings.\n\n## Output\n\nThe plugin outputs a single JSON file entity containing the complete workflow execution report.\n\n## Usage\n\nThis operator is useful for:\n- Monitoring workflow execution results\n- Creating audit trails of workflow runs\n- Archiving execution reports for compliance purposes\n- Feeding execution data into downstream analysis tasks\n",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHBhdGggZD0iTTIyLDRWN0gxMFY0SDJ2OGg4VjloNy4wMjM0QTQuOTQ2Myw0Ljk0NjMsMCwwLDAsMTYsMTJ2OEEzLjAwMzcsMy4wMDM3LDAsMCwxLDEzLDIzSDEwVjIwSDJ2OGg4VjI1SDEzQTUuMDA2Miw1LjAwNjIsMCwwLDAsMTgsMjBWMTJhMi45OTgyLDIuOTk4MiwwLDAsMSwyLjk5NzEtM0gyMnYzaDhWNFpNOCwxMEg0VjZIOFpNOCwyNkg0VjIySDhaTTI4LDEwSDI0VjZoNFoiLz48L3N2Zz4=",
+    "properties": {
+      "workflow_id": {
+        "name": "workflow_id",
+        "title": "Workflow",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [
+      "workflow_id"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask"
+  },
   "cmem_plugin_graphql-workflow-graphql-GraphQLPlugin": {
     "pluginId": "cmem_plugin_graphql-workflow-graphql-GraphQLPlugin",
     "title": "GraphQL query",
@@ -11819,7 +11856,7 @@
         "description": "Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.",
         "type": "string",
         "parameterType": "string",
-        "value": "2025-11-20",
+        "value": "2025-11-26",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}

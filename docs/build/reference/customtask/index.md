@@ -36,6 +36,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Generate base36 IRDIs](cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md) | Create unique ECLASS IRDIs. |
  | [Generate SHACL shapes from data](cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md) | Generate SHACL node and property shapes from a data graph |
  | [Get project files](getProjectFiles.md) | Get file resources from the project. |
+ | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output the last report of a workflow as a JSON file. |
  | [GraphQL query](cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) | Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset. |
  | [Join tables](Merge.md) | Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links. |
  | [jq](cmem-plugin-jq-workflow.md) | Process a JSON document with a jq filter / program. |

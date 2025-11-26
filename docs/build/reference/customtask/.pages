@@ -22,6 +22,7 @@ nav:
     - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
     - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
     - "Get project files": getProjectFiles.md
+    - "Get workflow report": cmem_plugin_wfreports_get_report.md
     - "GraphQL query": cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
     - "Join tables": Merge.md
     - "jq": cmem-plugin-jq-workflow.md
