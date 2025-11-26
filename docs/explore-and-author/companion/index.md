@@ -11,7 +11,12 @@ The Companion view enables you to interact with your data, graphs, vocabularies,
 
 ## Configuration
 
-**TODO:** add details
+!!! info "Configuration"
+
+    See [`spring.ai.*` properties of Configuration of Servlet Container](../../deploy-and-configure/configuration/explore/dataplatform/application-full/#configuration-of-servlet-container) to learn how to enable and configure this feature.
+
+The Companion need to be configured in order to be activated and used.
+Our deployment templates (helm charts and docker-compose configurations) provide testes configuration profiles for different LLM providers.
 
 ## Usage
 
