@@ -3,7 +3,7 @@ icon: material/memory
 status: new
 ---
 
-# Sizing Considerations
+# Graph Insights Sizing
 
 This section is intended to provide assistance in estimating the required memory and the resulting indexing speed of Graph Insights on the basis of empirical values.
 
