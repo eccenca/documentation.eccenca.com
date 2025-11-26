@@ -1,6 +1,6 @@
 ---
 title: "SOQL query (Salesforce)"
-description: "Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization’s Salesforce account."
+description: "Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization's Salesforce account."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
@@ -17,9 +17,9 @@ tags:
 
 
 This task executes a custom Salesforce Object Query (SOQL)
-and returns sets of tabular data from your organization’s Salesforce account.
+and returns sets of tabular data from your organization's Salesforce account.
 
-> Use the Salesforce Object Query Language (SOQL) to search your organization’s
+> Use the Salesforce Object Query Language (SOQL) to search your organization's
 > Salesforce data for specific information. SOQL is similar to the SELECT statement in
 > the widely used Structured Query Language (SQL) but is designed specifically for
 > Salesforce data.

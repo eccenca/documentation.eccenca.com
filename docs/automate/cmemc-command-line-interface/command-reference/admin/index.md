@@ -91,5 +91,7 @@ Please be aware that this command can reveal secrets which you might not want to
                 OAUTH_GRANT_TYPE=prefetched_token, this may lead to an error.
     --decode    Decode the access token and outputs the raw JSON. Note that the
                 access token is only decoded and esp. not validated.
+    --ttl       Output information about the lifetime of the access token. In
+                combination with --raw, it outputs the TTL in seconds.
     ```
 

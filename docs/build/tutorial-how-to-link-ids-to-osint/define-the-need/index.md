@@ -71,13 +71,13 @@ After several propositions, analysts oriented the implementation of our first da
 In this tutorial, we study only this first result:
 
 !!! example "Expected result"
-        A knowledge graph will reduce the time required to research details on the Web of each new alerts in the IDS of IN Analysts.
-        To achieve such savings we aggregate all links of sources and references about alerts in the Security information and event management (SIEM) in a knowledge graph.
-        Analyst are able to read the Mitre information directly in his timeline (e.g. in SPLUNK) and to access all references about an alert from this central place.
+    A knowledge graph will reduce the time required to research details on the Web of each new alerts in the IDS of IN Analysts.
+    To achieve such savings we aggregate all links of sources and references about alerts in the Security information and event management (SIEM) in a knowledge graph.
+    Analyst are able to read the Mitre information directly in his timeline (e.g. in SPLUNK) and to access all references about an alert from this central place.
 
-        ![](slide_result_expected.png)
+    ![](slide_result_expected.png)
 
-        *Figure 1. Example of expected results for analysts during the task to understand the meaning and relevance of new alerts in their IDS.*
+    *Figure 1. Example of expected results for analysts during the task to understand the meaning and relevance of new alerts in their IDS.*
 
 When we know the waited results, we can imagine the necessary use cases.
 
@@ -98,15 +98,15 @@ In this tutorial, after to test this first result, we claim a knowledge graph ca
 Another result of this project was to resolve this other need:
 
 !!! example "For who"
-        IN analysts
+    IN analysts
 !!! example "What"
-        Calculate and manage their investigations' knowledge graphs of high-level and low-level directly in Splunk
+    Calculate and manage their investigations' knowledge graphs of high-level and low-level directly in Splunk
 !!! example "Context"
-        Linking IDS events to a knowledge graph can be complex.
-        This is for several reasons like labels/IDs/structures of the same resources can be different.
-        Corporate Memory provides advanced capabilities to perform this in an automatic way.
-        To use these tools, we need to export the data of SPLUNK to Corporate Memory.
-        Analysts need to export data from SPLUNK to Corporate Memory on the fly and execute Corporate Memory workflows with reconciling complex data automatically and SPARQL update queries directly triggered via their SPLUNK dashboards.
+    Linking IDS events to a knowledge graph can be complex.
+    This is for several reasons like labels/IDs/structures of the same resources can be different.
+    Corporate Memory provides advanced capabilities to perform this in an automatic way.
+    To use these tools, we need to export the data of SPLUNK to Corporate Memory.
+    Analysts need to export data from SPLUNK to Corporate Memory on the fly and execute Corporate Memory workflows with reconciling complex data automatically and SPARQL update queries directly triggered via their SPLUNK dashboards.
 
  For the moment, we are searching the best way to resolve this need but a demonstrator to manage several investigations in the same knowledge graphs is available with several examples of dasboards in the Splunk app "[Investigate lateral movements with a knowledge graph](../link-IDS-event-to-KG-via-cmem/eccenca_poc_investigate.tar.gz)" ([tutorial page](../link-IDS-event-to-KG/index.md)). This need is for advanced users of Corporate Memory and it may be proposed in a future tutorial.
 

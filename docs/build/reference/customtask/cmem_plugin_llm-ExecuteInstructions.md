@@ -35,12 +35,14 @@ AI-powered text generation, analysis, and transformation tasks within Corporate 
 ## Input/Output Behavior
 
 After processing, each entity receives an additional path (default: `_instruction_output`)
-containing the LLM response. Input/output ports are automatically configured based on
-template variables:
+containing the LLM response. For TEXT and JSON_MODE output formats, the response is stored
+in this path. For STRUCTURED_OUTPUT, the Pydantic model fields are directly added to the
+entity (the `_instruction_output` path is not used).
+
+Input/output ports are automatically configured based on template variables:
 
 - **No placeholders**: No input ports required
-- **With placeholders**: Dynamic input ports created for each template variable
-- **Port ordering**: Variables sorted alphabetically determine port order
+- **With placeholders**: Single input port created for entity data
 - **Schema handling**: Fixed schemas when using specific entity paths, flexible schemas otherwise
 
 ## Template System
@@ -48,19 +50,15 @@ template variables:
 Uses Jinja2 templating for dynamic prompts:
 
 ```jinja2
-{{ variable }}           # Entire entity as JSON
-{{ variable.name }}      # Specific entity property
-{{ variable_a.title }}   # Property from first additional input port
-{{ variable_b.content }} # Property from second additional input port
+{{ entity }}           # Entire entity as JSON
+{{ entity.name }}      # Specific entity property
 ```
 
-The followin template processing rule are implemented:
+The following template processing rules are implemented:
 
 1. **Variable Extraction**: Automatically detects template variables to configure input ports
-2. **Entity Iteration**: Main processing iterates over first input port entities
-3. **Additional Inputs**: Secondary ports provide context data for template rendering
-4. **Consumption Modes**: Choose between first-entity or all-entities consumption from
-   additional ports
+2. **Entity Iteration**: Processes entities from the single input port individually
+3. **Single Entity Context**: Each entity is processed independently with its own template context
 
 ## Output Formats
 
@@ -167,7 +165,7 @@ An optional API key for authentication.
 
 ### Instruct Model
 
-The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure).
+The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). **Note:** For STRUCTURED_OUTPUT format, only certain models support structured outputs. See [OpenAI Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs) for supported models.
 
 - ID: `model`
 - Datatype: `string`
@@ -221,7 +219,7 @@ The timeout for a single API request in seconds.
 
 ### Instruction Output Path
 
-The entity path where the instruction result will be provided.
+The entity path where the instruction result will be provided. Note: This parameter is not used when Output Format is set to STRUCTURED_OUTPUT. For structured outputs, only the Pydantic model fields are included in the output schema.
 
 - ID: `instruction_output_path`
 - Datatype: `string`
@@ -248,16 +246,6 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
     }
 ]
 ```
-
-
-
-### Consume all entities from additional input ports
-
-If enabled, all entities from additional input ports will be consumed. Otherwise, only the first entity of the additional ports will be used.
-
-- ID: `consume_all_entities`
-- Datatype: `boolean`
-- Default Value: `false`
 
 
 

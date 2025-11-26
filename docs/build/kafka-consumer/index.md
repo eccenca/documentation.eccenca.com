@@ -17,7 +17,7 @@ By using the [cmem-plugin-kafka](https://pypi.org/project/cmem-plugin-kafka/) [P
 
 ## Installation
 
-In order to use the Kafka Consumer workflow task, you need to extend your Corporate Memory instance with the `cmem-plugin-kafka` package.
+In order to use the [Kafka Consumer](../reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) or [Kafka Producer](../reference/customtask/cmem_plugin_kafka-SendMessages.md) workflow task, you need to extend your Corporate Memory instance with the `cmem-plugin-kafka` package.
 This can be done by using cmemc:
 
 ```shell-session title="Installing cmem-plugin-kafka on the instance 'my-cmem'"
@@ -74,7 +74,7 @@ There are two main modes how the consumer handles received messages: either the 
 
 ### Write Messages to a Dataset
 
-In order to write the received messages to a dataset, the option **Messages Dataset** needs to be set. Only JSON and XML message formats are supported in this mode. So depending on the message format a [JSON](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#json) or [XML Dataset](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#xml) needs to be created and configured as the **Messages Dataset**.
+In order to write the received messages to a dataset, the option **Messages Dataset** needs to be set. Only JSON and XML message formats are supported in this mode. So depending on the message format a [JSON](../reference/dataset/json.md) or [XML Dataset](../reference/dataset/xml.md) needs to be created and configured as the **Messages Dataset**.
 
 ![Choose a dataset according to the message format](configure-message-dataset.png){ class="bordered" }<!-- 24.1 -->
 
@@ -92,15 +92,15 @@ In the "message streaming mode" (**Messages Dataset** is not set) the received m
 -   **ts-production** — the timestamp when the message was written to the topic,
 -   **ts-consumption** — the timestamp when the message was consumed from the topic.
 
-Connect the output of Kafka Consumer inside a Workflow to a tabular dataset (e.g. a [CSV Dataset](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#csv)) or directly to a transformation task.
+Connect the output of Kafka Consumer inside a Workflow to a tabular dataset (e.g. a [CSV Dataset](../reference/dataset/csv.md)) or directly to a transformation task.
 
 ![](demo-wf-2.png){ class="bordered" }<!-- 24.1 -->
 
-The message content is captured as plain text. In order to process complex message content, the `content` path needs to be parsed with operators such as [Parse JSON](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#parse-json) or [Parse XML](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md#parse-xml) to process the message content in a transformation.
+The message content is captured as plain text. In order to process complex message content, the `content` path needs to be parsed with operators such as [Parse JSON](../reference/customtask/JsonParserOperator.md) or [Parse XML](../reference/customtask/XmlParserOperator.md) to process the message content in a transformation.
 
 ![](demo-wf-3.png){ class="bordered" }<!-- 24.1 -->
 
-Any modifications to the message set, such as filtering, can be done prior to parsing the content. One could for example remove duplicates (according to the message key) from the messages by using the [Distinct-by task](../../deploy-and-configure/configuration/dataintegration/plugin-reference/index.md).
+Any modifications to the message set, such as filtering, can be done prior to parsing the content. One could for example remove duplicates (according to the message key) from the messages by using the [Distinct-by task](../reference/customtask/DistinctBy.md).
 
 ![](demo-wf-4.png){ class="bordered" }<!-- 24.1 -->
 

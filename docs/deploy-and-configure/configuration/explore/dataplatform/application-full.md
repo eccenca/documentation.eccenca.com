@@ -63,7 +63,7 @@ URI where to redirect to when the user logs out
 
 ## License
 
-By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license.
+By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license. 
 To change the default configuration, you have several options. If the properties under license are not provided the default license included (PEDAL) is used.
 
 In case a dedicated license file is used, different configuration options can overwrite each other. The license is read in the following sequence:
@@ -172,6 +172,57 @@ To disable caching, set the type to NONE (not recommended).
 | Valid values | string |
 | Environment | SPRING_THYMELEAF_MODE |
 
+### Configuration of Chat Memory DataSource
+
+DataSource configuration for the chat memory persistence using HSQLDB.
+In production/Docker environments, data is stored in /var/lib/explore/chat-memory.
+In development environments, this can be overridden in application-dev.yml.
+
+
+***Property: spring.datasource.driver-class-name***
+
+JDBC driver class for HSQLDB
+
+| Category | Value |
+|--- | ---: |
+| Default | org.hsqldb.jdbc.JDBCDriver |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_DATASOURCE_DRIVER_CLASS_NAME |
+
+***Property: spring.datasource.url***
+
+JDBC URL for HSQLDB file-based database with proper shutdown behavior
+
+| Category | Value |
+|--- | ---: |
+| Default | jdbc:hsqldb:mem:chatmemory;shutdown=true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_DATASOURCE_URL |
+
+***Property: spring.datasource.username***
+
+Database username for HSQLDB
+
+| Category | Value |
+|--- | ---: |
+| Default | sa |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_DATASOURCE_USERNAME |
+
+***Property: spring.datasource.password***
+
+Database password for HSQLDB (empty for embedded mode)
+
+| Category | Value |
+|--- | ---: |
+| Default |  |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_DATASOURCE_PASSWORD |
+
 ### Configuration of Servlet Container
 
 
@@ -225,6 +276,262 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_JACKSON_DEFAULT_PROPERTY_INCLUSION |
+
+***Property: spring.ai.retry.max-attempts***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 2 |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_RETRY_MAX_ATTEMPTS |
+
+***Property: spring.ai.chat.client.enabled***
+
+Use this property to enable or disable the AI capabilities of Explore
+
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_CHAT_CLIENT_ENABLED |
+
+***Property: spring.ai.mcp.server.name***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | cmem-mcp-server |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_NAME |
+
+***Property: spring.ai.mcp.server.version***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 1.0.0 |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_VERSION |
+
+***Property: spring.ai.mcp.server.type***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | SYNC |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_TYPE |
+
+***Property: spring.ai.mcp.server.instructions***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | This server provides access to corporate memory |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_INSTRUCTIONS |
+
+***Property: spring.ai.mcp.server.capabilities.tool***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_TOOL |
+
+***Property: spring.ai.mcp.server.capabilities.resource***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_RESOURCE |
+
+***Property: spring.ai.mcp.server.capabilities.prompt***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_PROMPT |
+
+***Property: spring.ai.mcp.server.capabilities.completion***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_COMPLETION |
+
+***Property: spring.ai.mcp.server.enabled***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_ENABLED |
+
+***Property: spring.ai.mcp.server.sse-message-endpoint***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform/mcp/messages |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_SSE_MESSAGE_ENDPOINT |
+
+***Property: spring.ai.mcp.server.sse-endpoint***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform/mcp/sse |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_SSE_ENDPOINT |
+
+***Property: spring.ai.mcp.server.stdio***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_STDIO |
+
+***Property: spring.ai.model.chat***
+
+This configures the possible chat models for interacting with the companion.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | openai |
+| Required | false |
+| Valid values | OPENAI, VERTEXAI, .. |
+| Environment | SPRING_AI_MODEL_CHAT |
+
+***Property: spring.ai.model.embedding***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | openai |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MODEL_EMBEDDING |
+
+***Property: spring.ai.anthropic.api-key***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | <API_KEY> |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_ANTHROPIC_API_KEY |
+
+***Property: spring.ai.anthropic.chat.options.max-tokens***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | 10000 |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_ANTHROPIC_CHAT_OPTIONS_MAX_TOKENS |
+
+***Property: spring.ai.openai.api-key***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | <API_KEY> |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_OPENAI_API_KEY |
+
+***Property: spring.ai.openai.chat.options.response-format.type***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | json_schema |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE |
+
+***Property: spring.ai.openai.chat.options.response-format.schema***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | { \"name\": \"string\", \"schema\": \"string\" }
+ |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |
+
+***Property: spring.ai.azure.openai.endpoint***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | <ENDPOINT> |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_AZURE_OPENAI_ENDPOINT |
+
+***Property: spring.ai.azure.openai.chat.options.response-format.type***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | json_schema |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE |
+
+***Property: spring.ai.azure.openai.chat.options.response-format.schema***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | { \"name\": \"string\", \"schema\": \"string\" }
+ |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |
+
+***Property: spring.ai.mistral-ai.api-key***
+
+
+| Category | Value |
+|--- | ---: |
+| Default | <API_KEY> |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MISTRAL_AI_API_KEY |
 
 ***Property: management.info.env.enabled***
 
@@ -666,7 +973,7 @@ SPARQL endpoints declare how DataPlatform connects to a SPARQL-capable store or 
 
 With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available, unless a store supporting data persistence is configured.
 
-The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated.
+The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
 If nothing matches here, skos:prefLabel is examined in the same way
 
 ```yaml
@@ -722,7 +1029,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 ***Property: proxy.languagePreferences***
 
-Specifies base language preferences for this instance.
+Specifies base language preferences for this instance. 
 
 **Note:** This configuration property affects results of SELECT-queries when the resolveLabels property is set to LABELS.
 
@@ -761,7 +1068,7 @@ Increasing the max fetch will support deeper constructs, but will also add to lo
 
 ***Property: proxy.maxCBDStatements***
 
-The max amount of statements which the Concise Bound Description can contain.
+The max amount of statements which the Concise Bound Description can contain. 
 (S)CBDs surpassing this will not load but return an error
 
 
@@ -788,6 +1095,17 @@ endpoints to fetch more data. Increasing this value will increase response time
 | Valid values | string |
 | Environment | PROXY_SHAPEDMAXVALUECOUNT |
 
+***Property: proxy.staleCacheExpiration***
+
+Stale Cache Expiration - Stale Caches in DataPlatform have a default expiration time which can be set
+
+| Category | Value |
+|--- | ---: |
+| Default | P2D |
+| Required | false |
+| Valid values | ISO 8601 duration format string i.e. PT30M, P1D |
+| Environment | PROXY_STALECACHEEXPIRATION |
+
 ***Property: proxy.cacheExpiration***
 
 Cache Expiration - Caches in DataPlatform have a default expiration time which can be set
@@ -796,7 +1114,7 @@ Cache Expiration - Caches in DataPlatform have a default expiration time which c
 |--- | ---: |
 | Default | PT30M |
 | Required | false |
-| Valid values | ISO 8601 duration format string i.e. PT30M, PT1D |
+| Valid values | ISO 8601 duration format string i.e. PT30M, P1D |
 | Environment | PROXY_CACHEEXPIRATION |
 
 ***Property: proxy.cacheSelectiveInvalidation***
@@ -869,69 +1187,6 @@ The format in which internally SPARQL results are fetched from the store. For st
 | Required | false |
 | Valid values | JSON,XML |
 | Environment | PROXY_PROXY_SPARQL_STREAMING_FORMAT |
-
-## LLM Assistant Supported
-
-Leverage generative AI (LLMs) for ontology creation and exploration (SPARQL query generation).
-
-
-***Property: assist.enabled***
-
-Activate LLM Assistant features.
-
-| Category | Value |
-|--- | ---: |
-| Default | false |
-| Required | false |
-| Valid values | boolean |
-| Environment | ASSIST_ENABLED |
-
-***Property: assist.openAiApiKey***
-
-Your OpenAI API key to use.
-
-| Category | Value |
-|--- | ---: |
-| Default | *none* |
-| Required | true |
-| Valid values | string |
-| Environment | ASSIST_OPENAIAPIKEY |
-
-***Property: assist.baseUrl***
-
-The access token URL for the LLM API. Used to configure an openAI API compatible alternative service (e.g. OpenAI in MS Azure). If empty OpenAI API will be used.
-
-
-| Category | Value |
-|--- | ---: |
-| Default | *none* |
-| Required | false |
-| Valid values | string |
-| Environment | ASSIST_BASEURL |
-
-***Property: assist.chatModel***
-
-The name of the model to use for chat interactions. Defaults to "gpt-4o-2024-08-06". Use a model fine tuned for function calling.
-
-
-| Category | Value |
-|--- | ---: |
-| Default | gpt-4o-2024-08-06 |
-| Required | false |
-| Valid values | string |
-| Environment | ASSIST_CHATMODEL |
-
-***Property: assist.embeddingModel***
-
-The name of the model to use for retrieving embeddings. Defaults to "text-embedding-3-large".
-
-
-| Category | Value |
-|--- | ---: |
-| Default | text-embedding-3-large |
-| Required | false |
-| Valid values | string |
-| Environment | ASSIST_EMBEDDINGMODEL |
 
 ## Syncing graph via git repositories
 
@@ -1059,6 +1314,17 @@ Schedules Pull Frequency - Configured git repositories for sync are pulled regul
 | Required | false |
 | Valid values | Cron setting according to https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression |
 | Environment | GITSYNC_SCHEDULEDPULLCRON |
+
+***Property: semspect.enabled***
+
+Activates / Deactivates semspect integration feature
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | boolean |
+| Environment | SEMSPECT_ENABLED |
 
 ## Application logging
 
@@ -1462,7 +1728,7 @@ Limits how many background query requests can be run in parallel. This applies t
 
 ## Asynchronous file uploads
 
-Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file.
+Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file. 
 Please s. API documentation under /api/upload/ for further information.
 
 

@@ -8,7 +8,7 @@ This section is intended to be a reference for all available eccenca Build (Data
 The configuration format is based on [HOCON](https://github.com/typesafehub/config).
 
 The following sections introduce the most important configuration parameters.
-The entire list of available configuration parameters can be found in the dataintegration.conf file found in the release package.
+The entire list of available configuration parameters can be found in the `dataintegration.conf` file found in the release package.
 
 ## OAuth
 
@@ -62,7 +62,7 @@ oauth.clientSecret = "secret"
 # oauth.requestParameters = "&resource=value"
 ```
 
-## Explore configuration
+## Explore Configuration
 
 eccenca Build (DataIntegration) can only be run by OAuth users that are granted the `https://vocab.eccenca.com/auth/Action/Build` action by the Explore component (aka DataPlatform/DataManager).
 An example condition can be seen at [Access Conditions > Access to Build (DataIntegration)](../access-conditions/index.md#access-to-dataintegration)
@@ -687,7 +687,7 @@ pluginRegistry {
 }
 ```
 
-## Spark configuration
+## Spark Configuration
 
 The following chapters describe configuration options relevant for the execution of eccenca Build (DataIntegration) workflows on Spark. All options regarding the execution of Build (DataIntegration) on Spark are set in the `dataintegration.conf` file. The option to define SparkExecutor as the execution engine is `execution.manager.plugin` and needs to be changed from the default value:
 
@@ -1018,5 +1018,78 @@ spark.interpreter.options = {
   # This property decides if Hive integration is enabled orr not.
   # To use hive an external DB (such as MYSQL), the meta store, is needed. Please specify the necessary properties in the hive-site.xml. Note that Hive's default meta store (derby) should not be used in production and may lead to issues.
   enableHiveSupport = false
+}
+```
+
+## Mapping Creator and LLM Configuration
+
+Enable (or disable) the new visual [Mapping Create UI](../../../build/mapping-creator/index.md) with `com.eccenca.di.mappingCreatorEnabled = true` (or `false` to disable).
+
+```bash linenums="1"
+#################################################
+### Mapping creator
+#################################################
+
+com.eccenca.di.mappingCreatorEnabled = true
+```
+
+The [Mapping Creator can optionally use LLM](../../../build/mapping-creator/index.md#smart-suggestions) to automatically generate class and property mappings.
+Use the following configuration section as a blueprint to set up your OpenAI-compatible endpoint, providing:
+
+-   the API key,
+-   a model,
+-   reasoning level,
+-   and (optionally) benchmarking outputs.
+
+```bash linenums="1"
+#################################################
+### AI assistant
+#################################################
+
+# Preliminary LLM config. Will be changed in the future.
+com.eccenca.di.assistant = {
+  ApiConfig = {
+    # API key
+    # apiKey = ""
+
+    # Optional organisation id for OpenAI accounts
+    # orgId = ""
+
+    # Model to use for mapping suggestions
+    model = "gpt-5-mini"
+
+    # URL of OpenAI-compatible endpoint, leave empty for official OpenAI API
+    # coreUrl = "https://openrouter.ai/api/v1"
+
+    # Controls how many reasoning tokens the model generates before producing a response.
+    # One of "low", "medium, "high". Set to null for default.
+    reasoningEffort = "low"
+
+    # Extra parameters to be passed to the API
+    # extraParameters = {
+    #   provider = {
+    #     require_parameters: true
+    #   }
+    # }
+
+    # Log prompts and responses
+    logQueries = false
+  }
+
+  BenchmarkConfig = {
+    # If set, only this project / transform task / mapping will be benchmarked
+    # project = "myProject"
+    # transform = "myTransform"
+    mapping = "root"
+
+    # Number of runs for each benchmark
+    numberOfRuns = 10
+
+    # If true, an HTML report will be generated in addition to the Markdown report
+    generateHtml = true
+
+    # Directory where benchmark results are stored
+    outputDirectory = "benchmark_results"
+  }
 }
 ```

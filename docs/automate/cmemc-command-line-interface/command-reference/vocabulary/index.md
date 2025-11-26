@@ -74,6 +74,7 @@ Vocabularies are identified by their graph IRI. Installable vocabularies can be 
     ```text
 
     -a, --all   Install all vocabularies from the catalog.
+    --replace   Replace (overwrite) existing vocabulary, if present.
     ```
 
 ## vocabulary uninstall

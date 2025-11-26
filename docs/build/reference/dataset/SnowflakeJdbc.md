@@ -113,10 +113,10 @@ Password for encrypted private keys. Can be left empty if using an unencrypted k
 
 #### Additional parameters
 
-Additional JDBC connection parameters. A map of the form 'Key1:Value1,Key2:Value2, where keys and values are URL encoded.
+Additional JDBC connection parameters.
 
 - ID: `connection.additionalParameters`
-- Datatype: `stringmap`
+- Datatype: `keyValuePairs`
 - Default Value: `None`
 
 

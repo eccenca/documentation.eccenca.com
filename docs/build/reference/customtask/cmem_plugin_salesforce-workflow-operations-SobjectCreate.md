@@ -1,6 +1,6 @@
 ---
 title: "Create/Update Salesforce Objects"
-description: "Manipulate data in your organization’s Salesforce account."
+description: "Manipulate data in your organization's Salesforce account."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
@@ -18,7 +18,7 @@ tags:
 
 This task retrieves data from an incoming workflow task (such as a SPARQL query),
 and sends bulk API requests to the Salesforce Object API, in order to
-manipulate data in your organization’s Salesforce account.
+manipulate data in your organization's Salesforce account.
 
 The working model is:
 - Each entity from the input data is interpreted as a single Salesforce object of the

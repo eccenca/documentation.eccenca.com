@@ -25,9 +25,11 @@ JSON Schema specification.
 The used JSON Schema needs to be provided as a JSON Dataset in the project.
 
 ### Input Modes
+
 The plugin supports two input modes for validation:
+
 1. **Validate Entities**: Validates entities received from the input port in the workflow.
-2. **Validate JSON Dataset**: Validates a JSON dataset stored in the project. 
+2. **Validate JSON Dataset**: Validates a JSON dataset stored in the project.
    - If the JSON dataset is a JSON array, the schema will validate each object inside the array.
    - If the JSON dataset is a JSON object, it will be validated against the schema directly.
 
@@ -35,16 +37,21 @@ Validated data objects can be sent to an output port for further processing in t
 or saved in a JSON dataset in the project.
 
 ### Output Modes
-1. **Valid JSON objects sent to Output Port**: Valid JSON objects can be sent as entities to the output port.
-2. **Saved in JSON Dataset**: Valid JSON objects can be stored in a specified JSON dataset in the project.
+
+1. **Valid JSON objects sent to Output Port**: Valid JSON objects can be sent as entities
+   to the output port.
+2. **Saved in JSON Dataset**: Valid JSON objects can be stored in a specified JSON dataset
+   in the project.
 
 ### Error Handling
+
 The task can either:
+
 - Fail instantly if there is a data violation, halting the workflow.
-- Provide warnings in the workflow report, allowing follow-up tasks to run based on the validated data.
+- Provide warnings in the workflow report, allowing follow-up tasks to run based on the
+  validated data.
 
 The error handling behavior is configurable through the `Fail on violations` parameter.
-
 
 
 ## Parameter

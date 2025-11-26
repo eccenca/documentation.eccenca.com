@@ -2,6 +2,7 @@ nav:
     - Explore and Author: index.md
     - Workspace Selection and Configuration: workspace-configuration
     - Graph Exploration: graph-exploration
+    - Companion: companion
     - Business Knowledge Editor Module: bke-module
     - Query Module: query-module
     - Thesauri Management: thesauri-management

@@ -1,6 +1,7 @@
 nav:
     - Graph Exploration: index.md
     - Building a Customized User Interface: building-a-customized-user-interface
+    - Graph Insights: graph-insights
     - Statement Annotations: statement-annotations
     - Versioning of Graph Changes: versioning-of-graph-changes
 

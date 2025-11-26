@@ -1,5 +1,4 @@
 ---
-status: new
 icon: eccenca/artefact-linking
 tags:
     - LinkRules

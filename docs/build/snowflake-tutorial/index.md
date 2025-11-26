@@ -1,7 +1,6 @@
 ---
 icon: material/database-export
 subtitle: cloud datawarehouse via JDBC
-status: new
 tags:
   - AdvancedTutorial
   - KnowledgeGraph

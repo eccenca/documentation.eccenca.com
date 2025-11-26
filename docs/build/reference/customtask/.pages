@@ -22,6 +22,7 @@ nav:
     - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
     - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
     - "Get project files": getProjectFiles.md
+    - "Get workflow report": cmem_plugin_wfreports_get_report.md
     - "GraphQL query": cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
     - "Join tables": Merge.md
     - "jq": cmem-plugin-jq-workflow.md
@@ -47,6 +48,7 @@ nav:
     - "Send email": SendEMail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
+    - "Set parameters": setParameters.md
     - "SHACL validation with pySHACL": shacl-pyshacl.md
     - "SOQL query (Salesforce)": cmem_plugin_salesforce-SoqlQuery.md
     - "Spark SQL query": CustomSQLExecution.md
@@ -58,7 +60,7 @@ nav:
     - "Start Workflow per Entity": cmem_plugin_loopwf-task-StartWorkflow.md
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md
-    - "Update SemSpect": cmem_plugin_semspect-task-Update.md
+    - "Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md

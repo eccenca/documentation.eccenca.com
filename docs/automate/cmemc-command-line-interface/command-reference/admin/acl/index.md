@@ -93,18 +93,38 @@ $ cmemc admin acl create --group local-users --write-graph https://example.org/
 ??? info "Options"
     ```text
 
-    --user TEXT         A specific user account required by the access
-                        condition.
-    --group TEXT        A membership in a user group required by the access
-                        condition.
-    --read-graph TEXT   Grants read access to a graph.
-    --write-graph TEXT  Grants write access to a graph (includes read access).
-    --action TEXT       Grants usage permissions to an action / functionality.
-    --query TEXT        Dynamic access condition query (file or the query
-                        catalog IRI).
-    --id TEXT           An optional ID (will be an UUID otherwise).
-    --name TEXT         A optional name.
-    --description TEXT  An optional description.
+    --user TEXT                 A specific user account required by the access
+                                condition.
+    --group TEXT                A membership in a user group required by the
+                                access condition.
+    --read-graph TEXT           Grants read access to a graph.
+    --write-graph TEXT          Grants write access to a graph (includes read
+                                access).
+    --action TEXT               Grants usage permissions to an action /
+                                functionality.
+    --read-graph-pattern TEXT   Grants management of conditions granting read
+                                access on graphs matching the defined pattern. A
+                                pattern consists of a constant string and a
+                                wildcard ('*') at the end of the pattern or the
+                                wildcard alone.
+    --write-graph-pattern TEXT  Grants management of conditions granting write
+                                access on graphs matching the defined pattern. A
+                                pattern consists of a constant string and a
+                                wildcard ('*') at the end of the pattern or the
+                                wildcard alone.
+    --action-pattern TEXT       Grants management of conditions granting action
+                                allowance for actions matching the defined
+                                pattern. A pattern consists of a constant string
+                                and a wildcard ('*') at the end of the pattern
+                                or the wildcard alone.
+    --query TEXT                Dynamic access condition query (file or the
+                                query catalog IRI).
+    --id TEXT                   An optional ID (will be an UUID otherwise).
+    --name TEXT                 A optional name.
+    --description TEXT          An optional description.
+    --replace                   Replace (overwrite) existing access condition,
+                                if present. Can be used only in combination with
+                                '--id'.
     ```
 
 ## admin acl update
@@ -125,17 +145,34 @@ Given an access condition URL, you can change specific options to new values.
 ??? info "Options"
     ```text
 
-    --name TEXT         A optional name.
-    --description TEXT  An optional description.
-    --user TEXT         A specific user account required by the access
-                        condition.
-    --group TEXT        A membership in a user group required by the access
-                        condition.
-    --read-graph TEXT   Grants read access to a graph.
-    --write-graph TEXT  Grants write access to a graph (includes read access).
-    --action TEXT       Grants usage permissions to an action / functionality.
-    --query TEXT        Dynamic access condition query (file or the query
-                        catalog IRI).
+    --name TEXT                 A optional name.
+    --description TEXT          An optional description.
+    --user TEXT                 A specific user account required by the access
+                                condition.
+    --group TEXT                A membership in a user group required by the
+                                access condition.
+    --read-graph TEXT           Grants read access to a graph.
+    --write-graph TEXT          Grants write access to a graph (includes read
+                                access).
+    --action TEXT               Grants usage permissions to an action /
+                                functionality.
+    --read-graph-pattern TEXT   Grants management of conditions granting read
+                                access on graphs matching the defined pattern. A
+                                pattern consists of a constant string and a
+                                wildcard ('*') at the end of the pattern or the
+                                wildcard alone.
+    --write-graph-pattern TEXT  Grants management of conditions granting write
+                                access on graphs matching the defined pattern. A
+                                pattern consists of a constant string and a
+                                wildcard ('*') at the end of the pattern or the
+                                wildcard alone.
+    --action-pattern TEXT       Grants management of conditions granting action
+                                allowance for actions matching the defined
+                                pattern. A pattern consists of a constant string
+                                and a wildcard ('*') at the end of the pattern
+                                or the wildcard alone.
+    --query TEXT                Dynamic access condition query (file or the
+                                query catalog IRI).
     ```
 
 ## admin acl delete
