@@ -38,10 +38,18 @@ The following numbers are based on existing customer deployments running Knowled
 | ------------------------------: | :-------------- | :--------------- |
 |                 eccenca Explore | \>= 2 cores[^u] | \>= 4 GB RAM     |
 | eccenca Build (DataIntegration) | \>= 4 cores[^w] | \>= 8 GB RAM[^w] |
+|          eccenca Graph Insights | \>= 4 cores     | \>= 20 GB RAM    |
 |             Triple / Quad Store | \>= 8 cores[^u] | \>= 16 GB RAM[^t] |
 |   Keycloak incl. PostgreSQL[^c] | 2 cores         | \>= 2 GB RAM     |
 
 For GraphDB always also have a look at [GraphDB recommendations](https://graphdb.ontotext.com/documentation/11.0/requirements.html#hardware-sizing).
+
+!!! note
+
+    For Graph Insights, the calculation of the triples is not based on the amount of triples in the graph store
+    but on the sum of triples in all Graph Insights Snapshots. Have a look at the cmemc command group
+    [graph insights](../../automate/cmemc-command-line-interface/command-reference/graph/insights/index.md) to manage existing snapshots.
+
 
 ## Clients
 
