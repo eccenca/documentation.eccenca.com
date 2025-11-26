@@ -7,10 +7,10 @@ tags:
 
 Corporate Memory 25.3 is the third major release in 2025.
 
+![25.3: Build - Mapping Creator](25-3-build-mapping-creator.png "25.3: Build - Mapping Creator"){ class="bordered" }
+![25.3: Explore - Companion Chat-Based Data Interaction](25-3-explore-companion.png "25.3: Explore - Companion Chat-Based Data Interaction"){ class="bordered" }
 <!-- todo:
-![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" }
-![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" }
-![25.2: Explore - Multi-Graph Query Management](25-2-explore-multiple-query-catalogs.png "25.2: Explore - Multi-Graph Query Management"){ class="bordered" }
+![25.3: Explore - Graph Insights](25-3-explore-graph-insights.png "Explore - Graph Insights"){ class="bordered" }
 -->
 
 The highlights of this release are:
@@ -24,8 +24,10 @@ The highlights of this release are:
 -   Explore: **Graph Insights**
     -   …
 
+<!--
 -   Explore and Automate: **ADD YOURS**
     -   …
+-->
 
 This release delivers the following component versions:
 
@@ -36,7 +38,7 @@ This release delivers the following component versions:
 We tested this release with the following dependency components:
 
 -   Ontotext GraphDB v11.1.2
--   Keycloak v26.4.1
+-   Keycloak v26.4.5
 
 More detailed information for this release is provided in the next sections.
 
