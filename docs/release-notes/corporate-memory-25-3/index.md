@@ -73,12 +73,17 @@ We are excited to announce the release of DataIntegration v25.3.0, bringing the 
     -   Adapted the Google Drive Spreadsheet dataset tests to accommodate Google’s changed behavior.
     -   Projects imported into a knowledge graph backend now delete the target graph before import to avoid stale data.
 -   **Mapping Creator experience:**
+    -   New quick tour that introduces the important elements of the Mapping Creator.
     -   Mapping rules opened from the Mapping Creator no longer need to be saved immediately.
     -   Newly created mapping rules that are not yet persisted can now be edited directly in the Mapping Creator.
 -   **UI and documentation improvements:**
     -   Improved the formatting of operator examples for better readability.
     -   Updated the application to the new color palette.
     -   Made decoding underscores to spaces an explicit option in the **Strip URI prefix** transformer.
+    -   Improved mapping suggestions and shown justifications.
+    -   Support of GPT-5.
+    -   Many small improvements in the Mapping Creator.
+    -   The search lists now persist some user settings, such as the page size and sorting order.
 -   **Python subsystem and plugin lifecycle:**
     -   Loading a Python plugin that reuses an existing identifier now records an error in the discovery result.
     -   The `/listPlugins` and `/updatePlugins` endpoints now return HTTP 500 if at least one plugin fails to load (previously HTTP 200).
@@ -109,6 +114,7 @@ We are excited to announce the release of DataIntegration v25.3.0, bringing the 
     -   Mapping Creator undo/redo actions behave as expected.
     -   Suggest mappings now adds all selected rows, not just the ones currently visible after a text filter.
     -   Rule editor nodes are no longer copied when text is selected in Firefox.
+    -   URI pattern no longer changes from nothing ("automatic default pattern") to "{}/root" after opening the value formula editor.
 -   **Python plugins and orchestration:**
     -   Listing Python plugins no longer fails when the orchestration feature `enable-extension EXTENSION=plugins` is used.
 -   **Transformations, datasets, and templates:**
@@ -118,9 +124,14 @@ We are excited to announce the release of DataIntegration v25.3.0, bringing the 
     -   Use `FROM` instead of `GRAPH` in the vocabulary loader to respect graph imports.
 -   **Graph and project handling:**
     -   When importing into a knowledge graph backend, the graph is only deleted if it exists.
+    -   Downloading project/workspace with empty files stored in AWS S3 work now.
 -   **User interaction fixes:**
     -   Global and workflow-specific hotkeys no longer trigger when another modal is open.
     -   Display the template toggle consistently in the artefact creation dialog.
+    -   Global and page specific keyboard shortcuts should be ignored when a dialog is open.
+    -   "Description" displays content  no longer differently than entered.
+    -   Graph URI Drop Down does close now.
+    -   Close icon button to remove target entity type in transform operator now works if opened in modal.
 
 ## eccenca Explore v25.3.0
 
