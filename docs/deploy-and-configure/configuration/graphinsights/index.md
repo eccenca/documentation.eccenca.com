@@ -9,7 +9,8 @@ tags:
 
 ## Resource consideration
 
-Please refer to [Graph Insights Sizing](../../../deploy-and-configure/requirements/graph-insights-sizing.md) for more information.
+Please refer to [Graph Insights Sizing](../../../deploy-and-configure/requirements/graph-insights-sizing.md) for more
+information.
 
 
 ## Enable Graph Insights
@@ -56,7 +57,8 @@ The configuration mentioned below is rendered with those files, but you usually 
 
 For more details please have a look in the helm value file.
 Every configuration is documented there.
-Please refer to [Kubernetes deployments](../../../deploy-and-configure/installation/scenario-k8s-deployment/index.md) for more information.
+Please refer to [Kubernetes deployments](../../../deploy-and-configure/installation/scenario-k8s-deployment/index.md)
+for more information.
 
 
 ### Activate and verify the installation
@@ -229,7 +231,7 @@ logging:
 ```
 
 
-## OAuth configuration
+### OAuth configuration
 
 Graph Insights requires authentication similar to Explore and Build (DataIntegration).
 There is the need for a client to authenticate in a browser and a second client to allow inter-component communication.
@@ -239,9 +241,97 @@ For convenience, by default we use the same clients as for the rest of the appli
 -   Client for browser: cmem
 -   Client for component communication: cmem-service-account
 
-In case you want to have separate clients for production deployments, have a look at the end of this file.
+In case you want to have separate clients for production deployments, this chapter is for you.
+
+#### Using separate OAuth clients for Graph Insights
+
+In our **docker-orchestration** to enrol those other clients, please follow these steps:
+
+1.) take a look at `environments/default.env` and copy these variables to your `environments/config.env` file:
+
+``` Makefile
+# This is the browser client:
+GRAPHINSIGHTS_OAUTH_CLIENT_ID=graph-insights
+# was this before:
+# GRAPHINSIGHTS_OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID}
+
+# This is the inter component client:
+GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID=graph-insights-service-account
+# change the credital depending on your client secret, default would be: 7Ctw7eZvTeFYdwwvwopy8OjuMUVPb8A9
+GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=changeme
+```
+
+2.) Replace this in `docker-compose.yml`:
+
+``` yaml
+      - "EXPLORE_CMEM_SERVICE_CLIENT=${CMEM_SERVICE_ACCOUNT_CLIENT_ID}"
+      - "EXPLORE_CMEM_SERVICE_CLIENT_SECRET=${CMEM_SERVICE_ACCOUNT_CLIENT_SECRET}"
+      # with:
+      - "EXPLORE_CMEM_SERVICE_CLIENT=${GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID}"
+      - "EXPLORE_CMEM_SERVICE_CLIENT_SECRET=${GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET}"
+```
+
+3.) And also replace this in `extensions/docker-compose.graphinsights.yml`
+
+``` yaml
+      - "GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID=${CMEM_SERVICE_ACCOUNT_CLIENT_ID}"
+      - "GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=${CMEM_SERVICE_ACCOUNT_CLIENT_SECRET}"
+      # with:
+      - "GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID=${GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID}"
+      - "GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=${GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET}"
+```
 
 
-## Using separate OAuth clients for Graph Insights
 
-TBD
+In **helm deployments**, once you have the clients available all you have to do is change these lines in your value.yaml
+accordingly:
+
+``` yaml
+global:
+  # GraphInsights service account OAuth credentials (if using GraphInsights).
+  # Can use the same credentials as CMEM or separate ones.
+  graphinsightsClientId: graph-insights-service-account
+  graphinsightsClientSecret: changeme  # IMPORTANT: Change this to a secure value!
+
+  # OAuth client ID for GraphInsights frontend authentication.
+  # Default: "graph-insights" (must exist in your Keycloak realm if GraphInsights is enabled).
+  oauthClientIdGraphInsights: graph-insights
+```
+
+#### Creating separate OAuth clients for Graph Insights
+
+If you start Corporate Memory for the first time, the separate clients are already created when starting the
+Postgresql container.
+However, regenerating a new client secret is advisable:
+- Select the `eccenca Corporate Memory`-realm
+- Select `Clients`
+- Select the client `graph-insights-service-account`.
+- Select the tab `Credentials`
+- Press `Regenerate`
+- Then copy the new secret and fill in the values from above.
+![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
+
+Also have a look below and check if your
+[Backchannel logout URL](/deploy-and-configure/configuration/graphinsights/#set-backchannel-logout-url-for-graph-insights) is set.
+
+In an already running deployment you would have to create those clients on your own.
+
+We assume the we name the clients as following:
+- Browser client: `graph-insights`
+- Inter-component client: `graph-insights-service-account`
+
+#### Set Backchannel logout URL for Graph Insights
+
+You would follow the same steps as in
+[Keycloak Client configuration](../../../deploy-and-configure/configuration/keycloak/index.md) but name them
+differently, e.g. as above.
+In addition, on last step is missing: To have the logout working properly you have to add a client Backchannel logout
+URL for the client ment for browser authentication (`graph-insights`):
+- Select the `eccenca Corporate Memory`-realm
+- Select `Clients`
+- Select the client `graph-insights`.
+- Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
+
+![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png)
+
+Thats all, you are all set.
