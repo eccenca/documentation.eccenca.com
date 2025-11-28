@@ -3,6 +3,7 @@ nav:
     - Docker Orchestration: docker-orchestration
     - Build: dataintegration
     - Explore: explore
+    - Graph Insights: graphinsights
     - Keycloak: keycloak
     - Quad-Store: quad-store-configuration
     - Reverse Proxy: reverse-proxy

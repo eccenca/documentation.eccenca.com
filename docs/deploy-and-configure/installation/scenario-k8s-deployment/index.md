@@ -24,7 +24,7 @@ provisioned cluster.
 
 ## Architecture
 
- ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.svg)
+ ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.png)
 
 ## General Notice
 
@@ -359,6 +359,11 @@ explore:
       sslEnabled: false
 
 ```
+
+#### (Optional) Graph Insights
+
+Setting up Graph Insights in Kubernetes deployment done with helm is described in our
+[documentation for Graph Insights](../../../deploy-and-configure/configuration/graphinsights/index.md#b-enable-in-helm-deployment).
 
 ### 3. Install the Corporate Memory chart
 

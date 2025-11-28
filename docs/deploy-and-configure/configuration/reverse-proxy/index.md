@@ -29,27 +29,29 @@ apache configuration template
     ServerAlias www.corporate-memory.example.com
     ProxyPreserveHost On
 
-    ProxyPass /auth https://keycloak.host/auth retry=0
-    ProxyPassReverse /auth https://keycloak.host/auth
-
-    ProxyPass /dataplatform https://dataplatform.host/dataplatform retry=0
-    ProxyPassReverse /dataplatform https://dataplatform.host/dataplatform
+    ProxyPass /auth http://keycloak:8080/auth retry=0
+    ProxyPassReverse /auth http://keycloak:8080/auth
 
     RewriteEngine  on
     RewriteRule    "^/dataintegration$"  "/dataintegration/" [R]
 
     RewriteCond %{HTTP:Upgrade} =websocket [NC]
-    RewriteRule "/dataintegration/(.*)" wss://dataintegration.host/dataintegration/$1 [P,L]
+    RewriteRule "^/dataintegration/(.*)" ws://dataintegration/dataintegration/$1 [P,L]
     RewriteCond %{HTTP:Upgrade} !=websocket [NC]
-    RewriteRule "/dataintegration/(.*)" https://dataintegration.host/dataintegration/$1 [P,L]
+    RewriteRule "^/dataintegration/(.*)" http://dataintegration:80/dataintegration/$1 [P,L]
 
-    ProxyPassReverse /dataintegration https://dataintegration.host/dataintegration
+    ProxyPassReverse /dataintegration http://dataintegration:80/dataintegration
 
-    ProxyPass / https://datamanager.host/ retry=0
-    ProxyPassReverse / https://datamanager.host/
+    ProxyPass /.well-known/acme-challenge !
+    ProxyPass / http://explore:80/ retry=0
+    ProxyPassReverse / http://explore:80
 
     # https://github.com/gitlabhq/gitlabhq/issues/8924
     AllowEncodedSlashes NoDecode
+
+    # Allow for compression
+    # https://httpd.apache.org/docs/2.4/mod/mod_deflate.html
+    SetOutputFilter DEFLATE
 
     # Network timeout in seconds for proxied requests (default 300)
     # http://serverfault.com/questions/500467/apache2-proxy-timeout/583266
@@ -71,6 +73,8 @@ Information about the runtime environment which is used to run Explore and Build
     Keep in mind that you have to adjust the location paths/URLs in the Explore and Build (DataIntegration) configuration files.
 
 ## Linked Data delivery mode
+
+TODO: What is this section? Still relevant? Also rename to explore?
 
 The Linked Data delivery mode is able to serve data that uses the same namespace as the configured domain name as resolvable URIs including content negotiation.
 

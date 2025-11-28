@@ -11,13 +11,17 @@ hide:
 
 This page describes the overall system architecture of eccenca Corporate Memory and its components.
 
-![cmem-System-Architecture](Corporate-Memory-System-Architecture_v2.jpg)
+![cmem-System-Architecture](Corporate-Memory-System-Architecture_25.3.drawio.png)
 
 eccenca Corporate Memory consists of three core components:
 
-- [eccenca Build](../configuration/dataintegration/index.md)
-- [eccenca Explore](../configuration/explore/index.md), and
-- [cmemc (Corporate Memory Control)](../../automate/cmemc-command-line-interface/index.md)
+-   [eccenca Build](../configuration/dataintegration/index.md)
+-   [eccenca Explore](../configuration/explore/index.md),
+-   [cmemc (Corporate Memory Control)](../../automate/cmemc-command-line-interface/index.md),
+
+and one optional component:
+
+-   [eccenca Graph Insights](../../explore-and-author/graph-exploration/graph-insights/index.md).
 
 _Build_ is the Corporate Memory component which enables integration of datasets into a single consistent knowledge graph.
 Datasets in their original format are mapped to RDF schemata and then linked to and persisted into a knowledge graph.
@@ -33,6 +37,8 @@ _Explore_ also acts as the semantic middleware application which provides a unif
 Additionally, _Explore_ manages authorization of the users according to the access control lists defined in the Triple Store.
 The knowledge graph is stored in a quad store connected to _Explore_.
 This can either be a physical store like [GraphDB](http://graphdb.ontotext.com/), [Virtuoso](https://virtuoso.openlinksw.com/) or a remotely accessible SPARQL 1.1 compliant HTTP endpoint.
+
+_Graph Insights_ …
 
 Keycloak provides authentication.
 Keycloak can act as an authentication broker for already existing, external OpenId Connect or SAML infrastructures.
