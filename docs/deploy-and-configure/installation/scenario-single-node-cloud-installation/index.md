@@ -27,7 +27,7 @@ sudo timedatectl set-timezone Europe/Berlin
 
 # install needed packages
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 \
-    software-properties-common gnupg lsb-release gettext zip unzip git \ 
+    software-properties-common gnupg lsb-release gettext zip unzip git \
     make vim jq
 
 # install docker and docker-compose
@@ -140,6 +140,20 @@ cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \
 systemctl enable cmem-orchestration
 systemctl start cmem-orchestration
 ```
+
+### (Optional) Enable Graph Insights Extension
+
+If you want to have Graph Insights enabled as well, first you need a license.
+Then you can simiply run this:
+
+
+``` shell
+mkdir licenses
+ln -s your-license-file.lic graphinsights.lic
+make enable-extension EXTENSION=graphinsights
+```
+
+Please also visit our extended [documentation for Graph Insights ](../../deploy-and-configure/configuration/graphinsights/#a-enable-in-docker-compose-deployment)
 
 ## Validation and Finalisation
 

@@ -15,6 +15,8 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
 -   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
+-   A GraphDB license (free or commercial)
+-   (optional) A Graph Insighs license
 -   make - build tools (apt-get install make) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
@@ -226,6 +228,20 @@ CMEM-Orchestration successfully started with store graphdb.
 Please open http://docker.localhost:80 for validation.
 Run make logs to see log output
 ```
+
+### (Optional) Enable Graph Insights Extension
+
+If you want to have Graph Insights enabled as well, first you need a license.
+Then you can simiply run this:
+
+
+``` shell
+mkdir licenses
+ln -s your-license-file.lic graphinsights.lic
+make enable-extension EXTENSION=graphinsights
+```
+
+Please also visit our extended [documentation for Graph Insights ](../../deploy-and-configure/configuration/graphinsights/#a-enable-in-docker-compose-deployment)
 
 ## Initial Login / Test
 
