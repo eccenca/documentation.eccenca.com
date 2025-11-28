@@ -56,7 +56,7 @@ You should enable this in your `value.yaml` file.
 ```
 
 Also make sure you have set the clients and client credentials.
-See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration/graphinsights/#configure-oauth-clients-helm)
+See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration/graphinsights/index.md#configure-oauth-clients-helm)
 
 The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
 
@@ -328,7 +328,7 @@ However, regenerating a new client secret is advisable:
 ![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
 
 Also have a look below and check if your
-[Backchannel logout URL](../../../deploy-and-configure/configuration/graphinsights/#set-backchannel-logout-url-for-graph-insights) is set.
+[Backchannel logout URL](../../../deploy-and-configure/configuration/graphinsights/index.md#set-backchannel-logout-url-for-graph-insights) is set.
 
 In an already running deployment you would have to create those clients on your own.
 

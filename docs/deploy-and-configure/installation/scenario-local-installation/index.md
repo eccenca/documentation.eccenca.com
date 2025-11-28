@@ -241,7 +241,7 @@ ln -s your-license-file.lic graphinsights.lic
 make enable-extension EXTENSION=graphinsights
 ```
 
-Please also visit our extended [documentation for Graph Insights ](../../deploy-and-configure/configuration/graphinsights/#a-enable-in-docker-compose-deployment)
+Please also visit our extended [documentation for Graph Insights](../../../deploy-and-configure/configuration/graphinsights/index.md#a-enable-in-docker-compose-deployment)
 
 ## Initial Login / Test
 
