@@ -298,8 +298,9 @@ global:
 
 #### Creating separate OAuth clients for Graph Insights
 
-If you start Corporate Memory for the first time, the separate clients are already created when starting the
-Postgresql container.
+If you start Corporate Memory with the docker-orchestration (or use our keycloak helm chart) for the first time, the
+separate clients are already created when starting the Postgresql container.
+
 However, regenerating a new client secret is advisable:
 
  -   Select the `eccenca Corporate Memory`-realm
