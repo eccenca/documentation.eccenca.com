@@ -6,13 +6,6 @@ tags:
 ---
 # Graph Insights
 
-
-## Resource consideration
-
-Please refer to [Graph Insights Sizing](../../../deploy-and-configure/requirements/graph-insights-sizing.md) for more
-information.
-
-
 ## Enable Graph Insights
 
 ### (a) Enable in docker-compose deployment
@@ -61,7 +54,7 @@ Please refer to [Kubernetes deployments](../../../deploy-and-configure/installat
 for more information.
 
 
-### Activate and verify the installation
+## Activate and verify the installation
 
 Fist you have enable the Graph Insight in your Explore workspace. By default ist is disabled.
 
@@ -230,6 +223,11 @@ logging:
 
 ```
 
+### Resource consideration
+
+Please refer to [Graph Insights Sizing](../../../deploy-and-configure/requirements/graph-insights-sizing.md) for more
+information.
+
 
 ### OAuth configuration
 
@@ -303,12 +301,14 @@ global:
 If you start Corporate Memory for the first time, the separate clients are already created when starting the
 Postgresql container.
 However, regenerating a new client secret is advisable:
-- Select the `eccenca Corporate Memory`-realm
-- Select `Clients`
-- Select the client `graph-insights-service-account`.
-- Select the tab `Credentials`
-- Press `Regenerate`
-- Then copy the new secret and fill in the values from above.
+
+ -   Select the `eccenca Corporate Memory`-realm
+ -   Select `Clients`
+ -   Select the client `graph-insights-service-account`.
+ -   Select the tab `Credentials`
+ -   Press `Regenerate`
+ -   Then copy the new secret and fill in the values from above.
+
 ![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
 
 Also have a look below and check if your
@@ -327,11 +327,12 @@ You would follow the same steps as in
 differently, e.g. as above.
 In addition, on last step is missing: To have the logout working properly you have to add a client Backchannel logout
 URL for the client ment for browser authentication (`graph-insights`):
-- Select the `eccenca Corporate Memory`-realm
-- Select `Clients`
-- Select the client `graph-insights`.
-- Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
+
+ -   Select the `eccenca Corporate Memory`-realm
+ -   Select `Clients`
+ -   Select the client `graph-insights`.
+ -   Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
+
 
 ![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png)
 
-Thats all, you are all set.
