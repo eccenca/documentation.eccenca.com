@@ -19,7 +19,7 @@ deployment.
 
 ``` console
 mkdir licenses
-ln -s your-license-file.lic graphinsights.
+ln -s your-license-file.lic graphinsights.lic
 make enable-extension EXTENSION=graphinsights
 ```
 
@@ -313,7 +313,7 @@ However, regenerating a new client secret is advisable:
 ![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
 
 Also have a look below and check if your
-[Backchannel logout URL](/deploy-and-configure/configuration/graphinsights/#set-backchannel-logout-url-for-graph-insights) is set.
+[Backchannel logout URL](../../../deploy-and-configure/configuration/graphinsights/#set-backchannel-logout-url-for-graph-insights) is set.
 
 In an already running deployment you would have to create those clients on your own.
 
