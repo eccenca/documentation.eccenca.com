@@ -360,6 +360,11 @@ explore:
 
 ```
 
+#### (Optional) Graph Insights
+
+Setting up Graph Insights in Kubernetes deployment done with helm is described in our
+[documentation](../../deploy-and-configure/configuration/graphinsights/#b-enable-in-helm-deployment).
+
 ### 3. Install the Corporate Memory chart
 
 To pull the Corporate Memory images, you need to provide credentials for the eccenca

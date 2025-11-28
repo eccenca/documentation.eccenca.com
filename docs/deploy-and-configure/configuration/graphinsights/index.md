@@ -35,6 +35,7 @@ Preemptive you have to create a secret containing your license file.
 - "kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
 ```
 
+All needed configuration can be done in the Corporate Memory helm chart `value.yaml` file.
 This enables the plugin.
 
 ``` yaml
@@ -42,7 +43,21 @@ graphinsights:
   enabled: true
 ```
 
-All needed configuration can be done in the Corporate Memory helm chart `value.yaml` file.
+Beside enabling the extension you also have to create a route/path in your Ingress or Route.
+In the Charts `value.yaml` file is a configuration commented out.
+You should enable this in your `value.yaml` file.
+
+``` yaml
+    # GraphInsights at /graphinsights path (if enabled).
+    - path: /graphinsights
+      pathType: Prefix
+      serviceName: graphinsights
+      servicePort: 8080
+```
+
+Also make sure you have set the clients and client credentials.
+See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration/graphinsights/#configure-oauth-clients-helm)
+
 The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
 
 - `configuration-files/explore-application.yml` for Explore
@@ -241,7 +256,7 @@ For convenience, by default we use the same clients as for the rest of the appli
 
 In case you want to have separate clients for production deployments, this chapter is for you.
 
-#### Using separate OAuth clients for Graph Insights
+#### Configure OAuth clients (docker-compose)
 
 In our **docker-orchestration** to enrol those other clients, please follow these steps:
 
@@ -279,7 +294,7 @@ GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=changeme
       - "GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=${GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET}"
 ```
 
-
+#### Configure OAuth clients (helm)
 
 In **helm deployments**, once you have the clients available all you have to do is change these lines in your value.yaml
 accordingly:
