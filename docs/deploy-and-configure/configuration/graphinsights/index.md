@@ -8,6 +8,8 @@ tags:
 
 ## Enable Graph Insights
 
+Follow the instructions related to your deployment type: a) docker-compose or b) helm / Kubernetes based.
+
 ### (a) Enable in docker-compose deployment
 
 In our Corporate Memory docker-orchestration all main configurations can be directed by setting environment
@@ -32,7 +34,7 @@ It creates a new StatefulSet.
 Preemptive you have to create a secret containing your license file.
 
 ``` console
-- "kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
+kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
 ```
 
 All needed configuration can be done in the Corporate Memory helm chart `value.yaml` file.
@@ -60,14 +62,13 @@ See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration
 
 The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
 
-- `configuration-files/explore-application.yml` for Explore
-- `configuration-files/cmem.integration.config.yml` for Graph Insights
+-   `configuration-files/explore-application.yml` for Explore
+-   `configuration-files/cmem.integration.config.yml` for Graph Insights
 
 For more details please have a look in the helm value file.
 Every configuration is documented there.
 Please refer to [Kubernetes deployments](../../../deploy-and-configure/installation/scenario-k8s-deployment/index.md)
 for more information.
-
 
 ## Activate and verify the installation
 
@@ -80,8 +81,6 @@ Then you are able to create a snapshot, send it to Graph Insights and select the
 ![Explore add snapshot](explore-add-snapshot.png)
 
 ![Explore select_graphinsights](explore-select-graphinsights-tab.png)
-
-
 
 ## Configuration
 
@@ -142,7 +141,6 @@ In our **docker-orchestration** you find the file at `conf/graphinsights/cmem.in
 Environment variables as usual can be found in `environments/default.env` and `environments/config.env`.
 Sizing can be changed in the loaded memory profile, e.g. at `environments/config.mem.16g.env`.
 The deployment definition of the extension is defined `extensions/docker-compose.graphinsights.yml`.
-
 
 In **helm deployments** you find the file at `configuration-files/cmem.integration.config.yml`, which is rendered as
 ConfigMap and then mounted into the Graph Insight StatefulSet.
@@ -243,7 +241,6 @@ logging:
 Please refer to [Graph Insights Sizing](../../../deploy-and-configure/requirements/graph-insights-sizing.md) for more
 information.
 
-
 ### OAuth configuration
 
 Graph Insights requires authentication similar to Explore and Build (DataIntegration).
@@ -318,12 +315,12 @@ separate clients are already created when starting the Postgresql container.
 
 However, regenerating a new client secret is advisable:
 
- -   Select the `eccenca Corporate Memory`-realm
- -   Select `Clients`
- -   Select the client `graph-insights-service-account`.
- -   Select the tab `Credentials`
- -   Press `Regenerate`
- -   Then copy the new secret and fill in the values from above.
+-   Select the `eccenca Corporate Memory`-realm
+-   Select `Clients`
+-   Select the client `graph-insights-service-account`.
+-   Select the tab `Credentials`
+-   Press `Regenerate`
+-   Then copy the new secret and fill in the values from above.
 
 ![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
 
@@ -333,8 +330,9 @@ Also have a look below and check if your
 In an already running deployment you would have to create those clients on your own.
 
 We assume the we name the clients as following:
-- Browser client: `graph-insights`
-- Inter-component client: `graph-insights-service-account`
+
+-   Browser client: `graph-insights`
+-   Inter-component client: `graph-insights-service-account`
 
 #### Set Backchannel logout URL for Graph Insights
 
@@ -344,11 +342,9 @@ differently, e.g. as above.
 In addition, on last step is missing: To have the logout working properly you have to add a client Backchannel logout
 URL for the client ment for browser authentication (`graph-insights`):
 
- -   Select the `eccenca Corporate Memory`-realm
- -   Select `Clients`
- -   Select the client `graph-insights`.
- -   Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
-
+-   Select the `eccenca Corporate Memory`-realm
+-   Select `Clients`
+-   Select the client `graph-insights`.
+-   Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
 
 ![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png)
-
