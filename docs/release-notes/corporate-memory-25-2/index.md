@@ -95,7 +95,12 @@ We are excited to announce the release of DataIntegration v25.2.2, which introdu
 
 ## eccenca Explore v25.2.6
 
-We are pleased to announce Explore v25.2.4, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+We are pleased to announce Explore v25.2.6, which brings significant enhancements to SHACL shape management, improved graph handling, and a modernized knowledge graph exploration experience.
+
+**v25.2.6 of Explore ships the following fix:**
+
+-   Removal of sub dependency redis
+-   Update Spring Boot to 3.5.7
 
 **v25.2.6 of Explore ships the following fix:**
 
