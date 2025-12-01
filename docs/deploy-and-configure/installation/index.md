@@ -42,7 +42,7 @@ to [Scenario: Local Installation](../installation/scenario-local-installation/in
 
 ## Helm based Kubernetes deployment
 
-Most production deployments are in Kubernetes cluster.
+Most production deployments are Kubernetes based.
 We have deployments in AWS (EKS), Azure (AKS), Red Hat Openshift and self-hosted clusters.
 We provide Charts for Corporate Memory and Keycloak at our [Helm Repository](https://helm.eccenca.com).
 For more details on how to use `helm` based deployments refer
