@@ -37,7 +37,7 @@ To create a realm, use the drop down menu for choosing a realm on the left side.
 ## Client configuration
 
 Clients are used to link users and groups managed in Keycloak to Corporate Memory.
-There are two different type of clients used by Corporate Memory:
+There are two different types of clients used by Corporate Memory:
 
 -   The first client is used to authenticate a user for using the web interface (usually named `cmem`).
 -   The second client is used as a technical user with the command line interface (typically named `cmem-service-account`).
