@@ -9,8 +9,8 @@ tags:
 
 ## Configuration Info
 
-A specific configuration is require to activate this feature.
-Furthermore, for best experience an LLM provider configuration is also needed.
+A specific configuration is required to activate this feature.
+Furthermore, for the best experience, an LLM provider configuration is also needed.
 See the link in the info box for details.
 
 !!! info "Configuration"
@@ -19,7 +19,7 @@ See the link in the info box for details.
 
 ## Usage
 
-The Mapping Creator is  a feature of BUILD transformation tasks (_BUILD_> _Project_> (_Workflow_>) _Transformation_> _Mapping Creator_).
+The Mapping Creator is a feature of BUILD transformation tasks (_BUILD_ > _Project_ > (_Workflow_ >) _Transformation_ > _Mapping Creator_).
 
 !!! question "Help"
 
@@ -28,7 +28,7 @@ The Mapping Creator is  a feature of BUILD transformation tasks (_BUILD_> _Proje
     Access help and a feature tour via the help menu :eccenca-item-question:.
 
 Use the Mapping Creator to connect your data to semantic models.
-Using visual tools, drag-and-drop, and suggestions, you are able to create mappings between your source data and knowledge graph classes as well as their properties.
+Using visual tools, drag-and-drop, and suggestions, you can create mappings between your source data and knowledge graph classes as well as their properties.
 
 ![Mapping Creator](mapping-creator.png){ class="bordered" }
 
@@ -55,13 +55,13 @@ Each color and visual element used in the Mapping Creator has a specific meaning
 ### Manual creation
 
 To start a mapping you need to select or define a target class first.
-The target class defines where your data will be be mapped in the knowledge graph.
+The target class defines where your data will be mapped in the knowledge graph.
 
 #### Add properties
 
 ![Resource edit actions](mapping-creator-edit-actions.png){ class="bordered" width="40%" }
 
-To complete a mapping properties need to be added to complete your desired target schema (i.e. the graph fragment that your transformation shall yield).
+To complete a mapping, properties need to be added to complete your desired target schema (i.e. the graph fragment that your transformation shall yield).
 
 There are two options to add properties:
 
@@ -75,7 +75,7 @@ There are two options to add properties:
 In the _add target class_ dialog you may select different kind of properties:
 
 -   class properties - properties defined in the domain of the selected class or its super-classes
--   default properties - typical well knows like `rdfs:label` or `rdfs:comment`
+-   default properties - typical well-known properties like `rdfs:label` or `rdfs:comment`
 -   generic properties - properties defined with no explicit domain (or in domain of `owl:Thing`)
 
 The property preview helps to confirm your choice.
@@ -84,7 +84,7 @@ The property preview helps to confirm your choice.
 
 ![Adding a property from your vocabulary](mapping-creator-property-selection.png){ class="bordered" width="80%" }
 
-The _add property from vocabularies_ dialog allows to search and select a property and to configure it in the desired way:
+The _add property from vocabularies_ dialog allows you to search and select a property and to configure it in the desired way:
 
 -   redefine the role of a property, to use a DatatypeProperty in the role of an ObjectProperty, or vice versa
 -   define the _direction_ an ObjectProperty should be used in
@@ -126,7 +126,7 @@ You can accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) eac
 
 ![Smart Property Suggestions](smart-suggestions.png){ class="bordered" }
 
-Once the smart suggestions have been generated, you need do two steps:
+Once the smart suggestions have been generated, you need to perform two steps:
 
 1. For each property, decide whether to accept or reject the AI-generated mapping.
     Click :octicons-thumbsup-16: Confirm to accept or :octicons-thumbsdown-16: Decline to reject.

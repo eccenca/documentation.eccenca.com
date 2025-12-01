@@ -11,8 +11,8 @@ The Companion view enables you to interact with your data, graphs, vocabularies,
 
 ## Configuration Info
 
-A specific configuration is require to activate this feature.
-Our deployment templates (helm charts and docker-compose configurations) provide testes configuration profiles for different LLM providers.
+A specific configuration is required to activate this feature.
+Our deployment templates (helm charts and docker-compose configurations) provide tested configuration profiles for different LLM providers.
 See the link in the info box for details.
 
 !!! info "Configuration"
@@ -20,11 +20,13 @@ See the link in the info box for details.
     See [`spring.ai.*` configuration properties in _Configuration of Servlet Container_](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-servlet-container) to learn how to enable and configure this feature.
     Explore uses _Spring AI_ to connect and configure LLM provider, as such the [Spring AI Chat Model API Configuration Reference](https://docs.spring.io/spring-ai/reference/api/chatmodel.html) applies.
 
+For optimal results, we recommend using Anthropic or OpenAI frontier-level models configured through the native Spring AI provider setup.
+
 ## Usage
 
 ![Companion Menu Button](companion-button.png){ class="bordered" width="40%" }
 
-You can open the _Chat with Companion_ from any explore module via the :eccenca-application-ai-suggestion: Companion button the top right of the application header, next to the :eccenca-application-useraccount: user menu.
+You can open the _Chat with Companion_ from any explore module via the :eccenca-application-ai-suggestion: Companion button in the top right of the application header, next to the :eccenca-application-useraccount: user menu.
 
 ![Companion Chat](companion-anatomy.jpg){ class="bordered" width="60%" }
 
@@ -33,13 +35,13 @@ In the companion sidebar, use:
 -   :eccenca-toggler-maximize: to increase the size of the sidebar
 -   :eccenca-toggler-minimize: to decrease the size of the sidebar
 -   :eccenca-item-add-artefact: to start a new conversation
--   the dropdown menu to select or search for a conversation
+-   :octicons-triangle-down-24: the dropdown menu to select or search for a conversation
 -   :eccenca-item-upload: to add documents as context to the chat (supported formats include `pdf`, `txt` and `md`)
 -   :eccenca-item-wrench: to configure the tools that the LLM can use to answer.
--   :eccenca-item-wrench: to use your microphone to dictate your questions
+-   :eccenca-item-microphone: to use your microphone to dictate your questions
 -   :material-send-variant-outline: to submit your question
 
-To maximise the relevance and accuracy of the generated answer, your question is automatically enriched based on the context of the current view (e.g. the query text, the graph and the resource IRI).
+To maximize the relevance and accuracy of the generated answer, your question is automatically enriched based on the context of the current view (e.g. the query text, the graph and the resource IRI).
 
 ### Tool selection
 
@@ -59,7 +61,7 @@ If your use case or question requires you to limit the available tools (e.g. if 
 
     `query_execute_saved`
     :   Executes a saved SPARQL query on this corporate memory instance.
-    The query is identified by it's IRI.
+    The query is identified by its IRI.
 
 -   Query related:
 
@@ -86,17 +88,17 @@ If your use case or question requires you to limit the available tools (e.g. if 
 
     `vocabularies_property_list`
     :   All Properties defined in this knowledge graph by installed vocabularies.
-    While all properties are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
+    While all properties are returned, they can easily be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded.
 
     `vocabularies_class_list`
     :   All Classes defined in this knowledge graph by installed vocabularies.
-    While all classes are returned, they can easy be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded from.
+    While all classes are returned, they can easily be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded.
 
 -   Resource related
 
     `resource_search`
     :   Performs a lucene syntax full text search of labels and descriptions for 'searchTerm' and retrieve list of best matches.
-    The context graph will restrict the search to it includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`.
+    The context graph will restrict the search to its includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`.
     Search will always be on the `?resource`, so adjust the pattern, if needed.
 
     `resource_get`
