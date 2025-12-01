@@ -14,9 +14,9 @@ Follow the instructions related to your deployment type: a) docker-compose or b)
 
 In our Corporate Memory docker-orchestration all main configurations can be directed by setting environment
 variables in `environments/config.env`.
-You can find the environments are set as usual in `environments/default.env` and `environments/config.env`.
+You can find the environment variables set as usual in `environments/default.env` and `environments/config.env`.
 
-Add your license to ```licenses/graphinsights.lic``` then start the extension on a already running Corporate Memory
+Add your license to `licenses/graphinsights.lic` then start the extension on an already running Corporate Memory
 deployment.
 
 ``` console
@@ -29,9 +29,9 @@ Please also have a look at `extensions/README.graphinsights.md`.
 
 ### (b) Enable in helm deployment
 
-In helm based deployment you can enable Graph Insights by enable it in your value file.
+In helm based deployment you can enable Graph Insights by enabling it in your value file.
 It creates a new StatefulSet.
-Preemptive you have to create a secret containing your license file.
+Preemptively, you have to create a secret containing your license file.
 
 ``` console
 kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
@@ -45,8 +45,8 @@ graphinsights:
   enabled: true
 ```
 
-Beside enabling the extension you also have to create a route/path in your Ingress or Route.
-In the Charts `value.yaml` file is a configuration commented out.
+Besides enabling the extension you also have to create a route/path in your Ingress or Route.
+In the Chart's `value.yaml` file, a configuration is commented out.
 You should enable this in your `value.yaml` file.
 
 ``` yaml
@@ -72,7 +72,7 @@ for more information.
 
 ## Activate and verify the installation
 
-Fist you have enable the Graph Insight in your Explore workspace. By default ist is disabled.
+First, you have to enable the Graph Insight in your Explore workspace. By default, it is disabled.
 
 ![Explore workspace configuration](explore-workspace-enable-graphinsights.png)
 
@@ -84,16 +84,14 @@ Then you are able to create a snapshot, send it to Graph Insights and select the
 
 ## Configuration
 
-This section explains the basic configuration of Graph Insights. Since Graph Insights is an application integrated
-into explore, we need to have to configure Explore for the integration and Graph Insights as application itself.
+This section explains the basic configuration of Graph Insights.
+Since Graph Insights is an application integrated into explore, we need to configure Explore for the integration and Graph Insights as application itself.
 
 The following chapters explain the configuration in case you want to change the default behavior.
 
-While the extension in the docker-orchestration it is enabled through Spring profiles, we just use the benefits of
-templating in helm and only use one profile.
+While the extension in the docker-orchestration is enabled through Spring profiles, we just use the benefits of templating in helm and only use one profile.
 
-This is why the configuration differs in both deployments, but we tried to use the same variable names and configuration
-snippets.
+This is why the configuration differs in both deployments, but we tried to use the same variable names and configuration snippets.
 
 ### Explore configuration
 
@@ -101,11 +99,9 @@ In our **docker-orchestration** you find the file which is loaded as `graphinsig
 at `conf/explore/application-graphinsights.yml`.
 Environment variables as usual can be found in `environments/default.env` and `environments/config.env`.
 Sizing can be changed in the loaded memory profile, e.g. at `environments/config.mem.16g.env`.
-The deployment definition for explore with the extension is defined `extensions/docker-compose.graphinsights.yml`
-in the explore service.
+The deployment definition for explore with the extension is defined in `extensions/docker-compose.graphinsights.yml` in the explore service.
 
-In **helm deployments** you find the needed section inside the `.Values.graphinsights.enabled` in file
-at `configuration-files/explore-application.yml`, where most of the configuration is inserted with GO-templates.
+In **helm deployments** you find the needed section inside the `.Values.graphinsights.enabled` block in the file at `configuration-files/explore-application.yml`, where most of the configuration is inserted with GO-templates.
 Some environment variables are set in the `value.yaml` and rendered in a ConfigMap `templates/explore-configmap.yaml`.
 
 ``` yaml
@@ -134,16 +130,14 @@ semspect:
 
 ### Graph Insights configuration
 
-Graph Insights, like Explore, is a Spring Boot application, so it gets configured with environment variables and a YAML
-file.
+Graph Insights, like Explore, is a Spring Boot application, so it gets configured with environment variables and a YAML file.
 
 In our **docker-orchestration** you find the file at `conf/graphinsights/cmem.integration.config.yml`.
 Environment variables as usual can be found in `environments/default.env` and `environments/config.env`.
 Sizing can be changed in the loaded memory profile, e.g. at `environments/config.mem.16g.env`.
-The deployment definition of the extension is defined `extensions/docker-compose.graphinsights.yml`.
+The deployment definition of the extension is defined in `extensions/docker-compose.graphinsights.yml`.
 
-In **helm deployments** you find the file at `configuration-files/cmem.integration.config.yml`, which is rendered as
-ConfigMap and then mounted into the Graph Insight StatefulSet.
+In **helm deployments** you find the file at `configuration-files/cmem.integration.config.yml`, which is rendered as a ConfigMap and then mounted into the Graph Insights StatefulSet.
 Environment variables are set in the `value.yaml` and rendered in a ConfigMap `templates/graphinsights-configmap.yaml`.
 Sizing regarding memory, CPU or disk usage are configured in the `value.yaml`.
 
@@ -194,7 +188,7 @@ spring.security.oauth2:
   resourceserver:
     jwt:
       jwk-set-uri: "${OAUTH_JWK_SET_URL}"
-  # semspect backend for frontent as oauth2client
+  # semspect backend for frontend as oauth2client
   # To enable SLO add this as back-channel logout uri to the client semspect uses:
   # http://docker.localhost/graphinsights/logout/connect/back-channel/keycloak
   client:
@@ -267,7 +261,7 @@ GRAPHINSIGHTS_OAUTH_CLIENT_ID=graph-insights
 
 # This is the inter component client:
 GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_ID=graph-insights-service-account
-# change the credital depending on your client secret, default would be: 7Ctw7eZvTeFYdwwvwopy8OjuMUVPb8A9
+# change the credential depending on your client secret, default would be: 7Ctw7eZvTeFYdwwvwopy8OjuMUVPb8A9
 GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=changeme
 ```
 
@@ -329,18 +323,15 @@ Also have a look below and check if your
 
 In an already running deployment you would have to create those clients on your own.
 
-We assume the we name the clients as following:
+We assume that we name the clients as following:
 
 -   Browser client: `graph-insights`
 -   Inter-component client: `graph-insights-service-account`
 
 #### Set Backchannel logout URL for Graph Insights
 
-You would follow the same steps as in
-[Keycloak Client configuration](../../../deploy-and-configure/configuration/keycloak/index.md) but name them
-differently, e.g. as above.
-In addition, on last step is missing: To have the logout working properly you have to add a client Backchannel logout
-URL for the client ment for browser authentication (`graph-insights`):
+You would follow the same steps as in [Keycloak Client configuration](../../../deploy-and-configure/configuration/keycloak/index.md) but name them differently, e.g. as above.
+In addition, one last step is missing: To have the logout working properly you have to add a client Backchannel logout URL for the client meant for browser authentication (`graph-insights`):
 
 -   Select the `eccenca Corporate Memory`-realm
 -   Select `Clients`
