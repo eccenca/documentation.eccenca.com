@@ -16,7 +16,7 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
 -   A GraphDB license (free or commercial)
--   (optional) A Graph Insighs license
+-   (optional) A Graph Insights license
 -   make - build tools (apt-get install make) installed locally
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
