@@ -35,7 +35,7 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.3.0
+-   eccenca DataIntegration v25.3.1
 -   eccenca Explore v25.3.0
 -   eccenca Corporate Memory Control (cmemc) v25.5.0
 
@@ -46,9 +46,13 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.3.0
+## eccenca DataIntegration v25.3.1
 
 We are excited to announce the release of DataIntegration v25.3.0, bringing the new LLM powered Mapping Creator experience, explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
+
+**v25.3.1 of DataIntegration ships the following fixes:**
+
+-   Display HTML entities correct in task parameter dialog.
 
 **v25.3.0 of DataIntegration adds the following new features:**
 
