@@ -15,108 +15,189 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
 -   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
--   A GraphDB license (free or commercial)
+-   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
 -   (optional) A Graph Insights license
--   make - build tools (apt-get install make) installed locally
+-   make - build tools (apt-get install make) installed locally (don't use version 4.4.1)
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
-
-## WSL installation and configuration
-
-For all you need to start Powershell started as administrator.
-Alternatively you can also install a WSL distribution from Microsoft Store.
-
-Install WSL, then restart your Windows machine.
-
-```shell
-wsl --install
-```
-
-List available distributions
-
-```shell
-wsl --list --online
-```
-
-Install a distribution.
-Chose from the `Name` column.
-Here we use a Debian based distribution like Debian or any Ubuntu.
-However other Distributions might work as well.
-
-```shell
-wsl --install Debian
-```
-
-Ensure you use WSL version 2 (this is necessary to use `systemd` services).
-
-```shell
-wsl -l -v
-```
-
-Install version 2 components (this requires a windows restart)
-
-```shell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-Enter WSL machine
-
-```shell
-wsl -d Debian
-```
-
-Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
-
-To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with WSL v2):
-
-```shell
-[boot]
-systemd=true
-```
-
-(Optional) If you need to restart your WSL use in Powershell:
-
-```shell
-wsl --shutdown
-```
-
-(Optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
-
-```shell
-[wsl2]
-memory=16GB # restrict ram WSL can use
-processors=4 # restrict cpu-cores
-swap=8GB # set swap size
-swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
-```
-
-Alternatively, (with WSL v2) you may use the graphical configuration application _WSL Settings_.
 
 ## Setup & Check Installation Environment
 
-For docker we recommend to use the linux docker within WSL.
-Follow the instruction in [Server Provisioning in Scenario: Single Node Cloud Installation](../scenario-single-node-cloud-installation/index.md#server-provisioning).
-Alternatively, you may use docker for desktop and enable WSL integration in the settings.
+Install the requirements
 
-Open a terminal window, create a directory, copy and extract docker orchestration there.
+=== "Linux"
+    
+    Install all the needed packages: 
 
-```shell
-# Create eccenca-corporate-memory directory in your ${HOME} and set as a
-# working dir.
-sudo apt install -y curl jq make git unzip gpg
+    ```shell
+    sudo apt-get install -y curl gnupg2 \
+        gnupg lsb-release gettext zip unzip git \ 
+        make=4.3-4.1 vim jq
+    ```
+    To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
 
-mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
+    ```shell
+    ##
+    # Host Database
+    #
+    # localhost is used to configure the loopback interface
+    # when the system is booting.  Do not change this entry.
+    ##
+    127.0.0.1 localhost
+    127.0.0.1 docker.localhost
+    ```
 
-# download the Corporate Memory orchestration distribution
-curl https://releases.eccenca.com/docker-orchestration/latest.zip \
-    > cmem-orchestration.zip
+=== "macOS"
 
-# unzip the orchestration and move the unzipped directory
-unzip cmem-orchestration.zip
-rm cmem-orchestration.zip
-mv cmem-orchestration-v* cmem-orchestration
-cd cmem-orchestration
-git init && git add . && git commit -m "stub"
-```
+    Install homebrew:
+
+    ```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+
+    Install all needed packages:
+
+    ```shell
+    brew install curl gnupg2 \
+        gnupg lsb-release gettext zip unzip git \ 
+        vim jq
+    ```
+    To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
+
+    ```shell
+    ##
+    # Host Database
+    #
+    # localhost is used to configure the loopback interface
+    # when the system is booting.  Do not change this entry.
+    ##
+    127.0.0.1 localhost
+    127.0.0.1 docker.localhost
+    ```
+
+=== "WSL"
+
+    For all you need to start Powershell started as administrator.
+    Alternatively you can also install a WSL distribution from Microsoft Store.
+
+    Install WSL, then restart your Windows machine.
+
+    ```shell
+    wsl --install
+    ```
+
+    List available distributions
+
+    ```shell
+    wsl --list --online
+    ```
+
+    Install a distribution.
+    Chose from the `Name` column.
+    Here we use a Debian based distribution like Debian or any Ubuntu.
+    However other Distributions might work as well.
+
+    ```shell
+    wsl --install Debian
+    ```
+
+    Ensure you use WSL version 2 (this is necessary to use `systemd` services).
+
+    ```shell
+    wsl -l -v
+    ```
+
+    Install version 2 components (this requires a windows restart)
+
+    ```shell
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    ```
+
+    Enter WSL machine
+
+    ```shell
+    wsl -d Debian
+    ```
+
+    Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
+
+    To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with WSL v2):
+
+    ```shell
+    [boot]
+    systemd=true
+    ```
+
+    (Optional) If you need to restart your WSL use in Powershell:
+
+    ```shell
+    wsl --shutdown
+    ```
+
+    To install Corporate Memory, you need to modify your local hosts file (located in C:\Windows\System32\drivers\etc\hosts), minimal configuration is as follows:
+    !!! Warning
+        This requires administration rights.
+
+    ```shell
+    ##
+    # Host Database
+    #
+    # localhost is used to configure the loopback interface
+    # when the system is booting.  Do not change this entry.
+    ##
+    127.0.0.1 localhost
+    127.0.0.1 docker.localhost
+    ```
+
+    (Optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
+
+    ```shell
+    [wsl2]
+    memory=16GB # restrict ram WSL can use
+    processors=4 # restrict cpu-cores
+    swap=8GB # set swap size
+    swapFile=C:/Users/<your username>/wsl/Debianswap.vhdx  # location to swap-file
+    ```
+
+    Alternatively, (with WSL v2) you may use the graphical configuration application _WSL Settings_.
+
+    For docker we recommend to use the linux docker within WSL.
+    Alternatively, you may use docker for desktop and enable WSL integration in the settings.
+
+---
+
+
+
+=== "install via .zip file"
+    Open a terminal window, create a directory, copy and extract docker orchestration there.
+
+    ```shell
+    # Create eccenca-corporate-memory directory in your ${HOME} and set as a
+    # working dir.
+
+    mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
+
+    # download the Corporate Memory orchestration distribution
+    curl https://releases.eccenca.com/docker-orchestration/latest.zip \
+         > cmem-orchestration.zip
+
+    # unzip the orchestration and move the unzipped directory
+    unzip cmem-orchestration.zip
+    rm cmem-orchestration.zip
+    mv cmem-orchestration-v* cmem-orchestration
+    cd cmem-orchestration
+    git init && git add . && git commit -m "stub"
+    ```
+
+=== "install via gitlab.eccenca.com"
+
+    If you have access to gitlab.eccenca.com we recommend to clone our repository
+    and follow the README.
+
+    ```shell
+    git clone ssh://git@gitlab.eccenca.com:8101/elds/cmem-orchestration.git
+    ```
+
+---
 
 Check your local environment:
 
@@ -144,22 +225,9 @@ docker login docker-registry.eccenca.com
 
 ## Installation
 
-To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
-
-```shell
-##
-# Host Database
-#
-# localhost is used to configure the loopback interface
-# when the system is booting.  Do not change this entry.
-##
-127.0.0.1 localhost
-127.0.0.1 docker.localhost
-```
-
 Corporate Memory uses Ontotext GraphDB triple store as default backend.
 Graphdb is available as free version and does not requires a license.
-If you have a license for Ontotext GraphDB you can copy the file to the `license` folder inside Corporate Memory's root folder.
+You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
 
 ```shell
 cp YOUR_SE_LICENSE_FILE \
@@ -185,49 +253,6 @@ Run the command to clean workspace, pull the images, start the Corporate Memory 
 make clean-pull-start-bootstrap
 ```
 
-You should see the output as follows:
-
-```shell
-make[1]: Entering directory '/home/ttelleis/cmem-dist/cmem-orchestration'
-The target cleans up everything and esp. REMOVES ALL YOUR DATA. Do you want to continue?
-
-You can avoid this question / interruption by setting CO_I_KNOW_WHAT_I_DO to true.
-Type '1' for Yes or type '2' for No.
-
-1) Yes
-2) No
-#? 1
-make check-env kill stop down rm-log-dir
-make[2]: Entering directory '/home/ttelleis/cmem-dist/cmem-orchestration'
-/usr/bin/docker compose  kill
-no container to kill/usr/bin/docker compose  stop
-/usr/bin/docker compose  down --volumes --remove-orphans || exit 0
-/usr/bin/docker compose  up -d
-[+] Running 12/12
- ✔ Network dockerlocalhost_default              Created                   0.1s
- ✔ Volume "dockerlocalhost_store_volume"        Created                   0.0s
- ✔ Volume "dockerlocalhost_import_volume"       Created                   0.0s
- ✔ Volume "dockerlocalhost_postgres_volume"     Created                   0.0s
- ✔ Container dockerlocalhost-store-1            Started                   1.0s
- ✔ Container dockerlocalhost-apache2-1          Started                   1.3s
- ✔ Container dockerlocalhost-cmemc-1            Started                   1.2s
- ✔ Container dockerlocalhost-datamanager-1      Started                   1.3s
- ✔ Container dockerlocalhost-postgres-1         Healthy                   6.6s
- ✔ Container dockerlocalhost-keycloak-1         Healthy                  47.8s
- ✔ Container dockerlocalhost-dataplatform-1     Started                  48.3s
- ✔ Container dockerlocalhost-dataintegration-1  Started                  48.3s
-/home/ttelleis/cmem-dist/cmem-orchestration//scripts/waitForSuccessfulStart.dist.sh
-Waiting for healthy orchestration.................. done
-Remove existing bootstrap data from triple store and import shipped data from DP
-chmod a+r conf/cmemc/cmemc.ini
-docker compose run -i --rm --env "OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" --volume /home/ttelleis/cmem-dist/cmem-orchestration/data:/data --volume /home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini cmemc -c cmem admin store bootstrap --import
-Update or import bootstrap data ... done
-make[1]: Leaving directory '/home/ttelleis/cmem-dist/cmem-orchestration'
-
-CMEM-Orchestration successfully started with store graphdb.
-Please open http://docker.localhost:80 for validation.
-Run make logs to see log output
-```
 
 ### (Optional) Enable Graph Insights Extension
 

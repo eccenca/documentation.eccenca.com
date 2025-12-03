@@ -17,7 +17,7 @@ provisioned cluster.
 ## Requirements
 
 -   Access credentials for the eccenca infrastructre (e.g. Docker Registry) → [contact us to get yours](https://eccenca.com/en/contact)
--   A license for [GraphDB](https://www.ontotext.com/products/graphdb/)
+-   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
 -   [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 -   [Helm](https://helm.sh/docs/intro/install/)
 -   If deploying on K3D, download a [static binary](https://github.com/k3d-io/k3d/releases)
