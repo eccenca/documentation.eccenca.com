@@ -20,7 +20,7 @@ The following table should be read as a lookup table: Assuming the JVM is alloca
 Furthermore, this table also lists the initial memory allocation for loading an existing index into Graph Insights for exploration.
 Since Graph Insights uses caching for performance reasons the latter will increase over time up to the given allocation limit.
 
-| JVM Memory (GB) | Num. Datasets | Max. Num. Triples | Max. Num. Classes | Max. Num. Instances | Indexing (MB) | Exploration after restart (MB) |
+| JVM Memory (GB) | Num. Datasets | Dataset Statistics: Max. Num. Triples | Dataset Statistics: Max. Num. Classes | Dataset Statistics: Max. Num. Instances | Max Mem Consumption: Indexing (MB) | Max Mem Consumption: Exploration after restart (MB) |
 | --------------: | ------------: | ----------------: | ----------------: | ------------------: | ------------: | ----------------------------: |
 | 1               | 16            | 5,344,375         | 809               | 776,845             | 787           | 185                           |
 | 5               | 19            | 19,903,402        | 809               | 1,583,073           | 2,839         | 238                           |
