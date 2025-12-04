@@ -17,7 +17,7 @@ The code examples in this section assumes that you have POSIX-compliant shell (l
 -   [jq](https://jqlang.github.io/jq/download/) installed locally
 -   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
 -   (optional) A Graph Insights license
--   make - build tools (apt-get install make) installed locally (don't use version 4.4.1)
+-   make - build tools (apt-get install make) installed locally (don't use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650))
 -   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
 ## Setup & Check Installation Environment
@@ -229,7 +229,10 @@ Corporate Memory uses Ontotext GraphDB triple store as default backend.
 Graphdb is available as free version and does not requires a license.
 You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
 
-```shell
+``` shell
+# create the License folder within ${HOME}/cmem-orchestration
+mkdir -p licenses
+#copy YOUR-LICENSE-FILE
 cp YOUR_SE_LICENSE_FILE \
   ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
 # or

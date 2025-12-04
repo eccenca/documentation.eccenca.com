@@ -8,6 +8,20 @@ This page describes proven deployment scenarios for eccenca Corporate Memory.
 All Corporate Memory components are distributed as Docker images and can be obtained from eccenca's container repository service.
 To run them you need a Docker enabled Linux server.
 
+Corporate Memory uses Ontotext GraphDB triple store as default backend.
+Graphdb is available as free version and does not requires a license.
+You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
+
+``` shell
+# create the License folder within ${HOME}/cmem-orchestration
+mkdir -p licenses
+#copy YOUR-LICENSE-FILE
+cp YOUR_SE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
+# or
+cp YOUR_EE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+```
 
 ## Operating Systems (OS)
 
