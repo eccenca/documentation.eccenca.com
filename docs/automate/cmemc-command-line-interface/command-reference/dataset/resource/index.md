@@ -1,7 +1,7 @@
 ---
 title: "cmemc: Command Group - dataset resource"
 description: "List, inspect or delete dataset file resources."
-icon: eccenca/artefact-file
+icon: octicons/cross-reference-24
 tags:
   - cmemc
 ---
@@ -11,6 +11,10 @@ tags:
 List, inspect or delete dataset file resources.
 
 File resources are identified by their paths and project IDs.
+
+!!! warning
+    This command group is deprecated and will be removed with the next major release. Please use the `project file` command group instead.
+
 
 
 ## dataset resource list
@@ -24,7 +28,7 @@ $ cmemc dataset resource list [OPTIONS]
 
 
 
-Outputs a table or a list of dataset resources (files).
+Outputs a table or a list of file resources.
 
 
 
@@ -32,9 +36,8 @@ Outputs a table or a list of dataset resources (files).
     ```text
 
     --raw                    Outputs raw JSON.
-    --id-only                Lists only resource names and no other metadata.
-                             This is useful for piping the IDs into other
-                             commands.
+    --id-only                Lists only resource IDs and no other metadata. This
+                             is useful for piping the IDs into other commands.
     --filter <TEXT TEXT>...  Filter file resources based on metadata. First
                              parameter CHOICE can be one of ['project',
                              'regex']. The second parameter is based on CHOICE,
@@ -52,7 +55,7 @@ $ cmemc dataset resource delete [OPTIONS] [RESOURCE_IDS]...
 
 
 
-There are three selection mechanisms: with specific IDs, only those specified resources will be deleted; by using `--filter`, resources based on the filter type and value will be deleted; using `--all` will delete all resources.
+There are three selection mechanisms: with specific IDs - only those specified resources will be deleted; by using `--filter` - resources based on the filter type and value will be deleted; by using `--all`, which will delete all resources.
 
 
 
