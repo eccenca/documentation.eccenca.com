@@ -37,7 +37,7 @@ This release delivers the following component versions:
 
 -   eccenca DataIntegration v25.3.1
 -   eccenca Explore v25.3.0
--   eccenca Corporate Memory Control (cmemc) v25.5.0
+-   eccenca Corporate Memory Control (cmemc) v25.6.0
 
 We tested this release with the following dependency components:
 
@@ -186,9 +186,30 @@ We are pleased to announce Explore v25.3.0, which delivers the new **Companion**
 
 -   Removed the deprecated LLM assistance feature.
 
-## eccenca Corporate Memory Control (cmemc) v25.5.0
+## eccenca Corporate Memory Control (cmemc) v25.6.0
 
-We are excited to announce cmemc v25.5.0, which introduces new features, improvements and bug fixes.
+We are excited to announce cmemc v25.6.0, which introduces new features, improvements and bug fixes.
+
+**v25.6.0 of cmemc adds the following new features:**
+
+-   `project file` command group
+    -   `list` command - List available file resources
+    -   `delete` command - Delete file resources
+    -   `inspect` command - Display all metadata of a file resource
+    -   `usage` command - Display all usage data of a file resource
+    -   `upload` command - Upload a file to a project file resource
+    -   `download` command - Download file resources to the local file system
+
+**v25.6.0 of cmemc ships the following fixes:**
+
+-   `query execute` command
+    -   placeholder query result without description do not crash the app anymore
+
+**v25.6.0 of cmemc deprecates following functionality:**
+
+-   `dataset resource` command group
+    -   command group is now hidden
+    -   use the more generic `project file` command group instead
 
 **v25.5.0 of cmemc adds the following new features:**
 
