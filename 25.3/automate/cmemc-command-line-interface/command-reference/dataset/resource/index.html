@@ -22173,7 +22173,7 @@
               
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M25.7,9.3l-7-7C18.5,2.1,18.3,2,18,2H8C6.9,2,6,2.9,6,4v24c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V10C26,9.7,25.9,9.5,25.7,9.3	z M18,4.4l5.6,5.6H18V4.4z M24,28H8V4h8v6c0,1.1,0.9,2,2,2h6V28z"/><path d="M10 22H22V24H10zM10 16H22V18H10z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
   
   <span class="md-ellipsis">
     
@@ -22534,6 +22534,8 @@
       
         
       
+        
+      
     
     
     
@@ -22616,6 +22618,76 @@
         
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../project/file/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M25.7,9.3l-7-7C18.5,2.1,18.3,2,18,2H8C6.9,2,6,2.9,6,4v24c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V10C26,9.7,25.9,9.5,25.7,9.3	z M18,4.4l5.6,5.6H18V4.4z M24,28H8V4h8v6c0,1.1,0.9,2,2,2h6V28z"/><path d="M10 22H22V24H10zM10 16H22V18H10z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_2_7_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_7_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    File
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_7_6_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../project/variable/" class="md-nav__link ">
               
   
@@ -22637,8 +22709,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_2_7_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2_7_6_2">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_2_7_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_7_6_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -25664,28 +25736,31 @@
 
 <p>List, inspect or delete dataset file resources.</p>
 <p>File resources are identified by their paths and project IDs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This command group is deprecated and will be removed with the next major release. Please use the <code>project file</code> command group instead.</p>
+</div>
 <h2 id="dataset-resource-list">dataset resource list<a class="headerlink" href="#dataset-resource-list" title="Permanent link">¤</a></h2>
 <p>List available file resources.</p>
 <div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>cmemc<span class="w"> </span>dataset<span class="w"> </span>resource<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </code></pre></div>
-<p>Outputs a table or a list of dataset resources (files).</p>
+<p>Outputs a table or a list of file resources.</p>
 <details class="info">
 <summary>Options</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>--raw                    Outputs raw JSON.
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>--id-only                Lists only resource names and no other metadata.
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                         This is useful for piping the IDs into other
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                         commands.
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>--filter &lt;TEXT TEXT&gt;...  Filter file resources based on metadata. First
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                         parameter CHOICE can be one of [&#39;project&#39;,
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                         &#39;regex&#39;]. The second parameter is based on CHOICE,
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                         e.g. a project ID or a regular expression string.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>--id-only                Lists only resource IDs and no other metadata. This
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                         is useful for piping the IDs into other commands.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>--filter &lt;TEXT TEXT&gt;...  Filter file resources based on metadata. First
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                         parameter CHOICE can be one of [&#39;project&#39;,
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                         &#39;regex&#39;]. The second parameter is based on CHOICE,
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                         e.g. a project ID or a regular expression string.
 </code></pre></div>
 </details>
 <h2 id="dataset-resource-delete">dataset resource delete<a class="headerlink" href="#dataset-resource-delete" title="Permanent link">¤</a></h2>
 <p>Delete file resources.</p>
 <div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>cmemc<span class="w"> </span>dataset<span class="w"> </span>resource<span class="w"> </span>delete<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>RESOURCE_IDS<span class="o">]</span>...
 </code></pre></div>
-<p>There are three selection mechanisms: with specific IDs, only those specified resources will be deleted; by using <code>--filter</code>, resources based on the filter type and value will be deleted; using <code>--all</code> will delete all resources.</p>
+<p>There are three selection mechanisms: with specific IDs - only those specified resources will be deleted; by using <code>--filter</code> - resources based on the filter type and value will be deleted; by using <code>--all</code>, which will delete all resources.</p>
 <details class="info">
 <summary>Options</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>--force                  Delete resource even if in use by a task.
@@ -25737,7 +25812,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 5, 2023 07:51:00 UTC"><span class="timeago" datetime="2023-10-05T07:51:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 5, 2023 07:51:00 UTC">2023-10-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 7, 2025 17:18:19 UTC"><span class="timeago" datetime="2025-12-07T17:18:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 7, 2025 17:18:19 UTC">2025-12-07</span>
   </span>
 
     
