@@ -98,6 +98,12 @@ tags:
 | [project](project/index.md) | [delete](project/index.md#project-delete) | Delete projects. |
 | [project](project/index.md) | [create](project/index.md#project-create) | Create projects. |
 | [project](project/index.md) | [reload](project/index.md#project-reload) | Reload projects from the workspace provider. |
+| [project file](project/file/index.md) | [list](project/file/index.md#project-file-list) | List available file resources. |
+| [project file](project/file/index.md) | [delete](project/file/index.md#project-file-delete) | Delete file resources. |
+| [project file](project/file/index.md) | [download](project/file/index.md#project-file-download) | Download file resources to the local file system. |
+| [project file](project/file/index.md) | [upload](project/file/index.md#project-file-upload) | Upload a file to a project. |
+| [project file](project/file/index.md) | [inspect](project/file/index.md#project-file-inspect) | Display all metadata of a file resource. |
+| [project file](project/file/index.md) | [usage](project/file/index.md#project-file-usage) | Display all usage data of a file resource. |
 | [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project variables. |
 | [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project variable. |
 | [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete a project variable. |
