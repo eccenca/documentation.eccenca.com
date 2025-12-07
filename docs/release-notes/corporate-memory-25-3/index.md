@@ -11,7 +11,7 @@ Corporate Memory 25.3 is the third major release in 2025.
 
 ![25.3: Explore - Companion Chat-Based Data Interaction](25-3-explore-companion.png "25.3: Explore - Companion Chat-Based Data Interaction"){ class="bordered" }
 
-![25.3: Explore - Graph Insights](25-3-explore-graph-insights.png "Explore - Graph Insights"){ class="bordered" }
+![25.3: Explore - Graph Insights](25-3-explore-graph-insights.png "25.3: Explore - Graph Insights"){ class="bordered" }
 
 
 The highlights of this release are:
