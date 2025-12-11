@@ -167,7 +167,7 @@ Install the requirements
 
 
 
-=== "install via .zip file"
+=== "Installation via .zip file"
     Open a terminal window, create a directory, copy and extract docker orchestration there.
 
     ```shell
@@ -188,7 +188,7 @@ Install the requirements
     git init && git add . && git commit -m "stub"
     ```
 
-=== "install via gitlab.eccenca.com"
+=== "Installation via gitlab.eccenca.com"
 
     If you have access to gitlab.eccenca.com we recommend to clone our repository
     and follow the README.
