@@ -7,30 +7,30 @@ icon: material/laptop
 
 This page describes a `docker compose` based orchestration running on your local machine and accessible via browser.
 
-The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).
+The code examples in this section assume that you have a POSIX-compliant shell (Linux, macOS or WSL for Windows).
 
 ## Requirements
 
--   Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
--   [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
--   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
--   [jq](https://jqlang.github.io/jq/download/) installed locally
--   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
--   (optional) A Graph Insights license
--   make - build tools (apt-get install make) installed locally (don't use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650))
--   At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
+- Access credentials to eccenca Artifactory and eccenca Docker Registry → [contact us to get yours](https://eccenca.com/en/contact)
+- [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
+- [jq](https://jqlang.github.io/jq/download/) installed locally
+- A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
+- (optional) A Graph Insights license
+- make - build tool (apt-get install make) installed locally (don't use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650); e.g., 4.3 works well)
+- At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
 ## Setup & Check Installation Environment
 
 Install the requirements
 
 === "Linux"
-    
+
     Install all the needed packages: 
 
     ```shell
     sudo apt-get install -y curl gnupg2 \
-        gnupg lsb-release gettext zip unzip git \ 
+        gnupg lsb-release gettext zip unzip git \
         make=4.3-4.1 vim jq
     ```
     To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
@@ -58,7 +58,7 @@ Install the requirements
 
     ```shell
     brew install curl gnupg2 \
-        gnupg lsb-release gettext zip unzip git \ 
+        gnupg lsb-release gettext zip unzip git \
         vim jq
     ```
     To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
@@ -76,7 +76,7 @@ Install the requirements
 
 === "WSL"
 
-    For all you need to start Powershell started as administrator.
+    First of all, you need to start PowerShell as administrator.
     Alternatively you can also install a WSL distribution from Microsoft Store.
 
     Install WSL, then restart your Windows machine.
@@ -91,10 +91,10 @@ Install the requirements
     wsl --list --online
     ```
 
-    Install a distribution.
-    Chose from the `Name` column.
+    Install a distribution:
+    Choose from the `Name` column.
     Here we use a Debian based distribution like Debian or any Ubuntu.
-    However other Distributions might work as well.
+    However, other distributions might work as well.
 
     ```shell
     wsl --install Debian
@@ -120,7 +120,7 @@ Install the requirements
 
     Enable `generateHosts = false` in your `/etc/hosts` file to make sure that this file won't be overwritten from the host system on every restart.
 
-    To be able to use `systemd` services and commands make sure `/etc/wsl.conf` is available with this content (should be the default with WSL v2):
+    To be able to use `systemd` services and commands, make sure `/etc/wsl.conf` is available with this content (should be the default with WSL v2):
 
     ```shell
     [boot]
@@ -148,7 +148,7 @@ Install the requirements
     127.0.0.1 docker.localhost
     ```
 
-    (Optional) you can create a `.wslconfig` file under `C:\users\<your username>` to specify some system resources like:
+    (Optional) You can create a `.wslconfig` file under `C:\Users\<your username>` to specify some system resources like:
 
     ```shell
     [wsl2]
@@ -160,12 +160,10 @@ Install the requirements
 
     Alternatively, (with WSL v2) you may use the graphical configuration application _WSL Settings_.
 
-    For docker we recommend to use the linux docker within WSL.
-    Alternatively, you may use docker for desktop and enable WSL integration in the settings.
+    For Docker, we recommend using the Linux Docker within WSL.
+    Alternatively, you may use Docker for Desktop and enable WSL integration in the settings.
 
 ---
-
-
 
 === "Installation via .zip file"
     Open a terminal window, create a directory, copy and extract docker orchestration there.
@@ -176,11 +174,11 @@ Install the requirements
 
     mkdir ${HOME}/eccenca-corporate-memory && cd ${HOME}/eccenca-corporate-memory
 
-    # download the Corporate Memory orchestration distribution
+    # Download the Corporate Memory orchestration distribution
     curl https://releases.eccenca.com/docker-orchestration/latest.zip \
          > cmem-orchestration.zip
 
-    # unzip the orchestration and move the unzipped directory
+    # Unzip the orchestration and move the unzipped directory
     unzip cmem-orchestration.zip
     rm cmem-orchestration.zip
     mv cmem-orchestration-v* cmem-orchestration
@@ -190,8 +188,7 @@ Install the requirements
 
 === "Installation via gitlab.eccenca.com"
 
-    If you have access to gitlab.eccenca.com we recommend to clone our repository
-    and follow the README.
+    If you have access to gitlab.eccenca.com we recommend cloning our repository and follow the README.
 
     ```shell
     git clone ssh://git@gitlab.eccenca.com:8101/elds/cmem-orchestration.git
@@ -225,14 +222,13 @@ docker login docker-registry.eccenca.com
 
 ## Installation
 
-Corporate Memory uses Ontotext GraphDB triple store as default backend.
-Graphdb is available as free version and does not requires a license.
+Corporate Memory uses Ontotext GraphDB triple store as the default backend.
 You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
 
-``` shell
-# create the License folder within ${HOME}/cmem-orchestration
+```shell
+# Create the licenses folder within ${HOME}/cmem-orchestration
 mkdir -p licenses
-#copy YOUR-LICENSE-FILE
+# Copy YOUR-LICENSE-FILE
 cp YOUR_SE_LICENSE_FILE \
   ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
 # or
@@ -256,15 +252,13 @@ Run the command to clean workspace, pull the images, start the Corporate Memory 
 make clean-pull-start-bootstrap
 ```
 
-
 ### (Optional) Enable Graph Insights Extension
 
 If you want to have Graph Insights enabled as well, first you need a license.
-Then you can simiply run this:
+Then you can simply run:
 
-
-``` shell
-mkdir licenses
+```shell
+mkdir -p licenses
 ln -s your-license-file.lic graphinsights.lic
 make enable-extension EXTENSION=graphinsights
 ```
@@ -279,14 +273,14 @@ Open your browser and navigate to <http://docker.localhost>
 | ------- | -------- | ----------- |
 | `admin` | `admin`  | Is member of the global admin group (can see and do anything) |
 
-After successful login, you will see Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
+After successful login, you will see the Corporate Memory interface. You can now proceed to the :arrow_right:[Getting Started](../../../getting-started/index.md) section.
 
 ### Backup
 
-To create a backup you have to prepare the backup folders. Make sure these folders exists and have write permissions. Run this:
+To create a backup you have to prepare the backup folders. Make sure these folders exist and have write permissions:
 
 ```shell
-# assuming you are currently in the the cmem-orchestration folder
+# assuming you are currently in the cmem-orchestration folder
 mkdir -p data/backups/graphs data/backups/workspace
 chmod 777 data/backups/graphs data/backups/workspace
 
@@ -320,8 +314,8 @@ The full backup is now at `data/backups/latest.zip`.
 
 ### Caveats
 
-In case you have problems starting and receive error messages like Port 80 already assigned.
-Then check if a apache2 service is running and remove it.
+In case you have problems starting and receive error messages like "Port 80 already assigned",
+check if an httpd service (like apache2) is running and stop it.
 
 ```shell
 sudo service apache2 status
