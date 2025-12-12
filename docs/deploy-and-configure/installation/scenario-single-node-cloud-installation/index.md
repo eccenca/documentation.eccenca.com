@@ -13,6 +13,10 @@ This page describes a docker-compose based orchestration running on a server ins
 -   A resolvable domain name to this server
 -   Terminal with ssh client installed locally
 -   An eccenca partner account for the docker registry as well as the release artifact area
+-   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
+
+!!! Info
+    make - do not use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650)
 
 ## Server Provisioning
 
@@ -28,7 +32,7 @@ sudo timedatectl set-timezone Europe/Berlin
 # install needed packages
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 \
     software-properties-common gnupg lsb-release gettext zip unzip git \
-    make vim jq
+    make=4.4.0 vim jq
 
 # install docker and docker-compose
 curl -fsSL https://download.docker.com/linux/debian/gpg \
@@ -47,6 +51,21 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io \
 ```
 
 ## Installation
+
+Corporate Memory uses Ontotext GraphDB triple store as default backend.
+Graphdb is available as free version and does not requires a license.
+You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
+
+``` shell
+# create the License folder within /opt/cmem-orchestration
+mkdir -p /opt/cmem-orchestration/licenses
+#copy YOUR-LICENSE-FILE
+cp YOUR_SE_LICENSE_FILE \
+  /opt/cmem-orchestration/licenses/graphdb-se.license
+# or
+cp YOUR_EE_LICENSE_FILE \
+  /opt/cmem-orchestration/licenses/graphdb-ee.license
+```
 
 !!! info
 

@@ -8,14 +8,27 @@ This page describes proven deployment scenarios for eccenca Corporate Memory.
 All Corporate Memory components are distributed as Docker images and can be obtained from eccenca's container repository service.
 To run them you need a Docker enabled Linux server.
 
+Corporate Memory uses Ontotext GraphDB triple store as default backend.
+You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
+
+```shell
+# create the License folder within ${HOME}/cmem-orchestration
+mkdir -p licenses
+#copy YOUR-LICENSE-FILE
+cp YOUR_SE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-se.license
+# or
+cp YOUR_EE_LICENSE_FILE \
+  ${HOME}/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+```
 
 ## Operating Systems (OS)
 
-Corporate Memory is tested on Ubuntu 24.04 (backward compatible with LTS versions older than that) as Debian 11, 12 and 13.
+Corporate Memory is tested on Ubuntu 24.04 (backward compatible with older LTS versions) as well as Debian 11, 12, and 13.
 
-Special note on RHEL SELinux Support: there is no limitation for RedHat SELinux. We recommend to keep the SELinux in *enforced* mode. You can keep the default setting of the `/etc/selinux/config` file.
+Special note on RHEL SELinux Support: There is no limitation for RedHat SELinux. We recommend keeping the SELinux in *enforced* mode. You can keep the default setting of the `/etc/selinux/config` file.
 
-???+ example "sample config"
+???+ example "Sample Config"
 
     ```bash title="/etc/selinux/config" linenums="1"
     # This file controls the state of SELinux on the system.
@@ -31,19 +44,19 @@ Special note on RHEL SELinux Support: there is no limitation for RedHat SELinux.
     SELINUXTYPE=targeted
     ```
 
-## Docker compose based Orchestration deployment
-
-[Docker Compose](https://docs.docker.com/compose/) is a convenient way to provision several Docker containers locally for development
-setups or on remote servers for single node setups.
-
-eccenca is heavily using `docker compose` for all kinds of internal and customer deployments.
-For more details on how to use `docker compose` based orchestration refer
-to [Scenario: Local Installation](../installation/scenario-local-installation/index.md) and [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md).
-
 ## Helm based Kubernetes deployment
 
 Most production deployments are Kubernetes based.
 We have deployments in AWS (EKS), Azure (AKS), Red Hat Openshift and self-hosted clusters.
 We provide Charts for Corporate Memory and Keycloak at our [Helm Repository](https://helm.eccenca.com).
-For more details on how to use `helm` based deployments refer
-to [Scenario: Kubernetes Deployment](../installation/scenario-k8s-deployment/index.md).
+For more details on how to use `helm` based deployments, refer to
+[Scenario: Kubernetes Deployment](../installation/scenario-k8s-deployment/index.md).
+
+## Docker compose based Orchestration deployment
+
+[Docker Compose](https://docs.docker.com/compose/) is a convenient way to provision several Docker containers locally for development
+setups or on remote servers for single node setups.
+
+eccenca uses `docker compose` for all kinds of internal and customer deployments.
+For more details on how to use `docker compose` based orchestration, refer to
+[Scenario: Local Installation](../installation/scenario-local-installation/index.md) and [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md).

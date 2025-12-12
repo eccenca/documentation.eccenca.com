@@ -16,11 +16,11 @@ provisioned cluster.
 
 ## Requirements
 
--   Access credentials for the eccenca infrastructre (e.g. Docker Registry) → [contact us to get yours](https://eccenca.com/en/contact)
--   A license for [GraphDB](https://www.ontotext.com/products/graphdb/)
--   [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
--   [Helm](https://helm.sh/docs/intro/install/)
--   If deploying on K3D, download a [static binary](https://github.com/k3d-io/k3d/releases)
+- Access credentials for the eccenca infrastructure (e.g. Docker Registry) → [contact us to get yours](https://eccenca.com/en/contact)
+- A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+- [Helm](https://helm.sh/docs/intro/install/)
+- If deploying on K3D, download a [static binary](https://github.com/k3d-io/k3d/releases)
 
 ## Architecture
 
@@ -28,16 +28,14 @@ provisioned cluster.
 
 ## General Notice
 
-Although this document lists value files for the three charts, we suggest always
-looking at the default `values.yaml` file from the archive or repository.
-The examples shown here are very basic and should not represent a production
-environment. The `CHANGELOG.md` and `README.md` files in the archives or
-repositories can also give some insights.
+Although this document lists value files for the three charts, we recommend consulting the default `values.yaml` file from the archive or repository.
+The examples shown here are very basic and are not intended for a production environment.
+The `CHANGELOG.md` and `README.md` files in the archives or repositories can also give some insights.
 
 We assume that the k8s namespaces are already created.
 You can either deploy all three components into one namespace or into separate ones.
 
-``` console
+```shell
 kubectl create namespace graphdb
 kubectl create namespace keycloak
 kubectl create namespace cmem
@@ -47,11 +45,10 @@ kubectl create namespace cmem
 
 To install GraphDB, we will use the Ontotext Helm chart.
 You can get the source code from [github](https://github.com/Ontotext-AD/graphdb-helm/tree/main).
-Additionally have a look at GraphDBs [documentation page](https://graphdb.ontotext.com/documentation/).
+Additionally have a look at GraphDB's [documentation page](https://graphdb.ontotext.com/documentation/).
 
-Be aware, that with Version 11 of GraphDB you are required to deploy a license
-file, even in the Free edition.
-You can aquire one by [filling a form](https://www.ontotext.com/products/graphdb/).
+Be aware that with Version 11 of GraphDB you are required to deploy a license file, even in the Free edition.
+[You can request one here.](https://www.ontotext.com/products/graphdb/)
 See also the [licensing documentation](https://graphdb.ontotext.com/documentation/11.1/licensing.html).
 
 ### 1. Obtain the chart
@@ -59,7 +56,7 @@ See also the [licensing documentation](https://graphdb.ontotext.com/documentatio
 You can download the GraphDB chart from [github](https://github.com/Ontotext-AD/graphdb-helm/releases)
 or add their repository to your environment with `helm`:
 
-``` console
+```shell
 helm repo add ontotext https://maven.ontotext.com/repository/helm-public/
 helm repo update
 ```
@@ -117,7 +114,7 @@ persistence:
 First, create the license secret as mentioned above.
 Then, install the GraphDB chart using `helm`:
 
-``` console
+```shell
 kubectl --namespace graphdb create secret generic graphdb-license \
   --from-file graphdb.license
 
@@ -135,14 +132,14 @@ you can use `kubectl port-forward`. This is useful for initial setup and verific
 
 First, get the name of the GraphDB service:
 
-``` console
+```shell
 kubectl get svc --namespace graphdb
 ```
 
 Assuming the service is named `graphdb`, forward a local port to the
 service port (`7200`):
 
-``` console
+```shell
 kubectl port-forward svc/graphdb 7200:7200 --namespace graphdb
 ```
 
@@ -155,23 +152,22 @@ provided Helm chart.
 
 ### 1. Obtain the chart
 
-We strongly recommend to download the chart and execute the install commands against a local environment.
+We strongly recommend downloading the chart and executing the install commands against a local environment.
 
-
-``` console
+```shell
 wget https://helm.eccenca.com/keycloak/latest.tgz
 tar -xzf latest.tgz
 ```
 
-``` console
+```shell
 # this requires gitlab.eccenca.com access
 git clone ssh://git@gitlab.eccenca.com:8101/devops/keycloak-helm.git
 ```
 
-You can also use the helm package manger, but then you have to take care about restoring from a backup on your own.
-The mechanism for that is included in the chart, but the helm command requires you have the sql dump file on your local machine.
+You can also use the Helm package manager, but then you have to handle restoring from a backup on your own.
+The mechanism for that is included in the chart, but the helm command requires you have the SQL dump file on your local machine.
 
-``` console
+```shell
 helm repo add --force-update eccenca https://helm.eccenca.com
 helm repo update eccenca
 ```
@@ -220,7 +216,7 @@ Use `helm` to deploy the chart into the `keycloak` namespace.
 
 With local extracted helm chart:
 
-``` console
+```shell
 helm upgrade -i keycloak ./keycloak-helm \
   --namespace keycloak \
   -f keycloak-values.yaml
@@ -228,7 +224,7 @@ helm upgrade -i keycloak ./keycloak-helm \
 
 Or from helm repository:
 
-``` console
+```shell
 helm upgrade --install keycloak eccenca/keycloak-helm \
   --namespace keycloak \
   -f keycloak-values.yaml
@@ -262,7 +258,7 @@ NOTES:
   https://kc.docker.localhost/auth
 ```
 
-## Installation Corporate Memory
+## Corporate Memory Installation
 
 This guide provides instructions on how to install the chart using `kubectl`
 and `helm`.
@@ -270,18 +266,18 @@ You need to have a keycloak instance and a supported graph database installed.
 
 ### 1. Obtain the chart
 
-``` console
+```shell
 wget https://releases.eccenca.com/cmem-helm/latest.tgz
 tar -xzf latest.tgz
 cd cmem
 ```
 
-``` console
+```shell
 helm repo add --force-update cmem-helm https://helm.eccenca.com
 helm repo update cmem-helm
 ```
 
-``` console
+```shell
 # this requires gitlab.eccenca.com access
 git clone https://gitlab.eccenca.com/cmem/cmem-helm.git
 ```
@@ -294,7 +290,7 @@ a license intended for non-commercial usage.
 
 If you have a dedicated license file, create a secret with a `license.asc` data entry:
 
-``` console
+```shell
 kubectl create secret generic cmem-license \
   --from-file license.asc
   --namespace cmem
@@ -370,7 +366,7 @@ Setting up Graph Insights in Kubernetes deployment done with helm is described i
 To pull the Corporate Memory images, you need to provide credentials for the eccenca
 Docker Registry.
 
-``` console
+```shell
 kubectl create secret docker-registry eccenca-docker-registry-credentials \
   --docker-server=https://docker-registry.eccenca.com \
   --docker-username=<your-docker-username> \
@@ -384,8 +380,8 @@ Now use `helm` to deploy the chart.
 This command will install the chart in the specified namespace using your
 custom configuration.
 
-``` console
-# In case you have the chart or repostiory locally available
+```shell
+# In case you have the chart or repository locally available
 helm upgrade --install cmem . \
   --namespace cmem \
   -f cmem-values.yaml
@@ -400,13 +396,13 @@ helm upgrade --install cmem cmem-helm/cmem \
 
 After the installation is complete, you can check the status of the pods:
 
-``` console
+```shell
 kubectl get pods --namespace cmem
 ```
 
 You can also check the rollout status of the StatefulSets:
 
-``` console
+```shell
 kubectl rollout status statefulset/explore --namespace cmem
 kubectl rollout status statefulset/dataintegration --namespace cmem
 ```
