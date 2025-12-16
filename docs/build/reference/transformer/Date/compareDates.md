@@ -8,8 +8,6 @@ tags:
 # Compare dates
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Compares two dates.
 Returns 1 if the comparison yields true and 0 otherwise.
 If there are multiple dates in both sets, the comparator must be true for all dates.
@@ -31,7 +29,6 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
 
 * Returns: `[1]`
 
-
 ---
 **Example 2:**
 
@@ -43,7 +40,6 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
     2. `[2017-01-01]`
 
 * Returns: `[0]`
-
 
 ---
 **Example 3:**
@@ -57,7 +53,6 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
 
 * Returns: `[1]`
 
-
 ---
 **Example 4:**
 
@@ -69,7 +64,6 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
     2. `[2017-01-02]`
 
 * Returns: `[0]`
-
 
 ---
 **Example 5:**
@@ -83,7 +77,6 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
 
 * Returns: `[1]`
 
-
 ---
 **Example 6:**
 
@@ -96,22 +89,15 @@ For instance, `[2014-08-02, 2014-08-03]` < `[2014-08-03]` yields 0 as not all da
 
 * Returns: `[0]`
 
-
-
-
 ## Parameter
 
 ### Comparator
 
 No description
 
-- ID: `comparator`
-- Datatype: `enumeration`
-- Default Value: `<`
-
-
-
-
+* ID: `comparator`
+* Datatype: `enumeration`
+* Default Value: `<`
 
 ## Advanced Parameter
 

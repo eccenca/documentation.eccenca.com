@@ -8,8 +8,6 @@ tags:
 # Default Value
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Generates a default value, if the input values are empty. Forwards any non-empty values.
 
 ## Examples
@@ -24,7 +22,6 @@ Generates a default value, if the input values are empty. Forwards any non-empty
 
 * Returns: `[input value]`
 
-
 ---
 **Outputs the default value, if the inputs are empty:**
 
@@ -36,22 +33,15 @@ Generates a default value, if the input values are empty. Forwards any non-empty
 
 * Returns: `[default value]`
 
-
-
-
 ## Parameter
 
 ### Value
 
 The default value to be generated, if input values are empty
 
-- ID: `value`
-- Datatype: `string`
-- Default Value: `default`
-
-
-
-
+* ID: `value`
+* Datatype: `string`
+* Default Value: `default`
 
 ## Advanced Parameter
 

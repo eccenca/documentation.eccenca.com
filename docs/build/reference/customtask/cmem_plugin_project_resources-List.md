@@ -53,7 +53,6 @@ We recommend to test your regular expression before using it.
 [This deep-link](https://regex101.com/?testString=dataset.csv%0Amy-dataset.xml%0Ajson/example.json%0Ajson/example_new.json%0Ajson/data.xml&regex=.*new.*)
 provides a test bed using the example files and the last expression from the list.
 
-
 ## Parameter
 
 ### File matching regex
@@ -63,10 +62,6 @@ The regex for filtering the file names. The regex needs to match the full path (
 - ID: `files_regex`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

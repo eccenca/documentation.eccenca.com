@@ -117,7 +117,7 @@ This version of eccenca DataManager adds the following new features:
 - Vocabs Module
     - Allow create new empty ontology without uploading a file.
     - Check if graph exist and show an error while creating a new vocab.
--  Explore
+- Explore
     - Allow hide / show the vocab viz module via configuration `details.visualization.enable`
     - Center automatically load vocab viz on load
     - Show precise tooltips for controls of vocab viz
@@ -162,6 +162,7 @@ This version of eccenca DataPlatform ships the following new features:
 
 - Prometheus and Spring metrics endpoints are now exposed per default, i.e. `./actuator/prometheus` or `actuator/metrics` for list and, exemplarily, `./actuator/metrics/cache.size` for the metric of interest, see the [spring doc](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.metrics.endpoint) for more information.
     - you can deactivate them using the configuration properties in `application.yml` (or any other spring config)
+
 ``` yaml title="application.yml"
 endpoint:
     prometheus:
@@ -169,7 +170,9 @@ endpoint:
     metrics:
         enabled: false
 ```
+
     - Users roles need to match values of `authorization.abox.adminGroup` or `authorization.abox.metricsGroup` role definition for accessing those endpoints. `authorization.abox.metricsGroup` defaults to `metrics`, therefore in keycloak a user needs to `metrics` added as role, for example via a group and groupmapping.
+
 - graphdb lucene index support
     - the index is used for example in the explore section to allow fast and userfriendly access
 - Graph List
@@ -287,6 +290,7 @@ No migration notes
 - Jinja templates will no longer fail on unknown tokens. If this was used for signaling errors or fail-fast evaluation, this has to be implemented in regular conditional checks.
 - Virtuoso config requires adjustments, its HTTP port needs to be configured.
     - Please ensure, that the configured user has the same access rights in virtuoso via ODBC and HTTP
+
 ``` yaml title="application.yml (old)"
 sparqlEndpoints:
   virtuoso:
@@ -297,7 +301,9 @@ sparqlEndpoints:
     username: "dba"
     password: "dba"
 ```
+
     becomes
+
 ``` yaml title="application.yml (new)"
 sparqlEndpoints:
   virtuoso:

@@ -8,11 +8,10 @@ tags:
 # Token-wise distance
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Token-wise string distance using the specified metric.
 
 ## Characteristics
+
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
@@ -27,8 +26,6 @@ No description
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
 ### Metric name
 
 No description
@@ -36,8 +33,6 @@ No description
 - ID: `metricName`
 - Datatype: `string`
 - Default Value: `levenshtein`
-
-
 
 ### Split regex
 
@@ -47,8 +42,6 @@ No description
 - Datatype: `string`
 - Default Value: `[\s\d\p{Punct}]+`
 
-
-
 ### Stopwords
 
 No description
@@ -56,8 +49,6 @@ No description
 - ID: `stopwords`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Match threshold
 
@@ -67,8 +58,6 @@ No description
 - Datatype: `double`
 - Default Value: `0.0`
 
-
-
 ### Ordering impact
 
 No description
@@ -77,8 +66,6 @@ No description
 - Datatype: `double`
 - Default Value: `0.0`
 
-
-
 ### Adjust by token length
 
 No description
@@ -86,10 +73,6 @@ No description
 - ID: `adjustByTokenLength`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -101,8 +84,6 @@ Weight assigned to stopwords
 - Datatype: `double`
 - Default Value: `0.01`
 
-
-
 ### Non stopword weight
 
 Weight assigned to non-stopwords
@@ -111,8 +92,6 @@ Weight assigned to non-stopwords
 - Datatype: `double`
 - Default Value: `0.1`
 
-
-
 ### Use incremental idf weights
 
 Use incremental IDF weights
@@ -120,6 +99,3 @@ Use incremental IDF weights
 - ID: `useIncrementalIdfWeights`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-

@@ -12,21 +12,15 @@ List, create, delete and inspect graph insight snapshots.
 
 Graph Insight Snapshots are identified by an ID. To get a list of existing snapshots, execute the `graph insights list` command or use tab-completion.
 
-
 ## graph insights list
 
 List graph insight snapshots.
 
 ```shell-session title="Usage"
-$ cmemc graph insights list [OPTIONS]
+cmemc graph insights list [OPTIONS]
 ```
 
-
-
-
 Graph Insights Snapshots are identified by an ID.
-
-
 
 ??? info "Options"
     ```text
@@ -44,15 +38,10 @@ Graph Insights Snapshots are identified by an ID.
 Delete a graph insight snapshot.
 
 ```shell-session title="Usage"
-$ cmemc graph insights delete [OPTIONS] [SNAPSHOT_ID]
+cmemc graph insights delete [OPTIONS] [SNAPSHOT_ID]
 ```
 
-
-
-
 Graph Insight Snapshots are identified by an ID. To get a list of existing snapshots, execute the `graph insights list` command or use tab-completion.
-
-
 
 ??? info "Options"
     ```text
@@ -68,15 +57,10 @@ Graph Insight Snapshots are identified by an ID. To get a list of existing snaps
 Create or update a graph insight snapshot.
 
 ```shell-session title="Usage"
-$ cmemc graph insights create [OPTIONS] IRI
+cmemc graph insights create [OPTIONS] IRI
 ```
 
-
-
-
 Create a graph insight snapshot for a given graph. If the snapshot already exists, it is hot-swapped after re-creation. The snapshot contains only the (imported) graphs the requesting user can read.
-
-
 
 ??? info "Options"
     ```text
@@ -94,15 +78,10 @@ Create a graph insight snapshot for a given graph. If the snapshot already exist
 Update a graph insight snapshot.
 
 ```shell-session title="Usage"
-$ cmemc graph insights update [OPTIONS] [SNAPSHOT_ID]
+cmemc graph insights update [OPTIONS] [SNAPSHOT_ID]
 ```
 
-
-
-
 After the update, the snapshot is hot-swapped.
-
-
 
 ??? info "Options"
     ```text
@@ -125,16 +104,11 @@ After the update, the snapshot is hot-swapped.
 Inspect the metadata of a graph insight snapshot.
 
 ```shell-session title="Usage"
-$ cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
+cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
 
     --raw       Outputs raw JSON.
     ```
-

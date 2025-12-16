@@ -8,10 +8,7 @@ tags:
 # Strip non-alphabetic characters
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Strips all non-alphabetic characters from a string. Spaces are retained.
-
 
 ## Parameter
 

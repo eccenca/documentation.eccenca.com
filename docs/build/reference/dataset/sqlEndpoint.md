@@ -8,8 +8,6 @@ tags:
 # Embedded SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 _SQL endpoint dataset parameters_
 
 The dataset only requires that the _tableNamePrefix_ parameter is given. This will be used as the prefix for the names of the generated tables.
@@ -64,7 +62,6 @@ Any JDBC or ODBC client can connect to an SQL endpoint dataset. SparkSQL uses th
 A detailed instruction to connect to a Hive or SparkSQL endpoint with various tools (e.g. SQuirreL, beeline, SQL Developer, ...) can be found at _[Apache HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)_.
 The database client _[DBeaver](https://dbeaver.io/)_ can connect to the SQL endpoint out of the box.
 
-
 ## Parameter
 
 ### Table name prefix
@@ -75,8 +72,6 @@ Prefix of the table that will be shared. In the case of complex mappings more th
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Cache
 
 Optional boolean option that selects if the table should be cached by Spark or not (default = true).
@@ -84,8 +79,6 @@ Optional boolean option that selects if the table should be cached by Spark or n
 - ID: `cache`
 - Datatype: `boolean`
 - Default Value: `true`
-
-
 
 ### Array separator
 
@@ -95,8 +88,6 @@ The character that is used to separate the parts of array values. Write \t to sp
 - Datatype: `string`
 - Default Value: `|`
 
-
-
 ### Compatibility
 
 If true, basic types will be used for unusual data types that otherwise may result in client errors. Try switching this on, if a client has weird error messages. (Default = true)
@@ -105,8 +96,6 @@ If true, basic types will be used for unusual data types that otherwise may resu
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
 ### Map
 
 Mapping of column names. Similar to aliases E.g. 'c1:c2' would rename column c1 into c2.
@@ -114,10 +103,6 @@ Mapping of column names. Similar to aliases E.g. 'c1:c2' would rename column c1 
 - ID: `map`
 - Datatype: `stringmap`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

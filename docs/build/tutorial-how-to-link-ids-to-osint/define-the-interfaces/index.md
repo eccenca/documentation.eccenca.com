@@ -9,31 +9,31 @@ In this tutorial, we will show how to (1) define the information available in an
 
 In the previous tutorial, we have defined the use cases in contact with the humans, ie. analysts (see figure 1)
 
-<p align="center">
-  <img src="./use_cases_with_interfaces.png">
-</p>
-
-*Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.*
+<figure markdown="span">
+![Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.](use_cases_with_interfaces.png)
+<figcaption>Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.</figcaption>
+</figure>
 
 The classic Splunk interface is a set of panels, like "static table" panel. This table panel can show a table of cells and also one cell with a text via in input a Splunk Search Processing Language (SPL). With the plugin [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz) ([tutorial page](../link-IDS-event-to-KG/index.md)), we can insert a SPARQL query and select the part of your knowledge graph to print (figure 2).
 
-![](demo-splunk-with-kg-edit.png)
-
-*Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"*
+<figure markdown="span">
+![Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"](demo-splunk-with-kg-edit.png)
+<figcaption>Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"</figcaption>
+</figure>
 
 The first dashboard to do for our use cases is the list of IoCs with classic SPL queries of analysts via a static table and allow the analyst to select one IoC via a click in the table. The dashboard with this selected row can save the ID of IoC in a global variable for the other panels in the same dashboard ([a Splunk token](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/tokens)). When this variable (Splunk token) is changed by the user, Splunk is able to recalculate automatically the queries with this variable in the other static tables. So with this mechanism, we can print the details in the knowledge graph (with SPARQL queries) and the IoC statistics in the Splunk indexes (with SPL queries) around of one selected IoC. With these knowledge about Splunk dashboard, we proposed to analysts a first naive interface in the figure 3.
 
-<p align="center">
-  <img src="./interface.png">
-</p>
-
-*Figure 3. Imagine the expected Splunk dashboard with its interaction*
+<figure markdown="span">
+![Figure 3. Imagine the expected Splunk dashboard with its interaction](interface.png)
+<figcaption>Figure 3. Imagine the expected Splunk dashboard with its interaction</figcaption>
+</figure>
 
 Here, the figure 3 is nice but before this first schema during the project, there are a lot of shemas and all were minimalist and ugly often only on a whiteboard. This  type schema before the technical feasibility is only to validate the objective with the analysts before starting the development. During the technical feasibility, we can decrease/increase step-by-step your objectives to show finally a first result in figure 4 in a real dashboard.
 
-![](../link-IDS-event-to-KG/demo_ld_without_html.png)
-
-*Figure 4. First interface with only SPARQL queries in SPLUNK static tables.*
+<figure markdown="span">
+![Figure 4. First interface with only SPARQL queries in SPLUNK static tables.](./../../link-IDS-event-to-KG/demo_ld_without_html.png)
+<figcaption>Figure 4. First interface with only SPARQL queries in SPLUNK static tables.</figcaption>
+</figure>
 
 ## Technical feasibility with the available information
 
@@ -42,9 +42,10 @@ In this tutorial, we learn to use Corporate Memory of Eccenca to transform these
 
 After research and one meeting with analysts, we have chosen the datasets of Mitre Attack, the datasets of IoC rules (Sigma and Hayabusa) in Github and of course, the IoCs data already in the Splunk indexes.
 
-![](alert_data_of_ioc.png)
-
-*Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.*
+<figure markdown="span">
+![Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.](alert_data_of_ioc.png)
+<figcaption>Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.</figcaption>
+</figure>
 
 The Splunk indexes of IoCs are selected by the analysts in the dashboard via the component [multiselect input](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/FormEditor#Multiselect) in the form part of dashboard (the form part inits other Splunk tokens). We have choosen the IDs to link these data and the figure 5 resumes how we are going to link these data via Corporate Memory of Eccenca.
 
@@ -56,9 +57,9 @@ A user can clone any dashboard before modifying it.
 
 For example, in our dashboard, you can find:
 
--   the root element `form`,
--   the definition of input component to select the Splunk indexes by the user and
--   the table panel to execute a SPL query and show the result in a table
+- the root element `form`,
+- the definition of input component to select the Splunk indexes by the user and
+- the table panel to execute a SPL query and show the result in a table
 
 ```xml
 <form>
@@ -158,24 +159,29 @@ WHERE {
 
 During our project, we have implemented the SPARQL command necessary to execute a SPARQL query in a SPL query but also several scripts to extend the panels of dashboard. For example, these are problems to print a HTML text and open a external Web page in a dashboard. Before starting a knowledge graph, we need to know if we have to work with a specific syntax in output for Splunk. So, we have searched the simplest solution to print the HTML literal in our knowledge graph with their links. We found it and implemented simple Javascript scripts to resolve these problems. These scripts are imported via the header of dashboard XML and called in the XML of static table panel. You can see the final dashboard with the Mitre description in HTML (the Mitre in these datasets uses Markdown but we show how convert Markdown link to HTML). We give you these scripts in your [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz) ([tutorial page](../link-IDS-event-to-KG/index.md)).
 
-![](../link-IDS-event-to-KG/demo_ld.png)
-
-*Figure 6. With an extern Javascript script, static tables support HTML and the user can open.*
+<figure markdown="span">
+![Figure 6. With an extern Javascript script, static tables support HTML and the user can open.](../link-IDS-event-to-KG/demo_ld.png)
+<figcaption>Figure 6. With an extern Javascript script, static tables support HTML and the user can open.</figcaption>
+</figure>
 
 ## Conclusion: starting to specify the necessary RDF models for these interfaces
 
 With the interfaces, the available data and their links in head, the analyst can now imagine the necessary RDF models of concepts (for example, figure 7 and 8) in his future knowledge graph to generate expected dashboards. These RDF models evolve at the same time as the interfaces (forever) and according to future RDF standards of Cyber world. With Corporate Memory, after each evolution of your models, you can rebuild your knowledge graph "from scratch" when you want. Several RDF models of different versions can exist in your knowledge graphs, so you can update progressively your dashboards without service interruption of old dashboards.
 
-![](../lift-data-from-STIX-2.1-data-of-mitre-attack/rdf-model-course-of-action.png)
-*Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.*
+<figure markdown="span">
+![Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.](./../lift-data-from-STIX-2.1-data-of-mitre-attack/rdf-model-course-of-action.png)
+<figcaption>Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.</figcaption>
+</figure>
 
-![](../lift-data-from-YAML-data-of-hayabusa-sigma/23-1-rdf-model-rule.png)
-*Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.*
+<figure markdown="span">
+![Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.](./../lift-data-from-YAML-data-of-hayabusa-sigma/23-1-rdf-model-rule.png)
+<figcaption>Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.</figcaption>
+</figure>
 
 ---
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
-Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
+Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](./../../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
 
 Previous chapter: [Define the need, the expected result and the use cases](../define-the-need/index.md)

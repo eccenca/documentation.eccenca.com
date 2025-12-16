@@ -16,7 +16,6 @@ The following activities are available for each project.
 Generates matches between schema paths and datasets based on the schema discovery and profiling information
          of the datasets.
 
-
 | Parameter | Type | Description | Example |
 |  ---------------------- | ------------- | ------------------ | -------------------------- |
 | datasetUri | String | If set, run dataset matching only for this particular dataset. |
@@ -24,8 +23,6 @@ Generates matches between schema paths and datasets based on the schema discover
 The identifier for this plugin is `DatasetMatcher`.
 
 It can be found in the package `com.eccenca.di.datamatching`.
-
-
 
 ## Task Activities
 
@@ -41,8 +38,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteRestTask`.
 
 It can be found in the package `com.eccenca.di.workflow.operators.rest`.
-
-
 
 ### Dataset
 
@@ -64,8 +59,6 @@ The identifier for this plugin is `DatasetProfiler`.
 
 It can be found in the package `com.eccenca.di.profiling`.
 
-
-
 #### SQL endpoint status
 
 Shows the SQL endpoint status.
@@ -75,8 +68,6 @@ The identifier for this plugin is `SqlEndpointStatus`.
 
 It can be found in the package `com.eccenca.di.sql.spark.endpoint.activity`.
 
-
-
 #### Types cache
 
 Holds the most frequent types in a dataset.
@@ -85,8 +76,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `TypesCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.dataset`.
-
-
 
 ### LinkSpecification
 
@@ -102,8 +91,6 @@ The identifier for this plugin is `ActiveLearning`.
 
 It can be found in the package `org.silkframework.learning.active`.
 
-
-
 #### Active learning (find comparison pairs)
 
 Suggest comparison pairs for the current linking task.
@@ -115,8 +102,6 @@ Suggest comparison pairs for the current linking task.
 The identifier for this plugin is `ActiveLearning-ComparisonPairs`.
 
 It can be found in the package `org.silkframework.learning.active.comparisons`.
-
-
 
 #### Evaluate linking
 
@@ -136,8 +121,6 @@ The identifier for this plugin is `EvaluateLinking`.
 
 It can be found in the package `org.silkframework.workspace.activity.linking`.
 
-
-
 #### Execute linking
 
 Executes the linking task using the configured execution.
@@ -146,8 +129,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteLinking`.
 
 It can be found in the package `org.silkframework.workspace.activity.linking`.
-
-
 
 #### Linking paths cache
 
@@ -158,8 +139,6 @@ The identifier for this plugin is `LinkingPathsCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.linking`.
 
-
-
 #### Reference entities cache
 
 For each reference link, the reference entities cache holds all values of the linked entities.
@@ -168,8 +147,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ReferenceEntitiesCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.linking`.
-
-
 
 ### Scheduler
 
@@ -182,8 +159,6 @@ The identifier for this plugin is `ExecuteScheduler`.
 
 It can be found in the package `com.eccenca.di.scheduler`.
 
-
-
 ### ScriptTask
 
 #### Execute Script
@@ -194,8 +169,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteScript`.
 
 It can be found in the package `com.eccenca.di.scripting.scala`.
-
-
 
 ### TransformSpecification
 
@@ -211,8 +184,6 @@ The identifier for this plugin is `ExecuteTransform`.
 
 It can be found in the package `org.silkframework.workspace.activity.transform`.
 
-
-
 #### Transform paths cache
 
 Holds the most frequent paths for the selected entities.
@@ -222,8 +193,6 @@ The identifier for this plugin is `TransformPathsCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.transform`.
 
-
-
 #### Target vocabulary cache
 
 Holds the target vocabularies
@@ -232,8 +201,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `VocabularyCache`.
 
 It can be found in the package `org.silkframework.workspace.activity.transform`.
-
-
 
 ### Workflow
 
@@ -245,8 +212,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteLocalWorkflow`.
 
 It can be found in the package `org.silkframework.workspace.activity.workflow`.
-
-
 
 ### WorkflowExecution
 
@@ -264,8 +229,6 @@ The identifier for this plugin is `DeploySparkWorkflow`.
 
 It can be found in the package `com.eccenca.di.spark`.
 
-
-
 #### Default execution
 
 Executes a workflow with the executor defined in the configuration
@@ -274,8 +237,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteDefaultWorkflow`.
 
 It can be found in the package `com.eccenca.di.spark`.
-
-
 
 #### Execute operator
 
@@ -289,8 +250,6 @@ The identifier for this plugin is `ExecuteSparkOperator`.
 
 It can be found in the package `com.eccenca.di.spark`.
 
-
-
 #### Execute on Spark
 
 Executes a workflow on with an executor that uses Apache Spark. Depending on the Spark configuration it can still run on a single local machine or on a cluster.
@@ -299,8 +258,6 @@ This plugin does not require any parameters.
 The identifier for this plugin is `ExecuteSparkWorkflow`.
 
 It can be found in the package `com.eccenca.di.spark`.
-
-
 
 #### Execute with payload
 
@@ -316,8 +273,6 @@ The identifier for this plugin is `ExecuteWorkflowWithPayload`.
 
 It can be found in the package `org.silkframework.workbench.workflow`.
 
-
-
 #### Generate view
 
 Generate and share a view on a workflow executed by the Spark executor. Executes a workflow on Spark and generates a SparkSQL temporary table instead of serializing the result. The table can be accessed via JDBC
@@ -330,6 +285,3 @@ Generate and share a view on a workflow executed by the Spark executor. Executes
 The identifier for this plugin is `GenerateSparkView`.
 
 It can be found in the package `com.eccenca.di.sql.spark.virtual`.
-
-
-

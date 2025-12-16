@@ -8,8 +8,6 @@ tags:
 # Lower case
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Converts a string to lower case.
 
 ## Examples
@@ -23,9 +21,6 @@ Converts a string to lower case.
     1. `[JoHN, LeNA]`
 
 * Returns: `[john, lena]`
-
-
-
 
 ## Parameter
 

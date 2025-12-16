@@ -8,10 +8,7 @@ tags:
 # Upper case
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Converts a string to upper case.
-
 
 ## Parameter
 

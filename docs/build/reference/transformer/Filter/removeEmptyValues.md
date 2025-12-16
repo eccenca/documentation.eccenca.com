@@ -8,8 +8,6 @@ tags:
 # Remove empty values
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Removes empty values.
 
 ## Examples
@@ -24,7 +22,6 @@ Removes empty values.
 
 * Returns: `[value1, value2]`
 
-
 ---
 **Example 2:**
 
@@ -32,9 +29,6 @@ Removes empty values.
     1. `[, ]`
 
 * Returns: `[]`
-
-
-
 
 ## Parameter
 

@@ -8,8 +8,6 @@ tags:
 # Pi
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel PI(): Returns the value of PI to fourteen decimal places.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `PI`
-
-
-
-
 
 ## Advanced Parameter
 

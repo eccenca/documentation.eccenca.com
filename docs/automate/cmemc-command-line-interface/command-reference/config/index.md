@@ -64,11 +64,8 @@ manual.
 List configured connections.
 
 ```shell-session title="Usage"
-$ cmemc config list
+cmemc config list
 ```
-
-
-
 
 This command lists all configured connections from the currently used config file.
 
@@ -77,28 +74,20 @@ The connection identifier can be used with the `--connection` option in order to
 In order to apply commands on more than one instance, you need to use typical unix gear such as xargs or parallel.
 
 ```shell-session title="Example"
-$ cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
+cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
 ```
-
 
 ```shell-session title="Example"
-$ cmemc config list | parallel --jobs 5 cmemc -c {} admin status
+cmemc config list | parallel --jobs 5 cmemc -c {} admin status
 ```
-
-
-
 
 ## config edit
 
 Edit the user-scope configuration file.
 
 ```shell-session title="Usage"
-$ cmemc config edit
+cmemc config edit
 ```
-
-
-
-
 
 ## config get
 
@@ -111,43 +100,30 @@ $ cmemc config get {cmem_base_uri|ssl_verify|requests_ca_bundle|dp_api_end
              id|oauth_client_secret|oauth_access_token}
 ```
 
-
-
-
 In order to automate processes such as fetching custom API data from multiple Corporate Memory instances, this command provides a way to get the value of a cmemc configuration key for the selected deployment.
 
 ```shell-session title="Example"
-$ curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
+curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
 ```
 
-
 The commands return with exit code 1 if the config key is not used in the current configuration.
-
-
 
 ## config eval
 
 Export all configuration values of a configuration for evaluation.
 
 ```shell-session title="Usage"
-$ cmemc config eval [OPTIONS]
+cmemc config eval [OPTIONS]
 ```
-
-
-
 
 The output of this command is suitable to be used by a shell's `eval` command. It will output the complete configuration as `export key="value"` statements, which allow for the preparation of a shell environment.
 
 ```shell-session title="Example"
-$ eval $(cmemc -c my config eval)
+eval $(cmemc -c my config eval)
 ```
-
 
 !!! warning
     Please be aware that credential details are shown in cleartext with this command.
-
-
-
 
 ??? info "Options"
     ```text
@@ -155,4 +131,3 @@ $ eval $(cmemc -c my config eval)
     --unset     Instead of exporting all configuration keys, this option will
                 unset all keys.
     ```
-

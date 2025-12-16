@@ -8,8 +8,6 @@ tags:
 # Exp
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel EXP(number): Returns e raised to the power of the given number.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `EXP`
-
-
-
-
 
 ## Advanced Parameter
 

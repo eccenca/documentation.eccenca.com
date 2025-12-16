@@ -8,10 +8,7 @@ tags:
 # Parse geo coordinate
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Parses and normalizes geo coordinates.
-
 
 ## Parameter
 

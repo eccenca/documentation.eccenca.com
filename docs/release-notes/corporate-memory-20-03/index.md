@@ -30,7 +30,6 @@ More detailed release notes for these versions are listed below.
 
 ## eccenca DataIntegration v20.03
 
-
 This version of eccenca DataIntegration adds the following new features:
 
 - Support for additional value types for mapping targets (XML Schema date/time types, duration, etc.).
@@ -67,7 +66,6 @@ In addition to that, these changes are shipped:
 
 In addition to that, multiple performance and stability issues were solved.
 
-
 ## eccenca DataManager v20.03
 
 This version of eccenca DataManager adds the following new features:
@@ -103,7 +101,6 @@ The following features have been removed in this release:
     - Support for parameter `Requires client` has been removed from Access Control module.
 
 In addition to that, multiple stability issues were solved.
-
 
 ## eccenca DataPlatform v20.03
 
@@ -154,7 +151,6 @@ This version of eccenca Corporate Memory Control (cmemc) adds the following new 
 - `workspace` command group, to `import` and `export` the workspace
 - ability to work with SSL enabled deployments (add CA certs)
 
-
 ## Migration Notes
 
 ### DataIntegration
@@ -166,7 +162,7 @@ With v20.03 the following changes need to be made in your dataintegration.conf f
     - both take an arbitrary alpha numerical string of minimum 16 characters length
     - depending on your deployment set them in your `production.conf` or `application.conf` DataIntegration configuration file
 
-```
+```conf
 ...
 play.http.secret.key = "uiodshfoun78qwg8asd7gfasdasddfgn87gsn8fdsngasdfsngf8ds"
 ...
@@ -222,4 +218,3 @@ spring:
         jwt:
           jwk-set-uri: http://keycloak:8080/auth/realms/cmem/protocol/openid-connect/certs
 ```
-

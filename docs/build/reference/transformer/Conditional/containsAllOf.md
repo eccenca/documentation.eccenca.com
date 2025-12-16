@@ -8,8 +8,6 @@ tags:
 # Contains all of
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned.
 
 ## Examples
@@ -25,7 +23,6 @@ Accepts two inputs. If the first input contains all of the second input values i
 
 * Returns: `[true]`
 
-
 ---
 **Example 2:**
 
@@ -34,7 +31,6 @@ Accepts two inputs. If the first input contains all of the second input values i
     2. `[A, D]`
 
 * Returns: `[false]`
-
 
 ---
 **Example 3:**
@@ -45,7 +41,6 @@ Accepts two inputs. If the first input contains all of the second input values i
 
 * Returns: `[false]`
 
-
 ---
 **Example 4:**
 
@@ -54,7 +49,6 @@ Accepts two inputs. If the first input contains all of the second input values i
     2. `[A, B, C]`
 
 * Returns: `[true]`
-
 
 ---
 **Example 5:**
@@ -65,7 +59,6 @@ Accepts two inputs. If the first input contains all of the second input values i
 
 * Returns: `[]`
 * **Throws error:** `IllegalArgumentException`
-
 
 ---
 **Example 6:**
@@ -78,7 +71,6 @@ Accepts two inputs. If the first input contains all of the second input values i
 * Returns: `[]`
 * **Throws error:** `IllegalArgumentException`
 
-
 ---
 **Example 7:**
 
@@ -87,9 +79,6 @@ Accepts two inputs. If the first input contains all of the second input values i
 
 * Returns: `[]`
 * **Throws error:** `IllegalArgumentException`
-
-
-
 
 ## Parameter
 

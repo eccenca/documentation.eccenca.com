@@ -20,7 +20,6 @@ widely implemented and well known Unix Epoch timestamp source, the
 number of nanoseconds since midnight 1 Jan 1970 UTC, leap seconds
 excluded.
 
-
 ## Parameter
 
 `None`

@@ -26,25 +26,22 @@ We suggest using [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take ad
     Use the following lines for the completion setup of cmemc >= 23.3.
     If using an older version, look at the [old documenation](https://documentation.eccenca.com/23.1/automate/cmemc-command-line-interface/configuration/completion-setup/).
 
-
 In order to enable tab completion with **zsh** run the following command:
 
 ``` shell-session title="completion setup for zsh"
-$ eval "$(_CMEMC_COMPLETE=zsh_source cmemc)"
+eval "$(_CMEMC_COMPLETE=zsh_source cmemc)"
 ```
 
 To enable the interactive menu as seen above in **zsh** run the following command:
 
 ``` shell-session title="interactive menu for zsh"
-$ zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select
 ```
 
 In order to enable tab completion with **bash** run the following command:
 
 ``` shell-session title="completion setup for bash"
-$ eval "$(_CMEMC_COMPLETE=bash_source cmemc)"
+eval "$(_CMEMC_COMPLETE=bash_source cmemc)"
 ```
 
 You may want to add this line to your `.bashrc` or `.zshrc`.
-
-

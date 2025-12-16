@@ -8,10 +8,7 @@ tags:
 # Duration in years
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Converts an xsd:duration to years.
-
 
 ## Parameter
 

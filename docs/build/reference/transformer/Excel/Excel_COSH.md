@@ -8,8 +8,6 @@ tags:
 # Cosh
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel COSH(number): Returns the hyperbolic cosine of the given number (angle in radians).
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `COSH`
-
-
-
-
 
 ## Advanced Parameter
 

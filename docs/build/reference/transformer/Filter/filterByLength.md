@@ -8,10 +8,7 @@ tags:
 # Filter by length
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Removes all strings that are shorter than 'min' characters and longer than 'max' characters.
-
 
 ## Parameter
 
@@ -23,8 +20,6 @@ No description
 - Datatype: `int`
 - Default Value: `0`
 
-
-
 ### Max
 
 No description
@@ -32,10 +27,6 @@ No description
 - ID: `max`
 - Datatype: `int`
 - Default Value: `2147483647`
-
-
-
-
 
 ## Advanced Parameter
 

@@ -8,8 +8,6 @@ tags:
 # Sequence values to indexes
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Transforms the sequence of values to their respective indexes in the sequence. If there is more than one input, the values are numbered from the first input on and continued for the next inputs. Applied against an RDF source the order might not be deterministic.
 
 ## Examples
@@ -23,9 +21,6 @@ Transforms the sequence of values to their respective indexes in the sequence. I
     1. `[a, b, c]`
 
 * Returns: `[0, 1, 2]`
-
-
-
 
 ## Parameter
 

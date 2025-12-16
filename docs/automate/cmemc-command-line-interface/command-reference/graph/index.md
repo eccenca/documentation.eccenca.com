@@ -16,22 +16,15 @@ Graphs are identified by an IRI.
 !!! note
     The get a list of existing graphs, execute the `graph list` command or use tab-completion.
 
-
-
 ## graph count
 
 Count triples in graph(s).
 
 ```shell-session title="Usage"
-$ cmemc graph count [OPTIONS] [IRIS]...
+cmemc graph count [OPTIONS] [IRIS]...
 ```
 
-
-
-
 This command lists graphs with their triple count. Counts do not include imported graphs.
-
-
 
 ??? info "Options"
     ```text
@@ -45,12 +38,8 @@ This command lists graphs with their triple count. Counts do not include importe
 (Hidden) Deprecated: use 'graph imports tree' instead.
 
 ```shell-session title="Usage"
-$ cmemc graph tree [OPTIONS] [IRIS]...
+cmemc graph tree [OPTIONS] [IRIS]...
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -68,12 +57,8 @@ $ cmemc graph tree [OPTIONS] [IRIS]...
 List accessible graphs.
 
 ```shell-session title="Usage"
-$ cmemc graph list [OPTIONS]
+cmemc graph list [OPTIONS]
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -95,15 +80,10 @@ $ cmemc graph list [OPTIONS]
 Export graph(s) as NTriples to stdout (-), file or directory.
 
 ```shell-session title="Usage"
-$ cmemc graph export [OPTIONS] [IRIS]...
+cmemc graph export [OPTIONS] [IRIS]...
 ```
 
-
-
-
 In case of file export, data from all selected graphs will be concatenated in one file. In case of directory export, .graph and .ttl files will be created for each graph.
-
-
 
 ??? info "Options"
     ```text
@@ -141,12 +121,8 @@ In case of file export, data from all selected graphs will be concatenated in on
 Delete graph(s) from the store.
 
 ```shell-session title="Usage"
-$ cmemc graph delete [OPTIONS] [IRIS]...
+cmemc graph delete [OPTIONS] [IRIS]...
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -163,11 +139,8 @@ $ cmemc graph delete [OPTIONS] [IRIS]...
 Import graph(s) to the store.
 
 ```shell-session title="Usage"
-$ cmemc graph import [OPTIONS] INPUT_PATH [IRI]
+cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 ```
-
-
-
 
 If input is a file, content will be uploaded to the graph identified with the IRI.
 
@@ -179,9 +152,6 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 
 !!! note
     Directories are scanned on the first level only (not recursively).
-
-
-
 
 ??? info "Options"
     ```text
@@ -203,10 +173,5 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 Open / explore a graph in the browser.
 
 ```shell-session title="Usage"
-$ cmemc graph open IRI
+cmemc graph open IRI
 ```
-
-
-
-
-

@@ -8,8 +8,6 @@ tags:
 # False
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel FALSE(): Set the logical value to FALSE. The FALSE() function does not require any arguments.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `FALSE`
-
-
-
-
 
 ## Advanced Parameter
 

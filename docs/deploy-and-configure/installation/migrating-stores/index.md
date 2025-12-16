@@ -28,7 +28,7 @@ icon: material/database
 
 - best practice:
     - run all (SELECT) queries in the query catalog and compare results (e.g. with `cmemc`)
-        -  theoretically this could also be applied to INSERT queries (by re-writing into SELECTS in case you want / need to omit altering your graphs)
+        - theoretically this could also be applied to INSERT queries (by re-writing into SELECTS in case you want / need to omit altering your graphs)
     - count all triples in all graphs on both instances before/after export/import (`cmemc graph count --all`)
 
 ## Optimizing Your Setup

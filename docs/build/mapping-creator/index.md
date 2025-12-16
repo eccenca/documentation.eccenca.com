@@ -34,9 +34,9 @@ Using visual tools, drag-and-drop, and suggestions, you can create mappings betw
 
 The Mapping Creator consists of three parts:
 
--   Source schema shown on the left side
--   Target Schema shown on the right side
--   Mappings between elements in the source schema and in the target schema
+- Source schema shown on the left side
+- Target Schema shown on the right side
+- Mappings between elements in the source schema and in the target schema
 
 You can move, connect or disconnect, and inspect each element visually.
 
@@ -65,8 +65,8 @@ To complete a mapping, properties need to be added to complete your desired targ
 
 There are two options to add properties:
 
--   during class selection
--   from vocabularies
+- during class selection
+- from vocabularies
 
 ##### During class selection
 
@@ -74,9 +74,9 @@ There are two options to add properties:
 
 In the _add target class_ dialog you may select different kind of properties:
 
--   class properties - properties defined in the domain of the selected class or its super-classes
--   default properties - typical well-known properties like `rdfs:label` or `rdfs:comment`
--   generic properties - properties defined with no explicit domain (or in domain of `owl:Thing`)
+- class properties - properties defined in the domain of the selected class or its super-classes
+- default properties - typical well-known properties like `rdfs:label` or `rdfs:comment`
+- generic properties - properties defined with no explicit domain (or in domain of `owl:Thing`)
 
 The property preview helps to confirm your choice.
 
@@ -86,8 +86,8 @@ The property preview helps to confirm your choice.
 
 The _add property from vocabularies_ dialog allows you to search and select a property and to configure it in the desired way:
 
--   redefine the role of a property, to use a DatatypeProperty in the role of an ObjectProperty, or vice versa
--   define the _direction_ an ObjectProperty should be used in
+- redefine the role of a property, to use a DatatypeProperty in the role of an ObjectProperty, or vice versa
+- define the _direction_ an ObjectProperty should be used in
 
 #### Create direct mappings
 

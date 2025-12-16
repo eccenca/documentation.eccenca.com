@@ -32,8 +32,6 @@ Input string format
 - Datatype: `string`
 - Default Value: `uuid_hex`
 
-
-
 ### To
 
 Output string format
@@ -41,10 +39,6 @@ Output string format
 - ID: `to_format`
 - Datatype: `string`
 - Default Value: `hex`
-
-
-
-
 
 ## Advanced Parameter
 

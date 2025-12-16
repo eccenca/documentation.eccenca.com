@@ -8,8 +8,6 @@ tags:
 # Constant
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Generates a constant value.
 
 ## Examples
@@ -24,22 +22,15 @@ Generates a constant value.
 
 * Returns: `[John]`
 
-
-
-
 ## Parameter
 
 ### Value
 
 The constant value to be generated
 
-- ID: `value`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `value`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

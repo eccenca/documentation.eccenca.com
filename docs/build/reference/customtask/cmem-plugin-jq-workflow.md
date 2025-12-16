@@ -15,14 +15,13 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-
 > [jq](https://jqlang.org/) is like sed for JSON data - you can use it to
 > slice and filter and map and transform structured data with the same ease that sed, awk,
 > grep and friends let you play with text.
 
 In order to test jq expressions, you can use [play.jqlang.org](https://play.jqlang.org/).
 
-## Basic concepts:
+## Basic concepts
 
 - Filters separated by a comma will produce multiple independent outputs: `,`
 - Will ignores error if the type is unexpected: `?`
@@ -74,8 +73,6 @@ Types can be `arrays`, `objects`, `iterables`, `booleans`, `numbers`, `normals`,
 - Remove duplicates: `unique` or `unique_by(.foo)` or `unique_by(length)`
 - Reverse an array: `reverse`
 
-
-
 ## Parameter
 
 ### jq Expression
@@ -86,19 +83,10 @@ The jq program to apply to the input JSON string.
 - Datatype: `string`
 - Default Value: `.`
 
-
-
-
-
 ## Advanced Parameter
 
 ### JSON source which can be used with the validate expression action
 
-
-
 - ID: `validation_source`
 - Datatype: `code-json`
 - Default Value: `None`
-
-
-

@@ -15,7 +15,7 @@ The Build stage is used to turn your legacy data points from existing datasets i
 
 <div class="grid cards" markdown>
 
--   :eccenca-application-dataintegration: Introduction and Best Practices
+- :eccenca-application-dataintegration: Introduction and Best Practices
 
     ---
 
@@ -24,15 +24,14 @@ The Build stage is used to turn your legacy data points from existing datasets i
     - [Cool IRIs](cool-iris/index.md) --- URIs and IRIs are character strings identifying the nodes and edges in the graph. Defining them is an important step in creating an exploitable Knowledge Graph for your Company.
     - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Define Prefixes / Namespaces — Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
 
--   :material-list-status: Tutorials
+- :material-list-status: Tutorials
 
     ---
 
-     - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from from Tabular Data such as CSV, XSLX or Database Tables.
-     - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
-     - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
-     - [Reconfigure Workflow Tasks](workflow-reconfiguration/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
-     - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
+    - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from from Tabular Data such as CSV, XSLX or Database Tables.
+    - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
+    - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
+    - [Reconfigure Workflow Tasks](workflow-reconfiguration/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
+    - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
 
 </div>
-

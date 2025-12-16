@@ -18,29 +18,28 @@ You will also learn how we make use of [SHACL Shapes](https://www.w3.org/TR/sha
 
 <div class="grid cards" markdown>
 
--   :eccenca-application-explore: [Graph Exploration](graph-exploration/index.md)
+- :eccenca-application-explore: [Graph Exploration](graph-exploration/index.md)
 
     ---
 
     This module provides a generic and extensible RDF data browser and editor.
 
--   :eccenca-application-vocabularies: [Vocabulary Catalog](vocabulary-catalog/index.md)
+- :eccenca-application-vocabularies: [Vocabulary Catalog](vocabulary-catalog/index.md)
 
     ---
 
     This module allows for managing vocabularies in Corporate Memory that are accessible for the user.
 
--   :eccenca-module-thesauri: [Thesauri Management](thesauri-management/index.md)
+- :eccenca-module-thesauri: [Thesauri Management](thesauri-management/index.md)
 
     ---
 
     The Thesaurus module provides a user interface to create, browse and edit thesaurus resources and general taxonomical data modeled in SKOS.
 
--   :eccenca-application-queries: [Query Module](query-module/index.md)
+- :eccenca-application-queries: [Query Module](query-module/index.md)
 
     ---
 
     The Query module provides a user interface to store, describe, search and edit SPARQL queries.
 
 </div>
-

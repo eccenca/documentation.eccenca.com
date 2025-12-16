@@ -200,4 +200,3 @@ In addition to that, these changes are shipped:
     - `workflow list` command, use the `--id-only` or `CMEMC_WORKFLOW_LIST_ID_ONLY=true` to get the ID list.
     - `graph list` command, use `--filter access readonly`|`writeable` instead of `--filter` `readonly`|`writeable`
 - The command config check  was removed (was deprecated in v20.12)
-

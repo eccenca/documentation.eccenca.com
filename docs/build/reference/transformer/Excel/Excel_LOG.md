@@ -8,8 +8,6 @@ tags:
 # Log
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel LOG(number; base): Returns the logarithm of the given number to the specified base. Base is the base for the logarithm calculation.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `LOG`
-
-
-
-
 
 ## Advanced Parameter
 

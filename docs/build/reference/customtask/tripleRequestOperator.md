@@ -8,10 +8,7 @@ tags:
 # Request RDF triples
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 A task that requests all triples from an RDF dataset.
-
 
 ## Parameter
 

@@ -8,8 +8,6 @@ tags:
 # Capitalize
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Capitalizes the string i.e. converts the first character to upper case. If 'allWords' is set to true, all words are capitalized and not only the first character.
 
 ## Examples
@@ -27,7 +25,6 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
 
 * Returns: `[Capitalize me]`
 
-
 ---
 **Example 2:**
 
@@ -39,22 +36,15 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
 
 * Returns: `[Capitalize Me]`
 
-
-
-
 ## Parameter
 
 ### All words
 
 No description
 
-- ID: `allWords`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `allWords`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

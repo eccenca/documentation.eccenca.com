@@ -12,31 +12,31 @@ tags:
 
 <div class="grid cards" markdown>
 
--   [Aggregators](aggregator/index.md)
+- [Aggregators](aggregator/index.md)
 
     ---
 
     This kind of task aggregates multiple similarity scores.
 
--   [Custom Workflow Tasks](customtask/index.md)
+- [Custom Workflow Tasks](customtask/index.md)
 
     ---
 
     An operator that can be used in a workflow.
 
--   [Datasets](dataset/index.md)
+- [Datasets](dataset/index.md)
 
     ---
 
     A collection of data that can be read or written.
 
--   [Distance Measures](distancemeasure/index.md)
+- [Distance Measures](distancemeasure/index.md)
 
     ---
 
     Computes the distance between two sets of strings.
 
--   [Transformer](transformer/index.md)
+- [Transformer](transformer/index.md)
 
     ---
 

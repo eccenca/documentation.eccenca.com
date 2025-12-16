@@ -9,13 +9,11 @@ tags:
 
 This section describes which backend components are needed on the Build (DataIntegration) server, in order to use python plugins.
 
-
 ## Basic Configuration and Dependencies
 
 !!! info
 
     When using the official eccenca docker images, setup and basic configuration is already done.
-
 
 ??? note "Build (DataIntegration) Configuration"
 
@@ -47,7 +45,6 @@ This section describes which backend components are needed on the Build (DataInt
     }
     ```
 
-
 ??? note "Python Interpreter"
 
     An installation of the CPython distribution (at least version 3.3) is required.
@@ -77,13 +74,13 @@ This section describes which backend components are needed on the Build (DataInt
 The basic setup allows for installation of packages from the [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) python package index, maintained by the [Python Software Foundation](https://www.python.org/psf-landing/).
 In order to change the remote index server, from where you can install python packages, you need to set the following environment variables in the data integration container:
 
--   `PIP_INDEX_URL` - Base URL of the default python package index Base URL. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/). If this variable is not set, the [official Python Package Index](https://pypi.python.org/simple) is used.
-    -   Example Value: `https://pypi.eccenca.com/simple` (the eccenca Python Package Index holds only published Corporate Memory Python Plugins and respective dependencies)
-    -   Changing this value means, that you can install packages **only** from this repository.
--   `PIP_EXTRA_INDEX_URL` - Extra URLs of package indexes to use in addition to the default package index.
-    -   Example Value: `https://pypi.eccenca.com/simple https://example.org/simple`
-    -   Multiple index URLs have to be given space-separated.
-    -   Changing this values means you can install packages from the given repositories **in addition** to the main index.
+- `PIP_INDEX_URL` - Base URL of the default python package index Base URL. This should point to a repository which is compliant with [PEP 503 (the simple repository API)](https://peps.python.org/pep-0503/). If this variable is not set, the [official Python Package Index](https://pypi.python.org/simple) is used.
+    - Example Value: `https://pypi.eccenca.com/simple` (the eccenca Python Package Index holds only published Corporate Memory Python Plugins and respective dependencies)
+    - Changing this value means, that you can install packages **only** from this repository.
+- `PIP_EXTRA_INDEX_URL` - Extra URLs of package indexes to use in addition to the default package index.
+    - Example Value: `https://pypi.eccenca.com/simple https://example.org/simple`
+    - Multiple index URLs have to be given space-separated.
+    - Changing this values means you can install packages from the given repositories **in addition** to the main index.
 
 For individual needs, you can use additional environment variables known by `pip` (`PIP_TRUSTED_HOST`, `PIP_CERT`, ...).
 Please have a look at the [pip documentation](https://pip.pypa.io/en/stable/topics/configuration/#environment-variables).
@@ -93,9 +90,9 @@ Please have a look at the [pip documentation](https://pip.pypa.io/en/stable/topi
 In cases, where you have limited or disabled network capabilities to the internet, you can disable package retrieval and provide the packages in a local directory.
 To do so, you need to set the following environment variables in the data integration container:
 
--   `PIP_NO_INDEX` - set the value as `true` to disable the package retrieval completely.
--   `PIP_FIND_LINKS` - set to a container internal directory, where the packages and its dependencies will be provided.
-    -   Example Value: `/data/downloaded-packages`
+- `PIP_NO_INDEX` - set the value as `true` to disable the package retrieval completely.
+- `PIP_FIND_LINKS` - set to a container internal directory, where the packages and its dependencies will be provided.
+    - Example Value: `/data/downloaded-packages`
 
 This setup will allow installation of packages and its dependencies ONLY from the given directory.
 

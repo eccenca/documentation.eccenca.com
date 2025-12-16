@@ -27,10 +27,10 @@ For these variables the rules are simple: You can use any variable from the [con
 The following commands provide the same result as given in the [basic example for a config file](../file-based-configuration/index.md):
 
 ``` shell-session
-$ export CMEM_BASE_URI=http://localhost/
-$ export OAUTH_GRANT_TYPE=client_credentials
-$ export OAUTH_CLIENT_ID=cmem-service-account
-$ export OAUTH_CLIENT_SECRET=...
+export CMEM_BASE_URI=http://localhost/
+export OAUTH_GRANT_TYPE=client_credentials
+export OAUTH_CLIENT_ID=cmem-service-account
+export OAUTH_CLIENT_SECRET=...
 ```
 
 !!! info
@@ -63,8 +63,8 @@ $ cmemc --config-file cmemc.ini --connection mycmem graph list --raw
 As a next step, we replace all connection parameters with environment variables:
 
 ``` shell-session
-$ export CMEMC_CONFIG_FILE=cmemc.ini
-$ export CMEMC_CONNECTION=mycmem
+export CMEMC_CONFIG_FILE=cmemc.ini
+export CMEMC_CONNECTION=mycmem
 ```
 
 This alone allows us to save a lot of typing for a series of commands on the same Corporate Memory instance.
@@ -77,7 +77,7 @@ $ cmemc graph list --raw
 However, you can also pre-define command options in the same way:
 
 ``` shell-session
-$ export CMEMC_GRAPH_LIST_RAW=true
+export CMEMC_GRAPH_LIST_RAW=true
 ```
 
 Again, the same command but `--raw` is set per default.
@@ -92,7 +92,7 @@ $ cmemc graph list
 Since there is a top level `--debug` option, the corresponding variable name is `CMEMC_DEBUG`:
 
 ``` shell-session
-$ export CMEMC_DEBUG=true
+export CMEMC_DEBUG=true
 ```
 
 ## Configuration environment export from the config file
@@ -118,12 +118,12 @@ export SSL_VERIFY="True"
 This can be used to export a full `config.env` or to `eval` it in an environment for other processes:
 
 ``` shell-session
-$ cmemc -c my-cmem.example.org config eval > config.env
-$ eval $(cmemc -c my-cmem.example.org config eval)
+cmemc -c my-cmem.example.org config eval > config.env
+eval $(cmemc -c my-cmem.example.org config eval)
 ```
 
 Please note that the following command has the same effect but needs the `cmemc.ini` for evaluating the `config` values for the config section `my-cmem.example.org`:
 
 ``` shell-session
-$ export CMEMC_CONNECTION="my-cmem.example.org"
+export CMEMC_CONNECTION="my-cmem.example.org"
 ```

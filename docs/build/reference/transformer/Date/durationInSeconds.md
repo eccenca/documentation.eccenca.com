@@ -8,10 +8,7 @@ tags:
 # Duration in seconds
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Converts an xsd:duration to seconds.
-
 
 ## Parameter
 

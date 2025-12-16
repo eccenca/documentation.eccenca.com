@@ -8,8 +8,6 @@ tags:
 # Strip prefix
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Strips a prefix of a string.
 
 ## Examples
@@ -27,7 +25,6 @@ Strips a prefix of a string.
 
 * Returns: `[Value]`
 
-
 ---
 **Example 2:**
 
@@ -39,22 +36,15 @@ Strips a prefix of a string.
 
 * Returns: `[ValueWithoutPrefix]`
 
-
-
-
 ## Parameter
 
 ### Prefix
 
 No description
 
-- ID: `prefix`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `prefix`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

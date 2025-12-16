@@ -8,8 +8,6 @@ tags:
 # Abs
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel ABS(number): Returns the absolute value of the given number.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `ABS`
-
-
-
-
 
 ## Advanced Parameter
 

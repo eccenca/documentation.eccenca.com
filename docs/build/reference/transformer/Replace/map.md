@@ -8,8 +8,6 @@ tags:
 # Map
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Replaces values based on a map of values.
 
 ## Examples
@@ -28,7 +26,6 @@ Replaces values based on a map of values.
 
 * Returns: `[Value1]`
 
-
 ---
 **Example 2:**
 
@@ -41,32 +38,23 @@ Replaces values based on a map of values.
 
 * Returns: `[Undefined]`
 
-
-
-
 ## Parameter
 
 ### Map
 
 A map of values
 
-- ID: `map`
-- Datatype: `stringmap`
-- Default Value: `None`
-
-
+* ID: `map`
+* Datatype: `stringmap`
+* Default Value: `None`
 
 ### Default
 
 Default if the map defines no value
 
-- ID: `default`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `default`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

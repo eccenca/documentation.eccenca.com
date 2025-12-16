@@ -8,10 +8,7 @@ tags:
 # Parse SKOS term
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Parses values from a SKOS ontology.
-
 
 ## Parameter
 
@@ -22,10 +19,6 @@ No description
 - ID: `surfaceFormToRepresentationMapping`
 - Datatype: `stringmap`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

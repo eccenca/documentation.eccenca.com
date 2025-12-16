@@ -32,9 +32,9 @@ A workflow plugin may accept an arbitrary list of inputs and optionally returns 
 
 The lifecycle of a workflow plugin is as follows:
 
--   The plugin will be instantiated once the workflow execution reaches the respective plugin.
--   The `execute` function is called and gets the results of the ingoing operators as input.
--   The output is forwarded to the next operator.
+- The plugin will be instantiated once the workflow execution reaches the respective plugin.
+- The `execute` function is called and gets the results of the ingoing operators as input.
+- The output is forwarded to the next operator.
 
 The following depiction shows a task of the plugin **My Workflow Plugin**.
 The task has two connected incoming tasks and one connected outgoing task.
@@ -100,13 +100,13 @@ The `PluginParameter` class can be instantiated multiple times within a `@Plugin
 
 The `PluginParameter` has several parameters that can be specified when initializing an instance:
 
--   `name`: The name of the parameter. This is a required parameter and must be specified.
--   `label`: A visible label of the parameter. This is an optional parameter and can be left blank. If left blank, the name of the parameter will be used as the label.
--   `description`: A visible description of the parameter. This is an optional parameter and can be left blank.
--   `param_type`: Optionally overrides the parameter type. Usually, this does not have to be set manually as it will be inferred from the plugin automatically.
--   `default_value`: The parameter default value (optional). If not specified, it will be inferred from the plugin automatically.
--   `advanced`: A boolean flag indicating whether or not this is an advanced parameter that can only be changed in the advanced section. This is an optional parameter and defaults to False.
--   `visible`: A boolean flag indicating whether or not the parameter will be displayed to the user in the UI. This is an optional parameter and defaults to True.
+- `name`: The name of the parameter. This is a required parameter and must be specified.
+- `label`: A visible label of the parameter. This is an optional parameter and can be left blank. If left blank, the name of the parameter will be used as the label.
+- `description`: A visible description of the parameter. This is an optional parameter and can be left blank.
+- `param_type`: Optionally overrides the parameter type. Usually, this does not have to be set manually as it will be inferred from the plugin automatically.
+- `default_value`: The parameter default value (optional). If not specified, it will be inferred from the plugin automatically.
+- `advanced`: A boolean flag indicating whether or not this is an advanced parameter that can only be changed in the advanced section. This is an optional parameter and defaults to False.
+- `visible`: A boolean flag indicating whether or not the parameter will be displayed to the user in the UI. This is an optional parameter and defaults to True.
 
 ## Parameter Type
 
@@ -278,18 +278,18 @@ The `EnumParameterType`is an example of a parameter type that uses auto-completi
 
 `autocomplete()` takes in three parameters: `query_terms`, `depend_on_parameter_values`, and `context`. It returns a list of `Autocompletion` objects, which represent the possible auto-completion results.
 
--   The `query_terms` parameter is a list of lower case conjunctive search terms. These are the search terms that the user has entered, and the `auto-completion()` will attempt to find results that match all of them.
+- The `query_terms` parameter is a list of lower case conjunctive search terms. These are the search terms that the user has entered, and the `auto-completion()` will attempt to find results that match all of them.
 
--   The `depend_on_parameter_values` parameter is a list of values for the parameters that the `auto-completion()` depends on. These values will be used to generate the auto-completion results. The type of each parameter value is the same as in the init method, which means that if a `password` parameter is specified, the type of the parameter value will be of `Password` Type.
+- The `depend_on_parameter_values` parameter is a list of values for the parameters that the `auto-completion()` depends on. These values will be used to generate the auto-completion results. The type of each parameter value is the same as in the init method, which means that if a `password` parameter is specified, the type of the parameter value will be of `Password` Type.
 
--   The `context` parameter represents the `PluginContext` in which the auto-completion is requested. This could be, for example, the context of a specific plugin, or the context of the entire system.
+- The `context` parameter represents the `PluginContext` in which the auto-completion is requested. This could be, for example, the context of a specific plugin, or the context of the entire system.
 
 #### Autocompletion
 
 The method returns a list of `Autocompletion` objects, which represent the possible auto-completion results. Each `Autocompletion` object has two attributes: value and label.
 
--   The `value` attribute represents the value to which the parameter value should be set.
--   The `label` attribute is an optional label that a human user would see instead.
+- The `value` attribute represents the value to which the parameter value should be set.
+- The `label` attribute is an optional label that a human user would see instead.
 
 !!! Note
 
@@ -424,10 +424,10 @@ The `system` attribute is of type SystemContext and contains general system info
 
 ExecutionContext combines context objects that are available during plugin execution. It contains four attributes:
 
--   `system`: An instance of the SystemContext, which provides general system information.
--   `user`: An optional instance of the UserContext, which provides information about the user that issued the plugin execution.
--   `task`: An instance of the TaskContext, which provides metadata about the executed plugin.
--   `report`: An instance of the ReportContext, which allows to update the execution report.
+- `system`: An instance of the SystemContext, which provides general system information.
+- `user`: An optional instance of the UserContext, which provides information about the user that issued the plugin execution.
+- `task`: An instance of the TaskContext, which provides metadata about the executed plugin.
+- `report`: An instance of the ReportContext, which allows to update the execution report.
 
 The ExecutionContext is used to provide context information to plugins during execution, enabling plugins to access information about the environment in which they are running, the user who initiated the execution, and the task being executed. The ReportContext attribute allows plugins to generate and update reports during execution.
 
@@ -666,9 +666,9 @@ This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin i
 CMEM uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
 Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor) relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:
 
-* Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.
-* A missing `__main__` context can also result in deadlocks.
-* JEP shares memory between Python and Java, which conflicts with multiprocessing’s requirement for isolated memory spaces.
+- Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.
+- A missing `__main__` context can also result in deadlocks.
+- JEP shares memory between Python and Java, which conflicts with multiprocessing’s requirement for isolated memory spaces.
 
 In contrast, Python’s [concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) does not encounter these issues. It uses threads that share the same memory space and operate within a single process, avoiding the need for subprocess creation.
 

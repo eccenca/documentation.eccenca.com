@@ -15,7 +15,6 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-
 This workflow operator retrieves the most recent execution report of a specified workflow
 and outputs it as a JSON file.
 
@@ -30,25 +29,19 @@ The plugin outputs a single JSON file entity containing the complete workflow ex
 ## Usage
 
 This operator is useful for:
+
 - Monitoring workflow execution results
 - Creating audit trails of workflow runs
 - Archiving execution reports for compliance purposes
 - Feeding execution data into downstream analysis tasks
 
-
 ## Parameter
 
 ### Workflow
 
-
-
 - ID: `workflow_id`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

@@ -8,11 +8,10 @@ tags:
 # Cosine
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Cosine Distance Measure.
 
 ## Characteristics
+
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
@@ -26,10 +25,6 @@ No description
 - ID: `k`
 - Datatype: `int`
 - Default Value: `3`
-
-
-
-
 
 ## Advanced Parameter
 

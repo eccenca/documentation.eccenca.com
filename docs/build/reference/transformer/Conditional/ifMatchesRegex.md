@@ -8,8 +8,6 @@ tags:
 # If matches regex
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 ## Description
 
 The `ifMatchesRegex` plugin uses a regular expression as a matching condition in order to distinguish which input to
@@ -85,7 +83,6 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[should be taken]`
 
-
 ---
 **returns the third input if the regex does not match the first input:**
 
@@ -100,7 +97,6 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[last value should be taken]`
 
-
 ---
 **returns an empty value if the regex does not match the first input:**
 
@@ -114,32 +110,23 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[]`
 
-
-
-
 ## Parameter
 
 ### Regex
 
 No description
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Negate
 
 No description
 
-- ID: `negate`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `negate`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

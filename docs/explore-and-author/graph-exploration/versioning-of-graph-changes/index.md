@@ -43,4 +43,3 @@ For each editing activity (→ Save a Form), a ChangeSet resource will be create
 This resource has some metadata (user, timestamp, label) as well as links to added and deleted Statements (using RDF Reification).
 
 The details of the used vocabulary are available at the [Changeset Vocabulary](https://vocab.org/changeset/) page.
-

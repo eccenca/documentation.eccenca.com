@@ -8,8 +8,6 @@ tags:
 # Odd
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel ODD(number): Rounds the given number up to the nearest odd integer.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `ODD`
-
-
-
-
 
 ## Advanced Parameter
 

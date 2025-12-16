@@ -8,10 +8,7 @@ tags:
 # Read parameter
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Reads a parameter from a Java Properties file.
-
 
 ## Parameter
 
@@ -23,8 +20,6 @@ The Java properties file to read the parameter from.
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
 ### Parameter
 
 The name of the parameter.
@@ -32,10 +27,6 @@ The name of the parameter.
 - ID: `parameter`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

@@ -45,15 +45,15 @@ To extract data from a relational database, you need to first register a **JDBC 
     ![Create JDBC Dataset](create-dataset-JDBC.png){ class="bordered" }
 
 5. Provide the required configuration details for the JDBC endpoint:
-    -   **Label**: Provide a table name.
-    -   **Description:** Optionally describe your table.
-    -   **JDBC Driver Connection URL:** Provide the JDBC connection. In this tutorial we use a MySQL database. The database server is named _mysql_ and the database is named _serviceDB_.
-    -   **Table:** Provide the name of the table in the database.
-    -   **Source query**: Provide a default source query. In this tutorial, the source query will be modified later as the OFFSET changes.
-    -   **Limit:** Provide a LIMIT for the SQL query. In this tutorial, we choose 5 for demonstrating the functionality. You may select any value which works for your use case.
-    -   **Query strategy**: Select: _Execute the given source query. No paging or virtual Query._ In this tutorial, this needs to be changed so that when this JDBC endpoint is being used, Corporate Memory will always check for the _Source Query_ that was provided earlier.
-    -   **User**: Provide the user name which is allowed to access the database.
-    -   **Password**: Provide the user password that is allowed to access the database.
+    - **Label**: Provide a table name.
+    - **Description:** Optionally describe your table.
+    - **JDBC Driver Connection URL:** Provide the JDBC connection. In this tutorial we use a MySQL database. The database server is named _mysql_ and the database is named _serviceDB_.
+    - **Table:** Provide the name of the table in the database.
+    - **Source query**: Provide a default source query. In this tutorial, the source query will be modified later as the OFFSET changes.
+    - **Limit:** Provide a LIMIT for the SQL query. In this tutorial, we choose 5 for demonstrating the functionality. You may select any value which works for your use case.
+    - **Query strategy**: Select: _Execute the given source query. No paging or virtual Query._ In this tutorial, this needs to be changed so that when this JDBC endpoint is being used, Corporate Memory will always check for the _Source Query_ that was provided earlier.
+    - **User**: Provide the user name which is allowed to access the database.
+    - **Password**: Provide the user password that is allowed to access the database.
 
 ![Configuration of a JDBC dataset](configure-JDBC-1.png){ class="bordered" }
 
@@ -71,7 +71,7 @@ To incrementally extract data in Corporate Memory, we need to store the informat
 4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
 5. Press the **Turtle** tab inside your JDBC endpoint view (right)
 
-In our example, the JDBC Endpoint IRI looks like this: _<http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b773431210>_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC_
+In our example, the JDBC Endpoint IRI looks like this: `<http://dataintegration.eccenca.com/00e0ed25-e76b-42f2-a37d-22b77343121_IncrementalJDBCdatasetload/8d0e4895-1d45-442f-8fd8-b1459ec3dbde_ServicesTableJDBC>`
 
 See screenshot below for example:
 
@@ -85,7 +85,14 @@ The following three RDF triples hold the (minimal) necessary information we need
 2. The second triple defines a label for the Graph.
 3. The third triple defines the <...**lastOffset**> property we need for this tutorial. As a default, we set it to 0 to start with the first row in the table.
 
-**services_metadata_graph**
+For your project:
+
+1. adjust the CMEM DI Project IRI and
+2. the JDBC endpoint IRI.
+
+**Import the Graph** in the Exploration tab → Graph (menu) → Add new Graph → Provide Graph IRI + Select file.
+
+`services_metadata_graph.nt`:
 
 ```nt
 <http://di.eccenca.com/project/services/metadata>
@@ -99,14 +106,7 @@ The following three RDF triples hold the (minimal) necessary information we need
     "0" . # set the initial offset to zero to start with the first row in the table
 ```
 
-For your project, please:
-
-1. adjust the CMEM DI Project IRI and
-2. the JDBC endpoint IRI.
-
-**Import the Graph** in the Exploration tab → Graph (menu) → Add new Graph → Provide Graph IRI + Select file
-
-In our example, we used the following Graph IRI for the Metadata Graph: _<http://di.eccenca.com/project/services/metadata>_
+In our example, we used the following Graph IRI for the Metadata Graph: `<http://di.eccenca.com/project/services/metadata>`
 
 ## 3 Create a Transformation to dynamically compose a SQL Query
 

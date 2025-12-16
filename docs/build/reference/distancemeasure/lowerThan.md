@@ -8,11 +8,10 @@ tags:
 # Lower than
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Checks if the source value is lower than the target value.
 
 ## Characteristics
+
 This is a boolean distance measure, i.e., all distances are either 0 or 1.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
@@ -27,8 +26,6 @@ Accept equal values
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
 ### Order
 
 Per default, if both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used. Choose a more specific order for improved performance.
@@ -36,10 +33,6 @@ Per default, if both strings are numbers, numerical order is used for comparison
 - ID: `order`
 - Datatype: `enumeration`
 - Default Value: `Autodetect`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -50,6 +43,3 @@ Reverse source and target inputs
 - ID: `reverse`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-

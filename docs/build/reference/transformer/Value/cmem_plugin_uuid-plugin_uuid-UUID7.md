@@ -23,7 +23,6 @@ excluded. As well as improved entropy characteristics over versions
 Implementations SHOULD utilize UUIDv7 over UUIDv1 and
 6 if possible.
 
-
 ## Parameter
 
 `None`

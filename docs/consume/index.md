@@ -17,44 +17,42 @@ Since not all applications allow the direct use of SPARQL, this section includes
 
 **:octicons-people-24: Intended audience**: Linked Data Experts
 
-
 <div class="grid cards" markdown>
 
--   :other-powerbi: [Power BI](consuming-graphs-in-power-bi/index.md)
+- :other-powerbi: [Power BI](consuming-graphs-in-power-bi/index.md)
 
     ---
 
     Learn how to consume data from your Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
 
--   :material-view-dashboard: [Redash](consuming-graphs-with-redash/index.md)
+- :material-view-dashboard: [Redash](consuming-graphs-with-redash/index.md)
 
     ---
 
     Create Dashboards based on your Knowledge Graphs with the open-source application Redash.
 
--   :eccenca-artefact-dataset-sqlendpoint: [SQL Databases](consuming-graphs-with-sql-databases/index.md)
+- :eccenca-artefact-dataset-sqlendpoint: [SQL Databases](consuming-graphs-with-sql-databases/index.md)
 
     ---
 
     If direct access to the knowledge graph is not sufficient, fragments of the Knowledge Graph may also be pushed into external SQL databases.
 
--   :material-api: [Custom APIs](provide-data-in-any-format-via-a-custom-api/index.md)
+- :material-api: [Custom APIs](provide-data-in-any-format-via-a-custom-api/index.md)
 
     ---
 
     Learn how to provide data via a customized Corporate Memory API in a text format of your choice and how to consume it in your applications.
 
--   :simple-neo4j: [Neo4j](populate-data-to-neo4j/index.md)
+- :simple-neo4j: [Neo4j](populate-data-to-neo4j/index.md)
 
     ---
 
     Learn how to populate graphs to Neo4j.
 
--   :material-apache-kafka: [Apache Kafka](consume-graphs-in-apache-kafka/index.md)
+- :material-apache-kafka: [Apache Kafka](consume-graphs-in-apache-kafka/index.md)
 
     ---
 
     Use a Apache Kafka Producer in order to export parts of your Knowledge Graph as a message stream.
 
 </div>
-

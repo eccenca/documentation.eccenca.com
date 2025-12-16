@@ -75,9 +75,10 @@ In this tutorial, we study only this first result:
     To achieve such savings we aggregate all links of sources and references about alerts in the Security information and event management (SIEM) in a knowledge graph.
     Analyst are able to read the Mitre information directly in his timeline (e.g. in SPLUNK) and to access all references about an alert from this central place.
 
-    ![](slide_result_expected.png)
-
-    *Figure 1. Example of expected results for analysts during the task to understand the meaning and relevance of new alerts in their IDS.*
+    <figure markdown="span">
+    ![Figure 1. Example of expected results for analysts during the task to understand the meaning and relevance of new alerts in their IDS.](slide_result_expected.png)
+    <figcaption>Figure 1. Example of expected results for analysts during the task to understand the meaning and relevance of new alerts in their IDS.</figcaption>
+    </figure>
 
 When we know the waited results, we can imagine the necessary use cases.
 
@@ -85,9 +86,10 @@ When we know the waited results, we can imagine the necessary use cases.
 
 We know the final need, the expected results and the limits of knowledge graph with the Linked Data technologies in Splunk. So, we can define the probable use cases to implement and all the actors who will interact with these use cases.
 
-![](basic_use_cases.png)
-
-*Figure 2. UML use cases to resolve this basic need and several use cases with Wikidata to show the interoperability of knowledge graphs with the Linked data technologies. Each bubble in this type of schema is a use case.*
+<figure markdown="span">
+![Figure 2. UML use cases to resolve this basic need and several use cases with Wikidata to show the interoperability of knowledge graphs with the Linked data technologies. Each bubble in this type of schema is a use case.](basic_use_cases.png)
+<figcaption>Figure 2. UML use cases to resolve this basic need and several use cases with Wikidata to show the interoperability of knowledge graphs with the Linked data technologies. Each bubble in this type of schema is a use case.</figcaption>
+</figure>
 
 With a simple UML schema of use cases, you can delimited each use case, their priorities and their tasks for the next step, ie. specify the essential interfaces to limit the complexity of future RDF graph.
 
@@ -110,13 +112,13 @@ Another result of this project was to resolve this other need:
 
  For the moment, we are searching the best way to resolve this need but a demonstrator to manage several investigations in the same knowledge graphs is available with several examples of dasboards in the Splunk app "[Investigate lateral movements with a knowledge graph](../link-IDS-event-to-KG-via-cmem/eccenca_poc_investigate.tar.gz)" ([tutorial page](../link-IDS-event-to-KG/index.md)). This need is for advanced users of Corporate Memory and it may be proposed in a future tutorial.
 
-![](advanced_use_cases.png)
-
-*Figure 3. UML use cases to resolve this avanced need.*
+<figure markdown="span">
+![Figure 3. UML use cases to resolve this avanced need.](advanced_use_cases.png)
+<figcaption>Figure 3. UML use cases to resolve this avanced need.</figcaption>
+</figure>
 
 ---
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
 Next chapter: [Specify the dashboards of use cases before the RDF models](../define-the-interfaces/index.md)
-

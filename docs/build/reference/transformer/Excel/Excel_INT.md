@@ -8,8 +8,6 @@ tags:
 # Int
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel INT(number): Rounds the given number down to the nearest integer.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `INT`
-
-
-
-
 
 ## Advanced Parameter
 

@@ -8,8 +8,6 @@ tags:
 # Cos
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel COS(number): Returns the cosine of the given number (angle in radians).
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `COS`
-
-
-
-
 
 ## Advanced Parameter
 

@@ -29,8 +29,6 @@ Source Number Base
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Target Base
 
 Source Number Base
@@ -38,10 +36,6 @@ Source Number Base
 - ID: `target_base`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

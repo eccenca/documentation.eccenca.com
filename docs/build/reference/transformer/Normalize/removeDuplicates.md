@@ -8,10 +8,7 @@ tags:
 # Remove duplicates
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Removes duplicated values, making a value sequence distinct.
-
 
 ## Parameter
 

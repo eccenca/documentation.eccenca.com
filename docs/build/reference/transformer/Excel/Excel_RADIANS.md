@@ -8,8 +8,6 @@ tags:
 # Radians
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel RADIANS(number): Converts the given number in degrees to radians.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `RADIANS`
-
-
-
-
 
 ## Advanced Parameter
 

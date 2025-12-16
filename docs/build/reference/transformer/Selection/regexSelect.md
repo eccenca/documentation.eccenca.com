@@ -8,8 +8,6 @@ tags:
 # Regex selection
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 ## Description of the plugin
 
 This transformer takes _three_ inputs: a single _output value_, a sequence of _regular expressions_ and a sequence of
@@ -69,7 +67,6 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , output]`
 
-
 ---
 **return only first match position if oneOnly = true:**
 
@@ -83,22 +80,15 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , ]`
 
-
-
-
 ## Parameter
 
 ### One only
 
 No description
 
-- ID: `oneOnly`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `oneOnly`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

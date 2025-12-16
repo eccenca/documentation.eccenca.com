@@ -8,10 +8,7 @@ tags:
 # Alignment
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
-Writes the alignment format specified at http://alignapi.gforge.inria.fr/format.html.
-
+Writes the alignment format specified at <http://alignapi.gforge.inria.fr/format.html>.
 
 ## Parameter
 
@@ -22,10 +19,6 @@ The alignment file.
 - ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

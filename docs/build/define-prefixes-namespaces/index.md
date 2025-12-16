@@ -13,8 +13,8 @@ Namespace declarations allow for the abbreviation of IRIs by using a prefixed re
 
 For example, after defining a namespace with the values
 
--   **prefix name** = `cohw`, and the
--   **namespace IRI** = `https://data.company.org/hardware/`
+- **prefix name** = `cohw`, and the
+- **namespace IRI** = `https://data.company.org/hardware/`
 
 you can use the term `cohw:test` as an abbreviation for the full IRI `https://data.company.org/hardware/test`.
 
@@ -28,8 +28,8 @@ After installing a vocabulary from the [Vocabulary Catalog](../../explore-and-a
 
 In order to get the **prefix name** and the **namespace IRI** from the vocabulary graph, the following terms from the [VANN vocabulary](https://vocab.org/vann/) need to be used on the Ontology resource.
 
--   [vann:preferredNamespacePrefix](https://vocab.org/vann/#preferredNamespacePrefix) - to specify the **prefix name**
--   [vann:preferredNamespaceUri](https://vocab.org/vann/#preferredNamespaceUri) - to specify the **namespace IRI**
+- [vann:preferredNamespacePrefix](https://vocab.org/vann/#preferredNamespacePrefix) - to specify the **prefix name**
+- [vann:preferredNamespaceUri](https://vocab.org/vann/#preferredNamespaceUri) - to specify the **namespace IRI**
 
 In the Explore area, an Ontology with a correct namespace declaration looks like this:
 
@@ -51,10 +51,10 @@ In addition to the used vocabulary namespace declarations, you may want to add w
 
 Such organization use cases include:
 
--   Namespaces per class / resource type:
-    -   **prefix name** = `persons`, **namespace IRI** = `https://example.org/data/persons/`
--   Namespaces per data owner or origin:
-    -   **prefix name** = `sales`, **namespace IRI** = `https://example.org/data/sales/`
+- Namespaces per class / resource type:
+    - **prefix name** = `persons`, **namespace IRI** = `https://example.org/data/persons/`
+- Namespaces per data owner or origin:
+    - **prefix name** = `sales`, **namespace IRI** = `https://example.org/data/sales/`
 
 Prefixes in Data Integration are defined on a project basis. When creating a new project, a list of well-know prefixes is already declared.
 
@@ -68,8 +68,8 @@ By using the **Edit Prefix Settings** button in this Configuration area, you wil
 
 In this dialog, you are able to
 
--   Delete a namespace declaration → **Delete Prefix**
--   Add a new namespace declaration → **Add**
+- Delete a namespace declaration → **Delete Prefix**
+- Add a new namespace declaration → **Add**
 
 ## Validating Namespace Declarations
 

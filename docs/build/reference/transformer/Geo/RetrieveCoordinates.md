@@ -8,9 +8,6 @@ tags:
 # Retrieve coordinates
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
-
 **Configuration**
 
 The geocoding service to be queried for searches can be set up in the configuration.
@@ -44,7 +41,6 @@ By default, individual requests to the geocoding service are not logged. To enab
       com.eccenca.di.geo=DEBUG
     }
 
-
 ## Parameter
 
 `None`
@@ -58,6 +54,3 @@ Additional URL parameters to be attached to each HTTP search request. Example: '
 - ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
-
-
-

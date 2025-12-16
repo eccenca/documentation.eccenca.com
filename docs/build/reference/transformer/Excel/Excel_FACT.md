@@ -8,8 +8,6 @@ tags:
 # Fact
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel FACT(number): Returns the factorial of the given number.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `FACT`
-
-
-
-
 
 ## Advanced Parameter
 

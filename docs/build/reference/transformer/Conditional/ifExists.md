@@ -8,8 +8,6 @@ tags:
 # If exists
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Accepts two or three inputs. If the first input provides a value, the second input is forwarded. Otherwise, the third input is forwarded (if present).
 
 ## Examples
@@ -26,7 +24,6 @@ Accepts two or three inputs. If the first input provides a value, the second inp
 
 * Returns: `[yes]`
 
-
 ---
 **Example 2:**
 
@@ -37,7 +34,6 @@ Accepts two or three inputs. If the first input provides a value, the second inp
 
 * Returns: `[no]`
 
-
 ---
 **Example 3:**
 
@@ -46,9 +42,6 @@ Accepts two or three inputs. If the first input provides a value, the second inp
     2. `[]`
 
 * Returns: `[]`
-
-
-
 
 ## Parameter
 

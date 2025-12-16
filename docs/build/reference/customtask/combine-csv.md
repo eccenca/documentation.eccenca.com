@@ -28,8 +28,6 @@ Regular expression for filtering resources of the project.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Delimiter
 
 Delimiter in the input CSV files.
@@ -37,8 +35,6 @@ Delimiter in the input CSV files.
 - ID: `delimiter`
 - Datatype: `string`
 - Default Value: `,`
-
-
 
 ### Quotechar
 
@@ -48,8 +44,6 @@ Quotechar in the input CSV files.
 - Datatype: `string`
 - Default Value: `"`
 
-
-
 ### Skip rows
 
 The number of rows to skip before the header row.
@@ -58,8 +52,6 @@ The number of rows to skip before the header row.
 - Datatype: `Long`
 - Default Value: `0`
 
-
-
 ### Stop workflow if result is empty
 
 Stop the workflow if no input files are found or all input files are empty.
@@ -67,10 +59,6 @@ Stop the workflow if no input files are found or all input files are empty.
 - ID: `stop`
 - Datatype: `boolean`
 - Default Value: `true`
-
-
-
-
 
 ## Advanced Parameter
 

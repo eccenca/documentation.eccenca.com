@@ -8,10 +8,7 @@ tags:
 # Trim
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Remove leading and trailing whitespaces.
-
 
 ## Parameter
 

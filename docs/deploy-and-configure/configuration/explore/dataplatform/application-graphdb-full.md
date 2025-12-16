@@ -27,7 +27,6 @@ store:
     createRepositoryOnStartup: true
 ```
 
-
 ***Property: store.type***
 
 The type of the store must be set to "graphdb"
@@ -40,7 +39,6 @@ The type of the store must be set to "graphdb"
 | Environment | STORE_TYPE |
 
 ### Specific settings for GraphDB
-
 
 ***Property: store.graphdb.host***
 
@@ -147,7 +145,7 @@ The iri of the lucene index to be used for searches. If the default index is use
 
 | Category | Value |
 |--- | ---: |
-| Default | http://www.ontotext.com/connectors/lucene/instance#cmembaseindex |
+| Default | <http://www.ontotext.com/connectors/lucene/instance#cmembaseindex> |
 | Required | false |
 | Valid values | Valid URI of lucene index |
 | Environment | STORE_GRAPHDB_GDBBASEINDEX |
@@ -173,4 +171,3 @@ Maximum amount of quads of change tracking result which will be loaded in memory
 | Required | false |
 | Valid values | int |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGMAXQUADMEMORY |
-

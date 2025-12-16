@@ -16,39 +16,27 @@ Projects are identified by a `PROJECT_ID`.
 !!! note
     To get a list of existing projects, execute the `project list` command or use tab-completion.
 
-
-
 ## project open
 
 Open projects in the browser.
 
 ```shell-session title="Usage"
-$ cmemc project open PROJECT_IDS...
+cmemc project open PROJECT_IDS...
 ```
-
-
-
 
 With this command, you can open a project in the workspace in your browser to change them.
 
 The command accepts multiple project IDs which results in opening multiple browser tabs.
-
-
 
 ## project list
 
 List available projects.
 
 ```shell-session title="Usage"
-$ cmemc project list [OPTIONS]
+cmemc project list [OPTIONS]
 ```
 
-
-
-
 Outputs a list of project IDs which can be used as reference for the project create, delete, export and import commands.
-
-
 
 ??? info "Options"
     ```text
@@ -63,26 +51,19 @@ Outputs a list of project IDs which can be used as reference for the project cre
 Export projects to files.
 
 ```shell-session title="Usage"
-$ cmemc project export [OPTIONS] [PROJECT_IDS]...
+cmemc project export [OPTIONS] [PROJECT_IDS]...
 ```
-
-
-
 
 Projects can be exported with different export formats. The default type is a zip archive which includes metadata as well as dataset resources. If more than one project is exported, a file is created for each project. By default, these files are created in the current directory with a descriptive name (see `--template` option default).
 
 !!! note
     Projects can be listed by using the `project list` command.
 
-
 You can use the template string to create subdirectories.
 
 ```shell-session title="Example"
-$ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
+cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
 ```
-
-
-
 
 ??? info "Options"
     ```text
@@ -119,18 +100,12 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
 Import a project from a file or directory.
 
 ```shell-session title="Usage"
-$ cmemc project import [OPTIONS] PATH [PROJECT_ID]
+cmemc project import [OPTIONS] PATH [PROJECT_ID]
 ```
-
-
-
 
 ```shell-session title="Example"
-$ cmemc project import my_project.zip my_project
+cmemc project import my_project.zip my_project
 ```
-
-
-
 
 ??? info "Options"
     ```text
@@ -144,23 +119,16 @@ $ cmemc project import my_project.zip my_project
 Delete projects.
 
 ```shell-session title="Usage"
-$ cmemc project delete [OPTIONS] [PROJECT_IDS]...
+cmemc project delete [OPTIONS] [PROJECT_IDS]...
 ```
-
-
-
 
 This command deletes existing data integration projects from Corporate Memory.
 
 !!! warning
     Projects will be deleted without prompting!
 
-
 !!! note
     Projects can be listed with the `project list` command.
-
-
-
 
 ??? info "Options"
     ```text
@@ -174,19 +142,13 @@ This command deletes existing data integration projects from Corporate Memory.
 Create projects.
 
 ```shell-session title="Usage"
-$ cmemc project create [OPTIONS] PROJECT_IDS...
+cmemc project create [OPTIONS] PROJECT_IDS...
 ```
-
-
-
 
 This command creates one or more new projects. Existing projects will not be overwritten.
 
 !!! note
     Projects can be listed by using the `project list` command.
-
-
-
 
 ??? info "Options"
     ```text
@@ -209,27 +171,19 @@ This command creates one or more new projects. Existing projects will not be ove
 Reload projects from the workspace provider.
 
 ```shell-session title="Usage"
-$ cmemc project reload [OPTIONS] [PROJECT_IDS]...
+cmemc project reload [OPTIONS] [PROJECT_IDS]...
 ```
-
-
-
 
 This command reloads all tasks of a project from the workspace provider. This is similar to the `workspace reload` command, but for a single project only.
 
 !!! note
     You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterward.
 
-
 !!! warning
     Depending on the size your datasets esp. your Knowledge Graphs, reloading a project can take a long time to re-create the path caches.
-
-
-
 
 ??? info "Options"
     ```text
 
     -a, --all   Reload all projects
     ```
-

@@ -8,10 +8,7 @@ tags:
 # Current date
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Outputs the current date.
-
 
 ## Parameter
 

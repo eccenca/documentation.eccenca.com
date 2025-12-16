@@ -37,12 +37,12 @@ Select a query from the :eccenca-application-queries: [Query Catalog](../query-m
 
 The following activities can be performed in this component:
 
--   **Select a query** — Select a query to visualize by clicking on a :material-plus-circle-outline: button.
+- **Select a query** — Select a query to visualize by clicking on a :material-plus-circle-outline: button.
     The Assisted chart form (see below) supports a single query, while the Advanced chart form can use multiple queries.
--   From the dropdown menu:
-    -   **Parameters** — Some queries have parameters that need to be filled with real values.
-    -   **Preview** — View a preview of the retrieved data.
-    -   **View in query catalog** — Opens the query in the query catalog.
+- From the dropdown menu:
+    - **Parameters** — Some queries have parameters that need to be filled with real values.
+    - **Preview** — View a preview of the retrieved data.
+    - **View in query catalog** — Opens the query in the query catalog.
 
 ### Chart forms
 
@@ -74,6 +74,6 @@ To do so, add :material-plus-circle-outline: the **Chart Visualization** propert
 
 To customize the chart several placeholders can be used in you queries:
 
--   `{{shuiResource}}`, the resource currently shown with the node shape of this property shape.
--   `{{shuiMainResource}}`, refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage).
--   `{{shuiGraph}}`, the currently used graph.
+- `{{shuiResource}}`, the resource currently shown with the node shape of this property shape.
+- `{{shuiMainResource}}`, refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage).
+- `{{shuiGraph}}`, the currently used graph.

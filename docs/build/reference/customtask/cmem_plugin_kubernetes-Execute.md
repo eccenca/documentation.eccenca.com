@@ -15,15 +15,14 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-
 This plugin enables execution of commands inside Kubernetes pods and captures their output.
 
 ## Features
 
 - Supports multiple connection types:
-  - **In-cluster**: Uses the service account kubernetes gives to pods
+    - **In-cluster**: Uses the service account kubernetes gives to pods
     (for plugins running inside k8s)
-  - **Explicit config**: Uses a YAML kubeconfig file for external connections
+    - **Explicit config**: Uses a YAML kubeconfig file for external connections
 - Executes shell commands in specified pods within namespaces
 - Captures both stdout and stderr output
 - Returns command output as a file entity for further processing
@@ -41,7 +40,6 @@ downstream workflow tasks.
 - Executing maintenance scripts from within or outside the cluster
 - Gathering system information and logs
 - Performing health checks and troubleshooting
-    
 
 ## Parameter
 
@@ -53,8 +51,6 @@ The type of configuration you wish to use.
 - Datatype: `string`
 - Default Value: `explicit`
 
-
-
 ### Namespace
 
 Namespaces provide a mechanism for isolating groups of resources.
@@ -62,8 +58,6 @@ Namespaces provide a mechanism for isolating groups of resources.
 - ID: `namespace`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Pod
 
@@ -73,8 +67,6 @@ Pods are an abstraction that represent groups of one or more application contain
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Container
 
 In case there is more than one container in the pod OR the default container selection does not work, you need to specify the container ID in addition to the pod ID.
@@ -83,8 +75,6 @@ In case there is more than one container in the pod OR the default container sel
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Command
 
 The command to execute.
@@ -92,10 +82,6 @@ The command to execute.
 - ID: `command`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -106,6 +92,3 @@ YAML source code of the kube config.
 - ID: `kube_config`
 - Datatype: `code-yaml`
 - Default Value: `None`
-
-
-

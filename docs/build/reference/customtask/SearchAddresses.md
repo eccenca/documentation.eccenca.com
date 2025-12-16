@@ -8,9 +8,6 @@ tags:
 # Search addresses
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
-
 **Configuration**
 
 The geocoding service to be queried for searches can be set up in the configuration.
@@ -44,7 +41,6 @@ By default, individual requests to the geocoding service are not logged. To enab
       com.eccenca.di.geo=DEBUG
     }
 
-
 ## Parameter
 
 ### Search attributes
@@ -55,8 +51,6 @@ List of attributes that contain search terms. Multiple attributes (comma-separat
 - Datatype: `traversable[string]`
 - Default Value: `None`
 
-
-
 ### Limit
 
 Optionally limits the number of results for each search.
@@ -64,10 +58,6 @@ Optionally limits the number of results for each search.
 - ID: `limit`
 - Datatype: `option[int]`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -79,8 +69,6 @@ Optional JSON-LD context to be used for converting the returned JSON to RDF. If 
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
 ### Additional parameters
 
 Additional URL parameters to be attached to each HTTP search request. Example: '&countrycodes=de&addressdetails=1'. Consult the API documentation for a list of available parameters.
@@ -88,6 +76,3 @@ Additional URL parameters to be attached to each HTTP search request. Example: '
 - ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
-
-
-

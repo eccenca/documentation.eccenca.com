@@ -7,8 +7,6 @@ tags:
 # Or
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 At least one input score must be within the threshold. Selects the maximum score.
 
 ## Examples
@@ -21,13 +19,11 @@ At least one input score must be within the threshold. Selects the maximum score
 * Input values: `[0.5, 0.0]`
 * Returns: `0.5`
 
-
 ---
 **Selects the maximum similarity score:**
 
 * Input values: `[-1.0, -0.5, -0.3]`
 * Returns: `-0.3`
-
 
 ---
 **Missing scores default to a similarity score of -1:**
@@ -35,16 +31,12 @@ At least one input score must be within the threshold. Selects the maximum score
 * Input values: `[null]`
 * Returns: `-1.0`
 
-
 ---
 **Weights are ignored:**
 
 * Weights: `[1000, 0]`
 * Input values: `[1.0, 0.0]`
 * Returns: `1.0`
-
-
-
 
 ## Parameter
 

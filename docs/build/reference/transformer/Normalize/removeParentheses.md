@@ -8,10 +8,7 @@ tags:
 # Remove parentheses
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Remove all parentheses including their content, e.g., transforms 'Berlin (City)' -> 'Berlin'.
-
 
 ## Parameter
 

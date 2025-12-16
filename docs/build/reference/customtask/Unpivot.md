@@ -8,10 +8,7 @@ tags:
 # Unpivot
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Given a list of table columns, transforms those columns into attribute-value pairs.
-
 
 ## Parameter
 
@@ -23,8 +20,6 @@ The name of the first pivot column in the range.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Last pivot property
 
 the name of the last pivot column in the range. If left empty, all columns starting with the first pivot column are used.
@@ -32,8 +27,6 @@ the name of the last pivot column in the range. If left empty, all columns start
 - ID: `lastPivotProperty`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Attribute property
 
@@ -43,8 +36,6 @@ The URI of the output column used to hold the attribute.
 - Datatype: `string`
 - Default Value: `attribute`
 
-
-
 ### Value property
 
 The URI of the output column used to hold the value.
@@ -53,8 +44,6 @@ The URI of the output column used to hold the value.
 - Datatype: `string`
 - Default Value: `value`
 
-
-
 ### Pivot columns
 
 Comma separated list of pivot column names. This property will override all inferred columns of the first two arguments.
@@ -62,10 +51,6 @@ Comma separated list of pivot column names. This property will override all infe
 - ID: `pivotColumns`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

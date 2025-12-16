@@ -8,10 +8,7 @@ tags:
 # Remove blanks
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Remove whitespace from a string.
-
 
 ## Parameter
 

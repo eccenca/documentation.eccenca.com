@@ -8,10 +8,7 @@ tags:
 # Constant URI
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Generates a constant URI.
-
 
 ## Parameter
 
@@ -22,10 +19,6 @@ The constant URI to be generated
 - ID: `value`
 - Datatype: `uri`
 - Default Value: `owl:Class`
-
-
-
-
 
 ## Advanced Parameter
 

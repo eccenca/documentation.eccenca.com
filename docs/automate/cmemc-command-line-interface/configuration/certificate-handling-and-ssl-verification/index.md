@@ -64,9 +64,9 @@ miGId7jMXd24bpfYZSiniC0+SHiCwEmzN818Ss9aIMChymAnV3RRB/UqKLlOMnA=
 You can also disable SSL Verification completely by setting the `SSL_VERIFY` key in the config or environment to `false`.
 
 However, this will lead to warnings:
+
 ``` shell-session
 $ cmemc -c ssltest.eccenca.com graph list
 SSL verification is disabled (SSL_VERIFY=False).
 ...
 ```
-

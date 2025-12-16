@@ -8,9 +8,9 @@ A reverse proxy forwards all requests from the users to the called service and r
 
 Reverse proxy is a necessary component in the Corporate Memory deployment. It enables you to:
 
--   define routes for all the components within one domain name
--   expose only ports 80 and 443 to the outside network, all other communication would be performed in the internal network
--   ease configuration and management of the SSL certificates
+- define routes for all the components within one domain name
+- expose only ports 80 and 443 to the outside network, all other communication would be performed in the internal network
+- ease configuration and management of the SSL certificates
 
 This also enables you to activate the [Linked Data delivery mode](#linked-data-delivery-mode) of Explore. The Linked Data delivery mode is able to serve Linked Data that uses the same namespace as the configured domain name as resolvable URIs including content negotiation.
 
@@ -80,9 +80,9 @@ The Linked Data delivery mode is able to serve data that uses the same namespace
 
 Therefore you can use the following template (e.g.: <https://corporate-memory.example.com>):
 
--   <https://dataplatform.corporate-memory.example.com> (DataPlatform)
--   <https://dataplatform.corporate-memory.example.com/vocabulary/example/> (a custom vocabulary)
--   with HTTPS enforcement (recommended)
+- <https://dataplatform.corporate-memory.example.com> (DataPlatform)
+- <https://dataplatform.corporate-memory.example.com/vocabulary/example/> (a custom vocabulary)
+- with HTTPS enforcement (recommended)
 
 apache sample config for linked data delivery
 

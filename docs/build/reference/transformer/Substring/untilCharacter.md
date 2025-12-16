@@ -8,8 +8,6 @@ tags:
 # Until character
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Extracts the substring until the character given.
 
 ## Examples
@@ -27,7 +25,6 @@ Extracts the substring until the character given.
 
 * Returns: `[ab]`
 
-
 ---
 **Example 2:**
 
@@ -39,22 +36,15 @@ Extracts the substring until the character given.
 
 * Returns: `[abab]`
 
-
-
-
 ## Parameter
 
 ### Until character
 
 No description
 
-- ID: `untilCharacter`
-- Datatype: `char`
-- Default Value: `None`
-
-
-
-
+* ID: `untilCharacter`
+* Datatype: `char`
+* Default Value: `None`
 
 ## Advanced Parameter
 

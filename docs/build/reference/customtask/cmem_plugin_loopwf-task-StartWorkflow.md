@@ -70,7 +70,6 @@ Input schema paths: `label`, `id`  → JSON payload: `{ "label": "Example", "id"
 - Batch operations that require complex per-entity logic encapsulated in a workflow.
 - Quality checks where each entity must pass through a dedicated validation workflow.
 
-
 ## Parameter
 
 ### Workflow
@@ -81,29 +80,17 @@ Which workflow do you want to start per entity.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### How many workflow jobs should run in parallel?
-
-
 
 - ID: `parallel_execution`
 - Datatype: `Long`
 - Default Value: `1`
 
-
-
 ### Forward incoming entities to the output port?
-
-
 
 - ID: `forward_entities`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -114,6 +101,3 @@ When working with file entities, setting this to a proper value will send the fi
 - ID: `input_mime_type`
 - Datatype: `string`
 - Default Value: `None`
-
-
-

@@ -53,18 +53,18 @@ In Create new item window, select Kafka Consumer (Receive Messages) and click Ad
 
 Configure the Kafka Consumer according to the topic that shall be consumed:
 
--   **Bootstrap Server** - URL of the Kafka broker including the port number (commonly port ´9092)
--   **Security Protocol** - Security mechanism used for authentication
--   **Topic** - Name / ID of the topic where messages are published
--   **Advanced Section**
-    -   **Messages Dataset** - A dataset (XML/JSON) where messages can be written to. Leave this field empty to output the messages as entities (see below).
-    -   **SASL** authentication settings as provided by your Kafka broker
-    -   **Auto Offset Reset** - Consumption starts either at the earliest offset or the latest offset.
-    -   **Consumer Group Name** - Consumer groups can be used to distribute the load of messages (partitions) between multiple consumers of the same group (c.f. [Kafka Concepts](https://docs.confluent.io/platform/current/clients/consumer.html#concepts)).
-    -   **Client Id** - An optional identifier of the client which is communicated to the server. When this field is empty, the plugin defaults to `DNS:PROJECT_ID:TASK_ID`.
-    -   **Local Consumer Queue Size** - Maximum total message size in kilobytes that the consumer can buffer for a specific partition. The consumer will stop fetching from the partition if it hits this limit. This helps prevent consumers from running out of memory.
-    -   **Message Limit** - The maximum number of messages to fetch and process in each run. If `0` or less, all messages will be fetched.
-    -   **Disable Commit** Setting this to `true` will disable committing messages after retrival. This means you will receive the same messages on the next execution (for testing, development, or debugging).
+- **Bootstrap Server** - URL of the Kafka broker including the port number (commonly port ´9092)
+- **Security Protocol** - Security mechanism used for authentication
+- **Topic** - Name / ID of the topic where messages are published
+- **Advanced Section**
+    - **Messages Dataset** - A dataset (XML/JSON) where messages can be written to. Leave this field empty to output the messages as entities (see below).
+    - **SASL** authentication settings as provided by your Kafka broker
+    - **Auto Offset Reset** - Consumption starts either at the earliest offset or the latest offset.
+    - **Consumer Group Name** - Consumer groups can be used to distribute the load of messages (partitions) between multiple consumers of the same group (c.f. [Kafka Concepts](https://docs.confluent.io/platform/current/clients/consumer.html#concepts)).
+    - **Client Id** - An optional identifier of the client which is communicated to the server. When this field is empty, the plugin defaults to `DNS:PROJECT_ID:TASK_ID`.
+    - **Local Consumer Queue Size** - Maximum total message size in kilobytes that the consumer can buffer for a specific partition. The consumer will stop fetching from the partition if it hits this limit. This helps prevent consumers from running out of memory.
+    - **Message Limit** - The maximum number of messages to fetch and process in each run. If `0` or less, all messages will be fetched.
+    - **Disable Commit** Setting this to `true` will disable committing messages after retrival. This means you will receive the same messages on the next execution (for testing, development, or debugging).
 
 ![Configuration options](configure-kafka-consumer.png){ class="bordered" }<!-- 24.1 -->
 
@@ -86,11 +86,11 @@ To execute the Kafka Consumer it needs to be placed inside a Workflow. The messa
 
 In the "message streaming mode" (**Messages Dataset** is not set) the received messages will be generated as entities and forwarded to the subsequent operator in the workflow. This mode is not limited to any message format. The generated message entities will have the following flat schema:
 
--   **key** — the optional key of the message,
--   **content** — the message itself as plain text,
--   **offset** — the given offset of the message in the topic,
--   **ts-production** — the timestamp when the message was written to the topic,
--   **ts-consumption** — the timestamp when the message was consumed from the topic.
+- **key** — the optional key of the message,
+- **content** — the message itself as plain text,
+- **offset** — the given offset of the message in the topic,
+- **ts-production** — the timestamp when the message was written to the topic,
+- **ts-consumption** — the timestamp when the message was consumed from the topic.
 
 Connect the output of Kafka Consumer inside a Workflow to a tabular dataset (e.g. a [CSV Dataset](../reference/dataset/csv.md)) or directly to a transformation task.
 

@@ -18,25 +18,18 @@ Client accounts are identified by a client ID which is unique in the scope of th
 
 In case your Corporate Memory deployment does not use the default deployment layout, the following additional config variables can be used in your connection configuration: ``KEYCLOAK_BASE_URI`` defaults to `{`CMEM_BASE_URI`}/auth` and locates your Keycloak deployment; ``KEYCLOAK_REALM_ID`` defaults to `cmem` and identifies the used realm.
 
-
 ## admin client list
 
 List client accounts.
 
 ```shell-session title="Usage"
-$ cmemc admin client list [OPTIONS]
+cmemc admin client list [OPTIONS]
 ```
-
-
-
 
 Outputs a list of client accounts, which can be used to get an overview as well as a reference for the other commands of the `admin client` command group.
 
 !!! note
     The list command only outputs clients which have a client secret.
-
-
-
 
 ??? info "Options"
     ```text
@@ -51,15 +44,10 @@ Outputs a list of client accounts, which can be used to get an overview as well 
 Get or generate a new secret for a client account.
 
 ```shell-session title="Usage"
-$ cmemc admin client secret [OPTIONS] CLIENT_ID
+cmemc admin client secret [OPTIONS] CLIENT_ID
 ```
 
-
-
-
 This command retrieves or generates a new secret for a client account from a realm.
-
-
 
 ??? info "Options"
     ```text
@@ -73,15 +61,9 @@ This command retrieves or generates a new secret for a client account from a rea
 Open clients in the browser.
 
 ```shell-session title="Usage"
-$ cmemc admin client open [CLIENT_IDS]...
+cmemc admin client open [CLIENT_IDS]...
 ```
-
-
-
 
 With this command, you can open a client in the keycloak web interface in your browser.
 
 The command accepts multiple client IDs which results in opening multiple browser tabs.
-
-
-

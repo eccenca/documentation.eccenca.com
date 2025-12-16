@@ -211,5 +211,5 @@ A valid configuration must use a `subjectVarName` called `resource`. This is the
 
 This configuration produces the following result, it only shows results where:
 
--   `resource` is of type `http://example.com/vocab/Company`
--   a `subResource` exists which is related to `resource` via the `http://example.com/vocab/hasParent` property
+- `resource` is of type `http://example.com/vocab/Company`
+- a `subResource` exists which is related to `resource` via the `http://example.com/vocab/hasParent` property

@@ -8,8 +8,6 @@ tags:
 # Snowflake SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 This dataset supports connections to the Snowflake JDBC endpoint.
 
 ## <a id="parameter_doc_connection-host">Account URL hostname</a>
@@ -47,15 +45,11 @@ The names of the written tables are generated as follows:
   Special characters are removed and the name is truncated to a maximum of 128 characters.
 - For each object mapping, the table name is generated from its type.
 
-
 ## Parameter
 
 ### Connection
 
 Connection parameters
-
-
-
 
 #### Account URL hostname
 
@@ -65,7 +59,6 @@ The hostname which is used for the connection. Usually, this is something like '
 - Datatype: `string`
 - Default Value: `<orgname>-<account_name>.snowflakecomputing.com`
 
-
 #### Port
 
 HTTP port
@@ -73,7 +66,6 @@ HTTP port
 - ID: `connection.port`
 - Datatype: `int`
 - Default Value: `443`
-
 
 #### User
 
@@ -83,7 +75,6 @@ Username
 - Datatype: `string`
 - Default Value: `None`
 
-
 #### Password
 
 Password for basic authentication. Leave empty if key-pair authentication should be used.
@@ -91,7 +82,6 @@ Password for basic authentication. Leave empty if key-pair authentication should
 - ID: `connection.password`
 - Datatype: `password`
 - Default Value: `None`
-
 
 #### Private key
 
@@ -101,7 +91,6 @@ The private key for the specified user. Leave empty if basic password authentica
 - Datatype: `password`
 - Default Value: `None`
 
-
 #### Private key password
 
 Password for encrypted private keys. Can be left empty if using an unencrypted key.
@@ -109,7 +98,6 @@ Password for encrypted private keys. Can be left empty if using an unencrypted k
 - ID: `connection.privateKeyPassword`
 - Datatype: `password`
 - Default Value: `None`
-
 
 #### Additional parameters
 
@@ -119,7 +107,6 @@ Additional JDBC connection parameters.
 - Datatype: `keyValuePairs`
 - Default Value: `None`
 
-
 #### Warehouse
 
 Warehouse
@@ -127,7 +114,6 @@ Warehouse
 - ID: `connection.warehouse`
 - Datatype: `string`
 - Default Value: `None`
-
 
 #### Database
 
@@ -137,7 +123,6 @@ Database
 - Datatype: `string`
 - Default Value: `None`
 
-
 #### Schema
 
 Schema
@@ -145,7 +130,6 @@ Schema
 - ID: `connection.schema`
 - Datatype: `string`
 - Default Value: `None`
-
 
 #### Table
 
@@ -155,14 +139,9 @@ Table name. Can be empty if the read-strategy is not set to read the full table.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Read
 
 Parameters related to reading from the database.
-
-
-
 
 #### Source query
 
@@ -172,7 +151,6 @@ Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Can be left empt
 - Datatype: `code-sql`
 - Default Value: `None`
 
-
 #### Group by
 
 Comma separated list of attributes appearing in the outer SELECT clause that should be grouped by. The attributes are matched case-insensitive. All other attributes will be grouped via an aggregation function that depends on the supported DBMS, e.g. (JSON) array aggregation.
@@ -180,7 +158,6 @@ Comma separated list of attributes appearing in the outer SELECT clause that sho
 - ID: `read.groupBy`
 - Datatype: `string`
 - Default Value: `None`
-
 
 #### Order by
 
@@ -190,7 +167,6 @@ Optional column to sort the result set.
 - Datatype: `string`
 - Default Value: `None`
 
-
 #### Limit
 
 Optional limit of returned records. This limit should be pushed to the source. No value implies that no limit will be applied.
@@ -198,7 +174,6 @@ Optional limit of returned records. This limit should be pushed to the source. N
 - ID: `read.limit`
 - Datatype: `option[int]`
 - Default Value: `10`
-
 
 #### Query strategy
 
@@ -208,7 +183,6 @@ The strategy decides how the source system is queried.
 - Datatype: `enumeration`
 - Default Value: `access-complete-table`
 
-
 #### Restriction
 
 An SQL WHERE clause to filter the records to be retrieved.
@@ -217,14 +191,9 @@ An SQL WHERE clause to filter the records to be retrieved.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Write
 
 Parameters related to writing to the database.
-
-
-
 
 #### Write strategy
 
@@ -234,7 +203,6 @@ If this dataset is written to, it can be selected if data is overwritten or appe
 - Datatype: `enumeration`
 - Default Value: `default`
 
-
 #### Multiple values strategy
 
 How multiple values per entity property are written.
@@ -243,18 +211,11 @@ How multiple values per entity property are written.
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Query execution
 
 Query execution parameters.
-
-
-
 
 #### Retries
 
@@ -264,7 +225,6 @@ Optional number of retries per query
 - Datatype: `int`
 - Default Value: `0`
 
-
 #### Pause
 
 Optional pause between queries in ms.
@@ -272,6 +232,3 @@ Optional pause between queries in ms.
 - ID: `queryExecution.pause`
 - Datatype: `int`
 - Default Value: `2000`
-
-
-

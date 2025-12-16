@@ -9,11 +9,11 @@ This page describes a docker-compose based orchestration running on a server ins
 
 ## Requirements
 
--   ssh access to a server instance (Debian 11) with a public IP address
--   A resolvable domain name to this server
--   Terminal with ssh client installed locally
--   An eccenca partner account for the docker registry as well as the release artifact area
--   A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
+- ssh access to a server instance (Debian 11) with a public IP address
+- A resolvable domain name to this server
+- Terminal with ssh client installed locally
+- An eccenca partner account for the docker registry as well as the release artifact area
+- A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
 
 !!! Info
     make - do not use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650)
@@ -165,7 +165,6 @@ systemctl start cmem-orchestration
 If you want to have Graph Insights enabled as well, first you need a license.
 Then you can simiply run this:
 
-
 ``` shell
 mkdir licenses
 ln -s your-license-file.lic graphinsights.lic
@@ -189,7 +188,6 @@ You can now proceed to the :material-arrow-right: [Getting Started](../../../ge
 
 Do not forget to change the passwords of your deployment, especially if it is available from the public internet.
 For this, take a look at [Change Passwords and Keys](../../configuration/keycloak/change-passwords-and-keys/index.md).
-
 
 ```bash
 cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \
@@ -233,4 +231,5 @@ zip -r data/backups/2024-07-26_14-15.zip data/backups/keycloak/2024-07-26_14-15.
 ln -sf 2024-07-26_14-15.zip data/backups/latest.zip
 
 ```
+
 The full backup is now at `data/backups/latest.zip`.

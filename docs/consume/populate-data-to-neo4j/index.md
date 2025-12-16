@@ -37,9 +37,9 @@ To upload multiple files together as an input:
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
     ![Menu > BUILD > Projects](pdtn-menu-projects.png){width="50%"}
-2. Click Create at the top of the page. 
+2. Click Create at the top of the page.
 3. In Create new item window, select Project and click Add. The Create new item of type Project window appears.
-4. Fill in the required details such as Title and Description.  Alternatively, import the existing project by clicking Import Project File and selecting the file from your system. 
+4. Fill in the required details such as Title and Description.  Alternatively, import the existing project by clicking Import Project File and selecting the file from your system.
 5. Click Create. Your project (Northwind) is created.
     ![Project Northwind](pdtn-project-northwind.png)
 6. In your project, click Create Item.
@@ -57,7 +57,7 @@ To upload multiple files together as an input:
 A Neo4j dataset holding a Labeled Property Graph (LPG) representation is one of the outputs of the process.
 Perform the following steps to create a Neo4j dataset:
 
-1. In your existing project, click Create to create a new item. 
+1. In your existing project, click Create to create a new item.
 2. In the item category Dataset select Neo4j.
     ![Create Neo4j dataset](pdtn-create-dataset-neo4j.png)
 3. Click Add.
@@ -248,7 +248,7 @@ To integrate all the transformations, perform the following steps:
 
 1. Navigate to the project.
 2. Click Create
-3. In the Create new item window, select Workflow and click Add. 
+3. In the Create new item window, select Workflow and click Add.
 4. In the Create new item of type Transform window, for this tutorial, enter the following:
     - Label: _Northwind Workflow_
     - Click Create
@@ -273,4 +273,3 @@ Optionally, you can use the same transformation and workflow to render the resul
     ![Add Knowledge Graph output](pdtn-add-kg-dataset-into-workflow.png)
 2. The results can then be reviewed in the Knowledge Graph module, e.g., explored visually:
     ![Results in Corporate Memory](pdtn-ontodia-result-view.png)
-

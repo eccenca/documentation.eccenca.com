@@ -17,9 +17,9 @@ Current issues:
 
 ### Example from Geometric mean: 1
 
-* Weights: [1, 2, 1]
-* Input values: [0.0, 0.0, 0.0]
-* Returns: `0.0`
+- Weights: [1, 2, 1]
+- Input values: [0.0, 0.0, 0.0]
+- Returns: `0.0`
 
 !!! example "Example from Geometric mean: 1"
 
@@ -52,11 +52,11 @@ Current issues:
 
 ### Example from Handle missing values: Outputs the default score, if no input score is provided
 
-* Parameters
-  * *defaultValue*: `1.0`
+- Parameters
+    - *defaultValue*: `1.0`
 
-* Input values: [(none)]
-* Returns: `1.0`
+- Input values: [(none)]
+- Returns: `1.0`
 
 !!! example "Outputs the default score, if no input score is provided"
 
@@ -80,11 +80,11 @@ Current issues:
 
 ### Example from Date: Returns 0 if both dates are equal
 
-* Input values:
-  * Source: `[2003-03-01]`
-  * Target: `[2003-03-01]`
+- Input values:
+    - Source: `[2003-03-01]`
+    - Target: `[2003-03-01]`
 
-* Returns: → `0.0`
+- Returns: → `0.0`
 
 !!! example "Returns 0 if both dates are equal"
 
@@ -105,25 +105,25 @@ Current issues:
 
 ### Example from Camel Case: A sentence with several words is converted to a single word written in UpperCamelCase
 
-* Parameters
-  * *isDromedary*: `false`
+- Parameters
+    - *isDromedary*: `false`
 
-* Input values:
+- Input values:
   1. `[hello world]`
 
-* Returns:
+- Returns:
 
   → `[HelloWorld]`
 
 
 ### Example from Coalesce: 5
 
-* Input values:
+- Input values:
   1. `[]`
   2. `[first A, first B]`
   3. `[second]`
 
-* Returns:
+- Returns:
 
   → `[first A, first B]`
 
@@ -150,32 +150,32 @@ Current issues:
 
 ### Example of Concatenate: 4
 
-* Parameters
-  * *glue*: `-`
+- Parameters
+    - *glue*: `-`
 
-* Input values:
+- Input values:
   1. `[First]`
   2. `[Last]`
 
-* Returns:
+- Returns:
 
   → `[First-Last]`
 
 
 ### Example of Concatenate multiple values: 6
 
-* Parameters
-  * *glue*: `\n\t\\`
+- Parameters
+    - *glue*: `\n\t\\`
 
-* Input values:
+- Input values:
   1. `[a
-	\b, c]`
+ \b, c]`
 
-* Returns:
+- Returns:
 
   → `[a
-	\b
-	\c]`
+ \b
+ \c]`
 
 
 !!! example "Example 5"

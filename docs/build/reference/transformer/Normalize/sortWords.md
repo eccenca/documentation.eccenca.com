@@ -8,8 +8,6 @@ tags:
 # Sort words
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Sorts all words in each value lexicographically.
 
 ## Examples
@@ -24,7 +22,6 @@ Sorts all words in each value lexicographically.
 
 * Returns: `[]`
 
-
 ---
 **Example 2:**
 
@@ -32,7 +29,6 @@ Sorts all words in each value lexicographically.
     1. `[c a b]`
 
 * Returns: `[a b c]`
-
 
 ---
 **Example 3:**
@@ -42,32 +38,23 @@ Sorts all words in each value lexicographically.
 
 * Returns: `[Hamburg Hans Hansa, Marburg München]`
 
-
-
-
 ## Parameter
 
 ### Split regex
 
 The regular expression used to split values into words.
 
-- ID: `splitRegex`
-- Datatype: `string`
-- Default Value: `\s+`
-
-
+* ID: `splitRegex`
+* Datatype: `string`
+* Default Value: `\s+`
 
 ### Glue
 
 Separator to be inserted between sorted words.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: ` `
-
-
-
-
+* ID: `glue`
+* Datatype: `string`
+* Default Value: ` `
 
 ## Advanced Parameter
 

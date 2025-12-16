@@ -8,8 +8,6 @@ tags:
 # Concatenate pairwise
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Concatenates the values of multiple inputs pairwise.
 
 ## Examples
@@ -25,7 +23,6 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1, b2, c3]`
 
-
 ---
 **More than two inputs are supported as well:**
 
@@ -36,7 +33,6 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1x, b2y, c3z]`
 
-
 ---
 **If one of the inputs has more values than the other, its remaining values are ignored:**
 
@@ -46,12 +42,10 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1, b2]`
 
-
 ---
 **Empty input leads to empty output:**
 
 * Returns: `[]`
-
 
 ---
 **A single input is just forwarded:**
@@ -61,22 +55,15 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a]`
 
-
-
-
 ## Parameter
 
 ### Glue
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

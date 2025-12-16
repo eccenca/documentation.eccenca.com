@@ -45,10 +45,10 @@ In the main area, the Metadata view of the selected graph appears, showing sev
 
 The Graphs are categorized into groups as follows:
 
--   User: All graphs which represent user data (created manually or by build processes).
--   Vocabularies: All graphs containing vocabularies.
--   System: All graphs containing configuration data.
--   All
+- User: All graphs which represent user data (created manually or by build processes).
+- Vocabularies: All graphs containing vocabularies.
+- System: All graphs containing configuration data.
+- All
 
 You can search for a specific graph with **:eccenca-module-search: Search**.
 
@@ -71,9 +71,9 @@ To add a new graph to the Graphs list:
 
 To download a graph from the Graphs list:
 
--   In the **Graphs** list, click **:eccenca-item-download: Download graph** on the graph you want to download.
--   A message box appears, stating that downloading can take a long time.
--   Click **Download**.
+- In the **Graphs** list, click **:eccenca-item-download: Download graph** on the graph you want to download.
+- A message box appears, stating that downloading can take a long time.
+- Click **Download**.
 
 ### :eccenca-item-edit: Managing a graph
 
@@ -193,7 +193,7 @@ This tab shows all resources that link back to the selected resource.
 This tab shows the turtle RDF representation of the raw data representing the resource.
 You can use this tab to edit the selected resource:
 
--   Enter your changes in turtle.
--   Click **UPDATE** to save your changes.
+- Enter your changes in turtle.
+- Click **UPDATE** to save your changes.
 
 Deleting the entire turtle representation deletes the resource.

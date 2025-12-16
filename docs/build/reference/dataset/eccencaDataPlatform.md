@@ -8,8 +8,6 @@ tags:
 # Knowledge Graph
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 The Knowledge Graph plugin is a dataset for reading and writing RDF to a knowledge graph embedded in Corporate Memory.
 
 ## Description
@@ -58,51 +56,39 @@ _semantic data management software_. The additional possibility of integrating w
 the SPARQL endpoint is merely a small part of the possibilities to
 [consume](https://documentation.eccenca.com/latest/consume/) data within CMEM.
 
-
-
 ## Parameter
 
 ### Graph
 
 The URI of the named graph.
 
-- ID: `graph`
-- Datatype: `graph uri`
-- Default Value: `None`
-
-
+* ID: `graph`
+* Datatype: `graph uri`
+* Default Value: `None`
 
 ### Clear graph before workflow execution
 
 If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.
 
-- ID: `clearGraphBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
+* ID: `clearGraphBeforeExecution`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ### SPARQL query timeout (ms)
 
-SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and `silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
+SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and`silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
 
-- ID: `sparqlTimeout`
-- Datatype: `int`
-- Default Value: `0`
-
-
+* ID: `sparqlTimeout`
+* Datatype: `int`
+* Default Value: `0`
 
 ### Optimized entity retrieval
 
 Optimized retrieval method to remove load from the underlying triple store. Query parallelism is limited and cheaper queries are executed against the backend. By putting the main work on DataIntegration side, the RDF backend is kept responsive.
 
-- ID: `optimizedRetrieve`
-- Datatype: `boolean`
-- Default Value: `true`
-
-
-
-
+* ID: `optimizedRetrieve`
+* Datatype: `boolean`
+* Default Value: `true`
 
 ## Advanced Parameter
 
@@ -110,69 +96,54 @@ Optimized retrieval method to remove load from the underlying triple store. Quer
 
 The named endpoint within eccenca DataPlatform.
 
-- ID: `endpoint`
-- Datatype: `string`
-- Default Value: `default`
-
-
+* ID: `endpoint`
+* Datatype: `string`
+* Default Value: `default`
 
 ### Page size
 
 The number of entities to be retrieved per SPARQL query. This is the page size used when paging.
 
-- ID: `pageSize`
-- Datatype: `int`
-- Default Value: `100000`
-
-
+* ID: `pageSize`
+* Datatype: `int`
+* Default Value: `100000`
 
 ### Pause time
 
 The number of milliseconds to wait between subsequent query
 
-- ID: `pauseTime`
-- Datatype: `int`
-- Default Value: `0`
-
-
+* ID: `pauseTime`
+* Datatype: `int`
+* Default Value: `0`
 
 ### Retry count
 
 The number of retries if a query fails
 
-- ID: `retryCount`
-- Datatype: `int`
-- Default Value: `3`
-
-
+* ID: `retryCount`
+* Datatype: `int`
+* Default Value: `3`
 
 ### Retry pause
 
 The number of milliseconds to wait until a failed query is retried.
 
-- ID: `retryPause`
-- Datatype: `int`
-- Default Value: `1000`
-
-
+* ID: `retryPause`
+* Datatype: `int`
+* Default Value: `1000`
 
 ### Strategy
 
 The strategy for retrieving entities. There are three options: `simple` retrieves all entities using a single query; `subQuery` also uses a single query, which is optimized for Virtuoso; `parallel` executes multiple queries in parallel, one for each entity property.
 
-- ID: `strategy`
-- Datatype: `enumeration`
-- Default Value: `parallel`
-
-
+* ID: `strategy`
+* Datatype: `enumeration`
+* Default Value: `parallel`
 
 ### Entity list
 
 A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace.
 
-- ID: `entityList`
-- Datatype: `multiline string`
-- Default Value: `None`
-
-
-
+* ID: `entityList`
+* Datatype: `multiline string`
+* Default Value: `None`

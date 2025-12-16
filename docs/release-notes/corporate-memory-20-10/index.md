@@ -29,7 +29,6 @@ This release delivers the following component versions:
 
 More detailed release notes for these versions are listed below.
 
-
 ## eccenca DataIntegration v20.10.1
 
 This version of eccenca DataIntegration adds the following new features:
@@ -102,7 +101,6 @@ Finally, the following performance and stability issues were solved:
 - Deleting S3 backed resources broken due to a slash added to filenames
 - Update PostgreSQL driver to v42.2.14 because of security vulnerability
 
-
 ## eccenca DataManager v20.10.1
 
 This version of eccenca DataManager adds the following new features:
@@ -148,7 +146,6 @@ In addition to that, these changes are shipped:
 
 In addition to that, multiple performance and stability issues were solved.
 
-
 ## eccenca DataPlatform v20.10
 
 This version of eccenca DataPlatform adds the following new features:
@@ -173,7 +170,6 @@ This version of eccenca DataPlatform adds the following new features:
 
 In addition to that, multiple performance and stability issues were solved.
 
-
 ## eccenca Corporate Memory Control (cmemc) v20.10
 
 This version of cmemc adds the following new features:
@@ -196,11 +192,9 @@ In addition to that, these changes are shipped:
     - The completion of `--filename-template` resulted in files with wrong chars.
     - The python version is disabled in completion mode.
 
-
 ## eccenca Corporate Memory PowerBI Connector (v20.10)
 
 This release of our PowerBI Connector does not introduce new features or relevant changes. We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../consume/consuming-graphs-in-power-bi/index.md)
-
 
 # Migration Notes
 
@@ -208,7 +202,8 @@ This release of our PowerBI Connector does not introduce new features or relevan
 
 - XML serialization for meta data elements is not forward compatible, i.e. projects exported with this version cannot be imported in older DataIntegration versions.
 - The logout URL needs to be set to make sure that DataIntegration also triggers a logout inside the Keycloak instance:
-    ```
+
+    ```conf
     oauth.logoutRedirectUrl = ${DEPLOY_BASE_URL}"/auth/realms/cmem/protocol/openid-connect/logout?redirect_uri="${DEPLOY_BASE_URL}
     ```
 
@@ -219,6 +214,7 @@ This release of our PowerBI Connector does not introduce new features or relevan
     - The modules `build` as well as `datasets` are disabled now by default.
     - The module `explore` is the default first entry point (`startsWith`).
     - This section needs to be added to each workspace configuration:
+
     ``` yaml
         DIWorkspace:
           enable: true
@@ -228,4 +224,3 @@ This release of our PowerBI Connector does not introduce new features or relevan
 ## cmemc
 
 - If your automation scripts rely on the created file name of the project export command, you need to change your scripts and set the old export name explicitly with `-t {{id}}`.
-

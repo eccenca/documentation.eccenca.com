@@ -8,8 +8,6 @@ tags:
 # XSLT
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 ## Description of the plugin
 
 The plugin `xsltOperator` is a custom task which can be used in a workflow in order to transform a given **XML file** using an **XSL transformation** from an XSLT file. The filename extension of such a XSL transformation is, accordingly, `.xslt`.
@@ -19,19 +17,20 @@ The **output** of the XML transformation is saved as an output file resource. In
 In essence and from a technical point of view, the `xsltOperator` is simply a wrapper around the XSLT processor provided by [Saxonica](https://www.saxonica.com/products/products.xml).
 
 If you are well-versed in the XSL ecosystem, this is everything you need to know. If not, the remaining of the documentation provides some amount of information and detail on the parts of XSL and XSLT which are relevant for our purposes.
+
 ## Description of XSL and XSLT
 
 ### The XSL ecosystem
 
 The acronym **XSL** stands for "eXtensible Stylesheet Language". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:
 
-	1. XSLT: XSL Transformations
-	2. XPath: XML Path Language
-	3. XSL-FO: XSL Formatting Objects
+ 1. XSLT: XSL Transformations
+ 2. XPath: XML Path Language
+ 3. XSL-FO: XSL Formatting Objects
 
 In a nutshell, this is simply the separation of concerns between "processing" XML and "rendering" the results.
 
-The most relevant of these parts for us, is **XSLT**. XSLT is a language for *transforming* or *processing* XML documents. Originally (around 1999), XSLT was designed for _styling_ XML documents, which is still seen in the nomenclature, e.g. in the term `<xsl:stylesheet>` or in the acronyms "XSL" and "XSLT" themselves. But other than just _styling XML markup_, XSLT 2.0 (and beyond) is a Turing-complete language, which is used for **transforming XML _data_**. The modern perspective and understanding is therefore not on "XML as a markup language for documents which are presented to a web browser, or converted to a form suitable for printing, such as PDF or PostScript", but, in general terms, on "XML as a means to represent (highly-structured) data, which can be arbitrarily transformed by XSLT".
+The most relevant of these parts for us, is **XSLT**. XSLT is a language for _transforming_ or _processing_ XML documents. Originally (around 1999), XSLT was designed for _styling_ XML documents, which is still seen in the nomenclature, e.g. in the term `<xsl:stylesheet>` or in the acronyms "XSL" and "XSLT" themselves. But other than just _styling XML markup_, XSLT 2.0 (and beyond) is a Turing-complete language, which is used for **transforming XML _data_**. The modern perspective and understanding is therefore not on "XML as a markup language for documents which are presented to a web browser, or converted to a form suitable for printing, such as PDF or PostScript", but, in general terms, on "XML as a means to represent (highly-structured) data, which can be arbitrarily transformed by XSLT".
 
 _If_ the aspect of formatting semantics is relevant to us, then we'd need to consider and describe the XSL Formatting Objects (**XSL-FO**) vocabulary. This is beyond the scope of this document. Our focus is on the transformation of XML data via XSL transformations.
 
@@ -52,11 +51,13 @@ The **XSL transform** turns the so-called **source tree** into a **result tree**
 A minimal example of the (1) XML input data, (2) a corresponding XSL transformation and the (3) generated output is the following:
 
 **XML data** (`.xml` file):
+
 ```xml
 <book><title>1984</title></book>
 ```
 
 **XSL stylesheet** (`.xslt` file):
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/book">
@@ -66,11 +67,13 @@ A minimal example of the (1) XML input data, (2) a corresponding XSL transformat
 ```
 
 **Output:** (`.html` file)
+
 ```html
 <html><body><h1>1984</h1></body></html>
 ```
 
 In this example:
+
 1. The **XML** holds the input information (`<book><title>1984</title></book>`).
 2. The **XSL stylesheet** specifies how that information should be formatted (it takes the title and places it inside HTML).
 3. The **XSL transformation** processes both files to create the **final HTML result** (`<h1>1984</h1>`).
@@ -80,11 +83,13 @@ In this example:
 A slightly more complex example is the following:
 
 **XML data** (`.xml` file):
+
 ```xml
 <person><name>Alice</name><age>30</age></person>
 ```
 
 **XSL stylesheet** (`.xslt` file):
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/person">
@@ -94,6 +99,7 @@ A slightly more complex example is the following:
 ```
 
 **Output:** (`.html` file)
+
 ```html
 <html><body><p>Alice is 30 years old.</p></body></html>
 ```
@@ -105,6 +111,7 @@ A slightly more complex example is the following:
 A rather straightforward but specific example could be the following _conversion from XML data to **RDF**_:
 
 **XML**:
+
 ```xml
 <person id="p1">
   <name>Alice</name>
@@ -113,6 +120,7 @@ A rather straightforward but specific example could be the following _conversion
 ```
 
 **XSL stylesheet**:
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template match="/person">
@@ -128,6 +136,7 @@ A rather straightforward but specific example could be the following _conversion
 ```
 
 **Result (RDF/XML)**:
+
 ```xml
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/">
@@ -139,17 +148,20 @@ A rather straightforward but specific example could be the following _conversion
 ```
 
 In this example:
+
 1. The **XSLT processor** matches the `<person>` element in the input XML.
 2. It **creates** an `<rdf:RDF>` root element with the required namespaces.
 3. It **constructs** a `<foaf:Person>` resource, using the `id` attribute as the subject URI.
 4. It **writes** a `<foaf:name>` element with the value from `<name>`.
 5. It **adds** a `<foaf:mbox>` element with a `mailto:` URI built from `<email>`.
 6. It **outputs** the final RDF/XML document representing the RDF triples.
+
 ##### JSON style
 
 The same straightforward example of an XML to RDF conversion, but using the `JSON-LD` style for the result:
 
 **XSL stylesheet**
+
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="text" />
@@ -165,6 +177,7 @@ The same straightforward example of an XML to RDF conversion, but using the `JSO
 ```
 
 **Result (JSON-LD style)**:
+
 ```json
 {
   "@id": "#p1",
@@ -205,6 +218,7 @@ More conceptually, other use cases of XSLT include:
 - **Content publishing** — generating multiple output formats (HTML, PDF, EPUB) from a single XML source.
 - **Configuration and code generation** — producing scripts, configuration files, or documentation from XML metadata.
 - **Visualization** — creating SVG charts, diagrams, or interactive web elements from structured XML data.
+
 ## How does XSL relate to RDF?
 
 **XSL**, specifically **XSLT**, relates to **RDF** by providing a way to **transform XML data into RDF serializations** (like RDF/XML or JSON-LD). It acts as a bridge between structured XML sources and Semantic Web representations, enabling automated RDF generation from existing XML-based datasets.
@@ -218,10 +232,9 @@ To import XML into a **Knowledge Graph**, you typically:
 3. **Validate the RDF** — check it against the ontology or SHACL shapes.
 4. **Load the RDF** — import it into a **triple store** or **graph database** (e.g., Fuseki, GraphDB, Neo4j).
 
-Whereas this process *does* the job of importing XML into a knowledge graph, using a **data integration** solution based on **knowledge graphs**, such as [eccenca Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory) (CMEM), is a *much better fit*. For an example on this, see the [tutorial on lifting data from an XML source](https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources/), and notice how each of the steps (mapping, transforming, validating, loading) is realized. In such an improved setting, notice how the `xsltOperator` plugin  is _**not** used for transforming XML into RDF_, but only for _transforming the data you want to import and bring it to the XML format_. The second step of the list (_transform the XML into RDF_) is taken care of by CMEM itself. The usage of XSLT is, therefore, limited to what is required by your input data and data processing requirements, not by the technicalities behind the semantic data integration.
+Whereas this process _does_ the job of importing XML into a knowledge graph, using a **data integration** solution based on **knowledge graphs**, such as [eccenca Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory) (CMEM), is a _much better fit_. For an example on this, see the [tutorial on lifting data from an XML source](https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources/), and notice how each of the steps (mapping, transforming, validating, loading) is realized. In such an improved setting, notice how the `xsltOperator` plugin  is _**not** used for transforming XML into RDF_, but only for _transforming the data you want to import and bring it to the XML format_. The second step of the list (_transform the XML into RDF_) is taken care of by CMEM itself. The usage of XSLT is, therefore, limited to what is required by your input data and data processing requirements, not by the technicalities behind the semantic data integration.
 
 Notice as well that the source of XML data does not need to be an XML _file_. An alternative could be a Web API providing XML instead of JSON responses. See the [tutorial on extracting data from a Web API](https://documentation.eccenca.com/latest/build/extracting-data-from-a-web-api/), and use an **XML parser** and **XML Dataset** instead of the JSON variants described in the tutorial. Otherwise, the process is the same.
-
 
 ## Parameter
 
@@ -232,10 +245,6 @@ The XSLT file to be used for transforming XML.
 - ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

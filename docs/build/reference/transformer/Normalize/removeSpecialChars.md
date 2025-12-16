@@ -8,10 +8,7 @@ tags:
 # Remove special chars
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Remove special characters (including punctuation) from a string.
-
 
 ## Parameter
 

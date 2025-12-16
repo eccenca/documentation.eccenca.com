@@ -8,8 +8,6 @@ tags:
 # Standardize
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Excel STANDARDIZE(number; mean; STDEV): Converts a random variable to a normalized value. Number is the value to be standardized. Mean is the arithmetic mean of the distribution. STDEV is the standard deviation of the distribution.
 
 ## Parameter
@@ -21,10 +19,6 @@ The name of the Excel function
 - ID: `functionName`
 - Datatype: `string`
 - Default Value: `STANDARDIZE`
-
-
-
-
 
 ## Advanced Parameter
 

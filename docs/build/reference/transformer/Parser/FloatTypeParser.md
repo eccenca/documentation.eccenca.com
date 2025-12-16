@@ -8,10 +8,7 @@ tags:
 # Parse float
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Parses and normalizes float values.
-
 
 ## Parameter
 
@@ -23,8 +20,6 @@ No description
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
 ### Thousand separator
 
 No description
@@ -33,8 +28,6 @@ No description
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
 ### Brackets for negative
 
 No description
@@ -42,10 +35,6 @@ No description
 - ID: `bracketsForNegative`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 

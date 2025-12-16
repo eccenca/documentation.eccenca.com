@@ -8,8 +8,6 @@ tags:
 # Aggregate numbers
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 The `aggregateNumbers` plugin applies an aggregation operator to the sequence of input values.
 The allowed aggregation operators are **sum** (`+`), **product** (`*`), **minimum** (`min`), **maximum** (`max`)
 and **average** (`average`).
@@ -45,7 +43,6 @@ numbers, they will be ignored.
 
 * Returns: `[3.0]`
 
-
 ---
 **Example 2:**
 
@@ -56,7 +53,6 @@ numbers, they will be ignored.
     1. `[2, 2, 2]`
 
 * Returns: `[8.0]`
-
 
 ---
 **Example 3:**
@@ -69,7 +65,6 @@ numbers, they will be ignored.
 
 * Returns: `[1.0]`
 
-
 ---
 **Example 4:**
 
@@ -80,7 +75,6 @@ numbers, they will be ignored.
     1. `[1, 2, 3]`
 
 * Returns: `[3.0]`
-
 
 ---
 **Example 5:**
@@ -93,7 +87,6 @@ numbers, they will be ignored.
 
 * Returns: `[2.0]`
 
-
 ---
 **Example 6:**
 
@@ -104,7 +97,6 @@ numbers, they will be ignored.
     1. `[1.0, Infinity]`
 
 * Returns: `[Infinity]`
-
 
 ---
 **Example 7:**
@@ -117,7 +109,6 @@ numbers, they will be ignored.
 
 * Returns: `[Infinity]`
 
-
 ---
 **Example 8:**
 
@@ -128,7 +119,6 @@ numbers, they will be ignored.
     1. `[1.0, Infinity]`
 
 * Returns: `[1.0]`
-
 
 ---
 **Example 9:**
@@ -141,7 +131,6 @@ numbers, they will be ignored.
 
 * Returns: `[Infinity]`
 
-
 ---
 **Example 10:**
 
@@ -152,7 +141,6 @@ numbers, they will be ignored.
     1. `[1.0, Infinity]`
 
 * Returns: `[Infinity]`
-
 
 ---
 **Example 11:**
@@ -165,7 +153,6 @@ numbers, they will be ignored.
 
 * Returns: `[1.0]`
 
-
 ---
 **Example 12:**
 
@@ -176,7 +163,6 @@ numbers, they will be ignored.
     1. `[1.0, Whatever]`
 
 * Returns: `[1.0]`
-
 
 ---
 **Example 13:**
@@ -189,7 +175,6 @@ numbers, they will be ignored.
 
 * Returns: `[1.0]`
 
-
 ---
 **Example 14:**
 
@@ -200,7 +185,6 @@ numbers, they will be ignored.
     1. `[1.0, Whatever]`
 
 * Returns: `[1.0]`
-
 
 ---
 **Example 15:**
@@ -213,7 +197,6 @@ numbers, they will be ignored.
 
 * Returns: `[1.0]`
 
-
 ---
 **Example 16:**
 
@@ -225,22 +208,15 @@ numbers, they will be ignored.
 
 * Returns: `[]`
 
-
-
-
 ## Parameter
 
 ### Operator
 
 The aggregation operation to be applied to all values. One of `+`, `*`, `min`, `max`, `average`.
 
-- ID: `operator`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `operator`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

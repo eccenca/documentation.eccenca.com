@@ -8,10 +8,7 @@ tags:
 # In-memory dataset
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 A Dataset that holds all data in-memory.
-
 
 ## Parameter
 
@@ -22,10 +19,6 @@ If set to true this will clear this dataset before it is used in a workflow exec
 - ID: `clearGraphBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `true`
-
-
-
-
 
 ## Advanced Parameter
 

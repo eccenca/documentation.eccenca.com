@@ -13,25 +13,19 @@ List, execute, status or open (io) workflows.
 
 Workflows are identified by a `WORKFLOW_ID`. The get a list of existing workflows, execute the list command or use tab-completion. The `WORKFLOW_ID` is a concatenation of a `PROJECT_ID` and a `TASK_ID`, such as `my-project:my-workflow`.
 
-
 ## workflow execute
 
 Execute workflow(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow execute [OPTIONS] [WORKFLOW_IDS]...
+cmemc workflow execute [OPTIONS] [WORKFLOW_IDS]...
 ```
-
-
-
 
 With this command, you can start one or more workflows at the same time or in a sequence, depending on the result of the predecessor.
 
 Executing a workflow can be done in two ways: Without `--wait` just sends the starting signal and does not look for the workflow and its result (fire and forget). Starting workflows in this way, starts all given workflows at the same time.
 
 The optional `--wait` option starts the workflows in the same way, but also polls the status of a workflow until it is finished. In case of an error of a workflow, the next workflow is not started.
-
-
 
 ??? info "Options"
     ```text
@@ -52,19 +46,13 @@ The optional `--wait` option starts the workflows in the same way, but also poll
 Execute a workflow with file input/output.
 
 ```shell-session title="Usage"
-$ cmemc workflow io [OPTIONS] WORKFLOW_ID
+cmemc workflow io [OPTIONS] WORKFLOW_ID
 ```
-
-
-
 
 With this command, you can execute a workflow that uses replaceable datasets as input, output or for configuration. Use the input parameter to feed data into the workflow. Likewise, use output for retrieval of the workflow result. Workflows without a replaceable dataset will throw an error.
 
 !!! note
     Regarding the input dataset configuration - the following rules apply: If autoconfig is enabled ('--autoconfig', the default), the dataset configuration is guessed. If autoconfig is disabled ('--no-autoconfig') and the type of the dataset file is the same as the replaceable dataset in the workflow, the configuration from this dataset is copied. If autoconfig is disabled and the type of the dataset file is different from the replaceable dataset in the workflow, the default config is used.
-
-
-
 
 ??? info "Options"
     ```text
@@ -101,12 +89,8 @@ With this command, you can execute a workflow that uses replaceable datasets as 
 List available workflow.
 
 ```shell-session title="Usage"
-$ cmemc workflow list [OPTIONS]
+cmemc workflow list [OPTIONS]
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -127,12 +111,8 @@ $ cmemc workflow list [OPTIONS]
 Get status information of workflow(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
+cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -150,10 +130,5 @@ $ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
 Open a workflow in your browser.
 
 ```shell-session title="Usage"
-$ cmemc workflow open WORKFLOW_ID
+cmemc workflow open WORKFLOW_ID
 ```
-
-
-
-
-

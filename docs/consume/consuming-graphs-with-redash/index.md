@@ -40,4 +40,3 @@ To get familiar with Redash, please have a look at the Redash user guide, especi
 
     In order to query eccenca Corporate Memory data sources in Redash, you have to formulate your query with SPARQL:
     ![Redash: Query with SPARQL](3-edit-query.png "Redash: Query with SPARQL")
-

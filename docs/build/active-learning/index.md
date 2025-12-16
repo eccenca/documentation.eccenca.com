@@ -37,7 +37,7 @@ The examples process below uses the **movies** example project which can be adde
 
 ## Creating an automatic link rule
 
--   Choose properties to compare.
+- Choose properties to compare.
     Select from the suggestions or search them by specifying property paths for both entities.
 
     ![image](22.2-Suggestion.png){ class="bordered" }
@@ -48,15 +48,15 @@ The examples process below uses the **movies** example project which can be adde
 
 ## Add property paths for both entities
 
--   Click on the Source path and select a path.
+- Click on the Source path and select a path.
 
     ![image](22.2-Sourcepath.png){ class="bordered" }
 
--   Click on the Target path and select a corresponding path.
+- Click on the Target path and select a corresponding path.
 
     ![image](22.2-targetpath.png){ class="bordered" }
 
--   Click on the :eccenca-item-add-artefact: icon to add the path pair to be examined in the learning algorithm.
+- Click on the :eccenca-item-add-artefact: icon to add the path pair to be examined in the learning algorithm.
 
     ![image](22.2-plusicon.png){ class="bordered" }
 
@@ -66,11 +66,11 @@ The examples process below uses the **movies** example project which can be adde
 
         ![image](22.2-stepresult1.png){ class="bordered" }
 
--   Click on :eccenca-item-remove: icon to remove the paths.
+- Click on :eccenca-item-remove: icon to remove the paths.
 
      ![image](22.2-delete.png){ class="bordered" }
 
--   Click on Start learning.
+- Click on Start learning.
 
     ![image](22.2-startlearning.png){ class="bordered" }
 
@@ -105,7 +105,7 @@ The examples process below uses the **movies** example project which can be adde
 
     ![image](22.2-decline.png){ class="bordered" }
 
--   On the right side of the page click on the 3 dots, then click on show entity’s URI.
+- On the right side of the page click on the 3 dots, then click on show entity’s URI.
 
     ![image](22.2-uri.png){ class="bordered" }
 
@@ -115,11 +115,11 @@ The examples process below uses the **movies** example project which can be adde
 
     ![image](22.2-reflinks.png){ class="bordered" }
 
--   Click on Save based on our input confirm, uncertain and decline the link rule will get generated automatically and the score changes for these entities in the score bar.
+- Click on Save based on our input confirm, uncertain and decline the link rule will get generated automatically and the score changes for these entities in the score bar.
 
 ![image](22.2-save.png){ class="bordered" }
 
--   Switch on the save best learned rule, then click on save.
+- Switch on the save best learned rule, then click on save.
 
 ![image](22.2-stepresult2.png){ class="bordered" }
 

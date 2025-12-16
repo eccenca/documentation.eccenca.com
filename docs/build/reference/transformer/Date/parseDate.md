@@ -8,8 +8,6 @@ tags:
 # Parse date pattern
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Parses a date based on a specified pattern, returning an xsd:date.
 
 ## Examples
@@ -27,7 +25,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
 
 * Returns: `[2015-04-03]`
 
-
 ---
 **Example 2:**
 
@@ -39,7 +36,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
 
 * Returns: `[2015-04-03]`
 
-
 ---
 **Example 3:**
 
@@ -50,7 +46,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
     1. `[20150403]`
 
 * Returns: `[2015-04-03]`
-
 
 ---
 **Example 4:**
@@ -64,7 +59,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
 
 * Returns: `[2024-05-01]`
 
-
 ---
 **Example 5:**
 
@@ -76,7 +70,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
     1. `[Mai 2024]`
 
 * Returns: `[2024-05-01]`
-
 
 ---
 **Example 6:**
@@ -91,7 +84,6 @@ Parses a date based on a specified pattern, returning an xsd:date.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
 ---
 **Example 7:**
 
@@ -105,42 +97,31 @@ Parses a date based on a specified pattern, returning an xsd:date.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
-
-
 ## Parameter
 
 ### Format
 
 The date pattern used to parse the input values
 
-- ID: `format`
-- Datatype: `string`
-- Default Value: `dd-MM-yyyy`
-
-
+* ID: `format`
+* Datatype: `string`
+* Default Value: `dd-MM-yyyy`
 
 ### Lenient
 
 If set to true, the parser tries to use heuristics to parse dates with invalid fields (such as a day of zero).
 
-- ID: `lenient`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
+* ID: `lenient`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ### Locale
 
 Optional locale for the date format. If not set the system's locale will be used.
 
-- ID: `locale`
-- Datatype: `option[locale]`
-- Default Value: `None`
-
-
-
-
+* ID: `locale`
+* Datatype: `option[locale]`
+* Default Value: `None`
 
 ## Advanced Parameter
 

@@ -8,8 +8,6 @@ tags:
 # Remote SQL endpoint
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 ## General usage
 
 The JDBC dataset supports connections to Hive, Microsoft SQL Server, MySQL, MariaDB, SnowFlake, Oracle Database, DB2 and PostgreSQL databases.
@@ -31,6 +29,7 @@ Most of the dataset parameters are passed directly to the driver.
 Please make sure that you use the correct syntax for each DBMS, otherwise you may get unintuitive errors.
 
 Here are templates for supported database systems:
+
 ```
 oracle (external driver needed): 
 jdbc:oracle:thin:@{host}[:{port}]/{database}
@@ -81,14 +80,14 @@ For some DBMS and specific JDBC dataset configurations we support these optimize
 Supported DBMS:
 
 - MySQL and MariaDB (full support for versions 8.0.19+ and 10.4+, resp.):
-  - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will
-  - the same is true when older driver jars then the one provided by eccenca are used
-  - both use the MariaDB JDBC driver
-  - uses `LOAD DATA LOCAL INFILE` internally
-  - only applies when appending data to an existing table and having `Force Spark Execution` disabled
-  - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.
+    - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will
+    - the same is true when older driver jars then the one provided by eccenca are used
+    - both use the MariaDB JDBC driver
+    - uses `LOAD DATA LOCAL INFILE` internally
+    - only applies when appending data to an existing table and having `Force Spark Execution` disabled
+    - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.
     For MySQL starting with version 8 the `local_infile` parameter is by default disabled!
-  - If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure ANSIquotes are used.
+    - If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure ANSIquotes are used.
     `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
 
     ```sh
@@ -132,7 +131,7 @@ spark.sql.options {
 
 In general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
 
-The driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.                   
+The driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
 
 _Recommended DBMS versions_
 
@@ -145,7 +144,6 @@ _Recommended DBMS versions_
 These limitations are the same for JDBC drivers that are older than the fully supported databases.
 Queries can achieve a similar outcome if `groupBy` is not supported.
 
-
 ## Parameter
 
 ### JDBC Driver Connection URL
@@ -156,8 +154,6 @@ JDBC URL, must contain the database as parameter, i.g. with ;database=DBNAME or 
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Table
 
 Table name. Can be empty if the read-strategy is not set to read the full table. If non-empty it has to contain at least an existing table.
@@ -165,8 +161,6 @@ Table name. Can be empty if the read-strategy is not set to read the full table.
 - ID: `table`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Source query
 
@@ -176,8 +170,6 @@ Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Warning: Uses Dr
 - Datatype: `code-sql`
 - Default Value: `None`
 
-
-
 ### Group by
 
 Comma separated list of attributes appearing in the outer SELECT clause that should be grouped by. The attributes are matched case-insensitive. All other attributes will be grouped via an aggregation function that depends on the supported DBMS, e.g. (JSON) array aggregation.
@@ -185,8 +177,6 @@ Comma separated list of attributes appearing in the outer SELECT clause that sho
 - ID: `groupBy`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Order by
 
@@ -196,8 +186,6 @@ Optional column to sort the result set.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Limit
 
 Optional limit of returned records. This limit should be pushed to the source. No value implies that no limit will be applied.
@@ -205,8 +193,6 @@ Optional limit of returned records. This limit should be pushed to the source. N
 - ID: `limit`
 - Datatype: `option[int]`
 - Default Value: `10`
-
-
 
 ### Query strategy
 
@@ -216,8 +202,6 @@ The strategy decides how the source system is queried.
 - Datatype: `enumeration`
 - Default Value: `access-complete-table`
 
-
-
 ### Write strategy
 
 If this dataset is written to, it can be selected if data is overwritten or appended.'
@@ -225,8 +209,6 @@ If this dataset is written to, it can be selected if data is overwritten or appe
 - ID: `writeStrategy`
 - Datatype: `enumeration`
 - Default Value: `default`
-
-
 
 ### Multiple values strategy
 
@@ -236,8 +218,6 @@ How multiple values per entity property are written.
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
-
-
 ### Clear table before workflow execution
 
 If set to true this will clear the specified table before executing a workflow that writes to it.
@@ -245,8 +225,6 @@ If set to true this will clear the specified table before executing a workflow t
 - ID: `clearTableBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
 
 ### User
 
@@ -256,8 +234,6 @@ Username. Must be empty in some cases e.g. if secret key and client id are used.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Password
 
 Password. Can be empty in some cases e.g. secret key and client id are used or if it is just an empty string. The password must be set here and cannot be set in the JDBC URL connection string.
@@ -266,8 +242,6 @@ Password. Can be empty in some cases e.g. secret key and client id are used or i
 - Datatype: `password`
 - Default Value: `None`
 
-
-
 ### Restriction
 
 An SQL WHERE clause to filter the records to be retrieved.
@@ -275,10 +249,6 @@ An SQL WHERE clause to filter the records to be retrieved.
 - ID: `restriction`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -290,17 +260,13 @@ URL for retrieving tokens, when using MS SQL Active Directory token based authen
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Service principal name (Azure Active Directory)
 
-Service Principal Name identifying the resource. Usually a static URL like https://database.windows.net.
+Service Principal Name identifying the resource. Usually a static URL like <https://database.windows.net>.
 
 - ID: `spnName`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Client id (Azure Active Directory)
 
@@ -310,8 +276,6 @@ Client id or application id. Client id used for MS SQL token based authenticatio
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Client secret (Azure Active Directory)
 
 Client secret. Client secret used for MS SQL token based authentication. Can be generated in Azure AD admin center.
@@ -319,8 +283,6 @@ Client secret. Client secret used for MS SQL token based authentication. Can be 
 - ID: `clientSecret`
 - Datatype: `password`
 - Default Value: `None`
-
-
 
 ### Retries
 
@@ -330,8 +292,6 @@ Optional number of retries per query
 - Datatype: `int`
 - Default Value: `0`
 
-
-
 ### Pause
 
 Optional pause between queries in ms.
@@ -339,8 +299,6 @@ Optional pause between queries in ms.
 - ID: `pause`
 - Datatype: `int`
 - Default Value: `2000`
-
-
 
 ### Charset
 
@@ -350,8 +308,6 @@ The source internal encoding, e.g., UTF-8, ISO-8859-1
 - Datatype: `string`
 - Default Value: `UTF-8`
 
-
-
 ### Force spark execution
 
 If set to true, Spark will be used for querying the database, even if the local execution manager is configured.
@@ -359,6 +315,3 @@ If set to true, Spark will be used for querying the database, even if the local 
 - ID: `forceSparkExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-

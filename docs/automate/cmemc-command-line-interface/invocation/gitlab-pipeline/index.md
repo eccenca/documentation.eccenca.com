@@ -61,4 +61,3 @@ The Github project [eccenca/cmemc-workflow](https://github.com/eccenca/cmemc-wor
 Here is an example output:
 
 ![Example pipeline output](example-pipeline-output.png "Example pipeline output")
-

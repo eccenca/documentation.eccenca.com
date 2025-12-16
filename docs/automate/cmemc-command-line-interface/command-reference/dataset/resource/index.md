@@ -15,22 +15,15 @@ File resources are identified by their paths and project IDs.
 !!! warning
     This command group is deprecated and will be removed with the next major release. Please use the `project file` command group instead.
 
-
-
 ## dataset resource list
 
 List available file resources.
 
 ```shell-session title="Usage"
-$ cmemc dataset resource list [OPTIONS]
+cmemc dataset resource list [OPTIONS]
 ```
 
-
-
-
 Outputs a table or a list of file resources.
-
-
 
 ??? info "Options"
     ```text
@@ -49,15 +42,10 @@ Outputs a table or a list of file resources.
 Delete file resources.
 
 ```shell-session title="Usage"
-$ cmemc dataset resource delete [OPTIONS] [RESOURCE_IDS]...
+cmemc dataset resource delete [OPTIONS] [RESOURCE_IDS]...
 ```
 
-
-
-
 There are three selection mechanisms: with specific IDs - only those specified resources will be deleted; by using `--filter` - resources based on the filter type and value will be deleted; by using `--all`, which will delete all resources.
-
-
 
 ??? info "Options"
     ```text
@@ -76,12 +64,8 @@ There are three selection mechanisms: with specific IDs - only those specified r
 Display all metadata of a file resource.
 
 ```shell-session title="Usage"
-$ cmemc dataset resource inspect [OPTIONS] RESOURCE_ID
+cmemc dataset resource inspect [OPTIONS] RESOURCE_ID
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -94,16 +78,11 @@ $ cmemc dataset resource inspect [OPTIONS] RESOURCE_ID
 Display all usage data of a file resource.
 
 ```shell-session title="Usage"
-$ cmemc dataset resource usage [OPTIONS] RESOURCE_ID
+cmemc dataset resource usage [OPTIONS] RESOURCE_ID
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
 
     --raw       Outputs raw JSON.
     ```
-

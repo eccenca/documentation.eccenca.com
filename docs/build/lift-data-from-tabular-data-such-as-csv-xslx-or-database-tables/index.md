@@ -33,16 +33,15 @@ The documentation consists of the following steps, which are described in detail
 5. Evaluate a Transformation
 6. Build the Knowledge Graph
 
-
 ## Sample Material
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
--   Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
+- Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
 
     ![](products-vocab.png){ class="bordered" }
 
--   Sample CSV file: [services.csv](services.csv)
+- Sample CSV file: [services.csv](services.csv)
 
     !!! info
 
@@ -52,7 +51,7 @@ The following material is used in this tutorial, you should download the files a
         | I241-8776317 | Component Confabulation | Z249-1364492, L557-1467804, C721-7900144, ... | Corinna.Ludwig@company.org | 1082,00 EUR |
         | …            | …                       | …                                             | …                          | …           |
 
--   Sample Excel file: [products.xlsx](products.xlsx)
+- Sample Excel file: [products.xlsx](products.xlsx)
 
     !!! info
 
@@ -87,7 +86,6 @@ The vocabulary contains the classes and properties needed to map the data into t
 
         ![Register new Vocabulary](register-new-vocab.png){ class="bordered" width="50%" }
 
-
 === "cmemc"
 
     ``` shell-session
@@ -102,14 +100,13 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     ![](menu-build-projects.png){ class="bordered" width="50%" }
 
-2. Click **Create :octicons-plus-circle-24:** at the top right of the page. 
+2. Click **Create :octicons-plus-circle-24:** at the top right of the page.
 
 3. In the **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.  
 
 4. Fill in the required details such as Title and Description. Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
 
 5. Click **Create**. Your project is created.
-
 
 ---
 
@@ -198,7 +195,6 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
     ![](transformation-label.png){ class="bordered" width="50%" }
 
-
 3. Scroll down to **Target vocabularies** and choose **Products vocabulary**.
 
     ![](select-vocabulary.png){ class="bordered" width="50%" }
@@ -219,13 +215,13 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 4. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. _In this example we will use:_
 
-    -   Target entity type: _**Service**_
-    -   URI pattern:
+    - Target entity type: _**Service**_
+    - URI pattern:
 
-        -   Click **Create custom pattern**
-        -   Insert `http://ld.company.org/prod-inst/{ServiceID}`, where `http://ld.company.org/prod-inst/` is a common prefix for the instances in this use case, and `{ServiceID}` is a placeholder that will resolve to the column of that name.
+        - Click **Create custom pattern**
+        - Insert `http://ld.company.org/prod-inst/{ServiceID}`, where `http://ld.company.org/prod-inst/` is a common prefix for the instances in this use case, and `{ServiceID}` is a placeholder that will resolve to the column of that name.
 
-    -   An optional Label: `Service`
+    - An optional Label: `Service`
 
     ![](services-mapping-class.png){ class="bordered" width="50%" }
 
@@ -237,26 +233,26 @@ _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 <http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
 ```
 
-6. Evaluate your mapping by clicking the Expand :material-greater-than: button in the **Examples of target data** property to see at most three generated base URIs.
+1. Evaluate your mapping by clicking the Expand :material-greater-than: button in the **Examples of target data** property to see at most three generated base URIs.
 
     ![](mapping-inline-preview.png){ class="bordered" width="50%" }
 
     We have now created the Service entities in the Knowledge Graph. As a next step, we will add the name of the Service entity.
 
-7. Press the circular **Blue + button** on the lower right and select **Add value mapping**.
+2. Press the circular **Blue + button** on the lower right and select **Add value mapping**.
 
     ![](services-mapping-add-rule.png){ class="bordered" width="50%" }
 
-8. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
+3. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
 
-    -   Target Property: `name`
-    -   Data type: _**String**_
-    -   Value path: `ServiceName` (which corresponds to the column of that name)
-    -   An optional Label: `service name`
+    - Target Property: `name`
+    - Data type: _**String**_
+    - Value path: `ServiceName` (which corresponds to the column of that name)
+    - An optional Label: `service name`
 
     ![](services-mapping-rule-edit.png){ class="bordered" width="50%" }
 
-9. Click **Save**.
+4. Click **Save**.
 
 ---
 
@@ -265,7 +261,6 @@ _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 Go the **Transform evaluation** tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.
 
 ![](mapping-evaluation.png){ class="bordered" width="50%" }
-
 
 ---
 
@@ -279,8 +274,8 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. _In this example we will use:_
 
-    -   Label: `Service Knowledge Graph`
-    -   Graph: `http://ld.company.org/prod-instances/`
+    - Label: `Service Knowledge Graph`
+    - Graph: `http://ld.company.org/prod-instances/`
 
     ![](knowledge-graph.png){ class="bordered" width="50%" }
 
@@ -291,7 +286,6 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 6. Validate the results by selecting **Workflow report** In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
 
     ![](mapping-execution-result.png){ class="bordered" width="50%" }
-
 
 7. Click Knowledge Graph under **Explore** in the navigation on the left side of the page.
 
@@ -308,4 +302,3 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 10. Finally you can use the Explore **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: `http://ld.company.org/prod-instances/`
 
     ![](kg-result.png){ class="bordered" width="50%" }
-
