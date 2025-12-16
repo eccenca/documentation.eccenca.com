@@ -1,0 +1,11 @@
+
+---
+repos:
+  - repo: local
+    hooks:
+
+      - id: markdownlint
+        name: check:markdownlint
+        entry: task check:markdownlint
+        language: python
+        pass_filenames: false

@@ -180,3 +180,28 @@ tasks:
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
+  format:fix:
+    desc: markdownlit md files and apply possible style fixes
+    cmds:
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 markdownlint --config .markdownlint.jsonc --fix
+
+  check:markdownlint:
+    desc: run markdownlint on md files for style issues
+    cmds:
+      #- mkdir -p ./dist
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 markdownlint --config .markdownlint.jsonc
+      # --json --output ./dist/markdownlint-issues.json
