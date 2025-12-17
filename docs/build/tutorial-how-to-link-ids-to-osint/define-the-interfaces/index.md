@@ -31,7 +31,7 @@ The first dashboard to do for our use cases is the list of IoCs with classic SPL
 Here, the figure 3 is nice but before this first schema during the project, there are a lot of shemas and all were minimalist and ugly often only on a whiteboard. This  type schema before the technical feasibility is only to validate the objective with the analysts before starting the development. During the technical feasibility, we can decrease/increase step-by-step your objectives to show finally a first result in figure 4 in a real dashboard.
 
 <figure markdown="span">
-![Figure 4. First interface with only SPARQL queries in SPLUNK static tables.](./../link-IDS-event-to-KG/demo_ld_without_html.png)
+![Figure 4. First interface with only SPARQL queries in SPLUNK static tables.](../link-IDS-event-to-KG/demo_ld_without_html.png)
 <figcaption>Figure 4. First interface with only SPARQL queries in SPLUNK static tables.</figcaption>
 </figure>
 
@@ -169,12 +169,12 @@ During our project, we have implemented the SPARQL command necessary to execute 
 With the interfaces, the available data and their links in head, the analyst can now imagine the necessary RDF models of concepts (for example, figure 7 and 8) in his future knowledge graph to generate expected dashboards. These RDF models evolve at the same time as the interfaces (forever) and according to future RDF standards of Cyber world. With Corporate Memory, after each evolution of your models, you can rebuild your knowledge graph "from scratch" when you want. Several RDF models of different versions can exist in your knowledge graphs, so you can update progressively your dashboards without service interruption of old dashboards.
 
 <figure markdown="span">
-![Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.](./../lift-data-from-STIX-2.1-data-of-mitre-attack/rdf-model-course-of-action.png)
+![Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.](../lift-data-from-STIX-2.1-data-of-mitre-attack/rdf-model-course-of-action.png)
 <figcaption>Figure 7. RDF model of Mitre concept "course of action" in our future knowledge graph.</figcaption>
 </figure>
 
 <figure markdown="span">
-![Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.](./../lift-data-from-YAML-data-of-hayabusa-sigma/23-1-rdf-model-rule.png)
+![Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.](../lift-data-from-YAML-data-of-hayabusa-sigma/23-1-rdf-model-rule.png)
 <figcaption>Figure 8. RDF model of concept "IoC Rule" in our future knowledge graph.</figcaption>
 </figure>
 
@@ -182,6 +182,6 @@ With the interfaces, the available data and their links in head, the analyst can
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
-Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](./../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
+Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
 
 Previous chapter: [Define the need, the expected result and the use cases](../define-the-need/index.md)

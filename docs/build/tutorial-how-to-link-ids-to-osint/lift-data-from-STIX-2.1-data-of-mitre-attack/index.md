@@ -140,7 +140,7 @@ Create one RDF dataset for each Mitre dataset:
 
     Here, you will create all classes and attributes necessary in your use case case. Not more, not less. So, we are adding each STIX object in your knowledge base with its STIX type, its label, its description and its references. Each reference can have an url, a label, a description and an external ID, like Mitre ID or CAPEC ID.
 
-    In UML, you can represent your targeted model like that: here a RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK. (you can download the [File drawio of schemas](./RDF_model_and_pattern.drawio))
+    In UML, you can represent your targeted model like that: here a RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK. (you can download the [File drawio of schemas](RDF_model_and_pattern.drawio))
 
     ![RDF model to describe an instance of type "course-of-action" in MITRE ATT&CK](rdf-model-course-of-action.png)
 
