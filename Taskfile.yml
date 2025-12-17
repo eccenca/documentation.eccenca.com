@@ -181,7 +181,7 @@ tasks:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
   format:fix:
-    desc: markdownlit md files and apply possible style fixes
+    desc: rumdl (md-lint) and apply possible style fixes
     cmds:
       - |
         {
@@ -190,12 +190,13 @@ tasks:
 
           # no recursion (top-level only)
           find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 markdownlint --config .markdownlint.jsonc --fix
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
 
-  check:markdownlint:
-    desc: run markdownlint on md files for style issues
+  check:rumdl:
+    desc: run rumdl (md-linter) for style issues
     cmds:
-      #- mkdir -p ./dist
+      - mkdir -p ./dist
+      - rm -f ./dist/md-lint-issues.xml
       - |
         {
           # recurse
@@ -203,5 +204,12 @@ tasks:
 
           # no recursion (top-level only)
           find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 markdownlint --config .markdownlint.jsonc
-      # --json --output ./dist/markdownlint-issues.json
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --output-format junit > ./dist/md-lint-issues.xml || true
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check
