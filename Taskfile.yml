@@ -51,6 +51,7 @@ tasks:
     desc: Run complete test suite
     deps:
       - check:links
+      - check:rumdl
 
   check:links:
     desc: Check outgoing links
