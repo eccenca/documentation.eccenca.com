@@ -10,8 +10,7 @@ The MITRE ATT&CK datasets in STIX 2.1 JSON collections are here:
 * [mobile-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/mobile-attack/mobile-attack.json){target=_blank}
 * [ics-attack.json](https://github.com/mitre-attack/attack-stix-data/blob/master/ics-attack/ics-attack.json){target=_blank}
 
-[Structured Threat Information Expression (STIX™)](
-https://oasis-open.github.io/cti-documentation/stix/intro.html) is a language and serialization format used to exchange cyber threat intelligence (CTI).
+[Structured Threat Information Expression (STIX™)](https://oasis-open.github.io/cti-documentation/stix/intro.html) is a language and serialization format used to exchange cyber threat intelligence (CTI).
 
 The "ontology" of MITRE ATT&CK with STIX is here: [https://github.com/mitre/cti/blob/master/USAGE.md](https://github.com/mitre/cti/blob/master/USAGE.md)
 
@@ -747,10 +746,10 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
 
 4. Split the workflow in two workflows:
 
-   * "Transform all STIX data to RDF" to calculate the inferences after RDF triples
+    * "Transform all STIX data to RDF" to calculate the inferences after RDF triples
            ![](23-1-ex-workflow-STIX.png)
 
-   * "Assemble the global knowledge graph", it will import all the graphs of projects
+    * "Assemble the global knowledge graph", it will import all the graphs of projects
            ![](23-1-ex-workflow-gen.png)
 
 5. Create a new workflow "MITRE ATT&CK® workflow" where you will insert the other workflows, like that:

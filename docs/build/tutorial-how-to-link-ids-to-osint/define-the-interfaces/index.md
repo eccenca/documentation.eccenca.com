@@ -31,7 +31,7 @@ The first dashboard to do for our use cases is the list of IoCs with classic SPL
 Here, the figure 3 is nice but before this first schema during the project, there are a lot of shemas and all were minimalist and ugly often only on a whiteboard. This  type schema before the technical feasibility is only to validate the objective with the analysts before starting the development. During the technical feasibility, we can decrease/increase step-by-step your objectives to show finally a first result in figure 4 in a real dashboard.
 
 <figure markdown="span">
-![Figure 4. First interface with only SPARQL queries in SPLUNK static tables.](./../../link-IDS-event-to-KG/demo_ld_without_html.png)
+![Figure 4. First interface with only SPARQL queries in SPLUNK static tables.](./../link-IDS-event-to-KG/demo_ld_without_html.png)
 <figcaption>Figure 4. First interface with only SPARQL queries in SPLUNK static tables.</figcaption>
 </figure>
 
@@ -182,6 +182,6 @@ With the interfaces, the available data and their links in head, the analyst can
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
-Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](./../../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
+Next chapter: [Build a Knowledge Graph from MITRE ATT&CK® datasets](./../lift-data-from-STIX-2.1-data-of-mitre-attack/index.md)
 
 Previous chapter: [Define the need, the expected result and the use cases](../define-the-need/index.md)

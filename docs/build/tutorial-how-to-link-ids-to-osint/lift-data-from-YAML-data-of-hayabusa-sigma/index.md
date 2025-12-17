@@ -111,61 +111,61 @@ This new transformer are building the following RDF model for your use case:
 
 5. Create the transformer for "SIGMA Hayabusa rule" to build this RDF model.
 
-Rule object:
+    Rule object:
 
-- type: `ctis:Rule`
+    - type: `ctis:Rule`
 
-- IRI: concatenation of "<http://example.com/rule/>" with the result of this regular expression `^.*?([^\/]*)$` on the rule path
+    - IRI: concatenation of "<http://example.com/rule/>" with the result of this regular expression `^.*?([^\/]*)$` on the rule path
 
-![](23-1-iri-rule.png)
+    ![](23-1-iri-rule.png)
 
-- property `ctis:filename` with the result of this regular expression `^.*?([^\/]*)$` on the value path `rulePath`
-- property `rdfs:label` with the value path `title`
-- property `rdfs:comment` with the value path `description`
-- property `rdfs:seeAlso` with the value path `references`
-- property `ctis:mitreAttackTechniqueId` is building with this formula with the value path `tags`
-    - Filter by regex: `^attack\.t\d+$`
-    - Regex replace `attack\.t` by `T`
+    - property `ctis:filename` with the result of this regular expression `^.*?([^\/]*)$` on the value path `rulePath`
+    - property `rdfs:label` with the value path `title`
+    - property `rdfs:comment` with the value path `description`
+    - property `rdfs:seeAlso` with the value path `references`
+    - property `ctis:mitreAttackTechniqueId` is building with this formula with the value path `tags`
+        - Filter by regex: `^attack\.t\d+$`
+        - Regex replace `attack\.t` by `T`
 
-![](23-1-formula-mitreid.png)
+    ![](23-1-formula-mitreid.png)
 
-- property `rdfs:isDefinedBy` on the value path `rulePath` is building with this formula to link the rules to their Web addresses.
-    - Add two "Regex replace"
-        - replace `\./hayabusa-rules/` by `https://github.com/Yamato-Security/hayabusa-rules/blob/main/`
-        - replace `\./sigma/` by `https://github.com/SigmaHQ/sigma/blob/master/`
+    - property `rdfs:isDefinedBy` on the value path `rulePath` is building with this formula to link the rules to their Web addresses.
+        - Add two "Regex replace"
+            - replace `\./hayabusa-rules/` by `https://github.com/Yamato-Security/hayabusa-rules/blob/main/`
+            - replace `\./sigma/` by `https://github.com/SigmaHQ/sigma/blob/master/`
 
-![](23-1-rules-isdefinedby.png)
+    ![](23-1-rules-isdefinedby.png)
 
-So the rulepath `./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` becomes the link `https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` and `./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml`becomes `https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml`
+    So the rulepath `./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` becomes the link `https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` and `./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml`becomes `https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml`
 
-!!! Tips
+    !!! Tips
 
-    To test your transformer, you can use the tab "Transform execution". Here, the knowledge graph will not be cleared after each workflow or execution to test your transformer because the option "clear graph before workflow" is disabled. However during the steps to build this transformer, you can enable tempory this option to see and test the final transformer.
-    You need only to disable this option when your transformer is finished.
+        To test your transformer, you can use the tab "Transform execution". Here, the knowledge graph will not be cleared after each workflow or execution to test your transformer because the option "clear graph before workflow" is disabled. However during the steps to build this transformer, you can enable tempory this option to see and test the final transformer.
+        You need only to disable this option when your transformer is finished.
 
-!!! Success
+    !!! Success
 
-    Your example of rule exists now in your knowledge graph:
-    ![](23-1-success-extract-rule2.png)
-    ![](23-1-success-extract-rule.png)
+        Your example of rule exists now in your knowledge graph:
+        ![](23-1-success-extract-rule2.png)
+        ![](23-1-success-extract-rule.png)
 
 6. Make the workflow "Import rules" with one input
 
     ![](23-1-success-workflow.png)
 
-And don't forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
+    And don't forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
 
-![](23-1-workflow-allow-replacement.png)
+    ![](23-1-workflow-allow-replacement.png)
 
-![](23-1-add-worflow.gif)
+    ![](23-1-add-worflow.gif)
 
-1. Copy the workflow ID
+7. Copy the workflow ID
 
     ![](23-1-id-worflow.gif)
 
-!!! Success
+    !!! Success
 
-    In this example the ID of workflow is `RulesHayabusaSigma_671e1f43d94bbc36:Importrules_6ccbc14b656c75c9`
+        In this example the ID of workflow is `RulesHayabusaSigma_671e1f43d94bbc36:Importrules_6ccbc14b656c75c9`
 
 ## Apply the worflow to all files
 
