@@ -2,11 +2,13 @@
 title: "Update Graph Insights Snapshots"
 description: "Update one or more snapshots, optionally selected by affected graph."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Update Graph Insights Snapshots
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

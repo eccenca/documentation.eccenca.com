@@ -2,10 +2,12 @@
 title: "Normalize physical quantity"
 description: "Normalizes physical quantities. By default, all quantities are normalized to their base unit (SI), which is overridable. For instance, lengths will be normalized to metres by default."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Normalize physical quantity
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This transformer normalizes physical quantities.

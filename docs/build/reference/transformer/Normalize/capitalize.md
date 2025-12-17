@@ -2,10 +2,12 @@
 title: "Capitalize"
 description: "Capitalizes the string i.e. converts the first character to upper case. If 'allWords' is set to true, all words are capitalized and not only the first character."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Capitalize
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Capitalizes the string i.e. converts the first character to upper case. If 'allWords' is set to true, all words are capitalized and not only the first character.

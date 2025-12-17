@@ -2,9 +2,11 @@
 title: "Handle missing values"
 description: "Generates a default similarity score, if no similarity score is provided (e.g., due to missing values). Using this operator can have a performance impact, since it lowers the efficiency of the underlying computation."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Handle missing values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Generates a default similarity score, if no similarity score is provided (e.g., due to missing values). Using this operator can have a performance impact, since it lowers the efficiency of the underlying computation.

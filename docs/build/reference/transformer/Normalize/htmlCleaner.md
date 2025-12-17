@@ -2,10 +2,12 @@
 title: "Clean HTML"
 description: "Cleans HTML markup using a tag whitelist and allows selection of HTML sections with XPath or CSS selector expressions."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Clean HTML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This transformer cleans HTML markup using a whitelist of HTML tags.

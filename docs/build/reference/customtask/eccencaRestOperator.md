@@ -2,10 +2,12 @@
 title: "Execute REST requests"
 description: "REST operator that fetches and optionally merges data from a REST endpoint. It supports executing multiple requests either via input entities that each overwrite config parameters or via paging. If you only need to download a single file, the 'Download file' operator might be the better option. Most features are currently only supported for JSON REST APIs. From multiple requests the REST operator can produce a merged JSON result, i.e. for JSON it will concatenate all results in a JSON array. Alternatively multiple results can be written directly to file (of a JSON dataset), either as a merged JSON file or one file per request inside a ZIP file. By default the output of this operator is an entity with a single property 'result', which is the (concatenated) JSON string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Execute REST requests
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## Core parameter overview
@@ -59,10 +61,11 @@ to fetch all results. This is currently only supported for JSON requests.
 
    In both cases the path to the next page value in the response JSON must be defined via the 'Next page JSON path' parameter.
    In case of the 'Next page identifier' paging method, also the parameter 'Next page ID query parameter' must be set.
+
 - <a id="parameter_doc_nextPageJsonPath">`Next page JSON path`</a>: The property path in the result JSON where the 'next page' URL/value is provided.
    E.g. for following response structure, the value for this parameter would be `paging/next`:
 
-   ```
+   ```text
      {
        ...,
        "paging": {
@@ -79,11 +82,11 @@ to fetch all results. This is currently only supported for JSON requests.
 
 - `HTTP headers`: This parameter allows to set HTTP headers of the request being made. Each line of the multi-line value should contain a single header, e.g.
 
-  ```
+  ```text
   Accept-Language: en-US,en;q=0.5
   Cache-Control: max-age=0
   ```
-  
+
 ## Sending a multipart HTTP file request
 
 If the content of a POST request should be sent as file content of a multipart HTTP request, instead of the request body,
@@ -92,7 +95,7 @@ following parameter must be configured:
 - <a id="parameter_doc_multipartFileParameter">`Multi-part file parameter`</a>: If set to a non-empty value then, instead of a normal POST request, a multipart/form-data
                                file upload request will be executed.
                                The value of this parameter is used as the form parameter name.
-  
+
 ## Output options
 
 By default, the response body of a request is output as value of the 'result' property of a single output entity.
@@ -110,7 +113,7 @@ Currently, the following datasets support the processing of ZIP files: JSON, XML
 If the option 'Read parameters from input' is enabled, it is currently always assumed that multiple requests will be sent.
 The responses must either be JSON, then the results are merged into a JSON array or the 'Output result as file'
 option must be enabled in order to write a merged JSON or ZIP file.
-  
+
 ## Fine-tuning timeouts
 
 If requests can take a much longer time than what can usually be expected, it is possible to increase the timeouts to

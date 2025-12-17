@@ -2,9 +2,11 @@
 title: "Or"
 description: "At least one input score must be within the threshold. Selects the maximum score."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Or
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 At least one input score must be within the threshold. Selects the maximum score.

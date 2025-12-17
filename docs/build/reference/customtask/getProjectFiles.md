@@ -2,10 +2,12 @@
 title: "Get project files"
 description: "Get file resources from the project."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Get project files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Get file resources from the project.

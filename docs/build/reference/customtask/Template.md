@@ -2,10 +2,12 @@
 title: "Evaluate template"
 description: "Evaluates a template on a sequence of entities. Can be used after a transformation or directly after datasets that output a single table, such as CSV or Excel."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Evaluate template
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The template operator supports the Jinja templating language. Documentation about Jinja can be found in the official [Template Designer Documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/).

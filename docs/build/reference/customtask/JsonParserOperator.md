@@ -2,10 +2,12 @@
 title: "Parse JSON"
 description: "Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Parse JSON
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed.

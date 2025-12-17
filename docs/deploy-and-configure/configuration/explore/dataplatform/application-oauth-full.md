@@ -85,7 +85,7 @@ Use this property to specify the claim identifying the roles (authorities) of th
 |--- | ---: |
 | Default | groups |
 | Required | false |
-| Valid values | string | list of strings |
+| Valid values | string |
 | Environment | SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_CLAIMS_GROUPS |
 
 ***Property: spring.security.oauth2.resourceserver.jwt.claims.clientId***

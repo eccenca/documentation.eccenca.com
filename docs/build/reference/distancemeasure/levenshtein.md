@@ -2,10 +2,12 @@
 title: "Normalized Levenshtein distance"
 description: "Normalized Levenshtein distance. Divides the edit distance by the length of the longer string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Normalized Levenshtein distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Normalized Levenshtein distance. Divides the edit distance by the length of the longer string.

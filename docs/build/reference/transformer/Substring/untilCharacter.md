@@ -2,10 +2,12 @@
 title: "Until character"
 description: "Extracts the substring until the character given."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Until character
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Extracts the substring until the character given.

@@ -5,7 +5,9 @@ tags:
     - Build
     - Reference
 ---
+
 # Task and Operator Reference
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 **:octicons-people-24: Intended audience:** Linked Data Experts and Domain Experts

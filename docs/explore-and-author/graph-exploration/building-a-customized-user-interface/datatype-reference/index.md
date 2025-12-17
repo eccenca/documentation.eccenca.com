@@ -4,7 +4,9 @@ tags:
     - Reference
     - Vocabulary
 ---
+
 # Datatypes
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This is a list of supported data types in shapes.
@@ -13,13 +15,13 @@ This is a list of supported data types in shapes.
 
     Not all datatypes result in specific widgets.
 
-#### anyURI
+## anyURI
 
 The ·lexical space· of anyURI is finite-length character sequences which, when the algorithm defined in Section 5.4 of [XML Linking Language] is applied to them, result in strings which are legal URIs according to [RFC 2396], as amended by [RFC 2732]. Note:  Spaces are, in principle, allowed in the ·lexical space· of anyURI, however, their use is highly discouraged (unless they are encoded by %20).
 
 IRI: `http://www.w3.org/2001/XMLSchema#anyURI`
 
-#### base64Binary
+### base64Binary
 
 The lexical forms of base64Binary values are limited to the 65 characters of the Base64 Alphabet defined in [RFC 2045], i.e., a-z, A-Z, 0-9, the plus sign (+), the forward slash (/) and the equal sign (=), together with the characters defined in [XML 1.0 (Second Edition)] as white space. No other characters are allowed.
 

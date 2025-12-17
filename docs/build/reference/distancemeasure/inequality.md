@@ -2,10 +2,12 @@
 title: "Inequality"
 description: "Returns success if values are not equal, failure otherwise."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Inequality
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Returns success if values are not equal, failure otherwise.

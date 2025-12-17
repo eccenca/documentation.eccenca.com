@@ -2,10 +2,12 @@
 title: "Validate number of values"
 description: "Validates that the number of values lies in a specified range."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Validate number of values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Validates that the number of values lies in a specified range.

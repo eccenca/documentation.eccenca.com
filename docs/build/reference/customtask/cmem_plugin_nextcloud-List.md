@@ -2,11 +2,13 @@
 title: "List Nextcloud files"
 description: "List directories and files from a given Nextcloud folder."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # List Nextcloud files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -22,7 +24,7 @@ Given the URL of the target Nextcloud instance along with your credentials, you 
 directory from which data should be extracted. Additionally, you may define file patterns to
 include or exclude specific files within the selected directory.
 
-#### Important
+## Important
 
 To establish a secure connection, you must generate a dedicated [app-specific password and username](https://docs.nextcloud.com/server/latest/user_manual/de/session_management.html)
 in the Security section of your Nextcloud account settings. Do not use your standard login

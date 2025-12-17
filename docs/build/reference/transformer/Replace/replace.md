@@ -2,10 +2,12 @@
 title: "Replace"
 description: "Replace all occurrences of a string with another string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Replace
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Replace all occurrences of a string with another string.
@@ -18,7 +20,7 @@ Replace all occurrences of a string with another string.
 **Example 1:**
 
 * Parameters
-    * search: ` `
+    * search: ``
     * replace: ``
 
 * Input values:

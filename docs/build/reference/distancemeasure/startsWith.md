@@ -2,10 +2,12 @@
 title: "Starts with"
 description: "Returns success if the first string starts with the second string, failure otherwise."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Starts with
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Returns success if the first string starts with the second string, failure otherwise.

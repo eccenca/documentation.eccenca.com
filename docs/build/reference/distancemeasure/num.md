@@ -2,10 +2,12 @@
 title: "Numeric similarity"
 description: "Computes the numeric distance between two numbers."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Numeric similarity
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Computes the numeric distance between two numbers.

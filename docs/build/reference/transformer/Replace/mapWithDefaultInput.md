@@ -2,10 +2,12 @@
 title: "Map with default"
 description: "Maps input values from the first input using a predefined map, with fallback to default values provided by the second input."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Map with default
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This transformer requires a _map of values_, when created. This can be a map such as `"A:1,B:2,C:3"`, representing the mapping between the first three letters and the corresponding numbers (i.e. `A` to `1`, `B` to `2` and `C` to `3`).

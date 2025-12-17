@@ -2,11 +2,13 @@
 title: "Download Nextcloud files"
 description: "Download files from a given Nextcloud instance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Download Nextcloud files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -22,13 +24,13 @@ directory from which files should be downloaded. Additionally, you may define fi
 include or exclude specific files within the selected directory. The files are not downloaded to the
 project resources, but are only available within the workflow itself.
 
-#### Nextcloud List Files input
+## Nextcloud List Files input
 
 If this workflow has an input, it will take the data that comes in instead of the selected values.
 This works only with the schema used in the **Nextcloud List Files** Plugin.
 Make sure you still add the appropriate URL, identification and token.
 
-#### Important
+### Important
 
 To establish a secure connection, you must generate a dedicated [app-specific password and username](https://docs.nextcloud.com/server/latest/user_manual/de/session_management.html)
 in the Security section of your Nextcloud account settings. Do not use your standard login

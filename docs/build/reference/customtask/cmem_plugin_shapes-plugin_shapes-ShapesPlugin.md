@@ -2,11 +2,13 @@
 title: "Generate SHACL shapes from data"
 description: "Generate SHACL node and property shapes from a data graph"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Generate SHACL shapes from data
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -55,7 +57,7 @@ option exposes your IP address to prefix.cc but no other data is shared. If unsu
 Provide the list of properties (as IRIs) for which you do not want to create property shapes.
 Example:
 
-```
+```text
 http://www.w3.org/1999/02/22-rdf-syntax-ns#type
 http://xmlns.com/foaf/0.1/familyName
 ```

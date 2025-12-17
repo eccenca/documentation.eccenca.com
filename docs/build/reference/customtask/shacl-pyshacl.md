@@ -2,11 +2,13 @@
 title: "SHACL validation with pySHACL"
 description: "Performs SHACL validation with pySHACL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # SHACL validation with pySHACL
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

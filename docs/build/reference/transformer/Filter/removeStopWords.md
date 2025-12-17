@@ -2,10 +2,12 @@
 title: "Remove stop words"
 description: "Removes stop words based on a stop word list resource."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove stop words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The stop word list is specified as a resource, e.g. a file identical to

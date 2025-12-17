@@ -2,10 +2,12 @@
 title: "Parse string"
 description: "Parses string values. This is basically an identity function."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse string
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses string values. This is basically an identity function.

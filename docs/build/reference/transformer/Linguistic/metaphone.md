@@ -2,10 +2,12 @@
 title: "Metaphone"
 description: "Metaphone phonetic encoding."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Metaphone
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This transformer plugin implements the **Metaphone** phonetic algorithm for indexing words according to English.

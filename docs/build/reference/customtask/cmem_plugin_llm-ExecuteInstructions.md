@@ -2,11 +2,13 @@
 title: "Execute Instructions"
 description: "Send instructions (prompt) to an LLM and process the result."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute Instructions
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

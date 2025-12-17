@@ -2,10 +2,12 @@
 title: "Korean translit distance"
 description: "Transliterated Korean distance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Korean translit distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Transliterated Korean distance.

@@ -2,10 +2,12 @@
 title: "Numeric equality"
 description: "Compares values numerically instead of their string representation as the 'String Equality' operator does. Allows to set the needed precision of the comparison. A value of 0.0 means that the values must represent exactly the same (floating point) value, values higher than that allow for a margin of tolerance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Numeric equality
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Compares values numerically instead of their string representation as the 'String Equality' operator does.

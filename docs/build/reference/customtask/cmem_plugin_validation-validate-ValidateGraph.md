@@ -2,11 +2,13 @@
 title: "Validate Knowledge Graph"
 description: "Use SHACL shapes to validate resources in a Knowledge Graph."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Validate Knowledge Graph
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

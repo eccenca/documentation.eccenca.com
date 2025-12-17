@@ -2,10 +2,12 @@
 title: "Jaro distance"
 description: "Matches strings based on the Jaro distance metric."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Jaro distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The Jaro distance measure calculates the similarity between two strings based on the number and order of common characters, the number of transpositions, and the length of the strings. The Jaro distance is 0 for a perfect match and 1 if there is no similarity between the given strings.

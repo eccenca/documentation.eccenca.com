@@ -2,11 +2,13 @@
 title: "Download SSH files"
 description: "Download files from a given SSH instance"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Download SSH files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -24,14 +26,14 @@ You can also define a regular expression to include or exclude specific files.
 
 There is also an option to prevent files in subfolders from being included.
 
-#### Authentication Methods
+## Authentication Methods
 
 * **Password:** Only the password will be used for authentication. The private key field is
 ignored, even if filled.
 * **Key:** The private key will be used for authentication. If the key is encrypted, the password
 will be used to decrypt it.
 
-#### Error handling modes
+### Error handling modes
 
 * **Ignore:** Ignores the permission rights of files and lists downloads all files it has access to.
 Skips folders and files when there is no correct permission.

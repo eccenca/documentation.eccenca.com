@@ -2,10 +2,12 @@
 title: "Parse XML"
 description: "Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Parse XML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities.

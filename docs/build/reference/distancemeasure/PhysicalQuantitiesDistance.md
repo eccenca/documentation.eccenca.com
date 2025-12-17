@@ -2,10 +2,12 @@
 title: "Compare physical quantities"
 description: "Computes the distance between two physical quantities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Compare physical quantities
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Computes the distance between two physical quantities.

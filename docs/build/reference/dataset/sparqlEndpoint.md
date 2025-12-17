@@ -2,10 +2,12 @@
 title: "SPARQL endpoint"
 description: "Connects to an existing SPARQL endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # SPARQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The SPARQL endpoint plugin is a dataset for connecting to an existing, remote SPARQL endpoint.

@@ -2,10 +2,12 @@
 title: "Send email"
 description: "Sends an email using an SMTP server."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Send email
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Sends an email using an SMTP server with support for both plain text and HTML formatted messages.

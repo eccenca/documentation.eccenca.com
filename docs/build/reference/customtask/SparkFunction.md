@@ -2,10 +2,12 @@
 title: "Execute Spark function"
 description: "Applies a specified Scala function to a specified field."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Execute Spark function
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Applies a specified Scala function to a specified field.

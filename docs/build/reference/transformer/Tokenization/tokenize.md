@@ -2,10 +2,12 @@
 title: "Tokenize"
 description: "Tokenizes all input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Tokenize
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Tokenizes all input values.

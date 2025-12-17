@@ -2,10 +2,12 @@
 title: "XML"
 description: "Read from or write to an XML file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # XML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Typically, this dataset is used to transform an XML file to another format, e.g., to RDF. It can also be used to generate XML files.

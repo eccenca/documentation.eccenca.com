@@ -2,11 +2,13 @@
 title: "JQL query"
 description: "Search and retrieve JIRA issues."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # JQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

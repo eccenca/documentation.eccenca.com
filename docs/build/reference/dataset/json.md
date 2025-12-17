@@ -2,10 +2,12 @@
 title: "JSON"
 description: "Read from or write to a JSON or JSON Lines file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # JSON
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Typically, this dataset is used to transform an JSON file to another format, e.g., to RDF.

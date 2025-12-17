@@ -2,10 +2,12 @@
 title: "If matches regex"
 description: "This transformer uses a regular expression as a matching condition, in order to distinguish which input to take."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # If matches regex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## Description

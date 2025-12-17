@@ -2,10 +2,12 @@
 title: "Parse integer"
 description: "Parses integer values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse integer
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses integer values.

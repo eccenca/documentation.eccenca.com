@@ -2,11 +2,13 @@
 title: "jq"
 description: "Process a JSON path with a jq filter / program."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # jq
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

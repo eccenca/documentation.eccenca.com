@@ -2,10 +2,12 @@
 title: "Binary file"
 description: "Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Binary file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images using workflow operators that accept or output files. If an operator reads from this dataset that does not support files directly (such as transformation or linking tasks), it will only receive the file metadata, which includes the file path.

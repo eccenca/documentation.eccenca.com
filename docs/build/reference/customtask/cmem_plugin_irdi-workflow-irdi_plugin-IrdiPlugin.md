@@ -2,11 +2,13 @@
 title: "Generate base36 IRDIs"
 description: "Create unique ECLASS IRDIs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Generate base36 IRDIs
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

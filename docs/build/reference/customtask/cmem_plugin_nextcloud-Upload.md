@@ -2,11 +2,13 @@
 title: "Upload files to Nextcloud"
 description: "Upload files to a given Nextcloud instance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Upload files to Nextcloud
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,12 +22,12 @@ This workflow task uploads files to a specified Nextcloud service instance.
 Given the URL of the target Nextcloud instance along with your credentials, you can specify any
 directory to which files should be uploaded.
 
-### Input
+## Input
 
 If this workflow has an input, it will take the data that comes in instead of the selected source
 file.
 
-#### Important
+### Important
 
 To establish a secure connection, you must generate a dedicated [app-specific password and username](https://docs.nextcloud.com/server/latest/user_manual/de/session_management.html)
 in the Security section of your Nextcloud account settings. Do not use your standard login

@@ -2,10 +2,12 @@
 title: "Remote SQL endpoint"
 description: "Connect to an existing JDBC endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Remote SQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## General usage
@@ -30,7 +32,7 @@ Please make sure that you use the correct syntax for each DBMS, otherwise you ma
 
 Here are templates for supported database systems:
 
-```
+```text
 oracle (external driver needed): 
 jdbc:oracle:thin:@{host}[:{port}]/{database}
 
@@ -87,6 +89,7 @@ Supported DBMS:
     - only applies when appending data to an existing table and having `Force Spark Execution` disabled
     - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.
     For MySQL starting with version 8 the `local_infile` parameter is by default disabled!
+
     - If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure ANSIquotes are used.
     `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
 
@@ -115,7 +118,7 @@ spark.sql.options {
   # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download
   # location can be provided.
   jdbc.drivers = "db2,mysql"
-  
+
   # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path
   # to a jar file containing the driver and the name of driver can be specified here.
   jdbc.db2.jar = "/home/user/Jars/db2jcc-db2jcc4.jar"

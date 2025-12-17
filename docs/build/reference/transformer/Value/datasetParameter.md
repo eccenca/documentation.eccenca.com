@@ -2,10 +2,12 @@
 title: "Dataset parameter"
 description: "Reads a meta data parameter from a dataset in Corporate Memory. If authentication is enabled, workbench.superuser must be configured."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Dataset parameter
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Reads a meta data parameter from a dataset in Corporate Memory. If authentication is enabled, workbench.superuser must be configured.

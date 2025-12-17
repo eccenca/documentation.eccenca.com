@@ -2,10 +2,12 @@
 title: "Parse geo location"
 description: "Parses and normalizes geo locations like continents, countries, states and cities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse geo location
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses and normalizes geo locations like continents, countries, states and cities.

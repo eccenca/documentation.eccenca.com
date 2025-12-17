@@ -2,10 +2,12 @@
 title: "Default Value"
 description: "Generates a default value, if the input values are empty. Forwards any non-empty values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Default Value
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Generates a default value, if the input values are empty. Forwards any non-empty values.

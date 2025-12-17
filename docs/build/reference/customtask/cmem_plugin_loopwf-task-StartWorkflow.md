@@ -2,11 +2,13 @@
 title: "Start Workflow per Entity"
 description: "Loop over the output of a task and start a sub-workflow for each entity."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Start Workflow per Entity
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

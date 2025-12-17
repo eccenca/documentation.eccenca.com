@@ -2,10 +2,12 @@
 title: "Parse SKOS term"
 description: "Parses values from a SKOS ontology."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse SKOS term
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses values from a SKOS ontology.

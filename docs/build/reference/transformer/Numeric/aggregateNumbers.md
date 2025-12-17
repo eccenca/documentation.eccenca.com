@@ -2,10 +2,12 @@
 title: "Aggregate numbers"
 description: "Applies one of the aggregation operators (`+`, `*`, `min`, `max` or `average`) to the sequence of input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Aggregate numbers
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The `aggregateNumbers` plugin applies an aggregation operator to the sequence of input values.

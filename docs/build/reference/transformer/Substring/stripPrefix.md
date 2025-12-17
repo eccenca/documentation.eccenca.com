@@ -2,10 +2,12 @@
 title: "Strip prefix"
 description: "Strips a prefix of a string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Strip prefix
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Strips a prefix of a string.

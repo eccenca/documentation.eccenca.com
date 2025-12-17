@@ -2,10 +2,12 @@
 title: "Cancel Workflow"
 description: "Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Cancel Workflow
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty.

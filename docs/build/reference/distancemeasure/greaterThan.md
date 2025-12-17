@@ -2,10 +2,12 @@
 title: "Greater than"
 description: "Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Greater than
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used.

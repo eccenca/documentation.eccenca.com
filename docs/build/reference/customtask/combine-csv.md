@@ -2,11 +2,13 @@
 title: "Combine CSV files"
 description: "Combine CSV files with the same structure to one dataset."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Combine CSV files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

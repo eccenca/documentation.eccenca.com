@@ -2,10 +2,12 @@
 title: "Remove empty values"
 description: "Removes empty values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove empty values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Removes empty values.

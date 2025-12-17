@@ -2,10 +2,12 @@
 title: "Levenshtein distance"
 description: "Levenshtein distance. Returns a distance value between zero and the size of the string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Levenshtein distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Levenshtein distance. Returns a distance value between zero and the size of the string.

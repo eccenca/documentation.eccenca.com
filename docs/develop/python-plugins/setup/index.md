@@ -101,7 +101,7 @@ To do so, use the [`pip download`](https://pip.pypa.io/en/stable/cli/pip_downloa
 
 ??? note "Example shell session showing the usage of `pip download`"
 
-    ```
+    ```text
     $ cat requirements.txt
     cmem-plugin-validation
     cmem-plugin-graphql

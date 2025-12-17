@@ -2,10 +2,12 @@
 title: "Compare dates"
 description: "Compares two dates."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Compare dates
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Compares two dates.

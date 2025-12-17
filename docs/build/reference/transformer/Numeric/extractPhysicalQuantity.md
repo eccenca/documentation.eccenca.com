@@ -2,10 +2,12 @@
 title: "Extract physical quantity"
 description: "Extracts physical quantities, such as length or weight values. Values are expected to be formatted as `{Number}{UnitPrefix}{Symbol}` and are converted to the base unit."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Extract physical quantity
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Extracts physical quantities, such as length or weight values.

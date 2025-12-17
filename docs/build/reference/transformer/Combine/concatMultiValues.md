@@ -2,10 +2,12 @@
 title: "Concatenate multiple values"
 description: "Concatenates multiple values received for an input. If applied to multiple inputs, yields at most one value per input. Optionally removes duplicate values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate multiple values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Concatenates multiple values received for an input. If applied to multiple inputs, yields at most one value per input. Optionally removes duplicate values.
@@ -64,14 +66,14 @@ Concatenates multiple values received for an input. If applied to multiple input
 * Input values:
     1.
 
-    ```
+    ```text
     [a
      \b, c]
     ```
 
 * Returns:
 
-    ```
+    ```text
     [a
      \b
      \c]

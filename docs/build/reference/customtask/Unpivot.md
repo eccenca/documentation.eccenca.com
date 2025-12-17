@@ -2,10 +2,12 @@
 title: "Unpivot"
 description: "Given a list of table columns, transforms those columns into attribute-value pairs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Unpivot
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Given a list of table columns, transforms those columns into attribute-value pairs.

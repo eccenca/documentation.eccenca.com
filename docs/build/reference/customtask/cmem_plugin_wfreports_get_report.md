@@ -2,11 +2,13 @@
 title: "Get workflow report"
 description: "Output the last report of a workflow as a JSON file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Get workflow report
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

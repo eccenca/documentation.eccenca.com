@@ -2,10 +2,12 @@
 title: "SPARQL Construct query"
 description: "A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # SPARQL Construct query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable.

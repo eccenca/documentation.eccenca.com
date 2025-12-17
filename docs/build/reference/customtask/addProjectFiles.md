@@ -2,10 +2,12 @@
 title: "Add project files"
 description: "Adds file resources to the project that are piped into the input port."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Add project files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Adds file resources to the project that are piped into the input port.

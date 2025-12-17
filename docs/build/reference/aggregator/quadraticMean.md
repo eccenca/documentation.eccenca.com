@@ -2,9 +2,11 @@
 title: "Euclidian distance"
 description: "Calculates the Euclidian distance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Euclidian distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Calculates the Euclidian distance.

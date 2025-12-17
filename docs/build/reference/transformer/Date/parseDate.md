@@ -2,10 +2,12 @@
 title: "Parse date pattern"
 description: "Parses a date based on a specified pattern, returning an xsd:date."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse date pattern
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses a date based on a specified pattern, returning an xsd:date.

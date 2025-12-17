@@ -5,7 +5,9 @@ icon: eccenca/graph-insights
 tags:
   - cmemc
 ---
+
 # graph insights Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete and inspect graph insight snapshots.

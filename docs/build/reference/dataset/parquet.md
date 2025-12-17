@@ -2,10 +2,12 @@
 title: "Parquet"
 description: "Read from or write to an Apache Parquet file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Parquet
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Read from or write to an Apache Parquet file.

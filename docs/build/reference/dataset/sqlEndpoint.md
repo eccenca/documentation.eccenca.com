@@ -2,10 +2,12 @@
 title: "Embedded SQL endpoint"
 description: "Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Embedded SQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 _SQL endpoint dataset parameters_
@@ -20,6 +22,7 @@ handle typed arrays and may make working with software like Excel easier.
 
 The parameter _aliasMap_ of the endpoint allows the specification of column aliases. The map is a comma separated list of key-value pairs.
 Each key and value is denoted by ```key:value```. An example for renaming 2 columns (source1, source2 to target1, target2) in the result would be:
+
 ```source1:target1,source2:target2```
 
 Note: Table and column (mapping target) names will be automatically converted to be valid in as many databases as possible.

@@ -6,7 +6,9 @@ tags:
   - Python
   - cmemc
 ---
+
 # admin workspace python Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, install, or uninstall python packages.

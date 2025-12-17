@@ -2,10 +2,12 @@
 title: "Read parameter"
 description: "Reads a parameter from a Java Properties file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Read parameter
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Reads a parameter from a Java Properties file.

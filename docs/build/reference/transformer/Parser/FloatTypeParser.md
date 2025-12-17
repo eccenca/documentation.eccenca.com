@@ -2,10 +2,12 @@
 title: "Parse float"
 description: "Parses and normalizes float values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse float
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses and normalizes float values.

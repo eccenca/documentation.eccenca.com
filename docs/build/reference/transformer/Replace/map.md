@@ -2,10 +2,12 @@
 title: "Map"
 description: "Replaces values based on a map of values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Map
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Replaces values based on a map of values.

@@ -2,10 +2,12 @@
 title: "Delete project files"
 description: "Removes file resources from the project based on a regular expression."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Delete project files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Removes file resources from the project based on a regular expression (regex).
@@ -14,7 +16,7 @@ The project-relative path of each file of the current project is tested against 
 
 Given this list of example files of a project:
 
-```
+```text
 dataset.csv
 my-dataset.xml
 json/example.json

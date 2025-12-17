@@ -2,10 +2,12 @@
 title: "Regex extract"
 description: "Extracts one or all matches of a regular expression within the input. If the regular expression contains one or more capturing groups, only the first group will be considered."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex extract
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## Description

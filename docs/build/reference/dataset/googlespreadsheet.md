@@ -2,10 +2,12 @@
 title: "Excel (Google Drive)"
 description: "Read data from a remote Google Spreadsheet."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Excel (Google Drive)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The dataset needs the document id of a "share via url" sheet on Google Drive as input.
@@ -13,7 +15,7 @@ It will automatically correct the URL and add the "export as xlsx" option to a n
 that will be used to download an Excel Spreadsheet.
 The download will be cached and treated the same way as an xlsx file in the Excel Dataset.
 
-### Caching
+## Caching
 
 The advanced parameter `invalidateCacheAfter` allows the user to specify a duration of the file cache
 after which it is refreshed.

@@ -2,17 +2,19 @@
 title: "Neo4j"
 description: "Neo4j graph"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Neo4j
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Supports reading and writing Neo4j graphs. The following sections outline how graphs are generated and read back.
 
 For more information about Neo4j, please refer to the [Neo4j documentation](https://neo4j.com/docs/).
 
-### Nodes
+## Nodes
 
 For each entity that is written to a Neo4j dataset, a _node_ will be created.
 A property `uri` will be added to each generated node, which holds the URI of the original entity.

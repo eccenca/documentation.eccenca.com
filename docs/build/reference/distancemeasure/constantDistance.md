@@ -2,10 +2,12 @@
 title: "Constant similarity value"
 description: "Always returns a constant similarity value."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Constant similarity value
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Always returns a constant similarity value.

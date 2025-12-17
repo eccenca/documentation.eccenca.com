@@ -5,7 +5,9 @@ icon: material/chart-line-variant
 tags:
   - cmemc
 ---
+
 # admin metrics Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List and get metrics.

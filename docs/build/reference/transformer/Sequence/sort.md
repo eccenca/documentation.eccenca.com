@@ -2,10 +2,12 @@
 title: "Sort"
 description: "Sorts values lexicographically."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Sort
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Sorts values lexicographically.

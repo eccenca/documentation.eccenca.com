@@ -2,10 +2,12 @@
 title: "CJK reading distance"
 description: "CJK Reading Distance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # CJK reading distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 CJK Reading Distance.

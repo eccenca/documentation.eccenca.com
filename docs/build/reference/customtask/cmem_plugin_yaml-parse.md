@@ -2,11 +2,13 @@
 title: "Parse YAML"
 description: "Parses files, source code or input values as YAML documents."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Parse YAML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

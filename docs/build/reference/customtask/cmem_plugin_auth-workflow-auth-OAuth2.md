@@ -2,11 +2,13 @@
 title: "OAuth2 Authentication"
 description: "Provide an OAuth2 access token for other tasks (via config port)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # OAuth2 Authentication
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

@@ -2,10 +2,12 @@
 title: "Knowledge Graph"
 description: "Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Knowledge Graph
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The Knowledge Graph plugin is a dataset for reading and writing RDF to a knowledge graph embedded in Corporate Memory.

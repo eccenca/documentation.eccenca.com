@@ -2,11 +2,13 @@
 title: "Create/Update Salesforce Objects"
 description: "Manipulate data in your organization's Salesforce account."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Create/Update Salesforce Objects
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -38,7 +40,7 @@ Example:
 - Your input SPARQL task looks like this. Note that the variables need
 to match the field strings from the Salesforce data model:
 
-```
+```text
 SELECT DISTINCT FirstName, LastName, Email ...
 ```
 

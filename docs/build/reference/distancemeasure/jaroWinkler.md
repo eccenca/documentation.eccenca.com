@@ -2,10 +2,12 @@
 title: "Jaro-Winkler distance"
 description: "Matches strings based on the Jaro-Winkler distance measure."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Jaro-Winkler distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The Jaro-Winkler distance measure is a variation of the Jaro distance metric. It takes into account the prefixes of the strings being compared and assigns higher weights to matching prefixes.

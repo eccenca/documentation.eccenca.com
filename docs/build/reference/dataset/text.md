@@ -2,10 +2,12 @@
 title: "Text"
 description: "Reads and writes plain text files."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Text
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Reads and writes plain text files.

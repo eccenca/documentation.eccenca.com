@@ -2,9 +2,11 @@
 title: "Scale"
 description: "Scales a similarity score by a factor."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Scale
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Scales a similarity score by a factor.

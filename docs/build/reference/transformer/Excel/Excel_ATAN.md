@@ -2,10 +2,12 @@
 title: "Atan"
 description: "Excel ATAN(number): Returns the inverse tangent of the given number in radians."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Atan
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Excel ATAN(number): Returns the inverse tangent of the given number in radians.

@@ -2,10 +2,12 @@
 title: "Camel case"
 description: "Converts a string to camel case. Upper camel case is the default, lower camel case can be chosen."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Camel case
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Converts a string to camel case. Upper camel case is the default, lower camel case can be chosen.

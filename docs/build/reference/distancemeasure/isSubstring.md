@@ -2,10 +2,12 @@
 title: "Is substring"
 description: "Checks if a source value is a substring of a target value."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Is substring
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Checks if a source value is a substring of a target value.

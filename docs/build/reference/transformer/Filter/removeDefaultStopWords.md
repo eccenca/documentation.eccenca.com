@@ -2,10 +2,12 @@
 title: "Remove default stop words"
 description: "Removes stop words based on a default stop word list."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove default stop words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This stop word list filter uses the following

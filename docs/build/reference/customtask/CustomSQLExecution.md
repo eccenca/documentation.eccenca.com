@@ -2,10 +2,12 @@
 title: "Spark SQL query"
 description: "Executes a custom SQL query on the first input Spark dataframe and returns the result as its output."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Spark SQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Executes a custom SQL query on the first input Spark dataframe and returns the result as its output.

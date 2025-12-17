@@ -2,10 +2,12 @@
 title: "Scheduler"
 description: "Executes a workflow at specified intervals."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Scheduler
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The eccenca Build plugin `Scheduler` executes a given workflow at specified intervals.

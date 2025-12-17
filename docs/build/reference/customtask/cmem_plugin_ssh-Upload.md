@@ -2,11 +2,13 @@
 title: "Upload SSH files"
 description: "Upload files to a given SSH instance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Upload SSH files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,14 +22,14 @@ This workflow task uploads files to a given SSH instance.
 By providing the hostname, username, port and authentication method, you can specify the
 folder the data should be uploaded to.
 
-#### Authentication Methods
+## Authentication Methods
 
 * **Password:** Only the password will be used for authentication. The private key field is
 ignored, even if filled.
 * **Key:** The private key will be used for authentication. If the key is encrypted, the password
 will be used to decrypt it.
 
-#### Note
+### Note
 
 * If a connection cannot be established within 20 seconds, a timeout occurs.
 * Currently supported key types are: RSA, DSS, ECDSA, Ed25519.

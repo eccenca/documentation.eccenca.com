@@ -2,10 +2,12 @@
 title: "Avro"
 description: "Read from or write to an Apache Avro file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Avro
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Read from or write to an Apache Avro file.

@@ -2,9 +2,11 @@
 title: "Geometric mean"
 description: "Compute the (weighted) geometric mean."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Geometric mean
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Compute the (weighted) geometric mean.

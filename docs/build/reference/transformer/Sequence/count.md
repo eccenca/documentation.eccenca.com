@@ -2,10 +2,12 @@
 title: "Count values"
 description: "Counts the number of values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Count values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Counts the number of values.

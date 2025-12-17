@@ -2,10 +2,12 @@
 title: "DateTime"
 description: "Distance between two date time values (xsd:dateTime format) in seconds."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # DateTime
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Distance between two date time values (xsd:dateTime format) in seconds.

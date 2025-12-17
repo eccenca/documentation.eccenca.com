@@ -2,10 +2,12 @@
 title: "Parse date"
 description: "Parses and normalizes dates in different formats."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse date
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Parses and normalizes dates in different formats.

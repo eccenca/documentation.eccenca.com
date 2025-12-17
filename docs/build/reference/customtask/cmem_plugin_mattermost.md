@@ -2,11 +2,13 @@
 title: "Send Mattermost messages"
 description: "Send messages to Mattermost channels and/or users."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Send Mattermost messages
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

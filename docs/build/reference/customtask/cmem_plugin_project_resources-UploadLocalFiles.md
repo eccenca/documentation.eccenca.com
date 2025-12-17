@@ -2,11 +2,13 @@
 title: "Upload local files"
 description: "Replace a file dataset resource with a local file or upload multiple local files to a project."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Upload local files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

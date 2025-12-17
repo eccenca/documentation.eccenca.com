@@ -2,10 +2,12 @@
 title: "True"
 description: "Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not require any arguments."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # True
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not require any arguments.

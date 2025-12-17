@@ -2,10 +2,12 @@
 title: "Date"
 description: "The distance in days between two dates ('YYYY-MM-DD' format)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Date
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The distance in days between two dates ('YYYY-MM-DD' format).

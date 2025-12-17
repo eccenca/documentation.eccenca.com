@@ -2,11 +2,13 @@
 title: "GraphQL query"
 description: "Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # GraphQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

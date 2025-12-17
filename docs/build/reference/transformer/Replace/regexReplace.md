@@ -2,10 +2,12 @@
 title: "Regex replace"
 description: "Replace all occurrences of a regular expression in a string. If no replacement is given, the occurrences of the regular expression will be deleted."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex replace
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## Description

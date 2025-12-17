@@ -2,10 +2,12 @@
 title: "Inside numeric interval"
 description: "Checks if a number is contained inside a numeric interval, such as '1900 - 2000'."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Inside numeric interval
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Checks if a number is contained inside a numeric interval, such as '1900 - 2000'.

@@ -2,10 +2,12 @@
 title: "Contains all of"
 description: "Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Contains all of
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Accepts two inputs. If the first input contains all of the second input values it returns 'true', else 'false' is returned.

@@ -2,10 +2,12 @@
 title: "Dice coefficient"
 description: "Dice similarity coefficient."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Dice coefficient
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Dice similarity coefficient.

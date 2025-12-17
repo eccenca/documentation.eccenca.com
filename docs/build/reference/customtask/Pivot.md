@@ -2,10 +2,12 @@
 title: "Pivot"
 description: "The pivot operator takes data in separate rows, aggregates it and converts it into columns."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Pivot
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The pivot operator takes data in separate rows, aggregates it and converts it into columns.

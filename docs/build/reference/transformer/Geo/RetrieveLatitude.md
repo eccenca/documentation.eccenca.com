@@ -2,10 +2,12 @@
 title: "Retrieve latitude"
 description: "Retrieves geographic coordinates using Nominatim and returns the latitude."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Retrieve latitude
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 **Configuration**
@@ -18,18 +20,18 @@ The default configuration is as follows:
       # url = "https://nominatim.eccenca.com/search"
       url = "https://photon.komoot.de/api"
       # url = https://api-adresse.data.gouv.fr/search
-    
+
       # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.
       # Will be attached in addition to the parameters set on each search operator directly.
       searchParameters = ""
-    
+
       # The minimum pause time between subsequent queries
       pauseTime = 1s
-    
+
       # Number of coordinates to be cached in-memory
       cacheSize = 10
     }
-    
+
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 

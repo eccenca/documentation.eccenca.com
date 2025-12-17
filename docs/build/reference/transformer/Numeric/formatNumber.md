@@ -2,10 +2,12 @@
 title: "Format number"
 description: "Formats a number according to a user-defined pattern. The pattern syntax is documented at: https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Format number
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
   Formats a number according to a user-defined pattern.

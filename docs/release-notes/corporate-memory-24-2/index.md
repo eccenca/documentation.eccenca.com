@@ -188,7 +188,7 @@ v24.2.0 of DataPlatform adds the following new features:
     - `validationResultsTargetGraph`: Graph to write rdf validation model into after batch finishes
     - `replace`: boolean value on whether to replace the graph (default: false)
 - Added option for SHACL Batch run to query target resources with a ignore list for OWL imports, `POST /api/shacl/validation/batches`
-        -   `owlImportsIgnoreList`: A set of graph IRIs which are not queried in the resource selection (i.e. owl imports ignored)
+    -   `owlImportsIgnoreList`: A set of graph IRIs which are not queried in the resource selection (i.e. owl imports ignored)
 - Added module Access-Control to workspace configuration
     - Existing module Administration split into workspace configuration and access control.
     - Existing administration module used for workspace configuration (as to avoid migration steps).

@@ -2,10 +2,12 @@
 title: "Excel map"
 description: "Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: mapFrom,mapTo <source string>,<target string> ... and more An empty string can be created in Excel and alternatives by inserting `=''` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Excel map
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Replaces values based on a map of values read from a file in Open XML format (XLSX).

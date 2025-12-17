@@ -6,7 +6,9 @@ tags:
     - Reference
     - Vocabulary
 ---
+
 # Node Shapes
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Node Shapes are resources of type `shacl:NodeShape`.

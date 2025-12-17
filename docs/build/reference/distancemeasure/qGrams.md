@@ -2,10 +2,12 @@
 title: "qGrams"
 description: "String similarity based on q-grams (by default q=2)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # qGrams
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 String similarity based on q-grams (by default q=2).

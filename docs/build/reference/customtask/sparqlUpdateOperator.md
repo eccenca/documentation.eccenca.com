@@ -2,10 +2,12 @@
 title: "SPARQL Update query"
 description: "A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # SPARQL Update query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The SPARQL UPDATE query plugin is a task for outputting SPARQL UPDATE queries from the input RDF data source.
@@ -29,7 +31,7 @@ the dollar sign (`$`), i.e. filling in input values via placeholders in the temp
 
 ### Example of the `Simple` mode
 
-```
+```text
   DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA2"} }
   INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA3"} }
 ```
@@ -44,7 +46,7 @@ can combine variable substitutions with fixed expressions to construct semi-flex
 
 ### Example of the `Velocity Engine` mode
 
-```
+```text
   DELETE DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA2") }
   #if ( $row.exists("PROP_FROM_ENTITY_SCHEMA1") )
     INSERT DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA3") }

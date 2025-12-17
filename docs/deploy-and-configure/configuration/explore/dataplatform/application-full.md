@@ -85,7 +85,7 @@ key: |
 | Default | *none* |
 | Required | false |
 | Valid values | PGP Key (Message) |
-  | Conflicts with | license.file |
+| Conflicts with | license.file |
 | Environment | LICENSE_KEY |
 
 ***Property: license.file***
@@ -97,7 +97,7 @@ Use this property to specify the location of the license file
 | Default | *none* |
 | Required | false |
 | Valid values | location of the license file |
-  | Conflicts with | license.key |
+| Conflicts with | license.key |
 | Environment | LICENSE_FILE |
 
 ## General platform settings for DataPlatform
@@ -446,7 +446,8 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
@@ -474,7 +475,8 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
@@ -868,14 +870,14 @@ Use this property to configure the URI of the public user (see section Public ac
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
 
-#### Access conditions
+### Access conditions
 
 **IMPORTANT:** The following properties are deprecated and have no function anymore!
 
 ***Property: authorization.abox.accessConditions.url***
 
 **DEPRECATED**
-Use this property to set the URL of the access conditions model file. This can be either a remote (http://...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
 
 | Category | Value |
 |--- | ---: |
@@ -895,7 +897,7 @@ Use this property to set the graph containing the access conditions model.
 | Default | <https://ns.eccenca.com/data/ac/> |
 | Required | false |
 | Valid values | string |
-  | Conflicts with | url |
+| Conflicts with | url |
 | Environment | AUTHORIZATION_ABOX_ACCESSCONDITIONS_GRAPH |
 
 ## SPARQL endpoints
@@ -938,7 +940,7 @@ Use this property to specify which RDF properties should be used to provide labe
 
 | Category | Value |
 |--- | ---: |
-| Default | [http://www.w3.org/2004/02/skos/core#prefLabel, http://www.w3.org/2000/01/rdf-schema#label, http://purl.org/dc/terms/title, http://www.w3.org/ns/shacl#name] |
+| Default | [<http://www.w3.org/2004/02/skos/core#prefLabel>, <http://www.w3.org/2000/01/rdf-schema#label>, <http://purl.org/dc/terms/title>, <http://www.w3.org/ns/shacl#name>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_LABELPROPERTIES |
@@ -950,7 +952,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 | Category | Value |
 |--- | ---: |
-| Default | [http://purl.org/dc/terms/description, http://www.w3.org/2000/01/rdf-schema#comment] |
+| Default | [<http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |

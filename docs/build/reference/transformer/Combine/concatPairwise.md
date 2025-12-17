@@ -2,10 +2,12 @@
 title: "Concatenate pairwise"
 description: "Concatenates the values of multiple inputs pairwise."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate pairwise
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Concatenates the values of multiple inputs pairwise.

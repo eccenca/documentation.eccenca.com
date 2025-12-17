@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD012 MD013 MD024 MD033 -->
+
 # Testing
 
 Current issues:
@@ -109,7 +110,7 @@ Current issues:
     - *isDromedary*: `false`
 
 - Input values:
-  1. `[hello world]`
+    1. `[hello world]`
 
 - Returns:
 
@@ -154,8 +155,8 @@ Current issues:
     - *glue*: `-`
 
 - Input values:
-  1. `[First]`
-  2. `[Last]`
+    1. `[First]`
+    2. `[Last]`
 
 - Returns:
 
@@ -168,13 +169,15 @@ Current issues:
     - *glue*: `\n\t\\`
 
 - Input values:
-  1. `[a
+    1. `[a
  \b, c]`
 
 - Returns:
 
   → `[a
+
  \b
+
  \c]`
 
 
@@ -200,4 +203,3 @@ Current issues:
         \b
         \c]
         ```
-

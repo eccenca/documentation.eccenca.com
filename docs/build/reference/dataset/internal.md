@@ -2,10 +2,12 @@
 title: "Internal dataset"
 description: "Dataset for storing entities between workflow steps. The underlying dataset type can be configured using the `dataset.internal.*` configuration parameters."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Internal dataset
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Dataset for storing entities between workflow steps. The underlying dataset type can be configured using the `dataset.internal.*` configuration parameters.

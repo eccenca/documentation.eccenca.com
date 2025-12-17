@@ -2,10 +2,12 @@
 title: "Hive database"
 description: "Read from or write to an embedded Apache Hive endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Hive database
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Read from or write to an embedded Apache Hive endpoint.

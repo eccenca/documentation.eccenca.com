@@ -2,10 +2,12 @@
 title: "Geographical distance"
 description: "Computes the geographical distance between two points. Author: Konrad Höffner (MOLE subgroup of Research Group AKSW, University of Leipzig)"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Geographical distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Computes the geographical distance between two points. Author: Konrad Höffner (MOLE subgroup of Research Group AKSW, University of Leipzig)

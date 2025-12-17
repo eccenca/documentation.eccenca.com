@@ -103,10 +103,10 @@ This version of eccenca DataManager adds the following new features:
 In addition to that, these changes are shipped:
 
 - General
-        - Use redux store to manage notifications in DataManager (MessageHandler) and improve error parse / handle
-        - Use redux store to manage main application state.
-        - Change value of `js.config.modules.explore.overallSearchQuery` and `js.config.modules.explore.navigation.searchQuery` to use the `""""` SPARQL string separator.
-        -   *BREAK* please use `"""` if you use custom queries for that values
+    - Use redux store to manage notifications in DataManager (MessageHandler) and improve error parse / handle
+    - Use redux store to manage main application state.
+    - Change value of `js.config.modules.explore.overallSearchQuery` and `js.config.modules.explore.navigation.searchQuery` to use the `""""` SPARQL string separator.
+    -   *BREAK* please use `"""` if you use custom queries for that values
 - Development
     - Switch to GUI elements repository from Github
 

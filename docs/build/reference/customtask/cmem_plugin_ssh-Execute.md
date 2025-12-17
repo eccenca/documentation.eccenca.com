@@ -2,11 +2,13 @@
 title: "Execute commands via SSH"
 description: "Execute commands on a given SSH instance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute commands via SSH
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,7 +22,7 @@ This workflow task executes commands on a given SSH instance.
 By providing the hostname, username, port and authentication method, you can specify the
 folder in which the command should be executed in.
 
-#### Input Methods
+## Input Methods
 
 * **No input:** The command will be executed with no input attached to the plugin. Stdin
 is non-existent in this case.
@@ -28,7 +30,7 @@ is non-existent in this case.
 files that are connected via the input port of the plugin. This also allows for looping
 over multiple files executing the same command over them.
 
-#### Output Methods
+### Output Methods
 
 * **Structured process output:** The output will produce entities with its own schema including
 the stdout and stderr as well as the exit code to confirm the execution of the command.

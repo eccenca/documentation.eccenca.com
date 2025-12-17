@@ -2,11 +2,13 @@
 title: "List Office 365 Files"
 description: "List files from OneDrive or Sites"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # List Office 365 Files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -28,7 +30,7 @@ Admin consent is required to activate these permissions.
 With this setup, anyone with the secret can access all users' OneDrives and all Sharepoint/Team
 sites.
 
-#### Important
+## Important
 
 Make sure only trusted admins can create or manage secrets!
 Whoever holds the secrets has all the access to granted resources so best not to distribute

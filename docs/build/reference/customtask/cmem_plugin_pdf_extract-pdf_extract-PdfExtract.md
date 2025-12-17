@@ -2,11 +2,13 @@
 title: "Extract from PDF files"
 description: "Extract text and tables from PDF files"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Extract from PDF files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -24,7 +26,7 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 
 ### Output one entity/value per file
 
-```
+```text
 {
   "metadata": {
     "Filename": "sample.pdf",
@@ -50,7 +52,7 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 
 ### Output one entity/value for all files
 
-```
+```text
 [
     {
         "metadata": {"Filename": "file1.pdf", ...},

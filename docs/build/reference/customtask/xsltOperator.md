@@ -2,10 +2,12 @@
 title: "XSLT"
 description: "A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # XSLT
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ## Description of the plugin
@@ -24,9 +26,9 @@ If you are well-versed in the XSL ecosystem, this is everything you need to know
 
 The acronym **XSL** stands for "eXtensible Stylesheet Language". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:
 
- 1. XSLT: XSL Transformations
- 2. XPath: XML Path Language
- 3. XSL-FO: XSL Formatting Objects
+1. XSLT: XSL Transformations
+2. XPath: XML Path Language
+3. XSL-FO: XSL Formatting Objects
 
 In a nutshell, this is simply the separation of concerns between "processing" XML and "rendering" the results.
 

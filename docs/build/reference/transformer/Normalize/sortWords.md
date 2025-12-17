@@ -2,10 +2,12 @@
 title: "Sort words"
 description: "Sorts all words in each value lexicographically."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Sort words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Sorts all words in each value lexicographically.
@@ -54,7 +56,7 @@ Separator to be inserted between sorted words.
 
 * ID: `glue`
 * Datatype: `string`
-* Default Value: ` `
+* Default Value: ``
 
 ## Advanced Parameter
 

@@ -18,7 +18,7 @@ The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/)
     - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ``` shell-session
-    $ cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
+    cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
     ```
 
 In order to get familiar with the API, simply fetch an example response with this command:

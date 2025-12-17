@@ -2,11 +2,13 @@
 title: "Kafka Producer (Send Messages)"
 description: "Reads a messages dataset and sends records to a Kafka topic (Producer)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Kafka Producer (Send Messages)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

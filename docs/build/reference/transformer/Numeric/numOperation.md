@@ -2,10 +2,12 @@
 title: "Numeric operation"
 description: "Applies one of the four basic arithmetic operators to the sequence of input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Numeric operation
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The `numOperation` plugin applies one of the four basic arithmetic operators to the sequence of input values.

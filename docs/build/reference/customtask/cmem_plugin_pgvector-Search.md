@@ -2,11 +2,13 @@
 title: "Search Vector Embeddings"
 description: "Search for top-k metadata stored in Postgres Vector Store (PGVector)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Search Vector Embeddings
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

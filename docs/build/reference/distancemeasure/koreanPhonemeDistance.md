@@ -2,10 +2,12 @@
 title: "Korean phoneme distance"
 description: "Korean phoneme distance."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Korean phoneme distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Korean phoneme distance.

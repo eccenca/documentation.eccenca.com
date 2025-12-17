@@ -2,10 +2,12 @@
 title: "Lower case"
 description: "Converts a string to lower case."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Lower case
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Converts a string to lower case.

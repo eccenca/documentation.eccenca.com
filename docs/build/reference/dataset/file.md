@@ -2,10 +2,12 @@
 title: "RDF file"
 description: "Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # RDF file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead.

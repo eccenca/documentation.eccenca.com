@@ -2,10 +2,12 @@
 title: "Concatenate"
 description: "Concatenates strings from multiple inputs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Concatenates strings from multiple inputs.
@@ -112,7 +114,7 @@ Concatenates strings from multiple inputs.
 
 * Returns:
 
-    ```
+    ```text
     [First
     Second]
     ```

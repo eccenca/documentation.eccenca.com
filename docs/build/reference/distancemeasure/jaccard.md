@@ -2,10 +2,12 @@
 title: "Jaccard"
 description: "Jaccard similarity coefficient. Divides the matching tokens by the number of distinct tokens from both inputs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Jaccard
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Jaccard similarity coefficient. Divides the matching tokens by the number of distinct tokens from both inputs.

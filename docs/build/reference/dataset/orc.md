@@ -2,10 +2,12 @@
 title: "ORC"
 description: "Read from or write to an Apache ORC file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # ORC
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Read from or write to an Apache ORC file.

@@ -2,10 +2,12 @@
 title: "Token-wise distance"
 description: "Token-wise string distance using the specified metric."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Token-wise distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Token-wise string distance using the specified metric.

@@ -2,10 +2,12 @@
 title: "Distinct by"
 description: "Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Distinct by
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities.

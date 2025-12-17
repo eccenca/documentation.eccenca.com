@@ -2,10 +2,12 @@
 title: "Cosine"
 description: "Cosine Distance Measure."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Cosine
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Cosine Distance Measure.

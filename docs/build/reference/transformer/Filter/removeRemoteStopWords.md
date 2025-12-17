@@ -2,10 +2,12 @@
 title: "Remove remote stop words"
 description: "Removes stop words based on a stop word list remote URL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove remote stop words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The stop word list is retrieved from a remote URL such as

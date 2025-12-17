@@ -2,10 +2,12 @@
 title: "Soundex"
 description: "Soundex algorithm."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Soundex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This transformer plugin implements the **Soundex** phonetic algorithm for indexing names by their English sounds.

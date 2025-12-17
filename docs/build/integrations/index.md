@@ -7,7 +7,9 @@ tags:
     - Build
     - Reference
 ---
+
 # Integrations
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 The following services and applications can be easily integrated in Corporate Memory workflows:
@@ -67,6 +69,7 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
 
     Load and write Knowledge Graphs to an external GraphDB store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
 Query data from GraphDB by using the SPARQL
+
 [Construct](../../build/reference/customtask/sparqlCopyOperator.md),
 [Select](../../build/reference/customtask/sparqlSelectOperator.md) and
 [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
@@ -155,6 +158,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     Load and write Knowledge Graphs to Amazon Neptune by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
 Query data from Amazon Neptune by using the SPARQL
+
 [Construct](../../build/reference/customtask/sparqlCopyOperator.md),
 [Select](../../build/reference/customtask/sparqlSelectOperator.md) and
 [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
@@ -233,6 +237,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     Load and write Knowledge Graphs to an external Qlever store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
 Query data from Qlever by using the SPARQL
+
 [Construct](../../build/reference/customtask/sparqlCopyOperator.md),
 [Select](../../build/reference/customtask/sparqlSelectOperator.md) and
 [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
@@ -299,6 +304,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     Load and write Knowledge Graphs to an external Tentris store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
 Query data from Tentris by using the SPARQL
+
 [Construct](../../build/reference/customtask/sparqlCopyOperator.md),
 [Select](../../build/reference/customtask/sparqlSelectOperator.md) and
 [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
@@ -317,6 +323,7 @@ Tentris can be used as the integrated Quad Store as well (beta).
 
     Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
 Query data from Virtuoso by using the SPARQL
+
 [Construct](../../build/reference/customtask/sparqlCopyOperator.md),
 [Select](../../build/reference/customtask/sparqlSelectOperator.md) and
 [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.

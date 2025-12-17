@@ -4,7 +4,9 @@ tags:
     - Reference
     - Vocabulary
 ---
+
 # Property Shapes
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Property Shapes are resources of type `shacl:PropertyShape`.

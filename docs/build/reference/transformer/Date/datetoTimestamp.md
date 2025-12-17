@@ -2,10 +2,12 @@
 title: "Date to timestamp"
 description: "Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix Epoch (1970-01-01)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Date to timestamp
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix Epoch (1970-01-01).

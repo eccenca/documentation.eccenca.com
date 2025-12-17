@@ -19,7 +19,7 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
     - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ``` shell-session
-    $ cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
+    cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
     ```
 
     This step is optional and makes some of the following steps of the tutorial superfluous.
@@ -89,7 +89,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 === "cmemc"
 
     ``` shell-session
-    $ cmemc vocabulary import products_vocabulary.nt
+    cmemc vocabulary import products_vocabulary.nt
     ```
 
 ---
@@ -158,7 +158,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
         The general form of the JDBC connection string is:
 
-        ```
+        ```text
         jdbc:<vendor>://<hostname>:<portNumber>/<databaseName>
         ```
 

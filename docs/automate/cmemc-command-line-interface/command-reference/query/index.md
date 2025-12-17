@@ -6,7 +6,9 @@ tags:
   - SPARQL
   - cmemc
 ---
+
 # query Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, execute, get status or open SPARQL queries.
