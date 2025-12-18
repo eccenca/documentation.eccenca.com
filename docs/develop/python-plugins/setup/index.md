@@ -50,7 +50,7 @@ This section describes which backend components are needed on the Build (DataInt
     An installation of the CPython distribution (at least version 3.3) is required.
     Although other distributions, such as Anaconda, should work as well, only CPython is officially supported.
 
-    The official image ships with a tested python interpreter (currently - 2024 - Python 3.11).
+    The official image ships with a tested python interpreter (currently - 2025 - Python 3.13).
 
 ??? note "Java Embedded Python (Jep)"
 
