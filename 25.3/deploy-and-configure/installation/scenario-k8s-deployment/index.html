@@ -18111,6 +18111,8 @@
       
         
       
+        
+      
     
     
     
@@ -18195,6 +18197,36 @@
     </span>
   
 
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirements/triple-store-hardware-sizing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Triple Store Sizing
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -25810,15 +25842,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation-corporate-memory" class="md-nav__link">
+  <a href="#corporate-memory-installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation Corporate Memory
+        Corporate Memory Installation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation Corporate Memory">
+    <nav class="md-nav" aria-label="Corporate Memory Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -25918,8 +25950,8 @@ the required tools.</p>
 provisioned cluster.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¤</a></h2>
 <ul>
-<li>Access credentials for the eccenca infrastructre (e.g. Docker Registry) → <a href="https://eccenca.com/en/contact">contact us to get yours</a></li>
-<li>A license for <a href="https://www.ontotext.com/products/graphdb/">GraphDB</a></li>
+<li>Access credentials for the eccenca infrastructure (e.g. Docker Registry) → <a href="https://eccenca.com/en/contact">contact us to get yours</a></li>
+<li>A GraphDB license (<a href="https://www.ontotext.com/products/graphdb/">free</a> or commercial)</li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">Kubectl</a></li>
 <li><a href="https://helm.sh/docs/intro/install/">Helm</a></li>
 <li>If deploying on K3D, download a <a href="https://github.com/k3d-io/k3d/releases">static binary</a></li>
@@ -25927,30 +25959,27 @@ provisioned cluster.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¤</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMEM Helm Chart Architecture" src="images/cmem-helm-architecture.png" /></a></p>
 <h2 id="general-notice">General Notice<a class="headerlink" href="#general-notice" title="Permanent link">¤</a></h2>
-<p>Although this document lists value files for the three charts, we suggest always
-looking at the default <code>values.yaml</code> file from the archive or repository.
-The examples shown here are very basic and should not represent a production
-environment. The <code>CHANGELOG.md</code> and <code>README.md</code> files in the archives or
-repositories can also give some insights.</p>
+<p>Although this document lists value files for the three charts, we recommend consulting the default <code>values.yaml</code> file from the archive or repository.
+The examples shown here are very basic and are not intended for a production environment.
+The <code>CHANGELOG.md</code> and <code>README.md</code> files in the archives or repositories can also give some insights.</p>
 <p>We assume that the k8s namespaces are already created.
 You can either deploy all three components into one namespace or into separate ones.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">kubectl create namespace graphdb</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">kubectl create namespace keycloak</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">kubectl create namespace cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>graphdb
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>keycloak
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>cmem
 </code></pre></div>
 <h2 id="graphdb-installation">GraphDB Installation<a class="headerlink" href="#graphdb-installation" title="Permanent link">¤</a></h2>
 <p>To install GraphDB, we will use the Ontotext Helm chart.
 You can get the source code from <a href="https://github.com/Ontotext-AD/graphdb-helm/tree/main">github</a>.
-Additionally have a look at GraphDBs <a href="https://graphdb.ontotext.com/documentation/">documentation page</a>.</p>
-<p>Be aware, that with Version 11 of GraphDB you are required to deploy a license
-file, even in the Free edition.
-You can aquire one by <a href="https://www.ontotext.com/products/graphdb/">filling a form</a>.
+Additionally have a look at GraphDB&rsquo;s <a href="https://graphdb.ontotext.com/documentation/">documentation page</a>.</p>
+<p>Be aware that with Version 11 of GraphDB you are required to deploy a license file, even in the Free edition.
+<a href="https://www.ontotext.com/products/graphdb/">You can request one here.</a>
 See also the <a href="https://graphdb.ontotext.com/documentation/11.1/licensing.html">licensing documentation</a>.</p>
 <h3 id="1-obtain-the-chart">1. Obtain the chart<a class="headerlink" href="#1-obtain-the-chart" title="Permanent link">¤</a></h3>
 <p>You can download the GraphDB chart from <a href="https://github.com/Ontotext-AD/graphdb-helm/releases">github</a>
 or add their repository to your environment with <code>helm</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">helm repo add ontotext https://maven.ontotext.com/repository/helm-public/</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">helm repo update</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>ontotext<span class="w"> </span>https://maven.ontotext.com/repository/helm-public/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>helm<span class="w"> </span>repo<span class="w"> </span>update
 </code></pre></div>
 <h3 id="2-configuration">2. Configuration<a class="headerlink" href="#2-configuration" title="Permanent link">¤</a></h3>
 <p>Create a file named <code>graphdb-values.yaml</code> to configure your GraphDB deployment.
@@ -25998,40 +26027,40 @@ persistence and security:</p>
 <h3 id="3-install-the-graphdb-chart">3. Install the GraphDB chart<a class="headerlink" href="#3-install-the-graphdb-chart" title="Permanent link">¤</a></h3>
 <p>First, create the license secret as mentioned above.
 Then, install the GraphDB chart using <code>helm</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">kubectl --namespace graphdb create secret generic graphdb-license \</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">  --from-file graphdb.license</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>--namespace<span class="w"> </span>graphdb<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>graphdb-license<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--from-file<span class="w"> </span>graphdb.license
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">helm upgrade --install graphdb ontotext/graphdb \</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">  --namespace graphdb \</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">  -f graphdb-values.yaml</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>graphdb<span class="w"> </span>ontotext/graphdb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--namespace<span class="w"> </span>graphdb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>-f<span class="w"> </span>graphdb-values.yaml
 </code></pre></div>
 <p>This will deploy GraphDB into the <code>graphdb</code> namespace.</p>
 <h3 id="4-accessing-graphdb">4. Accessing GraphDB<a class="headerlink" href="#4-accessing-graphdb" title="Permanent link">¤</a></h3>
 <p>To access the GraphDB user interface without exposing it via an Ingress,
 you can use <code>kubectl port-forward</code>. This is useful for initial setup and verification.</p>
 <p>First, get the name of the GraphDB service:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">kubectl get svc --namespace graphdb</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>--namespace<span class="w"> </span>graphdb
 </code></pre></div>
 <p>Assuming the service is named <code>graphdb</code>, forward a local port to the
 service port (<code>7200</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">kubectl port-forward svc/graphdb 7200:7200 --namespace graphdb</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/graphdb<span class="w"> </span><span class="m">7200</span>:7200<span class="w"> </span>--namespace<span class="w"> </span>graphdb
 </code></pre></div>
 <p>Now you can access the GraphDB workbench in your browser at <a href="http://localhost:7200">http://localhost:7200</a>.</p>
 <h2 id="keycloak-installation">Keycloak Installation<a class="headerlink" href="#keycloak-installation" title="Permanent link">¤</a></h2>
 <p>This guide provides instructions on how to install Keycloak using the
 provided Helm chart.</p>
 <h3 id="1-obtain-the-chart_1">1. Obtain the chart<a class="headerlink" href="#1-obtain-the-chart_1" title="Permanent link">¤</a></h3>
-<p>We strongly recommend to download the chart and execute the install commands against a local environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">wget https://helm.eccenca.com/keycloak/latest.tgz</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">tar -xzf latest.tgz</span>
+<p>We strongly recommend downloading the chart and executing the install commands against a local environment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wget<span class="w"> </span>https://helm.eccenca.com/keycloak/latest.tgz
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>latest.tgz
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp"># </span>this<span class="w"> </span>requires<span class="w"> </span>gitlab.eccenca.com<span class="w"> </span>access
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">git clone ssh://git@gitlab.eccenca.com:8101/devops/keycloak-helm.git</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># this requires gitlab.eccenca.com access</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>ssh://git@gitlab.eccenca.com:8101/devops/keycloak-helm.git
 </code></pre></div>
-<p>You can also use the helm package manger, but then you have to take care about restoring from a backup on your own.
-The mechanism for that is included in the chart, but the helm command requires you have the sql dump file on your local machine.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">helm repo add --force-update eccenca https://helm.eccenca.com</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">helm repo update eccenca</span>
+<p>You can also use the Helm package manager, but then you have to handle restoring from a backup on your own.
+The mechanism for that is included in the chart, but the helm command requires you have the SQL dump file on your local machine.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>--force-update<span class="w"> </span>eccenca<span class="w"> </span>https://helm.eccenca.com
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>helm<span class="w"> </span>repo<span class="w"> </span>update<span class="w"> </span>eccenca
 </code></pre></div>
 <h3 id="2-configuration_1">2. Configuration<a class="headerlink" href="#2-configuration_1" title="Permanent link">¤</a></h3>
 <p>Create a file named <code>keycloak-values.yaml</code> to configure your Keycloak deployment.
@@ -26069,17 +26098,17 @@ Please see the <code>README.md</code> file in the chart repository for explanati
 <h3 id="3-install-the-keycloak-chart">3. Install the Keycloak chart<a class="headerlink" href="#3-install-the-keycloak-chart" title="Permanent link">¤</a></h3>
 <p>Use <code>helm</code> to deploy the chart into the <code>keycloak</code> namespace.</p>
 <p>With local extracted helm chart:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">helm upgrade -i keycloak ./keycloak-helm \</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">  --namespace keycloak \</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">  -f keycloak-values.yaml</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>-i<span class="w"> </span>keycloak<span class="w"> </span>./keycloak-helm<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--namespace<span class="w"> </span>keycloak<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-f<span class="w"> </span>keycloak-values.yaml
 </code></pre></div>
 <p>Or from helm repository:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">helm upgrade --install keycloak eccenca/keycloak-helm \</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">  --namespace keycloak \</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">  -f keycloak-values.yaml</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>keycloak<span class="w"> </span>eccenca/keycloak-helm<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>--namespace<span class="w"> </span>keycloak<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>-f<span class="w"> </span>keycloak-values.yaml
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="gp"># </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>use<span class="w"> </span>sqldump<span class="w"> </span>provisioning<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>restart<span class="w"> </span>keycloak:
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">kubectl --namespace keycloak delete pods/keycloak-0</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># if you use sqldump provisioning you have to restart keycloak:</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>kubectl<span class="w"> </span>--namespace<span class="w"> </span>keycloak<span class="w"> </span>delete<span class="w"> </span>pods/keycloak-0
 </code></pre></div>
 <p>This command will install the Keycloak chart in the <code>keycloak</code> namespace using
 your custom configuration.
@@ -26101,29 +26130,29 @@ configured in your <code>keycloak-values.yaml</code>.</p>
 <a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="m">1</span>.<span class="w"> </span>Get<span class="w"> </span>the<span class="w"> </span>application<span class="w"> </span>URL<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span>these<span class="w"> </span>commands:
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span>https://kc.docker.localhost/auth
 </code></pre></div>
-<h2 id="installation-corporate-memory">Installation Corporate Memory<a class="headerlink" href="#installation-corporate-memory" title="Permanent link">¤</a></h2>
+<h2 id="corporate-memory-installation">Corporate Memory Installation<a class="headerlink" href="#corporate-memory-installation" title="Permanent link">¤</a></h2>
 <p>This guide provides instructions on how to install the chart using <code>kubectl</code>
 and <code>helm</code>.
 You need to have a keycloak instance and a supported graph database installed.</p>
 <h3 id="1-obtain-the-chart_2">1. Obtain the chart<a class="headerlink" href="#1-obtain-the-chart_2" title="Permanent link">¤</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="go">wget https://releases.eccenca.com/cmem-helm/latest.tgz</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">tar -xzf latest.tgz</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="go">cd cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>wget<span class="w"> </span>https://releases.eccenca.com/cmem-helm/latest.tgz
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>latest.tgz
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>cmem
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">helm repo add --force-update cmem-helm https://helm.eccenca.com</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">helm repo update cmem-helm</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>--force-update<span class="w"> </span>cmem-helm<span class="w"> </span>https://helm.eccenca.com
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>helm<span class="w"> </span>repo<span class="w"> </span>update<span class="w"> </span>cmem-helm
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp"># </span>this<span class="w"> </span>requires<span class="w"> </span>gitlab.eccenca.com<span class="w"> </span>access
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">git clone https://gitlab.eccenca.com/cmem/cmem-helm.git</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># this requires gitlab.eccenca.com access</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.eccenca.com/cmem/cmem-helm.git
 </code></pre></div>
 <h3 id="2-configuration_2">2. Configuration<a class="headerlink" href="#2-configuration_2" title="Permanent link">¤</a></h3>
 <p>By default, Corporate Memory is subject to the eccenca free Personal,
 Evaluation and Development License Agreement (PEDAL),
 a license intended for non-commercial usage.</p>
 <p>If you have a dedicated license file, create a secret with a <code>license.asc</code> data entry:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">kubectl create secret generic cmem-license \</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">  --from-file license.asc</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">  --namespace cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>cmem-license<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>--from-file<span class="w"> </span>license.asc
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 <p>Then, add the secret name to your <code>values.yaml</code> file for the key <code>global.license</code>.</p>
 <p>To configure your Corporate Memory deployment, create a file named <code>cmem-values.yaml</code>.
@@ -26185,33 +26214,33 @@ At a minimum, you should configure the</p>
 <h3 id="3-install-the-corporate-memory-chart">3. Install the Corporate Memory chart<a class="headerlink" href="#3-install-the-corporate-memory-chart" title="Permanent link">¤</a></h3>
 <p>To pull the Corporate Memory images, you need to provide credentials for the eccenca
 Docker Registry.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="go">kubectl create secret docker-registry eccenca-docker-registry-credentials \</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">  --docker-server=https://docker-registry.eccenca.com \</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">  --docker-username=&lt;your-docker-username&gt; \</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="go">  --docker-password=&lt;your-docker-password&gt; \</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="go">  --namespace cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>docker-registry<span class="w"> </span>eccenca-docker-registry-credentials<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>--docker-server<span class="o">=</span>https://docker-registry.eccenca.com<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>--docker-username<span class="o">=</span>&lt;your-docker-username&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span>--docker-password<span class="o">=</span>&lt;your-docker-password&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 <p>Replace the placeholders with the provided registry details and credentials.</p>
 <p>Now use <code>helm</code> to deploy the chart.
 This command will install the chart in the specified namespace using your
 custom configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp"># </span>In<span class="w"> </span><span class="k">case</span><span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>the<span class="w"> </span>chart<span class="w"> </span>or<span class="w"> </span>repostiory<span class="w"> </span>locally<span class="w"> </span>available
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">helm upgrade --install cmem . \</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">  --namespace cmem \</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="go">  -f cmem-values.yaml</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># In case you have the chart or repository locally available</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="gp"># </span>or<span class="w"> </span>use<span class="w"> </span>our<span class="w"> </span>helm<span class="w"> </span>repository
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="go">helm upgrade --install cmem cmem-helm/cmem \</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="go">  --namespace cmem \</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="go">  -f cmem-values.yaml</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># or use our helm repository</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>cmem-helm/cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
 </code></pre></div>
 <h3 id="4-verify-the-installation">4. Verify the installation<a class="headerlink" href="#4-verify-the-installation" title="Permanent link">¤</a></h3>
 <p>After the installation is complete, you can check the status of the pods:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="go">kubectl get pods --namespace cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 <p>You can also check the rollout status of the StatefulSets:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">kubectl rollout status statefulset/explore --namespace cmem</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">kubectl rollout status statefulset/dataintegration --namespace cmem</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/explore<span class="w"> </span>--namespace<span class="w"> </span>cmem
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/dataintegration<span class="w"> </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 
 
@@ -26235,7 +26264,7 @@ custom configuration.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 28, 2025 21:03:43 UTC"><span class="timeago" datetime="2025-11-28T21:03:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 28, 2025 21:03:43 UTC">2025-11-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 12, 2025 13:09:32 UTC"><span class="timeago" datetime="2025-12-12T13:09:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 12, 2025 13:09:32 UTC">2025-12-12</span>
   </span>
 
     

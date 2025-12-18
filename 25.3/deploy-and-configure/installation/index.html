@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://documentation.eccenca.com/25.3/deploy-and-configure/installation/">
       
       
-        <link rel="prev" href="../requirements/graph-insights-sizing/">
+        <link rel="prev" href="../requirements/triple-store-hardware-sizing/">
       
       
         <link rel="next" href="scenario-single-node-cloud-installation/">
@@ -18111,6 +18111,8 @@
       
         
       
+        
+      
     
     
     
@@ -18195,6 +18197,36 @@
     </span>
   
 
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements/triple-store-hardware-sizing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Triple Store Sizing
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -25653,10 +25685,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-compose-based-orchestration-deployment" class="md-nav__link">
+  <a href="#helm-based-kubernetes-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker compose based Orchestration deployment
+        Helm based Kubernetes deployment
       
     </span>
   </a>
@@ -25664,10 +25696,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm-based-kubernetes-deployment" class="md-nav__link">
+  <a href="#docker-compose-based-orchestration-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Helm based Kubernetes deployment
+        Docker compose based Orchestration deployment
       
     </span>
   </a>
@@ -25698,46 +25730,57 @@
 <p>This page describes proven deployment scenarios for eccenca Corporate Memory.</p>
 <p>All Corporate Memory components are distributed as Docker images and can be obtained from eccenca&rsquo;s container repository service.
 To run them you need a Docker enabled Linux server.</p>
+<p>Corporate Memory uses Ontotext GraphDB triple store as default backend.
+You need to copy your license for Ontotext GraphDB to the <code>license</code> folder inside Corporate Memory&rsquo;s root folder.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># create the License folder within ${HOME}/cmem-orchestration</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>licenses
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">#copy YOUR-LICENSE-FILE</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>cp<span class="w"> </span>YOUR_SE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-se.license
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># or</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>cp<span class="w"> </span>YOUR_EE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+</code></pre></div>
 <h2 id="operating-systems-os">Operating Systems (OS)<a class="headerlink" href="#operating-systems-os" title="Permanent link">¤</a></h2>
-<p>Corporate Memory is tested on Ubuntu 24.04 (backward compatible with LTS versions older than that) as Debian 11, 12 and 13.</p>
-<p>Special note on RHEL SELinux Support: there is no limitation for RedHat SELinux. We recommend to keep the SELinux in <em>enforced</em> mode. You can keep the default setting of the <code>/etc/selinux/config</code> file.</p>
+<p>Corporate Memory is tested on Ubuntu 24.04 (backward compatible with older LTS versions) as well as Debian 11, 12, and 13.</p>
+<p>Special note on RHEL SELinux Support: There is no limitation for RedHat SELinux. We recommend keeping the SELinux in <em>enforced</em> mode. You can keep the default setting of the <code>/etc/selinux/config</code> file.</p>
 <details class="example" open="open">
-<summary>sample config</summary>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">/etc/selinux/config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># This file controls the state of SELinux on the system.</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># SELINUX= can take one of these three values:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">#     enforcing - SELinux security policy is enforced.</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">#     permissive - SELinux prints warnings instead of enforcing.</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">#     disabled - No SELinux policy is loaded.</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="nv">SELINUX</span><span class="o">=</span>enforcing
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># SELINUXTYPE= can take one of three values:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1">#     targeted - Targeted processes are protected,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">#     minimum - Modification of targeted policy. Only selected processes are protected.</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1">#     mls - Multi Level Security protection.</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="nv">SELINUXTYPE</span><span class="o">=</span>targeted
+<summary>Sample Config</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">/etc/selinux/config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># This file controls the state of SELinux on the system.</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># SELINUX= can take one of these three values:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">#     enforcing - SELinux security policy is enforced.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1">#     permissive - SELinux prints warnings instead of enforcing.</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1">#     disabled - No SELinux policy is loaded.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="nv">SELINUX</span><span class="o">=</span>enforcing
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># SELINUXTYPE= can take one of three values:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1">#     targeted - Targeted processes are protected,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1">#     minimum - Modification of targeted policy. Only selected processes are protected.</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1">#     mls - Multi Level Security protection.</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="nv">SELINUXTYPE</span><span class="o">=</span>targeted
 </code></pre></div></td></tr></table></div>
 </details>
-<h2 id="docker-compose-based-orchestration-deployment">Docker compose based Orchestration deployment<a class="headerlink" href="#docker-compose-based-orchestration-deployment" title="Permanent link">¤</a></h2>
-<p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a convenient way to provision several Docker containers locally for development
-setups or on remote servers for single node setups.</p>
-<p>eccenca is heavily using <code>docker compose</code> for all kinds of internal and customer deployments.
-For more details on how to use <code>docker compose</code> based orchestration refer
-to <a href="scenario-local-installation/">Scenario: Local Installation</a> and <a href="scenario-single-node-cloud-installation/">Scenario: Single Node Cloud Installation</a>.</p>
 <h2 id="helm-based-kubernetes-deployment">Helm based Kubernetes deployment<a class="headerlink" href="#helm-based-kubernetes-deployment" title="Permanent link">¤</a></h2>
 <p>Most production deployments are Kubernetes based.
 We have deployments in AWS (EKS), Azure (AKS), Red Hat Openshift and self-hosted clusters.
 We provide Charts for Corporate Memory and Keycloak at our <a href="https://helm.eccenca.com">Helm Repository</a>.
-For more details on how to use <code>helm</code> based deployments refer
-to <a href="scenario-k8s-deployment/">Scenario: Kubernetes Deployment</a>.</p>
+For more details on how to use <code>helm</code> based deployments, refer to
+<a href="scenario-k8s-deployment/">Scenario: Kubernetes Deployment</a>.</p>
+<h2 id="docker-compose-based-orchestration-deployment">Docker compose based Orchestration deployment<a class="headerlink" href="#docker-compose-based-orchestration-deployment" title="Permanent link">¤</a></h2>
+<p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a convenient way to provision several Docker containers locally for development
+setups or on remote servers for single node setups.</p>
+<p>eccenca uses <code>docker compose</code> for all kinds of internal and customer deployments.
+For more details on how to use <code>docker compose</code> based orchestration, refer to
+<a href="scenario-local-installation/">Scenario: Local Installation</a> and <a href="scenario-single-node-cloud-installation/">Scenario: Single Node Cloud Installation</a>.</p>
 
 
 
@@ -25760,7 +25803,7 @@ to <a href="scenario-k8s-deployment/">Scenario: Kubernetes Deployment</a>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 1, 2025 09:17:10 UTC"><span class="timeago" datetime="2025-12-01T09:17:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 1, 2025 09:17:10 UTC">2025-12-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 12, 2025 13:09:32 UTC"><span class="timeago" datetime="2025-12-12T13:09:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 12, 2025 13:09:32 UTC">2025-12-12</span>
   </span>
 
     

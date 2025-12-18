@@ -18111,6 +18111,8 @@
       
         
       
+        
+      
     
     
     
@@ -18195,6 +18197,36 @@
     </span>
   
 
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirements/triple-store-hardware-sizing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Triple Store Sizing
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -25666,17 +25698,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wsl-installation-and-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WSL installation and configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#setup-check-installation-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -25777,178 +25798,197 @@
 <h1 id="scenario-local-installation">Scenario: Local Installation<a class="headerlink" href="#scenario-local-installation" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>This page describes a <code>docker compose</code> based orchestration running on your local machine and accessible via browser.</p>
-<p>The code examples in this section assumes that you have POSIX-compliant shell (linux, macOS or WSL for Windows).</p>
+<p>The code examples in this section assume that you have a POSIX-compliant shell (Linux, macOS or WSL for Windows).</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¤</a></h2>
 <ul>
 <li>Access credentials to eccenca Artifactory and eccenca Docker Registry → <a href="https://eccenca.com/en/contact">contact us to get yours</a></li>
 <li><a href="https://www.docker.com/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker compose</a> (v2) installed locally</li>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed locally</li>
 <li><a href="https://jqlang.github.io/jq/download/">jq</a> installed locally</li>
-<li>A GraphDB license (free or commercial)</li>
+<li>A GraphDB license (<a href="https://www.ontotext.com/products/graphdb/">free</a> or commercial)</li>
 <li>(optional) A Graph Insights license</li>
-<li>make - build tools (apt-get install make) installed locally</li>
+<li>make - build tool (apt-get install make) installed locally (don&rsquo;t use version 4.4.1 <a href="https://savannah.gnu.org/bugs/?63650">→</a>; e.g., 4.3 works well)</li>
 <li>At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker</li>
 </ul>
-<h2 id="wsl-installation-and-configuration">WSL installation and configuration<a class="headerlink" href="#wsl-installation-and-configuration" title="Permanent link">¤</a></h2>
-<p>For all you need to start Powershell started as administrator.
+<h2 id="setup-check-installation-environment">Setup &amp; Check Installation Environment<a class="headerlink" href="#setup-check-installation-environment" title="Permanent link">¤</a></h2>
+<p>Install the requirements</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">macOS</label><label for="__tabbed_1_3">WSL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Install all the needed packages: </p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>gnupg2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>gnupg<span class="w"> </span>lsb-release<span class="w"> </span>gettext<span class="w"> </span>zip<span class="w"> </span>unzip<span class="w"> </span>git<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nv">make</span><span class="o">=</span><span class="m">4</span>.3-4.1<span class="w"> </span>vim<span class="w"> </span>jq
+</code></pre></div>
+To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">##</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Host Database</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># localhost is used to configure the loopback interface</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># when the system is booting.  Do not change this entry.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">##</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="m">127</span>.0.0.1<span class="w"> </span>docker.localhost
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Install homebrew:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Install all needed packages:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>gnupg2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>gnupg<span class="w"> </span>lsb-release<span class="w"> </span>gettext<span class="w"> </span>zip<span class="w"> </span>unzip<span class="w"> </span>git<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span>vim<span class="w"> </span>jq
+</code></pre></div>
+To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">##</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Host Database</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># localhost is used to configure the loopback interface</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># when the system is booting.  Do not change this entry.</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">##</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="m">127</span>.0.0.1<span class="w"> </span>docker.localhost
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>First of all, you need to start PowerShell as administrator.
 Alternatively you can also install a WSL distribution from Microsoft Store.</p>
 <p>Install WSL, then restart your Windows machine.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wsl<span class="w"> </span>--install
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wsl<span class="w"> </span>--install
 </code></pre></div>
 <p>List available distributions</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wsl<span class="w"> </span>--list<span class="w"> </span>--online
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wsl<span class="w"> </span>--list<span class="w"> </span>--online
 </code></pre></div>
-<p>Install a distribution.
-Chose from the <code>Name</code> column.
+<p>Install a distribution:
+Choose from the <code>Name</code> column.
 Here we use a Debian based distribution like Debian or any Ubuntu.
-However other Distributions might work as well.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wsl<span class="w"> </span>--install<span class="w"> </span>Debian
+However, other distributions might work as well.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wsl<span class="w"> </span>--install<span class="w"> </span>Debian
 </code></pre></div>
 <p>Ensure you use WSL version 2 (this is necessary to use <code>systemd</code> services).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wsl<span class="w"> </span>-l<span class="w"> </span>-v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>wsl<span class="w"> </span>-l<span class="w"> </span>-v
 </code></pre></div>
 <p>Install version 2 components (this requires a windows restart)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:VirtualMachinePlatform<span class="w"> </span>/all<span class="w"> </span>/norestart
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dism.exe<span class="w"> </span>/online<span class="w"> </span>/enable-feature<span class="w"> </span>/featurename:VirtualMachinePlatform<span class="w"> </span>/all<span class="w"> </span>/norestart
 </code></pre></div>
 <p>Enter WSL machine</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>wsl<span class="w"> </span>-d<span class="w"> </span>Debian
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>wsl<span class="w"> </span>-d<span class="w"> </span>Debian
 </code></pre></div>
 <p>Enable <code>generateHosts = false</code> in your <code>/etc/hosts</code> file to make sure that this file won&rsquo;t be overwritten from the host system on every restart.</p>
-<p>To be able to use <code>systemd</code> services and commands make sure <code>/etc/wsl.conf</code> is available with this content (should be the default with WSL v2):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">[</span>boot<span class="o">]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">systemd</span><span class="o">=</span><span class="nb">true</span>
+<p>To be able to use <code>systemd</code> services and commands, make sure <code>/etc/wsl.conf</code> is available with this content (should be the default with WSL v2):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span>boot<span class="o">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">systemd</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 <p>(Optional) If you need to restart your WSL use in Powershell:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wsl<span class="w"> </span>--shutdown
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>wsl<span class="w"> </span>--shutdown
 </code></pre></div>
-<p>(Optional) you can create a <code>.wslconfig</code> file under <code>C:\users\&lt;your username&gt;</code> to specify some system resources like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">[</span>wsl2<span class="o">]</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">memory</span><span class="o">=</span>16GB<span class="w"> </span><span class="c1"># restrict ram WSL can use</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">processors</span><span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="c1"># restrict cpu-cores</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">swap</span><span class="o">=</span>8GB<span class="w"> </span><span class="c1"># set swap size</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">swapFile</span><span class="o">=</span>C:/Users/&lt;your<span class="w"> </span>username&gt;/wsl/Debianswap.vhdx<span class="w">  </span><span class="c1"># location to swap-file</span>
+<p>To install Corporate Memory, you need to modify your local hosts file (located in C:\Windows\System32\drivers\etc\hosts), minimal configuration is as follows:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This requires administration rights.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">##</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Host Database</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1">#</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># localhost is used to configure the loopback interface</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># when the system is booting.  Do not change this entry.</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">##</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="m">127</span>.0.0.1<span class="w"> </span>docker.localhost
+</code></pre></div>
+<p>(Optional) You can create a <code>.wslconfig</code> file under <code>C:\Users\&lt;your username&gt;</code> to specify some system resources like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">[</span>wsl2<span class="o">]</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nv">memory</span><span class="o">=</span>16GB<span class="w"> </span><span class="c1"># restrict ram WSL can use</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nv">processors</span><span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="c1"># restrict cpu-cores</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nv">swap</span><span class="o">=</span>8GB<span class="w"> </span><span class="c1"># set swap size</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nv">swapFile</span><span class="o">=</span>C:/Users/&lt;your<span class="w"> </span>username&gt;/wsl/Debianswap.vhdx<span class="w">  </span><span class="c1"># location to swap-file</span>
 </code></pre></div>
 <p>Alternatively, (with WSL v2) you may use the graphical configuration application <em>WSL Settings</em>.</p>
-<h2 id="setup-check-installation-environment">Setup &amp; Check Installation Environment<a class="headerlink" href="#setup-check-installation-environment" title="Permanent link">¤</a></h2>
-<p>For docker we recommend to use the linux docker within WSL.
-Follow the instruction in <a href="../scenario-single-node-cloud-installation/#server-provisioning">Server Provisioning in Scenario: Single Node Cloud Installation</a>.
-Alternatively, you may use docker for desktop and enable WSL integration in the settings.</p>
+<p>For Docker, we recommend using the Linux Docker within WSL.
+Alternatively, you may use Docker for Desktop and enable WSL integration in the settings.</p>
+</div>
+</div>
+</div>
+<hr />
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Installation via .zip file</label><label for="__tabbed_2_2">Installation via gitlab.eccenca.com</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Open a terminal window, create a directory, copy and extract docker orchestration there.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create eccenca-corporate-memory directory in your ${HOME} and set as a</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># working dir.</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>jq<span class="w"> </span>make<span class="w"> </span>git<span class="w"> </span>unzip<span class="w"> </span>gpg
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># download the Corporate Memory orchestration distribution</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>curl<span class="w"> </span>https://releases.eccenca.com/docker-orchestration/latest.zip<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span>&gt;<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1"># unzip the orchestration and move the unzipped directory</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>unzip<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>rm<span class="w"> </span>cmem-orchestration.zip
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>mv<span class="w"> </span>cmem-orchestration-v*<span class="w"> </span>cmem-orchestration
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="nb">cd</span><span class="w"> </span>cmem-orchestration
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;stub&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Create eccenca-corporate-memory directory in your ${HOME} and set as a</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># working dir.</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/eccenca-corporate-memory
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># Download the Corporate Memory orchestration distribution</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>curl<span class="w"> </span>https://releases.eccenca.com/docker-orchestration/latest.zip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">     </span>&gt;<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Unzip the orchestration and move the unzipped directory</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>unzip<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>rm<span class="w"> </span>cmem-orchestration.zip
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>mv<span class="w"> </span>cmem-orchestration-v*<span class="w"> </span>cmem-orchestration
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="nb">cd</span><span class="w"> </span>cmem-orchestration
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>git<span class="w"> </span>init<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;stub&quot;</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>If you have access to gitlab.eccenca.com we recommend cloning our repository and follow the README.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>clone<span class="w"> </span>ssh://git@gitlab.eccenca.com:8101/elds/cmem-orchestration.git
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
 <p>Check your local environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Run the following command to check your docker server version.</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># To have the current security patches, always update your docker version</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># to the latest one.</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>version
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Docker version: 27.5.1, build 9f9e405</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># Check docker compose version, should be at least v2.*.*</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># update to the latest version if necessary</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c1"># Docker Compose version v2.32.4</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># login into eccenca docker registry</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>docker<span class="w"> </span>login<span class="w"> </span>docker-registry.eccenca.com
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="c1"># Username: yourusername</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="c1"># Password:</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># Login Succeeded</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Run the following command to check your docker server version.</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1"># To have the current security patches, always update your docker version</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># to the latest one.</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>docker<span class="w"> </span>version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>version
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># Docker version: 27.5.1, build 9f9e405</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># Check docker compose version, should be at least v2.*.*</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># update to the latest version if necessary</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="c1"># Docker Compose version v2.32.4</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="c1"># login into eccenca docker registry</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>docker<span class="w"> </span>login<span class="w"> </span>docker-registry.eccenca.com
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="c1"># Username: yourusername</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="c1"># Password:</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1"># Login Succeeded</span>
 </code></pre></div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¤</a></h2>
-<p>To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">##</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Host Database</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">#</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># localhost is used to configure the loopback interface</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># when the system is booting.  Do not change this entry.</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">##</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="m">127</span>.0.0.1<span class="w"> </span>docker.localhost
-</code></pre></div>
-<p>Corporate Memory uses Ontotext GraphDB triple store as default backend.
-Graphdb is available as free version and does not requires a license.
-If you have a license for Ontotext GraphDB you can copy the file to the <code>license</code> folder inside Corporate Memory&rsquo;s root folder.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cp<span class="w"> </span>YOUR_SE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-se.license
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># or</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>cp<span class="w"> </span>YOUR_EE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-ee.license
+<p>Corporate Memory uses Ontotext GraphDB triple store as the default backend.
+You need to copy your license for Ontotext GraphDB to the <code>license</code> folder inside Corporate Memory&rsquo;s root folder.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Create the licenses folder within ${HOME}/cmem-orchestration</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>licenses
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># Copy YOUR-LICENSE-FILE</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>cp<span class="w"> </span>YOUR_SE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-se.license
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1"># or</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>cp<span class="w"> </span>YOUR_EE_LICENSE_FILE<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cmem-orchestration-VERSION/licenses/graphdb-ee.license
 </code></pre></div>
 <p>Then change the file <code>environments/config.env</code> to use the correct version:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Use Free, &#39;se&#39; or &#39;ee&#39; or adjust the mountpoint in</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># compose/docker-compose.store.graphdb.yaml</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nv">GRAPHDB_LICENSE</span><span class="o">=</span>se
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Use Free, &#39;se&#39; or &#39;ee&#39; or adjust the mountpoint in</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># compose/docker-compose.store.graphdb.yaml</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">GRAPHDB_LICENSE</span><span class="o">=</span>se
 </code></pre></div>
 <p>Run the command to clean workspace, pull the images, start the Corporate Memory instance and load initial data:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Pulling the images will take time</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>make<span class="w"> </span>clean-pull-start-bootstrap
-</code></pre></div>
-<p>You should see the output as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/home/ttelleis/cmem-dist/cmem-orchestration&#39;</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>The<span class="w"> </span>target<span class="w"> </span>cleans<span class="w"> </span>up<span class="w"> </span>everything<span class="w"> </span>and<span class="w"> </span>esp.<span class="w"> </span>REMOVES<span class="w"> </span>ALL<span class="w"> </span>YOUR<span class="w"> </span>DATA.<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>You<span class="w"> </span>can<span class="w"> </span>avoid<span class="w"> </span>this<span class="w"> </span>question<span class="w"> </span>/<span class="w"> </span>interruption<span class="w"> </span>by<span class="w"> </span>setting<span class="w"> </span>CO_I_KNOW_WHAT_I_DO<span class="w"> </span>to<span class="w"> </span>true.
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Type<span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>Yes<span class="w"> </span>or<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>No.
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="m">1</span><span class="o">)</span><span class="w"> </span>Yes
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="m">2</span><span class="o">)</span><span class="w"> </span>No
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1">#? 1</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>make<span class="w"> </span>check-env<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>stop<span class="w"> </span>down<span class="w"> </span>rm-log-dir
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>Entering<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/home/ttelleis/cmem-dist/cmem-orchestration&#39;</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>/usr/bin/docker<span class="w"> </span>compose<span class="w">  </span><span class="nb">kill</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>no<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>kill/usr/bin/docker<span class="w"> </span>compose<span class="w">  </span>stop
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>/usr/bin/docker<span class="w"> </span>compose<span class="w">  </span>down<span class="w"> </span>--volumes<span class="w"> </span>--remove-orphans<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>/usr/bin/docker<span class="w"> </span>compose<span class="w">  </span>up<span class="w"> </span>-d
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">12</span>/12
-<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>dockerlocalhost_default<span class="w">              </span>Created<span class="w">                   </span><span class="m">0</span>.1s
-<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w"> </span>✔<span class="w"> </span>Volume<span class="w"> </span><span class="s2">&quot;dockerlocalhost_store_volume&quot;</span><span class="w">        </span>Created<span class="w">                   </span><span class="m">0</span>.0s
-<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w"> </span>✔<span class="w"> </span>Volume<span class="w"> </span><span class="s2">&quot;dockerlocalhost_import_volume&quot;</span><span class="w">       </span>Created<span class="w">                   </span><span class="m">0</span>.0s
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w"> </span>✔<span class="w"> </span>Volume<span class="w"> </span><span class="s2">&quot;dockerlocalhost_postgres_volume&quot;</span><span class="w">     </span>Created<span class="w">                   </span><span class="m">0</span>.0s
-<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-store-1<span class="w">            </span>Started<span class="w">                   </span><span class="m">1</span>.0s
-<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-apache2-1<span class="w">          </span>Started<span class="w">                   </span><span class="m">1</span>.3s
-<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-cmemc-1<span class="w">            </span>Started<span class="w">                   </span><span class="m">1</span>.2s
-<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-datamanager-1<span class="w">      </span>Started<span class="w">                   </span><span class="m">1</span>.3s
-<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-postgres-1<span class="w">         </span>Healthy<span class="w">                   </span><span class="m">6</span>.6s
-<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-keycloak-1<span class="w">         </span>Healthy<span class="w">                  </span><span class="m">47</span>.8s
-<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-dataplatform-1<span class="w">     </span>Started<span class="w">                  </span><span class="m">48</span>.3s
-<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>dockerlocalhost-dataintegration-1<span class="w">  </span>Started<span class="w">                  </span><span class="m">48</span>.3s
-<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>/home/ttelleis/cmem-dist/cmem-orchestration//scripts/waitForSuccessfulStart.dist.sh
-<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>healthy<span class="w"> </span>orchestration..................<span class="w"> </span><span class="k">done</span>
-<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>Remove<span class="w"> </span>existing<span class="w"> </span>bootstrap<span class="w"> </span>data<span class="w"> </span>from<span class="w"> </span>triple<span class="w"> </span>store<span class="w"> </span>and<span class="w"> </span>import<span class="w"> </span>shipped<span class="w"> </span>data<span class="w"> </span>from<span class="w"> </span>DP
-<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>chmod<span class="w"> </span>a+r<span class="w"> </span>conf/cmemc/cmemc.ini
-<a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>--env<span class="w"> </span><span class="s2">&quot;OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a&quot;</span><span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/data:/data<span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini<span class="w"> </span>cmemc<span class="w"> </span>-c<span class="w"> </span>cmem<span class="w"> </span>admin<span class="w"> </span>store<span class="w"> </span>bootstrap<span class="w"> </span>--import
-<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>Update<span class="w"> </span>or<span class="w"> </span>import<span class="w"> </span>bootstrap<span class="w"> </span>data<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-<a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>Leaving<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;/home/ttelleis/cmem-dist/cmem-orchestration&#39;</span>
-<a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
-<a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>CMEM-Orchestration<span class="w"> </span>successfully<span class="w"> </span>started<span class="w"> </span>with<span class="w"> </span>store<span class="w"> </span>graphdb.
-<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>Please<span class="w"> </span>open<span class="w"> </span>http://docker.localhost:80<span class="w"> </span><span class="k">for</span><span class="w"> </span>validation.
-<a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>Run<span class="w"> </span>make<span class="w"> </span>logs<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>log<span class="w"> </span>output
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Pulling the images will take time</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>make<span class="w"> </span>clean-pull-start-bootstrap
 </code></pre></div>
 <h3 id="optional-enable-graph-insights-extension">(Optional) Enable Graph Insights Extension<a class="headerlink" href="#optional-enable-graph-insights-extension" title="Permanent link">¤</a></h3>
 <p>If you want to have Graph Insights enabled as well, first you need a license.
-Then you can simiply run this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mkdir<span class="w"> </span>licenses
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>ln<span class="w"> </span>-s<span class="w"> </span>your-license-file.lic<span class="w"> </span>graphinsights.lic
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>make<span class="w"> </span>enable-extension<span class="w"> </span><span class="nv">EXTENSION</span><span class="o">=</span>graphinsights
+Then you can simply run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>licenses
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>ln<span class="w"> </span>-s<span class="w"> </span>your-license-file.lic<span class="w"> </span>graphinsights.lic
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>make<span class="w"> </span>enable-extension<span class="w"> </span><span class="nv">EXTENSION</span><span class="o">=</span>graphinsights
 </code></pre></div>
 <p>Please also visit our extended <a href="../../configuration/graphinsights/#a-enable-in-docker-compose-deployment">documentation for Graph Insights</a></p>
 <h2 id="initial-login-test">Initial Login / Test<a class="headerlink" href="#initial-login-test" title="Permanent link">¤</a></h2>
@@ -25969,44 +26009,44 @@ Then you can simiply run this:</p>
 </tr>
 </tbody>
 </table>
-<p>After successful login, you will see Corporate Memory interface. You can now proceed to the <img alt="➡" class="twemoji" src="../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:"><a href="../../../getting-started/">Getting Started</a> section.</p>
+<p>After successful login, you will see the Corporate Memory interface. You can now proceed to the <img alt="➡" class="twemoji" src="../../../assets/externals/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:"><a href="../../../getting-started/">Getting Started</a> section.</p>
 <h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">¤</a></h3>
-<p>To create a backup you have to prepare the backup folders. Make sure these folders exists and have write permissions. Run this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># assuming you are currently in the the cmem-orchestration folder</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/graphs<span class="w"> </span>data/backups/workspace
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>data/backups/graphs<span class="w"> </span>data/backups/workspace
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>make<span class="w"> </span>backup
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/keycloak
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Started Keycloak database backup to data/backups/keycloak/keycloak.sql ...</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># Finished Keycloak database backup.</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>mv<span class="w"> </span>data/backups/keycloak/keycloak.sql<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.sql<span class="w"> </span>data/backups/keycloak/latest.sql
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/workspace
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>--env<span class="w"> </span><span class="s2">&quot;OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a&quot;</span><span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/data:/data<span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini<span class="w"> </span>cmemc<span class="w"> </span>-c<span class="w"> </span>cmem<span class="w"> </span>admin<span class="w"> </span>workspace<span class="w"> </span><span class="nb">export</span><span class="w"> </span>/data/backups/workspace/2024-07-26_14-15.zip
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1"># Export workspace to /data/backups/workspace/2024-07-26_14-15.zip ... done</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/workspace/latest.zip
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/python-packages
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>zip<span class="w"> </span>-r<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip<span class="w"> </span>data/python-packages
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">  </span>adding:<span class="w"> </span>data/python-packages/<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/python-packages/latest.zip
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/graphs
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>--env<span class="w"> </span><span class="s2">&quot;OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a&quot;</span><span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/data:/data<span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini<span class="w"> </span>cmemc<span class="w"> </span>-c<span class="w"> </span>cmem<span class="w"> </span>admin<span class="w"> </span>store<span class="w"> </span><span class="nb">export</span><span class="w"> </span>/data/backups/graphs/2024-07-26_14-15.zip
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="c1"># Exporting graphs backup to /data/backups/graphs/2024-07-26_14-15.zip ... done</span>
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/graphs/latest.zip
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>zip<span class="w"> </span>-r<span class="w"> </span>data/backups/2024-07-26_14-15.zip<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql<span class="w"> </span>data/backups/workspace/2024-07-26_14-15.zip<span class="w"> </span>data/backups/graphs/2024-07-26_14-15.zip<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">82</span>%<span class="o">)</span>
-<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/workspace/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
-<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/graphs/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
-<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/latest.zip
+<p>To create a backup you have to prepare the backup folders. Make sure these folders exist and have write permissions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># assuming you are currently in the cmem-orchestration folder</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/graphs<span class="w"> </span>data/backups/workspace
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>data/backups/graphs<span class="w"> </span>data/backups/workspace
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>make<span class="w"> </span>backup
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/keycloak
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1"># Started Keycloak database backup to data/backups/keycloak/keycloak.sql ...</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1"># Finished Keycloak database backup.</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>mv<span class="w"> </span>data/backups/keycloak/keycloak.sql<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.sql<span class="w"> </span>data/backups/keycloak/latest.sql
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/workspace
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>--env<span class="w"> </span><span class="s2">&quot;OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a&quot;</span><span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/data:/data<span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini<span class="w"> </span>cmemc<span class="w"> </span>-c<span class="w"> </span>cmem<span class="w"> </span>admin<span class="w"> </span>workspace<span class="w"> </span><span class="nb">export</span><span class="w"> </span>/data/backups/workspace/2024-07-26_14-15.zip
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="c1"># Export workspace to /data/backups/workspace/2024-07-26_14-15.zip ... done</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/workspace/latest.zip
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/python-packages
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>zip<span class="w"> </span>-r<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip<span class="w"> </span>data/python-packages
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">  </span>adding:<span class="w"> </span>data/python-packages/<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/python-packages/latest.zip
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data/backups/graphs
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>--env<span class="w"> </span><span class="s2">&quot;OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a&quot;</span><span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/data:/data<span class="w"> </span>--volume<span class="w"> </span>/home/ttelleis/cmem-dist/cmem-orchestration/conf/cmemc/cmemc.ini:/config/cmemc.ini<span class="w"> </span>cmemc<span class="w"> </span>-c<span class="w"> </span>cmem<span class="w"> </span>admin<span class="w"> </span>store<span class="w"> </span><span class="nb">export</span><span class="w"> </span>/data/backups/graphs/2024-07-26_14-15.zip
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="c1"># Exporting graphs backup to /data/backups/graphs/2024-07-26_14-15.zip ... done</span>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/graphs/latest.zip
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>zip<span class="w"> </span>-r<span class="w"> </span>data/backups/2024-07-26_14-15.zip<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql<span class="w"> </span>data/backups/workspace/2024-07-26_14-15.zip<span class="w"> </span>data/backups/graphs/2024-07-26_14-15.zip<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/keycloak/2024-07-26_14-15.sql<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">82</span>%<span class="o">)</span>
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/workspace/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/graphs/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">  </span>adding:<span class="w"> </span>data/backups/python-packages/2024-07-26_14-15.zip<span class="w"> </span><span class="o">(</span>stored<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>ln<span class="w"> </span>-sf<span class="w"> </span><span class="m">2024</span>-07-26_14-15.zip<span class="w"> </span>data/backups/latest.zip
 </code></pre></div>
 <p>The full backup is now at <code>data/backups/latest.zip</code>.</p>
 <h3 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">¤</a></h3>
-<p>In case you have problems starting and receive error messages like Port 80 already assigned.
-Then check if a apache2 service is running and remove it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>status
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>service<span class="w"> </span>stop<span class="w"> </span>apache2
+<p>In case you have problems starting and receive error messages like &ldquo;Port 80 already assigned&rdquo;,
+check if an httpd service (like apache2) is running and stop it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>status
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>service<span class="w"> </span>stop<span class="w"> </span>apache2
 </code></pre></div>
 
 
@@ -26030,7 +26070,7 @@ Then check if a apache2 service is running and remove it.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 1, 2025 09:15:21 UTC"><span class="timeago" datetime="2025-12-01T09:15:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 1, 2025 09:15:21 UTC">2025-12-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 12, 2025 13:09:32 UTC"><span class="timeago" datetime="2025-12-12T13:09:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 12, 2025 13:09:32 UTC">2025-12-12</span>
   </span>
 
     
