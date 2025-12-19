@@ -3,7 +3,8 @@ status: new
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.3.0
+
+# Corporate Memory 25.3.2
 
 Corporate Memory 25.3 is the third major release in 2025.
 
@@ -12,7 +13,6 @@ Corporate Memory 25.3 is the third major release in 2025.
 ![25.3: Explore - Companion Chat-Based Data Interaction](25-3-explore-companion.png "25.3: Explore - Companion Chat-Based Data Interaction"){ class="bordered" }
 
 ![25.3: Explore - Graph Insights](25-3-explore-graph-insights.png "25.3: Explore - Graph Insights"){ class="bordered" }
-
 
 The highlights of this release are:
 
@@ -35,9 +35,10 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.3.1
--   eccenca Explore v25.3.0
+-   eccenca DataIntegration v25.3.2
+-   eccenca Explore v25.3.1
 -   eccenca Corporate Memory Control (cmemc) v25.6.0
+-   eccenca Graph Insights v19.1.1-2
 
 We tested this release with the following dependency components:
 
@@ -46,9 +47,14 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.3.1
+## eccenca DataIntegration v25.3.2
 
-We are excited to announce the release of DataIntegration v25.3.0, bringing the new LLM powered Mapping Creator experience, explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
+We are excited to announce the release of DataIntegration v25.3, bringing the new LLM powered Mapping Creator experience, explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
+
+**v25.3.2 of DataIntegration ships the following fixes:**
+
+-   Upgrade of docker base image in order to fix vulnerabilities.
+-   Plugin parameter description allows Markdown rendering in shortened preview.
 
 **v25.3.1 of DataIntegration ships the following fixes:**
 
@@ -137,9 +143,16 @@ We are excited to announce the release of DataIntegration v25.3.0, bringing the 
     -   Graph URI Drop Down does close now.
     -   Close icon button to remove target entity type in transform operator now works if opened in modal.
 
-## eccenca Explore v25.3.0
+## eccenca Explore v25.3.1
 
-We are pleased to announce Explore v25.3.0, which delivers the new **Companion** LLM data interaction, a whole new way to explore your data relationships in **Graph Insights**, experimental Tentris support, major BKE authoring enhancements and a wide range of usability and stability fixes.
+We are pleased to announce Explore v25.3, which delivers the new **Companion** LLM data interaction, a whole new way to explore your data relationships in **Graph Insights**, experimental Tentris support, major BKE authoring enhancements and a wide range of usability and stability fixes.
+
+**v25.3.1 of Explore ships the following fixes:**
+
+-   The properties tab of a resource details view in the explore knowledge shows the plus button to add a new property.
+-   Fixed updating of count query for Resource table2.
+-   Shacl Query validation does not impose existence check on graph variable, display unresolved terms as sub shape content.
+-   Recursion fix - load only limited depth of sub shapes, prevent displaying cycled sub shapes.
 
 **v25.3.0 of Explore adds the following new features:**
 
