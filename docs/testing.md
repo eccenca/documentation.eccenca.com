@@ -19,7 +19,9 @@ Current issues:
 ### Example from Geometric mean: 1
 
 - Weights: [1, 2, 1]
+
 - Input values: [0.0, 0.0, 0.0]
+
 - Returns: `0.0`
 
 !!! example "Example from Geometric mean: 1"
@@ -57,6 +59,7 @@ Current issues:
     - *defaultValue*: `1.0`
 
 - Input values: [(none)]
+
 - Returns: `1.0`
 
 !!! example "Outputs the default score, if no input score is provided"
@@ -94,6 +97,8 @@ Current issues:
         ``` json title="Source"
         [2003-03-01]
         ```
+
+
         ``` json title="Target"
         [2003-03-01]
         ```
@@ -113,20 +118,18 @@ Current issues:
     1. `[hello world]`
 
 - Returns:
-
-  → `[HelloWorld]`
+    → `[HelloWorld]`
 
 
 ### Example from Coalesce: 5
 
 - Input values:
-  1. `[]`
-  2. `[first A, first B]`
-  3. `[second]`
+    1. `[]`
+    2. `[first A, first B]`
+    3. `[second]`
 
 - Returns:
-
-  → `[first A, first B]`
+    → `[first A, first B]`
 
 !!! example "Example 5"
 
@@ -135,9 +138,13 @@ Current issues:
         ``` json title="1."
         []
         ```
+
+
         ``` json title="2."
         [first A, first B]
         ```
+
+
         ``` json title="3."
         [second]
         ```
@@ -159,8 +166,7 @@ Current issues:
     2. `[Last]`
 
 - Returns:
-
-  → `[First-Last]`
+    → `[First-Last]`
 
 
 ### Example of Concatenate multiple values: 6
@@ -169,16 +175,19 @@ Current issues:
     - *glue*: `\n\t\\`
 
 - Input values:
-    1. `[a
- \b, c]`
+    1.
+        ```json
+        [a
+        \b, c]
+        ```
 
 - Returns:
-
-  → `[a
-
- \b
-
- \c]`
+    →
+        ```json
+        [a
+        \b
+        \c]
+        ```
 
 
 !!! example "Example 5"

@@ -59,7 +59,7 @@ extra:
     Validation: validation
     Filesystem: material-file-tree
     Volume: fontawesome-solid-hard-drive
-    "Load Balancer": simple-awselasticloadbalancing
+    # "Load Balancer": simple-awselasticloadbalancing
     Variables: variables
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
@@ -183,7 +183,7 @@ theme:
       keycloak: material/openid
       validation: octicons/verified-16
       material-file-tree: material/file-tree
-      simple-awselasticloadbalancing: simple/awselasticloadbalancing
+      # simple-awselasticloadbalancing: simple/awselasticloadbalancing
       fontawesome-solid-hard-drive: fontawesome/solid/hard-drive
       variables: material/variable-box
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/

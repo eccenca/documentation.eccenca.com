@@ -6,8 +6,6 @@ version: '3'
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 25.3
-  MATERIAL_TAG: 9.6.14
-  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
 
 tasks:
 
@@ -19,22 +17,19 @@ tasks:
       - task --list
 
   versions:
-    desc: List relevant versions for a mkdocs material bug report
+    desc: List relevant versions for a zensical material bug report
     silent: true
     cmds:
       - |
         cat << EOF
         - Python: {{.PYTHON_VERSION}}
-        - MkDocs: {{.MKDOCS_VERSION}}
-        - Material: {{.MATERIAL_VERSION}}
+        - Zensical: {{.ZENSICAL_VERSION}}
         EOF
     vars:
       PYTHON_VERSION:
         sh: poetry run python --version
-      MKDOCS_VERSION:
-        sh: poetry run mkdocs --version | cut -d " " -f -3
-      MATERIAL_VERSION:
-        sh: poetry run pip show mkdocs-material | grep Version | cut -d " " -f 2
+      ZENSICAL_VERSION:
+        sh: poetry run zensical --version | cut -d " " -f -3
 
   clean:
     desc: Clean up working directory
@@ -65,14 +60,14 @@ tasks:
     deps:
       - task: install
     cmds:
-      - poetry run mkdocs build --strict
+      - poetry run zensical build --strict
 
   serve:
     desc: Serve the page on localhost
     deps:
       - task: install
     cmds:
-      - poetry run mkdocs serve
+      - poetry run zensical serve
 
   use:public:
     desc: switch to public package (non insider)
