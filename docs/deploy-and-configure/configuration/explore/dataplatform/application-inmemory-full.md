@@ -18,7 +18,7 @@ store:
   authorization: REWRITE_FROM
   memory:
     files:
-      - "/data/data.trig" 
+      - "/data/data.trig"
 ```
 
 ***Property: store.type***
@@ -53,4 +53,3 @@ list of files in file URI scheme
 | Required | false |
 | Valid values | A list of files |
 | Environment | STORE_MEMORY_FILES |
-

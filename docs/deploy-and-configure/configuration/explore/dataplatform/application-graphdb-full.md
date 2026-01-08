@@ -182,4 +182,3 @@ Maximum amount of quads of change tracking result which will be loaded in memory
 | Required | false |
 | Valid values | int |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGMAXQUADMEMORY |
-

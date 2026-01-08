@@ -100,4 +100,3 @@ The credentials of the given user
 | Required | false |
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_PASSWORD |
-

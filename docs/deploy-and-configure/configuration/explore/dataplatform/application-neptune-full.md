@@ -138,4 +138,3 @@ The degree of parallelism (CPU) for the neptune loader, possible values are LOW,
 | Required | false |
 | Valid values | LOW, MEDIUM, HIGH, OVERSUBSCRIBE |
 | Environment | STORE_NEPTUNE_S3_BULKLOADPARALLELISM |
-

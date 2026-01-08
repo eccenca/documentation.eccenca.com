@@ -120,4 +120,3 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 | Required | false |
 | Valid values | Valid SPARQL query with bound variable "g" |
 | Environment | STORE_HTTP_GRAPHLISTQUERY |
-
