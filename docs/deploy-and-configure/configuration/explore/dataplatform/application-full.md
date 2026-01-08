@@ -457,7 +457,7 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | <ENDPOINT> |
+| Default | <ENDPOINT_URI> |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_AZURE_OPENAI_ENDPOINT |
