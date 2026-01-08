@@ -17,7 +17,7 @@ This is a list of supported data types in shapes.
 
 ## anyURI
 
-The ·lexical space· of anyURI is finite-length character sequences which, when the algorithm defined in Section 5.4 of [XML Linking Language] is applied to them, result in strings which are legal URIs according to [RFC 2396], as amended by [RFC 2732]. Note:  Spaces are, in principle, allowed in the ·lexical space· of anyURI, however, their use is highly discouraged (unless they are encoded by %20).
+The ·lexical space· of anyURI is finite-length character sequences which, when the algorithm defined in Section 5.4 of [XML Linking Language] is applied to them, result in strings which are legal URIs according to [RFC 2396], as amended by [RFC 2732]. Note: Spaces are, in principle, allowed in the ·lexical space· of anyURI, however, their use is highly discouraged (unless they are encoded by %20).
 
 IRI: `http://www.w3.org/2001/XMLSchema#anyURI`
 
@@ -53,7 +53,7 @@ IRI: `http://www.w3.org/2001/XMLSchema#dateTime`
 
 #### dateTimeStamp
 
-The lexical space of dateTimeStamp consists of strings which are in the ·lexical space· of dateTime and which also match the regular expression '.*(Z|[+|-][0-9](0-9):[0-9][0-9])'
+The lexical space of dateTimeStamp consists of strings which are in the ·lexical space· of dateTime and which also match the regular expression `.*(Z|(+|-)[0-9][0-9]:[0-9][0-9])`
 
 IRI: `http://www.w3.org/2001/XMLSchema#dateTimeStamp`
 

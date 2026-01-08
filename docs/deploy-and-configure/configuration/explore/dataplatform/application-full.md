@@ -876,8 +876,7 @@ Use this property to configure the URI of the public user (see section Public ac
 
 ***Property: authorization.abox.accessConditions.url***
 
-**DEPRECATED**
-Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
 
 | Category | Value |
 |--- | ---: |
@@ -888,8 +887,7 @@ Use this property to set the URL of the access conditions model file. This can b
 
 ***Property: authorization.abox.accessConditions.graph***
 
-**DEPRECATED**
-Use this property to set the graph containing the access conditions model.
+**Deprecation:** Use this property to set the graph containing the access conditions model.
 **Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the UI SPARQL queries).
 
 | Category | Value |
@@ -1220,7 +1218,7 @@ The committer name which appears in the commit message on system commits
 
 ***Property: gitSync.committerEmail***
 
-The committer email which appears in the commit message  on system commits
+The committer email which appears in the commit message on system commits
 
 | Category | Value |
 |--- | ---: |
@@ -1235,7 +1233,7 @@ Schedules Pull Frequency - Configured git repositories for sync are pulled regul
 
 | Category | Value |
 |--- | ---: |
-| Default | 0 */30* ** * |
+| Default | 0 */30 * * * * |
 | Required | false |
 | Valid values | Cron setting according to <https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression> |
 | Environment | GITSYNC_SCHEDULEDPULLCRON |
@@ -1610,7 +1608,7 @@ Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load
 
 ***Property: scheduler.analyticalPoolSize***
 
-Limits how many analytical requests can be run in parallel. Analytical requests  can have longer runtimes than retrieval requests.
+Limits how many analytical requests can be run in parallel. Analytical requests can have longer runtimes than retrieval requests.
 
 | Category | Value |
 |--- | ---: |
@@ -1694,7 +1692,7 @@ One of the supported types of backends DataPlatform can connect to
 |--- | ---: |
 | Default | *none* |
 | Required | true |
-| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE |
+| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE, TENTRIS |
 | Environment | STORE_TYPE |
 
 ***Property: store.owlImportsResolution***
