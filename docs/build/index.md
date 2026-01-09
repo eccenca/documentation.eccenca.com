@@ -28,7 +28,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
 
     ---
 
-    - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from Tabular Data such as CSV, XSLX or Database Tables.
+    - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from tabular data such as CSV, XSLX or database tables.
     - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
     - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
     - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
