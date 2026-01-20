@@ -1,0 +1,23 @@
+---
+title: Corporate Memory Marketplace Package Lifecycle
+---
+%%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
+stateDiagram-v2
+
+
+state "Package Definition<br>and Release<br>(local)" as pkg
+state "Published<br>(Marketplace)" as pub
+state ".cpa Package<br>(local & CI/CD)" as cpa
+state "Solution Dev and Config<br>(Corporate Memory)" as cmem
+state "Installed<br>(Corporate Memory)" as ins
+%% state "Uninstalled" as uni
+
+[*] --> pkg : copier copy
+cpa --> cmem : install <br> --input PATH
+pkg --> cmem : install <br> --input PATH
+cmem --> pkg : export
+pkg --> cpa : build
+cpa --> pub : publish
+
+pub --> ins : install
+ins --> [*] : uninstall

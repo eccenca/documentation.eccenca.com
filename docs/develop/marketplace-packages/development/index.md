@@ -20,7 +20,7 @@ This page gives an overview of the concepts you need to understand in order to d
 
 ## Package Structure
 
-The [package-template](https://github.com/eccenca/cmem-package-template) will create the boilerplate for a package repository.
+Use the [package-template](https://github.com/eccenca/cmem-package-template) to create the boilerplate for a package repository.
 
 ### License
 
@@ -63,13 +63,99 @@ It is used to present package details and contents to the `inspect` commands<!--
 
 #### Files
 
+A package can contain graphs or Build projects, those contents are referenced in the `manifest.json`
+
 ##### Graphs
+
+Add the following structure to add a graph.
+`register_as_vocabulary` and `import_into` are optional instructions.
+We suggest to organize graphs in a respective sub-folder (here `graphs/`), but this is up to you:
+
+```json
+"files": [
+    …
+    {
+        "file_type": "graph",
+        "file_path": "graphs/file.ttl",
+        "graph_iri": "http://www.example.org/file/",
+        "register_as_vocabulary": true,
+        "import_into": [
+            "http://www.example.org/integration_graph/"
+        ]
+    },
+    …
+]
+```
 
 ##### Projects
 
+Add the following structure to add a project.
+We suggest to organize projects in a respective sub-folder (here `projects/`), but this is up to you:
+
+```json
+"files": [
+    …
+    {
+        "file_type": "project",
+        "file_path": "projects/my-build-project.zip",
+        "project_id": "my-build-project"
+    },
+    …
+]
+```
+
 #### Dependencies
+
+Dependencies to other (vocabulary) packages or to python plugins can be declared in `copier copy` answers.
+The dependencies are added to the `manifest.json` as described in the next sections.
 
 ##### Python Plugin Packages
 
+Add the following to declare a dependency to a python plugin:
+
+```json
+"dependencies": [
+    …
+    {
+      "dependency_type": "python-package",
+      "pypi_id": "cmem-plugin-pyshacl"
+    },
+    …
+]
+```
+
 ##### (Vocabulary) Packages
 
+Add the following to declare a dependency to a (vocabulary) package:
+
+```json
+"dependencies": [
+    …
+    {
+      "dependency_type": "vocabulary",
+      "package_id": "w3c-rdfs-vocab"
+    }
+    …
+]
+```
+
+## Building Packages
+
+!!! info "`cmemc package build` reference"
+
+    Refer to [TODO: link](./) for the complete command reference.
+
+During development you can install a package from a local path (plain folder or a `.cpa` package) using the `cmemc package install --input PATH` command.
+
+Use the `cmemc package build` command.
+This will build a package archive from a package directory.
+
+This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory package archive (`.cpa`) with the following naming convention: `{package_id}-v{version}.cpa`.
+
+## Publishing Packages
+
+!!! info "`cmemc package publish` reference"
+
+    Refer to [TODO: link](./) for the complete command reference.
+
+Package archives can be published to the marketplace using the `cmemc package publish` command.
