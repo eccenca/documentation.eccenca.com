@@ -2,7 +2,7 @@
 title: "Marketplace Packages: Development and Publication"
 icon: material/code-json
 tags:
-    - Python
+    - Package
 ---
 # Development and Publication of Marketplace Packages
 
@@ -35,16 +35,16 @@ You can remove a license entirely; however, a package that does not declare a li
 
 The `manifest.json` is the central package definition.
 It contains all relevant package metadata and describes the package contents.
-It is used to present package details and contents to the `inspect` commands<!-- or in the marketplace frontends-->, to install, configure and uninstall all parts of a package.
+It is used to present package details and contents to the `inspect` command<!-- or in the marketplace frontends-->, to install, configure and uninstall all parts of a package.
 
 #### Metadata
 
 `package_type`
 :   `project`
-    :   A package that may ship any content, mainly intended to contain BUILD projects, (instance/data) graphs, SHACL shapes, workspace configuration, query catalogs, etc.
+    :   A package that may ship any content, mainly intended to contain Build projects, (instance/data) graphs, SHACL shapes, workspace configuration, query catalogs, etc.
 
     `vocabulary`
-    :   A package that is supposed to contribute vocabulary / ontology contents, such as `rdf:`, `org:`, `sso:`, etc. Such package may contain multiple vocabularies / ontologies. Packaging related SHACL shapes is reasonable, too.
+    :   A package that is supposed to contribute vocabulary / ontology contents, such as `rdf:`, `org:`, `sso:`, etc. Such a package may contain multiple vocabularies / ontologies. Packaging related SHACL shapes is reasonable, too.
 
 `package_id`
 :   Unique package identifier
@@ -153,7 +153,7 @@ The following pages give an overview about this feature:
 
 ![Corporate Memory Marketplace Package Lifecycle](../mpp-lifecycle.svg){ width="50%" }
 
-### Installing (local) Packages
+### Install (local) Packages
 
 Use the following command to install a local package folder content (or built `.cpa` file) to a Corporate Memory (package development) instance.
 
@@ -164,7 +164,7 @@ cmemc package install --input PATH
 Make changes to graphs, configuration, or Build projects as needed.
 Newly created or imported graphs or Build projects need to be registered in `manifest.json` so they will be fetched by `export`.
 
-### Exporting Contents into a Package
+### Export Contents into a Package
 
 Use the following command to export the file artifacts declared in `manifest.json` from a Corporate Memory (package development) instance to a local package folder.
 
@@ -172,9 +172,17 @@ Use the following command to export the file artifacts declared in `manifest.jso
 cmemc package export PACKAGE_ID
 ```
 
-Run this to initially populate package contents from a solution configuration or to update them after making changes on your Corporate Memory (package development) instance, in order to capture and eventually build/release them as a Marketplace Package.
+Run this to initially populate package contents from a solution configuration. You can also use it to update contents after making changes on your Corporate Memory (package development) instance, capturing them for building and releasing as a Marketplace Package.
 
-### Building Packages
+### Inspect Packages
+
+Review and verify the contents of a package with the following command:
+
+```sh
+cmemc package inspect PACKAGE_PATH
+```
+
+### Build Packages
 
 During development you can install a package from a local path (plain folder or a `.cpa` package) using the `cmemc package install --input PATH` command.
 
@@ -183,6 +191,7 @@ This will build a package archive from a package directory.
 
 This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory package archive (`.cpa`) with the following naming convention: `{package_id}-v{version}.cpa`.
 
-### Publishing Packages
+### Publish Packages
 
 Package archives can be published to the Marketplace Server using the `cmemc package publish` command.
+After being published packages can be found and installed directly from the Marketplace Server (potential users do not need to have the local package folder or `.cpa` file available).
