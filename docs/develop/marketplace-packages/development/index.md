@@ -8,15 +8,15 @@ tags:
 
 ## Introduction
 
-Marketplace Packages are archives that wrap certain content, functionality and configuration of Corporate Memory used to share and extend any such.
+Marketplace Packages are archives that bundle content, functionality, and configuration from Corporate Memory for sharing and reuse.
 
 Each package has its own release cycle.
-Packages can can be installed and uninstalled during runtime.
+Packages can be installed and uninstalled during runtime.
 
 In order to support the development and publication of Marketplace Packages, we published a [package-template](https://github.com/eccenca/cmem-package-template).
-Please have a look at this to get started.
+Please have a look at this template to get started.
 
-This page gives an overview of the concepts you need to understand in order to develop plugins.
+This page gives an overview of the concepts you need to understand in order to develop packages.
 
 ## Package Structure
 
@@ -26,10 +26,10 @@ Use the [package-template](https://github.com/eccenca/cmem-package-template) to 
 
 !!! info "No publication without license"
 
-    Packages without a license declaration can not be pusblished to a Corporate Memory Marketplace Server.
+    Packages without a license declaration cannot be published to a Corporate Memory Marketplace Server.
 
-Our template will bootstrap with a _Apache License 2.0 ([`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html))_, see <https://spdx.org/licenses/> if you need a different.
-You can remove a license entirely, however, a package that does not declare a license can not be published.
+Our template will bootstrap with an _Apache License 2.0 ([`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html))_. See <https://spdx.org/licenses/> if you need a different license.
+You can remove a license entirely; however, a package that does not declare a license cannot be published.
 
 ### Manifest
 
@@ -53,21 +53,21 @@ It is used to present package details and contents to the `inspect` commands<!--
 :   Semantic version identifier string of the package, but limited to proper releases.
 
 `metadata.name`
-:   The package name in english
+:   The package name in English.
 
 `metadata.description`
-:   The package description in english.
+:   The package description in English.
 
 `metadata_comment`
 :   A maintainer or publisher comment.
 
 #### Files
 
-A package can contain graphs or Build projects, those contents are referenced in the `manifest.json`
+A package can contain graphs or Build projects. These contents are referenced in the `manifest.json`.
 
 ##### Graphs
 
-Add the following structure to add a graph.
+Use the following structure to include a graph.
 `register_as_vocabulary` and `import_into` are optional instructions.
 We suggest to organize graphs in a respective sub-folder (here `graphs/`), but this is up to you:
 
@@ -89,7 +89,7 @@ We suggest to organize graphs in a respective sub-folder (here `graphs/`), but t
 
 ##### Projects
 
-Add the following structure to add a project.
+Use the following structure to include a project.
 We suggest to organize projects in a respective sub-folder (here `projects/`), but this is up to you:
 
 ```json
@@ -106,12 +106,12 @@ We suggest to organize projects in a respective sub-folder (here `projects/`), b
 
 #### Dependencies
 
-Dependencies to other (vocabulary) packages or to python plugins can be declared in `copier copy` answers.
+Dependencies to other (vocabulary) packages or to Python plugins can be declared in the `copier copy` answers.
 The dependencies are added to the `manifest.json` as described in the next sections.
 
 ##### Python Plugin Packages
 
-Add the following to declare a dependency to a python plugin:
+Use the following to declare a dependency to a Python plugin:
 
 ```json
 "dependencies": [
@@ -126,7 +126,7 @@ Add the following to declare a dependency to a python plugin:
 
 ##### (Vocabulary) Packages
 
-Add the following to declare a dependency to a (vocabulary) package:
+Use the following to declare a dependency to a (vocabulary) package:
 
 ```json
 "dependencies": [
@@ -139,11 +139,42 @@ Add the following to declare a dependency to a (vocabulary) package:
 ]
 ```
 
-## Building Packages
+## Package Development Cycle
 
-!!! info "`cmemc package build` reference"
+!!! info "`cmemc package` reference"
 
-    Refer to [TODO: link](./) for the complete command reference.
+    Refer to [TODO: link](./) for the complete reference of the `package`command group.
+
+Some packages are simply wrapping existing artifacts into a managed structure (e.g. existing vocabulary/ontology).
+
+Most (solution) package development and evolution will be a back and forth between a package repository (making changes to `manifest.json` in terms of adding/removing dependencies, graph files, or Build project files) and a Corporate Memory (package development) instance.
+
+The following pages give an overview about this feature:
+
+![Corporate Memory Marketplace Package Lifecycle](../mpp-lifecycle.svg){ width="50%" }
+
+### Installing (local) Packages
+
+Use the following command to install a local package folder content (or built `.cpa` file) to a Corporate Memory (package development) instance.
+
+```sh
+cmemc package install --input PATH
+```
+
+Make changes to graphs, configuration, or Build projects as needed.
+Newly created or imported graphs or Build projects need to be registered in `manifest.json` so they will be fetched by `export`.
+
+### Exporting Contents into a Package
+
+Use the following command to export the file artifacts declared in `manifest.json` from a Corporate Memory (package development) instance to a local package folder.
+
+```sh
+cmemc package export PACKAGE_ID
+```
+
+Run this to initially populate package contents from a solution configuration or to update them after making changes on your Corporate Memory (package development) instance, in order to capture and eventually build/release them as a Marketplace Package.
+
+### Building Packages
 
 During development you can install a package from a local path (plain folder or a `.cpa` package) using the `cmemc package install --input PATH` command.
 
@@ -152,10 +183,6 @@ This will build a package archive from a package directory.
 
 This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory package archive (`.cpa`) with the following naming convention: `{package_id}-v{version}.cpa`.
 
-## Publishing Packages
+### Publishing Packages
 
-!!! info "`cmemc package publish` reference"
-
-    Refer to [TODO: link](./) for the complete command reference.
-
-Package archives can be published to the marketplace using the `cmemc package publish` command.
+Package archives can be published to the Marketplace Server using the `cmemc package publish` command.
