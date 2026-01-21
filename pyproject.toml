@@ -23,7 +23,7 @@ mkdocs-material = {git = "git@github.com:eccenca/mkdocs-material-insiders.git", 
 cmem-cmempy = "^25.3.0"
 pydantic = "^2.11.7"
 jinja2 = "^3.1.6"
-zensical = "^0.0.15"
+zensical = "^0.0.17"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
