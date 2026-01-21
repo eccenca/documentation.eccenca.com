@@ -1,5 +1,5 @@
 ---
-title: Corporate Memory Marketplace Package Lifecycle
+#title: Corporate Memory Marketplace Package Lifecycle
 ---
 %%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
 stateDiagram-v2
@@ -13,6 +13,7 @@ state "Installed<br>(Corporate Memory)" as ins
 %% state "Uninstalled" as uni
 
 [*] --> pkg : copier copy
+pkg --> pkg : inspect
 cpa --> cmem : install <br> --input PATH
 pkg --> cmem : install <br> --input PATH
 cmem --> pkg : export
@@ -20,4 +21,5 @@ pkg --> cpa : build
 cpa --> pub : publish
 
 pub --> ins : install
+ins --> ins : list
 ins --> [*] : uninstall
