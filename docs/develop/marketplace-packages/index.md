@@ -2,6 +2,8 @@
 status: new
 title: "Marketplace Packages: Overview"
 icon: material/shopping
+tags:
+    - Package
 hide:
     - toc
 ---
@@ -15,7 +17,7 @@ Marketplace Packages bundle everything for a specific Corporate Memory–based s
 -   Vocabularies / Ontologies
 -   (SKOS) Taxonomies
 -   (Instance / Data) Graphs
--   BUILD Projects
+-   Build Projects
 -   Dependencies on
     -   [python-plugins](../python-plugins/index.md)
     -   (other) Marketplace Packages
@@ -34,7 +36,7 @@ The following pages give an overview of this feature:
 
     Intended for Linked Data Experts and Corporate Memory Admins, this page outlines how to (un)install and manage Marketplace Packages.
 
-    This section discusses the lifecycle commands and stages `copier copy`, _Package Definition and Release_, `inspect`, `install --input PATH` (from local), _Solution Development and Configuration_, `export`, `build`, and `publish`.
+    This section discusses the lifecycle commands and stages `install`, `list` and `uninstall`.
 
 -   :material-code-json: [Development and Publication](development/index.md)
 
@@ -42,6 +44,6 @@ The following pages give an overview of this feature:
 
     Intended for Linked Data Experts, Consultants, and Partners, this page gives an overview of how to start developing and publish Marketplace Packages.
 
-    This section discusses the lifecycle commands and stages `install`, `list` and `uninstall`.
+    This section discusses the lifecycle commands and stages `copier copy`, _Package Definition and Release_, `inspect`, `install --input PATH` (from local), _Solution Development and Configuration_, `export`, `build`, and `publish`.
 
 </div>
