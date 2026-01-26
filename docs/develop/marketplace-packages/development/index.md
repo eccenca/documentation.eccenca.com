@@ -28,7 +28,8 @@ Use the [package-template](https://github.com/eccenca/cmem-package-template) to 
 
     Packages without a license declaration cannot be published to a Corporate Memory Marketplace Server.
 
-Our template will bootstrap with an _Apache License 2.0 ([`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html))_. See <https://spdx.org/licenses/> if you need a different license.
+Our template will bootstrap your package with an _Apache License 2.0 ([`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html))_.
+See <https://spdx.org/licenses/> if you need a different license.
 You can remove a license entirely; however, a package that does not declare a license cannot be published.
 
 ### Manifest
