@@ -8,25 +8,26 @@ tags:
 
 ## Introduction
 
-Marketplace Packages can be installed directly from a Corporate Memory Marketplace Server or from local package archives (`.cpa` files).
+Marketplace Packages can be installed directly from a Corporate Memory Marketplace Server (e.g. [https://eccenca.market](https://eccenca.market)), or from local **C**orporate Memory **P**ackage **A**rchives (`.cpa` files).
 
 This page describes how to install, list, and uninstall packages using `cmemc`.
 
 !!! info "`cmemc package` reference"
 
-    Refer to [TODO: link](./) for the complete reference of the `package` command group.
+    The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md) contains of a needed commands to support
+    the complate package lifecycle.
 
 ## Install Packages
 
 Use the following command to install a package from a Marketplace Server:
 
-```sh
+``` sh
 cmemc package install PACKAGE_ID
 ```
 
 For installing local package archives (`.cpa` files) or package directories, use the `--input` option:
 
-```sh
+``` sh
 cmemc package install --input PATH
 ```
 
@@ -34,7 +35,7 @@ cmemc package install --input PATH
 
 Use the following command to list all installed packages:
 
-```sh
+``` sh
 cmemc package list
 ```
 
@@ -42,8 +43,9 @@ cmemc package list
 
 Use the following command to uninstall a package:
 
-```sh
+``` sh
 cmemc package uninstall PACKAGE_ID
 ```
 
 This removes all package contents from the Corporate Memory instance, including graphs and Build projects that were installed as part of the package.
+
