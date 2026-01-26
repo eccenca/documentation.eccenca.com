@@ -8,7 +8,7 @@ tags:
 # Installation and Usage of Python Plugins
 
 Plugins are a released as parts of Python packages.
-They can but do not need to be open-source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index). One package can contain of multiple plugins.
+They can but do not need to be open-source and published on [pypi.org](https://pypi.org/search/?q=%22cmem-plugin-%22) (a widely used Python Package Index). One package can contain multiple plugins.
 
 ## Installation
 
