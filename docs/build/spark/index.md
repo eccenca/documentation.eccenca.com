@@ -32,7 +32,7 @@ By itself, Apache Spark is detached from any data and Input/Output (IO) operatio
 
 ## How does Spark work?
 
-### Spark's Architecture
+### Spark’s Architecture
 
 There are ―in general terms― three different layers or levels of abstraction within Spark:
 
@@ -52,12 +52,12 @@ Spark can be seen as bridging distributed computing paradigms. [Hadoop](https://
 
 #### High-level API
 
-The basis for in-memory computations in Spark is, thus, the RDD. As such, the RDD is the central abstraction in Spark for the concept of _distributed data_. The chronological development of Spark's APIs also reflects this: The RDD was introduced in 2011, then two higher-level abstractions were introduced in 2013 and 2015, each building upon the previous. These two abstractions are the DataFrame (2013) and the Dataset (2015). The main difference is the following:
+The basis for in-memory computations in Spark is, thus, the RDD. As such, the RDD is the central abstraction in Spark for the concept of _distributed data_. The chronological development of Spark’s APIs also reflects this: The RDD was introduced in 2011, then two higher-level abstractions were introduced in 2013 and 2015, each building upon the previous. These two abstractions are the DataFrame (2013) and the Dataset (2015). The main difference is the following:
 
 * A **Dataset** is a _strongly-typed_ distributed collection of data.
 * A **DataFrame** is a _weakly-typed_ distributed collection of data.
 
-Technically speaking, a DataFrame is nothing else than a dataset of rows. Here, a row is to be understood in the same sense as in the rows of a relational database table. Conceptually, the main difference is that a Dataset “knows” which types of objects it stores or contains, whereas a DataFrame doesn't.
+Technically speaking, a DataFrame is nothing else than a dataset of rows. Here, a row is to be understood in the same sense as in the rows of a relational database table. Conceptually, the main difference is that a Dataset “knows” which types of objects it stores or contains, whereas a DataFrame doesn’t.
 
 In our case, the relevant abstractions are the RDD and the DataFrame. In a general, domain-agnostic data integration system such as CMEM, there is no use-case for a strongly-typed version of a distributed collection of data (that would require knowledge of the application and business domains, integrated into CMEM itself). In other words: The usage of DataFrames aligns perfectly with the general, flexible and dynamic data integration tasks of CMEM and the corresponding workflow execution, of which Spark is an optional but optimal part.
 
@@ -134,9 +134,9 @@ The main types of Spark-aware datasets include:
 
 ### What is the relation between BUILD’s Spark-aware workflows and the Knowledge Graph?
 
-BUILD’s Spark-aware workflows operate on datasets within BUILD, executing transformations and producing outputs in a distributed, in-memory manner. The Knowledge Graph, managed by EXPLORE, serves as the persistent semantic storage layer, but Spark itself does not directly interact with the graph. Instead, the **workflow execution engine** orchestrates the movement of data between Spark-aware datasets and the Knowledge Graph, ensuring that transformations are applied in the correct sequence and that results are persisted appropriately.
+The Spark-aware workflows operate on datasets within BUILD, executing transformations and producing outputs. The Knowledge Graph, managed by EXPLORE, serves as the persistent semantic storage layer, but Spark itself does not directly interact with the graph. Instead, the **workflow execution engine** orchestrates the movement of data between Spark-aware datasets and the Knowledge Graph, ensuring that transformations are applied in the correct sequence and that results are persisted appropriately.
 
-This separation of concerns allows Spark to focus on high-performance computation without being constrained by the architecture or APIs of the Knowledge Graph, or the rest of CMEM's architecture around it. Data can flow into workflows from various sources and ultimately be integrated into the graph, while the execution engine mediates this process, handling dependencies, scheduling, and parallelism. Users benefit from the efficiency of Spark while maintaining the integrity and consistency of the graph as the central repository of integrated knowledge.
+This separation of concerns allows Spark to focus on high-performance computation without being constrained by the architecture or APIs of the Knowledge Graph, or the rest of CMEM’s architecture around it. Data can flow into workflows from various sources and ultimately be integrated into the graph, while the execution engine mediates this process, handling dependencies, scheduling, and parallelism. Users benefit from the efficiency of Spark while maintaining the integrity and consistency of the graph as the central repository of integrated knowledge.
 
 From a conceptual perspective, the relation is therefore indirect but essential: Spark-aware workflows accelerate the processing of large or complex datasets, while the Knowledge Graph ensures that the processed data is semantically harmonized and persistently stored. Together, they enable CMEM to combine flexible, distributed computation with knowledge-centric integration, supporting a wide range of enterprise data integration use cases without requiring users to manage low-level execution details.
 
