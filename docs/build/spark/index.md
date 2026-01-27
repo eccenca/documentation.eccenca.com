@@ -113,17 +113,13 @@ By leveraging Spark, CMEM can handle data integration workflows that would other
 
 ### How and where is Apache Spark used by BUILD?
 
-Within the BUILD stage, Apache Spark is used exclusively for executing workflows that involve **Spark-aware datasets**. These workflows connect datasets, apply transformations, and produce outputs, with Spark providing a **distributed, in-memory execution engine** that handles large volumes of data and complex computations efficiently.
-
-The Spark-aware datasets include file formats and storage systems such as Avro, Parquet, ORC, Hive, and HDFS. These formats map naturally to Spark’s distributed processing model and benefit from in-memory execution and partition-based parallelism.
+Within the BUILD stage, Apache Spark is used exclusively for executing workflows that involve **Spark-aware datasets**. These workflows connect datasets, apply transformations, and produce outputs, with Spark providing a **distributed execution engine** that handles large volumes of data and complex computations efficiently.
 
 For other dataset types (e.g. smaller relational sources or local files), Spark execution provides no significant advantage and is not typically used. In such cases, BUILD’s standard local execution engine is sufficient. Spark thus acts as an optional, performance-oriented backend, not as a replacement for the standard workflow engine.
 
 Each Spark-aware dataset corresponds to an **executor-aware entity**. During workflow execution, BUILD translates the **workflow graph** into Spark jobs, where datasets become RDDs or DataFrames, transformations become stages, and Spark orchestrates execution across the cluster. The results are then materialized or written back into CMEM’s storage layer, ready for subsequent workflow steps or integration into the knowledge graph. Users do not need to manage executors or partitions manually.
 
 ### What are the Spark-aware datasets?
-
-In BUILD, **Spark-aware datasets** are those data sources designed to fully leverage Spark’s distributed, in-memory execution engine. These datasets are structured to enable parallelized transformations, efficient partitioning, and integration into workflows without requiring manual management of computation or storage.
 
 The main types of Spark-aware datasets include:
 
