@@ -1,0 +1,10 @@
+nav:
+    - Build: build
+    - Explore and Author: explore-and-author
+    - Consume: consume
+    - Deploy and Configure: deploy-and-configure
+    - Automate: automate
+    - Develop: develop
+    - Release Notes: release-notes
+    - Tutorials: tutorials
+
