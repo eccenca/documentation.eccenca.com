@@ -1,0 +1,4 @@
+nav:
+    - Marketplace Packages: index.md
+    - Installation and Management: installation
+    - Development and Publication: development
