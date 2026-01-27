@@ -79,18 +79,22 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 
 | Resource | Explanation |
 | ---------| ------------|
-| `:AllActions` | Represents all actions. You can use it to grant execution rights to all actions |
+| `:AllActions` | Represents all actions. You can use it to grant execution rights to all actions. |
 | `:Build` | Represents the action needed to use eccenca Build (DataIntegration) component of eccenca Corporate Memory. |
 | `:Build-AdminPython` | Represents the action needed to use eccenca Build (DataIntegration)'s Python plugin management component of eccenca Corporate Memory. |
 | `:Build-AdminWorkspace` | Represents the action needed to use eccenca Build (DataIntegration)'s workspace administration component of eccenca Corporate Memory. |
 | `:ChangeAccessConditions` | Represents the action needed to use the Authorization management API (see Developer Manual). You can use it as object of the `eccauth:allowedAction` property to grant access to the Authorization management API if the user fulfills the access condition. |
 | `:Explore-BKE-Manage` | Represents the action needed to view, create, edit and delete visualisations in the BKE-Module (needs access to config graph as well). |
 | `:Explore-BKE-Read` | Allows to use the BKE-Module interface in read-only mode (needs access to config graph as well). |
-| `:Explore-KnowledgeGraphs` | Represents the action needed to use the Explore Tab (needs access to at least one graph as well) |
+| `:Explore-ChartsCatalog` | Allows to use the Charts-Module interface. |
+| `:Explore-GraphInsight-Manage` | Allows management of databases via the API in Explore. Authorizes graph insights API for database management. |
+| `:Explore-GraphInsight-Read` | Allows to use the Graph Insight UI actions in graph list and tab view of explore module. Authorizes graph insights API for specific database access. |
+| `:Explore-KnowledgeGraphs` | Represents the action needed to use the Explore Tab (needs access to at least one graph as well). |
 | `:Explore-ListSystemGraphs` | Represents the action needed to list Corporate Memory system graphs (tagged with shui:isSystemResource) in the Knowledge Graph list. |
-| `:Explore-QueryCatalog` | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed) |
-| `:Explore-ThesaurusCatalog` | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well) |
-| `:Explore-VocabularyCatalog` | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well) |
+| `:Explore-QueryCatalog` | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed). |
+| `:Explore-ThesaurusCatalog` | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well). |
+| `:Explore-VocabularyCatalog` | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well). |
+| `:LinkRulesUserInterface` | Represents the action needed to use the Link Rules Module. |
 
 In addition to these attributes, you can use the following special attributes to grant partial access to the access conditions itself:
 
