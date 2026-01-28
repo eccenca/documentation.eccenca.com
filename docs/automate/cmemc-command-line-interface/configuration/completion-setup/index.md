@@ -33,6 +33,14 @@ In order to enable tab completion with **zsh** run the following command:
 $ eval "$(_CMEMC_COMPLETE=zsh_source cmemc)"
 ```
 
+!!! note "Windows / msys2"
+
+    When using zsh on Windows with msys2, you need to strip carriage returns to avoid parse errors:
+
+    ``` shell-session title="completion setup for zsh on Windows/msys2"
+    $ eval "$(_CMEMC_COMPLETE=zsh_source cmemc | tr -d '\r')"
+    ```
+
 To enable the interactive menu as seen above in **zsh** run the following command:
 
 ``` shell-session title="interactive menu for zsh"
