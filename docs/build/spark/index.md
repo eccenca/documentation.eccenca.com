@@ -46,7 +46,7 @@ At the lowest abstraction level, Spark provides the abstraction of a **resilient
 
 Conceptually, it is important to be aware of the following distinction: Apache Spark does in-memory computations. Hadoop handles the distributed files, and Spark the distributed processing. Spark, YARN and HDFS have therefore orthogonal but cohesive concerns: computation, scheduling, persistence.
 
-Additionally to the in-memory aspect of computations with RDDs, the RDD itself is immutable. This is an established practice in functional programming ―which inspired the core processing functionalities and mechanisms of systems such as Spark and Hadoop―, especially in the context of parallel processing and distributed computing. Immutability does _not_ imply that the processing of data structures is inefficient compared to working with mutable data, since [persistent data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) are used. That said, evidently each type of data structure has its use-cases and trade-offs.
+In addition to the in-memory aspect of computations with RDDs, the RDD itself is immutable. This is an established practice in functional programming ―which inspired the core processing functionalities and mechanisms of systems such as Spark and Hadoop―, especially in the context of parallel processing and distributed computing. Immutability does _not_ imply that the processing of data structures is inefficient compared to working with mutable data, since [persistent data structures](https://en.wikipedia.org/wiki/Persistent_data_structure) are used. That said, evidently each type of data structure has its use-cases and trade-offs.
 
 Spark can be seen as bridging distributed computing paradigms. [Hadoop](https://hadoop.apache.org/) and its MapReduce operate on disk-based storage, processing data in batches. Spark shifts computation into memory and treats data as immutable, enabling stateless transformations across partitions. [Flink](https://flink.apache.org/) goes further by supporting stateful, continuously updated computations, suited for complex streaming workloads.
 
@@ -117,9 +117,9 @@ Within the BUILD stage, Apache Spark is used exclusively for executing workflows
 
 For other dataset types (e.g. smaller relational sources or local files), Spark execution provides no significant advantage and is not typically used. In such cases, BUILD’s standard local execution engine is sufficient. Spark thus acts as an optional, performance-oriented backend, not as a replacement for the standard workflow engine.
 
-Each Spark-aware dataset corresponds to an **executor-aware entity**. During workflow execution, BUILD translates the **workflow graph** into Spark jobs, where datasets become RDDs or DataFrames, transformations become stages, and Spark orchestrates execution across the cluster. The results are then materialized or written back into CMEM’s storage layer, ready for subsequent workflow steps or integration into the knowledge graph. Users do not need to manage executors or partitions manually.
+Each Spark-aware dataset corresponds to an **executor-aware entity**. During workflow execution, BUILD translates the **workflow graph** into Spark jobs, where datasets become RDDs or DataFrames, transformations become stages, and Spark orchestrates execution across the cluster. The results are then materialized or written back into CMEM’s storage layer, ready for subsequent workflow steps or integration into the knowledge graph.
 
-### What are the Spark-aware datasets?
+### Types of Spark-aware datasets
 
 The main types of Spark-aware datasets include:
 
@@ -136,18 +136,16 @@ The main types of Spark-aware datasets include:
 
 The Spark-aware workflows operate on datasets within BUILD, executing transformations and producing outputs. The Knowledge Graph, managed by EXPLORE, serves as the persistent semantic storage layer, but Spark itself does not directly interact with the graph. Instead, the **workflow execution engine** orchestrates the movement of data between Spark-aware datasets and the Knowledge Graph, ensuring that transformations are applied in the correct sequence and that results are persisted appropriately.
 
-This separation of concerns allows Spark to focus on high-performance computation without being constrained by the architecture or APIs of the Knowledge Graph, or the rest of CMEM’s architecture around it. Data can flow into workflows from various sources and ultimately be integrated into the graph, while the execution engine mediates this process, handling dependencies, scheduling, and parallelism. Users benefit from the efficiency of Spark while maintaining the integrity and consistency of the graph as the central repository of integrated knowledge.
-
-From a conceptual perspective, the relation is therefore indirect but essential: Spark-aware workflows accelerate the processing of large or complex datasets, while the Knowledge Graph ensures that the processed data is semantically harmonized and persistently stored. Together, they enable CMEM to combine flexible, distributed computation with knowledge-centric integration, supporting a wide range of enterprise data integration use cases without requiring users to manage low-level execution details.
+This separation of concerns allows Spark to focus on high-performance computation without being constrained by the architecture or APIs of the Knowledge Graph, or the rest of CMEM’s architecture around it. Data can flow into workflows from various sources and ultimately be integrated into the graph, while the execution engine mediates this process, handling dependencies, scheduling, and parallelism.
 
 ### What is the relation between Spark-aware dataset plugins and other BUILD plugins?
 
-Spark-aware dataset plugins are a specialized subset of dataset plugins that integrate seamlessly into BUILD workflows. They implement the same source-and-sink interfaces as all other plugins, allowing workflows to connect Spark-aware datasets, traditional datasets, and transformations without additional configuration.
+Spark-aware dataset plugins are a specialized subset of dataset plugins that integrate seamlessly into BUILD workflows. They implement the same source-and-sink interfaces as all other plugins, allowing workflows to connect Spark-aware datasets, traditional datasets, and transformations.
 
-These plugins include not only the core Spark-aware datasets (Avro, Parquet, ORC, Hive, HDFS) but also other Spark-aware plugins such as JSON and JDBC sources, providing consistent behavior and integration across a wide range of data types and endpoints. Spark-aware plugins can be combined with any other plugin in a workflow, with the execution engine automatically leveraging Spark where beneficial.
+These plugins also cover JSON and JDBC sources, providing consistent behavior and integration across a wide range of data types and endpoints. Spark-aware plugins can be combined with any other plugin in a workflow, with the execution engine automatically leveraging Spark where beneficial.
 
 ## Summary
 
-This document explained what Apache Spark is, how it processes data through its core abstractions, and why Spark appears in CMEM specifically in the BUILD component. The key boundary is architectural: Spark provides the execution engine for distributed processing, BUILD defines and orchestrates workflows, and EXPLORE remains the semantic persistence layer. Spark therefore does not interact with the Knowledge Graph directly; it is used by BUILD for workflow execution, while the workflow engine controls when results are written out and how they feed into subsequent steps.
+This document explained what Apache Spark is, how it processes data through its core abstractions, and why Spark appears in CMEM specifically in the BUILD component. The key boundary is architectural: Spark provides the execution engine for distributed processing, BUILD defines and orchestrates workflows, and EXPLORE remains the semantic persistence layer. Spark therefore does not interact with the Knowledge Graph directly; it is used by BUILD for workflow execution, while the workflow execution engine controls when results are written out and how they feed into subsequent steps.
 
 Within BUILD, Spark matters primarily when workflows operate on Spark-aware datasets. Those datasets align with Spark’s distributed processing model, which is why Spark can execute transformations across partitions, recompute lost work if a node fails, and handle larger volumes of data without falling back to single-node execution. For other dataset types or small workloads, workflows typically run without Spark and remain within BUILD’s standard execution path.
