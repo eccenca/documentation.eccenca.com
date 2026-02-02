@@ -144,7 +144,8 @@ Use the following to declare a dependency to a (vocabulary) package:
 
 !!! info "`cmemc package` reference"
 
-    Refer to [TODO: link](./) for the complete reference of the `package` command group.
+    The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md)
+    contains of the needed commands to support the complete package lifecycle.
 
 Some packages are simply wrapping existing artifacts into a managed structure (e.g. existing vocabulary/ontology).
 

@@ -92,16 +92,21 @@ $ cmemc query list [OPTIONS]
 
 Outputs a list of query URIs which can be used as reference for the query execute command.
 
+You can filter queries based on ID, type, placeholder, or regex pattern.
+
 
 
 ??? info "Options"
     ```text
 
-    --catalog-graph TEXT  The used query catalog graph.  [default:
-                          https://ns.eccenca.com/data/queries/]
-    --id-only             Lists only query identifier and no labels or other
-                          metadata. This is useful for piping the ids into other
-                          cmemc commands.
+    --catalog-graph TEXT     The used query catalog graph.  [default:
+                             https://ns.eccenca.com/data/queries/]
+    --id-only                Lists only query identifier and no labels or other
+                             metadata. This is useful for piping the ids into
+                             other cmemc commands.
+    --filter <TEXT TEXT>...  Filter catalog queries by one of the following
+                             filter names and a corresponding value: id, type,
+                             placeholder, regex.
     ```
 
 ## query open

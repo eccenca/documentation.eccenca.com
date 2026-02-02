@@ -78,16 +78,12 @@ $ cmemc graph list [OPTIONS]
 ??? info "Options"
     ```text
 
-    --raw                      Outputs raw JSON of the graphs list API response.
-    --id-only                  Lists only graph identifier (IRIs) and no labels
-                               or other metadata. This is useful for piping the
-                               IRIs into other commands.
-    --filter <CHOICE TEXT>...  Filter graphs based on effective access
-                               conditions or import closure. First parameter
-                               CHOICE can be 'access' or 'imported-by'. The
-                               second parameter can be 'readonly' or 'writeable'
-                               in case of 'access' or any readable graph in case
-                               of 'imported-by'.
+    --raw                    Outputs raw JSON of the graphs list API response.
+    --id-only                Lists only graph identifier (IRIs) and no labels or
+                             other metadata. This is useful for piping the IRIs
+                             into other commands.
+    --filter <TEXT TEXT>...  Filter graphs by one of the following filter names
+                             and a corresponding value: access, imported-by.
     ```
 
 ## graph export
@@ -156,6 +152,8 @@ $ cmemc graph delete [OPTIONS] [IRIS]...
                                  graphs which are imported from these selected
                                  graph(s).
     --include-import-statements  Delete import reference of deleted graphs
+    --filter <TEXT TEXT>...      Filter graphs by one of the following filter
+                                 names and a corresponding value: imported-by.
     ```
 
 ## graph import

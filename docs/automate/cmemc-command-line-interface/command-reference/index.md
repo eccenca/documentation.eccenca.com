@@ -25,6 +25,8 @@ tags:
 | [admin acl](admin/acl/index.md) | [create](admin/acl/index.md#admin-acl-create) | Create an access condition. |
 | [admin acl](admin/acl/index.md) | [update](admin/acl/index.md#admin-acl-update) | Update an access condition. |
 | [admin acl](admin/acl/index.md) | [delete](admin/acl/index.md#admin-acl-delete) | Delete access conditions. |
+| [admin acl](admin/acl/index.md) | [export](admin/acl/index.md#admin-acl-export) | Export access conditions to a JSON file. |
+| [admin acl](admin/acl/index.md) | [import](admin/acl/index.md#admin-acl-import) | Import access conditions from a JSON file. |
 | [admin acl](admin/acl/index.md) | [review](admin/acl/index.md#admin-acl-review) | Review grants for a given account. |
 | [admin client](admin/client/index.md) | [list](admin/client/index.md#admin-client-list) | List client accounts. |
 | [admin client](admin/client/index.md) | [secret](admin/client/index.md#admin-client-secret) | Get or generate a new secret for a client account. |
@@ -42,7 +44,7 @@ tags:
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
-| [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete a user account. |
+| [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete user accounts. |
 | [admin user](admin/user/index.md) | [password](admin/user/index.md#admin-user-password) | Change the password of a user account. |
 | [admin user](admin/user/index.md) | [open](admin/user/index.md#admin-user-open) | Open user in the browser. |
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
@@ -82,7 +84,7 @@ tags:
 | [graph imports](graph/imports/index.md) | [create](graph/imports/index.md#graph-imports-create) | Add statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph imports](graph/imports/index.md) | [delete](graph/imports/index.md#graph-imports-delete) | Delete statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph insights](graph/insights/index.md) | [list](graph/insights/index.md#graph-insights-list) | List graph insight snapshots. |
-| [graph insights](graph/insights/index.md) | [delete](graph/insights/index.md#graph-insights-delete) | Delete a graph insight snapshot. |
+| [graph insights](graph/insights/index.md) | [delete](graph/insights/index.md#graph-insights-delete) | Delete graph insight snapshots. |
 | [graph insights](graph/insights/index.md) | [create](graph/insights/index.md#graph-insights-create) | Create or update a graph insight snapshot. |
 | [graph insights](graph/insights/index.md) | [update](graph/insights/index.md#graph-insights-update) | Update a graph insight snapshot. |
 | [graph insights](graph/insights/index.md) | [inspect](graph/insights/index.md#graph-insights-inspect) | Inspect the metadata of a graph insight snapshot. |
@@ -91,6 +93,14 @@ tags:
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
 | [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
+| [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
+| [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
+| [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
+| [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
+| [package](package/index.md) | [export](package/index.md#package-export) | Export installed packages to package directories. |
+| [package](package/index.md) | [build](package/index.md#package-build) | Build a package archive from a package directory. |
+| [package](package/index.md) | [publish](package/index.md#package-publish) | Publish a package archive to the marketplace server. |
+| [package](package/index.md) | [search](package/index.md#package-search) | Search for available packages with a given search text. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
@@ -106,7 +116,7 @@ tags:
 | [project file](project/file/index.md) | [usage](project/file/index.md#project-file-usage) | Display all usage data of a file resource. |
 | [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project variables. |
 | [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project variable. |
-| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete a project variable. |
+| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project variables. |
 | [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
 | [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
 | [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |

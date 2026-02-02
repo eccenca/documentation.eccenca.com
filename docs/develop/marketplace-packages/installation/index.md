@@ -14,8 +14,8 @@ This page describes how to install, list, and uninstall packages using `cmemc`.
 
 !!! info "`cmemc package` reference"
 
-    The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md) contains of a needed commands to support
-    the complate package lifecycle.
+    The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md)
+    contains of the needed commands to support the complete package lifecycle.
 
 ## Install Packages
 
