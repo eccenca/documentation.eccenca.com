@@ -18,3 +18,4 @@ nav:
     - Project and Global Variables: variables
     - Evaluate Template Operator: evaluate-template
     - Build Knowledge Graphs from Kafka Topics: kafka-consumer
+    - Spark: spark
