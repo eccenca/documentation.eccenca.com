@@ -35,8 +35,8 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
--   eccenca DataIntegration v25.3.2
--   eccenca Explore v25.3.1
+-   eccenca DataIntegration v25.3.3
+-   eccenca Explore v25.3.3
 -   eccenca Corporate Memory Control (cmemc) v25.6.0
 -   eccenca Graph Insights v19.1.1-2
 
@@ -47,9 +47,13 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v25.3.2
+## eccenca DataIntegration v25.3.3
 
 We are excited to announce the release of DataIntegration v25.3, bringing the new LLM powered Mapping Creator experience, explicit Databricks connectivity, richer dataset and plugin APIs, streamlined Python plugin tooling, and broad workflow and editor reliability improvements.
+
+**v25.3.3 of DataIntegration ships the following fixes:**
+
+-   JSON dataset: #arrayText on non-existing properties now returns empty result instead of empty array string.
 
 **v25.3.2 of DataIntegration ships the following fixes:**
 
@@ -143,9 +147,19 @@ We are excited to announce the release of DataIntegration v25.3, bringing the ne
     -   Graph URI Drop Down does close now.
     -   Close icon button to remove target entity type in transform operator now works if opened in modal.
 
-## eccenca Explore v25.3.1
+## eccenca Explore v25.3.3
 
 We are pleased to announce Explore v25.3, which delivers the new **Companion** LLM data interaction, a whole new way to explore your data relationships in **Graph Insights**, experimental Tentris support, major BKE authoring enhancements and a wide range of usability and stability fixes.
+
+**v25.3.3 of Explore ships the following fixes:**
+
+-   Upgrades jinjava for mitigation of CVE-2026-25526
+-   Reduces docker package footprint
+
+**v25.3.2 of Explore ships the following fixes:**
+
+-   Knowledge Graphs: Editing data in the properties tab now handles white space in literals correctly, while still cleaning IRIs.
+-   Knowledge Graphs & BKE: Saving a resource now reports progress with more details. The progress dialog dialog is shown after 5 seconds of waiting.
 
 **v25.3.1 of Explore ships the following fixes:**
 
