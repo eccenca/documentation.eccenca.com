@@ -5,6 +5,8 @@ tags:
 ---
 # Workflows
 
+## Introduction
+
 Workflows are the central building blocks for orchestrating complex data processing tasks.
 
 A **workflow** is a directed acyclic graph (DAG) that orchestrates data processing. Each workflow connects **datasets** with **operators** (transforms, linking tasks, and other processing steps) to define a complete data pipeline.
@@ -17,8 +19,6 @@ Workflows are the primary mechanism for:
 - Connecting records across datasets using linking rules.
 - Chaining multiple processing steps into a single, repeatable pipeline.
 - Orchestrating other workflows as sub-tasks.
-
-This page describes common workflow operations and how to configure them.
 
 ## Core Concepts
 
