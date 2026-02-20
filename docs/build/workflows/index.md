@@ -5,7 +5,7 @@ tags:
 ---
 # Workflows
 
-Workflows are the central building block to orchestrate complex data processing tasks.
+Workflows are the central building blocks for orchestrating complex data processing tasks.
 
 A **workflow** is a directed acyclic graph (DAG) that orchestrates data processing. Each workflow connects **datasets** with **operators** (transforms, linking tasks, and other processing steps) to define a complete data pipeline.
 
@@ -31,7 +31,7 @@ Every node in a workflow graph is one of:
 
 A single project task (e.g., a Transform named "Clean addresses") can appear in the same workflow more than once; each occurrence is a distinct **workflow node**.
 
-In addition, it's possible to add notes, which don't affect the workflow execution.
+In addition, notes can be added; they do not affect workflow execution.
 
 ### Connection Types
 
@@ -53,7 +53,7 @@ Datasets can be marked as **replaceable inputs** or **replaceable outputs** on t
 
 The **Clear Dataset** operator empties the dataset connected to its output before new data is written. This is the recommended way to ensure a target dataset starts clean on every workflow run.
 
-Place the Clear Dataset operator in the workflow and connect its output to the dataset that should be cleared. The operator takes no data inputs; connect it using a **dependency connection** from the upstream node that must complete first, or leave it unconnected if clearing should happen at the start of execution of the subsequent nodes.
+Place the Clear Dataset operator in the workflow and connect its output to the dataset that should be cleared. The operator takes no data inputs; connect it using a **dependency connection** from the upstream node that must complete first, or leave it unconnected if the dataset should be cleared before any subsequent nodes execute.
 
 ![Clear Datasets](wf-clear-datasets.png)
 
@@ -113,4 +113,3 @@ After this is done, you can reconfigure any workflow operator that uses this par
 Tutorials that showcase this function in an application context:
 
 - [Loading JDBC datasets incrementally](../loading-jdbc-datasets-incrementally/index.md)
-
