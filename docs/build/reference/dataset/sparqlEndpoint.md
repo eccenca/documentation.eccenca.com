@@ -96,14 +96,6 @@ Enforces the correct ordering of values, if set to `true` (default).
 - Datatype: `boolean`
 - Default Value: `true`
 
-### Clear graph before workflow execution
-
-If set to `true`, this will clear the specified graph before executing a workflow that writes into it.
-
-- ID: `clearGraphBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
-
 ### SPARQL query timeout (ms)
 
 SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and`silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
@@ -161,3 +153,12 @@ Additional parameters to be appended to every query, e.g. `&soft-limit=1`
 - ID: `queryParameters`
 - Datatype: `string`
 - Default Value: `None`
+
+### Clear graph before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes into it.
+
+- ID: `clearGraphBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+

@@ -10,9 +10,9 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-**Configuration**
+## Configuration
 
-The geocoding service to be queried for searches can be set up in the configuration.
+The Geocoding service to be queried for searches can be set up in the configuration.
 The default configuration is as follows:
 
     com.eccenca.di.geo = {
@@ -35,7 +35,7 @@ The default configuration is as follows:
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
-**Logging**
+## Logging
 
 By default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:
 
@@ -56,3 +56,4 @@ Additional URL parameters to be attached to each HTTP search request. Example: '
 - ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
+

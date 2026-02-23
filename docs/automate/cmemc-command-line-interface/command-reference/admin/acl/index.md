@@ -28,9 +28,12 @@ This command retrieves and lists all access conditions, which are manageable by 
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only URIs. This is useful for piping the IDs into other
-                commands.
+    --raw                    Outputs raw JSON.
+    --id-only                Lists only URIs. This is useful for piping the IDs
+                             into other commands.
+    --filter <TEXT TEXT>...  Filter access conditions by one of the following
+                             filter names and a corresponding value: name, user,
+                             group, read-graph, write-graph.
     ```
 
 ## admin acl inspect
@@ -163,14 +166,101 @@ cmemc admin acl delete [OPTIONS] [ACCESS_CONDITION_IDS]...
 
 This command deletes existing access conditions from the account.
 
+!!! warning
+    Access conditions will be deleted without prompting.
+
 !!! note
-    Access conditions can be listed by using the `cmemc admin acs list` command.
+    Access conditions can be listed by using the `admin acl list` command.
 
 ??? info "Options"
     ```text
 
-    -a, --all   Delete all access conditions. This is a dangerous option, so use
-                it with care.
+    --filter <TEXT TEXT>...  Filter access conditions by one of the following
+                             filter names and a corresponding value: name, user,
+                             group, read-graph, write-graph.
+    -a, --all                Delete all access conditions. This is a dangerous
+                             option, so use it with care.
+    ```
+
+## admin acl export
+
+Export access conditions to a JSON file.
+
+```shell-session title="Usage"
+$ cmemc admin acl export [OPTIONS] [ACCESS_CONDITION_IDS]...
+```
+
+Access conditions can be exported based on IDs, filters, or all at once. The exported JSON can be imported back using the `acl import` command.
+
+By default, uses template-based file naming with the current date and connection name. You can override this by specifying an explicit output file path with `--output-file`.
+
+```shell-session title="Example"
+$ cmemc admin acl export --all
+```
+
+```shell-session title="Example"
+$ cmemc admin acl export --all --output-file acls.json
+```
+
+```shell-session title="Example"
+$ cmemc admin acl export --filter group local-users
+```
+
+```shell-session title="Example"
+$ cmemc admin acl export :my-acl-iri
+```
+
+??? info "Options"
+    ```text
+
+    -a, --all                     Export all access conditions.
+    --filter <TEXT TEXT>...       Filter access conditions by one of the
+                                  following filter names and a corresponding
+                                  value: name, user, group, read-graph, write-
+                                  graph.
+    --output-file FILE            Export to this file. Use '-' for stdout. If
+                                  specified, overrides --output-dir and
+                                  --filename-template.
+    --output-dir DIRECTORY        The base directory, where the ACL files will
+                                  be created. If this directory does not exist,
+                                  it will be silently created. Ignored if
+                                  --output-file is specified.  [default: .]
+    -t, --filename-template TEXT  Template for the export file name(s). Possible
+                                  placeholders are (Jinja2): {{connection}}
+                                  (from the --connection option) and {{date}}
+                                  (the current date as YYYY-MM-DD). Needed
+                                  directories will be created. Ignored if
+                                  --output-file is specified.  [default:
+                                  {{date}}-{{connection}}.acls.json]
+    --replace                     Replace existing files. This is a dangerous
+                                  option, so use it with care.
+    ```
+
+## admin acl import
+
+Import access conditions from a JSON file.
+
+```shell-session title="Usage"
+cmemc admin acl import [OPTIONS] INPUT_FILE
+```
+
+This command imports access conditions from a JSON file that was created using the `acl export` command.
+
+If `--replace` is specified, existing access conditions with matching IRIs will be deleted before importing. Otherwise, the import will skip if an access condition with the same IRI already exists.
+
+```shell-session title="Example"
+cmemc admin acl import acls.json
+```
+
+```shell-session title="Example"
+cmemc admin acl import --replace acls.json
+```
+
+??? info "Options"
+    ```text
+
+    --replace   Replace existing access conditions with the same IRI. By
+                default, import will fail if an access condition already exists.
     ```
 
 ## admin acl review

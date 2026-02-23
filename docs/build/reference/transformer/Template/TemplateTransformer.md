@@ -21,8 +21,8 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 
 * Parameters
     * template:
-
     ```text
+
     Hello {{input1}} {{input2}},
 
     How are you today?
@@ -33,7 +33,6 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
     2. `[Doe]`
 
 * Returns:
-
     ```text
     [Hello John Doe,
 

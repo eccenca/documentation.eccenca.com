@@ -81,16 +81,29 @@ For each data value, a separate option needs to be used. All options can be comb
 
 ## admin user delete
 
-Delete a user account.
+Delete user accounts.
 
 ```shell-session title="Usage"
-cmemc admin user delete USERNAME
+cmemc admin user delete [OPTIONS] [USERNAMES]...
 ```
 
-This command deletes a user account from a realm.
+This command deletes user accounts from a realm.
+
+!!! warning
+    User accounts will be deleted without prompting.
 
 !!! note
-    The deletion of a user account does not delete the assigned groups of this account, only the assignments to these groups.
+    The deletion of user accounts does not delete the assigned groups, only the assignments to these groups. User accounts can be listed by using the `admin user list` command.
+
+??? info "Options"
+    ```text
+
+    -a, --all                Delete all user accounts. This is a dangerous
+                             option, so use it with care.
+    --filter <TEXT TEXT>...  Filter users by one of the following filter names
+                             and a corresponding value: enabled, email,
+                             username.
+    ```
 
 ## admin user password
 
@@ -127,3 +140,4 @@ cmemc admin user open [USERNAMES]...
 With this command, you can open a user in the keycloak console in your browser to change them.
 
 The command accepts multiple usernames which results in opening multiple browser tabs.
+

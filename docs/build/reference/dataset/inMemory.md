@@ -14,14 +14,15 @@ A Dataset that holds all data in-memory.
 
 ## Parameter
 
-### Clear graph before workflow execution
-
-If set to true this will clear this dataset before it is used in a workflow execution.
-
-- ID: `clearGraphBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `true`
+`None`
 
 ## Advanced Parameter
 
-`None`
+### Clear graph before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear this dataset before it is used in a workflow execution.
+
+- ID: `clearGraphBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+

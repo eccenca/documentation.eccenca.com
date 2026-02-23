@@ -196,3 +196,4 @@ The number of retries per email when send errors are encountered.
 - ID: `nrRetries`
 - Datatype: `int`
 - Default Value: `2`
+

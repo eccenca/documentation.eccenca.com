@@ -25,20 +25,20 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns distance 0, if at least one value matches:**
 
-* Input values:
-    * Source: `[max, helmut]`
-    * Target: `[max]`
+- Input values:
+    - Source: `[max, helmut]`
+    - Target: `[max]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 ---
 **Returns distance 1, if no value matches:**
 
-* Input values:
-    * Source: `[max, helmut]`
-    * Target: `[john]`
+- Input values:
+    - Source: `[max, helmut]`
+    - Target: `[john]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 ## Parameter
 

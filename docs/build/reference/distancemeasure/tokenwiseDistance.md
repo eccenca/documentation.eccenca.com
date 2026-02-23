@@ -101,3 +101,4 @@ Use incremental IDF weights
 - ID: `useIncrementalIdfWeights`
 - Datatype: `boolean`
 - Default Value: `false`
+

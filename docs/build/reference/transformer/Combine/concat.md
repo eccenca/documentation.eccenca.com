@@ -113,7 +113,6 @@ Concatenates strings from multiple inputs.
     2. `[Second]`
 
 * Returns:
-
     ```text
     [First
     Second]
@@ -129,7 +128,7 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: `[First \\aSecond]`
+* Returns: `[First    \\aSecond]`
 
 ## Parameter
 

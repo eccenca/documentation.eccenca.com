@@ -53,3 +53,4 @@ The character encoding.
 * ID: `encoding`
 * Datatype: `string`
 * Default Value: `UTF-8`
+

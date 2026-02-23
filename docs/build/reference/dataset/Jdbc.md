@@ -132,11 +132,11 @@ spark.sql.options {
 
 ## Driver Priority
 
-In general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
+In general, it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
 
-The driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
+The driver delivered with eccenca Dataintegration will be preferred. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
 
-_Recommended DBMS versions_
+### Recommended DBMS versions
 
 - **Microsoft SQL Server 2017**: Older versions might work, but do not support the `groupBy` parameter.
 - **PostgreSQL 9.5**: The `groupBy` parameter needs at least version 8.4.
@@ -221,14 +221,6 @@ How multiple values per entity property are written.
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
-### Clear table before workflow execution
-
-If set to true this will clear the specified table before executing a workflow that writes to it.
-
-- ID: `clearTableBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
-
 ### User
 
 Username. Must be empty in some cases e.g. if secret key and client id are used. If non-empty this will also overwrite any value set in the JDBC URL string.
@@ -254,6 +246,14 @@ An SQL WHERE clause to filter the records to be retrieved.
 - Default Value: `None`
 
 ## Advanced Parameter
+
+### Clear table before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified table before executing a workflow that writes to it.
+
+- ID: `clearTableBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
 
 ### Token endpoint URL (Azure Active Directory)
 

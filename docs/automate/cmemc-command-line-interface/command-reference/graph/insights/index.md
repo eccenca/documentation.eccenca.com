@@ -37,13 +37,19 @@ Graph Insights Snapshots are identified by an ID.
 
 ## graph insights delete
 
-Delete a graph insight snapshot.
+Delete graph insight snapshots.
 
 ```shell-session title="Usage"
-cmemc graph insights delete [OPTIONS] [SNAPSHOT_ID]
+cmemc graph insights delete [OPTIONS] [SNAPSHOT_IDS]...
 ```
 
-Graph Insight Snapshots are identified by an ID. To get a list of existing snapshots, execute the `graph insights list` command or use tab-completion.
+Graph Insight Snapshots are identified by an ID.
+
+!!! warning
+    Snapshots will be deleted without prompting.
+
+!!! note
+    Snapshots can be listed by using the `graph insights list` command.
 
 ??? info "Options"
     ```text

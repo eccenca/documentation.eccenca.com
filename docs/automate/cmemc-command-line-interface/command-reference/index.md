@@ -27,6 +27,8 @@ tags:
 | [admin acl](admin/acl/index.md) | [create](admin/acl/index.md#admin-acl-create) | Create an access condition. |
 | [admin acl](admin/acl/index.md) | [update](admin/acl/index.md#admin-acl-update) | Update an access condition. |
 | [admin acl](admin/acl/index.md) | [delete](admin/acl/index.md#admin-acl-delete) | Delete access conditions. |
+| [admin acl](admin/acl/index.md) | [export](admin/acl/index.md#admin-acl-export) | Export access conditions to a JSON file. |
+| [admin acl](admin/acl/index.md) | [import](admin/acl/index.md#admin-acl-import) | Import access conditions from a JSON file. |
 | [admin acl](admin/acl/index.md) | [review](admin/acl/index.md#admin-acl-review) | Review grants for a given account. |
 | [admin client](admin/client/index.md) | [list](admin/client/index.md#admin-client-list) | List client accounts. |
 | [admin client](admin/client/index.md) | [secret](admin/client/index.md#admin-client-secret) | Get or generate a new secret for a client account. |
@@ -40,11 +42,10 @@ tags:
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
-| [admin store](admin/store/index.md) | [migrate](admin/store/index.md#admin-store-migrate) | Migrate configuration resources to the current version. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
-| [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete a user account. |
+| [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete user accounts. |
 | [admin user](admin/user/index.md) | [password](admin/user/index.md#admin-user-password) | Change the password of a user account. |
 | [admin user](admin/user/index.md) | [open](admin/user/index.md#admin-user-open) | Open user in the browser. |
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
@@ -68,12 +69,7 @@ tags:
 | [dataset](dataset/index.md) | [create](dataset/index.md#dataset-create) | Create a dataset. |
 | [dataset](dataset/index.md) | [open](dataset/index.md#dataset-open) | Open datasets in the browser. |
 | [dataset](dataset/index.md) | [update](dataset/index.md#dataset-update) | Update a dataset. |
-| [dataset resource](dataset/resource/index.md) | [list](dataset/resource/index.md#dataset-resource-list) | List available file resources. |
-| [dataset resource](dataset/resource/index.md) | [delete](dataset/resource/index.md#dataset-resource-delete) | Delete file resources. |
-| [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
-| [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
-| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | (Hidden) Deprecated: use 'graph imports tree' instead. |
 | [graph](graph/index.md) | [list](graph/index.md#graph-list) | List accessible graphs. |
 | [graph](graph/index.md) | [export](graph/index.md#graph-export) | Export graph(s) as NTriples to stdout (-), file or directory. |
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
@@ -84,7 +80,7 @@ tags:
 | [graph imports](graph/imports/index.md) | [create](graph/imports/index.md#graph-imports-create) | Add statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph imports](graph/imports/index.md) | [delete](graph/imports/index.md#graph-imports-delete) | Delete statement to import a TO_GRAPH into a FROM_GRAPH. |
 | [graph insights](graph/insights/index.md) | [list](graph/insights/index.md#graph-insights-list) | List graph insight snapshots. |
-| [graph insights](graph/insights/index.md) | [delete](graph/insights/index.md#graph-insights-delete) | Delete a graph insight snapshot. |
+| [graph insights](graph/insights/index.md) | [delete](graph/insights/index.md#graph-insights-delete) | Delete graph insight snapshots. |
 | [graph insights](graph/insights/index.md) | [create](graph/insights/index.md#graph-insights-create) | Create or update a graph insight snapshot. |
 | [graph insights](graph/insights/index.md) | [update](graph/insights/index.md#graph-insights-update) | Update a graph insight snapshot. |
 | [graph insights](graph/insights/index.md) | [inspect](graph/insights/index.md#graph-insights-inspect) | Inspect the metadata of a graph insight snapshot. |
@@ -93,6 +89,14 @@ tags:
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
 | [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
+| [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
+| [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
+| [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
+| [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
+| [package](package/index.md) | [export](package/index.md#package-export) | Export installed packages to package directories. |
+| [package](package/index.md) | [build](package/index.md#package-build) | Build a package archive from a package directory. |
+| [package](package/index.md) | [publish](package/index.md#package-publish) | Publish a package archive to the marketplace server. |
+| [package](package/index.md) | [search](package/index.md#package-search) | Search for available packages with a given search text. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
@@ -108,7 +112,7 @@ tags:
 | [project file](project/file/index.md) | [usage](project/file/index.md#project-file-usage) | Display all usage data of a file resource. |
 | [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project variables. |
 | [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project variable. |
-| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete a project variable. |
+| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project variables. |
 | [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
 | [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
 | [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |

@@ -25,38 +25,38 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns distance 0, if the values are different:**
 
-* Input values:
-    * Source: `[max]`
-    * Target: `[john]`
+- Input values:
+    - Source: `[max]`
+    - Target: `[john]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 ---
 **Returns distance 1, if the values are equal:**
 
-* Input values:
-    * Source: `[max]`
-    * Target: `[max]`
+- Input values:
+    - Source: `[max]`
+    - Target: `[max]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 ---
 **If multiple values are provided, returns 0, if at least one value does not match:**
 
-* Input values:
-    * Source: `[max, helmut]`
-    * Target: `[max]`
+- Input values:
+    - Source: `[max, helmut]`
+    - Target: `[max]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 ---
 **If multiple values are provided, returns 1, if all value match:**
 
-* Input values:
-    * Source: `[max, max]`
-    * Target: `[max, max]`
+- Input values:
+    - Source: `[max, max]`
+    - Target: `[max, max]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 ## Parameter
 

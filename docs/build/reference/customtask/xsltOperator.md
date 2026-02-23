@@ -26,9 +26,9 @@ If you are well-versed in the XSL ecosystem, this is everything you need to know
 
 The acronym **XSL** stands for "eXtensible Stylesheet Language". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:
 
-1. XSLT: XSL Transformations
-2. XPath: XML Path Language
-3. XSL-FO: XSL Formatting Objects
+    1. XSLT: XSL Transformations
+    2. XPath: XML Path Language
+    3. XSL-FO: XSL Formatting Objects
 
 In a nutshell, this is simply the separation of concerns between "processing" XML and "rendering" the results.
 
@@ -52,13 +52,13 @@ The **XSL transform** turns the so-called **source tree** into a **result tree**
 
 A minimal example of the (1) XML input data, (2) a corresponding XSL transformation and the (3) generated output is the following:
 
-**XML data** (`.xml` file):
+##### XML data (`.xml` file)
 
 ```xml
 <book><title>1984</title></book>
 ```
 
-**XSL stylesheet** (`.xslt` file):
+##### XSL stylesheet (`.xslt` file)
 
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
@@ -68,7 +68,7 @@ A minimal example of the (1) XML input data, (2) a corresponding XSL transformat
 </xsl:stylesheet>
 ```
 
-**Output:** (`.html` file)
+##### Output: (`.html` file)
 
 ```html
 <html><body><h1>1984</h1></body></html>

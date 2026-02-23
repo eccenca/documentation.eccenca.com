@@ -134,7 +134,7 @@ cmemc graph validation cancel PROCESS_ID
 Export a report of finished validations.
 
 ```shell-session title="Usage"
-cmemc graph validation export [OPTIONS] [PROCESS_IDS]...
+$ cmemc graph validation export [OPTIONS] [PROCESS_IDS]...
 ```
 
 This command exports a jUnit XML or JSON report in order to process them somewhere else (e.g. a CI pipeline).

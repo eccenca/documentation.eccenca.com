@@ -55,7 +55,7 @@ Connection parameters
 
 #### Account URL hostname
 
-The hostname which is used for the connection. Usually, this is something like '<orgname>-<account_name>.snowflakecomputing.com'
+The hostname which is used for the connection. Usually, this is something like `<orgname>-<account_name>.snowflakecomputing.com`
 
 - ID: `connection.host`
 - Datatype: `string`
@@ -234,3 +234,4 @@ Optional pause between queries in ms.
 - ID: `queryExecution.pause`
 - Datatype: `int`
 - Default Value: `2000`
+

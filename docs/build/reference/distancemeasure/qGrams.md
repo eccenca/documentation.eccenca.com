@@ -25,29 +25,29 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns 0.0 if the input strings are equal:**
 
-* Input values:
-    * Source: `[abcd]`
-    * Target: `[abcd]`
+- Input values:
+    - Source: `[abcd]`
+    - Target: `[abcd]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 ---
 **Returns 1.0 if the input strings do not share a single q-gram:**
 
-* Input values:
-    * Source: `[abcd]`
-    * Target: `[dcba]`
+- Input values:
+    - Source: `[abcd]`
+    - Target: `[dcba]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 ---
 **Returns 1 minus the matching q-grams divided by the total number of q-grams. Generated q-grams in this example: (#a, ab, b#) and (#a, ac, c#):**
 
-* Input values:
-    * Source: `[ab]`
-    * Target: `[ac]`
+- Input values:
+    - Source: `[ab]`
+    - Target: `[ac]`
 
-* Returns: `0.8`
+- Returns: `0.8`
 
 ## Parameter
 
@@ -55,9 +55,9 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 No description
 
-* ID: `q`
-* Datatype: `int`
-* Default Value: `2`
+- ID: `q`
+- Datatype: `int`
+- Default Value: `2`
 
 ## Advanced Parameter
 
@@ -65,14 +65,15 @@ No description
 
 The minimum character that is used for indexing
 
-* ID: `minChar`
-* Datatype: `char`
-* Default Value: `0`
+- ID: `minChar`
+- Datatype: `char`
+- Default Value: `0`
 
 ### Max char
 
 The maximum character that is used for indexing
 
-* ID: `maxChar`
-* Datatype: `char`
-* Default Value: `z`
+- ID: `maxChar`
+- Datatype: `char`
+- Default Value: `z`
+

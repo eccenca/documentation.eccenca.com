@@ -84,3 +84,4 @@ Graphs are identified by an IRI. Statement imports are managed by creating owl:i
 
 !!! note
     The get a list of existing graph imports, execute the `graph imports list` command or use tab-completion.
+

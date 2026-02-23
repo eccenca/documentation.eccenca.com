@@ -66,3 +66,4 @@ Access token that connects to a GraphQL endpoint to authorize and secure user ac
 - ID: `oauth_access_token`
 - Datatype: `string`
 - Default Value: `None`
+

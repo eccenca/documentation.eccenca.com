@@ -218,3 +218,4 @@ Setting this to true will disable committing messages after retrival. This means
 - ID: `disable_commit`
 - Datatype: `boolean`
 - Default Value: `false`
+

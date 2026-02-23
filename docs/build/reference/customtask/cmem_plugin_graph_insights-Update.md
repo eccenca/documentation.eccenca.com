@@ -57,3 +57,4 @@ Timeout in seconds for Graph Insights API.
 - ID: `timeout`
 - Datatype: `double`
 - Default Value: `100`
+

@@ -43,9 +43,12 @@ Outputs a list of project IDs which can be used as reference for the project cre
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only project identifier and no labels or other metadata.
-                This is useful for piping the IDs into other commands.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
+    --raw                    Outputs raw JSON.
+    --id-only                Lists only project identifier and no labels or
+                             other metadata. This is useful for piping the IDs
+                             into other commands.
     ```
 
 ## project export
@@ -53,7 +56,7 @@ Outputs a list of project IDs which can be used as reference for the project cre
 Export projects to files.
 
 ```shell-session title="Usage"
-cmemc project export [OPTIONS] [PROJECT_IDS]...
+$ cmemc project export [OPTIONS] [PROJECT_IDS]...
 ```
 
 Projects can be exported with different export formats. The default type is a zip archive which includes metadata as well as dataset resources. If more than one project is exported, a file is created for each project. By default, these files are created in the current directory with a descriptive name (see `--template` option default).
@@ -64,7 +67,7 @@ Projects can be exported with different export formats. The default type is a zi
 You can use the template string to create subdirectories.
 
 ```shell-session title="Example"
-cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
+$ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
 ```
 
 ??? info "Options"
@@ -135,8 +138,10 @@ This command deletes existing data integration projects from Corporate Memory.
 ??? info "Options"
     ```text
 
-    -a, --all   Delete all projects. This is a dangerous option, so use it with
-                care.
+    -a, --all                Delete all projects. This is a dangerous option, so
+                             use it with care.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
     ```
 
 ## project create

@@ -65,18 +65,16 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 * Input values:
     1.
-
     ```text
     [a
-     \b, c]
+    	\b, c]
     ```
 
 * Returns:
-
     ```text
     [a
-     \b
-     \c]
+    	\b
+    	\c]
     ```
 
 ## Parameter

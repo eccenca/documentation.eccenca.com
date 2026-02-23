@@ -126,3 +126,4 @@ The distance strategy to use. (default: COSINE)
 - ID: `distance_strategy`
 - Datatype: `enumeration`
 - Default Value: `COSINE`
+

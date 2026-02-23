@@ -92,3 +92,4 @@ The jq program to apply to the input JSON string.
 - ID: `single_item_as_string`
 - Datatype: `boolean`
 - Default Value: `true`
+

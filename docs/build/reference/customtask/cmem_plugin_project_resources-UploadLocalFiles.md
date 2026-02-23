@@ -52,3 +52,4 @@ Which activity should be done with the selected local files.
 - ID: `working_mode`
 - Datatype: `enumeration`
 - Default Value: `SEND_TO_TASK`
+

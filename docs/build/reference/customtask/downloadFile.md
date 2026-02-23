@@ -72,7 +72,7 @@ The authorization header. This is usually either 'Authorization' or 'Proxy-Autho
 
 ### Authorization header value
 
-The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.
+The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`.This config parameter will be encrypted in the backend.
 
 - ID: `authorizationHeaderValue`
 - Datatype: `password`

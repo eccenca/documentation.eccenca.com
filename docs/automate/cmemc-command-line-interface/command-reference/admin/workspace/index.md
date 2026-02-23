@@ -17,7 +17,7 @@ Import, export and reload the project workspace.
 Export the complete workspace (all projects) to a ZIP file.
 
 ```shell-session title="Usage"
-cmemc admin workspace export [OPTIONS] [FILE]
+$ cmemc admin workspace export [OPTIONS] [FILE]
 ```
 
 Depending on the requested export type, this ZIP file contains either one Turtle file per project (type `rdfTurtle`) or a substructure of resource files and XML descriptions (type `xmlZip`).
@@ -61,3 +61,4 @@ Reload the workspace from the backend.
 ```shell-session title="Usage"
 cmemc admin workspace reload
 ```
+

@@ -39,3 +39,4 @@ The maximum number that is used for indexing
 - ID: `maxValue`
 - Datatype: `double`
 - Default Value: `Infinity`
+

@@ -69,7 +69,7 @@ Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - ID: `date`
 - Datatype: `string`
-- Default Value: `2025-11-26`
+- Default Value: `2026-02-23`
 
 ### 3. Target Currency
 
@@ -88,3 +88,4 @@ Instead of plain values, output additional background information.
 - ID: `debug`
 - Datatype: `boolean`
 - Default Value: `false`
+

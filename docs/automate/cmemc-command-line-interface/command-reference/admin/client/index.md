@@ -69,3 +69,4 @@ cmemc admin client open [CLIENT_IDS]...
 With this command, you can open a client in the keycloak web interface in your browser.
 
 The command accepts multiple client IDs which results in opening multiple browser tabs.
+

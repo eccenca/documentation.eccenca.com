@@ -24,7 +24,7 @@ Datasets are identified by a combined key of the `PROJECT_ID` and a `DATASET_ID`
 List available datasets.
 
 ```shell-session title="Usage"
-cmemc dataset list [OPTIONS]
+$ cmemc dataset list [OPTIONS]
 ```
 
 Output and filter a list of available datasets. Each dataset is listed with its ID, type and label.
@@ -32,10 +32,9 @@ Output and filter a list of available datasets. Each dataset is listed with its 
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  Filter datasets based on metadata. First parameter
-                             can be one of the following values: project, regex,
-                             tag, type. The options for the second parameter
-                             depend on the first parameter.
+    --filter <TEXT TEXT>...  Filter datasets by one of the following filter
+                             names and a corresponding value: project, regex,
+                             type, tag.
     --raw                    Outputs raw JSON objects of the dataset search API
                              response.
     --id-only                Lists only dataset IDs and no labels or other
@@ -48,7 +47,7 @@ Output and filter a list of available datasets. Each dataset is listed with its 
 Delete datasets.
 
 ```shell-session title="Usage"
-cmemc dataset delete [OPTIONS] [DATASET_IDS]...
+$ cmemc dataset delete [OPTIONS] [DATASET_IDS]...
 ```
 
 This command deletes existing datasets in integration projects from Corporate Memory. The corresponding dataset resources will not be deleted.
@@ -64,14 +63,9 @@ This command deletes existing datasets in integration projects from Corporate Me
 
     -a, --all                Delete all datasets. This is a dangerous option, so
                              use it with care.
-    --project TEXT           In combination with the '--all' flag, this option
-                             allows for deletion of all datasets of a certain
-                             project. The behaviour is similar to the 'dataset
-                             list --project' command.
-    --filter <TEXT TEXT>...  Delete datasets based on metadata. First parameter
-                             --filter CHOICE can be one of ['project', 'regex',
-                             'tag', 'type']. The second parameter is based on
-                             CHOICE.
+    --filter <TEXT TEXT>...  Filter datasets by one of the following filter
+                             names and a corresponding value: project, regex,
+                             type, tag.
     ```
 
 ## dataset download
@@ -79,7 +73,7 @@ This command deletes existing datasets in integration projects from Corporate Me
 Download the resource file of a dataset.
 
 ```shell-session title="Usage"
-cmemc dataset download [OPTIONS] DATASET_ID OUTPUT_PATH
+$ cmemc dataset download [OPTIONS] DATASET_ID OUTPUT_PATH
 ```
 
 This command downloads the file resource of a dataset to your local file system or to standard out (`-`). Note that this is not possible for dataset types such as Knowledge Graph (`eccencaDataplatform`) or SQL endpoint (`sqlEndpoint`).
@@ -101,7 +95,7 @@ Without providing an output path, the output file name will be the same as the r
 Upload a resource file to a dataset.
 
 ```shell-session title="Usage"
-cmemc dataset upload DATASET_ID INPUT_PATH
+$ cmemc dataset upload DATASET_ID INPUT_PATH
 ```
 
 This command uploads a file to a dataset. The content of the uploaded file replaces the remote file resource. The name of the remote file resource will not be changed.
@@ -116,7 +110,7 @@ This command uploads a file to a dataset. The content of the uploaded file repla
     Datasets can be listed by using the `dataset list` command.
 
 ```shell-session title="Example"
-cmemc dataset upload cmem:my-dataset new-file.csv
+$ cmemc dataset upload cmem:my-dataset new-file.csv
 ```
 
 ## dataset inspect
@@ -124,7 +118,7 @@ cmemc dataset upload cmem:my-dataset new-file.csv
 Display metadata of a dataset.
 
 ```shell-session title="Usage"
-cmemc dataset inspect [OPTIONS] DATASET_ID
+$ cmemc dataset inspect [OPTIONS] DATASET_ID
 ```
 
 !!! note
@@ -141,7 +135,7 @@ cmemc dataset inspect [OPTIONS] DATASET_ID
 Create a dataset.
 
 ```shell-session title="Usage"
-cmemc dataset create [OPTIONS] [DATASET_FILE]
+$ cmemc dataset create [OPTIONS] [DATASET_FILE]
 ```
 
 Datasets are created in projects and can have associated file resources. Each dataset has a type (such as `csv`) and a list of parameters which can alter or specify the dataset behaviour.
@@ -149,7 +143,7 @@ Datasets are created in projects and can have associated file resources. Each da
 To get more information about available dataset types and associated parameters, use the `--help-types` and `--help-parameter` options.
 
 ```shell-session title="Example"
-cmemc dataset create --project my-project --type csv my-file.csv
+$ cmemc dataset create --project my-project --type csv my-file.csv
 ```
 
 ??? info "Options"
@@ -184,7 +178,7 @@ cmemc dataset create --project my-project --type csv my-file.csv
 Open datasets in the browser.
 
 ```shell-session title="Usage"
-cmemc dataset open DATASET_IDS...
+$ cmemc dataset open DATASET_IDS...
 ```
 
 With this command, you can open a dataset in the workspace in your browser.
@@ -196,7 +190,7 @@ The command accepts multiple dataset IDs which results in opening multiple brows
 Update a dataset.
 
 ```shell-session title="Usage"
-cmemc dataset update [OPTIONS] DATASET_ID
+$ cmemc dataset update [OPTIONS] DATASET_ID
 ```
 
 With this command, you can update the configuration of an existing dataset. Similar to the `dataset create` command, you need to use configuration key/value pairs on the ``--parameter`` option.
@@ -204,7 +198,7 @@ With this command, you can update the configuration of an existing dataset. Simi
 To get more information about the available configuration parameters on a dataset, use the ``--help-parameter`` option.
 
 ```shell-session title="Example"
-cmemc dataset update my-project:my-csv -p separator ";"
+$ cmemc dataset update my-project:my-csv -p separator ";"
 ```
 
 ??? info "Options"

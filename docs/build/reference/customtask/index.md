@@ -18,6 +18,7 @@ A custom workflow task is an operator that can be used in a workflow.
 |-------------:|:-------------------------|
  | [Add project files](addProjectFiles.md) | Adds file resources to the project that are piped into the input port. |
  | [Cancel Workflow](CancelWorkflow.md) | Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty. |
+ | [Clear dataset](clearDataset.md) | Clears the dataset that is connected to the output of this operator. |
  | [Combine CSV files](combine-csv.md) | Combine CSV files with the same structure to one dataset. |
  | [Concatenate to file](ConcatenateToFile.md) | Concatenates values into a file. |
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
@@ -57,6 +58,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Parse XML](XmlParserOperator.md) | Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities. |
  | [Parse YAML](cmem_plugin_yaml-parse.md) | Parses files, source code or input values as YAML documents. |
  | [Pivot](Pivot.md) | The pivot operator takes data in separate rows, aggregates it and converts it into columns. |
+ | [Reason](cmem_plugin_reason-plugin_reason-ReasonPlugin.md) | Performs OWL reasoning. |
  | [Request RDF triples](tripleRequestOperator.md) | A task that requests all triples from an RDF dataset. |
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
@@ -77,11 +79,13 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |
  | [Update Graph Insights Snapshots](cmem_plugin_graph_insights-Update.md) | Update one or more snapshots, optionally selected by affected graph. |
+ | [Update SemSpect](cmem_plugin_semspect-task-Update.md) | Tell SemSpect to prepare a Knowledge Graph for visualization. |
  | [Upload File to Knowledge Graph](eccencaDataPlatformGraphStoreFileUploadOperator.md) | Uploads an N-Triples or Turtle (limited support) file from the file repository to a 'Knowledge Graph' dataset. The output of this operatorcan be the input of datasets that support graph store file upload, e.g. 'Knowledge Graph'. The file will be uploaded to the graph specified in that dataset. |
  | [Upload files to Nextcloud](cmem_plugin_nextcloud-Upload.md) | Upload files to a given Nextcloud instance. |
  | [Upload local files](cmem_plugin_project_resources-UploadLocalFiles.md) | Replace a file dataset resource with a local file or upload multiple local files to a project. |
  | [Upload SSH files](cmem_plugin_ssh-Upload.md) | Upload files to a given SSH instance. |
  | [Validate Entities](cmem_plugin_validation-validate-ValidateEntities.md) | Use a JSON schema to validate entities or a JSON dataset. |
  | [Validate Knowledge Graph](cmem_plugin_validation-validate-ValidateGraph.md) | Use SHACL shapes to validate resources in a Knowledge Graph. |
+ | [Validate OWL consistency](cmem_plugin_reason-plugin_validate-ValidatePlugin.md) | Validates the consistency of an OWL ontology. |
  | [Validate XML](validateXsdOperator.md) | Validates an XML dataset against a provided XML schema (XSD) file. Any errors are written to the output. Can be used in conjunction with the `Cancel Workflow` operator in order to stop the workflow if errors have been found. |
  | [XSLT](xsltOperator.md) | A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource. |

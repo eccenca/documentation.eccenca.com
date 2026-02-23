@@ -13,25 +13,6 @@ tags:
 
 List, (un)install, export, create, or inspect packages.
 
-## package create
-
-Initialize an empty package directory with a minimal manifest.
-
-```shell-session title="Usage"
-cmemc package create [OPTIONS] PACKAGE_ID
-```
-
-??? info "Options"
-    ```text
-
-    --name TEXT         The package name in english. Defaults to package ID.
-    --version TEXT      Semantic version identifier string of the package, but
-                        limited to proper releases.  [default: 0.0.1]
-    --description TEXT  The package description in english.  [default: This is
-                        the first version of a wonderful eccenca Corporate
-                        Memory package 🤓]
-    ```
-
 ## package inspect
 
 Inspect the manifest of a package.
@@ -153,4 +134,18 @@ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
     ```text
 
     --marketplace-url TEXT  Alternative Marketplace URL.
+    ```
+
+## package search
+
+Search for available packages with a given search text.
+
+```shell-session title="Usage"
+cmemc package search [OPTIONS] [SEARCH_TERMS]...
+```
+
+??? info "Options"
+    ```text
+
+    --raw       Outputs raw JSON.
     ```

@@ -71,3 +71,4 @@ File extension of the output file.
 - ID: `fileExtension`
 - Datatype: `string`
 - Default Value: `.tmp`
+

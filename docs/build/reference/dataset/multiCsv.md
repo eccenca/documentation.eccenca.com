@@ -104,13 +104,13 @@ Filter file paths inside the ZIP file via this regex. By default sub folders or 
 - Datatype: `string`
 - Default Value: `^[^/]*\.csv$`
 
-### Delete file before workflow execution
+### Delete file before workflow execution (deprecated)
 
-If set to true this will clear the specified file before executing a workflow that writes to it.
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified file before executing a workflow that writes to it.
 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
-- Default Value: `true`
+- Default Value: `false`
 
 ### Optionally trim whitespace and non-printable characters
 
@@ -119,3 +119,4 @@ If set to true, this will trim whitespace and non-printable characters from the 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
+

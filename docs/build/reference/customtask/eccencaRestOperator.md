@@ -243,7 +243,7 @@ If set to a non-empty String then instead of a normal POST a multipart/form-data
 
 ### Authorization header
 
-The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'If left empty, no authorization header is sent.
+The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'. If left empty, no authorization header is sent.
 
 - ID: `authorizationHeader`
 - Datatype: `string`
@@ -251,7 +251,7 @@ The authorization header. This is usually either 'Authorization' or 'Proxy-Autho
 
 ### Authorization header value
 
-The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.
+The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`. This config parameter will be encrypted in the backend.
 
 - ID: `authorizationHeaderValue`
 - Datatype: `password`

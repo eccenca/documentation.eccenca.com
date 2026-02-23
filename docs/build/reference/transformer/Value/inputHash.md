@@ -20,10 +20,10 @@ This operator supports using different hash algorithms from the [Secure Hash Alg
 ---
 **Example 1:**
 
-* Input values:
+- Input values:
     1. `[input value]`
 
-* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
+- Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
 
 ## Parameter
 
@@ -31,9 +31,9 @@ This operator supports using different hash algorithms from the [Secure Hash Alg
 
 The hash algorithm to be used.
 
-* ID: `algorithm`
-* Datatype: `string`
-* Default Value: `SHA256`
+- ID: `algorithm`
+- Datatype: `string`
+- Default Value: `SHA256`
 
 ## Advanced Parameter
 

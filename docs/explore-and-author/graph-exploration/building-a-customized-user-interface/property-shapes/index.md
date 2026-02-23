@@ -90,21 +90,23 @@ Used Path: `shacl:path`
 
 ### Query: Path Builder
 
-Use this property to define a dynamic set of target resources or literals using a custom SPARQL query. This allows for advanced selection logic, including filtering, transitive relationships, or specific path sequences as well as the definition of a result set order.
+Use this property to define a dynamic set of target resources or literals with a custom SPARQL query. This allows advanced selection logic, including filtering, transitive relationships, specific path sequences, and result-set ordering.
 
-The values bound to the first variable in the query's projection will be treated as directly connected via the `sh:path` specified in this property shape. This enables simple backward-chaining inference. Note that the infererred connections are not (yet) included in SHACL validation.
+The values bound to the first variable in the query's projection are treated as directly connected via the `sh:path` specified in this property shape. This enables simple backward-chaining inference. Note that the inferred connections are not (yet) included in SHACL validation.
 
-The following placeholder can be used in the query text of the SPARQL query:
+The following placeholders can be used in the SPARQL query text:
 
 - `{{shuiGraph}}` - the currently used graph
-- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
-- `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
-- `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+- `{{shuiResource}}` - refers to the resource rendered in the node shape where this property shape is used (including sub-shapes)
+- `{{shuiAccount}}` - the account IRI of the active user, including the username (use a SUBSTR() function if you need the name only)
+- `{{shuiAccountName}}` - the username/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant for sub-shape usage)
 
-Note that for a proper usage of this feature, you additionally need to have the projection variables `?graph` or `?_graph` (the graph IRI where the relation statement is saved resp. in the context of which it was inferred) in your query.
+For proper usage, include `?graph` or `?_graph` in the projection, bound to the IRI of the graph where the relation statement is stored or the context in which it was inferred.
 
-If the connected property value is a resource, the variables in the projection of this query will be used to populate the columns in the complex widget and the advanced editor.
+Link changing variables: If you bind the magic variables `?_linkGraph`/`?linkGraph` or `?_linkWorkspace`/`?linkWorkspace`, they override the default link behavior for generated context/workspace parts of links. Use the IRI of the target graph or the ID of the target workspace. The values apply to `?resource` or, if not present, the first variable in the projection.
+
+If the connected property value is a resource, the variables in the projection are used to populate the columns in the complex widget and the advanced editor.
 
 Used Path: `shui:valueQuery`
 
