@@ -13,16 +13,17 @@
   },
   "MD033": {
     "allowed_elements": [
-      "figure",
-      "figcaption",
-      "div",
-      "details",
-      "summary",
       "a",
-      "p",
+      "br",
+      "cite",
+      "details",
+      "div",
+      "figcaption",
+      "figure",
       "img",
+      "p",
       "span",
-      "br"
+      "summary"
     ]
   },
   "MD035": false,
