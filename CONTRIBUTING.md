@@ -2,7 +2,7 @@
 
 👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 
-The following is a set of guidelines for contributing to the eccenca Corporate Memory documention project.
+The following is a set of guidelines for contributing to the eccenca Corporate Memory documentation project.
 
 ## How Can I Contribute?
 
@@ -124,7 +124,7 @@ On this page is search function for icons available as well.
   <summary>Extend section</summary>
 
 -   do not use a cluttered desktop
--   do not show other esp. personal project artifacts then relevant for the tutorial / feature to show
+-   do not show other esp. personal project artifacts than relevant for the tutorial / feature to show
 -   select cropping area carefully (omit backgrounds, lines on the edges, etc.)
 -   use the same or a similar area for similar screens
 -   all relevant elements should be clearly visible and not be truncated
