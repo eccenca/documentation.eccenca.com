@@ -29,7 +29,7 @@ The main data processing use-cases of Apache Spark are:
 Additionally, there are other functionalities stemming from hundreds of plugins.
 
 By itself, Apache Spark is detached from any data and Input/Output (IO) operations.
-Within Corporate Memory, the relevant configuration is documented in the [Spark configuration](../../deploy-and-configure/configuration/dataintegration/#spark-configuration).
+Within Corporate Memory, the relevant configuration is documented in the [Spark configuration](../../deploy-and-configure/configuration/dataintegration/index.md#spark-configuration).
 
 ## Apache Spark within Build
 
