@@ -37,10 +37,9 @@ Output and filter a list of available datasets. Each dataset is listed with its 
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  Filter datasets based on metadata. First parameter
-                             can be one of the following values: project, regex,
-                             tag, type. The options for the second parameter
-                             depend on the first parameter.
+    --filter <TEXT TEXT>...  Filter datasets by one of the following filter
+                             names and a corresponding value: project, regex,
+                             type, tag.
     --raw                    Outputs raw JSON objects of the dataset search API
                              response.
     --id-only                Lists only dataset IDs and no labels or other
@@ -76,14 +75,9 @@ This command deletes existing datasets in integration projects from Corporate Me
 
     -a, --all                Delete all datasets. This is a dangerous option, so
                              use it with care.
-    --project TEXT           In combination with the '--all' flag, this option
-                             allows for deletion of all datasets of a certain
-                             project. The behaviour is similar to the 'dataset
-                             list --project' command.
-    --filter <TEXT TEXT>...  Delete datasets based on metadata. First parameter
-                             --filter CHOICE can be one of ['project', 'regex',
-                             'tag', 'type']. The second parameter is based on
-                             CHOICE.
+    --filter <TEXT TEXT>...  Filter datasets by one of the following filter
+                             names and a corresponding value: project, regex,
+                             type, tag.
     ```
 
 ## dataset download

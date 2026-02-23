@@ -55,7 +55,20 @@ The JSON response includes the data for all repositories (**mobivoc**, **vocol**
 ]
 ```
 
+<!-- TODO: Changes required to adapt to workflow first:
+## a) Create a Build Project
+
+…
+
+## b) Create a Workflow
+
+…
+-->
+
+
 ## 1 Register a Web API
+
+<!--TODO: update image: Execute REST requests -->
 
 1. Click the **Create** button (top right) in the data integration workspace and select the type **REST request**.
 

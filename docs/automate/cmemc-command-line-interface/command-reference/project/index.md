@@ -53,9 +53,12 @@ Outputs a list of project IDs which can be used as reference for the project cre
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only project identifier and no labels or other metadata.
-                This is useful for piping the IDs into other commands.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
+    --raw                    Outputs raw JSON.
+    --id-only                Lists only project identifier and no labels or
+                             other metadata. This is useful for piping the IDs
+                             into other commands.
     ```
 
 ## project export
@@ -165,8 +168,10 @@ This command deletes existing data integration projects from Corporate Memory.
 ??? info "Options"
     ```text
 
-    -a, --all   Delete all projects. This is a dangerous option, so use it with
-                care.
+    -a, --all                Delete all projects. This is a dangerous option, so
+                             use it with care.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
     ```
 
 ## project create

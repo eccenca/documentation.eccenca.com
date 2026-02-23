@@ -64,29 +64,45 @@ manual.
 List configured connections.
 
 ```shell-session title="Usage"
-$ cmemc config list
+$ cmemc config list [OPTIONS]
 ```
 
 
 
 
-This command lists all configured connections from the currently used config file.
+This command lists all configured connections from the currently used config file. Each connection is listed with its name, base URI, and grant type.
 
 The connection identifier can be used with the `--connection` option in order to use a specific Corporate Memory instance.
+
+You can use the `--filter` option to filter connections by regex matching the connection name.
 
 In order to apply commands on more than one instance, you need to use typical unix gear such as xargs or parallel.
 
 ```shell-session title="Example"
-$ cmemc config list | xargs -I % sh -c 'cmemc -c % admin status'
+$ cmemc config list
 ```
 
 
 ```shell-session title="Example"
-$ cmemc config list | parallel --jobs 5 cmemc -c {} admin status
+$ cmemc config list --id-only | xargs -I % sh -c 'cmemc -c % admin status'
+```
+
+
+```shell-session title="Example"
+$ cmemc config list --id-only | parallel --jobs 5 cmemc -c {} admin status
 ```
 
 
 
+
+??? info "Options"
+    ```text
+
+    --filter <TEXT TEXT>...  Filter connections by one of the following filter
+                             names and a corresponding value: regex.
+    --id-only                Lists only connection names. This is useful for
+                             piping the names into other cmemc commands.
+    ```
 
 ## config edit
 

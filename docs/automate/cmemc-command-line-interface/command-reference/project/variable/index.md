@@ -38,10 +38,9 @@ Outputs a table or a list of project variables.
     --id-only                Lists only variables names and no other metadata.
                              This is useful for piping the IDs into other
                              commands.
-    --filter <TEXT TEXT>...  Filter variables based on metadata. First parameter
-                             CHOICE can be one of ['project', 'regex']. The
-                             second parameter is based on CHOICE, e.g. a project
-                             ID or a regular expression string.
+    --filter <TEXT TEXT>...  Filter project variables by one of the following
+                             filter names and a corresponding value: project,
+                             regex.
     ```
 
 ## project variable get
@@ -74,20 +73,30 @@ Use the ``--key`` option to specify which information you want to get.
 
 ## project variable delete
 
-Delete a project variable.
+Delete project variables.
 
 ```shell-session title="Usage"
-$ cmemc project variable delete VARIABLE_ID
+$ cmemc project variable delete [OPTIONS] [VARIABLE_IDS]...
 ```
 
 
 
 
-!!! note
-    You can not delete a variable which is used by another (template based) variable. In order to do so, delete the template based variable first.
+There are three selection mechanisms: with specific IDs - only those specified variables will be deleted; by using `--filter` - variables based on the filter type and value will be deleted; by using `--all`, which will delete all variables.
+
+Variables are automatically sorted by their dependencies and deleted in the correct order (template-based variables that depend on others are deleted first, then their dependencies).
 
 
 
+??? info "Options"
+    ```text
+
+    -a, --all                Delete all variables. This is a dangerous option,
+                             so use it with care.
+    --filter <TEXT TEXT>...  Filter project variables by one of the following
+                             filter names and a corresponding value: project,
+                             regex.
+    ```
 
 ## project variable create
 
