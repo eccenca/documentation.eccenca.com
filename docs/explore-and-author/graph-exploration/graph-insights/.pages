@@ -1,0 +1,6 @@
+nav:
+    - index.md
+    - Core Concepts: concepts.md
+    - Tutorial: tutorial.md
+    - features
+    - Navigating to CMEM: navigating-to-cmem.md
