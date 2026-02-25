@@ -1,6 +1,6 @@
 
 
-# Tutorial: Supply Chain Risk Analysis
+# Graph Insights Tutorial – Supply Chain Risk Analysis
 
 This tutorial demonstrates a workflow of Graph Insights using the **Northwind** dataset.
 
