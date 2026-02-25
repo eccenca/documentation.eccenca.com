@@ -1,4 +1,8 @@
-
+---
+tags:
+    - KnowledgeGraph
+    - GraphInsights
+---
 
 # Core Concepts
 
@@ -12,12 +16,12 @@ The fundamental element of the exploration tree is the **group**, a set of resou
 
 Groups are linked by **connection beams**, a set of object property assertions with the **same object property** that links together one element of each group, optionally filtered by the values of their data properties.
 
-The **exploration tree** is expanded step-by-step by adding a new group for a **user-selected class** connected via a **user-selected object property** to the right of an existing group. 
+The **exploration tree** is expanded step-by-step by adding a new group for a **user-selected class** connected via a **user-selected object property** to the right of an existing group.
 
 The **data guided expansion** follows a **left-join pattern**, each resource of the new right group being linked to at least one resource of the unmodified left group. The choices offered to the user are based on the actual graph data to ensure that the new group is not empty.
 
 !!! tip "Exploration Tree Components"
-    
+
     **Groups:** A labelled disk represents a **set of resources**.
 
     - ***Instance rendering mode:*** Small groups display an individual dot for each resource (e.g., "Product (77)").
@@ -30,7 +34,7 @@ The **data guided expansion** follows a **left-join pattern**, each resource of 
 ![Group Graph](assets/tutorial-supply-chain-without-backpropragation.png){ class="bordered" width="80%" }
 
 !!! warning "Graph Traversals vs. Graph Topology"
-    
+
     The exploration tree visualizes aggregated exploration paths, not the actual graph structure. A single resource may be present in multiple groups simultaneously if it lies at different positions in the expanded paths.
 
 ---
@@ -85,8 +89,8 @@ Narrow down any group to match your current focus using [data property filters](
 *Example:*
 
 - *Action:* Filter the `Order` group by `orderDate` to keep only "2023" values.
-- *Result:* The group count updates (e.g., from 830 to 45) and the exploration subtree to its right (if any) is updated to match the reduced starting set of resources. 
-  
+- *Result:* The group count updates (e.g., from 830 to 45) and the exploration subtree to its right (if any) is updated to match the reduced starting set of resources.
+
 ---
 
 ## Exploration Data Sharing

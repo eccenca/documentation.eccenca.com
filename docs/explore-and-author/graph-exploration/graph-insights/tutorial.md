@@ -1,4 +1,9 @@
-
+---
+tags:
+  - AdvancedTutorial
+  - GraphInsights
+  - KnowledgeGraph
+---
 
 # Graph Insights Tutorial – Supply Chain Risk Analysis
 

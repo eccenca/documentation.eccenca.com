@@ -3,6 +3,7 @@ status: new
 icon: eccenca/graph-insights
 tags:
     - KnowledgeGraph
+    - GraphInsights
 ---
 # Graph Insights
 
