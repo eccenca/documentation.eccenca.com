@@ -15,7 +15,7 @@ Selecting a group opens the **group details** in the right pane.
 The header contains:
 
 - The **group caption** that is either:
-    - The caption of its class if no class filter was applied 
+    - The caption of its class if no class filter was applied
     - A "logical expression" of class captions describing the combination of class filter applied otherwise (see [histogram filtering](#filtering))
 - A structured **natural language description** of its contents that details all steps of the traversal.  
 
@@ -24,7 +24,7 @@ The header contains:
 The **histogram sections** display the distribution of classes within a group. It allows analysts to scrutinize class composition (eg. spot unexpected or missing classes) and perform logical set operations (union, intersection, difference) to restrict the contents of the groups.
 
 - **Scope:** The panel displays counts for all **classes** (including **[user-defined classes](persistence.md#custom-categories)**) present within the selected group.  
-  *Remark: If user-defined classes are present, a second histogram is shown for better overview* 
+  *Remark: If user-defined classes are present, a second histogram is shown for better overview*
 - **Hierarchy:** Use the `(+)` icons to expand a class (e.g., `Confections`) to reveal the distribution of its sub-classes.
 - **Sorting:** Use the dropdown to order bars by `Name` (Alphabetical) or `Quantity` (Cardinality).
 
@@ -41,7 +41,7 @@ Flagging highlights specific subsets of data for visual inspection without modif
 ![Flagged Resources in Group](../assets/histogram-flagged-resources.png){ class="bordered" width="80%" }
 
 !!! warning "Visibility Threshold"
-    
+
     Flagging is only visible when the group is in **instance rendering mode** (count <= threshold). See the [threshold setting](canvas-ui.md#object-threshold-logic).
 
 
@@ -59,7 +59,7 @@ Histograms function as a visual facet query builder. Use the buttons to apply bo
 | **Intersection (AND)** | **Sequential** Operation | 1. Restrict to `Class A`.<br>2. Select `Class B` in the updated list.<br>3. Restrict to `Class B`.<br>**Outcome:** Items that are **BOTH** A and B. |
 
 !!! warning "Multiple Histograms"
-    
+
     When applying a filter, selections made **simultaneously in different histograms** are combined **conjunctively (AND)** in a facet-like logic.
 
 
@@ -74,14 +74,14 @@ As filters are applied, the **group caption** updates to reflect the mathematica
 
 The **expansion menu** of a group presents the options available for adding a non-empty step to the traversal. It tells you which classes are reachable via which direction of which object properties.
 
-1.  **Action:** Click any group to open the menu.
-2.  **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.    
+1. **Action:** Click any group to open the menu.
+2. **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
-3.  **Action:** Click a **object property** with the required direction for the selected target **class** to add a new connection beam to the exploration.
+3. **Action:** Click a **object property** with the required direction for the selected target **class** to add a new connection beam to the exploration.
 
 ![Expansion Menu](../assets/expansion-menu.png){ class="bordered" width="65%" }
 
-4.  **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
+1. **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
 
 ![Filtered Expansion Menu](../assets/expansion-menu-flattened.png){ class="bordered" width="65%" }
 
@@ -97,6 +97,6 @@ Right-click a group or its caption to access its context menu.
 - **Show resource table:** Opens the tabular view (see the [dedicated page](objects-table.md)).
 
 !!! tip "Usage"
-    
+
     - The query is intended to be used directly on the database for various datasets with the same model (or slight variations thereof).
     - Use the notes to explain what is the content of the group in your own words. This is particularly relevant for collaborative work.

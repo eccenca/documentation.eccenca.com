@@ -23,9 +23,9 @@ We will traverse the ordering chain, identify high-volume US partners, and isola
 
 Every exploration requires a starting point. We begin with the central entity: The **product**.
 
-1.  Locate the `Product` **class** in the [class tree](features/category-tree.md) in the left pane.
-2.  Drag it to the center of the canvas.
-3.  **Outcome:** A group appears, representing the entire inventory (e.g., 77 Products).
+1. Locate the `Product` **class** in the [class tree](features/category-tree.md) in the left pane.
+2. Drag it to the center of the canvas.
+3. **Outcome:** A group appears, representing the entire inventory (e.g., 77 Products).
 
 ![Start with Product Category](assets/tutorial-start-with-product.png){ class="bordered" width="80%" }
 
@@ -38,6 +38,7 @@ Next, we expand the exploration tree to connect Suppliers and Customers.
 ### Preparation
 
 To simplify the expansion menus, hide generic classes that are not relevant to this analysis.
+
 - Right-click the `Agent` class in the class tree.
 - Select `Deactivate class`.
 
@@ -45,11 +46,11 @@ To simplify the expansion menus, hide generic classes that are not relevant to t
 
 We extend the exploration tree from the central `Product` group.
 
-1.  **Add suppliers:**
+1. **Add suppliers:**
     - Select the `Product` group.
     - Expand to the `Supplier` class via `→ hasSupplier`.
 
-2.  **Add customers:**
+2. **Add customers:**
     - Select the `Product` group again.
     - Expand to the `Order` class via `← includesProduct`.
     - From the new `Order` group, expand to the `Customer` class via `→ hasCustomer`.
@@ -63,23 +64,24 @@ We extend the exploration tree from the central `Product` group.
 The exploration tree currently visualizes all connections. We must now isolate the high-value targets (VIPs) and the specific risk region (UK).
 
 ### 3.1. Identify VIP US Customers
+
 We define "VIP" as customers with the highest volume of incoming orders.
 
-1.  Select the `Customer` group and open the [resource table](features/objects-table.md).
-2.  **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the text field of the filter submenu.
-3.  **Identify VIPs:** Click the **Predecessors** column header to **Sort Descending**. This ranks customers by their incoming connection count (number of Orders).
+1. Select the `Customer` group and open the [resource table](features/objects-table.md).
+2. **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the text field of the filter submenu.
+3. **Identify VIPs:** Click the **Predecessors** column header to **Sort Descending**. This ranks customers by their incoming connection count (number of Orders).
 
 ![USA Customer Filter](assets/tutorial-usa-customer-filter.png){ class="bordered" width="80%" }
 
-4.  **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
+1. **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
 
 ![Top USA Customer Filter](assets/tutorial-top-usa-customer-filter.png){ class="bordered" width="85%" }
 
 ### 3.2. Isolate UK Suppliers
 
-1.  Select the `Supplier` group to open the table.
-2.  Filter `Country` to `UK`.
-3.  Click `Apply filters`.
+1. Select the `Supplier` group to open the table.
+2. Filter `Country` to `UK`.
+3. Click `Apply filters`.
 
 ![UK Supplier Filter](assets/tutorial-uk-suppliers-filter.png){ class="bordered" width="85%" }
 
@@ -132,18 +134,18 @@ We have isolated the high risk product group, that we can now analyze:
 
 Finally, we convert this visual insight into an actionable list for the procurement team.
 
-1.  **Drill down:**
+1. **Drill down:**
     - In the histogram, right-click the `Confections` bar.
     - Select `Restrict group to class`. This discards the other product types, leaving only the high-risk confections, with the side effect of reducing the UK suppliers to a single resource.
 
-2.  **Visualize traversals including a specific resource:**
+2. **Visualize traversals including a specific resource:**
     - Open the resource table of the `Products` group.
     - Right-click a specific high-value item (e.g., "Teatime Chocolate Biscuits") to open its context menu.
     - Select `Flag all connected resources on the branch`.
 
 ![Supply Chain: Flag Branch](assets/tutorial-supply-chain-flag-branch-menu.png){ class="bordered" width="85%" }
 
-  - Graph Insights highlights all resources on a specific high-risk traversal: The specific UK Supplier &rarr; The specific Biscuit &rarr; The specific VIP US Customers buying it.
+- Graph Insights highlights all resources on a specific high-risk traversal: The specific UK Supplier &rarr; The specific Biscuit &rarr; The specific VIP US Customers buying it.
 
 ![Supply Chain: Flagged Branch](assets/tutorial-supply-chain-flagged-branch.png){ class="bordered" width="85%" }
 

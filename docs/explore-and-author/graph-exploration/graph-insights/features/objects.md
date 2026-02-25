@@ -2,7 +2,7 @@
 
 # Resources
 
-Most investigations require **isolating individual resources** at some point for closer inspection. This page covers the **resource details pane**, the **highlighting and flagging tools**, and **single resource traversals**. 
+Most investigations require **isolating individual resources** at some point for closer inspection. This page covers the **resource details pane**, the **highlighting and flagging tools**, and **single resource traversals**.
 
 ---
 
@@ -14,16 +14,17 @@ Select a visible resource in a group or its row in the group table to open the `
 
 ### Components
 
-1.  **Header:** Displays the **caption** and **description** , as well as the IRI of the resource .
-2.  **Classes:** List of all classes assigned to the resource.
-3.  **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
+1. **Header:** Displays the **caption** and **description** , as well as the IRI of the resource .
+2. **Classes:** List of all classes assigned to the resource.
+3. **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
 
 ### Controls
+
 - **Hide empty fields:** Toggles visibility of data properties that have no value for this specific resource.
 - **Copy Data:** Right-click any row to copy the **data property** or **data property assertion**.
 
 !!! info "Why are there sections?"
-    
+
     - Graph Insights analyses the actual graph data and infers at which level of the class hierarchy each data properties is effectively used. Besides giving some insights about the real usage domain of data properties, it is used to prevent the [resources table](objects-table.md) of the higher level classes from being "polluted" by all specific data properties of all their sub-classes.
     - If a data property is "defined" by multiple classes (e.g., `rdfs:label` used by both `Clothing` and `SeasonalCollection`), Graph Insights groups them into a shared section (e.g., `Clothing & SeasonalCollection`) to avoid duplication.
 
@@ -46,7 +47,7 @@ The standard flags are persistent markers used to track the appearance of specif
 ![Object Flag and Note](../assets/object-flag-and-note.png){ class="bordered" width="60%" }
 
 !!! info "About Persistence"
-    
+
     - A flag will appear anytime a new instance of the flagged resource is visible in a subsequent exploration step (even in new explorations).
     - Flags and notes can be removed using the context-menu of the resource, the group, or the exploration (canvas). 
 
@@ -64,7 +65,7 @@ Most flagging actions that might affect numerous nodes create temporary flags fo
 ![Temporary Flags Dropdown](../assets/temporary-vs-permanent-flags.png){ class="bordered" width="80%" }
 
 !!! tip "Useful Tip"
-    
+
     Add a standard flag to a temporarily flagged resource you identified via a global search and clear the temporary flags for a cleaner exploration.
 
 
@@ -83,13 +84,13 @@ Visualize upstream and downstream connections of a resource in the exploration t
 
 **Flagging:**
 
-- **Action:** Right-click and select `Flag all connected resources...` 
+- **Action:** Right-click and select `Flag all connected resources...`
 - **Outcome:** [Temporary flags](#temporary-flags) are added to all connected resources visible.
 
 ![Branch Highlighting](../assets/flag-predecessors-successors.png){ class="bordered" width="95%" }
 
 !!! warning "Line of Sight"
-    
+
     Path highlighting is blocked by **count-only groups** (count > threshold).
 
 
@@ -97,8 +98,8 @@ Visualize upstream and downstream connections of a resource in the exploration t
 
 ## Connectivity Visualization (Predecessors) {#predecessors}
 
-In the **groups in instance rendering mode** (count <= threshold), Graph Insights visually encodes the local "centrality" of resources based on their connectivity to the previous group in the exploration tree (if any). 
- 
+In the **groups in instance rendering mode** (count <= threshold), Graph Insights visually encodes the local "centrality" of resources based on their connectivity to the previous group in the exploration tree (if any).
+
 - **Definition:** The **number of predecessors** of a resource is the number of distinct resources from the *previous* group in the current branch of the exploration tree connected to it.
 - **Visualization:**
     - The number of predecessors is displayed in the dot representing the resources, no number meaning there is only a single predecessor.
@@ -113,7 +114,7 @@ In the **groups in instance rendering mode** (count <= threshold), Graph Insight
 Analysts can focus on a specific resource within a group to analyze its relationships.
 
 !!! warning "Prerequisite"
-    
+
     - These actions require the group containing the object to be in **instance rendering mode** (resources visible).
         - If it is not the case, consider reducing the group size by filtering or directly selecting the resource from the resources table of the group.
     - Locate the resource via [search](canvas-ui.md#global-search) or the [resource table](objects-table.md).
@@ -129,7 +130,7 @@ Expand the exploration with specific connections from a single resource within a
 ![Expand Individual Object](../assets/expand-object-from-group.png){ class="bordered" width="75%" }
 
 !!! info "Independence of the Explorations"
-    
+
     The resource exploration does not depend on the exploration that leads to the group. Any change to the main exploration either preserves the resource exploration (if the resource is still visible) or drops it (if the resource is no longer visible).
 
 
