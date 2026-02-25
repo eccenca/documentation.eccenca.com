@@ -60,7 +60,7 @@ The exploration tree currently visualizes all connections. We must now isolate t
 ### 3.1. Identify VIP US Customers
 We define "VIP" as customers with the highest volume of incoming orders.
 
-1.  Select the `Customer` group and open the [resource table](features/objects-table.md#objects-table).
+1.  Select the `Customer` group and open the [resource table](features/objects-table.md).
 2.  **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the text field of the filter submenu.
 3.  **Identify VIPs:** Click the **Predecessors** column header to **Sort Descending**. This ranks customers by their incoming connection count (number of Orders).
 
