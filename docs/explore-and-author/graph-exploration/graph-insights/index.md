@@ -33,7 +33,7 @@ A specific configuration is required to activate this feature.
 
 In order to manage Graph Insights snapshots, you can use the
 [`graph insights`](../../../automate/cmemc-command-line-interface/command-reference/graph/insights/index.md)
-command group of cmemc.
+command group of `cmemc`.
 With this command group, you can list, create, delete, and inspect Graph Insights snapshots.
 
 ## Automation
@@ -58,4 +58,4 @@ The **user guide** presents the visual analysis workflow of Graph Insights. It d
     - **Interaction:** [Groups](features/groups.md), [Connections](features/connections.md), and [Details](features/objects.md#object-details).
     - **Analysis:** [Histograms](features/groups.md#histograms) and [Persistence](features/persistence.md).
 
-4.  **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node directly back to the core CMEM platform.
+4.  **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node to other Corporate Memory views.

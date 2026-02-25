@@ -1,18 +1,18 @@
-# Navigating to CMEM
+# Navigating to Corporate Memory
 
-Graph Insights allows you to seamlessly jump from your visual analysis directly back to the source records in CMEM. This creates a smooth transition from a high-level exploration to operational data management.
+Graph Insights allows you to seamlessly jump from your visual analysis directly back to the source records in Corporate Memory. This creates a smooth transition from a high-level exploration to operational data management.
 
 ---
 
 ## Navigating from a Class
 
-You can open the CMEM view of a specific class directly from the class tree.
+You can open the Corporate Memory view of a specific class directly from the class tree.
 
 - **Action:** Right-click a class in the left pane tree to open its context menu.
 - **Select:** `View in CMEM`.
 - **Outcome:** The corresponding class model opens in a new tab.
 
-![View Class in CMEM](graph-insights-view-in-cmem-classes.png){ class="bordered" width="65%" }
+![View Class in Corporate Memory](graph-insights-view-in-cmem-classes.png){ class="bordered" width="65%" }
 
 ---
 
@@ -27,7 +27,7 @@ There are two ways to trigger this navigation:
 - **Action:** Right-click a specific resource dot within a group to open its context menu.
 - **Select:** `View in CMEM`.
 
-![View Resource in CMEM from Canvas](graph-insights-view-in-cmem-resources.png){ class="bordered" width="75%" }
+![View Resource in Corporate Memory from Canvas](graph-insights-view-in-cmem-resources.png){ class="bordered" width="75%" }
 
 **From the Details Pane**
 
