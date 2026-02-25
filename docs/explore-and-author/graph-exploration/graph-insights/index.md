@@ -34,7 +34,7 @@ A specific configuration is required to activate this feature.
 In order to manage Graph Insights snapshots, you can use the
 [`graph insights`](../../../automate/cmemc-command-line-interface/command-reference/graph/insights/index.md)
 command group of cmemc.
-With this command group, you can list, create, delete, and inspect graph insight snapshots.
+With this command group, you can list, create, delete, and inspect Graph Insights snapshots.
 
 ## Automation
 
@@ -49,7 +49,7 @@ The **user guide** presents the visual analysis workflow of Graph Insights. It d
 
 ### Where to Start?
 
-1.  **[Core Concepts](concepts.md):** *(Recommended)* Before diving in, understand the **aggregated exploration tree** paradigm of Graph Insights that prevents the visual clutter of traditional force-directed graph-renderings ("hairballs").
+1.  **[Core Concepts](concepts.md):** *(Recommended)* Before diving in, understand the **aggregated exploration tree** paradigm of Graph Insights that prevents the visual clutter of traditional force-directed graph renderings ("hairballs").
 
 2.  **[Tutorial: Supply Chain Analysis](tutorial.md):** A step-by-step walkthrough using the Northwind dataset. Learn how to filter for **VIP customers**, analyze **product vulnerabilities**, and use **backpropagation** to propagate filtering.
 

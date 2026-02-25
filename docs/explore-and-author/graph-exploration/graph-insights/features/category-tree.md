@@ -38,7 +38,7 @@ The tree is the primary tool to populate the canvas:
 **Deactivating** a class hides it from the **expansion menu** on the canvas, streamlining the exploration workflow. This is useful for hiding abstract classes (e.g., `Entity`, `Thing`) that render the exploration more tedious.
 
 - **Action:** Right-click a class and select `Deactivate class`.
-- **Outcome:** The item turns **light gray**. Expansions steps will skip this class and offer **its direct sub-class** instead.
+- **Outcome:** The item turns **light gray**. Expansion steps will skip this class and offer **its direct sub-class** instead.
 
 !!! danger "Caution"
     

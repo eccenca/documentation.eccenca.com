@@ -49,7 +49,7 @@ Start the exploration by dragging a **class** from the [class tree](features/cat
 
 ### 2. Expand (Traverse)
 
-Add groups of connected resources by expanding the exploration tree: Point at a group and click the arrow that appears to its right to view the connected top-level classes, then select a object property and direction.
+Add groups of connected resources by expanding the exploration tree: point at a group and click the arrow that appears to its right to view the connected top-level classes, then select an object property and direction.
 
 *Example:*
 
@@ -76,11 +76,11 @@ Open the [resource table](features/objects-table.md) to access the highly config
 
 #### Connection
 
-Select a connection beam and open the [connection table](features/connections.md#connection-table) to  access the highly configurable tabular listing of all object property assertions between the left and right group and their data properties.
+Select a connection beam and open the [connection table](features/connections.md#connection-table) to access the highly configurable tabular listing of all object property assertions between the left and right group and their data properties.
 
 ### 4. Refine (Filter)
 
-Narrow down any group to your match your current focus using [data property filters](features/objects-table.md#filtering) and [class histograms](features/groups.md#histograms).
+Narrow down any group to match your current focus using [data property filters](features/objects-table.md#filtering) and [class histograms](features/groups.md#histograms).
 
 *Example:*
 

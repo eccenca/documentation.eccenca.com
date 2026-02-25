@@ -36,7 +36,7 @@ Filtering is a two-step process to prevent unnecessary database queries.
     - **Outcome:** The table updates immediately to preview the result, and the column header displays an **hourglass icon (⧖)** (symbolizes filtering).
     - Repeat with further columns as necessary.
 2.  **Apply:** Click `Apply filters` (top-left).
-    - **Outcome:** The group in the canvas updates, and a **half full disk icon (◐)** appears on the group (symbolizes partial content, the caption does not describe the group totally as it has been filtered).
+    - **Outcome:** The group on the canvas updates, and a **half full disk icon (◐)** appears on the group (indicating filtered content).
 
 ![Filter Status Icons](../assets/filtered-group-and-column.png){ class="bordered" width="85%" }
 
@@ -78,4 +78,3 @@ Unlike the bulk group export, table exports respect the **current view** (filter
     - The query is intended to be used directly on the database for various datasets with the same model (or slight variations thereof).
     - The table query was designed for dashboard integration. Make sure to configure the table to match exactly your requirements.
     - The query might look overcomplicated but it includes lots of special case handling to replicate the table view as close as possible.
-

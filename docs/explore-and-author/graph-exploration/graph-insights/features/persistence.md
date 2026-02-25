@@ -60,7 +60,7 @@ Add context to the analysis by attaching text notes to important groups.
 They act as **"virtual classes"**, refining the model within the exploration layer without altering the underlying ontology.
 
 
-A user-defined Graph Insights Classes can be defined for any group in any exploration (e.g., "High-volume suppliers located in Germany").
+A user-defined Graph Insights class can be defined for any group in any exploration (e.g., "High-volume suppliers located in Germany").
 
 - **Action:** Right-click the group or its caption to open its context menu and select `Add Graph Insights class for this group`.
 - **Outcome:** 

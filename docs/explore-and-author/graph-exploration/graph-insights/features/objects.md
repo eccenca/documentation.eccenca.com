@@ -72,7 +72,7 @@ Most flagging actions that might affect numerous nodes create temporary flags fo
 
 ## Paths Highlighting and Flagging
 
-Visualize upstream and downstream connections of an resource in the exploration tree.
+Visualize upstream and downstream connections of a resource in the exploration tree.
 
 **Highlighting:**
 
@@ -99,7 +99,7 @@ Visualize upstream and downstream connections of an resource in the exploration 
 
 In the **groups in instance rendering mode** (count <= threshold), Graph Insights visually encodes the local "centrality" of resources based on their connectivity to the previous group in the exploration tree (if any). 
  
-- **Definition:** The **number of predecessors** of an resource is the number of distinct resources from the *previous* group in the current branch of the exploration tree connected to it.
+- **Definition:** The **number of predecessors** of a resource is the number of distinct resources from the *previous* group in the current branch of the exploration tree connected to it.
 - **Visualization:**
     - The number of predecessors is displayed in the dot representing the resources, no number meaning there is only a single predecessor.
     - The highly connected resources (i.e., with higher predecessor counts) are located at the center of the groups.
@@ -123,7 +123,7 @@ Analysts can focus on a specific resource within a group to analyze its relation
 
 Expand the exploration with specific connections from a single resource within a larger group.
 
-- **Action:** Right-click an resource to open its context menu, open `Explore connections of the resource`, and select the target class and connecting object property and direction (just like a group expansion).
+- **Action:** Right-click a resource to open its context menu, open `Explore connections of the resource`, and select the target class and connecting object property and direction (just like a group expansion).
 - **Outcome:** A new connection beam connects the individual resource to a new group to its right.
 
 ![Expand Individual Object](../assets/expand-object-from-group.png){ class="bordered" width="75%" }

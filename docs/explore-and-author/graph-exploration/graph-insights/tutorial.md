@@ -13,7 +13,7 @@ Northwind Traders needs to identify vulnerabilities in the trade network by answ
 We will traverse the ordering chain, identify high-volume US partners, and isolate the product mix.
 
 ---
-    
+
 ## 1. Seed the Canvas
 
 Every exploration requires a starting point. We begin with the central entity: The **product**.
@@ -26,7 +26,7 @@ Every exploration requires a starting point. We begin with the central entity: T
 
 ---
 
-## 2. Build Traversals to the Interest Groups 
+## 2. Build Traversals to the Interest Groups
 
 Next, we expand the exploration tree to connect Suppliers and Customers.
 
@@ -61,7 +61,7 @@ The exploration tree currently visualizes all connections. We must now isolate t
 We define "VIP" as customers with the highest volume of incoming orders.
 
 1.  Select the `Customer` group and open the [resource table](features/objects-table.md#objects-table).
-2.  **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the textfield of the filter submenu.
+2.  **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the text field of the filter submenu.
 3.  **Identify VIPs:** Click the **Predecessors** column header to **Sort Descending**. This ranks customers by their incoming connection count (number of Orders).
 
 ![USA Customer Filter](assets/tutorial-usa-customer-filter.png){ class="bordered" width="80%" }
@@ -71,7 +71,7 @@ We define "VIP" as customers with the highest volume of incoming orders.
 ![Top USA Customer Filter](assets/tutorial-top-usa-customer-filter.png){ class="bordered" width="85%" }
 
 ### 3.2. Isolate UK Suppliers
- 
+
 1.  Select the `Supplier` group to open the table.
 2.  Filter `Country` to `UK`.
 3.  Click `Apply filters`.
@@ -79,7 +79,7 @@ We define "VIP" as customers with the highest volume of incoming orders.
 ![UK Supplier Filter](assets/tutorial-uk-suppliers-filter.png){ class="bordered" width="85%" }
 
 !!! info "The Disconnected State"
-    
+
     At this stage, you have filtered the *ends* of both traversals, but their *start* (Products) still shows the total inventory (left-join pattern). The branches of the exploration tree represent independent aggregated traversals sharing the same starting point.
 
 
@@ -97,16 +97,16 @@ We apply [**left group restriction**](features/connections.md#backpropagation) (
 
 Right-click the connection beam between `Supplier` and `Product` and select `Restrict left group`:
 
-- This retains only products having a UK supplier. 
-- As this reduces the start group of the second branch of the exploration tree, the `Order` and `Customer` groups might be impacted. 
+- This retains only products having a UK supplier.
+- As this reduces the start group of the second branch of the exploration tree, the `Order` and `Customer` groups might be impacted.
 
 ### 4.2. Identify Products ordered by VIP USA Customers
 
 Apply the same restriction to the connections between `Order` and `Customer` as well as between `Product` and `Order`:
 
-- This retains only products appearing in at least one order of at least one VIP USA customer. 
+- This retains only products appearing in at least one order of at least one VIP USA customer.
 - All products having been constrained to have a UK supplier in the previous step, the `Products` group now contains the high risk products.
- 
+
 ![Supply Chain with Backpropagation](assets/tutorial-supply-chain-with-backpropragation.png){ class="bordered" width="75%" }
 
 ---
@@ -115,9 +115,9 @@ Apply the same restriction to the connections between `Order` and `Customer` as 
 
 We have isolated the high risk product group, that we can now analyze:
 
-1. Select the filtered `Product` group to display the [class histogram](features/groups.md#histograms) in the right pane. 
+1. Select the filtered `Product` group to display the [class histogram](features/groups.md#histograms) in the right pane.
 2. Expand the `Product` class bar to display its sub-classes (e.g., *Beverages, Confections*).
-3. **Insight:** The products of the `Confections` class are the most represented in this high impact risk group. 
+3. **Insight:** The products of the `Confections` class are the most represented in this high impact risk group.
 
 ![Product Histogram for Supply Chain](assets/tutorial-supply-chain-product-histogram.png){ class="bordered" width="85%" }
 
