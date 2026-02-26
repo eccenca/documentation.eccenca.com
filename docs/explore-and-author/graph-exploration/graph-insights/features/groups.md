@@ -41,7 +41,7 @@ Flagging highlights specific subsets of data for visual inspection without modif
 ![Flagged Resources in Group](../assets/histogram-flagged-resources.png){ class="bordered" width="80%" }
 
 !!! warning "Visibility Threshold"
-    
+
     Flagging is only visible when the group is in **instance rendering mode** (count <= threshold). See the [threshold setting](canvas-ui.md#object-threshold-logic).
 
 
@@ -59,7 +59,7 @@ Histograms function as a visual facet query builder. Use the buttons to apply bo
 | **Intersection (AND)** | **Sequential** Operation | 1. Restrict to `Class A`.<br>2. Select `Class B` in the updated list.<br>3. Restrict to `Class B`.<br>**Outcome:** Items that are **BOTH** A and B. |
 
 !!! warning "Multiple Histograms"
-    
+
     When applying a filter, selections made **simultaneously in different histograms** are combined **conjunctively (AND)** in a facet-like logic.
 
 
@@ -77,7 +77,7 @@ The **expansion menu** of a group presents the options available for adding a no
 1.  **Action:** Click any group to open the menu.
 2.  **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.    
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
-3.  **Action:** Click a **object property** with the required direction for the selected target **class** to add a new connection beam to the exploration.
+3.  **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
 
 ![Expansion Menu](../assets/expansion-menu.png){ class="bordered" width="65%" }
 
@@ -97,6 +97,6 @@ Right-click a group or its caption to access its context menu.
 - **Show resource table:** Opens the tabular view (see the [dedicated page](objects-table.md)).
 
 !!! tip "Usage"
-    
+
     - The query is intended to be used directly on the database for various datasets with the same model (or slight variations thereof).
     - Use the notes to explain what is the content of the group in your own words. This is particularly relevant for collaborative work.
