@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 25.3.2
+# Corporate Memory 25.3.4
 
 Corporate Memory 25.3 is the third major release in 2025.
 
@@ -39,7 +39,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - eccenca DataIntegration v25.3.3
-- eccenca Explore v25.3.3
+- eccenca Explore v25.3.4
 - eccenca Corporate Memory Control (cmemc) v25.6.0
 - eccenca Graph Insights v19.1.1-2
 
@@ -150,9 +150,15 @@ We are excited to announce the release of DataIntegration v25.3, bringing the ne
     - Graph URI Drop Down does close now.
     - Close icon button to remove target entity type in transform operator now works if opened in modal.
 
-## eccenca Explore v25.3.3
+## eccenca Explore v25.3.4
 
 We are pleased to announce Explore v25.3, which delivers the new **Companion** LLM data interaction, a whole new way to explore your data relationships in **Graph Insights**, experimental Tentris support, major BKE authoring enhancements and a wide range of usability and stability fixes.
+
+**v25.3.4 of Explore ships the following fixes:**
+
+- Download of resource lists where columns contain special characters
+- Editing graph lists in workspace configuration now applies immediately
+- Spring Boot 3.5.11
 
 **v25.3.3 of Explore ships the following fixes:**
 
