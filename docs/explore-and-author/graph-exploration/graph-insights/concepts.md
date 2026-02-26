@@ -43,6 +43,8 @@ The **data guided expansion** follows a **left-join pattern**, each resource of 
 
 Graph Insights is an iterative traversal query builder. Its workflow follows a four-step cycle:
 
+![The Exploration Loop](assets/exploration-loop.excalidraw.png){ width="60%" }
+
 ### 1. Seed (Start)
 
 Start the exploration by dragging a **class** from the [class tree](features/category-tree.md#category-tree) in the left pane.
