@@ -14,9 +14,9 @@ Select a visible resource in a group or its row in the group table to open the `
 
 ### Components
 
-1. **Header:** Displays the **caption** and **description** , as well as the IRI of the resource .
-2. **Classes:** List of all classes assigned to the resource.
-3. **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
+1.  **Header:** Displays the **caption** and **description** , as well as the IRI of the resource.
+2.  **Classes:** List of all classes assigned to the resource.
+3.  **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
 
 ### Controls
 
@@ -44,12 +44,12 @@ The standard flags are persistent markers used to track the appearance of specif
 - **Outcome:** A flag of the selected color displaying the caption is attached to every visible occurrence of the resource in the exploration tree.
 - **Alternative:** Click `Add note` to flag the object and attach a text comment to the flag. The note appears in the tooltip on hover.
 
-![Object Flag and Note](../assets/object-flag-and-note.png){ class="bordered" width="60%" }
+![Object Flag and Note](../assets/object-flag-and-note.png){ class="bordered" width="80%" }
 
 !!! info "About Persistence"
 
     - A flag will appear anytime a new instance of the flagged resource is visible in a subsequent exploration step (even in new explorations).
-    - Flags and notes can be removed using the context-menu of the resource, the group, or the exploration (canvas). 
+    - Flags and notes can be removed using the context-menu of the resource, the group, or the exploration (canvas).
 
 
 ### Temporary Flags {#temporary-flags}
