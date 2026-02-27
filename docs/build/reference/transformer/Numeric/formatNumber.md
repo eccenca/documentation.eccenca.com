@@ -2,19 +2,17 @@
 title: "Format number"
 description: "Formats a number according to a user-defined pattern. The pattern syntax is documented at: https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Format number
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
-
 
   Formats a number according to a user-defined pattern.
   The pattern syntax is documented at:
-  https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html
-
+  <https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html>
 
 ## Examples
 
@@ -31,7 +29,6 @@ tags:
 
 * Returns: `[001]`
 
-
 ---
 **Example 2:**
 
@@ -43,7 +40,6 @@ tags:
 
 * Returns: `[000123.780]`
 
-
 ---
 **Example 3:**
 
@@ -54,7 +50,6 @@ tags:
     1. `[123456.789]`
 
 * Returns: `[123,456.789]`
-
 
 ---
 **Example 4:**
@@ -68,7 +63,6 @@ tags:
 
 * Returns: `[123.456,789]`
 
-
 ---
 **Example 5:**
 
@@ -79,7 +73,6 @@ tags:
     1. `[10]`
 
 * Returns: `[10 apples]`
-
 
 ---
 **Example 6:**
@@ -92,7 +85,6 @@ tags:
 
 * Returns: `[0010]`
 
-
 ---
 **Example 7:**
 
@@ -103,7 +95,6 @@ tags:
     1. `[1.0]`
 
 * Returns: `[1]`
-
 
 ---
 **Example 8:**
@@ -116,32 +107,23 @@ tags:
 
 * Returns: `[123.4]`
 
-
-
-
 ## Parameter
 
 ### Pattern
 
 No description
 
-- ID: `pattern`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `pattern`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Locale
 
 No description
 
-- ID: `locale`
-- Datatype: `string`
-- Default Value: `en`
-
-
-
-
+* ID: `locale`
+* Datatype: `string`
+* Default Value: `en`
 
 ## Advanced Parameter
 

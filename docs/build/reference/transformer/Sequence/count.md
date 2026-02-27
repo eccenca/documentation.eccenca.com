@@ -2,13 +2,13 @@
 title: "Count values"
 description: "Counts the number of values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Count values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Counts the number of values.
 
@@ -24,7 +24,6 @@ Counts the number of values.
 
 * Returns: `[1]`
 
-
 ---
 **Example 2:**
 
@@ -32,9 +31,6 @@ Counts the number of values.
     1. `[value1, value2]`
 
 * Returns: `[2]`
-
-
-
 
 ## Parameter
 

@@ -22,7 +22,6 @@ store:
     password: "password"
 ```
 
-
 ***Property: store.type***
 
 The type of the store must be set to "http"
@@ -35,7 +34,6 @@ The type of the store must be set to "http"
 | Environment | STORE_TYPE |
 
 ***Property: store.authorization***
-
 
 | Category | Value |
 |--- | ---: |
@@ -52,7 +50,7 @@ Use this property to configure the endpoint to which SPARQL 1.1 queries are sent
 
 | Category | Value |
 |--- | ---: |
-| Default | http://localhost:7200/repositories/cmem |
+| Default | <http://localhost:7200/repositories/cmem> |
 | Required | true |
 | Valid values | string |
 | Environment | STORE_HTTP_QUERY_ENDPOINT_URL |
@@ -63,7 +61,7 @@ Use this property to configure the endpoint to which SPARQL 1.1 updates are sent
 
 | Category | Value |
 |--- | ---: |
-| Default | http://localhost:7200/repositories/cmem/statements |
+| Default | <http://localhost:7200/repositories/cmem/statements> |
 | Required | true |
 | Valid values | string |
 | Environment | STORE_HTTP_UPDATE_ENDPOINT_URL |
@@ -74,7 +72,7 @@ Use this property to configure the endpoint to SPARQL 1.1 Graph Store Protocol r
 
 | Category | Value |
 |--- | ---: |
-| Default | http://localhost:7200/repositories/cmem/rdf-graphs/service |
+| Default | <http://localhost:7200/repositories/cmem/rdf-graphs/service> |
 | Required | false |
 | Valid values | string |
 | Environment | STORE_HTTP_GRAPH_STORE_ENDPOINT_URL |
@@ -122,4 +120,3 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 | Required | false |
 | Valid values | Valid SPARQL query with bound variable "g" |
 | Environment | STORE_HTTP_GRAPHLISTQUERY |
-

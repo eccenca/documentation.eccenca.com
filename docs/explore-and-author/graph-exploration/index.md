@@ -15,13 +15,14 @@ To open the Explore module, click **:eccenca-application-explore: Knowledge G
 The user interface of the Explore module shows the following main areas:
 
 <div class="annotate" markdown>
--   the header area, showing:
-    -   selected elements,
-    -   possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**),
-    -   a **:eccenca-module-search: Go to resource** (2) input field,
-    -   and a **:eccenca-application-useraccount: user menu**
--   the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
--   the main area, providing multiple views, depending on which resource has been selected.
+
+- the header area, showing:
+    - selected elements,
+    - possible actions (e.g. **:eccenca-item-add-artefact: create** or **:eccenca-item-remove: remove resource**),
+    - a **:eccenca-module-search: Go to resource** (2) input field,
+    - and a **:eccenca-application-useraccount: user menu**
+- the navigation area, showing the [Graphs](#graphs) and the [Navigation](#navigation) structures, (1)
+- the main area, providing multiple views, depending on which resource has been selected.
 </div>
 
 1. If necessary, you can toggle the navigation area by using the
@@ -45,10 +46,10 @@ In the main area, the Metadata view of the selected graph appears, showing sev
 
 The Graphs are categorized into groups as follows:
 
--   User: All graphs which represent user data (created manually or by build processes).
--   Vocabularies: All graphs containing vocabularies.
--   System: All graphs containing configuration data.
--   All
+- User: All graphs which represent user data (created manually or by build processes).
+- Vocabularies: All graphs containing vocabularies.
+- System: All graphs containing configuration data.
+- All
 
 You can search for a specific graph with **:eccenca-module-search: Search**.
 
@@ -57,11 +58,12 @@ You can search for a specific graph with **:eccenca-module-search: Search**.
 To add a new graph to the Graphs list:
 
 <div class="annotate" markdown>
--   Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
--   Select a graph type. (1)
--   Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
--   Click **Next** and provide metadata (different types, require different metadata to enter).
--   Click **Save** to create the new graph.
+
+- Click **:eccenca-item-add-artefact: Add new graph**. A dialog appears.
+- Select a graph type. (1)
+- Provide a name and enter the graph URI (e.g. `https://ns.eccenca.com`).
+- Click **Next** and provide metadata (different types, require different metadata to enter).
+- Click **Save** to create the new graph.
 </div>
 
 1. More concrete, you select a shape here.
@@ -71,9 +73,9 @@ To add a new graph to the Graphs list:
 
 To download a graph from the Graphs list:
 
--   In the **Graphs** list, click **:eccenca-item-download: Download graph** on the graph you want to download.
--   A message box appears, stating that downloading can take a long time.
--   Click **Download**.
+- In the **Graphs** list, click **:eccenca-item-download: Download graph** on the graph you want to download.
+- A message box appears, stating that downloading can take a long time.
+- Click **Download**.
 
 ### :eccenca-item-edit: Managing a graph
 
@@ -82,13 +84,14 @@ Use this function to add or replace data in the a graph.
 To update or replace data of a graph:
 
 <div class="annotate" markdown>
--   In the **Graphs** box, select **:eccenca-item-download: Manage graph** on the graph you want to update or replace.
--   A dialog box appears.
--   Click **Choose file** to upload a file containing the new or updated data. (1)
--   Choose one of the following options:
-    -   **Update**: add uploaded data to Graph.
-    -   **Replace**: clear Graph and add uploaded data.
--   Click **Update** to start the upload process.
+
+- In the **Graphs** box, select **:eccenca-item-download: Manage graph** on the graph you want to update or replace.
+- A dialog box appears.
+- Click **Choose file** to upload a file containing the new or updated data. (1)
+- Choose one of the following options:
+    - **Update**: add uploaded data to Graph.
+    - **Replace**: clear Graph and add uploaded data.
+- Click **Update** to start the upload process.
 </div>
 
 1. You can upload one of the following file formats: Turtle, N-Triples, RDF/XML, or JSON-LD.
@@ -193,7 +196,7 @@ This tab shows all resources that link back to the selected resource.
 This tab shows the turtle RDF representation of the raw data representing the resource.
 You can use this tab to edit the selected resource:
 
--   Enter your changes in turtle.
--   Click **UPDATE** to save your changes.
+- Enter your changes in turtle.
+- Click **UPDATE** to save your changes.
 
 Deleting the entire turtle representation deletes the resource.

@@ -20,11 +20,11 @@ The documentation is structured in two parts:
 
 The main data processing use-cases of Apache Spark are:
 
-* data loading,
-* SQL queries,
-* machine learning,
-* streaming,
-* graph processing.
+- data loading,
+- SQL queries,
+- machine learning,
+- streaming,
+- graph processing.
 
 Additionally, there are other functionalities stemming from hundreds of plugins.
 

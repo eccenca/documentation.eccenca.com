@@ -60,4 +60,3 @@ The Github project [eccenca/cmemc-workflow](https://github.com/eccenca/cmemc-wor
 Here is an example output:
 
 ![Example workflow output](example-workflow-output.png "Example workflow output")
-

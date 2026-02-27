@@ -25,7 +25,7 @@ To save the current exploration, either right-click the canvas background to ope
 ### Saved Exploration Folders
 
 The saved explorations folders behave like a usual file system:
- 
+
 - Use the **context menu of the folders** in the saved explorations section of the left pane **to create new subfolders**.
 - New saved explorations are placed **in the folder highlighted at the time of the operation.**
 - **Names** must only be **unique within their folder**.
@@ -39,7 +39,7 @@ If you load and modify a loaded exploration (e.g., add a filter), Graph Insights
 
 ### Annotations (Group Notes)
 
-Add context to the analysis by attaching text notes to important groups. 
+Add context to the analysis by attaching text notes to important groups.
 
 - **Add note:** Right-click a group to open its context menu  and select `Add note`.
 - **Toggle visibility:** Use the group context menu to toggle the visibility of a single note, or use the context menu of the canvas (or the `Exploration` top menu) and select `Hide/Show all group notes`.
@@ -52,7 +52,7 @@ Add context to the analysis by attaching text notes to important groups.
 
 
 ---
-  
+
 ## User-Defined Classes {#custom-categories}
 
 **User-defined  Graph Insights classes** are customizable tools designed to analyze data with specific goals (e.g. identifying high-risk suppliers based at a given location and having a specific contract type).
@@ -63,7 +63,7 @@ They act as **"virtual classes"**, refining the model within the exploration lay
 A user-defined Graph Insights class can be defined for any group in any exploration (e.g., "High-volume suppliers located in Germany").
 
 - **Action:** Right-click the group or its caption to open its context menu and select `Add Graph Insights class for this group`.
-- **Outcome:** 
+- **Outcome:**
     - The group is relabeled with the name of the new class.
     - The new class is **added to the class tree** and the Graph Insights classes list in the right pane, and is handled like a standard class.
 
@@ -89,9 +89,9 @@ A user-defined Graph Insights class can be defined for any group in any explorat
 
 Share an exploration serialized as a JSON string.
 
-1.  **Export:** Right-click the canvas to open the exploration context menu or use the `Exploration` top menu, then select `Copy exploration as JSON`.
-2.  **Share:** Send the text blob to another user.
-3.  **Import:** The recipient selects `Start exploration from JSON` from the canvas context menu or the `Exploration` top menu, and pastes the string.
+1. **Export:** Right-click the canvas to open the exploration context menu or use the `Exploration` top menu, then select `Copy exploration as JSON`.
+2. **Share:** Send the text blob to another user.
+3. **Import:** The recipient selects `Start exploration from JSON` from the canvas context menu or the `Exploration` top menu, and pastes the string.
 
 !!! warning "Limitations"
 

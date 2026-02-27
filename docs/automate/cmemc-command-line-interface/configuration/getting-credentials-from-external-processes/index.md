@@ -20,11 +20,11 @@ As described in the [Configuration with Environment Variables](../environment-ba
 The following code snippet demonstrates the behaviour:
 
 ``` shell-session
-$ export CMEM_BASE_URI="https://your-cmem.eccenca.dev/"
-$ export OAUTH_GRANT_TYPE="client_credentials"
-$ export OAUTH_CLIENT_ID="cmem-service-account"
-$ export OAUTH_CLIENT_SECRET="...secret..."
-$ cmemc graph list
+export CMEM_BASE_URI="https://your-cmem.eccenca.dev/"
+export OAUTH_GRANT_TYPE="client_credentials"
+export OAUTH_CLIENT_ID="cmem-service-account"
+export OAUTH_CLIENT_SECRET="...secret..."
+cmemc graph list
 ```
 
 In the context of a CI/CD pipeline, e.g., on github, these credentials can be taken from the repository secrets:
@@ -48,7 +48,7 @@ jobs:
 In shell context, you can fetch the secret from an external process to the variable:
 
 ``` shell-session
-$ export OAUTH_CLIENT_SECRET=$(get-my-secret.sh)
+export OAUTH_CLIENT_SECRET=$(get-my-secret.sh)
 ```
 
 ## External Processes
@@ -116,4 +116,3 @@ if [ "${OAUTH_GRANT_TYPE}" = "password" ]; then
 fi
 exit 1
 ```
-

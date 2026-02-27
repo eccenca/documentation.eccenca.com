@@ -10,9 +10,9 @@ tags:
 Statement Annotations provide a way to express knowledge about statements.
 Typical use cases for Statement Annotations include:
 
--   the temporal validity of information,
--   the origin of information, or
--   just a way to annotate a specific statement with a human readable comment.
+- the temporal validity of information,
+- the origin of information, or
+- just a way to annotate a specific statement with a human readable comment.
 
 ## Usage
 
@@ -22,9 +22,9 @@ If enabled on a specific type of statement or type of resource, you see a Statem
 
 This bubble has different status:
 
--   A **empty text bubble** indicates, that there is no annotation on the statement, but the annotation feature is enabled for this statement.
--   A **filled text bubble** indicates, that there is at least one annotation on the statement.
--   **No bubble** indicates, that the annotation feature is NOT enabled on this type of statement.
+- A **empty text bubble** indicates, that there is no annotation on the statement, but the annotation feature is enabled for this statement.
+- A **filled text bubble** indicates, that there is at least one annotation on the statement.
+- **No bubble** indicates, that the annotation feature is NOT enabled on this type of statement.
 
 Clicking on one of the text bubbles opens the Statement Annotation dialog for this specific statement:
 
@@ -102,4 +102,3 @@ WHERE {
   }
 }
 ```
-

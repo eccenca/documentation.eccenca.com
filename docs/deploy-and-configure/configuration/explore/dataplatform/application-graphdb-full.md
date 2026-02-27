@@ -27,7 +27,6 @@ store:
     createRepositoryOnStartup: true
 ```
 
-
 ***Property: store.type***
 
 The type of the store must be set to "graphdb"
@@ -40,7 +39,6 @@ The type of the store must be set to "graphdb"
 | Environment | STORE_TYPE |
 
 ### Specific settings for GraphDB
-
 
 ***Property: store.graphdb.host***
 
@@ -130,6 +128,17 @@ Set to true to use the native Graph Store API endpoint. Set to false to use the 
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_USEDIRECTTRANSFER |
 
+***Property: store.graphdb.useStatementParallelGspWrite***
+
+Whether to use the parallel GSP write endpoint for statements. This is only relevant when `useDirectTransfer` is true.
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | boolean |
+| Environment | STORE_GRAPHDB_USESTATEMENTPARALLELGSPWRITE |
+
 ***Property: store.graphdb.create-repository-on-startup***
 
 Whether to create the given repository on startup if it does not exist
@@ -147,7 +156,7 @@ The iri of the lucene index to be used for searches. If the default index is use
 
 | Category | Value |
 |--- | ---: |
-| Default | http://www.ontotext.com/connectors/lucene/instance#cmembaseindex |
+| Default | <http://www.ontotext.com/connectors/lucene/instance#cmembaseindex> |
 | Required | false |
 | Valid values | Valid URI of lucene index |
 | Environment | STORE_GRAPHDB_GDBBASEINDEX |
@@ -173,4 +182,3 @@ Maximum amount of quads of change tracking result which will be loaded in memory
 | Required | false |
 | Valid values | int |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGMAXQUADMEMORY |
-

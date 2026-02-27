@@ -5,7 +5,9 @@ tags:
     - Build
     - Reference
 ---
+
 # Datasets
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Datasets are collections of data that can be read or written.
@@ -14,7 +16,7 @@ Datasets are collections of data that can be read or written.
 
 |         Name | Description              |
 |-------------:|:-------------------------|
- | [Alignment](alignment.md) | Writes the alignment format specified at http://alignapi.gforge.inria.fr/format.html. |
+ | [Alignment](alignment.md) | Writes the alignment format specified at <http://alignapi.gforge.inria.fr/format.html>. |
  | [Avro](avro.md) | Read from or write to an Apache Avro file. |
  | [Binary file](binaryFile.md) | Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images. |
  | [CSV](csv.md) | Read from or write to an CSV file. |

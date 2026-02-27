@@ -2,13 +2,13 @@
 title: "Validate regex"
 description: "Validates if all values match a regular expression."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Validate regex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 ## Description
 
@@ -61,7 +61,6 @@ _extracts_ them.
 
 * Returns: `[TestValue123]`
 
-
 ---
 **Example 2:**
 
@@ -73,7 +72,6 @@ _extracts_ them.
 
 * Returns: `[abcd]`
 
-
 ---
 **Example 3:**
 
@@ -84,7 +82,6 @@ _extracts_ them.
     1. `[Prefix abc]`
 
 * Returns: `[Prefix abc]`
-
 
 ---
 **Example 4:**
@@ -98,7 +95,6 @@ _extracts_ them.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
 ---
 **Example 5:**
 
@@ -110,7 +106,6 @@ _extracts_ them.
 
 * Returns: `[]`
 * **Throws error:** `ValidationException`
-
 
 ---
 **Example 6:**
@@ -124,22 +119,15 @@ _extracts_ them.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
-
-
 ## Parameter
 
 ### Regex
 
 regular expression
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `\w*`
-
-
-
-
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `\w*`
 
 ## Advanced Parameter
 

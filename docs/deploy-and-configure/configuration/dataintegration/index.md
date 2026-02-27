@@ -354,6 +354,7 @@ workspace.repository.projectS3 = {
   # /path/to/my-workspace/
 }
 ```
+
 For this S3 plugin make sure the account has at least these permissions attached:
 
 ``` json
@@ -914,7 +915,7 @@ Within Build (DataIntegration) the SqlEndpoint can be used as a source or sink l
 Any JDBC or ODBC client can connect to a JDBC endpoint provided by an SqlEndpoint dataset. SqlEndpoint uses the same query processing as Hive, therefore the requirements for the client are:
 
 - A JDBC driver compatible with *Hive 1.2.1* (platform independent driver org.apache.hive.jdbc.HiveDriver is needed) or
-  - Hive 1.2.1 is [ODPi](https://github.com/odpi/specs/blob/master/ODPi-Runtime.md) runtime compliant
+    - Hive 1.2.1 is [ODPi](https://github.com/odpi/specs/blob/master/ODPi-Runtime.md) runtime compliant
 - A JDBC driver compatible with *Spark 2.3.3*
 - A Hive ODBC driver (ODBC driver for the client architecture and operating system needed)
 
@@ -1036,10 +1037,10 @@ com.eccenca.di.mappingCreatorEnabled = true
 The [Mapping Creator can optionally use LLM](../../../build/mapping-creator/index.md#smart-suggestions-with-ai-support) to automatically generate class and property mappings.
 Use the following configuration section as a blueprint to set up your OpenAI-compatible endpoint, providing:
 
--   the API key,
--   a model,
--   reasoning level,
--   and (optionally) benchmarking outputs.
+- the API key,
+- a model,
+- reasoning level,
+- and (optionally) benchmarking outputs.
 
 ```bash linenums="1"
 #################################################

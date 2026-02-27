@@ -41,4 +41,3 @@ Once you installed the package, you can use the Kafka Producer by simply creatin
 ![Create new Item and search for `kafka`](create-new-item-kafka.png "Create new Item and search for `kafka`")
 
 Follow the in-app documentation on how to configure the task (e.g. for providing credentials or preparing data to be sent in messages).
-

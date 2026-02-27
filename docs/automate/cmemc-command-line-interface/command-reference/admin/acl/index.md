@@ -6,28 +6,24 @@ tags:
   - Security
   - cmemc
 ---
+
 # admin acl Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete and modify and review access conditions.
 
 With this command group, you can manage and inspect access conditions in eccenca Corporate Memory. Access conditions are identified by a URL. They grant access to knowledge graphs or actions to user or groups.
 
-
 ## admin acl list
 
 List access conditions.
 
 ```shell-session title="Usage"
-$ cmemc admin acl list [OPTIONS]
+cmemc admin acl list [OPTIONS]
 ```
 
-
-
-
 This command retrieves and lists all access conditions, which are manageable by the current account.
-
-
 
 ??? info "Options"
     ```text
@@ -45,17 +41,11 @@ This command retrieves and lists all access conditions, which are manageable by 
 Inspect an access condition.
 
 ```shell-session title="Usage"
-$ cmemc admin acl inspect [OPTIONS] ACCESS_CONDITION_ID
+cmemc admin acl inspect [OPTIONS] ACCESS_CONDITION_ID
 ```
-
-
-
 
 !!! note
     access conditions can be listed by using the `acl list` command.
-
-
-
 
 ??? info "Options"
     ```text
@@ -68,11 +58,8 @@ $ cmemc admin acl inspect [OPTIONS] ACCESS_CONDITION_ID
 Create an access condition.
 
 ```shell-session title="Usage"
-$ cmemc admin acl create [OPTIONS]
+cmemc admin acl create [OPTIONS]
 ```
-
-
-
 
 With this command, new access conditions can be created.
 
@@ -85,13 +72,9 @@ A special case are dynamic access conditions, based on a SPARQL query: Here you 
 !!! note
     Queries for dynamic access conditions are copied into the ACL, so changing the query in the query catalog does not change it in the access condition.
 
-
 ```shell-session title="Example"
-$ cmemc admin acl create --group local-users --write-graph https://example.org/
+cmemc admin acl create --group local-users --write-graph https://example.org/
 ```
-
-
-
 
 ??? info "Options"
     ```text
@@ -135,15 +118,10 @@ $ cmemc admin acl create --group local-users --write-graph https://example.org/
 Update an access condition.
 
 ```shell-session title="Usage"
-$ cmemc admin acl update [OPTIONS] ACCESS_CONDITION_ID
+cmemc admin acl update [OPTIONS] ACCESS_CONDITION_ID
 ```
 
-
-
-
 Given an access condition URL, you can change specific options to new values.
-
-
 
 ??? info "Options"
     ```text
@@ -183,23 +161,16 @@ Given an access condition URL, you can change specific options to new values.
 Delete access conditions.
 
 ```shell-session title="Usage"
-$ cmemc admin acl delete [OPTIONS] [ACCESS_CONDITION_IDS]...
+cmemc admin acl delete [OPTIONS] [ACCESS_CONDITION_IDS]...
 ```
-
-
-
 
 This command deletes existing access conditions from the account.
 
 !!! warning
     Access conditions will be deleted without prompting.
 
-
 !!! note
     Access conditions can be listed by using the `admin acl list` command.
-
-
-
 
 ??? info "Options"
     ```text
@@ -219,9 +190,6 @@ Export access conditions to a JSON file.
 $ cmemc admin acl export [OPTIONS] [ACCESS_CONDITION_IDS]...
 ```
 
-
-
-
 Access conditions can be exported based on IDs, filters, or all at once. The exported JSON can be imported back using the `acl import` command.
 
 By default, uses template-based file naming with the current date and connection name. You can override this by specifying an explicit output file path with `--output-file`.
@@ -230,23 +198,17 @@ By default, uses template-based file naming with the current date and connection
 $ cmemc admin acl export --all
 ```
 
-
 ```shell-session title="Example"
 $ cmemc admin acl export --all --output-file acls.json
 ```
-
 
 ```shell-session title="Example"
 $ cmemc admin acl export --filter group local-users
 ```
 
-
 ```shell-session title="Example"
 $ cmemc admin acl export :my-acl-iri
 ```
-
-
-
 
 ??? info "Options"
     ```text
@@ -279,27 +241,20 @@ $ cmemc admin acl export :my-acl-iri
 Import access conditions from a JSON file.
 
 ```shell-session title="Usage"
-$ cmemc admin acl import [OPTIONS] INPUT_FILE
+cmemc admin acl import [OPTIONS] INPUT_FILE
 ```
-
-
-
 
 This command imports access conditions from a JSON file that was created using the `acl export` command.
 
 If `--replace` is specified, existing access conditions with matching IRIs will be deleted before importing. Otherwise, the import will skip if an access condition with the same IRI already exists.
 
 ```shell-session title="Example"
-$ cmemc admin acl import acls.json
+cmemc admin acl import acls.json
 ```
-
 
 ```shell-session title="Example"
-$ cmemc admin acl import --replace acls.json
+cmemc admin acl import --replace acls.json
 ```
-
-
-
 
 ??? info "Options"
     ```text
@@ -313,17 +268,12 @@ $ cmemc admin acl import --replace acls.json
 Review grants for a given account.
 
 ```shell-session title="Usage"
-$ cmemc admin acl review [OPTIONS] USER
+cmemc admin acl review [OPTIONS] USER
 ```
-
-
-
 
 This command has two working modes: (1) You can review the access conditions of an actual account, (2) You can review the access conditions of an imaginary account with a set of freely added groups (what-if-scenario).
 
 The output of the command is a list of grants the account has based on your input and all access conditions loaded in the store. In addition to that, some metadata of the account is shown.
-
-
 
 ??? info "Options"
     ```text
@@ -331,4 +281,3 @@ The output of the command is a list of grants the account has based on your inpu
     --raw         Outputs raw JSON.
     --group TEXT  Add groups to the review request (what-if-scenario).
     ```
-

@@ -30,8 +30,8 @@ A vocabulary which is known and available but not installed, looks like this:
 
 Example of extended information of uninstalled Vocabulary Catalog
 
--   Use **Install** or the switch in the column `Installed` to install the Catalog.
--   Use **View** to access the Vocabulary.
+- Use **Install** or the switch in the column `Installed` to install the Catalog.
+- Use **View** to access the Vocabulary.
 
 A vocabulary which is installed looks like this
 
@@ -39,6 +39,6 @@ A vocabulary which is installed looks like this
 
 Example of extended information of installed Vocabulary Catalog
 
--   Use **Uninstall** to remove an installed vocabulary or **Install** to install a vocabulary.
--   Use **View** to access the Vocabulary.
--   Use **Upload** to install or overwrite the vocabulary from a file.
+- Use **Uninstall** to remove an installed vocabulary or **Install** to install a vocabulary.
+- Use **View** to access the Vocabulary.
+- Use **Upload** to install or overwrite the vocabulary from a file.

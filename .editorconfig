@@ -16,8 +16,9 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-# 4 space indentation
-[*.md]
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{md}]
 indent_style = space
 indent_size = 4
 

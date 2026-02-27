@@ -29,7 +29,7 @@ When a group with visible resources is expanded, or when a connected group direc
 
 ## Left Group Restriction (Backpropagation) {#backpropagation}
 
-By default, the exploration applies a **left-join pattern**: The left group remains static, while the right group contains the connected resources. The left group restriction switches (permanently) to an **inner-join pattern**, removing from the left group all resources having no successor in the right group. 
+By default, the exploration applies a **left-join pattern**: The left group remains static, while the right group contains the connected resources. The left group restriction switches (permanently) to an **inner-join pattern**, removing from the left group all resources having no successor in the right group.
 
 - **Action:** Right-click the connection to open its context menu and select `Restrict left group`.
 - **Outcome:**
@@ -68,8 +68,8 @@ While the **[table of a group](objects-table.md)** lists resources, the **connec
 
 To open it:
 
-1.  **Context Menu:** Right-click the connection and select `Show connection table`.
-2.  **Quick Action:** Click the connection to select it, then click the blue `Show connection table...` button at the bottom of the canvas.
+1. **Context Menu:** Right-click the connection and select `Show connection table`.
+2. **Quick Action:** Click the connection to select it, then click the blue `Show connection table...` button at the bottom of the canvas.
 
 ### Table Components
 

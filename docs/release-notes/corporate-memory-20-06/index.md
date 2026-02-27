@@ -194,4 +194,3 @@ With v20.06 the following changed need to be made:
     - `cmemc query execute --accept '*'`
 - `query list` has a different default output, to return to the previous behavior change your cmemc `query list` calls to:
     - `cmemc query list --id-only`
-

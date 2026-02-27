@@ -2,11 +2,13 @@
 title: "Extract from PDF files"
 description: "Extract text and tables from PDF files"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Extract from PDF files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -22,10 +24,9 @@ A task to extract text and tables from PDF files.
 The output is a JSON string on the path `pdf_extract_output`. The format depends on the
 ["Combine the results from all files into a single value"](#parameter_doc_all_files) parameter.
 
-
 ### Output one entity/value per file
 
-```
+```text
 {
   "metadata": {
     "Filename": "sample.pdf",
@@ -49,10 +50,9 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 }
 ```
 
-
 ### Output one entity/value for all files
 
-```
+```text
 [
     {
         "metadata": {"Filename": "file1.pdf", ...},
@@ -69,10 +69,9 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 ## Input format
 
 This task can either work with project files when a regular expression is being used or with
-entities coming from another task or dataset. 
+entities coming from another task or dataset.
 The input must be file entities following the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).
 If a regular expression is set, the input ports will close and no connection will be possible.
-
 
 ## Parameters
 
@@ -92,6 +91,7 @@ If set to "Combine", the results of all files will be combined into a single out
 **<a id="parameter_doc_error_handling">Error Handling Mode</a>**
 
 Specifies how errors during PDF extraction should be handled.  
+
 - *Ignore*: Log errors and continue processing, returning empty or error-marked results.  
 - *Raise on errors*: Raise an error when extraction fails.  
 - *Raise on errors and warnings*: Treat any warning from the underlying PDF extraction module (pdfplumber) when extracting text and tables from pages as an error if empty results are returned.
@@ -101,6 +101,7 @@ Specifies how errors during PDF extraction should be handled.
 Method used to detect tables in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-tables).
 
 Available strategies include:  
+
 - *lines*: Uses detected lines in the PDF layout to find table boundaries.  
 - *text*: Relies on text alignment and spacing.
 - *lattice*: Best for machine-generated perfect grids.
@@ -113,9 +114,10 @@ Defines a custom table extraction strategy using YAML syntax. Only used if "cust
 
 **<a id="parameter_doc_text_strategy">Text extraction strategy</a>**
 
-Method used to extract text in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-text). 
+Method used to extract text in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-text).
 
 Available strategies include:
+
 - *default*: Balanced for most digital PDFs.
 - *raw*: Extract the PDFs with no merging of text fragments.
 - *scanned*: Best for scanned PDFs as it merges text more agressively.
@@ -125,14 +127,12 @@ Available strategies include:
 
 Defines the maximum number of processes to use for concurrent file processing. By default, this is set to (number of virtual cores - 1).
 
-
 ## Test regular expression
 
 Clicking the "Test regex pattern" button displays the files in the current project that match the regular expression
 specified with the ["File name regex filter"](#parameter_doc_regex) parameter.
 This does not display the files if there is another dataset or task connected to the input
 as the entities are not known before execution.
-
 
 ## Parameter
 
@@ -144,8 +144,6 @@ If set to 'Combine', the results of all files will be combined into a single out
 - Datatype: `string`
 - Default Value: `no_combine`
 
-
-
 ### Page selection
 
 Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files that do not contain any of the specified pages will return empty results with the information logged. If no page selection is specified, all pages will be processed.
@@ -153,8 +151,6 @@ Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files
 - ID: `page_selection`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Error Handling Mode
 
@@ -164,8 +160,6 @@ The mode in which errors during the extraction are handled. If set to "Ignore", 
 - Datatype: `string`
 - Default Value: `raise_on_error`
 
-
-
 ### Table extraction strategy
 
 Specifies the method used to detect tables in the PDF page. Options include "lines" and "text", each using different cues (such as lines or text alignment) to find tables. If "Custom" is selected, a custom setting needs to defined under advanced options.
@@ -174,8 +168,6 @@ Specifies the method used to detect tables in the PDF page. Options include "lin
 - Datatype: `string`
 - Default Value: `lines`
 
-
-
 ### Text extraction strategy
 
 Specifies how text is extracted from a PDF page. Options include "raw", "layout", and others, each interpreting character positions and formatting differently to control how text is grouped and ordered.
@@ -183,10 +175,6 @@ Specifies how text is extracted from a PDF page. Options include "raw", "layout"
 - ID: `text_strategy`
 - Datatype: `string`
 - Default Value: `default`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -198,8 +186,6 @@ Regular expression for filtering resources of the project. If this parameter is 
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Custom table extraction strategy
 
 Custom table extraction strategy in YAML format.
@@ -207,6 +193,7 @@ Custom table extraction strategy in YAML format.
 - ID: `custom_table_strategy`
 - Datatype: `multiline string`
 - Default Value:
+
 ``` text
 # edge_min_length: 3
 # explicit_horizontal_lines: []
@@ -234,8 +221,6 @@ Custom table extraction strategy in YAML format.
 # vertical_strategy: lines
 ```
 
-
-
 ### Custom_text_strategy
 
 Custom text extraction strategy in YAML format.
@@ -243,6 +228,7 @@ Custom text extraction strategy in YAML format.
 - ID: `custom_text_strategy`
 - Datatype: `multiline string`
 - Default Value:
+
 ``` text
 # extra_attrs: []
 # horizontal_ltr: true
@@ -257,8 +243,6 @@ Custom text extraction strategy in YAML format.
 # y_tolerance: 1
 ```
 
-
-
 ### Maximum number of processes for processing files
 
 The maximum number of processes to use for processing multiple files concurrently. The default is (number of virtual cores)-1.
@@ -266,6 +250,3 @@ The maximum number of processes to use for processing multiple files concurrentl
 - ID: `max_processes`
 - Datatype: `Long`
 - Default Value: `9`
-
-
-

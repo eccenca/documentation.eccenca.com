@@ -80,56 +80,55 @@ In addition to that, these changes are shipped:
 
 In addition to that, multiple performance and stability issues were solved.
 
-
 ## eccenca DataManager v19.10
 
 This version of eccenca DataManager adds the following new features:
 
--   New module `task`
-    -   Offers a direct resource actions. Interfaces only available by URL. See documentation for more details.
-    -   Path `/task/resource/create` allows to create a new resource by given graph and type.
--   General
-    -   Config parameter `js.config.api.defaultTimeout` for default UI queries timeout.
-    -   Config parameter `js.config.resourceTable.timeoutDownload` for Resource Table timeout on download requests on Explore and Query modules.
-    -   Validation of mandatory fields in `shacline` view.
-    -   Add new property `shui:onUpdateUpdate` for `sh:NodeShape`.
--   Module Explore
-    -   Config parameter `js.config.modules.explore.graphlist.whiteList` to filter specific graphs.
-    -   Config parameter `js.config.modules.explore.graphlist.internalGraphs` to hide specific graphs.
-    -   Config parameter `js.config.modules.explore.navigation.itemsPerPage` show items per page in navigation box.
-    -   Support for inverse property relations.
--   Module Query
-    -   Config parameter `js.config.modules.query.timeout` for manual queries.
-    -   Config parameter `js.config.modules.query.graph` to define the graph were data is saved and requested.
+- New module `task`
+    - Offers a direct resource actions. Interfaces only available by URL. See documentation for more details.
+    - Path `/task/resource/create` allows to create a new resource by given graph and type.
+- General
+    - Config parameter `js.config.api.defaultTimeout` for default UI queries timeout.
+    - Config parameter `js.config.resourceTable.timeoutDownload` for Resource Table timeout on download requests on Explore and Query modules.
+    - Validation of mandatory fields in `shacline` view.
+    - Add new property `shui:onUpdateUpdate` for `sh:NodeShape`.
+- Module Explore
+    - Config parameter `js.config.modules.explore.graphlist.whiteList` to filter specific graphs.
+    - Config parameter `js.config.modules.explore.graphlist.internalGraphs` to hide specific graphs.
+    - Config parameter `js.config.modules.explore.navigation.itemsPerPage` show items per page in navigation box.
+    - Support for inverse property relations.
+- Module Query
+    - Config parameter `js.config.modules.query.timeout` for manual queries.
+    - Config parameter `js.config.modules.query.graph` to define the graph were data is saved and requested.
 
 In addition to that, these changes are shipped:
 
--   General
-    -   Default pagination size of 20 elements for all Resource Tables.
-    -   Allow datatype `xsd:anyURI` for literals.
-    -   Upgraded to react 16.
--   Module Explore
-    -   Merged graph view `RDFDoc` into 'resource details view'.
-    -   Renamed global search label.
-    -   Graph creation will add the type `void:Dataset` instead of `owl:Ontology`.
-    -   Use the label of the type of the instances for the name of the CSV file downloaded from the Resource Table.
-    -   Display the context graph in `properties` and `references` tables.
--   Module Dataset
-    -   Adjusted position and tooltip of parameter `uriProperty` in 'Add data stepper'.
--   Module Query
-    -   Use the dataset label for the name of the CSV file downloaded from the Resource Table.
--   Module Login
-    -   Renew tokens when they expire.
--   Module Administration
-    -   Allow to search in IRIs for list of readable and writeable graphs.
+- General
+    - Default pagination size of 20 elements for all Resource Tables.
+    - Allow datatype `xsd:anyURI` for literals.
+    - Upgraded to react 16.
+- Module Explore
+    - Merged graph view `RDFDoc` into 'resource details view'.
+    - Renamed global search label.
+    - Graph creation will add the type `void:Dataset` instead of `owl:Ontology`.
+    - Use the label of the type of the instances for the name of the CSV file downloaded from the Resource Table.
+    - Display the context graph in `properties` and `references` tables.
+- Module Dataset
+    - Adjusted position and tooltip of parameter `uriProperty` in 'Add data stepper'.
+- Module Query
+    - Use the dataset label for the name of the CSV file downloaded from the Resource Table.
+- Module Login
+    - Renew tokens when they expire.
+- Module Administration
+    - Allow to search in IRIs for list of readable and writeable graphs.
 
 The following features have been removed in this release:
 
--   Module Explore
-    -   Config parameter `js.config.modules.explore.graphlist.listQuery` which is now obsolete.
-    -   Config parameter `js.config.modules.explore.details.history` which is now obsolete as the feature is no longer supported.
-    -   'History' tab.
--   Module Sync also known as `SubscriptionManagement`.
+- Module Explore
+    - Config parameter `js.config.modules.explore.graphlist.listQuery` which is now obsolete.
+    - Config parameter `js.config.modules.explore.details.history` which is now obsolete as the feature is no longer supported.
+    - 'History' tab.
+- Module Sync also known as `SubscriptionManagement`.
 
 In addition to that, multiple stability issues were solved.
 
@@ -137,34 +136,34 @@ In addition to that, multiple stability issues were solved.
 
 This version of eccenca DataPlatform adds the following new features:
 
--   SPARQL 1.1 Query endpoint
-    -   An `in-iris` property to the JSON `search` parameter to enable search over IRIs.
-    -   A `timeout` parameter which allows to configure the maximal amount of milliseconds that a query execution can run.
-    -   Support for Microsoft Excel (`.xlsx`) file download for `SELECT` queries.
--   SPARQL 1.1 Update endpoint
-    -   A `timeout` parameter which allows to configure the maximal amount of milliseconds that an update execution can run (Stardog only).
--   SPARQL 1.1 Graph Store Protocol
-    -   `multipart/form-data` support for HTTP PUT.
-    -   Added the `timeout` parameter, which allows to configure the maximal amount of milliseconds that a request execution should run.
-    -   Documentation for content negotiation by `format` query parameter.
+- SPARQL 1.1 Query endpoint
+    - An `in-iris` property to the JSON `search` parameter to enable search over IRIs.
+    - A `timeout` parameter which allows to configure the maximal amount of milliseconds that a query execution can run.
+    - Support for Microsoft Excel (`.xlsx`) file download for `SELECT` queries.
+- SPARQL 1.1 Update endpoint
+    - A `timeout` parameter which allows to configure the maximal amount of milliseconds that an update execution can run (Stardog only).
+- SPARQL 1.1 Graph Store Protocol
+    - `multipart/form-data` support for HTTP PUT.
+    - Added the `timeout` parameter, which allows to configure the maximal amount of milliseconds that a request execution should run.
+    - Documentation for content negotiation by `format` query parameter.
 
 The following features have been removed in this release:
 
--   Data Sharing: A WebSub based Publish-Subscribe service for RDF named graphs.
--   IoT Permissions Plugin: A plugin which enables the usage of the IoT Permissions Service API 2.
--   OAuth 2.0 authorization server: Issues access tokens to a client after successfully authenticating a user.
--   Authentication: User management via authentication providers as it was only needed by the OAuth 2.0 authorization server.
+- Data Sharing: A WebSub based Publish-Subscribe service for RDF named graphs.
+- IoT Permissions Plugin: A plugin which enables the usage of the IoT Permissions Service API 2.
+- OAuth 2.0 authorization server: Issues access tokens to a client after successfully authenticating a user.
+- Authentication: User management via authentication providers as it was only needed by the OAuth 2.0 authorization server.
 
 In addition to that, these changes are shipped:
 
--   Stardog
-    -   Upgraded support to version 7.0.2.
-    -   Versioning does no longer work with Stardog 7.
-    -   Legacy versioning support for Stardog 6 (deprecated).
--   OAuth 2.0: Resource protection is now mandatory (can no longer be disabled, use anonymous access instead).
--   SPARQL 1.1 Query endpoint
-    -   The value of the `string` property of the JSON `search` parameter is now tokenized which means that each token will be searched separately. Only results matching all tokens will be returned.
-    -   Updated Spring Boot version from 1.5.21 to 1.5.22.
+- Stardog
+    - Upgraded support to version 7.0.2.
+    - Versioning does no longer work with Stardog 7.
+    - Legacy versioning support for Stardog 6 (deprecated).
+- OAuth 2.0: Resource protection is now mandatory (can no longer be disabled, use anonymous access instead).
+- SPARQL 1.1 Query endpoint
+    - The value of the `string` property of the JSON `search` parameter is now tokenized which means that each token will be searched separately. Only results matching all tokens will be returned.
+    - Updated Spring Boot version from 1.5.21 to 1.5.22.
 
 In addition to that, multiple performance and stability issues were solved.
 
@@ -172,16 +171,16 @@ In addition to that, multiple performance and stability issues were solved.
 
 With the removal of the OAuth 2.0 authorization server capability, many configuration properties have been changed.
 
--   Removed
-    -   The properties `oauth2.clients.*` have been removed.
-    -   The properties `authentication.*` have been removed.
--   Moved
-    -   The property `oauth2.jwt.signing.verificationKey` has been moved to `security.oauth2.resource.jwt.keyValue` .
-    -   The property `oauth2.anonymous` has been moved to `security.oauth2.resource.anonymous` .
-    -   The claims mapping properties under `oauth2.resourceServer.claimsMapping.*` have been moved to `security.oauth2.resource.jwt.claims.*` .
-    -   The properties `oauth2.authorizeRequests.*` to configure the resources to be protected by the resource server have been moved to `security.oauth2.resource.authorizeRequests.*` .
--   Added
-    -   The value of the property `security.oauth2.resource.id`  (defaults to `dataplatform`) must be part of the `aud` (audience) claim in the JWT used to access a protected resource.
+- Removed
+    - The properties `oauth2.clients.*` have been removed.
+    - The properties `authentication.*` have been removed.
+- Moved
+    - The property `oauth2.jwt.signing.verificationKey` has been moved to `security.oauth2.resource.jwt.keyValue` .
+    - The property `oauth2.anonymous` has been moved to `security.oauth2.resource.anonymous` .
+    - The claims mapping properties under `oauth2.resourceServer.claimsMapping.*` have been moved to `security.oauth2.resource.jwt.claims.*` .
+    - The properties `oauth2.authorizeRequests.*` to configure the resources to be protected by the resource server have been moved to `security.oauth2.resource.authorizeRequests.*` .
+- Added
+    - The value of the property `security.oauth2.resource.id`  (defaults to `dataplatform`) must be part of the `aud` (audience) claim in the JWT used to access a protected resource.
 
 Don't forget to update your configuration accordingly.
 For instance, assuming you have the following old configuration:
@@ -211,7 +210,6 @@ oauth2:
         key: 'groups'
 ```
 
-
 The migrated properties should look like this:
 
 ``` yaml
@@ -229,4 +227,3 @@ security:
        groups: groups # optional, defaults to `groups`
        clientId: azp # optional, defaults to `azp`
 ```
-

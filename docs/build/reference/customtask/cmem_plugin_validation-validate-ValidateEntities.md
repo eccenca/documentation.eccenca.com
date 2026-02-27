@@ -2,11 +2,13 @@
 title: "Validate Entities"
 description: "Use a JSON schema to validate entities or a JSON dataset."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Validate Entities
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -24,14 +26,14 @@ JSON Schema specification.
 
 The used JSON Schema needs to be provided as a JSON Dataset in the project.
 
-### Input Modes
+## Input Modes
 
 The plugin supports two input modes for validation:
 
 1. **Validate Entities**: Validates entities received from the input port in the workflow.
 2. **Validate JSON Dataset**: Validates a JSON dataset stored in the project.
-   - If the JSON dataset is a JSON array, the schema will validate each object inside the array.
-   - If the JSON dataset is a JSON object, it will be validated against the schema directly.
+    - If the JSON dataset is a JSON array, the schema will validate each object inside the array.
+    - If the JSON dataset is a JSON object, it will be validated against the schema directly.
 
 Validated data objects can be sent to an output port for further processing in the workflow
 or saved in a JSON dataset in the project.
@@ -53,28 +55,19 @@ The task can either:
 
 The error handling behavior is configurable through the `Fail on violations` parameter.
 
-
 ## Parameter
 
 ### Source / Input Mode
-
-
 
 - ID: `source_mode`
 - Datatype: `string`
 - Default Value: `entities`
 
-
-
 ### Target / Output Mode
-
-
 
 - ID: `target_mode`
 - Datatype: `string`
 - Default Value: `entities`
-
-
 
 ### JSON Schema Dataset
 
@@ -84,8 +77,6 @@ This dataset holds the JSON schema to use for validation.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Fail on violations
 
 If enabled, the task will fail on the first data violation.
@@ -93,10 +84,6 @@ If enabled, the task will fail on the first data violation.
 - ID: `fail_on_violations`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -108,8 +95,6 @@ This dataset holds the resources you want to validate.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Target JSON Dataset
 
 This dataset will be used to store the valid JSON objects after validation.
@@ -117,6 +102,4 @@ This dataset will be used to store the valid JSON objects after validation.
 - ID: `target_dataset`
 - Datatype: `string`
 - Default Value: `None`
-
-
 

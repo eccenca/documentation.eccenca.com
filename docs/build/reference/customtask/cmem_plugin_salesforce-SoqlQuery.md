@@ -2,11 +2,13 @@
 title: "SOQL query (Salesforce)"
 description: "Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization's Salesforce account."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # SOQL query (Salesforce)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -14,7 +16,6 @@ tags:
     This operator is part of a Python Plugin Package.
     In order to use it, you need to install it,
     e.g. with cmemc.
-
 
 This task executes a custom Salesforce Object Query (SOQL)
 and returns sets of tabular data from your organization's Salesforce account.
@@ -35,17 +36,19 @@ SOQL Query. By default, this Parse SOQL option is set `True` (enabled).
 Examples:
 
 Retrieve all standard fields from all Lead resources. (without parser validation)
-```
+
+```text
 SELECT FIELDS(STANDARD) FROM Lead
 ```
+
 Retrieve first name and last name of all Contact resources. (with parser validation)
-```
+
+```text
 SELECT Contact.Firstname, Contact.Lastname FROM Contact
 ```
 
 Please refer to the [Salesforce Standard Objects list](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_list.htm) of the Salesforce Platform data
 model in order to get an overview of the available objects and fields.
-
 
 ## Parameter
 
@@ -57,17 +60,11 @@ Username of the Salesforce Account. This is typically your email address.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Password
-
-
 
 - ID: `password`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Security Token
 
@@ -77,8 +74,6 @@ In addition to your standard account credentials, you need to provide a security
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### SOQL Query
 
 The query text of your SOQL query. SOQL uses the SELECT statement combined with filtering statements to return sets of data, which can optionally be ordered. For a complete description of the syntax, see [Salesforce SOQL SELECT Syntax](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select.htm).
@@ -86,10 +81,6 @@ The query text of your SOQL query. SOQL uses the SELECT statement combined with 
 - ID: `soql_query`
 - Datatype: `multiline string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -100,6 +91,3 @@ In addition to have direct output of the fetched entities of your SOQL query, yo
 - ID: `dataset`
 - Datatype: `string`
 - Default Value: `None`
-
-
-

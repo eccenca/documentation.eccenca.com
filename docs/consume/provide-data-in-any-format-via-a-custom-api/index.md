@@ -176,4 +176,3 @@ A non-streaming result set (the SPARQL query) is limited to 1000 elements.
 If more results are expected *Is Streaming* should be set to true.
 
 If *Is Streaming* is set to `true` the Jinja Template has to resolve a `result` variable (without the '`s`'), which is a single query result. The template engine iterates over the results, i.e. the Body template is repeated for each query result.
-

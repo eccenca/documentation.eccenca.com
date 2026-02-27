@@ -8,4 +8,4 @@ tmp
 .DS_Store
 .vscode/
 .python-version
-
+dist/

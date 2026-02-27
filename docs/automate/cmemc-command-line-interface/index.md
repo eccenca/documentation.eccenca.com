@@ -13,7 +13,7 @@ tags:
 
 <div class="grid cards" markdown>
 
--   :octicons-terminal-16: **Command Line** interface for **eccenca Corporate Memory**
+- :octicons-terminal-16: **Command Line** interface for **eccenca Corporate Memory**
 
     ---
 
@@ -33,7 +33,7 @@ tags:
     [![pypy downloads](https://img.shields.io/pypi/dm/cmem-cmemc.svg "pypy downloads"){ .off-glb }](https://pypi.python.org/pypi/cmem-cmemc/)
     [![Docker Image](https://img.shields.io/badge/docker-image-blue?logo=docker&logoColor=white "Docker Image"){ .off-glb }](./invocation/docker-image/index.md)
 
--   :octicons-people-24: Intended for **Administrators** and **Linked Data Expert**
+- :octicons-people-24: Intended for **Administrators** and **Linked Data Expert**
 
     ---
 
@@ -46,13 +46,12 @@ tags:
       --filter tag velocity-daily
     ```
 
-    1.  :person_raising_hand:
+    1. :person_raising_hand:
         - The option `-c` is short for `--connection` and references to a remote Corporate Memory instance.
         - The `list` command in the `dataset` command group shows all datasets of an instance.
         - In order to manipulate output dataset list, the `--filter` option takes two parameter, a filter type (`tag`, `project`, ...) and a value.
 
-
--   :octicons-rocket-16: Fast ad-hoc Execution with **Command Completion**
+- :octicons-rocket-16: Fast ad-hoc Execution with **Command Completion**
 
     ---
 
@@ -61,8 +60,7 @@ tags:
       <figcaption>Create Build Project and Dataset</figcaption>
     </figure>
 
-
--   :material-feature-search-outline: **Main Features**:
+- :material-feature-search-outline: **Main Features**:
 
     ---
 
@@ -76,4 +74,3 @@ tags:
     ```
 
 </div>
-

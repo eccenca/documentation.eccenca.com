@@ -18,14 +18,14 @@ The latest (unsigned) version of our Power-BI-Connector is available from its so
 
 - [eccenca github.com repository](https://github.com/eccenca/power-bi-connector/tags) (unsigned .mez file)![release](https://img.shields.io/github/release-date/eccenca/power-bi-connector?style=plastic) ![tag](https://img.shields.io/github/v/tag/eccenca/power-bi-connector?style=plastic)
 - [eccenca Corporate Memory Releases](https://releases.eccenca.com/power-bi-connector/) (signed .pqx file)
-  - Thumbprint of the signature: **FB6C562BD0B08107AAA420EDDE94507420C7FE1A**
+    - Thumbprint of the signature: **FB6C562BD0B08107AAA420EDDE94507420C7FE1A**
 
 ## Installation
 
 - Download the `.pqx` or `.mez` file from the locations linked above.
 - Move the file into the folder `Documents\Power BI Desktop\Custom Connectors` .
-  - Create the folder if it does not exist.
-  - In case you are running Windows on Parallels Desktop: Do not use the Local `Disk\Users\UserName\Documents` folder but your shared folder with macOS.
+    - Create the folder if it does not exist.
+    - In case you are running Windows on Parallels Desktop: Do not use the Local `Disk\Users\UserName\Documents` folder but your shared folder with macOS.
 - Register the Thumbprint (for .pqx) or setup PowerBI Desktop to allow any 3rd party connector (for .pqx or .mez) *(we recommend to register the Thumbprint)*
 
 ??? Setup

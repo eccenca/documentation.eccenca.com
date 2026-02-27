@@ -6,30 +6,26 @@ tags:
   - Automate
   - cmemc
 ---
+
 # workflow scheduler Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, inspect, enable/disable or open scheduler.
 
 Schedulers execute workflows in specified intervals. They are identified with a `SCHEDULER_ID`. To get a list of existing schedulers, execute the list command or use tab-completion.
 
-
 ## workflow scheduler open
 
 Open scheduler(s) in the browser.
 
 ```shell-session title="Usage"
-$ cmemc workflow scheduler open [OPTIONS] SCHEDULER_IDS...
+cmemc workflow scheduler open [OPTIONS] SCHEDULER_IDS...
 ```
-
-
-
 
 With this command, you can open a scheduler in the workspace in your browser to change it.
 
 The command accepts multiple scheduler IDs which results in opening multiple browser tabs.
-
-
 
 ??? info "Options"
     ```text
@@ -43,15 +39,10 @@ The command accepts multiple scheduler IDs which results in opening multiple bro
 List available scheduler.
 
 ```shell-session title="Usage"
-$ cmemc workflow scheduler list [OPTIONS]
+cmemc workflow scheduler list [OPTIONS]
 ```
 
-
-
-
 Outputs a table or a list of scheduler IDs which can be used as reference for the scheduler commands.
-
-
 
 ??? info "Options"
     ```text
@@ -66,12 +57,8 @@ Outputs a table or a list of scheduler IDs which can be used as reference for th
 Display all metadata of a scheduler.
 
 ```shell-session title="Usage"
-$ cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
+cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -84,15 +71,10 @@ $ cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
 Disable scheduler(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow scheduler disable [OPTIONS] [SCHEDULER_IDS]...
+cmemc workflow scheduler disable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
-
-
-
 The command accepts multiple scheduler IDs which results in disabling them one after the other.
-
-
 
 ??? info "Options"
     ```text
@@ -105,19 +87,13 @@ The command accepts multiple scheduler IDs which results in disabling them one a
 Enable scheduler(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow scheduler enable [OPTIONS] [SCHEDULER_IDS]...
+cmemc workflow scheduler enable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
-
-
-
 The command accepts multiple scheduler IDs which results in enabling them one after the other.
-
-
 
 ??? info "Options"
     ```text
 
     -a, --all   Enable all scheduler.
     ```
-

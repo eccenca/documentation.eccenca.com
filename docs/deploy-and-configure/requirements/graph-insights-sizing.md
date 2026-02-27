@@ -34,10 +34,10 @@ Since Graph Insights uses caching for performance reasons the latter will increa
 
 Disk space consumption can be estimated in close relation to working memory usage:
 
--   On average, **~30 MB per 1 million triples** are required both in memory and on disk.
--   In **managed mode**, Graph Insights maintains two index directories (to support hot-swapping during reindexing).
+- On average, **~30 MB per 1 million triples** are required both in memory and on disk.
+- In **managed mode**, Graph Insights maintains two index directories (to support hot-swapping during reindexing).
     In this case, disk usage is roughly **~60 MB per 1 million triples**.
--   Actual disk usage may vary depending on dataset characteristics (e.g., schema, dictionary compression ratio, and indexing options).
+- Actual disk usage may vary depending on dataset characteristics (e.g., schema, dictionary compression ratio, and indexing options).
 
 For practical planning, disk space can be roughly approximated by scaling the memory requirements listed in the table above with the adjustment for managed mode if applicable.
 
@@ -79,5 +79,5 @@ The deployed exploration operations in our benchmark consisted of multiple queri
 We ran 847 exploration queries, selected to be representative of the dataset (covering different group node sizes and varying numbers of connected resources).
 The experiments were conducted across a variety of datasets up to 250M triples:
 
--   **Maximum execution time:** ~10s for 1-2 threads, improved to ~5s with 3 threads, and ~4.4s with 4 or more threads.
--   **75th percentile:** ~2.6-2.8s with 1-2 threads, improved to ~1.3s with 4 threads, and ~1s with 6+ threads.-   **Beyond 4 threads:** no further improvement in maximum times was observed, though 75th percentile times continued to improve slightly.
+- **Maximum execution time:** ~10s for 1-2 threads, improved to ~5s with 3 threads, and ~4.4s with 4 or more threads.
+- **75th percentile:** ~2.6-2.8s with 1-2 threads, improved to ~1.3s with 4 threads, and ~1s with 6+ threads.-   **Beyond 4 threads:** no further improvement in maximum times was observed, though 75th percentile times continued to improve slightly.

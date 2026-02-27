@@ -18,7 +18,7 @@ The environment files are supplied in the CONFIGFILE environment variable to th
 For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the Corporate Memory instance using `prod.env` configuration:
 
 ``` shell-session
-$ CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
+CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
 ```
 
 When you run `make clean-pull-start-bootstrap` target, the Makefile will evaluate and export the environment variables from the `environments/default.env`, your `${CONFIGFILE}` or `environments/config.env` and `environments/scripted-env.mk`:
@@ -43,18 +43,18 @@ To configure the orchestration according to your requirements, you need simply t
 For example, to replicate the minimum configuration from `config.env`, you can do the following:
 
 ``` shell-session
-$ echo "create empty environments/prod.env file"
-$ touch environments/prod.env
-$ echo "inject necessary variables into the prod.env"
-$ echo "CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" >> environments/prod.env
-$ echo "STARDOG_PASSWORD=admin" >> environments/prod.env
-$ echo "TRUSTSTOREPASS=Aimeik5Ocho5riuC" >> environments/prod.env
+echo "create empty environments/prod.env file"
+touch environments/prod.env
+echo "inject necessary variables into the prod.env"
+echo "CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" >> environments/prod.env
+echo "STARDOG_PASSWORD=admin" >> environments/prod.env
+echo "TRUSTSTOREPASS=Aimeik5Ocho5riuC" >> environments/prod.env
 ```
 
 This configuration will be sufficient to run the orchestration locally as described in [Scenario: Local Installation](../../installation/scenario-local-installation/index.md):
 
 ``` shell-session
-$ CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
+CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
 ```
 
 ## Available Configuration Variables
@@ -81,7 +81,7 @@ All available configuration environment variables are listed in `environments/de
 | APACHE_CONFIG             | default.conf                            | Apache2 virtual host configuration                                                                                 |
 | SSLCONF                   | ssl.default.conf                        | Apache2 virtual host configuration for SSL setup                                                                   |
 | HTTP_PORT                 | 80                                      | APACHE_HTTP_PORT is used as a standard port 80 in SSL setup                                                        |
-| LETSENCRYPT_MAIL          | administration@eccenca.com            | email to be used when requesting letsencrypt certificates                                                          |
+| LETSENCRYPT_MAIL          | <administration@eccenca.com>            | email to be used when requesting letsencrypt certificates                                                          |
 | DATAINTEGRATION_BASE_FILE | docker-compose.dataintegration-base.yml | `docker compose` extension file for Build (DataIntegration), see SSL configuration section below for an example              |
 | TRUSTSTOREPASS            | (empty)                                 | Truststore password, see self-signed certificates configuration section below for an example                       |
 

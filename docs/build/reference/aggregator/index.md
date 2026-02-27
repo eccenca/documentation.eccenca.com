@@ -5,7 +5,9 @@ tags:
     - Build
     - Reference
 ---
+
 # Aggregators
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 This kind of task aggregates multiple similarity scores.

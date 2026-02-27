@@ -2,11 +2,13 @@
 title: "GraphQL query"
 description: "Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # GraphQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,7 +22,6 @@ This workflow task performs GraphQL operations by sending
      in the GraphQL query using, Jinja queries and Jinja variables, which can be
      obtained from entities. The result of the query is saved as a JSON document
      in a pre-created JSON dataset.
-     
 
 ## Parameter
 
@@ -32,8 +33,6 @@ The URL of the GraphQL endpoint you want to query. A collective list of public G
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Query
 
 The query text of the GraphQL Query you want to execute. GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. Learn more on GraphQL [here](https://graphql.org/). Example Query: query allFruits { fruits { id scientific_name tree_name fruit_name family origin description climatic_zone } }
@@ -42,8 +41,6 @@ The query text of the GraphQL Query you want to execute. GraphQL is a query lang
 - Datatype: `multiline string`
 - Default Value: `None`
 
-
-
 ### Query variables
 
 Pass dynamic variables when making a query or mutation. Example Variables: {"id" : 1}
@@ -51,10 +48,6 @@ Pass dynamic variables when making a query or mutation. Example Variables: {"id"
 - ID: `graphql_variable_values`
 - Datatype: `multiline string`
 - Default Value: `{}`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -66,8 +59,6 @@ The Dataset where this task will save the JSON results.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### OAuth access token
 
 Access token that connects to a GraphQL endpoint to authorize and secure user access to resources and data.
@@ -75,6 +66,4 @@ Access token that connects to a GraphQL endpoint to authorize and secure user ac
 - ID: `oauth_access_token`
 - Datatype: `string`
 - Default Value: `None`
-
-
 

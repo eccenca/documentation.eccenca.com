@@ -2,12 +2,12 @@
 title: "And"
 description: "All input scores must be within the threshold. Selects the minimum score."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # And
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 All input scores must be within the threshold. Selects the minimum score.
 
@@ -21,13 +21,11 @@ All input scores must be within the threshold. Selects the minimum score.
 * Input values: `[1.0, 0.0]`
 * Returns: `0.0`
 
-
 ---
 **Selects the minimum similarity score:**
 
 * Input values: `[-1.0, 0.0, 0.5, 1.0]`
 * Returns: `-1.0`
-
 
 ---
 **Missing scores default to a similarity score of -1:**
@@ -35,16 +33,12 @@ All input scores must be within the threshold. Selects the minimum score.
 * Input values: `[1.0, null, -0.5]`
 * Returns: `-1.0`
 
-
 ---
 **Weights are ignored:**
 
 * Weights: `[1000, 0]`
 * Input values: `[1.0, 0.0]`
 * Returns: `0.0`
-
-
-
 
 ## Parameter
 

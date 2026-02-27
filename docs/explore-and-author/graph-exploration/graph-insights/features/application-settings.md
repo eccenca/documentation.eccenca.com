@@ -15,8 +15,8 @@ Access global configuration via the top-left dropdown menu.
 
 ### Troubleshoot and Reset
 
-1.  **Reset local data:** Clears browser-side preferences (e.g., columns visibility, width, and position).
-2.  **Reset graph data:** Performs a "Factory Reset" of the analysis for the current dataset.
+1. **Reset local data:** Clears browser-side preferences (e.g., columns visibility, width, and position).
+2. **Reset graph data:** Performs a "Factory Reset" of the analysis for the current dataset.
 
 !!! danger "Destructive Action"
 

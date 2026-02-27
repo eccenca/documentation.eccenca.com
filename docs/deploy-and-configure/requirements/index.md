@@ -12,21 +12,21 @@ For a general overview of a deployment setup please refer to the [System Archit
 
 A minimal single-node deployment for testing/evaluation purposes means:
 
--   no memory consuming linking and transformation workflows,
--   nearly no concurrent users.
+- no memory consuming linking and transformation workflows,
+- nearly no concurrent users.
 
 Depending on how much RAM is dedicated to the triple store, Knowledge Graphs up to several million triples can be built and served.
 
--   Operating System / Hardware
-    -   Bare metal server or VM with Debian based linux OS (see [Installation](./../installation/index.md) for details)
-    -   16 GB RAM
-    -   100 GB free disk space (10 GB for docker images + data + logs over time)
-    -   docker and docker compose (we deliver an orchestration including all needed components)
+- Operating System / Hardware
+    - Bare metal server or VM with Debian based linux OS (see [Installation](./../installation/index.md) for details)
+    - 16 GB RAM
+    - 100 GB free disk space (10 GB for docker images + data + logs over time)
+    - docker and docker compose (we deliver an orchestration including all needed components)
 
 For an example of a single-node installation refer to the following scenarios:
 
--   [Scenario: Local Installation](../installation/scenario-local-installation/index.md)
--   [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md)
+- [Scenario: Local Installation](../installation/scenario-local-installation/index.md)
+- [Scenario: Single Node Cloud Installation](../installation/scenario-single-node-cloud-installation/index.md)
 
 ## Typical Setup
 
@@ -50,16 +50,15 @@ For GraphDB always also have a look at [GraphDB recommendations](https://graphdb
     but on the sum of triples in all Graph Insights Snapshots. Have a look at the cmemc command group
     [graph insights](../../automate/cmemc-command-line-interface/command-reference/graph/insights/index.md) to manage existing snapshots.
 
-
 ## Clients
 
 ### Browser / Web Client
 
 We support all (LTS/ESR) versions of the below listed browsers that are actively supported be the respective publishers:
 
--   Microsoft Edge > v88.0
--   Google Chrome or Chromium > v92.0
--   Firefox > v78.0
+- Microsoft Edge > v88.0
+- Google Chrome or Chromium > v92.0
+- Firefox > v78.0
 
 !!! note
 

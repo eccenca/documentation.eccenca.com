@@ -2,13 +2,13 @@
 title: "Metaphone"
 description: "Metaphone phonetic encoding."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Metaphone
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 This transformer plugin implements the **Metaphone** phonetic algorithm for indexing words according to English.
 
@@ -39,7 +39,6 @@ Illustrative examples:
 Related phonetic algorithms are the different variations or improvements of the Soundex algorithm, implemented by this
 (Metaphone) and the [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms.
 The corresponding linguistic transformer plugins are named accordingly.
-
 
 ## Parameter
 

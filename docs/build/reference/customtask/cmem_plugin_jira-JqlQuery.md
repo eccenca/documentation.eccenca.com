@@ -2,11 +2,13 @@
 title: "JQL query"
 description: "Search and retrieve JIRA issues."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # JQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -27,38 +29,27 @@ where you should connect a JSON Dataset.
 Note that you need to create an [API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 for your Atlassian account, to access the API of your atlassian.net hosted Jira instance.
 
-
 ## Parameter
 
 ### Jira Server
 
-Base URL of the jira service, e.g. 'https://jira.example.org'
+Base URL of the jira service, e.g. '<https://jira.example.org>'
 
 - ID: `base_url`
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Account
-
-
 
 - ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Password or Token
-
-
 
 - ID: `password`
 - Datatype: `password`
 - Default Value: `None`
-
-
 
 ### JQL Query
 
@@ -68,8 +59,6 @@ Warning: An empty query string retrieves all issues.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Limit
 
 Maximum number of issues to retrieve (0 = retrieve all issues).
@@ -78,21 +67,13 @@ Maximum number of issues to retrieve (0 = retrieve all issues).
 - Datatype: `Long`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Verify SSL Connection
 
-
-
 - ID: `ssl_verify`
 - Datatype: `boolean`
 - Default Value: `true`
-
-
 
 ### Connection Timeout
 
@@ -102,8 +83,6 @@ Number of seconds, the plugin will wait to establish a connection to the Jira Se
 - Datatype: `Long`
 - Default Value: `300`
 
-
-
 ### Results per Page
 
 Number of items to return per request.
@@ -111,6 +90,4 @@ Number of items to return per request.
 - ID: `results_per_page`
 - Datatype: `Long`
 - Default Value: `100`
-
-
 

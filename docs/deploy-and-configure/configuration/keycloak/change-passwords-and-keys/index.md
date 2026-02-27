@@ -75,4 +75,3 @@ The following make targets will create a database dump, store it in `data/backu
 ```shell-session
 make keycloak-backup keycloak-restore
 ```
-

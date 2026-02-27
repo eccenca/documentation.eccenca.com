@@ -2,13 +2,13 @@
 title: "Parse date"
 description: "Parses and normalizes dates in different formats."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse date
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Parses and normalizes dates in different formats.
 
@@ -28,7 +28,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[1999-03-20]`
 
-
 ---
 **Example 2:**
 
@@ -40,7 +39,6 @@ Parses and normalizes dates in different formats.
     1. `[1999-03-20]`
 
 * Returns: `[20.03.1999]`
-
 
 ---
 **Example 3:**
@@ -54,7 +52,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[2017-04-04]`
 
-
 ---
 **Example 4:**
 
@@ -66,7 +63,6 @@ Parses and normalizes dates in different formats.
     1. `[2017-04-04T00:00:00+02:00]`
 
 * Returns: `[2017-04-04]`
-
 
 ---
 **Example 5:**
@@ -80,7 +76,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[24-Jun-2021 14:50:05 +02:00]`
 
-
 ---
 **Example 6:**
 
@@ -92,7 +87,6 @@ Parses and normalizes dates in different formats.
     1. `[24-Dec-2021 14:50:05 +02:00]`
 
 * Returns: `[24-Dez.-2021 14:50:05 +02:00]`
-
 
 ---
 **Example 7:**
@@ -106,7 +100,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[1999-03-20T20:34.44]`
 
-
 ---
 **Example 8:**
 
@@ -118,7 +111,6 @@ Parses and normalizes dates in different formats.
     1. `[12:20:00.000]`
 
 * Returns: `[12:20:00.000]`
-
 
 ---
 **Example 9:**
@@ -132,7 +124,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[--01]`
 
-
 ---
 **Example 10:**
 
@@ -145,7 +136,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[---31]`
 
-
 ---
 **Example 11:**
 
@@ -157,7 +147,6 @@ Parses and normalizes dates in different formats.
     1. `[2020-12-31]`
 
 * Returns: `[--12-31]`
-
 
 ---
 **Example 12:**
@@ -172,7 +161,6 @@ Parses and normalizes dates in different formats.
 * Returns: `[]`
 * **Throws error:** `DateTimeException`
 
-
 ---
 **Example 13:**
 
@@ -184,7 +172,6 @@ Parses and normalizes dates in different formats.
     1. `[2020-02-22 16:34:14.000]`
 
 * Returns: `[2020-02-22T16:34:14]`
-
 
 ---
 **Example 14:**
@@ -200,7 +187,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[24-Dez.-2021 14:50:05 +02:00]`
 
-
 ---
 **Example 15:**
 
@@ -214,7 +200,6 @@ Parses and normalizes dates in different formats.
     1. `[24-Dez.-2021 14:50:05 +02:00]`
 
 * Returns: `[24-Dec-2021 14:50:05 +02:00]`
-
 
 ---
 **Example 16:**
@@ -232,7 +217,6 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[déc. 2021]`
 
-
 ---
 **Example 17:**
 
@@ -247,72 +231,55 @@ Parses and normalizes dates in different formats.
 
 * Returns: `[Februar, 2024]`
 
-
-
-
 ## Parameter
 
 ### Input format
 
 The input date/time format used for parsing the date/time string.
 
-- ID: `inputDateFormatId`
-- Datatype: `option[enumeration]`
-- Default Value: `w3c Date`
-
-
+* ID: `inputDateFormatId`
+* Datatype: `option[enumeration]`
+* Default Value: `w3c Date`
 
 ### Alternative input format
 
 An input format string that should be used instead of the selected input format. Java DateFormat string.
 
-- ID: `alternativeInputFormat`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `alternativeInputFormat`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Alternative input locale
 
 Optional locale for the (alternative) input format. If not set the system's locale will be used or the locale of the input format, if set.
 
-- ID: `inputLocale`
-- Datatype: `option[locale]`
-- Default Value: `None`
-
-
+* ID: `inputLocale`
+* Datatype: `option[locale]`
+* Default Value: `None`
 
 ### Output format
 
 The output date/time format used for parsing the date/time string.
 
-- ID: `outputDateFormatId`
-- Datatype: `option[enumeration]`
-- Default Value: `w3c Date`
-
-
+* ID: `outputDateFormatId`
+* Datatype: `option[enumeration]`
+* Default Value: `w3c Date`
 
 ### Alternative output format
 
 An output format string that should be used instead of the selected output format. Java DateFormat string.
 
-- ID: `alternativeOutputFormat`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `alternativeOutputFormat`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Alternative output locale
 
 Optional locale for the (alternative) output format. If not set the system's locale will be used or the locale of the output format, if set.
 
-- ID: `outputLocale`
-- Datatype: `option[locale]`
-- Default Value: `None`
-
-
-
-
+* ID: `outputLocale`
+* Datatype: `option[locale]`
+* Default Value: `None`
 
 ## Advanced Parameter
 

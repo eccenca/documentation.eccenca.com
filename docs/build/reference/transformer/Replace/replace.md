@@ -2,13 +2,13 @@
 title: "Replace"
 description: "Replace all occurrences of a string with another string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Replace
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Replace all occurrences of a string with another string.
 
@@ -20,14 +20,13 @@ Replace all occurrences of a string with another string.
 **Example 1:**
 
 * Parameters
-    * search: ` `
+    * search: ``
     * replace: ``
 
 * Input values:
     1. `[a b c]`
 
 * Returns: `[abc]`
-
 
 ---
 **Example 2:**
@@ -41,32 +40,23 @@ Replace all occurrences of a string with another string.
 
 * Returns: `[def]`
 
-
-
-
 ## Parameter
 
 ### Search
 
 The string to search for
 
-- ID: `search`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `search`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Replace
 
 The replacement of each match
 
-- ID: `replace`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `replace`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

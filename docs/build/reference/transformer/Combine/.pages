@@ -3,3 +3,4 @@ nav:
     - "Concatenate multiple values": concatMultiValues.md
     - "Concatenate pairwise": concatPairwise.md
     - "Merge": merge.md
+    - "Zip": zip.md

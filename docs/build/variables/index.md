@@ -13,17 +13,17 @@ These variables define various aspects of the integration tasks, such as the sou
 The variables are not technically typed.
 They can be used in most Build configuration and input fields that take inputs of the following data types:
 
--   simple text/string parameters (any string),
--   integer parameters (any integer),
--   and boolean values (`true`/`false`).
+- simple text/string parameters (any string),
+- integer parameters (any integer),
+- and boolean values (`true`/`false`).
 
 Two kinds of variables can be defined:
 
-**Global variables**
+`Global variables`
 
 :   It is defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
 
-**Project variables (User-defined)**
+`Project variables (User-defined)`
 
 :   It is defined by the user in the UI.
     Project variables can only be used in the same project.
@@ -189,4 +189,3 @@ Click on the symbol **{#}** it turns blue in color. It means the variable's feat
 In order to allow the automation of activities with build variables from external processes, the Corporate Memory command line interfaces cmemc has a dedicated [`project variable` command group](../../automate/cmemc-command-line-interface/command-reference/project/variable/index.md) for this.
 
 Please have a look at command group documentation to learn how to use these commands.
-

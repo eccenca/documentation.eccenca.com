@@ -2,13 +2,13 @@
 title: "Encode URL"
 description: "URL encodes the string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Encode URL
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 URL encodes the string.
 
@@ -24,7 +24,6 @@ URL encodes the string.
 
 * Returns: `[ab]`
 
-
 ---
 **Example 2:**
 
@@ -33,7 +32,6 @@ URL encodes the string.
 
 * Returns: `[a%26b]`
 
-
 ---
 **Example 3:**
 
@@ -41,9 +39,6 @@ URL encodes the string.
     1. `[http://example.org/some/path]`
 
 * Returns: `[http%3A%2F%2Fexample.org%2Fsome%2Fpath]`
-
-
-
 
 ## Parameter
 
@@ -55,9 +50,7 @@ URL encodes the string.
 
 The character encoding.
 
-- ID: `encoding`
-- Datatype: `string`
-- Default Value: `UTF-8`
-
-
+* ID: `encoding`
+* Datatype: `string`
+* Default Value: `UTF-8`
 

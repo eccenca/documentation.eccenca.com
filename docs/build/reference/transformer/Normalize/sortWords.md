@@ -2,13 +2,13 @@
 title: "Sort words"
 description: "Sorts all words in each value lexicographically."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Sort words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Sorts all words in each value lexicographically.
 
@@ -19,31 +19,26 @@ Sorts all words in each value lexicographically.
 ---
 **Example 1:**
 
-* Input values:
+- Input values:
     1. `[]`
 
-* Returns: `[]`
-
+- Returns: `[]`
 
 ---
 **Example 2:**
 
-* Input values:
+- Input values:
     1. `[c a b]`
 
-* Returns: `[a b c]`
-
+- Returns: `[a b c]`
 
 ---
 **Example 3:**
 
-* Input values:
+- Input values:
     1. `[Hans Hansa    Hamburg, München Marburg]`
 
-* Returns: `[Hamburg Hans Hansa, Marburg München]`
-
-
-
+- Returns: `[Hamburg Hans Hansa, Marburg München]`
 
 ## Parameter
 
@@ -55,19 +50,13 @@ The regular expression used to split values into words.
 - Datatype: `string`
 - Default Value: `\s+`
 
-
-
 ### Glue
 
 Separator to be inserted between sorted words.
 
 - ID: `glue`
 - Datatype: `string`
-- Default Value: ` `
-
-
-
-
+- Default Value: ``
 
 ## Advanced Parameter
 

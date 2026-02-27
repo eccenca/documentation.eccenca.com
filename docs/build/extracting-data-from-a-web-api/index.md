@@ -18,13 +18,13 @@ The tutorial is based on the [GitHub API (v3)](https://developer.github.com/v3/)
     - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
     ``` shell-session
-    $ cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
+    cmemc -c my-cmem project import tutorial-webapi.project.zip web-api
     ```
 
 In order to get familiar with the API, simply fetch an example response with this command:
 
 ``` shell-session
-$ curl https://api.github.com/orgs/vocol/repos
+curl https://api.github.com/orgs/vocol/repos
 ```
 
 The HTTP Get request retrieves all repositories of a GitHub organization named vocol.
@@ -64,7 +64,6 @@ The JSON response includes the data for all repositories (**mobivoc**, **vocol**
 
 …
 -->
-
 
 ## 1 Register a Web API
 
@@ -159,4 +158,3 @@ To build a workflow that combines all the elements we previously built, we now d
 5. Validate the result by clicking on the **Workflow** **Report** tab and see the result of your execution. In this example, 15x repositories were found from the GitHub API request.
 
     ![Workflow execution report](extract-from-api-wf-report.png)
-

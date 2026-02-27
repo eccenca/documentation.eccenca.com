@@ -44,4 +44,4 @@ For the part "Link IDS event to a knowledge graph in dashboards", you need to ha
 
 ---
 
-Next chapter: [Define the need, the expected result and the use cases](./define-the-need/index.md)
+Next chapter: [Define the need, the expected result and the use cases](define-the-need/index.md)

@@ -2,11 +2,13 @@
 title: "UUID5"
 description: "Generate a UUIDv5"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # UUID5
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -28,8 +30,6 @@ If 'namespace' is not given, the input string is used.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Namespace as UUID
 
 Applies only if none of the pre-defined namespaces is selected. If enabled, the namespace string needs to be a valid UUID. Otherwise, the namespace UUID is a UUIDv1 derived from the SHA1 hash of the namespace string.
@@ -37,10 +37,6 @@ Applies only if none of the pre-defined namespaces is selected. If enabled, the 
 - ID: `namespace_as_uuid`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 
