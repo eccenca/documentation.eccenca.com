@@ -77,7 +77,7 @@ The **expansion menu** of a group presents the options available for adding a no
 1. **Action:** Click any group to open the menu.
 2. **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
-3.  **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
+3. **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
 
 ![Expansion Menu](../assets/expansion-menu.png){ class="bordered" width="65%" }
 

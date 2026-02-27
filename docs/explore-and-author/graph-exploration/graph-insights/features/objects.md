@@ -14,9 +14,9 @@ Select a visible resource in a group or its row in the group table to open the `
 
 ### Components
 
-1.  **Header:** Displays the **caption** and **description** , as well as the IRI of the resource.
-2.  **Classes:** List of all classes assigned to the resource.
-3.  **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
+1. **Header:** Displays the **caption** and **description** , as well as the IRI of the resource.
+2. **Classes:** List of all classes assigned to the resource.
+3. **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
 
 ### Controls
 
