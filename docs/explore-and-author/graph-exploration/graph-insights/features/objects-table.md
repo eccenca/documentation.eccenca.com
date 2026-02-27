@@ -74,7 +74,7 @@ Unlike the bulk group export, table exports respect the **current view** (filter
 - **Copy SPARQL:** Copies the query used to generate the current table view.
 
 !!! tip "Remarks"
-    
+
     - The query is intended to be used directly on the database for various datasets with the same model (or slight variations thereof).
     - The table query was designed for dashboard integration. Make sure to configure the table to match exactly your requirements.
     - The query might look overcomplicated but it includes lots of special case handling to replicate the table view as close as possible.

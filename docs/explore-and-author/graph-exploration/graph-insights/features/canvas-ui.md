@@ -28,7 +28,7 @@ Graph Insights maintains a session history stack.
 ![Undo Redo Controls](../assets/undo-redo.png){ class="bordered" width="40%" }
 
 !!! warning "Rebuild on Undo"
-    
+
     Some operations (e.g., [user-defined classes](persistence.md#custom-categories) operations) have persistent side effects that may require a rebuild of the exploration state when moving back in the history.
 
 
@@ -65,7 +65,7 @@ Locate specific resources **among those currently visible** in the groups of the
 ![Search Visible Objects](../assets/search-objects.png){ class="bordered" width="65%" }
 
 !!! tip "Flags Management"
-    
+
     Use the `Temporary flags` menu that appears on the top left of the canvas to manage the persistence of the temporary flags.
 
 

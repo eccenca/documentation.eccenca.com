@@ -19,7 +19,7 @@ Access global configuration via the top-left dropdown menu.
 2.  **Reset graph data:** Performs a "Factory Reset" of the analysis for the current dataset.
 
 !!! danger "Destructive Action"
-    
+
     **Reset graph data** permanently deletes all [user-defined classes](persistence.md#custom-categories) and [saved explorations](persistence.md#saved-explorations) associated with the current database. This cannot be undone.
 
 

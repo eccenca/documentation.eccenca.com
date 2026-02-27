@@ -16,12 +16,12 @@ When a group with visible resources is expanded, or when a connected group direc
 ![Connectivity Indicator](../assets/objects-without-successor.png){ class="bordered" width="75%" }
 
 !!! info "Visual Partition"
-    
+
     This indicator provides an instant "Visual Partition" of the set. For example, expanding `Supplier` &rarr; `Product` and filtering the products to `Confections` or `Beverages` dims all Suppliers who do not provide confections nor beverages.
 
 
 !!! tip "Missing Connections"
-    
+
     This feature is useful to spot single resources that are missing expected connections (the expected connections missing at the group level can be identified in the expansion menu of the group).
 
 
@@ -39,14 +39,14 @@ By default, the exploration applies a **left-join pattern**: The left group rema
 ![Backpropagation Connection Context](../assets/backpropagation-connection.png){ class="bordered" width="75%" }
 
 !!! warning "Effects of Subsequent Updates"
-    
+
     Because the switch to an **inner-join pattern** is permanent, any further filtering of the right group will modify the contents of the right group.
 
     In the example above, narrowing `Confections | Beverages` to `Beverages` only will remove from the `Supplier` group the ones who do not provide beverages.
 
 
 !!! hint "Multistep Backpropagation"
-    
+
     To combine constraints from a variety of traversals conjunctively, restrictions are often propagated back to the start node of the exploration (see the [Supply Chain Analysis Tutorial](../tutorial.md#backpropagation)) 
 
 

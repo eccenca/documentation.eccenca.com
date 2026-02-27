@@ -7,7 +7,7 @@ The left pane is the **starting point of any exploration**, whether you want to 
 ![Sidebar Overview](../assets/left-sidebar.png){ class="bordered" width="30%" }
 
 !!! warning "Further Information"
-    
+
     This section focuses on the **class tree**. See the persistence page for **[saved explorations](persistence.md#saved-explorations)** and **[user-defined classes](persistence.md#custom-categories)**.
 
 
@@ -41,12 +41,12 @@ The tree is the primary tool to populate the canvas:
 - **Outcome:** The item turns **light gray**. Expansion steps will skip this class and offer **its direct sub-class** instead.
 
 !!! danger "Caution"
-    
+
     The resources that have **only deactivated classes** are **no longer reachable** via an exploration.
 
 
 !!! tip "Hiding Deactivated Items"
-    
+
     You can toggle the visibility of deactivated items in the tree via the [application settings](application-settings.md#settings).
 
 
