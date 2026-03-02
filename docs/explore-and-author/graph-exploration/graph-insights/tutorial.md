@@ -9,6 +9,18 @@ tags:
 
 This tutorial demonstrates a workflow of Graph Insights using the **Northwind** dataset.
 
+!!! info "Demo Data"
+
+    The demo data using in this tutorial is available here: [northwind-data.ttl](assets/northwind-data.ttl).
+    You can import the data:
+
+    - by using the web interface (Explore -> Knowledge graphs → Add new graph) or
+    - by using the [command line interface](../../../automate/index.md):
+
+        ```sh
+        cmemc graph import northwind-data.ttl http://example.org/northwind/
+        ```
+
 ## Business Scenario
 
 Northwind Traders needs to identify vulnerabilities in the trade network by answering a critical question:
