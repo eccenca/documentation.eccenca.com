@@ -21,6 +21,16 @@ This tutorial demonstrates a workflow of Graph Insights using the **Northwind** 
         cmemc graph import northwind-data.ttl http://example.org/northwind/
         ```
 
+    !!! tip "Marketplace Package (preview)"
+
+        The demo data is also available as a _Marketplace Package_ and can be installed with `cmemc`:
+
+        ```sh
+        cmemc package install ecc-northwind-project
+        ```
+
+
+
 ## Business Scenario
 
 Northwind Traders needs to identify vulnerabilities in the trade network by answering a critical question:
