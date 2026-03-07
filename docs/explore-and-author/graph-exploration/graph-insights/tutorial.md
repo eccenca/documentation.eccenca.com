@@ -29,8 +29,6 @@ This tutorial demonstrates a workflow of Graph Insights using the **Northwind** 
         cmemc package install ecc-northwind-project
         ```
 
-
-
 ## Business Scenario
 
 Northwind Traders needs to identify vulnerabilities in the trade network by answering a critical question:
