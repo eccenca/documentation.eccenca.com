@@ -1,6 +1,6 @@
 ---
 icon: material/cog-outline
-subtitle: using BKE interface
+subtitle: using Business Knowledge Editor interface
 tags:
   - BeginnersTutorial
   - Vocabulary
@@ -9,14 +9,14 @@ tags:
 
 ## Introduction
 
-This beginner-level tutorial shows how to use Business Knowledge Editor (BKE) to create new ontology (vocabulary) **classes** and **predicates** (object property, data property) visually.
+This beginner-level tutorial shows how to use Business Knowledge Editor to create new ontology (vocabulary) **classes** and **predicates** (object property, data property) visually.
 
-There are other way of creating new classes and properties within Corporate Memory (using shacl shapes), but BKE allows for an intuitive "diagram" approach, simplifying the creation.
+There are other way of creating new classes and properties within Corporate Memory (using shacl shapes), but Business Knowledge Editor allows for an intuitive "diagram" approach, simplifying the creation.
 
 The tutorial consists of the following steps, which are described in detail below:
 
 1. Initializing a new ontology
-2. Opening a new BKE visualization
+2. Opening a new Business Knowledge Editor visualization
 3. Creating classes
 4. Linking related classes through object properties
 5. Adding data properties
@@ -58,7 +58,7 @@ To create a new ontology graph :
 
 ---
 
-## 2 Opening a new BKE visualization
+## 2 Opening a new Business Knowledge Editor visualization
 
 1. In Corporate Memory, click **Business knowledge editor** under **EXPLORE** in the navigation on the left side of the page.
 
@@ -72,7 +72,7 @@ To create a new ontology graph :
 
 !!!success
 
-    If you see an empty canvas you are ready to use BKE to create classes and properties
+    If you see an empty canvas you are ready to use Business Knowledge Editor to create classes and properties
 
 ---
 
@@ -166,7 +166,7 @@ Datatype properties can be added to the canvas the same way as an object propert
 
 !!! warning
 
-    At the time of writing this tutorial, setting up a datatype range (languaged string, float, date, …) is not possible from within BKE directly.
+    At the time of writing this tutorial, setting up a datatype range (languaged string, float, date, …) is not possible from within Business Knowledge Editor directly.
     We recommend saving the changes and finish the datatype edition using the shacl shapes approach.
 
     ![](datatype-range-not-supported.png){ class="bordered" width="30%" }
@@ -187,4 +187,4 @@ It is recommended to save the changes by using a named visualization, in case yo
 
 !!! success
 
-    You have successfully created new concepts and properties inside your ontology using BKE's canvas.
+    You have successfully created new concepts and properties inside your ontology using Business Knowledge Editor's canvas.
