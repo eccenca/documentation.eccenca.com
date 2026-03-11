@@ -2,11 +2,13 @@
 title: "Execute Instructions"
 description: "Send instructions (prompt) to an LLM and process the result."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute Instructions
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -14,7 +16,6 @@ tags:
     This operator is part of a Python Plugin Package.
     In order to use it, you need to install it,
     e.g. with cmemc.
-
 
 ## Overview
 
@@ -80,12 +81,14 @@ class StructuredOutput(BaseModel):
 ## Performance Features
 
 Parallel Processing:
+
 - **Concurrent Requests**: Configurable semaphore-controlled API calls
 - **Batch Processing**: Entities processed in configurable batch sizes
 - **Rate Limiting**: Optional delays between requests
 - **Memory Optimization**: Streaming processing with generator patterns
 
 Error Handling:
+
 - **Graceful Degradation**: Continue processing on API errors (configurable)
 - **Detailed Logging**: Comprehensive error reporting and debugging information
 - **Workflow Integration**: Proper cancellation support and progress reporting
@@ -93,11 +96,13 @@ Error Handling:
 ## API Compatibility
 
 Supported Providers:
+
 - **OpenAI**: Direct API access with full feature support
 - **Azure OpenAI**: Enterprise Azure-hosted services with API versioning
 - **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints
 
 Authentication:
+
 - **API Keys**: Secure password-type parameters for API authentication
 - **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration
 - **Flexible Endpoints**: Custom base URLs for various providers
@@ -105,6 +110,7 @@ Authentication:
 ## Advanced Configuration
 
 ### Message Templates
+
 Customize the conversation structure beyond simple prompts:
 
 ```json
@@ -115,6 +121,7 @@ Customize the conversation structure beyond simple prompts:
 ```
 
 ### Performance Tuning
+
 - **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)
 - **Timeout Management**: Request-level timeout configuration
 - **Concurrency Limits**: Prevent rate limiting with request throttling
@@ -130,7 +137,6 @@ Customize the conversation structure beyond simple prompts:
 
 For detailed prompting guidance, see [OpenAI's Text Generation Guide](https://platform.openai.com/docs/guides/text?api-mode=chat).
 
-
 ## Parameter
 
 ### Base URL
@@ -141,8 +147,6 @@ The base URL of the OpenAI compatible API (without endpoint path).
 - Datatype: `string`
 - Default Value: `https://api.openai.com/v1/`
 
-
-
 ### API Type
 
 Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
@@ -150,8 +154,6 @@ Select the API client type. This determines the authentication method and endpoi
 - ID: `api_type`
 - Datatype: `enumeration`
 - Default Value: `OPENAI`
-
-
 
 ### API key
 
@@ -161,8 +163,6 @@ An optional API key for authentication.
 - Datatype: `password`
 - Default Value: `None`
 
-
-
 ### Instruct Model
 
 The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). **Note:** For STRUCTURED_OUTPUT format, only certain models support structured outputs. See [OpenAI Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs) for supported models.
@@ -171,8 +171,6 @@ The identifier of the instruct model to use. Note that some provider do not supp
 - Datatype: `string`
 - Default Value: `gpt-4o-mini`
 
-
-
 ### Instruction Prompt Template
 
 The instruction prompt template. Please have a look at the task documentation for detailed instructions.
@@ -180,10 +178,6 @@ The instruction prompt template. Please have a look at the task documentation fo
 - ID: `instruct_prompt_template`
 - Datatype: `code-jinja2`
 - Default Value: `Write a paragraph about this entity: {{ entity }}`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -195,8 +189,6 @@ Azure OpenAI API version (only used when API Type is `AZURE_OPENAI`). For more i
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Temperature (between 0 and 2)
 
 A parameter that controls the randomness and creativity of the model. A high temperature value (`0.8` - `1.0`) increases randomness and creativity. This is useful for open-ended tasks like storytelling or brainstorming. A low temperature value (`0.0` - `0.4`) produces more deterministic and focused outputs. This is suitable for factual or technical tasks.
@@ -204,8 +196,6 @@ A parameter that controls the randomness and creativity of the model. A high tem
 - ID: `temperature`
 - Datatype: `double`
 - Default Value: `1.0`
-
-
 
 ### Timeout (seconds)
 
@@ -215,8 +205,6 @@ The timeout for a single API request in seconds.
 - Datatype: `double`
 - Default Value: `300`
 
-
-
 ### Instruction Output Path
 
 The entity path where the instruction result will be provided. Note: This parameter is not used when Output Format is set to STRUCTURED_OUTPUT. For structured outputs, only the Pydantic model fields are included in the output schema.
@@ -225,8 +213,6 @@ The entity path where the instruction result will be provided. Note: This parame
 - Datatype: `string`
 - Default Value: `_instruction_output`
 
-
-
 ### Messages Template
 
 A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.
@@ -234,6 +220,7 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 - ID: `messages_template`
 - Datatype: `code-json`
 - Default Value:
+
 ``` json
 [
     {
@@ -247,8 +234,6 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 ]
 ```
 
-
-
 ### Output Format
 
 Specifying the format that the model must output. Possible values are `TEXT` - Standard text output, `STRUCTURED_OUTPUT` - output follows a given schema. Add your schema as Pydantic model in the parameter below, `JSON_MODE` - a more basic version of the structured outputs feature where you have to add your structure to the prompt template.
@@ -257,8 +242,6 @@ Specifying the format that the model must output. Possible values are `TEXT` - S
 - Datatype: `enumeration`
 - Default Value: `TEXT`
 
-
-
 ### Pydantic Schema
 
 The Pydantic schema definition with a mandatory class named `StructuredOutput(BaseModel)`. This is only used in combination with the Structured Output format. A schema may have up to 100 object properties total, with up to 5 levels of nesting. The total string length of all property names, definition names, enum values, and const values cannot exceed 15,000 characters.
@@ -266,6 +249,7 @@ The Pydantic schema definition with a mandatory class named `StructuredOutput(Ba
 - ID: `pydantic_schema`
 - Datatype: `code-python`
 - Default Value:
+
 ``` python
 from pydantic import BaseModel
 
@@ -276,8 +260,6 @@ class StructuredOutput(BaseModel):
 
 ```
 
-
-
 ### Raise on API errors
 
 How to react on API errors. When enable, any API errors will cause the workflow to stop with an exception. When disabled, API errors are logged and the error message is written to the entity output, allowing the workflow to continue processing other entities.
@@ -285,8 +267,6 @@ How to react on API errors. When enable, any API errors will cause the workflow 
 - ID: `raise_on_error`
 - Datatype: `boolean`
 - Default Value: `true`
-
-
 
 ### Maximum Concurrent Requests
 
@@ -296,8 +276,6 @@ Maximum number of concurrent API requests to prevent rate limiting and resource 
 - Datatype: `Long`
 - Default Value: `10`
 
-
-
 ### Batch Size
 
 Number of entities to process in each batch for memory optimization.
@@ -306,8 +284,6 @@ Number of entities to process in each batch for memory optimization.
 - Datatype: `Long`
 - Default Value: `100`
 
-
-
 ### Request Delay (seconds)
 
 Delay between API requests in seconds to respect rate limits.
@@ -315,6 +291,3 @@ Delay between API requests in seconds to respect rate limits.
 - ID: `request_delay`
 - Datatype: `double`
 - Default Value: `0.0`
-
-
-

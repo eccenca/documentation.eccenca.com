@@ -2,13 +2,13 @@
 title: "Constant"
 description: "Generates a constant value."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Constant
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Generates a constant value.
 
@@ -19,13 +19,10 @@ Generates a constant value.
 ---
 **Always outputs the specified value:**
 
-* Parameters
-    * value: `John`
+- Parameters
+    - value: `John`
 
-* Returns: `[John]`
-
-
-
+- Returns: `[John]`
 
 ## Parameter
 
@@ -36,10 +33,6 @@ The constant value to be generated
 - ID: `value`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

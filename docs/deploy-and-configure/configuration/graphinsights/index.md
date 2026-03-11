@@ -62,8 +62,8 @@ See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration
 
 The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
 
--   `configuration-files/explore-application.yml` for Explore
--   `configuration-files/cmem.integration.config.yml` for Graph Insights
+- `configuration-files/explore-application.yml` for Explore
+- `configuration-files/cmem.integration.config.yml` for Graph Insights
 
 For more details please have a look in the helm value file.
 Every configuration is documented there.
@@ -242,8 +242,8 @@ There is the need for a client to authenticate in a browser and a second client 
 
 For convenience, by default we use the same clients as for the rest of the application:
 
--   Client for browser: cmem
--   Client for component communication: cmem-service-account
+- Client for browser: cmem
+- Client for component communication: cmem-service-account
 
 In case you want to have separate clients for production deployments, this chapter is for you.
 
@@ -309,12 +309,12 @@ separate clients are already created when starting the Postgresql container.
 
 However, regenerating a new client secret is advisable:
 
--   Select the `eccenca Corporate Memory`-realm
--   Select `Clients`
--   Select the client `graph-insights-service-account`.
--   Select the tab `Credentials`
--   Press `Regenerate`
--   Then copy the new secret and fill in the values from above.
+- Select the `eccenca Corporate Memory`-realm
+- Select `Clients`
+- Select the client `graph-insights-service-account`.
+- Select the tab `Credentials`
+- Press `Regenerate`
+- Then copy the new secret and fill in the values from above.
 
 ![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
 
@@ -325,17 +325,17 @@ In an already running deployment you would have to create those clients on your 
 
 We assume that we name the clients as following:
 
--   Browser client: `graph-insights`
--   Inter-component client: `graph-insights-service-account`
+- Browser client: `graph-insights`
+- Inter-component client: `graph-insights-service-account`
 
 #### Set Backchannel logout URL for Graph Insights
 
 You would follow the same steps as in [Keycloak Client configuration](../../../deploy-and-configure/configuration/keycloak/index.md) but name them differently, e.g. as above.
 In addition, one last step is missing: To have the logout working properly you have to add a client Backchannel logout URL for the client meant for browser authentication (`graph-insights`):
 
--   Select the `eccenca Corporate Memory`-realm
--   Select `Clients`
--   Select the client `graph-insights`.
--   Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
+- Select the `eccenca Corporate Memory`-realm
+- Select `Clients`
+- Select the client `graph-insights`.
+- Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
 
 ![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png)

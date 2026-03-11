@@ -2,13 +2,13 @@
 title: "Sort"
 description: "Sorts values lexicographically."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Sort
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Sorts values lexicographically.
 
@@ -24,7 +24,6 @@ Sorts values lexicographically.
 
 * Returns: `[]`
 
-
 ---
 **Example 2:**
 
@@ -33,7 +32,6 @@ Sorts values lexicographically.
 
 * Returns: `[a, b, c]`
 
-
 ---
 **Example 3:**
 
@@ -41,9 +39,6 @@ Sorts values lexicographically.
     1. `[Hans, Hansa, Hamburg]`
 
 * Returns: `[Hamburg, Hans, Hansa]`
-
-
-
 
 ## Parameter
 

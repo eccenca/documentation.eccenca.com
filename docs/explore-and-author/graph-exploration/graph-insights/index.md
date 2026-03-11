@@ -50,13 +50,13 @@ The **user guide** presents the visual analysis workflow of Graph Insights. It d
 
 ### Where to Start?
 
-1.  **[Core Concepts](concepts.md):** *(Recommended)* Before diving in, understand the **aggregated exploration tree** paradigm of Graph Insights that prevents the visual clutter of traditional force-directed graph renderings ("hairballs").
+1. **[Core Concepts](concepts.md):** *(Recommended)* Before diving in, understand the **aggregated exploration tree** paradigm of Graph Insights that prevents the visual clutter of traditional force-directed graph renderings ("hairballs").
 
-2.  **[Tutorial: Supply Chain Analysis](tutorial.md):** A step-by-step walkthrough using the Northwind dataset. Learn how to filter for **VIP customers**, analyze **product vulnerabilities**, and use **backpropagation** to propagate filtering.
+2. **[Tutorial: Supply Chain Analysis](tutorial.md):** A step-by-step walkthrough using the Northwind dataset. Learn how to filter for **VIP customers**, analyze **product vulnerabilities**, and use **backpropagation** to propagate filtering.
 
-3.  **[Feature Reference](features/index.md):** Detailed documentation for every component of the interface.
+3. **[Feature Reference](features/index.md):** Detailed documentation for every component of the interface.
     - **Workspace:** [Canvas](features/canvas-ui.md), [Search](features/category-tree.md), and [Settings](features/application-settings.md#settings).
     - **Interaction:** [Groups](features/groups.md), [Connections](features/connections.md), and [Details](features/objects.md#object-details).
     - **Analysis:** [Histograms](features/groups.md#histograms) and [Persistence](features/persistence.md).
 
-4.  **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node to other Corporate Memory views.
+4. **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node to other Corporate Memory views.

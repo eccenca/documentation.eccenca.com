@@ -2,13 +2,13 @@
 title: "Regex replace"
 description: "Replace all occurrences of a regular expression in a string. If no replacement is given, the occurrences of the regular expression will be deleted."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex replace
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 ## Description
 
@@ -61,7 +61,6 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[012]`
 
-
 ---
 **Removes all letters by replacing them with an empty string:**
 
@@ -72,7 +71,6 @@ _extracts_ all occurrences of the matching.
     1. `[abcdef1]`
 
 * Returns: `[1]`
-
 
 ---
 **Removes all vowels by replacing them with an empty string:**
@@ -85,7 +83,6 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwln, Bln, Kl, Fl, Dr, Nr, r, n, Gln, Bfr, Bfr, Bmbr, Thrn]`
 
-
 ---
 **Removes all consonants by replacing them with an empty string:**
 
@@ -96,7 +93,6 @@ _extracts_ all occurrences of the matching.
     1. `[Dwalin, Balin, Kili, Fili, Dori, Nori, Ori, Oin, Gloin, Bifur, Bofur, Bombur, Thorin]`
 
 * Returns: `[ai, ai, ii, ii, oi, oi, Oi, Oi, oi, iu, ou, ou, oi]`
-
 
 ---
 **Replaces all vowels with a common vowel:**
@@ -110,7 +106,6 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwalan, Balan, Kala, Fala, Dara, Nara, ara, aan, Glaan, Bafar, Bafar, Bambar, Tharan]`
 
-
 ---
 **Replaces all vowels with a common double vowel:**
 
@@ -123,32 +118,23 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwaalaan, Baalaan, Kaalaa, Faalaa, Daaraa, Naaraa, aaraa, aaaan, Glaaaan, Baafaar, Baafaar, Baambaar, Thaaraan]`
 
-
-
-
 ## Parameter
 
 ### Regex
 
 The regular expression to match
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Replace
 
 The replacement of each match
 
-- ID: `replace`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `replace`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

@@ -2,13 +2,13 @@
 title: "Camel case tokenizer"
 description: "Tokenizes a camel case string. That is it splits strings between a lower case character and an upper case character."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Camel case tokenizer
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Tokenizes a camel case string. That is it splits strings between a lower case character and an upper case character.
 
@@ -24,7 +24,6 @@ Tokenizes a camel case string. That is it splits strings between a lower case ch
 
 * Returns: `[camel, Case, String]`
 
-
 ---
 **Example 2:**
 
@@ -32,9 +31,6 @@ Tokenizes a camel case string. That is it splits strings between a lower case ch
     1. `[nocamelcase]`
 
 * Returns: `[nocamelcase]`
-
-
-
 
 ## Parameter
 

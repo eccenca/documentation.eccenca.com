@@ -2,13 +2,13 @@
 title: "Numeric operation"
 description: "Applies one of the four basic arithmetic operators to the sequence of input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Numeric operation
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 The `numOperation` plugin applies one of the four basic arithmetic operators to the sequence of input values.
 These are the fundamental operations of **addition** (`+`), **subtraction** (`-`), **multiplication** (`*`)
@@ -42,7 +42,6 @@ numbers, a validation exception will be raised.
 
 * Returns: `[2.0]`
 
-
 ---
 **Example 2:**
 
@@ -54,7 +53,6 @@ numbers, a validation exception will be raised.
     2. `[1]`
 
 * Returns: `[0.0]`
-
 
 ---
 **Example 3:**
@@ -68,7 +66,6 @@ numbers, a validation exception will be raised.
 
 * Returns: `[30.0]`
 
-
 ---
 **Example 4:**
 
@@ -80,7 +77,6 @@ numbers, a validation exception will be raised.
     2. `[2]`
 
 * Returns: `[2.5]`
-
 
 ---
 **Example 5:**
@@ -94,7 +90,6 @@ numbers, a validation exception will be raised.
 
 * Returns: `[]`
 
-
 ---
 **Example 6:**
 
@@ -106,7 +101,6 @@ numbers, a validation exception will be raised.
     2. `[]`
 
 * Returns: `[1.0]`
-
 
 ---
 **Example 7:**
@@ -120,7 +114,6 @@ numbers, a validation exception will be raised.
 
 * Returns: `[3.0]`
 
-
 ---
 **Example 8:**
 
@@ -133,22 +126,15 @@ numbers, a validation exception will be raised.
 
 * Returns: `[Infinity]`
 
-
-
-
 ## Parameter
 
 ### Operator
 
 The operator to be applied to all values. One of `+`, `-`, `*`, `/`
 
-- ID: `operator`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `operator`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

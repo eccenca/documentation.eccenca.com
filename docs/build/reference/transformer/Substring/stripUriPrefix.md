@@ -2,13 +2,13 @@
 title: "Strip URI prefix"
 description: "Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (using java.net.URLDecoder). Leaves values unchanged which are not a valid URI."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Strip URI prefix
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (using java.net.URLDecoder). Leaves values unchanged which are not a valid URI.
 
@@ -24,7 +24,6 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
 
 * Returns: `[value]`
 
-
 ---
 **Example 2:**
 
@@ -32,7 +31,6 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
     1. `[urn:scheme:value]`
 
 * Returns: `[value]`
-
 
 ---
 **Example 3:**
@@ -42,7 +40,6 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
 
 * Returns: `[encoded välue]`
 
-
 ---
 **Example 4:**
 
@@ -51,7 +48,6 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
 
 * Returns: `[value]`
 
-
 ---
 **Example 5:**
 
@@ -59,7 +55,6 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
     1. `[urn:scheme:Two_words]`
 
 * Returns: `[Two words]`
-
 
 ---
 **Example 6:**
@@ -72,22 +67,15 @@ Strips the URI prefix and decodes the remainder based on UTF-8 URL decoding (usi
 
 * Returns: `[Two_words]`
 
-
-
-
 ## Parameter
 
 ### Decode underscores to spaces
 
 If true, underscores will be decoded to spaces.
 
-- ID: `decodeUnderscoresToSpaces`
-- Datatype: `boolean`
-- Default Value: `true`
-
-
-
-
+* ID: `decodeUnderscoresToSpaces`
+* Datatype: `boolean`
+* Default Value: `true`
 
 ## Advanced Parameter
 

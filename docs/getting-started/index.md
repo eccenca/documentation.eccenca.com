@@ -24,21 +24,21 @@ eccenca Corporate Memory is a semantic data management software that accelerates
 
 The main features of Corporate Memory include:
 
--   Flexible metadata and schema layer based on knowledge graphs
--   Data virtualization and analytics
--   Data integration and indexing
--   Dataset and vocabulary management
--   Thesaurus and taxonomy management
--   Big data scalability
--   Access control
+- Flexible metadata and schema layer based on knowledge graphs
+- Data virtualization and analytics
+- Data integration and indexing
+- Dataset and vocabulary management
+- Thesaurus and taxonomy management
+- Big data scalability
+- Access control
 
 ### Minimal requirements
 
 For the best user experience, we recommend to use the newest version of Google Chrome or Mozilla Firefox. Corporate Memory is tested with the following browsers:
 
--   Google Chrome 83 or later
--   Mozilla Firefox 78 or later
--   Microsoft Edge 83 (on Windows) or later
+- Google Chrome 83 or later
+- Mozilla Firefox 78 or later
+- Microsoft Edge 83 (on Windows) or later
 
 ## Login and Logout
 
@@ -71,16 +71,16 @@ To access a module, click the module name. The active module is highlighted.
 
 By default, Corporate Memory provides the following modules:
 
--   EXPLORE - for Knowledge Graph browsing and exploration, specifically
-    -   [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
-    -   [Vocabularies](../explore-and-author/vocabulary-catalog/index.md) - for vocabulary management
-    -   [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
-    -   [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
--   [BUILD](../build/index.md) - for creating and integrating Knowledge Graphs, with specific links to
-    -   Projects - the BUILD Projects level
-    -   Datasets - the Datasets across all BUILD Projects
-    -   Workflows - the Workflows across all BUILD Projects
-    -   Activities - activities overview and monitoring
+- EXPLORE - for Knowledge Graph browsing and exploration, specifically
+    - [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
+    - [Vocabularies](../explore-and-author/vocabulary-catalog/index.md) - for vocabulary management
+    - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
+    - [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
+- [BUILD](../build/index.md) - for creating and integrating Knowledge Graphs, with specific links to
+    - Projects - the BUILD Projects level
+    - Datasets - the Datasets across all BUILD Projects
+    - Workflows - the Workflows across all BUILD Projects
+    - Activities - activities overview and monitoring
 
 !!! note
 

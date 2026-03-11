@@ -5,7 +5,9 @@ icon: material/database-arrow-up-outline
 tags:
   - cmemc
 ---
+
 # admin migration Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List and apply migration recipes.
@@ -16,21 +18,15 @@ Beside an ID and a description, migration recipes have the following metadata: '
 
 The following tags are important: `system` recipes target data structures which are needed to run the most basic functionality properly. These recipes can and should be applied after each version upgrade. `user` recipes can change user and / or customizing data. `acl` recipes migrate access condition data. `shapes` recipes migrate shape data. `config` recipes migrate configuration data.
 
-
 ## admin migration list
 
 List migration recipies.
 
 ```shell-session title="Usage"
-$ cmemc admin migration list [OPTIONS]
+cmemc admin migration list [OPTIONS]
 ```
 
-
-
-
 This command lists all available migration recipies
-
-
 
 ??? info "Options"
     ```text
@@ -48,19 +44,14 @@ This command lists all available migration recipies
 Execute needed migration recipes.
 
 ```shell-session title="Usage"
-$ cmemc admin migration execute [OPTIONS] [MIGRATION_ID]
+cmemc admin migration execute [OPTIONS] [MIGRATION_ID]
 ```
-
-
-
 
 This command executes one or more migration recipes. Each recipe has a check method to determine if a migration is needed. In addition to that, the current component version needs to match the specified first-last-version range of the recipe.
 
 Recipes are executed ordered by first_version.
 
 Here are some argument examples, in order to see how to use this command: execute `--all` `--test-only` will list all needed migrations (but not execute them), execute `--filter` tag system will apply all migrations which target system data, execute bootstrap-data will apply bootstrap-data migration if needed.
-
-
 
 ??? info "Options"
     ```text
@@ -72,4 +63,3 @@ Here are some argument examples, in order to see how to use this command: execut
     --test-only              Only test, do not execute migrations.
     --id-only                Lists only recipe identifier.
     ```
-

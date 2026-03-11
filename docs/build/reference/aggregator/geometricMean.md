@@ -2,12 +2,12 @@
 title: "Geometric mean"
 description: "Compute the (weighted) geometric mean."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Geometric mean
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Compute the (weighted) geometric mean.
 
@@ -22,14 +22,12 @@ Compute the (weighted) geometric mean.
 * Input values: `[0.0, 0.0, 0.0]`
 * Returns: `0.0`
 
-
 ---
 **Example 2:**
 
 * Weights: `[1, 2, 1]`
 * Input values: `[1.0, 1.0, 1.0]`
 * Returns: `1.0`
-
 
 ---
 **Example 3:**
@@ -38,14 +36,12 @@ Compute the (weighted) geometric mean.
 * Input values: `[0.5, 1.0]`
 * Returns: `0.629961`
 
-
 ---
 **Example 4:**
 
 * Weights: `[2, 1, 5]`
 * Input values: `[0.5, 1.0, 0.7]`
 * Returns: `0.672866`
-
 
 ---
 **Example 5:**
@@ -54,15 +50,11 @@ Compute the (weighted) geometric mean.
 * Input values: `[0.1, 0.9, 0.2]`
 * Returns: `0.153971`
 
-
 ---
 **Missing scores always lead to an output of none:**
 
 * Input values: `[-1.0, null, 1.0]`
 * Returns: `null`
-
-
-
 
 ## Parameter
 

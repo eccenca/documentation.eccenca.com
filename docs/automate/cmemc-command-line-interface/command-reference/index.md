@@ -6,7 +6,9 @@ tags:
   - Reference
   - cmemc
 ---
+
 # Command Reference
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! info
@@ -40,7 +42,6 @@ tags:
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
-| [admin store](admin/store/index.md) | [migrate](admin/store/index.md#admin-store-migrate) | Migrate configuration resources to the current version. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
@@ -68,12 +69,7 @@ tags:
 | [dataset](dataset/index.md) | [create](dataset/index.md#dataset-create) | Create a dataset. |
 | [dataset](dataset/index.md) | [open](dataset/index.md#dataset-open) | Open datasets in the browser. |
 | [dataset](dataset/index.md) | [update](dataset/index.md#dataset-update) | Update a dataset. |
-| [dataset resource](dataset/resource/index.md) | [list](dataset/resource/index.md#dataset-resource-list) | List available file resources. |
-| [dataset resource](dataset/resource/index.md) | [delete](dataset/resource/index.md#dataset-resource-delete) | Delete file resources. |
-| [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
-| [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
-| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | (Hidden) Deprecated: use 'graph imports tree' instead. |
 | [graph](graph/index.md) | [list](graph/index.md#graph-list) | List accessible graphs. |
 | [graph](graph/index.md) | [export](graph/index.md#graph-export) | Export graph(s) as NTriples to stdout (-), file or directory. |
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
@@ -142,4 +138,3 @@ tags:
 | [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all metadata of a scheduler. |
 | [workflow scheduler](workflow/scheduler/index.md) | [disable](workflow/scheduler/index.md#workflow-scheduler-disable) | Disable scheduler(s). |
 | [workflow scheduler](workflow/scheduler/index.md) | [enable](workflow/scheduler/index.md#workflow-scheduler-enable) | Enable scheduler(s). |
-

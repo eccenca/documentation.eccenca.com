@@ -2,6 +2,7 @@ nav:
     - index.md
     - "Add project files": addProjectFiles.md
     - "Cancel Workflow": CancelWorkflow.md
+    - "Clear dataset": clearDataset.md
     - "Combine CSV files": combine-csv.md
     - "Concatenate to file": ConcatenateToFile.md
     - "Create Embeddings": cmem_plugin_llm-CreateEmbeddings.md
@@ -41,6 +42,7 @@ nav:
     - "Parse XML": XmlParserOperator.md
     - "Parse YAML": cmem_plugin_yaml-parse.md
     - "Pivot": Pivot.md
+    - "Reason": cmem_plugin_reason-plugin_reason-ReasonPlugin.md
     - "Request RDF triples": tripleRequestOperator.md
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
@@ -61,11 +63,13 @@ nav:
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md
     - "Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
+    - "Update SemSpect": cmem_plugin_semspect-task-Update.md
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md
     - "Upload SSH files": cmem_plugin_ssh-Upload.md
     - "Validate Entities": cmem_plugin_validation-validate-ValidateEntities.md
     - "Validate Knowledge Graph": cmem_plugin_validation-validate-ValidateGraph.md
+    - "Validate OWL consistency": cmem_plugin_reason-plugin_validate-ValidatePlugin.md
     - "Validate XML": validateXsdOperator.md
     - "XSLT": xsltOperator.md

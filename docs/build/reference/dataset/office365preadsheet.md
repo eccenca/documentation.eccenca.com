@@ -2,13 +2,13 @@
 title: "Excel (OneDrive, Office365)"
 description: "Read data from a remote onedrive or Office365 Spreadsheet."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Excel (OneDrive, Office365)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 The dataset needs the URL of a "share via link" sheet on Office 365/OneDrive as input.
 It will automatically construct a direct download URL, cache the download file handle it like
@@ -22,9 +22,9 @@ Onedrive links look like `https://1drv.ms/x/s!AucULvzmJ-dsdfsfgaIcyWP_XY_G4w?e=y
 Onedrive (based one sharepoint, for businesses) links look like `https://eccencagmbh-my.sharepoint.com/:x:/g/personal/person_eccenca_com/EdEMTEw1dclHiEZXyvy8P4YBit8wSyGsiwU5Kt__sQOZzw`
 
 The first type should always work is not recommended for this dataset. The second type requires to set up an application in Microsoft EntraID (formerly Azure Active Directory).
-EntraID: https://docs.microsoft.com/azure/active-directory/develop/v2-overview
+EntraID: <https://docs.microsoft.com/azure/active-directory/develop/v2-overview>
 Instructions and examples can be found here:
-https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in
+<https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in>
 
 After following the steps access to sharepoint/onedrive for business can be setup in the application.conf file for eccenca DataIntegration.
 
@@ -48,7 +48,6 @@ A file based cache is created to avoid CAPTCHAs. During the caching and validati
 access occurs with random wait times between 1 and 5 seconds.
 The cache is invalidated after 5 minutes by default.
 
-
 ## Parameter
 
 ### URL
@@ -59,8 +58,6 @@ Link to the document ('share with anyone having a link' must be enabled).
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Lines to skip
 
 The number of lines to skip in the beginning when reading files.
@@ -68,10 +65,6 @@ The number of lines to skip in the beginning when reading files.
 - ID: `linesToSkip`
 - Datatype: `int`
 - Default Value: `0`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -83,8 +76,6 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
 ### Invalidate cache after
 
 Duration until file based cache is invalidated.
@@ -92,6 +83,4 @@ Duration until file based cache is invalidated.
 - ID: `invalidateCacheAfter`
 - Datatype: `duration`
 - Default Value: `PT5M`
-
-
 

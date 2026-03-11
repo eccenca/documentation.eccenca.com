@@ -2,11 +2,13 @@
 title: "Split file"
 description: "Split a file into multiple parts with a specified size."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Split file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -52,7 +54,6 @@ If enabled, the "Internal projects directory" parameter has to be set.
 The path to the internal projects directory. If "Use internal projects directory" is disabled,
 this parameter has no effect.
 
-
 ## Parameter
 
 ### Input filename
@@ -63,8 +64,6 @@ The input file to be split.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Chunk size
 
 The maximum size of the chunk files.
@@ -72,8 +71,6 @@ The maximum size of the chunk files.
 - ID: `chunk_size`
 - Datatype: `double`
 - Default Value: `None`
-
-
 
 ### Size unit
 
@@ -83,8 +80,6 @@ The unit of the size value: kilobyte (KB), megabyte (MB), gigabyte (GB), or numb
 - Datatype: `string`
 - Default Value: `MB`
 
-
-
 ### Include header
 
 Include the header in each split. The first line of the input file is treated as the header.
@@ -93,8 +88,6 @@ Include the header in each split. The first line of the input file is treated as
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
 ### Delete input file
 
 Delete the input file after splitting.
@@ -102,10 +95,6 @@ Delete the input file after splitting.
 - ID: `delete_file`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 
@@ -117,8 +106,6 @@ Use the internal projects directory of DataIntegration to fetch and store files,
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
 ### Internal projects directory
 
 The path to the internal projects directory. If "Use internal projects directory" is disabled, this parameter has no effect.
@@ -126,6 +113,4 @@ The path to the internal projects directory. If "Use internal projects directory
 - ID: `projects_path`
 - Datatype: `string`
 - Default Value: `/data/datalake`
-
-
 

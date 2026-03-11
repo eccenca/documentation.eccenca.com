@@ -2,13 +2,13 @@
 title: "Remove empty values"
 description: "Removes empty values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove empty values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Removes empty values.
 
@@ -24,7 +24,6 @@ Removes empty values.
 
 * Returns: `[value1, value2]`
 
-
 ---
 **Example 2:**
 
@@ -32,9 +31,6 @@ Removes empty values.
     1. `[, ]`
 
 * Returns: `[]`
-
-
-
 
 ## Parameter
 

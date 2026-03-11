@@ -30,7 +30,7 @@ The graph dataset is attached to the email as an N-triples file.
 
 The following material is used in this tutorial:
 
--   RDF graph containing company information regarding employees, products and services: [company.ttl](company.ttl)
+- RDF graph containing company information regarding employees, products and services: [company.ttl](company.ttl)
 
     ```Turtle
     <http://ld.company.org/prod-instances/hw-A181-1118563> a prod:Hardware ;
@@ -294,11 +294,11 @@ The tutorial consists of the following steps, which are described in detail belo
 3. Fill in the required details, such as **Label**, your email credentials for sending, and the recipient email address(es).
     When finished, click **Create**.
 
-    -   Host: The SMTP host, e.g, mail.myProvider.com
-    -   Port: The SMTP port
-    -   User: The username for the email account
-    -   Password: The password for the email account
-    -   To: The recipient email address(es)
+    - Host: The SMTP host, e.g, mail.myProvider.com
+    - Port: The SMTP port
+    - User: The username for the email account
+    - Password: The password for the email account
+    - To: The recipient email address(es)
 
     <br/>
 
@@ -320,17 +320,17 @@ The tutorial consists of the following steps, which are described in detail belo
     Items can be dragged from the list of items on the left side onto the canvas.
     To connect the outputs and inputs, click and hold the output on the right side of an item and drag it to the input on the left side of another item.
 
-    -   The **Knowledge Graph dataset** connects to the **Request RDF triples task** and the **SPARQL Select query task**.
-    -   The **Request RDF triples task** connects to the **RDF dataset**.
+    - The **Knowledge Graph dataset** connects to the **Request RDF triples task** and the **SPARQL Select query task**.
+    - The **Request RDF triples task** connects to the **RDF dataset**.
         It requests all triples from the products graph and sends them to the dataset.
-    -   The **RDF dataset** connects to the **Send eMail task**.
+    - The **RDF dataset** connects to the **Send eMail task**.
         It holds the NTriples file that will be attached to the email.
-    -   The **SPARQL Select query task** connects to the **Evaluate template task**.
+    - The **SPARQL Select query task** connects to the **Evaluate template task**.
         Note that the graph to be queried is specified in the SPARQL query itself with the FROM clause, while the input only triggers its execution.
         The query results are sent to its output.
-    -   The **Evaluate template task** connects to the **Text dataset**.
+    - The **Evaluate template task** connects to the **Text dataset**.
         It receives the SPARQL query results and sends the evaluated Jinja template to its output.
-    -   The **Text dataset** connects to the **Transform**.
+    - The **Text dataset** connects to the **Transform**.
         It holds the text file with the evaluated Jinja template and acts as input for the Transform.
 
     ![Workflow 1](workflow-1.png){ class="bordered" }
@@ -340,11 +340,11 @@ The tutorial consists of the following steps, which are described in detail belo
         The **Evaluate template** operator can also be connected directly to the **Transform**.
         In this case, skip [§6](#6-create-a-text-dataset) and enter *output* instead of *text* for the **Value path** of the value mapping in the **Transform** (see [§7.6](#7-create-a-transform)).
 
-1. Click on three dots of the **Send eMail** task, select **Config** and tick the check box to enable the config port.
+5. Click on three dots of the **Send eMail** task, select **Config** and tick the check box to enable the config port.
 
     ![Set Config Port](config-port.png){ class="bordered" width="55%" }
 
-2. Connect the output of the **Transform** to the config port located on the top of the **Send eMail** task.
+6. Connect the output of the **Transform** to the config port located on the top of the **Send eMail** task.
     When finished, click **Save**.
     The complete workflow now looks as shown below.
 

@@ -15,7 +15,7 @@ A list of materials and resources to reproduce and follow the masterclass (MC).
 
 <div class="grid cards" markdown>
 
--   ## File resources
+- ## File resources
 
     ---
 
@@ -29,7 +29,7 @@ A list of materials and resources to reproduce and follow the masterclass (MC).
 
     *) vocabulary already installed, attached for information purposes only.
 
--   ## Name(space) suggestions
+- ## Name(space) suggestions
 
     ---
 
@@ -43,7 +43,7 @@ A list of materials and resources to reproduce and follow the masterclass (MC).
     | Dataset (KG)  | MC Prod - Links        | `http://mc.eccenca.com/prod-links/` |
     | Build Project | MC Product Build Demo  |                                     |
 
--   ## Resource IRI suggestions
+- ## Resource IRI suggestions
 
     ---
 
@@ -53,7 +53,7 @@ A list of materials and resources to reproduce and follow the masterclass (MC).
     | Employee         | `http://mc.eccenca.com/prod-data/empl-{email}`                 |
     | Hardware         | `http://mc.eccenca.com/prod-data/hw-{id}`                      |
     | Price            | `http://mc.eccenca.com/prod-data/price-{parent-id}-{currency}` |
-    | Product Category | `http://mc.eccenca.com/prod-data/prod-cat-{name|uuid}`         |
+    | Product Category | `http://mc.eccenca.com/prod-data/prod-cat-{uuid(name)}`        |
     | Service          | `http://mc.eccenca.com/prod-data/srv-{id}`                     |
     | Supplier         | `http://mc.eccenca.com/prod-data/suppl-{id}`                   |
 

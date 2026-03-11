@@ -10,7 +10,7 @@ tags:
 Access Conditions specify access rights for users and groups to graphs and actions (1).
 { .annotate }
 
-1.  Graphs identify specific Knowledge Graphs.
+1. Graphs identify specific Knowledge Graphs.
     Actions identify specific parts or components of the platform, such as the query catalog or the data integration system (Build).
 
 Access Conditions are managed in a special system graph, so write access to this graph needs to be handled carefully.
@@ -196,7 +196,6 @@ This screen is split into two main areas:
 
 - Second, the list of all access conditions which contributed to the effective access rights. This section allows to see which access conditions matched the principal and which access rights they grant.
 
-
 ### Command line interface
 
 With [cmemc](../../../automate/cmemc-command-line-interface/index.md) you can use an additional command line based interface to manage access conditions.
@@ -208,7 +207,6 @@ The important command groups for managing principals and access conditions are:
 - [`admin client`](../../../automate/cmemc-command-line-interface/command-reference/admin/client/index.md) - List client accounts, get or generate client account secrets.
 
 The following session demonstrates how to create a new user, set a password and grant access to certain areas.
-
 
 ``` shell-session
 $ cmemc admin acl list
@@ -318,4 +316,3 @@ The following list, provides grants which work together:
 - Allowed Actions: **Build - Workspace** (`:Build`)
 - Allow write graphs:
     - **All Graphs** (`https://vocab.eccenca.com/auth/AllGraphs`)
-
