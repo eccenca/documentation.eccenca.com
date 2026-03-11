@@ -9,26 +9,26 @@ tags:
 
 ## Introduction
 
-This beginner-level tutorial shows how to use Business Knowledge Editor to create new ontology (vocabulary) **classes** and **predicates** (object property, data property) visually.
+This beginner-level tutorial shows how to use Business Knowledge Editor to visually create new ontology (vocabulary) **classes** and **properties** (object properties and datatype properties).
 
-There are other way of creating new classes and properties within Corporate Memory (using shacl shapes), but Business Knowledge Editor allows for an intuitive "diagram" approach, simplifying the creation.
+There are other ways to create new classes and properties in Corporate Memory, for example by using SHACL shapes. Business Knowledge Editor provides an intuitive diagram-based approach that simplifies this process.
 
 The tutorial consists of the following steps, which are described in detail below:
 
-1. Initializing a new ontology
-2. Opening a new Business Knowledge Editor visualization
-3. Creating classes
-4. Linking related classes through object properties
-5. Adding data properties
-6. Saving the changes
+1. Initialize a new ontology
+2. Open a new Business Knowledge Editor visualization
+3. Create classes
+4. Link related classes through an object property
+5. Add data properties
+6. Save the changes
 
 ## Class Diagram
 
-This tutorial will go through the example of creating an ontology modeling the following diagram:
+This tutorial uses the following example ontology:
 
 ![](diagram_product_expert.png)
 
-Two classes will be related to each other through an `expertIn` object property.
+Two classes are related through an `expertIn` object property.
 
 Each class will have its own data property.
 
@@ -36,23 +36,23 @@ Each class will have its own data property.
 
 ## 1 Initializing a new ontology
 
-The "to-be-created" classes and properties will be saved in a given Knowledge Graph, a new ontology graph will be initialized for this tutorial.
+The classes and properties created in this tutorial are stored in a knowledge graph. For this tutorial, create a new ontology graph.
 
 !!! info
 
-    It is also possible to extend an existing vocabulary, in that case directly go to step 2
+    You can also extend an existing vocabulary. In that case, continue with step 2.
 
-To create a new ontology graph :
+To create a new ontology graph:
 
 1. In Corporate Memory, click **Knowledge graphs** under **EXPLORE** in the navigation on the left side of the page.
 
     ![](explore-kgs.png){ class="bordered" width="50%" }
 
-2. In the **Graphs** drop-down menu click the **(+)** button and select **New Ontology (owl:Ontology)**.
+2. In the **Graphs** drop-down menu, click the **(+)** button and select **New Ontology (owl:Ontology)**.
 
     ![](adding-new-graph.png){ class="bordered" width="50%" } ![](create-ontology-graph.png){ class="bordered" width="50%" }
 
-3. Define a **Name** and a **Graph URI** for the ontology. _In this example we will use:_
+3. Define a **Name** and a **Graph URI** for the ontology. In this example, use:
     -   Label: `Custom Dprod`
     -   Graph URI: `http://ld.company.org/custom-dprod/`
 
@@ -60,7 +60,7 @@ To create a new ontology graph :
 
 ## 2 Opening a new Business Knowledge Editor visualization
 
-1. In Corporate Memory, click **Business knowledge editor** under **EXPLORE** in the navigation on the left side of the page.
+1. In Corporate Memory, click **Business Knowledge Editor** under **EXPLORE** in the navigation on the left side of the page.
 
     ![](explore-bke.png){ class="bordered" width="50%" }
 
@@ -68,17 +68,17 @@ To create a new ontology graph :
 
     ![](bke-select-graph.png){ class="bordered" width="50%" }
 
-3. Create an empty visualization.
+3. Create a new empty visualization.
 
-!!!success
+!!! success
 
-    If you see an empty canvas you are ready to use Business Knowledge Editor to create classes and properties
+    If you see an empty canvas, you are ready to use Business Knowledge Editor to create classes and properties.
 
 ---
 
 ## 3 Creating classes
 
-New elements can be created by using the concepts defined in `Classes` visible in the left side of the canvas
+New elements can be created from the entries listed in **Classes** on the left side of the canvas.
 
 1. Drag and drop **Class** from the bottom left list into the canvas.
 
@@ -86,13 +86,13 @@ New elements can be created by using the concepts defined in `Classes` visible i
 
 !!! info
 
-    If you don't see Class within the first entries you can use the text search bar to find it
+    If you do not see **Class** in the first entries, use the search bar to find it.
 
 2. Click the newly created **Untitled (Class)** in the canvas to bring up a form on the right side.
 
     ![](untitled-class.png){ class="bordered" width="50%" }
 
-3. Fill out the form with the required (*) and optional values .
+3. Fill out the required fields and any optional fields you want to define for the class.
 
     ![](expert-class.png){ class="bordered" width="50%" }
 
@@ -104,27 +104,27 @@ New elements can be created by using the concepts defined in `Classes` visible i
 
     !!! info
 
-        If you don't see owl:ObjectProperty within the first entries you can use the text search bar to find it
+        If you do not see **owl:ObjectProperty** in the first entries, use the search bar to find it.
 
 2. Click the newly created **Untitled (Object Property)** in the canvas to bring up a form on the right side.
 
-3. Fill out the form with the required (*) and optional values.
+3. Fill out the required fields and any optional fields you want to define for the object property.
 
     ![](expert-in-form.png){ class="bordered" width="50%" }
 
-4. Click and hold the edge of the Class to begin drawing an arrow. Link that to the created property's edge.
+4. Click and hold the connector dot at the right edge of the class to begin drawing an arrow, then connect it to the connector dot at the left edge of the object property.
 
    ![](pointer-click-hold.png){ class="bordered" width="50%" }
 
-5. Inside the edge type selection window that pops up, select **In Domain Of**
+5. In the edge type selection window that appears, select **In Domain Of**.
 
     ![](edge-type.png){ class="bordered" width="50%" }
 
     !!! info
 
-        This is one way of associating a property with an existing class, below is shown another way (creating new class from an existing property)
+        This is one way to associate a property with an existing class. The next step shows another option: creating a new class from an existing property.
 
-6. Click the right side edge of the object property and select **Range** from the selection so that it brings an additional **New Class** on the right side
+6. Click the right-side edge of the object property and select **Range**. This adds **New Class** on the right side.
 
     ![](range-created-new-class.png){ class="bordered" width="50%" }
 
@@ -132,58 +132,58 @@ New elements can be created by using the concepts defined in `Classes` visible i
 
     ![](drag-drop-new-class.png){ class="bordered" width="50%" }
 
-8. Click the newly created class to bring out the form and  fill out with the required (*) and optional values .
+8. Click the newly created class to open its form, then fill out the required fields and any optional fields you want to define.
 
     ![](form-product.png){ class="bordered" width="50%" }
 
 !!! success
 
-    The property is now succesfully linking the two concepts together through the use of Domain and Range
+    The property now links the two concepts through its domain and range.
 
 ---
 
 ## 5 Adding data properties
 
-Datatype properties can be added to the canvas the same way as an object property,
+Datatype properties can be added to the canvas in the same way as object properties.
 
 1. Drag and drop **owl:DatatypeProperty** from the bottom left list into the canvas.
 
     !!! info
 
-        If you don't see owl:DatatypeProperty within the first entries you can use the text search bar to find it
+        If you do not see **owl:DatatypeProperty** in the first entries, use the search bar to find it.
 
 2. Click the newly created **Untitled (Data Property)** in the canvas to bring up a form on the right side.
 
-3. Fill out the form with the required (*) and optional values .
+3. Fill out the required fields and any optional fields you want to define for the data property.
 
    ![](form-property.png){ class="bordered" width="50%" }
 
-4. Click and hold the edge of the Class to begin drawing an arrow. Link that to the created property's edge.
+4. Click and hold the connector dot at the right edge of the class to begin drawing an arrow, then connect it to the connector dot at the left edge of the data property.
 
-5. Inside the edge type selection window that pops up, select **In Domain Of**
+5. In the edge type selection window that appears, select **In Domain Of**.
 
    ![](linking-datatype-property.png){ class="bordered" width="50%" }
 
 !!! warning
 
-    At the time of writing this tutorial, setting up a datatype range (languaged string, float, date, …) is not possible from within Business Knowledge Editor directly.
-    We recommend saving the changes and finish the datatype edition using the shacl shapes approach.
+    At the time of writing, it is not possible to set a datatype range such as a language-tagged string, float, or date directly in Business Knowledge Editor.
+    Save your changes, then complete the datatype definition by using the SHACL shapes approach.
 
     ![](datatype-range-not-supported.png){ class="bordered" width="30%" }
 
 ## 6 Saving the changes
 
-It is recommended to save the changes by using a named visualization, in case you need to edit your classes and properties later.
+Save the changes as a named visualization so you can edit your classes and properties later.
 
-1. Click **Save** from the top right section of the canvas
+1. Click **Save** in the upper-right corner of the canvas.
 
-2. Using the Graph drop-down selector, choose your ontology (vocabulary)
+2. In the **Graph** drop-down selector, choose your ontology (vocabulary).
 
-3. Fill out the name
+3. Enter a name for the visualization.
 
     ![](save-changes.png)
 
-4. Click Save
+4. Click **Save**.
 
 !!! success
 
