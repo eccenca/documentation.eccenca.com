@@ -84,9 +84,9 @@ New elements can be created from the entries listed in **Classes** on the left s
 
     ![](classes.png){ class="bordered" width="50%" }
 
-!!! info
+    !!! info
 
-    If you do not see **Class** in the first entries, use the search bar to find it.
+        If you do not see **Class** in the first entries, use the search bar to find it.
 
 2. Click the newly created **Untitled (Class)** in the canvas to bring up a form on the right side.
 
