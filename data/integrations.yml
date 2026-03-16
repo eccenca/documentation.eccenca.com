@@ -314,3 +314,8 @@ integrations:
       [Trino](https://github.com/trinodb/trino) can be access with the
       {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 
+  - name: Databricks
+    icon: ":simple-databricks:"
+    content: |
+      [Databricks](https://www.databricks.com) can be access with the
+      {{p.Jdbc}} dataset and a [JDBC driver](https://www.databricks.com/spark/jdbc-drivers-download).
