@@ -47,6 +47,16 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
 (read and write) with the [CSV Dataset](../../build/reference/dataset/csv.md).
 
 
+-   :simple-databricks:{ .lg .middle } Databricks
+
+    ---
+
+    [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
+Please have a look at
+[Setup additional JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+
+
 -   :material-email-outline:{ .lg .middle } eMail / SMTP
 
     ---
