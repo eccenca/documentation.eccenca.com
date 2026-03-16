@@ -264,26 +264,24 @@ integrations:
   - name: PostgreSQL
     icon: ":simple-postgresql:"
     content: |
-      PostgreSQL can be accessed with the {{p.Jdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
 
   - name: MariaDB
     icon: ":simple-mariadb:"
     content: |
       MariaDB can be accessed with the {{p.Jdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      [Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
 
   - name: SQLite
     icon: ":simple-sqlite:"
     content: |
       SQLite can be accessed with the {{p.Jdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+      [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 
   - name: MySQL
     icon: ":simple-mysql:"
     content: |
-      MySQL can be accessed with the {{p.Jdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      MySQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
 
   - name: Hive
     icon: ":simple-apachehive:"
@@ -293,14 +291,12 @@ integrations:
   - name: Microsoft SQL
     icon: ":material-microsoft:"
     content: |
-      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
 
   - name: Snowflake
     icon: ":simple-snowflake:"
     content: |
-      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset and a
-      [JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset (JDBC driver included).
 
   - name: pgvector
     icon: ":black_large_square:"
@@ -312,7 +308,9 @@ integrations:
     icon: ":simple-trino:"
     content: |
       [Trino](https://github.com/trinodb/trino) can be access with the
-      {{p.Jdbc}} dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+      {{p.Jdbc}} dataset and a [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+      Please have a look at
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/)
 
   - name: Databricks
     icon: ":simple-databricks:"
@@ -320,5 +318,4 @@ integrations:
       [Databricks](http://databricks.com/) can be accessed with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
       Please have a look at
-      [Setup additional JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
-
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
