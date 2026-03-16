@@ -146,6 +146,8 @@ GraphDB can be used as the integrated Quad Store as well.
 
     MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+Please have a look at
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -330,6 +332,8 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+Please have a look at
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -355,10 +359,10 @@ Tentris can be used as the integrated Quad Store as well (beta).
 
     ---
 
-    [Trino](https://github.com/trinodb/trino) can be access with the
-[Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+    [Trino](https://github.com/trinodb/trino) can be access with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 Please have a look at
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/)
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :black_large_square:{ .lg .middle } Virtuoso

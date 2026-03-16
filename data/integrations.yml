@@ -256,47 +256,10 @@ integrations:
   # Databases
   #####
 
-  - name: Neo4J
-    icon: ":simple-neo4j:"
-    content: |
-      Use the {{p.neo4j}} dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
-
-  - name: PostgreSQL
-    icon: ":simple-postgresql:"
-    content: |
-      PostgreSQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
-
-  - name: MariaDB
-    icon: ":simple-mariadb:"
-    content: |
-      MariaDB can be accessed with the {{p.Jdbc}} dataset and a
-      [Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
-
-  - name: SQLite
-    icon: ":simple-sqlite:"
-    content: |
-      SQLite can be accessed with the {{p.Jdbc}} dataset and a
-      [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
-
-  - name: MySQL
-    icon: ":simple-mysql:"
-    content: |
-      MySQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
-
   - name: Hive
     icon: ":simple-apachehive:"
     content: |
       Read from or write to an embedded Apache {{p.Hive}} endpoint.
-
-  - name: Microsoft SQL
-    icon: ":material-microsoft:"
-    content: |
-      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
-
-  - name: Snowflake
-    icon: ":simple-snowflake:"
-    content: |
-      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset (JDBC driver included).
 
   - name: pgvector
     icon: ":black_large_square:"
@@ -304,13 +267,54 @@ integrations:
       Store vector embeddings into [pgvector](https://github.com/pgvector/pgvector)
       using the {{p.cmem_plugin_pgvector_Search}}.
 
+  - name: Neo4J
+    icon: ":simple-neo4j:"
+    content: |
+      Use the {{p.neo4j}} dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
+
+  - name: Snowflake
+    icon: ":simple-snowflake:"
+    content: |
+      Snowflake can be accessed with the {{p.SnowflakeJdbc}} dataset (JDBC driver included).
+
+  - name: Microsoft SQL
+    icon: ":material-microsoft:"
+    content: |
+      The Microsoft SQL Server can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
+
+  - name: PostgreSQL
+    icon: ":simple-postgresql:"
+    content: |
+      PostgreSQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
+
+  - name: MySQL
+    icon: ":simple-mysql:"
+    content: |
+      MySQL can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
+
+  - name: MariaDB
+    icon: ":simple-mariadb:"
+    content: |
+      MariaDB can be accessed with the {{p.Jdbc}} dataset and a
+      [Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+      Please have a look at
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+
+  - name: SQLite
+    icon: ":simple-sqlite:"
+    content: |
+      SQLite can be accessed with the {{p.Jdbc}} dataset and a
+      [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+      Please have a look at
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+
   - name: Trino
     icon: ":simple-trino:"
     content: |
-      [Trino](https://github.com/trinodb/trino) can be access with the
-      {{p.Jdbc}} dataset and a [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+      [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a
+      [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
       Please have a look at
-      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/)
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
   - name: Databricks
     icon: ":simple-databricks:"
@@ -319,3 +323,4 @@ integrations:
       [Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
       Please have a look at
       [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+
