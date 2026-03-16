@@ -144,10 +144,7 @@ GraphDB can be used as the integrated Quad Store as well.
 
     ---
 
-    MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
-Please have a look at
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+    MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost

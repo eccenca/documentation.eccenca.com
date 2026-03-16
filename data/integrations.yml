@@ -295,10 +295,7 @@ integrations:
   - name: MariaDB
     icon: ":simple-mariadb:"
     content: |
-      MariaDB can be accessed with the {{p.Jdbc}} dataset and a
-      [Custom JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
-      Please have a look at
-      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+      MariaDB can be accessed with the {{p.Jdbc}} dataset (JDBC driver included).
 
   - name: SQLite
     icon: ":simple-sqlite:"
