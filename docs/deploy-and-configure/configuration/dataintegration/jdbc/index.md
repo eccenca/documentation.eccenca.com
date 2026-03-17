@@ -45,7 +45,7 @@ Depending on the deployment model, suitable options include:
 -   A dedicated _Build project_ in which the driver JAR files are uploaded as project file resources.
 -   Dedicated file or resource mounts in a Docker Compose or Helm/Kubernetes configuration.
 
-## Driver Registration
+### Driver Registration
 
 A custom JDBC driver must be registered in the DataIntegration configuration file `dataintegration.conf`, in the `spark.sql.options` section.
 The following example shows how to register a custom JDBC driver for Databricks:
@@ -65,13 +65,13 @@ spark.sql.options {
 …
 ```
 
-## Use the Driver
+## Use JDBC Drivers
 
 JDBC drivers are used through the **Remote SQL endpoint** or **Snowflake SQL endpoint** dataset type.
 
 ![](jdbc-dataset.png){ class="bordered" width="85%" }
 
 Configure them in the dataset configuration dialog.
-For details about the JDBC connection string, consult your DBMS or JDBC driver documentation.
+For details about the [JDBC connection string](https://www.baeldung.com/java-jdbc-url-format), consult your DBMS or JDBC driver documentation.
 
 ![](jdbc-config-databricks.png){ class="bordered" width="100%" }
