@@ -51,8 +51,10 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
 
     ---
 
-    [Databricks](https://www.databricks.com) can be access with the
-[Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://www.databricks.com/spark/jdbc-drivers-download).
+    [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
+Please have a look at
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :material-email-outline:{ .lg .middle } eMail / SMTP
@@ -142,8 +144,7 @@ GraphDB can be used as the integrated Quad Store as well.
 
     ---
 
-    MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MariaDB can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
 -   :simple-mattermost:{ .lg .middle } Mattermost
@@ -158,16 +159,14 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    The Microsoft SQL Server can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc).
+    The Microsoft SQL Server can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
 -   :simple-mysql:{ .lg .middle } MySQL
 
     ---
 
-    MySQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/org.mariadb.jdbc/mariadb-java-client/overview).
+    MySQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
 -   :simple-neo4j:{ .lg .middle } Neo4J
@@ -254,8 +253,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    PostgreSQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/org.postgresql/postgresql/versions).
+    PostgreSQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
 -   :other-powerbi:{ .lg .middle } PowerBI
@@ -315,8 +313,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    Snowflake can be accessed with the [Snowflake SQL endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/net.snowflake/snowflake-jdbc).
+    Snowflake can be accessed with the [Snowflake SQL endpoint](../../build/reference/dataset/SnowflakeJdbc.md) dataset (JDBC driver included).
 
 
 -   :simple-apachespark:{ .lg .middle } Spark
@@ -331,7 +328,9 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     ---
 
     SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+[Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
+Please have a look at
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -357,8 +356,10 @@ Tentris can be used as the integrated Quad Store as well (beta).
 
     ---
 
-    [Trino](https://github.com/trinodb/trino) can be access with the
-[Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+    [Trino](https://github.com/trinodb/trino) can be access with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
+[Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
+Please have a look at
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
 
 
 -   :black_large_square:{ .lg .middle } Virtuoso
