@@ -7,7 +7,7 @@ tags:
 
 Configuration example:
 
-This example configures a connection with HTTPS to a remote Virtuoso store (https://remote:8080). 
+This example configures a connection with HTTPS to a remote Virtuoso store (<https://remote:8080>).
 
 ```yaml
 store:
@@ -21,7 +21,6 @@ store:
     password: "admin"
     databasePort: 1111
 ```
-
 
 ***Property: store.type***
 
@@ -101,4 +100,3 @@ The credentials of the given user
 | Required | false |
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_PASSWORD |
-

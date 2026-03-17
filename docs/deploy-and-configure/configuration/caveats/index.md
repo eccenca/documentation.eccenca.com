@@ -63,6 +63,6 @@ For Explore backend (DataPlatform) you have to set this in `application.yaml` or
 
 ### Useful Documentation
 
--   [AWS VPN Documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/networking-connecting-services.html)
--   [AWS Network load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)
--   [GraphDB with load balancers](https://graphdb.ontotext.com/documentation/10.7/aws-deployment.html#setting-up-the-load-balancer)
+- [AWS VPN Documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/networking-connecting-services.html)
+- [AWS Network load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)
+- [GraphDB with load balancers](https://graphdb.ontotext.com/documentation/10.7/aws-deployment.html#setting-up-the-load-balancer)

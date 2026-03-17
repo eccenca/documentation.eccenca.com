@@ -2,16 +2,15 @@
 title: "Get project files"
 description: "Get file resources from the project."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Get project files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-
-
 Get file resources from the project.
-
 
 ## Parameter
 
@@ -23,8 +22,6 @@ The path of the project file to retrieve. Leave empty if the file regex paramete
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Files regex
 
 Optional regular expression for retrieving files. The regex needs to match the full path (i.e. from beginning to end, including sub-directories).
@@ -33,8 +30,6 @@ Optional regular expression for retrieving files. The regex needs to match the f
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### MIME type
 
 Optional MIME type to assign to all retrieved files. If left empty, the MIME type will be not be set.
@@ -42,10 +37,6 @@ Optional MIME type to assign to all retrieved files. If left empty, the MIME typ
 - ID: `mimeType`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

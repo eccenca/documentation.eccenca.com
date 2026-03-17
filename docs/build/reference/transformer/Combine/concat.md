@@ -2,13 +2,13 @@
 title: "Concatenate"
 description: "Concatenates strings from multiple inputs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Concatenates strings from multiple inputs.
 
@@ -21,7 +21,6 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[]`
 
-
 ---
 **Example 2:**
 
@@ -29,7 +28,6 @@ Concatenates strings from multiple inputs.
     1. `[a]`
 
 * Returns: `[a]`
-
 
 ---
 **Example 3:**
@@ -39,7 +37,6 @@ Concatenates strings from multiple inputs.
     2. `[b]`
 
 * Returns: `[ab]`
-
 
 ---
 **Example 4:**
@@ -53,7 +50,6 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First-Last]`
 
-
 ---
 **Example 5:**
 
@@ -65,7 +61,6 @@ Concatenates strings from multiple inputs.
     2. `[Second, Third]`
 
 * Returns: `[First-Second, First-Third]`
-
 
 ---
 **Example 6:**
@@ -80,7 +75,6 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First--Second]`
 
-
 ---
 **Example 7:**
 
@@ -93,7 +87,6 @@ Concatenates strings from multiple inputs.
     3. `[Second]`
 
 * Returns: `[]`
-
 
 ---
 **Example 8:**
@@ -109,7 +102,6 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First--Second]`
 
-
 ---
 **Example 9:**
 
@@ -120,12 +112,11 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: 
-    ```
+* Returns:
+    ```text
     [First
     Second]
     ```
-
 
 ---
 **Example 10:**
@@ -137,10 +128,7 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: `[First	\\aSecond]`
-
-
-
+* Returns: `[First    \\aSecond]`
 
 ## Parameter
 
@@ -148,23 +136,17 @@ Concatenates strings from multiple inputs.
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
-
-
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 ### Missing values as empty strings
 
 Handle missing values as empty strings.
 
-- ID: `missingValuesAsEmptyStrings`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `missingValuesAsEmptyStrings`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

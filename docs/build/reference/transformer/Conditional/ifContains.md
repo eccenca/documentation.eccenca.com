@@ -2,13 +2,13 @@
 title: "If contains"
 description: "Accepts two or three inputs. If the first input contains the given value, the second input is forwarded. Otherwise, the third input is forwarded (if present)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # If contains
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Accepts two or three inputs. If the first input contains the given value, the second input is forwarded. Otherwise, the third input is forwarded (if present).
 
@@ -28,7 +28,6 @@ Accepts two or three inputs. If the first input contains the given value, the se
 
 * Returns: `[this is a match]`
 
-
 ---
 **Example 2:**
 
@@ -40,7 +39,6 @@ Accepts two or three inputs. If the first input contains the given value, the se
     2. `[this is a match]`
 
 * Returns: `[]`
-
 
 ---
 **Example 3:**
@@ -55,22 +53,15 @@ Accepts two or three inputs. If the first input contains the given value, the se
 
 * Returns: `[this is no match]`
 
-
-
-
 ## Parameter
 
 ### Search
 
 No description
 
-- ID: `search`
-- Datatype: `string`
-- Default Value: `None`
-
-
-
-
+* ID: `search`
+* Datatype: `string`
+* Default Value: `None`
 
 ## Advanced Parameter
 

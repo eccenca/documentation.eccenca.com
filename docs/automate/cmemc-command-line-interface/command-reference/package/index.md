@@ -6,23 +6,20 @@ tags:
   - cmemc
   - Package
 ---
+
 # package Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, (un)install, export, create, or inspect packages.
-
 
 ## package inspect
 
 Inspect the manifest of a package.
 
 ```shell-session title="Usage"
-$ cmemc package inspect [OPTIONS] PACKAGE_PATH
+cmemc package inspect [OPTIONS] PACKAGE_PATH
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -36,12 +33,8 @@ $ cmemc package inspect [OPTIONS] PACKAGE_PATH
 List installed packages.
 
 ```shell-session title="Usage"
-$ cmemc package list [OPTIONS]
+cmemc package list [OPTIONS]
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -59,15 +52,10 @@ $ cmemc package list [OPTIONS]
 Install packages.
 
 ```shell-session title="Usage"
-$ cmemc package install [OPTIONS] [PACKAGE_ID]
+cmemc package install [OPTIONS] [PACKAGE_ID]
 ```
 
-
-
-
 This command installs a package either from the marketplace or from local package archives (.cpa) or directories.
-
-
 
 ??? info "Options"
     ```text
@@ -82,12 +70,8 @@ This command installs a package either from the marketplace or from local packag
 Uninstall installed packages.
 
 ```shell-session title="Usage"
-$ cmemc package uninstall [OPTIONS] [PACKAGE_ID]
+cmemc package uninstall [OPTIONS] [PACKAGE_ID]
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -107,10 +91,6 @@ Export installed packages to package directories.
 $ cmemc package export [OPTIONS] [PACKAGE_ID]
 ```
 
-
-
-
-
 ??? info "Options"
     ```text
 
@@ -126,17 +106,12 @@ $ cmemc package export [OPTIONS] [PACKAGE_ID]
 Build a package archive from a package directory.
 
 ```shell-session title="Usage"
-$ cmemc package build [OPTIONS] PACKAGE_DIRECTORY
+cmemc package build [OPTIONS] PACKAGE_DIRECTORY
 ```
-
-
-
 
 This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory package archive (.cpa) with the following naming convention: {package_id}-v{version}.cpa
 
 Package archives can be published to the marketplace using the `package publish` command.
-
-
 
 ??? info "Options"
     ```text
@@ -152,12 +127,8 @@ Package archives can be published to the marketplace using the `package publish`
 Publish a package archive to the marketplace server.
 
 ```shell-session title="Usage"
-$ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
+cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -170,16 +141,11 @@ $ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
 Search for available packages with a given search text.
 
 ```shell-session title="Usage"
-$ cmemc package search [OPTIONS] [SEARCH_TERMS]...
+cmemc package search [OPTIONS] [SEARCH_TERMS]...
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
 
     --raw       Outputs raw JSON.
     ```
-

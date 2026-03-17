@@ -2,13 +2,13 @@
 title: "Tokenize"
 description: "Tokenizes all input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Tokenize
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Tokenizes all input values.
 
@@ -24,7 +24,6 @@ Tokenizes all input values.
 
 * Returns: `[Hello, World]`
 
-
 ---
 **Optionally, splits values at the provided regex:**
 
@@ -36,22 +35,15 @@ Tokenizes all input values.
 
 * Returns: `[.175, .050]`
 
-
-
-
 ## Parameter
 
 ### Regex
 
 The regular expression used to split values.
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `\s`
-
-
-
-
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `\s`
 
 ## Advanced Parameter
 

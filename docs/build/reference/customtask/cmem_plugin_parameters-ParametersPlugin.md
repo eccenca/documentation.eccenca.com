@@ -2,11 +2,13 @@
 title: "Set or Overwrite parameters"
 description: "Connect this task to a config port of another task in order to set or overwrite the parameter values of this task."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Set or Overwrite parameters
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -27,7 +29,7 @@ You can also use multiline values with `|`
 
 Example parameter configuration:
 
-```
+```text
 url: http://example.org
 method: GET
 query: |
@@ -40,16 +42,16 @@ limit: 5
 
 ```
 
-
 ## Parameter
 
 ### Parameter Configuration
 
-Your parameter configuration in YAML Syntax. One 'parameter: value' pair per line. url: http://example.org method: GET query: | SELECT ?s WHERE {{ ?s ?p ?o }} execute_once: True limit: 5
+Your parameter configuration in YAML Syntax. One 'parameter: value' pair per line. url: <http://example.org> method: GET query: | SELECT ?s WHERE {{ ?s ?p ?o }} execute_once: True limit: 5
 
 - ID: `parameters`
 - Datatype: `code-yaml`
 - Default Value:
+
 ``` yaml
 url: http://example.org
 method: GET
@@ -62,10 +64,6 @@ execute_once: True
 limit: 5
 
 ```
-
-
-
-
 
 ## Advanced Parameter
 

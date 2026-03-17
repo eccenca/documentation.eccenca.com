@@ -6,7 +6,9 @@ tags:
   - KnowledgeGraph
   - cmemc
 ---
+
 # graph Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, import, export, delete, count, tree or open graphs.
@@ -16,22 +18,15 @@ Graphs are identified by an IRI.
 !!! note
     The get a list of existing graphs, execute the `graph list` command or use tab-completion.
 
-
-
 ## graph count
 
 Count triples in graph(s).
 
 ```shell-session title="Usage"
-$ cmemc graph count [OPTIONS] [IRIS]...
+cmemc graph count [OPTIONS] [IRIS]...
 ```
 
-
-
-
 This command lists graphs with their triple count. Counts do not include imported graphs.
-
-
 
 ??? info "Options"
     ```text
@@ -40,40 +35,13 @@ This command lists graphs with their triple count. Counts do not include importe
     -s, --summarize  Display only a sum of all counted graphs together
     ```
 
-## graph tree
-
-(Hidden) Deprecated: use 'graph imports tree' instead.
-
-```shell-session title="Usage"
-$ cmemc graph tree [OPTIONS] [IRIS]...
-```
-
-
-
-
-
-??? info "Options"
-    ```text
-
-    -a, --all   Show tree of all (readable) graphs.
-    --raw       Outputs raw JSON of the graph importTree API response.
-    --id-only   Lists only graph identifier (IRIs) and no labels or other
-                metadata. This is useful for piping the IRIs into other
-                commands. The output with this option is a sorted, flat, de-
-                duplicated list of existing graphs.
-    ```
-
 ## graph list
 
 List accessible graphs.
 
 ```shell-session title="Usage"
-$ cmemc graph list [OPTIONS]
+cmemc graph list [OPTIONS]
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -94,12 +62,7 @@ Export graph(s) as NTriples to stdout (-), file or directory.
 $ cmemc graph export [OPTIONS] [IRIS]...
 ```
 
-
-
-
 In case of file export, data from all selected graphs will be concatenated in one file. In case of directory export, .graph and .ttl files will be created for each graph.
-
-
 
 ??? info "Options"
     ```text
@@ -137,12 +100,8 @@ In case of file export, data from all selected graphs will be concatenated in on
 Delete graph(s) from the store.
 
 ```shell-session title="Usage"
-$ cmemc graph delete [OPTIONS] [IRIS]...
+cmemc graph delete [OPTIONS] [IRIS]...
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -161,11 +120,8 @@ $ cmemc graph delete [OPTIONS] [IRIS]...
 Import graph(s) to the store.
 
 ```shell-session title="Usage"
-$ cmemc graph import [OPTIONS] INPUT_PATH [IRI]
+cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 ```
-
-
-
 
 If input is a file, content will be uploaded to the graph identified with the IRI.
 
@@ -177,9 +133,6 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 
 !!! note
     Directories are scanned on the first level only (not recursively).
-
-
-
 
 ??? info "Options"
     ```text
@@ -201,10 +154,6 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 Open / explore a graph in the browser.
 
 ```shell-session title="Usage"
-$ cmemc graph open IRI
+cmemc graph open IRI
 ```
-
-
-
-
 

@@ -2,13 +2,13 @@
 title: "Pivot"
 description: "The pivot operator takes data in separate rows, aggregates it and converts it into columns."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Pivot
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 The pivot operator takes data in separate rows, aggregates it and converts it into columns.
 
@@ -26,7 +26,6 @@ The following aggregation (summary) functions are available:
 - **sum** - Adds up the values (works with numbers only)
 - **average** - Finds the average of the values (works with numbers only)
 
-
 ## Parameter
 
 ### Pivot property
@@ -37,8 +36,6 @@ The pivot column refers to the column in the input data that is used to organize
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### First group property
 
 The name of the first group column in the range. All columns starting with this will be grouped.
@@ -46,8 +43,6 @@ The name of the first group column in the range. All columns starting with this 
 - ID: `firstGroupProperty`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Last group property
 
@@ -57,8 +52,6 @@ The name of the last group column in the range. If left empty, only the first co
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Value property
 
 The property that contains the grouped values that will be aggregated.
@@ -66,8 +59,6 @@ The property that contains the grouped values that will be aggregated.
 - ID: `valueProperty`
 - Datatype: `string`
 - Default Value: `None`
-
-
 
 ### Aggregation function
 
@@ -77,8 +68,6 @@ The aggregation function used to aggregate values.
 - Datatype: `enumeration`
 - Default Value: `sum`
 
-
-
 ### URI prefix
 
 Prefix to prepend to all generated pivot columns.
@@ -86,10 +75,6 @@ Prefix to prepend to all generated pivot columns.
 - ID: `uriPrefix`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

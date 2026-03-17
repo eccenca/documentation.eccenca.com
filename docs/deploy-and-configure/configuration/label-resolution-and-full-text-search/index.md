@@ -49,12 +49,11 @@ How labels are resolved is best explained using these default settings and some 
 - For `:Resource1` the label will be `Leipzig` as the english `rdfs:label` will be retrieved.
 - For `:Resource2` the label cannot be retrieved from the Knowledge Graph since no known property is used. Hence the fallback.
 - For `:Resource3` the label will be retrieved as `Stuttgart`, if the `languagePreferencesAnyLangFallback` is `true`.
-  - While there is a well-known property used, none of the used languages match. Using the fallback, the alphabetically first match is retrieved in this case.
+    - While there is a well-known property used, none of the used languages match. Using the fallback, the alphabetically first match is retrieved in this case.
 - For `:Resource4` multiple label candidates could be determined.
-  - In this case, `Another Label for Hanover` is retrieved as it is the first value in the alphanumerical comparison.
+    - In this case, `Another Label for Hanover` is retrieved as it is the first value in the alphanumerical comparison.
 
 ## Client API
 
 The label resolution functionality can also be used by client systems.
 This functionality is exposed as an [API endpoint](../../../develop/dataplatform-apis/index.md) (`<dp_url>/api/explore/title`).
-

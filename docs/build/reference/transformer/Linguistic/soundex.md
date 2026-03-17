@@ -2,13 +2,13 @@
 title: "Soundex"
 description: "Soundex algorithm."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Soundex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 This transformer plugin implements the **Soundex** phonetic algorithm for indexing names by their English sounds.
 
@@ -58,7 +58,7 @@ used by setting the plugin parameter `refined` to `true` (default). Its mapping 
 ### Soundex
 
 We can get an idea of the output of the Soundex algorithm using an online Soundex Converter such as
-https://www.mainegenealogy.net/soundex_converter.asp.
+<https://www.mainegenealogy.net/soundex_converter.asp>.
 
 * `robert` and `rupert` lead to the same Soundex index: `r163`.
 * `euler` leads to `e460`, `gauss` is `g200` and `hilbert` corresponds to `h416`.
@@ -68,7 +68,7 @@ https://www.mainegenealogy.net/soundex_converter.asp.
 * `braz` and `broz` lead to the same Refined Soundex index: `b1905`.
 * `caren`, `carren`, `coram`, `corran`, `curreen` and `curwen` are all encoded with `c30908`.
 * `hairs`, `hark`, `hars`, `hayers`, `heers` and `hiers` are all mapped to `h093`.
-* All sorts of variations of `lambard`, such as `lambart`, `lambert`, `lambird` or `lampaert`, lead to `l7081096`. 
+* All sorts of variations of `lambard`, such as `lambart`, `lambert`, `lambird` or `lampaert`, lead to `l7081096`.
 
 ## Related plugins
 
@@ -77,20 +77,15 @@ Other phonetic algorithms usually associated with Soundex are the variations or 
 and [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms. The corresponding linguistic transformer plugins
 are named accordingly.
 
-
 ## Parameter
 
 ### Refined
 
 No description
 
-- ID: `refined`
-- Datatype: `boolean`
-- Default Value: `true`
-
-
-
-
+* ID: `refined`
+* Datatype: `boolean`
+* Default Value: `true`
 
 ## Advanced Parameter
 

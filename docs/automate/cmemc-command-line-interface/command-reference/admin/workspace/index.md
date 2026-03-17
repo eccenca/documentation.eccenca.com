@@ -5,11 +5,12 @@ icon: material/folder-multiple-outline
 tags:
   - cmemc
 ---
+
 # admin workspace Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import, export and reload the project workspace.
-
 
 ## admin workspace export
 
@@ -19,14 +20,9 @@ Export the complete workspace (all projects) to a ZIP file.
 $ cmemc admin workspace export [OPTIONS] [FILE]
 ```
 
-
-
-
 Depending on the requested export type, this ZIP file contains either one Turtle file per project (type `rdfTurtle`) or a substructure of resource files and XML descriptions (type `xmlZip`).
 
 The file name is optional and will be generated with by the template if absent.
-
-
 
 ??? info "Options"
     ```text
@@ -49,12 +45,8 @@ The file name is optional and will be generated with by the template if absent.
 Import the workspace from a file.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace import [OPTIONS] FILE
+cmemc admin workspace import [OPTIONS] FILE
 ```
-
-
-
-
 
 ??? info "Options"
     ```text
@@ -67,10 +59,6 @@ $ cmemc admin workspace import [OPTIONS] FILE
 Reload the workspace from the backend.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace reload
+cmemc admin workspace reload
 ```
-
-
-
-
 

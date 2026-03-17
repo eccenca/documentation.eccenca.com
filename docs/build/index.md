@@ -15,7 +15,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
 
 <div class="grid cards" markdown>
 
--   :eccenca-application-dataintegration: Foundations: Introduction and Best Practices
+- :eccenca-application-dataintegration: Foundations: Introduction and Best Practices
 
     ---
 
@@ -25,7 +25,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
     - [Spark](spark/index.md) --- Explainer of Apache Spark and its integration within the BUILD platform.
 
--   :material-list-status: Tutorials
+- :material-list-status: Tutorials
 
     ---
 
@@ -39,14 +39,14 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Evaluate Jinja Template and Send an Email Message](evaluate-template/index.md) --- Template and send an email after a workflow execution.
     - [Link Intrusion Detection Systems to Open-Source INTelligence](tutorial-how-to-link-ids-to-osint/index.md) --- Link IDS data to OSINT sources.
 
--   :fontawesome-regular-snowflake: Patterns
+- :fontawesome-regular-snowflake: Patterns
 
     ---
 
     - [Reconfigure Workflow Tasks](workflow-reconfiguration/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
     - [Project and Global Variables](variables/index.md) --- Define and reuse variables across tasks and projects.
 
--   :material-book-open-variant-outline: Reference
+- :material-book-open-variant-outline: Reference
 
     ---
 
@@ -55,4 +55,3 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Task and Operator Reference](reference/index.md) --- Reference documentation for tasks and operators in the Build workspace.
 
 </div>
-

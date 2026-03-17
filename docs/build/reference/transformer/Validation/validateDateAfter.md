@@ -2,13 +2,13 @@
 title: "Validate date after"
 description: "Validates if the first input date is after the second input date. Outputs the first input if the validation is successful."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Validate date after
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 Validates if the first input date is after the second input date. Outputs the first input if the validation is successful.
 
@@ -26,7 +26,6 @@ Validates if the first input date is after the second input date. Outputs the fi
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
 ---
 **Example 2:**
 
@@ -35,7 +34,6 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[2015-04-04]`
-
 
 ---
 **Example 3:**
@@ -48,7 +46,6 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[2015-04-03]`
-
 
 ---
 **Example 4:**
@@ -63,22 +60,15 @@ Validates if the first input date is after the second input date. Outputs the fi
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
-
-
-
 ## Parameter
 
 ### Allow equal
 
 Allow both dates to be equal.
 
-- ID: `allowEqual`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `allowEqual`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

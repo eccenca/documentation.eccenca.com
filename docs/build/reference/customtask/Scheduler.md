@@ -2,13 +2,13 @@
 title: "Scheduler"
 description: "Executes a workflow at specified intervals."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Scheduler
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 The eccenca Build plugin `Scheduler` executes a given workflow at specified intervals.
 
@@ -46,7 +46,6 @@ _next_ period occurs. If the start time lies in the _future_, then this is simpl
 As mentioned, the `CancelWorkflow` plugin can be used on par in order to _cancel_ the otherwise never-ending execution
 of a workflow.
 
-
 ## Parameter
 
 ### Workflow
@@ -57,8 +56,6 @@ The name of the workflow to be executed
 - Datatype: `task`
 - Default Value: `None`
 
-
-
 ### Interval
 
 The interval at which the scheduler should run the referenced task. It must be in ISO-8601 duration format PnDTnHnMn.nS.
@@ -66,8 +63,6 @@ The interval at which the scheduler should run the referenced task. It must be i
 - ID: `interval`
 - Datatype: `duration`
 - Default Value: `PT15M`
-
-
 
 ### Start time
 
@@ -77,8 +72,6 @@ The time when the scheduled task is run for the first time, e.g., 2017-12-03T10:
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Enabled
 
 Enables or disables the scheduler. It's enabled by default.
@@ -87,8 +80,6 @@ Enables or disables the scheduler. It's enabled by default.
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
 ### Stop on error
 
 If set to true, this will stop the scheduler, so the failed task is not scheduled again for execution.
@@ -96,10 +87,6 @@ If set to true, this will stop the scheduler, so the failed task is not schedule
 - ID: `stopOnError`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
-
-
 
 ## Advanced Parameter
 

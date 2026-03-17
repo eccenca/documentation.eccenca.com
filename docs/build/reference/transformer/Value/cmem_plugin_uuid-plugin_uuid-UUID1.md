@@ -2,11 +2,13 @@
 title: "UUID1"
 description: "Generate a UUIDv1 from a host ID, sequence number, and the current time"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # UUID1
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -15,11 +17,8 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-
 UUIDv1 is generated from a host ID, sequence number, and the current
 time.
-
-
 
 ## Parameter
 
@@ -31,8 +30,6 @@ Node value in the form "01:23:45:67:89:AB", 01-23-45-67-89-AB", or "0123456789AB
 - Datatype: `string`
 - Default Value: `None`
 
-
-
 ### Clock sequence (default: random)
 
 If clock sequence is given, it is used as the sequence number. Otherwise a random 14-bit sequence number is chosen.
@@ -40,10 +37,6 @@ If clock sequence is given, it is used as the sequence number. Otherwise a rando
 - ID: `clock_seq`
 - Datatype: `string`
 - Default Value: `None`
-
-
-
-
 
 ## Advanced Parameter
 

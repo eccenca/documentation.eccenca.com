@@ -2,13 +2,13 @@
 title: "Regex selection"
 description: "This transformer takes 3 inputs: one output value, multiple regex patterns, and a value to check against those patterns. It returns the output value at positions where regex patterns match the input value."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex selection
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
-
-
 
 ## Description of the plugin
 
@@ -69,7 +69,6 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , output]`
 
-
 ---
 **return only first match position if oneOnly = true:**
 
@@ -83,22 +82,15 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , ]`
 
-
-
-
 ## Parameter
 
 ### One only
 
 No description
 
-- ID: `oneOnly`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
-
+* ID: `oneOnly`
+* Datatype: `boolean`
+* Default Value: `false`
 
 ## Advanced Parameter
 

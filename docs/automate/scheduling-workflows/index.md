@@ -30,7 +30,6 @@ Once you are ready with the configurations, click **Create** button. Now, the sc
 
 ![Create a Scheduler](22-1-CreateScheduler.gif "Create a Scheduler")
 
-
 ## Modify, enable or disable a scheduler
 
 1. Navigate to **Build → Projects** section in the workspace.
@@ -62,4 +61,3 @@ More common examples:
 - `PT30M` - every half hour
 - `PT1H` - every hour
 - `P1D` - every day
-

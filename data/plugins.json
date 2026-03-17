@@ -122,6 +122,28 @@
     ],
     "pluginType": "customtask"
   },
+  "clearDataset": {
+    "pluginId": "clearDataset",
+    "title": "Clear dataset",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Clears the dataset that is connected to the output of this operator.",
+    "markdownDocumentation": "Clears the dataset that is connected to the output of this operator.\n",
+    "pluginIcon": null,
+    "properties": {},
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask"
+    ],
+    "pluginType": "customtask"
+  },
   "combine-csv": {
     "pluginId": "combine-csv",
     "title": "Combine CSV files",
@@ -716,7 +738,7 @@
       "authorizationHeaderValue": {
         "name": "authorizationHeaderValue",
         "title": "Authorization header value",
-        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.",
+        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`.This config parameter will be encrypted in the backend.",
         "type": "string",
         "parameterType": "password",
         "value": "",
@@ -1833,7 +1855,7 @@
       "authorizationHeaderValue": {
         "name": "authorizationHeaderValue",
         "title": "Authorization header value",
-        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.",
+        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`.This config parameter will be encrypted in the backend.",
         "type": "string",
         "parameterType": "password",
         "value": "",
@@ -2000,7 +2022,7 @@
       "authorizationHeader": {
         "name": "authorizationHeader",
         "title": "Authorization header",
-        "description": "The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'If left empty, no authorization header is sent.",
+        "description": "The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'. If left empty, no authorization header is sent.",
         "type": "string",
         "parameterType": "string",
         "value": "",
@@ -2011,7 +2033,7 @@
       "authorizationHeaderValue": {
         "name": "authorizationHeaderValue",
         "title": "Authorization header value",
-        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.",
+        "description": "The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`. This config parameter will be encrypted in the backend.",
         "type": "string",
         "parameterType": "password",
         "value": "",
@@ -2489,7 +2511,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Generate SHACL node and property shapes from a data graph",
-    "markdownDocumentation": "A task to generate SHACL node and property shapes from an instance data knowledge graph.\n    \n## Parameters\n\n**<a id=\"parameter_doc_data_graph_iri\">Input data graph</a>**\n\nThe knowledge graph containing the instance data to be analyzed for the SHACL shapes generation.\n\n**<a id=\"parameter_doc_shapes_graph_iri\">Output Shape Catalog</a>**\n\nThe knowledge graph, the generated shapes will be added to.\n\n**<a id=\"parameter_doc_label\">Output shape catalog label</a>**\n\nThe label for the shape catalog graph. If no label is specified for a new shapes graph, a label will be generated. If\nno label is specified when adding to a shapes graph, the original label will be kept, or, if the existing graph does not have\na label, a label will be generated. Only labels with language tag \"en\" or without language tag are considered.\n\n**<a id=\"parameter_doc_existing_graph\">Handle existing output graph</a>**\n\nAdd result to the existing graph (add result to graph), overwrite the existing graph with the result (replace existing\ngraph with result), or stop the workflow if the output graph already exists (stop workflow if output graph exists).\n\n**<a id=\"parameter_doc_import_shapes\">Import the output graph into the central shapes catalog</a>**\n\nImport the SHACL shapes graph in the CMEM shapes catalog by adding an `owl:imports` statement to the central CMEM shapes catalog.\nIf the graph is not imported, the new shapes are not activated and used.\n\n**<a id=\"parameter_doc_prefix_cc\">Fetch namespace prefixes from prefix.cc</a>**\n\nFetch the list of namespace prefixes from https://prefix.cc instead of using the local prefix database. If unavailable, \nfall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this \noption exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See\nhttps://prefix.cc/about.\n\n**<a id=\"parameter_doc_ignore_properties\">Properties to ignore</a>**\n\nProvide the list of properties (as IRIs) for which you do not want to create property shapes.\nExample:\n```\nhttp://www.w3.org/1999/02/22-rdf-syntax-ns#type\nhttp://xmlns.com/foaf/0.1/familyName\n```\n\n**<a id=\"parameter_doc_plugin_provenance\">Include plugin provenance</a>**\n\nAdd information about the plugin and plugin settings to the shapes graph.\n",
+    "markdownDocumentation": "This workflow task generates SHACL (Shapes Constraint Language)\nnode and property shapes by analyzing instance data from a knowledge graph. The generated\nshapes describe the structure and properties of the classes used in the data graph.\n\n## Usage\n\nThe plugin analyzes an input data graph and creates:\n\n- **Node shapes**: One for each class (`rdf:type`) used in the data graph\n- **Property shapes**: For all properties associated with each class, including:\n  - Regular object properties (subject \u2192 object relationships)\n  - Inverse object properties (object \u2190 subject relationships, marked with \u2190 prefix)\n  - Datatype properties (literal values)\n\n## Output\n\nThe generated shapes are written to a shape catalog graph with:\n\n- Unique URIs based on UUIDs (UUID5 derived from class/property IRIs)\n- Human-readable labels and names (using namespace prefixes when available)\n- Metadata including source data graph reference and timestamps\n- Optional plugin provenance information (see advanced options)\n\n## Example\n\nGiven a data graph with:\n\n``` turtle\nex:Person123 a ex:Person ;\n    ex:name \"John\" ;\n    ex:knows ex:Person456 .\n```\n\nThe plugin generates:\n\n- A node shape for `ex:Person` with `sh:targetClass ex:Person`\n\n``` turtle\ngraph:90ee6e27-59b1-5ac8-9d7a-116c60c6791a a sh:NodeShape ;\n  rdfs:label \"Person (ex:)\"@en ;\n  sh:name \"Person (ex:)\"@en ;\n  sh:property\n    graph:0fcf371d-f99a-5eeb-ab50-6e6b5fbb0e06 ,\n    graph:dd5c6728-75a2-5215-8a5d-f9cd4077aaea ;\n  sh:targetClass ex:Person .\n```\n\n- Property shapes for `ex:name` (datatype property) and `ex:knows` (object property)\n\n``` turtle\ngraph:0fcf371d-f99a-5eeb-ab50-6e6b5fbb0e06 a sh:PropertyShape ;\n  rdfs:label \"knows (ex:)\"@en ;\n  sh:name \"knows (ex:)\"@en ;\n  sh:nodeKind sh:IRI ;\n  sh:path ex:knows ;\n  shui:showAlways true .\n```\n\n",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii01NSAtMjAgNTk3LjMzNSA1OTcuMzM1Ij4NCiAgICA8bWFzayBpZD0ibSI+DQogICAgICAgIDxyZWN0IHk9IjQwLjQ3MyIgd2lkdGg9IjQ4NC44NjIiIGhlaWdodD0iNDg0Ljg2MiIgZmlsbD0id2hpdGUiLz4NCiAgICAgICAgPHJlY3QgeT0iNTAuODA4IiB4PSI5LjQ3NyIgZmlsbD0iYmxhY2siIHdpZHRoPSI0NjQuMTkyIiBoZWlnaHQ9IjMyOS44NDciLz4NCiAgICAgICAgPHRleHQgdHJhbnNmb3JtPSJzY2FsZSgwLjkzLDEpIiB5PSI0OTgiIHg9IjQ3IiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIxMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJibGFjayI+U0g8dHNwYW4ga2VybmluZz0iLTMiPkE8L3RzcGFuPkNMPC90ZXh0Pg0KICAgICAgICA8cGF0aCBkPSJNMzgzLjQ3NiwyNjcuMzQzYy0yLjU0NC0xLjM0Ni01LjE0LTIuNDkzLTcuNzQzLTMuNTE2bDEuODYzLTAuMTVjMCwwLTE2LjYwOC03LjM1NC0xOC4wNTctNjAuNzIyICBjLTEuNDM4LTUzLjM3MiwxNS44MjgtNjIuNDc4LDE1LjgyOC02Mi40NzhsLTIuNDgsMC4xMDljMTMuMDQ1LTYuNjksMjQuMjY1LTE3LjI2NywzMS42NjktMzEuMjE2ICBjMTkuMjk1LTM2LjI5MSw1LjQ4OC04MS4zNjItMzAuODEtMTAwLjY1N0MzMzcuNDM2LTEwLjU2MywyOTIuMzc0LDMuMjA3LDI3My4wOSwzOS41M2MtNy45MjcsMTQuODk5LTEwLjE3OCwzMS4yNzMtNy42NzcsNDYuNzMzICBsLTAuODUxLTEuMzA2YzAsMCw0LjM3MywxOS4zNjUtNDEuMDMyLDQ3LjU1Yy00NS4zOTcsMjguMi02NS44NzcsMTQuMTU5LTY1Ljg3NywxNC4xNTlsMS4zMDIsMS45MjUgIGMtMS4yOTgtMC44MDMtMi41NDQtMS42MjQtMy45MDEtMi4zMzNjLTM2LjMwNi0xOS4yOTQtODEuMzgtNS41MDktMTAwLjY2NywzMC44MDRjLTE5LjI4MSwzNi4zMDktNS40ODksODEuMzY1LDMwLjgxMywxMDAuNjY4ICBjMjcuMDY0LDE0LjM2NCw1OC45NzQsMTAuMzYsODEuNDYxLTcuNjU1bC0wLjQ4NywwLjk0NmMwLDAsMTYuNTMxLTEzLjU5OSw2NC4xNiwxMS45NzNjMzcuNjAxLDIwLjE3OCw0My4xODQsMzkuOTU2LDQzLjg5OSw0Ny4zODMgIGMtMC45ODMsMjcuNTcsMTMuMzg4LDU0LjYxOCwzOS4zODksNjguNDMzYzM2LjMwMSwxOS4yOTksODEuMzc0LDUuNDk4LDEwMC42NTctMzAuODA0ICBDNDMzLjU3MSwzMzEuNzA0LDQxOS43ODYsMjg2LjYyNCwzODMuNDc2LDI2Ny4zNDN6IE0yOTkuNTQyLDI3Ny4xMjhjLTYuMDE4LDIuMTI5LTIzLjIwMyw0LjQ4Ny01OS4zODktMTQuOTIxICBjLTM5LjE4Ny0yMS4wNC00NS4wMDUtMzguNjE1LTQ1Ljg1NS00My44OTFjMC41NTctNi40MDEsMC4yMDItMTIuNzkxLTAuODkxLTE5LjAybDAuMjM5LDAuMzU5YzAsMC0zLjE4OS0xNy4wOTYsNDEuNjUtNDQuOTQzICBjNDAuMTMzLTI0LjkwOCw1OC4zNzYtMTkuOTU1LDYxLjc3MS0xOC42NTNjMi4xODUsMS40ODUsNC40NSwyLjg2Nyw2LjgyNSw0LjEzMWM0LjUxOCwyLjM5OCw5LjE3NCw0LjI4MywxMy44ODgsNS42NzIgIGM1LjUyLDUuMjU3LDE1LjY3OCwyMC4xNzgsMTYuNzMzLDU5LjQxM2MxLjA3OCwzOS41MzUtMTAuNTMzLDU0Ljc3OS0xNi44NjUsNjAuMTY4QzMxMS4xMjIsMjY4LjM5OSwzMDUuMDIyLDI3Mi4zNCwyOTkuNTQyLDI3Ny4xMjggIHoiIGZpbGw9IndoaXRlIiBzdHJva2U9ImJsYWNrIi8+DQogICAgICAgIDxwYXRoIGQ9Ik0yOTQuNjMxLDMyLjRjLTIxLjY1OSwyMy42OTQtMjIuMTE4LDU4LjU0NC0xLjI0Niw3OC4yNjRjLTEwLjMxNi05LjkzNS0xMC4wOTMtMzAuNjA4LDAuMzMtNTAuMzg3ICAgYzEuMzQyLTEuNzc0LDUuMjI0LTUuOTYxLDEwLjg5OC00LjA1NWMwLjU2OSwwLjE5NCwwLjk1MSwwLjI0NSwxLjE3LDAuMjEzYzEuMjg0LDAuMjc4LDIuNjAxLDAuNDM5LDMuOTYsMC4zODEgICBjOC42MjItMC4zOTMsMTUuMjg4LTcuNjg0LDE0Ljg5OC0xNi4zMDdjLTAuMTc1LTMuODY4LTEuNzgtNy4yOTItNC4yNi05LjkyYzIwLjAwNy0xMy4xMDcsNDIuOTY4LTE0LjYxLDUyLjM3NS02LjAxNmwwLjM1OSwwLjAyNSAgIEMzNTEuNjI1LDQuOTcsMzE2LjQ5Myw4LjQ3NiwyOTQuNjMxLDMyLjR6IiBmaWxsPSJibGFjayIvPg0KICAgICAgICA8cGF0aCBkPSJNNzYuODk0LDE3Mi41MmMtMjEuNjYzLDIzLjY5NC0yMi4xMTQsNTguNTQxLTEuMjUxLDc4LjI2NGMtMTAuMzEzLTkuOTM1LTEwLjA5Mi0zMC42MDgsMC4zMzEtNTAuMzg3ICAgYzEuMzQ1LTEuNzc4LDUuMjMxLTUuOTYxLDEwLjkwNi00LjA1NWMwLjU2NSwwLjE5NSwwLjk0NiwwLjI0MiwxLjE2NywwLjIxMmMxLjI4MywwLjI3NSwyLjYwMywwLjQ0LDMuOTU5LDAuMzc3ICAgYzguNjIzLTAuMzkyLDE1LjI4OC03LjY4NCwxNC44OTktMTYuMzAzYy0wLjE3OS0zLjg2Ny0xLjc4Mi03LjI5Ni00LjI1Mi05LjkyYzE5Ljk5NS0xMy4xMDcsNDIuOTU5LTE0LjYxNyw1Mi4zNjYtNi4wMjEgICBsMC4zNTUsMC4wM0MxMzMuODkxLDE0NS4wODYsOTguNzUxLDE0OC41OTEsNzYuODk0LDE3Mi41MnoiIGZpbGw9ImJsYWNrIi8+DQogICAgICAgIDxwYXRoIGQ9Ik0zMDcuMzksMjkxLjE0NWMtMjEuNjY2LDIzLjcwNC0yMi4xMTgsNTguNTUzLTEuMjU0LDc4LjI3NmMtMTAuMzE3LTkuOTM1LTEwLjA5LTMwLjYxMSwwLjMzMS01MC4zODggICBjMS4zNDQtMS43ODEsNS4yMjctNS45NiwxMC45MDYtNC4wNTNjMC41NjgsMC4xODksMC45NDEsMC4yNDIsMS4xNjYsMC4yMTJjMS4yODIsMC4yNzcsMi42MDUsMC40NCwzLjk2MywwLjM4MSAgIGM4LjYxNy0wLjM5NiwxNS4yOC03LjY5MiwxNC44OTEtMTYuMzJjLTAuMTc2LTMuODY0LTEuNzgxLTcuMjg4LTQuMjUyLTkuOTE3YzIwLjAwMi0xMy4xMDMsNDIuOTU5LTE0LjYxLDUyLjM3LTYuMDE2bDAuMzU1LDAuMDI5ICAgQzM2NC4zODMsMjYzLjcxOCwzMjkuMjQxLDI2Ny4yMjYsMzA3LjM5LDI5MS4xNDV6IiBmaWxsPSJibGFjayIvPg0KICAgIDwvbWFzaz4NCiAgICA8cmVjdCB5PSIwIiB3aWR0aD0iNTI3LjMzNSIgaGVpZ2h0PSI1MjcuMzM1IiBmaWxsPSJjdXJyZW50Q29sb3IiIG1hc2s9InVybCgjbSkiLz4NCiAgICA8cmVjdCB5PSIzMTAiIHg9IjI1IiBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgLz4NCiAgICA8Y2lyY2xlIHI9IjI4IiBjeD0iMTE5IiBjeT0iMzM4IiBmaWxsPSJjdXJyZW50Q29sb3IiIC8+DQogICAgPHBvbHlnb24gcG9pbnRzPSIxODIsMzEwIDE1MCwzNjYgMjE2LDM2NiIgZmlsbD0iY3VycmVudENvbG9yIiAvPg0KPC9zdmc+DQo=",
     "properties": {
       "data_graph_iri": {
@@ -2567,6 +2589,17 @@
         "type": "string",
         "parameterType": "multiline string",
         "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_types": {
+        "name": "ignore_types",
+        "title": "Types to ignore",
+        "description": "Provide the list of types (as IRIs) to ignore.",
+        "type": "string",
+        "parameterType": "multiline string",
+        "value": "",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -4432,6 +4465,278 @@
     ],
     "pluginType": "customtask"
   },
+  "cmem_plugin_reason-plugin_reason-ReasonPlugin": {
+    "pluginId": "cmem_plugin_reason-plugin_reason-ReasonPlugin",
+    "title": "Reason",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Performs OWL reasoning.",
+    "markdownDocumentation": "A task performing OWL reasoning. With an OWL ontology and a data graph as input the reasoning result is written to a specified graph.\n    \n## Options\n\n### Data graph IRI\n\nThe IRI of the input data graph. The graph IRI is selected from a list of graphs of types `di:Dataset`, `void:Dataset`\nand `owl:Ontology`.\n\n### Ontology graph IRI\n\nThe IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type`owl:Ontology`.\n\n### Ignore missing imports\n\nIf enabled, missing imports (`owl:imports`) in the input graphs are ignored.\n\n### Output graph IRI\n\nThe IRI of the output graph for the reasoning result.\n\n\u26a0\ufe0f Existing graphs will be overwritten.\n\n### Reasoner\n\nThe following reasoner options are supported: \n- [ELK](https://code.google.com/p/elk-reasoner/) (elk)\n- [Expression Materializing Reasoner](http://static.javadoc.io/org.geneontology/expression-materializing-reasoner/0.1.3/org/geneontology/reasoner/ExpressionMaterializingReasoner.html) (emr)\n- [HermiT](http://www.hermit-reasoner.com/) (hermit)\n- [JFact](http://jfact.sourceforge.net/) (jfact)\n- [Structural Reasoner](http://owlcs.github.io/owlapi/apidocs_4/org/semanticweb/owlapi/reasoner/structural/StructuralReasoner.html) (structural)\n- [Whelk](https://github.com/balhoff/whelk) (whelk)\n\n### Generated Axioms\n\nThe plugin provides the following parameters to include inferred axiom generators:\n\n#### Class axiom generators\n- **Class inclusion (rdfs:subClassOf)**  \nThe reasoner will infer assertions about the hierarchy of classes, i.e.\n`SubClassOf:` statements.  \nIf there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:\nStudent, Professor` holds, the reasoner will infer `Student SubClassOf: Person`.  \n\n\n- **Class equivalence (owl:equivalentClass)**  \nThe reasoner will infer assertions about the equivalence of classes, i.e.\n`EquivalentTo:` statements.  \nIf there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:\nStudent, Professor` holds, the reasoner will infer `Person EquivalentTo: Student and Professor`.\n\n\n- **Class disjointness (owl:disjointWith)**  \nThe reasoner will infer assertions about the disjointness of classes, i.e.\n`DisjointClasses:` statements.  \nIf there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:\nStudent, Professor` holds, the reasoner will infer `DisjointClasses: Student, Professor`.\n\n  \n- **Data property equivalence (owl:equivalentProperty)**  \nThe reasoner will infer axioms about the equivalence of data properties,\n i.e. `EquivalentProperties` statements.  \nIf there are data properties `identifier` and `enrollmentNumber`, such that `enrollmentNumber\nSubPropertyOf: identifier` and `identifier SubPropertyOf: enrollmentNumber` holds, the reasoner\nwill infer `Student EquivalentProperties: identifier, enrollmentNumber`.\n\n\n- **Data property inclusion (rdfs:subPropertyOf)**  \nThe reasoner will infer axioms about the hierarchy of data properties,\ni.e. `SubPropertyOf:` statements.  \nIf there are data properties `identifier`, `studentIdentifier` and `enrollmentNumber`, such that\n`studentIdentifier SubPropertyOf: identifier` and `enrollmentNumber SubPropertyOf:\nstudentIdentifier` holds, the reasoner will infer `enrollmentNumber SubPropertyOf: identifier`.\n\n\n#### Individual axiom generators\n- **Individual class assertions (rdf:type)**  \nThe reasoner will infer assertions about the classes of individuals, i.e.\n`Types:` statements.  \nAssume, there are classes `Person`, `Student` and `University` as well as the property\n`enrolledIn`, such that `Student EquivalentTo: Person and enrolledIn some University` holds. For\nthe individual `John` with the assertions `John Types: Person; Facts: enrolledIn\nLeipzigUniversity`, the reasoner will infer `John Types: Student`.\n\n\n- **Individual property assertions**  \nThe reasoner will infer assertions about the properties of individuals,\ni.e. `Facts:` statements.  \nAssume, there are properties `enrolledIn` and `offers`, such that `enrolled SubPropertyChain:\nenrolledIn o inverse (offers)` holds. For the individuals `John`and `LeipzigUniversity` with the\nassertions `John Facts: enrolledIn KnowledgeRepresentation` and `LeipzigUniversity Facts: offers\nKnowledgeRepresentation`,  the reasoner will infer `John Facts: enrolledIn LeipzigUniversity`.\n\n\n#### Object property axiom generators\n- **Object property equivalence (owl:equivalentProperty)**  \nThe reasoner will infer assertions about the equivalence of object\nproperties, i.e. `EquivalentTo:` statements.  \nIf there are object properties `hasAlternativeLecture` and `hasSameTopicAs`, such that\n`hasAlternativeLecture Characteristics: Symmetric` and `hasSameTopicAs InverseOf:\nhasAlternativeLecture` holds, the reasoner will infer `EquivalentProperties: hasAlternativeLecture,\nhasSameTopicAs`.\n\n\n- **Object property inversion (owl:inverseOf)**  \nThe reasoner will infer axioms about the inversion about object\nproperties, i.e. `InverseOf:` statements.  \nIf there is a object property `hasAlternativeLecture`, such that `hasAlternativeLecture\nCharacteristics: Symmetric` holds, the reasoner will infer `hasAlternativeLecture InverseOf:\nhasAlternativeLecture`.\n\n\n- **Object property inclusion (rdfs:subPropertyOf)**  \nThe reasoner will infer axioms about the inclusion of object properties,\ni.e. `SubPropertyOf:` statements.  \nIf there are object properties `enrolledIn`, `studentOf` and `hasStudent`, such that `enrolledIn\nSubPropertyOf: studentOf` and `enrolledIn InverseOf: hasStudent` holds, the reasoner will infer\n`hasStudent SubPropertyOf: inverse (studentOf)`.\n\n\n- **Object property ranges (rdfs:range)**  \nThe reasoner will infer axioms about the ranges of object properties,\ni.e. `Range:` statements.  \nIf there are classes `Student` and `Lecture` as wells as object properties `hasStudent` and\n`enrolledIn`, such that `hasStudent Range: Student and enrolledIn some Lecture` holds, the\nreasoner will infer `hasStudent Range: Student`.\n\n\n- **Object property domains (rdfs:domain)**  \nThe reasoner will infer axioms about the domains of object\nproperties, i.e. `Domain:` statements.  \nIf there are classes `Person`, `Student` and `Professor` as wells as the object property\n`hasRoleIn`, such that `Professor SubClassOf: Person`, `Student SubClassOf: Person` and\n`hasRoleIn Domain: Professor or Student` holds, the reasoner will infer `hasRoleIn Domain: Person`.\n\n\n### Validate OWL2 profiles\n\nValidate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph. \n\n### Process valid OWL profiles from input\n\nIf enabled along with the \"Validate OWL2 profiles\" parameter, the valid profiles, ontology IRI and reasoner option is\ntaken from the config port input (parameters \"valid_profiles\", \"ontology_graph_iri\" and \"reasoner\") and the OWL2\nprofiles validation is not done in the plugin. The valid profiles input is a comma-separated string (e.g. \"Full,DL\").\n\n### Output graph import\n\nAdd the triple <output_graph_iri> owl:imports <ontology_graph_iri> into the output graph or add the triple\n<ontology_graph_iri> owl:imports <output_graph_iri> into the ontology graph.\n\n### Maximum RAM Percentage\n\nMaximum heap size for the Java virtual machine in the DI container running the reasoning process.\n\n\u26a0\ufe0f Setting the percentage too high may result in an out of memory error.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSItMiAwIDI4IDI0Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTcuMTUyIDMuMDEyYy44MzItLjY0OCAxLjkyLTEuMDA2IDMuMDAxLTEuMDA2Yy42NDcgMCAxLjE3LjIyMiAxLjU2Ny41NzVxLjE2LjE0NC4yODcuMzA0cS4xMjctLjE2LjI4Ny0uMzA0Yy4zOTctLjM1My45Mi0uNTc1IDEuNTY3LS41NzVjMS4wODEgMCAyLjE3LjM1OCAzIDEuMDA2Yy42NDguNTAzIDEuMTU1IDEuMTk4IDEuMzU0IDIuMDM3Yy40Mi4wNy43OTMuMjg0IDEuMDk1LjU2N2MuNDguNDUxLjgyMyAxLjEwMyAxLjAzOCAxLjc3NGMuMjE5LjY4MS4zMjggMS40NDYuMjk1IDIuMTgxYy0uMDE3LjM3Ni0uMDcyLjc2LS4xNzcgMS4xMjdsLjA2NS4wM2MuMzcuMTc0LjY3LjQ0Ny44OTUuODFjLjQyNS42ODUuNTc1IDEuNjcxLjU3NSAyLjkyOGMwIDEuNDQ1LS41NTMgMi40MjYtMS4yNjMgMy4wMzVhMy40NSAzLjQ1IDAgMCAxLTEuMjcuNjlhNS4yIDUuMiAwIDAgMS0xLjAxOCAyLjEzN2MtLjcyMy45MDQtMS44NDcgMS42NjgtMy4zNTcgMS42NjhjLTEuMjEgMC0yLjE2My0uNjctMi43NzUtMS4zMWE1IDUgMCAwIDEtLjMxLS4zNTdhNSA1IDAgMCAxLS4zMTEuMzU2Yy0uNjEyLjY0Mi0xLjU2NSAxLjMxMS0yLjc3NSAxLjMxMWMtMS41MTEgMC0yLjYzNS0uNzY0LTMuMzU3LTEuNjY4YTUuMiA1LjIgMCAwIDEtMS4wMi0yLjEzN2EzLjQ1IDMuNDUgMCAwIDEtMS4yNjktLjY5Yy0uNzEtLjYxLTEuMjYyLTEuNTktMS4yNjItMy4wMzVjMC0xLjI1Ny4xNS0yLjI0My41NzQtMi45MjhhMi4xIDIuMSAwIDAgMSAuOTYtLjg0YTUgNSAwIDAgMS0uMTc3LTEuMTI3Yy0uMDMzLS43MzUuMDc2LTEuNS4yOTUtMi4xODFjLjIxNS0uNjcuNTU3LTEuMzIzIDEuMDM4LTEuNzc0YTIuMSAyLjEgMCAwIDEgMS4wOTUtLjU2N2MuMi0uODQuNzA2LTEuNTM0IDEuMzUzLTIuMDM3bS45MjIgMS4xODNjLS41NDYuNDI1LS44NjYuOTkxLS44NjYgMS42NDNhLjc1Ljc1IDAgMCAxLS45ODcuNzExYy0uMTM3LS4wNDYtLjI4Mi0uMDM1LS40OS4xNjFjLS4yMzIuMjE3LS40NjcuNjEtLjYzNyAxLjEzOGE0LjggNC44IDAgMCAwLS4yMjQgMS42NTZjLjAyNS41NTYuMTU3IDEuMDE4LjM2NSAxLjMzYS44LjggMCAwIDEgLjA4My4xNjZINi40YTIuODUgMi44NSAwIDAgMSAyLjg0MyAyLjY0MmEyIDIgMCAxIDEtMS41MDcuMDFBMS4zNSAxLjM1IDAgMCAwIDYuNCAxMi41SDMuNzc1Yy0uMTUuMzQ4LS4yNjEuOTQ5LS4yNjEgMS45NjZjMCAxLjAyMS4zNzEgMS41ODEuNzM5IDEuODk3Yy40MDMuMzQ1Ljg0Ni40MzUuOTc0LjQzNWEuNzUuNzUgMCAwIDEgLjc1Ljc1YzAgLjQyLjIzMiAxLjE4My43NiAxLjg0M2MuNTA4LjYzNyAxLjIzMiAxLjEwNSAyLjE4NSAxLjEwNWMuNjM3IDAgMS4yMjMtLjM1OCAxLjY5LS44NDZjLjIyNi0uMjM4LjQwMi0uNDg1LjUxOC0uNjg1YTIgMiAwIDAgMCAuMTE1LS4yMzNsLjAwNi0uMDE0VjkuMjVoLS44OTZhMiAyIDAgMSAxIDAtMS41aC44OTZWNS4yMTJsLS4wMDMtLjA1N2EzLjMgMy4zIDAgMCAwLS4xOC0uOTAzYy0uMDktLjI0LS4yMDctLjQyNy0uMzQ1LS41NWMtLjEyMy0uMTEtLjI5My0uMTk2LS41Ny0uMTk2Yy0uNzY2IDAtMS41MjUuMjU4LTIuMDguNjlNMTIuNzY0IDE3djEuNzE4bC4wMDUuMDE0cS4wMy4wOC4xMTYuMjMzYy4xMTUuMi4yOTEuNDQ3LjUxOC42ODVjLjQ2Ni40ODggMS4wNTMuODQ2IDEuNjkuODQ2Yy45NTIgMCAxLjY3Ni0uNDY4IDIuMTg1LTEuMTA1Yy41MjctLjY2Ljc2LTEuNDI0Ljc2LTEuODQzYS43NS43NSAwIDAgMSAuNzUtLjc1Yy4xMjggMCAuNTctLjA5Ljk3NC0uNDM1Yy4zNjctLjMxNi43MzgtLjg3Ni43MzgtMS44OTdjMC0xLjIwOC0uMTU4LTEuODMtLjM0OS0yLjEzN2EuNi42IDAgMCAwLS4yNi0uMjQ1Yy0uMTAxLS4wNDgtLjI1My0uMDg0LS40ODgtLjA4NGEuNzUuNzUgMCAwIDEtLjYyNC0xLjE2NmMuMjA4LS4zMTIuMzQtLjc3NC4zNjYtMS4zM2E0LjggNC44IDAgMCAwLS4yMjUtMS42NTZjLS4xNy0uNTI4LS40MDUtLjkyLS42MzYtMS4xMzhjLS4yMDktLjE5Ni0uMzU0LS4yMDctLjQ5LS4xNjFhLjc1Ljc1IDAgMCAxLS45ODgtLjcxMWMwLS42NTItLjMyLTEuMjE4LS44NjYtMS42NDNjLS41NTMtLjQzMS0xLjMxMy0uNjktMi4wOC0uNjljLS4yNzYgMC0uNDQ1LjA4Ny0uNTY5LjE5NmExLjQgMS40IDAgMCAwLS4zNDQuNTVhMyAzIDAgMCAwLS4xODMuOTYxVjE1LjVoLjYzNmExLjM1IDEuMzUgMCAwIDAgMS4zNS0xLjM1di0xLjc5NWEyIDIgMCAxIDEgMS41IDB2MS43OTVBMi44NSAyLjg1IDAgMCAxIDEzLjQgMTd6TTguNSA4YS41LjUgMCAxIDAgMCAxYS41LjUgMCAwIDAgMC0xTTggMTUuNWEuNS41IDAgMSAwIDEgMGEuNS41IDAgMCAwLTEgMG03LTVhLjUuNSAwIDEgMCAxIDBhLjUuNSAwIDAgMC0xIDAiIC8+Cjwvc3ZnPg==",
+    "properties": {
+      "data_graph_iri": {
+        "name": "data_graph_iri",
+        "title": "Data graph IRI",
+        "description": "The IRI of the input data graph.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ontology_graph_iri": {
+        "name": "ontology_graph_iri",
+        "title": "Ontology graph IRI",
+        "description": "The IRI of the input ontology graph.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_missing_imports": {
+        "name": "ignore_missing_imports",
+        "title": "Ignore missing imports",
+        "description": "Ignore missing graphs from the import tree of the input graphs.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "output_graph_iri": {
+        "name": "output_graph_iri",
+        "title": "Output graph IRI",
+        "description": "The IRI of the output graph for the reasoning result. \u26a0\ufe0f Existing graphs will be overwritten.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "reasoner": {
+        "name": "reasoner",
+        "title": "Reasoner",
+        "description": "Reasoner option.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "class_assertion": {
+        "name": "class_assertion",
+        "title": "Individual class assertions (rdf:type)",
+        "description": "The reasoner will infer assertions about the classes of individuals, i.e. `Types:` statements. Assume, there are classes `Person`, `Student` and `University` as well as the property `enrolledIn`, such that `Student EquivalentTo: Person and enrolledIn some University` holds. For the individual `John` with the assertions `John Types: Person; Facts: enrolledIn LeipzigUniversity`, the reasoner will infer `John Types: Student`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "true",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "property_assertion": {
+        "name": "property_assertion",
+        "title": "Individual property assertions",
+        "description": "The reasoner will infer assertions about the properties of individuals, i.e. `Facts:` statements. Assume, there are properties `enrolledIn` and `offers`, such that `enrolled SubPropertyChain: enrolledIn o inverse (offers)` holds. For the individuals `John`and `LeipzigUniversity` with the assertions `John Facts: enrolledIn KnowledgeRepresentation` and `LeipzigUniversity Facts: offers KnowledgeRepresentation`, the reasoner will infer `John Facts: enrolledIn LeipzigUniversity`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "true",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "sub_class": {
+        "name": "sub_class",
+        "title": "Class inclusion (rdfs:subClassOf)",
+        "description": "The reasoner will infer assertions about the hierarchy of classes, i.e. `SubClassOf:` statements. If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf: Student, Professor` holds, the reasoner will infer `Student SubClassOf: Person`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "equivalent_class": {
+        "name": "equivalent_class",
+        "title": "Class equivalence (owl:equivalentClass)",
+        "description": "The reasoner will infer assertions about the equivalence of classes, i.e. `EquivalentTo:` statements. If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf: Student, Professor` holds, the reasoner will infer `Person EquivalentTo: Student and Professor`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "disjoint_classes": {
+        "name": "disjoint_classes",
+        "title": "Class disjointness (owl:disjointWith)",
+        "description": "The reasoner will infer assertions about the disjointness of classes, i.e. `DisjointClasses:` statements. If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf: Student, Professor` holds, the reasoner will infer `DisjointClasses: Student, Professor`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "sub_object_property": {
+        "name": "sub_object_property",
+        "title": "Object property inclusion (rdfs:subPropertyOf)",
+        "description": "The reasoner will infer axioms about the inclusion of object properties, i.e. `SubPropertyOf:` statements. If there are object properties `enrolledIn`, `studentOf` and `hasStudent`, such that `enrolledIn SubPropertyOf: studentOf` and `enrolledIn InverseOf: hasStudent` holds, the reasoner will infer `hasStudent SubPropertyOf: inverse (studentOf)`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "equivalent_object_property": {
+        "name": "equivalent_object_property",
+        "title": "Object property equivalence (owl:equivalentProperty)",
+        "description": "The reasoner will infer assertions about the equivalence of object properties, i.e. `EquivalentTo:` statements. If there are object properties `hasAlternativeLecture` and `hasSameTopicAs`, such that `hasAlternativeLecture Characteristics: Symmetric` and `hasSameTopicAs InverseOf: hasAlternativeLecture` holds, the reasoner will infer `EquivalentProperties: hasAlternativeLecture, hasSameTopicAs`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "object_property_domain": {
+        "name": "object_property_domain",
+        "title": "Object property domains (rdfs:domain)",
+        "description": "The reasoner will infer axioms about the domains of object properties, i.e. `Domain:` statements. If there are classes `Person`, `Student` and `Professor` as wells as the object property `hasRoleIn`, such that `Professor SubClassOf: Person`, `Student SubClassOf: Person` and `hasRoleIn Domain: Professor or Student` holds, the reasoner will infer `hasRoleIn Domain: Person`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "object_property_range": {
+        "name": "object_property_range",
+        "title": "Object property ranges (rdfs:range)",
+        "description": "The reasoner will infer axioms about the ranges of object properties, i.e. `Range:` statements. If there are classes `Student` and `Lecture` as wells as object properties `hasStudent` and `enrolledIn`, such that `hasStudent Range: Student and enrolledIn some Lecture` holds, the reasoner will infer `hasStudent Range: Student`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "inverse_object_properties": {
+        "name": "inverse_object_properties",
+        "title": "Object property inversion (owl:inverseOf)",
+        "description": "The reasoner will infer axioms about the inversion about object properties, i.e. `InverseOf:` statements. If there is a object property `hasAlternativeLecture`, such that `hasAlternativeLecture Characteristics: Symmetric` holds, the reasoner will infer `hasAlternativeLecture InverseOf: hasAlternativeLecture`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "sub_data_property": {
+        "name": "sub_data_property",
+        "title": "Data property inclusion (rdfs:subPropertyOf)",
+        "description": "The reasoner will infer axioms about the hierarchy of data properties, i.e. `SubPropertyOf:` statements. If there are data properties `identifier`, `studentIdentifier` and `enrollmentNumber`, such that `studentIdentifier SubPropertyOf: identifier` and `enrollmentNumber SubPropertyOf: studentIdentifier` holds, the reasoner will infer `enrollmentNumber SubPropertyOf: identifier`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "equivalent_data_properties": {
+        "name": "equivalent_data_properties",
+        "title": "Data property equivalence (owl:equivalentProperty)",
+        "description": "The reasoner will infer axioms about the equivalence of data properties, i.e. `EquivalentProperties` statements. If there are data properties `identifier` and `enrollmentNumber`, such that `enrollmentNumber SubPropertyOf: identifier` and `identifier SubPropertyOf: enrollmentNumber` holds, the reasoner will infer `Student EquivalentProperties: identifier, enrollmentNumber`.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "validate_profile": {
+        "name": "validate_profile",
+        "title": "Validate OWL2 profiles",
+        "description": "Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "imports": {
+        "name": "imports",
+        "title": "Output graph import",
+        "description": "Add the triple <output_graph_iri> owl:imports <ontology_graph_iri> to the output graph or add the triple <ontology_graph_iri> owl:imports <output_graph_iri> to the ontology graph.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "none",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "valid_profiles": {
+        "name": "valid_profiles",
+        "title": "Valid OWL2 profiles",
+        "description": "Valid OWL2 profiles for the processed ontology.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": false,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "input_profiles": {
+        "name": "input_profiles",
+        "title": "Process valid OWL profiles from input",
+        "description": "If enabled along with the \"Validate OWL2 profiles\" parameter, the valid profiles, ontology IRI and reasoner option is taken from the config port input (parameters \"valid_profiles\", \"ontology_graph_iri\" and \"reasoner\") and the OWL2 profiles validation is not done in the plugin. The valid profiles input is a comma-separated string (e.g. \"Full,DL\", ).",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "max_ram_percentage": {
+        "name": "max_ram_percentage",
+        "title": "Maximum RAM Percentage",
+        "description": "Maximum heap size for the reasoning process in the DI container. \u26a0\ufe0f Setting the percentage too high may result in an out of memory error.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "20",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [
+      "data_graph_iri",
+      "ontology_graph_iri",
+      "output_graph_iri",
+      "reasoner"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask"
+  },
   "tripleRequestOperator": {
     "pluginId": "tripleRequestOperator",
     "title": "Request RDF triples",
@@ -4542,7 +4847,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF.",
-    "markdownDocumentation": "\n**Configuration**\n\nThe geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n**Logging**\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
+    "markdownDocumentation": "\n## Configuration\n\nThe Geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n## Logging\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
     "pluginIcon": null,
     "properties": {
       "searchAttributes": {
@@ -6174,6 +6479,121 @@
     ],
     "pluginType": "customtask"
   },
+  "cmem_plugin_semspect-task-Update": {
+    "pluginId": "cmem_plugin_semspect-task-Update",
+    "title": "Update SemSpect",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Tell SemSpect to prepare a Knowledge Graph for visualization.",
+    "markdownDocumentation": null,
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIzOTYgNDAyIDc2IDY1IgogICB3aWR0aD0iNzZwdCIKICAgaGVpZ2h0PSI2NXB0IgogICBpZD0ic3ZnODY0IgogICBzb2RpcG9kaTpkb2NuYW1lPSJsb2dvLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3ODY2IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB0IgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIxMi41NjU0ODUiCiAgICAgaW5rc2NhcGU6Y3g9IjYyLjE5NDE3NiIKICAgICBpbmtzY2FwZTpjeT0iNDMuNDEyNTciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE3MjgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjI1IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnODY0IgogICAgIHNob3dndWlkZXM9InRydWUiCiAgICAgaW5rc2NhcGU6Z3VpZGUtYmJveD0idHJ1ZSI+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2MC41ODA3NjYsMzcuODM4NzcyIgogICAgICAgb3JpZW50YXRpb249IjAsLTEiCiAgICAgICBpZD0iZ3VpZGUxNDQ4MiIgLz4KICAgIDxzb2RpcG9kaTpndWlkZQogICAgICAgcG9zaXRpb249IjU5Ljg0MzA2NCwzOC4zNDU0MzYiCiAgICAgICBvcmllbnRhdGlvbj0iMSwwIgogICAgICAgaWQ9Imd1aWRlMTQ0ODQiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2Ny45OTgzMjMsMzMuODc0NjM1IgogICAgICAgb3JpZW50YXRpb249IjEsMCIKICAgICAgIGlkPSJndWlkZTE0NDg2IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTgyNCI+IFByb2R1Y2VkIGJ5IE9tbmlHcmFmZmxlIDYuNi4yIDxkYzpkYXRlPjIwMjQtMDUtMDYgMDk6NDM6NTYgKzAwMDA8L2RjOmRhdGU+CjwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczgyOCI+CiAgICA8Zm9udC1mYWNlCiAgICAgICBmb250LWZhbWlseT0iTHVjaWRhIEdyYW5kZSIKICAgICAgIGZvbnQtc2l6ZT0iMTMiCiAgICAgICBwYW5vc2UtMT0iMiAxMSA2IDAgNCA1IDIgMiAyIDQiCiAgICAgICB1bml0cy1wZXItZW09IjEwMDAiCiAgICAgICB1bmRlcmxpbmUtcG9zaXRpb249Ii05Ny42NTYyNSIKICAgICAgIHVuZGVybGluZS10aGlja25lc3M9IjQ4LjgyODEyNSIKICAgICAgIHNsb3BlPSIwIgogICAgICAgeC1oZWlnaHQ9IjUzMC4yNzM0NCIKICAgICAgIGNhcC1oZWlnaHQ9IjcyMi42NTYyNSIKICAgICAgIGFzY2VudD0iOTY2Ljc5NjkiCiAgICAgICBkZXNjZW50PSItMjEwLjkzNzUiCiAgICAgICBmb250LXdlaWdodD0iNTAwIgogICAgICAgaWQ9ImZvbnQtZmFjZTgyNiI+CiAgICAgIDxmb250LWZhY2Utc3JjPgogICAgICAgIDxmb250LWZhY2UtbmFtZQogICAgICAgICAgIG5hbWU9Ikx1Y2lkYUdyYW5kZSIgLz4KICAgICAgPC9mb250LWZhY2Utc3JjPgogICAgPC9mb250LWZhY2U+CiAgPC9kZWZzPgogIDxlbGxpcHNlCiAgICAgY3g9IjQ1NS40MDE1NSIKICAgICBjeT0iNDM0LjEwNzI0IgogICAgIGZpbGw9IiNjMmQxZTMiCiAgICAgaWQ9ImNpcmNsZTgzNCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIxMC42ODIzNzQiCiAgICAgcnk9IjEwLjg0MTkzOSIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYxIgogICAgIGZpbGw9IiNjMmQxZTQiCiAgICAgaWQ9ImNpcmNsZTgzNiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIyNy4yMzkwMjciCiAgICAgcnk9IjI3LjY0NTkwMyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0NTUuNDUwODQiCiAgICAgY3k9IjQzNC4wNTcxOSIKICAgICBmaWxsPSIjYzJkMWUzIgogICAgIGlkPSJjaXJjbGU4MzgiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iMTAuNjgyMzc0IgogICAgIHJ5PSIxMC44NDE5MzkiIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDI5LjIzMTA1IgogICAgIGN5PSI0MzQuNTgwMTQiCiAgICAgZmlsbD0iI2MyZDFlNCIKICAgICBpZD0iY2lyY2xlODQwIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjI3LjIzOTAyNyIKICAgICByeT0iMjcuNjQ1OTAzIiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQxNC4zNzM0MSIKICAgICBjeT0iNDM0LjE1NjA3IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0MiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYwNyIKICAgICBmaWxsPSIjYWIyYzBiIgogICAgIGlkPSJjaXJjbGU4NDQiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDIxLjk2NzMyIgogICAgIGN5PSI0MjAuNzUyMDQiCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODQ2IgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDIwLjc1MjA0IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0OCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjEuOTY3MzIiCiAgICAgY3k9IjQ0Ny41NjAxNSIKICAgICBmaWxsPSIjNmM3MTc5IgogICAgIGlkPSJjaXJjbGU4NTAiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDQ0LjA4ODY1IgogICAgIGN5PSI0MzQuMTU2MDciCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODUyIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDQ3LjU2MDE1IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg1NCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8cGF0aAogICAgIHNvZGlwb2RpOnR5cGU9InN0YXIiCiAgICAgc3R5bGU9ImZpbGw6IzZjNzE3OTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZCIKICAgICBpZD0icGF0aDE0MjA0IgogICAgIGlua3NjYXBlOmZsYXRzaWRlZD0idHJ1ZSIKICAgICBzb2RpcG9kaTpzaWRlcz0iMyIKICAgICBzb2RpcG9kaTpjeD0iNzkuNTAzNDY0IgogICAgIHNvZGlwb2RpOmN5PSI3MC4wNzczMTYiCiAgICAgc29kaXBvZGk6cjE9IjcuNjc2Mzc2MyIKICAgICBzb2RpcG9kaTpyMj0iMy40NzEzODYyIgogICAgIHNvZGlwb2RpOmFyZzE9IjIuMDg5OTQyNSIKICAgICBzb2RpcG9kaTphcmcyPSIzLjEzNzE0IgogICAgIGlua3NjYXBlOnJvdW5kZWQ9IjAiCiAgICAgaW5rc2NhcGU6cmFuZG9taXplZD0iMCIKICAgICBkPSJtIDc1LjY5NDkxNCw3Ni43NDIyNzcgLTAuMDU5MiwtMTMuMjk1NzQyIDExLjU0NDA1MSw2LjU5NjYwMiB6IgogICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuNzUsMCwwLDAuNzUsMzk5LjExNjI4LDM4MS41NzYzMykiCiAgICAgaW5rc2NhcGU6dHJhbnNmb3JtLWNlbnRlci14PSItMC4yMTk3MDEzNyIKICAgICBpbmtzY2FwZTp0cmFuc2Zvcm0tY2VudGVyLXk9Ii0xLjEwNjg1OTYiIC8+Cjwvc3ZnPgo=",
+    "properties": {
+      "base_url": {
+        "name": "base_url",
+        "title": "The URL of the SemSpect application.This needs to be accessible from 'within' DataIntegration.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "http://semspect:8080/semspect/",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "database_id": {
+        "name": "database_id",
+        "title": "The SemSpect database ID. Not existing databases will be created.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "cmem",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "graph": {
+        "name": "graph",
+        "title": "Knowledge Graph",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "dataplatform_base": {
+        "name": "dataplatform_base",
+        "title": "The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "timeout": {
+        "name": "timeout",
+        "title": "Timeout (in seconds) for the overall indexing activity.",
+        "description": "",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "300",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "request_timeout": {
+        "name": "request_timeout",
+        "title": "Timeout (in seconds) for individual Semspect requests",
+        "description": "",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "10",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_proxy": {
+        "name": "ignore_proxy",
+        "title": "ignore_proxy: Ignore system settings for HTTP proxies for the requests to semspect.",
+        "description": "",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "verify_ssl": {
+        "name": "verify_ssl",
+        "title": "verify_ssl: If disabled, the plugin will accept any TLS certificate presented by the server and will ignore hostname mismatches and/or expired certificates, which will make the requests vulnerable to man-in-the-middle (MitM) attacks. (use for testing only)",
+        "description": "",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "true",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [
+      "graph"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask"
+  },
   "eccencaDataPlatformGraphStoreFileUploadOperator": {
     "pluginId": "eccencaDataPlatformGraphStoreFileUploadOperator",
     "title": "Upload File to Knowledge Graph",
@@ -6683,6 +7103,144 @@
     ],
     "pluginType": "customtask"
   },
+  "cmem_plugin_reason-plugin_validate-ValidatePlugin": {
+    "pluginId": "cmem_plugin_reason-plugin_validate-ValidatePlugin",
+    "title": "Validate OWL consistency",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Validates the consistency of an OWL ontology.",
+    "markdownDocumentation": "A task validating the consistency of an OWL ontology and generating an explanation if inconsistencies are found. \nThe plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI on the path \n\"ontology_graph_iri\", and, if enabled, the valid OWL2 profiles on the path \"valid_profiles\" as a comma-separated string.\n\n## Options\n\n### Ontology graph IRI\n\nThe IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type`owl:Ontology`.\n\n### Ignore missing imports\n\nIf enabled, missing imports (`owl:imports`) in the input graphs are ignored.\n\n### Reasoner\n\nThe following reasoner options are supported: \n- [ELK](https://code.google.com/p/elk-reasoner/) (elk)\n- [Expression Materializing Reasoner](http://static.javadoc.io/org.geneontology/expression-materializing-reasoner/0.1.3/org/geneontology/reasoner/ExpressionMaterializingReasoner.html) (emr)\n- [HermiT](http://www.hermit-reasoner.com/) (hermit)\n- [JFact](http://jfact.sourceforge.net/) (jfact)\n- [Structural Reasoner](http://owlcs.github.io/owlapi/apidocs_4/org/semanticweb/owlapi/reasoner/structural/StructuralReasoner.html) (structural)\n- [Whelk](https://github.com/balhoff/whelk) (whelk)\n\n### Produce output graph\n\nIf enabled, an explanation graph is created.\n\n### Output graph IRI\n\nThe IRI of the output graph for the reasoning result.\n\n\u26a0\ufe0f Existing graphs will be overwritten.\n\n### Write markdown explanation file\n\nIf enabled, an explanation markdown file is written to the project.\n\n### Output filename\n\nThe filename of the Markdown file with the explanation of inconsistencies.\n\n\u26a0\ufe0f Existing files will be overwritten.\n\n### Stop at inconsistencies\nRaise an error if inconsistencies are found. If enabled, the plugin does not output entities.\n\n### Validate OWL2 profiles\n\nValidate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.\n\n### Mode\nMode _inconsistency_ generates an explanation for an inconsistent ontology.  \nMode _unsatisfiability_ generates explanations for many unsatisfiable classes at once.\n\n### Output entities\n\nOutput entities. The plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI\non the path \"ontology_graph_iri\", the reasoner option on the path \"reasoner\", and, if enabled, the valid OWL2 profiles\non the path \"valid_profiles\".\n\n### Maximum RAM Percentage\n\nMaximum heap size for the Java virtual machine in the DI container running the reasoning process.\n\n\u26a0\ufe0f Setting the percentage too high may result in an out of memory error.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIC03MCAzMTggNjYwIj4KICAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE3Ny4xNjYgOTguNTI0Yy0uNDc4LTEyLjI2My0xNS4xNjMtMTguMzgtMjIuMjA5LTIzLjEyOGMtNS42NzMtMy44MjMtMzguNiAxNC43NzUtNTEuNTI0IDIzLjE3NkM4Ny41MDcgMTA4LjkyNCA5MS4xNyAxMzEuMzggOTEuMTcgMTMxLjM4Yy00LjMgNC42MTgtNi40NDcgNy4xMi03LjgwMyAxNC44MWMtLjk1NiA1LjQxNSAxLjM3NCAxMC45MyAyLjU0OCAxNi4wODVjLjk0OCA0LjE2Ny43OTYgNy4zMjYuNzk2IDcuMzI2Yy0xMC41MSAzLjE4NS0xOC4xNTUgMTQuODEtMTguMTU1IDE0LjgxSDY1LjM3Yy0yLjA3LTMuMDI2LTMuODIyLTI0LjUyNS0uMzE5LTMwLjQxN2MyNS44MTUtMTkuMzMuNDc4LTM5LjMzNi0yNS43OTktNTAuMTY1Yy02LjE1LTIuNTM1LTEwLjcxNS0uODQzLTE1LjQ0OC4xNTljLTIxLjgxNyA0LjYxOC0zLjk4IDU2LjA1Ny0zLjk4IDU2LjA1N3Y2LjA1MnMtMjEuMzM5LTQ1LjM3LTE5Ljc0LTU3LjI0OWMxLjE2OC04LjY3MSA5LjQ5Ni0xNi44MjUgMTcuODItMTguNzMzYzIuODgzLS42Ni4wMjktOC4wNjcgMS41OTktMTUuNzYzYzIuMDIzLTkuOTE2IDExLjAwOC0yMi41MSAxMS4wMDgtMjIuNTFjNS4yNSA2LjI5IDEyLjI3MSAzMy4xMyAxMi4yNzEgMzMuMTNsMTguNDU2LjA2OHM3OC44MjYtMzQuMzYyIDg4LjYyNy0zNi45MjhMMTY5LjAyMyAwYzEyLjk5NCA4Ljc5NiAyMC44MTQgMjYuMjQzIDIxLjQxNyA0OC41NjVjMCAwIDE4LjUwNCAyLjM3OSAyOC45NTggMTQuMTc3YzIxLjExNiAyMy44MyAyNC42OTIgNTguMDEgNTQuMjk3IDgxLjQ0NWMxMi43MDkgMTAuMDYgMjQuMTkgMTguMTIzIDMxLjg0MiAzNC43NzdjMTcuMzMxIDM3LjcyNCAxNi45MDggOTkuNS04LjIwNiAxMzkuMDEyYzAgMC02Mi43NDggOTIuNjc0LTU4Ljg4NyAxMTYuODA4YzMuODYyIDI0LjEzNCAyOS45MjYgMjUuNTgyIDY2LjEyNyAyNS41ODJsLTI3LjExOSAzNy42MjNjLTUyLjI3OSAxMC4zNzYtMTE0LjY0OCAzNS4wMjEtMTA4LjUxNC0yNC4xMDhjMCAwLTk5LjUyOCA1NS4xNy0xMzcuMDggMjkuOTI2Yy0xMy40MDUtOS4wMS0zOS41OC04OC43OTgtMTkuNzktMTQ3LjQ4OWM0LjgzNS0xNC4zMzcgMTUuMTAyLTMzLjQ1MyAyOC45Ni00OS40NDRjMzEuMzc1LTM2LjIgNTUuMDI2LTUyLjYxMiA3Mi4zODMtNjguNjAzYzEzLjMyNy0xMi4yOCAyNC43NTgtMTYuMzI2IDI5LjQ2My0yNC4wNzFjOS44Mi0xNi4xNjcgMS45MDgtMjguODcxIDEuOTA4LTI4Ljg3MWMxOC44NTYtNy42MyAzMS41NS0xOS41MjUgMzYuMTQ3LTI3Ljg1NmM1LjI0Mi05LjUwNC01LjYzOC04Ljc4OC01LjYzOC04Ljc4OHMxMC40MjItMTIuNDQ3IDEzLjEtMjIuNzE2Yy40NDUtMS43MTEtMy4xNjMtNC43NzMtMi44Mi02LjQ2N2MxLjIxMi01Ljk4IDIuMTU2LTE0LjI2LjY2NC0xNi43NDdjLTQuNzktNy45ODItOS4wNy00LjIzMS05LjA3LTQuMjMxbS03OC4wOTggMzMzLjdjNjAuMjQyLTYuMzQ4IDczLjU3MS0zMi4xOTMgNzMuNDEtMzMuMzE5YzAgMC0yNi43NTMtLjc1LTMwLjM0Ny0xLjQxMmMtNS4wMDktLjkyMy02LjU4Ni0zLjMzLTYuNTg2LTMuMzNjNjcuOTI2IDEuNzc2IDk2LjQyLTM5LjQ4MiAxMTYuNDE0LTczLjc3NGMyOC40NDctNDguNzg2IDEwLjA2MS0xMDQuMzQ3LTQuNy0xNDAuNDc5Yy00Ni42MDIgMzUuNzk5LTEzNy4yODkgOTguMzU3LTE3Ni4zMDQgMTU0LjQ3N2MtMjkuNzEgNDIuNzM0LTIuMzU4IDE0MS45OTcgNi45NzUgMTUxLjQ1NWM5LjMzMiA5LjQ1NyA4Mi43MDctNTMuNjk0IDgyLjcwNy01My42OTRjLTI3LjE0NyA3LjM1Mi01MC41OCAxMC41OTQtNjEuNTY5LjA3Nk02NC43MzggMTMwLjU0Yy41NzggOC4yMzMtNC45MTUgMjAuNTYtMjAuNTg0IDIxLjg2NWMtMTUuNjY4IDEuMzA2LTI1LjI1LTEzLjU5NC0yNS4zNS0xNy45NjVjLS4yODgtMTIuNzExIDkuMzktMTguMDU2IDIxLjA5LTE4LjA1NnMyNC4yNjYgNS45MjMgMjQuODQ0IDE0LjE1Nm0tOS42NCA2LjI4Yy43OTQtOC45NDItMy4zNzgtMTIuNTE4LTEzLjkwOC0xMi45MTVjLTEwLjUzLS4zOTgtMTMuOTA4IDcuMzUxLTEwLjczIDE0LjljMy4xOCA3LjU1IDIzLjg0MiA2Ljk1NSAyNC42MzctMS45ODZtNDguMDMzLTE1LjIwNWMxLjQzOS03LjQzNSA1Ljc2NC0xOS42NTYgMjkuOTc3LTIwLjYyNWMyOS45NzctMS4xOTkgMzQuMTg0IDIxLjY3MiAyOS43MzcgMzIuMzc2Yy02LjQ3NSAxNS41ODgtMjcuODE4IDI2LjM4LTQzLjQwNyAxNS4xMDhzLTE3Ljc0Ni0xOS40MjUtMTYuMzA3LTI2Ljg2bTEzLjY3IDcuOTE0czUuNTE1IDExLjc1IDE4LjIyNiAxMC41NTJjMTIuNzEtMS4yIDE2LjMwNy0xMC43OTIgMTYuNzg3LTE2LjA2OGMuMjE1LTIuMzczLTEuNjMxLTguNjg2LTYuNDc1LTExLjUxMWMtNS45MjgtMy40NTctMTUuNTM3LTMuMDcxLTIxLjM0NC0uOTZjLTEwLjU1MiAzLjgzNy03LjE5NSAxNy45ODctNy4xOTUgMTcuOTg3Ii8+Cjwvc3ZnPg==",
+    "properties": {
+      "ontology_graph_iri": {
+        "name": "ontology_graph_iri",
+        "title": "Ontology graph IRI",
+        "description": "The IRI of the input ontology graph.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_missing_imports": {
+        "name": "ignore_missing_imports",
+        "title": "Ignore missing imports",
+        "description": "Ignore missing graphs from the import tree of the input graphs.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "output_graph_iri": {
+        "name": "output_graph_iri",
+        "title": "Output graph IRI",
+        "description": "The IRI of the output graph for the inconsistency validation. \u26a0\ufe0f Existing graphs will be overwritten.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "output_entities": {
+        "name": "output_entities",
+        "title": "Output entities",
+        "description": "Output entities. The plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI on the path \"ontology_graph_iri\", the reasoner option on the path \"reasoner\", and, if enabled, the valid OWL2 profiles on the path \"valid_profiles\".",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "reasoner": {
+        "name": "reasoner",
+        "title": "Reasoner",
+        "description": "Reasoner option.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "md_filename": {
+        "name": "md_filename",
+        "title": "Output filename",
+        "description": "The filename of the Markdown file with the explanation of inconsistencies. \u26a0\ufe0f Existing files will be overwritten.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "mode": {
+        "name": "mode",
+        "title": "Mode",
+        "description": "Mode \"inconsistency\" generates an explanation for an inconsistent ontology. Mode \"unsatisfiability\" generates explanations for many unsatisfiable classes at once.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "inconsistency",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "validate_profile": {
+        "name": "validate_profile",
+        "title": "Validate OWL2 profiles",
+        "description": "Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "stop_at_inconsistencies": {
+        "name": "stop_at_inconsistencies",
+        "title": "Stop at inconsistencies",
+        "description": "Raise an error if inconsistencies are found. If enabled, the plugin does not output entities.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "max_ram_percentage": {
+        "name": "max_ram_percentage",
+        "title": "Maximum RAM Percentage",
+        "description": "Maximum heap size for the reasoning process in the DI container. \u26a0\ufe0f Setting the percentage too high may result in an out of memory error.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "20",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [
+      "ontology_graph_iri",
+      "reasoner"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask"
+  },
   "validateXsdOperator": {
     "pluginId": "validateXsdOperator",
     "title": "Validate XML",
@@ -6727,7 +7285,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource.",
-    "markdownDocumentation": "## Description of the plugin\n\nThe plugin `xsltOperator` is a custom task which can be used in a workflow in order to transform a given **XML file** using an **XSL transformation** from an XSLT file. The filename extension of such a XSL transformation is, accordingly, `.xslt`.\n\nThe **output** of the XML transformation is saved as an output file resource. In practice, the output will often be another XML file (i.e. an \"XML to XML transformation\"), but this need not be the case.\n\nIn essence and from a technical point of view, the `xsltOperator` is simply a wrapper around the XSLT processor provided by [Saxonica](https://www.saxonica.com/products/products.xml).\n\nIf you are well-versed in the XSL ecosystem, this is everything you need to know. If not, the remaining of the documentation provides some amount of information and detail on the parts of XSL and XSLT which are relevant for our purposes.\n## Description of XSL and XSLT\n\n### The XSL ecosystem\n\nThe acronym **XSL** stands for \"eXtensible Stylesheet Language\". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:\n\n\t1. XSLT: XSL Transformations\n\t2. XPath: XML Path Language\n\t3. XSL-FO: XSL Formatting Objects\n\nIn a nutshell, this is simply the separation of concerns between \"processing\" XML and \"rendering\" the results.\n\nThe most relevant of these parts for us, is **XSLT**. XSLT is a language for *transforming* or *processing* XML documents. Originally (around 1999), XSLT was designed for _styling_ XML documents, which is still seen in the nomenclature, e.g. in the term `<xsl:stylesheet>` or in the acronyms \"XSL\" and \"XSLT\" themselves. But other than just _styling XML markup_, XSLT 2.0 (and beyond) is a Turing-complete language, which is used for **transforming XML _data_**. The modern perspective and understanding is therefore not on \"XML as a markup language for documents which are presented to a web browser, or converted to a form suitable for printing, such as PDF or PostScript\", but, in general terms, on \"XML as a means to represent (highly-structured) data, which can be arbitrarily transformed by XSLT\".\n\n_If_ the aspect of formatting semantics is relevant to us, then we'd need to consider and describe the XSL Formatting Objects (**XSL-FO**) vocabulary. This is beyond the scope of this document. Our focus is on the transformation of XML data via XSL transformations.\n\n**XPath** is an _expression language_ for finding and accessing to parts (elements) of an XML document. XPath is used by XSLT (finding elements is an obvious part of transforming them), but not exclusively: it is also used by XQuery, a query language for XML documents stored e.g. in XML databases, as well as from several programming languages, in their libraries for processing XML files and data streams.\n\n## XSL Transformations (**XSLT**)\n\n### What is XSLT?\n\nAs mentioned, XSLT is a general purpose XML processing language, whose use-cases and applications exceed the originally intended aspect of styling XML files as preparation for a XSL formatter.\n\nThe **XSL transform** turns the so-called **source tree** into a **result tree** (see [here](https://www.w3.org/TR/xslt20/#terminology) for further details on the terminology). The _source tree_ is simply the original XML file or source of XML data provided as input of the XSL transformation, whereas the _result tree_ is (part of) the output of the XSL transformation, usually in the form of a `<xsl:result-document>` element, an instance of a _**final** result tree_. Next to final result trees, there are _**temporary** trees_ meant for holding intermediate results during a transformation, like in the case of `<xsl:variable>` elements used in a two-phase transformation. The _structure_ of these trees is specified by and described in the [XQuery and XPath Data Model](https://www.w3.org/TR/xpath-datamodel/), the **XDM**. Conceptually important is the fact that this is a data model which is (a) independent of XSL and XSLT, and (b) shared across XSLT, XPath and XQuery. In other words: it is yet another component of the _XSL ecosystem_, with its own W3C recommendation.\n\n### How does XSLT look like?\n\n#### Minimal example\n\nA minimal example of the (1) XML input data, (2) a corresponding XSL transformation and the (3) generated output is the following:\n\n**XML data** (`.xml` file):\n```xml\n<book><title>1984</title></book>\n```\n\n**XSL stylesheet** (`.xslt` file):\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/book\">\n    <html><body><h1><xsl:value-of select=\"title\"/></h1></body></html>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Output:** (`.html` file)\n```html\n<html><body><h1>1984</h1></body></html>\n```\n\nIn this example:\n1. The **XML** holds the input information (`<book><title>1984</title></book>`).\n2. The **XSL stylesheet** specifies how that information should be formatted (it takes the title and places it inside HTML).\n3. The **XSL transformation** processes both files to create the **final HTML result** (`<h1>1984</h1>`).\n\n#### Generic basic example\n\nA slightly more complex example is the following:\n\n**XML data** (`.xml` file):\n```xml\n<person><name>Alice</name><age>30</age></person>\n```\n\n**XSL stylesheet** (`.xslt` file):\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/person\">\n    <html><body><p><xsl:value-of select=\"name\"/> is <xsl:value-of select=\"age\"/> years old.</p></body></html>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Output:** (`.html` file)\n```html\n<html><body><p>Alice is 30 years old.</p></body></html>\n```\n\n#### Simple XML to RDF conversion example\n\n##### XML style\n\nA rather straightforward but specific example could be the following _conversion from XML data to **RDF**_:\n\n**XML**:\n```xml\n<person id=\"p1\">\n  <name>Alice</name>\n  <email>alice@example.org</email>\n</person>\n```\n\n**XSL stylesheet**:\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/person\">\n    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n             xmlns:foaf=\"http://xmlns.com/foaf/0.1/\">\n      <foaf:Person rdf:about=\"#{@id}\">\n        <foaf:name><xsl:value-of select=\"name\"/></foaf:name>\n        <foaf:mbox rdf:resource=\"mailto:{email}\"/>\n      </foaf:Person>\n    </rdf:RDF>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Result (RDF/XML)**:\n```xml\n<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n         xmlns:foaf=\"http://xmlns.com/foaf/0.1/\">\n  <foaf:Person rdf:about=\"#p1\">\n    <foaf:name>Alice</foaf:name>\n    <foaf:mbox rdf:resource=\"mailto:alice@example.org\"/>\n  </foaf:Person>\n</rdf:RDF>\n```\n\nIn this example:\n1. The **XSLT processor** matches the `<person>` element in the input XML.\n2. It **creates** an `<rdf:RDF>` root element with the required namespaces.\n3. It **constructs** a `<foaf:Person>` resource, using the `id` attribute as the subject URI.\n4. It **writes** a `<foaf:name>` element with the value from `<name>`.\n5. It **adds** a `<foaf:mbox>` element with a `mailto:` URI built from `<email>`.\n6. It **outputs** the final RDF/XML document representing the RDF triples.\n##### JSON style\n\nThe same straightforward example of an XML to RDF conversion, but using the `JSON-LD` style for the result:\n\n**XSL stylesheet**\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:output method=\"text\" />\n  <xsl:template match=\"/person\">\n    {\n      \"@id\": \"#<xsl:value-of select='@id'/>\",\n      \"@type\": \"foaf:Person\",\n      \"foaf:name\": \"<xsl:value-of select='name'/>\",\n      \"foaf:mbox\": \"mailto:<xsl:value-of select='email'/>\"\n    }\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Result (JSON-LD style)**:\n```json\n{\n  \"@id\": \"#p1\",\n  \"@type\": \"foaf:Person\",\n  \"foaf:name\": \"Alice\",\n  \"foaf:mbox\": \"mailto:alice@example.org\"\n}\n```\n\nThis example gives the gist of converting structured XML datasets into RDF for use in Semantic Web applications or triple stores.\n\n### How does XSLT work?\n\nTechnically, an `.xslt` file is a **template**, XSLT as a W3C specification or recommendation is the **templating language**, and the XSLT processor  is a **template engine**. The template is a file which is written using the templating language, and which is processed by the template engine.\n\nEssentially, this is an example of _pattern matching_: The XSLT template (or \"stylesheet\") contains **patterns**, which in XSLT parlance are known as \"[**template rules**](https://www.w3.org/TR/xslt-30/#dt-template-rule)\". The template engine of the processor uses the XML input as source of **items** as well as the XSLT file as source of **patterns**. Each pattern specifies a set of conditions on an item; if they match, then the matching `<xsl:template>` of the XSLT file is applied on the corresponding XML element of the XML data.\n\nThe _application_ of the template is specified with `<xsl:apply-templates/>` within the XSLT file. It takes an **XPath expression** in its `select` attribute.\n\nIn short, the `<xsl:template>` tells which elements it should `match`, whereas the `<xsl:apply-templates/>` tells which elements it should `select`. Both make use of XPath to address (identify and select) the elements in the XML data.\n\n### What is XSLT used for?\n\n**XSLT** is used to transform XML into various output formats, such as:\n\n- **HTML/CSS** \u2013 for web pages and styled content.\n- **RDF/XML or JSON-LD** \u2013 for Semantic Web data.\n- **XSL-FO \u2192 PDF** \u2013 for high-quality printed or digital documents.\n- **TeX/LaTeX** \u2013 for scientific publishing workflows.\n- **Markdown** \u2013 for lightweight documentation.\n- **EPUB** \u2013 for generating e-books (often via intermediate XHTML).\n- **SVG** \u2013 for generating vector graphics or data visualizations directly from XML.\n\nMore conceptually, other use cases of XSLT include:\n\n- **Data migration and integration** \u2014 converting legacy XML to modern schemas or RDF.\n- **Web services** \u2014 transforming XML-based APIs into HTML or JSON.\n- **Content publishing** \u2014 generating multiple output formats (HTML, PDF, EPUB) from a single XML source.\n- **Configuration and code generation** \u2014 producing scripts, configuration files, or documentation from XML metadata.\n- **Visualization** \u2014 creating SVG charts, diagrams, or interactive web elements from structured XML data.\n## How does XSL relate to RDF?\n\n**XSL**, specifically **XSLT**, relates to **RDF** by providing a way to **transform XML data into RDF serializations** (like RDF/XML or JSON-LD). It acts as a bridge between structured XML sources and Semantic Web representations, enabling automated RDF generation from existing XML-based datasets.\n\n## How do you import XML into a Knowledge Graph?\n\nTo import XML into a **Knowledge Graph**, you typically:\n\n1. **Define a mapping** \u2014 decide how XML elements/attributes correspond to RDF classes and properties (using vocabularies like FOAF, schema.org, etc.).\n2. **Transform the XML** \u2014 use **XSLT**, **RML**, or **XSPARQL** to convert XML into RDF (e.g., RDF/XML, Turtle, or JSON-LD).\n3. **Validate the RDF** \u2014 check it against the ontology or SHACL shapes.\n4. **Load the RDF** \u2014 import it into a **triple store** or **graph database** (e.g., Fuseki, GraphDB, Neo4j).\n\nWhereas this process *does* the job of importing XML into a knowledge graph, using a **data integration** solution based on **knowledge graphs**, such as [eccenca Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory) (CMEM), is a *much better fit*. For an example on this, see the [tutorial on lifting data from an XML source](https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources/), and notice how each of the steps (mapping, transforming, validating, loading) is realized. In such an improved setting, notice how the `xsltOperator` plugin  is _**not** used for transforming XML into RDF_, but only for _transforming the data you want to import and bring it to the XML format_. The second step of the list (_transform the XML into RDF_) is taken care of by CMEM itself. The usage of XSLT is, therefore, limited to what is required by your input data and data processing requirements, not by the technicalities behind the semantic data integration.\n\nNotice as well that the source of XML data does not need to be an XML _file_. An alternative could be a Web API providing XML instead of JSON responses. See the [tutorial on extracting data from a Web API](https://documentation.eccenca.com/latest/build/extracting-data-from-a-web-api/), and use an **XML parser** and **XML Dataset** instead of the JSON variants described in the tutorial. Otherwise, the process is the same.\n",
+    "markdownDocumentation": "## Description of the plugin\n\nThe plugin `xsltOperator` is a custom task which can be used in a workflow in order to transform a given **XML file** using an **XSL transformation** from an XSLT file. The filename extension of such a XSL transformation is, accordingly, `.xslt`.\n\nThe **output** of the XML transformation is saved as an output file resource. In practice, the output will often be another XML file (i.e. an \"XML to XML transformation\"), but this need not be the case.\n\nIn essence and from a technical point of view, the `xsltOperator` is simply a wrapper around the XSLT processor provided by [Saxonica](https://www.saxonica.com/products/products.xml).\n\nIf you are well-versed in the XSL ecosystem, this is everything you need to know. If not, the remaining of the documentation provides some amount of information and detail on the parts of XSL and XSLT which are relevant for our purposes.\n## Description of XSL and XSLT\n\n### The XSL ecosystem\n\nThe acronym **XSL** stands for \"eXtensible Stylesheet Language\". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:\n\n\t1. XSLT: XSL Transformations\n\t2. XPath: XML Path Language\n\t3. XSL-FO: XSL Formatting Objects\n\nIn a nutshell, this is simply the separation of concerns between \"processing\" XML and \"rendering\" the results.\n\nThe most relevant of these parts for us, is **XSLT**. XSLT is a language for *transforming* or *processing* XML documents. Originally (around 1999), XSLT was designed for _styling_ XML documents, which is still seen in the nomenclature, e.g. in the term `<xsl:stylesheet>` or in the acronyms \"XSL\" and \"XSLT\" themselves. But other than just _styling XML markup_, XSLT 2.0 (and beyond) is a Turing-complete language, which is used for **transforming XML _data_**. The modern perspective and understanding is therefore not on \"XML as a markup language for documents which are presented to a web browser, or converted to a form suitable for printing, such as PDF or PostScript\", but, in general terms, on \"XML as a means to represent (highly-structured) data, which can be arbitrarily transformed by XSLT\".\n\n_If_ the aspect of formatting semantics is relevant to us, then we'd need to consider and describe the XSL Formatting Objects (**XSL-FO**) vocabulary. This is beyond the scope of this document. Our focus is on the transformation of XML data via XSL transformations.\n\n**XPath** is an _expression language_ for finding and accessing to parts (elements) of an XML document. XPath is used by XSLT (finding elements is an obvious part of transforming them), but not exclusively: it is also used by XQuery, a query language for XML documents stored e.g. in XML databases, as well as from several programming languages, in their libraries for processing XML files and data streams.\n\n## XSL Transformations (**XSLT**)\n\n### What is XSLT?\n\nAs mentioned, XSLT is a general purpose XML processing language, whose use-cases and applications exceed the originally intended aspect of styling XML files as preparation for a XSL formatter.\n\nThe **XSL transform** turns the so-called **source tree** into a **result tree** (see [here](https://www.w3.org/TR/xslt20/#terminology) for further details on the terminology). The _source tree_ is simply the original XML file or source of XML data provided as input of the XSL transformation, whereas the _result tree_ is (part of) the output of the XSL transformation, usually in the form of a `<xsl:result-document>` element, an instance of a _**final** result tree_. Next to final result trees, there are _**temporary** trees_ meant for holding intermediate results during a transformation, like in the case of `<xsl:variable>` elements used in a two-phase transformation. The _structure_ of these trees is specified by and described in the [XQuery and XPath Data Model](https://www.w3.org/TR/xpath-datamodel/), the **XDM**. Conceptually important is the fact that this is a data model which is (a) independent of XSL and XSLT, and (b) shared across XSLT, XPath and XQuery. In other words: it is yet another component of the _XSL ecosystem_, with its own W3C recommendation.\n\n### How does XSLT look like?\n\n#### Minimal example\n\nA minimal example of the (1) XML input data, (2) a corresponding XSL transformation and the (3) generated output is the following:\n\n##### XML data (`.xml` file):\n```xml\n<book><title>1984</title></book>\n```\n\n##### XSL stylesheet (`.xslt` file):\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/book\">\n    <html><body><h1><xsl:value-of select=\"title\"/></h1></body></html>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n##### Output: (`.html` file)\n```html\n<html><body><h1>1984</h1></body></html>\n```\n\nIn this example:\n1. The **XML** holds the input information (`<book><title>1984</title></book>`).\n2. The **XSL stylesheet** specifies how that information should be formatted (it takes the title and places it inside HTML).\n3. The **XSL transformation** processes both files to create the **final HTML result** (`<h1>1984</h1>`).\n\n#### Generic basic example\n\nA slightly more complex example is the following:\n\n**XML data** (`.xml` file):\n```xml\n<person><name>Alice</name><age>30</age></person>\n```\n\n**XSL stylesheet** (`.xslt` file):\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/person\">\n    <html><body><p><xsl:value-of select=\"name\"/> is <xsl:value-of select=\"age\"/> years old.</p></body></html>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Output:** (`.html` file)\n```html\n<html><body><p>Alice is 30 years old.</p></body></html>\n```\n\n#### Simple XML to RDF conversion example\n\n##### XML style\n\nA rather straightforward but specific example could be the following _conversion from XML data to **RDF**_:\n\n**XML**:\n```xml\n<person id=\"p1\">\n  <name>Alice</name>\n  <email>alice@example.org</email>\n</person>\n```\n\n**XSL stylesheet**:\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:template match=\"/person\">\n    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n             xmlns:foaf=\"http://xmlns.com/foaf/0.1/\">\n      <foaf:Person rdf:about=\"#{@id}\">\n        <foaf:name><xsl:value-of select=\"name\"/></foaf:name>\n        <foaf:mbox rdf:resource=\"mailto:{email}\"/>\n      </foaf:Person>\n    </rdf:RDF>\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Result (RDF/XML)**:\n```xml\n<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n         xmlns:foaf=\"http://xmlns.com/foaf/0.1/\">\n  <foaf:Person rdf:about=\"#p1\">\n    <foaf:name>Alice</foaf:name>\n    <foaf:mbox rdf:resource=\"mailto:alice@example.org\"/>\n  </foaf:Person>\n</rdf:RDF>\n```\n\nIn this example:\n1. The **XSLT processor** matches the `<person>` element in the input XML.\n2. It **creates** an `<rdf:RDF>` root element with the required namespaces.\n3. It **constructs** a `<foaf:Person>` resource, using the `id` attribute as the subject URI.\n4. It **writes** a `<foaf:name>` element with the value from `<name>`.\n5. It **adds** a `<foaf:mbox>` element with a `mailto:` URI built from `<email>`.\n6. It **outputs** the final RDF/XML document representing the RDF triples.\n##### JSON style\n\nThe same straightforward example of an XML to RDF conversion, but using the `JSON-LD` style for the result:\n\n**XSL stylesheet**\n```xml\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\n  <xsl:output method=\"text\" />\n  <xsl:template match=\"/person\">\n    {\n      \"@id\": \"#<xsl:value-of select='@id'/>\",\n      \"@type\": \"foaf:Person\",\n      \"foaf:name\": \"<xsl:value-of select='name'/>\",\n      \"foaf:mbox\": \"mailto:<xsl:value-of select='email'/>\"\n    }\n  </xsl:template>\n</xsl:stylesheet>\n```\n\n**Result (JSON-LD style)**:\n```json\n{\n  \"@id\": \"#p1\",\n  \"@type\": \"foaf:Person\",\n  \"foaf:name\": \"Alice\",\n  \"foaf:mbox\": \"mailto:alice@example.org\"\n}\n```\n\nThis example gives the gist of converting structured XML datasets into RDF for use in Semantic Web applications or triple stores.\n\n### How does XSLT work?\n\nTechnically, an `.xslt` file is a **template**, XSLT as a W3C specification or recommendation is the **templating language**, and the XSLT processor  is a **template engine**. The template is a file which is written using the templating language, and which is processed by the template engine.\n\nEssentially, this is an example of _pattern matching_: The XSLT template (or \"stylesheet\") contains **patterns**, which in XSLT parlance are known as \"[**template rules**](https://www.w3.org/TR/xslt-30/#dt-template-rule)\". The template engine of the processor uses the XML input as source of **items** as well as the XSLT file as source of **patterns**. Each pattern specifies a set of conditions on an item; if they match, then the matching `<xsl:template>` of the XSLT file is applied on the corresponding XML element of the XML data.\n\nThe _application_ of the template is specified with `<xsl:apply-templates/>` within the XSLT file. It takes an **XPath expression** in its `select` attribute.\n\nIn short, the `<xsl:template>` tells which elements it should `match`, whereas the `<xsl:apply-templates/>` tells which elements it should `select`. Both make use of XPath to address (identify and select) the elements in the XML data.\n\n### What is XSLT used for?\n\n**XSLT** is used to transform XML into various output formats, such as:\n\n- **HTML/CSS** \u2013 for web pages and styled content.\n- **RDF/XML or JSON-LD** \u2013 for Semantic Web data.\n- **XSL-FO \u2192 PDF** \u2013 for high-quality printed or digital documents.\n- **TeX/LaTeX** \u2013 for scientific publishing workflows.\n- **Markdown** \u2013 for lightweight documentation.\n- **EPUB** \u2013 for generating e-books (often via intermediate XHTML).\n- **SVG** \u2013 for generating vector graphics or data visualizations directly from XML.\n\nMore conceptually, other use cases of XSLT include:\n\n- **Data migration and integration** \u2014 converting legacy XML to modern schemas or RDF.\n- **Web services** \u2014 transforming XML-based APIs into HTML or JSON.\n- **Content publishing** \u2014 generating multiple output formats (HTML, PDF, EPUB) from a single XML source.\n- **Configuration and code generation** \u2014 producing scripts, configuration files, or documentation from XML metadata.\n- **Visualization** \u2014 creating SVG charts, diagrams, or interactive web elements from structured XML data.\n## How does XSL relate to RDF?\n\n**XSL**, specifically **XSLT**, relates to **RDF** by providing a way to **transform XML data into RDF serializations** (like RDF/XML or JSON-LD). It acts as a bridge between structured XML sources and Semantic Web representations, enabling automated RDF generation from existing XML-based datasets.\n\n## How do you import XML into a Knowledge Graph?\n\nTo import XML into a **Knowledge Graph**, you typically:\n\n1. **Define a mapping** \u2014 decide how XML elements/attributes correspond to RDF classes and properties (using vocabularies like FOAF, schema.org, etc.).\n2. **Transform the XML** \u2014 use **XSLT**, **RML**, or **XSPARQL** to convert XML into RDF (e.g., RDF/XML, Turtle, or JSON-LD).\n3. **Validate the RDF** \u2014 check it against the ontology or SHACL shapes.\n4. **Load the RDF** \u2014 import it into a **triple store** or **graph database** (e.g., Fuseki, GraphDB, Neo4j).\n\nWhereas this process *does* the job of importing XML into a knowledge graph, using a **data integration** solution based on **knowledge graphs**, such as [eccenca Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory) (CMEM), is a *much better fit*. For an example on this, see the [tutorial on lifting data from an XML source](https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources/), and notice how each of the steps (mapping, transforming, validating, loading) is realized. In such an improved setting, notice how the `xsltOperator` plugin  is _**not** used for transforming XML into RDF_, but only for _transforming the data you want to import and bring it to the XML format_. The second step of the list (_transform the XML into RDF_) is taken care of by CMEM itself. The usage of XSLT is, therefore, limited to what is required by your input data and data processing requirements, not by the technicalities behind the semantic data integration.\n\nNotice as well that the source of XML data does not need to be an XML _file_. An alternative could be a Web API providing XML instead of JSON responses. See the [tutorial on extracting data from a Web API](https://documentation.eccenca.com/latest/build/extracting-data-from-a-web-api/), and use an **XML parser** and **XML Dataset** instead of the JSON variants described in the tutorial. Otherwise, the process is the same.\n",
     "pluginIcon": null,
     "properties": {
       "file": {
@@ -7065,8 +7623,8 @@
       },
       "clearBeforeExecution": {
         "name": "clearBeforeExecution",
-        "title": "Delete file before workflow execution",
-        "description": "If set to true this will clear the specified file before executing a workflow that writes to it.",
+        "title": "Delete file before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified file before executing a workflow that writes to it.",
         "type": "string",
         "parameterType": "boolean",
         "value": "false",
@@ -7219,7 +7777,7 @@
     ],
     "main_category": "Embedded",
     "description": "Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL.",
-    "markdownDocumentation": "_SQL endpoint dataset parameters_\n\nThe dataset only requires that the _tableNamePrefix_ parameter is given. This will be used as the prefix for the names of the generated tables.\nWhen a set of entities is written to the endpoint _a view is generated for each entity type_ (defined by an 'rdf_type' attribute).\nThat means that the mapping or data source that are used as input for the SQL endpoint need to have a type or require a user defined type mapping.\n\nThe operator has a _compatibility mode_. This mode will avoid complex types such as Arrays. When arrays exist in the input they\nare converted to a String using the given _arraySeparator_. This avoids errors and warnings in some Jdbc clients that are unable to\nhandle typed arrays and may make working with software like Excel easier.\n\nThe parameter _aliasMap_ of the endpoint allows the specification of column aliases. The map is a comma separated list of key-value pairs.\nEach key and value is denoted by ```key:value```. An example for renaming 2 columns (source1, source2 to target1, target2) in the result would be:\n```source1:target1,source2:target2```\n\nNote: Table and column (mapping target) names will be automatically converted to be valid in as many databases as possible.\nTable names will be shortened to 128 characters. Only a-z, A-Z, 0-9 and _ are allowed. Others will be replaced with an underscore.\nColumn names undergo the same transformation but will be converted to lower case as well. The log will inform about changes.\nThe table names will be generated based on the target type of each mapping.\nThe user needs to make sure that each object mapping specifies a unique type.\nIf two object mappings define the same type, only the last one will be written.\n\n_SQL endpoint activity_\n\nSee [ActivityDocumentation] for a general description of the Data Integration activities.\nThe activity will _start_ automatically, when the SQL endpoint is used\nas a data sink and Data Integration is configured to make the SQL endpoint accessible remotely.\n\nWhen the activity is started and _running_ it returns the server status and JDBC URL as its value.\n\n_Stopping_ the activity will drop all views generated by the activity. It can be _restarted_ by rerunning the\nworkflow containing it as a sink.\n\n_Remote client configuration (via JDBC and ODBC)_\n\nWithin Data Integration the SQL endpoint can be used as a source or sink like any other dataset. If the _startThriftServer_ option is set to 'true'\naccess via JDBC or ODBC is possible.\n\n[ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) drivers can be used to connect to relational databases.\n\nWhen selecting a version of a driver the client operating system and its type (32bit/64 bit) are the most important factors.\nThe version of the client drivers sometimes is the same as the server's.\nIf no version of a driver is given, the newest driver of the vendor should work, as it _should_ be backwards compatible.\n\nAny JDBC or ODBC client can connect to an SQL endpoint dataset. SparkSQL uses the same query processing as Hive, therefore the requirements for the client are:\n\n- A JDBC driver compatible with _Hive 1.2.1_[^hi] (platform independent driver _org.apache.hive.jdbc.HiveDriver_ is needed) or\n- A JDBC driver compatible with _Spark 2.3.3_\n- A Hive ODBC driver (ODBC driver for the client architecture and operating system needed)\n\n[^hi]: Hive 1.2.1 is [ODPi](https://github.com/odpi/specs/blob/master/ODPi-Runtime.md) runtime compliant\n\nA detailed instruction to connect to a Hive or SparkSQL endpoint with various tools (e.g. SQuirreL, beeline, SQL Developer, ...) can be found at _[Apache HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)_.\nThe database client _[DBeaver](https://dbeaver.io/)_ can connect to the SQL endpoint out of the box.\n",
+    "markdownDocumentation": "## SQL endpoint dataset parameters\n\nThe dataset only requires that the _tableNamePrefix_ parameter is given. This will be used as the prefix for the names of the generated tables.\nWhen a set of entities is written to the endpoint _a view is generated for each entity type_ (defined by an 'rdf_type' attribute).\nThat means that the mapping or data source that are used as input for the SQL endpoint need to have a type or require a user defined type mapping.\n\nThe operator has a _compatibility mode_. This mode will avoid complex types such as Arrays. When arrays exist in the input they\nare converted to a String using the given _arraySeparator_. This avoids errors and warnings in some Jdbc clients that are unable to\nhandle typed arrays and may make working with software like Excel easier.\n\nThe parameter _aliasMap_ of the endpoint allows the specification of column aliases. The map is a comma separated list of key-value pairs.\nEach key and value is denoted by ```key:value```. An example for renaming 2 columns (source1, source2 to target1, target2) in the result would be:\n```source1:target1,source2:target2```\n\nNote: Table and column (mapping target) names will be automatically converted to be valid in as many databases as possible.\nTable names will be shortened to 128 characters. Only a-z, A-Z, 0-9 and _ are allowed. Others will be replaced with an underscore.\nColumn names undergo the same transformation but will be converted to lower case as well. The log will inform about changes.\nThe table names will be generated based on the target type of each mapping.\nThe user needs to make sure that each object mapping specifies a unique type.\nIf two object mappings define the same type, only the last one will be written.\n\n## SQL endpoint activity\n\nSee [ActivityDocumentation] for a general description of the Data Integration activities.\nThe activity will _start_ automatically, when the SQL endpoint is used\nas a data sink and Data Integration is configured to make the SQL endpoint accessible remotely.\n\nWhen the activity is started and _running_ it returns the server status and JDBC URL as its value.\n\n_Stopping_ the activity will drop all views generated by the activity. It can be _restarted_ by rerunning the\nworkflow containing it as a sink.\n\n## Remote client configuration (via JDBC and ODBC)\n\nWithin Data Integration the SQL endpoint can be used as a source or sink like any other dataset. If the _startThriftServer_ option is set to 'true'\naccess via JDBC or ODBC is possible.\n\n[ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) drivers can be used to connect to relational databases.\n\nWhen selecting a version of a driver the client operating system and its type (32bit/64 bit) are the most important factors.\nThe version of the client drivers sometimes is the same as the server's.\nIf no version of a driver is given, the newest driver of the vendor should work, as it _should_ be backwards compatible.\n\nAny JDBC or ODBC client can connect to an SQL endpoint dataset. SparkSQL uses the same query processing as Hive, therefore the requirements for the client are:\n\n- A JDBC driver compatible with _Hive 1.2.1_[^hi] (platform independent driver _org.apache.hive.jdbc.HiveDriver_ is needed) or\n- A JDBC driver compatible with _Spark 2.3.3_\n- A Hive ODBC driver (ODBC driver for the client architecture and operating system needed)\n\n[^hi]: Hive 1.2.1 is [ODPi](https://github.com/odpi/specs/blob/master/ODPi-Runtime.md) runtime compliant\n\nA detailed instruction to connect to a Hive or SparkSQL endpoint with various tools (e.g. SQuirreL, beeline, SQL Developer, ...) can be found at _[Apache HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)_.\nThe database client _[DBeaver](https://dbeaver.io/)_ can connect to the SQL endpoint out of the box.\n",
     "pluginIcon": null,
     "properties": {
       "tableNamePrefix": {
@@ -7611,20 +8169,20 @@
     "description": "A Dataset that holds all data in-memory.",
     "markdownDocumentation": "A Dataset that holds all data in-memory.\n",
     "pluginIcon": null,
-    "properties": {
+    "properties": {},
+    "properties_advanced": {
       "clearGraphBeforeExecution": {
         "name": "clearGraphBeforeExecution",
-        "title": "Clear graph before workflow execution",
-        "description": "If set to true this will clear this dataset before it is used in a workflow execution.",
+        "title": "Clear graph before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear this dataset before it is used in a workflow execution.",
         "type": "string",
         "parameterType": "boolean",
-        "value": "true",
-        "advanced": false,
+        "value": "false",
+        "advanced": true,
         "visibleInDialog": true,
         "properties": {}
       }
     },
-    "properties_advanced": {},
     "actions": {},
     "required": [],
     "distanceMeasureRange": null,
@@ -7827,17 +8385,6 @@
         "visibleInDialog": true,
         "properties": {}
       },
-      "clearGraphBeforeExecution": {
-        "name": "clearGraphBeforeExecution",
-        "title": "Clear graph before workflow execution",
-        "description": "If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.",
-        "type": "string",
-        "parameterType": "boolean",
-        "value": "false",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      },
       "sparqlTimeout": {
         "name": "sparqlTimeout",
         "title": "SPARQL query timeout (ms)",
@@ -7924,6 +8471,17 @@
         "type": "string",
         "parameterType": "enumeration",
         "value": "parallel",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "clearGraphBeforeExecution": {
+        "name": "clearGraphBeforeExecution",
+        "title": "Clear graph before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -8088,11 +8646,11 @@
       },
       "clearBeforeExecution": {
         "name": "clearBeforeExecution",
-        "title": "Delete file before workflow execution",
-        "description": "If set to true this will clear the specified file before executing a workflow that writes to it.",
+        "title": "Delete file before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified file before executing a workflow that writes to it.",
         "type": "string",
         "parameterType": "boolean",
-        "value": "true",
+        "value": "false",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -8186,20 +8744,21 @@
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
-      },
+      }
+    },
+    "properties_advanced": {
       "clearBeforeExecution": {
         "name": "clearBeforeExecution",
-        "title": "Clear before execution",
-        "description": "If set to true, all nodes with the specified label will be removed, before executing a workflow that writes to this graph.",
+        "title": "Clear before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true, all nodes with the specified label will be removed, before executing a workflow that writes to this graph.",
         "type": "string",
         "parameterType": "boolean",
-        "value": "true",
-        "advanced": false,
+        "value": "false",
+        "advanced": true,
         "visibleInDialog": true,
         "properties": {}
       }
     },
-    "properties_advanced": {},
     "actions": {},
     "required": [],
     "distanceMeasureRange": null,
@@ -8481,7 +9040,7 @@
     ],
     "main_category": "Remote",
     "description": "Connect to an existing JDBC endpoint.",
-    "markdownDocumentation": "## General usage\n\nThe JDBC dataset supports connections to Hive, Microsoft SQL Server, MySQL, MariaDB, SnowFlake, Oracle Database, DB2 and PostgreSQL databases.\nA login, password and JDBC URL need to be provided.\nThis dataset supports queries or simply schema and table names to define what to retrieve from a source DB.\nWhen the dataset is used as a sink, queries are ignored and only schema and table parameters are used.\nIf the dataset is used as a sink for a hierarchical mapping, it behaves similarly to the SqlEndpoint: One table is created per entity type.\n\nThe names of the written tables are generated as follows:\n\n- The table name of the root mapping is defined by the table parameter of the dataset.\n  If the table name is empty, a name is generated from the first type of the mapping.\n  Special characters are removed and the name is truncated to a maximum of 128 characters.\n- For each object mapping, the table name is generated from its type.\n\n## JDBC Connection Strings/URLs\n\nMost of the dataset parameters are passed directly to the driver.\nPlease make sure that you use the correct syntax for each DBMS, otherwise you may get unintuitive errors.\n\nHere are templates for supported database systems:\n```\noracle (external driver needed): \njdbc:oracle:thin:@{host}[:{port}]/{database}\n\npostgres (integrated): \njdbc:postgresql://{host}[:{port}]/[{database}]\n\nMySQL/MariaDB (integrated): \njdbc:{mariadb}://{host}[:{port}]/[{database}]\n\nSnowSQL (external driver needed): \njdbc:snowflake://{AWSAccount}.{AWS region}.snowflakecomputing.com?db={database}&schema={schema}\n\nMSSqlServer (integrated): \njdbc:sqlserver://{host}[:{port}];databaseName={database}\n\nDB2 (external driver needed):\njdbc:db2//{host}[:{port}]/{database}\n\nTrino (external driver needed)\njdbc:trino//{host}:8080/catalog/schema\n```\n\n## Read and write strategies\n\nThere are multiple read and write strategies which can be selected depending on the purpose of the dataset in a workflow.\n\nRead strategies decide how the database is queried:\n\n- **full-table**: Queries or wraps a complete table.\n  Only the DB schema and table name need to be set.\n- **query**: The given source query is passed to the database.\n  The table name is not necessary in this case but a valid query in the SQL-dialect of the source database system must be provided.\n\nWrite strategies decide how a new table is written:\n\n- **default**: An error will occur if the table exists.\n  If not a new one will be created.\n- **overwrite**: The old table will be removed and a new one will be created.\n- **append**: Data will be appended to the existing table.\n  The schema of the data written has to be the same as the existing table schema.\n\n## Optimized Writing\n\nUsually specific database systems have custom commands for loading large amounts of data, e.g. from a CSV file into a database table.\nFor some DBMS and specific JDBC dataset configurations we support these optimized methods of loading data.\n\nSupported DBMS:\n\n- MySQL and MariaDB (full support for versions 8.0.19+ and 10.4+, resp.):\n  - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will\n  - the same is true when older driver jars then the one provided by eccenca are used\n  - both use the MariaDB JDBC driver\n  - uses `LOAD DATA LOCAL INFILE` internally\n  - only applies when appending data to an existing table and having `Force Spark Execution` disabled\n  - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.\n    For MySQL starting with version 8 the `local_infile` parameter is by default disabled!\n  - If during writing to a MySQL/MariaDB a `[\u2026] You have an error in your SQL syntax [\u2026]` error is encountered make sure ANSIquotes are used.\n    `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:\n\n    ```sh\n    # MySQL\n    jdbc:mysql://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES\n\n    # MariaDB\n    jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES\n    ```\n\n## Registering JDBC drivers\n\nMore 3rd party databases are supported via adding their JDBC drivers to the classpath of Data Integration.\nDrivers are usually provided by the database manufactures.\nIf 32 bit and 64 bit versions are provided the latter is usually needed and should aways equal the bit-level of the JVM.\nTo make sure that the drivers are loaded correctly, their class name (in case are jar contains multiple drivers) and location in the file system can be set with the `spark.sql.options.jdbc` option in the `dataintegration.conf` configuration file.\n\nAn example for adding both the DB2 and MySQL drivers to the Data Integration configuration file `spark.sql.options.*` section:\n\n```raml\nspark.sql.options {\n  \u2026\n\n  # List of database identifiers to specify user provided JDBC drivers. The second part of the protocol of a JDBC URI (e.g. db2 from\n  # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download\n  # location can be provided.\n  jdbc.drivers = \"db2,mysql\"\n  \n  # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path\n  # to a jar file containing the driver and the name of driver can be specified here.\n  jdbc.db2.jar = \"/home/user/Jars/db2jcc-db2jcc4.jar\"\n  jdbc.mysql.jar = \"/home/user/drivers/mysql.jar\"\n\n  # Name of the actual driver class for each db\n  jdbc.db2.name = \"com.ibm.db2.jcc.DB2Driver\"\n  jdbc.mysql.name = \"com.mysql.jdbc.Driver\"\n}\n```\n\n## Driver Priority\n\nIn general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.\n\nThe driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = \"mssql\"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.                   \n\n_Recommended DBMS versions_\n\n- **Microsoft SQL Server 2017**: Older versions might work, but do not support the `groupBy` parameter.\n- **PostgreSQL 9.5**: The `groupBy` parameter needs at least version 8.4.\n- **MySQL v8.0.19**: Older versions do not support the `groupBy` parameter.\n- **DB2 v11.5.x**: The `groupBy` feature needs at least version 9.7 to function.\n- **Oracle 12.2.x**: The `groupBy` feature does not work for versions prior to 11g Release 2.\n\nThese limitations are the same for JDBC drivers that are older than the fully supported databases.\nQueries can achieve a similar outcome if `groupBy` is not supported.\n",
+    "markdownDocumentation": "## General usage\n\nThe JDBC dataset supports connections to Hive, Microsoft SQL Server, MySQL, MariaDB, SnowFlake, Oracle Database, DB2 and PostgreSQL databases.\nA login, password and JDBC URL need to be provided.\nThis dataset supports queries or simply schema and table names to define what to retrieve from a source DB.\nWhen the dataset is used as a sink, queries are ignored and only schema and table parameters are used.\nIf the dataset is used as a sink for a hierarchical mapping, it behaves similarly to the SqlEndpoint: One table is created per entity type.\n\nThe names of the written tables are generated as follows:\n\n- The table name of the root mapping is defined by the table parameter of the dataset.\n  If the table name is empty, a name is generated from the first type of the mapping.\n  Special characters are removed and the name is truncated to a maximum of 128 characters.\n- For each object mapping, the table name is generated from its type.\n\n## JDBC Connection Strings/URLs\n\nMost of the dataset parameters are passed directly to the driver.\nPlease make sure that you use the correct syntax for each DBMS, otherwise you may get unintuitive errors.\n\nHere are templates for supported database systems:\n```\noracle (external driver needed): \njdbc:oracle:thin:@{host}[:{port}]/{database}\n\npostgres (integrated): \njdbc:postgresql://{host}[:{port}]/[{database}]\n\nMySQL/MariaDB (integrated): \njdbc:{mariadb}://{host}[:{port}]/[{database}]\n\nSnowSQL (external driver needed): \njdbc:snowflake://{AWSAccount}.{AWS region}.snowflakecomputing.com?db={database}&schema={schema}\n\nMSSqlServer (integrated): \njdbc:sqlserver://{host}[:{port}];databaseName={database}\n\nDB2 (external driver needed):\njdbc:db2//{host}[:{port}]/{database}\n\nTrino (external driver needed)\njdbc:trino//{host}:8080/catalog/schema\n```\n\n## Read and write strategies\n\nThere are multiple read and write strategies which can be selected depending on the purpose of the dataset in a workflow.\n\nRead strategies decide how the database is queried:\n\n- **full-table**: Queries or wraps a complete table.\n  Only the DB schema and table name need to be set.\n- **query**: The given source query is passed to the database.\n  The table name is not necessary in this case but a valid query in the SQL-dialect of the source database system must be provided.\n\nWrite strategies decide how a new table is written:\n\n- **default**: An error will occur if the table exists.\n  If not a new one will be created.\n- **overwrite**: The old table will be removed and a new one will be created.\n- **append**: Data will be appended to the existing table.\n  The schema of the data written has to be the same as the existing table schema.\n\n## Optimized Writing\n\nUsually specific database systems have custom commands for loading large amounts of data, e.g. from a CSV file into a database table.\nFor some DBMS and specific JDBC dataset configurations we support these optimized methods of loading data.\n\nSupported DBMS:\n\n- MySQL and MariaDB (full support for versions 8.0.19+ and 10.4+, resp.):\n  - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will\n  - the same is true when older driver jars then the one provided by eccenca are used\n  - both use the MariaDB JDBC driver\n  - uses `LOAD DATA LOCAL INFILE` internally\n  - only applies when appending data to an existing table and having `Force Spark Execution` disabled\n  - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.\n    For MySQL starting with version 8 the `local_infile` parameter is by default disabled!\n  - If during writing to a MySQL/MariaDB a `[\u2026] You have an error in your SQL syntax [\u2026]` error is encountered make sure ANSIquotes are used.\n    `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:\n\n    ```sh\n    # MySQL\n    jdbc:mysql://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES\n\n    # MariaDB\n    jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI_QUOTES\n    ```\n\n## Registering JDBC drivers\n\nMore 3rd party databases are supported via adding their JDBC drivers to the classpath of Data Integration.\nDrivers are usually provided by the database manufactures.\nIf 32 bit and 64 bit versions are provided the latter is usually needed and should aways equal the bit-level of the JVM.\nTo make sure that the drivers are loaded correctly, their class name (in case are jar contains multiple drivers) and location in the file system can be set with the `spark.sql.options.jdbc` option in the `dataintegration.conf` configuration file.\n\nAn example for adding both the DB2 and MySQL drivers to the Data Integration configuration file `spark.sql.options.*` section:\n\n```raml\nspark.sql.options {\n  \u2026\n\n  # List of database identifiers to specify user provided JDBC drivers. The second part of the protocol of a JDBC URI (e.g. db2 from\n  # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download\n  # location can be provided.\n  jdbc.drivers = \"db2,mysql\"\n  \n  # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path\n  # to a jar file containing the driver and the name of driver can be specified here.\n  jdbc.db2.jar = \"/home/user/Jars/db2jcc-db2jcc4.jar\"\n  jdbc.mysql.jar = \"/home/user/drivers/mysql.jar\"\n\n  # Name of the actual driver class for each db\n  jdbc.db2.name = \"com.ibm.db2.jcc.DB2Driver\"\n  jdbc.mysql.name = \"com.mysql.jdbc.Driver\"\n}\n```\n\n## Driver Priority\n\nIn general, it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.\n\nThe driver delivered with eccenca Dataintegration will be preferred. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = \"mssql\"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.                   \n\n### Recommended DBMS versions\n\n- **Microsoft SQL Server 2017**: Older versions might work, but do not support the `groupBy` parameter.\n- **PostgreSQL 9.5**: The `groupBy` parameter needs at least version 8.4.\n- **MySQL v8.0.19**: Older versions do not support the `groupBy` parameter.\n- **DB2 v11.5.x**: The `groupBy` feature needs at least version 9.7 to function.\n- **Oracle 12.2.x**: The `groupBy` feature does not work for versions prior to 11g Release 2.\n\nThese limitations are the same for JDBC drivers that are older than the fully supported databases.\nQueries can achieve a similar outcome if `groupBy` is not supported.\n",
     "pluginIcon": null,
     "properties": {
       "url": {
@@ -8583,17 +9142,6 @@
         "visibleInDialog": true,
         "properties": {}
       },
-      "clearTableBeforeExecution": {
-        "name": "clearTableBeforeExecution",
-        "title": "Clear table before workflow execution",
-        "description": "If set to true this will clear the specified table before executing a workflow that writes to it.",
-        "type": "string",
-        "parameterType": "boolean",
-        "value": "false",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      },
       "user": {
         "name": "user",
         "title": "User",
@@ -8629,6 +9177,17 @@
       }
     },
     "properties_advanced": {
+      "clearTableBeforeExecution": {
+        "name": "clearTableBeforeExecution",
+        "title": "Clear table before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified table before executing a workflow that writes to it.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
       "tokenEndpoint": {
         "name": "tokenEndpoint",
         "title": "Token endpoint URL (Azure Active Directory)",
@@ -8768,7 +9327,7 @@
           "host": {
             "name": "host",
             "title": "Account URL hostname",
-            "description": "The hostname which is used for the connection. Usually, this is something like '<orgname>-<account_name>.snowflakecomputing.com'",
+            "description": "The hostname which is used for the connection. Usually, this is something like `<orgname>-<account_name>.snowflakecomputing.com`",
             "type": "string",
             "parameterType": "string",
             "value": "<orgname>-<account_name>.snowflakecomputing.com",
@@ -9195,17 +9754,6 @@
         "visibleInDialog": true,
         "properties": {}
       },
-      "clearGraphBeforeExecution": {
-        "name": "clearGraphBeforeExecution",
-        "title": "Clear graph before workflow execution",
-        "description": "If set to `true`, this will clear the specified graph before executing a workflow that writes into it.",
-        "type": "string",
-        "parameterType": "boolean",
-        "value": "false",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      },
       "sparqlTimeout": {
         "name": "sparqlTimeout",
         "title": "SPARQL query timeout (ms)",
@@ -9281,6 +9829,17 @@
         "type": "string",
         "parameterType": "string",
         "value": "",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "clearGraphBeforeExecution": {
+        "name": "clearGraphBeforeExecution",
+        "title": "Clear graph before workflow execution (deprecated)",
+        "description": "This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes into it.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -11856,7 +12415,7 @@
         "description": "Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.",
         "type": "string",
         "parameterType": "string",
-        "value": "2025-11-26",
+        "value": "2026-02-23",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -12669,8 +13228,8 @@
       "Replace"
     ],
     "main_category": "Replace",
-    "description": "Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: mapFrom,mapTo <source string>,<target string> ... and more An empty string can be created in Excel and alternatives by inserting `=\"\"` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.",
-    "markdownDocumentation": "Replaces values based on a map of values read from a file in Open XML format (XLSX).\nThe XLSX file may contain several sheets of the form:\n\nmapFrom,mapTo\n<source string>,<target string>\n... and more\n\nAn empty string can be created in Excel and alternatives by inserting `=\"\"` in the input line of a cell.\n\nIf there are multiple values for a single key, all values will be returned for the given key.\n\nNote that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.\n    \n",
+    "description": "Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: ``` mapFrom,mapTo <source string>,<target string> ``` and more. An empty string can be created in Excel and alternatives by inserting `=\"\"` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.",
+    "markdownDocumentation": "Replaces values based on a map of values read from a file in Open XML format (XLSX).\nThe XLSX file may contain several sheets of the form:\n```\nmapFrom,mapTo\n<source string>,<target string>\n```\nand more.\n\nAn empty string can be created in Excel and alternatives by inserting `=\"\"` in the input line of a cell.\n\nIf there are multiple values for a single key, all values will be returned for the given key.\n\nNote that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.\n    \n",
     "pluginIcon": null,
     "properties": {
       "excelFile": {
@@ -16509,7 +17068,7 @@
     ],
     "main_category": "Geo",
     "description": "Retrieves geographic coordinates using Nominatim.",
-    "markdownDocumentation": "\n**Configuration**\n\nThe geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n**Logging**\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
+    "markdownDocumentation": "\n## Configuration\n\nThe Geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n## Logging\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
     "pluginIcon": null,
     "properties": {},
     "properties_advanced": {
@@ -16543,7 +17102,7 @@
     ],
     "main_category": "Geo",
     "description": "Retrieves geographic coordinates using Nominatim and returns the latitude.",
-    "markdownDocumentation": "\n**Configuration**\n\nThe geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n**Logging**\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
+    "markdownDocumentation": "\n## Configuration\n\nThe Geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n## Logging\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
     "pluginIcon": null,
     "properties": {},
     "properties_advanced": {
@@ -16577,7 +17136,7 @@
     ],
     "main_category": "Geo",
     "description": "Retrieves geographic coordinates using Nominatim and returns the longitude.",
-    "markdownDocumentation": "\n**Configuration**\n\nThe geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n**Logging**\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
+    "markdownDocumentation": "\n## Configuration\n\nThe Geocoding service to be queried for searches can be set up in the configuration.\nThe default configuration is as follows:\n\n    com.eccenca.di.geo = {\n      # The URL of the geocoding service\n      # url = \"https://nominatim.eccenca.com/search\"\n      url = \"https://photon.komoot.de/api\"\n      # url = https://api-adresse.data.gouv.fr/search\n    \n      # Additional URL parameters to be attached to all HTTP search requests. Example: '&countrycodes=de&addressdetails=1'.\n      # Will be attached in addition to the parameters set on each search operator directly.\n      searchParameters = \"\"\n    \n      # The minimum pause time between subsequent queries\n      pauseTime = 1s\n    \n      # Number of coordinates to be cached in-memory\n      cacheSize = 10\n    }\n    \nIn general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.\nPlease note that when using public services, the pause time should be set to avoid overloading.\n\n## Logging\n\nBy default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:\n\n    logging.level {\n      com.eccenca.di.geo=DEBUG\n    }\n",
     "pluginIcon": null,
     "properties": {},
     "properties_advanced": {
@@ -18838,6 +19397,62 @@
         "type": "string",
         "parameterType": "string",
         "value": "VARPA",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer"
+  },
+  "zip": {
+    "pluginId": "zip",
+    "title": "Zip",
+    "categories": [
+      "Combine"
+    ],
+    "main_category": "Combine",
+    "description": "Concatenates the values of two inputs in pairs.",
+    "markdownDocumentation": "Concatenates the values of two inputs in pairs.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Zipping two inputs of equal length:**\n\n* Input values:\n    1. `[a, b]`\n    2. `[1, 2]`\n\n* Returns: `[a1, b2]`\n\n\n---\n**Zipping two inputs of different lengths, using placeholders:**\n\n* Parameters\n    * firstPlaceholder: `_`\n    * secondPlaceholder: `-`\n\n* Input values:\n    1. `[a, b, c]`\n    2. `[1, 2]`\n\n* Returns: `[a1, b2, c-]`\n\n\n---\n**Zipping two inputs using a glue string:**\n\n* Parameters\n    * glue: `-`\n\n* Input values:\n    1. `[a, b]`\n    2. `[1, 2]`\n\n* Returns: `[a-1, b-2]`\n\n\n---\n**Zipping two inputs using a glue string with escape characters:**\n\n* Parameters\n    * glue: `\\n`\n\n* Input values:\n    1. `[a, b]`\n    2. `[1, 2]`\n\n* Returns: \n    ```\n    [a\n    1, b\n    2]\n    ```\n\n\n",
+    "pluginIcon": null,
+    "properties": {
+      "firstPlaceholder": {
+        "name": "firstPlaceholder",
+        "title": "First placeholder",
+        "description": "Placeholder to be used if the first input provides fewer values than the second one.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "secondPlaceholder": {
+        "name": "secondPlaceholder",
+        "title": "Second placeholder",
+        "description": "Placeholder to be used if the second input provides fewer values than the first one.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "glue": {
+        "name": "glue",
+        "title": "Glue",
+        "description": "Separator to be inserted between two concatenated strings. The text can contain escaped characters \\n, \\t and \\\\ that are replaced by a newline, tab or backslash respectively.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}

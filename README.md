@@ -4,10 +4,10 @@
 
 Shared repository of the eccenca Corporate Memory documentation.
 
-| Branch       | Deployment |
-| :---         | :--- |
-| `main`       | [https://dev.documentation.eccenca.com](https://dev.documentation.eccenca.com) |
-| `published`  | [https://documentation.eccenca.com](https://documentation.eccenca.com) |
+| Branch | Deployment |
+| :----- | :--------- |
+| `main` | [https://dev.documentation.eccenca.com](https://dev.documentation.eccenca.com) |
+| `published` | [https://documentation.eccenca.com](https://documentation.eccenca.com) |
 
 If you consider to contribute to this project, please have a look on [CONTRIBUTING.md](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md)
 
@@ -27,4 +27,3 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 [mkdocs-shield]: https://img.shields.io/badge/Made%20with-mkdocs-brightgreen
 [mkdocs]: https://www.mkdocs.org/
 [markdown-shield]: https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg
-

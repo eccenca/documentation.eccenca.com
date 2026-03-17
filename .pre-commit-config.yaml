@@ -1,0 +1,11 @@
+
+---
+repos:
+  - repo: local
+    hooks:
+
+      - id: markdownlint
+        name: check:rumdl
+        entry: task check:rumdl
+        language: python
+        pass_filenames: false
