@@ -61,6 +61,7 @@ extra:
     Volume: fontawesome-solid-hard-drive
     "Load Balancer": simple-awselasticloadbalancing
     Variables: variables
+    JDBC: jdbc
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
@@ -186,6 +187,7 @@ theme:
       simple-awselasticloadbalancing: simple/awselasticloadbalancing
       fontawesome-solid-hard-drive: fontawesome/solid/hard-drive
       variables: material/variable-box
+      jdbc: material/database
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky

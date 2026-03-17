@@ -26,7 +26,7 @@ The tutorial consists of the following steps, which are described in detail belo
 
 This tutorial uses the following example ontology:
 
-![](diagram_product_expert.png)
+![](diagram_product_expert.excalidraw.svg)
 
 Two classes are related through an `expertIn` object property.
 
