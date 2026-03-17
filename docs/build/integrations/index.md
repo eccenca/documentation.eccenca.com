@@ -54,7 +54,7 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
 Please have a look at
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 -   :material-email-outline:{ .lg .middle } eMail / SMTP
@@ -330,7 +330,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
 Please have a look at
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 -   :material-ssh:{ .lg .middle } SSH
@@ -359,7 +359,7 @@ Tentris can be used as the integrated Quad Store as well (beta).
     [Trino](https://github.com/trinodb/trino) can be access with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
 [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
 Please have a look at
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 -   :black_large_square:{ .lg .middle } Virtuoso
