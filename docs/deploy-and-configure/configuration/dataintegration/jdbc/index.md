@@ -69,7 +69,7 @@ spark.sql.options {
 
 JDBC drivers are used through the **Remote SQL endpoint** or **Snowflake SQL endpoint** dataset type.
 
-![](jdbc-dataset.png){ class="bordered" width="85%" }
+![](jdbc-dataset.png){ class="bordered" width="60%" }
 
 Configure them in the dataset configuration dialog.
 For details about the [JDBC connection string](https://www.baeldung.com/java-jdbc-url-format), consult your DBMS or JDBC driver documentation.
