@@ -18,9 +18,19 @@ Select a visible resource in a group or its row in the group table to open the `
 2.  **Classes:** List of all classes assigned to the resource.
 3.  **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
 
-### Controls
-- **Hide empty fields:** Toggles visibility of data properties that have no value for this specific resource.
-- **Copy Data:** Right-click any row to copy the **data property** or **data property assertion**.
+### Search, View, and Interaction Controls
+
+Use the search bar and configuration menus at the top of the details pane to quickly locate specific information.
+
+- **Search scope:** Enter text to filter the pane. Use the adjacent dropdown to target `Captions`, `Values`, `IRIs`, or `All`.
+    - **Outcome:** Matching rows are highlighted, and section headers display the count of matching data properties aligned to the right. If the scope is set to `IRIs` or `All`, the data properties will additionally display their underlying IRIs.
+- **View settings (cogwheel):**
+    - **Tree view:** Organizes data properties into sections by their defining classes (default behavior).
+    - **List view:** Flattens the hierarchy, displaying all data properties in a single "All data properties" list.
+    - **Sort by name:** Sorts the data properties keys alphabetically.
+    - **Hide empty fields:** Toggles the visibility of data properties that have no value for this specific resource.
+    - **Hide IRIs:** Toggles the display of the underlying identifiers.
+- **Copy data:** Right-click any row to copy the **data property** or **data property assertion**.
 
 !!! info "Why are there sections?"
 
@@ -48,8 +58,15 @@ The standard flags are persistent markers used to track the appearance of specif
 !!! info "About Persistence"
 
     - A flag will appear anytime a new instance of the flagged resource is visible in a subsequent exploration step (even in new explorations).
-    - Flags and notes can be removed using the context-menu of the resource, the group, or the exploration (canvas). 
+    - Flags and notes can be removed using the context-menu of the resource, the group, or the exploration (canvas).
 
+
+#### Restricting Groups by Flags {#restrict-groups-by-flags}
+
+Once resources are flagged, you can use these visual markers to filter a group down to your items of interest.
+
+- **Action:** Right-click a group containing standard flags to open its context menu and select `Restrict group to flagged resources`.
+- **Outcome:** The group is filtered to retain *only* the flagged resources. (Note: Under the hood, this behaves exactly like a manual [resource selection filter](objects-table.md#filter-types) applied via the table and can be cleared using [`Remove resource selection filters`](groups.md#remove-group-filters)).
 
 ### Temporary Flags {#temporary-flags}
 
@@ -121,7 +138,7 @@ Analysts can focus on a specific resource within a group to analyze its relation
 
 ### Resource Exploration from a Group
 
-Expand the exploration with specific connections from a single resource within a larger group.
+Expand the exploration with connections from a single resource within a larger group.
 
 - **Action:** Right-click a resource to open its context menu, open `Explore connections of the resource`, and select the target class and connecting object property and direction (just like a group expansion).
 - **Outcome:** A new connection beam connects the individual resource to a new group to its right.
@@ -135,7 +152,7 @@ Expand the exploration with specific connections from a single resource within a
 
 ### Simple Resource Exploration
 
-Start a new exploration tree with a specific resource found in the current exploration.
+Start a new exploration tree with any resource found in the current exploration.
 
 - **Action:** Right-click the resource to open its context menu and select `Start exploration with resource`.
 - **Outcome:** The canvas clears and places the single resource as starting point of the exploration.

@@ -33,10 +33,12 @@ There are two ways to trigger this navigation:
 - **Action:** Right-click a specific resource dot within a group to open its context menu.
 - **Select:** `View in CMEM`.
 
-![View Resource in Corporate Memory from Canvas](graph-insights-view-in-cmem-resources.png){ class="bordered" width="75%" }
+![View Resource in Corporate Memory from Canvas](graph-insights-view-in-cmem-resources.png){ class="bordered" width="60%" }
 
 **From the Details Pane**
 
 - **Action:** Select a resource on the canvas or in the resource table to load its details in the right pane.
-- **Select:** Click the `View in CMEM` button located at the top of the Details pane.
+- **Select:** Open the view settings (cogwheel) located at the top-right of the details pane and click `View in CMEM`.
 - **Outcome:** The specific instance record opens in a new tab.
+
+![View Resource in Corporate Memory from Details](graph-insights-view-in-cmem-resource-details.png){ class="bordered" width="45%" }

@@ -70,11 +70,11 @@ Access instance-level information like the data property values of the resources
 
 #### Single Resource
 
-Select a resource visible inside a group to display its classes and data properties in the right `Details` pane.
+Select a resource visible inside a group to display its [details](features/objects.md#object-details) in the right pane (classes and data properties).
 
 #### Group
 
-Select a group to display a textual description of its contents and histograms of the distribution of classes of its resources.
+Select a group to display its [details](features/groups.md#group-details) in the right pane (a textual description of its contents and histograms of the distribution of classes of its resources).
 
 Open the [resource table](features/objects-table.md) to access the highly configurable tabular listing of all resources of the group and their data properties.
 
@@ -99,5 +99,5 @@ Narrow down any group to match your current focus using [data property filters](
 
 - **Images:** [Export](features/persistence.md#export-visuals) the canvas as SVG or PNG images.
 - **CSV data:** Download of the resources of a group or of the table view of a group or connection.
-- **Query snippets:** Copy the SPARQL that returns the resources of a group or the data in the table view of a group or connection for use (e.g. a dashboard).
+- **Query snippets:** Copy the SPARQL that returns the resources of a group or the data in the table view of a group or connection for use (e.g., a dashboard).
 - **[JSON Sharing](features/persistence.md#json-sharing):** Share explorations as JSON-serialization.

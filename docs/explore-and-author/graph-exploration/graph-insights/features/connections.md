@@ -40,7 +40,7 @@ By default, the exploration applies a **left-join pattern**: The left group rema
 
 !!! warning "Effects of Subsequent Updates"
 
-    Because the switch to an **inner-join pattern** is permanent, any further filtering of the right group will modify the contents of the right group.
+    Because the switch to an **inner-join pattern** is permanent, any further filtering of the right group will modify the contents of the left group.
 
     In the example above, narrowing `Confections | Beverages` to `Beverages` only will remove from the `Supplier` group the ones who do not provide beverages.
 
@@ -57,6 +57,7 @@ By default, the exploration applies a **left-join pattern**: The left group rema
 Right-click a connection to manage the exploration structure:
 
 - **Do not restrict left group:** Disables backpropagation (reverts to left-join).
+- **Remove filters:** Clears filters applied via the [connection table](#connection-table).
 - **Repeat expansion:** Transitively expands the hierarchy (available only for expansions where the left and right groups have the same class - e.g., `is_friend_with`).
 - **Remove:** Deletes the connection beam and its entire subtree.
 

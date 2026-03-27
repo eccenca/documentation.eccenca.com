@@ -2,7 +2,7 @@
 
 # The Exploration Canvas
 
-The **exploration canvas** is the primary workspace in Graph Insights. It displays the exploration tree, allowing users to manipulate layout, throttle data density, and rapidly locate specific resources within the detailed groups.
+The **exploration canvas** is the primary workspace in Graph Insights. It displays the exploration tree, allowing users to manipulate layout, throttle data density, and rapidly locate resources within the detailed groups.
 
 ## Toolbar Controls
 
@@ -37,7 +37,7 @@ Graph Insights maintains a session history stack.
 ## Group Rendering Controls (Max. resources) {#object-threshold-logic}
 
 To optimize browser performance and visual density, Graph Insights uses two different renderings for groups depending on their cardinality.
-Use the `Max. resources` dropdown to set the threshold.
+Use the `Max. resources` control in the top toolbar to select a predefined threshold from the dropdown, or click inside the field to enter another number.
 
 ### Count-Only Rendering (Count > Threshold)
 
@@ -57,7 +57,7 @@ If the count is *below* the limit, each resource is rendered as a dot within the
 
 ## Global Search (Visible Resources) {#global-search}
 
-Locate specific resources **among those currently visible** in the groups of the exploration.
+Locate resources **among those currently visible** in the groups of the exploration.
 
 - **Scope:** Searches only rendered resources on the canvas. It does *not* query the backend for hidden data.
 - **Behavior:** Matches are tagged with a (temporary) orange flag and caption.

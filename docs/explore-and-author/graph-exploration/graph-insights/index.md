@@ -48,6 +48,7 @@ This task allows for updating snapshots based on the specification of an affecte
 
 The **user guide** presents the visual analysis workflow of Graph Insights. It demonstrates how it empowers analysts and domain experts to extract insights from graph data without technical prerequisites.
 
+
 ### Where to Start?
 
 1.  **[Core Concepts](concepts.md):** *(Recommended)* Before diving in, understand the **aggregated exploration tree** paradigm of Graph Insights that prevents the visual clutter of traditional force-directed graph renderings ("hairballs").
