@@ -7,7 +7,11 @@ This resolution and, by extension, the full text search is configurable for diff
 
 ## Configuration
 
-eccenca Explore backend (DataPlatform) offers three configuration options: `labelProperties` (line 2) `languagePreferences` (line 5) and `languagePreferencesAnyLangFallback` (line 8).
+eccenca Explore backend (DataPlatform) offers three configuration options:
+
+-   `labelProperties` (line 2) 
+-   `languagePreferences` (line 5) and 
+-   `languagePreferencesAnyLangFallback` (line 8).
 
 ``` yaml linenums="1"
 proxy:
@@ -24,8 +28,8 @@ These properties define not only which properties and languages should be consid
 
 The retrieval process can be simplified to the following procedure:
 
-- First, when determining the label for a resource, the language is evaluated, then the property is considered.
-- Consequently, for a resource in the default case:
+-   First, when determining the label for a resource, the language is evaluated, then the property is considered.
+-   Consequently, for a resource in the default case:
     1. An english value for `rdfs:label` is searched.
     2. A literal of the property `rdfs:label` without a language tag is searched (which is why there is an entry `""`).
     3. An english value of `skos:prefLabel` is searched.
@@ -46,15 +50,14 @@ How labels are resolved is best explained using these default settings and some 
 :Resource4 rdfs:label "Another Label for Hanover"@en
 ```
 
-- For `:Resource1` the label will be `Leipzig` as the english `rdfs:label` will be retrieved.
-- For `:Resource2` the label cannot be retrieved from the Knowledge Graph since no known property is used. Hence the fallback.
-- For `:Resource3` the label will be retrieved as `Stuttgart`, if the `languagePreferencesAnyLangFallback` is `true`.
-  - While there is a well-known property used, none of the used languages match. Using the fallback, the alphabetically first match is retrieved in this case.
-- For `:Resource4` multiple label candidates could be determined.
-  - In this case, `Another Label for Hanover` is retrieved as it is the first value in the alphanumerical comparison.
+-   For `:Resource1` the label will be `Leipzig` as the english `rdfs:label` will be retrieved.
+-   For `:Resource2` the label cannot be retrieved from the Knowledge Graph since no known property is used. Hence the fallback.
+-   For `:Resource3` the label will be retrieved as `Stuttgart`, if the `languagePreferencesAnyLangFallback` is `true`.
+    -   While there is a well-known property used, none of the used languages match. Using the fallback, the alphabetically first match is retrieved in this case.
+-   For `:Resource4` multiple label candidates could be determined.
+    -   In this case, `Another Label for Hanover` is retrieved as it is the first value in the alphanumerical comparison.
 
 ## Client API
 
 The label resolution functionality can also be used by client systems.
 This functionality is exposed as an [API endpoint](../../../develop/dataplatform-apis/index.md) (`<dp_url>/api/explore/title`).
-
