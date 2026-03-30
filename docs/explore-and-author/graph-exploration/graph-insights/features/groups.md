@@ -24,7 +24,7 @@ The header contains:
 The **histogram sections** display the distribution of classes within a group. It allows analysts to scrutinize class composition (e.g., spot unexpected or missing classes) and perform logical set operations (union, intersection, difference) to restrict the contents of the groups.
 
 - **Scope:** The panel displays counts for all **classes** (including **[user-defined classes](persistence.md#custom-categories)**) present within the selected group.
-  - *Remark:* If user-defined classes are present, a second histogram is shown for better overview
+    - *Remark:* If user-defined classes are present, a second histogram is shown for better overview
 
 ![Histogram Panel Overview](../assets/histograms.png){ class="bordered" width="35%" }
 
