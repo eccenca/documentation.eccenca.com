@@ -28,14 +28,14 @@ If you isolate a specific resource of interest during your exploration, you can 
 
 There are two ways to trigger this navigation:
 
-**From the Canvas**
+### From the Canvas
 
 - **Action:** Right-click a specific resource dot within a group to open its context menu.
 - **Select:** `View in CMEM`.
 
 ![View Resource in Corporate Memory from Canvas](graph-insights-view-in-cmem-resources.png){ class="bordered" width="60%" }
 
-**From the Details Pane**
+### From the Details Pane
 
 - **Action:** Select a resource on the canvas or in the resource table to load its details in the right pane.
 - **Select:** Open the view settings (cogwheel) located at the top-right of the details pane and click `View in CMEM`.
