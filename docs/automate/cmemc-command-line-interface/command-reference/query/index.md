@@ -194,7 +194,7 @@ With this command, you can cancel a running query. Depending on the backend trip
 Explain queries by showing their logical execution plan.
 
 ```shell-session title="Usage"
-$ cmemc query explain [OPTIONS] QUERIES...
+cmemc query explain [OPTIONS] QUERIES...
 ```
 
 
@@ -227,7 +227,7 @@ This helps understand query performance and identify optimization opportunities.
 Create a new query in a query catalog.
 
 ```shell-session title="Usage"
-$ cmemc query create [OPTIONS] QUERY_FILE
+cmemc query create [OPTIONS] QUERY_FILE
 ```
 
 
@@ -238,7 +238,7 @@ Creates a new query in a query catalog from a SPARQL query file.
 The query type (SELECT, CONSTRUCT, UPDATE, etc.) is automatically detected from the query text.
 
 ```shell-session title="Example"
-$ cmemc query create my-query.sparql $ cmemc query create my-query.sparql --id :customName
+cmemc query create my-query.sparql $ cmemc query create my-query.sparql --id :customName
 ```
 
 
@@ -263,7 +263,7 @@ $ cmemc query create my-query.sparql $ cmemc query create my-query.sparql --id :
 Update an existing query in a query catalog.
 
 ```shell-session title="Usage"
-$ cmemc query update [OPTIONS] QUERY_ID
+cmemc query update [OPTIONS] QUERY_ID
 ```
 
 
@@ -290,7 +290,7 @@ The `QUERY_ID` can be either a short URI (e.g., :myQuery) or a full URI.
 Delete queries from a query catalog.
 
 ```shell-session title="Usage"
-$ cmemc query delete [OPTIONS] [QUERY_IDS]...
+cmemc query delete [OPTIONS] [QUERY_IDS]...
 ```
 
 

@@ -67,5 +67,5 @@ cmemc admin workspace reload
 Request a thread dump for all live threads.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace thread-dump
+cmemc admin workspace thread-dump
 ```

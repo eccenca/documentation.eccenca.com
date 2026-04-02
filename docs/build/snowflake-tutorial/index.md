@@ -22,10 +22,10 @@ This integration enables organizations to make informed decisions, improve their
 
 This tutorial contains the following step-by-step instructions to connect the Snowflake data-warehouse with eccenca corporate memory:
 
--   [1. Create a database in Snowflake](#1-create-a-database-in-snowflake)
--   [2. Create a project in eccenca Corporate Memory](#2-create-a-project-in-eccenca-corporate-memory)
--   [3. Create a transformation to build mapping rules](#3-create-a-transformation-to-build-mapping-rules)
--   [4. Create a knowledge graph](#4-create-a-knowledge-graph)
+- [1. Create a database in Snowflake](#1-create-a-database-in-snowflake)
+- [2. Create a project in eccenca Corporate Memory](#2-create-a-project-in-eccenca-corporate-memory)
+- [3. Create a transformation to build mapping rules](#3-create-a-transformation-to-build-mapping-rules)
+- [4. Create a knowledge graph](#4-create-a-knowledge-graph)
 
 ## Sample material
 
@@ -1119,13 +1119,13 @@ Here you can populate some test data with the following SQL query:
 
     ![image](snowflake-create.png){ class="bordered" }
 
--   Click on **Snowflake SQL endpoint**, then click on **Add**.
+- Click on **Snowflake SQL endpoint**, then click on **Add**.
 
     ![image](snowflake-jdbc.png){ class="bordered" }
 
--   Type the name **Product table (JDBC)** in the label field.
+- Type the name **Product table (JDBC)** in the label field.
 
--   In the **CONNECTION** section populate the required details.
+- In the **CONNECTION** section populate the required details.
 
     ![image](snowflake-connection.png){ class="bordered" }
 
@@ -1141,7 +1141,7 @@ Here you can populate some test data with the following SQL query:
 
     -   Select your **Schema**, `products_vocabulary` in this case
 
--   In the **READ** section specify **Source query** as
+- In the **READ** section specify **Source query** as
 
     ```sparql
     SELECT * from product
@@ -1149,7 +1149,7 @@ Here you can populate some test data with the following SQL query:
 
     ![image](snowflake-query-source.png){ class="bordered" }
 
--   Select the **Query strategy** as **Execute the given source query. No paging or virtual query**.
+- Select the **Query strategy** as **Execute the given source query. No paging or virtual query**.
 
     ![image](snowflake-query-strategy.png){ class="bordered" }
 
@@ -1157,7 +1157,7 @@ Here you can populate some test data with the following SQL query:
 
     ![image](snowflake-write-stategy.png){ class="bordered" }
 
--   Then click on **Create**.
+- Then click on **Create**.
 
 !!! success "Step Result"
 
