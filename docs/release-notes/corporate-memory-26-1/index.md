@@ -35,7 +35,7 @@ This release delivers the following component versions:
 - eccenca DataIntegration v26.1.0
 - eccenca Explore v26.1.0
 - eccenca Corporate Memory Control (cmemc) v26.1.0
-- eccenca Graph Insights v19.1.1-2
+- eccenca Graph Insights v19.2.0
 
 We tested this release with the following dependency components:
 
