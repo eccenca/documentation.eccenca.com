@@ -130,6 +130,17 @@ Set to true to use the native Graph Store API endpoint. Set to false to use the 
 | Valid values | boolean |
 | Environment | STORE_GRAPHDB_USEDIRECTTRANSFER |
 
+***Property: store.graphdb.useStatementParallelGspWrite***
+
+Whether to use the parallel GSP write endpoint for statements. This is only relevant when `useDirectTransfer` is true.
+
+| Category | Value |
+|--- | ---: |
+| Default | false |
+| Required | false |
+| Valid values | boolean |
+| Environment | STORE_GRAPHDB_USESTATEMENTPARALLELGSPWRITE |
+
 ***Property: store.graphdb.create-repository-on-startup***
 
 Whether to create the given repository on startup if it does not exist
