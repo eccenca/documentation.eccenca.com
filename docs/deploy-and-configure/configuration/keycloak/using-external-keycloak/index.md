@@ -19,9 +19,9 @@ For this scenario, this page provides additional configuration requirements.
 Depending on your infrastructure around Corporate Memory, you need to change some provisioned HTTP header on the following services:
 
 - Headers for Keycloak URLs:
-    -   `Access-Control-Allow-Origin: https://cmem.example.com`
+    - `Access-Control-Allow-Origin: https://cmem.example.com`
 - Headers for Corporate Memory URLs:
-    -   `Access-Control-Allow-Origin: *`
+    - `Access-Control-Allow-Origin: *`
 
 For example, if you are using our helm charts, adapt the followin ingress annotations:
 
@@ -36,7 +36,6 @@ For example, if you are using our helm charts, adapt the followin ingress annota
   nginx.ingress.kubernetes.io/enable-cors: "true"
   nginx.ingress.kubernetes.io/cors-allow-origin: "*"
 ```
-
 
 ### Keycloak
 
@@ -122,4 +121,3 @@ In either way you can configure the base realm path in the global value section:
   # keycloak oauth client id (used for DataPlatform connection and DataIntegration cmem service client)
   oauthClientId: cmem
 ```
-

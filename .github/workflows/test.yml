@@ -64,6 +64,12 @@ jobs:
       - name: check
         run: task check
 
+      - name: Publish Test Results
+        if: always()
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          files: "dist/md-lint-issues.xml"
+
       - name: build
         run: task clean build
 

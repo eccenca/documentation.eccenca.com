@@ -2,10 +2,12 @@
 title: "Concatenate pairwise"
 description: "Concatenates the values of multiple inputs pairwise."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate pairwise
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -70,9 +72,9 @@ Concatenates the values of multiple inputs pairwise.
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

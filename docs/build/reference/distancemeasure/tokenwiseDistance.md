@@ -2,10 +2,12 @@
 title: "Token-wise distance"
 description: "Token-wise string distance using the specified metric."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Token-wise distance
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -13,6 +15,7 @@ tags:
 Token-wise string distance using the specified metric.
 
 ## Characteristics
+
 This distance measure is normalized, i.e., all distances are between 0 (exact match) and 1 (no similarity).
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
@@ -120,6 +123,5 @@ Use incremental IDF weights
 - ID: `useIncrementalIdfWeights`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

@@ -2,10 +2,12 @@
 title: "Excel"
 description: "Read from or write to an Excel workbook in Open XML format (XLSX). The sheet is selected by specifying it as type in the subsequent workflow operator."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Excel
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -66,6 +68,5 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
-
 
 

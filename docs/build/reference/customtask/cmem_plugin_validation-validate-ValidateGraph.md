@@ -2,11 +2,13 @@
 title: "Validate Knowledge Graph"
 description: "Use SHACL shapes to validate resources in a Knowledge Graph."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Validate Knowledge Graph
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -93,12 +95,11 @@ The query to select the resources to validate. Use {{context_graph}} as a placeh
 - ID: `sparql_query`
 - Datatype: `code-sparql`
 - Default Value:
+
 ``` sparql
 SELECT DISTINCT ?resource
 FROM <{{context_graph}}>
 WHERE { ?resource a ?class . FILTER isIRI(?resource) }
 
 ```
-
-
 

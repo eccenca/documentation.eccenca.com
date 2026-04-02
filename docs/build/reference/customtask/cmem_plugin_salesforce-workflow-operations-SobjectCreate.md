@@ -2,11 +2,13 @@
 title: "Create/Update Salesforce Objects"
 description: "Manipulate data in your organization's Salesforce account."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Create/Update Salesforce Objects
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -21,24 +23,28 @@ and sends bulk API requests to the Salesforce Object API, in order to
 manipulate data in your organization's Salesforce account.
 
 The working model is:
+
 - Each entity from the input data is interpreted as a single Salesforce object of the
 configured object type.
 - Each path from the input entity is interpreted as a field from the Salesforce
 data model (refer to  the [Salesforce Standard Objects list](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_list.htm)).
 - The special path `id` is used to identify an object in Salesforce and switch
 between update/creation mode, means:
-  - If there is NO id path available, a new object is created.
-  - If there IS an id path available, an update is done if the object exists.
+    - If there is NO id path available, a new object is created.
+    - If there IS an id path available, an update is done if the object exists.
 
 Example:
+
 - You want to create new Lead objects based on data from a Knowledge Graph.
 - The [Lead Object Reference](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_lead.htm) lists the supported fields, e.g. `FirstName`,
-`LastName` and `Email`.
+  `LastName` and `Email`.
 - Your input SPARQL task looks like this. Note that the variables need
-to match the field strings from the Salesforce data model:
-```
+  to match the field strings from the Salesforce data model:
+
+```sparql
 SELECT DISTINCT FirstName, LastName, Email ...
 ```
+
 - You select `Lead` as the Object API Name of this task and you connect both task in
 the workflow in order get the result of the SPARQL task as in input for this task.
 - For each SPARQL result, a new Lead is created.

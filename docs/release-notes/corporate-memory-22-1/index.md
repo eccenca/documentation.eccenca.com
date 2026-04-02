@@ -30,10 +30,10 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-* eccenca DataPlatform v22.1
-* eccenca DataIntegration v22.1
-* eccenca DataManager v22.1.1
-* eccenca Corporate Memory Control (cmemc) v22.1.1
+- eccenca DataPlatform v22.1
+- eccenca DataIntegration v22.1
+- eccenca DataManager v22.1.1
+- eccenca Corporate Memory Control (cmemc) v22.1.1
 
 More detailed release notes for these versions are listed below.
 
@@ -94,7 +94,6 @@ In addition to that, these changes are shipped:
 - Added parameter to "lower than" and "greater than" metrics to choose order.
 
 In addition to that, multiple performance and stability issues were solved.
-
 
 ## eccenca DataManager v22.1.1
 
@@ -198,7 +197,6 @@ The following commands are deprecated:
 
 In addition to that, multiple performance and stability issues were solved.
 
-
 ## Migration Notes
 
 ### DataIntegration
@@ -233,4 +231,3 @@ In addition to that, multiple performance and stability issues were solved.
 - deprecated commands
     - `admin bootstrap`|`showcase` are deprecated
     - use `admin store bootstrap`|`showcase` instead
-

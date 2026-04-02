@@ -2,10 +2,12 @@
 title: "Parse integer"
 description: "Parses integer values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse integer
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -76,9 +78,9 @@ Parses integer values.
 
 Use comma or point (default) as a decimal separator.
 
-- ID: `commaAsDecimalPoint`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `commaAsDecimalPoint`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 
@@ -86,9 +88,9 @@ Use comma or point (default) as a decimal separator.
 
 Presence of a thousands separator (default: absence), compatible with the chosen decimal separator.
 
-- ID: `thousandSeparator`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `thousandSeparator`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 

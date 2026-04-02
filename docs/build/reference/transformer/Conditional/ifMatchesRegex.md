@@ -2,17 +2,19 @@
 title: "If matches regex"
 description: "This transformer uses a regular expression as a matching condition, in order to distinguish which input to take."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # If matches regex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
 
 ## Description
 
-The `ifMatchesRegex` plugin uses a regular expression as a matching condition in order to distinguish which input to
+The If matches regex plugin uses a regular expression as a matching condition in order to distinguish which input to
 take.
 
 This plugin is a _conditional transformer_ plugin. This means that a _regular expression_ is used as a matching
@@ -50,22 +52,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `ifMatchesRegex` plugin, there are related plugins such as `validateRegex`, `regexReplace` and
-`regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `ifMatchesRegex` plugin is useful for _conditionally distinguishing_ which input to
-take, `validateRegex` is used for _validating_ the input, `regexReplace` _replaces_ all occurrences, and
-`regexExtract` _extracts_ them.
 
 ## Examples
 
@@ -123,9 +116,9 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 No description
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -133,9 +126,9 @@ No description
 
 No description
 
-- ID: `negate`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `negate`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 

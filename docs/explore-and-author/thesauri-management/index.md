@@ -149,8 +149,8 @@ You can add, for example, a second broader concept for an existing concept or a 
 To add relations, select the concept in the navigation tree.
 In the detail view, click **:eccenca-item-edit: Edit** to open the edit mode.
 
--   To add an associative relation to another concept, enter the concept name in the field **Related concept**.
--   To add a further broader relation, enter the name of the broader concept in the field **Broader concepts**.
+- To add an associative relation to another concept, enter the concept name in the field **Related concept**.
+- To add a further broader relation, enter the name of the broader concept in the field **Broader concepts**.
 
 You can only choose from existing concepts.
 Click **SAVE** to confirm your changes.

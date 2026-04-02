@@ -2,10 +2,12 @@
 title: "Excel (OneDrive, Office365)"
 description: "Read data from a remote onedrive or Office365 Spreadsheet."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Excel (OneDrive, Office365)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -22,9 +24,9 @@ Onedrive links look like `https://1drv.ms/x/s!AucULvzmJ-dsdfsfgaIcyWP_XY_G4w?e=y
 Onedrive (based one sharepoint, for businesses) links look like `https://eccencagmbh-my.sharepoint.com/:x:/g/personal/person_eccenca_com/EdEMTEw1dclHiEZXyvy8P4YBit8wSyGsiwU5Kt__sQOZzw`
 
 The first type should always work is not recommended for this dataset. The second type requires to set up an application in Microsoft EntraID (formerly Azure Active Directory).
-EntraID: https://docs.microsoft.com/azure/active-directory/develop/v2-overview
+EntraID: <https://docs.microsoft.com/azure/active-directory/develop/v2-overview>
 Instructions and examples can be found here:
-https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in
+<https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in>
 
 After following the steps access to sharepoint/onedrive for business can be setup in the application.conf file for eccenca DataIntegration.
 
@@ -92,6 +94,5 @@ Duration until file based cache is invalidated.
 - ID: `invalidateCacheAfter`
 - Datatype: `duration`
 - Default Value: `PT5M`
-
 
 

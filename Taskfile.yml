@@ -5,7 +5,7 @@ version: '3'
 
 vars:
   PUBLIC_BRANCH: published
-  CURRENT_VERSION: 25.3
+  CURRENT_VERSION: 26.1
   MATERIAL_TAG: 9.6.14
   MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
 
@@ -51,6 +51,7 @@ tasks:
     desc: Run complete test suite
     deps:
       - check:links
+      - check:rumdl
 
   check:links:
     desc: Check outgoing links
@@ -180,3 +181,39 @@ tasks:
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
+  format:fix:
+    desc: rumdl (md-lint) and apply possible style fixes
+    cmds:
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+
+  check:rumdl:
+    desc: run rumdl (md-linter) for style issues without failing the check stage
+    cmds:
+      - mkdir -p ./dist
+      - rm -f ./dist/md-lint-issues.xml
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --output-format junit > ./dist/md-lint-issues.xml || true
+      - |
+        {
+          # recurse
+          find ./docs -type f -name '*.md' -print0
+
+          # no recursion (top-level only)
+          find . -maxdepth 1 -type f -name '*.md' -print0
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check || {
+          echo "rumdl reported markdown style issues; continuing without failing the check stage."
+          true
+        }

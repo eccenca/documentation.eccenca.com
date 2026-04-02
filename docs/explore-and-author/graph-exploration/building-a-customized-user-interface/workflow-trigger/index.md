@@ -22,11 +22,11 @@ A workflow trigger resource references a data integration workflow by URI.
 
 To define a workflow trigger the following information is needed:
 
--   **Label**: The trigger resource needs a label (can be given in different languages), which is used for the button presentation.
--   **Description**: The trigger resource needs a description, which is used as text that is sitting left of the button for further documentation of the activity to the user.
--   **Workflow**: the workflow parameter defines the workflow that shall be executed upon clicking the button. The workflow can be selected from a dropdown list.
--   **Refresh View**: can be either `true `or `false`*.* If this value is set to `true`, the view that contains the workflow trigger will be reloaded upon workflow completion
--   **Send Resource Reference**: can be either `true `or `false`. If this value is set to `true`, a payload that consists of the *resource IRI* that is represented in the view as well as the *graph IRI *of the graph that is currently selected*.*
+- **Label**: The trigger resource needs a label (can be given in different languages), which is used for the button presentation.
+- **Description**: The trigger resource needs a description, which is used as text that is sitting left of the button for further documentation of the activity to the user.
+- **Workflow**: the workflow parameter defines the workflow that shall be executed upon clicking the button. The workflow can be selected from a dropdown list.
+- **Refresh View**: can be either `true`or `false`*.* If this value is set to `true`, the view that contains the workflow trigger will be reloaded upon workflow completion
+- **Send Resource Reference**: can be either `true`or `false`. If this value is set to `true`, a payload that consists of the *resource IRI* that is represented in the view as well as the *graph IRI *of the graph that is currently selected*.*
 
 ## Integration
 
@@ -49,5 +49,4 @@ Workflow Payload
 ```
 
 - `graphIRI` is the IRI of the graph that is currently viewed, and
-- `resourceIRI `is the IRI of the resource that is viewed.
-
+- `resourceIRI`is the IRI of the resource that is viewed.

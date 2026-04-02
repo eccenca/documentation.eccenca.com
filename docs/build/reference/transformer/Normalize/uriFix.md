@@ -2,10 +2,12 @@
 title: "Fix URI"
 description: "Generates valid absolute URIs from the given values. Already valid absolute URIs are left untouched."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Fix URI
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -114,9 +116,9 @@ Generates valid absolute URIs from the given values. Already valid absolute URIs
 
 No description
 
-- ID: `uriPrefix`
-- Datatype: `string`
-- Default Value: `urn:url-encoded-value:`
+* ID: `uriPrefix`
+* Datatype: `string`
+* Default Value: `urn:url-encoded-value:`
 
 
 

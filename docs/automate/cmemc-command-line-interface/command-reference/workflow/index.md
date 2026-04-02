@@ -6,7 +6,9 @@ tags:
   - Workflow
   - cmemc
 ---
+
 # workflow Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, execute, status or open (io) workflows.
@@ -19,7 +21,7 @@ Workflows are identified by a `WORKFLOW_ID`. The get a list of existing workflow
 Execute workflow(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow execute [OPTIONS] [WORKFLOW_IDS]...
+cmemc workflow execute [OPTIONS] [WORKFLOW_IDS]...
 ```
 
 
@@ -52,7 +54,7 @@ The optional `--wait` option starts the workflows in the same way, but also poll
 Execute a workflow with file input/output.
 
 ```shell-session title="Usage"
-$ cmemc workflow io [OPTIONS] WORKFLOW_ID
+cmemc workflow io [OPTIONS] WORKFLOW_ID
 ```
 
 
@@ -101,7 +103,7 @@ With this command, you can execute a workflow that uses replaceable datasets as 
 List available workflow.
 
 ```shell-session title="Usage"
-$ cmemc workflow list [OPTIONS]
+cmemc workflow list [OPTIONS]
 ```
 
 
@@ -127,7 +129,7 @@ $ cmemc workflow list [OPTIONS]
 Get status information of workflow(s).
 
 ```shell-session title="Usage"
-$ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
+cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
 ```
 
 
@@ -150,9 +152,8 @@ $ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
 Open a workflow in your browser.
 
 ```shell-session title="Usage"
-$ cmemc workflow open WORKFLOW_ID
+cmemc workflow open WORKFLOW_ID
 ```
-
 
 
 

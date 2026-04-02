@@ -2,11 +2,13 @@
 title: "JQL query"
 description: "Search and retrieve JIRA issues."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # JQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -32,7 +34,7 @@ for your Atlassian account, to access the API of your atlassian.net hosted Jira 
 
 ### Jira Server
 
-Base URL of the jira service, e.g. 'https://jira.example.org'
+Base URL of the jira service, e.g. '<https://jira.example.org>'
 
 - ID: `base_url`
 - Datatype: `string`
@@ -111,6 +113,5 @@ Number of items to return per request.
 - ID: `results_per_page`
 - Datatype: `Long`
 - Default Value: `100`
-
 
 

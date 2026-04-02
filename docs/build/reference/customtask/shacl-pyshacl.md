@@ -2,11 +2,13 @@
 title: "SHACL validation with pySHACL"
 description: "Performs SHACL validation with pySHACL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # SHACL validation with pySHACL
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -133,7 +135,7 @@ If enabled along with the `Add labels` option, `rdfs:label` triples are added fo
 
 
 
-### Add shui:conforms flag to focus node resources.
+### Add shui:conforms flag to focus node resources
 
 If enabled, `shui:conforms false` triples are added to the focus nodes in the validation graph.
 
@@ -183,7 +185,7 @@ Enable SHACL-JS features.
 
 
 
-### Remove graph type http://rdfs.org/ns/void#Dataset from data graph
+### Remove graph type <http://rdfs.org/ns/void#Dataset> from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <http://rdfs.org/ns/void#Dataset>` from the in-memory data graph.
 
@@ -193,7 +195,7 @@ Before validating, remove the triple `<data_graph_uri> a <http://rdfs.org/ns/voi
 
 
 
-### Remove graph type https://vocab.eccenca.com/dsm/ThesaurusProject from data graph
+### Remove graph type <https://vocab.eccenca.com/dsm/ThesaurusProject> from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.com/dsm/ThesaurusProject>` from the in-memory data graph.
 
@@ -203,7 +205,7 @@ Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.
 
 
 
-### Remove graph type https://vocab.eccenca.com/shui/ShapeCatalog from data graph
+### Remove graph type <https://vocab.eccenca.com/shui/ShapeCatalog> from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.com/shui/ShapeCatalog>` from the in-memory data graph.
 
@@ -220,6 +222,5 @@ specify a custom max-evaluation-depth. If you find yourself with a legitimate us
 - ID: `max_validation_depth`
 - Datatype: `Long`
 - Default Value: `15`
-
 
 

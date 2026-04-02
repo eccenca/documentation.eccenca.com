@@ -9,7 +9,7 @@ tags:
 
 This feature keeps track of changes to your Knowledge Graphs by creating change set data based on the user's editing activities.
 
-!!! info
+!!! info "Supported graph types"
 
     Versioning of graph changes is currently supported for (tracked) graphs of type `void:Dataset` only.
 
@@ -20,6 +20,18 @@ This feature keeps track of changes to your Knowledge Graphs by creating change 
 If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.
 
 ![](./20-10-ActualChangesets.png){ class="bordered" }
+
+!!! info "Versioning limitations"
+
+    The graph change history only captures changes made through the supported versioning workflow - namely the [SHACL defined **Resource** tab](../building-a-customized-user-interface/index.md).
+
+    The following changes are **not versioned**:
+
+    - edits made in the **Turtle** tab
+    - edits made in the **Properties** tab in the UI
+    - changes executed through **SPARQL UPDATE** queries, including updates from the **Queries catalogue** or external clients
+
+
 
 ## Setup
 
@@ -43,4 +55,3 @@ For each editing activity (→ Save a Form), a ChangeSet resource will be create
 This resource has some metadata (user, timestamp, label) as well as links to added and deleted Statements (using RDF Reification).
 
 The details of the used vocabulary are available at the [Changeset Vocabulary](https://vocab.org/changeset/) page.
-

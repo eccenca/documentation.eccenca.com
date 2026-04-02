@@ -2,11 +2,13 @@
 title: "Convert currency values"
 description: "Converts currencies values with current and historical exchange rates"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # Convert currency values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -71,7 +73,7 @@ Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - ID: `date`
 - Datatype: `string`
-- Default Value: `2025-11-26`
+- Default Value: `2026-04-02`
 
 
 
@@ -96,6 +98,5 @@ Instead of plain values, output additional background information.
 - ID: `debug`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

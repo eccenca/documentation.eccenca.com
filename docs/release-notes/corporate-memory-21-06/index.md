@@ -6,7 +6,6 @@ tags:
 
 Corporate Memory 21.06 is the third release in 2021.
 
-
 ![21.06 Workflow Editor](21.06-WorkflowEditor.png "21.06 Workflow Editor")
 
 ![21.06 Vocabulary Viewer](21.06-VocabularyViewer.png "21.06 Vocabulary Viewer")
@@ -160,7 +159,8 @@ In addition to that, these changes are shipped:
     - This does not influence the actual execution of the workflows in any way.
     - An auto-layouting feature will be added in the future
 - Plugin configuration has been changed. The 'plugin.blacklist' has been deprecated and will be removed in future versions. See example below for new format:
-```
+
+```conf
 pluginRegistry {
   # External plugins are loaded from this folder
   pluginFolder = ${elds.home}"/etc/dataintegration/plugins/"
@@ -184,5 +184,3 @@ No migration notes
 ### cmemc
 
 - The configuration keys `*_ENTRY` are not supported anymore. In case you used them, switch to `*_PROCESS` configuration
-
-

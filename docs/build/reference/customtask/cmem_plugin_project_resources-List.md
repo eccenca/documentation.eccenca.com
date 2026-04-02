@@ -2,11 +2,13 @@
 title: "List project files"
 description: "List file resources from the project."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # List project files
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -32,7 +34,7 @@ The regular expression has to match the `fullPath` of the file and is case sensi
 
 Given this list of example files of a project:
 
-```
+```text
 dataset.csv
 my-dataset.xml
 json/example.json

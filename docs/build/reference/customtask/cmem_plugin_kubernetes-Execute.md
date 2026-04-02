@@ -2,11 +2,13 @@
 title: "Execute a command in a kubernetes pod"
 description: "Connect to a cluster, execute a command and gather the output."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute a command in a kubernetes pod
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -21,9 +23,10 @@ This plugin enables execution of commands inside Kubernetes pods and captures th
 ## Features
 
 - Supports multiple connection types:
-  - **In-cluster**: Uses the service account kubernetes gives to pods
+    - **In-cluster**: Uses the service account kubernetes gives to pods
     (for plugins running inside k8s)
-  - **Explicit config**: Uses a YAML kubeconfig file for external connections
+
+    - **Explicit config**: Uses a YAML kubeconfig file for external connections
 - Executes shell commands in specified pods within namespaces
 - Captures both stdout and stderr output
 - Returns command output as a file entity for further processing
@@ -41,7 +44,7 @@ downstream workflow tasks.
 - Executing maintenance scripts from within or outside the cluster
 - Gathering system information and logs
 - Performing health checks and troubleshooting
-    
+
 
 ## Parameter
 
@@ -106,6 +109,5 @@ YAML source code of the kube config.
 - ID: `kube_config`
 - Datatype: `code-yaml`
 - Default Value: `None`
-
 
 

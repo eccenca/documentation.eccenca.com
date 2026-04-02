@@ -1,5 +1,4 @@
 ---
-status: new
 icon: material/language-python
 tags:
     - cmemc
@@ -25,7 +24,6 @@ cmemc is published as an Apache 2 licensed open source python package at [pypi.o
 ``` shell
 pip install cmem-cmemc
 ```
-
 
 ## Configure a connection
 
@@ -160,4 +158,3 @@ Workflow 'only-input-replaceable' in 'io'
 Workflow 'only-output' in 'io'
 Workflow 'only-output-replaceable' in 'io'
 ```
-
