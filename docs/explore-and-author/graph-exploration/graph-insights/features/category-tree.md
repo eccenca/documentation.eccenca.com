@@ -23,10 +23,10 @@ The tree displays the hierarchical taxonomy of the dataset:
 ### Search and View Controls
 
 - **Search:** Enter text to locate a class or saved exploration.
-  - *Note:* Initiating a search automatically switches the display into a filtered flat list view and disables the view settings until the search is cleared.
+    - *Note:* Initiating a search automatically switches the display into a filtered flat list view and disables the view settings until the search is cleared.
 - **View Settings (cogwheel):** When the search bar is empty, click the cogwheel to configure the display:
-  - **Views:** Switch between `Tree view` (hierarchical) and `List view` (flat).
-  - **Sorting:** Order the items using `Sort by name` or `Sort by count`.
+    - **Views:** Switch between `Tree view` (hierarchical) and `List view` (flat).
+    - **Sorting:** Order the items using `Sort by name` or `Sort by count`.
 
 ### Start an Exploration
 
