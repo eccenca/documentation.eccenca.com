@@ -2,7 +2,7 @@
 
 # Resources
 
-Most investigations require **isolating individual resources** at some point for closer inspection. This page covers the **resource details pane**, the **highlighting and flagging tools**, and **single resource traversals**. 
+Most investigations require **isolating individual resources** at some point for closer inspection. This page covers the **resource details pane**, the **highlighting and flagging tools**, and **single resource traversals**.
 
 ---
 
@@ -14,9 +14,9 @@ Select a visible resource in a group or its row in the group table to open the `
 
 ### Components
 
-1.  **Header:** Displays the **caption** and **description** , as well as the IRI of the resource.
-2.  **Classes:** List of all classes assigned to the resource.
-3.  **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
+1. **Header:** Displays the **caption** and **description** , as well as the IRI of the resource.
+2. **Classes:** List of all classes assigned to the resource.
+3. **Data Properties:** List of all data properties organized in sections by their "usage domain" classes (see below).
 
 ### Search, View, and Interaction Controls
 
@@ -100,7 +100,7 @@ Visualize upstream and downstream connections of a resource in the exploration t
 
 **Flagging:**
 
-- **Action:** Right-click and select `Flag all connected resources...` 
+- **Action:** Right-click and select `Flag all connected resources...`
 - **Outcome:** [Temporary flags](#temporary-flags) are added to all connected resources visible.
 
 ![Branch Highlighting](../assets/flag-predecessors-successors.png){ class="bordered" width="95%" }
@@ -114,8 +114,8 @@ Visualize upstream and downstream connections of a resource in the exploration t
 
 ## Connectivity Visualization (Predecessors) {#predecessors}
 
-In the **groups in instance rendering mode** (count <= threshold), Graph Insights visually encodes the local "centrality" of resources based on their connectivity to the previous group in the exploration tree (if any). 
- 
+In the **groups in instance rendering mode** (count <= threshold), Graph Insights visually encodes the local "centrality" of resources based on their connectivity to the previous group in the exploration tree (if any).
+
 - **Definition:** The **number of predecessors** of a resource is the number of distinct resources from the *previous* group in the current branch of the exploration tree connected to it.
 - **Visualization:**
     - The number of predecessors is displayed in the dot representing the resources, no number meaning there is only a single predecessor.

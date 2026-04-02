@@ -6,7 +6,9 @@ tags:
   - Project
   - cmemc
 ---
+
 # project Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, import, export, create, delete or open projects.
@@ -23,7 +25,7 @@ Projects are identified by a `PROJECT_ID`.
 Open projects in the browser.
 
 ```shell-session title="Usage"
-$ cmemc project open PROJECT_IDS...
+cmemc project open PROJECT_IDS...
 ```
 
 
@@ -40,7 +42,7 @@ The command accepts multiple project IDs which results in opening multiple brows
 List available projects.
 
 ```shell-session title="Usage"
-$ cmemc project list [OPTIONS]
+cmemc project list [OPTIONS]
 ```
 
 
@@ -122,14 +124,14 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
 Import a project from a file or directory.
 
 ```shell-session title="Usage"
-$ cmemc project import [OPTIONS] PATH [PROJECT_ID]
+cmemc project import [OPTIONS] PATH [PROJECT_ID]
 ```
 
 
 
 
 ```shell-session title="Example"
-$ cmemc project import my_project.zip my_project
+cmemc project import my_project.zip my_project
 ```
 
 
@@ -147,7 +149,7 @@ $ cmemc project import my_project.zip my_project
 Delete projects.
 
 ```shell-session title="Usage"
-$ cmemc project delete [OPTIONS] [PROJECT_IDS]...
+cmemc project delete [OPTIONS] [PROJECT_IDS]...
 ```
 
 
@@ -179,7 +181,7 @@ This command deletes existing data integration projects from Corporate Memory.
 Create projects.
 
 ```shell-session title="Usage"
-$ cmemc project create [OPTIONS] PROJECT_IDS...
+cmemc project create [OPTIONS] PROJECT_IDS...
 ```
 
 
@@ -196,17 +198,11 @@ This command creates one or more new projects. Existing projects will not be ove
 ??? info "Options"
     ```text
 
-    --from-transformation TEXT  This option can be used to explicitly create the
-                                link specification, which is internally executed
-                                when using the mapping suggestion of a
-                                transformation task. You need the task ID of the
-                                transformation task.
-    --label TEXT                Give the label of the project. You can give more
-                                than one label if you create more than one
-                                project.
-    --description TEXT          Give the description of the project. You can
-                                give more than one description if you create
-                                more than one project.
+    --label TEXT        Give the label of the project. You can give more than
+                        one label if you create more than one project.
+    --description TEXT  Give the description of the project. You can give more
+                        than one description if you create more than one
+                        project.
     ```
 
 ## project reload
@@ -214,7 +210,7 @@ This command creates one or more new projects. Existing projects will not be ove
 Reload projects from the workspace provider.
 
 ```shell-session title="Usage"
-$ cmemc project reload [OPTIONS] [PROJECT_IDS]...
+cmemc project reload [OPTIONS] [PROJECT_IDS]...
 ```
 
 
@@ -237,4 +233,3 @@ This command reloads all tasks of a project from the workspace provider. This is
 
     -a, --all   Reload all projects
     ```
-

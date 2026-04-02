@@ -67,4 +67,3 @@ http://schema.org/,8809
 https://vocab.eccenca.com/shacl/,1752
 [...]
 ```
-

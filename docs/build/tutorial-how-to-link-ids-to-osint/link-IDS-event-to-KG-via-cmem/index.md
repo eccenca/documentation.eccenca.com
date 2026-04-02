@@ -6,9 +6,10 @@ In this tutorial, we are using the Splunk app "Investigate lateral movements wit
 
 In the demo of this Splunk app via the video 1, the user selects the data about one investigation via Splunk and generate a bash script to export these data via the Splunk API in tempory graphs in Corporate Memory for each investigation.
 
-![](splunk-app-demo-poc-app.gif)
-
-*Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"*
+<figure markdown="span">
+![Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"](splunk-app-demo-poc-app.gif)
+<figcaption>Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"</figcaption>
+</figure>
 
 In this page, we are showing how, we :
 
@@ -27,7 +28,7 @@ This app is not directly connected to your Corporate Memory instance. The custom
 
 Position of these scripts in the folders of this app:
 
-```
+```shell
 +---bin
 |       Investigation.py
 +---cmem
@@ -41,43 +42,49 @@ Moreover, a settings file is necessary to insert the credentials of Splunk (like
 
 In this Proof of Concept, we have implemented two types of investigation:
 
--   high-level with the data of alerts of Zeek and Hayabusa/Sigma
--   low-level with the data of Suricata and Sysmon
+- high-level with the data of alerts of Zeek and Hayabusa/Sigma
+- low-level with the data of Suricata and Sysmon
 
 For each investigation, an analyst selects and navigates in the data with two dashboards for each type of investigation:
 
--   one dashboard (see figure 1) to select the data to transfer to knowledge graph: typeA_request.xml
--   one dashboard (see figure 2,3,4) to navigate in the knowledge graph: typeA_dashboard.xml
+- one dashboard (see figure 1) to select the data to transfer to knowledge graph: typeA_request.xml
+- one dashboard (see figure 2,3,4) to navigate in the knowledge graph: typeA_dashboard.xml
 
-![](poc-app_request.png)
+<figure markdown="span">
+![Figure 1: Splunk dashboard to select the data before executing a high-level investigation](poc-app_request.png)
+<figcaption>Figure 1: Splunk dashboard to select the data before executing a high-level investigation</figcaption>
+</figure>
 
-*Figure 1: Splunk dashboard to select the data before executing a high-level investigation*
+<figure markdown="span">
+![Figure 2: High-level investigation dashboard with the list of computers implicated in the incident](poc-app_high_level_computers.png)
+<figcaption>Figure 2: High-level investigation dashboard with the list of computers implicated in the incident</figcaption>
+</figure>
 
-![](poc-app_high_level_computers.png)
+<figure markdown="span">
+![Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details](poc-app_high_level_period.png)
+<figcaption>Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details</figcaption>
+</figure>
 
-*Figure 2: High-level investigation dashboard with the list of computers implicated in the incident*
-
-![](poc-app_high_level_period.png)
-
-*Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details*
-
-![](poc-app_low_level.png)
-
-*Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard.*
+<figure markdown="span">
+![Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard](poc-app_low_level.png)
+<figcaption>Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard</figcaption>
+</figure>
 
 The idea is the analyst can do an investigation high-level without using a lot of ressources (a little graph) but when he want to see the suspicious processus on one computer in a specific period, he can ask an investigation low-level with a maximum of details.
 
 To follow the calculation of investigations and free memory when one investigation is closed, we developed another dashboard "investigation_list.xml" (see figure 5). This dashboard prints the status of investigations actually in the knowledge graph. Here, each investigation is saved in tempory graphs and the analyst can create and delete them directly in Splunk.
 
-![](poc-app_list_investigations.png)
-
-*Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.*
+<figure markdown="span">
+![Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.](poc-app_list_investigations.png)
+<figcaption>Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.</figcaption>
+</figure>
 
 With these interfaces to manage and calculate different investigations with different levels of details, we imagined a first method to "follow lateral movements" (see figure 6) in order to understand the objectives of the incident. We hope this PoC will "Accelerate Cyber Threat Hunting".
 
-![](poc-app_hunt.png)
-
-*Figure 6: Analyst can select a computer and a period to analyze the suspicious processus implicated in Suricata alerts. So, an analyst can follow the "lateral movements" and see the command lines executed by these suspicious processus.*
+<figure markdown="span">
+![Figure 6: Analyst can select a computer and a period to analyze the suspicious processus implicated in Suricata alerts. So, an analyst can follow the "lateral movements" and see the command lines executed by these suspicious processus.](poc-app_hunt.png)
+<figcaption>Figure 6: Analyst can select a computer and a period to analyze the suspicious processus implicated in Suricata alerts. So, an analyst can follow the "lateral movements" and see the command lines executed by these suspicious processus.</figcaption>
+</figure>
 
 ## Manage the graphs of your application
 
@@ -97,9 +104,9 @@ This manner to manage the graphs has been applied in this app, so an analyst is 
 
 This token contains a json object where:
 
--   "index" the list of splunk indexes of the SPL query
--   "search" the second part of the SPL query
--   "workflowID" the ID of workflow in Corporate Memory to convert the raw data of Splunk in RDF in a tempory graph
+- "index" the list of splunk indexes of the SPL query
+- "search" the second part of the SPL query
+- "workflowID" the ID of workflow in Corporate Memory to convert the raw data of Splunk in RDF in a tempory graph
 
 An analyst can import as many sources as needed with several tokens, ie. "source_1", "source_2", etc.
 
@@ -132,8 +139,8 @@ There are not consensus about the manner to calculate inferences on the RDF data
 
 We use two manners to calculate new inferences:
 
--   when the inference is simple to calculate with SPARQL, we use a SPARQL update query with parameters in Corporate Memory (like "inferenceID" to build the name of destination tempory graph). "queryIRI" is the IRI of the query in the catalog of Corporate Memory.
--   when the inference is complex to calculate, we use a workflow of Corporate Memory.
+- when the inference is simple to calculate with SPARQL, we use a SPARQL update query with parameters in Corporate Memory (like "inferenceID" to build the name of destination tempory graph). "queryIRI" is the IRI of the query in the catalog of Corporate Memory.
+- when the inference is complex to calculate, we use a workflow of Corporate Memory.
 
 With these tokens "source_1", "source_2", etc and "inferences" in the dashboard, the app can generate a bash script for CMEMC.
 

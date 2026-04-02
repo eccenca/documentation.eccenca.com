@@ -2,10 +2,12 @@
 title: "Parse date pattern"
 description: "Parses a date based on a specified pattern, returning an xsd:date."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse date pattern
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -114,9 +116,9 @@ Parses a date based on a specified pattern, returning an xsd:date.
 
 The date pattern used to parse the input values
 
-- ID: `format`
-- Datatype: `string`
-- Default Value: `dd-MM-yyyy`
+* ID: `format`
+* Datatype: `string`
+* Default Value: `dd-MM-yyyy`
 
 
 
@@ -124,9 +126,9 @@ The date pattern used to parse the input values
 
 If set to true, the parser tries to use heuristics to parse dates with invalid fields (such as a day of zero).
 
-- ID: `lenient`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `lenient`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 
@@ -134,9 +136,9 @@ If set to true, the parser tries to use heuristics to parse dates with invalid f
 
 Optional locale for the date format. If not set the system's locale will be used.
 
-- ID: `locale`
-- Datatype: `option[locale]`
-- Default Value: `None`
+* ID: `locale`
+* Datatype: `option[locale]`
+* Default Value: `None`
 
 
 

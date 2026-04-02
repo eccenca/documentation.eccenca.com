@@ -30,4 +30,3 @@ Dependent on the specific API, eccenca Build (DataIntegration) works with the fo
 | application/xml                   | [XML Media Types](https://tools.ietf.org/html/rfc7303)                                               |
 | application/n-triples             | [RDF 1.1 N-Triples - A line-based syntax for an RDF graph](https://www.w3.org/TR/n-triples/)         |
 | application/problem+json          | [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)                                 |
-

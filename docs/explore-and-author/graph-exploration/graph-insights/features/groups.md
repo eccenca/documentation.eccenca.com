@@ -85,11 +85,11 @@ The **expansion menu** of a group presents the options available for adding a no
 1.  **Action:** Point at a group and click the arrow that appears to its right.
 2.  **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
-3.  **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
+3. **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
 
 ![Expansion Menu](../assets/expansion-menu.png){ class="bordered" width="65%" }
 
-4.  **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
+1. **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
 
 ![Filtered Expansion Menu](../assets/expansion-menu-flattened.png){ class="bordered" width="65%" }
 

@@ -36,4 +36,3 @@ This can have multiple reasons - please check in the following order:
 
 - `application.yaml` of DataIntegration
 - reverse proxy configuration
-

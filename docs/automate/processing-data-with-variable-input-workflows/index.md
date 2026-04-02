@@ -26,7 +26,7 @@ This allows for solving all kinds of [☆ Automation](../index.md) tasks when yo
     - by using the [command line interface](../cmemc-command-line-interface/index.md)
 
         ``` shell-session
-        $ cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
+        cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
         ```
 
 ## 1 Install the required vocabularies
@@ -81,7 +81,7 @@ For this, you need to use the `workflow io` command:
 
 ``` shell-session
 # process one specific feed xml document
-$ cmemc workflow io varinput:process-feed -i feed.xml
+cmemc workflow io varinput:process-feed -i feed.xml
 ```
 
 You can easily automate this for a [list of feeds](feeds.txt) like this:

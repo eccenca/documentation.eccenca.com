@@ -2,10 +2,12 @@
 title: "Concatenate multiple values"
 description: "Concatenates multiple values received for an input. If applied to multiple inputs, yields at most one value per input. Optionally removes duplicate values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate multiple values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -69,14 +71,14 @@ Concatenates multiple values received for an input. If applied to multiple input
     * glue: `\n\t\\`
 
 * Input values:
-    1. 
-    ```
+    1.
+    ```text
     [a
     	\b, c]
     ```
 
-* Returns: 
-    ```
+* Returns:
+    ```text
     [a
     	\b
     	\c]
@@ -91,9 +93,9 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 No description
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -101,9 +103,9 @@ No description
 
 No description
 
-- ID: `removeDuplicates`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `removeDuplicates`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 

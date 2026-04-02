@@ -6,7 +6,9 @@ tags:
     - Reference
     - Vocabulary
 ---
+
 # Node Shapes
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Node Shapes are resources of type `shacl:NodeShape`.
@@ -147,7 +149,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
-    
+
 
 Used Path: `shui:onDeleteUpdate`
 
@@ -210,6 +212,24 @@ The query needs to be an ASK query and can include the following placeholders, w
 
 
 Used Path: `shui:askIfRemovableQuery`
+
+
+### Query: Is Editable Resource
+
+
+This query is executed to check if users get the controls to edit resources (described with the node shape).
+
+The query needs to be an ASK query and can include the following placeholders, which will be substituted before execution:
+
+- `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
+- `{{shuiGraph}}` - the IRI of the current working graph
+- `{{shuiAccount}}` - the IRI of the active user account
+- `{{shuiAccountName}}` - the user name/ID of the active user account
+- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+
+
+
+Used Path: `shui:askIfEditableQuery`
 
 
 ### Query: Is Cloneable Resource

@@ -30,11 +30,11 @@ The documentation consists of the following steps, which are described in detail
 
 The following material is used in this tutorial:
 
--   Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
+- Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
 
     ![Visualization of the "Products Vocabulary".](products-vocab-xml+json.png){ class="bordered" }
 
--   Sample JSON file: [services.json](services.json)
+- Sample JSON file: [services.json](services.json)
 
     ```json
     [
@@ -56,7 +56,7 @@ The following material is used in this tutorial:
     ]
     ```
 
--   Sample XML file: [orgmap.xml](orgmap.xml)
+- Sample XML file: [orgmap.xml](orgmap.xml)
 
     ```xml
     <orgmap>
@@ -119,9 +119,9 @@ The vocabulary contains the classes and properties needed to map the source data
 
 3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
 
-    -   Name: _**Product Vocabulary**_
-    -   Graph URI: _**<http://ld.company.org/prod-vocab/>**_
-    -   Description: _**Example vocabulary modeled to describe relations between products and services.**_
+    - Name: _**Product Vocabulary**_
+    - Graph URI: _**<http://ld.company.org/prod-vocab/>**_
+    - Description: _**Example vocabulary modeled to describe relations between products and services.**_
 
     ![Dialog to register a new vocabulary.](dialog-register-new-vocabulary.png){ class="bordered" width="50%" }
 
@@ -339,8 +339,8 @@ Click **Transform evaluation** to evaluate the transformed entities.
 2. Press the ![Button play](button-play-xml+json.png) button and validate the results. In this example, 9x Service entities were created in our Knowledge Graph based on the mapping.
 3. You can click **Knowledge Graphs** under **EXPLORE** to (re-)view of the created Knowledge Graphs
 4. Enter the following URIs in the Enter search term for JSON and XML respectively.
-    -   JSON / Service: _**<http://ld.company.org/prod-instances/>**_
-    -   XML / Department: _**<http://ld.company.org/organization-data/>**_
+    - JSON / Service: _**<http://ld.company.org/prod-instances/>**_
+    - XML / Department: _**<http://ld.company.org/organization-data/>**_
 
     === "JSON"
 

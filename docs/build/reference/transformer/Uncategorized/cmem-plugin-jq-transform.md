@@ -2,11 +2,13 @@
 title: "jq"
 description: "Process a JSON path with a jq filter / program."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # jq
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -22,7 +24,7 @@ tags:
 
 In order to test jq expressions, you can use [play.jqlang.org](https://play.jqlang.org/).
 
-## Basic concepts:
+## Basic concepts
 
 - Filters separated by a comma will produce multiple independent outputs: `,`
 - Will ignores error if the type is unexpected: `?`
@@ -99,6 +101,5 @@ The jq program to apply to the input JSON string.
 - ID: `single_item_as_string`
 - Datatype: `boolean`
 - Default Value: `true`
-
 
 

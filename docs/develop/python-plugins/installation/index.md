@@ -31,7 +31,7 @@ cmem_plugin_graphql-GraphQLPlugin  WorkflowPlugin  GraphQL query
 You can get a list of all installed python packages: (1)
 { .annotate }
 
-1.   This list contains all installed packages in the python environment, not just your plugin packages.
+1. This list contains all installed packages in the python environment, not just your plugin packages.
 
 ```shell-session title="List all installed python packages:"
 $ cmemc admin workspace python list
@@ -95,4 +95,3 @@ Drag and drop it on the canvas, and connect it with ingoing and / or outgoing li
     A workaround for this is to install or upgrade plugins right after rebooting DataIntergration (and before you start a workflow that uses a python plugin).
     We currently advise against using NFS on this path directly.
     The problem is [known by the python community](https://github.com/pypa/pip/issues/6327) but there is no fix or workaround available yet.
-

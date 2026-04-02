@@ -34,7 +34,7 @@ This will set cmemc as an interpreter for the rest of the file, and by using the
 Now you need to define your SPARQL file as executable and run it:
 
 ``` shell-session
-$ chmod a+x ./count-graphs.sh
+chmod a+x ./count-graphs.sh
 ```
 
 ``` shell-session
@@ -48,4 +48,3 @@ https://ns.eccenca.com/data/queries/,39
 https://ns.eccenca.com/data/config/,4
 https://ns.eccenca.com/data/userinfo/,4
 ```
-

@@ -5,7 +5,6 @@ tags:
 
 ## Deployment options for explore container
 
-
 ***Property: deploy.apiPrefix***
 
 API prefix for former dataplatform endpoints i.e. /dataplatform
@@ -30,9 +29,7 @@ URI where to redirect to when the user logs out
 
 ### Options for additional prometheus metrics endpoint
 
-
 ***Property: deploy.additional-prometheus-endpoint.enabled***
-
 
 | Category | Value |
 |--- | ---: |
@@ -43,7 +40,6 @@ URI where to redirect to when the user logs out
 
 ***Property: deploy.additional-prometheus-endpoint.port***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | 9091 |
@@ -52,7 +48,6 @@ URI where to redirect to when the user logs out
 | Environment | DEPLOY_ADDITIONAL_PROMETHEUS_ENDPOINT_PORT |
 
 ***Property: deploy.additional-prometheus-endpoint.context***
-
 
 | Category | Value |
 |--- | ---: |
@@ -63,7 +58,7 @@ URI where to redirect to when the user logs out
 
 ## License
 
-By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license. 
+By default, DataPlatform is subject to the eccenca free Personal, Evaluation and Development License Agreement (PEDAL), a license intended for non-commercial usage. When your delivery includes a dedicated license file, you have to configure DataPlatform to enable your license.
 To change the default configuration, you have several options. If the properties under license are not provided the default license included (PEDAL) is used.
 
 In case a dedicated license file is used, different configuration options can overwrite each other. The license is read in the following sequence:
@@ -73,11 +68,9 @@ In case a dedicated license file is used, different configuration options can ov
 3. license.asc file in the same folder, where the application is started from (in Standalone Mode)
 4. Fallback to eccenca free Personal, Evaluation and Development License Agreement (PEDAL)
 
-
 ***Property: license.key***
 
 Use this property to specify the license key as a YAML multiline string value of the license.key property.
-
 
 ```yaml
 key: |
@@ -87,13 +80,12 @@ key: |
     -----END PGP MESSAGE-----
 ```
 
-
 | Category | Value |
 |--- | ---: |
 | Default | *none* |
 | Required | false |
 | Valid values | PGP Key (Message) |
-  | Conflicts with | license.file |
+| Conflicts with | license.file |
 | Environment | LICENSE_KEY |
 
 ***Property: license.file***
@@ -105,13 +97,12 @@ Use this property to specify the location of the license file
 | Default | *none* |
 | Required | false |
 | Valid values | location of the license file |
-  | Conflicts with | license.key |
+| Conflicts with | license.key |
 | Environment | LICENSE_FILE |
 
 ## General platform settings for DataPlatform
 
 This section provides general configuration settings.
-
 
 ### Configuration of Caching
 
@@ -124,7 +115,6 @@ which can be further configured under the custom properties "spring.cache.infini
 
 To disable caching, set the type to NONE (not recommended).
 
-
 | Category | Value |
 |--- | ---: |
 | Default | INFINISPAN |
@@ -133,7 +123,6 @@ To disable caching, set the type to NONE (not recommended).
 | Environment | SPRING_CACHE_TYPE |
 
 ***Property: spring.cache.infinispan.mode***
-
 
 | Category | Value |
 |--- | ---: |
@@ -144,7 +133,6 @@ To disable caching, set the type to NONE (not recommended).
 
 ***Property: spring.mvc.pathmatch.matching-strategy***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | ant_path_matcher |
@@ -154,7 +142,6 @@ To disable caching, set the type to NONE (not recommended).
 
 ***Property: spring.thymeleaf.prefix***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | classpath:/public/ |
@@ -163,7 +150,6 @@ To disable caching, set the type to NONE (not recommended).
 | Environment | SPRING_THYMELEAF_PREFIX |
 
 ***Property: spring.thymeleaf.mode***
-
 
 | Category | Value |
 |--- | ---: |
@@ -177,7 +163,6 @@ To disable caching, set the type to NONE (not recommended).
 DataSource configuration for the chat memory persistence using HSQLDB.
 In production/Docker environments, data is stored in /var/lib/explore/chat-memory.
 In development environments, this can be overridden in application-dev.yml.
-
 
 ***Property: spring.datasource.driver-class-name***
 
@@ -225,18 +210,15 @@ Database password for HSQLDB (empty for embedded mode)
 
 ### Configuration of Servlet Container
 
-
 Multipart upload limits config
 You may need to set the following parameter values to 2048MB for implementations
 that cannot handle large requests
-
 
 ***Property: spring.servlet.multipart.max-file-size***
 
 Use this property to define the maximum size of an uploaded file in number of bytes. Values can use the suffixed "MB" or "KB" (e.g. '1024MB').
 
 **Note:** If DataPlatform is deployed in a Servlet container, make sure to also configure support for large file sizes.
-
 
 | Category | Value |
 |--- | ---: |
@@ -269,7 +251,6 @@ Temporary storage used for multipart upload. This defaults to system property ja
 
 ***Property: spring.jackson.default-property-inclusion***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | non_null |
@@ -278,7 +259,6 @@ Temporary storage used for multipart upload. This defaults to system property ja
 | Environment | SPRING_JACKSON_DEFAULT_PROPERTY_INCLUSION |
 
 ***Property: spring.ai.retry.max-attempts***
-
 
 | Category | Value |
 |--- | ---: |
@@ -291,7 +271,6 @@ Temporary storage used for multipart upload. This defaults to system property ja
 
 Use this property to enable or disable the AI capabilities of Explore
 
-
 | Category | Value |
 |--- | ---: |
 | Default | false |
@@ -299,8 +278,17 @@ Use this property to enable or disable the AI capabilities of Explore
 | Valid values | string |
 | Environment | SPRING_AI_CHAT_CLIENT_ENABLED |
 
+#### Configuration of MCP Server
+
+Changeable configuration settings of the companion mcp server.
+
+
+#### Server configuration
+
+
 ***Property: spring.ai.mcp.server.name***
 
+Server name for identification
 
 | Category | Value |
 |--- | ---: |
@@ -311,6 +299,7 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.version***
 
+Server version
 
 | Category | Value |
 |--- | ---: |
@@ -321,16 +310,16 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.type***
 
+Server type (SYNC/ASYNC) s. <https://docs.spring.io/spring-ai/reference/index.html>
 
 | Category | Value |
 |--- | ---: |
 | Default | SYNC |
 | Required | false |
-| Valid values | string |
+| Valid values | SYNC, ASYNC |
 | Environment | SPRING_AI_MCP_SERVER_TYPE |
 
 ***Property: spring.ai.mcp.server.instructions***
-
 
 | Category | Value |
 |--- | ---: |
@@ -341,7 +330,6 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.capabilities.tool***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -350,7 +338,6 @@ Use this property to enable or disable the AI capabilities of Explore
 | Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_TOOL |
 
 ***Property: spring.ai.mcp.server.capabilities.resource***
-
 
 | Category | Value |
 |--- | ---: |
@@ -361,7 +348,6 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.capabilities.prompt***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -370,7 +356,6 @@ Use this property to enable or disable the AI capabilities of Explore
 | Environment | SPRING_AI_MCP_SERVER_CAPABILITIES_PROMPT |
 
 ***Property: spring.ai.mcp.server.capabilities.completion***
-
 
 | Category | Value |
 |--- | ---: |
@@ -381,6 +366,7 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.enabled***
 
+Whether the mcp server is enabled or not
 
 | Category | Value |
 |--- | ---: |
@@ -389,8 +375,31 @@ Use this property to enable or disable the AI capabilities of Explore
 | Valid values | string |
 | Environment | SPRING_AI_MCP_SERVER_ENABLED |
 
+***Property: spring.ai.mcp.server.protocol***
+
+Protocol used for communication between mcp server and client s. <https://docs.spring.io/spring-ai/reference/index.html>
+
+| Category | Value |
+|--- | ---: |
+| Default | streamable |
+| Required | false |
+| Valid values | stateless, streamable |
+| Environment | SPRING_AI_MCP_SERVER_PROTOCOL |
+
+***Property: spring.ai.mcp.server.streamable-http.mcp-endpoint***
+
+Endpoint for mcp streamable protocol (prefix must be dataplatform)
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform/mcp/streamable |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_STREAMABLE_HTTP_MCP_ENDPOINT |
+
 ***Property: spring.ai.mcp.server.sse-message-endpoint***
 
+Endpoint for mcp sse protocol (prefix must be dataplatform)
 
 | Category | Value |
 |--- | ---: |
@@ -401,6 +410,7 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.sse-endpoint***
 
+Endpoint for mcp sse protocol (prefix must be dataplatform)
 
 | Category | Value |
 |--- | ---: |
@@ -409,20 +419,9 @@ Use this property to enable or disable the AI capabilities of Explore
 | Valid values | string |
 | Environment | SPRING_AI_MCP_SERVER_SSE_ENDPOINT |
 
-***Property: spring.ai.mcp.server.stdio***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | false |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_MCP_SERVER_STDIO |
-
 ***Property: spring.ai.model.chat***
 
 This configures the possible chat models for interacting with the companion.
-
 
 | Category | Value |
 |--- | ---: |
@@ -433,7 +432,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.model.embedding***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | openai |
@@ -442,7 +440,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | SPRING_AI_MODEL_EMBEDDING |
 
 ***Property: spring.ai.anthropic.api-key***
-
 
 | Category | Value |
 |--- | ---: |
@@ -453,7 +450,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.anthropic.chat.options.max-tokens***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | 10000 |
@@ -462,7 +458,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | SPRING_AI_ANTHROPIC_CHAT_OPTIONS_MAX_TOKENS |
 
 ***Property: spring.ai.openai.api-key***
-
 
 | Category | Value |
 |--- | ---: |
@@ -473,7 +468,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.openai.chat.options.response-format.type***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | json_schema |
@@ -483,10 +477,10 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.openai.chat.options.response-format.schema***
 
-
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
@@ -494,16 +488,14 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.azure.openai.endpoint***
 
-
 | Category | Value |
 |--- | ---: |
-| Default | <ENDPOINT> |
+| Default | <ENDPOINT_URI> |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_AZURE_OPENAI_ENDPOINT |
 
 ***Property: spring.ai.azure.openai.chat.options.response-format.type***
-
 
 | Category | Value |
 |--- | ---: |
@@ -514,17 +506,16 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: spring.ai.azure.openai.chat.options.response-format.schema***
 
-
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |
 
 ***Property: spring.ai.mistral-ai.api-key***
-
 
 | Category | Value |
 |--- | ---: |
@@ -535,7 +526,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.info.env.enabled***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -544,7 +534,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_INFO_ENV_ENABLED |
 
 ***Property: management.endpoints.web.base-path***
-
 
 | Category | Value |
 |--- | ---: |
@@ -555,7 +544,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.endpoints.web.exposure.include***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | * |
@@ -564,7 +552,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE |
 
 ***Property: management.endpoints.enabled-by-default***
-
 
 | Category | Value |
 |--- | ---: |
@@ -575,7 +562,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.endpoint.health.enabled***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -584,7 +570,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_ENDPOINT_HEALTH_ENABLED |
 
 ***Property: management.endpoint.health.show-details***
-
 
 | Category | Value |
 |--- | ---: |
@@ -595,7 +580,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.endpoint.info.enabled***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -604,7 +588,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_ENDPOINT_INFO_ENABLED |
 
 ***Property: management.health.diskspace.enabled***
-
 
 | Category | Value |
 |--- | ---: |
@@ -615,7 +598,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.health.livenessstate.enabled***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -624,7 +606,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_HEALTH_LIVENESSSTATE_ENABLED |
 
 ***Property: management.health.readinessstate.enabled***
-
 
 | Category | Value |
 |--- | ---: |
@@ -635,7 +616,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.health.sparql.enabled***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -644,7 +624,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_HEALTH_SPARQL_ENABLED |
 
 ***Property: management.health.sparql.fixedDelayInMilliseconds***
-
 
 | Category | Value |
 |--- | ---: |
@@ -655,7 +634,6 @@ This configures the possible chat models for interacting with the companion.
 
 ***Property: management.health.sparql.timeoutInMilliseconds***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | 5000 |
@@ -664,7 +642,6 @@ This configures the possible chat models for interacting with the companion.
 | Environment | MANAGEMENT_HEALTH_SPARQL_TIMEOUTINMILLISECONDS |
 
 ***Property: management.influx.metrics.export.enabled***
-
 
 | Category | Value |
 |--- | ---: |
@@ -706,7 +683,6 @@ springdoc:
    enabled: true
 ```
 
-
 ***Property: springdoc.api-docs.enabled***
 
 Use this property to enable and expose endpoint that provide the OpenAPI compliant specification of the DataPlatform APIs. The following endpoints will become available when this option is set to true:
@@ -714,7 +690,6 @@ Use this property to enable and expose endpoint that provide the OpenAPI complia
 - <DATA_PLATFORM_URI>/v3/api-docs
 - <DATA_PLATFORM_URI>/v3/api-docs.yaml
 - <DATA_PLATFORM_URI>/v3/api-docs/swagger-config
-
 
 | Category | Value |
 |--- | ---: |
@@ -728,7 +703,6 @@ Use this property to enable and expose endpoint that provide the OpenAPI complia
 Use this property to enable and expose a Swagger UI browser interface that can be used to explore and interact with the APIs. The following endpoints will become available when this option is set to true:
 
 - <DATA_PLATFORM_URI>/swagger-ui.html
-
 
 | Category | Value |
 |--- | ---: |
@@ -751,10 +725,9 @@ http:
     - https://example.com
 ```
 
-
 ***Property: http.cors.allowedOrigins***
 
-Use this property to define the list of allowed origins. The values must be either specific origins, e.g. http://example.org, or * for all origins.
+Use this property to define the list of allowed origins. The values must be either specific origins, e.g. <http://example.org>, or * for all origins.
 
 | Category | Value |
 |--- | ---: |
@@ -780,7 +753,7 @@ Use this property to define the list of allowed HTTP headers. The special value 
 
 | Category | Value |
 |--- | ---: |
-| Default | [Authorization, X-Requested-With, Content-Type, Content-Length, ETag] |
+| Default | [Authorization, X-Requested-With, Content-Type, Content-Length, ETag, mcp-protocol-version, mcp-session-id] |
 | Required | false |
 | Valid values | list of strings |
 | Environment | HTTP_CORS_ALLOWEDHEADERS |
@@ -791,7 +764,7 @@ Use this property to define the list of headers that an actual response might ha
 
 | Category | Value |
 |--- | ---: |
-| Default | [WWW-Authenticate, Link, ETag] |
+| Default | [WWW-Authenticate, Link, ETag, mcp-session-id] |
 | Required | false |
 | Valid values | list of strings |
 | Environment | HTTP_CORS_EXPOSEDHEADERS |
@@ -821,7 +794,6 @@ Use this property to define how long in seconds the response from a pre-flight r
 ## HTTP client settings
 
 Java 11 HTTP client settings for HTTP access to the backend store.
-
 
 ***Property: httpclient.connectionPoolSize***
 
@@ -862,7 +834,6 @@ authorization:
   abox:
     adminGroup: admins
 ```
-
 
 | Category | Value |
 |--- | ---: |
@@ -913,10 +884,9 @@ Use this property to configure the group that gets root access if enabled (see s
 Use this property to configure the URI of the public user group (see section Public access).
 **Note:** If you change this property, you also need to change existing URI descriptions and existing access conditions.
 
-
 | Category | Value |
 |--- | ---: |
-| Default | https://vocab.eccenca.com/auth/PublicGroup |
+| Default | <https://vocab.eccenca.com/auth/PublicGroup> |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_PUBLICGROUP |
@@ -926,23 +896,20 @@ Use this property to configure the URI of the public user group (see section Pub
 Use this property to configure the URI of the public user (see section Public access).
 **Note:** If you change this property, you also need to change existing URI descriptions and existing access conditions.
 
-
 | Category | Value |
 |--- | ---: |
-| Default | https://vocab.eccenca.com/auth/AnonymousUser |
+| Default | <https://vocab.eccenca.com/auth/AnonymousUser> |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
 
-#### Access conditions
+### Access conditions
 
 **IMPORTANT:** The following properties are deprecated and have no function anymore!
 
-
 ***Property: authorization.abox.accessConditions.url***
 
-**DEPRECATED**
-Use this property to set the URL of the access conditions model file. This can be either a remote (http://...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
 
 
 | Category | Value |
@@ -954,17 +921,15 @@ Use this property to set the URL of the access conditions model file. This can b
 
 ***Property: authorization.abox.accessConditions.graph***
 
-**DEPRECATED**
-Use this property to set the graph containing the access conditions model.
+**Deprecation:** Use this property to set the graph containing the access conditions model.
 **Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the UI SPARQL queries).
-
 
 | Category | Value |
 |--- | ---: |
-| Default | https://ns.eccenca.com/data/ac/ |
+| Default | <https://ns.eccenca.com/data/ac/> |
 | Required | false |
 | Valid values | string |
-  | Conflicts with | url |
+| Conflicts with | url |
 | Environment | AUTHORIZATION_ABOX_ACCESSCONDITIONS_GRAPH |
 
 ## SPARQL endpoints
@@ -973,7 +938,7 @@ SPARQL endpoints declare how DataPlatform connects to a SPARQL-capable store or 
 
 With the default configuration, DataPlatform uses an in-memory database. This means, that no persistent storage is available, unless a store supporting data persistence is configured.
 
-The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated. 
+The following example showcases a setup in which for each Resource all rdfs:label, Literals with language es, then en and in the end those without a language are evaluated.
 If nothing matches here, skos:prefLabel is examined in the same way
 
 ```yaml
@@ -989,14 +954,13 @@ proxy:
     - ""
 ```
 
-
 ***Property: proxy.defaultBaseIri***
 
-Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to https://fallback.eccenca.com/
+Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to <https://fallback.eccenca.com/>
 
 | Category | Value |
 |--- | ---: |
-| Default | https://fallback.eccenca.com/ |
+| Default | <https://fallback.eccenca.com/> |
 | Required | false |
 | Valid values | URI |
 | Environment | PROXY_DEFAULTBASEIRI |
@@ -1006,10 +970,9 @@ Base IRI for this Corporate Memory instance. If not set falls back to environmen
 Use this property to specify which RDF properties should be used to provide label values when matching IRIs against a search term during rewriting SELECT-queries.
 **Note:** This configuration property affects modification of SELECT-queries for search triggered by the search-string query parameter. Results of SELECT-queries when the resolveLabels property is set to LABELS
 
-
 | Category | Value |
 |--- | ---: |
-| Default | [http://www.w3.org/2004/02/skos/core#prefLabel, http://www.w3.org/2000/01/rdf-schema#label, http://purl.org/dc/terms/title, http://www.w3.org/ns/shacl#name] |
+| Default | [<http://www.w3.org/2004/02/skos/core#prefLabel>, <http://www.w3.org/2000/01/rdf-schema#label>, <http://purl.org/dc/terms/title>, <http://www.w3.org/ns/shacl#name>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_LABELPROPERTIES |
@@ -1019,20 +982,18 @@ Use this property to specify which RDF properties should be used to provide labe
 Use this property to specify which RDF properties should be used to provide description values when matching IRIs against a search term during rewriting SELECT-queries.
 **Note:** This configuration property affects modification of SELECT-queries for search triggered by the search-string query parameter. Results of SELECT-queries when the resolveLabels property is set to LABELS
 
-
 | Category | Value |
 |--- | ---: |
-| Default | [http://purl.org/dc/terms/description, http://www.w3.org/2000/01/rdf-schema#comment] |
+| Default | [<http://www.w3.org/2004/02/skos/core#definition>, <http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |
 
 ***Property: proxy.languagePreferences***
 
-Specifies base language preferences for this instance. 
+Specifies base language preferences for this instance.
 
 **Note:** This configuration property affects results of SELECT-queries when the resolveLabels property is set to LABELS.
-
 
 | Category | Value |
 |--- | ---: |
@@ -1058,7 +1019,6 @@ The Concise Boundary Description is used for viewing and editing resoures.
 By default up to a max of 5 Blank nodes are traversed for calculation.
 Increasing the max fetch will support deeper constructs, but will also add to loading time.
 
-
 | Category | Value |
 |--- | ---: |
 | Default | 5 |
@@ -1068,9 +1028,8 @@ Increasing the max fetch will support deeper constructs, but will also add to lo
 
 ***Property: proxy.maxCBDStatements***
 
-The max amount of statements which the Concise Bound Description can contain. 
+The max amount of statements which the Concise Bound Description can contain.
 (S)CBDs surpassing this will not load but return an error
-
 
 | Category | Value |
 |--- | ---: |
@@ -1079,6 +1038,19 @@ The max amount of statements which the Concise Bound Description can contain.
 | Valid values | string |
 | Environment | PROXY_MAXCBDSTATEMENTS |
 
+***Property: proxy.cbdChangeVersioning***
+
+Determines whether the changes on CBDs are added to the graph versioning which exists for
+SHACL-based changes.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_CBDCHANGEVERSIONING |
+
 ***Property: proxy.shapedMaxValueCount***
 
 Maximum Values for shaped Resources
@@ -1086,7 +1058,6 @@ When a resource is shaped by shacl forms, *shapedMaxValueCount* limits the numbe
 returned per `shacl:PropertyShape`. The default needs to be larger than the DataManager setting for
 for 'propertyLimit', which is up to 25. Changing this value allows custom
 endpoints to fetch more data. Increasing this value will increase response time
-
 
 | Category | Value |
 |--- | ---: |
@@ -1155,9 +1126,9 @@ Maximum amount of memory entries for shacl batch validation results can take up.
 Value Fetch Strategy
 Determines how the Knowledge Graph is walked for values for specific resources.
 Used for resolving titles & comments and loading shaped resources.
+
 - RESOURCE_IN_VALUES uses a SPARQL `VALUES (?resource ) { (:resource1)(:resource2)}`
 - FILTER_ONLY Uses SPARQL uses a SPARQL `FILTER (?resource in (:resource1, :resource2))`
-
 
 | Category | Value |
 |--- | ---: |
@@ -1176,6 +1147,17 @@ The limit of data for the GSP zip-bomb check in bytes. If this limit is exceeded
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_GSPUPLOADGZIPCONTENTLIMIT |
+
+***Property: proxy.gspPrettyTurtlePrintSizeLimit***
+
+The limit of data in bytes for the turtle pretty print GSP option. That amount of data is loaded into memory. On exceeding it the graph download is aborted.
+
+| Category | Value |
+|--- | ---: |
+| Default | 1073741824 |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_GSPPRETTYTURTLEPRINTSIZELIMIT |
 
 ***Property: proxy.proxy-sparql-streaming-format***
 
@@ -1214,7 +1196,6 @@ gitSync:
   branch: master
   scheduledPullCron: "0 */5 * * * *"
 ```
-
 
 ***Property: gitSync.enabled***
 
@@ -1295,11 +1276,11 @@ The committer name which appears in the commit message on system commits
 
 ***Property: gitSync.committerEmail***
 
-The committer email which appears in the commit message  on system commits
+The committer email which appears in the commit message on system commits
 
 | Category | Value |
 |--- | ---: |
-| Default | info@eccenca.com |
+| Default | <info@eccenca.com> |
 | Required | false |
 | Valid values | string |
 | Environment | GITSYNC_COMMITTEREMAIL |
@@ -1312,7 +1293,7 @@ Schedules Pull Frequency - Configured git repositories for sync are pulled regul
 |--- | ---: |
 | Default | 0 */30 * * * * |
 | Required | false |
-| Valid values | Cron setting according to https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression |
+| Valid values | Cron setting according to <https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression> |
 | Environment | GITSYNC_SCHEDULEDPULLCRON |
 
 ***Property: semspect.enabled***
@@ -1351,10 +1332,8 @@ logging:
   file: /var/logs/dataplatform.log
 ```
 
-
 Use these properties to specify where you want to store your logging file. Specifying a file leads to both, logging to standard output and the file.
 File output creates an auto-rotating file with 10 MB file size each.
-
 
 ***Property: logging.file.name***
 
@@ -1389,7 +1368,6 @@ logging:
   configuration: ELDS_HOME/etc/dataplatform/logback.xml
 ```
 
-
 | Category | Value |
 |--- | ---: |
 | Default | *none* |
@@ -1398,7 +1376,6 @@ logging:
 | Environment | LOGGING_CONFIG |
 
 ***Property: logging.level.audit***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1409,7 +1386,6 @@ logging:
 
 ***Property: logging.level.com.eccenca.elds.backend***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | INFO |
@@ -1418,7 +1394,6 @@ logging:
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND |
 
 ***Property: logging.level.org.springframework***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1429,7 +1404,6 @@ logging:
 
 ***Property: logging.level.com.eccenca.elds.backend.webapp.web.filter.SimpleCorsFilter***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | WARN |
@@ -1438,7 +1412,6 @@ logging:
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_WEBAPP_WEB_FILTER_SIMPLECORSFILTER |
 
 ***Property: logging.level.com.eccenca.elds.backend.webapp.web.GlobalControllerExceptionHandler***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1449,7 +1422,6 @@ logging:
 
 ***Property: logging.level.com.eccenca.elds.backend.cache.logging***
 
-
 | Category | Value |
 |--- | ---: |
 | Default | WARN |
@@ -1458,7 +1430,6 @@ logging:
 | Environment | LOGGING_LEVEL_COM_ECCENCA_ELDS_BACKEND_CACHE_LOGGING |
 
 ***Property: logging.level.org.hibernate.search.backend.lucene.impl***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1479,12 +1450,10 @@ auditTrail:
   - "aksw.org"
 ```
 
-
 ***Property: audit-trail.enabled***
 
 Use this property to enable logging of read and write access to every graph access. If auditTrail.auditedGraphs is specified, only those graphs are logged.
 **Note:** If audit trail logging is enabled, RDF upload over the Graph Store Protocol interface is limited to triple formats. Any attempt to upload a quad format results in an HTTP 415 error.
-
 
 | Category | Value |
 |--- | ---: |
@@ -1507,7 +1476,6 @@ Use this property to specify graphs whose read and write access you want to be l
 Limits the size of the query response
 
 ***Property: sparql.query.limit***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1533,7 +1501,6 @@ server:
     contextPath: /dataplatform
 ```
 
-
 ***Property: server.port***
 
 Use this property to set the TCP port where the embedded server is available.
@@ -1546,7 +1513,6 @@ Use this property to set the TCP port where the embedded server is available.
 | Environment | SERVER_PORT |
 
 ***Property: server.error.include-stacktrace***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1569,7 +1535,6 @@ Use this property to define the context path under which DataPlatform is availab
 Tomcat servlet settings
 
 ***Property: server.servlet.session.cookie.same-site***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1594,7 +1559,6 @@ server:
     client-auth: NEED
 ```
 
-
 ***Property: server.ssl.key-store***
 
 Use this property to define the path to the KeyStore used for one-way or two-way SSL authentication.
@@ -1604,7 +1568,6 @@ In case of two-way authentication, a TrustStore must also be configured. This co
 ```bash
 JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStore=path_to_trust_store.jks -Djavax.net.ssl.trustStorePassword=trust_store_password (ADD TO EXISTING JAVA_TOOL_OPTIONS)
 ```
-
 
 | Category | Value |
 |--- | ---: |
@@ -1629,7 +1592,6 @@ Use this property to set the password to unlock the KeyStore used for one-way or
 Use this property to define the client identification policy.
 
 If WANT is set, client identification is optional. If NEED is set, client identification is mandatory, so unauthenticated clients are refused.
-
 
 | Category | Value |
 |--- | ---: |
@@ -1656,7 +1618,6 @@ Configuration recommendation:
 
 **Note:** This configuration recommendation provides settings for headers most commonly used by proxies. Make sure to add all three properties in order to enforce HTTPS.
 
-
 ***Property: server.tomcat.remoteIpHeader***
 
 Use this property to set the request header which is required to identify the originating IP address of the client connecting to DataPlatform through an HTTP proxy.
@@ -1680,7 +1641,6 @@ Use this property to set the request header which is required to identify the or
 | Environment | SERVER_TOMCAT_PROTOCOLHEADER |
 
 ***Property: server.tomcat.max-swallow-size***
-
 
 | Category | Value |
 |--- | ---: |
@@ -1706,7 +1666,7 @@ Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load
 
 ***Property: scheduler.analyticalPoolSize***
 
-Limits how many analytical requests can be run in parallel. Analytical requests  can have longer runtimes than retrieval requests.
+Limits how many analytical requests can be run in parallel. Analytical requests can have longer runtimes than retrieval requests.
 
 | Category | Value |
 |--- | ---: |
@@ -1728,15 +1688,13 @@ Limits how many background query requests can be run in parallel. This applies t
 
 ## Asynchronous file uploads
 
-Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file. 
+Files can be asynchronously uploaded to the backend store in multiple steps which include an analysis of the uploaded file.
 Please s. API documentation under /api/upload/ for further information.
-
 
 ***Property: files.maxStorageSingleFileSizeMb***
 
 Maximum size of one stored file (as uploaded i.e. can also be compressed size)
 Value in Mb
-
 
 | Category | Value |
 |--- | ---: |
@@ -1750,7 +1708,6 @@ Value in Mb
 Minimum storage space left on temp device of DataPlatform for file uploads
 Value in Mb
 
-
 | Category | Value |
 |--- | ---: |
 | Default | 3000 |
@@ -1762,7 +1719,6 @@ Value in Mb
 
 Cron setting for housekeeping / maintenance job
 Stored files and saved analysis will be deleted if older than maintenanceExpirationDuration
-
 
 | Category | Value |
 |--- | ---: |
@@ -1794,7 +1750,7 @@ One of the supported types of backends DataPlatform can connect to
 |--- | ---: |
 | Default | *none* |
 | Required | true |
-| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE |
+| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE, TENTRIS |
 | Environment | STORE_TYPE |
 
 ***Property: store.owlImportsResolution***
@@ -1829,4 +1785,3 @@ Query timeout as duration which is active if no timeout in request has been set
 | Required | false |
 | Valid values | ISO 8601 duration format |
 | Environment | STORE_QUERYTIMEOUTGENERAL |
-

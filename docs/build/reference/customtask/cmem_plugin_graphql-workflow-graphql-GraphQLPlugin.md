@@ -2,11 +2,13 @@
 title: "GraphQL query"
 description: "Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # GraphQL query
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,7 +22,7 @@ This workflow task performs GraphQL operations by sending
      in the GraphQL query using, Jinja queries and Jinja variables, which can be
      obtained from entities. The result of the query is saved as a JSON document
      in a pre-created JSON dataset.
-     
+
 
 ## Parameter
 
@@ -75,6 +77,5 @@ Access token that connects to a GraphQL endpoint to authorize and secure user ac
 - ID: `oauth_access_token`
 - Datatype: `string`
 - Default Value: `None`
-
 
 

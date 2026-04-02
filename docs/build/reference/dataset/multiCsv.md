@@ -2,10 +2,12 @@
 title: "Multi CSV ZIP"
 description: "Reads from or writes to multiple CSV files from/to a single ZIP file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Multi CSV ZIP
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -129,23 +131,22 @@ Filter file paths inside the ZIP file via this regex. By default sub folders or 
 
 
 
-### Delete file before workflow execution
+### Delete file before workflow execution (deprecated)
 
-If set to true this will clear the specified file before executing a workflow that writes to it.
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified file before executing a workflow that writes to it.
 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
-- Default Value: `true`
+- Default Value: `false`
 
 
 
-### Optionally trim whitespace and non-printable characters.
+### Optionally trim whitespace and non-printable characters
 
 If set to true, this will trim whitespace and non-printable characters from the contents of the CSV dataset.
 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

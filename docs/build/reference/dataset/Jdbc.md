@@ -2,10 +2,12 @@
 title: "Remote SQL endpoint"
 description: "Connect to an existing JDBC endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Remote SQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -31,7 +33,8 @@ Most of the dataset parameters are passed directly to the driver.
 Please make sure that you use the correct syntax for each DBMS, otherwise you may get unintuitive errors.
 
 Here are templates for supported database systems:
-```
+
+```text
 oracle (external driver needed): 
 jdbc:oracle:thin:@{host}[:{port}]/{database}
 
@@ -81,14 +84,15 @@ For some DBMS and specific JDBC dataset configurations we support these optimize
 Supported DBMS:
 
 - MySQL and MariaDB (full support for versions 8.0.19+ and 10.4+, resp.):
-  - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will
-  - the same is true when older driver jars then the one provided by eccenca are used
-  - both use the MariaDB JDBC driver
-  - uses `LOAD DATA LOCAL INFILE` internally
-  - only applies when appending data to an existing table and having `Force Spark Execution` disabled
-  - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.
+    - if older DBMS versions are used some dataset options like 'groupBy' might not be supported but equivalent queries will
+    - the same is true when older driver jars then the one provided by eccenca are used
+    - both use the MariaDB JDBC driver
+    - uses `LOAD DATA LOCAL INFILE` internally
+    - only applies when appending data to an existing table and having `Force Spark Execution` disabled
+    - Both the server parameter `local_infile` and the client parameter `allowLoadLocalInfile` must be enabled, e.g. by adding `allowLoadLocalInfile=true` to the JDBC URL.
     For MySQL starting with version 8 the `local_infile` parameter is by default disabled!
-  - If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure ANSIquotes are used.
+
+    - If during writing to a MySQL/MariaDB a `[…] You have an error in your SQL syntax […]` error is encountered make sure ANSIquotes are used.
     `sql_mode=ANSI_QUOTES` can be set via a URL parameter to the JDBC connection string like:
 
     ```sh
@@ -116,7 +120,7 @@ spark.sql.options {
   # jdbc:db2://host:port)  is used to specify the driver. For each protocol on the list a jar classname and optional download
   # location can be provided.
   jdbc.drivers = "db2,mysql"
-  
+
   # Some database systems use licenses that are to loose or restrictive for us to ship the drivers. Therefore a path
   # to a jar file containing the driver and the name of driver can be specified here.
   jdbc.db2.jar = "/home/user/Jars/db2jcc-db2jcc4.jar"
@@ -130,11 +134,11 @@ spark.sql.options {
 
 ## Driver Priority
 
-In general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
+In general, it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
 
-The driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.                   
+The driver delivered with eccenca Dataintegration will be preferred. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
 
-_Recommended DBMS versions_
+### Recommended DBMS versions
 
 - **Microsoft SQL Server 2017**: Older versions might work, but do not support the `groupBy` parameter.
 - **PostgreSQL 9.5**: The `groupBy` parameter needs at least version 8.4.
@@ -238,16 +242,6 @@ How multiple values per entity property are written.
 
 
 
-### Clear table before workflow execution
-
-If set to true this will clear the specified table before executing a workflow that writes to it.
-
-- ID: `clearTableBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
-
-
-
 ### User
 
 Username. Must be empty in some cases e.g. if secret key and client id are used. If non-empty this will also overwrite any value set in the JDBC URL string.
@@ -282,6 +276,16 @@ An SQL WHERE clause to filter the records to be retrieved.
 
 ## Advanced Parameter
 
+### Clear table before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified table before executing a workflow that writes to it.
+
+- ID: `clearTableBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
 ### Token endpoint URL (Azure Active Directory)
 
 URL for retrieving tokens, when using MS SQL Active Directory token based authentication. Can be found in the Azure AD Admin Center under OAuth2 endpoint or cab be constructed with the general endpoint URL combined with the tenant id and the suffix /outh/v2/authortized.
@@ -294,7 +298,7 @@ URL for retrieving tokens, when using MS SQL Active Directory token based authen
 
 ### Service principal name (Azure Active Directory)
 
-Service Principal Name identifying the resource. Usually a static URL like https://database.windows.net.
+Service Principal Name identifying the resource. Usually a static URL like <https://database.windows.net>.
 
 - ID: `spnName`
 - Datatype: `string`
@@ -359,6 +363,4 @@ If set to true, Spark will be used for querying the database, even if the local 
 - ID: `forceSparkExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
 

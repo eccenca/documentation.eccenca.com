@@ -2,10 +2,12 @@
 title: "Greater than"
 description: "Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - DistanceMeasure
 ---
+
 # Greater than
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -13,6 +15,7 @@ tags:
 Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used.
 
 ## Characteristics
+
 This is a boolean distance measure, i.e., all distances are either 0 or 1.
 
 Compares single values (as opposed to sequences of values). If multiple values are provided, all values are compared and the lowest distance is returned.
@@ -50,6 +53,5 @@ Reverse source and target inputs
 - ID: `reverse`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

@@ -2,10 +2,12 @@
 title: "Binary file"
 description: "Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Binary file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,6 +17,7 @@ Reads and writes binary files. A typical use-case for this dataset is to process
 ## ZIP files
 
 This dataset can be used to compress/decompress ZIP files. If a ZIP file is configured, the behaviour is as follows:
+
 - Writing a ZIP file to this dataset will overwrite the configured ZIP file.
 - Writing one or many non-ZIP files will overwrite the dataset file with a ZIP that contains all written files.
 - When reading files, the dataset will return all files inside the ZIP that match the configured regex. If the regex is empty, the ZIP file itself will be returned.

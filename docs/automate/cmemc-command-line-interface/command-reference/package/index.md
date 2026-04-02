@@ -6,7 +6,9 @@ tags:
   - cmemc
   - Package
 ---
+
 # package Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, (un)install, export, create, or inspect packages.
@@ -17,7 +19,7 @@ List, (un)install, export, create, or inspect packages.
 Inspect the manifest of a package.
 
 ```shell-session title="Usage"
-$ cmemc package inspect [OPTIONS] PACKAGE_PATH
+cmemc package inspect [OPTIONS] PACKAGE_PATH
 ```
 
 
@@ -36,7 +38,7 @@ $ cmemc package inspect [OPTIONS] PACKAGE_PATH
 List installed packages.
 
 ```shell-session title="Usage"
-$ cmemc package list [OPTIONS]
+cmemc package list [OPTIONS]
 ```
 
 
@@ -59,7 +61,7 @@ $ cmemc package list [OPTIONS]
 Install packages.
 
 ```shell-session title="Usage"
-$ cmemc package install [OPTIONS] [PACKAGE_ID]
+cmemc package install [OPTIONS] [PACKAGE_ID]
 ```
 
 
@@ -72,9 +74,16 @@ This command installs a package either from the marketplace or from local packag
 ??? info "Options"
     ```text
 
-    -i, --input PATH  Install a package from a package archive (.cpa) or
-                      directory.
-    --replace         Replace (overwrite) existing package version, if present.
+    -i, --input PATH        Install a package from a package archive (.cpa) or
+                            directory.
+    --replace               Replace (overwrite) existing package version, if
+                            present.
+    --no-cache              Disable using cached package versions.
+    --ignore-lock           Ignore lock file for operation. This can be
+                            dangerous, use with care.
+    --marketplace-url TEXT  Base URL of the Marketplace - uses environment
+                            variable ECCENCA_MARKETPLACE_URL if available.
+                            [default: https://eccenca.market]
     ```
 
 ## package uninstall
@@ -82,7 +91,7 @@ This command installs a package either from the marketplace or from local packag
 Uninstall installed packages.
 
 ```shell-session title="Usage"
-$ cmemc package uninstall [OPTIONS] [PACKAGE_ID]
+cmemc package uninstall [OPTIONS] [PACKAGE_ID]
 ```
 
 
@@ -92,6 +101,8 @@ $ cmemc package uninstall [OPTIONS] [PACKAGE_ID]
 ??? info "Options"
     ```text
 
+    --ignore-lock            Ignore lock file for operation. This can be
+                             dangerous, use with care.
     --filter <TEXT TEXT>...  Filter installed packages by one of the following
                              filter names and a corresponding value: type, name,
                              id.
@@ -114,11 +125,18 @@ $ cmemc package export [OPTIONS] [PACKAGE_ID]
 ??? info "Options"
     ```text
 
-    --filter <TEXT TEXT>...  Filter installed packages by one of the following
-                             filter names and a corresponding value: type, name,
-                             id.
-    -a, --all                Export all installed packages.
-    --replace                Replace (overwrite) existing files, if present.
+    --mime_type [text/turtle|text/turtle+pretty]
+                                    Choose the MIME type for graphs when
+                                    exporting packages.  [default:
+                                    text/turtle+pretty]
+    --filter <TEXT TEXT>...         Filter installed packages by one of the
+                                    following filter names and a corresponding
+                                    value: type, name, id.
+    -a, --all                       Export all installed packages.
+    --output-dir DIRECTORY          Create package directories in this base
+                                    directory.  [default: .]
+    --replace                       Replace (overwrite) existing files, if
+                                    present.
     ```
 
 ## package build
@@ -126,7 +144,7 @@ $ cmemc package export [OPTIONS] [PACKAGE_ID]
 Build a package archive from a package directory.
 
 ```shell-session title="Usage"
-$ cmemc package build [OPTIONS] PACKAGE_DIRECTORY
+cmemc package build [OPTIONS] PACKAGE_DIRECTORY
 ```
 
 
@@ -152,7 +170,7 @@ Package archives can be published to the marketplace using the `package publish`
 Publish a package archive to the marketplace server.
 
 ```shell-session title="Usage"
-$ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
+cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
 ```
 
 
@@ -162,7 +180,15 @@ $ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
 ??? info "Options"
     ```text
 
-    --marketplace-url TEXT  Alternative Marketplace URL.
+    --timeout INTEGER            Timeout for marketplace requests.
+    --marketplace-url TEXT       Base URL of the Marketplace - uses environment
+                                 variable ECCENCA_MARKETPLACE_URL if available.
+                                 [default: https://eccenca.market]
+    --marketplace-account TEXT   Marketplace account - uses environment variable
+                                 ECCENCA_MARKETPLACE_ACCOUNT if available.
+    --marketplace-password TEXT  Marketplace password - uses environment
+                                 variable ECCENCA_MARKETPLACE_PASSWORD if
+                                 available.
     ```
 
 ## package search
@@ -170,7 +196,7 @@ $ cmemc package publish [OPTIONS] PACKAGE_ARCHIVE
 Search for available packages with a given search text.
 
 ```shell-session title="Usage"
-$ cmemc package search [OPTIONS] [SEARCH_TERMS]...
+cmemc package search [OPTIONS] [SEARCH_TERMS]...
 ```
 
 
@@ -180,6 +206,8 @@ $ cmemc package search [OPTIONS] [SEARCH_TERMS]...
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
+    --raw                   Outputs raw JSON.
+    --marketplace-url TEXT  Base URL of the Marketplace - uses environment
+                            variable ECCENCA_MARKETPLACE_URL if available.
+                            [default: https://eccenca.market]
     ```
-

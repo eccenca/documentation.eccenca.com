@@ -2,10 +2,12 @@
 title: "Map"
 description: "Replaces values based on a map of values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Map
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -50,9 +52,9 @@ Replaces values based on a map of values.
 
 A map of values
 
-- ID: `map`
-- Datatype: `stringmap`
-- Default Value: `None`
+* ID: `map`
+* Datatype: `stringmap`
+* Default Value: `None`
 
 
 
@@ -60,9 +62,9 @@ A map of values
 
 Default if the map defines no value
 
-- ID: `default`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `default`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

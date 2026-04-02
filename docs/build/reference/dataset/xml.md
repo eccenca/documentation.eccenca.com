@@ -2,10 +2,12 @@
 title: "XML"
 description: "Read from or write to an XML file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # XML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -84,7 +86,7 @@ The base path when writing XML. For instance: /RootElement/Entity. Should no lon
 
 ### URI pattern
 
-A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relative paths to elements
+A URI pattern, e.g., <http://namespace.org/{ID}>, where {path} may contain relative paths to elements
 
 - ID: `uriPattern`
 - Datatype: `string`
@@ -129,6 +131,5 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.xml$`
-
 
 

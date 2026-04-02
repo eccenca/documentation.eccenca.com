@@ -26,7 +26,6 @@ If you need to change this location and want to use another config file, you hav
 
 However, once you start cmemc the first time without any command or option, it will create an empty configuration file at this location and will output a general introduction.
 
-
 ??? example "First cmemc run ..."
     ``` shell-session
     $ cmemc
@@ -270,4 +269,3 @@ Setting this to a PEM file allows for using private Certificate Authorities for 
 Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
 
 This variable defaults to `$PYTHON_HOME/site-packages/certifi/cacert.pem`.
-

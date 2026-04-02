@@ -2,11 +2,13 @@
 title: "SOQL query (Salesforce)"
 description: "Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization's Salesforce account."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # SOQL query (Salesforce)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -35,11 +37,14 @@ SOQL Query. By default, this Parse SOQL option is set `True` (enabled).
 Examples:
 
 Retrieve all standard fields from all Lead resources. (without parser validation)
-```
+
+```text
 SELECT FIELDS(STANDARD) FROM Lead
 ```
+
 Retrieve first name and last name of all Contact resources. (with parser validation)
-```
+
+```text
 SELECT Contact.Firstname, Contact.Lastname FROM Contact
 ```
 
@@ -100,6 +105,4 @@ In addition to have direct output of the fetched entities of your SOQL query, yo
 - ID: `dataset`
 - Datatype: `string`
 - Default Value: `None`
-
-
 

@@ -2,10 +2,12 @@
 title: "Input hash"
 description: "Calculates the hash sum of the input values. Generates a single hash sum for all input values combined."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Input hash
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -20,10 +22,10 @@ This operator supports using different hash algorithms from the [Secure Hash Alg
 ---
 **Example 1:**
 
-* Input values:
+- Input values:
     1. `[input value]`
 
-* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
+- Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`
 
 
 

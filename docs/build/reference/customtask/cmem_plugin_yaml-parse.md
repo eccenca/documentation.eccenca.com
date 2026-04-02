@@ -2,11 +2,13 @@
 title: "Parse YAML"
 description: "Parses files, source code or input values as YAML documents."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Parse YAML
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -20,11 +22,13 @@ This workflow task parses YAML content from multiple sources and converts it to 
 formats.
 
 **Input Sources:**
+
 - **entities**: Parse YAML from input port entities in a workflow
 - **code**: Parse YAML from directly entered source code
 - **file**: Parse YAML from uploaded project file resources
 
 **Output Formats:**
+
 - **entities**: Convert parsed structure to entities for workflow processing
 - **json_entities**: Output as single JSON entity to the output port
 - **json_dataset**: Save parsed structure directly to a JSON dataset
@@ -107,6 +111,5 @@ In case of source mode 'entities', you can specify the requested input path.
 - ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `text`
-
 
 

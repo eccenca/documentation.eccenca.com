@@ -2,10 +2,12 @@
 title: "Metaphone"
 description: "Metaphone phonetic encoding."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Metaphone
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -33,12 +35,6 @@ Illustrative examples:
 * `encyclopedia` is encoded as `ensklpt`.
 * `accuracy` is encoded as `akkrs`.
 * `eccenca` is encoded as `eksnk`.
-
-## Related plugins
-
-Related phonetic algorithms are the different variations or improvements of the Soundex algorithm, implemented by this
-(Metaphone) and the [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms.
-The corresponding linguistic transformer plugins are named accordingly.
 
 
 ## Parameter

@@ -2,11 +2,13 @@
 title: "Execute Instructions"
 description: "Send instructions (prompt) to an LLM and process the result."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute Instructions
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -80,12 +82,14 @@ class StructuredOutput(BaseModel):
 ## Performance Features
 
 Parallel Processing:
+
 - **Concurrent Requests**: Configurable semaphore-controlled API calls
 - **Batch Processing**: Entities processed in configurable batch sizes
 - **Rate Limiting**: Optional delays between requests
 - **Memory Optimization**: Streaming processing with generator patterns
 
 Error Handling:
+
 - **Graceful Degradation**: Continue processing on API errors (configurable)
 - **Detailed Logging**: Comprehensive error reporting and debugging information
 - **Workflow Integration**: Proper cancellation support and progress reporting
@@ -93,11 +97,13 @@ Error Handling:
 ## API Compatibility
 
 Supported Providers:
+
 - **OpenAI**: Direct API access with full feature support
 - **Azure OpenAI**: Enterprise Azure-hosted services with API versioning
 - **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints
 
 Authentication:
+
 - **API Keys**: Secure password-type parameters for API authentication
 - **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration
 - **Flexible Endpoints**: Custom base URLs for various providers
@@ -105,6 +111,7 @@ Authentication:
 ## Advanced Configuration
 
 ### Message Templates
+
 Customize the conversation structure beyond simple prompts:
 
 ```json
@@ -115,6 +122,7 @@ Customize the conversation structure beyond simple prompts:
 ```
 
 ### Performance Tuning
+
 - **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)
 - **Timeout Management**: Request-level timeout configuration
 - **Concurrency Limits**: Prevent rate limiting with request throttling
@@ -133,43 +141,13 @@ For detailed prompting guidance, see [OpenAI's Text Generation Guide](https://pl
 
 ## Parameter
 
-### Base URL
-
-The base URL of the OpenAI compatible API (without endpoint path).
-
-- ID: `base_url`
-- Datatype: `string`
-- Default Value: `https://api.openai.com/v1/`
-
-
-
-### API Type
-
-Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
-
-- ID: `api_type`
-- Datatype: `enumeration`
-- Default Value: `OPENAI`
-
-
-
-### API key
-
-An optional API key for authentication.
-
-- ID: `api_key`
-- Datatype: `password`
-- Default Value: `None`
-
-
-
 ### Instruct Model
 
 The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). **Note:** For STRUCTURED_OUTPUT format, only certain models support structured outputs. See [OpenAI Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs) for supported models.
 
 - ID: `model`
 - Datatype: `string`
-- Default Value: `gpt-4o-mini`
+- Default Value: `None`
 
 
 
@@ -186,6 +164,36 @@ The instruction prompt template. Please have a look at the task documentation fo
 
 
 ## Advanced Parameter
+
+### Base URL
+
+The base URL of the OpenAI compatible API (without endpoint path). If left empty CMEMs internal LLM proxy is used.
+
+- ID: `base_url`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### API Type
+
+Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
+
+- ID: `api_type`
+- Datatype: `enumeration`
+- Default Value: `OPENAI`
+
+
+
+### API key
+
+An optional API key for authentication. When using CMEMs internal LLM proxy this parameter is ignored and `EXPLORE_AI_APIKEY` in `environments/config.env` is used.
+
+- ID: `api_key`
+- Datatype: `password`
+- Default Value: `None`
+
+
 
 ### API Version
 
@@ -234,6 +242,7 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 - ID: `messages_template`
 - Datatype: `code-json`
 - Default Value:
+
 ``` json
 [
     {
@@ -266,6 +275,7 @@ The Pydantic schema definition with a mandatory class named `StructuredOutput(Ba
 - ID: `pydantic_schema`
 - Datatype: `code-python`
 - Default Value:
+
 ``` python
 from pydantic import BaseModel
 
@@ -315,6 +325,4 @@ Delay between API requests in seconds to respect rate limits.
 - ID: `request_delay`
 - Datatype: `double`
 - Default Value: `0.0`
-
-
 

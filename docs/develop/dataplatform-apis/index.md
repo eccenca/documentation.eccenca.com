@@ -94,8 +94,8 @@ Furthermore, it says:
 >
 > The FROM and FROM NAMED keywords allow a query to specify an RDF dataset by reference; they indicate that the dataset should include graphs that are obtained from representations of the resources identified by the given IRIs (i.e. the absolute form of the given IRI references). The dataset resulting from a number of FROM and FROM NAMED clauses is:
 >
-> -   a default graph consisting of the RDF merge of the graphs referred to in the FROM clauses, and
-> -   a set of (IRI, graph) pairs, one from each FROM NAMED clause.
+> - a default graph consisting of the RDF merge of the graphs referred to in the FROM clauses, and
+> - a set of (IRI, graph) pairs, one from each FROM NAMED clause.
 >
 > If there is no FROM clause, but there is one or more FROM NAMED clauses, then the dataset includes an empty graph for the default graph.
 
@@ -105,28 +105,28 @@ For this reason, Explore backend **does not allow the manipulation of the servic
 
 To enforce this policy, the following restriction applies to incoming [SPARQL 1.1](https://www.w3.org/TR/sparql11-update/) Update queries:
 
--   Update queries (INSERT DATA, DELETE DATA and DELETE/INSERT) targeted against the service's default graph will not be accepted by returning an HTTP 400 Bad Request status code.
+- Update queries (INSERT DATA, DELETE DATA and DELETE/INSERT) targeted against the service's default graph will not be accepted by returning an HTTP 400 Bad Request status code.
 
 ### Default RDF dataset
 
 The interpretation of the RDF dataset of a query differs between various SPARQL service implementations.
 In the case a query declares no RDF dataset, Explore backend uses the following default RDF dataset declaration to provide a uniform behavior for all supported SPARQL services:
 
--   The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
--   The set of named graphs contains all named graphs the user is allowed to access.
+- The default graph is the union ([RDF Merge graph](https://www.w3.org/TR/sparql11-query/#sparqlDataset)) of all named graphs the user is allowed to access.
+- The set of named graphs contains all named graphs the user is allowed to access.
 
 ## HTTP error responses
 
 The default format for HTTP error responses is compliant with [RFC 7807 Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
 An HTTP error response contains a JSON object that provides at least two fields:
 
--   `title`: A short, human-readable summary of the problem type.
--   `detail`: A human-readable explanation specific to this occurrence of the problem.
+- `title`: A short, human-readable summary of the problem type.
+- `detail`: A human-readable explanation specific to this occurrence of the problem.
 
 The following optional non-standard fields may also be set:
 
--   `status`: The HTTP status code for this occurrence of the problem.
--   `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
+- `status`: The HTTP status code for this occurrence of the problem.
+- `cause`: The cause for this occurrence of the problem. It contains at least the same elements as specified previously, such as `title` and `detail`.
 
 The following example shows an HTTP response containing JSON problem details using the `application/problem+json` media type:
 

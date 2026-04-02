@@ -6,7 +6,7 @@ Documentation for the core components of the Graph Insights interface.
 
 ## Workspace
 
-- **[Application and dataset settings](application-settings.md):** Application fine-tuning, dataset selection. 
+- **[Application and dataset settings](application-settings.md):** Application fine-tuning, dataset selection.
 - **[Exploration canvas](canvas-ui.md):** Layout controls, information density management, and exploration tree exports.
 - **[Class tree](category-tree.md):** Starting an exploration, class configuration (captions/visibility).
 

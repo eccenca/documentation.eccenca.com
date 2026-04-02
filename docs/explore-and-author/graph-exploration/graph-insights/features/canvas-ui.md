@@ -48,6 +48,7 @@ If a group contains *more* resources than the limit, it is rendered as a single 
 ### Instance Rendering (Count ≤ Threshold)
 
 If the count is *below* the limit, each resource is rendered as a dot within the group disk.
+
 - The number inside each dot represents its [predecessor](objects.md#predecessors) count (number of resources in the left group linked by the connection). No number means there is only a single predecessor.
 - The resources with higher predecessor counts are located at the center of the group.
 

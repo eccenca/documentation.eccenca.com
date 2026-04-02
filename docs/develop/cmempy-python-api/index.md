@@ -30,7 +30,7 @@ The following table lists all processed environment variables:
 
 | Variable            | Description                                           | Default Value                                                |
 | ------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| CMEM_BASE_URI       | Base URL of your Corporate Memory                     | http://docker.localhost                                      |
+| CMEM_BASE_URI       | Base URL of your Corporate Memory                     | <http://docker.localhost>                                      |
 | DI_API_ENDPOINT     | Build (Data Integration) API endpoint                 | CMEM_BASE_URI/dataintegration                                |
 | DP_API_ENDPOINT     | Explore backend API endpoint                          | CMEM_BASE_URI/dataplatform                                   |
 | OAUTH_TOKEN_URI     | OAuth 2.0 Token endpoint                              | CMEM_BASE_URI/auth/realms/cmem/protocol/openid-connect/token |

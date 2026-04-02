@@ -6,7 +6,9 @@ tags:
   - Reference
   - cmemc
 ---
+
 # Command Reference
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! info
@@ -40,7 +42,6 @@ tags:
 | [admin store](admin/store/index.md) | [bootstrap](admin/store/index.md#admin-store-bootstrap) | Update/Import or remove bootstrap data. |
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
-| [admin store](admin/store/index.md) | [migrate](admin/store/index.md#admin-store-migrate) | Migrate configuration resources to the current version. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
@@ -50,6 +51,7 @@ tags:
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |
 | [admin workspace](admin/workspace/index.md) | [reload](admin/workspace/index.md#admin-workspace-reload) | Reload the workspace from the backend. |
+| [admin workspace](admin/workspace/index.md) | [thread-dump](admin/workspace/index.md#admin-workspace-thread-dump) | Request a thread dump for all live threads. |
 | [admin workspace python](admin/workspace/python/index.md) | [install](admin/workspace/python/index.md#admin-workspace-python-install) | Install a python package to the workspace. |
 | [admin workspace python](admin/workspace/python/index.md) | [uninstall](admin/workspace/python/index.md#admin-workspace-python-uninstall) | Uninstall a python packages from the workspace. |
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
@@ -68,12 +70,7 @@ tags:
 | [dataset](dataset/index.md) | [create](dataset/index.md#dataset-create) | Create a dataset. |
 | [dataset](dataset/index.md) | [open](dataset/index.md#dataset-open) | Open datasets in the browser. |
 | [dataset](dataset/index.md) | [update](dataset/index.md#dataset-update) | Update a dataset. |
-| [dataset resource](dataset/resource/index.md) | [list](dataset/resource/index.md#dataset-resource-list) | List available file resources. |
-| [dataset resource](dataset/resource/index.md) | [delete](dataset/resource/index.md#dataset-resource-delete) | Delete file resources. |
-| [dataset resource](dataset/resource/index.md) | [inspect](dataset/resource/index.md#dataset-resource-inspect) | Display all metadata of a file resource. |
-| [dataset resource](dataset/resource/index.md) | [usage](dataset/resource/index.md#dataset-resource-usage) | Display all usage data of a file resource. |
 | [graph](graph/index.md) | [count](graph/index.md#graph-count) | Count triples in graph(s). |
-| [graph](graph/index.md) | [tree](graph/index.md#graph-tree) | (Hidden) Deprecated: use 'graph imports tree' instead. |
 | [graph](graph/index.md) | [list](graph/index.md#graph-list) | List accessible graphs. |
 | [graph](graph/index.md) | [export](graph/index.md#graph-export) | Export graph(s) as NTriples to stdout (-), file or directory. |
 | [graph](graph/index.md) | [delete](graph/index.md#graph-delete) | Delete graph(s) from the store. |
@@ -119,12 +116,16 @@ tags:
 | [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project variables. |
 | [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
 | [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
-| [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |
-| [query](query/index.md) | [list](query/index.md#query-list) | List available queries from the catalog. |
-| [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of the query catalog in your browser. |
+| [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or a query catalog. |
+| [query](query/index.md) | [list](query/index.md#query-list) | List available queries from a query catalog. |
+| [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of a query catalog in your browser. |
 | [query](query/index.md) | [status](query/index.md#query-status) | Get status information of executed and running queries. |
 | [query](query/index.md) | [replay](query/index.md#query-replay) | Re-execute queries from a replay file. |
 | [query](query/index.md) | [cancel](query/index.md#query-cancel) | Cancel a running query. |
+| [query](query/index.md) | [explain](query/index.md#query-explain) | Explain queries by showing their logical execution plan. |
+| [query](query/index.md) | [create](query/index.md#query-create) | Create a new query in a query catalog. |
+| [query](query/index.md) | [update](query/index.md#query-update) | Update an existing query in a query catalog. |
+| [query](query/index.md) | [delete](query/index.md#query-delete) | Delete queries from a query catalog. |
 | [vocabulary](vocabulary/index.md) | [open](vocabulary/index.md#vocabulary-open) | Open / explore a vocabulary graph in the browser. |
 | [vocabulary](vocabulary/index.md) | [list](vocabulary/index.md#vocabulary-list) | Output a list of vocabularies. |
 | [vocabulary](vocabulary/index.md) | [install](vocabulary/index.md#vocabulary-install) | Install one or more vocabularies from the catalog. |
@@ -142,4 +143,3 @@ tags:
 | [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all metadata of a scheduler. |
 | [workflow scheduler](workflow/scheduler/index.md) | [disable](workflow/scheduler/index.md#workflow-scheduler-disable) | Disable scheduler(s). |
 | [workflow scheduler](workflow/scheduler/index.md) | [enable](workflow/scheduler/index.md#workflow-scheduler-enable) | Enable scheduler(s). |
-
