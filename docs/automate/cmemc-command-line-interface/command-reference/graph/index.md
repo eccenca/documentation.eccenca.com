@@ -40,29 +40,6 @@ This command lists graphs with their triple count. Counts do not include importe
     -s, --summarize  Display only a sum of all counted graphs together
     ```
 
-## graph tree
-
-(Hidden) Deprecated: use 'graph imports tree' instead.
-
-```shell-session title="Usage"
-$ cmemc graph tree [OPTIONS] [IRIS]...
-```
-
-
-
-
-
-??? info "Options"
-    ```text
-
-    -a, --all   Show tree of all (readable) graphs.
-    --raw       Outputs raw JSON of the graph importTree API response.
-    --id-only   Lists only graph identifier (IRIs) and no labels or other
-                metadata. This is useful for piping the IRIs into other
-                commands. The output with this option is a sorted, flat, de-
-                duplicated list of existing graphs.
-    ```
-
 ## graph list
 
 List accessible graphs.
@@ -126,7 +103,7 @@ In case of file export, data from all selected graphs will be concatenated in on
                                     the current date as YYYY-MM-DD. The file
                                     suffix will be appended. Needed directories
                                     will be created.  [default: {{hash}}]
-    --mime-type [application/n-triples|text/turtle|application/rdf+xml]
+    --mime-type [application/n-triples|text/turtle|text/turtle+pretty|application/rdf+xml]
                                     Define the requested mime type  [default:
                                     text/turtle]
     --compress [gzip]               Compress the exported graph files.

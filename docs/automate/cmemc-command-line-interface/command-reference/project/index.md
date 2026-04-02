@@ -196,17 +196,11 @@ This command creates one or more new projects. Existing projects will not be ove
 ??? info "Options"
     ```text
 
-    --from-transformation TEXT  This option can be used to explicitly create the
-                                link specification, which is internally executed
-                                when using the mapping suggestion of a
-                                transformation task. You need the task ID of the
-                                transformation task.
-    --label TEXT                Give the label of the project. You can give more
-                                than one label if you create more than one
-                                project.
-    --description TEXT          Give the description of the project. You can
-                                give more than one description if you create
-                                more than one project.
+    --label TEXT        Give the label of the project. You can give more than
+                        one label if you create more than one project.
+    --description TEXT  Give the description of the project. You can give more
+                        than one description if you create more than one
+                        project.
     ```
 
 ## project reload
