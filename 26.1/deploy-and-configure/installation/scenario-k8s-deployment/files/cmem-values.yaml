@@ -1,0 +1,77 @@
+# Default values for cmem.
+nameOverride: ""
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    #kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: OVERRIDDEN_BY_TASKFILE
+
+  hosts:
+    - host: "OVERRIDDEN_BY_TASKFILE"
+      paths:
+        - path: /
+          pathType: Prefix
+          serviceName: explore
+          servicePort: 8080
+        - path: /dataintegration
+          pathType: Prefix
+          serviceName: dataintegration
+          servicePort: 8080
+  tls:
+    - hosts:
+         - "OVERRIDDEN_BY_TASKFILE"
+      secretName:  cmem-ingress-cert
+
+global:
+  # The OAuth client that will be used to load the workspace initially and run the schedulers.
+  # In order to enable that feature, you have to enable the service account feature in the Keycloak
+  # OIDC client "cmem-service-client". Furthermore, an AccessCondition that maps with `eccauth:requiresClient :cmem-service-account`
+  # is required.
+
+  protocol: "https"
+  cmemClientId: cmem-service-account
+  cmemClientSecret: c8c12828-000c-467b-9b6d-2d6b5e16df4a
+  hostname: "OVERRIDDEN_BY_TASKFILE"
+  # This is the base keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
+  # license: cmem-license
+  disablePythonInstallFromOutside: false
+
+bootstrap:
+  enabled: true
+
+explore:
+  config:
+    # disabeld by default
+    # create Objects of kind Pod- or SeviceMonitor see 
+    # https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/developer/getting-started.md#deploying-a-sample-application
+    serviceMonitorEnabaled: false
+    podMonitorEnabled: true
+  store:
+    graphdb:
+      enabled: true
+      repository: cmem
+      user: provisioner
+      password: "iHaveSuperpowers"
+      # With Dataplatform 22.2, we have a "host" property
+      host: "graphdb.graphdb"
+      sslEnabled: false
+      createRepoOnStartup: true
+      changeTrackingActive: true
+      changeTrackingMaxQuadsMem: 1000
+
+dataintegration:
+  config:
+    # pwgen 16 1
+    passwordCryptKey: "Peek1uh1Ui8viequ"
+    # pwgen 40 1
+    playHTTPSecret: "waejai5aiMoShuvahcai3iaC3eefeichahYaemac"
+  persistence:
+    storageClassName: local-path
+  tmp:
+    storageClassName: local-path
+  initContainer:
+    pythonPluginImageInstall:
+      enabled: true
+  automountServiceAccountToken: true

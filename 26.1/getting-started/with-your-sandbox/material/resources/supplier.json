@@ -1,0 +1,1752 @@
+[
+  {
+    "id": "f2db56ae-0856-4a72-a5a1-497f97e728e5",
+    "supplier": "Santiago-Gardner",
+    "city": "Rāipur",
+    "country": "Bangladesh",
+    "country_code": "BD"
+  },
+  {
+    "id": "3f0439ac-320f-4d70-b9a4-2fef9281ff49",
+    "supplier": "Baker, Medina and George",
+    "city": "Kuopio",
+    "country": "Finland",
+    "country_code": "FI"
+  },
+  {
+    "id": "dff64a17-e085-4289-9196-a1e7ae8b0c22",
+    "supplier": "Curtis, Perkins and Sims",
+    "city": "Norristown",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "816e4baa-8158-4e2a-8ff4-c9f969998389",
+    "supplier": "Anderson Ltd",
+    "city": "Payson",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "ac3591e8-16d9-4c35-a73e-7ee8466155c6",
+    "supplier": "Rodriguez-Warren",
+    "city": "Nikol’skoye",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "64902ce8-7950-458e-bcee-5df3cabc7972",
+    "supplier": "Manning, Hodges and Mckenzie",
+    "city": "Marche-en-Famenne",
+    "country": "Belgium",
+    "country_code": "BE"
+  },
+  {
+    "id": "9484418b-c487-4050-9094-050f3bab0817",
+    "supplier": "Fleming Inc",
+    "city": "Sant Pere de Ribes",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "7f0c3d05-f16c-44c0-b9f4-5ff9d2892270",
+    "supplier": "Brown, Torres and Bautista",
+    "city": "Kishorganj",
+    "country": "Bangladesh",
+    "country_code": "BD"
+  },
+  {
+    "id": "afa65b2a-f046-47f4-b352-97b579c77c21",
+    "supplier": "Collins and Sons",
+    "city": "Randolph",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "e27932a5-487a-4eca-9f9a-d82d5e5c467b",
+    "supplier": "Li-Gonzalez",
+    "city": "Bais",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "f7a4c865-f6d4-4896-bc48-e5ec6b2bf283",
+    "supplier": "Todd-Mcneil",
+    "city": "Fukagawa",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "95881d4c-8788-46b1-948f-8b359464556d",
+    "supplier": "Cervantes, Wagner and Jackson",
+    "city": "Boedo",
+    "country": "Argentina",
+    "country_code": "AR"
+  },
+  {
+    "id": "29cf8eca-50be-460e-9816-5ae505fc9491",
+    "supplier": "Fernandez-Roberts",
+    "city": "Harlingen",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "4b796fba-c152-4137-b01d-fce80aef6e3c",
+    "supplier": "Gomez Inc",
+    "city": "Huddersfield",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "7c930e8b-b9f3-450a-856b-5e03c6b3965e",
+    "supplier": "Wright Inc",
+    "city": "Laramie",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "445081d6-305c-4fb7-b89e-82c86969d4bd",
+    "supplier": "Adkins, Lopez and Boyd",
+    "city": "Kriens",
+    "country": "Switzerland",
+    "country_code": "CH"
+  },
+  {
+    "id": "d0c9f303-04ac-44b3-9cbc-afed50b7a260",
+    "supplier": "Thompson Ltd",
+    "city": "Krishnarājpet",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "701e751f-51dc-482f-86d5-544b4af40076",
+    "supplier": "Marsh, Cunningham and Hill",
+    "city": "Allauch",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "6746c17d-5e49-47bc-82a1-90ac0c7aa01c",
+    "supplier": "Buchanan Group",
+    "city": "Jeongeup",
+    "country": "Korea, Republic of",
+    "country_code": "KR"
+  },
+  {
+    "id": "6ca36744-76bd-47bd-b4fd-6319ed8c87c7",
+    "supplier": "Knight PLC",
+    "city": "Deoli",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "79274f67-b225-49fa-ad8c-fb20560cb1d5",
+    "supplier": "Barrera Inc",
+    "city": "Ho",
+    "country": "Ghana",
+    "country_code": "GH"
+  },
+  {
+    "id": "a167cc0e-4bd5-4831-b9e7-8fef7705d61b",
+    "supplier": "Hutchinson-Lane",
+    "city": "Khardah",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "e9d8bb44-d19d-4453-8db2-d6d656f411be",
+    "supplier": "Russell, Mcclain and Larson",
+    "city": "Hartford",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "373cc68d-3c51-43d9-878a-36aa0aeb86c6",
+    "supplier": "Stevens PLC",
+    "city": "Pershotravensk",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "cb74384a-d91a-4ce8-9266-44a578c2b505",
+    "supplier": "Neal LLC",
+    "city": "Tooting",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "e68696c9-d9e7-4d2b-b467-d923c91ce47b",
+    "supplier": "Ferrell-Dixon",
+    "city": "Akonolinga",
+    "country": "Cameroon",
+    "country_code": "CM"
+  },
+  {
+    "id": "78ecdd96-9fd7-46ca-9174-f4170ce51eff",
+    "supplier": "Hernandez, Mayer and Jones",
+    "city": "Kratié",
+    "country": "Cambodia",
+    "country_code": "KH"
+  },
+  {
+    "id": "f19beb89-6c1f-45e9-8864-8a832bf17a55",
+    "supplier": "Poole, Coleman and Shea",
+    "city": "Bucaramanga",
+    "country": "Colombia",
+    "country_code": "CO"
+  },
+  {
+    "id": "f26204e2-83cc-4526-a8f0-d4c86f295774",
+    "supplier": "Alvarez-Curtis",
+    "city": "Saïda",
+    "country": "Algeria",
+    "country_code": "DZ"
+  },
+  {
+    "id": "532fc460-676f-4727-b5b2-6d3771db9ba1",
+    "supplier": "Horton, Sims and Pacheco",
+    "city": "East Hampton",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "25e44a18-cb4f-48aa-bb6a-c05189268df6",
+    "supplier": "Coleman LLC",
+    "city": "Brumado",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "29c1b979-da61-4df4-ae3d-a2e303ea4444",
+    "supplier": "Estes, Johnston and Richardson",
+    "city": "Karviná",
+    "country": "Czechia",
+    "country_code": "CZ"
+  },
+  {
+    "id": "3f49ac31-7bb0-4a52-8798-548b5cdb9451",
+    "supplier": "Kidd, Mcdaniel and Russell",
+    "city": "Lahti",
+    "country": "Finland",
+    "country_code": "FI"
+  },
+  {
+    "id": "6463b573-32bd-4bc5-b2dc-c8e9a96965ba",
+    "supplier": "Cohen, Bell and Rodriguez",
+    "city": "Daryāpur",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "22b67f9e-45e9-449e-8269-a31bd550324a",
+    "supplier": "Flores PLC",
+    "city": "Long Beach",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "b2c1bb54-0977-4eb6-9635-f44843578083",
+    "supplier": "Cortez Group",
+    "city": "Hyattsville",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "9093f9c5-0f56-40d7-b129-c13135c46a14",
+    "supplier": "Harris-Waller",
+    "city": "Ciudad Bolivia",
+    "country": "Venezuela, Bolivarian Republic of",
+    "country_code": "VE"
+  },
+  {
+    "id": "66cdfd7b-f68e-40d1-b9dc-0dd54c50b6a1",
+    "supplier": "Chavez-Price",
+    "city": "Edegem",
+    "country": "Belgium",
+    "country_code": "BE"
+  },
+  {
+    "id": "d541c0b3-1e4b-4521-9f57-d5be820d4cbc",
+    "supplier": "Snyder, Robinson and Brown",
+    "city": "Warrington",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "40a29030-eccd-43f8-974b-ef788e2d3f00",
+    "supplier": "Jones-Martinez",
+    "city": "Dūrā",
+    "country": "Palestine, State of",
+    "country_code": "PS"
+  },
+  {
+    "id": "d2a60059-73f4-4fae-9a4a-0ab93f5203eb",
+    "supplier": "Green and Sons",
+    "city": "Constantine",
+    "country": "Algeria",
+    "country_code": "DZ"
+  },
+  {
+    "id": "79126b93-df5a-4170-b80e-546a837605f3",
+    "supplier": "Stewart-Woodard",
+    "city": "Ādoni",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "88745cef-2133-4d0c-a1de-00fa0740eb26",
+    "supplier": "Larson, Lambert and Gay",
+    "city": "Heishan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "22b9733f-4b49-4e82-82b9-d4f87d2b5916",
+    "supplier": "James-Wright",
+    "city": "Villepinte",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "671512dd-f11c-41c7-845d-1a00ae9f40c4",
+    "supplier": "Gross, Frey and Mcmahon",
+    "city": "Malaybalay",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "2451f479-fe10-4322-a8c9-3f4f21f39779",
+    "supplier": "Figueroa, Ibarra and Jackson",
+    "city": "Smolensk",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "cd395f35-74dc-4858-8bb9-5fdf0add00ee",
+    "supplier": "Garrison, Williams and Johnson",
+    "city": "Kifrī",
+    "country": "Iraq",
+    "country_code": "IQ"
+  },
+  {
+    "id": "fb607751-7ff0-4cea-8e23-d22b4b1c67ad",
+    "supplier": "Meyer, Marquez and Mckenzie",
+    "city": "Huimin",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "d5b857ce-34b9-4bad-9018-216dbe06258c",
+    "supplier": "Smith and Sons",
+    "city": "Bambari",
+    "country": "Central African Republic",
+    "country_code": "CF"
+  },
+  {
+    "id": "17c52e07-d5ce-4cfd-87cf-5ac7e3554c0c",
+    "supplier": "Martin-Mcbride",
+    "city": "Xinzhou",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "e9e1b979-df68-4c17-99a4-64dfee7f1926",
+    "supplier": "Peck, Tucker and Patterson",
+    "city": "Manizales",
+    "country": "Colombia",
+    "country_code": "CO"
+  },
+  {
+    "id": "a6815a96-329d-414e-89fa-27619179f857",
+    "supplier": "Simmons, Cox and Craig",
+    "city": "Kasimov",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "79614820-e391-46f2-8ab9-c5022ad154d8",
+    "supplier": "Rodriguez-Mcdonald",
+    "city": "Chharra",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "fd5556a6-46fc-4d68-846b-e543ce6f4ec9",
+    "supplier": "Stevens Ltd",
+    "city": "Chiclayo",
+    "country": "Peru",
+    "country_code": "PE"
+  },
+  {
+    "id": "f80817bf-7010-48c7-a3be-b015b09309d0",
+    "supplier": "Clarke-Brown",
+    "city": "Stockerau",
+    "country": "Austria",
+    "country_code": "AT"
+  },
+  {
+    "id": "6de163f7-8aa2-434a-a210-78fea02e490c",
+    "supplier": "Johnson-Carroll",
+    "city": "Suozhen",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "23933f2a-5407-45d9-8bbb-ec36287a1425",
+    "supplier": "Adams-White",
+    "city": "San Leandro",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "f9bfd642-7152-407c-8158-d53fbc55f45b",
+    "supplier": "Harris, Graves and Gonzalez",
+    "city": "Siirt",
+    "country": "Turkey",
+    "country_code": "TR"
+  },
+  {
+    "id": "b7f007d8-137c-4d3f-9ceb-03326f71a6c9",
+    "supplier": "Peterson, Norton and Preston",
+    "city": "Berekum",
+    "country": "Ghana",
+    "country_code": "GH"
+  },
+  {
+    "id": "ce5caf26-49fb-4813-812b-4675c58b4164",
+    "supplier": "Little, Dunlap and Nelson",
+    "city": "Tarawa",
+    "country": "Kiribati",
+    "country_code": "KI"
+  },
+  {
+    "id": "6d5eddf9-7c6f-4a88-8aba-2ef65267d78b",
+    "supplier": "Martin and Sons",
+    "city": "Wyoming",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "88964aa2-4b9a-4427-8232-6c2ea65a851f",
+    "supplier": "Griffin, Smith and Smith",
+    "city": "Longview",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "9c9d9974-bea3-4bf9-882e-c16a80b17e84",
+    "supplier": "Swanson-Kennedy",
+    "city": "Zhabei",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "83983274-a805-4fcd-a909-1c2e14651637",
+    "supplier": "Nelson, Cruz and Bush",
+    "city": "Ben Arous",
+    "country": "Tunisia",
+    "country_code": "TN"
+  },
+  {
+    "id": "3a54413c-eb58-4ce0-a538-383fd9c79ba9",
+    "supplier": "Petty, Hamilton and Solomon",
+    "city": "Bühl",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "9b333a39-4f8b-4f38-8bc8-3aea5aa24cd8",
+    "supplier": "Hodges-Johnson",
+    "city": "Pasco",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "27f8059f-fe10-4a39-aa68-d66210c9cc59",
+    "supplier": "Becker LLC",
+    "city": "Sơn Tây",
+    "country": "Viet Nam",
+    "country_code": "VN"
+  },
+  {
+    "id": "a2a17a94-b064-4682-86ba-1c933616568f",
+    "supplier": "Bender PLC",
+    "city": "Dubna",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "11f1284a-d6f0-4822-b716-3e70d1fb91df",
+    "supplier": "Grant-Nelson",
+    "city": "Malvern East",
+    "country": "Australia",
+    "country_code": "AU"
+  },
+  {
+    "id": "cba23738-b63d-4845-a168-1fd1fc6082aa",
+    "supplier": "Miller, Green and Scott",
+    "city": "Budapest XXIII. kerület",
+    "country": "Hungary",
+    "country_code": "HU"
+  },
+  {
+    "id": "f118463c-1952-4db0-b089-99dbd89ff9d9",
+    "supplier": "Rowland, Todd and Whitaker",
+    "city": "el Camp de l'Arpa del Clot",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "05b5a686-c821-41c4-bc2c-b66d35bac1d8",
+    "supplier": "Curtis, Doyle and Singleton",
+    "city": "West Hill",
+    "country": "Canada",
+    "country_code": "CA"
+  },
+  {
+    "id": "cc8fb083-225e-4d29-960d-5d74b02adeda",
+    "supplier": "Olson LLC",
+    "city": "Cataguases",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "a35a7e67-e729-455a-9dbc-1bf661456179",
+    "supplier": "Martinez LLC",
+    "city": "West Whittier-Los Nietos",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "a0f25cc7-1407-452e-98e2-8fa5083d4041",
+    "supplier": "Collins, Martin and Lane",
+    "city": "Sievierodonetsk",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "7f696243-08d9-458c-8041-e114a223b897",
+    "supplier": "Carter Group",
+    "city": "Unión de Reyes",
+    "country": "Cuba",
+    "country_code": "CU"
+  },
+  {
+    "id": "b66c44e8-057e-4267-8a38-29324107705f",
+    "supplier": "Watkins Group",
+    "city": "Krasnoturinsk",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "ea372457-5016-4c1d-a8fc-9d84d6a1138d",
+    "supplier": "Rivera Group",
+    "city": "Mabalacat City",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "d0f6eeee-24cc-4a72-9331-d0ebbb83643b",
+    "supplier": "Hernandez, Jenkins and Luna",
+    "city": "Matthews",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "cb43b726-1b2f-44dd-b960-18b361c7288e",
+    "supplier": "Hensley-Porter",
+    "city": "Probolinggo",
+    "country": "Indonesia",
+    "country_code": "ID"
+  },
+  {
+    "id": "847abdb2-44de-41ba-a4ec-235dc4f4a617",
+    "supplier": "Bolton, Sanchez and Rodgers",
+    "city": "Düzce",
+    "country": "Turkey",
+    "country_code": "TR"
+  },
+  {
+    "id": "acc9fdfb-2811-4b87-8231-7168c70e7497",
+    "supplier": "Long-Sullivan",
+    "city": "Ridderkerk",
+    "country": "Netherlands",
+    "country_code": "NL"
+  },
+  {
+    "id": "1ee8f22a-1460-4875-b1a8-89d7cb2607d6",
+    "supplier": "Harris-Cunningham",
+    "city": "Toulouse",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "db55e5ad-918e-42a0-97b4-1f496f9574dd",
+    "supplier": "Stewart PLC",
+    "city": "Rishra",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "d42974b3-923e-4f26-9bfa-1176e0073791",
+    "supplier": "Myers-Brown",
+    "city": "Dera Ghazi Khan",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "f0feb132-7033-41f2-99e2-fdb8834302ec",
+    "supplier": "Lynch LLC",
+    "city": "Asyūţ",
+    "country": "Egypt",
+    "country_code": "EG"
+  },
+  {
+    "id": "46bae099-f191-415a-aefa-3cab4b0e8c2e",
+    "supplier": "Avery-Johnson",
+    "city": "Chicago Heights",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "42a20063-bd30-49d3-8506-ceac4ceb2d9e",
+    "supplier": "Davis-Wagner",
+    "city": "Bormujos",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "8f607810-ca93-4274-9c27-d0a8dcba7c4a",
+    "supplier": "Odom-Lawrence",
+    "city": "Suriāpet",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "84101fbf-6743-43d4-ba46-a35b6a4456ee",
+    "supplier": "Martin and Sons",
+    "city": "Barañáin",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "9fdd4db4-fed8-4e24-ba3c-8bbe6c499ec7",
+    "supplier": "Gregory PLC",
+    "city": "Mixquiahuala de Juarez",
+    "country": "Mexico",
+    "country_code": "MX"
+  },
+  {
+    "id": "a1a85cfc-109a-47fe-91a2-632334d35f44",
+    "supplier": "Barber-Hayes",
+    "city": "Songyang",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "9bd9e5d6-1726-4bd6-8765-be37a59f5d93",
+    "supplier": "Morgan-Leonard",
+    "city": "Câmpulung Moldovenesc",
+    "country": "Romania",
+    "country_code": "RO"
+  },
+  {
+    "id": "0058fc5e-e9e8-46eb-ac6d-673e436a5d7a",
+    "supplier": "Allen-Short",
+    "city": "Mondlo",
+    "country": "South Africa",
+    "country_code": "ZA"
+  },
+  {
+    "id": "4d849ba4-b932-4ffc-8b52-61a704dddf0b",
+    "supplier": "White, Wong and Trevino",
+    "city": "Hückelhoven",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "aed0f6a6-37b1-4359-a136-cc011522ca85",
+    "supplier": "Maldonado Inc",
+    "city": "Yalta",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "3dc28ff8-fb6c-46fc-9fa6-5b12826cedc3",
+    "supplier": "Reese-Williams",
+    "city": "Avezzano",
+    "country": "Italy",
+    "country_code": "IT"
+  },
+  {
+    "id": "aaaa3f68-318a-4d8d-b080-79490e9e9dfa",
+    "supplier": "Thornton, Cook and Estrada",
+    "city": "Jamestown",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "c7727eb2-7951-47e3-9021-df78e52c2d35",
+    "supplier": "Carter, Webb and Bush",
+    "city": "Somanda",
+    "country": "Tanzania, United Republic of",
+    "country_code": "TZ"
+  },
+  {
+    "id": "3a9702b1-ea92-4fd3-871c-9108ef23921b",
+    "supplier": "Green-Crawford",
+    "city": "Mairinque",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "63168792-6134-48e8-a709-8e3cc0d5811c",
+    "supplier": "Brown PLC",
+    "city": "Ranchi",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "ae3e7157-5d50-464c-9b47-e14e1b30ce4c",
+    "supplier": "Meyer, Floyd and Jackson",
+    "city": "Hemmingen",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "9da10220-7964-4a7a-a1ea-571a63cc483d",
+    "supplier": "Johnson, Khan and Oconnell",
+    "city": "Namioka",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "199401f4-32dd-46f1-b07f-aa38ce75bd07",
+    "supplier": "Morgan, Brown and Martin",
+    "city": "Neuwied",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "2b70d47e-fa6a-4329-8112-22287096bc44",
+    "supplier": "Jordan, James and Bradley",
+    "city": "Saint-Lô",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "816202d7-9e53-402c-94a2-fb21b0e37c0e",
+    "supplier": "White-Nash",
+    "city": "Larkana",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "33da751a-1358-4530-b0e5-e3b9a509e952",
+    "supplier": "Brown, Jackson and Simpson",
+    "city": "Funafuti",
+    "country": "Tuvalu",
+    "country_code": "TV"
+  },
+  {
+    "id": "2a51afd9-a3de-45ee-8ada-b74203fed37b",
+    "supplier": "Cooper and Sons",
+    "city": "Carouge",
+    "country": "Switzerland",
+    "country_code": "CH"
+  },
+  {
+    "id": "4f66d217-8106-4b87-922b-fbe6e8d6d699",
+    "supplier": "Hardy, Bauer and Martinez",
+    "city": "Matanzas",
+    "country": "Cuba",
+    "country_code": "CU"
+  },
+  {
+    "id": "518d3d05-716c-483f-9ed0-03c4e81e683c",
+    "supplier": "Martinez and Sons",
+    "city": "Gustavo Adolfo Madero",
+    "country": "Mexico",
+    "country_code": "MX"
+  },
+  {
+    "id": "7d33e910-5889-4f75-bd2b-193ec2434d0f",
+    "supplier": "Williamson-Green",
+    "city": "Nova Granada",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "0817f6f5-8011-4c46-aeab-ba89def6df14",
+    "supplier": "Daniels Group",
+    "city": "Saint John’s",
+    "country": "Antigua and Barbuda",
+    "country_code": "AG"
+  },
+  {
+    "id": "82869f9c-fa06-45cb-922a-00675cde9676",
+    "supplier": "Nguyen-Cruz",
+    "city": "Pinetown",
+    "country": "South Africa",
+    "country_code": "ZA"
+  },
+  {
+    "id": "9a27c6be-84c6-4fe8-a671-d9d6a5ec7f6a",
+    "supplier": "Jackson, Chan and Rivera",
+    "city": "Broxburn",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "238c3f06-3708-4b59-8617-f94611d6f3a3",
+    "supplier": "Fuentes Inc",
+    "city": "North Bellmore",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "fbfe40db-81e4-4b35-93d5-a996307a266e",
+    "supplier": "Church Inc",
+    "city": "Molodohvardiisk",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "0c327a40-c6d8-44da-ba2d-e84f924c5208",
+    "supplier": "Hubbard Ltd",
+    "city": "Liufeng",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "bf300186-9235-481d-be21-15c8e216dcf1",
+    "supplier": "Smith-Williamson",
+    "city": "Narva",
+    "country": "Estonia",
+    "country_code": "EE"
+  },
+  {
+    "id": "cd18146d-c073-4d58-97b4-ac079baa9b65",
+    "supplier": "Moreno Group",
+    "city": "Back Mountain",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "b508d6ec-f430-4496-9c08-bd54f1541023",
+    "supplier": "Page, Hernandez and Ayala",
+    "city": "Moorpark",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "267680ea-eafe-4d40-a3c6-4807c0d195b1",
+    "supplier": "Anderson Ltd",
+    "city": "Taquara",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "e157b0e5-1085-4999-83a0-02a46d7a8994",
+    "supplier": "Garcia Ltd",
+    "city": "Ampang",
+    "country": "Malaysia",
+    "country_code": "MY"
+  },
+  {
+    "id": "6268ab7c-e25c-44ff-8431-e631679623b5",
+    "supplier": "Allison PLC",
+    "city": "Perdões",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "13dabe70-36c5-4a87-bc13-15664eda25a9",
+    "supplier": "Collins-Hensley",
+    "city": "Marienberg",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "91be13e0-b467-48d9-8ff7-cbed652b49cb",
+    "supplier": "Lopez, Goodman and Miller",
+    "city": "Coxim",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "49554e41-9e26-4a38-9f96-871eda1dc50a",
+    "supplier": "Castillo Inc",
+    "city": "Manjīl",
+    "country": "Iran, Islamic Republic of",
+    "country_code": "IR"
+  },
+  {
+    "id": "f1067c74-aa84-4a06-9fbd-16f914be2e65",
+    "supplier": "Zamora, Adams and Koch",
+    "city": "Wattrelos",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "2731aa23-7ea4-4661-b79b-6f0d4d17d5b3",
+    "supplier": "Cantu-Ferguson",
+    "city": "Tomé Açu",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "feeda1ce-d6af-42b2-b6ff-7516ba39ad6c",
+    "supplier": "Calderon-Montgomery",
+    "city": "Gallarate",
+    "country": "Italy",
+    "country_code": "IT"
+  },
+  {
+    "id": "e18d93fc-f1db-4ac7-b138-e158c6fb2e69",
+    "supplier": "Smith LLC",
+    "city": "Bielsko-Biala",
+    "country": "Poland",
+    "country_code": "PL"
+  },
+  {
+    "id": "092bb1b2-b39f-4521-9c21-c853db9d9a09",
+    "supplier": "Hill-Jones",
+    "city": "Choisy-le-Roi",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "dafc3247-7fb3-406b-976c-9e656e9a6b45",
+    "supplier": "Ibarra and Sons",
+    "city": "Somerset",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "658f838d-0e84-4f36-978c-95602545977c",
+    "supplier": "Wilson-Callahan",
+    "city": "Le Camas",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "07335cfb-9bbc-4be5-b546-bdd8af104e7e",
+    "supplier": "Guerrero, Sutton and Lucas",
+    "city": "Eustis",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "3c198782-cb13-4253-aefc-f48aa8ded00a",
+    "supplier": "Stevens LLC",
+    "city": "Gyeongsan-si",
+    "country": "Korea, Republic of",
+    "country_code": "KR"
+  },
+  {
+    "id": "c39c750f-2398-4f5a-a389-2c200e84c45b",
+    "supplier": "Wilson, Kim and Dorsey",
+    "city": "Barra do Piraí",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "2805bfc6-fe9f-49fc-90ba-d4c779a38af2",
+    "supplier": "Carroll, Nguyen and Martin",
+    "city": "Dolný Kubín",
+    "country": "Slovakia",
+    "country_code": "SK"
+  },
+  {
+    "id": "de70a51b-3263-411b-9820-d7c21676e4d6",
+    "supplier": "Rich, Powell and Ward",
+    "city": "Armação de Búzios",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "4f22034e-f299-442a-a1e3-3d9dc974ed8f",
+    "supplier": "Boyd, Berg and Sampson",
+    "city": "Walvis Bay",
+    "country": "Namibia",
+    "country_code": "NA"
+  },
+  {
+    "id": "0301f65d-2290-456b-a3f7-b2096a632198",
+    "supplier": "Maxwell Inc",
+    "city": "Naraini",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "1e0eae5f-25ae-4ef9-807e-4ce162fa2934",
+    "supplier": "Jimenez PLC",
+    "city": "Indore",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "7ce25e4c-5894-4e77-ada2-d2bb434fdae9",
+    "supplier": "Hubbard-Holmes",
+    "city": "Kawanishi",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "034022f5-5327-45c2-aaff-524b1be2fbd5",
+    "supplier": "Drake Ltd",
+    "city": "El Paraíso",
+    "country": "Honduras",
+    "country_code": "HN"
+  },
+  {
+    "id": "d615c5f3-9db3-4bea-bbf3-0d42edf45c2d",
+    "supplier": "Nichols Inc",
+    "city": "Ferreñafe",
+    "country": "Peru",
+    "country_code": "PE"
+  },
+  {
+    "id": "93e3958e-3e49-4cb3-8ab2-2c2bae697be5",
+    "supplier": "Parker-Lawrence",
+    "city": "Bhit Shah",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "bdd38a8e-1976-4f90-ad0b-fb5e7932fd03",
+    "supplier": "Shaffer PLC",
+    "city": "Malingshan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "b9dfb874-fb5d-4d34-8a13-e4f1395f3c6e",
+    "supplier": "Bruce, Gutierrez and Thompson",
+    "city": "Shiyan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "ebbcad78-26fa-4d33-95ca-84decc4209a4",
+    "supplier": "Riley, Barrett and Mccullough",
+    "city": "Ghauspur",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "7c4b3772-ee27-4915-8166-359d068db153",
+    "supplier": "Griffith-Stout",
+    "city": "East Grinstead",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "bd9aec71-4218-45ce-b6c6-d076ad07f8cd",
+    "supplier": "Peterson-Rose",
+    "city": "Battle Creek",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "8943ee5e-5f73-4765-85cd-0c2c934f8877",
+    "supplier": "Smith-Cobb",
+    "city": "Sikeston",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "2f7172a0-e935-4dfc-98a6-b48dcec0ad18",
+    "supplier": "Mendoza, Moore and Thomas",
+    "city": "António Enes",
+    "country": "Mozambique",
+    "country_code": "MZ"
+  },
+  {
+    "id": "f494b5db-7627-4a97-809e-8e8f9d92fb51",
+    "supplier": "Mayo, Aguirre and Ryan",
+    "city": "Serrana",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "9c71665d-ca2e-44e3-b9ba-f1e47dec6dfe",
+    "supplier": "Wagner Group",
+    "city": "Avezzano",
+    "country": "Italy",
+    "country_code": "IT"
+  },
+  {
+    "id": "29fa5aeb-0830-4490-abed-20aaed11e786",
+    "supplier": "Odonnell-Williams",
+    "city": "Uíge",
+    "country": "Angola",
+    "country_code": "AO"
+  },
+  {
+    "id": "625a4b1a-07b2-4ed1-a197-cc5fd96d110e",
+    "supplier": "Washington-Villanueva",
+    "city": "Fuji",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "534df54e-82c6-430e-ad50-d80a3a745e11",
+    "supplier": "Doyle, King and Thompson",
+    "city": "Dosquebradas",
+    "country": "Colombia",
+    "country_code": "CO"
+  },
+  {
+    "id": "d396349e-7772-49c3-bcdf-0afbeae658fa",
+    "supplier": "Boyd, Turner and Byrd",
+    "city": "Kamoke",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "7478aeec-1a1e-4d96-95ff-05d5b3a5522b",
+    "supplier": "White, Lewis and Evans",
+    "city": "Śrem",
+    "country": "Poland",
+    "country_code": "PL"
+  },
+  {
+    "id": "6b879d25-7222-419e-8f1a-d9c9ceda2600",
+    "supplier": "Mccarthy-Galloway",
+    "city": "Boa Vista",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "2a78338a-084a-4595-88ec-98f141e653f7",
+    "supplier": "Jones PLC",
+    "city": "Aliaga",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "a28a6f2f-a549-4a38-98ac-6eaeff8472ce",
+    "supplier": "Rodriguez, Schmidt and Hodge",
+    "city": "Tutayev",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "dd4262b0-805f-49f8-94b0-12dcadea9e73",
+    "supplier": "Hall-Hodges",
+    "city": "Togitsu",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "1f275c2a-8e37-4032-a54e-86b99ec56351",
+    "supplier": "Perkins, Garza and Cochran",
+    "city": "Pangkalan Brandan",
+    "country": "Indonesia",
+    "country_code": "ID"
+  },
+  {
+    "id": "42f054a5-0aba-4b02-b68a-851130c639fc",
+    "supplier": "Sanchez-Mcdonald",
+    "city": "Lādwa",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "9e95d78d-7f95-4752-9e1f-d522e67e63d7",
+    "supplier": "Fletcher, Pierce and Navarro",
+    "city": "Saint-Michel-sur-Orge",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "93760e27-ee36-44a9-960f-cb1ccdd336c7",
+    "supplier": "Mcdaniel, Dean and Delgado",
+    "city": "Mānvi",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "6b6e148d-449f-4e88-808d-cdf9cdc9bba3",
+    "supplier": "King-Johnson",
+    "city": "Ajab Shīr",
+    "country": "Iran, Islamic Republic of",
+    "country_code": "IR"
+  },
+  {
+    "id": "45d529da-5989-484a-a60d-acba0442a929",
+    "supplier": "Pollard LLC",
+    "city": "Xinyingpan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "89dbd72a-3118-4fdf-bdf4-671c351a4b66",
+    "supplier": "Newton Inc",
+    "city": "Steilshoop",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "7273d4f8-9c3a-4279-a18c-bb0f425bc8eb",
+    "supplier": "Scott, Frazier and Cooper",
+    "city": "Sankt Ingbert",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "a6367485-a91c-41dc-9e18-8939ef990b5b",
+    "supplier": "Schroeder and Sons",
+    "city": "Wolmaransstad",
+    "country": "South Africa",
+    "country_code": "ZA"
+  },
+  {
+    "id": "0ca3c664-7fb2-446a-b5c6-73fe140c4f02",
+    "supplier": "Benitez and Sons",
+    "city": "South Euclid",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "12417d4e-b119-46a1-8c47-a560c2d103dd",
+    "supplier": "Cochran-Delacruz",
+    "city": "Piedecuesta",
+    "country": "Colombia",
+    "country_code": "CO"
+  },
+  {
+    "id": "3288e7a5-6b1b-482e-8c95-3265f948ae03",
+    "supplier": "Salinas-Kelly",
+    "city": "Yicheng",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "d0f56bf6-b7f2-4032-be8f-95269c626667",
+    "supplier": "Cook LLC",
+    "city": "Ahfir",
+    "country": "Morocco",
+    "country_code": "MA"
+  },
+  {
+    "id": "a8d712db-e0d5-45ab-a8cc-c752ad53f8e6",
+    "supplier": "Rodriguez, Estrada and Kim",
+    "city": "Embi",
+    "country": "Kazakhstan",
+    "country_code": "KZ"
+  },
+  {
+    "id": "35f7b6ea-9412-41f4-9652-8e419db45ce8",
+    "supplier": "Morris, Cain and Boone",
+    "city": "Elche",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "2fd79a0c-24b5-4361-8b5b-df720d2c7eac",
+    "supplier": "Mcpherson Ltd",
+    "city": "Starokostyantyniv",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "2617dc37-a7c6-4c6c-b89d-4e4f367f3d78",
+    "supplier": "Harper PLC",
+    "city": "Tirupparangunram",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "d7ca1d2e-6b21-4c0c-821a-c4e8d5a3c65c",
+    "supplier": "Phillips, Love and Smith",
+    "city": "Punta de Mata",
+    "country": "Venezuela, Bolivarian Republic of",
+    "country_code": "VE"
+  },
+  {
+    "id": "f8337d39-2d97-423a-9f94-35a45ee9ade6",
+    "supplier": "May, Ruiz and Butler",
+    "city": "Patnos",
+    "country": "Turkey",
+    "country_code": "TR"
+  },
+  {
+    "id": "a10b61e6-8288-499d-bd8c-d89b9625fb1f",
+    "supplier": "Lucas and Sons",
+    "city": "Mount Vernon",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "d7f501f6-e595-473c-90fc-89933505411e",
+    "supplier": "Marshall PLC",
+    "city": "Uccle",
+    "country": "Belgium",
+    "country_code": "BE"
+  },
+  {
+    "id": "db1a07bc-c946-4ddd-8f47-b836c2f35281",
+    "supplier": "Peterson Ltd",
+    "city": "Schwalbach",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "266084c2-dcbc-406b-8371-9adcbc81521a",
+    "supplier": "Gentry-Gross",
+    "city": "Sucre",
+    "country": "Bolivia, Plurinational State of",
+    "country_code": "BO"
+  },
+  {
+    "id": "fbc53ab7-1c1e-41c8-afe2-44b405858cda",
+    "supplier": "Harris, Wright and Morales",
+    "city": "Nikkō",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "49231eda-bbab-475b-aa59-47e6c8c81166",
+    "supplier": "Hines-Allen",
+    "city": "Bloemfontein",
+    "country": "South Africa",
+    "country_code": "ZA"
+  },
+  {
+    "id": "fab306a0-9ab2-4834-949a-58804bddc9a4",
+    "supplier": "Singh Inc",
+    "city": "Lesosibirsk",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "b5028bba-a927-45d7-9032-ee90825311c5",
+    "supplier": "Ford, Martinez and Gutierrez",
+    "city": "Bhudgaon",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "5011ad6d-cebe-4f4b-bc58-2147ea820d49",
+    "supplier": "Williams-Sweeney",
+    "city": "Lunéville",
+    "country": "France",
+    "country_code": "FR"
+  },
+  {
+    "id": "3ad032a1-2e9f-4629-93c7-0ee0b5bb0e25",
+    "supplier": "Richardson Inc",
+    "city": "Minamirinkan",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "cd24daf1-7f42-48a1-a2f2-74127303eaee",
+    "supplier": "Mclaughlin-Hawkins",
+    "city": "Manolo Fortich",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "3c5797ed-e2f6-47c2-a7b6-6e4b0feaf5e3",
+    "supplier": "Woods Ltd",
+    "city": "Azusa",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "0d183bba-b1df-4c41-be10-c0896378b406",
+    "supplier": "Larsen-Martinez",
+    "city": "Ebersbach an der Fils",
+    "country": "Germany",
+    "country_code": "DE"
+  },
+  {
+    "id": "fcdf3268-b0f0-4e2b-8fbd-6008cb4a6d0e",
+    "supplier": "Carlson Inc",
+    "city": "Canguçu",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "2318f317-967e-4282-aceb-c17a6349f86e",
+    "supplier": "Santana LLC",
+    "city": "Ceerigaabo",
+    "country": "Somalia",
+    "country_code": "SO"
+  },
+  {
+    "id": "183cf105-b1a6-42ee-b8a9-002709f1b582",
+    "supplier": "Evans, Park and James",
+    "city": "Kaiyuan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "ba01e204-e74e-4f87-bc55-1a43c099f199",
+    "supplier": "Turner and Sons",
+    "city": "Umuahia",
+    "country": "Nigeria",
+    "country_code": "NG"
+  },
+  {
+    "id": "169db3fc-b253-465a-ba91-33f3617a9313",
+    "supplier": "Bryan-James",
+    "city": "Palmi",
+    "country": "Italy",
+    "country_code": "IT"
+  },
+  {
+    "id": "ab8fb795-35cd-42c4-827d-6fd907d6b81d",
+    "supplier": "Vincent LLC",
+    "city": "Cypress",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "114d6a02-02d8-4038-97a3-fd39a9701f79",
+    "supplier": "Nguyen-Peters",
+    "city": "Huangshan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "6259c66a-0eec-4f7f-b4a4-a0c2be80461e",
+    "supplier": "Brown, Estrada and Riggs",
+    "city": "Chernivtsi",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "47528cbf-c41b-4897-b917-6f4c1394fe1f",
+    "supplier": "Moran, Martin and Freeman",
+    "city": "Murrieta",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "66558286-cf29-4320-80a9-de2c12aa2f3c",
+    "supplier": "Bryant-Stark",
+    "city": "Linda-a-Velha",
+    "country": "Portugal",
+    "country_code": "PT"
+  },
+  {
+    "id": "06d152e4-f062-46da-b6be-750b192a5a4b",
+    "supplier": "Barnes LLC",
+    "city": "Sambrial",
+    "country": "Pakistan",
+    "country_code": "PK"
+  },
+  {
+    "id": "cccd3023-1267-4fe6-9fbe-2441662cbb46",
+    "supplier": "Douglas Inc",
+    "city": "Bellshill",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "854314d4-9505-4765-b22a-a2ff53549b0b",
+    "supplier": "Turner, Hall and Jimenez",
+    "city": "Empangeni",
+    "country": "South Africa",
+    "country_code": "ZA"
+  },
+  {
+    "id": "12566cfa-500d-4e07-8117-e0bf16d7fb8c",
+    "supplier": "Aguilar, Matthews and Martinez",
+    "city": "Morogoro",
+    "country": "Tanzania, United Republic of",
+    "country_code": "TZ"
+  },
+  {
+    "id": "47c86e10-e667-4725-bbe3-ac372da0b472",
+    "supplier": "Lee, Pearson and Gates",
+    "city": "Hannō",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "1b032f32-5734-44da-8758-554ad059b03e",
+    "supplier": "Bryan-Jones",
+    "city": "Bir el Djir",
+    "country": "Algeria",
+    "country_code": "DZ"
+  },
+  {
+    "id": "8518fe84-b0e0-40c5-9a86-351b91eb3828",
+    "supplier": "Barry PLC",
+    "city": "Erie",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "36060220-55ab-4726-9b30-30de76c56344",
+    "supplier": "Cooper, Walker and Perez",
+    "city": "Surrey",
+    "country": "Canada",
+    "country_code": "CA"
+  },
+  {
+    "id": "f7c5fad9-9f0c-4206-a338-e162bfe54de1",
+    "supplier": "Nichols-Davis",
+    "city": "Ivano-Frankivsk",
+    "country": "Ukraine",
+    "country_code": "UA"
+  },
+  {
+    "id": "a6f1f4bd-bdd5-4a35-b683-2aee89aa8ed3",
+    "supplier": "Cook Group",
+    "city": "Seondha",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "8a148e6d-972c-4135-930a-c6d9ea6957fd",
+    "supplier": "Huerta, Clark and Johnson",
+    "city": "El Masnou",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "92524340-7cee-4873-8d5a-1b3e607d0da7",
+    "supplier": "Romero-Nguyen",
+    "city": "Orihuela",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "fdd83431-425f-4291-b8e4-f08805b6b89d",
+    "supplier": "Thomas-Jenkins",
+    "city": "Muktāgācha",
+    "country": "Bangladesh",
+    "country_code": "BD"
+  },
+  {
+    "id": "297508c6-6074-4625-8dec-7bab342010a1",
+    "supplier": "Gibson-Jackson",
+    "city": "Kičevo",
+    "country": "North Macedonia",
+    "country_code": "MK"
+  },
+  {
+    "id": "06034b22-8e1b-435f-902e-88739f77d86a",
+    "supplier": "Lee and Sons",
+    "city": "Bandeirantes",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "ee3143c4-d3eb-4457-b884-651cac99ee9d",
+    "supplier": "Lynch-Ramirez",
+    "city": "Nakhon Si Thammarat",
+    "country": "Thailand",
+    "country_code": "TH"
+  },
+  {
+    "id": "5f36c064-46dd-4351-b0e8-9cb2c76bfbab",
+    "supplier": "Reyes, Taylor and Ramirez",
+    "city": "Holt",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "8d98799f-d657-4acf-9ca6-9b90420ff681",
+    "supplier": "Arnold-Knight",
+    "city": "Paracho de Verduzco",
+    "country": "Mexico",
+    "country_code": "MX"
+  },
+  {
+    "id": "f3de43d3-4bd7-4641-be54-2db60238aa14",
+    "supplier": "Carr, Smith and Mayo",
+    "city": "Nanmen",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "a04a193e-3025-4ae3-aec0-4a464ccd95a9",
+    "supplier": "Harrison PLC",
+    "city": "Mercedes",
+    "country": "Argentina",
+    "country_code": "AR"
+  },
+  {
+    "id": "b9ed885f-282e-4836-bede-f1dc9f9f5c41",
+    "supplier": "Duran, Mueller and Payne",
+    "city": "Yushan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "1b447fbd-a0fe-4385-8141-ab5aa43fbedb",
+    "supplier": "Jones Group",
+    "city": "Mallawī",
+    "country": "Egypt",
+    "country_code": "EG"
+  },
+  {
+    "id": "30dc6bac-5604-4e78-a48d-eed66f4d4dc8",
+    "supplier": "Garcia-Roberts",
+    "city": "Oisterwijk",
+    "country": "Netherlands",
+    "country_code": "NL"
+  },
+  {
+    "id": "15bdf688-23a7-4f52-be5c-fe82bba7add7",
+    "supplier": "Taylor, Obrien and Delacruz",
+    "city": "Olecko",
+    "country": "Poland",
+    "country_code": "PL"
+  },
+  {
+    "id": "8486f6f9-18fe-440e-b3ed-9be6cc7dbaeb",
+    "supplier": "Howell-Meyer",
+    "city": "Seosan",
+    "country": "Korea, Republic of",
+    "country_code": "KR"
+  },
+  {
+    "id": "7608b763-1e52-4ad9-94b0-d574af19612c",
+    "supplier": "Anderson-Young",
+    "city": "Bundibugyo",
+    "country": "Uganda",
+    "country_code": "UG"
+  },
+  {
+    "id": "34056316-50e7-46e4-bfef-fa579fe2c5c8",
+    "supplier": "Villegas-Cummings",
+    "city": "Klimovsk",
+    "country": "Russian Federation",
+    "country_code": "RU"
+  },
+  {
+    "id": "d66c8d06-9bac-4663-94a5-ef971423f2ce",
+    "supplier": "Huang, Guerrero and Hurst",
+    "city": "Honchō",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "248fa1c7-dd1e-41fe-931a-9f00777ee0fe",
+    "supplier": "Carr, Smith and Webb",
+    "city": "Macia",
+    "country": "Mozambique",
+    "country_code": "MZ"
+  },
+  {
+    "id": "e39aa402-6c12-4c0e-a638-c572784d0e78",
+    "supplier": "Ross-Brooks",
+    "city": "Okunoya",
+    "country": "Japan",
+    "country_code": "JP"
+  },
+  {
+    "id": "23be71fa-4280-4114-9750-025c224be098",
+    "supplier": "White and Sons",
+    "city": "Strumica",
+    "country": "North Macedonia",
+    "country_code": "MK"
+  },
+  {
+    "id": "63ab664f-80d7-46e1-97cb-39a4f713f937",
+    "supplier": "Barr-Melendez",
+    "city": "South El Monte",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "f78ea3cf-fe86-4b17-ba41-96dd934e043e",
+    "supplier": "Powell-Nguyen",
+    "city": "Keynsham",
+    "country": "United Kingdom",
+    "country_code": "GB"
+  },
+  {
+    "id": "65131e0d-addc-41f9-a33f-e9f3b7f00566",
+    "supplier": "Rodriguez LLC",
+    "city": "Breda",
+    "country": "Netherlands",
+    "country_code": "NL"
+  },
+  {
+    "id": "cfe8ae59-a7a8-4772-8bd5-bbd6991af811",
+    "supplier": "Fox-Delacruz",
+    "city": "Chamberí",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "b8b7794e-329e-4bdc-9fcb-5ddfe9b71248",
+    "supplier": "Davis Ltd",
+    "city": "Pinsk",
+    "country": "Belarus",
+    "country_code": "BY"
+  },
+  {
+    "id": "57f3326a-e53b-4cb6-9b32-658df4cc11a4",
+    "supplier": "Kerr LLC",
+    "city": "Monzón",
+    "country": "Spain",
+    "country_code": "ES"
+  },
+  {
+    "id": "888698ef-ad70-4022-9624-4dc111f56c01",
+    "supplier": "Wagner-Ramirez",
+    "city": "Greystones",
+    "country": "Ireland",
+    "country_code": "IE"
+  },
+  {
+    "id": "a29b2c3f-4db3-4f4d-a947-5f512d615a1d",
+    "supplier": "Thompson Ltd",
+    "city": "Yufengshan",
+    "country": "China",
+    "country_code": "CN"
+  },
+  {
+    "id": "f76eb805-4d84-4b4b-9aa3-95c287be41d0",
+    "supplier": "Bennett, Best and Jacobson",
+    "city": "Chākia",
+    "country": "India",
+    "country_code": "IN"
+  },
+  {
+    "id": "784f7f15-1a8c-43f5-923c-de0beb82f32f",
+    "supplier": "Goodman-Chapman",
+    "city": "Johnston",
+    "country": "United States",
+    "country_code": "US"
+  },
+  {
+    "id": "caeb974d-5803-4419-b316-2245f15f73d4",
+    "supplier": "Davidson, Rosales and Stewart",
+    "city": "Piombino",
+    "country": "Italy",
+    "country_code": "IT"
+  },
+  {
+    "id": "da35429e-b1b6-4780-9fcc-f1b17b40d4e3",
+    "supplier": "Williams, Bailey and Martinez",
+    "city": "Carigara",
+    "country": "Philippines",
+    "country_code": "PH"
+  },
+  {
+    "id": "67db6571-5c2f-4c52-9d0b-1584a74bb116",
+    "supplier": "Martinez and Sons",
+    "city": "Jandaia do Sul",
+    "country": "Brazil",
+    "country_code": "BR"
+  },
+  {
+    "id": "dc1364ba-300b-4fcb-949a-4cd90afee69b",
+    "supplier": "Williamson-Young",
+    "city": "Bānka",
+    "country": "India",
+    "country_code": "IN"
+  }
+]
