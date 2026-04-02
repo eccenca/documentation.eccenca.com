@@ -2,10 +2,12 @@
 title: "Remove remote stop words"
 description: "Removes stop words based on a stop word list remote URL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove remote stop words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -33,19 +35,19 @@ This separator is therefore part of the semantic contract: it determines what ev
 ---
 **Example 1:**
 
-* Input values:
+- Input values:
     1. `[To be or not to be, that is the question]`
 
-* Returns: `[To, question]`
+- Returns: `[To, question]`
 
 
 ---
 **Example 2:**
 
-* Input values:
+- Input values:
     1. `[It always seems impossible, until it's done]`
 
-* Returns: `[It impossible, ]`
+- Returns: `[It impossible, ]`
 
 
 

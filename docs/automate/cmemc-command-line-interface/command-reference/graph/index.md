@@ -6,7 +6,9 @@ tags:
   - KnowledgeGraph
   - cmemc
 ---
+
 # graph Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, import, export, delete, count, tree or open graphs.
@@ -23,7 +25,7 @@ Graphs are identified by an IRI.
 Count triples in graph(s).
 
 ```shell-session title="Usage"
-$ cmemc graph count [OPTIONS] [IRIS]...
+cmemc graph count [OPTIONS] [IRIS]...
 ```
 
 
@@ -45,7 +47,7 @@ This command lists graphs with their triple count. Counts do not include importe
 List accessible graphs.
 
 ```shell-session title="Usage"
-$ cmemc graph list [OPTIONS]
+cmemc graph list [OPTIONS]
 ```
 
 
@@ -114,7 +116,7 @@ In case of file export, data from all selected graphs will be concatenated in on
 Delete graph(s) from the store.
 
 ```shell-session title="Usage"
-$ cmemc graph delete [OPTIONS] [IRIS]...
+cmemc graph delete [OPTIONS] [IRIS]...
 ```
 
 
@@ -138,7 +140,7 @@ $ cmemc graph delete [OPTIONS] [IRIS]...
 Import graph(s) to the store.
 
 ```shell-session title="Usage"
-$ cmemc graph import [OPTIONS] INPUT_PATH [IRI]
+cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 ```
 
 
@@ -178,9 +180,8 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 Open / explore a graph in the browser.
 
 ```shell-session title="Usage"
-$ cmemc graph open IRI
+cmemc graph open IRI
 ```
-
 
 
 

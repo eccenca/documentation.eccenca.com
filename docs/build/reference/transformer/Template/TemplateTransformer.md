@@ -2,10 +2,12 @@
 title: "Evaluate template"
 description: "Evaluates a template. Input values can be addressed using the variables 'input1', 'input2', etc. Global variables are available in the 'global' scope, e.g., 'global.myVar'."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Evaluate template
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -20,10 +22,11 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 **Example 1:**
 
 * Parameters
-    * template: 
-    ```
+    * template:
+    ```text
+
     Hello {{input1}} {{input2}},
-    
+
     How are you today?
     ```
 
@@ -31,10 +34,10 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
     1. `[John]`
     2. `[Doe]`
 
-* Returns: 
-    ```
+* Returns:
+    ```text
     [Hello John Doe,
-    
+
     How are you today?]
     ```
 
@@ -105,9 +108,9 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 
 The template
 
-- ID: `template`
-- Datatype: `template`
-- Default Value: `None`
+* ID: `template`
+* Datatype: `template`
+* Default Value: `None`
 
 
 
@@ -115,9 +118,9 @@ The template
 
 The template language. Currently, Jinja is supported.
 
-- ID: `language`
-- Datatype: `string`
-- Default Value: `jinja`
+* ID: `language`
+* Datatype: `string`
+* Default Value: `jinja`
 
 
 

@@ -6,9 +6,10 @@ In this tutorial, we are using the Linked Data App for Splunk. This app contains
 
 In the demo of this app in the video 1, the user selects the indexes of his investigation and select an alert message to open its sources on the Web before searching manually via the Splunk interfaces. Splunk, automatically, refreshes the SPARQL queries in the dashboard after each interaction of user.
 
-![](splunk-app-demo-LD-app.gif)
-
-*Video 1: Splunk dashboards of the Linked Data App*
+<figure markdown="span">
+![Video 1: Splunk dashboards of the Linked Data App](splunk-app-demo-LD-app.gif)
+<figcaption>Video 1: Splunk dashboards of the Linked Data App</figcaption>
+</figure>
 
 In this tutorial, we learn to:
 
@@ -25,15 +26,17 @@ The "Linked Data App" extends Splunk Search Processing Language (SPL) to support
 
 2. Open the App window in Splunk via the icon "tools" (see figure 1)
 
-![](splunk_apps_menu.png)
+<figure markdown="span">
+![Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps](splunk_apps_menu.png)
+<figcaption>Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps</figcaption>
+</figure>
 
-*Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps*
+1. Upload the app in Splunk (see video 2)
 
-3. Upload the app in Splunk (see video 2)
-
-![](splunk-app-install.gif)
-
-*Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk.*
+<figure markdown="span">
+![Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk](splunk-app-install.gif)
+<figcaption>Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk</figcaption>
+</figure>
 
 !!! Tip
 
@@ -61,7 +64,7 @@ vi default/settings.conf
 
 You have an example of configuration for the eccenca sandbox SPARQL endpoint in the file `default/settings_template_sandbox.conf` (and another example via Oauth2 secret ID in the file `default/settings_template_oauth_secret_id.conf`).
 
-2. Insert your credentials in the the file `settings.conf`, ie. replace `johndo` by the name of your sandbox (endpointRead, token_endpoint), `johndo@example.com` by your email and `XXXXXXXXX` by your password. Don't change the parameters OAUTH_CLIENT_ID and OAUTH_GRANT_TYPE.
+1. Insert your credentials in the the file `settings.conf`, ie. replace `johndo` by the name of your sandbox (endpointRead, token_endpoint), `johndo@example.com` by your email and `XXXXXXXXX` by your password. Don't change the parameters OAUTH_CLIENT_ID and OAUTH_GRANT_TYPE.
 
 ```ini
 [config:default]
@@ -78,11 +81,11 @@ OAUTH_USER=johndo@example.com
 OAUTH_PASSWORD=XXXXXXXXX
 ```
 
-3. Restart after your Splunk instance (via the administration windows)
+1. Restart after your Splunk instance (via the administration windows)
 
-4. Test your sandbox endpoint in Splunk with this SPL query:
+2. Test your sandbox endpoint in Splunk with this SPL query:
 
-```
+```spl
 | sparql
     query="
         select *
@@ -104,7 +107,7 @@ endpointRead=https://query.wikidata.org/sparql
 
 Restart after your Splunk instance and request in Splunk your endpoint with the parameter config (here wikidata) to select the config to use in the file `settings.conf`:
 
-```
+```spl
 | sparql
     config="wikidata"
     query="
@@ -124,9 +127,10 @@ Restart after your Splunk instance and request in Splunk your endpoint with the 
 
 To work, our example of dashboard need to have Splunk indexes of IoCs. We cannot share our indexes but you can modify our example with your own SPL queries according to your Splunk indexes.
 
-![](demo_ld.png)
-
-*Figure 2: Dashboard with SPARQL commands and the script `table_html.js` to print the HTML and to open Web pages of alerts' references*
+<figure markdown="span">
+![Figure 2: Dashboard with SPARQL commands and the script `table_html.js` to print the HTML and to open Web pages of alerts' references](demo_ld.png)
+<figcaption>Figure 2: Dashboard with SPARQL commands and the script `table_html.js` to print the HTML and to open Web pages of alerts' references</figcaption>
+</figure>
 
 !!! Tip
 

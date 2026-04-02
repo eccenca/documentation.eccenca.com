@@ -2,10 +2,12 @@
 title: "Zip"
 description: "Concatenates the values of two inputs in pairs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Zip
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -63,8 +65,8 @@ Concatenates the values of two inputs in pairs.
     1. `[a, b]`
     2. `[1, 2]`
 
-* Returns: 
-    ```
+* Returns:
+    ```text
     [a
     1, b
     2]
@@ -79,9 +81,9 @@ Concatenates the values of two inputs in pairs.
 
 Placeholder to be used if the first input provides fewer values than the second one.
 
-- ID: `firstPlaceholder`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `firstPlaceholder`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -89,9 +91,9 @@ Placeholder to be used if the first input provides fewer values than the second 
 
 Placeholder to be used if the second input provides fewer values than the first one.
 
-- ID: `secondPlaceholder`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `secondPlaceholder`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -99,9 +101,9 @@ Placeholder to be used if the second input provides fewer values than the first 
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

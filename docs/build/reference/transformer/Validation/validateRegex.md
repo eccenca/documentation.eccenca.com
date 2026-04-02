@@ -2,10 +2,12 @@
 title: "Validate regex"
 description: "Validates if all values match a regular expression."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Validate regex
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -124,9 +126,9 @@ A compilation of the available constructs for building regular expressions is av
 
 regular expression
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `\w*`
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `\w*`
 
 
 

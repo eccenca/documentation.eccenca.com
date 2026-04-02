@@ -2,10 +2,12 @@
 title: "Remove stop words"
 description: "Removes stop words based on a stop word list resource."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Remove stop words
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -56,9 +58,9 @@ Additionally, notice the simpler filter 'removeDefaultStopWords', which uses a d
 
 Resource for the stop word list
 
-- ID: `stopWordList`
-- Datatype: `resource`
-- Default Value: `None`
+* ID: `stopWordList`
+* Datatype: `resource`
+* Default Value: `None`
 
 
 
@@ -66,9 +68,9 @@ Resource for the stop word list
 
 RegEx for detecting words
 
-- ID: `separator`
-- Datatype: `string`
-- Default Value: `[\s-]+`
+* ID: `separator`
+* Datatype: `string`
+* Default Value: `[\s-]+`
 
 
 

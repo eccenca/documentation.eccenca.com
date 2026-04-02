@@ -2,10 +2,12 @@
 title: "Aggregate numbers"
 description: "Applies one of the aggregation operators (`+`, `*`, `min`, `max` or `average`) to the sequence of input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Aggregate numbers
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -234,9 +236,9 @@ numbers, they will be ignored.
 
 The aggregation operation to be applied to all values. One of `+`, `*`, `min`, `max`, `average`.
 
-- ID: `operator`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `operator`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

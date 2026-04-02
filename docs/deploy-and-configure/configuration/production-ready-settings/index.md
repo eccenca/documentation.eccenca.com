@@ -29,6 +29,7 @@ For Explore backend (DataPlatform) you set this in `application.yml` or as envir
 ```yaml
 deploy.post-logout-redirect-uri: "${DEPLOY_BASE_URL}"
 ```
+
 ```bash
 DEPLOY_POST_LOGOUT_REDIRECT_URI=${DEPLOY_BASE_URL}
 ```
@@ -49,7 +50,6 @@ oauth.endSessionUrl = ${OAUTH_LOGOUT_URL}
 oauth.logoutRedirectUrl = ${OAUTH_LOGOUT_REDIRECT_URL}
 oauth.idToken = true
 ```
-
 
 ## Password Policies
 
@@ -92,7 +92,6 @@ play.http.session.secure = ${DATAINTEGRATION_SECURE_COOKIE}
 ```
 
 In the [Play documentation](https://www.playframework.com/documentation/2.8.x/SettingsSession), you can find further information, i.e. also setting `sameSite = "lax"`or `strict`. By default Build (DataIntegration) sets this to `lax`
-
 
 ## CORS Settings
 
@@ -145,4 +144,3 @@ cors.config.allowOrigins = "*"
 # If set to true, allowOrigins must not have '*' configured.
 cors.config.allowCredentials = false
 ```
-

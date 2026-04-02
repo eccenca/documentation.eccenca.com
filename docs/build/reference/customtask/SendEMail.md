@@ -2,10 +2,12 @@
 title: "Send email"
 description: "Sends an email using an SMTP server."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Send email
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -231,6 +233,5 @@ The number of retries per email when send errors are encountered.
 - ID: `nrRetries`
 - Datatype: `int`
 - Default Value: `2`
-
 
 

@@ -5,7 +5,9 @@ icon: material/folder-multiple-outline
 tags:
   - cmemc
 ---
+
 # admin workspace Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import, export and reload the project workspace.
@@ -49,7 +51,7 @@ The file name is optional and will be generated with by the template if absent.
 Import the workspace from a file.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace import [OPTIONS] FILE
+cmemc admin workspace import [OPTIONS] FILE
 ```
 
 
@@ -67,7 +69,7 @@ $ cmemc admin workspace import [OPTIONS] FILE
 Reload the workspace from the backend.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace reload
+cmemc admin workspace reload
 ```
 
 
@@ -79,9 +81,8 @@ $ cmemc admin workspace reload
 Request a thread dump for all live threads.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace thread-dump
+cmemc admin workspace thread-dump
 ```
-
 
 
 

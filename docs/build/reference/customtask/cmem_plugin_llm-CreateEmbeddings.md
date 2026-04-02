@@ -2,11 +2,13 @@
 title: "Create Embeddings"
 description: "Fetch and output LLM created embeddings from input entities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Create Embeddings
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -154,6 +156,5 @@ Changing this value will change the output schema accordingly. Default: _embeddi
 - ID: `embedding_output_path`
 - Datatype: `string`
 - Default Value: `_embedding`
-
 
 

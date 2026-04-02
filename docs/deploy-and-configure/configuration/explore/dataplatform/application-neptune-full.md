@@ -34,7 +34,6 @@ store:
 management.tracing.enabled: false
 ```
 
-
 ***Property: store.type***
 
 The type of the store must be set to "neptune"
@@ -74,7 +73,7 @@ Settings for the connection to the Amazon Cloud
 
 ***Property: store.neptune.aws.region***
 
-The region where the neptune instance is located i.e. "eu-central-1" s. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
+The region where the neptune instance is located i.e. "eu-central-1" s. <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions>
 
 | Category | Value |
 |--- | ---: |
@@ -85,7 +84,7 @@ The region where the neptune instance is located i.e. "eu-central-1" s. https://
 
 ***Property: store.neptune.aws.authEnabled***
 
-Whether the neptune instance is configured with enabled IAM authentication. In case of enabled authentication the credentials need to be accessible to the JVM of the dataplatform. Deployment on EC2 and assigning a role to the VM is sufficient. Other ways to achieve this are described in https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html
+Whether the neptune instance is configured with enabled IAM authentication. In case of enabled authentication the credentials need to be accessible to the JVM of the dataplatform. Deployment on EC2 and assigning a role to the VM is sufficient. Other ways to achieve this are described in <https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html>
 
 | Category | Value |
 |--- | ---: |
@@ -94,7 +93,7 @@ Whether the neptune instance is configured with enabled IAM authentication. In c
 | Valid values | boolean |
 | Environment | STORE_NEPTUNE_AWS_AUTHENABLED |
 
-Settings for S3 bucket connection and upload of large files to the neptune instance. The neptune store blocks all HTTP requests with size >150MB. To upload larger files a graph file is temporarily stored in a S3 bucket and uploaded via Neptune Bulk Loader. The S3 bucket needs to be in the same region as the neptune cluster. For more information s. https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html. If no S3 upload is necessary then the limit of 150 MB on HTTPS uploads apply for neptune. The whole section can be left out of the configuration.
+Settings for S3 bucket connection and upload of large files to the neptune instance. The neptune store blocks all HTTP requests with size >150MB. To upload larger files a graph file is temporarily stored in a S3 bucket and uploaded via Neptune Bulk Loader. The S3 bucket needs to be in the same region as the neptune cluster. For more information s. <https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html>. If no S3 upload is necessary then the limit of 150 MB on HTTPS uploads apply for neptune. The whole section can be left out of the configuration.
 
 ***Property: store.neptune.s3.bucketNameOrAPAlias***
 
@@ -109,7 +108,7 @@ The name of the bucket or access point -> the role CMEM runs under needs write a
 
 ***Property: store.neptune.s3.iamRoleArn***
 
-The name of the role the neptune loader accesses the bucket -> the role needs read access to the bucket s. https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-IAM.html
+The name of the role the neptune loader accesses the bucket -> the role needs read access to the bucket s. <https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-IAM.html>
 
 | Category | Value |
 |--- | ---: |
@@ -139,4 +138,3 @@ The degree of parallelism (CPU) for the neptune loader, possible values are LOW,
 | Required | false |
 | Valid values | LOW, MEDIUM, HIGH, OVERSUBSCRIBE |
 | Environment | STORE_NEPTUNE_S3_BULKLOADPARALLELISM |
-

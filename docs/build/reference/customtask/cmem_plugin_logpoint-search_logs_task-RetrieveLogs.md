@@ -2,11 +2,13 @@
 title: "Search for Logs"
 description: "Search and retrieve logs from a Logpoint SIEM system with flexible schema output."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Search for Logs
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -31,6 +33,7 @@ to search and retrieve log data based on custom queries.
 ### Authentication
 
 Configure the connection to your Logpoint service using:
+
 - **Service URL**: The base URL of your Logpoint instance
 - **Username**: Service account username with appropriate permissions
 - **Secret Key**: API secret key for authentication
@@ -64,6 +67,7 @@ Configure the connection to your Logpoint service using:
 - Output paths: (empty for all fields)
 
 Common fields include:
+
 - `source_address`: Source IP address
 - `destination_address`: Destination IP address
 - `user`: Username associated with the event
@@ -73,6 +77,7 @@ Common fields include:
 ## Actions
 
 Use the plugin actions to explore and configure your searches:
+
 - **Preview output paths**: Executes a test query to see available field paths.
 - **Preview repositories**: List all accessible log repositories in your Logpoint instance.
 
@@ -151,7 +156,7 @@ Comma-separated list of repository names to search. Leave no trailing comma here
 
 ### List of output paths
 
-Comma-separated list of field paths to include in output. Example: 'source_address, destination_address, user, log_ts'. Leave no trailing comma here. If specified, creates a fixed output schema with only these fields. Leave empty for automatic schema detection with all available fields. Use 'Preview output paths' action to discover available field names. See Logpoint field naming conventions at: https://docs.logpoint.com/docs/logpoint-taxonomy-guideline/en/latest/Field%20naming%20convention.html
+Comma-separated list of field paths to include in output. Example: 'source_address, destination_address, user, log_ts'. Leave no trailing comma here. If specified, creates a fixed output schema with only these fields. Leave empty for automatic schema detection with all available fields. Use 'Preview output paths' action to discover available field names. See Logpoint field naming conventions at: <https://docs.logpoint.com/docs/logpoint-taxonomy-guideline/en/latest/Field%20naming%20convention.html>
 
 - ID: `paths_list`
 - Datatype: `string`

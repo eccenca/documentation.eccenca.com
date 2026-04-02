@@ -2,11 +2,13 @@
 title: "Get workflow report"
 description: "Output a workflow execution report as a JSON file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Get workflow report
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -36,6 +38,7 @@ The plugin outputs a single JSON file entity containing the complete workflow ex
 ## Usage
 
 This operator is useful for:
+
 - Monitoring workflow execution results and failures
 - Debugging recent errors or warnings
 - Creating audit trails of workflow runs

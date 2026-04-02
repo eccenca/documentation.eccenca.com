@@ -2,10 +2,12 @@
 title: "Avro"
 description: "Read from or write to an Apache Avro file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Avro
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,6 +17,7 @@ tags:
 The Avro dataset plugin in BUILD provides the ability to read from or write to Apache Avro files. It is a **Spark-optimized dataset**, designed to leverage Spark’s in-memory, parallel execution model and take advantage of Avro-specific optimizations.
 
 Avro supports **schema evolution** and **efficient serialization**, enabling Spark to process structured data reliably across workflow changes. While columnar optimizations like Parquet or ORC are not applicable, Avro provides **fast row-based access** and compact storage, making it suitable for workloads where the data structure may change over time or full-row access is common.
+
 ### Key Features
 
 - **Row-based storage format**: Avro stores data row-wise, enabling efficient serialization and deserialization for distributed processing.
@@ -39,6 +42,7 @@ This dataset could be stored in a file `transactions.avro` and used in workflows
 For more information on the Avro format and its optimizations, see the [Apache Avro project page](https://avro.apache.org/).
 
 ---
+
 ### Comparison of Spark-optimized datasets
 
 The following table summarizes the key differences and typical use cases of the main Spark-optimized datasets supported in CMEM BUILD. It provides a quick reference for understanding the optimizations, storage formats, and workflow suitability for ORC, Parquet, and Avro datasets.

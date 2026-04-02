@@ -64,6 +64,7 @@ nav:
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md
     - "Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
+    - "Update SemSpect": cmem_plugin_semspect-task-Update.md
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md

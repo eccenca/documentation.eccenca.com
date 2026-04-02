@@ -5,7 +5,9 @@ tags:
     - Build
     - Reference
 ---
+
 # Custom Workflow Tasks
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 A custom workflow task is an operator that can be used in a workflow.
@@ -78,6 +80,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |
  | [Update Graph Insights Snapshots](cmem_plugin_graph_insights-Update.md) | Update one or more snapshots, optionally selected by affected graph. |
+ | [Update SemSpect](cmem_plugin_semspect-task-Update.md) | Tell SemSpect to prepare a Knowledge Graph for visualization. |
  | [Upload File to Knowledge Graph](eccencaDataPlatformGraphStoreFileUploadOperator.md) | Uploads an N-Triples or Turtle (limited support) file from the file repository to a 'Knowledge Graph' dataset. The output of this operatorcan be the input of datasets that support graph store file upload, e.g. 'Knowledge Graph'. The file will be uploaded to the graph specified in that dataset. |
  | [Upload files to Nextcloud](cmem_plugin_nextcloud-Upload.md) | Upload files to a given Nextcloud instance. |
  | [Upload local files](cmem_plugin_project_resources-UploadLocalFiles.md) | Replace a file dataset resource with a local file or upload multiple local files to a project. |

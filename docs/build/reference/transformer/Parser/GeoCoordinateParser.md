@@ -2,10 +2,12 @@
 title: "Parse geo coordinate"
 description: "Parses and normalizes geo coordinates."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse geo coordinate
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -24,15 +26,15 @@ The origin of this coordinate system is known as the [Null Island](https://en.wi
 
 Geographic coordinates are dimensionless numbers for measuring and expressing **angles**. By convention, these angles are expressed in **degrees**, not in radians. This means, for the range of values for **latitude** and **longitude**, the following:
 
-- **Latitude (φ):** range **–90° ≤ φ ≤ +90°**
-    - **–90°** → South Pole
-    - **0°** → Equator
-    - **+90°** → North Pole
+* **Latitude (φ):** range **–90° ≤ φ ≤ +90°**
+    * **–90°** → South Pole
+    * **0°** → Equator
+    * **+90°** → North Pole
 
-- **Longitude (λ):** range **–180° ≤ λ ≤ +180°**
-    - **0°** → Prime Meridian (Greenwich)
-    - **+180°** → directly east of Greenwich (International Date Line eastward)
-    - **–180°** → directly west of Greenwich (International Date Line westward)
+* **Longitude (λ):** range **–180° ≤ λ ≤ +180°**
+    * **0°** → Prime Meridian (Greenwich)
+    * **+180°** → directly east of Greenwich (International Date Line eastward)
+    * **–180°** → directly west of Greenwich (International Date Line westward)
 
 The meridian at 180° is known as the **antimeridian** or, simply, the **180th meridian**.
 
@@ -42,18 +44,20 @@ The meridian at 180° is known as the **antimeridian** or, simply, the **180th m
 
 The input is expressed in degrees-minutes-seconds (DMS). Each portion is accompanied by the corresponding symbol:
 
-- **Degrees (°)**
-- **Minutes (′)**
-- **Seconds (″)**
+* **Degrees (°)**
+* **Minutes (′)**
+* **Seconds (″)**
+
 #### Example
 
 An example of the normalization of the geographic coordinates `"51°20.519' N,12°22.443' E"` is `(51.3419833, 12.37405)`. This stems from the following calculation:
 
-	Latitude = 51 + 1⁄60 · 20.519 = 51.3419833° N,
-	Longitude = 12 + 1⁄60 · 22.443 = 12.37405° E.
+    Latitude = 51 + 1⁄60 · 20.519 = 51.3419833° N,
+    Longitude = 12 + 1⁄60 · 22.443 = 12.37405° E.
 
 A bit more detailed:
-1. First, the input is _parsed_: The **latitude** is `51°20.519' N`, the **longitude** is `51°20.519' N`. As stated, **north** (`N`) and **east** (`E`) are *positive* by convention. Correspondingly, **south** (`S`) and **west** (`w`) are *negative*.
+
+1. First, the input is _parsed_: The **latitude** is `51°20.519' N`, the **longitude** is `51°20.519' N`. As stated, **north** (`N`) and **east** (`E`) are _positive_ by convention. Correspondingly, **south** (`S`) and **west** (`w`) are _negative_.
 2. Next, _each_ of these **components** is split into their **portions**:
     * `51°20.519' N` corresponds to 51 degrees and 20.519 minutes.
         * Notice that the portion **`20.519` minutes** contains, itself, a _decimal_ number, instead of the degrees-**minutes-seconds** format. This is because decimal degrees and minutes are permitted as a form of mixed format by our plugin.
@@ -61,7 +65,7 @@ A bit more detailed:
     * `12°22.443' E` corresponds to 12 degrees, 22.443 minutes.
         * Once more, the portion `22.443 minutes` is a mixed format, where instead of minutes and seconds, we write the minutes in decimal format to include the seconds.
 3. Finally, the DMS format of the input is **normalized** according to the following conversion formula:
-   decimal degrees = *degrees* + 1⁄60 · minutes + 1⁄3600 · seconds.
+   decimal degrees = _degrees_ + 1⁄60 · minutes + 1⁄3600 · seconds.
 
 ## Examples
 

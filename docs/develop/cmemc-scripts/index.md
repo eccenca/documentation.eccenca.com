@@ -25,7 +25,6 @@ cmemc is published as an Apache 2 licensed open source python package at [pypi.o
 pip install cmem-cmemc
 ```
 
-
 ## Configure a connection
 
 Assuming you have already [configured your cmemc connection](../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md), using it in Python scripts is quite easy.
@@ -159,4 +158,3 @@ Workflow 'only-input-replaceable' in 'io'
 Workflow 'only-output' in 'io'
 Workflow 'only-output-replaceable' in 'io'
 ```
-

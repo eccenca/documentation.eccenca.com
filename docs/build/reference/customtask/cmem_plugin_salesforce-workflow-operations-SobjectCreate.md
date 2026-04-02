@@ -2,11 +2,13 @@
 title: "Create/Update Salesforce Objects"
 description: "Manipulate data in your organization's Salesforce account."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Create/Update Salesforce Objects
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -28,8 +30,8 @@ configured object type.
 data model (refer to  the [Salesforce Standard Objects list](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_list.htm)).
 - The special path `id` is used to identify an object in Salesforce and switch
 between update/creation mode, means:
-  - If there is NO id path available, a new object is created.
-  - If there IS an id path available, an update is done if the object exists.
+    - If there is NO id path available, a new object is created.
+    - If there IS an id path available, an update is done if the object exists.
 
 Example:
 

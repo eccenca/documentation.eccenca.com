@@ -2,11 +2,13 @@
 title: "Update Graph Insights Snapshots"
 description: "Update one or more snapshots, optionally selected by affected graph."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Update Graph Insights Snapshots
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -35,7 +37,7 @@ This workflow task updates [Graph Insights](https://go.eccenca.com/feature/explo
 - Graph Insights must be active in your system
 - User must have permissions to access Graph Insights
 - The plugin will skip execution with a warning if these conditions are not met
-    
+
 
 ## Parameter
 
@@ -60,6 +62,5 @@ Timeout in seconds for Graph Insights API.
 - ID: `timeout`
 - Datatype: `double`
 - Default Value: `100`
-
 
 

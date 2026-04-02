@@ -2,10 +2,12 @@
 title: "Neo4j"
 description: "Neo4j graph"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Neo4j
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,7 +17,7 @@ Supports reading and writing Neo4j graphs. The following sections outline how gr
 
 For more information about Neo4j, please refer to the [Neo4j documentation](https://neo4j.com/docs/).
 
-### Nodes
+## Nodes
 
 For each entity that is written to a Neo4j dataset, a _node_ will be created.
 A property `uri` will be added to each generated node, which holds the URI of the original entity.
@@ -52,6 +54,7 @@ In eccenca DataIntegration, URIs are typically used to uniquely identify classes
 While URIs are central in RDF, Neo4j does allow arbitrary names and does not have any special support for URIs.
 
 When generating Neo4j labels, properties and relationships, URIs will be shortened according to the following rules.
+
 - If a registered project prefix matches a URI, a name `{prefixName}_{localPart}` will be generated. For instance, `http://xmlns.com/foaf/0.1/name` will become `foaf_name`.
   Note that underscores (`_`) are used instead of colons (`:`) to separate the namespace and the local name.
   The reason is that colons are reserved in the Cypher query language and some tools don't escape properly and fail on databases that use colons in names.
@@ -137,6 +140,4 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
-
 

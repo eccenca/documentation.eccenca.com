@@ -2,10 +2,12 @@
 title: "Concatenate"
 description: "Concatenates strings from multiple inputs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Concatenate
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -120,8 +122,8 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: 
-    ```
+* Returns:
+    ```text
     [First
     Second]
     ```
@@ -137,7 +139,7 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: `[First	\\aSecond]`
+* Returns: `[First    \\aSecond]`
 
 
 
@@ -148,9 +150,9 @@ Concatenates strings from multiple inputs.
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-- ID: `glue`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `glue`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -158,9 +160,9 @@ Separator to be inserted between two concatenated strings. The text can contain 
 
 Handle missing values as empty strings.
 
-- ID: `missingValuesAsEmptyStrings`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `missingValuesAsEmptyStrings`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 

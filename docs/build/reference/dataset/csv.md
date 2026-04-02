@@ -2,10 +2,12 @@
 title: "CSV"
 description: "Read from or write to an CSV file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # CSV
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -159,13 +161,12 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 
 
 
-### Trim whitespace and non-printable characters.
+### Trim whitespace and non-printable characters
 
 If set to true, this will trim whitespace and non-printable characters from the contents of the CSV dataset.
 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

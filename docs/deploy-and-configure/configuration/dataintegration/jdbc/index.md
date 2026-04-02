@@ -20,10 +20,10 @@ You can also add and use custom drivers.
 
 The platform includes the following JDBC drivers:
 
--   PostgreSQL (`postgresql v42.7.10`)
--   MariaDB (includes support for MySQL, `mariadb-java-client v3.5.7`)
--   Microsoft SQL Server (`mssql-jdbc v13.2.1.jre11`)
--   Snowflake (`snowflake-jdbc v3.28.0`)
+- PostgreSQL (`postgresql v42.7.10`)
+- MariaDB (includes support for MySQL, `mariadb-java-client v3.5.7`)
+- Microsoft SQL Server (`mssql-jdbc v13.2.1.jre11`)
+- Snowflake (`snowflake-jdbc v3.28.0`)
 
 ## Custom JDBC Drivers
 
@@ -40,10 +40,10 @@ Download the JDBC driver for each database management system that you want to co
 Consult your solutions manager or DevOps specialist for options to copy or inject the JDBC driver `jar` into a Corporate Memory deployment.
 Depending on the deployment model, suitable options include:
 
--   The Docker Compose package `cmem-orchestration` mounts the folder `./conf/dataintegration/plugin/` into the DataIntegration container.
+- The Docker Compose package `cmem-orchestration` mounts the folder `./conf/dataintegration/plugin/` into the DataIntegration container.
     The configuration snippets below assume this location, which maps to `/opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/plugin/` inside the container.
--   A dedicated _Build project_ in which the driver JAR files are uploaded as project file resources.
--   Dedicated file or resource mounts in a Docker Compose or Helm/Kubernetes configuration.
+- A dedicated _Build project_ in which the driver JAR files are uploaded as project file resources.
+- Dedicated file or resource mounts in a Docker Compose or Helm/Kubernetes configuration.
 
 ### Driver Registration
 

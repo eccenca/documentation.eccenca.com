@@ -2,10 +2,12 @@
 title: "NYSIIS"
 description: "NYSIIS phonetic encoding."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # NYSIIS
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -30,12 +32,12 @@ necessarily contain this limitation. This plugin doesn't.
 ### Modified NYSIIS
 
 The **Modified NYSIIS** is an improvement of the NYSIIS algorithm. Its working is illustrated, step by step, in
-http://www.dropby.com/NYSIIS.html.
+<http://www.dropby.com/NYSIIS.html>.
 
 ## Examples
 
 We can get an idea of the output of the NYSIIS algorithm using an online version of it such as the already mentioned
-http://www.dropby.com/NYSIIS.html. It contains both the (plain) NYSIIS and the _modified_ NYSIIS algorithms.
+<http://www.dropby.com/NYSIIS.html>. It contains both the (plain) NYSIIS and the _modified_ NYSIIS algorithms.
 
 As a comparison of the two versions of NYSIIS, we give a few examples:
 
@@ -51,9 +53,9 @@ As a comparison of the two versions of NYSIIS, we give a few examples:
 
 No description
 
-- ID: `refined`
-- Datatype: `boolean`
-- Default Value: `true`
+* ID: `refined`
+* Datatype: `boolean`
+* Default Value: `true`
 
 
 

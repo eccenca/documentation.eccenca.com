@@ -6629,6 +6629,121 @@
     ],
     "pluginType": "customtask"
   },
+  "cmem_plugin_semspect-task-Update": {
+    "pluginId": "cmem_plugin_semspect-task-Update",
+    "title": "Update SemSpect",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Tell SemSpect to prepare a Knowledge Graph for visualization.",
+    "markdownDocumentation": null,
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIzOTYgNDAyIDc2IDY1IgogICB3aWR0aD0iNzZwdCIKICAgaGVpZ2h0PSI2NXB0IgogICBpZD0ic3ZnODY0IgogICBzb2RpcG9kaTpkb2NuYW1lPSJsb2dvLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3ODY2IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB0IgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIxMi41NjU0ODUiCiAgICAgaW5rc2NhcGU6Y3g9IjYyLjE5NDE3NiIKICAgICBpbmtzY2FwZTpjeT0iNDMuNDEyNTciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE3MjgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjI1IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnODY0IgogICAgIHNob3dndWlkZXM9InRydWUiCiAgICAgaW5rc2NhcGU6Z3VpZGUtYmJveD0idHJ1ZSI+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2MC41ODA3NjYsMzcuODM4NzcyIgogICAgICAgb3JpZW50YXRpb249IjAsLTEiCiAgICAgICBpZD0iZ3VpZGUxNDQ4MiIgLz4KICAgIDxzb2RpcG9kaTpndWlkZQogICAgICAgcG9zaXRpb249IjU5Ljg0MzA2NCwzOC4zNDU0MzYiCiAgICAgICBvcmllbnRhdGlvbj0iMSwwIgogICAgICAgaWQ9Imd1aWRlMTQ0ODQiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2Ny45OTgzMjMsMzMuODc0NjM1IgogICAgICAgb3JpZW50YXRpb249IjEsMCIKICAgICAgIGlkPSJndWlkZTE0NDg2IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTgyNCI+IFByb2R1Y2VkIGJ5IE9tbmlHcmFmZmxlIDYuNi4yIDxkYzpkYXRlPjIwMjQtMDUtMDYgMDk6NDM6NTYgKzAwMDA8L2RjOmRhdGU+CjwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczgyOCI+CiAgICA8Zm9udC1mYWNlCiAgICAgICBmb250LWZhbWlseT0iTHVjaWRhIEdyYW5kZSIKICAgICAgIGZvbnQtc2l6ZT0iMTMiCiAgICAgICBwYW5vc2UtMT0iMiAxMSA2IDAgNCA1IDIgMiAyIDQiCiAgICAgICB1bml0cy1wZXItZW09IjEwMDAiCiAgICAgICB1bmRlcmxpbmUtcG9zaXRpb249Ii05Ny42NTYyNSIKICAgICAgIHVuZGVybGluZS10aGlja25lc3M9IjQ4LjgyODEyNSIKICAgICAgIHNsb3BlPSIwIgogICAgICAgeC1oZWlnaHQ9IjUzMC4yNzM0NCIKICAgICAgIGNhcC1oZWlnaHQ9IjcyMi42NTYyNSIKICAgICAgIGFzY2VudD0iOTY2Ljc5NjkiCiAgICAgICBkZXNjZW50PSItMjEwLjkzNzUiCiAgICAgICBmb250LXdlaWdodD0iNTAwIgogICAgICAgaWQ9ImZvbnQtZmFjZTgyNiI+CiAgICAgIDxmb250LWZhY2Utc3JjPgogICAgICAgIDxmb250LWZhY2UtbmFtZQogICAgICAgICAgIG5hbWU9Ikx1Y2lkYUdyYW5kZSIgLz4KICAgICAgPC9mb250LWZhY2Utc3JjPgogICAgPC9mb250LWZhY2U+CiAgPC9kZWZzPgogIDxlbGxpcHNlCiAgICAgY3g9IjQ1NS40MDE1NSIKICAgICBjeT0iNDM0LjEwNzI0IgogICAgIGZpbGw9IiNjMmQxZTMiCiAgICAgaWQ9ImNpcmNsZTgzNCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIxMC42ODIzNzQiCiAgICAgcnk9IjEwLjg0MTkzOSIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYxIgogICAgIGZpbGw9IiNjMmQxZTQiCiAgICAgaWQ9ImNpcmNsZTgzNiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIyNy4yMzkwMjciCiAgICAgcnk9IjI3LjY0NTkwMyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0NTUuNDUwODQiCiAgICAgY3k9IjQzNC4wNTcxOSIKICAgICBmaWxsPSIjYzJkMWUzIgogICAgIGlkPSJjaXJjbGU4MzgiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iMTAuNjgyMzc0IgogICAgIHJ5PSIxMC44NDE5MzkiIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDI5LjIzMTA1IgogICAgIGN5PSI0MzQuNTgwMTQiCiAgICAgZmlsbD0iI2MyZDFlNCIKICAgICBpZD0iY2lyY2xlODQwIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjI3LjIzOTAyNyIKICAgICByeT0iMjcuNjQ1OTAzIiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQxNC4zNzM0MSIKICAgICBjeT0iNDM0LjE1NjA3IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0MiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYwNyIKICAgICBmaWxsPSIjYWIyYzBiIgogICAgIGlkPSJjaXJjbGU4NDQiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDIxLjk2NzMyIgogICAgIGN5PSI0MjAuNzUyMDQiCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODQ2IgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDIwLjc1MjA0IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0OCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjEuOTY3MzIiCiAgICAgY3k9IjQ0Ny41NjAxNSIKICAgICBmaWxsPSIjNmM3MTc5IgogICAgIGlkPSJjaXJjbGU4NTAiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDQ0LjA4ODY1IgogICAgIGN5PSI0MzQuMTU2MDciCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODUyIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDQ3LjU2MDE1IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg1NCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8cGF0aAogICAgIHNvZGlwb2RpOnR5cGU9InN0YXIiCiAgICAgc3R5bGU9ImZpbGw6IzZjNzE3OTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZCIKICAgICBpZD0icGF0aDE0MjA0IgogICAgIGlua3NjYXBlOmZsYXRzaWRlZD0idHJ1ZSIKICAgICBzb2RpcG9kaTpzaWRlcz0iMyIKICAgICBzb2RpcG9kaTpjeD0iNzkuNTAzNDY0IgogICAgIHNvZGlwb2RpOmN5PSI3MC4wNzczMTYiCiAgICAgc29kaXBvZGk6cjE9IjcuNjc2Mzc2MyIKICAgICBzb2RpcG9kaTpyMj0iMy40NzEzODYyIgogICAgIHNvZGlwb2RpOmFyZzE9IjIuMDg5OTQyNSIKICAgICBzb2RpcG9kaTphcmcyPSIzLjEzNzE0IgogICAgIGlua3NjYXBlOnJvdW5kZWQ9IjAiCiAgICAgaW5rc2NhcGU6cmFuZG9taXplZD0iMCIKICAgICBkPSJtIDc1LjY5NDkxNCw3Ni43NDIyNzcgLTAuMDU5MiwtMTMuMjk1NzQyIDExLjU0NDA1MSw2LjU5NjYwMiB6IgogICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuNzUsMCwwLDAuNzUsMzk5LjExNjI4LDM4MS41NzYzMykiCiAgICAgaW5rc2NhcGU6dHJhbnNmb3JtLWNlbnRlci14PSItMC4yMTk3MDEzNyIKICAgICBpbmtzY2FwZTp0cmFuc2Zvcm0tY2VudGVyLXk9Ii0xLjEwNjg1OTYiIC8+Cjwvc3ZnPgo=",
+    "properties": {
+      "base_url": {
+        "name": "base_url",
+        "title": "The URL of the SemSpect application.This needs to be accessible from 'within' DataIntegration.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "http://semspect:8080/semspect/",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "database_id": {
+        "name": "database_id",
+        "title": "The SemSpect database ID. Not existing databases will be created.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "cmem",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "graph": {
+        "name": "graph",
+        "title": "Knowledge Graph",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "dataplatform_base": {
+        "name": "dataplatform_base",
+        "title": "The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect.",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "timeout": {
+        "name": "timeout",
+        "title": "Timeout (in seconds) for the overall indexing activity.",
+        "description": "",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "300",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "request_timeout": {
+        "name": "request_timeout",
+        "title": "Timeout (in seconds) for individual Semspect requests",
+        "description": "",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "10",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_proxy": {
+        "name": "ignore_proxy",
+        "title": "ignore_proxy: Ignore system settings for HTTP proxies for the requests to semspect.",
+        "description": "",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "verify_ssl": {
+        "name": "verify_ssl",
+        "title": "verify_ssl: If disabled, the plugin will accept any TLS certificate presented by the server and will ignore hostname mismatches and/or expired certificates, which will make the requests vulnerable to man-in-the-middle (MitM) attacks. (use for testing only)",
+        "description": "",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "true",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [
+      "graph"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask"
+  },
   "eccencaDataPlatformGraphStoreFileUploadOperator": {
     "pluginId": "eccencaDataPlatformGraphStoreFileUploadOperator",
     "title": "Upload File to Knowledge Graph",

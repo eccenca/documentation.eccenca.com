@@ -5,7 +5,9 @@ icon: material/database-arrow-up-outline
 tags:
   - cmemc
 ---
+
 # admin migration Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List and apply migration recipes.
@@ -22,7 +24,7 @@ The following tags are important: `system` recipes target data structures which 
 List migration recipies.
 
 ```shell-session title="Usage"
-$ cmemc admin migration list [OPTIONS]
+cmemc admin migration list [OPTIONS]
 ```
 
 
@@ -48,7 +50,7 @@ This command lists all available migration recipies
 Execute needed migration recipes.
 
 ```shell-session title="Usage"
-$ cmemc admin migration execute [OPTIONS] [MIGRATION_ID]
+cmemc admin migration execute [OPTIONS] [MIGRATION_ID]
 ```
 
 
@@ -72,4 +74,3 @@ Here are some argument examples, in order to see how to use this command: execut
     --test-only              Only test, do not execute migrations.
     --id-only                Lists only recipe identifier.
     ```
-

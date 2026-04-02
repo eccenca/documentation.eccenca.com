@@ -1,34 +1,35 @@
 {
-  // Example markdownlint JSON(C) configuration with all properties set to their default value
-
-  // Default state for all rules
   "default": true,
-
-  // not enforcing line break a specific lenght
+  "MD012": false,
   "MD013": false,
-
   "MD007": {
     "indent": 4
   },
-
-  // allow Multiple headings with the same content
   "MD024": false,
-
-  // to be consistent with prettier
+  "MD025": false,
   "MD030": {
-    "ul_single": 3,
-    "ul_multi": 3
+    "ul_single": 1,
+    "ul_multi": 1
   },
-
-  // allow some html
   "MD033": {
-    "allowed_elements": ["figure", "figcaption", "div"]
+    "allowed_elements": [
+      "a",
+      "br",
+      "cite",
+      "details",
+      "div",
+      "figcaption",
+      "figure",
+      "img",
+      "p",
+      "span",
+      "summary"
+    ]
   },
-
-  // allow missing img alt text
+  "MD035": false,
+  "MD041": false,
   "MD045": false,
-
-  // disabled due to admonition / tabs using indented blocks
-  "MD046": false
-  //"MD046": { "style": "fenced" }
+  "MD046": false,
+  "MD059": false,
+  "MD060": false
 }

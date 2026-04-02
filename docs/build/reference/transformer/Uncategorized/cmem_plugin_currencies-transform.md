@@ -2,11 +2,13 @@
 title: "Convert currency values"
 description: "Converts currencies values with current and historical exchange rates"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
     - PythonPlugin
 ---
+
 # Convert currency values
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -96,6 +98,5 @@ Instead of plain values, output additional background information.
 - ID: `debug`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

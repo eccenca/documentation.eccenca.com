@@ -57,4 +57,3 @@ After this is done, you can reconfigure any workflow operator that uses this par
 Tutorials that showcase this function in an application context:
 
 - [Loading JDBC datasets incrementally](../loading-jdbc-datasets-incrementally/index.md)
-

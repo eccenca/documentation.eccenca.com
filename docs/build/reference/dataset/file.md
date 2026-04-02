@@ -2,10 +2,12 @@
 title: "RDF file"
 description: "Dataset which retrieves and writes all entities from/to an RDF file. For reading, the dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # RDF file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -157,6 +159,7 @@ When the dataset is used (e.g. queried or read by downstream components), it beh
 - **Graph:** (empty → default graph)
 
 Use case:
+
 - Small RDF dataset loaded from a Turtle file for exploration and transformations.
 
 ### 6.2 N-Quads file with explicit graph
@@ -166,6 +169,7 @@ Use case:
 - **Graph:** `http://example.com/graph/main`
 
 Use case:
+
 - Large export containing multiple graphs, but only a specific named graph is used in the project.
 
 ### 6.3 ZIP archive with multiple RDF files
@@ -175,6 +179,7 @@ Use case:
 - **ZIP file regex:** `.*\.ttl`
 
 Use case:
+
 - ZIP archive containing various files; only Turtle files are loaded into the dataset.
 
 ## 7. When to use this dataset
@@ -244,6 +249,5 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
-
 
 

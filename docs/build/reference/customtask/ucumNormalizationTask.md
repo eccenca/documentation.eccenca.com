@@ -2,10 +2,12 @@
 title: "Normalize units of measurement"
 description: "Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Normalize units of measurement
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -88,6 +90,7 @@ While all SI units and decimal prefixes are supported by default, custom or obso
 - ID: `configuration`
 - Datatype: `multiline string`
 - Default Value:
+
 ``` text
 
 # Example configuration, don't forget to remove the '#' in front of each row.
@@ -103,7 +106,7 @@ While all SI units and decimal prefixes are supported by default, custom or obso
 #       Denier  , true    , den   , g/(9.km)
 #       Grain   , true    , gr    , (45.g)/100
 #       Pound   , true    , lb    , (45359237.kg)/100000000 , # , lbm
-     
+
 ```
 
 

@@ -2,10 +2,12 @@
 title: "Snowflake SQL endpoint"
 description: "Connect to Snowflake JDBC endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Snowflake SQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -272,6 +274,5 @@ Optional pause between queries in ms.
 - ID: `queryExecution.pause`
 - Datatype: `int`
 - Default Value: `2000`
-
 
 

@@ -2,10 +2,12 @@
 title: "Embedded SQL endpoint"
 description: "Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Embedded SQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -14,13 +16,14 @@ tags:
 
 Within BUILD, several Spark-aware datasets exist — Avro, Parquet, ORC, HDFS, Hive — each optimized to leverage Spark’s parallel, in-memory execution. Complementing these table-based and file-based datasets, the **Embedded SQL Endpoint** provides a **queryable, relational interface** to workflow results or transformations. Unlike file-based formats, this endpoint exposes results as **virtual tables**, accessible via **JDBC or other SQL clients**, enabling downstream queries, reporting, or integration without requiring persistent storage.
 
-###  Concept
+### Concept
 
 The Embedded SQL Endpoint represents **workflow-generated tables**. It is **not a general-purpose query endpoint**; each table corresponds directly to workflow outputs and serves as a **source or sink** within the workflow, functioning as a **dataset** like other Spark-aware datasets and integrating with BUILD plugins in the usual way.
 
 The endpoint allows workflows to **publish results as tables** in a format compatible with standard SQL tooling. Multiple tables can be exposed per workflow if complex mappings exist. Table names can be **customized using a prefix** or automatically generated for convenience. By caching tables in memory, Spark ensures that queries execute efficiently while maintaining fault tolerance and parallelism inherent in the Spark ecosystem.
 
 Conceptually, these tables can be **consumed by other workflows or plugins** without needing to manage Spark execution details.
+
 ### Key Features
 
 - **Virtual table exposure**: Any workflow or transformation result can be turned into a SQL-accessible table.
