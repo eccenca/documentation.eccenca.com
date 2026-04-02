@@ -303,7 +303,7 @@ integrations:
       SQLite can be accessed with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
       Please have a look at
-      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
   - name: Trino
     icon: ":simple-trino:"
@@ -311,7 +311,7 @@ integrations:
       [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
       Please have a look at
-      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
   - name: Databricks
     icon: ":simple-databricks:"
@@ -319,5 +319,5 @@ integrations:
       [Databricks](http://databricks.com/) can be accessed with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
       Please have a look at
-      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/).
+      [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 

@@ -97,4 +97,3 @@ The backup file is a ZIP archive containing all knowledge graphs  (one Turtle fi
 The command will load a single backup ZIP archive into the triple store by replacing all graphs with the content of the Turtle files in the archive and deleting all graphs which are not in the archive.
 
 This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer the network connection is not used anymore and may be closed by proxies. This does not mean that the import failed.
-

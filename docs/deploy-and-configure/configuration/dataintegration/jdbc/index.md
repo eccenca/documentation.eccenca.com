@@ -48,18 +48,24 @@ Depending on the deployment model, suitable options include:
 ### Driver Registration
 
 A custom JDBC driver must be registered in the DataIntegration configuration file `dataintegration.conf`, in the `spark.sql.options` section.
-The following example shows how to register a custom JDBC driver for Databricks:
+The following example shows how to register two custom JDBC drivers for DB2 and Databricks:
 
 ```conf
 …
 spark.sql.options {
   …
-  # driver name
-  jdbc.drivers = "databricks"
+  # driver name, comma seperated
+  jdbc.drivers = "db2,databricks"
+
   # path to the jar in the docker container
   jdbc.databricks.jar =  "/opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/plugin/DatabricksJDBC.jar"
   # class name
   jdbc.databricks.name = "com.databricks.client.jdbc.Driver"
+
+  # path to the jar in the docker container
+  jdbc.db2.jar = "/opt/cmem/eccenca-DataIntegration/dist/etc/dataintegration/conf/plugin/db2jcc-db2jcc4.jar"
+  # class name
+  jdbc.db2.name = "com.ibm.db2.jcc.DB2Driver"
   …
 }
 …

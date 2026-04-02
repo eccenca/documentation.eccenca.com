@@ -62,3 +62,10 @@ Reload the workspace from the backend.
 cmemc admin workspace reload
 ```
 
+## admin workspace thread-dump
+
+Request a thread dump for all live threads.
+
+```shell-session title="Usage"
+$ cmemc admin workspace thread-dump
+```

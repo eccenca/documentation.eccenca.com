@@ -51,6 +51,7 @@ tags:
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |
 | [admin workspace](admin/workspace/index.md) | [reload](admin/workspace/index.md#admin-workspace-reload) | Reload the workspace from the backend. |
+| [admin workspace](admin/workspace/index.md) | [thread-dump](admin/workspace/index.md#admin-workspace-thread-dump) | Request a thread dump for all live threads. |
 | [admin workspace python](admin/workspace/python/index.md) | [install](admin/workspace/python/index.md#admin-workspace-python-install) | Install a python package to the workspace. |
 | [admin workspace python](admin/workspace/python/index.md) | [uninstall](admin/workspace/python/index.md#admin-workspace-python-uninstall) | Uninstall a python packages from the workspace. |
 | [admin workspace python](admin/workspace/python/index.md) | [list](admin/workspace/python/index.md#admin-workspace-python-list) | List installed python packages. |
@@ -115,12 +116,16 @@ tags:
 | [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project variables. |
 | [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
 | [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
-| [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or the query catalog. |
-| [query](query/index.md) | [list](query/index.md#query-list) | List available queries from the catalog. |
-| [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of the query catalog in your browser. |
+| [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or a query catalog. |
+| [query](query/index.md) | [list](query/index.md#query-list) | List available queries from a query catalog. |
+| [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of a query catalog in your browser. |
 | [query](query/index.md) | [status](query/index.md#query-status) | Get status information of executed and running queries. |
 | [query](query/index.md) | [replay](query/index.md#query-replay) | Re-execute queries from a replay file. |
 | [query](query/index.md) | [cancel](query/index.md#query-cancel) | Cancel a running query. |
+| [query](query/index.md) | [explain](query/index.md#query-explain) | Explain queries by showing their logical execution plan. |
+| [query](query/index.md) | [create](query/index.md#query-create) | Create a new query in a query catalog. |
+| [query](query/index.md) | [update](query/index.md#query-update) | Update an existing query in a query catalog. |
+| [query](query/index.md) | [delete](query/index.md#query-delete) | Delete queries from a query catalog. |
 | [vocabulary](vocabulary/index.md) | [open](vocabulary/index.md#vocabulary-open) | Open / explore a vocabulary graph in the browser. |
 | [vocabulary](vocabulary/index.md) | [list](vocabulary/index.md#vocabulary-list) | Output a list of vocabularies. |
 | [vocabulary](vocabulary/index.md) | [install](vocabulary/index.md#vocabulary-install) | Install one or more vocabularies from the catalog. |
