@@ -42,7 +42,7 @@ If you load and modify a loaded exploration (e.g., add a filter), Graph Insights
 Add context to the analysis by attaching text notes to important groups.
 
 - **Add note:** Right-click a group to open its context menu  and select `Add note`.
-- **Toggle visibility:** Use the group context menu to toggle the visibility of a single note, or use the context menu of the canvas (or the `Exploration` top menu) and select `Hide/Show all group notes`.
+- **Toggle visibility:** Use the group context menu to toggle the visibility of a single note, or use the context menu of the canvas (or the `Exploration` top menu) and select `Hide/Show all group notes`. This default global visibility state is saved locally and persists across browser sessions.
 
 ![Saved Exploration Context Menu](../assets/save-exploration-context-menu-and-notes.png){ class="bordered" width="75%" }
 
@@ -55,7 +55,7 @@ Add context to the analysis by attaching text notes to important groups.
 
 ## User-Defined Classes {#custom-categories}
 
-**User-defined  Graph Insights classes** are customizable tools designed to analyze data with specific goals (e.g. identifying high-risk suppliers based at a given location and having a specific contract type).
+**User-defined  Graph Insights classes** are customizable tools designed to analyze data with specific goals (e.g., identifying high-risk suppliers based at a given location and having a specific contract type).
 
 They act as **"virtual classes"**, refining the model within the exploration layer without altering the underlying ontology.
 
@@ -78,7 +78,7 @@ A user-defined Graph Insights class can be defined for any group in any explorat
 
 !!! tip "Hints"
 
-    - User-defined classes also appear in an additional specific Graph Insights class histogram for improved visibility (e.g. it allows you to see at first glance how many "High-Risk Suppliers" exist within a larger "Supplier" group).
+    - User-defined classes also appear in an additional Graph Insights class histogram for improved visibility (e.g., it allows you to see at first glance how many "High-Risk Suppliers" exist within a larger "Supplier" group).
     - You can create a user-defined class based on *another* user-defined class.
 
 

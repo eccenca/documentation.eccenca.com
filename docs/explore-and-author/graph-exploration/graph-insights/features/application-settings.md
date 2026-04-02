@@ -40,6 +40,14 @@ When no group or connection is selected, the right pane displays the **database 
     - **Classes:** Lists all available classes and their cardinality.
     - **Object Properties:** Lists all object properties with their object property assertions count.
 
-![Database Summary Panel](../assets/database-summary.png){ class="bordered" width="30%" }
+![Database Summary Panel](../assets/database-summary.png){ class="bordered" width="35%" }
 
-**Sorting:** Use the `Sort by` dropdown to order lists by `Name` (alphabetical) or `Quantity` (cardinality) to identify the largest entities.
+#### Search and View Controls
+
+Use the controls at the top of the pane to navigate the summary:
+
+- **Search:** Enter text to filter the summary lists. Use the scope dropdown to restrict the search to `Captions`, `IRIs`, or `All`.
+- **View Settings (cogwheel):**
+    - **Views:** Switch between `Tree view` and `List view`.
+    - **Sorting:** Order lists using `Sort by name` (alphabetical) or `Sort by count` (cardinality) to identify the largest entities.
+    - **Hide IRIs:** Toggles the display of the underlying identifiers.

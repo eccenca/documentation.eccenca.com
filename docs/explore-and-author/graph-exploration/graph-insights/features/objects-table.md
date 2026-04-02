@@ -17,7 +17,9 @@ The panel displays a spreadsheet view where rows represent resources and columns
 
 ![Group Table Overview](../assets/group-table.png){ class="bordered" width="85%" }
 
-- **Column Visibility:** Click `Columns` to hide/show specific data properties or reorder them via drag-and-drop.
+- **Column Visibility:** Click `Columns` to hide/show data properties, or reorder them via drag-and-drop.
+    - **Sub-class data properties:** The menu includes a dedicated expandable section listing the data properties specific to the sub-classes of the group.
+    - **Data Property details:** Hover over any item in the list to view its origin classes and datatype.
 - **Sorting:** Click a column header to sort and toggle the sorting direction.
 - **Copying Data:** Right-click any cell to copy its value.
 - **Predecessors:** The `#Predecessors` column displays the count of incoming links from the parent group. Sort this column to identify the most connected resources.
@@ -40,11 +42,11 @@ Filtering is a two-step process to prevent unnecessary database queries.
 
 ![Filter Status Icons](../assets/filtered-group-and-column.png){ class="bordered" width="85%" }
 
-### Filter Types
+### Filter Types {#filter-types}
 
+- **Resource selection column:** Check rows to restrict the group to these resources with the `Restrict to selection` button.
 - **Numeric/Date:** Range controls (greater than, less than, equals).
-- **String:** Text matching (contains, starts with, regex).
-- **Resource selection:** Check specific rows to restrict the group to those individual resources.
+- **String:** Text matching (contains, starts with, [regex](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html)).
 - **Existence:** Filter with `Keep only rows with (non-)empty cells`.
 
 ![Numeric Filter Menu](../assets/numeric-filter-nested-menu.png){ class="bordered" width="85%" }

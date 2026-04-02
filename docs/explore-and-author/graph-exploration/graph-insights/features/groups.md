@@ -6,7 +6,7 @@ Groups are sets of resources with the same class that are the starting and branc
 
 ---
 
-## Group Details
+## Group Details {#group-details}
 
 Selecting a group opens the **group details** in the right pane.
 
@@ -21,14 +21,22 @@ The header contains:
 
 ### Histogram Sections {#histograms}
 
-The **histogram sections** display the distribution of classes within a group. It allows analysts to scrutinize class composition (eg. spot unexpected or missing classes) and perform logical set operations (union, intersection, difference) to restrict the contents of the groups.
+The **histogram sections** display the distribution of classes within a group. It allows analysts to scrutinize class composition (e.g., spot unexpected or missing classes) and perform logical set operations (union, intersection, difference) to restrict the contents of the groups.
 
 - **Scope:** The panel displays counts for all **classes** (including **[user-defined classes](persistence.md#custom-categories)**) present within the selected group.
     - *Remark:* If user-defined classes are present, a second histogram is shown for better overview
-- **Hierarchy:** Use the `(+)` icons to expand a class (e.g., `Confections`) to reveal the distribution of its sub-classes.
-- **Sorting:** Use the dropdown to order bars by `Name` (Alphabetical) or `Quantity` (Cardinality).
 
 ![Histogram Panel Overview](../assets/histograms.png){ class="bordered" width="35%" }
+
+#### Search and View Controls
+
+The histogram panel includes tools to filter and organize the displayed classes:
+
+- **Search:** Enter text to filter the visible bars. Use the scope dropdown to target `Captions`, `IRIs`, or `All`.
+- **View settings (cogwheel):**
+    - **Views:** Switch between `Tree view` (respects the class hierarchy, use `(+)` icons to expand) and `List view` (flattens all items).
+    - **Sorting:** Order the bars using `Sort by name` (alphabetical) or `Sort by count` (cardinality).
+    - **Hide IRIs:** Toggles the display of the underlying identifiers on the captions.
 
 #### Resources Flagging {#flagging}
 
@@ -74,7 +82,7 @@ As filters are applied, the **group caption** updates to reflect the mathematica
 
 The **expansion menu** of a group presents the options available for adding a non-empty step to the traversal. It tells you which classes are reachable via which direction of which object properties.
 
-1. **Action:** Click any group to open the menu.
+1. **Action:** Point at a group and click the arrow that appears to its right.
 2. **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
 3. **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
@@ -100,3 +108,15 @@ Right-click a group or its caption to access its context menu.
 
     - The query is intended to be used directly on the database for various datasets with the same model (or slight variations thereof).
     - Use the notes to explain what is the content of the group in your own words. This is particularly relevant for collaborative work.
+
+
+### Removing Filters {#remove-group-filters}
+
+You can selectively remove different types of filters applied to a group directly from its context menu.
+
+- **Action:** Right-click a filtered group to open its context menu and select a removal action:
+    - `Remove class filters:` Clears set operations applied via the [histograms](#filtering).
+    - `Remove data property filters:` Clears filters (e.g., numeric, string matches) applied via the [resource table](objects-table.md#filtering).
+    - `Remove resource selection filters:` Clears filters that restricted the group to specific resources (e.g., via [table row checkboxes](objects-table.md#filter-types) or [restricting to flagged resources](objects.md#restrict-groups-by-flags)).
+    - `Remove all filters:` Clears all the above filters.
+- **Outcome:** The selected filter layer is removed, the group updates, and the exploration tree automatically recalculates to reflect the restored resources.

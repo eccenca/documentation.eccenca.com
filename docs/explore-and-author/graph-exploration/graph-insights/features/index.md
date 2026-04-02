@@ -21,3 +21,23 @@ Documentation for the core components of the Graph Insights interface.
 
 - **[Histograms](groups.md#histograms):** class distribution analysis and facet-like set operations (union, intersection, difference).
 - **[Persistence](persistence.md):** Saved explorations, user-defined classes, and JSON sharing.
+
+---
+
+## Global Keyboard Navigation
+
+Graph Insights supports standard keyboard navigation for accessibility and rapid interaction across all views, including the class tree, data tables, and menus.
+
+- `TAB` / `SHIFT` + `TAB`: Moves focus to the next or previous interactive element.
+- Arrow Keys (`UP`, `DOWN`, `LEFT`, `RIGHT`): Navigates within lists, trees, menus, and subpanels.
+- `ENTER`: Triggers the focused element (e.g., a button or menu item) or executes the default action.
+- `SPACE`: Toggles a checkbox state or triggers the focused element.
+- `ESC`: Closes the currently active temporary element (e.g., popup windows, context menus, or dropdowns).
+- `SHIFT` + `ENTER`: Inserts a line break within text input fields (e.g., group notes).
+
+### Context Menus
+
+To open a context menu using the keyboard:
+
+- **Windows:** Press `SHIFT` + `F10`.
+- **macOS:** Press `CTRL` + `ENTER` *(Note: Supported in Firefox; Chrome behavior may vary)*.

@@ -11,23 +11,23 @@ This tutorial demonstrates a workflow of Graph Insights using the **Northwind** 
 
 !!! info "Demo Data"
 
-    The demo data using in this tutorial is available here: [northwind-data.ttl](assets/northwind-data.ttl).
+    The demo data used in this tutorial is available here: [northwind-data.ttl](assets/northwind-data.ttl).
     You can import the data:
 
-    - by using the web interface (Explore -> Knowledge graphs → Add new graph) or
+    - by using the web interface (Explore → Knowledge graphs → Add new graph) or
     - by using the [command line interface](../../../automate/index.md):
 
         ```sh
         cmemc graph import northwind-data.ttl http://example.org/northwind/
         ```
 
-    !!! tip "Marketplace Package (preview)"
+!!! tip "Marketplace Package (preview)"
 
-        The demo data is also available as a _Marketplace Package_ and can be installed with `cmemc`:
+    The demo data is also available as a _Marketplace Package_ and can be installed with `cmemc`:
 
-        ```sh
-        cmemc package install ecc-northwind-project
-        ```
+    ```sh
+    cmemc package install ecc-northwind-project
+    ```
 
 ## Business Scenario
 
@@ -47,7 +47,7 @@ Every exploration requires a starting point. We begin with the central entity: T
 2. Drag it to the center of the canvas.
 3. **Outcome:** A group appears, representing the entire inventory (e.g., 77 Products).
 
-![Start with Product Category](assets/tutorial-start-with-product.png){ class="bordered" width="80%" }
+![Start with Product Category](assets/tutorial-start-with-product.png){ class="bordered" width="65%" }
 
 ---
 

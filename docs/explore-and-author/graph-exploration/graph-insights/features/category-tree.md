@@ -19,7 +19,14 @@ The tree displays the hierarchical taxonomy of the dataset:
 
 - **Hierarchy:** Parent-child relationships (e.g., `Agent` &rarr; `Customer`) reflect the underlying schema.
 - **Counts:** The number in parentheses (e.g., `(132)`) indicates the cardinality of the class.
-- **Search:** Filters the tree to locate rapidly a specific class (or saved exploration).
+
+### Search and View Controls
+
+- **Search:** Enter text to locate a class or saved exploration.
+    - *Note:* Initiating a search automatically switches the display into a filtered flat list view and disables the view settings until the search is cleared.
+- **View Settings (cogwheel):** When the search bar is empty, click the cogwheel to configure the display:
+    - **Views:** Switch between `Tree view` (hierarchical) and `List view` (flat).
+    - **Sorting:** Order the items using `Sort by name` or `Sort by count`.
 
 ### Start an Exploration
 
