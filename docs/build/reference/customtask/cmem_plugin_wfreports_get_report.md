@@ -1,6 +1,6 @@
 ---
 title: "Get workflow report"
-description: "Output the last report of a workflow as a JSON file."
+description: "Output a workflow execution report as a JSON file."
 icon: octicons/cross-reference-24
 tags: 
     - WorkflowTask
@@ -16,12 +16,18 @@ tags:
     e.g. with cmemc.
 
 
-This workflow operator retrieves the most recent execution report of a specified workflow
-and outputs it as a JSON file.
+This workflow operator retrieves a specific execution report of a workflow and outputs it
+as a JSON file.
 
-The plugin queries the backend API to list all available reports for the given workflow,
-sorts them by timestamp, and downloads the latest report. The report contains detailed information
-about the workflow execution, including task results, execution times, and any errors or warnings.
+The plugin queries the backend API to list all available reports for the given workflow and
+allows you to select which report to retrieve:
+
+- **Latest Report**: The most recent execution report
+- **Latest Report with Errors**: The most recent failed execution report
+- **Latest Report with Warning or Errors**: The most recent report with warnings (successful or not)
+
+The report contains detailed information about the workflow execution, including task results,
+execution times, and any errors or warnings.
 
 ## Output
 
@@ -30,7 +36,8 @@ The plugin outputs a single JSON file entity containing the complete workflow ex
 ## Usage
 
 This operator is useful for:
-- Monitoring workflow execution results
+- Monitoring workflow execution results and failures
+- Debugging recent errors or warnings
 - Creating audit trails of workflow runs
 - Archiving execution reports for compliance purposes
 - Feeding execution data into downstream analysis tasks
@@ -40,11 +47,31 @@ This operator is useful for:
 
 ### Workflow
 
-
+The workflow from which the reports get listed.
 
 - ID: `workflow_id`
 - Datatype: `string`
 - Default Value: `None`
+
+
+
+### Report
+
+Selector for reports to be shown.
+
+- ID: `report_selected`
+- Datatype: `string`
+- Default Value: `Latest Report`
+
+
+
+### Time Period
+
+The time period in hours of the workflow execution reports that can be listed.Allows only full hours. Defaults to 0 for every execution report.
+
+- ID: `time_period`
+- Datatype: `Long`
+- Default Value: `0`
 
 
 

@@ -70,13 +70,6 @@ https://www.mainegenealogy.net/soundex_converter.asp.
 * `hairs`, `hark`, `hars`, `hayers`, `heers` and `hiers` are all mapped to `h093`.
 * All sorts of variations of `lambard`, such as `lambart`, `lambert`, `lambird` or `lampaert`, lead to `l7081096`. 
 
-## Related plugins
-
-Other phonetic algorithms usually associated with Soundex are the variations or improvements implemented by the
-[`NYSIIS`](https://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
-and [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms. The corresponding linguistic transformer plugins
-are named accordingly.
-
 
 ## Parameter
 

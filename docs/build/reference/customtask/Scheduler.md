@@ -10,14 +10,14 @@ tags:
 
 
 
-The eccenca Build plugin `Scheduler` executes a given workflow at specified intervals.
+The Scheduler plugin executes a given workflow at specified intervals.
 
 ## Description
 
-The `Scheduler` executes an existing workflow periodically. The workflow is specified via its _name_ in the `task`
+The Scheduler executes an existing workflow periodically. The workflow is specified via its _name_ in the `task`
 parameter, and the period is set with the `interval` (number of minutes). The workflow will then be scheduled for a
 _periodic execution **without termination**_, i.e. it will run _until cancelled_ or until an otherwise erroneous event
-occurs. In order to cancel a workflow, consider using the `CancelWorkflow` plugin.
+occurs. In order to cancel a workflow, consider using the Cancel Workflow plugin.
 
 Additionally to the _period_ or interval of execution, we can also control the _starting time_ with the parameter
 `startTime`. The required format for this starting time is the international standard
@@ -37,14 +37,9 @@ circumstances, so as to avoid the accumulation of errors (snowball effect).
 
 ### Special considerations
 
-The `Scheduler` will execute the given workflow _periodically_, regardless of the position in time of the _start time_.
+The Scheduler will execute the given workflow _periodically_, regardless of the position in time of the _start time_.
 In other words: If the start time lies in the _past_, then the workflow _will_ be executed (periodically) once the
 _next_ period occurs. If the start time lies in the _future_, then this is simply a _delay_.
-
-## Relation to other plugins
-
-As mentioned, the `CancelWorkflow` plugin can be used on par in order to _cancel_ the otherwise never-ending execution
-of a workflow.
 
 
 ## Parameter

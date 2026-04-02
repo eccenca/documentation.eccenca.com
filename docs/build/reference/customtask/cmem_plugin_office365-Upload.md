@@ -21,6 +21,7 @@ For this to work a registered app in Microsoft's Entra ID space is necessary.
 Further information can be found [here](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
 After registering an application, it needs to be granted application wide API permissions:
+
 - Files.Read.All, Files.Write.All
 - Sites.Read.All, Sites.Write.All
 
@@ -29,6 +30,7 @@ With this setup, anyone with the secret can access all users' OneDrives and all 
 sites.
 
 #### Important
+
 Make sure only trusted admins can create or manage secrets!
 Whoever holds the secrets has all the access to granted resources so best not to distribute
 recklessly.

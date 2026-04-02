@@ -1,6 +1,6 @@
 ---
 title: "Numeric reduce"
-description: "Strip all non-numeric characters from a string."
+description: "Strips all non-numeric characters from a string."
 icon: octicons/cross-reference-24
 tags: 
     - TransformOperator
@@ -10,7 +10,7 @@ tags:
 
 
 
-Strip all non-numeric characters from a string.
+Strips all non-numeric characters from a string.
 
 ## Examples
 

@@ -126,18 +126,17 @@ Neo4j label for all entities to be covered by this dataset. When reading, all no
 
 
 
-### Clear before execution
-
-If set to true, all nodes with the specified label will be removed, before executing a workflow that writes to this graph.
-
-- ID: `clearBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `true`
-
-
-
 
 
 ## Advanced Parameter
 
-`None`
+### Clear before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true, all nodes with the specified label will be removed, before executing a workflow that writes to this graph.
+
+- ID: `clearBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+

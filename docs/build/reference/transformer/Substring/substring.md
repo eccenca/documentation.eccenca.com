@@ -139,7 +139,7 @@ The beginning index, inclusive.
 
 ### End index
 
-The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string starting with 'beginIndex' is returned. If negative, -endIndex characters are removed from the end
+The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string starting with 'beginIndex' is returned. If negative, -endIndex characters are removed from the end.
 
 - ID: `endIndex`
 - Datatype: `int`

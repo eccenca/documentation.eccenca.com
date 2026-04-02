@@ -133,43 +133,13 @@ For detailed prompting guidance, see [OpenAI's Text Generation Guide](https://pl
 
 ## Parameter
 
-### Base URL
-
-The base URL of the OpenAI compatible API (without endpoint path).
-
-- ID: `base_url`
-- Datatype: `string`
-- Default Value: `https://api.openai.com/v1/`
-
-
-
-### API Type
-
-Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
-
-- ID: `api_type`
-- Datatype: `enumeration`
-- Default Value: `OPENAI`
-
-
-
-### API key
-
-An optional API key for authentication.
-
-- ID: `api_key`
-- Datatype: `password`
-- Default Value: `None`
-
-
-
 ### Instruct Model
 
 The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). **Note:** For STRUCTURED_OUTPUT format, only certain models support structured outputs. See [OpenAI Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs) for supported models.
 
 - ID: `model`
 - Datatype: `string`
-- Default Value: `gpt-4o-mini`
+- Default Value: `None`
 
 
 
@@ -186,6 +156,36 @@ The instruction prompt template. Please have a look at the task documentation fo
 
 
 ## Advanced Parameter
+
+### Base URL
+
+The base URL of the OpenAI compatible API (without endpoint path). If left empty CMEMs internal LLM proxy is used.
+
+- ID: `base_url`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### API Type
+
+Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
+
+- ID: `api_type`
+- Datatype: `enumeration`
+- Default Value: `OPENAI`
+
+
+
+### API key
+
+An optional API key for authentication. When using CMEMs internal LLM proxy this parameter is ignored and `EXPLORE_AI_APIKEY` in `environments/config.env` is used.
+
+- ID: `api_key`
+- Datatype: `password`
+- Default Value: `None`
+
+
 
 ### API Version
 

@@ -14,7 +14,7 @@ The Knowledge Graph plugin is a dataset for reading and writing RDF to a knowled
 
 ## Description
 
-The Knowledge Graph plugin has the technical ID `eccencaDataPlatform`. This ID contains a reference to
+The Knowledge Graph plugin is named after its integration with
 [**eccenca Explore**](https://documentation.eccenca.com/latest/explore-and-author/), also known as `DataPlatform`.
 
 Conceptually, the main responsibility of this plugin is to be a **RDF dataset** for reading and writing RDF statements
@@ -29,8 +29,8 @@ documentation for further details):
 * **Explore** is for browsing and exploring knowledge graphs
 * **Build** is for creating and integrating knowledge graphs
 
-This plugin, i.e. `eccencaDataPlatform`, is thus responsible for _creating_ and _integrating_ knowledge graphs within
-eccenca Build. The knowledge graph itself is part of `DataPlatform`, which can be
+This plugin is thus responsible for _creating_ and _integrating_ knowledge graphs within eccenca Build.
+The knowledge graph itself is part of `DataPlatform`, which can be
 [explored](https://documentation.eccenca.com/latest/explore-and-author/graph-exploration/) in the UI of eccenca CMEM
 under the Explore module.
 
@@ -46,19 +46,6 @@ Another tutorial showcasing how to _consume_ the knowledge graph, i.e. how to us
 than as a _sink_, is [this example](https://documentation.eccenca.com/latest/consume/consuming-graphs-with-sql-databases/)
 with a SQL database as a source dataset.
 
-## Related plugins
-
-Other types of RDF datasets are the **in-memory dataset** and the **RDF dataset**. These are worth considering if the
-information is short-lived or the dataset is small. A more durable and resilient solution is to use an Enterprise
-**Knowledge Graph**, which is exactly what this plugin does.
-
-Next to the knowledge graph embedded within eccenca CMEM, there is the possibility to use an external
-**SPARQL endpoint**. The _embedded_ knowledge graph of CMEM is an essential component of CMEM as
-_semantic data management software_. The additional possibility of integrating with _external_ knowledge graphs via
-the SPARQL endpoint is merely a small part of the possibilities to
-[consume](https://documentation.eccenca.com/latest/consume/) data within CMEM.
-
-
 
 ## Parameter
 
@@ -69,16 +56,6 @@ The URI of the named graph.
 - ID: `graph`
 - Datatype: `graph uri`
 - Default Value: `None`
-
-
-
-### Clear graph before workflow execution
-
-If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.
-
-- ID: `clearGraphBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
 
 
 
@@ -94,7 +71,7 @@ SPARQL query timeout in milliseconds. By default, a value of zero is used. This 
 
 ### Optimized entity retrieval
 
-Optimized retrieval method to remove load from the underlying triple store. Query parallelism is limited and cheaper queries are executed against the backend. By putting the main work on DataIntegration side, the RDF backend is kept responsive.
+Optimized retrieval method to remove load from the underlying triple store. Query parallelism is limited and cheaper queries are executed against the backend. By putting the main work on DataIntegration side, the RDF backend is kept responsive. Only used when reading from the graph.
 
 - ID: `optimizedRetrieve`
 - Datatype: `boolean`
@@ -118,7 +95,7 @@ The named endpoint within eccenca DataPlatform.
 
 ### Page size
 
-The number of entities to be retrieved per SPARQL query. This is the page size used when paging.
+The number of entities to be retrieved per SPARQL query. This is the page size used when paging. Only used when reading from the graph.
 
 - ID: `pageSize`
 - Datatype: `int`
@@ -128,7 +105,7 @@ The number of entities to be retrieved per SPARQL query. This is the page size u
 
 ### Pause time
 
-The number of milliseconds to wait between subsequent query
+The number of milliseconds to wait between subsequent query. Only used when reading from the graph.
 
 - ID: `pauseTime`
 - Datatype: `int`
@@ -158,7 +135,7 @@ The number of milliseconds to wait until a failed query is retried.
 
 ### Strategy
 
-The strategy for retrieving entities. There are three options: `simple` retrieves all entities using a single query; `subQuery` also uses a single query, which is optimized for Virtuoso; `parallel` executes multiple queries in parallel, one for each entity property.
+The strategy for retrieving entities. There are three options: `simple` retrieves all entities using a single query; `subQuery` also uses a single query, which is optimized for Virtuoso; `parallel` executes multiple queries in parallel, one for each entity property. Only used when reading from the graph.
 
 - ID: `strategy`
 - Datatype: `enumeration`
@@ -166,13 +143,33 @@ The strategy for retrieving entities. There are three options: `simple` retrieve
 
 
 
+### Clear graph before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.
+
+- ID: `clearGraphBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
 ### Entity list
 
-A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace.
+A list of entities to be retrieved. If not given, all entities will be retrieved. Multiple entities are separated by whitespace. Only used when reading from the graph.
 
 - ID: `entityList`
 - Datatype: `multiline string`
 - Default Value: `None`
+
+
+
+### Streaming upload
+
+Use streaming HTTP upload (chunked transfer encoding) instead of multipart file upload when writing to the Graph Store. Streaming avoids buffering data to a temporary file but does not support automatic retries on failure.
+
+- ID: `streamingUpload`
+- Datatype: `boolean`
+- Default Value: `false`
 
 
 

@@ -16,12 +16,13 @@ A custom workflow task is an operator that can be used in a workflow.
 |-------------:|:-------------------------|
  | [Add project files](addProjectFiles.md) | Adds file resources to the project that are piped into the input port. |
  | [Cancel Workflow](CancelWorkflow.md) | Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty. |
+ | [Clear dataset](clearDataset.md) | Clears the dataset that is connected to the output of this operator. |
  | [Combine CSV files](combine-csv.md) | Combine CSV files with the same structure to one dataset. |
  | [Concatenate to file](ConcatenateToFile.md) | Concatenates values into a file. |
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
  | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization's Salesforce account. |
  | [Delete project files](deleteProjectFiles.md) | Removes file resources from the project based on a regular expression. |
- | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. |
+ | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. Since this operator accepts a flexible input schema, it can only be connected to operators that provide a non-flexible output schema. A typical way to achieve this is to place a transform operator before it, which produces a fixed output schema. |
  | [Download file](downloadFile.md) | Downloads a file from a given URL. |
  | [Download Nextcloud files](cmem_plugin_nextcloud-Download.md) | Download files from a given Nextcloud instance. |
  | [Download Office 365 Files](cmem_plugin_office365-Download.md) | Download files from Microsoft OneDrive or Sites |
@@ -36,7 +37,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Generate base36 IRDIs](cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md) | Create unique ECLASS IRDIs. |
  | [Generate SHACL shapes from data](cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md) | Generate SHACL node and property shapes from a data graph |
  | [Get project files](getProjectFiles.md) | Get file resources from the project. |
- | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output the last report of a workflow as a JSON file. |
+ | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output a workflow execution report as a JSON file. |
  | [GraphQL query](cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) | Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset. |
  | [Join tables](Merge.md) | Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links. |
  | [jq](cmem-plugin-jq-workflow.md) | Process a JSON document with a jq filter / program. |
@@ -55,9 +56,11 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Parse XML](XmlParserOperator.md) | Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities. |
  | [Parse YAML](cmem_plugin_yaml-parse.md) | Parses files, source code or input values as YAML documents. |
  | [Pivot](Pivot.md) | The pivot operator takes data in separate rows, aggregates it and converts it into columns. |
+ | [Reason](cmem_plugin_reason-plugin_reason-ReasonPlugin.md) | Performs OWL reasoning. |
  | [Request RDF triples](tripleRequestOperator.md) | A task that requests all triples from an RDF dataset. |
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
+ | [Search for Logs](cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md) | Search and retrieve logs from a Logpoint SIEM system with flexible schema output. |
  | [Search Vector Embeddings](cmem_plugin_pgvector-Search.md) | Search for top-k metadata stored in Postgres Vector Store (PGVector). |
  | [Send email](SendEMail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |
@@ -81,5 +84,6 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Upload SSH files](cmem_plugin_ssh-Upload.md) | Upload files to a given SSH instance. |
  | [Validate Entities](cmem_plugin_validation-validate-ValidateEntities.md) | Use a JSON schema to validate entities or a JSON dataset. |
  | [Validate Knowledge Graph](cmem_plugin_validation-validate-ValidateGraph.md) | Use SHACL shapes to validate resources in a Knowledge Graph. |
+ | [Validate OWL consistency](cmem_plugin_reason-plugin_validate-ValidatePlugin.md) | Validates the consistency of an OWL ontology. |
  | [Validate XML](validateXsdOperator.md) | Validates an XML dataset against a provided XML schema (XSD) file. Any errors are written to the output. Can be used in conjunction with the `Cancel Workflow` operator in order to stop the workflow if errors have been found. |
  | [XSLT](xsltOperator.md) | A task that converts an XML resource via an XSLT script and writes the transformed output into a file resource. |

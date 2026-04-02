@@ -59,7 +59,7 @@ Connection parameters
 
 #### Account URL hostname
 
-The hostname which is used for the connection. Usually, this is something like '<orgname>-<account_name>.snowflakecomputing.com'
+The hostname which is used for the connection. Usually, this is something like `<orgname>-<account_name>.snowflakecomputing.com`
 
 - ID: `connection.host`
 - Datatype: `string`
@@ -166,7 +166,7 @@ Parameters related to reading from the database.
 
 #### Source query
 
-Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Can be left empty when full tables are loaded. Note: Even if columns with spaces/special characters are named in the query, they need to be referred to URL-encoded in subsequent transformations.
+Source query (e.g. `SELECT TOP 10 * FROM table WHERE x = true`. Can be left empty when full tables are loaded. Note: Even if columns with spaces/special characters are named in the query, they need to be referred to URL-encoded in subsequent transformations.
 
 - ID: `read.sourceQuery`
 - Datatype: `code-sql`
@@ -228,7 +228,7 @@ Parameters related to writing to the database.
 
 #### Write strategy
 
-If this dataset is written to, it can be selected if data is overwritten or appended.'
+If this dataset is written to, it can be selected if data is overwritten or appended.
 
 - ID: `write.writeStrategy`
 - Datatype: `enumeration`
