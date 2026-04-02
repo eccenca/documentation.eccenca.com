@@ -43,7 +43,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
 
     ---
 
-    - [Reconfigure Workflow Tasks](workflow-reconfiguration/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
+    - [Reconfigure Workflow Tasks](workflows/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
     - [Project and Global Variables](variables/index.md) --- Define and reuse variables across tasks and projects.
 
 - :material-book-open-variant-outline: Reference
