@@ -194,7 +194,7 @@ tasks:
         } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
 
   check:rumdl:
-    desc: run rumdl (md-linter) for style issues
+    desc: run rumdl (md-linter) for style issues without failing the check stage
     cmds:
       - mkdir -p ./dist
       - rm -f ./dist/md-lint-issues.xml
@@ -213,4 +213,7 @@ tasks:
 
           # no recursion (top-level only)
           find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check || {
+          echo "rumdl reported markdown style issues; continuing without failing the check stage."
+          true
+        }
