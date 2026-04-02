@@ -82,8 +82,8 @@ As filters are applied, the **group caption** updates to reflect the mathematica
 
 The **expansion menu** of a group presents the options available for adding a non-empty step to the traversal. It tells you which classes are reachable via which direction of which object properties.
 
-1.  **Action:** Point at a group and click the arrow that appears to its right.
-2.  **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
+1. **Action:** Point at a group and click the arrow that appears to its right.
+2. **Select:** The menu presents the hierarchy of connecting (directed) **object properties**, organized by target **class**.
     - If the data model includes sub-object properties, point the parent object property to open the sub-menu with its child object property.*
 3. **Action:** Click an object property with the required direction for the selected target **class** to add a new connection beam to the exploration.
 
