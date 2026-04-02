@@ -2,11 +2,13 @@
 title: "Generate base36 IRDIs"
 description: "Create unique ECLASS IRDIs."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Generate base36 IRDIs
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -22,10 +24,10 @@ IRDIs are unique for each combination of (non-advanced) parameters.
 If no input path is configured, values are read from the URIs of the input (Transformation Input).
 
 - All fields of the IRDI are configurable, except `Item Code`, which is created by the plugin.
-  - Created IRDIs are unique per configuration.
+    - Created IRDIs are unique per configuration.
 - Specify a graph that stores the state of Item Codes.
 - Input and output paths are configurable.
-  - if no input path is configured, values are read from the URIs of the input
+    - if no input path is configured, values are read from the URIs of the input
     (transformation input).
 
 
@@ -132,6 +134,5 @@ Path from which input values are taken. If empty, values are read from the URIs 
 - ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `None`
-
 
 

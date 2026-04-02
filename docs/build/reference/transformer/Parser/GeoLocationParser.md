@@ -2,10 +2,12 @@
 title: "Parse geo location"
 description: "Parses and normalizes geo locations like continents, countries, states and cities."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Parse geo location
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -13,6 +15,7 @@ tags:
 ## What does this plugin do?
 
 This plugin **parses and normalizes geolocations**.
+
 ### What is Geolocation?
 
 The term "geolocation" means two things. Usually, it is used primarily as a noun referring to the **process** or technique of _determining the physical location_ of a person or an item, e.g. by means of GPS or IP addresses. On the other hand – and this is the meaning of the word that _we_'ll use – it is also used to describe the _actual location_ that is identified.
@@ -51,6 +54,7 @@ The `continent` parameter refers to a _continent code_. Although these contintne
 | North America | NA   |                                                                   |
 | Oceania       | OC   | We don't use the alternative `UA`                                 |
 | South America | SA   |                                                                   |
+
 ##### Country and Numeric Country
 
 Both `country` and `numericCountry` refer to the [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code, such as `AND` for Andorra, as can be found in the list of [officially assigned ISO 3166-1 alpha-3 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3#Officially_assigned_code_elements).
@@ -280,9 +284,9 @@ As a last level of geospatial precision, we have the `city`. Currently, this doe
 
 What type of location should be parsed.
 
-- ID: `parseTypeId`
-- Datatype: `enumeration`
-- Default Value: `None`
+* ID: `parseTypeId`
+* Datatype: `enumeration`
+* Default Value: `None`
 
 
 
@@ -290,9 +294,9 @@ What type of location should be parsed.
 
 Set to true if the full state name should be output instead of the 2-letter code.
 
-- ID: `fullStateName`
-- Datatype: `boolean`
-- Default Value: `true`
+* ID: `fullStateName`
+* Datatype: `boolean`
+* Default Value: `true`
 
 
 

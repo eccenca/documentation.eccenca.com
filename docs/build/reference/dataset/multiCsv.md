@@ -2,10 +2,12 @@
 title: "Multi CSV ZIP"
 description: "Reads from or writes to multiple CSV files from/to a single ZIP file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Multi CSV ZIP
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -139,13 +141,12 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 
 
 
-### Optionally trim whitespace and non-printable characters.
+### Optionally trim whitespace and non-printable characters
 
 If set to true, this will trim whitespace and non-printable characters from the contents of the CSV dataset.
 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

@@ -2,11 +2,13 @@
 title: "Execute Instructions"
 description: "Send instructions (prompt) to an LLM and process the result."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Execute Instructions
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -80,12 +82,14 @@ class StructuredOutput(BaseModel):
 ## Performance Features
 
 Parallel Processing:
+
 - **Concurrent Requests**: Configurable semaphore-controlled API calls
 - **Batch Processing**: Entities processed in configurable batch sizes
 - **Rate Limiting**: Optional delays between requests
 - **Memory Optimization**: Streaming processing with generator patterns
 
 Error Handling:
+
 - **Graceful Degradation**: Continue processing on API errors (configurable)
 - **Detailed Logging**: Comprehensive error reporting and debugging information
 - **Workflow Integration**: Proper cancellation support and progress reporting
@@ -93,11 +97,13 @@ Error Handling:
 ## API Compatibility
 
 Supported Providers:
+
 - **OpenAI**: Direct API access with full feature support
 - **Azure OpenAI**: Enterprise Azure-hosted services with API versioning
 - **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints
 
 Authentication:
+
 - **API Keys**: Secure password-type parameters for API authentication
 - **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration
 - **Flexible Endpoints**: Custom base URLs for various providers
@@ -105,6 +111,7 @@ Authentication:
 ## Advanced Configuration
 
 ### Message Templates
+
 Customize the conversation structure beyond simple prompts:
 
 ```json
@@ -115,6 +122,7 @@ Customize the conversation structure beyond simple prompts:
 ```
 
 ### Performance Tuning
+
 - **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)
 - **Timeout Management**: Request-level timeout configuration
 - **Concurrency Limits**: Prevent rate limiting with request throttling
@@ -234,6 +242,7 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 - ID: `messages_template`
 - Datatype: `code-json`
 - Default Value:
+
 ``` json
 [
     {
@@ -266,6 +275,7 @@ The Pydantic schema definition with a mandatory class named `StructuredOutput(Ba
 - ID: `pydantic_schema`
 - Datatype: `code-python`
 - Default Value:
+
 ``` python
 from pydantic import BaseModel
 
@@ -315,6 +325,4 @@ Delay between API requests in seconds to respect rate limits.
 - ID: `request_delay`
 - Datatype: `double`
 - Default Value: `0.0`
-
-
 

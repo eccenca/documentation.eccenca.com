@@ -2,11 +2,13 @@
 title: "Store Vector Embeddings"
 description: "Store embeddings into Postgres Vector Store (PGVector)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Store Vector Embeddings
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -137,6 +139,5 @@ The number of entries to be processed in batch.
 - ID: `batch_processing_size`
 - Datatype: `Long`
 - Default Value: `100`
-
 
 

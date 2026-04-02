@@ -2,10 +2,12 @@
 title: "In-memory dataset"
 description: "A Dataset that holds all data in-memory."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # In-memory dataset
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,6 +17,7 @@ tags:
 The **in-memory dataset** is a small embedded RDF store that keeps all data **in memory** and exposes it via SPARQL. It is intended as a **temporary working graph** inside workflows, not as a large or persistent storage.
 
 Typical use cases:
+
 - Collecting intermediate results during a workflow run.
 - Storing small lookup graphs used by downstream operators.
 - Testing or prototyping workflows without configuring an external RDF store.
@@ -28,6 +31,7 @@ Typical use cases:
     - After an application restart, the dataset contents are empty again.
 
 Within a workflow:
+
 - The dataset can be used as both **input** and **output**:
     - Upstream operators can write triples/entities/links into it.
     - Downstream operators can read from it via SPARQL-based mechanisms.
@@ -117,6 +121,5 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearGraphBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

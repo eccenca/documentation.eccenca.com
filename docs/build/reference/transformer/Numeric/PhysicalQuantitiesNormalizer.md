@@ -2,10 +2,12 @@
 title: "Normalize physical quantity"
 description: "Normalizes physical quantities. By default, all quantities are normalized to their base unit (SI), which is overridable. For instance, lengths will be normalized to metres by default."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Normalize physical quantity
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -25,6 +27,7 @@ The physical magnitudes are expected to be expressed in the form `{Number}{UnitP
 Spaces between the number and the physical unit, consisting of unit prefix and symbol, are optional.
 
 Additionally:
+
 * If one input is provided, the physical quantities are parsed from the provided strings of the form `"1 km"`.
 * If two inputs are provided, the numeric values are parsed from the first input and the units from the second input.
 
@@ -36,6 +39,7 @@ Additionally:
 
 Time is expressed in seconds (symbol: `s`).
 The following alternative symbols are supported:
+
 * `mo_s`: day*29.53059
 * `mo_g`: year/12.0
 * `a`: day*365.25
@@ -53,6 +57,7 @@ The following alternative symbols are supported:
 
 Length is expressed in metres (symbol: `m`).
 The following alternative symbols are supported:
+
 * `in`: c(cm*254.0)
 * `nmi`: m*1852.0
 * `Ao`: dnm
@@ -70,6 +75,7 @@ The following alternative symbols are supported:
 
 Mass is expressed in kilograms (symbol: `kg`).
 The following alternative symbols are supported:
+
 * `lb`: lb
 * `ston`: hlb*20.0
 * `t`: Mg
@@ -88,6 +94,7 @@ The following alternative symbols are supported:
 
 Electric current is expressed in amperes (symbol: `A`).
 The following alternative symbols are supported:
+
 * `Bi`: daA
 * `Gb`: cm·(A/m)*250.0/[one?]
 
@@ -96,6 +103,7 @@ The following alternative symbols are supported:
 
 Temperature is expressed in kelvins (symbol: `K`).
 The following alternative symbols are supported:
+
 * `Cel`: ℃
 
 
@@ -111,6 +119,7 @@ Luminous intensity is expressed in candelas (symbol: `cd`).
 
 Area is expressed in square metres (symbol: `m²`).
 The following alternative symbols are supported:
+
 * `m2`: m²
 * `ar`: hm²
 * `syd`: ((c(cm*254.0))*12.0)*3.0²
@@ -124,6 +133,7 @@ The following alternative symbols are supported:
 
 Volume is expressed in cubic metres (symbol: `㎥`).
 The following alternative symbols are supported:
+
 * `st`: [㎥?]
 * `bf`: (c(cm*254.0)³)*144.0
 * `cyd`: ((c(cm*254.0))*12.0)*3.0³
@@ -139,6 +149,7 @@ The following alternative symbols are supported:
 
 Energy is expressed in joules (symbol: `J`).
 The following alternative symbols are supported:
+
 * `cal_IT`: (J*41868.0)/10000.0
 * `eV`: J*1.602176487E-19
 * `cal_m`: (J*419002.0)/100000.0
@@ -150,6 +161,7 @@ The following alternative symbols are supported:
 
 Angle is expressed in radians (symbol: `rad`).
 The following alternative symbols are supported:
+
 * `circ`: [one?]·rad*2.0
 * `gon`: ([one?]·rad/180.0)*0.9
 * `deg`: [one?]·rad/180.0
@@ -159,40 +171,40 @@ The following alternative symbols are supported:
 
 ### Others
 
-- `1/m`, derived units: `Ky`: c(1/m)
-- `kg/(m·s)`, derived units: `P`: g/(s·cm)
-- `bit/s`, derived units: `Bd`: bit/s
-- `bit`, derived units: `By`: bit*8.0
-- `Sv`
-- `N`
-- `Ω`, derived units: `Ohm`: Ω
-- `T`, derived units: `G`: T/10000.0
-- `sr`, derived units: `sph`: [one?]·sr*4.0
-- `F`
-- `C/kg`, derived units: `R`: (C/kg)*2.58E-4
-- `cd/m²`, derived units: `sb`: cd/cm², `Lmb`: cd/([one?]·cm²)
-- `Pa`, derived units: `bar`: Pa*100000.0, `atm`: Pa*101325.0
-- `kg/(m·s²)`, derived units: `att`: k(g·(m/s²)*9.80665)/cm²
-- `m²/s`, derived units: `St`: cm²/s
-- `A/m`, derived units: `Oe`: (A/m)*250.0/[one?]
-- `kg·m²/s²`, derived units: `erg`: cm²·g/s²
-- `kg/m³`, derived units: `g%`: g/dl
-- `mho`
-- `V`
-- `lx`, derived units: `ph`: lx/10000.0
-- `m/s²`, derived units: `Gal`: cm/s², `m/s2`: m/s²
-- `m/s`, derived units: `kn`: m*1852.0/h
-- `m·kg/s²`, derived units: `gf`: g·(m/s²)*9.80665, `lbf`: lb·(m/s²)*9.80665, `dyn`: cm·g/s²
-- `m²/s²`, derived units: `RAD`: cm²·g/(s²·hg), `REM`: cm²·g/(s²·hg)
-- `C`
-- `Gy`
-- `Hz`
-- `H`
-- `lm`
-- `W`
-- `Wb`, derived units: `Mx`: Wb/1.0E8
-- `Bq`, derived units: `Ci`: Bq*3.7E10
-- `S`
+* `1/m`, derived units: `Ky`: c(1/m)
+* `kg/(m·s)`, derived units: `P`: g/(s·cm)
+* `bit/s`, derived units: `Bd`: bit/s
+* `bit`, derived units: `By`: bit*8.0
+* `Sv`
+* `N`
+* `Ω`, derived units: `Ohm`: Ω
+* `T`, derived units: `G`: T/10000.0
+* `sr`, derived units: `sph`: [one?]·sr*4.0
+* `F`
+* `C/kg`, derived units: `R`: (C/kg)*2.58E-4
+* `cd/m²`, derived units: `sb`: cd/cm², `Lmb`: cd/([one?]·cm²)
+* `Pa`, derived units: `bar`: Pa*100000.0, `atm`: Pa*101325.0
+* `kg/(m·s²)`, derived units: `att`: k(g·(m/s²)*9.80665)/cm²
+* `m²/s`, derived units: `St`: cm²/s
+* `A/m`, derived units: `Oe`: (A/m)*250.0/[one?]
+* `kg·m²/s²`, derived units: `erg`: cm²·g/s²
+* `kg/m³`, derived units: `g%`: g/dl
+* `mho`
+* `V`
+* `lx`, derived units: `ph`: lx/10000.0
+* `m/s²`, derived units: `Gal`: cm/s², `m/s2`: m/s²
+* `m/s`, derived units: `kn`: m*1852.0/h
+* `m·kg/s²`, derived units: `gf`: g·(m/s²)*9.80665, `lbf`: lb·(m/s²)*9.80665, `dyn`: cm·g/s²
+* `m²/s²`, derived units: `RAD`: cm²·g/(s²·hg), `REM`: cm²·g/(s²·hg)
+* `C`
+* `Gy`
+* `Hz`
+* `H`
+* `lm`
+* `W`
+* `Wb`, derived units: `Mx`: Wb/1.0E8
+* `Bq`, derived units: `Ci`: Bq*3.7E10
+* `S`
 
 
 ## Examples
@@ -339,9 +351,9 @@ The following alternative symbols are supported:
 
 Target unit. Can be left empty to convert to the respective SI base units.
 
-- ID: `targetUnit`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `targetUnit`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -349,9 +361,9 @@ Target unit. Can be left empty to convert to the respective SI base units.
 
 The IETF BCP 47 language tag, e.g., 'en'.
 
-- ID: `numberFormat`
-- Datatype: `string`
-- Default Value: `en`
+* ID: `numberFormat`
+* Datatype: `string`
+* Default Value: `en`
 
 
 

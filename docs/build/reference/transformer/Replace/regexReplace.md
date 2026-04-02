@@ -2,10 +2,12 @@
 title: "Regex replace"
 description: "Replace all occurrences of a regular expression in a string. If no replacement is given, the occurrences of the regular expression will be deleted."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex replace
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -122,9 +124,9 @@ A compilation of the available constructs for building regular expressions is av
 
 The regular expression to match
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -132,9 +134,9 @@ The regular expression to match
 
 The replacement of each match
 
-- ID: `replace`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `replace`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

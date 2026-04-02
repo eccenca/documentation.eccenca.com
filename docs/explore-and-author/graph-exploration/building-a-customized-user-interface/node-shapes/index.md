@@ -6,7 +6,9 @@ tags:
     - Reference
     - Vocabulary
 ---
+
 # Node Shapes
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Node Shapes are resources of type `shacl:NodeShape`.
@@ -147,7 +149,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
 - `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
-    
+
 
 Used Path: `shui:onDeleteUpdate`
 

@@ -2,10 +2,12 @@
 title: "ORC"
 description: "Read from or write to an Apache ORC file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # ORC
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,12 +17,14 @@ tags:
 The ORC dataset plugin in BUILD provides the ability to read from or write to Apache ORC files. It is a **Spark-optimized dataset**, designed to leverage Spark’s in-memory, parallel execution model and take advantage of ORC-specific optimizations.
 
 ORC supports optimizations such as **column pruning** and **predicate pushdown**, which allow queries to efficiently read only the needed data. This makes ORC particularly suitable for workflows where only a subset of columns or filtered rows are required, improving performance for large-scale transformations.
+
 ### Key Features
 
 - **Columnar storage format**: ORC stores data in a column-oriented manner, enabling efficient compression and retrieval of individual columns.
 - **Partitioning**: Optional support for partitioned outputs, allowing Spark to parallelize data processing effectively.
 - **Compression**: Supports multiple compression algorithms, e.g., Snappy or Zlib, reducing storage footprint and improving I/O performance.
 - **Schema handling**: Supports explicit or inferred schemas, with the schema applied to the dataset as a whole, not individual rows.
+
 ### Example
 
 An ORC dataset in CMEM Build might look conceptually like this:
@@ -38,6 +42,7 @@ This dataset could be stored in a file `transactions.orc` and used in workflows 
 For more information on the ORC format and its optimizations, see the [Apache ORC project page](https://orc.apache.org/).
 
 ---
+
 ### Comparison of Spark-optimized datasets
 
 The following table summarizes the key differences and typical use cases of the main Spark-optimized datasets supported in CMEM BUILD. It provides a quick reference for understanding the optimizations, storage formats, and workflow suitability for ORC, Parquet, and Avro datasets.

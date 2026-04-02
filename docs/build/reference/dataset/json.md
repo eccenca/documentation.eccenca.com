@@ -2,10 +2,12 @@
 title: "JSON"
 description: "Read from or write to a JSON or JSON Lines file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # JSON
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -17,6 +19,7 @@ Typically, this dataset is used to transform an JSON file to another format, e.g
 In addition to plain JSON files, *JSON Lines* files can also be read.
 
 For reading, the JSON dataset supports a number of special paths:
+
 - `#id` Is a special syntax for generating an id for a selected element. It can be used in URI patterns for entities which do not provide an identifier. Examples: `http://example.org/{#id}` or `http://example.org/{/pathToEntity/#id}`.
 - `#text` retrieves the text of the selected node.
 - The backslash can be used to navigate to the parent JSON node, e.g., `\parent/key`. The name of the backslash key (here `parent`) is ignored.
@@ -74,7 +77,7 @@ The path to the elements to be read, starting from the root element, e.g., '/Per
 
 ### URI pattern (deprecated)
 
-A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relative paths to elements
+A URI pattern, e.g., <http://namespace.org/{ID}>, where {path} may contain relative paths to elements
 
 - ID: `uriPattern`
 - Datatype: `string`
@@ -109,6 +112,5 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.jsonl?$`
-
 
 

@@ -2,10 +2,12 @@
 title: "Execute REST requests"
 description: "REST operator that fetches and optionally merges data from a REST endpoint. It supports executing multiple requests either via input entities that each overwrite config parameters or via paging. If you only need to download a single file, the 'Download file' operator might be the better option. Most features are currently only supported for JSON REST APIs. From multiple requests the REST operator can produce a merged JSON result, i.e. for JSON it will concatenate all results in a JSON array. Alternatively multiple results can be written directly to file (of a JSON dataset), either as a merged JSON file or one file per request inside a ZIP file. By default the output of this operator is an entity with a single property 'result', which is the (concatenated) JSON string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Execute REST requests
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -13,7 +15,7 @@ tags:
 ## Core parameter overview
 
 - <a id="parameter_doc_url">`URL`</a>: The URL the request will be executed against. This value can be overwritten at execution time when the 'Read parameters from input' option
-         is enabled. This value will also be adapted when a paging approach is configured, see the paging section for more details. 
+         is enabled. This value will also be adapted when a paging approach is configured, see the paging section for more details.
 - `Method`: One of the following HTTP methods: GET, POST, PUT, PATCH or DELETE.
 - `Accept`: The ACCEPT header value for content negotiation, e.g. 'application/json'.
 - <a id="parameter_doc_contentType">`Content type`</a>: The CONTENT-TYPE header value. This is usually used for POST, PUT or PATCH requests when the API endpoint
@@ -61,10 +63,11 @@ to fetch all results. This is currently only supported for JSON requests.
 
    In both cases the path to the next page value in the response JSON must be defined via the 'Next page JSON path' parameter.
    In case of the 'Next page identifier' paging method, also the parameter 'Next page ID query parameter' must be set.
+
 - <a id="parameter_doc_nextPageJsonPath">`Next page JSON path`</a>: The property path in the result JSON where the 'next page' URL/value is provided.
    E.g. for following response structure, the value for this parameter would be `paging/next`:
 
-   ```
+   ```text
      {
        ...,
        "paging": {
@@ -72,6 +75,7 @@ to fetch all results. This is currently only supported for JSON requests.
        }
      }
    ```
+
 - <a id="parameter_doc_nextPageIdQueryParameter">`Next page ID query parameter`</a>: If the paging method is 'Next page identifier', this defines the query parameter name that should
   be attached to the original request URL in combination with the 'next page' value of the current response in order
   to request the next page.
@@ -79,11 +83,12 @@ to fetch all results. This is currently only supported for JSON requests.
 ## <a id="parameter_doc_httpHeaders">Setting HTTP headers</a>
 
 - `HTTP headers`: This parameter allows to set HTTP headers of the request being made. Each line of the multi-line value should contain a single header, e.g.
-  ```
+
+  ```text
   Accept-Language: en-US,en;q=0.5
   Cache-Control: max-age=0
   ```
-  
+
 ## Sending a multipart HTTP file request
 
 If the content of a POST request should be sent as file content of a multipart HTTP request, instead of the request body,
@@ -92,7 +97,7 @@ following parameter must be configured:
 - <a id="parameter_doc_multipartFileParameter">`Multi-part file parameter`</a>: If set to a non-empty value then, instead of a normal POST request, a multipart/form-data
                                file upload request will be executed.
                                The value of this parameter is used as the form parameter name.
-  
+
 ## Output options
 
 By default, the response body of a request is output as value of the 'result' property of a single output entity.
@@ -104,13 +109,13 @@ a single, merged file (only supported for JSON) or to a ZIP archive, i.e. a file
 In the latter case an entry per request is added to the ZIP file.
 Currently, the following datasets support the processing of ZIP files: JSON, XML, CSV and RDF file.
 
-- <a id="parameter_doc_outputResultAsFile">`Output result as file`</a>: If enabled, instead of outputting a single entity, the result/s will be written directly 
+- <a id="parameter_doc_outputResultAsFile">`Output result as file`</a>: If enabled, instead of outputting a single entity, the result/s will be written directly
                            to the file of the file-based dataset that is connected to the output of this operator.
 
 If the option 'Read parameters from input' is enabled, it is currently always assumed that multiple requests will be sent.
 The responses must either be JSON, then the results are merged into a JSON array or the 'Output result as file'
 option must be enabled in order to write a merged JSON or ZIP file.
-  
+
 ## Fine-tuning timeouts
 
 If requests can take a much longer time than what can usually be expected, it is possible to increase the timeouts to
@@ -136,7 +141,7 @@ Following parameters can be tuned in order to decide when an execution should be
                          request configuration as failed. Default: `3`
 - `Abort when request fails`: When enabled, if a single request configuration eventually fails, i.e. it reaches its max. retry count,
                               the overall execution of the REST operator will fail.
-- `Max failed requests`: If set to a value greater 0, the execution will abort if more than the given number of request configurations 
+- `Max failed requests`: If set to a value greater 0, the execution will abort if more than the given number of request configurations
                          have failed (reached max. retries). This can be used if a number of failed requests can be tolerated.
                          When 'Abort when request fails' is enabled, this option is ignored.
 

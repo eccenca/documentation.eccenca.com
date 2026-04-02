@@ -2,11 +2,13 @@
 title: "Update SemSpect"
 description: "Tell SemSpect to prepare a Knowledge Graph for visualization."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Update SemSpect
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -19,7 +21,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 ## Parameter
 
-### The URL of the SemSpect application.This needs to be accessible from 'within' DataIntegration.
+### The URL of the SemSpect application.This needs to be accessible from 'within' DataIntegration
 
 
 
@@ -29,7 +31,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
-### The SemSpect database ID. Not existing databases will be created.
+### The SemSpect database ID. Not existing databases will be created
 
 
 
@@ -53,7 +55,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 ## Advanced Parameter
 
-### The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect.
+### The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect
 
 
 
@@ -63,7 +65,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
-### Timeout (in seconds) for the overall indexing activity.
+### Timeout (in seconds) for the overall indexing activity
 
 
 
@@ -83,7 +85,7 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 
 
 
-### ignore_proxy: Ignore system settings for HTTP proxies for the requests to semspect.
+### ignore_proxy: Ignore system settings for HTTP proxies for the requests to semspect
 
 
 
@@ -100,6 +102,5 @@ Tell SemSpect to prepare a Knowledge Graph for visualization.
 - ID: `verify_ssl`
 - Datatype: `boolean`
 - Default Value: `true`
-
 
 

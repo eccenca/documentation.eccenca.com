@@ -2,10 +2,12 @@
 title: "Parquet"
 description: "Read from or write to an Apache Parquet file."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Parquet
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -15,12 +17,14 @@ tags:
 The Parquet dataset plugin in BUILD provides the ability to read from or write to Apache Parquet files. It is a **Spark-optimized dataset**, designed to leverage Spark’s in-memory, parallel execution model and take advantage of Parquet-specific optimizations.
 
 Parquet supports optimizations such as **column pruning** and **predicate pushdown**, which enable Spark to read only the required columns or rows. This makes Parquet particularly effective for workflows where selective access to data is needed, improving performance for large-scale transformations.
+
 ### Key Features
 
 - **Columnar storage format**: Parquet stores data in a column-oriented manner, enabling efficient compression and retrieval of individual columns.
 - **Partitioning**: Optional support for partitioned outputs, allowing Spark to parallelize data processing effectively.
 - **Compression**: Supports multiple compression algorithms, e.g., Snappy, Gzip, or LZO, reducing storage footprint and improving I/O performance.
 - **Schema handling**: Supports explicit or inferred schemas, with the schema applied to the dataset as a whole, not individual rows.
+
 ### Example
 
 A Parquet dataset in CMEM Build might look conceptually like this:
@@ -32,11 +36,13 @@ A Parquet dataset in CMEM Build might look conceptually like this:
 | 3              | 1003        | 75.25  | 2025-11-01 11:20 |
 
 This dataset could be stored in a file `transactions.parquet` and used in workflows where only certain columns or filtered rows are needed. Spark can read only the relevant columns or rows matching a condition, thanks to Parquet’s **column pruning** and **predicate pushdown** optimizations, making transformations efficient even at large scale.
+
 ### Reference
 
 For more information on the Parquet format and its optimizations, see the [Apache Parquet project page](https://parquet.apache.org/).
 
 ---
+
 ### Comparison of Spark-optimized datasets
 
 The following table summarizes the key differences and typical use cases of the main Spark-optimized datasets supported in CMEM BUILD. It provides a quick reference for understanding the optimizations, storage formats, and workflow suitability for ORC, Parquet, and Avro datasets.

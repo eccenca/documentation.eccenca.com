@@ -2,18 +2,22 @@
 title: "Download file"
 description: "Downloads a file from a given URL."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
 ---
+
 # Download file
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
 
 ## 1. Purpose
+
 The **Download File** operator downloads a single file from a remote URL and exposes it as a file output that can be consumed by downstream operators.
 
 Typical use cases:
+
 - Importing external datasets into a workflow.
 - Downloading configuration files or archives.
 - Fetching files from internal HTTP endpoints.
@@ -21,16 +25,19 @@ Typical use cases:
 ## 2. Input and output
 
 ### Input
+
 - **Inputs:** none  
   The operator does not consume any upstream entities.
 
 ### Output
+
 - **Output:** one file
     - A single file is created from the HTTP response body.
     - The file is exposed as a file output that downstream operators can read.
     - The MIME type is taken from the HTTP response `Content-Type` if available.
 
 ## 3. Configuration notes
+
 The detailed list of parameters is shown in the UI (auto-generated). This section explains how to think about the most important ones.
 
 - **URL**
@@ -53,7 +60,9 @@ The detailed list of parameters is shown in the UI (auto-generated). This sectio
     - The value is stored encrypted in the backend.
 
 ## 4. Behaviour
+
 When executed, the operator:
+
 1. Builds an HTTP request from the configured parameters.
 2. Sends an HTTP **GET** request to the configured URL.
 3. Streams the response body into a temporary file on disk.
@@ -61,6 +70,7 @@ When executed, the operator:
 5. Reports the execution via the standard task/execution reporting mechanisms.
 
 File handling:
+
 - The file is created with a temporary name.
 - The file extension is determined as follows:
     - For ZIP-like content types (e.g. `application/zip`), the extension `.zip` is used.
@@ -70,6 +80,7 @@ File handling:
 Only a single file is produced per execution. If the request fails, no file is emitted.
 
 ## 5. Supported URLs and protocols
+
 The operator sends an HTTP request to the configured URL.
 
 - **Intended behaviour**
@@ -83,7 +94,9 @@ The operator sends an HTTP request to the configured URL.
 If reliable FTP or other protocols are needed, they should be handled by a dedicated operator or external tooling.
 
 ## 6. Error handling and failure modes
+
 Typical failure scenarios:
+
 - **Invalid URL / DNS / connection issues**
     - The operator fails the execution; no file is produced.
 - **Non-2xx HTTP status codes (e.g. 404, 500)**
@@ -98,21 +111,25 @@ Errors are reported via the standard task and execution reporting mechanisms.
 ## 7. Examples
 
 ### 7.1 Simple HTTP download
+
 - **URL:** `https://example.com/data.csv`
 - **Parameters:**
     - Accept header: `text/csv` (optional)
     - Timeouts: defaults or slightly increased for large files.
 
 Result:
+
 - One file containing the downloaded CSV data, which can be passed to downstream file-processing operators.
 
 ### 7.2 Authenticated download
+
 - **URL:** `https://internal.example.com/report.json`
 - **Parameters:**
     - Authorization header: `Authorization`
     - Authorization value: `Bearer <access-token>`
 
 Result:
+
 - One JSON file containing the report, assuming the token is valid and the server returns a successful response.
 
 

@@ -2,11 +2,13 @@
 title: "Reason"
 description: "Performs OWL reasoning."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Reason
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -16,7 +18,7 @@ tags:
     e.g. with cmemc.
 
 A task performing OWL reasoning. With an OWL ontology and a data graph as input the reasoning result is written to a specified graph.
-    
+
 ## Options
 
 ### Data graph IRI
@@ -40,7 +42,8 @@ The IRI of the output graph for the reasoning result.
 
 ### Reasoner
 
-The following reasoner options are supported: 
+The following reasoner options are supported:
+
 - [ELK](https://code.google.com/p/elk-reasoner/) (elk)
 - [Expression Materializing Reasoner](http://static.javadoc.io/org.geneontology/expression-materializing-reasoner/0.1.3/org/geneontology/reasoner/ExpressionMaterializingReasoner.html) (emr)
 - [HermiT](http://www.hermit-reasoner.com/) (hermit)
@@ -53,8 +56,10 @@ The following reasoner options are supported:
 The plugin provides the following parameters to include inferred axiom generators:
 
 #### Class axiom generators
+
 - **Class inclusion (rdfs:subClassOf)**  
 The reasoner will infer assertions about the hierarchy of classes, i.e.
+
 `SubClassOf:` statements.  
 If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:
 Student, Professor` holds, the reasoner will infer `Student SubClassOf: Person`.  
@@ -62,6 +67,7 @@ Student, Professor` holds, the reasoner will infer `Student SubClassOf: Person`.
 
 - **Class equivalence (owl:equivalentClass)**  
 The reasoner will infer assertions about the equivalence of classes, i.e.
+
 `EquivalentTo:` statements.  
 If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:
 Student, Professor` holds, the reasoner will infer `Person EquivalentTo: Student and Professor`.
@@ -69,13 +75,15 @@ Student, Professor` holds, the reasoner will infer `Person EquivalentTo: Student
 
 - **Class disjointness (owl:disjointWith)**  
 The reasoner will infer assertions about the disjointness of classes, i.e.
+
 `DisjointClasses:` statements.  
 If there are classes `Person`, `Student` and `Professor`, such that `Person DisjointUnionOf:
 Student, Professor` holds, the reasoner will infer `DisjointClasses: Student, Professor`.
 
-  
+
 - **Data property equivalence (owl:equivalentProperty)**  
 The reasoner will infer axioms about the equivalence of data properties,
+
  i.e. `EquivalentProperties` statements.  
 If there are data properties `identifier` and `enrollmentNumber`, such that `enrollmentNumber
 SubPropertyOf: identifier` and `identifier SubPropertyOf: enrollmentNumber` holds, the reasoner
@@ -84,6 +92,7 @@ will infer `Student EquivalentProperties: identifier, enrollmentNumber`.
 
 - **Data property inclusion (rdfs:subPropertyOf)**  
 The reasoner will infer axioms about the hierarchy of data properties,
+
 i.e. `SubPropertyOf:` statements.  
 If there are data properties `identifier`, `studentIdentifier` and `enrollmentNumber`, such that
 `studentIdentifier SubPropertyOf: identifier` and `enrollmentNumber SubPropertyOf:
@@ -91,8 +100,10 @@ studentIdentifier` holds, the reasoner will infer `enrollmentNumber SubPropertyO
 
 
 #### Individual axiom generators
+
 - **Individual class assertions (rdf:type)**  
 The reasoner will infer assertions about the classes of individuals, i.e.
+
 `Types:` statements.  
 Assume, there are classes `Person`, `Student` and `University` as well as the property
 `enrolledIn`, such that `Student EquivalentTo: Person and enrolledIn some University` holds. For
@@ -102,6 +113,7 @@ LeipzigUniversity`, the reasoner will infer `John Types: Student`.
 
 - **Individual property assertions**  
 The reasoner will infer assertions about the properties of individuals,
+
 i.e. `Facts:` statements.  
 Assume, there are properties `enrolledIn` and `offers`, such that `enrolled SubPropertyChain:
 enrolledIn o inverse (offers)` holds. For the individuals `John`and `LeipzigUniversity` with the
@@ -110,8 +122,10 @@ KnowledgeRepresentation`,  the reasoner will infer `John Facts: enrolledIn Leipz
 
 
 #### Object property axiom generators
+
 - **Object property equivalence (owl:equivalentProperty)**  
 The reasoner will infer assertions about the equivalence of object
+
 properties, i.e. `EquivalentTo:` statements.  
 If there are object properties `hasAlternativeLecture` and `hasSameTopicAs`, such that
 `hasAlternativeLecture Characteristics: Symmetric` and `hasSameTopicAs InverseOf:
@@ -121,6 +135,7 @@ hasSameTopicAs`.
 
 - **Object property inversion (owl:inverseOf)**  
 The reasoner will infer axioms about the inversion about object
+
 properties, i.e. `InverseOf:` statements.  
 If there is a object property `hasAlternativeLecture`, such that `hasAlternativeLecture
 Characteristics: Symmetric` holds, the reasoner will infer `hasAlternativeLecture InverseOf:
@@ -129,6 +144,7 @@ hasAlternativeLecture`.
 
 - **Object property inclusion (rdfs:subPropertyOf)**  
 The reasoner will infer axioms about the inclusion of object properties,
+
 i.e. `SubPropertyOf:` statements.  
 If there are object properties `enrolledIn`, `studentOf` and `hasStudent`, such that `enrolledIn
 SubPropertyOf: studentOf` and `enrolledIn InverseOf: hasStudent` holds, the reasoner will infer
@@ -137,6 +153,7 @@ SubPropertyOf: studentOf` and `enrolledIn InverseOf: hasStudent` holds, the reas
 
 - **Object property ranges (rdfs:range)**  
 The reasoner will infer axioms about the ranges of object properties,
+
 i.e. `Range:` statements.  
 If there are classes `Student` and `Lecture` as wells as object properties `hasStudent` and
 `enrolledIn`, such that `hasStudent Range: Student and enrolledIn some Lecture` holds, the
@@ -145,6 +162,7 @@ reasoner will infer `hasStudent Range: Student`.
 
 - **Object property domains (rdfs:domain)**  
 The reasoner will infer axioms about the domains of object
+
 properties, i.e. `Domain:` statements.  
 If there are classes `Person`, `Student` and `Professor` as wells as the object property
 `hasRoleIn`, such that `Professor SubClassOf: Person`, `Student SubClassOf: Person` and
@@ -153,7 +171,7 @@ If there are classes `Person`, `Student` and `Professor` as wells as the object 
 
 ### Validate OWL2 profiles
 
-Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph. 
+Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.
 
 ### Process valid OWL profiles from input
 
@@ -396,6 +414,5 @@ Maximum heap size for the reasoning process in the DI container. ⚠️ Setting 
 - ID: `max_ram_percentage`
 - Datatype: `Long`
 - Default Value: `20`
-
 
 

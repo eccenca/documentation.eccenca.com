@@ -2,10 +2,12 @@
 title: "SPARQL endpoint"
 description: "Connects to an existing SPARQL endpoint."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # SPARQL endpoint
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -31,7 +33,7 @@ queries. Additionally, it can execute
 ## Example usage
 
 A very simple example showcasing the usage of this plugin is the following idea: Use an online SPARQL Query Editor such
-as https://dbpedia.org/sparql, with a simple SPARQL query like `select distinct ?Concept where {[] a ?Concept} LIMIT 10`
+as <https://dbpedia.org/sparql>, with a simple SPARQL query like `select distinct ?Concept where {[] a ?Concept} LIMIT 10`
 or similar. Use this plugin as a source dataset, and transform or transfer the SPARQL query results into a sink dataset
 such as a CSV file. A similar or related showcase example involves considering other output datasets such as an
 in-memory dataset or a Knowledge Graph such as the one handled by the Knowledge Graph plugin, which is the flagship RDF
@@ -102,7 +104,7 @@ Enforces the correct ordering of values, if set to `true` (default).
 
 ### SPARQL query timeout (ms)
 
-SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and `silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
+SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and`silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
 
 - ID: `sparqlTimeout`
 - Datatype: `int`
@@ -181,6 +183,5 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearGraphBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

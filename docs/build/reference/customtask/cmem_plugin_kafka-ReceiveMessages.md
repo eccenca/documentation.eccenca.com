@@ -2,11 +2,13 @@
 title: "Kafka Consumer (Receive Messages)"
 description: "Reads messages from a Kafka topic and saves it to a messages dataset (Consumer)."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Kafka Consumer (Receive Messages)
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -246,6 +248,5 @@ Setting this to true will disable committing messages after retrival. This means
 - ID: `disable_commit`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

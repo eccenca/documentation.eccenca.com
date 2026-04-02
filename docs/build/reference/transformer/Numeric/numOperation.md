@@ -2,10 +2,12 @@
 title: "Numeric operation"
 description: "Applies one of the four basic arithmetic operators to the sequence of input values."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Numeric operation
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -146,9 +148,9 @@ Division is configured with the `/` operator. The symbol `÷` is not supported. 
 
 The operator to be applied to all values. One of `+`, `-`, `*`, `/`
 
-- ID: `operator`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `operator`
+* Datatype: `string`
+* Default Value: `None`
 
 
 

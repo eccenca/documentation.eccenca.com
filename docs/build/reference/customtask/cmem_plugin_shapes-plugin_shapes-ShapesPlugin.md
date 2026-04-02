@@ -2,11 +2,13 @@
 title: "Generate SHACL shapes from data"
 description: "Generate SHACL node and property shapes from a data graph"
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - WorkflowTask
     - PythonPlugin
 ---
+
 # Generate SHACL shapes from data
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -25,9 +27,9 @@ The plugin analyzes an input data graph and creates:
 
 - **Node shapes**: One for each class (`rdf:type`) used in the data graph
 - **Property shapes**: For all properties associated with each class, including:
-  - Regular object properties (subject → object relationships)
-  - Inverse object properties (object ← subject relationships, marked with ← prefix)
-  - Datatype properties (literal values)
+    - Regular object properties (subject → object relationships)
+    - Inverse object properties (object ← subject relationships, marked with ← prefix)
+    - Datatype properties (literal values)
 
 ## Output
 
@@ -133,7 +135,7 @@ Import the SHACL shapes graph in the CMEM shapes catalog by adding an `owl:impor
 
 ### Fetch namespace prefixes from prefix.cc
 
-Fetch the list of namespace prefixes from https://prefix.cc instead of using the local prefix database. If unavailable, fall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this option exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See https://prefix.cc/about.
+Fetch the list of namespace prefixes from <https://prefix.cc> instead of using the local prefix database. If unavailable, fall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this option exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See <https://prefix.cc/about>.
 
 - ID: `prefix_cc`
 - Datatype: `boolean`
@@ -168,6 +170,5 @@ Add information about the plugin and plugin settings to the shapes graph.
 - ID: `plugin_provenance`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

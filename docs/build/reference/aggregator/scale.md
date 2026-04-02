@@ -2,9 +2,11 @@
 title: "Scale"
 description: "Scales a similarity score by a factor."
 icon: octicons/cross-reference-24
-tags: 
+tags:
 ---
+
 # Scale
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -48,9 +50,9 @@ Scales a similarity score by a factor.
 
 All input similarity values are multiplied with this factor.
 
-- ID: `factor`
-- Datatype: `double`
-- Default Value: `1.0`
+* ID: `factor`
+* Datatype: `double`
+* Default Value: `1.0`
 
 
 

@@ -2,10 +2,12 @@
 title: "Regex extract"
 description: "Extracts one or all matches of a regular expression within the input. If the regular expression contains one or more capturing groups, only the first group will be considered."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Regex extract
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -152,9 +154,9 @@ A compilation of the available constructs for building regular expressions is av
 
 Regular expression
 
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
+* ID: `regex`
+* Datatype: `string`
+* Default Value: `None`
 
 
 
@@ -162,9 +164,9 @@ Regular expression
 
 If true, all matches are extracted. If false, only the first match is extracted (default).
 
-- ID: `extractAll`
-- Datatype: `boolean`
-- Default Value: `false`
+* ID: `extractAll`
+* Datatype: `boolean`
+* Default Value: `false`
 
 
 

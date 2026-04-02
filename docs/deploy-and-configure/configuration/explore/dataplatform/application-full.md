@@ -310,7 +310,7 @@ Server version
 
 ***Property: spring.ai.mcp.server.type***
 
-Server type (SYNC/ASYNC) s. https://docs.spring.io/spring-ai/reference/index.html
+Server type (SYNC/ASYNC) s. <https://docs.spring.io/spring-ai/reference/index.html>
 
 | Category | Value |
 |--- | ---: |
@@ -377,7 +377,7 @@ Whether the mcp server is enabled or not
 
 ***Property: spring.ai.mcp.server.protocol***
 
-Protocol used for communication between mcp server and client s. https://docs.spring.io/spring-ai/reference/index.html
+Protocol used for communication between mcp server and client s. <https://docs.spring.io/spring-ai/reference/index.html>
 
 | Category | Value |
 |--- | ---: |
@@ -909,7 +909,7 @@ Use this property to configure the URI of the public user (see section Public ac
 
 ***Property: authorization.abox.accessConditions.url***
 
-**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (http://...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
 
 
 | Category | Value |
@@ -984,7 +984,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 | Category | Value |
 |--- | ---: |
-| Default | [http://www.w3.org/2004/02/skos/core#definition, http://purl.org/dc/terms/description, http://www.w3.org/2000/01/rdf-schema#comment] |
+| Default | [<http://www.w3.org/2004/02/skos/core#definition>, <http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |

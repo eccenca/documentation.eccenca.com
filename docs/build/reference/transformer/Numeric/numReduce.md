@@ -2,10 +2,12 @@
 title: "Numeric reduce"
 description: "Strips all non-numeric characters from a string."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Numeric reduce
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -48,9 +50,9 @@ Strips all non-numeric characters from a string.
 
 No description
 
-- ID: `keepPunctuation`
-- Datatype: `boolean`
-- Default Value: `true`
+* ID: `keepPunctuation`
+* Datatype: `boolean`
+* Default Value: `true`
 
 
 

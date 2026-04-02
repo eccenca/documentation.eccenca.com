@@ -2,10 +2,12 @@
 title: "Knowledge Graph"
 description: "Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Knowledge Graph
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -26,8 +28,8 @@ The plugin itself is part of [**eccenca Build**](https://documentation.eccenca.c
 following aspect (see the [Getting Started](https://documentation.eccenca.com/latest/getting-started/) and the remaining
 documentation for further details):
 
-* **Explore** is for browsing and exploring knowledge graphs
-* **Build** is for creating and integrating knowledge graphs
+- **Explore** is for browsing and exploring knowledge graphs
+- **Build** is for creating and integrating knowledge graphs
 
 This plugin is thus responsible for _creating_ and _integrating_ knowledge graphs within eccenca Build.
 The knowledge graph itself is part of `DataPlatform`, which can be
@@ -61,7 +63,7 @@ The URI of the named graph.
 
 ### SPARQL query timeout (ms)
 
-SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and `silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
+SPARQL query timeout in milliseconds. By default, a value of zero is used. This zero value has a symbolic character: it means that the timeout of SPARQL select and update queries is configured via the properties `silk.remoteSparqlEndpoint.defaults.connection.timeout.ms and`silk.remoteSparqlEndpoint.defaults.read.timeout.ms` for the default connection and read timeouts. To overwrite these configured values, specify a (common) timeout greater than zero milliseconds.
 
 - ID: `sparqlTimeout`
 - Datatype: `int`
@@ -170,6 +172,5 @@ Use streaming HTTP upload (chunked transfer encoding) instead of multipart file 
 - ID: `streamingUpload`
 - Datatype: `boolean`
 - Default Value: `false`
-
 
 

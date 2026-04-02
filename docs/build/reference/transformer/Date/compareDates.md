@@ -2,10 +2,12 @@
 title: "Compare dates"
 description: "Compares two dates."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - TransformOperator
 ---
+
 # Compare dates
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -139,9 +141,9 @@ So invalid values do not make the plugin fail. They are simply ignored, and if n
 
 No description
 
-- ID: `comparator`
-- Datatype: `enumeration`
-- Default Value: `<`
+* ID: `comparator`
+* Datatype: `enumeration`
+* Default Value: `<`
 
 
 

@@ -2,10 +2,12 @@
 title: "Text"
 description: "Reads and writes plain text files."
 icon: octicons/cross-reference-24
-tags: 
+tags:
     - Dataset
 ---
+
 # Text
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 
@@ -14,7 +16,7 @@ Reads and writes plain text files.
 
 ## Writing
 
-All values of each entity will be written as plain text. Multiple values per entity are separated by spaces. Each entity will be written to a new line. 
+All values of each entity will be written as plain text. Multiple values per entity are separated by spaces. Each entity will be written to a new line.
 
 ## Reading
 
@@ -74,6 +76,5 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
-
 
 
