@@ -8,13 +8,16 @@ tags:
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
-<!--
-![26.1: Build - xxx](26-1-build-xxx.png "26.1: Build - ..."){ class="bordered" }
+![26.1: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
 
-![26.1: Explore - xxx](26-1-explore-xxx.png "26.1: Explore - ..."){ class="bordered" }
+![26.1: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" }
 
-![26.1: Explore - xxx](26-1-explore-xxx.png "26.1: Explore - ..."){ class="bordered" }
--->
+![26.1: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" }
+
+![26.1: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="80%"}
+
+![26.1: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered"  width="90%"}
+
 
 The highlights of this release are:
 
