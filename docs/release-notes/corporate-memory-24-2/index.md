@@ -323,4 +323,5 @@ jdbc:mariadb://<host>:<port, eg. 3306>/<database>?sessionVariables=sql_mode=ANSI
 ### cmemc
 
 - The [`admin status`](../../automate/cmemc-command-line-interface/command-reference/admin/index.md#admin-status) command in combination with the `--exit-1 always` option now exits with status code 1 in the additional case that migrate-able workspace configurations are found
-    - To avoid this, you can automatically migrate the configurations with the [`admin migration`](../../automate/cmemc-command-line-interface/command-reference/admin/migration/index.md) command.
+    -   To avoid this, you can automatically migrate the configurations with the [`admin migration`](../../automate/cmemc-command-line-interface/command-reference/admin/migration/index.md) command group.
+

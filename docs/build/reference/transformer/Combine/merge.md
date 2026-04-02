@@ -2,13 +2,13 @@
 title: "Merge"
 description: "Merges the values of all inputs."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Merge
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Merges the values of all inputs.
 
@@ -21,6 +21,7 @@ Merges the values of all inputs.
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -29,6 +30,9 @@ Merges the values of all inputs.
     2. `[c]`
 
 * Returns: `[a, b, c]`
+
+
+
 
 ## Parameter
 

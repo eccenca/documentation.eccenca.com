@@ -2,13 +2,13 @@
 title: "Concatenate multiple values"
 description: "Concatenates multiple values received for an input. If applied to multiple inputs, yields at most one value per input. Optionally removes duplicate values."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Concatenate multiple values
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Concatenates multiple values received for an input. If applied to multiple inputs, yields at most one value per input. Optionally removes duplicate values.
 
@@ -21,6 +21,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -29,6 +30,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 * Returns: `[a]`
 
+
 ---
 **Example 3:**
 
@@ -36,6 +38,7 @@ Concatenates multiple values received for an input. If applied to multiple input
     1. `[a, b]`
 
 * Returns: `[ab]`
+
 
 ---
 **Example 4:**
@@ -48,6 +51,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 * Returns: `[axb]`
 
+
 ---
 **Example 5:**
 
@@ -57,6 +61,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 * Returns: `[ab, 12]`
 
+
 ---
 **Example 6:**
 
@@ -64,18 +69,21 @@ Concatenates multiple values received for an input. If applied to multiple input
     * glue: `\n\t\\`
 
 * Input values:
-    1.
-    ```text
+    1. 
+    ```
     [a
     	\b, c]
     ```
 
-* Returns:
-    ```text
+* Returns: 
+    ```
     [a
     	\b
     	\c]
     ```
+
+
+
 
 ## Parameter
 
@@ -83,17 +91,23 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 No description
 
-* ID: `glue`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `glue`
+- Datatype: `string`
+- Default Value: `None`
+
+
 
 ### Remove duplicates
 
 No description
 
-* ID: `removeDuplicates`
-* Datatype: `boolean`
-* Default Value: `false`
+- ID: `removeDuplicates`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
+
 
 ## Advanced Parameter
 

@@ -2,13 +2,11 @@
 title: "UUID Version"
 description: "Outputs UUID version number of input"
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
     - PythonPlugin
 ---
-
 # UUID Version
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"

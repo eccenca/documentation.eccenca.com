@@ -2,13 +2,13 @@
 title: "Coalesce (first non-empty input)"
 description: "Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Coalesce (first non-empty input)
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value.
 
@@ -26,6 +26,7 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -35,10 +36,12 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
 
 * Returns: `[]`
 
+
 ---
 **Example 3:**
 
 * Returns: `[]`
+
 
 ---
 **Example 4:**
@@ -50,6 +53,7 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
 
 * Returns: `[first]`
 
+
 ---
 **Example 5:**
 
@@ -60,6 +64,7 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
 
 * Returns: `[first A, first B]`
 
+
 ---
 **Example 6:**
 
@@ -68,6 +73,9 @@ Forwards the first non-empty input, i.e. for which any value(s) exist. A single 
     2. `[second]`
 
 * Returns: `[first]`
+
+
+
 
 ## Parameter
 

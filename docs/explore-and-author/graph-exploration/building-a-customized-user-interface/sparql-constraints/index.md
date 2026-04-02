@@ -1,5 +1,4 @@
 ---
-status: new
 icon: eccenca/application-queries
 tags:
     - SPARQL

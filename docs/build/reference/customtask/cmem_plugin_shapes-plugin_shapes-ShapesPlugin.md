@@ -2,13 +2,11 @@
 title: "Generate SHACL shapes from data"
 description: "Generate SHACL node and property shapes from a data graph"
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - WorkflowTask
     - PythonPlugin
 ---
-
 # Generate SHACL shapes from data
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -27,9 +25,9 @@ The plugin analyzes an input data graph and creates:
 
 - **Node shapes**: One for each class (`rdf:type`) used in the data graph
 - **Property shapes**: For all properties associated with each class, including:
-    - Regular object properties (subject → object relationships)
-    - Inverse object properties (object ← subject relationships, marked with ← prefix)
-    - Datatype properties (literal values)
+  - Regular object properties (subject → object relationships)
+  - Inverse object properties (object ← subject relationships, marked with ← prefix)
+  - Datatype properties (literal values)
 
 ## Output
 
@@ -75,6 +73,8 @@ graph:0fcf371d-f99a-5eeb-ab50-6e6b5fbb0e06 a sh:PropertyShape ;
   shui:showAlways true .
 ```
 
+
+
 ## Parameter
 
 ### Input data graph
@@ -85,6 +85,8 @@ The knowledge graph containing the instance data to be analyzed for the SHACL sh
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Output shape catalog
 
 The knowledge graph the generated shapes will be added to.
@@ -92,6 +94,8 @@ The knowledge graph the generated shapes will be added to.
 - ID: `shapes_graph_iri`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Output shape catalog label
 
@@ -101,6 +105,8 @@ The label for the shape catalog graph. If no label is specified for a new shapes
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Handle existing output graph
 
 Add result to the existing graph (add result to graph), overwrite the existing graph with the result (replace existing graph with result), or stop the workflow if the output graph already exists (stop workflow if output graph exists).
@@ -108,6 +114,8 @@ Add result to the existing graph (add result to graph), overwrite the existing g
 - ID: `existing_graph`
 - Datatype: `string`
 - Default Value: `stop`
+
+
 
 ### Import the output graph into the central shapes catalog
 
@@ -117,15 +125,21 @@ Import the SHACL shapes graph in the CMEM shapes catalog by adding an `owl:impor
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
+
+
 ## Advanced Parameter
 
 ### Fetch namespace prefixes from prefix.cc
 
-Fetch the list of namespace prefixes from <https://prefix.cc> instead of using the local prefix database. If unavailable, fall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this option exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See <https://prefix.cc/about>.
+Fetch the list of namespace prefixes from https://prefix.cc instead of using the local prefix database. If unavailable, fall back to the local database. Prefixes defined in the Corporate Memory project override database prefixes. Enabling this option exposes your IP address to prefix.cc but no other data is shared. If unsure, keep this option disabled. See https://prefix.cc/about.
 
 - ID: `prefix_cc`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 
 ### Properties to ignore
 
@@ -135,6 +149,8 @@ Provide the list of properties (as IRIs) to ignore.
 - Datatype: `multiline string`
 - Default Value: `http://www.w3.org/1999/02/22-rdf-syntax-ns#type`
 
+
+
 ### Types to ignore
 
 Provide the list of types (as IRIs) to ignore.
@@ -143,6 +159,8 @@ Provide the list of types (as IRIs) to ignore.
 - Datatype: `multiline string`
 - Default Value: `None`
 
+
+
 ### Include plugin provenance
 
 Add information about the plugin and plugin settings to the shapes graph.
@@ -150,4 +168,6 @@ Add information about the plugin and plugin settings to the shapes graph.
 - ID: `plugin_provenance`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 

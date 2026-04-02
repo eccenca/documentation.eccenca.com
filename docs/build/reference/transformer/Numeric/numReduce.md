@@ -1,16 +1,16 @@
 ---
 title: "Numeric reduce"
-description: "Strip all non-numeric characters from a string."
+description: "Strips all non-numeric characters from a string."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Numeric reduce
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Strip all non-numeric characters from a string.
+
+
+Strips all non-numeric characters from a string.
 
 ## Examples
 
@@ -27,6 +27,7 @@ Strip all non-numeric characters from a string.
 
 * Returns: `[12]`
 
+
 ---
 **Example 2:**
 
@@ -38,15 +39,22 @@ Strip all non-numeric characters from a string.
 
 * Returns: `[1.2]`
 
+
+
+
 ## Parameter
 
 ### Keep punctuation
 
 No description
 
-* ID: `keepPunctuation`
-* Datatype: `boolean`
-* Default Value: `true`
+- ID: `keepPunctuation`
+- Datatype: `boolean`
+- Default Value: `true`
+
+
+
+
 
 ## Advanced Parameter
 

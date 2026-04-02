@@ -2,13 +2,13 @@
 title: "Negate binary (NOT)"
 description: "Accepts one input, which is either 'true', '1' or 'false', '0' and negates it."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Negate binary (NOT)
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
 
@@ -24,6 +24,7 @@ Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
 
 * Returns: `[1, 0, true, false, true, false]`
 
+
 ---
 **Example 2:**
 
@@ -33,6 +34,7 @@ Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
 * Returns: `[]`
 * **Throws error:** `IllegalArgumentException`
 
+
 ---
 **Example 3:**
 
@@ -41,6 +43,9 @@ Accepts one input, which is either 'true', '1' or 'false', '0' and negates it.
 
 * Returns: `[]`
 * **Throws error:** `IllegalArgumentException`
+
+
+
 
 ## Parameter
 

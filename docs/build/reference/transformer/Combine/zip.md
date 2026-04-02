@@ -2,13 +2,13 @@
 title: "Zip"
 description: "Concatenates the values of two inputs in pairs."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Zip
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Concatenates the values of two inputs in pairs.
 
@@ -25,6 +25,7 @@ Concatenates the values of two inputs in pairs.
 
 * Returns: `[a1, b2]`
 
+
 ---
 **Zipping two inputs of different lengths, using placeholders:**
 
@@ -38,6 +39,7 @@ Concatenates the values of two inputs in pairs.
 
 * Returns: `[a1, b2, c-]`
 
+
 ---
 **Zipping two inputs using a glue string:**
 
@@ -50,6 +52,7 @@ Concatenates the values of two inputs in pairs.
 
 * Returns: `[a-1, b-2]`
 
+
 ---
 **Zipping two inputs using a glue string with escape characters:**
 
@@ -60,12 +63,15 @@ Concatenates the values of two inputs in pairs.
     1. `[a, b]`
     2. `[1, 2]`
 
-* Returns:
-    ```text
+* Returns: 
+    ```
     [a
     1, b
     2]
     ```
+
+
+
 
 ## Parameter
 
@@ -73,25 +79,33 @@ Concatenates the values of two inputs in pairs.
 
 Placeholder to be used if the first input provides fewer values than the second one.
 
-* ID: `firstPlaceholder`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `firstPlaceholder`
+- Datatype: `string`
+- Default Value: `None`
+
+
 
 ### Second placeholder
 
 Placeholder to be used if the second input provides fewer values than the first one.
 
-* ID: `secondPlaceholder`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `secondPlaceholder`
+- Datatype: `string`
+- Default Value: `None`
+
+
 
 ### Glue
 
 Separator to be inserted between two concatenated strings. The text can contain escaped characters \n, \t and \\ that are replaced by a newline, tab or backslash respectively.
 
-* ID: `glue`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `glue`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 

@@ -2,13 +2,11 @@
 title: "Download Office 365 Files"
 description: "Download files from Microsoft OneDrive or Sites"
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - WorkflowTask
     - PythonPlugin
 ---
-
 # Download Office 365 Files
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -16,6 +14,7 @@ tags:
     This operator is part of a Python Plugin Package.
     In order to use it, you need to install it,
     e.g. with cmemc.
+
 
 This workflow task downloads files from a specified Office 365 instance.
 For this to work a registered app in Microsoft's Entra ID space is necessary.
@@ -30,11 +29,12 @@ Admin consent is required to activate these permissions.
 With this setup, anyone with the secret can access all users' OneDrives and all Sharepoint/Team
 sites.
 
-## Important
+#### Important
 
 Make sure only trusted admins can create or manage secrets!
 Whoever holds the secrets has all the access to granted resources so best not to distribute
 recklessly.
+    
 
 ## Parameter
 
@@ -46,6 +46,8 @@ ID of your tenant. Can be seen within your registered application
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Client ID
 
 Client ID of your registered application.
@@ -53,6 +55,8 @@ Client ID of your registered application.
 - ID: `client_id`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Client secret
 
@@ -62,6 +66,8 @@ Client secret created withing your registered application.
 - Datatype: `password`
 - Default Value: `None`
 
+
+
 ### Type resource
 
 The type of resource you want the data to be extracted from. This can either be a site or a users share
@@ -69,6 +75,8 @@ The type of resource you want the data to be extracted from. This can either be 
 - ID: `type_resource`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Target resource
 
@@ -78,6 +86,8 @@ Target resource which files will be listed from. This can either be a specific u
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Drives
 
 A list of drives from the selected target resource.
@@ -85,6 +95,8 @@ A list of drives from the selected target resource.
 - ID: `drives`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Directory path
 
@@ -94,6 +106,8 @@ The path of a directory that needs to be transformed. Includes all subdirectorie
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Regular expression
 
 A regular expression performed on all the files within the selected path
@@ -102,6 +116,8 @@ A regular expression performed on all the files within the selected path
 - Datatype: `string`
 - Default Value: `^.*$`
 
+
+
 ### Exclude files in subfolders
 
 A flag indicating if files should only be listed from subfolders or not.
@@ -109,6 +125,10 @@ A flag indicating if files should only be listed from subfolders or not.
 - ID: `no_subfolder`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
+
+
 
 ## Advanced Parameter
 
@@ -119,4 +139,6 @@ Specifies the maximum number of threads used for parallel execution of the workf
 - ID: `max_workers`
 - Datatype: `Long`
 - Default Value: `32`
+
+
 

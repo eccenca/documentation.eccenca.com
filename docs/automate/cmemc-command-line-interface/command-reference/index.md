@@ -6,9 +6,7 @@ tags:
   - Reference
   - cmemc
 ---
-
 # Command Reference
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! info
@@ -143,3 +141,4 @@ tags:
 | [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all metadata of a scheduler. |
 | [workflow scheduler](workflow/scheduler/index.md) | [disable](workflow/scheduler/index.md#workflow-scheduler-disable) | Disable scheduler(s). |
 | [workflow scheduler](workflow/scheduler/index.md) | [enable](workflow/scheduler/index.md#workflow-scheduler-enable) | Enable scheduler(s). |
+

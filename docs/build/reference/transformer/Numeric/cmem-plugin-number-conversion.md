@@ -2,13 +2,11 @@
 title: "Convert Number Base"
 description: "Convert numbers between different number bases (binary, octal, decimal, hexadecimal)."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
     - PythonPlugin
 ---
-
 # Convert Number Base
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -31,6 +29,8 @@ Source Number Base
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Target Base
 
 Source Number Base
@@ -38,6 +38,10 @@ Source Number Base
 - ID: `target_base`
 - Datatype: `string`
 - Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 

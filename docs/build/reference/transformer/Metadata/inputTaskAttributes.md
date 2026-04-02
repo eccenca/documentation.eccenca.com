@@ -2,15 +2,16 @@
 title: "Input task attributes"
 description: "Retrieves individual attributes from the input task (such as the modified date) or the entire task as JSON."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Input task attributes
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Retrieves individual attributes from the input task (such as the modified date) or the entire task as JSON.
+
 
 ## Parameter
 
@@ -21,6 +22,10 @@ Path to retrieve from the JSON, such as 'metadata/modified'. If left empty, the 
 - ID: `path`
 - Datatype: `string`
 - Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 

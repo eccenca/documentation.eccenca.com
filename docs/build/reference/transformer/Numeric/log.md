@@ -2,15 +2,16 @@
 title: "Logarithm"
 description: "Transforms all numbers by applying the logarithm function. Non-numeric values are left unchanged."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Logarithm
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Transforms all numbers by applying the logarithm function. Non-numeric values are left unchanged.
+
 
 ## Parameter
 
@@ -21,6 +22,10 @@ No description
 - ID: `base`
 - Datatype: `int`
 - Default Value: `10`
+
+
+
+
 
 ## Advanced Parameter
 

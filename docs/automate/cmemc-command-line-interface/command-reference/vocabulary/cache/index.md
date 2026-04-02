@@ -6,20 +6,23 @@ tags:
   - Vocabulary
   - cmemc
 ---
-
 # vocabulary cache Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List und update the vocabulary cache.
+
 
 ## vocabulary cache update
 
 Reload / updates the data integration cache for a vocabulary.
 
 ```shell-session title="Usage"
-cmemc vocabulary cache update [OPTIONS] [IRIS]...
+$ cmemc vocabulary cache update [OPTIONS] [IRIS]...
 ```
+
+
+
+
 
 ??? info "Options"
     ```text
@@ -32,8 +35,12 @@ cmemc vocabulary cache update [OPTIONS] [IRIS]...
 Output the content of the global vocabulary cache.
 
 ```shell-session title="Usage"
-cmemc vocabulary cache list [OPTIONS]
+$ cmemc vocabulary cache list [OPTIONS]
 ```
+
+
+
+
 
 ??? info "Options"
     ```text
@@ -43,3 +50,4 @@ cmemc vocabulary cache list [OPTIONS]
                 cmemc commands.
     --raw       Outputs raw JSON.
     ```
+

@@ -2,19 +2,20 @@
 title: "Neo4j"
 description: "Neo4j graph"
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - Dataset
 ---
-
 # Neo4j
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
+
 
 Supports reading and writing Neo4j graphs. The following sections outline how graphs are generated and read back.
 
 For more information about Neo4j, please refer to the [Neo4j documentation](https://neo4j.com/docs/).
 
-## Nodes
+### Nodes
 
 For each entity that is written to a Neo4j dataset, a _node_ will be created.
 A property `uri` will be added to each generated node, which holds the URI of the original entity.
@@ -51,7 +52,6 @@ In eccenca DataIntegration, URIs are typically used to uniquely identify classes
 While URIs are central in RDF, Neo4j does allow arbitrary names and does not have any special support for URIs.
 
 When generating Neo4j labels, properties and relationships, URIs will be shortened according to the following rules.
-
 - If a registered project prefix matches a URI, a name `{prefixName}_{localPart}` will be generated. For instance, `http://xmlns.com/foaf/0.1/name` will become `foaf_name`.
   Note that underscores (`_`) are used instead of colons (`:`) to separate the namespace and the local name.
   The reason is that colons are reserved in the Cypher query language and some tools don't escape properly and fail on databases that use colons in names.
@@ -73,6 +73,7 @@ This is meant to help understanding and does not aim to provide a precise mappin
 | object property      | relationship |
 | graph | Do not exist in Neo4j, but labels can be used to mimic graphs.    |
 
+
 ## Parameter
 
 ### URI
@@ -83,6 +84,8 @@ The URL to the Neo4j instance
 - Datatype: `string`
 - Default Value: `bolt://localhost:7687`
 
+
+
 ### User
 
 The Neo4j username for basic authentication.
@@ -90,6 +93,8 @@ The Neo4j username for basic authentication.
 - ID: `user`
 - Datatype: `string`
 - Default Value: `neo4j`
+
+
 
 ### Password
 
@@ -99,6 +104,8 @@ The Neo4j password for basic authentication.
 - Datatype: `password`
 - Default Value: `PASSWORD_PARAMETER:7vIY2uNcIiwSSo+/MNozEg==`
 
+
+
 ### Database
 
 Database (leave empty for default)
@@ -107,6 +114,8 @@ Database (leave empty for default)
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Node label
 
 Neo4j label for all entities to be covered by this dataset. When reading, all nodes with this label will be read. When writing, this label will be added to all generated nodes. If the dataset is cleared, only nodes with this label will be deleted.
@@ -114,6 +123,10 @@ Neo4j label for all entities to be covered by this dataset. When reading, all no
 - ID: `nodeLabel`
 - Datatype: `string`
 - Default Value: `Any`
+
+
+
+
 
 ## Advanced Parameter
 
@@ -124,4 +137,6 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 

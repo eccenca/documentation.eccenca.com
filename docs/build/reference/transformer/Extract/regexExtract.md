@@ -2,20 +2,20 @@
 title: "Regex extract"
 description: "Extracts one or all matches of a regular expression within the input. If the regular expression contains one or more capturing groups, only the first group will be considered."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Regex extract
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 ## Description
 
-The `regexExtract` plugin extracts one or all matches of a regular expression within the input.
+The Regex extract plugin extracts one or all matches of a regular expression within the input.
 
 This plugin is an _extraction_ transformer plugin. It is configured with the parameters `regex` and `extractAll`. The
-regular expression `regex` is simply the pattern used in the matching. With `extractAll`, we tell the `regexExtract`
+regular expression `regex` is simply the pattern used in the matching. With `extractAll`, we tell the Regex extract
 plugin whether to extract _all_ values (with `extractAll = true`) or only the _first_ occurrence of the matching
 (with `extractAll = false`, which is the default).
 
@@ -35,22 +35,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `regexExtract` plugin, there are related plugins such as `validateRegex`, `ifMatchesRegex` and
-`regexReplace`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `regexExtract` plugin is used for _extracting_ matches from the input, `validateRegex`
-is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguishes_ which input to take, and
-`regexReplace` _replaces_ all occurrences of the matching.
 
 ## Examples
 
@@ -67,6 +58,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
 
 * Returns: `[afe123]`
 
+
 ---
 **returns all matches, when extractAll = true:**
 
@@ -79,6 +71,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
 
 * Returns: `[afe123, abcd123]`
 
+
 ---
 **returns an empty list if nothing matches:**
 
@@ -89,6 +82,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
     1. `[abcde123]`
 
 * Returns: `[]`
+
 
 ---
 **returns the match of the first capturing group, which includes two to four letters:**
@@ -101,6 +95,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
 
 * Returns: `[abcd]`
 
+
 ---
 **returns the match of the first capturing group, which includes at least one letter:**
 
@@ -111,6 +106,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
     1. `[pqrstuvwxyz123abcd]`
 
 * Returns: `[pqrstuvwxyz]`
+
 
 ---
 **returns an empty string, because the first capturing group includes the possibility of no letters:**
@@ -123,6 +119,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
 
 * Returns: `[]`
 
+
 ---
 **returns an empty list, because the first capturing group excludes the possibility of no letters:**
 
@@ -133,6 +130,7 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
     1. `[123abcd]`
 
 * Returns: `[]`
+
 
 ---
 **Example 8:**
@@ -145,23 +143,32 @@ is useful for _validating_ the input, `ifMatchesRegex` _conditionally distinguis
 
 * Returns: `[]`
 
+
+
+
 ## Parameter
 
 ### Regex
 
 Regular expression
 
-* ID: `regex`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `regex`
+- Datatype: `string`
+- Default Value: `None`
+
+
 
 ### Extract all
 
 If true, all matches are extracted. If false, only the first match is extracted (default).
 
-* ID: `extractAll`
-* Datatype: `boolean`
-* Default Value: `false`
+- ID: `extractAll`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
+
 
 ## Advanced Parameter
 

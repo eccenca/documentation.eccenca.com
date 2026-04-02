@@ -6,27 +6,32 @@ tags:
   - SPARQL
   - cmemc
 ---
-
 # admin store Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import, export and bootstrap the knowledge graph store.
 
 This command group consist of commands to administrate the knowledge graph store as a whole.
 
+
 ## admin store showcase
 
 Create showcase data.
 
 ```shell-session title="Usage"
-cmemc admin store showcase [OPTIONS]
+$ cmemc admin store showcase [OPTIONS]
 ```
+
+
+
 
 This command creates a showcase scenario of multiple graphs including integration graphs, shapes, statement annotations, etc.
 
 !!! note
     There is currently no deletion mechanism for the showcase data, and you need to remove the showcase graphs manually (or just remove all graphs).
+
+
+
 
 ??? info "Options"
     ```text
@@ -44,8 +49,11 @@ This command creates a showcase scenario of multiple graphs including integratio
 Update/Import or remove bootstrap data.
 
 ```shell-session title="Usage"
-cmemc admin store bootstrap [OPTIONS]
+$ cmemc admin store bootstrap [OPTIONS]
 ```
+
+
+
 
 Use ``--import`` to import the bootstrap data needed for managing shapes and configuration objects. This will remove the old data first.
 
@@ -54,8 +62,12 @@ Use ``--remove`` to delete bootstrap data.
 !!! note
     The removal of existing bootstrap data will search for resources which are flagged with the isSystemResource property.
 
+
 !!! note
     The import part of this command is equivalent to the 'bootstrap-data' migration recipe
+
+
+
 
 ??? info "Options"
     ```text
@@ -73,9 +85,14 @@ Backup all knowledge graphs to a ZIP archive.
 $ cmemc admin store export [OPTIONS] [BACKUP_FILE]
 ```
 
+
+
+
 The backup file is a ZIP archive containing all knowledge graphs (one Turtle file + configuration file per graph).
 
 This command will create lots of load on the server. It can take a long time to complete.
+
+
 
 ??? info "Options"
     ```text
@@ -89,11 +106,17 @@ This command will create lots of load on the server. It can take a long time to 
 Restore graphs from a ZIP archive.
 
 ```shell-session title="Usage"
-cmemc admin store import BACKUP_FILE
+$ cmemc admin store import BACKUP_FILE
 ```
+
+
+
 
 The backup file is a ZIP archive containing all knowledge graphs  (one Turtle file + configuration file per graph).
 
 The command will load a single backup ZIP archive into the triple store by replacing all graphs with the content of the Turtle files in the archive and deleting all graphs which are not in the archive.
 
 This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer the network connection is not used anymore and may be closed by proxies. This does not mean that the import failed.
+
+
+

@@ -46,6 +46,7 @@ nav:
     - "Request RDF triples": tripleRequestOperator.md
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
+    - "Search for Logs": cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
     - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
     - "Send email": SendEMail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md

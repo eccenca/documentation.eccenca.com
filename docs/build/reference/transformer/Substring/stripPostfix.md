@@ -2,13 +2,13 @@
 title: "Strip postfix"
 description: "Strips a postfix of a string."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Strip postfix
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Strips a postfix of a string.
 
@@ -27,6 +27,7 @@ Strips a postfix of a string.
 
 * Returns: `[value]`
 
+
 ---
 **Example 2:**
 
@@ -38,15 +39,22 @@ Strips a postfix of a string.
 
 * Returns: `[Value]`
 
+
+
+
 ## Parameter
 
 ### Postfix
 
 No description
 
-* ID: `postfix`
-* Datatype: `string`
-* Default Value: `None`
+- ID: `postfix`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 

@@ -2,13 +2,13 @@
 title: "Regex selection"
 description: "This transformer takes 3 inputs: one output value, multiple regex patterns, and a value to check against those patterns. It returns the output value at positions where regex patterns match the input value."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - TransformOperator
 ---
-
 # Regex selection
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 ## Description of the plugin
 
@@ -35,22 +35,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `regexSelect` plugin, there are related plugins such as `ifMatchesRegex`, `validateRegex`,
-`regexReplace` and `regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `ifMatchesRegex` plugin is useful for _conditionally distinguishing_ which input to
-take, `validateRegex` is used for _validating_ the input, `regexReplace` _replaces_ all occurrences, and
-`regexExtract` _extracts_ them.
 
 ## Examples
 
@@ -69,6 +60,7 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , output]`
 
+
 ---
 **return only first match position if oneOnly = true:**
 
@@ -82,15 +74,22 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , ]`
 
+
+
+
 ## Parameter
 
 ### One only
 
 No description
 
-* ID: `oneOnly`
-* Datatype: `boolean`
-* Default Value: `false`
+- ID: `oneOnly`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
+
 
 ## Advanced Parameter
 

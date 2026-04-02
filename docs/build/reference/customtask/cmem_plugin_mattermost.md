@@ -2,13 +2,11 @@
 title: "Send Mattermost messages"
 description: "Send messages to Mattermost channels and/or users."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - WorkflowTask
     - PythonPlugin
 ---
-
 # Send Mattermost messages
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -43,15 +41,18 @@ input paths are recognized:
 - channel
 - message
 
+
 ## Parameter
 
 ### URL
 
-The base URL of your Mattermost deployment. Example: <https://mattermost.example.org>
+The base URL of your Mattermost deployment. Example: https://mattermost.example.org
 
 - ID: `url`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Access Token
 
@@ -61,6 +62,8 @@ The Personal Access Token of the bot account.
 - Datatype: `password`
 - Default Value: `None`
 
+
+
 ### Bot name
 
 The name or display name of the bot you want to use to connect.
@@ -68,6 +71,8 @@ The name or display name of the bot you want to use to connect.
 - ID: `bot_name`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### User
 
@@ -77,6 +82,8 @@ The user account which will receive the message. You can search for users if the
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Channel
 
 The channel which will receive the message. You can search for channels if the connection was successful (Base URl, bot + token). If you want to send your message to multiple channels, separate them with a comma.
@@ -85,6 +92,8 @@ The channel which will receive the message. You can search for channels if the c
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Message
 
 The message size is limited to a configured maximum (e.g. 16383 characters).
@@ -92,6 +101,10 @@ The message size is limited to a configured maximum (e.g. 16383 characters).
 - ID: `message`
 - Datatype: `multiline string`
 - Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 

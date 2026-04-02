@@ -2,15 +2,16 @@
 title: "CSV"
 description: "Read from or write to an CSV file."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - Dataset
 ---
-
 # CSV
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Read from or write to an CSV file.
+
 
 ## Parameter
 
@@ -22,6 +23,8 @@ The CSV file. This may also be a zip archive of multiple CSV files that share th
 - Datatype: `resource`
 - Default Value: `None`
 
+
+
 ### Properties
 
 Comma-separated list of properties. If not provided, the list of properties is read from the first line. Properties that are no valid (relative or absolute) URIs will be encoded.
@@ -29,6 +32,8 @@ Comma-separated list of properties. If not provided, the list of properties is r
 - ID: `properties`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Separator
 
@@ -38,6 +43,8 @@ The character that is used to separate values. If not provided, defaults to ',',
 - Datatype: `string`
 - Default Value: `,`
 
+
+
 ### Array separator
 
 The character that is used to separate the parts of array values. Write "\t" to specify the tab character.
@@ -45,6 +52,8 @@ The character that is used to separate the parts of array values. Write "\t" to 
 - ID: `arraySeparator`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Quote
 
@@ -54,6 +63,8 @@ Character used to quote values.
 - Datatype: `string`
 - Default Value: `"`
 
+
+
 ### Charset
 
 The file encoding, e.g., UTF-8, UTF-8-BOM, ISO-8859-1
@@ -61,6 +72,8 @@ The file encoding, e.g., UTF-8, UTF-8-BOM, ISO-8859-1
 - ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
+
+
 
 ### Regex filter
 
@@ -70,6 +83,8 @@ A regex filter used to match rows from the CSV file. If not set all the rows are
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Lines to skip
 
 The number of lines to skip in the beginning, e.g. copyright, meta information etc.
@@ -77,6 +92,8 @@ The number of lines to skip in the beginning, e.g. copyright, meta information e
 - ID: `linesToSkip`
 - Datatype: `int`
 - Default Value: `0`
+
+
 
 ### Ignore bad lines
 
@@ -86,6 +103,8 @@ If set to true then the parser will ignore lines that have syntax errors or do n
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Quote escape character
 
 Escape character to be used inside quotes, used to escape the quote character. It must also be used to escape itself, e.g. by doubling it, e.g. "". If left empty, it defaults to quote.
@@ -93,6 +112,10 @@ Escape character to be used inside quotes, used to escape the quote character. I
 - ID: `quoteEscapeCharacter`
 - Datatype: `string`
 - Default Value: `"`
+
+
+
+
 
 ## Advanced Parameter
 
@@ -104,6 +127,8 @@ Escape character to be used inside quotes, used to escape the quote character. I
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Max chars per column
 
 The maximum characters per column. *Warning*: System will request heap memory of that size (2 bytes per character) when reading the CSV. If there are more characters found, the parser will fail.
@@ -111,6 +136,8 @@ The maximum characters per column. *Warning*: System will request heap memory of
 - ID: `maxCharsPerColumn`
 - Datatype: `int`
 - Default Value: `128000`
+
+
 
 ### ZIP file regex
 
@@ -120,6 +147,8 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.csv`
 
+
+
 ### Delete file before workflow execution (deprecated)
 
 This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified file before executing a workflow that writes to it.
@@ -128,11 +157,15 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - Datatype: `boolean`
 - Default Value: `false`
 
-### Trim whitespace and non-printable characters
+
+
+### Trim whitespace and non-printable characters.
 
 If set to true, this will trim whitespace and non-printable characters from the contents of the CSV dataset.
 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 

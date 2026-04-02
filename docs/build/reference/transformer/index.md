@@ -5,9 +5,7 @@ tags:
     - Build
     - Reference
 ---
-
 # Transformers
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Transform operators transform a one or more sequences of string values to a sequence of string values.
@@ -73,8 +71,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Evaluate template](Template/TemplateTransformer.md) | Template | Evaluates a template. Input values can be addressed using the variables 'input1', 'input2', etc. Global variables are available in the 'global' scope, e.g., 'global.myVar'. |
  | [Even](Excel/Excel_EVEN.md) | Excel | Excel EVEN(number): Rounds the given number up to the nearest even integer. |
  | [Exact](Excel/Excel_EXACT.md) | Excel | Excel EXACT(text_1; text_2): Compares two text strings and returns TRUE if they are identical. This function is case- sensitive. Text_1 is the first text to compare. Text_2 is the second text to compare. |
-
- | [Excel map](Replace/excelMap.md) | Replace | Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: ```mapFrom,mapTo <source string>,<target string>``` and more. An empty string can be created in Excel and alternatives by inserting `=""` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds. |
+ | [Excel map](Replace/excelMap.md) | Replace | Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: ``` mapFrom,mapTo <source string>,<target string> ``` and more. An empty string can be created in Excel and alternatives by inserting `=""` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds. |
  | [Exp](Excel/Excel_EXP.md) | Excel | Excel EXP(number): Returns e raised to the power of the given number. |
  | [Extract physical quantity](Numeric/extractPhysicalQuantity.md) | Numeric | Extracts physical quantities, such as length or weight values. Values are expected to be formatted as `{Number}{UnitPrefix}{Symbol}` and are converted to the base unit. |
  | [Fact](Excel/Excel_FACT.md) | Excel | Excel FACT(number): Returns the factorial of the given number. |
@@ -86,7 +83,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Fix URI](Normalize/uriFix.md) | Normalize | Generates valid absolute URIs from the given values. Already valid absolute URIs are left untouched. |
  | [Floor](Excel/Excel_FLOOR.md) | Excel | Excel FLOOR(number; significance; mode): Rounds the given number down to the nearest multiple of significance. Significance is the value to whose multiple of ten the number is to be rounded down (.01, .1, 1, 10, etc.). Mode is an optional value. If it is indicated and non-zero and if the number and significance are negative, rounding up is carried out based on that value. |
  | [Forecast](Excel/Excel_FORECAST.md) | Excel | Excel FORECAST(value; data_Y; data_X): Extrapolates future values based on existing x and y values. Value is the x value, for which the y value of the linear regression is to be returned. Data_Y is the array or range of known y's. Data_X is the array or range of known x's. Does not work for exponential functions. |
- | [Format number](Numeric/formatNumber.md) | Numeric | Formats a number according to a user-defined pattern. The pattern syntax is documented at: <https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html> |
+ | [Format number](Numeric/formatNumber.md) | Numeric | Formats a number according to a user-defined pattern. The pattern syntax is documented at: https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html |
  | [Fv](Excel/Excel_FV.md) | Excel | Excel FV(rate; NPER; PMT; PV; type): Returns the future value of an investment based on periodic, constant payments and a constant interest rate. Rate is the periodic interest rate. NPER is the total number of periods. PMT is the annuity paid regularly per period. PV (optional) is the present cash value of an investment. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. |
  | [Geomean](Excel/Excel_GEOMEAN.md) | Excel | Excel GEOMEAN(number_1; number_2; ... number_30): Returns the geometric mean of a sample. Number_1; number_2; ... number_30 are numerical arguments or ranges that represent a random sample. |
  | [Get value by index](Sequence/getValueByIndex.md) | Sequence | Returns the value found at the specified index. Fails or returns an empty result depending on failIfNoFound is set or not. Please be aware that this will work only if the data source supports some kind of ordering like XML or JSON. This is probably not a good idea to do with RDF models. If emptyStringToEmptyResult is true then instead of a result with an empty String, an empty result is returned. |
@@ -134,7 +131,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Npv](Excel/Excel_NPV.md) | Excel | Excel NPV(Rate; value_1; value_2; ... value_30): Returns the net present value of an investment based on a series of periodic cash flows and a discount rate. Rate is the discount rate for a period. Value_1; value_2;... value_30 are values representing deposits or withdrawals. |
  | [Number to duration](Date/numberToDuration.md) | Date | Converts a number to an xsd:duration. |
  | [Numeric operation](Numeric/numOperation.md) | Numeric | Applies one of the four basic arithmetic operators to the sequence of input values. |
- | [Numeric reduce](Numeric/numReduce.md) | Numeric | Strip all non-numeric characters from a string. |
+ | [Numeric reduce](Numeric/numReduce.md) | Numeric | Strips all non-numeric characters from a string. |
  | [NYSIIS](Linguistic/NYSIIS.md) | Linguistic | NYSIIS phonetic encoding. |
  | [Odd](Excel/Excel_ODD.md) | Excel | Excel ODD(number): Rounds the given number up to the nearest odd integer. |
  | [Or](Excel/Excel_OR.md) | Excel | Excel OR(logical_value_1; logical_value_2; ...logical_value_30): Returns TRUE if at least one argument is TRUE. Returns the value FALSE if all the arguments have the logical value FALSE. Logical_value_1; logical_value_2; ...logical_value_30 are conditions to be checked. All conditions can be either TRUE or FALSE. If a range is entered as a parameter, the function uses the value from the range that is in the current column or row. |

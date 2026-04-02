@@ -5,9 +5,7 @@ icon: eccenca/artefact-dataset
 tags:
   - cmemc
 ---
-
 # dataset Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete, inspect, up-/download or open datasets.
@@ -19,6 +17,8 @@ Datasets are identified by a combined key of the `PROJECT_ID` and a `DATASET_ID`
 !!! note
     To get a list of existing datasets, execute the `dataset list` command or use tab-completion.
 
+
+
 ## dataset list
 
 List available datasets.
@@ -27,7 +27,12 @@ List available datasets.
 $ cmemc dataset list [OPTIONS]
 ```
 
+
+
+
 Output and filter a list of available datasets. Each dataset is listed with its ID, type and label.
+
+
 
 ??? info "Options"
     ```text
@@ -50,13 +55,20 @@ Delete datasets.
 $ cmemc dataset delete [OPTIONS] [DATASET_IDS]...
 ```
 
+
+
+
 This command deletes existing datasets in integration projects from Corporate Memory. The corresponding dataset resources will not be deleted.
 
 !!! warning
     Datasets will be deleted without prompting.
 
+
 !!! note
     Datasets can be listed by using the `dataset list` command.
+
+
+
 
 ??? info "Options"
     ```text
@@ -76,12 +88,18 @@ Download the resource file of a dataset.
 $ cmemc dataset download [OPTIONS] DATASET_ID OUTPUT_PATH
 ```
 
+
+
+
 This command downloads the file resource of a dataset to your local file system or to standard out (`-`). Note that this is not possible for dataset types such as Knowledge Graph (`eccencaDataplatform`) or SQL endpoint (`sqlEndpoint`).
 
 Without providing an output path, the output file name will be the same as the remote file resource.
 
 !!! note
     Datasets can be listed by using the `dataset list` command.
+
+
+
 
 ??? info "Options"
     ```text
@@ -98,20 +116,29 @@ Upload a resource file to a dataset.
 $ cmemc dataset upload DATASET_ID INPUT_PATH
 ```
 
+
+
+
 This command uploads a file to a dataset. The content of the uploaded file replaces the remote file resource. The name of the remote file resource will not be changed.
 
 !!! warning
     If the remote file resource is used in more than one dataset, all of these datasets are affected by this command.
 
+
 !!! warning
     The content of the uploaded file is not tested, so uploading a JSON file to an XML dataset will result in errors.
+
 
 !!! note
     Datasets can be listed by using the `dataset list` command.
 
+
 ```shell-session title="Example"
 $ cmemc dataset upload cmem:my-dataset new-file.csv
 ```
+
+
+
 
 ## dataset inspect
 
@@ -121,8 +148,14 @@ Display metadata of a dataset.
 $ cmemc dataset inspect [OPTIONS] DATASET_ID
 ```
 
+
+
+
 !!! note
     Datasets can be listed by using the `dataset list` command.
+
+
+
 
 ??? info "Options"
     ```text
@@ -138,6 +171,9 @@ Create a dataset.
 $ cmemc dataset create [OPTIONS] [DATASET_FILE]
 ```
 
+
+
+
 Datasets are created in projects and can have associated file resources. Each dataset has a type (such as `csv`) and a list of parameters which can alter or specify the dataset behaviour.
 
 To get more information about available dataset types and associated parameters, use the `--help-types` and `--help-parameter` options.
@@ -145,6 +181,9 @@ To get more information about available dataset types and associated parameters,
 ```shell-session title="Example"
 $ cmemc dataset create --project my-project --type csv my-file.csv
 ```
+
+
+
 
 ??? info "Options"
     ```text
@@ -181,9 +220,14 @@ Open datasets in the browser.
 $ cmemc dataset open DATASET_IDS...
 ```
 
+
+
+
 With this command, you can open a dataset in the workspace in your browser.
 
 The command accepts multiple dataset IDs which results in opening multiple browser tabs.
+
+
 
 ## dataset update
 
@@ -193,6 +237,9 @@ Update a dataset.
 $ cmemc dataset update [OPTIONS] DATASET_ID
 ```
 
+
+
+
 With this command, you can update the configuration of an existing dataset. Similar to the `dataset create` command, you need to use configuration key/value pairs on the ``--parameter`` option.
 
 To get more information about the available configuration parameters on a dataset, use the ``--help-parameter`` option.
@@ -200,6 +247,9 @@ To get more information about the available configuration parameters on a datase
 ```shell-session title="Example"
 $ cmemc dataset update my-project:my-csv -p separator ";"
 ```
+
+
+
 
 ??? info "Options"
     ```text
@@ -215,3 +265,4 @@ $ cmemc dataset update my-project:my-csv -p separator ";"
                                     Note that this option already needs access
                                     to the instance.
     ```
+

@@ -5,9 +5,7 @@ tags:
     - Build
     - Reference
 ---
-
 # Custom Workflow Tasks
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 A custom workflow task is an operator that can be used in a workflow.
@@ -24,7 +22,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
  | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization's Salesforce account. |
  | [Delete project files](deleteProjectFiles.md) | Removes file resources from the project based on a regular expression. |
- | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. |
+ | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. Since this operator accepts a flexible input schema, it can only be connected to operators that provide a non-flexible output schema. A typical way to achieve this is to place a transform operator before it, which produces a fixed output schema. |
  | [Download file](downloadFile.md) | Downloads a file from a given URL. |
  | [Download Nextcloud files](cmem_plugin_nextcloud-Download.md) | Download files from a given Nextcloud instance. |
  | [Download Office 365 Files](cmem_plugin_office365-Download.md) | Download files from Microsoft OneDrive or Sites |
@@ -39,7 +37,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Generate base36 IRDIs](cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md) | Create unique ECLASS IRDIs. |
  | [Generate SHACL shapes from data](cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md) | Generate SHACL node and property shapes from a data graph |
  | [Get project files](getProjectFiles.md) | Get file resources from the project. |
- | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output the last report of a workflow as a JSON file. |
+ | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output a workflow execution report as a JSON file. |
  | [GraphQL query](cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) | Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset. |
  | [Join tables](Merge.md) | Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links. |
  | [jq](cmem-plugin-jq-workflow.md) | Process a JSON document with a jq filter / program. |
@@ -62,6 +60,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Request RDF triples](tripleRequestOperator.md) | A task that requests all triples from an RDF dataset. |
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
+ | [Search for Logs](cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md) | Search and retrieve logs from a Logpoint SIEM system with flexible schema output. |
  | [Search Vector Embeddings](cmem_plugin_pgvector-Search.md) | Search for top-k metadata stored in Postgres Vector Store (PGVector). |
  | [Send email](SendEMail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |

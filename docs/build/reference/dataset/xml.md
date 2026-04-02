@@ -2,13 +2,13 @@
 title: "XML"
 description: "Read from or write to an XML file."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - Dataset
 ---
-
 # XML
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
+
 
 Typically, this dataset is used to transform an XML file to another format, e.g., to RDF. It can also be used to generate XML files.
 
@@ -55,6 +55,7 @@ Path examples:
 
 When writing XML, all entities need to possess a unique URI. Writing multiple root entities with the same URI will result in multiple entries in the generated XML. If multiple nested entities with the same URI are written, only the last entity with a given URI will be written.
 
+
 ## Parameter
 
 ### File
@@ -64,6 +65,10 @@ The XML file. This may also be a zip archive of multiple XML files that share th
 - ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
+
+
+
+
 
 ## Advanced Parameter
 
@@ -75,13 +80,17 @@ The base path when writing XML. For instance: /RootElement/Entity. Should no lon
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### URI pattern
 
-A URI pattern, e.g., <http://namespace.org/{ID}>, where {path} may contain relative paths to elements
+A URI pattern, e.g., http://namespace.org/{ID}, where {path} may contain relative paths to elements
 
 - ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Output template
 
@@ -91,6 +100,8 @@ The output template used for writing XML. Must be valid XML. The generated entit
 - Datatype: `code-xml`
 - Default Value: `<Root><?Entity?></Root>`
 
+
+
 ### Streaming
 
 Streaming allows for reading large XML files.
@@ -98,6 +109,8 @@ Streaming allows for reading large XML files.
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Max depth
 
@@ -107,6 +120,8 @@ Maximum depth of written XML. This acts as a safe guard if a recursive structure
 - Datatype: `int`
 - Default Value: `15`
 
+
+
 ### ZIP file regex
 
 If the input resource is a ZIP file, files inside the file are filtered via this regex.
@@ -114,4 +129,6 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.xml$`
+
+
 

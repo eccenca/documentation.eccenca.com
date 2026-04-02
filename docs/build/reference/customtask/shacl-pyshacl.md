@@ -2,13 +2,11 @@
 title: "SHACL validation with pySHACL"
 description: "Performs SHACL validation with pySHACL."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - WorkflowTask
     - PythonPlugin
 ---
-
 # SHACL validation with pySHACL
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! note inline end "Python Plugin"
@@ -29,6 +27,8 @@ The URI of the graph to be validated. The graph URI is selected from a list of g
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### SHACL shapes graph URI
 
 The URI of the graph containing the SHACL shapes to be validated against. The graph URI is selected from a list of graphs of type `shui:ShapeCatalog`.
@@ -36,6 +36,8 @@ The URI of the graph containing the SHACL shapes to be validated against. The gr
 - ID: `shacl_graph_uri`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Generate validation graph
 
@@ -45,6 +47,8 @@ If enabled, the validation graph is posted to the CMEM instance with the graph U
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Validation graph URI
 
 If the `Generate validation graph` option is enabled the validation graph is posted to the CMEM instance with this graph URI.
@@ -52,6 +56,8 @@ If the `Generate validation graph` option is enabled the validation graph is pos
 - ID: `validation_graph_uri`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Output entities
 
@@ -61,6 +67,8 @@ If enabled, the plugin outputs the validation results as entities and can be con
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Clear validation graph
 
 If enabled, the validation graph is cleared before workflow execution.
@@ -68,6 +76,10 @@ If enabled, the validation graph is cleared before workflow execution.
 - ID: `clear_validation_graph`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
+
+
 
 ## Advanced Parameter
 
@@ -79,6 +91,8 @@ The URI of a graph containing extra ontological information. RDFS and OWL defini
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Resolve owl:imports
 
 If enabled, the graph tree defined with owl:imports in the data graph is resolved.
@@ -86,6 +100,8 @@ If enabled, the graph tree defined with owl:imports in the data graph is resolve
 - ID: `owl_imports`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Blank node skolemization
 
@@ -95,6 +111,8 @@ If enabled, blank nodes in the validation graph are skolemized into URIs.
 - Datatype: `boolean`
 - Default Value: `true`
 
+
+
 ### Add labels
 
 If enabled, `rdfs:label` triples are added to the validation graph for instances of `sh:ValidationReport` and `sh:ValidationResult`.
@@ -102,6 +120,8 @@ If enabled, `rdfs:label` triples are added to the validation graph for instances
 - ID: `add_labels`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Add labels to focus nodes and values
 
@@ -111,13 +131,17 @@ If enabled along with the `Add labels` option, `rdfs:label` triples are added fo
 - Datatype: `boolean`
 - Default Value: `false`
 
-### Add shui:conforms flag to focus node resources
+
+
+### Add shui:conforms flag to focus node resources.
 
 If enabled, `shui:conforms false` triples are added to the focus nodes in the validation graph.
 
 - ID: `add_shui_conforms`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 
 ### Meta-SHACL
 
@@ -127,6 +151,8 @@ If enabled, the SHACL shapes graph is validated against the SHACL-SHACL shapes g
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Inference
 
 If enabled, OWL inferencing expansion of the data graph is performed before validation. Options are RDFS, OWLRL, Both, None.
@@ -134,6 +160,8 @@ If enabled, OWL inferencing expansion of the data graph is performed before vali
 - ID: `inference`
 - Datatype: `string`
 - Default Value: `none`
+
+
 
 ### SHACL advanced features
 
@@ -143,6 +171,8 @@ Enable SHACL advanced features.
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### SHACL-JS features
 
 Enable SHACL-JS features.
@@ -151,7 +181,9 @@ Enable SHACL-JS features.
 - Datatype: `boolean`
 - Default Value: `false`
 
-### Remove graph type <http://rdfs.org/ns/void#Dataset> from data graph
+
+
+### Remove graph type http://rdfs.org/ns/void#Dataset from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <http://rdfs.org/ns/void#Dataset>` from the in-memory data graph.
 
@@ -159,7 +191,9 @@ Before validating, remove the triple `<data_graph_uri> a <http://rdfs.org/ns/voi
 - Datatype: `boolean`
 - Default Value: `false`
 
-### Remove graph type <https://vocab.eccenca.com/dsm/ThesaurusProject> from data graph
+
+
+### Remove graph type https://vocab.eccenca.com/dsm/ThesaurusProject from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.com/dsm/ThesaurusProject>` from the in-memory data graph.
 
@@ -167,13 +201,17 @@ Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.
 - Datatype: `boolean`
 - Default Value: `false`
 
-### Remove graph type <https://vocab.eccenca.com/shui/ShapeCatalog> from data graph
+
+
+### Remove graph type https://vocab.eccenca.com/shui/ShapeCatalog from data graph
 
 Before validating, remove the triple `<data_graph_uri> a <https://vocab.eccenca.com/shui/ShapeCatalog>` from the in-memory data graph.
 
 - ID: `remove_shape_catalog_graph_type`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 
 ### Specify a custom max-evaluation-depth
 
@@ -182,4 +220,6 @@ specify a custom max-evaluation-depth. If you find yourself with a legitimate us
 - ID: `max_validation_depth`
 - Datatype: `Long`
 - Default Value: `15`
+
+
 

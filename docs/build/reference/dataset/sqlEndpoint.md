@@ -2,68 +2,72 @@
 title: "Embedded SQL endpoint"
 description: "Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL."
 icon: octicons/cross-reference-24
-tags:
+tags: 
     - Dataset
 ---
-
 # Embedded SQL endpoint
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-## SQL endpoint dataset parameters
 
-The dataset only requires that the _tableNamePrefix_ parameter is given. This will be used as the prefix for the names of the generated tables.
-When a set of entities is written to the endpoint _a view is generated for each entity type_ (defined by an 'rdf_type' attribute).
-That means that the mapping or data source that are used as input for the SQL endpoint need to have a type or require a user defined type mapping.
 
-The operator has a _compatibility mode_. This mode will avoid complex types such as Arrays. When arrays exist in the input they
-are converted to a String using the given _arraySeparator_. This avoids errors and warnings in some Jdbc clients that are unable to
-handle typed arrays and may make working with software like Excel easier.
+## Embedded SQL Endpoint Dataset
 
-The parameter _aliasMap_ of the endpoint allows the specification of column aliases. The map is a comma separated list of key-value pairs.
-Each key and value is denoted by ```key:value```. An example for renaming 2 columns (source1, source2 to target1, target2) in the result would be:
+Within BUILD, several Spark-aware datasets exist — Avro, Parquet, ORC, HDFS, Hive — each optimized to leverage Spark’s parallel, in-memory execution. Complementing these table-based and file-based datasets, the **Embedded SQL Endpoint** provides a **queryable, relational interface** to workflow results or transformations. Unlike file-based formats, this endpoint exposes results as **virtual tables**, accessible via **JDBC or other SQL clients**, enabling downstream queries, reporting, or integration without requiring persistent storage.
 
-```source1:target1,source2:target2```
+###  Concept
 
-Note: Table and column (mapping target) names will be automatically converted to be valid in as many databases as possible.
-Table names will be shortened to 128 characters. Only a-z, A-Z, 0-9 and _ are allowed. Others will be replaced with an underscore.
-Column names undergo the same transformation but will be converted to lower case as well. The log will inform about changes.
-The table names will be generated based on the target type of each mapping.
-The user needs to make sure that each object mapping specifies a unique type.
-If two object mappings define the same type, only the last one will be written.
+The Embedded SQL Endpoint represents **workflow-generated tables**. It is **not a general-purpose query endpoint**; each table corresponds directly to workflow outputs and serves as a **source or sink** within the workflow, functioning as a **dataset** like other Spark-aware datasets and integrating with BUILD plugins in the usual way.
 
-## SQL endpoint activity
+The endpoint allows workflows to **publish results as tables** in a format compatible with standard SQL tooling. Multiple tables can be exposed per workflow if complex mappings exist. Table names can be **customized using a prefix** or automatically generated for convenience. By caching tables in memory, Spark ensures that queries execute efficiently while maintaining fault tolerance and parallelism inherent in the Spark ecosystem.
 
-See [ActivityDocumentation] for a general description of the Data Integration activities.
-The activity will _start_ automatically, when the SQL endpoint is used
-as a data sink and Data Integration is configured to make the SQL endpoint accessible remotely.
+Conceptually, these tables can be **consumed by other workflows or plugins** without needing to manage Spark execution details.
+### Key Features
 
-When the activity is started and _running_ it returns the server status and JDBC URL as its value.
+- **Virtual table exposure**: Any workflow or transformation result can be turned into a SQL-accessible table.
+- **Multiple tables per workflow**: If the workflow produces multiple entity types, each type can become a separate table.
+- **Table name customization**: `tableNamePrefix` allows semantic or organizational naming of tables.
+- **In-memory caching**: Optional caching accelerates repeated queries while preserving fault tolerance.
+- **Array and type compatibility**: Arrays can be serialized using a configurable separator (`arraySeparator`), and complex Spark types are converted to basic types for external clients (`useCompatibleTypes`).
+- **Column mapping**: Optional aliasing of columns via `map` ensures semantic clarity and client compatibility.
+- **Integration**: Fits seamlessly into BUILD workflows alongside other Spark-aware datasets.
+- **Client independence**: External consumers do not need to manage partitions, caching, or Spark execution details.
 
-_Stopping_ the activity will drop all views generated by the activity. It can be _restarted_ by rerunning the
-workflow containing it as a sink.
+### Activity Behavior
 
-## Remote client configuration (via JDBC and ODBC)
+- The SQL endpoint **starts automatically** when used as a workflow sink and when BUILD is configured to make it remotely accessible.
+- When running, the activity **returns the server status and JDBC URL**.
+- **Stopping** the activity drops all generated views; it can be restarted by rerunning the workflow.
 
-Within Data Integration the SQL endpoint can be used as a source or sink like any other dataset. If the _startThriftServer_ option is set to 'true'
-access via JDBC or ODBC is possible.
+### Remote Client Access
 
-[ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) drivers can be used to connect to relational databases.
+- Access via **JDBC or ODBC** is possible when the `startThriftServer` option is enabled.
+- Supported drivers:
+    - JDBC compatible with **Hive 1.2.1** (`org.apache.hive.jdbc.HiveDriver`)
+    - JDBC compatible with **Spark 2.3.3**
+    - Hive ODBC driver for the client OS architecture
+- Table and column names are sanitized for database compatibility:
+    - Only `a-z`, `A-Z`, `0-9`, and `_` are allowed; other characters replaced with `_`.
+    - Table names truncated to 128 characters; column names converted to lowercase.
+- Any JDBC/ODBC client can connect; SparkSQL uses Hive-compatible query processing.
+- [DBeaver](https://dbeaver.io/) connects out-of-the-box; see [Apache HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients) for additional tools.
 
-When selecting a version of a driver the client operating system and its type (32bit/64 bit) are the most important factors.
-The version of the client drivers sometimes is the same as the server's.
-If no version of a driver is given, the newest driver of the vendor should work, as it _should_ be backwards compatible.
+### Conceptual Workflow Usage
 
-Any JDBC or ODBC client can connect to an SQL endpoint dataset. SparkSQL uses the same query processing as Hive, therefore the requirements for the client are:
+- Transform data using Spark-optimized datasets (Hive, HDFS, Parquet, ORC, Avro).
+- Publish intermediate or final results via the SQL endpoint.
+- External consumers query the published tables without needing to manage Spark internals.
+- Maintains semantic alignment with the Knowledge Graph indirectly, as table content can be structured according to workflow-derived entity URIs and properties.
 
-- A JDBC driver compatible with _Hive 1.2.1_[^hi] (platform independent driver _org.apache.hive.jdbc.HiveDriver_ is needed) or
-- A JDBC driver compatible with _Spark 2.3.3_
-- A Hive ODBC driver (ODBC driver for the client architecture and operating system needed)
+### Comparison with Other Spark-aware Datasets
 
-[^hi]: Hive 1.2.1 is [ODPi](https://github.com/odpi/specs/blob/master/ODPi-Runtime.md) runtime compliant
-
-A detailed instruction to connect to a Hive or SparkSQL endpoint with various tools (e.g. SQuirreL, beeline, SQL Developer, ...) can be found at _[Apache HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)_.
-The database client _[DBeaver](https://dbeaver.io/)_ can connect to the SQL endpoint out of the box.
+| Aspect                          | Embedded SQL Endpoint                                                                                 | Hive Dataset                                                        | HDFS Dataset (Sequence Files)                                           |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Type                            | Virtual table / JDBC-accessible endpoint                                                              | Table-based, structured                                             | File-based, row-oriented                                                |
+| Storage / persistence           | In-memory, transient                                                                                  | Hive tables (persistent, partitioned)                               | Hadoop sequence files (persistent, row-based)                           |
+| Querying                        | SQL / JDBC queries                                                                                    | Optional SQL for filtering/projection                               | Handled via workflow transformations in Spark                           |
+| Caching                         | Optional in-memory caching                                                                            | Handled by Spark                                                    | Handled by Spark                                                        |
+| Integration with workflows      | Directly exposes workflow outputs                                                                     | Consumed as a Spark-optimized dataset                               | Consumed as a Spark-optimized dataset                                   |
+| Best use case in CMEM workflows | Queryable exposure of workflow or transformation results for external clients or downstream workflows | Ingesting structured Hive tables with optional filtering/projection | Ingesting row-oriented sequence files, often for large-scale processing |
 
 
 ## Parameter
