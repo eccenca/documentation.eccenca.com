@@ -1,5 +1,4 @@
 ---
-status: new
 title: "Python Plugins: Setup and Configuration"
 icon: material/cog-outline
 tags:
