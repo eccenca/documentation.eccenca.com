@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.1.0
+# Corporate Memory 26.1.1
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
@@ -33,7 +33,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
-- eccenca Explore v26.1.0
+- eccenca Explore v26.1.1
 - eccenca Corporate Memory Control (cmemc) v26.1.0
 - eccenca Graph Insights v19.2.0
 
@@ -115,9 +115,18 @@ We are excited to announce the release of DataIntegration v26.1, which expands M
 - Fixed cases where DI entity caches were not cleaned up.
 - Fixed cases where errors persisted after deleting the task from the project.
 
-## eccenca Explore v26.1.0
+## eccenca Explore v26.1.1
 
 We are pleased to announce the release of Explore v26.1, which introduces badges, a redesigned resource representation and table experience, versioning view, Companion improvements, and a broad platform refresh.
+
+**v26.1.1 of Explore introduces the following changes:**
+
+- Update JSON logstash plugin for cloud deployments
+
+**v26.1.1 of Explore ships the following fixes:**
+
+- Fix the bug of not showing the tab for Graph Insights
+- Workspace configuration: Overridden string values in workspace configuration can be deleted again
 
 **v26.1.0 of Explore adds the following new features:**
 
