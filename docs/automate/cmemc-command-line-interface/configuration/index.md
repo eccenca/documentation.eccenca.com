@@ -39,18 +39,16 @@ In order to work with cmemc, you have to configure it according to your needs.
 
 </div>
 
-## Configuration value resolution order
+!!! info "Configuration value resolution order"
 
-When the same key is defined in multiple places, cmemc resolves values in the following order:
+    When the same key is defined in multiple places, cmemc resolves values in the following order:
 
-1. **Named connection section** — When you run cmemc with a specific connection (e.g. `-c my-connection`),
-all keys from the corresponding `[my-connection]` section are used. This takes full precedence,
-including over OS environment variables, so you can define self-contained, reproducible
-connection profiles that are not affected by your shell environment.
+    1. **Named connection section** — When you run cmemc with a specific connection (e.g. `-c my-connection`), all keys from the corresponding `[my-connection]` section are used.
+    This takes full precedence, including over OS environment variables, so you can define self-contained, reproducible connection profiles that are not affected by your shell environment.
 
-2. **Environment variables** — If a key is set as an environment variable and no named connection
-section is active, the environment variable value is used.
+    2. **Environment variables** — If a key is set as an [environment variable](environment-based-configuration/index.md) and no named connection section is active, the environment variable value is used.
 
-3. **`[DEFAULT]` section** — The `[DEFAULT]` section in [`cmemc.ini`](file-based-configuration/index.md) acts as a fallback
-for all connections. Its values are ignored if the same key is already set as an environment variable.
-Keys present in the `[DEFAULT]` section but absent from the named connection section still apply as a fallback.
+    3. **`[DEFAULT]` section** — The `[DEFAULT]` section in [`cmemc.ini`](file-based-configuration/index.md) acts as a fallback for all connections.
+    Its values are ignored if the same key is already set as an environment variable.
+    Keys present in the `[DEFAULT]` section but absent from the named connection section still apply as a fallback.
+
