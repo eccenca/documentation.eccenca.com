@@ -48,9 +48,9 @@ all keys from the corresponding `[my-connection]` section are used. This takes f
 including over OS environment variables, so you can define self-contained, reproducible
 connection profiles that are not affected by your shell environment.
 
-2. **OS environment variables** — If a key is set as an environment variable and no named connection
+2. **Environment variables** — If a key is set as an environment variable and no named connection
 section is active, the environment variable value is used.
 
-3. **`[DEFAULT]` section** — The `[DEFAULT]` section in `~/.config/cmemc/cmemc.ini` acts as a fallback
+3. **`[DEFAULT]` section** — The `[DEFAULT]` section in [`cmemc.ini`](file-based-configuration/index.md) acts as a fallback
 for all connections. Its values are ignored if the same key is already set as an environment variable.
 Keys present in the `[DEFAULT]` section but absent from the named connection section still apply as a fallback.
