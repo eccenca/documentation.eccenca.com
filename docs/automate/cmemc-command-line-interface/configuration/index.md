@@ -53,3 +53,5 @@ section is active, the environment variable value is used.
 
 3. **`[DEFAULT]` section** — The `[DEFAULT]` section in `~/.config/cmemc/cmemc.ini` acts as a fallback
 for all connections. Its values are ignored if the same key is already set as an environment variable.
+Keys present in the `[DEFAULT]` section but absent from the named connection section still
+apply as a fallback.
