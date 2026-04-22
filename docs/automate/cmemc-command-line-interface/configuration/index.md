@@ -45,7 +45,6 @@ In order to work with cmemc, you have to configure it according to your needs.
 
     1. **Named connection section** — When you run cmemc with a specific connection (e.g. `-c my-connection`), all keys from the corresponding `[my-connection]` section are used.
     This takes full precedence, including over OS environment variables, so you can define self-contained, reproducible connection profiles that are not affected by your shell environment.
-    Keys not defined in [my-connection] fall back to `[DEFAULT]`.
 
     2. **Environment variables** — If a key is set as an [environment variable](environment-based-configuration/index.md) and no named connection section is active, the environment variable value is used.
 
@@ -53,5 +52,5 @@ In order to work with cmemc, you have to configure it according to your needs.
     Its values are ignored if the same key is already set as an environment variable.
     Keys present in the `[DEFAULT]` section but absent from the named connection section still apply as a fallback.
 
-    4. **Command specific environment variables** — Command-specific variables (e.g. CMEMC_GRAPH_LIST_ID_ONLY) are never overridden or cleared when switching connections.
+    4. **Command specific environment variables** — Command-specific variables (e.g. `CMEMC_GRAPH_LIST_ID_ONLY`) are never overridden or cleared when switching connections.
     They apply regardless of whether -c is active, from either the config file or the environment.
