@@ -90,14 +90,6 @@ tags:
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
 | [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
-| [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
-| [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
-| [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
-| [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
-| [package](package/index.md) | [export](package/index.md#package-export) | Export installed packages to package directories. |
-| [package](package/index.md) | [build](package/index.md#package-build) | Build a package archive from a package directory. |
-| [package](package/index.md) | [publish](package/index.md#package-publish) | Publish a package archive to the marketplace server. |
-| [package](package/index.md) | [search](package/index.md#package-search) | Search for available packages with a given search text. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
