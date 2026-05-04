@@ -269,3 +269,12 @@ Setting this to a PEM file allows for using private Certificate Authorities for 
 Please refer to [Certificate handling and SSL verification](../certificate-handling-and-ssl-verification/index.md) for more information.
 
 This variable defaults to `$PYTHON_HOME/site-packages/certifi/cacert.pem`.
+
+
+#### CMEMC_CUSTOM_HEADER_*
+
+Setting this allows all http requests cmemc does to use the specified custom headers as well.
+
+The `CMEMC_CUSTOM_HEADER_` prefix gets stripped from the header, so only `*` will remain.
+
+This variable defaults to `none`

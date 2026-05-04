@@ -60,6 +60,7 @@ In order to get credential information from an external process you need to use 
 - `OAUTH_PASSWORD_PROCESS`, to set up the process to get the user password when using the `password` grant type.
 - `OAUTH_CLIENT_SECRET_PROCESS`, to set up the process to get the client secret when using `client_credentials` grant type .
 - `OAUTH_ACCESS_TOKEN_PROCESS`, to set up the process to get the direct access token (`prefetched_token`).
+- `CMEMC_CUSTOM_HEADER_*_PROCESS` to set up the process to get custom http headers if needed (the `*` needs to be replaced with the correct header name using all uppercase and `_` instead of `-`, e.g. `CMEMC_CUSTOM_HEADER_CF_ACCESS_TOKEN_PROCESS` for the `cf-access-token` header variable)
 
 The credential executable can use the other cmemc environment keys of the configuration block for fetching the credentials (e.g. `CMEM_BASE_URI` and `OAUTH_USER`).
 
@@ -87,6 +88,7 @@ OAUTH_CLIENT_ID=cmem-service-account
 OAUTH_CLIENT_SECRET_PROCESS=["getpass.sh", "parameter1", "parameter2"]
 ```
 
+Note: You need to define a named connection for this to take effect. Using the `[DEFAULT]` section fallback will not execute the process.
 ### Example: MacOS Keychain
 
 Here is a working example with the MacOS Keychain, which can be queried with the command line tool `security`.
