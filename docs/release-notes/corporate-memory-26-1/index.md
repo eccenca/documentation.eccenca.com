@@ -34,7 +34,7 @@ This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
 - eccenca Explore v26.1.1
-- eccenca Corporate Memory Control (cmemc) v26.1.1
+- eccenca Corporate Memory Control (cmemc) v26.1.2
 - eccenca Graph Insights v19.2.0
 
 We tested this release with the following dependency components:
@@ -221,9 +221,16 @@ We are pleased to announce the release of Explore v26.1, which introduces badges
     - SPARQL Excel downloads now have clean file names.
     - Notifications are now more robust when given non-string input.
 
-## eccenca Corporate Memory Control (cmemc) v26.1.0
+## eccenca Corporate Memory Control (cmemc) v26.1.2
 
 We are excited to announce the release of cmemc v26.1, which expands access-condition administration, adds richer project and query catalog operations, and improves list and output consistency across the CLI.
+
+**v26.1.2 of cmemc ships the following features:**
+
+- Support for arbitrary custom HTTP request headers via `CMEMC_CUSTOM_HEADER_*` environment variables and config keys
+    - Header name is derived from the suffix by replacing underscores with hyphens (e.g. `CMEMC_CUSTOM_HEADER_CF_ACCESS_CLIENT_ID` â†’ `CF-ACCESS-CLIENT-ID`)
+    - Protected headers (`Authorization`, `User-Agent`) cannot be overridden and raise a configuration error
+    - Custom headers are cleared when switching connections
 
 **v26.1.1 of cmemc ships the following fixes:**
 
