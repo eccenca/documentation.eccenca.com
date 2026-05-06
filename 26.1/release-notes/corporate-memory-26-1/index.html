@@ -26473,10 +26473,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#eccenca-corporate-memory-control-cmemc-v2610" class="md-nav__link">
+  <a href="#eccenca-corporate-memory-control-cmemc-v2612" class="md-nav__link">
     <span class="md-ellipsis">
       
-        eccenca Corporate Memory Control (cmemc) v26.1.0
+        eccenca Corporate Memory Control (cmemc) v26.1.2
       
     </span>
   </a>
@@ -26601,7 +26601,7 @@
 <ul>
 <li>eccenca DataIntegration v26.1.0</li>
 <li>eccenca Explore v26.1.1</li>
-<li>eccenca Corporate Memory Control (cmemc) v26.1.1</li>
+<li>eccenca Corporate Memory Control (cmemc) v26.1.2</li>
 <li>eccenca Graph Insights v19.2.0</li>
 </ul>
 <p>We tested this release with the following dependency components:</p>
@@ -26847,8 +26847,17 @@
 </ul>
 </li>
 </ul>
-<h2 id="eccenca-corporate-memory-control-cmemc-v2610">eccenca Corporate Memory Control (cmemc) v26.1.0<a class="headerlink" href="#eccenca-corporate-memory-control-cmemc-v2610" title="Permanent link">¤</a></h2>
+<h2 id="eccenca-corporate-memory-control-cmemc-v2612">eccenca Corporate Memory Control (cmemc) v26.1.2<a class="headerlink" href="#eccenca-corporate-memory-control-cmemc-v2612" title="Permanent link">¤</a></h2>
 <p>We are excited to announce the release of cmemc v26.1, which expands access-condition administration, adds richer project and query catalog operations, and improves list and output consistency across the CLI.</p>
+<p><strong>v26.1.2 of cmemc ships the following features:</strong></p>
+<ul>
+<li>Support for arbitrary custom HTTP request headers via <code>CMEMC_CUSTOM_HEADER_*</code> environment variables and config keys<ul>
+<li>Header name is derived from the suffix by replacing underscores with hyphens (e.g. <code>CMEMC_CUSTOM_HEADER_CF_ACCESS_CLIENT_ID</code> â†’ <code>CF-ACCESS-CLIENT-ID</code>)</li>
+<li>Protected headers (<code>Authorization</code>, <code>User-Agent</code>) cannot be overridden and raise a configuration error</li>
+<li>Custom headers are cleared when switching connections</li>
+</ul>
+</li>
+</ul>
 <p><strong>v26.1.1 of cmemc ships the following fixes:</strong></p>
 <ul>
 <li><code>workflow status</code> command<ul>
@@ -27170,7 +27179,7 @@ We are harmonizing configuration paths under a single central entry point to sim
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 26, 2026 17:30:54 UTC"><span class="timeago" datetime="2026-04-26T17:30:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 26, 2026 17:30:54 UTC">2026-04-26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 6, 2026 09:26:38 UTC"><span class="timeago" datetime="2026-05-06T09:26:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 6, 2026 09:26:38 UTC">2026-05-06</span>
   </span>
 
     
