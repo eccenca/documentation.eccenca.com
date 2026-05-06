@@ -6,6 +6,7 @@ tags:
   - Security
   - cmemc
 ---
+
 # Getting Credentials from External Processes
 
 ## Introduction
@@ -89,6 +90,7 @@ OAUTH_CLIENT_SECRET_PROCESS=["getpass.sh", "parameter1", "parameter2"]
 ```
 
 Note: You need to define a named connection for this to take effect. Using the `[DEFAULT]` section fallback will not execute the process.
+
 ### Example: MacOS Keychain
 
 Here is a working example with the MacOS Keychain, which can be queried with the command line tool `security`.

@@ -273,8 +273,8 @@ This variable defaults to `$PYTHON_HOME/site-packages/certifi/cacert.pem`.
 
 #### CMEMC_CUSTOM_HEADER_*
 
-Setting this allows all http requests cmemc does to use the specified custom headers as well.
+Enabling this setting ensures that all HTTP requests made by cmemc include the specified custom headers.
 
-The `CMEMC_CUSTOM_HEADER_` prefix gets stripped from the header, so only `*` will remain.
+The CMEMC_CUSTOM_HEADER_ prefix is automatically removed, so only the header name (*) is used in the request.
 
-This variable defaults to `none`
+By default, this variable is set to none.
