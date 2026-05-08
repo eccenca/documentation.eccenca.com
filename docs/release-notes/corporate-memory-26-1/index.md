@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.1.1
+# Corporate Memory 26.1.2
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
@@ -33,7 +33,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
-- eccenca Explore v26.1.1
+- eccenca Explore v26.1.2
 - eccenca Corporate Memory Control (cmemc) v26.1.2
 - eccenca Graph Insights v19.2.0
 
@@ -115,9 +115,28 @@ We are excited to announce the release of DataIntegration v26.1, which expands M
 - Fixed cases where DI entity caches were not cleaned up.
 - Fixed cases where errors persisted after deleting the task from the project.
 
-## eccenca Explore v26.1.1
+## eccenca Explore v26.1.2
 
 We are pleased to announce the release of Explore v26.1, which introduces badges, a redesigned resource representation and table experience, versioning view, Companion improvements, and a broad platform refresh.
+
+**v26.1.2 of Explore ships the following fixes:**
+
+- **Workspace Configuration:**
+    - Override default n/a values fix
+- **Link Rules:**
+    - Several small visualisation issues
+    - Failed deletion of a linking rule if the output graph is missing
+    - Small fixes on query builder UI
+- **SHACL:**
+    - Disabled select list on removed property
+- **Query Catalog:**
+    - Query catalogue forgets variables
+- **Other:**
+    - Add detailed tooltip for RdfResource badges
+    - URI checks too restrictive
+    - Missing user info on failed graph upload in UI
+    - Spring Boot 4.0.6
+    - Invalidation of transistive `owl:imports`
 
 **v26.1.1 of Explore introduces the following changes:**
 
