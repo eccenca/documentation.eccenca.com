@@ -95,10 +95,6 @@ If true, basic types will be used for types that otherwise would result in clien
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

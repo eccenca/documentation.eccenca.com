@@ -51,10 +51,10 @@ The regular expression used to split values.
 * Datatype: `string`
 * Default Value: `\s`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **camelcasetokenizer** — A value written in camel case produces a single token under Tokenize, because there is no separator character to split on. Camel case tokenizer reads case transitions as boundaries and splits accordingly.

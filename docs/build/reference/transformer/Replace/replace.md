@@ -66,10 +66,11 @@ The replacement of each match
 * Datatype: `string`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexReplace** — The Replace plugin substitutes a literal search string everywhere it occurs. The Regex replace plugin does the same kind of rewrite, but the match is defined by a regular expression rather than a fixed substring.
+* **map** — Replace performs in-place substitution of a substring, leaving the rest of the value intact. The Map plugin replaces entire values based on exact key matches and returns a configured default when no match is found.

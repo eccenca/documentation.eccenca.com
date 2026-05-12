@@ -29,47 +29,47 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns 0 for equal numbers:**
 
-* Input values:
-    * Source: `[4.2]`
-    * Target: `[4.2]`
+- Input values:
+    - Source: `[4.2]`
+    - Target: `[4.2]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 
 ---
 **Returns 1 if at least one value is not a number:**
 
-* Input values:
-    * Source: `[1]`
-    * Target: `[one]`
+- Input values:
+    - Source: `[1]`
+    - Target: `[one]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 
 ---
 **Returns 0 for numbers within the configured precision:**
 
-* Parameters
-    * precision: `0.1`
+- Parameters
+    - precision: `0.1`
 
-* Input values:
-    * Source: `[1.3]`
-    * Target: `[1.35]`
+- Input values:
+    - Source: `[1.3]`
+    - Target: `[1.35]`
 
-* Returns: `0.0`
+- Returns: `0.0`
 
 
 ---
 **Returns 1 for numbers outside the configured precision:**
 
-* Parameters
-    * precision: `0.1`
+- Parameters
+    - precision: `0.1`
 
-* Input values:
-    * Source: `[1.3]`
-    * Target: `[1.5]`
+- Input values:
+    - Source: `[1.3]`
+    - Target: `[1.5]`
 
-* Returns: `1.0`
+- Returns: `1.0`
 
 
 
@@ -80,14 +80,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The range of tolerance in floating point number comparisons. Must be 0 or a non-negative number smaller than 1.
 
-* ID: `precision`
-* Datatype: `double`
-* Default Value: `0.0`
-
-
-
-
+- ID: `precision`
+- Datatype: `double`
+- Default Value: `0.0`
 
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **num** — Matching and measuring distance are not the same operation. Numeric equality returns match or no match; Numeric similarity returns the actual distance between the two numbers.

@@ -128,10 +128,6 @@ A flag indicating if files should only be listed from subfolders or not.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Maximum amount of workers
@@ -141,4 +137,3 @@ Specifies the maximum number of threads used for parallel execution of the workf
 - ID: `max_workers`
 - Datatype: `Long`
 - Default Value: `32`
-

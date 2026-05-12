@@ -138,10 +138,13 @@ The replacement of each match
 * Datatype: `string`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexExtract** — The Regex replace plugin returns the full input string after rewriting every match with the replacement. The Regex extract plugin returns only what matched, or the first capturing group, so the output is match-derived content rather than a rewritten string.
+* **regexSelect** — The Regex replace plugin rewrites a string by substituting every match with the configured replacement, so the output stays a transformed version of the input text. The Regex selection plugin turns matching into positional markers by emitting a provided output value at the regex positions that match the checked value.
+* **validateRegex** — The Regex replace plugin rewrites a string by substituting every regex match and returns the rewritten value. The Validate regex plugin keeps the value only when the full value matches the regex and otherwise fails validation, so it serves as a format check before or after rewriting.
+* **replace** — The Replace plugin swaps one fixed substring for another everywhere it occurs. The Regex replace plugin does the same global substitution, but what counts as a hit is described by a regular expression.

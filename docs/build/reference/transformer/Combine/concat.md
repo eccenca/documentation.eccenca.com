@@ -164,10 +164,11 @@ Handle missing values as empty strings.
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **concatPairwise** — Concatenate takes the Cartesian product of all inputs and produces one string per combination. Concatenate pairwise aligns values by position and produces one string per position, truncating to the shortest input.
+* **concatMultiValues** — Passing multiple values to a single input of Concatenate does not combine them — it multiplies the output. Concatenate multiple values is the plugin that collapses multiple values within an input into one string, producing exactly one result per input.

@@ -245,10 +245,6 @@ How multiple values per entity property are written.
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Query execution
@@ -274,5 +270,3 @@ Optional pause between queries in ms.
 - ID: `queryExecution.pause`
 - Datatype: `int`
 - Default Value: `2000`
-
-

@@ -226,10 +226,6 @@ The graph name to be read. If not provided, the default graph will be used. Must
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Entity list
@@ -250,4 +246,7 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - Datatype: `string`
 - Default Value: `.*`
 
+## Related Plugins
 
+- **sparqlEndpoint** — The RDF file dataset loads a file into memory at read time and constrains output to N-Triples. The SPARQL endpoint dataset connects to a remote queryable store that handles queries and updates without those restrictions.
+- **inMemory** — The RDF file dataset writes to disk but only in N-Triples, and it loads the full file into memory to read; the in-memory dataset skips the filesystem entirely but discards all data when execution finishes.

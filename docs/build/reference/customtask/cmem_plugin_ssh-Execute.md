@@ -162,10 +162,6 @@ A timeout for the executed command.
 - Datatype: `Long`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

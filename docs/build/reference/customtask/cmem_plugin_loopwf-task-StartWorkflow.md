@@ -103,10 +103,6 @@ Which workflow do you want to start per entity.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Mime-type for file by file processing (beta)
@@ -116,5 +112,3 @@ When working with file entities, setting this to a proper value will send the fi
 - ID: `input_mime_type`
 - Datatype: `string`
 - Default Value: `None`
-
-

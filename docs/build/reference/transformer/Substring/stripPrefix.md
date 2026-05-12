@@ -54,10 +54,11 @@ No description
 * Datatype: `string`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **stripPostfix** — Strip prefix removes a configured string from the start of the value, leaving it unchanged if the string is not found there. Strip postfix is the complement: it checks and removes from the end.
+* **substring** — Strip prefix removes a configured string from the start only if it is actually present. Substring removes by position: it skips the first N characters regardless of their content, so it will cut into the value even if the expected prefix is absent.

@@ -25,10 +25,11 @@ No description
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **removeEmptyValues** — Remove values works from a blacklist: any value matching a word in that list is dropped. Remove empty values has no such list; it removes only empty strings.
+- **removeDuplicates** — The two plugins filter on different grounds. Remove values drops a value because of what it is; Remove duplicates drops a value because it already appeared earlier in the sequence.

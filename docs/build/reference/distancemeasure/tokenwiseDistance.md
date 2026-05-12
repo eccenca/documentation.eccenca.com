@@ -90,10 +90,6 @@ No description
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Stopword weight
@@ -123,5 +119,3 @@ Use incremental IDF weights
 - ID: `useIncrementalIdfWeights`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

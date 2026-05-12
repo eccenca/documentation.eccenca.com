@@ -35,10 +35,6 @@ The name of the parameter.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

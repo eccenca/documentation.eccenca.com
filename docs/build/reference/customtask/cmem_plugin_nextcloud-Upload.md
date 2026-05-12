@@ -75,10 +75,6 @@ The path to a specific directory to which to upload files.Leave empty or type '/
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### File
@@ -88,4 +84,3 @@ The file which you would like to upload. If this is set, no connections in the w
 - ID: `source_file`
 - Datatype: `string`
 - Default Value: `None`
-

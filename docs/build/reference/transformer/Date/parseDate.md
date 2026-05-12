@@ -140,10 +140,10 @@ Optional locale for the date format. If not set the system's locale will be used
 * Datatype: `option[locale]`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **currentDate** — Parse date converts an input string to a date using a configured format. Current date ignores the input entirely and always outputs today's date.

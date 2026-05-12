@@ -122,4 +122,7 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - Datatype: `boolean`
 - Default Value: `false`
 
+## Related Plugins
 
+- **sparqlEndpoint** — Data in the in-memory dataset does not persist beyond the running process. The SPARQL endpoint dataset connects to an external store that persists independently, which means switching between them changes not just where the data lives but whether it survives execution at all.
+- **file** — Switching from the in-memory dataset to the RDF file dataset is not just adding persistence. The RDF file dataset loads the entire file into memory at read time and constrains output to N-Triples — neither of which the in-memory dataset does.

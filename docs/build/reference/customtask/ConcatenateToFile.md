@@ -65,10 +65,6 @@ Suffix to be written after the last value.
 - Datatype: `multiline string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Charset
@@ -88,5 +84,3 @@ File extension of the output file.
 - ID: `fileExtension`
 - Datatype: `string`
 - Default Value: `.tmp`
-
-

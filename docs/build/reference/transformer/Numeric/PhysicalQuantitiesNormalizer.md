@@ -365,10 +365,6 @@ The IETF BCP 47 language tag, e.g., 'en'.
 * Datatype: `string`
 * Default Value: `en`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -141,10 +141,10 @@ No description
 * Datatype: `string`
 * Default Value: `en`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **extractPhysicalQuantity** — Format number requires a numeric input. If the source data contains quantity strings with embedded unit symbols, Extract physical quantity parses those strings and returns the numeric value in the base unit — the form that Format number can then render according to a decimal pattern.

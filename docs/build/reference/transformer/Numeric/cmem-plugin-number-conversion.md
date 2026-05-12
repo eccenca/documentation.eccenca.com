@@ -41,10 +41,6 @@ Source Number Base
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -88,10 +88,6 @@ The jq program to apply to the input JSON string.
 - Datatype: `string`
 - Default Value: `.`
 
-
-
-
-
 ## Advanced Parameter
 
 ### JSON source which can be used with the validate expression action
@@ -101,5 +97,3 @@ The jq program to apply to the input JSON string.
 - ID: `validation_source`
 - Datatype: `code-json`
 - Default Value: `None`
-
-

@@ -30,10 +30,6 @@ No description
 - Datatype: `string`
 - Default Value: `—|–|-`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -121,10 +121,11 @@ The templating mode for the template engine. The possible values are `Simple` an
 - Datatype: `enumeration`
 - Default Value: `simple`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **sparqlEndpoint** — A SPARQL endpoint dataset in the workflow receives the update statements this plugin generates and executes them against the remote store.
+- **sparqlSelectOperator** — This plugin turns entity input into SPARQL Update statements that modify a store. The SPARQL Select query plugin reads from the same kind of store by executing a SELECT query and outputting the results as an entity table.

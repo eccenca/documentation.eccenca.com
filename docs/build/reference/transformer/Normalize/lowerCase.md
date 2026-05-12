@@ -21,10 +21,10 @@ Converts a string to lower case.
 ---
 **Transforms all values to lower case:**
 
-* Input values:
+- Input values:
     1. `[JoHN, LeNA]`
 
-* Returns: `[john, lena]`
+- Returns: `[john, lena]`
 
 
 
@@ -36,3 +36,8 @@ Converts a string to lower case.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **upperCase** — Lower case and Upper case apply the same exhaustive rule in opposite directions — every character is converted, none left unchanged. Upper case is the choice when the target is uniform all-caps.
+- **capitalize** — Lower case converts every character without exception. Capitalize is more selective: it uppercases only the first character of the string, leaving the rest unchanged.

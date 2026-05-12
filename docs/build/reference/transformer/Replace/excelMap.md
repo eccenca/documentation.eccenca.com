@@ -80,10 +80,6 @@ Determines how values that cannot be found in the mapping table are treated. Onl
 - Datatype: `enumeration`
 - Default Value: `retain`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

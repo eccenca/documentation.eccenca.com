@@ -66,10 +66,6 @@ No description
 - Datatype: `int`
 - Default Value: `2`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Min char
@@ -89,5 +85,3 @@ The maximum character that is used for indexing
 - ID: `maxChar`
 - Datatype: `char`
 - Default Value: `z`
-
-

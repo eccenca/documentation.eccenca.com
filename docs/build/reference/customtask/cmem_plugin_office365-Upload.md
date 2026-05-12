@@ -108,10 +108,6 @@ The path of a directory that needs to be transformed. Includes all subdirectorie
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Maximum amount of workers
@@ -121,4 +117,3 @@ Specifies the maximum number of threads used for parallel execution of the workf
 - ID: `max_workers`
 - Datatype: `Long`
 - Default Value: `32`
-

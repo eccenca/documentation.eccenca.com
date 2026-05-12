@@ -59,10 +59,6 @@ Navigate into arrays automatically. If set to false, the `#array` path operator 
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Base path
@@ -112,5 +108,3 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.jsonl?$`
-
-

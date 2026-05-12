@@ -127,10 +127,6 @@ Neo4j label for all entities to be covered by this dataset. When reading, all no
 - Datatype: `string`
 - Default Value: `Any`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Clear before workflow execution (deprecated)
@@ -140,4 +136,3 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-

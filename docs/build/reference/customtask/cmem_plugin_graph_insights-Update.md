@@ -49,10 +49,6 @@ Selected graph to update snapshots for. Leave empty for updating all snapshots.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Timeout
@@ -62,5 +58,3 @@ Timeout in seconds for Graph Insights API.
 - ID: `timeout`
 - Datatype: `double`
 - Default Value: `100`
-
-

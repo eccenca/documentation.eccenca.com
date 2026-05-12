@@ -40,10 +40,6 @@ Per default, if both strings are numbers, numerical order is used for comparison
 - Datatype: `enumeration`
 - Default Value: `Autodetect`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Reverse
@@ -54,4 +50,6 @@ Reverse source and target inputs
 - Datatype: `boolean`
 - Default Value: `false`
 
+## Related Plugins
 
+- **lowerThan** — The Lower than plugin is the logical inverse of Greater than: given the same inputs, it returns 1.0 exactly where Greater than returns 0.0.

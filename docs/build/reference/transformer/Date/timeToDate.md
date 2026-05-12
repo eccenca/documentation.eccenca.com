@@ -74,10 +74,10 @@ No description
 * Datatype: `enumeration`
 * Default Value: `milliseconds`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **datetoTimestamp** — Timestamp to date converts a Unix integer to a date string; Date to timestamp is the reverse of that, converting a date string back to a Unix integer.

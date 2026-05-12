@@ -157,10 +157,12 @@ If true, only strings will be accepted that are within the start and end indices
 * Datatype: `boolean`
 * Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **stripPrefix** — Substring removes a fixed number of characters from the start regardless of their content. Strip prefix is more selective: it only removes from the start if the configured string is actually found there.
+* **stripPostfix** — Substring works by index: it removes a fixed count of trailing characters regardless of their content. Strip postfix is the alternative when the trailing portion is a known string; it checks for it and leaves the value unchanged if not found.
+* **untilCharacter** — Substring extracts by position: the start and end indices are fixed and apply to every input value regardless of its content. Until character extracts up to a specific character.

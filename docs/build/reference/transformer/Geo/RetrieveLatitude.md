@@ -60,5 +60,3 @@ Additional URL parameters to be attached to each HTTP search request. Example: '
 - ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
-
-

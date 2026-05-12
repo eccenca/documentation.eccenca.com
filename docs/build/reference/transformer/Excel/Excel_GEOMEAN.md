@@ -24,10 +24,6 @@ The name of the Excel function
 - Datatype: `string`
 - Default Value: `GEOMEAN`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

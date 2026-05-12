@@ -24,10 +24,6 @@ The name of the Excel function
 - Datatype: `string`
 - Default Value: `TDIST`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

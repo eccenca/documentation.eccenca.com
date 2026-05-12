@@ -213,10 +213,6 @@ The authorization header value. Usually this has the form 'type secret', e.g. fo
 - Datatype: `password`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -145,10 +145,11 @@ No description
 * Datatype: `enumeration`
 * Default Value: `<`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **validateRegex** — The Compare dates plugin filters both inputs down to valid XSD date literals and returns 1 or 0 based on the comparator, returning 0 when one side contains no valid date at all. The Validate regex plugin enforces a pattern as a hard boundary and fails when a value does not conform, rather than turning invalid input into a 0 result.
+* **compareNumbers** — Compare dates applies ordering and equality comparators to XSD date literals and returns 1 or 0. Compare numbers applies the same comparators to doubles — the two plugins are not interchangeable, as each rejects the other's input type entirely.

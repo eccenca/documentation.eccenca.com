@@ -25,10 +25,6 @@ SQL command. The name of the table in the statement must be 'dataset', regardles
 - Datatype: `code-sql`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

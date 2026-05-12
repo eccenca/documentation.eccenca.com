@@ -78,10 +78,10 @@ Allow both dates to be equal.
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **validateDateRange** — Validate date after checks whether one input date is later than another. Validate date range instead tests a single date against a fixed interval with a configured minimum and maximum.

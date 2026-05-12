@@ -210,10 +210,6 @@ The delay in milliseconds between sending two consecutive emails. This applies t
 - Datatype: `int`
 - Default Value: `2`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Timeout
@@ -233,5 +229,3 @@ The number of retries per email when send errors are encountered.
 - ID: `nrRetries`
 - Datatype: `int`
 - Default Value: `2`
-
-

@@ -130,10 +130,12 @@ No description
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **validateRegex** — A regular expression match drives both operators, but the outcome differs. The “If matches regex” plugin routes between alternative input values, while the “Validate regex” plugin draws an acceptance boundary by deciding whether the checked value is valid.
+* **regexSelect** — The Regex selection plugin marks match positions by emitting copies of a provided output value wherever a regular expression matches the checked value sequence. The If matches regex plugin uses a regular expression match as a branch decision between alternative input values rather than producing positional markers.
+* **regexExtract** — The Regex extract plugin returns the matching content from the input string, or the first capturing group if the regular expression contains capturing groups. The If matches regex plugin does not return matched content; it uses the match only to choose which of the provided input values becomes the output.

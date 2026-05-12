@@ -76,10 +76,11 @@ SPARQL query timeout (select/update) in milliseconds. A value of zero means that
 - Datatype: `int`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **sparqlEndpoint** — This plugin executes a SELECT query against a SPARQL endpoint; a SPARQL endpoint dataset in the workflow provides that endpoint. The SPARQL Update query plugin uses the same kind of dataset as a write target rather than a read source.
+- **sparqlUpdateOperator** — The SPARQL Update query plugin turns entity input into update statements that modify a SPARQL store; this plugin reads from the same kind of store by executing a SELECT query and returning the results as an entity table.

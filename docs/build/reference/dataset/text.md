@@ -43,10 +43,6 @@ The file encoding, e.g., UTF-8, UTF-8-BOM, ISO-8859-1
 - Datatype: `string`
 - Default Value: `UTF-8`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Type name
@@ -76,5 +72,3 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `.*`
-
-

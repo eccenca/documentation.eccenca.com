@@ -28,10 +28,10 @@ No description
 - Datatype: `enumeration`
 - Default Value: `<`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **compareDates** — Compare numbers and Compare dates both return 1 or 0 by applying the same ordering and equality comparators across two input sets. Compare dates is not a date-aware extension of Compare numbers — each plugin accepts only its own value type, doubles for one and XSD date literals for the other.

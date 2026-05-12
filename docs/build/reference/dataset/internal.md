@@ -25,10 +25,6 @@ The RDF graph that is used for storing internal data
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

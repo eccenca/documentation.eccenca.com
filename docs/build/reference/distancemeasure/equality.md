@@ -53,3 +53,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **inequality** — The inequality plugin is the logical inverse of string equality: it returns success when the values are different rather than equal.

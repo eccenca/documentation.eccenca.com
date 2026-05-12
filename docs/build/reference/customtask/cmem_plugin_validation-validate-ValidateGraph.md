@@ -82,10 +82,6 @@ In this graph, the validation results are materialized. If left empty, results a
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Resource Selection Query
@@ -102,4 +98,3 @@ FROM <{{context_graph}}>
 WHERE { ?resource a ?class . FILTER isIRI(?resource) }
 
 ```
-

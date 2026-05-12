@@ -155,10 +155,6 @@ The name of the category/feed where messages were published.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### SASL Mechanisms
@@ -248,5 +244,3 @@ Setting this to true will disable committing messages after retrival. This means
 - ID: `disable_commit`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

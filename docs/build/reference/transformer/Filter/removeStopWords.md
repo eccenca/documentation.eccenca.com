@@ -72,10 +72,6 @@ RegEx for detecting words
 * Datatype: `string`
 * Default Value: `[\s-]+`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

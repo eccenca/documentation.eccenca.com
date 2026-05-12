@@ -40,10 +40,6 @@ No description
 - Datatype: `char`
 - Default Value: `z`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

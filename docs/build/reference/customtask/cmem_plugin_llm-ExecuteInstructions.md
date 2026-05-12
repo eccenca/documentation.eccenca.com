@@ -159,10 +159,6 @@ The instruction prompt template. Please have a look at the task documentation fo
 - Datatype: `code-jinja2`
 - Default Value: `Write a paragraph about this entity: {{ entity }}`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Base URL
@@ -325,4 +321,3 @@ Delay between API requests in seconds to respect rate limits.
 - ID: `request_delay`
 - Datatype: `double`
 - Default Value: `0.0`
-

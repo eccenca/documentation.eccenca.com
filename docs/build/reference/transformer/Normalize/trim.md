@@ -22,3 +22,7 @@ Remove leading and trailing whitespaces.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **removeBlanks** — Trim removes all whitespace characters from the edges of a string: spaces, tabs, and newlines at the start or end are cleared, but the interior is left untouched. Remove blanks removes only plain space characters, but does so throughout the entire string, including the middle.

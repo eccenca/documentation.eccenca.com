@@ -55,10 +55,6 @@ Output results from object rules (URIs).
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Streaming
@@ -68,5 +64,3 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
-
-

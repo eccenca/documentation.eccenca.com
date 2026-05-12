@@ -100,10 +100,6 @@ If true, the input attributes will be forwarded to the output.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

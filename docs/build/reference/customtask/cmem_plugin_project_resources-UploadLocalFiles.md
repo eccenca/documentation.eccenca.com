@@ -47,10 +47,6 @@ The regex for filtering the file names. The regex needs to fully match the local
 - Datatype: `string`
 - Default Value: `.*`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Working mode
@@ -60,5 +56,3 @@ Which activity should be done with the selected local files.
 - ID: `working_mode`
 - Datatype: `enumeration`
 - Default Value: `SEND_TO_TASK`
-
-

@@ -30,10 +30,6 @@ No description
 - Datatype: `int`
 - Default Value: `1`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -162,10 +162,6 @@ Comma-separated list of field paths to include in output. Example: 'source_addre
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

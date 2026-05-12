@@ -26,10 +26,6 @@ The SQL query to be executed
 - Datatype: `code-sql`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

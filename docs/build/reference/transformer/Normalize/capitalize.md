@@ -54,10 +54,11 @@ No description
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **lowerCase** — Capitalize raises only the first character, or the first of each word, leaving the rest of the string unchanged. Lower case converts every character, making it the right choice when the entire string needs to be normalized rather than just its initial character.
+* **upperCase** — Capitalize changes only the first character, leaving the rest of the string as-is. Upper case is the right plugin when every character needs to be raised, not just the initial one.

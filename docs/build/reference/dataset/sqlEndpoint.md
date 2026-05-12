@@ -123,10 +123,6 @@ Mapping of column names. Similar to aliases E.g. 'c1:c2' would rename column c1 
 - Datatype: `stringmap`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

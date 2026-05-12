@@ -528,10 +528,6 @@ Comma separated list of pivot column names. This property will override all infe
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

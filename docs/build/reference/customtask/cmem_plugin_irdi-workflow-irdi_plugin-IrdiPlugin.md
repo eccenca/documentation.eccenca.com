@@ -111,10 +111,6 @@ Path or property that will connect input values and their generated IRDIs
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Counted object
@@ -134,5 +130,3 @@ Path from which input values are taken. If empty, values are read from the URIs 
 - ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `None`
-
-

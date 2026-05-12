@@ -43,10 +43,6 @@ If clock sequence is given, it is used as the sequence number. Otherwise a rando
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

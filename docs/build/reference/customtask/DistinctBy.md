@@ -38,10 +38,6 @@ Strategy to resolve duplicates.
 - Datatype: `enumeration`
 - Default Value: `keepLast`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

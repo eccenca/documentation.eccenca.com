@@ -312,10 +312,6 @@ Optional locale for the (alternative) output format. If not set the system's loc
 * Datatype: `option[locale]`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

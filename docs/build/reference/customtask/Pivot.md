@@ -493,10 +493,6 @@ Prefix to prepend to all generated pivot columns.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

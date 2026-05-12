@@ -40,10 +40,10 @@ The hash algorithm to be used.
 - Datatype: `string`
 - Default Value: `SHA256`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **mapWithDefaultInput** — One hash value is produced for the entire set of inputs by the Input hash plugin. The Map with default plugin instead keeps a value sequence and rewrites it position by position through the mapping, falling back to the second input where no mapping entry is found.

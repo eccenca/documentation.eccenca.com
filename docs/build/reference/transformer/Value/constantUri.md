@@ -25,10 +25,6 @@ The constant URI to be generated
 - Datatype: `uri`
 - Default Value: `owl:Class`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

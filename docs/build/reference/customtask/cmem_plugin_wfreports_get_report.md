@@ -76,10 +76,6 @@ The time period in hours of the workflow execution reports that can be listed.Al
 - Datatype: `Long`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

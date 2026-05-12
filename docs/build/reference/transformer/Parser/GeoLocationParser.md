@@ -298,10 +298,6 @@ Set to true if the full state name should be output instead of the 2-letter code
 * Datatype: `boolean`
 * Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

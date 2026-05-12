@@ -44,4 +44,6 @@ The maximum number that is used for indexing
 - Datatype: `double`
 - Default Value: `Infinity`
 
+## Related Plugins
 
+- **numericEquality** — Numeric similarity measures how far apart two numbers are; Numeric equality asks only whether they match, with no in-between value.

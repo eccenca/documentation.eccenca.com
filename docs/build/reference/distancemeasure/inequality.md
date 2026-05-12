@@ -73,3 +73,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **equality** — The string equality plugin covers the complementary case: success when values are equal, where the inequality plugin would return failure.

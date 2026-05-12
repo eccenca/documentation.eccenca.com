@@ -53,7 +53,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "CancelWorkflow": {
     "pluginId": "CancelWorkflow",
@@ -120,7 +121,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "clearDataset": {
     "pluginId": "clearDataset",
@@ -142,7 +144,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "combine-csv": {
     "pluginId": "combine-csv",
@@ -223,7 +226,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "ConcatenateToFile": {
     "pluginId": "ConcatenateToFile",
@@ -326,7 +330,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_llm-CreateEmbeddings": {
     "pluginId": "cmem_plugin_llm-CreateEmbeddings",
@@ -472,7 +477,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_salesforce-workflow-operations-SobjectCreate": {
     "pluginId": "cmem_plugin_salesforce-workflow-operations-SobjectCreate",
@@ -545,7 +551,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "deleteProjectFiles": {
     "pluginId": "deleteProjectFiles",
@@ -598,7 +605,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "DistinctBy": {
     "pluginId": "DistinctBy",
@@ -645,7 +653,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "downloadFile": {
     "pluginId": "downloadFile",
@@ -756,7 +765,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_nextcloud-Download": {
     "pluginId": "cmem_plugin_nextcloud-Download",
@@ -867,7 +877,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_office365-Download": {
     "pluginId": "cmem_plugin_office365-Download",
@@ -1015,7 +1026,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_ssh-Download": {
     "pluginId": "cmem_plugin_ssh-Download",
@@ -1170,7 +1182,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "Template": {
     "pluginId": "Template",
@@ -1250,7 +1263,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_kubernetes-Execute": {
     "pluginId": "cmem_plugin_kubernetes-Execute",
@@ -1356,7 +1370,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_ssh-Execute": {
     "pluginId": "cmem_plugin_ssh-Execute",
@@ -1506,7 +1521,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_llm-ExecuteInstructions": {
     "pluginId": "cmem_plugin_llm-ExecuteInstructions",
@@ -1709,7 +1725,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "RestOperator": {
     "pluginId": "RestOperator",
@@ -1887,7 +1904,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "eccencaRestOperator": {
     "pluginId": "eccencaRestOperator",
@@ -2174,7 +2192,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "SparkFunction": {
     "pluginId": "SparkFunction",
@@ -2232,7 +2251,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_pdf_extract-pdf_extract-PdfExtract": {
     "pluginId": "cmem_plugin_pdf_extract-pdf_extract-PdfExtract",
@@ -2362,7 +2382,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin": {
     "pluginId": "cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin",
@@ -2503,7 +2524,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_shapes-plugin_shapes-ShapesPlugin": {
     "pluginId": "cmem_plugin_shapes-plugin_shapes-ShapesPlugin",
@@ -2630,7 +2652,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "getProjectFiles": {
     "pluginId": "getProjectFiles",
@@ -2692,7 +2715,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_wfreports_get_report": {
     "pluginId": "cmem_plugin_wfreports_get_report",
@@ -2751,7 +2775,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_graphql-workflow-graphql-GraphQLPlugin": {
     "pluginId": "cmem_plugin_graphql-workflow-graphql-GraphQLPlugin",
@@ -2834,7 +2859,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "Merge": {
     "pluginId": "Merge",
@@ -2856,7 +2882,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem-plugin-jq-workflow": {
     "pluginId": "cmem-plugin-jq-workflow",
@@ -2909,7 +2936,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_jira-JqlQuery": {
     "pluginId": "cmem_plugin_jira-JqlQuery",
@@ -3028,7 +3056,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_kafka-ReceiveMessages": {
     "pluginId": "cmem_plugin_kafka-ReceiveMessages",
@@ -3199,7 +3228,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_kafka-SendMessages": {
     "pluginId": "cmem_plugin_kafka-SendMessages",
@@ -3337,7 +3367,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_nextcloud-List": {
     "pluginId": "cmem_plugin_nextcloud-List",
@@ -3448,7 +3479,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_office365-List": {
     "pluginId": "cmem_plugin_office365-List",
@@ -3596,7 +3628,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_project_resources-List": {
     "pluginId": "cmem_plugin_project_resources-List",
@@ -3633,7 +3666,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_ssh-List": {
     "pluginId": "cmem_plugin_ssh-List",
@@ -3788,7 +3822,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "MultiTableMerge": {
     "pluginId": "MultiTableMerge",
@@ -3855,7 +3890,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "ucumNormalizationTask": {
     "pluginId": "ucumNormalizationTask",
@@ -3957,7 +3993,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_auth-workflow-auth-OAuth2": {
     "pluginId": "cmem_plugin_auth-workflow-auth-OAuth2",
@@ -4049,7 +4086,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_office365-Upload": {
     "pluginId": "cmem_plugin_office365-Upload",
@@ -4169,7 +4207,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "JsonParserOperator": {
     "pluginId": "JsonParserOperator",
@@ -4236,7 +4275,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "XmlParserOperator": {
     "pluginId": "XmlParserOperator",
@@ -4292,7 +4332,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_yaml-parse": {
     "pluginId": "cmem_plugin_yaml-parse",
@@ -4394,7 +4435,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "Pivot": {
     "pluginId": "Pivot",
@@ -4487,7 +4529,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_reason-plugin_reason-ReasonPlugin": {
     "pluginId": "cmem_plugin_reason-plugin_reason-ReasonPlugin",
@@ -4759,7 +4802,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "tripleRequestOperator": {
     "pluginId": "tripleRequestOperator",
@@ -4781,7 +4825,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "Scheduler": {
     "pluginId": "Scheduler",
@@ -4861,7 +4906,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "SearchAddresses": {
     "pluginId": "SearchAddresses",
@@ -4931,7 +4977,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_logpoint-search_logs_task-RetrieveLogs": {
     "pluginId": "cmem_plugin_logpoint-search_logs_task-RetrieveLogs",
@@ -5057,7 +5104,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_pgvector-Search": {
     "pluginId": "cmem_plugin_pgvector-Search",
@@ -5200,7 +5248,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "SendEMail": {
     "pluginId": "SendEMail",
@@ -5413,7 +5462,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_mattermost": {
     "pluginId": "cmem_plugin_mattermost",
@@ -5507,7 +5557,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_parameters-ParametersPlugin": {
     "pluginId": "cmem_plugin_parameters-ParametersPlugin",
@@ -5542,7 +5593,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "setParameters": {
     "pluginId": "setParameters",
@@ -5587,7 +5639,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "shacl-pyshacl": {
     "pluginId": "shacl-pyshacl",
@@ -5835,7 +5888,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_salesforce-SoqlQuery": {
     "pluginId": "cmem_plugin_salesforce-SoqlQuery",
@@ -5920,7 +5974,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "CustomSQLExecution": {
     "pluginId": "CustomSQLExecution",
@@ -5954,7 +6009,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "sparqlCopyOperator": {
     "pluginId": "sparqlCopyOperator",
@@ -6001,7 +6057,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "sparqlSelectOperator": {
     "pluginId": "sparqlSelectOperator",
@@ -6070,7 +6127,17 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": [
+      {
+        "id": "sparqlEndpoint",
+        "description": "This plugin executes a SELECT query against a SPARQL endpoint; a SPARQL endpoint dataset in the workflow provides that endpoint. The SPARQL Update query plugin uses the same kind of dataset as a write target rather than a read source."
+      },
+      {
+        "id": "sparqlUpdateOperator",
+        "description": "The SPARQL Update query plugin turns entity input into update statements that modify a SPARQL store; this plugin reads from the same kind of store by executing a SELECT query and returning the results as an entity table."
+      }
+    ]
   },
   "sparqlUpdateOperator": {
     "pluginId": "sparqlUpdateOperator",
@@ -6128,7 +6195,17 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": [
+      {
+        "id": "sparqlEndpoint",
+        "description": "A SPARQL endpoint dataset in the workflow receives the update statements this plugin generates and executes them against the remote store."
+      },
+      {
+        "id": "sparqlSelectOperator",
+        "description": "This plugin turns entity input into SPARQL Update statements that modify a store. The SPARQL Select query plugin reads from the same kind of store by executing a SELECT query and outputting the results as an entity table."
+      }
+    ]
   },
   "cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin": {
     "pluginId": "cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin",
@@ -6233,7 +6310,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "sqlUpdateQueryOperator": {
     "pluginId": "sqlUpdateQueryOperator",
@@ -6269,7 +6347,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_loopwf-task-StartWorkflow": {
     "pluginId": "cmem_plugin_loopwf-task-StartWorkflow",
@@ -6340,7 +6419,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_pgvector-Store": {
     "pluginId": "cmem_plugin_pgvector-Store",
@@ -6494,7 +6574,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "Unpivot": {
     "pluginId": "Unpivot",
@@ -6574,7 +6655,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_graph_insights-Update": {
     "pluginId": "cmem_plugin_graph_insights-Update",
@@ -6627,122 +6709,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
-  },
-  "cmem_plugin_semspect-task-Update": {
-    "pluginId": "cmem_plugin_semspect-task-Update",
-    "title": "Update SemSpect",
-    "categories": [
-      "Uncategorized"
-    ],
-    "main_category": "Uncategorized",
-    "description": "Tell SemSpect to prepare a Knowledge Graph for visualization.",
-    "markdownDocumentation": null,
-    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIzOTYgNDAyIDc2IDY1IgogICB3aWR0aD0iNzZwdCIKICAgaGVpZ2h0PSI2NXB0IgogICBpZD0ic3ZnODY0IgogICBzb2RpcG9kaTpkb2NuYW1lPSJsb2dvLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3ODY2IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB0IgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIxMi41NjU0ODUiCiAgICAgaW5rc2NhcGU6Y3g9IjYyLjE5NDE3NiIKICAgICBpbmtzY2FwZTpjeT0iNDMuNDEyNTciCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjciCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjE3MjgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjI1IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnODY0IgogICAgIHNob3dndWlkZXM9InRydWUiCiAgICAgaW5rc2NhcGU6Z3VpZGUtYmJveD0idHJ1ZSI+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2MC41ODA3NjYsMzcuODM4NzcyIgogICAgICAgb3JpZW50YXRpb249IjAsLTEiCiAgICAgICBpZD0iZ3VpZGUxNDQ4MiIgLz4KICAgIDxzb2RpcG9kaTpndWlkZQogICAgICAgcG9zaXRpb249IjU5Ljg0MzA2NCwzOC4zNDU0MzYiCiAgICAgICBvcmllbnRhdGlvbj0iMSwwIgogICAgICAgaWQ9Imd1aWRlMTQ0ODQiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSI2Ny45OTgzMjMsMzMuODc0NjM1IgogICAgICAgb3JpZW50YXRpb249IjEsMCIKICAgICAgIGlkPSJndWlkZTE0NDg2IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTgyNCI+IFByb2R1Y2VkIGJ5IE9tbmlHcmFmZmxlIDYuNi4yIDxkYzpkYXRlPjIwMjQtMDUtMDYgMDk6NDM6NTYgKzAwMDA8L2RjOmRhdGU+CjwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczgyOCI+CiAgICA8Zm9udC1mYWNlCiAgICAgICBmb250LWZhbWlseT0iTHVjaWRhIEdyYW5kZSIKICAgICAgIGZvbnQtc2l6ZT0iMTMiCiAgICAgICBwYW5vc2UtMT0iMiAxMSA2IDAgNCA1IDIgMiAyIDQiCiAgICAgICB1bml0cy1wZXItZW09IjEwMDAiCiAgICAgICB1bmRlcmxpbmUtcG9zaXRpb249Ii05Ny42NTYyNSIKICAgICAgIHVuZGVybGluZS10aGlja25lc3M9IjQ4LjgyODEyNSIKICAgICAgIHNsb3BlPSIwIgogICAgICAgeC1oZWlnaHQ9IjUzMC4yNzM0NCIKICAgICAgIGNhcC1oZWlnaHQ9IjcyMi42NTYyNSIKICAgICAgIGFzY2VudD0iOTY2Ljc5NjkiCiAgICAgICBkZXNjZW50PSItMjEwLjkzNzUiCiAgICAgICBmb250LXdlaWdodD0iNTAwIgogICAgICAgaWQ9ImZvbnQtZmFjZTgyNiI+CiAgICAgIDxmb250LWZhY2Utc3JjPgogICAgICAgIDxmb250LWZhY2UtbmFtZQogICAgICAgICAgIG5hbWU9Ikx1Y2lkYUdyYW5kZSIgLz4KICAgICAgPC9mb250LWZhY2Utc3JjPgogICAgPC9mb250LWZhY2U+CiAgPC9kZWZzPgogIDxlbGxpcHNlCiAgICAgY3g9IjQ1NS40MDE1NSIKICAgICBjeT0iNDM0LjEwNzI0IgogICAgIGZpbGw9IiNjMmQxZTMiCiAgICAgaWQ9ImNpcmNsZTgzNCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIxMC42ODIzNzQiCiAgICAgcnk9IjEwLjg0MTkzOSIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYxIgogICAgIGZpbGw9IiNjMmQxZTQiCiAgICAgaWQ9ImNpcmNsZTgzNiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSIyNy4yMzkwMjciCiAgICAgcnk9IjI3LjY0NTkwMyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0NTUuNDUwODQiCiAgICAgY3k9IjQzNC4wNTcxOSIKICAgICBmaWxsPSIjYzJkMWUzIgogICAgIGlkPSJjaXJjbGU4MzgiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iMTAuNjgyMzc0IgogICAgIHJ5PSIxMC44NDE5MzkiIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDI5LjIzMTA1IgogICAgIGN5PSI0MzQuNTgwMTQiCiAgICAgZmlsbD0iI2MyZDFlNCIKICAgICBpZD0iY2lyY2xlODQwIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjI3LjIzOTAyNyIKICAgICByeT0iMjcuNjQ1OTAzIiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQxNC4zNzM0MSIKICAgICBjeT0iNDM0LjE1NjA3IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0MiIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjkuMjMxMDUiCiAgICAgY3k9IjQzNC4xNTYwNyIKICAgICBmaWxsPSIjYWIyYzBiIgogICAgIGlkPSJjaXJjbGU4NDQiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDIxLjk2NzMyIgogICAgIGN5PSI0MjAuNzUyMDQiCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODQ2IgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDIwLjc1MjA0IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg0OCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8ZWxsaXBzZQogICAgIGN4PSI0MjEuOTY3MzIiCiAgICAgY3k9IjQ0Ny41NjAxNSIKICAgICBmaWxsPSIjNmM3MTc5IgogICAgIGlkPSJjaXJjbGU4NTAiCiAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjg2ODI0MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICByeD0iNS43Nzc5NzQ2IgogICAgIHJ5PSI1Ljg2NDI4MTciIC8+CiAgPGVsbGlwc2UKICAgICBjeD0iNDQ0LjA4ODY1IgogICAgIGN5PSI0MzQuMTU2MDciCiAgICAgZmlsbD0iIzZjNzE3OSIKICAgICBpZD0iY2lyY2xlODUyIgogICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC44NjgyNDE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgcng9IjUuNzc3OTc0NiIKICAgICByeT0iNS44NjQyODE3IiAvPgogIDxlbGxpcHNlCiAgICAgY3g9IjQzNi44MjQ5MiIKICAgICBjeT0iNDQ3LjU2MDE1IgogICAgIGZpbGw9IiM2YzcxNzkiCiAgICAgaWQ9ImNpcmNsZTg1NCIKICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuODY4MjQxO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgIHJ4PSI1Ljc3Nzk3NDYiCiAgICAgcnk9IjUuODY0MjgxNyIgLz4KICA8cGF0aAogICAgIHNvZGlwb2RpOnR5cGU9InN0YXIiCiAgICAgc3R5bGU9ImZpbGw6IzZjNzE3OTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZCIKICAgICBpZD0icGF0aDE0MjA0IgogICAgIGlua3NjYXBlOmZsYXRzaWRlZD0idHJ1ZSIKICAgICBzb2RpcG9kaTpzaWRlcz0iMyIKICAgICBzb2RpcG9kaTpjeD0iNzkuNTAzNDY0IgogICAgIHNvZGlwb2RpOmN5PSI3MC4wNzczMTYiCiAgICAgc29kaXBvZGk6cjE9IjcuNjc2Mzc2MyIKICAgICBzb2RpcG9kaTpyMj0iMy40NzEzODYyIgogICAgIHNvZGlwb2RpOmFyZzE9IjIuMDg5OTQyNSIKICAgICBzb2RpcG9kaTphcmcyPSIzLjEzNzE0IgogICAgIGlua3NjYXBlOnJvdW5kZWQ9IjAiCiAgICAgaW5rc2NhcGU6cmFuZG9taXplZD0iMCIKICAgICBkPSJtIDc1LjY5NDkxNCw3Ni43NDIyNzcgLTAuMDU5MiwtMTMuMjk1NzQyIDExLjU0NDA1MSw2LjU5NjYwMiB6IgogICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuNzUsMCwwLDAuNzUsMzk5LjExNjI4LDM4MS41NzYzMykiCiAgICAgaW5rc2NhcGU6dHJhbnNmb3JtLWNlbnRlci14PSItMC4yMTk3MDEzNyIKICAgICBpbmtzY2FwZTp0cmFuc2Zvcm0tY2VudGVyLXk9Ii0xLjEwNjg1OTYiIC8+Cjwvc3ZnPgo=",
-    "properties": {
-      "base_url": {
-        "name": "base_url",
-        "title": "The URL of the SemSpect application.This needs to be accessible from 'within' DataIntegration.",
-        "description": "",
-        "type": "string",
-        "parameterType": "string",
-        "value": "http://semspect:8080/semspect/",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "database_id": {
-        "name": "database_id",
-        "title": "The SemSpect database ID. Not existing databases will be created.",
-        "description": "",
-        "type": "string",
-        "parameterType": "string",
-        "value": "cmem",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "graph": {
-        "name": "graph",
-        "title": "Knowledge Graph",
-        "description": "",
-        "type": "string",
-        "parameterType": "string",
-        "value": null,
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      }
-    },
-    "properties_advanced": {
-      "dataplatform_base": {
-        "name": "dataplatform_base",
-        "title": "The URL of the DataPlatform application.This needs to be accessible from 'within' SemSpect.",
-        "description": "",
-        "type": "string",
-        "parameterType": "string",
-        "value": "",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "timeout": {
-        "name": "timeout",
-        "title": "Timeout (in seconds) for the overall indexing activity.",
-        "description": "",
-        "type": "string",
-        "parameterType": "Long",
-        "value": "300",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "request_timeout": {
-        "name": "request_timeout",
-        "title": "Timeout (in seconds) for individual Semspect requests",
-        "description": "",
-        "type": "string",
-        "parameterType": "Long",
-        "value": "10",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "ignore_proxy": {
-        "name": "ignore_proxy",
-        "title": "ignore_proxy: Ignore system settings for HTTP proxies for the requests to semspect.",
-        "description": "",
-        "type": "string",
-        "parameterType": "boolean",
-        "value": "false",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "verify_ssl": {
-        "name": "verify_ssl",
-        "title": "verify_ssl: If disabled, the plugin will accept any TLS certificate presented by the server and will ignore hostname mismatches and/or expired certificates, which will make the requests vulnerable to man-in-the-middle (MitM) attacks. (use for testing only)",
-        "description": "",
-        "type": "string",
-        "parameterType": "boolean",
-        "value": "true",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      }
-    },
-    "actions": {},
-    "required": [
-      "graph"
-    ],
-    "distanceMeasureRange": null,
-    "backendType": "python",
-    "is_deprecated": false,
-    "tags": [
-      "WorkflowTask",
-      "PythonPlugin"
-    ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "eccencaDataPlatformGraphStoreFileUploadOperator": {
     "pluginId": "eccencaDataPlatformGraphStoreFileUploadOperator",
@@ -6800,7 +6768,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_nextcloud-Upload": {
     "pluginId": "cmem_plugin_nextcloud-Upload",
@@ -6884,7 +6853,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_project_resources-UploadLocalFiles": {
     "pluginId": "cmem_plugin_project_resources-UploadLocalFiles",
@@ -6950,7 +6920,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_ssh-Upload": {
     "pluginId": "cmem_plugin_ssh-Upload",
@@ -7054,7 +7025,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_validation-validate-ValidateEntities": {
     "pluginId": "cmem_plugin_validation-validate-ValidateEntities",
@@ -7147,7 +7119,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_validation-validate-ValidateGraph": {
     "pluginId": "cmem_plugin_validation-validate-ValidateGraph",
@@ -7251,7 +7224,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "cmem_plugin_reason-plugin_validate-ValidatePlugin": {
     "pluginId": "cmem_plugin_reason-plugin_validate-ValidatePlugin",
@@ -7389,7 +7363,8 @@
       "WorkflowTask",
       "PythonPlugin"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "validateXsdOperator": {
     "pluginId": "validateXsdOperator",
@@ -7425,7 +7400,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "xsltOperator": {
     "pluginId": "xsltOperator",
@@ -7461,7 +7437,8 @@
     "tags": [
       "WorkflowTask"
     ],
-    "pluginType": "customtask"
+    "pluginType": "customtask",
+    "relatedPlugins": []
   },
   "alignment": {
     "pluginId": "alignment",
@@ -7497,7 +7474,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "avro": {
     "pluginId": "avro",
@@ -7566,7 +7544,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "binaryFile": {
     "pluginId": "binaryFile",
@@ -7613,7 +7592,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "csv": {
     "pluginId": "csv",
@@ -7804,7 +7784,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "sparkView": {
     "pluginId": "sparkView",
@@ -7917,7 +7898,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "sqlEndpoint": {
     "pluginId": "sqlEndpoint",
@@ -7995,7 +7977,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "excel": {
     "pluginId": "excel",
@@ -8076,7 +8059,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "googlespreadsheet": {
     "pluginId": "googlespreadsheet",
@@ -8146,7 +8130,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "office365preadsheet": {
     "pluginId": "office365preadsheet",
@@ -8216,7 +8201,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "Hive": {
     "pluginId": "Hive",
@@ -8307,7 +8293,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "inMemory": {
     "pluginId": "inMemory",
@@ -8341,7 +8328,17 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": [
+      {
+        "id": "sparqlEndpoint",
+        "description": "Data in the in-memory dataset does not persist beyond the running process. The SPARQL endpoint dataset connects to an external store that persists independently, which means switching between them changes not just where the data lives but whether it survives execution at all."
+      },
+      {
+        "id": "file",
+        "description": "Switching from the in-memory dataset to the RDF file dataset is not just adding persistence. The RDF file dataset loads the entire file into memory at read time and constrains output to N-Triples \u2014 neither of which the in-memory dataset does."
+      }
+    ]
   },
   "internal": {
     "pluginId": "internal",
@@ -8375,7 +8372,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "LocalInternalDataset": {
     "pluginId": "LocalInternalDataset",
@@ -8397,7 +8395,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "json": {
     "pluginId": "json",
@@ -8511,7 +8510,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "eccencaDataPlatform": {
     "pluginId": "eccencaDataPlatform",
@@ -8669,7 +8669,21 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": [
+      {
+        "id": "inMemory",
+        "description": "The Knowledge Graph plugin produces a durable graph in Corporate Memory's managed store; the In-memory dataset plugin produces a transient graph that is gone on restart. The two differ in persistence, not just scale: in-memory storage is not a lightweight version of the Knowledge Graph plugin."
+      },
+      {
+        "id": "file",
+        "description": "The Knowledge Graph plugin writes to a named graph in Corporate Memory's managed store; the RDF file plugin writes to a file on disk. The two differ in where the data lives, not just how it is accessed."
+      },
+      {
+        "id": "sparqlEndpoint",
+        "description": "Both the Knowledge Graph plugin and the SPARQL endpoint plugin use SPARQL. The difference is where the store lives: the Knowledge Graph plugin reads and writes a named graph in Corporate Memory's own store, while the SPARQL endpoint plugin connects to any external SPARQL endpoint."
+      }
+    ]
   },
   "multiCsv": {
     "pluginId": "multiCsv",
@@ -8838,7 +8852,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "neo4j": {
     "pluginId": "neo4j",
@@ -8928,7 +8943,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "orc": {
     "pluginId": "orc",
@@ -9019,7 +9035,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "parquet": {
     "pluginId": "parquet",
@@ -9110,7 +9127,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "file": {
     "pluginId": "file",
@@ -9191,7 +9209,17 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": [
+      {
+        "id": "sparqlEndpoint",
+        "description": "The RDF file dataset loads a file into memory at read time and constrains output to N-Triples. The SPARQL endpoint dataset connects to a remote queryable store that handles queries and updates without those restrictions."
+      },
+      {
+        "id": "inMemory",
+        "description": "The RDF file dataset writes to disk but only in N-Triples, and it loads the full file into memory to read; the in-memory dataset skips the filesystem entirely but discards all data when execution finishes."
+      }
+    ]
   },
   "Jdbc": {
     "pluginId": "Jdbc",
@@ -9448,7 +9476,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "SnowflakeJdbc": {
     "pluginId": "SnowflakeJdbc",
@@ -9836,7 +9865,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "sparqlEndpoint": {
     "pluginId": "sparqlEndpoint",
@@ -10016,7 +10046,25 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": [
+      {
+        "id": "inMemory",
+        "description": "The SPARQL endpoint dataset reads from and writes to a remote endpoint that retains its contents independently of the running process. The in-memory dataset does not persist data beyond the running process \u2014 the two are not alternatives for the same storage need."
+      },
+      {
+        "id": "file",
+        "description": "The RDF file dataset loads its contents from a file into memory at read time and supports only N-Triples as output. The SPARQL endpoint dataset connects to a remote endpoint that handles queries and updates without loading the full dataset into process memory."
+      },
+      {
+        "id": "sparqlUpdateOperator",
+        "description": "The SPARQL Update query plugin generates SPARQL Update statements from entity input using a template; the SPARQL endpoint dataset is what those statements are written to. One produces the queries, the other executes them against the endpoint."
+      },
+      {
+        "id": "sparqlSelectOperator",
+        "description": "The SPARQL Select query plugin reads from a SPARQL endpoint dataset by executing a SELECT query against it; the SPARQL Update query plugin writes to the same kind of dataset by sending update statements to it. The two plugins sit on opposite ends of the same data flow."
+      }
+    ]
   },
   "text": {
     "pluginId": "text",
@@ -10097,7 +10145,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "variableDataset": {
     "pluginId": "variableDataset",
@@ -10119,7 +10168,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "xml": {
     "pluginId": "xml",
@@ -10222,7 +10272,8 @@
     "tags": [
       "Dataset"
     ],
-    "pluginType": "dataset"
+    "pluginType": "dataset",
+    "relatedPlugins": []
   },
   "cjkReadingDistance": {
     "pluginId": "cjkReadingDistance",
@@ -10267,7 +10318,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "PhysicalQuantitiesDistance": {
     "pluginId": "PhysicalQuantitiesDistance",
@@ -10301,7 +10353,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "constantDistance": {
     "pluginId": "constantDistance",
@@ -10335,7 +10388,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "cosine": {
     "pluginId": "cosine",
@@ -10369,7 +10423,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "date": {
     "pluginId": "date",
@@ -10403,7 +10458,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "dateTime",
+        "description": "The date time metric plugin is the date metric plugin at a finer scale: it resolves differences to the second rather than the day, but does not tolerate partial dates that lack a month or day."
+      }
+    ]
   },
   "dateTime": {
     "pluginId": "dateTime",
@@ -10425,7 +10486,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "date",
+        "description": "Where the date time metric plugin demands full datetime values and measures in seconds, the date metric plugin works at day granularity and accepts year-only or year-month dates."
+      }
+    ]
   },
   "dice": {
     "pluginId": "dice",
@@ -10447,7 +10514,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "wgs84": {
     "pluginId": "wgs84",
@@ -10481,7 +10549,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "greaterThan": {
     "pluginId": "greaterThan",
@@ -10538,7 +10607,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "lowerThan",
+        "description": "The Lower than plugin is the logical inverse of Greater than: given the same inputs, it returns 1.0 exactly where Greater than returns 0.0."
+      }
+    ]
   },
   "inequality": {
     "pluginId": "inequality",
@@ -10560,7 +10635,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "equality",
+        "description": "The string equality plugin covers the complementary case: success when values are equal, where the inequality plugin would return failure."
+      }
+    ]
   },
   "insideNumericInterval": {
     "pluginId": "insideNumericInterval",
@@ -10594,7 +10675,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "isSubstring": {
     "pluginId": "isSubstring",
@@ -10628,7 +10710,17 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "startsWith",
+        "description": "The Starts With plugin tests a stricter condition: not only must the target appear in the source, but it must appear at the very start."
+      },
+      {
+        "id": "substringDistance",
+        "description": "Containment and similarity are not the same measure. Is substring checks whether the source string appears anywhere inside the target and returns a binary result; Substring comparison scores the overall similarity between the two strings."
+      }
+    ]
   },
   "jaccard": {
     "pluginId": "jaccard",
@@ -10650,7 +10742,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "jaro": {
     "pluginId": "jaro",
@@ -10672,7 +10765,17 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "jaroWinkler",
+        "description": "The Jaro\u2013Winkler distance plugin is a Jaro-style similarity measure that gives extra weight to shared prefixes. The Jaro distance metric plugin stays closer to the underlying common character and transposition signal without that prefix boost."
+      },
+      {
+        "id": "metaphone",
+        "description": "The Metaphone plugin turns each input string into a phonetic key, reducing spelling variation before scoring. The Jaro distance metric plugin then compares those phonetic keys as ordinary strings."
+      }
+    ]
   },
   "jaroWinkler": {
     "pluginId": "jaroWinkler",
@@ -10694,7 +10797,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "jaro",
+        "description": "The Jaro distance metric plugin provides the baseline Jaro similarity without emphasizing beginnings. The Jaro\u2013Winkler distance plugin shifts the score toward shared prefixes, which can change rankings when many candidates start the same way."
+      }
+    ]
   },
   "koreanPhonemeDistance": {
     "pluginId": "koreanPhonemeDistance",
@@ -10739,7 +10848,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "koreanTranslitDistance": {
     "pluginId": "koreanTranslitDistance",
@@ -10784,7 +10894,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "levenshteinDistance": {
     "pluginId": "levenshteinDistance",
@@ -10840,7 +10951,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "levenshtein",
+        "description": "Raw edit counts are not directly comparable across strings of different lengths. The normalized Levenshtein distance plugin addresses this by dividing the edit count by the length of the longer string, making the result length-independent."
+      }
+    ]
   },
   "lowerThan": {
     "pluginId": "lowerThan",
@@ -10897,7 +11014,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "greaterThan",
+        "description": "The greater than plugin tests the same pair of values with the ordering flipped: it succeeds where the lower than plugin fails."
+      }
+    ]
   },
   "levenshtein": {
     "pluginId": "levenshtein",
@@ -10953,7 +11076,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "levenshteinDistance",
+        "description": "The Levenshtein distance plugin counts the minimum edits needed to transform one string into the other. The normalized Levenshtein distance plugin divides that count by the length of the longer string, so the distance is comparable regardless of how long the strings are."
+      }
+    ]
   },
   "numericEquality": {
     "pluginId": "numericEquality",
@@ -10987,7 +11116,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "num",
+        "description": "Matching and measuring distance are not the same operation. Numeric equality returns match or no match; Numeric similarity returns the actual distance between the two numbers."
+      }
+    ]
   },
   "num": {
     "pluginId": "num",
@@ -11032,7 +11167,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "numericEquality",
+        "description": "Numeric similarity measures how far apart two numbers are; Numeric equality asks only whether they match, with no in-between value."
+      }
+    ]
   },
   "qGrams": {
     "pluginId": "qGrams",
@@ -11089,7 +11230,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "relaxedEquality": {
     "pluginId": "relaxedEquality",
@@ -11111,7 +11253,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "softjaccard": {
     "pluginId": "softjaccard",
@@ -11145,7 +11288,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "startsWith": {
     "pluginId": "startsWith",
@@ -11201,7 +11345,17 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "isSubstring",
+        "description": "The Is Substring plugin checks whether the source appears anywhere inside the target, rather than whether the source begins with the target."
+      },
+      {
+        "id": "substringDistance",
+        "description": "The result from the Starts with plugin is always binary \u2014 the source either begins with the target string or it does not \u2014 while Substring comparison quantifies the degree of similarity across the full string as a continuous score."
+      }
+    ]
   },
   "equality": {
     "pluginId": "equality",
@@ -11223,7 +11377,13 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "inequality",
+        "description": "The inequality plugin is the logical inverse of string equality: it returns success when the values are different rather than equal."
+      }
+    ]
   },
   "substringDistance": {
     "pluginId": "substringDistance",
@@ -11257,7 +11417,17 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": [
+      {
+        "id": "startsWith",
+        "description": "The Substring comparison plugin produces a continuous similarity score across the full string; Starts with reduces the comparison to a binary check on whether the source opens with the target."
+      },
+      {
+        "id": "isSubstring",
+        "description": "The score from Substring comparison is continuous, reflecting overall string similarity; Is substring checks only whether the source appears anywhere inside the target, returning a binary result."
+      }
+    ]
   },
   "tokenwiseDistance": {
     "pluginId": "tokenwiseDistance",
@@ -11391,7 +11561,8 @@
     "tags": [
       "DistanceMeasure"
     ],
-    "pluginType": "distancemeasure"
+    "pluginType": "distancemeasure",
+    "relatedPlugins": []
   },
   "Excel_ABS": {
     "pluginId": "Excel_ABS",
@@ -11425,7 +11596,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ACOS": {
     "pluginId": "Excel_ACOS",
@@ -11459,7 +11631,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ACOSH": {
     "pluginId": "Excel_ACOSH",
@@ -11493,7 +11666,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "aggregateNumbers": {
     "pluginId": "aggregateNumbers",
@@ -11529,7 +11703,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numOperation",
+        "description": "The Aggregate numbers plugin and the Numeric operation plugin both reduce a sequence of numeric inputs to one result, overlapping on addition and multiplication. Aggregate numbers ignores non-numeric values and adds min, max, and average, while Numeric operation fails on non-numeric input and adds subtraction and division."
+      },
+      {
+        "id": "numReduce",
+        "description": "The silent discard of non-numeric values in Aggregate numbers is not a cleaning step \u2014 non-numeric characters within a value leave the entire value unparseable. Numeric reduce strips those characters from each value, exposing a digit sequence that Aggregate numbers can then include in its computation."
+      }
+    ]
   },
   "Excel_AND": {
     "pluginId": "Excel_AND",
@@ -11563,7 +11747,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ASIN": {
     "pluginId": "Excel_ASIN",
@@ -11597,7 +11782,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ASINH": {
     "pluginId": "Excel_ASINH",
@@ -11631,7 +11817,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ATAN": {
     "pluginId": "Excel_ATAN",
@@ -11665,7 +11852,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ATAN2": {
     "pluginId": "Excel_ATAN2",
@@ -11699,7 +11887,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ATANH": {
     "pluginId": "Excel_ATANH",
@@ -11733,7 +11922,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_AVEDEV": {
     "pluginId": "Excel_AVEDEV",
@@ -11767,7 +11957,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_AVERAGE": {
     "pluginId": "Excel_AVERAGE",
@@ -11801,7 +11992,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_AVERAGEA": {
     "pluginId": "Excel_AVERAGEA",
@@ -11835,7 +12027,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "camelCase": {
     "pluginId": "camelCase",
@@ -11869,7 +12062,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "camelcasetokenizer": {
     "pluginId": "camelcasetokenizer",
@@ -11891,7 +12085,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "tokenize",
+        "description": "When word boundaries are implicit in case rather than marked by a separator, camel case tokenizer is the right tool. Tokenize requires a separator to be present in the string \u2014 it cannot infer boundaries from case alone."
+      }
+    ]
   },
   "capitalize": {
     "pluginId": "capitalize",
@@ -11925,7 +12125,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "lowerCase",
+        "description": "Capitalize raises only the first character, or the first of each word, leaving the rest of the string unchanged. Lower case converts every character, making it the right choice when the entire string needs to be normalized rather than just its initial character."
+      },
+      {
+        "id": "upperCase",
+        "description": "Capitalize changes only the first character, leaving the rest of the string as-is. Upper case is the right plugin when every character needs to be raised, not just the initial one."
+      }
+    ]
   },
   "Excel_CEILING": {
     "pluginId": "Excel_CEILING",
@@ -11959,7 +12169,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_CHOOSE": {
     "pluginId": "Excel_CHOOSE",
@@ -11993,7 +12204,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_CLEAN": {
     "pluginId": "Excel_CLEAN",
@@ -12027,7 +12239,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "htmlCleaner": {
     "pluginId": "htmlCleaner",
@@ -12107,7 +12320,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "coalesce": {
     "pluginId": "coalesce",
@@ -12129,7 +12343,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_CODE": {
     "pluginId": "Excel_CODE",
@@ -12163,7 +12378,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COMBIN": {
     "pluginId": "Excel_COMBIN",
@@ -12197,7 +12413,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "compareDates": {
     "pluginId": "compareDates",
@@ -12231,7 +12448,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "validateRegex",
+        "description": "The Compare dates plugin filters both inputs down to valid XSD date literals and returns 1 or 0 based on the comparator, returning 0 when one side contains no valid date at all. The Validate regex plugin enforces a pattern as a hard boundary and fails when a value does not conform, rather than turning invalid input into a 0 result."
+      },
+      {
+        "id": "compareNumbers",
+        "description": "Compare dates applies ordering and equality comparators to XSD date literals and returns 1 or 0. Compare numbers applies the same comparators to doubles \u2014 the two plugins are not interchangeable, as each rejects the other's input type entirely."
+      }
+    ]
   },
   "compareNumbers": {
     "pluginId": "compareNumbers",
@@ -12265,7 +12492,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "compareDates",
+        "description": "Compare numbers and Compare dates both return 1 or 0 by applying the same ordering and equality comparators across two input sets. Compare dates is not a date-aware extension of Compare numbers \u2014 each plugin accepts only its own value type, doubles for one and XSD date literals for the other."
+      }
+    ]
   },
   "concat": {
     "pluginId": "concat",
@@ -12310,7 +12543,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "concatPairwise",
+        "description": "Concatenate takes the Cartesian product of all inputs and produces one string per combination. Concatenate pairwise aligns values by position and produces one string per position, truncating to the shortest input."
+      },
+      {
+        "id": "concatMultiValues",
+        "description": "Passing multiple values to a single input of Concatenate does not combine them \u2014 it multiplies the output. Concatenate multiple values is the plugin that collapses multiple values within an input into one string, producing exactly one result per input."
+      }
+    ]
   },
   "concatMultiValues": {
     "pluginId": "concatMultiValues",
@@ -12355,7 +12598,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "concat",
+        "description": "Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary \u2014 it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values."
+      }
+    ]
   },
   "concatPairwise": {
     "pluginId": "concatPairwise",
@@ -12389,7 +12638,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "concat",
+        "description": "Concatenate pairwise matches values by position and produces one combined string per position. Concatenate does not align by position \u2014 it produces every combination of values across inputs, so two inputs with three values each yield nine strings, not three."
+      },
+      {
+        "id": "zip",
+        "description": "When inputs have unequal lengths, Concatenate pairwise drops the extra values from the longer input. Zip solves the same alignment problem for exactly two inputs but keeps them by substituting a configurable placeholder for each missing value."
+      }
+    ]
   },
   "constant": {
     "pluginId": "constant",
@@ -12423,7 +12682,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "constantUri": {
     "pluginId": "constantUri",
@@ -12457,7 +12717,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "containsAllOf": {
     "pluginId": "containsAllOf",
@@ -12479,7 +12740,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "containsAnyOf": {
     "pluginId": "containsAnyOf",
@@ -12501,7 +12763,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "convertCharset": {
     "pluginId": "convertCharset",
@@ -12546,7 +12809,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_currencies-transform": {
     "pluginId": "cmem_plugin_currencies-transform",
@@ -12576,7 +12840,7 @@
         "description": "Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.",
         "type": "string",
         "parameterType": "string",
-        "value": "2026-04-02",
+        "value": "2026-05-12",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -12615,7 +12879,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem-plugin-number-conversion": {
     "pluginId": "cmem-plugin-number-conversion",
@@ -12665,7 +12930,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_CORREL": {
     "pluginId": "Excel_CORREL",
@@ -12699,7 +12965,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COS": {
     "pluginId": "Excel_COS",
@@ -12733,7 +13000,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COSH": {
     "pluginId": "Excel_COSH",
@@ -12767,7 +13035,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COUNT": {
     "pluginId": "Excel_COUNT",
@@ -12801,7 +13070,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "count": {
     "pluginId": "count",
@@ -12824,7 +13094,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COUNTA": {
     "pluginId": "Excel_COUNTA",
@@ -12858,7 +13129,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_COVAR": {
     "pluginId": "Excel_COVAR",
@@ -12892,7 +13164,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "currentDate": {
     "pluginId": "currentDate",
@@ -12915,7 +13188,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "parseDate",
+        "description": "Current date always outputs today's date, ignoring whatever values it receives. Parse date is input-driven: it reads a date from the input string and converts it according to a configured format."
+      }
+    ]
   },
   "datasetParameter": {
     "pluginId": "datasetParameter",
@@ -12985,7 +13264,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "datetoTimestamp": {
     "pluginId": "datetoTimestamp",
@@ -13019,7 +13299,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "timeToDate",
+        "description": "The two plugins are inverses. Date to timestamp takes a date and outputs a Unix integer; Timestamp to date takes a Unix integer and outputs a date."
+      }
+    ]
   },
   "defaultValue": {
     "pluginId": "defaultValue",
@@ -13053,7 +13339,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_DEGREES": {
     "pluginId": "Excel_DEGREES",
@@ -13087,7 +13374,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_DEVSQ": {
     "pluginId": "Excel_DEVSQ",
@@ -13121,7 +13409,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "duration": {
     "pluginId": "duration",
@@ -13143,7 +13432,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numberToDuration",
+        "description": "Duration is a measurement plugin: it takes a start and an end date and returns the interval between them as a duration. Number to duration is a construction plugin: it takes a number and builds a duration from it."
+      }
+    ]
   },
   "durationInDays": {
     "pluginId": "durationInDays",
@@ -13165,7 +13460,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numberToDuration",
+        "description": "Duration in days extracts a day count from a duration. Number to duration is the reverse: it builds a duration from a number, and days is its default unit."
+      }
+    ]
   },
   "durationInSeconds": {
     "pluginId": "durationInSeconds",
@@ -13187,7 +13488,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numberToDuration",
+        "description": "Duration in seconds outputs a second count; Number to duration consumes one. Configured for seconds, Number to duration is the write operation to Duration in seconds' read."
+      }
+    ]
   },
   "durationInYears": {
     "pluginId": "durationInYears",
@@ -13209,7 +13516,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numberToDuration",
+        "description": "Duration in years reduces a duration to a plain year count. Number to duration goes the other direction: it builds a duration from a year count when configured for years."
+      }
+    ]
   },
   "emptyValue": {
     "pluginId": "emptyValue",
@@ -13231,7 +13544,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeEmptyValues",
+        "description": "Empty value always outputs an empty sequence, discarding all input. Remove empty values is selective: it passes non-empty strings through and drops only the empty ones."
+      }
+    ]
   },
   "urlEncode": {
     "pluginId": "urlEncode",
@@ -13265,7 +13584,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "TemplateTransformer": {
     "pluginId": "TemplateTransformer",
@@ -13312,7 +13632,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_EVEN": {
     "pluginId": "Excel_EVEN",
@@ -13346,7 +13667,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_EXACT": {
     "pluginId": "Excel_EXACT",
@@ -13380,7 +13702,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "excelMap": {
     "pluginId": "excelMap",
@@ -13460,7 +13783,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_EXP": {
     "pluginId": "Excel_EXP",
@@ -13494,7 +13818,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "extractPhysicalQuantity": {
     "pluginId": "extractPhysicalQuantity",
@@ -13562,7 +13887,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "numOperation",
+        "description": "The Physical quantity extractor plugin turns number plus unit strings into plain numeric values in the configured base unit. The Numeric operation plugin is the arithmetic reducer once the inputs are already numbers, so unit parsing and calculation stay separate."
+      },
+      {
+        "id": "formatNumber",
+        "description": "Extract physical quantity returns a plain numeric string in the base unit. Format number takes that value and renders it according to a decimal format pattern, controlling precision, digit grouping, and separators."
+      }
+    ]
   },
   "Excel_FACT": {
     "pluginId": "Excel_FACT",
@@ -13596,7 +13931,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_FALSE": {
     "pluginId": "Excel_FALSE",
@@ -13630,7 +13966,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "fileHash": {
     "pluginId": "fileHash",
@@ -13675,7 +14012,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "filterByLength": {
     "pluginId": "filterByLength",
@@ -13720,7 +14058,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "filterByRegex": {
     "pluginId": "filterByRegex",
@@ -13767,7 +14106,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexSelect",
+        "description": "Filter by regex keeps or drops values from the input sequence based on full-string matching. Regex selection keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches."
+      }
+    ]
   },
   "Excel_FIND": {
     "pluginId": "Excel_FIND",
@@ -13801,7 +14146,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "uriFix": {
     "pluginId": "uriFix",
@@ -13835,7 +14181,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_FLOOR": {
     "pluginId": "Excel_FLOOR",
@@ -13869,7 +14216,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_FORECAST": {
     "pluginId": "Excel_FORECAST",
@@ -13903,7 +14251,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "formatNumber": {
     "pluginId": "formatNumber",
@@ -13950,7 +14299,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "extractPhysicalQuantity",
+        "description": "Format number requires a numeric input. If the source data contains quantity strings with embedded unit symbols, Extract physical quantity parses those strings and returns the numeric value in the base unit \u2014 the form that Format number can then render according to a decimal pattern."
+      }
+    ]
   },
   "Excel_FV": {
     "pluginId": "Excel_FV",
@@ -13984,7 +14339,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_GEOMEAN": {
     "pluginId": "Excel_GEOMEAN",
@@ -14018,7 +14374,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "getValueByIndex": {
     "pluginId": "getValueByIndex",
@@ -14077,7 +14434,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_IF": {
     "pluginId": "Excel_IF",
@@ -14111,7 +14469,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "ifContains": {
     "pluginId": "ifContains",
@@ -14147,7 +14506,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "ifExists": {
     "pluginId": "ifExists",
@@ -14169,7 +14529,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "ifMatchesRegex": {
     "pluginId": "ifMatchesRegex",
@@ -14216,7 +14577,21 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "validateRegex",
+        "description": "A regular expression match drives both operators, but the outcome differs. The \u201cIf matches regex\u201d plugin routes between alternative input values, while the \u201cValidate regex\u201d plugin draws an acceptance boundary by deciding whether the checked value is valid."
+      },
+      {
+        "id": "regexSelect",
+        "description": "The Regex selection plugin marks match positions by emitting copies of a provided output value wherever a regular expression matches the checked value sequence. The If matches regex plugin uses a regular expression match as a branch decision between alternative input values rather than producing positional markers."
+      },
+      {
+        "id": "regexExtract",
+        "description": "The Regex extract plugin returns the matching content from the input string, or the first capturing group if the regular expression contains capturing groups. The If matches regex plugin does not return matched content; it uses the match only to choose which of the provided input values becomes the output."
+      }
+    ]
   },
   "inputFileAttributes": {
     "pluginId": "inputFileAttributes",
@@ -14250,7 +14625,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "inputHash": {
     "pluginId": "inputHash",
@@ -14284,7 +14660,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "mapWithDefaultInput",
+        "description": "One hash value is produced for the entire set of inputs by the Input hash plugin. The Map with default plugin instead keeps a value sequence and rewrites it position by position through the mapping, falling back to the second input where no mapping entry is found."
+      }
+    ]
   },
   "inputTaskAttributes": {
     "pluginId": "inputTaskAttributes",
@@ -14318,7 +14700,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_INT": {
     "pluginId": "Excel_INT",
@@ -14352,7 +14735,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_INTERCEPT": {
     "pluginId": "Excel_INTERCEPT",
@@ -14386,7 +14770,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_IPMT": {
     "pluginId": "Excel_IPMT",
@@ -14420,7 +14805,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_IRR": {
     "pluginId": "Excel_IRR",
@@ -14454,7 +14840,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem-plugin-jq-transform": {
     "pluginId": "cmem-plugin-jq-transform",
@@ -14501,7 +14888,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_LARGE": {
     "pluginId": "Excel_LARGE",
@@ -14535,7 +14923,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_LEFT": {
     "pluginId": "Excel_LEFT",
@@ -14569,7 +14958,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_LN": {
     "pluginId": "Excel_LN",
@@ -14603,7 +14993,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_LOG": {
     "pluginId": "Excel_LOG",
@@ -14637,7 +15028,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_LOG10": {
     "pluginId": "Excel_LOG10",
@@ -14671,7 +15063,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "log": {
     "pluginId": "log",
@@ -14705,7 +15098,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "lowerCase": {
     "pluginId": "lowerCase",
@@ -14727,7 +15121,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "upperCase",
+        "description": "Lower case and Upper case apply the same exhaustive rule in opposite directions \u2014 every character is converted, none left unchanged. Upper case is the choice when the target is uniform all-caps."
+      },
+      {
+        "id": "capitalize",
+        "description": "Lower case converts every character without exception. Capitalize is more selective: it uppercases only the first character of the string, leaving the rest unchanged."
+      }
+    ]
   },
   "map": {
     "pluginId": "map",
@@ -14775,7 +15179,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "mapWithDefaultInput",
+        "description": "The Map plugin returns a fixed default string \u2014 set as a parameter \u2014 for any value not found in the map. Map with default replaces that fixed fallback with a second connected input, so the fallback can differ per value."
+      },
+      {
+        "id": "replace",
+        "description": "The Map plugin matches the entire input value against a lookup table and substitutes the whole value on an exact match. Replace substitutes a search string wherever it appears within the value, without requiring the full value to match."
+      }
+    ]
   },
   "mapWithDefaultInput": {
     "pluginId": "mapWithDefaultInput",
@@ -14811,7 +15225,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "inputHash",
+        "description": "The Map with default plugin maps each input value and returns one output value per position, using the second input as the fallback when a value is not found in the map. The Input hash plugin returns one hash value for all input values combined, so the result is one combined identifier rather than a mapped value sequence."
+      },
+      {
+        "id": "map",
+        "description": "Map with default takes its fallback values from a second input, one per input value, so the fallback can differ per value. If the fallback is a fixed string that applies to all unmapped values, the Map plugin accepts it as a parameter and requires only one input."
+      }
+    ]
   },
   "Excel_MAX": {
     "pluginId": "Excel_MAX",
@@ -14845,7 +15269,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MAXA": {
     "pluginId": "Excel_MAXA",
@@ -14879,7 +15304,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MEDIAN": {
     "pluginId": "Excel_MEDIAN",
@@ -14913,7 +15339,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "merge": {
     "pluginId": "merge",
@@ -14935,7 +15362,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "metaphone": {
     "pluginId": "metaphone",
@@ -14957,7 +15385,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "soundex",
+        "description": "The Metaphone plugin returns a phonetic encoding whose length depends on the input. The Soundex plugin returns a fixed four-character code, so it forces a much coarser normalization. This is not a similarity score; it is an encoding step."
+      },
+      {
+        "id": "NYSIIS",
+        "description": "The Metaphone plugin and the NYSIIS plugin both produce phonetic encodings, but they do so under different encoding rules. The NYSIIS plugin also exposes a refined versus non-refined mode, while the Metaphone plugin has a single fixed encoding path."
+      }
+    ]
   },
   "Excel_MID": {
     "pluginId": "Excel_MID",
@@ -14991,7 +15429,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MIN": {
     "pluginId": "Excel_MIN",
@@ -15025,7 +15464,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MINA": {
     "pluginId": "Excel_MINA",
@@ -15059,7 +15499,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MIRR": {
     "pluginId": "Excel_MIRR",
@@ -15093,7 +15534,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MOD": {
     "pluginId": "Excel_MOD",
@@ -15127,7 +15569,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_MODE": {
     "pluginId": "Excel_MODE",
@@ -15161,7 +15604,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "negateTransformer": {
     "pluginId": "negateTransformer",
@@ -15183,7 +15627,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "normalizeChars": {
     "pluginId": "normalizeChars",
@@ -15205,7 +15650,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeSpecialChars",
+        "description": "After Normalize chars, a string still contains its original punctuation, spaces, and symbols. Remove special chars removes all of those, keeping only letters, digits, and underscores."
+      },
+      {
+        "id": "alphaReduce",
+        "description": "Normalize chars is a substitution-only plugin: it converts diacritics but does not remove anything. Strip non-alphabetic characters is a removal-only plugin: it strips digits and punctuation while keeping letters and spaces, but leaves diacritical letters in their original form."
+      }
+    ]
   },
   "PhysicalQuantitiesNormalizer": {
     "pluginId": "PhysicalQuantitiesNormalizer",
@@ -15250,7 +15705,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NORMDIST": {
     "pluginId": "Excel_NORMDIST",
@@ -15284,7 +15740,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NORMINV": {
     "pluginId": "Excel_NORMINV",
@@ -15318,7 +15775,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NORMSDIST": {
     "pluginId": "Excel_NORMSDIST",
@@ -15352,7 +15810,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NORMSINV": {
     "pluginId": "Excel_NORMSINV",
@@ -15386,7 +15845,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NOT": {
     "pluginId": "Excel_NOT",
@@ -15420,7 +15880,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NPER": {
     "pluginId": "Excel_NPER",
@@ -15454,7 +15915,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_NPV": {
     "pluginId": "Excel_NPV",
@@ -15488,7 +15950,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "numberToDuration": {
     "pluginId": "numberToDuration",
@@ -15522,7 +15985,25 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "durationInDays",
+        "description": "Number to duration and Duration in days form a round-trip: one builds a duration from days, the other extracts days from a duration."
+      },
+      {
+        "id": "durationInSeconds",
+        "description": "Duration in seconds produces the finest-grained numeric output among the duration converters. Number to duration is its reverse when configured for seconds: it constructs a duration from a second count."
+      },
+      {
+        "id": "durationInYears",
+        "description": "Duration in years extracts a year count from a duration value. Number to duration reconstructs the duration from that count."
+      },
+      {
+        "id": "duration",
+        "description": "The two plugins produce durations by different means. Duration measures the gap between a start and an end date; Number to duration builds one from a time span expressed as a number."
+      }
+    ]
   },
   "numOperation": {
     "pluginId": "numOperation",
@@ -15558,7 +16039,21 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "aggregateNumbers",
+        "description": "The Numeric operation plugin reduces all input numbers into one result using one arithmetic operator and fails when any value is not a number. The Aggregate numbers plugin also reduces to one result, but it ignores non-numeric values and shifts the operator set toward aggregation semantics such as minimum, maximum, and average."
+      },
+      {
+        "id": "extractPhysicalQuantity",
+        "description": "The Extract physical quantity plugin converts number-and-unit text into base-unit numeric values as plain numeric output. The Numeric operation plugin combines those numeric values using one arithmetic operator across the operand sequence."
+      },
+      {
+        "id": "numReduce",
+        "description": "Numeric reduce strips non-numeric characters from each value. Numeric operation then applies an arithmetic operator across the resulting values, since it throws on any input that is not a number."
+      }
+    ]
   },
   "numReduce": {
     "pluginId": "numReduce",
@@ -15592,7 +16087,21 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexReplace",
+        "description": "Numeric reduce is a zero-configuration specialization of Regex replace using a non-digit stripping pattern. Regex replace is the choice when the stripping rule is not strictly numeric."
+      },
+      {
+        "id": "aggregateNumbers",
+        "description": "Numeric reduce strips non-numeric characters from each value. Aggregate numbers silently discards any value it cannot parse as a number, so values with embedded non-numeric characters are lost to the aggregation without this step."
+      },
+      {
+        "id": "numOperation",
+        "description": "Numeric reduce strips non-numeric characters from each value, making each one parseable as a number. Numeric operation throws a validation exception on any input that cannot be parsed, rather than discarding it silently."
+      }
+    ]
   },
   "NYSIIS": {
     "pluginId": "NYSIIS",
@@ -15626,7 +16135,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "soundex",
+        "description": "The NYSIIS plugin encodes a name into a phonetic key, but it is not the same kind of key as Soundex. The Soundex plugin produces a fixed, coarse code, while NYSIIS keeps more structure so fewer distinct names collapse into the same bucket."
+      },
+      {
+        "id": "metaphone",
+        "description": "The Metaphone plugin follows its own phonetic encoding path and returns a key that lives in a different rule space than NYSIIS. Switching between Metaphone and the NYSIIS plugin changes which spellings end up identical after encoding, not just how the encoded strings look."
+      }
+    ]
   },
   "Excel_ODD": {
     "pluginId": "Excel_ODD",
@@ -15660,7 +16179,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_OR": {
     "pluginId": "Excel_OR",
@@ -15694,7 +16214,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "DateTypeParser": {
     "pluginId": "DateTypeParser",
@@ -15784,7 +16305,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "parseDate": {
     "pluginId": "parseDate",
@@ -15840,7 +16362,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "currentDate",
+        "description": "Parse date converts an input string to a date using a configured format. Current date ignores the input entirely and always outputs today's date."
+      }
+    ]
   },
   "FloatTypeParser": {
     "pluginId": "FloatTypeParser",
@@ -15896,7 +16424,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "GeoCoordinateParser": {
     "pluginId": "GeoCoordinateParser",
@@ -15918,7 +16447,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "GeoLocationParser": {
     "pluginId": "GeoLocationParser",
@@ -15965,7 +16495,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "IntegerParser": {
     "pluginId": "IntegerParser",
@@ -16010,7 +16541,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "IsinParser": {
     "pluginId": "IsinParser",
@@ -16032,7 +16564,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "SkosTypeParser": {
     "pluginId": "SkosTypeParser",
@@ -16068,7 +16601,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "StringParser": {
     "pluginId": "StringParser",
@@ -16090,7 +16624,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PEARSON": {
     "pluginId": "Excel_PEARSON",
@@ -16124,7 +16659,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PERCENTILE": {
     "pluginId": "Excel_PERCENTILE",
@@ -16158,7 +16694,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PERCENTRANK": {
     "pluginId": "Excel_PERCENTRANK",
@@ -16192,7 +16729,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PI": {
     "pluginId": "Excel_PI",
@@ -16226,7 +16764,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PMT": {
     "pluginId": "Excel_PMT",
@@ -16260,7 +16799,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_POISSON": {
     "pluginId": "Excel_POISSON",
@@ -16294,7 +16834,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_POWER": {
     "pluginId": "Excel_POWER",
@@ -16328,7 +16869,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PPMT": {
     "pluginId": "Excel_PPMT",
@@ -16362,7 +16904,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PRODUCT": {
     "pluginId": "Excel_PRODUCT",
@@ -16396,7 +16939,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PROPER": {
     "pluginId": "Excel_PROPER",
@@ -16430,7 +16974,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_PV": {
     "pluginId": "Excel_PV",
@@ -16464,7 +17009,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_RADIANS": {
     "pluginId": "Excel_RADIANS",
@@ -16498,7 +17044,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_RAND": {
     "pluginId": "Excel_RAND",
@@ -16532,7 +17079,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "randomNumber": {
     "pluginId": "randomNumber",
@@ -16599,7 +17147,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_RANK": {
     "pluginId": "Excel_RANK",
@@ -16633,7 +17182,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_RATE": {
     "pluginId": "Excel_RATE",
@@ -16667,7 +17217,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "readParameter": {
     "pluginId": "readParameter",
@@ -16715,7 +17266,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "regexExtract": {
     "pluginId": "regexExtract",
@@ -16762,7 +17314,25 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexReplace",
+        "description": "The Regex extract plugin returns what the regular expression matches, or the first capturing group if capturing groups exist. The Regex replace plugin returns the full input string after rewriting it by replacing every match with the configured replacement."
+      },
+      {
+        "id": "regexSelect",
+        "description": "The Regex selection plugin does not return matched text at all. It emits copies of a provided output value at the positions where the checked values match the regular expressions, while the Regex extract plugin returns the matched substring or capturing-group content."
+      },
+      {
+        "id": "ifMatchesRegex",
+        "description": "The If matches regex plugin uses the match only as a decision about which provided input value to return. The Regex extract plugin uses the match as the produced content, so the output is derived from the matched region rather than from branch inputs."
+      },
+      {
+        "id": "validateRegex",
+        "description": "The Validate regex plugin keeps the original value only when the full value matches the configured regular expression and otherwise fails validation. The Regex extract plugin returns match-derived output and can return an empty result when nothing matches."
+      }
+    ]
   },
   "regexReplace": {
     "pluginId": "regexReplace",
@@ -16809,7 +17379,25 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexExtract",
+        "description": "The Regex replace plugin returns the full input string after rewriting every match with the replacement. The Regex extract plugin returns only what matched, or the first capturing group, so the output is match-derived content rather than a rewritten string."
+      },
+      {
+        "id": "regexSelect",
+        "description": "The Regex replace plugin rewrites a string by substituting every match with the configured replacement, so the output stays a transformed version of the input text. The Regex selection plugin turns matching into positional markers by emitting a provided output value at the regex positions that match the checked value."
+      },
+      {
+        "id": "validateRegex",
+        "description": "The Regex replace plugin rewrites a string by substituting every regex match and returns the rewritten value. The Validate regex plugin keeps the value only when the full value matches the regex and otherwise fails validation, so it serves as a format check before or after rewriting."
+      },
+      {
+        "id": "replace",
+        "description": "The Replace plugin swaps one fixed substring for another everywhere it occurs. The Regex replace plugin does the same global substitution, but what counts as a hit is described by a regular expression."
+      }
+    ]
   },
   "regexSelect": {
     "pluginId": "regexSelect",
@@ -16843,7 +17431,25 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexExtract",
+        "description": "The Regex selection plugin returns the provided output value in a result sequence aligned with the regex list, filling only the positions whose pattern matches the checked value. The Regex extract plugin returns the matched substring itself, or the first capturing group, so the output is taken from the input text rather than from the provided output value."
+      },
+      {
+        "id": "ifMatchesRegex",
+        "description": "The If matches regex plugin returns one of the provided branch inputs based on whether the checked value matches. The Regex selection plugin returns a result sequence aligned with the pattern list, placing the provided output value at every matching position."
+      },
+      {
+        "id": "regexReplace",
+        "description": "The Regex replace plugin returns a rewritten string by replacing every match inside the input text with the configured replacement. The Regex selection plugin returns a result sequence aligned with the pattern list and fills each matching position with the provided output value."
+      },
+      {
+        "id": "filterByRegex",
+        "description": "The Regex selection plugin keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches. The Filter by regex plugin keeps or drops values from the input sequence based on full-string matching."
+      }
+    ]
   },
   "removeBlanks": {
     "pluginId": "removeBlanks",
@@ -16865,7 +17471,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "trim",
+        "description": "Remove blanks removes only plain space characters and does so throughout the entire string regardless of position. Trim is the choice when only the surrounding whitespace needs to go and the internal structure must be preserved; unlike Remove blanks, it also handles tabs and newlines at the edges."
+      }
+    ]
   },
   "removeDefaultStopWords": {
     "pluginId": "removeDefaultStopWords",
@@ -16887,7 +17499,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeRemoteStopWords",
+        "description": "The Remove remote stop words plugin performs stop word removal using a stop word list fetched from a remote URL, while the Remove default stop words plugin performs stop word removal using the built-in default list."
+      }
+    ]
   },
   "removeDuplicates": {
     "pluginId": "removeDuplicates",
@@ -16909,7 +17527,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeValues",
+        "description": "Remove values is driven by a reference list \u2014 it drops every instance of a blacklisted word. Remove duplicates needs no such list: it keeps the first occurrence of each value and discards the rest, based solely on the input values repeating themselves."
+      }
+    ]
   },
   "removeEmptyValues": {
     "pluginId": "removeEmptyValues",
@@ -16931,7 +17555,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeValues",
+        "description": "Remove empty values removes only empty strings and has no parameters. Remove values is the configurable alternative, filtering out values that match words from a user-supplied blacklist."
+      },
+      {
+        "id": "emptyValue",
+        "description": "Empty value produces what Remove empty values removes: an empty sequence. Remove empty values is selective; Empty value is unconditional."
+      }
+    ]
   },
   "removeParentheses": {
     "pluginId": "removeParentheses",
@@ -16953,7 +17587,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "removeRemoteStopWords": {
     "pluginId": "removeRemoteStopWords",
@@ -16998,7 +17633,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexReplace",
+        "description": "The Remove remote stop words plugin removes tokens case-insensitively based on a stop word list loaded from a remote URL after splitting the input with the separator regex. The Regex replace plugin rewrites or deletes substrings based on a regular expression match in the string, which fits cases where the noise is defined by pattern rather than by a word list."
+      }
+    ]
   },
   "removeSpecialChars": {
     "pluginId": "removeSpecialChars",
@@ -17020,7 +17661,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "normalizeChars",
+        "description": "Remove special chars keeps diacritical characters intact: because they qualify as Unicode letters, they are neither removed nor modified. Normalize chars is the right choice when diacritics need to be converted to their ASCII base forms rather than preserved as-is."
+      },
+      {
+        "id": "alphaReduce",
+        "description": "The two plugins differ on digits and spaces: Remove special chars keeps digits and removes spaces; Strip non-alphabetic characters removes digits and keeps spaces. Strip non-alphabetic characters is the right tool when word spacing matters and digits do not belong in the output."
+      }
+    ]
   },
   "removeStopWords": {
     "pluginId": "removeStopWords",
@@ -17067,7 +17718,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "removeValues": {
     "pluginId": "removeValues",
@@ -17103,7 +17755,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeEmptyValues",
+        "description": "Remove values works from a blacklist: any value matching a word in that list is dropped. Remove empty values has no such list; it removes only empty strings."
+      },
+      {
+        "id": "removeDuplicates",
+        "description": "The two plugins filter on different grounds. Remove values drops a value because of what it is; Remove duplicates drops a value because it already appeared earlier in the sequence."
+      }
+    ]
   },
   "replace": {
     "pluginId": "replace",
@@ -17151,7 +17813,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexReplace",
+        "description": "The Replace plugin substitutes a literal search string everywhere it occurs. The Regex replace plugin does the same kind of rewrite, but the match is defined by a regular expression rather than a fixed substring."
+      },
+      {
+        "id": "map",
+        "description": "Replace performs in-place substitution of a substring, leaving the rest of the value intact. The Map plugin replaces entire values based on exact key matches and returns a configured default when no match is found."
+      }
+    ]
   },
   "Excel_REPLACE": {
     "pluginId": "Excel_REPLACE",
@@ -17185,7 +17857,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_REPT": {
     "pluginId": "Excel_REPT",
@@ -17219,7 +17892,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "RetrieveCoordinates": {
     "pluginId": "RetrieveCoordinates",
@@ -17253,7 +17927,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "RetrieveLatitude": {
     "pluginId": "RetrieveLatitude",
@@ -17287,7 +17962,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "RetrieveLongitude": {
     "pluginId": "RetrieveLongitude",
@@ -17321,7 +17997,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_RIGHT": {
     "pluginId": "Excel_RIGHT",
@@ -17355,7 +18032,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ROMAN": {
     "pluginId": "Excel_ROMAN",
@@ -17389,7 +18067,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ROUND": {
     "pluginId": "Excel_ROUND",
@@ -17423,7 +18102,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ROUNDDOWN": {
     "pluginId": "Excel_ROUNDDOWN",
@@ -17457,7 +18137,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_ROUNDUP": {
     "pluginId": "Excel_ROUNDUP",
@@ -17491,7 +18172,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SEARCH": {
     "pluginId": "Excel_SEARCH",
@@ -17525,7 +18207,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "toSequenceIndex": {
     "pluginId": "toSequenceIndex",
@@ -17547,7 +18230,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SIGN": {
     "pluginId": "Excel_SIGN",
@@ -17581,7 +18265,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SIN": {
     "pluginId": "Excel_SIN",
@@ -17615,7 +18300,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SINH": {
     "pluginId": "Excel_SINH",
@@ -17649,7 +18335,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SLOPE": {
     "pluginId": "Excel_SLOPE",
@@ -17683,7 +18370,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SMALL": {
     "pluginId": "Excel_SMALL",
@@ -17717,7 +18405,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "sort": {
     "pluginId": "sort",
@@ -17739,7 +18428,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "sortWords": {
     "pluginId": "sortWords",
@@ -17784,7 +18474,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "soundex": {
     "pluginId": "soundex",
@@ -17818,7 +18509,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "metaphone",
+        "description": "The Soundex plugin turns a name into a short, fixed-format code built around the first letter and digit groups. The Metaphone plugin returns a letter-based phonetic key instead, so the output is not even the same kind of artifact."
+      },
+      {
+        "id": "NYSIIS",
+        "description": "The Soundex plugin returns a short Soundex code, optionally in refined mode. The NYSIIS plugin returns a different phonetic key, and the refined flag is internal to each encoder rather than a shared setting that makes the two outputs compatible."
+      }
+    ]
   },
   "Excel_SQRT": {
     "pluginId": "Excel_SQRT",
@@ -17852,7 +18553,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_STANDARDIZE": {
     "pluginId": "Excel_STANDARDIZE",
@@ -17886,7 +18588,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_STDEV": {
     "pluginId": "Excel_STDEV",
@@ -17920,7 +18623,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_STDEVA": {
     "pluginId": "Excel_STDEVA",
@@ -17954,7 +18658,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_STDEVP": {
     "pluginId": "Excel_STDEVP",
@@ -17988,7 +18693,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_STDEVPA": {
     "pluginId": "Excel_STDEVPA",
@@ -18022,7 +18728,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "stem": {
     "pluginId": "stem",
@@ -18044,7 +18751,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "alphaReduce": {
     "pluginId": "alphaReduce",
@@ -18066,7 +18774,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeSpecialChars",
+        "description": "Strip non-alphabetic characters removes digits along with punctuation. Remove special chars keeps digits but does not preserve spaces. When numeric content in the string needs to survive, Remove special chars is the applicable plugin."
+      },
+      {
+        "id": "normalizeChars",
+        "description": "Strip non-alphabetic characters removes digits and punctuation but does not normalize the letters it keeps; a diacritical letter in the input is a diacritical letter in the output. Normalize chars addresses that: it converts diacritical characters to ASCII equivalents, though it does not strip any content."
+      }
+    ]
   },
   "stripPostfix": {
     "pluginId": "stripPostfix",
@@ -18102,7 +18820,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "stripPrefix",
+        "description": "Strip postfix removes from the end; Strip prefix removes from the start. Both leave the value unchanged when the configured string is not found at the expected position."
+      },
+      {
+        "id": "substring",
+        "description": "Strip postfix checks for a specific string at the end before removing it. Substring does not check content: a negative end index removes a fixed character count from the end unconditionally."
+      }
+    ]
   },
   "stripPrefix": {
     "pluginId": "stripPrefix",
@@ -18138,7 +18866,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "stripPostfix",
+        "description": "Strip prefix removes a configured string from the start of the value, leaving it unchanged if the string is not found there. Strip postfix is the complement: it checks and removes from the end."
+      },
+      {
+        "id": "substring",
+        "description": "Strip prefix removes a configured string from the start only if it is actually present. Substring removes by position: it skips the first N characters regardless of their content, so it will cut into the value even if the expected prefix is absent."
+      }
+    ]
   },
   "stripUriPrefix": {
     "pluginId": "stripUriPrefix",
@@ -18173,7 +18911,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUBSTITUTE": {
     "pluginId": "Excel_SUBSTITUTE",
@@ -18207,7 +18946,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "substring": {
     "pluginId": "substring",
@@ -18263,7 +19003,21 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "stripPrefix",
+        "description": "Substring removes a fixed number of characters from the start regardless of their content. Strip prefix is more selective: it only removes from the start if the configured string is actually found there."
+      },
+      {
+        "id": "stripPostfix",
+        "description": "Substring works by index: it removes a fixed count of trailing characters regardless of their content. Strip postfix is the alternative when the trailing portion is a known string; it checks for it and leaves the value unchanged if not found."
+      },
+      {
+        "id": "untilCharacter",
+        "description": "Substring extracts by position: the start and end indices are fixed and apply to every input value regardless of its content. Until character extracts up to a specific character."
+      }
+    ]
   },
   "Excel_SUM": {
     "pluginId": "Excel_SUM",
@@ -18297,7 +19051,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUMPRODUCT": {
     "pluginId": "Excel_SUMPRODUCT",
@@ -18331,7 +19086,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUMSQ": {
     "pluginId": "Excel_SUMSQ",
@@ -18365,7 +19121,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUMX2MY2": {
     "pluginId": "Excel_SUMX2MY2",
@@ -18399,7 +19156,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUMX2PY2": {
     "pluginId": "Excel_SUMX2PY2",
@@ -18433,7 +19191,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_SUMXMY2": {
     "pluginId": "Excel_SUMXMY2",
@@ -18467,7 +19226,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_TAN": {
     "pluginId": "Excel_TAN",
@@ -18501,7 +19261,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_TANH": {
     "pluginId": "Excel_TANH",
@@ -18535,7 +19296,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_TDIST": {
     "pluginId": "Excel_TDIST",
@@ -18569,7 +19331,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "timeToDate": {
     "pluginId": "timeToDate",
@@ -18614,7 +19377,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "datetoTimestamp",
+        "description": "Timestamp to date converts a Unix integer to a date string; Date to timestamp is the reverse of that, converting a date string back to a Unix integer."
+      }
+    ]
   },
   "tokenize": {
     "pluginId": "tokenize",
@@ -18648,7 +19417,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "camelcasetokenizer",
+        "description": "A value written in camel case produces a single token under Tokenize, because there is no separator character to split on. Camel case tokenizer reads case transitions as boundaries and splits accordingly."
+      }
+    ]
   },
   "trim": {
     "pluginId": "trim",
@@ -18671,7 +19446,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "removeBlanks",
+        "description": "Trim removes all whitespace characters from the edges of a string: spaces, tabs, and newlines at the start or end are cleared, but the interior is left untouched. Remove blanks removes only plain space characters, but does so throughout the entire string, including the middle."
+      }
+    ]
   },
   "Excel_TRUE": {
     "pluginId": "Excel_TRUE",
@@ -18705,7 +19486,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_TRUNC": {
     "pluginId": "Excel_TRUNC",
@@ -18739,7 +19521,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem-plugin-ulid": {
     "pluginId": "cmem-plugin-ulid",
@@ -18786,7 +19569,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "untilCharacter": {
     "pluginId": "untilCharacter",
@@ -18822,7 +19606,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "substring",
+        "description": "Until character adapts to the content of each value: the extracted portion ends wherever the target character appears. Substring does not adapt; it cuts at configured numeric indices that are the same for every input."
+      }
+    ]
   },
   "upperCase": {
     "pluginId": "upperCase",
@@ -18844,7 +19634,17 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "lowerCase",
+        "description": "Upper case and Lower case are exact complements \u2014 one raises all characters, the other lowers them. Lower case is the choice when uniform lowercase is the target."
+      },
+      {
+        "id": "capitalize",
+        "description": "Upper case raises every character to upper case. Capitalize raises only the first character of the string, leaving the rest in its original case."
+      }
+    ]
   },
   "uuid": {
     "pluginId": "uuid",
@@ -18866,7 +19666,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUIDConvert": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUIDConvert",
@@ -18913,7 +19714,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUIDVersion": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUIDVersion",
@@ -18937,7 +19739,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID1": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID1",
@@ -18987,7 +19790,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6",
@@ -19011,7 +19815,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID3": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID3",
@@ -19058,7 +19863,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID4": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID4",
@@ -19082,7 +19888,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID5": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID5",
@@ -19129,7 +19936,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID6": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID6",
@@ -19176,7 +19984,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID7": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID7",
@@ -19200,7 +20009,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "cmem_plugin_uuid-plugin_uuid-UUID8": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID8",
@@ -19224,7 +20034,8 @@
       "TransformOperator",
       "PythonPlugin"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "validateDateAfter": {
     "pluginId": "validateDateAfter",
@@ -19259,7 +20070,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "validateDateRange",
+        "description": "Validate date after checks whether one input date is later than another. Validate date range instead tests a single date against a fixed interval with a configured minimum and maximum."
+      }
+    ]
   },
   "validateDateRange": {
     "pluginId": "validateDateRange",
@@ -19308,7 +20125,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "validateDateAfter",
+        "description": "Validate date range checks a date against a configured earliest and latest date. Validate date after checks whether one input date is later than another."
+      }
+    ]
   },
   "validateNumberOfValues": {
     "pluginId": "validateNumberOfValues",
@@ -19353,7 +20176,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "validateNumericRange": {
     "pluginId": "validateNumericRange",
@@ -19402,7 +20226,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "compareNumbers",
+        "description": "Validate numeric range either passes a number through or throws, producing no output on violation. Compare numbers always produces a 1 or 0 regardless of which side is larger, so the downstream pipeline continues in either case."
+      }
+    ]
   },
   "validateRegex": {
     "pluginId": "validateRegex",
@@ -19436,7 +20266,25 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "regexReplace",
+        "description": "Regex replace rewrites the input string by substituting every match and returns the rewritten value. Validate regex treats the pattern as a full-value check on the resulting string."
+      },
+      {
+        "id": "ifMatchesRegex",
+        "description": "A regular expression match plays different roles here. The Validate regex plugin checks each value against the pattern and passes it through only when it fully matches. The If matches regex plugin uses the match to choose which provided branch value is returned."
+      },
+      {
+        "id": "regexSelect",
+        "description": "Regex selection turns one checked value and a list of patterns into a result sequence aligned with that list, placing the provided output value wherever a pattern matches. Validate regex keeps the original value and treats the pattern as a full-value check."
+      },
+      {
+        "id": "regexExtract",
+        "description": "Regex extract turns the match into output by returning the matched substring or the first capturing group. Validate regex leaves the value unchanged and only lets it through when the full value matches the pattern."
+      }
+    ]
   },
   "Excel_VAR": {
     "pluginId": "Excel_VAR",
@@ -19470,7 +20318,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_VARA": {
     "pluginId": "Excel_VARA",
@@ -19504,7 +20353,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_VARP": {
     "pluginId": "Excel_VARP",
@@ -19538,7 +20388,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_VARPA": {
     "pluginId": "Excel_VARPA",
@@ -19572,7 +20423,8 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "zip": {
     "pluginId": "zip",
@@ -19628,7 +20480,13 @@
     "tags": [
       "TransformOperator"
     ],
-    "pluginType": "transformer"
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "concatPairwise",
+        "description": "Zip handles unequal input lengths by padding, not truncating, and is constrained to exactly two inputs. Concatenate pairwise removes that constraint \u2014 it accepts any number of inputs \u2014 but resolves the length mismatch by stopping at the shortest."
+      }
+    ]
   },
   "min": {
     "pluginId": "min",
@@ -19646,7 +20504,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "average": {
     "pluginId": "average",
@@ -19664,7 +20523,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "quadraticMean": {
     "pluginId": "quadraticMean",
@@ -19682,7 +20542,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "firstNonEmpty": {
     "pluginId": "firstNonEmpty",
@@ -19700,7 +20561,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "geometricMean": {
     "pluginId": "geometricMean",
@@ -19718,7 +20580,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "handleMissingValues": {
     "pluginId": "handleMissingValues",
@@ -19748,7 +20611,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "negate": {
     "pluginId": "negate",
@@ -19766,7 +20630,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "max": {
     "pluginId": "max",
@@ -19784,7 +20649,8 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   },
   "scale": {
     "pluginId": "scale",
@@ -19814,6 +20680,7 @@
     "backendType": "native",
     "is_deprecated": false,
     "tags": [],
-    "pluginType": "aggregator"
+    "pluginType": "aggregator",
+    "relatedPlugins": []
   }
 }

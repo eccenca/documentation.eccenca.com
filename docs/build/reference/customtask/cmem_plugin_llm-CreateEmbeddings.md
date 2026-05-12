@@ -73,10 +73,6 @@ Paths from input entities to forward to output without modification. These paths
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Base URL
@@ -156,5 +152,3 @@ Changing this value will change the output schema accordingly. Default: _embeddi
 - ID: `embedding_output_path`
 - Datatype: `string`
 - Default Value: `_embedding`
-
-

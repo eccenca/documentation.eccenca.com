@@ -46,10 +46,6 @@ The default value to be generated, if no similarity score is provided. Must be a
 * Datatype: `double`
 * Default Value: `-1.0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

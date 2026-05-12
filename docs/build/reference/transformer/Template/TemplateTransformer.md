@@ -122,10 +122,6 @@ The template language. Currently, Jinja is supported.
 * Datatype: `string`
 * Default Value: `jinja`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

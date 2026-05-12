@@ -50,10 +50,11 @@ The potential maximum length of the strings that must match. If the max length i
 - Datatype: `int`
 - Default Value: `2147483647`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **isSubstring** — The Is Substring plugin checks whether the source appears anywhere inside the target, rather than whether the source begins with the target.
+- **substringDistance** — The result from the Starts with plugin is always binary — the source either begins with the target string or it does not — while Substring comparison quantifies the degree of similarity across the full string as a continuous score.

@@ -104,10 +104,6 @@ The message size is limited to a configured maximum (e.g. 16383 characters).
 - Datatype: `multiline string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -240,10 +240,11 @@ The aggregation operation to be applied to all values. One of `+`, `*`, `min`, `
 * Datatype: `string`
 * Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **numOperation** — The Aggregate numbers plugin and the Numeric operation plugin both reduce a sequence of numeric inputs to one result, overlapping on addition and multiplication. Aggregate numbers ignores non-numeric values and adds min, max, and average, while Numeric operation fails on non-numeric input and adds subtraction and division.
+* **numReduce** — The silent discard of non-numeric values in Aggregate numbers is not a cleaning step — non-numeric characters within a value leave the entire value unparseable. Numeric reduce strips those characters from each value, exposing a digit sequence that Aggregate numbers can then include in its computation.

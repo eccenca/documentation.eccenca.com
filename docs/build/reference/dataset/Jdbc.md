@@ -270,10 +270,6 @@ An SQL WHERE clause to filter the records to be retrieved.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Clear table before workflow execution (deprecated)
@@ -363,4 +359,3 @@ If set to true, Spark will be used for querying the database, even if the local 
 - ID: `forceSparkExecution`
 - Datatype: `boolean`
 - Default Value: `false`
-

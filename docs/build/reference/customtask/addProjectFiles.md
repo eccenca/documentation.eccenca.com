@@ -45,10 +45,6 @@ The strategy to use if a file with the same name already exists.
 - Datatype: `enumeration`
 - Default Value: `fail`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

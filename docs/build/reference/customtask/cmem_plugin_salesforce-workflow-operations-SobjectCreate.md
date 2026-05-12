@@ -90,10 +90,6 @@ Salesforce Object API Name
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

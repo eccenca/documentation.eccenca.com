@@ -22,3 +22,7 @@ Generates an empty value.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **removeEmptyValues** — Empty value always outputs an empty sequence, discarding all input. Remove empty values is selective: it passes non-empty strings through and drops only the empty ones.

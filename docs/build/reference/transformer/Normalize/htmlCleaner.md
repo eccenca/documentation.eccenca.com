@@ -69,10 +69,6 @@ Use defaults for empty tag and attribute whitelists. If the attribute while list
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

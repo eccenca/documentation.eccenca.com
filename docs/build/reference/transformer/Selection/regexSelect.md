@@ -89,10 +89,13 @@ No description
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexExtract** — The Regex selection plugin returns the provided output value in a result sequence aligned with the regex list, filling only the positions whose pattern matches the checked value. The Regex extract plugin returns the matched substring itself, or the first capturing group, so the output is taken from the input text rather than from the provided output value.
+* **ifMatchesRegex** — The If matches regex plugin returns one of the provided branch inputs based on whether the checked value matches. The Regex selection plugin returns a result sequence aligned with the pattern list, placing the provided output value at every matching position.
+* **regexReplace** — The Regex replace plugin returns a rewritten string by replacing every match inside the input text with the configured replacement. The Regex selection plugin returns a result sequence aligned with the pattern list and fills each matching position with the provided output value.
+* **filterByRegex** — The Regex selection plugin keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches. The Filter by regex plugin keeps or drops values from the input sequence based on full-string matching.

@@ -45,10 +45,6 @@ A URI pattern that is relative to the base URI of the input entity, e.g., /{ID},
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

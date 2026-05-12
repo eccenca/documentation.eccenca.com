@@ -66,10 +66,6 @@ limit: 5
 
 ```
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

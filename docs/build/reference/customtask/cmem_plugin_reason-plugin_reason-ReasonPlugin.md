@@ -391,10 +391,6 @@ Valid OWL2 profiles for the processed ontology.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Process valid OWL profiles from input
@@ -414,5 +410,3 @@ Maximum heap size for the reasoning process in the DI container. ⚠️ Setting 
 - ID: `max_ram_percentage`
 - Datatype: `Long`
 - Default Value: `20`
-
-

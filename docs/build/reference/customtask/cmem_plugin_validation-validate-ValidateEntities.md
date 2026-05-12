@@ -96,10 +96,6 @@ If enabled, the task will fail on the first data violation.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Source JSON Dataset
@@ -119,4 +115,3 @@ This dataset will be used to store the valid JSON objects after validation.
 - ID: `target_dataset`
 - Datatype: `string`
 - Default Value: `None`
-

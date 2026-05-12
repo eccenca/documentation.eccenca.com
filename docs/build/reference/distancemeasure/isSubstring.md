@@ -30,10 +30,11 @@ Reverse source and target inputs
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **startsWith** — The Starts With plugin tests a stricter condition: not only must the target appear in the source, but it must appear at the very start.
+- **substringDistance** — Containment and similarity are not the same measure. Is substring checks whether the source string appears anywhere inside the target and returns a binary result; Substring comparison scores the overall similarity between the two strings.

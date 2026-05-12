@@ -90,4 +90,6 @@ The maximum character that is used for indexing
 - Datatype: `char`
 - Default Value: `z`
 
+## Related Plugins
 
+- **levenshtein** — Raw edit counts are not directly comparable across strings of different lengths. The normalized Levenshtein distance plugin addresses this by dividing the edit count by the length of the longer string, making the result length-independent.

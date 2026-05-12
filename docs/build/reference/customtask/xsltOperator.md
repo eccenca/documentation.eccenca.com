@@ -251,10 +251,6 @@ The XSLT file to be used for transforming XML.
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

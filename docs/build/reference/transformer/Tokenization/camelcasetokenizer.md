@@ -45,3 +45,7 @@ Tokenizes a camel case string. That is it splits strings between a lower case ch
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **tokenize** — When word boundaries are implicit in case rather than marked by a separator, camel case tokenizer is the right tool. Tokenize requires a separator to be present in the string — it cannot infer boundaries from case alone.

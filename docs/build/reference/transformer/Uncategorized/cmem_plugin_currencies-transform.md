@@ -73,7 +73,7 @@ Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - ID: `date`
 - Datatype: `string`
-- Default Value: `2026-04-02`
+- Default Value: `2026-05-12`
 
 
 
@@ -85,10 +85,6 @@ Enter the currency code you want to convert to (e.g.USD).
 - Datatype: `string`
 - Default Value: `EUR`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Debug Output
@@ -98,5 +94,3 @@ Instead of plain values, output additional background information.
 - ID: `debug`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

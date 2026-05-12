@@ -55,10 +55,6 @@ Navigate into arrays automatically. If set to false, the `#array` path operator 
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -28,10 +28,6 @@ No description
 - Datatype: `double`
 - Default Value: `1.0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

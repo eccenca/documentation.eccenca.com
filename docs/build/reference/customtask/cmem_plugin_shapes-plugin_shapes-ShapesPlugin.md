@@ -127,10 +127,6 @@ Import the SHACL shapes graph in the CMEM shapes catalog by adding an `owl:impor
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Fetch namespace prefixes from prefix.cc
@@ -170,5 +166,3 @@ Add information about the plugin and plugin settings to the shapes graph.
 - ID: `plugin_provenance`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

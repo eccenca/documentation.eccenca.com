@@ -87,10 +87,6 @@ If true, underscores will be decoded to spaces.
 * Datatype: `boolean`
 * Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

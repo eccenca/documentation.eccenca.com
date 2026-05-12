@@ -168,10 +168,13 @@ If true, all matches are extracted. If false, only the first match is extracted 
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexReplace** — The Regex extract plugin returns what the regular expression matches, or the first capturing group if capturing groups exist. The Regex replace plugin returns the full input string after rewriting it by replacing every match with the configured replacement.
+* **regexSelect** — The Regex selection plugin does not return matched text at all. It emits copies of a provided output value at the positions where the checked values match the regular expressions, while the Regex extract plugin returns the matched substring or capturing-group content.
+* **ifMatchesRegex** — The If matches regex plugin uses the match only as a decision about which provided input value to return. The Regex extract plugin uses the match as the produced content, so the output is derived from the matched region rather than from branch inputs.
+* **validateRegex** — The Validate regex plugin keeps the original value only when the full value matches the configured regular expression and otherwise fails validation. The Regex extract plugin returns match-derived output and can return an empty result when nothing matches.

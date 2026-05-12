@@ -83,10 +83,11 @@ No description
 * Datatype: `boolean`
 * Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **metaphone** — The Soundex plugin turns a name into a short, fixed-format code built around the first letter and digit groups. The Metaphone plugin returns a letter-based phonetic key instead, so the output is not even the same kind of artifact.
+* **NYSIIS** — The Soundex plugin returns a short Soundex code, optionally in refined mode. The NYSIIS plugin returns a different phonetic key, and the refined flag is internal to each encoder rather than a shared setting that makes the two outputs compatible.

@@ -72,10 +72,10 @@ RegEx for detecting words
 - Datatype: `string`
 - Default Value: `[\s-]+`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **regexReplace** — The Remove remote stop words plugin removes tokens case-insensitively based on a stop word list loaded from a remote URL after splitting the input with the separator regex. The Regex replace plugin rewrites or deletes substrings based on a regular expression match in the string, which fits cases where the noise is defined by pattern rather than by a word list.
