@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Deprecated: Use the embedded SQL endpoint dataset instead.
+
 
 ## Parameter
 
@@ -22,6 +25,8 @@ The name of the view. This specifies the table that can be queried by another vi
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Query
 
 Optional SQL query on the selected table. Has no effect when used as an output dataset.
@@ -29,6 +34,8 @@ Optional SQL query on the selected table. Has no effect when used as an output d
 - ID: `query`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Cache
 
@@ -38,6 +45,8 @@ Optional boolean option that selects if the table should be cached by Spark or n
 - Datatype: `boolean`
 - Default Value: `true`
 
+
+
 ### Uri pattern
 
 A pattern used to construct the entity URI. If not provided the prefix + the line number is used. An example of such a pattern is 'urn:zyx:{id}' where *id* is a name of a property.
@@ -45,6 +54,8 @@ A pattern used to construct the entity URI. If not provided the prefix + the lin
 - ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Properties
 
@@ -54,6 +65,8 @@ Comma-separated list of URL-encoded properties. If not provided, the list of pro
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Charset
 
 The source internal encoding, e.g., UTF8, ISO-8859-1
@@ -62,6 +75,8 @@ The source internal encoding, e.g., UTF8, ISO-8859-1
 - Datatype: `string`
 - Default Value: `UTF-8`
 
+
+
 ### Array separator
 
 The character that is used to separate the parts of array values. Write "back slash t" to specify the tab character.
@@ -69,6 +84,8 @@ The character that is used to separate the parts of array values. Write "back sl
 - ID: `arraySeparator`
 - Datatype: `string`
 - Default Value: `|`
+
+
 
 ### Compatibility
 

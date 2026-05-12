@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Validates if the first input date is after the second input date. Outputs the first input if the validation is successful.
 
 ## Examples
@@ -26,6 +28,7 @@ Validates if the first input date is after the second input date. Outputs the fi
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
 ---
 **Example 2:**
 
@@ -34,6 +37,7 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[2015-04-04]`
+
 
 ---
 **Example 3:**
@@ -46,6 +50,7 @@ Validates if the first input date is after the second input date. Outputs the fi
     2. `[2015-04-03]`
 
 * Returns: `[2015-04-03]`
+
 
 ---
 **Example 4:**
@@ -60,6 +65,9 @@ Validates if the first input date is after the second input date. Outputs the fi
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
+
+
 ## Parameter
 
 ### Allow equal
@@ -73,3 +81,7 @@ Allow both dates to be equal.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **validateDateRange** — Validate date after checks whether one input date is later than another. Validate date range instead tests a single date against a fixed interval with a configured minimum and maximum.

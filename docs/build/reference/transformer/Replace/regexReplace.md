@@ -10,9 +10,11 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Description
 
-The `regexReplace` plugin replaces all occurrences of a regular expression.
+The Regex replace plugin replaces all occurrences of a regular expression.
 
 This plugin is a _replace_ transformer plugin. This means that if the regular expression does _not_ match the input
 value, it will be replaced with an empty string, i.e. deleted.
@@ -29,22 +31,12 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
-
-## Relation to other plugins
-
-Additionally to the `regexReplace` plugin, there are related plugins such as `validateRegex`, `ifMatchesRegex` and
-`regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `regexReplace` plugin is used for _replacing_ the input, `validateRegex` is useful for
-_validating_ the input, `ifMatchesRegex` _conditionally distinguishes_ which input to take, and `regexExtract`
-_extracts_ all occurrences of the matching.
 
 ## Examples
 
@@ -61,6 +53,7 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[012]`
 
+
 ---
 **Removes all letters by replacing them with an empty string:**
 
@@ -71,6 +64,7 @@ _extracts_ all occurrences of the matching.
     1. `[abcdef1]`
 
 * Returns: `[1]`
+
 
 ---
 **Removes all vowels by replacing them with an empty string:**
@@ -83,6 +77,7 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwln, Bln, Kl, Fl, Dr, Nr, r, n, Gln, Bfr, Bfr, Bmbr, Thrn]`
 
+
 ---
 **Removes all consonants by replacing them with an empty string:**
 
@@ -93,6 +88,7 @@ _extracts_ all occurrences of the matching.
     1. `[Dwalin, Balin, Kili, Fili, Dori, Nori, Ori, Oin, Gloin, Bifur, Bofur, Bombur, Thorin]`
 
 * Returns: `[ai, ai, ii, ii, oi, oi, Oi, Oi, oi, iu, ou, ou, oi]`
+
 
 ---
 **Replaces all vowels with a common vowel:**
@@ -106,6 +102,7 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwalan, Balan, Kala, Fala, Dara, Nara, ara, aan, Glaan, Bafar, Bafar, Bambar, Tharan]`
 
+
 ---
 **Replaces all vowels with a common double vowel:**
 
@@ -118,6 +115,9 @@ _extracts_ all occurrences of the matching.
 
 * Returns: `[Dwaalaan, Baalaan, Kaalaa, Faalaa, Daaraa, Naaraa, aaraa, aaaan, Glaaaan, Baafaar, Baafaar, Baambaar, Thaaraan]`
 
+
+
+
 ## Parameter
 
 ### Regex
@@ -127,6 +127,8 @@ The regular expression to match
 * ID: `regex`
 * Datatype: `string`
 * Default Value: `None`
+
+
 
 ### Replace
 
@@ -139,3 +141,10 @@ The replacement of each match
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexExtract** — The Regex replace plugin returns the full input string after rewriting every match with the replacement. The Regex extract plugin returns only what matched, or the first capturing group, so the output is match-derived content rather than a rewritten string.
+* **regexSelect** — The Regex replace plugin rewrites a string by substituting every match with the configured replacement, so the output stays a transformed version of the input text. The Regex selection plugin turns matching into positional markers by emitting a provided output value at the regex positions that match the checked value.
+* **validateRegex** — The Regex replace plugin rewrites a string by substituting every regex match and returns the rewritten value. The Validate regex plugin keeps the value only when the full value matches the regex and otherwise fails validation, so it serves as a format check before or after rewriting.
+* **replace** — The Replace plugin swaps one fixed substring for another everywhere it occurs. The Regex replace plugin does the same global substitution, but what counts as a hit is described by a regular expression.

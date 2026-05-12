@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Normalized Levenshtein distance. Divides the edit distance by the length of the longer string.
 
 ## Characteristics
@@ -25,38 +27,44 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns 0 for equal strings:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[John]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[John]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Returns 1/4 if two strings of length 4 differ by one edit operation:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[Jxhn]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[Jxhn]`
 
-* Returns: `0.25`
+- Returns: `0.25`
+
 
 ---
 **Normalizes the edit distance by the length of the longer string:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[Jhn]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[Jhn]`
 
-* Returns: `0.25`
+- Returns: `0.25`
+
 
 ---
 **Returns the maximum distance of 1 for completely different strings:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[Clara]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[Clara]`
 
-* Returns: `1.0`
+- Returns: `1.0`
+
+
+
 
 ## Parameter
 
@@ -68,22 +76,30 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The size of the q-grams to be indexed. Setting this to zero will disable indexing.
 
-* ID: `qGramsSize`
-* Datatype: `int`
-* Default Value: `2`
+- ID: `qGramsSize`
+- Datatype: `int`
+- Default Value: `2`
+
+
 
 ### Min char
 
 The minimum character that is used for indexing
 
-* ID: `minChar`
-* Datatype: `char`
-* Default Value: `0`
+- ID: `minChar`
+- Datatype: `char`
+- Default Value: `0`
+
+
 
 ### Max char
 
 The maximum character that is used for indexing
 
-* ID: `maxChar`
-* Datatype: `char`
-* Default Value: `z`
+- ID: `maxChar`
+- Datatype: `char`
+- Default Value: `z`
+
+## Related Plugins
+
+- **levenshteinDistance** — The Levenshtein distance plugin counts the minimum edits needed to transform one string into the other. The normalized Levenshtein distance plugin divides that count by the length of the longer string, so the distance is comparable regardless of how long the strings are.

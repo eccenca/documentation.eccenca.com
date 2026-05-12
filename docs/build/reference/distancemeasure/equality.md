@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Checks for equality of the string representation of the given values. Returns success if string values are equal, failure otherwise. For a numeric comparison of values use the 'Numeric Equality' comparator.
 
 ## Characteristics
@@ -25,20 +27,24 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns distance 0, if at least one value matches:**
 
-* Input values:
-    * Source: `[max, helmut]`
-    * Target: `[max]`
+- Input values:
+    - Source: `[max, helmut]`
+    - Target: `[max]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Returns distance 1, if no value matches:**
 
-* Input values:
-    * Source: `[max, helmut]`
-    * Target: `[john]`
+- Input values:
+    - Source: `[max, helmut]`
+    - Target: `[john]`
 
-* Returns: `1.0`
+- Returns: `1.0`
+
+
+
 
 ## Parameter
 
@@ -47,3 +53,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **inequality** — The inequality plugin is the logical inverse of string equality: it returns success when the values are different rather than equal.

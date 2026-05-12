@@ -18,6 +18,8 @@ Python packages are used to extend the Build (DataIntegration) workspace with py
 !!! warning
     Installing packages from unknown sources is not recommended. Plugins are not verified for malicious code.
 
+
+
 ## admin workspace python install
 
 Install a python package to the workspace.
@@ -26,12 +28,18 @@ Install a python package to the workspace.
 cmemc admin workspace python install PACKAGE
 ```
 
+
+
+
 This command is essentially a `pip install` in the remote python environment.
 
 You can install a package by uploading a source distribution .tar.gz file, by uploading a build distribution .whl file, or by specifying a package name, i.e., a pip requirement specifier with a package name available on pypi.org (e.g. `requests==2.27.1`).
 
 !!! note
     The tab-completion of this command lists only public packages from pypi.org and not from additional or changed python package repositories you may have configured on the server.
+
+
+
 
 ## admin workspace python uninstall
 
@@ -41,7 +49,12 @@ Uninstall a python packages from the workspace.
 cmemc admin workspace python uninstall [OPTIONS] [PACKAGE_NAME]...
 ```
 
+
+
+
 This command is essentially a `pip uninstall` in the remote python environment.
+
+
 
 ??? info "Options"
     ```text
@@ -59,9 +72,14 @@ List installed python packages.
 cmemc admin workspace python list [OPTIONS]
 ```
 
+
+
+
 This command is essentially a `pip list` in the remote python environment.
 
 It outputs a table of python package identifiers with version information.
+
+
 
 ??? info "Options"
     ```text
@@ -83,10 +101,16 @@ List installed workspace plugins.
 cmemc admin workspace python list-plugins [OPTIONS]
 ```
 
+
+
+
 This commands lists all discovered plugins.
 
 !!! note
     The plugin discovery is restricted to package prefix (`cmem-`).
+
+
+
 
 ??? info "Options"
     ```text
@@ -104,7 +128,12 @@ Open a package pypi.org page in the browser.
 cmemc admin workspace python open PACKAGE
 ```
 
+
+
+
 With this command, you can open the pypi.org page of a published package in your browser. From there, you can follow links, review the version history as well as the origin of the package, and read the provided documentation.
+
+
 
 ## admin workspace python reload
 
@@ -114,4 +143,9 @@ Reload / Register all installed plugins.
 cmemc admin workspace python reload
 ```
 
+
+
+
 This command will register all installed plugins into the Build (DataIntegration) workspace. This command is useful, when you are installing packages into the Build Python environment without using the provided cmemc commands (e.g. by mounting a prepared filesystem in the docker container).
+
+

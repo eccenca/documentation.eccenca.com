@@ -10,41 +10,35 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The SPARQL endpoint plugin is a dataset for connecting to an existing, remote SPARQL endpoint.
 
 ## Description
 
-The `sparqlEndpoint` plugin is an example of a _RDF dataset_. A **dataset** is a collection of data to be read from or
+The SPARQL endpoint plugin is an example of a _RDF dataset_. A **dataset** is a collection of data to be read from or
 written into, both a _source_ and a _sink_ of information. A **RDF dataset** is a dataset that can deal with RDF data.
 There are _several_ plugins for dealing with RDF datasets in the BUILD stage, depending on where the RDF dataset is
-located and how it is being accessed. In this case, the `sparqlEndpoint` dataset is a plugin that can access a _remote_
+located and how it is being accessed. In this case, the SPARQL endpoint dataset is a plugin that can access a _remote_
 SPARQL endpoint such as one of those [listed by the W3C](https://www.w3.org/wiki/SparqlEndpoints), e.g. Wikidata or
 DBpedia.
 
-The **SPARQL dataset** (this plugin) is an instance of a **RDF dataset**. All RDF datasets provide the abstraction and
-functionality of a **SPARQL endpoint**. The SPARQL endpoint used in this plugin is a **remote** SPARQL endpoint. It can
-handle and execute SPARQL [SELECT](https://www.w3.org/TR/rdf-sparql-query/#select),
+The **SPARQL dataset** (this plugin) is an instance of a RDF dataset. All RDF datasets provide the abstraction and
+functionality of a SPARQL endpoint. The SPARQL endpoint used in this plugin is a remote SPARQL endpoint. It can handle
+and execute SPARQL [SELECT](https://www.w3.org/TR/rdf-sparql-query/#select),
 [ASK](https://www.w3.org/TR/rdf-sparql-query/#ask) and [CONSTRUCT](https://www.w3.org/TR/rdf-sparql-query/#construct)
-queries. Additionally, it can execute [updates](https://www.w3.org/TR/2013/REC-sparql11-update-20130321/#updateLanguage).
+queries. Additionally, it can execute
+[updates](https://www.w3.org/TR/2013/REC-sparql11-update-20130321/#updateLanguage).
 
 ## Example usage
 
 A very simple example showcasing the usage of this plugin is the following idea: Use an online SPARQL Query Editor such
 as <https://dbpedia.org/sparql>, with a simple SPARQL query like `select distinct ?Concept where {[] a ?Concept} LIMIT 10`
-or similar. Use this plugin as a **source** dataset, and transform or transfer the SPARQL query results into a sink
-dataset such as a **CSV file**. A similar or related showcase example involves considering other output datasets such as
-an **in-memory dataset** or a **Knowledge Graph** such as the one handled by the `eccencaDataPlatform` plugin, which is
-the flagship RDF dataset of
-[Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory).
+or similar. Use this plugin as a source dataset, and transform or transfer the SPARQL query results into a sink dataset
+such as a CSV file. A similar or related showcase example involves considering other output datasets such as an
+in-memory dataset or a Knowledge Graph such as the one handled by the Knowledge Graph plugin, which is the flagship RDF
+dataset of [Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory).
 
-## Related plugins
-
-Other types of RDF datasets are the **in-memory dataset**, the **RDF dataset**. These are worth considering if the
-information is short-lived or the dataset is small. A more durable and resilient solution is to use a proper
-**Knowledge Graph**.
-
-The SPARQL dataset plugin can be used in conjunction with the **task** plugins for SPARQL `SELECT` and `CONSTRUCT`
-queries, i.e. the plugins `sparqlSelectOperator` and `sparqlCopyOperator`.
 
 ## Parameter
 
@@ -56,6 +50,8 @@ The URI of the SPARQL endpoint, e.g. `http://dbpedia.org/sparql`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Login
 
 Login required for authentication
@@ -63,6 +59,8 @@ Login required for authentication
 - ID: `login`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Password
 
@@ -72,6 +70,8 @@ Password required for authentication
 - Datatype: `password`
 - Default Value: `None`
 
+
+
 ### Graph
 
 The URI of a named graph. If set, the SPARQL endpoint will only retrieve entities from that specific graph.
@@ -79,6 +79,8 @@ The URI of a named graph. If set, the SPARQL endpoint will only retrieve entitie
 - ID: `graph`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Strategy
 
@@ -88,6 +90,8 @@ The strategy for retrieving entities. There are three options: `simple` retrieve
 - Datatype: `enumeration`
 - Default Value: `parallel`
 
+
+
 ### Use order by
 
 Enforces the correct ordering of values, if set to `true` (default).
@@ -96,13 +100,7 @@ Enforces the correct ordering of values, if set to `true` (default).
 - Datatype: `boolean`
 - Default Value: `true`
 
-### Clear graph before workflow execution
 
-If set to `true`, this will clear the specified graph before executing a workflow that writes into it.
-
-- ID: `clearGraphBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
 
 ### SPARQL query timeout (ms)
 
@@ -122,6 +120,8 @@ The number of entities to be retrieved per SPARQL query. This is the page size u
 - Datatype: `int`
 - Default Value: `1000`
 
+
+
 ### Entity list
 
 An optional list of entities to be retrieved. If not specified, all entities will be retrieved. Multiple entities need to be separated by whitespace.
@@ -129,6 +129,8 @@ An optional list of entities to be retrieved. If not specified, all entities wil
 - ID: `entityList`
 - Datatype: `multiline string`
 - Default Value: `None`
+
+
 
 ### Pause time
 
@@ -138,6 +140,8 @@ The number of milliseconds to wait between subsequent queries
 - Datatype: `int`
 - Default Value: `0`
 
+
+
 ### Retry count
 
 The total number of retries to execute a (repeatedly) failing query
@@ -145,6 +149,8 @@ The total number of retries to execute a (repeatedly) failing query
 - ID: `retryCount`
 - Datatype: `int`
 - Default Value: `3`
+
+
 
 ### Retry pause
 
@@ -154,6 +160,8 @@ The number of milliseconds to wait until a previously failed query is executed a
 - Datatype: `int`
 - Default Value: `1000`
 
+
+
 ### Query parameters
 
 Additional parameters to be appended to every query, e.g. `&soft-limit=1`
@@ -161,3 +169,20 @@ Additional parameters to be appended to every query, e.g. `&soft-limit=1`
 - ID: `queryParameters`
 - Datatype: `string`
 - Default Value: `None`
+
+
+
+### Clear graph before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes into it.
+
+- ID: `clearGraphBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+
+## Related Plugins
+
+- **inMemory** — The SPARQL endpoint dataset reads from and writes to a remote endpoint that retains its contents independently of the running process. The in-memory dataset does not persist data beyond the running process — the two are not alternatives for the same storage need.
+- **file** — The RDF file dataset loads its contents from a file into memory at read time and supports only N-Triples as output. The SPARQL endpoint dataset connects to a remote endpoint that handles queries and updates without loading the full dataset into process memory.
+- **sparqlUpdateOperator** — The SPARQL Update query plugin generates SPARQL Update statements from entity input using a template; the SPARQL endpoint dataset is what those statements are written to. One produces the queries, the other executes them against the endpoint.
+- **sparqlSelectOperator** — The SPARQL Select query plugin reads from a SPARQL endpoint dataset by executing a SELECT query against it; the SPARQL Update query plugin writes to the same kind of dataset by sending update statements to it. The two plugins sit on opposite ends of the same data flow.

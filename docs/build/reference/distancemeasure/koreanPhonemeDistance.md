@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Korean phoneme distance.
 
 ## Characteristics
@@ -27,6 +29,8 @@ No description
 - ID: `minChar`
 - Datatype: `char`
 - Default Value: `0`
+
+
 
 ### Max char
 

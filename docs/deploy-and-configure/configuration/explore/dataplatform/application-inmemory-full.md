@@ -18,7 +18,7 @@ store:
   authorization: REWRITE_FROM
   memory:
     files:
-      - "/data/data.trig" 
+      - "/data/data.trig"
 ```
 
 ***Property: store.type***

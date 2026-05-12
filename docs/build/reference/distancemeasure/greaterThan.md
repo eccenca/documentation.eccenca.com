@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Checks if the source value is greater than the target value. If both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used.
 
 ## Characteristics
@@ -28,6 +30,8 @@ Accept equal values
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Order
 
 Per default, if both strings are numbers, numerical order is used for comparison. Otherwise, alphanumerical order is used. Choose a more specific order for improved performance.
@@ -45,3 +49,7 @@ Reverse source and target inputs
 - ID: `reverse`
 - Datatype: `boolean`
 - Default Value: `false`
+
+## Related Plugins
+
+- **lowerThan** — The Lower than plugin is the logical inverse of Greater than: given the same inputs, it returns 1.0 exactly where Greater than returns 0.0.

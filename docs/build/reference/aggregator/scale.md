@@ -9,6 +9,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Scales a similarity score by a factor.
 
 ## Examples
@@ -24,11 +26,13 @@ Scales a similarity score by a factor.
 * Input values: `[1.0]`
 * Returns: `0.5`
 
+
 ---
 **Ignores missing values:**
 
 * Input values: `[null]`
 * Returns: `null`
+
 
 ---
 **Throws a validation error if more than one input is provided:**
@@ -36,6 +40,9 @@ Scales a similarity score by a factor.
 * Input values: `[0.1, 0.2]`
 * Returns: `null`
 * **Throws error:** `IllegalArgumentException`
+
+
+
 
 ## Parameter
 

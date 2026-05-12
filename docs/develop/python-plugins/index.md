@@ -1,5 +1,4 @@
 ---
-status: new
 title: "Python Plugins: Overview"
 icon: material/language-python
 tags:

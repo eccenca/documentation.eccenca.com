@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Generates a set of random numbers.
+
 
 ## Parameter
 
@@ -22,6 +25,8 @@ The smallest number that could be generated.
 - Datatype: `double`
 - Default Value: `0.0`
 
+
+
 ### Max
 
 The largest number that could be generated.
@@ -30,6 +35,8 @@ The largest number that could be generated.
 - Datatype: `double`
 - Default Value: `100.0`
 
+
+
 ### Min count
 
 The minimum number of values to generate in each set.
@@ -37,6 +44,8 @@ The minimum number of values to generate in each set.
 - ID: `minCount`
 - Datatype: `int`
 - Default Value: `1`
+
+
 
 ### Max count
 

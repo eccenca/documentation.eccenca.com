@@ -9,6 +9,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Calculates the Euclidian distance.
 
 ## Examples
@@ -22,12 +24,14 @@ Calculates the Euclidian distance.
 * Input values: `[1.0, 1.0, 1.0]`
 * Returns: `1.0`
 
+
 ---
 **Example 2:**
 
 * Weights: `[1, 1]`
 * Input values: `[1.0, 0.0]`
 * Returns: `0.707107`
+
 
 ---
 **Example 3:**
@@ -36,12 +40,14 @@ Calculates the Euclidian distance.
 * Input values: `[0.4, 0.5, 0.6]`
 * Returns: `0.506623`
 
+
 ---
 **Example 4:**
 
 * Weights: `[1, 1]`
 * Input values: `[0.0, 0.0]`
 * Returns: `0.0`
+
 
 ---
 **Example 5:**
@@ -50,6 +56,7 @@ Calculates the Euclidian distance.
 * Input values: `[1.0, 0.0, 0.0]`
 * Returns: `0.707107`
 
+
 ---
 **Example 6:**
 
@@ -57,11 +64,15 @@ Calculates the Euclidian distance.
 * Input values: `[0.4, 0.5, 0.6]`
 * Returns: `0.538516`
 
+
 ---
 **Missing scores always lead to an output of none:**
 
 * Input values: `[-1.0, null, 1.0]`
 * Returns: `null`
+
+
+
 
 ## Parameter
 

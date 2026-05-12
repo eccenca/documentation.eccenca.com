@@ -1,0 +1,11 @@
+title: Features
+nav:
+    - index.md
+    - Application & Settings: application-settings.md
+    - Exploration Canvas: canvas-ui.md
+    - Class Tree: category-tree.md
+    - Groups: groups.md
+    - Resource Table: objects-table.md
+    - Resources: objects.md
+    - Connections: connections.md
+    - Persistence: persistence.md

@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Validates if a number is within a specified range.
+
 
 ## Parameter
 
@@ -21,6 +24,8 @@ Minimum allowed number
 - ID: `min`
 - Datatype: `double`
 - Default Value: `None`
+
+
 
 ### Max
 
@@ -33,3 +38,7 @@ Maximum allowed number
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **compareNumbers** — Validate numeric range either passes a number through or throws, producing no output on violation. Compare numbers always produces a 1 or 0 regardless of which side is larger, so the downstream pipeline continues in either case.

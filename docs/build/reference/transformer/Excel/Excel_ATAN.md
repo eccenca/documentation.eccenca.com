@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel ATAN(number): Returns the inverse tangent of the given number in radians.
 
 ## Parameter

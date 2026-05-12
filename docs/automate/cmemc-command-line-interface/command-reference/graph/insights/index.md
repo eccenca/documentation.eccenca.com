@@ -14,6 +14,7 @@ List, create, delete and inspect graph insight snapshots.
 
 Graph Insight Snapshots are identified by an ID. To get a list of existing snapshots, execute the `graph insights list` command or use tab-completion.
 
+
 ## graph insights list
 
 List graph insight snapshots.
@@ -22,7 +23,12 @@ List graph insight snapshots.
 cmemc graph insights list [OPTIONS]
 ```
 
+
+
+
 Graph Insights Snapshots are identified by an ID.
+
+
 
 ??? info "Options"
     ```text
@@ -37,13 +43,26 @@ Graph Insights Snapshots are identified by an ID.
 
 ## graph insights delete
 
-Delete a graph insight snapshot.
+Delete graph insight snapshots.
 
 ```shell-session title="Usage"
-cmemc graph insights delete [OPTIONS] [SNAPSHOT_ID]
+cmemc graph insights delete [OPTIONS] [SNAPSHOT_IDS]...
 ```
 
-Graph Insight Snapshots are identified by an ID. To get a list of existing snapshots, execute the `graph insights list` command or use tab-completion.
+
+
+
+Graph Insight Snapshots are identified by an ID.
+
+!!! warning
+    Snapshots will be deleted without prompting.
+
+
+!!! note
+    Snapshots can be listed by using the `graph insights list` command.
+
+
+
 
 ??? info "Options"
     ```text
@@ -62,7 +81,12 @@ Create or update a graph insight snapshot.
 cmemc graph insights create [OPTIONS] IRI
 ```
 
+
+
+
 Create a graph insight snapshot for a given graph. If the snapshot already exists, it is hot-swapped after re-creation. The snapshot contains only the (imported) graphs the requesting user can read.
+
+
 
 ??? info "Options"
     ```text
@@ -83,7 +107,12 @@ Update a graph insight snapshot.
 cmemc graph insights update [OPTIONS] [SNAPSHOT_ID]
 ```
 
+
+
+
 After the update, the snapshot is hot-swapped.
+
+
 
 ??? info "Options"
     ```text
@@ -108,6 +137,10 @@ Inspect the metadata of a graph insight snapshot.
 ```shell-session title="Usage"
 cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
 ```
+
+
+
+
 
 ??? info "Options"
     ```text

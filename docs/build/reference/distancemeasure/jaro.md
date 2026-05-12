@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The Jaro distance measure calculates the similarity between two strings based on the number and order of common characters, the number of transpositions, and the length of the strings. The Jaro distance is 0 for a perfect match and 1 if there is no similarity between the given strings.
 
 For more information, please refer to: [https://en.wikipedia.org/wiki/Jaro–Winkler_distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance).
@@ -27,3 +29,8 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **jaroWinkler** — The Jaro–Winkler distance plugin is a Jaro-style similarity measure that gives extra weight to shared prefixes. The Jaro distance metric plugin stays closer to the underlying common character and transposition signal without that prefix boost.
+- **metaphone** — The Metaphone plugin turns each input string into a phonetic key, reducing spelling variation before scoring. The Jaro distance metric plugin then compares those phonetic keys as ordinary strings.

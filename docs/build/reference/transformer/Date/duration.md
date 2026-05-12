@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Computes the time difference between two data times.
+
 
 ## Parameter
 
@@ -19,3 +22,7 @@ Computes the time difference between two data times.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **numberToDuration** — Duration is a measurement plugin: it takes a start and an end date and returns the interval between them as a duration. Number to duration is a construction plugin: it takes a number and builds a duration from it.

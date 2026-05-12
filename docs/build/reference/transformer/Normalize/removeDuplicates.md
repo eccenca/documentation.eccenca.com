@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Removes duplicated values, making a value sequence distinct.
+
 
 ## Parameter
 
@@ -19,3 +22,7 @@ Removes duplicated values, making a value sequence distinct.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **removeValues** — Remove values is driven by a reference list — it drops every instance of a blacklisted word. Remove duplicates needs no such list: it keeps the first occurrence of each value and discards the rest, based solely on the input values repeating themselves.

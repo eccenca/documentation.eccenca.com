@@ -30,6 +30,8 @@ If 'namespace' is not given, the input string is used.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Namespace as UUID
 
 Applies only if none of the pre-defined namespaces is selected. If enabled, the namespace string needs to be a valid UUID. Otherwise, the namespace UUID is a UUIDv1 derived from the SHA1 hash of the namespace string.

@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Capitalizes the string i.e. converts the first character to upper case. If 'allWords' is set to true, all words are capitalized and not only the first character.
 
 ## Examples
@@ -27,6 +29,7 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
 
 * Returns: `[Capitalize me]`
 
+
 ---
 **Example 2:**
 
@@ -37,6 +40,9 @@ Capitalizes the string i.e. converts the first character to upper case. If 'allW
     1. `[capitalize me]`
 
 * Returns: `[Capitalize Me]`
+
+
+
 
 ## Parameter
 
@@ -51,3 +57,8 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **lowerCase** — Capitalize raises only the first character, or the first of each word, leaving the rest of the string unchanged. Lower case converts every character, making it the right choice when the entire string needs to be normalized rather than just its initial character.
+* **upperCase** — Capitalize changes only the first character, leaving the rest of the string as-is. Upper case is the right plugin when every character needs to be raised, not just the initial one.

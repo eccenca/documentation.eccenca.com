@@ -12,17 +12,23 @@ tags:
 
 Import, export and reload the project workspace.
 
+
 ## admin workspace export
 
 Export the complete workspace (all projects) to a ZIP file.
 
 ```shell-session title="Usage"
-cmemc admin workspace export [OPTIONS] [FILE]
+$ cmemc admin workspace export [OPTIONS] [FILE]
 ```
+
+
+
 
 Depending on the requested export type, this ZIP file contains either one Turtle file per project (type `rdfTurtle`) or a substructure of resource files and XML descriptions (type `xmlZip`).
 
 The file name is optional and will be generated with by the template if absent.
+
+
 
 ??? info "Options"
     ```text
@@ -48,6 +54,10 @@ Import the workspace from a file.
 cmemc admin workspace import [OPTIONS] FILE
 ```
 
+
+
+
+
 ??? info "Options"
     ```text
 
@@ -61,3 +71,19 @@ Reload the workspace from the backend.
 ```shell-session title="Usage"
 cmemc admin workspace reload
 ```
+
+
+
+
+
+## admin workspace thread-dump
+
+Request a thread dump for all live threads.
+
+```shell-session title="Usage"
+cmemc admin workspace thread-dump
+```
+
+
+
+

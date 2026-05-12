@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## General usage
 
 The JDBC dataset supports connections to Hive, Microsoft SQL Server, MySQL, MariaDB, SnowFlake, Oracle Database, DB2 and PostgreSQL databases.
@@ -132,11 +134,11 @@ spark.sql.options {
 
 ## Driver Priority
 
-In general it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
+In general, it will not work to upgrade a JDBC driver by providing an external driver for a database that is already packaged with eccenca Dataintegration.
 
-The driver delivered with eccenca Dataintegration will be prefered. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
+The driver delivered with eccenca Dataintegration will be preferred. Driver names (configured via e.g. `spark.sql.options.jdbc.drivers = "mssql"`) will be ignored if JDBC URLs starting with, in this example `jdbc:mssql...` , are already supported in the dataset.
 
-_Recommended DBMS versions_
+### Recommended DBMS versions
 
 - **Microsoft SQL Server 2017**: Older versions might work, but do not support the `groupBy` parameter.
 - **PostgreSQL 9.5**: The `groupBy` parameter needs at least version 8.4.
@@ -146,6 +148,7 @@ _Recommended DBMS versions_
 
 These limitations are the same for JDBC drivers that are older than the fully supported databases.
 Queries can achieve a similar outcome if `groupBy` is not supported.
+
 
 ## Parameter
 
@@ -157,6 +160,8 @@ JDBC URL, must contain the database as parameter, i.g. with ;database=DBNAME or 
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Table
 
 Table name. Can be empty if the read-strategy is not set to read the full table. If non-empty it has to contain at least an existing table.
@@ -164,6 +169,8 @@ Table name. Can be empty if the read-strategy is not set to read the full table.
 - ID: `table`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Source query
 
@@ -173,6 +180,8 @@ Source query (e.g. 'SELECT TOP 10 * FROM table WHERE x = true'. Warning: Uses Dr
 - Datatype: `code-sql`
 - Default Value: `None`
 
+
+
 ### Group by
 
 Comma separated list of attributes appearing in the outer SELECT clause that should be grouped by. The attributes are matched case-insensitive. All other attributes will be grouped via an aggregation function that depends on the supported DBMS, e.g. (JSON) array aggregation.
@@ -180,6 +189,8 @@ Comma separated list of attributes appearing in the outer SELECT clause that sho
 - ID: `groupBy`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Order by
 
@@ -189,6 +200,8 @@ Optional column to sort the result set.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Limit
 
 Optional limit of returned records. This limit should be pushed to the source. No value implies that no limit will be applied.
@@ -196,6 +209,8 @@ Optional limit of returned records. This limit should be pushed to the source. N
 - ID: `limit`
 - Datatype: `option[int]`
 - Default Value: `10`
+
+
 
 ### Query strategy
 
@@ -205,6 +220,8 @@ The strategy decides how the source system is queried.
 - Datatype: `enumeration`
 - Default Value: `access-complete-table`
 
+
+
 ### Write strategy
 
 If this dataset is written to, it can be selected if data is overwritten or appended.'
@@ -212,6 +229,8 @@ If this dataset is written to, it can be selected if data is overwritten or appe
 - ID: `writeStrategy`
 - Datatype: `enumeration`
 - Default Value: `default`
+
+
 
 ### Multiple values strategy
 
@@ -221,13 +240,7 @@ How multiple values per entity property are written.
 - Datatype: `enumeration`
 - Default Value: `concatenateValuesStrategy`
 
-### Clear table before workflow execution
 
-If set to true this will clear the specified table before executing a workflow that writes to it.
-
-- ID: `clearTableBeforeExecution`
-- Datatype: `boolean`
-- Default Value: `false`
 
 ### User
 
@@ -237,6 +250,8 @@ Username. Must be empty in some cases e.g. if secret key and client id are used.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Password
 
 Password. Can be empty in some cases e.g. secret key and client id are used or if it is just an empty string. The password must be set here and cannot be set in the JDBC URL connection string.
@@ -244,6 +259,8 @@ Password. Can be empty in some cases e.g. secret key and client id are used or i
 - ID: `password`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### Restriction
 
@@ -255,6 +272,16 @@ An SQL WHERE clause to filter the records to be retrieved.
 
 ## Advanced Parameter
 
+### Clear table before workflow execution (deprecated)
+
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to true this will clear the specified table before executing a workflow that writes to it.
+
+- ID: `clearTableBeforeExecution`
+- Datatype: `boolean`
+- Default Value: `false`
+
+
+
 ### Token endpoint URL (Azure Active Directory)
 
 URL for retrieving tokens, when using MS SQL Active Directory token based authentication. Can be found in the Azure AD Admin Center under OAuth2 endpoint or cab be constructed with the general endpoint URL combined with the tenant id and the suffix /outh/v2/authortized.
@@ -262,6 +289,8 @@ URL for retrieving tokens, when using MS SQL Active Directory token based authen
 - ID: `tokenEndpoint`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Service principal name (Azure Active Directory)
 
@@ -271,6 +300,8 @@ Service Principal Name identifying the resource. Usually a static URL like <http
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Client id (Azure Active Directory)
 
 Client id or application id. Client id used for MS SQL token based authentication. String seperated by - char.
@@ -278,6 +309,8 @@ Client id or application id. Client id used for MS SQL token based authenticatio
 - ID: `clientId`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Client secret (Azure Active Directory)
 
@@ -287,6 +320,8 @@ Client secret. Client secret used for MS SQL token based authentication. Can be 
 - Datatype: `password`
 - Default Value: `None`
 
+
+
 ### Retries
 
 Optional number of retries per query
@@ -294,6 +329,8 @@ Optional number of retries per query
 - ID: `retries`
 - Datatype: `int`
 - Default Value: `0`
+
+
 
 ### Pause
 
@@ -303,6 +340,8 @@ Optional pause between queries in ms.
 - Datatype: `int`
 - Default Value: `2000`
 
+
+
 ### Charset
 
 The source internal encoding, e.g., UTF-8, ISO-8859-1
@@ -310,6 +349,8 @@ The source internal encoding, e.g., UTF-8, ISO-8859-1
 - ID: `charset`
 - Datatype: `string`
 - Default Value: `UTF-8`
+
+
 
 ### Force spark execution
 

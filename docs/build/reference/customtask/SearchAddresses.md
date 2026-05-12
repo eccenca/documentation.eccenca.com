@@ -10,9 +10,12 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-**Configuration**
 
-The geocoding service to be queried for searches can be set up in the configuration.
+
+
+## Configuration
+
+The Geocoding service to be queried for searches can be set up in the configuration.
 The default configuration is as follows:
 
     com.eccenca.di.geo = {
@@ -35,13 +38,14 @@ The default configuration is as follows:
 In general, all services adhering to the [Nominatim search API](https://nominatim.org/release-docs/develop/api/Search/) should be usable.
 Please note that when using public services, the pause time should be set to avoid overloading.
 
-**Logging**
+## Logging
 
 By default, individual requests to the geocoding service are not logged. To enable logging each request, the following configuration option can be set:
 
     logging.level {
       com.eccenca.di.geo=DEBUG
     }
+
 
 ## Parameter
 
@@ -52,6 +56,8 @@ List of attributes that contain search terms. Multiple attributes (comma-separat
 - ID: `searchAttributes`
 - Datatype: `traversable[string]`
 - Default Value: `None`
+
+
 
 ### Limit
 
@@ -70,6 +76,8 @@ Optional JSON-LD context to be used for converting the returned JSON to RDF. If 
 - ID: `jsonLdContext`
 - Datatype: `resource`
 - Default Value: `None`
+
+
 
 ### Additional parameters
 

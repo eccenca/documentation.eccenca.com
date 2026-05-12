@@ -9,6 +9,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Computes the weighted average.
 
 ## Examples
@@ -21,6 +23,7 @@ Computes the weighted average.
 * Input values: `[0.4, 0.5, 0.9]`
 * Returns: `0.6`
 
+
 ---
 **Multiplies individual similarity scores with their weight before averaging:**
 
@@ -28,11 +31,15 @@ Computes the weighted average.
 * Input values: `[0.3, 0.5, 0.6]`
 * Returns: `0.5`
 
+
 ---
 **Missing scores always lead to an output of none:**
 
 * Input values: `[-1.0, null, 1.0]`
 * Returns: `null`
+
+
+
 
 ## Parameter
 

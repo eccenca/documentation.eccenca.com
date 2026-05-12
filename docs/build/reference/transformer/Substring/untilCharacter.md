@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Extracts the substring until the character given.
 
 ## Examples
@@ -27,6 +29,7 @@ Extracts the substring until the character given.
 
 * Returns: `[ab]`
 
+
 ---
 **Example 2:**
 
@@ -37,6 +40,9 @@ Extracts the substring until the character given.
     1. `[abab]`
 
 * Returns: `[abab]`
+
+
+
 
 ## Parameter
 
@@ -51,3 +57,7 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **substring** — Until character adapts to the content of each value: the extracted portion ends wherever the target character appears. Substring does not adapt; it cuts at configured numeric indices that are the same for every input.

@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This transformer normalizes physical quantities.
 
 Upon its creation, the Physical Quantities Normalizer can be configured by specifying a _target unit_ and a _number format_. Both parameters are optional.
@@ -50,6 +52,7 @@ The following alternative symbols are supported:
 * `a_t`: day*365.24219
 * `d`: day
 
+
 ### Length
 
 Length is expressed in metres (symbol: `m`).
@@ -66,6 +69,7 @@ The following alternative symbols are supported:
 * `fth`: ((c(cm*254.0))*12.0)*6.0
 * `mi`: ((c(cm*254.0))*12.0)*5280.0
 * `hd`: (c(cm*254.0))*4.0
+
 
 ### Mass
 
@@ -85,6 +89,7 @@ The following alternative symbols are supported:
 * `dr`: oz/16.0
 * `lton`: (lb*112.0)*20.0
 
+
 ### Electric current
 
 Electric current is expressed in amperes (symbol: `A`).
@@ -93,12 +98,14 @@ The following alternative symbols are supported:
 * `Bi`: daA
 * `Gb`: cm·(A/m)*250.0/[one?]
 
+
 ### Temperature
 
 Temperature is expressed in kelvins (symbol: `K`).
 The following alternative symbols are supported:
 
 * `Cel`: ℃
+
 
 ### Amount of substance
 
@@ -121,6 +128,7 @@ The following alternative symbols are supported:
 * `sft`: (c(cm*254.0))*12.0²
 * `sin`: c(cm*254.0)²
 
+
 ### Volume
 
 Volume is expressed in cubic metres (symbol: `㎥`).
@@ -136,6 +144,7 @@ The following alternative symbols are supported:
 * `cft`: (c(cm*254.0))*12.0³
 * `m3`: ㎥
 
+
 ### Energy
 
 Energy is expressed in joules (symbol: `J`).
@@ -147,6 +156,7 @@ The following alternative symbols are supported:
 * `cal`: m(J*4184.0)
 * `cal_th`: m(J*4184.0)
 
+
 ### Angle
 
 Angle is expressed in radians (symbol: `rad`).
@@ -157,6 +167,7 @@ The following alternative symbols are supported:
 * `deg`: [one?]·rad/180.0
 * `'`: ([one?]·rad/180.0)/60.0
 * `''`: (([one?]·rad/180.0)/60.0)/60.0
+
 
 ### Others
 
@@ -195,6 +206,7 @@ The following alternative symbols are supported:
 * `Bq`, derived units: `Ci`: Bq*3.7E10
 * `S`
 
+
 ## Examples
 
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
@@ -207,6 +219,7 @@ The following alternative symbols are supported:
 
 * Returns: `[1000.0]`
 
+
 ---
 **Example 2:**
 
@@ -214,6 +227,7 @@ The following alternative symbols are supported:
     1. `[1.0000     ft]`
 
 * Returns: `[0.3048]`
+
 
 ---
 **Example 3:**
@@ -223,6 +237,7 @@ The following alternative symbols are supported:
 
 * Returns: `[0.45359237]`
 
+
 ---
 **Example 4:**
 
@@ -231,6 +246,7 @@ The following alternative symbols are supported:
 
 * Returns: `[1.0]`
 
+
 ---
 **Example 5:**
 
@@ -238,6 +254,7 @@ The following alternative symbols are supported:
     1. `[-1E6 m]`
 
 * Returns: `[-1000000.0]`
+
 
 ---
 **Example 6:**
@@ -250,6 +267,7 @@ The following alternative symbols are supported:
 
 * Returns: `[1000.5]`
 
+
 ---
 **Example 7:**
 
@@ -257,6 +275,7 @@ The following alternative symbols are supported:
     1. `[1,000.5 m]`
 
 * Returns: `[1000.5]`
+
 
 ---
 **Example 8:**
@@ -268,6 +287,7 @@ The following alternative symbols are supported:
     1. `[1 km]`
 
 * Returns: `[0.621371192237334]`
+
 
 ---
 **Example 9:**
@@ -281,6 +301,7 @@ The following alternative symbols are supported:
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
 ---
 **Example 10:**
 
@@ -289,6 +310,7 @@ The following alternative symbols are supported:
 
 * Returns: `[]`
 * **Throws error:** `ValidationException`
+
 
 ---
 **Example 11:**
@@ -299,6 +321,7 @@ The following alternative symbols are supported:
 
 * Returns: `[1000.0]`
 
+
 ---
 **Example 12:**
 
@@ -307,6 +330,7 @@ The following alternative symbols are supported:
     2. `[km, mm]`
 
 * Returns: `[1000.0, 10.0]`
+
 
 ---
 **Example 13:**
@@ -318,6 +342,9 @@ The following alternative symbols are supported:
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
+
+
 ## Parameter
 
 ### Target unit
@@ -327,6 +354,8 @@ Target unit. Can be left empty to convert to the respective SI base units.
 * ID: `targetUnit`
 * Datatype: `string`
 * Default Value: `None`
+
+
 
 ### Number format
 

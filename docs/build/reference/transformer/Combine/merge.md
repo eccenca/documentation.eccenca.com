@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Merges the values of all inputs.
 
 ## Examples
@@ -21,6 +23,7 @@ Merges the values of all inputs.
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -29,6 +32,9 @@ Merges the values of all inputs.
     2. `[c]`
 
 * Returns: `[a, b, c]`
+
+
+
 
 ## Parameter
 

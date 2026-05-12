@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The dataset needs the URL of a "share via link" sheet on Office 365/OneDrive as input.
 It will automatically construct a direct download URL, cache the download file handle it like
 an XLSX file in the Excel Dataset.
@@ -48,6 +50,7 @@ A file based cache is created to avoid CAPTCHAs. During the caching and validati
 access occurs with random wait times between 1 and 5 seconds.
 The cache is invalidated after 5 minutes by default.
 
+
 ## Parameter
 
 ### URL
@@ -57,6 +60,8 @@ Link to the document ('share with anyone having a link' must be enabled).
 - ID: `url`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Lines to skip
 
@@ -75,6 +80,8 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Invalidate cache after
 

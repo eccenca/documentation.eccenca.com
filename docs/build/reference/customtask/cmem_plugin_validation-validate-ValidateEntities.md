@@ -55,19 +55,28 @@ The task can either:
 
 The error handling behavior is configurable through the `Fail on violations` parameter.
 
+
 ## Parameter
 
 ### Source / Input Mode
+
+
 
 - ID: `source_mode`
 - Datatype: `string`
 - Default Value: `entities`
 
+
+
 ### Target / Output Mode
+
+
 
 - ID: `target_mode`
 - Datatype: `string`
 - Default Value: `entities`
+
+
 
 ### JSON Schema Dataset
 
@@ -76,6 +85,8 @@ This dataset holds the JSON schema to use for validation.
 - ID: `json_schema_dataset`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Fail on violations
 
@@ -94,6 +105,8 @@ This dataset holds the resources you want to validate.
 - ID: `source_dataset`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Target JSON Dataset
 

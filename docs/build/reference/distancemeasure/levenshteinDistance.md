@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Levenshtein distance. Returns a distance value between zero and the size of the string.
 
 ## Characteristics
@@ -25,29 +27,34 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns 0 for equal strings:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[John]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[John]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Returns 1 for strings that differ by one edit operation:**
 
-* Input values:
-    * Source: `[John]`
-    * Target: `[Jxhn]`
+- Input values:
+    - Source: `[John]`
+    - Target: `[Jxhn]`
 
-* Returns: `1.0`
+- Returns: `1.0`
+
 
 ---
 **Returns 3 for strings that differ by three edit operations:**
 
-* Input values:
-    * Source: `[Saturday]`
-    * Target: `[Sunday]`
+- Input values:
+    - Source: `[Saturday]`
+    - Target: `[Sunday]`
 
-* Returns: `3.0`
+- Returns: `3.0`
+
+
+
 
 ## Parameter
 
@@ -59,22 +66,30 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 The size of the q-grams to be indexed. Setting this to zero will disable indexing.
 
-* ID: `qGramsSize`
-* Datatype: `int`
-* Default Value: `2`
+- ID: `qGramsSize`
+- Datatype: `int`
+- Default Value: `2`
+
+
 
 ### Min char
 
 The minimum character that is used for indexing
 
-* ID: `minChar`
-* Datatype: `char`
-* Default Value: `0`
+- ID: `minChar`
+- Datatype: `char`
+- Default Value: `0`
+
+
 
 ### Max char
 
 The maximum character that is used for indexing
 
-* ID: `maxChar`
-* Datatype: `char`
-* Default Value: `z`
+- ID: `maxChar`
+- Datatype: `char`
+- Default Value: `z`
+
+## Related Plugins
+
+- **levenshtein** — Raw edit counts are not directly comparable across strings of different lengths. The normalized Levenshtein distance plugin addresses this by dividing the edit count by the length of the longer string, making the result length-independent.

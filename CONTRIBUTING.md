@@ -2,7 +2,7 @@
 
 👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 
-The following is a set of guidelines for contributing to the eccenca Corporate Memory documention project.
+The following is a set of guidelines for contributing to the eccenca Corporate Memory documentation project.
 
 ## How Can I Contribute?
 

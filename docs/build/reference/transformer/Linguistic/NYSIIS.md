@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This transformer plugin implements the **NYSIIS** phonetic algorithm for encoding names.
 
 The acronym NYSIIS stands for _New York State Identification and Intelligence System_. This so-called _phonetic code_
@@ -39,17 +41,11 @@ We can get an idea of the output of the NYSIIS algorithm using an online version
 
 As a comparison of the two versions of NYSIIS, we give a few examples:
 
-* `macintosh` is encoded as `mcant` by the NSIIS, and as `mcantas` by the refined or modified NYSIIS.
-* `phillipson` leads to `ffalapsan` in NSIIS and `falapsan` in its refined version.
-* `phone` leads to `ffan` in NSIIS and `fan` in its refined version.
-* `eccenca` is converted to `ecanc` in both versions of NSIIS.
+- `macintosh` is encoded as `mcant` by the NSIIS, and as `mcantas` by the refined or modified NYSIIS.
+- `phillipson` leads to `ffalapsan` in NSIIS and `falapsan` in its refined version.
+- `phone` leads to `ffan` in NSIIS and `fan` in its refined version.
+- `eccenca` is converted to `ecanc` in both versions of NSIIS.
 
-## Related plugins
-
-Other phonetic algorithms usually associated with are the different variations or improvements of the Soundex algorithm,
-implemented by this (Metaphone) and the
-[NYSIIS](https://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System) algorithms.
-The corresponding linguistic transformer plugins are named accordingly.
 
 ## Parameter
 
@@ -57,10 +53,15 @@ The corresponding linguistic transformer plugins are named accordingly.
 
 No description
 
-* ID: `refined`
-* Datatype: `boolean`
-* Default Value: `true`
+- ID: `refined`
+- Datatype: `boolean`
+- Default Value: `true`
 
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **soundex** — The NYSIIS plugin encodes a name into a phonetic key, but it is not the same kind of key as Soundex. The Soundex plugin produces a fixed, coarse code, while NYSIIS keeps more structure so fewer distinct names collapse into the same bucket.
+- **metaphone** — The Metaphone plugin follows its own phonetic encoding path and returns a key that lives in a different rule space than NYSIIS. Switching between Metaphone and the NYSIIS plugin changes which spellings end up identical after encoding, not just how the encoded strings look.

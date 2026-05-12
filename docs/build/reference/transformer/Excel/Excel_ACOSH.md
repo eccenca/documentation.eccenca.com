@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel ACOSH(number): Returns the inverse hyperbolic cosine of the given number in radians.
 
 ## Parameter

@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel LN(number): Returns the natural logarithm based on the constant e of the given number.
 
 ## Parameter

@@ -18,6 +18,8 @@ Projects are identified by a `PROJECT_ID`.
 !!! note
     To get a list of existing projects, execute the `project list` command or use tab-completion.
 
+
+
 ## project open
 
 Open projects in the browser.
@@ -26,9 +28,14 @@ Open projects in the browser.
 cmemc project open PROJECT_IDS...
 ```
 
+
+
+
 With this command, you can open a project in the workspace in your browser to change them.
 
 The command accepts multiple project IDs which results in opening multiple browser tabs.
+
+
 
 ## project list
 
@@ -38,14 +45,22 @@ List available projects.
 cmemc project list [OPTIONS]
 ```
 
+
+
+
 Outputs a list of project IDs which can be used as reference for the project create, delete, export and import commands.
+
+
 
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON.
-    --id-only   Lists only project identifier and no labels or other metadata.
-                This is useful for piping the IDs into other commands.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
+    --raw                    Outputs raw JSON.
+    --id-only                Lists only project identifier and no labels or
+                             other metadata. This is useful for piping the IDs
+                             into other commands.
     ```
 
 ## project export
@@ -53,19 +68,26 @@ Outputs a list of project IDs which can be used as reference for the project cre
 Export projects to files.
 
 ```shell-session title="Usage"
-cmemc project export [OPTIONS] [PROJECT_IDS]...
+$ cmemc project export [OPTIONS] [PROJECT_IDS]...
 ```
+
+
+
 
 Projects can be exported with different export formats. The default type is a zip archive which includes metadata as well as dataset resources. If more than one project is exported, a file is created for each project. By default, these files are created in the current directory with a descriptive name (see `--template` option default).
 
 !!! note
     Projects can be listed by using the `project list` command.
 
+
 You can use the template string to create subdirectories.
 
 ```shell-session title="Example"
-cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
+$ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{connection}}/{{date}}-{{id}}.project"
 ```
+
+
+
 
 ??? info "Options"
     ```text
@@ -105,9 +127,15 @@ Import a project from a file or directory.
 cmemc project import [OPTIONS] PATH [PROJECT_ID]
 ```
 
+
+
+
 ```shell-session title="Example"
 cmemc project import my_project.zip my_project
 ```
+
+
+
 
 ??? info "Options"
     ```text
@@ -124,19 +152,28 @@ Delete projects.
 cmemc project delete [OPTIONS] [PROJECT_IDS]...
 ```
 
+
+
+
 This command deletes existing data integration projects from Corporate Memory.
 
 !!! warning
     Projects will be deleted without prompting!
 
+
 !!! note
     Projects can be listed with the `project list` command.
+
+
+
 
 ??? info "Options"
     ```text
 
-    -a, --all   Delete all projects. This is a dangerous option, so use it with
-                care.
+    -a, --all                Delete all projects. This is a dangerous option, so
+                             use it with care.
+    --filter <TEXT TEXT>...  Filter projects by one of the following filter
+                             names and a corresponding value: regex, tag.
     ```
 
 ## project create
@@ -147,25 +184,25 @@ Create projects.
 cmemc project create [OPTIONS] PROJECT_IDS...
 ```
 
+
+
+
 This command creates one or more new projects. Existing projects will not be overwritten.
 
 !!! note
     Projects can be listed by using the `project list` command.
 
+
+
+
 ??? info "Options"
     ```text
 
-    --from-transformation TEXT  This option can be used to explicitly create the
-                                link specification, which is internally executed
-                                when using the mapping suggestion of a
-                                transformation task. You need the task ID of the
-                                transformation task.
-    --label TEXT                Give the label of the project. You can give more
-                                than one label if you create more than one
-                                project.
-    --description TEXT          Give the description of the project. You can
-                                give more than one description if you create
-                                more than one project.
+    --label TEXT        Give the label of the project. You can give more than
+                        one label if you create more than one project.
+    --description TEXT  Give the description of the project. You can give more
+                        than one description if you create more than one
+                        project.
     ```
 
 ## project reload
@@ -176,13 +213,20 @@ Reload projects from the workspace provider.
 cmemc project reload [OPTIONS] [PROJECT_IDS]...
 ```
 
+
+
+
 This command reloads all tasks of a project from the workspace provider. This is similar to the `workspace reload` command, but for a single project only.
 
 !!! note
     You need this in case you changed project data externally or loaded a project which uses plugins which are not installed yet. In this case, install the plugin(s) and reload the project afterward.
 
+
 !!! warning
     Depending on the size your datasets esp. your Knowledge Graphs, reloading a project can take a long time to re-create the path caches.
+
+
+
 
 ??? info "Options"
     ```text

@@ -278,7 +278,17 @@ Use this property to enable or disable the AI capabilities of Explore
 | Valid values | string |
 | Environment | SPRING_AI_CHAT_CLIENT_ENABLED |
 
+#### Configuration of MCP Server
+
+Changeable configuration settings of the companion mcp server.
+
+
+#### Server configuration
+
+
 ***Property: spring.ai.mcp.server.name***
+
+Server name for identification
 
 | Category | Value |
 |--- | ---: |
@@ -289,6 +299,8 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.version***
 
+Server version
+
 | Category | Value |
 |--- | ---: |
 | Default | 1.0.0 |
@@ -298,11 +310,13 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.type***
 
+Server type (SYNC/ASYNC) s. <https://docs.spring.io/spring-ai/reference/index.html>
+
 | Category | Value |
 |--- | ---: |
 | Default | SYNC |
 | Required | false |
-| Valid values | string |
+| Valid values | SYNC, ASYNC |
 | Environment | SPRING_AI_MCP_SERVER_TYPE |
 
 ***Property: spring.ai.mcp.server.instructions***
@@ -352,6 +366,8 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.enabled***
 
+Whether the mcp server is enabled or not
+
 | Category | Value |
 |--- | ---: |
 | Default | true |
@@ -359,7 +375,31 @@ Use this property to enable or disable the AI capabilities of Explore
 | Valid values | string |
 | Environment | SPRING_AI_MCP_SERVER_ENABLED |
 
+***Property: spring.ai.mcp.server.protocol***
+
+Protocol used for communication between mcp server and client s. <https://docs.spring.io/spring-ai/reference/index.html>
+
+| Category | Value |
+|--- | ---: |
+| Default | streamable |
+| Required | false |
+| Valid values | stateless, streamable |
+| Environment | SPRING_AI_MCP_SERVER_PROTOCOL |
+
+***Property: spring.ai.mcp.server.streamable-http.mcp-endpoint***
+
+Endpoint for mcp streamable protocol (prefix must be dataplatform)
+
+| Category | Value |
+|--- | ---: |
+| Default | /dataplatform/mcp/streamable |
+| Required | false |
+| Valid values | string |
+| Environment | SPRING_AI_MCP_SERVER_STREAMABLE_HTTP_MCP_ENDPOINT |
+
 ***Property: spring.ai.mcp.server.sse-message-endpoint***
+
+Endpoint for mcp sse protocol (prefix must be dataplatform)
 
 | Category | Value |
 |--- | ---: |
@@ -370,21 +410,14 @@ Use this property to enable or disable the AI capabilities of Explore
 
 ***Property: spring.ai.mcp.server.sse-endpoint***
 
+Endpoint for mcp sse protocol (prefix must be dataplatform)
+
 | Category | Value |
 |--- | ---: |
 | Default | /dataplatform/mcp/sse |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_MCP_SERVER_SSE_ENDPOINT |
-
-***Property: spring.ai.mcp.server.stdio***
-
-| Category | Value |
-|--- | ---: |
-| Default | false |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_MCP_SERVER_STDIO |
 
 ***Property: spring.ai.model.chat***
 
@@ -457,7 +490,7 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | <ENDPOINT> |
+| Default | <ENDPOINT_URI> |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_AZURE_OPENAI_ENDPOINT |
@@ -720,7 +753,7 @@ Use this property to define the list of allowed HTTP headers. The special value 
 
 | Category | Value |
 |--- | ---: |
-| Default | [Authorization, X-Requested-With, Content-Type, Content-Length, ETag] |
+| Default | [Authorization, X-Requested-With, Content-Type, Content-Length, ETag, mcp-protocol-version, mcp-session-id] |
 | Required | false |
 | Valid values | list of strings |
 | Environment | HTTP_CORS_ALLOWEDHEADERS |
@@ -731,7 +764,7 @@ Use this property to define the list of headers that an actual response might ha
 
 | Category | Value |
 |--- | ---: |
-| Default | [WWW-Authenticate, Link, ETag] |
+| Default | [WWW-Authenticate, Link, ETag, mcp-session-id] |
 | Required | false |
 | Valid values | list of strings |
 | Environment | HTTP_CORS_EXPOSEDHEADERS |
@@ -876,8 +909,8 @@ Use this property to configure the URI of the public user (see section Public ac
 
 ***Property: authorization.abox.accessConditions.url***
 
-**DEPRECATED**
-Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+
 
 | Category | Value |
 |--- | ---: |
@@ -888,8 +921,7 @@ Use this property to set the URL of the access conditions model file. This can b
 
 ***Property: authorization.abox.accessConditions.graph***
 
-**DEPRECATED**
-Use this property to set the graph containing the access conditions model.
+**Deprecation:** Use this property to set the graph containing the access conditions model.
 **Note:** If you change this property, you also need to change the corresponding shape definitions for access conditions (more precisely, the UI SPARQL queries).
 
 | Category | Value |
@@ -952,7 +984,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 | Category | Value |
 |--- | ---: |
-| Default | [<http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
+| Default | [<http://www.w3.org/2004/02/skos/core#definition>, <http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |
@@ -1005,6 +1037,19 @@ The max amount of statements which the Concise Bound Description can contain.
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_MAXCBDSTATEMENTS |
+
+***Property: proxy.cbdChangeVersioning***
+
+Determines whether the changes on CBDs are added to the graph versioning which exists for
+SHACL-based changes.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_CBDCHANGEVERSIONING |
 
 ***Property: proxy.shapedMaxValueCount***
 
@@ -1102,6 +1147,17 @@ The limit of data for the GSP zip-bomb check in bytes. If this limit is exceeded
 | Required | false |
 | Valid values | string |
 | Environment | PROXY_GSPUPLOADGZIPCONTENTLIMIT |
+
+***Property: proxy.gspPrettyTurtlePrintSizeLimit***
+
+The limit of data in bytes for the turtle pretty print GSP option. That amount of data is loaded into memory. On exceeding it the graph download is aborted.
+
+| Category | Value |
+|--- | ---: |
+| Default | 1073741824 |
+| Required | false |
+| Valid values | string |
+| Environment | PROXY_GSPPRETTYTURTLEPRINTSIZELIMIT |
 
 ***Property: proxy.proxy-sparql-streaming-format***
 
@@ -1220,7 +1276,7 @@ The committer name which appears in the commit message on system commits
 
 ***Property: gitSync.committerEmail***
 
-The committer email which appears in the commit message  on system commits
+The committer email which appears in the commit message on system commits
 
 | Category | Value |
 |--- | ---: |
@@ -1235,7 +1291,7 @@ Schedules Pull Frequency - Configured git repositories for sync are pulled regul
 
 | Category | Value |
 |--- | ---: |
-| Default | 0 */30* ** * |
+| Default | 0 */30 * * * * |
 | Required | false |
 | Valid values | Cron setting according to <https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling-cron-expression> |
 | Environment | GITSYNC_SCHEDULEDPULLCRON |
@@ -1610,7 +1666,7 @@ Bulk upload Pool Size - Limits how many (bulk/large) uploads via GSP / bulk load
 
 ***Property: scheduler.analyticalPoolSize***
 
-Limits how many analytical requests can be run in parallel. Analytical requests  can have longer runtimes than retrieval requests.
+Limits how many analytical requests can be run in parallel. Analytical requests can have longer runtimes than retrieval requests.
 
 | Category | Value |
 |--- | ---: |
@@ -1694,7 +1750,7 @@ One of the supported types of backends DataPlatform can connect to
 |--- | ---: |
 | Default | *none* |
 | Required | true |
-| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE |
+| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE, TENTRIS |
 | Environment | STORE_TYPE |
 
 ***Property: store.owlImportsResolution***

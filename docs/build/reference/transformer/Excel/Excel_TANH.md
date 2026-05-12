@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel TANH(number): Returns the hyperbolic tangent of the given number (angle in radians).
 
 ## Parameter

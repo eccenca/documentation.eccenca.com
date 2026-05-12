@@ -1,4 +1,5 @@
 nav:
     - Build (DataIntegration): index.md
+    - Adding JDBC drivers: jdbc
     - Activity Reference: activity-reference
 

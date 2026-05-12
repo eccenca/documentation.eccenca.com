@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Typically, this dataset is used to transform an JSON file to another format, e.g., to RDF.
 
 ## Reading
@@ -26,6 +28,7 @@ For reading, the JSON dataset supports a number of special paths:
 
 When writing JSON, all entities need to possess a unique URI. Writing multiple root entities with the same URI will result in multiple entries in the generated JSON. If multiple nested entities with the same URI are written, only the last entity with a given URI will be written.
 
+
 ## Parameter
 
 ### File
@@ -36,6 +39,8 @@ JSON file. This may also be a zip archive of multiple JSON files that share the 
 - Datatype: `resource`
 - Default Value: `None`
 
+
+
 ### Template
 
 Template for writing JSON. The term {{output}} will be replaced by the written JSON.
@@ -43,6 +48,8 @@ Template for writing JSON. The term {{output}} will be replaced by the written J
 - ID: `template`
 - Datatype: `code-json`
 - Default Value: `{{output}}`
+
+
 
 ### Navigate into arrays
 
@@ -62,6 +69,8 @@ The path to the elements to be read, starting from the root element, e.g., '/Per
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### URI pattern (deprecated)
 
 A URI pattern, e.g., <http://namespace.org/{ID}>, where {path} may contain relative paths to elements
@@ -69,6 +78,8 @@ A URI pattern, e.g., <http://namespace.org/{ID}>, where {path} may contain relat
 - ID: `uriPattern`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Max depth
 
@@ -78,6 +89,8 @@ Maximum depth of written JSON. This acts as a safe guard if a recursive structur
 - Datatype: `int`
 - Default Value: `15`
 
+
+
 ### Streaming
 
 Streaming allows for reading large JSON files. If streaming is enabled, backward paths are not supported.
@@ -85,6 +98,8 @@ Streaming allows for reading large JSON files. If streaming is enabled, backward
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### ZIP file regex
 

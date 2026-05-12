@@ -26,7 +26,7 @@ The graph dataset is attached to the email as an N-triples file.
 
 !!! warning
 
-    In the imported project, enter valid email credentials in the **send eMail** task to successfully execute the included workflow (see [§10.3](#10-create-a-send-email-task-item)).
+    In the imported project, enter valid email credentials in the **send eMail** task to successfully execute the included workflow (see [10.3](#10-create-a-send-email-task-item)).
 
 The following material is used in this tutorial:
 

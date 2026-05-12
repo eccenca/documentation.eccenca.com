@@ -14,6 +14,7 @@ Import bootstrap data, backup/restore workspace or get status.
 
 This command group consists of commands for setting up and configuring eccenca Corporate Memory.
 
+
 ## admin status
 
 Output health and version information.
@@ -21,6 +22,9 @@ Output health and version information.
 ```shell-session title="Usage"
 cmemc admin status [OPTIONS]
 ```
+
+
+
 
 This command outputs version and health information of the selected deployment. If the version information cannot be retrieved, UNKNOWN is shown.
 
@@ -31,6 +35,9 @@ To get status information of all configured deployments use this command in comb
 ```shell-session title="Example"
 cmemc config list | parallel --ctag cmemc -c {} admin status
 ```
+
+
+
 
 ??? info "Options"
     ```text
@@ -64,13 +71,19 @@ Fetch and output an access token.
 cmemc admin token [OPTIONS]
 ```
 
+
+
+
 This command can be used to check for correct authentication as well as to use the token with wget / curl or similar standard tools:
 
 ```shell-session title="Example"
 curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
 ```
 
+
 Please be aware that this command can reveal secrets which you might not want to be present in log files or on the screen.
+
+
 
 ??? info "Options"
     ```text

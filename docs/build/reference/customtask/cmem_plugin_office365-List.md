@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This workflow task creates a structured output from a specified Office 365 instance.
 For this to work a registered app in Microsoft's Entra ID space is necessary.
 Further information can be found [here](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
@@ -36,6 +37,7 @@ Make sure only trusted admins can create or manage secrets!
 Whoever holds the secrets has all the access to granted resources so best not to distribute
 recklessly.
 
+
 ## Parameter
 
 ### Tenant ID
@@ -46,6 +48,8 @@ ID of your tenant. Can be seen within your registered application
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Client ID
 
 Client ID of your registered application.
@@ -53,6 +57,8 @@ Client ID of your registered application.
 - ID: `client_id`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Client secret
 
@@ -62,6 +68,8 @@ Client secret created withing your registered application.
 - Datatype: `password`
 - Default Value: `None`
 
+
+
 ### Type resource
 
 The type of resource you want the data to be extracted from. This can either be a site or a users share
@@ -69,6 +77,8 @@ The type of resource you want the data to be extracted from. This can either be 
 - ID: `type_resource`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Target resource
 
@@ -78,6 +88,8 @@ Target resource which files will be listed from. This can either be a specific u
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Drives
 
 A list of drives from the selected target resource.
@@ -85,6 +97,8 @@ A list of drives from the selected target resource.
 - ID: `drives`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Directory path
 
@@ -94,6 +108,8 @@ The path of a directory that needs to be transformed. Includes all subdirectorie
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Regular expression
 
 A regular expression performed on all the files within the selected path
@@ -101,6 +117,8 @@ A regular expression performed on all the files within the selected path
 - ID: `regex`
 - Datatype: `string`
 - Default Value: `^.*$`
+
+
 
 ### Exclude files in subfolders
 

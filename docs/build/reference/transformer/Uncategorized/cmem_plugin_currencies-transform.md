@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This transform plugin allows you to convert currencies from one currency to another.
 It uses the Euro foreign exchange reference rates from the
 [European Central Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html)
@@ -53,6 +54,7 @@ can be used with the plugin.
 Please be aware that not all of the rates are available for all dates
 (e.g. after 2022-03-01 there is no RUB rate available anymore).
 
+
 ## Parameter
 
 ### 1. Source Currency
@@ -63,13 +65,17 @@ The currency code you want to convert from (e.g. USD).
 - Datatype: `string`
 - Default Value: `USD`
 
+
+
 ### 2. Date
 
 Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - ID: `date`
 - Datatype: `string`
-- Default Value: `2025-11-26`
+- Default Value: `2026-05-12`
+
+
 
 ### 3. Target Currency
 

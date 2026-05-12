@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Core parameter overview
 
 - <a id="parameter_doc_url">`URL`</a>: The URL the request will be executed against. This value can be overwritten at execution time when the 'Read parameters from input' option
@@ -151,6 +153,7 @@ If having the request URL in the response data is needed, following parameter ne
                   a property with the specified name in the root level of the response JSON object.
                   This is mostly relevant if the request URL cannot be re-constructed from the response data. Only supported for JSON responses.
 
+
 ## Parameter
 
 ### URL
@@ -161,6 +164,8 @@ The URL to execute this request against. This can be overwritten at execution ti
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Method
 
 One of the following HTTP methods: GET, POST, PUT, PATCH or DELETE.
@@ -168,6 +173,8 @@ One of the following HTTP methods: GET, POST, PUT, PATCH or DELETE.
 - ID: `method`
 - Datatype: `enumeration`
 - Default Value: `GET`
+
+
 
 ### Accept
 
@@ -177,6 +184,8 @@ The accept header String.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Request timeout
 
 Request timeout in ms. The overall maximum time the request should take.
@@ -184,6 +193,8 @@ Request timeout in ms. The overall maximum time the request should take.
 - ID: `requestTimeout`
 - Datatype: `int`
 - Default Value: `10000`
+
+
 
 ### Connection timeout
 
@@ -193,6 +204,8 @@ Connection timeout in ms. The time until which a connection with the remote end 
 - Datatype: `int`
 - Default Value: `5000`
 
+
+
 ### Read timeout
 
 Read timeout in ms. The max. time a request stays idle, i.e. no data is send or received.
@@ -200,6 +213,8 @@ Read timeout in ms. The max. time a request stays idle, i.e. no data is send or 
 - ID: `readTimeout`
 - Datatype: `int`
 - Default Value: `10000`
+
+
 
 ### Content type
 
@@ -209,6 +224,8 @@ The content-type header String. This can be set in case of PUT or POST. If anoth
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Content
 
 The content that is send with a POST, PUT or PATCH request. For handling this payload dynamically this parameter must be overwritten via the task input.
@@ -216,6 +233,8 @@ The content that is send with a POST, PUT or PATCH request. For handling this pa
 - ID: `content`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### HTTP headers
 
@@ -225,6 +244,8 @@ Configure additional HTTP headers. One header per line. Each header entry follow
 - Datatype: `multiline string`
 - Default Value: `None`
 
+
+
 ### Read parameters from input
 
 If this is set to true, specific parameters can be overwritten at execution time and one request per overwrite config will be executed. Else inputs are ignored and exactly one request will be executed. Parameters that can currently be overwritten: url, content
@@ -232,6 +253,8 @@ If this is set to true, specific parameters can be overwritten at execution time
 - ID: `readParametersFromInput`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 
 ### Multi-part file parameter
 
@@ -241,21 +264,27 @@ If set to a non-empty String then instead of a normal POST a multipart/form-data
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Authorization header
 
-The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'If left empty, no authorization header is sent.
+The authorization header. This is usually either 'Authorization' or 'Proxy-Authorization'. If left empty, no authorization header is sent.
 
 - ID: `authorizationHeader`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Authorization header value
 
-The authorization header value. Usually this has the form 'type secret', e.g. for OAuth 'bearer <insert secret access token>.'This config parameter will be encrypted in the backend.
+The authorization header value. Usually this has the form 'type secret', e.g. for OAuth `bearer <insert secret access token>`. This config parameter will be encrypted in the backend.
 
 - ID: `authorizationHeaderValue`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### Delay between requests
 
@@ -265,6 +294,8 @@ The delay between requests in milliseconds.
 - Datatype: `int`
 - Default Value: `0`
 
+
+
 ### Retries per request
 
 How often should a single request be retried if it fails.
@@ -272,6 +303,8 @@ How often should a single request be retried if it fails.
 - ID: `retriesPerRequest`
 - Datatype: `int`
 - Default Value: `3`
+
+
 
 ### Abort when request fails
 
@@ -281,6 +314,8 @@ If a single request fails, i.e. it reaches its max. retry count, should the exec
 - Datatype: `boolean`
 - Default Value: `true`
 
+
+
 ### Limit
 
 If this is set to a number greater 0, then only this number of input REST configurations will be executed. Mainly used for debugging and executing a subset.
@@ -288,6 +323,8 @@ If this is set to a number greater 0, then only this number of input REST config
 - ID: `limit`
 - Datatype: `int`
 - Default Value: `0`
+
+
 
 ### Offset
 
@@ -297,6 +334,8 @@ How many input entries to skip.
 - Datatype: `int`
 - Default Value: `0`
 
+
+
 ### Max failed requests
 
 If set to greater 0, then the execution will abort if more than the given number of requests have failed. This should be used to fail early. If 'abort on request fail' is set to true, then this option has no effect.
@@ -304,6 +343,8 @@ If set to greater 0, then the execution will abort if more than the given number
 - ID: `maxFailedRequests`
 - Datatype: `int`
 - Default Value: `0`
+
+
 
 ### Paging method
 
@@ -313,6 +354,8 @@ There are two paging methods currently supported: 1. Next page full URL: The JSO
 - Datatype: `enumeration`
 - Default Value: `none`
 
+
+
 ### Next page JSON path
 
 The path to the JSON value containing the next page value of the JSON response, e.g. paging/next. The path syntax follows the Silk path syntax, but only allows forward paths.
@@ -320,6 +363,8 @@ The path to the JSON value containing the next page value of the JSON response, 
 - ID: `nextPageJsonPath`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Next page ID query parameter
 
@@ -329,6 +374,8 @@ The query parameter name for the next page ID that should be attached to the nex
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Output result as file
 
 If a file based dataset is connected to the output of the REST operator, then this option can be enabled in order to overwrite the file resource of the connected dataset. This allows for handling the result of the REST request/s as a normal dataset. If a non-file based dataset is connected to this operator the execution will fail. If disabled, a single entity with a single property 'result' will be output that contains the (merged) result.
@@ -336,6 +383,8 @@ If a file based dataset is connected to the output of the REST operator, then th
 - ID: `outputResultAsFile`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
 
 ### URL property
 

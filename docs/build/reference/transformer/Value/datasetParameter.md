@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Reads a meta data parameter from a dataset in Corporate Memory. If authentication is enabled, workbench.superuser must be configured.
+
 
 ## Parameter
 
@@ -22,6 +25,8 @@ The project of the dataset.
 - Datatype: `project`
 - Default Value: `cmem`
 
+
+
 ### Dataset
 
 The dataset the meta data parameter is read from.
@@ -30,6 +35,8 @@ The dataset the meta data parameter is read from.
 - Datatype: `task`
 - Default Value: `None`
 
+
+
 ### Key
 
 No description
@@ -37,6 +44,8 @@ No description
 - ID: `key`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Lang
 

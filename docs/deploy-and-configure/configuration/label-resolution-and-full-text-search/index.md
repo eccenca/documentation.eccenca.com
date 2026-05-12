@@ -7,7 +7,11 @@ This resolution and, by extension, the full text search is configurable for diff
 
 ## Configuration
 
-eccenca Explore backend (DataPlatform) offers three configuration options: `labelProperties` (line 2) `languagePreferences` (line 5) and `languagePreferencesAnyLangFallback` (line 8).
+eccenca Explore backend (DataPlatform) offers three configuration options:
+
+- `labelProperties` (line 2) 
+- `languagePreferences` (line 5) and 
+- `languagePreferencesAnyLangFallback` (line 8).
 
 ``` yaml linenums="1"
 proxy:

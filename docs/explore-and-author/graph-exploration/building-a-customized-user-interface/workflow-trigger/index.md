@@ -30,9 +30,13 @@ To define a workflow trigger the following information is needed:
 
 ## Integration
 
-Once a trigger resources is defined, it can be attached to a Node Shape by using a special-purpose non-validating Property Shape resources.
-Such property shapes use a `shui:provideWorkflowTrigger` statement to define, which workflow trigger are to be represented.
-SHACL path statements on such Property Shape resources are meaningless and ignored, but may be provided.
+A `shui:WidgetIntegration` resource needs to be created from the previously defined workflow trigger.
+
+![](create_new_widget_integration.png)
+
+Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating [Widget property](../node-shapes/index.md#widgets).
+
+![](adding_widget_to_node.png)
 
 ## Payload Structure
 
@@ -44,9 +48,11 @@ Workflow Payload
 ``` json
 {
    "graphIRI": "http://example.org/example-graph",
-   "resourceIRI": "http://example.org/example-graph/examle-resource"
+   "resourceIRI": "http://example.org/example-graph/example-resource"
 }
 ```
 
 - `graphIRI` is the IRI of the graph that is currently viewed, and
-- `resourceIRI`is the IRI of the resource that is viewed.
+- `resourceIRI` is the IRI of the resource that is viewed.
+
+To make use of this dynamic payload, the underlying workflow should define variable input using [Replaceable Datasets](../../../../build/workflows/index.md#replaceable-datasets).

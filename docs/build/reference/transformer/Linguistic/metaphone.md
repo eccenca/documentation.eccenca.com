@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This transformer plugin implements the **Metaphone** phonetic algorithm for indexing words according to English.
 
 ## Description
@@ -34,11 +36,6 @@ Illustrative examples:
 * `accuracy` is encoded as `akkrs`.
 * `eccenca` is encoded as `eksnk`.
 
-## Related plugins
-
-Related phonetic algorithms are the different variations or improvements of the Soundex algorithm, implemented by this
-(Metaphone) and the [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms.
-The corresponding linguistic transformer plugins are named accordingly.
 
 ## Parameter
 
@@ -47,3 +44,8 @@ The corresponding linguistic transformer plugins are named accordingly.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **soundex** — The Metaphone plugin returns a phonetic encoding whose length depends on the input. The Soundex plugin returns a fixed four-character code, so it forces a much coarser normalization. This is not a similarity score; it is an encoding step.
+* **NYSIIS** — The Metaphone plugin and the NYSIIS plugin both produce phonetic encodings, but they do so under different encoding rules. The NYSIIS plugin also exposes a refined versus non-refined mode, while the Metaphone plugin has a single fixed encoding path.

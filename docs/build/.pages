@@ -10,7 +10,7 @@ nav:
     - Lift Tabular Data: lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
     - Lift Hierarchical Data: lift-data-from-json-and-xml-sources
     - Lift Web API Data: extracting-data-from-a-web-api
-    - Workflow Reconfiguration: workflow-reconfiguration
+    - Workflows: workflows
     - Incremental Database Loading: loading-jdbc-datasets-incrementally
     - Connect to Snowflake: snowflake-tutorial
     - Active learning: active-learning
@@ -18,3 +18,4 @@ nav:
     - Project and Global Variables: variables
     - Evaluate Template Operator: evaluate-template
     - Build Knowledge Graphs from Kafka Topics: kafka-consumer
+    - Spark: spark

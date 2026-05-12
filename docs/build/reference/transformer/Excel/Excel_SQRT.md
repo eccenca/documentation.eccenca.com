@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel SQRT(number): Returns the positive square root of the given number. The value of the number must be positive.
 
 ## Parameter

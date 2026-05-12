@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Parses string values. This is basically an identity function.
 
 ## Examples
@@ -24,6 +26,7 @@ Parses string values. This is basically an identity function.
 
 * Returns: `[eccenca]`
 
+
 ---
 **Example 2:**
 
@@ -31,6 +34,9 @@ Parses string values. This is basically an identity function.
     1. `[these, strings, won't, be, changed, at, all]`
 
 * Returns: `[these, strings, won't, be, changed, at, all]`
+
+
+
 
 ## Parameter
 

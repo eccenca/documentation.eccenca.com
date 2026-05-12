@@ -10,10 +10,13 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Extracts physical quantities, such as length or weight values.
 Values are expected of the form `{Number}{UnitPrefix}{Symbol}` and are converted to the base unit.
 
 Example: Let a value such as `"10km, 3mg"`, containing both a distance and a weight, be given. If the `symbol` parameter is set to `m`, then the extracted value will be `1000` (i.e. the distance). If, instead, the `symbol` parameter is set to `g`, then the extracted value will be `0.001` (i.e. the weight).
+
 
 ## Parameter
 
@@ -25,6 +28,8 @@ The symbol of the dimension, e.g., 'm' for meter.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Number format
 
 The IETF BCP 47 language tag, e.g. 'en'.
@@ -33,6 +38,8 @@ The IETF BCP 47 language tag, e.g. 'en'.
 - Datatype: `string`
 - Default Value: `en`
 
+
+
 ### Filter
 
 Only extracts from values that contain the given regex (case-insensitive).
@@ -40,6 +47,8 @@ Only extracts from values that contain the given regex (case-insensitive).
 - ID: `filter`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Index
 
@@ -52,3 +61,8 @@ If there are multiple matches, retrieve the value with the given index (zero-bas
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **numOperation** — The Physical quantity extractor plugin turns number plus unit strings into plain numeric values in the configured base unit. The Numeric operation plugin is the arithmetic reducer once the inputs are already numbers, so unit parsing and calculation stay separate.
+- **formatNumber** — Extract physical quantity returns a plain numeric string in the base unit. Format number takes that value and renders it according to a decimal format pattern, controlling precision, digit grouping, and separators.

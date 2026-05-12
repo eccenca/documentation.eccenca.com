@@ -18,6 +18,8 @@ Graphs are identified by an IRI.
 !!! note
     The get a list of existing graphs, execute the `graph list` command or use tab-completion.
 
+
+
 ## graph count
 
 Count triples in graph(s).
@@ -26,32 +28,18 @@ Count triples in graph(s).
 cmemc graph count [OPTIONS] [IRIS]...
 ```
 
+
+
+
 This command lists graphs with their triple count. Counts do not include imported graphs.
+
+
 
 ??? info "Options"
     ```text
 
     -a, --all        Count all graphs
     -s, --summarize  Display only a sum of all counted graphs together
-    ```
-
-## graph tree
-
-(Hidden) Deprecated: use 'graph imports tree' instead.
-
-```shell-session title="Usage"
-cmemc graph tree [OPTIONS] [IRIS]...
-```
-
-??? info "Options"
-    ```text
-
-    -a, --all   Show tree of all (readable) graphs.
-    --raw       Outputs raw JSON of the graph importTree API response.
-    --id-only   Lists only graph identifier (IRIs) and no labels or other
-                metadata. This is useful for piping the IRIs into other
-                commands. The output with this option is a sorted, flat, de-
-                duplicated list of existing graphs.
     ```
 
 ## graph list
@@ -62,19 +50,19 @@ List accessible graphs.
 cmemc graph list [OPTIONS]
 ```
 
+
+
+
+
 ??? info "Options"
     ```text
 
-    --raw                      Outputs raw JSON of the graphs list API response.
-    --id-only                  Lists only graph identifier (IRIs) and no labels
-                               or other metadata. This is useful for piping the
-                               IRIs into other commands.
-    --filter <CHOICE TEXT>...  Filter graphs based on effective access
-                               conditions or import closure. First parameter
-                               CHOICE can be 'access' or 'imported-by'. The
-                               second parameter can be 'readonly' or 'writeable'
-                               in case of 'access' or any readable graph in case
-                               of 'imported-by'.
+    --raw                    Outputs raw JSON of the graphs list API response.
+    --id-only                Lists only graph identifier (IRIs) and no labels or
+                             other metadata. This is useful for piping the IRIs
+                             into other commands.
+    --filter <TEXT TEXT>...  Filter graphs by one of the following filter names
+                             and a corresponding value: access, imported-by.
     ```
 
 ## graph export
@@ -82,10 +70,15 @@ cmemc graph list [OPTIONS]
 Export graph(s) as NTriples to stdout (-), file or directory.
 
 ```shell-session title="Usage"
-cmemc graph export [OPTIONS] [IRIS]...
+$ cmemc graph export [OPTIONS] [IRIS]...
 ```
 
+
+
+
 In case of file export, data from all selected graphs will be concatenated in one file. In case of directory export, .graph and .ttl files will be created for each graph.
+
+
 
 ??? info "Options"
     ```text
@@ -112,7 +105,7 @@ In case of file export, data from all selected graphs will be concatenated in on
                                     the current date as YYYY-MM-DD. The file
                                     suffix will be appended. Needed directories
                                     will be created.  [default: {{hash}}]
-    --mime-type [application/n-triples|text/turtle|application/rdf+xml]
+    --mime-type [application/n-triples|text/turtle|text/turtle+pretty|application/rdf+xml]
                                     Define the requested mime type  [default:
                                     text/turtle]
     --compress [gzip]               Compress the exported graph files.
@@ -126,6 +119,10 @@ Delete graph(s) from the store.
 cmemc graph delete [OPTIONS] [IRIS]...
 ```
 
+
+
+
+
 ??? info "Options"
     ```text
 
@@ -134,6 +131,8 @@ cmemc graph delete [OPTIONS] [IRIS]...
                                  graphs which are imported from these selected
                                  graph(s).
     --include-import-statements  Delete import reference of deleted graphs
+    --filter <TEXT TEXT>...      Filter graphs by one of the following filter
+                                 names and a corresponding value: imported-by.
     ```
 
 ## graph import
@@ -143,6 +142,9 @@ Import graph(s) to the store.
 ```shell-session title="Usage"
 cmemc graph import [OPTIONS] INPUT_PATH [IRI]
 ```
+
+
+
 
 If input is a file, content will be uploaded to the graph identified with the IRI.
 
@@ -154,6 +156,9 @@ If the ``--replace`` flag is set, the data in the graphs will be overwritten, if
 
 !!! note
     Directories are scanned on the first level only (not recursively).
+
+
+
 
 ??? info "Options"
     ```text
@@ -177,3 +182,7 @@ Open / explore a graph in the browser.
 ```shell-session title="Usage"
 cmemc graph open IRI
 ```
+
+
+
+

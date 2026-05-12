@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This task executes a custom Salesforce Object Query (SOQL)
 and returns sets of tabular data from your organization's Salesforce account.
 
@@ -50,6 +51,7 @@ SELECT Contact.Firstname, Contact.Lastname FROM Contact
 Please refer to the [Salesforce Standard Objects list](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_list.htm) of the Salesforce Platform data
 model in order to get an overview of the available objects and fields.
 
+
 ## Parameter
 
 ### Username
@@ -60,11 +62,17 @@ Username of the Salesforce Account. This is typically your email address.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Password
+
+
 
 - ID: `password`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Security Token
 
@@ -73,6 +81,8 @@ In addition to your standard account credentials, you need to provide a security
 - ID: `security_token`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### SOQL Query
 

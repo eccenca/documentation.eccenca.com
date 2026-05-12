@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The Jaro-Winkler distance measure is a variation of the Jaro distance metric. It takes into account the prefixes of the strings being compared and assigns higher weights to matching prefixes.
 
 For more information, please refer to: [https://en.wikipedia.org/wiki/Jaro–Winkler_distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance).
@@ -27,3 +29,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **jaro** — The Jaro distance metric plugin provides the baseline Jaro similarity without emphasizing beginnings. The Jaro–Winkler distance plugin shifts the score toward shared prefixes, which can change rankings when many candidates start the same way.

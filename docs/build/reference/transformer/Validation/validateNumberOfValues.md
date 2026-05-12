@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Validates that the number of values lies in a specified range.
 
 ## Examples
@@ -28,6 +30,7 @@ Validates that the number of values lies in a specified range.
 
 * Returns: `[value1]`
 
+
 ---
 **Example 2:**
 
@@ -41,6 +44,9 @@ Validates that the number of values lies in a specified range.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
+
+
 ## Parameter
 
 ### Min
@@ -50,6 +56,8 @@ Minimum allowed number of values
 * ID: `min`
 * Datatype: `int`
 * Default Value: `0`
+
+
 
 ### Max
 

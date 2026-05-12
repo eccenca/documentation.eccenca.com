@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This custom task substitutes numeric values and pertaining units by its normalized representation in the International System of Units (SI).
 
 The resulting representation consists of the following three columns:
@@ -17,6 +19,7 @@ The resulting representation consists of the following three columns:
 1. The normalized numeric value.
 2. The unit symbol of the International System of Units (SI) pertaining to the value.
 3. The original unit symbol, from which it was normalized. This information is kept to be able to reverse this action.
+
 
 ## Parameter
 
@@ -28,6 +31,8 @@ The names (comma-separated) of columns containing numeric values interpreted as 
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Unit property
 
 The names (comma-separated) of dedicated columns containing the unit symbol for the pertaining value in the value column (the positions in this list have to align with the pertaining value columns). Either this param or 'static unit' has to be set.
@@ -35,6 +40,8 @@ The names (comma-separated) of dedicated columns containing the unit symbol for 
 - ID: `unitProperties`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Static units
 
@@ -44,6 +51,8 @@ Unit symbols (comma-separated) defining the unit for all values in the pertainin
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Target units
 
 Unit symbols (comma-separated) defining the target unit to which the value column will be converted (Note: Make sure the input unit can be converted to the target unit). By default the pertaining SI-base unit will be used as normalization unit (the positions in this list have to align with the pertaining value columns)
@@ -51,6 +60,8 @@ Unit symbols (comma-separated) defining the target unit to which the value colum
 - ID: `targetUnits`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Suppress errors
 
@@ -60,6 +71,8 @@ If true, will ignore any parsing or value conversion error and return an empty r
 - Datatype: `boolean`
 - Default Value: `false`
 
+
+
 ### Configuration file path
 
 An absolute file path for a unit CSV configuration file (for syntax see 'configuration' param). If set, the 'configuration' param will be ignored.
@@ -67,6 +80,8 @@ An absolute file path for a unit CSV configuration file (for syntax see 'configu
 - ID: `configFilePath`
 - Datatype: `resource`
 - Default Value: `None`
+
+
 
 ### Configuration
 

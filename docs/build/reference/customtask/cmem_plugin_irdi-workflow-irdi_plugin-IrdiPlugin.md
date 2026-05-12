@@ -30,6 +30,7 @@ If no input path is configured, values are read from the URIs of the input (Tran
     - if no input path is configured, values are read from the URIs of the input
     (transformation input).
 
+
 ## Parameter
 
 ### Counter graph
@@ -40,41 +41,67 @@ Graph in which the Item Code (IC) counter is stored
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### International Code Designator (ICD): Numeric, 4 characters
+
+
 
 - ID: `icd`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Organization Identifier (OI): Numeric, 4 characters
+
+
 
 - ID: `oi`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Organization Part Identifier (OPI): Alphanumeric, up to 35 characters (base36)
+
+
 
 - ID: `opi`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### OPI Source Indicator (OPIS): Numeric, 1 character
+
+
 
 - ID: `opis`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Additional information (AI): Numeric, 4 characters
+
+
 
 - ID: `ai`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Code-space identifier (CSI): Alphanumeric, 2 character (base36)
+
+
 
 - ID: `csi`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Output path / property
 
@@ -93,6 +120,8 @@ The class of objects that are counted. (IRI)
 - ID: `counted_object`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Input Schema Path / Property
 

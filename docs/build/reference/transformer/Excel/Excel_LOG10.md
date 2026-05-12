@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel LOG10(number): Returns the base-10 logarithm of the given number.
 
 ## Parameter

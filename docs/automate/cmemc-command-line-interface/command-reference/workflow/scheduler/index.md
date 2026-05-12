@@ -15,6 +15,7 @@ List, inspect, enable/disable or open scheduler.
 
 Schedulers execute workflows in specified intervals. They are identified with a `SCHEDULER_ID`. To get a list of existing schedulers, execute the list command or use tab-completion.
 
+
 ## workflow scheduler open
 
 Open scheduler(s) in the browser.
@@ -23,9 +24,14 @@ Open scheduler(s) in the browser.
 cmemc workflow scheduler open [OPTIONS] SCHEDULER_IDS...
 ```
 
+
+
+
 With this command, you can open a scheduler in the workspace in your browser to change it.
 
 The command accepts multiple scheduler IDs which results in opening multiple browser tabs.
+
+
 
 ??? info "Options"
     ```text
@@ -42,7 +48,12 @@ List available scheduler.
 cmemc workflow scheduler list [OPTIONS]
 ```
 
+
+
+
 Outputs a table or a list of scheduler IDs which can be used as reference for the scheduler commands.
+
+
 
 ??? info "Options"
     ```text
@@ -60,6 +71,10 @@ Display all metadata of a scheduler.
 cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
 ```
 
+
+
+
+
 ??? info "Options"
     ```text
 
@@ -74,7 +89,12 @@ Disable scheduler(s).
 cmemc workflow scheduler disable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
+
+
+
 The command accepts multiple scheduler IDs which results in disabling them one after the other.
+
+
 
 ??? info "Options"
     ```text
@@ -90,7 +110,12 @@ Enable scheduler(s).
 cmemc workflow scheduler enable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
+
+
+
 The command accepts multiple scheduler IDs which results in enabling them one after the other.
+
+
 
 ??? info "Options"
     ```text

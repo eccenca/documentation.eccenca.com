@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel SINH(number): Returns the hyperbolic sine of the given number (angle in radians).
 
 ## Parameter

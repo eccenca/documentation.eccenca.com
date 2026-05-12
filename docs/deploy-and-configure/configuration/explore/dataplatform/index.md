@@ -2,6 +2,7 @@
 tags:
     - Configuration
 ---
+
 # Explore backend (DataPlatform)
 
 This manual describes how to install and set up eccenca Explore backend (DataPlatform).

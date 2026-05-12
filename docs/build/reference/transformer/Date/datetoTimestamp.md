@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix Epoch (1970-01-01).
 
 ## Examples
@@ -24,6 +26,7 @@ Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix E
 
 * Returns: `[1499117572000]`
 
+
 ---
 **Example 2:**
 
@@ -31,6 +34,7 @@ Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix E
     1. `[2017-07-03T21:32:52+01:00]`
 
 * Returns: `[1499113972000]`
+
 
 ---
 **Example 3:**
@@ -43,6 +47,7 @@ Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix E
 
 * Returns: `[1499113972]`
 
+
 ---
 **Example 4:**
 
@@ -50,6 +55,9 @@ Convert an xsd:dateTime to a timestamp. Returns the passed time since the Unix E
     1. `[2017-07-03]`
 
 * Returns: `[1499040000000]`
+
+
+
 
 ## Parameter
 
@@ -64,3 +72,7 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **timeToDate** — The two plugins are inverses. Date to timestamp takes a date and outputs a Unix integer; Timestamp to date takes a Unix integer and outputs a date.

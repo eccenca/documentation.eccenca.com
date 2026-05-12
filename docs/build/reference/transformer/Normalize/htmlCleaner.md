@@ -10,11 +10,14 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This transformer cleans HTML markup using a whitelist of HTML tags.
 It allows the selection of HTML sections with XPath or CSS selector expressions.
 If the tag or attribute whitelists are left empty, default whitelists will be used. This behaviour can be changed.
 To remove all the HTML tags and retain plain text, keep the defaults and turn off the "Default tags and attributes" toggle.
 The operator takes two inputs: the page HTML and, optionally, the page URL which may be needed to resolve relative links in the HTML page.
+
 
 ## Parameter
 
@@ -26,6 +29,8 @@ Tags to keep in the cleaned output.
 - Datatype: `traversable[string]`
 - Default Value: `None`
 
+
+
 ### Attribute white list
 
 Attributes to keep in the cleaned output.
@@ -33,6 +38,8 @@ Attributes to keep in the cleaned output.
 - ID: `attributeWhiteList`
 - Datatype: `traversable[string]`
 - Default Value: `None`
+
+
 
 ### Selectors
 
@@ -42,6 +49,8 @@ CSS or XPath queries for selection of content. CSS selectors can be pipe separat
 - Datatype: `traversable[string]`
 - Default Value: `None`
 
+
+
 ### Method
 
 Selects use of XPath or CSS selectors.
@@ -49,6 +58,8 @@ Selects use of XPath or CSS selectors.
 - ID: `method`
 - Datatype: `enumeration`
 - Default Value: `xPath`
+
+
 
 ### Default tags and attributes
 

@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The distance in days between two dates ('YYYY-MM-DD' format).
 
 ## Characteristics
@@ -25,98 +27,110 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ---
 **Returns 0 if both dates are equal:**
 
-* Input values:
-    * Source: `[2003-03-01]`
-    * Target: `[2003-03-01]`
+- Input values:
+    - Source: `[2003-03-01]`
+    - Target: `[2003-03-01]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Returns 1 if both dates are one day apart:**
 
-* Input values:
-    * Source: `[2003-03-01]`
-    * Target: `[2003-03-02]`
+- Input values:
+    - Source: `[2003-03-01]`
+    - Target: `[2003-03-02]`
 
-* Returns: `1.0`
+- Returns: `1.0`
+
 
 ---
 **Returns the number of days if both dates are one month apart:**
 
-* Input values:
-    * Source: `[2003-03-01]`
-    * Target: `[2003-04-01]`
+- Input values:
+    - Source: `[2003-03-01]`
+    - Target: `[2003-04-01]`
 
-* Returns: `31.0`
+- Returns: `31.0`
+
 
 ---
 **Returns the number of days if both dates are one year apart:**
 
-* Input values:
-    * Source: `[2018-03-01]`
-    * Target: `[2019-03-01]`
+- Input values:
+    - Source: `[2018-03-01]`
+    - Target: `[2019-03-01]`
 
-* Returns: `365.0`
+- Returns: `365.0`
+
 
 ---
 **Time of day is ignored:**
 
-* Input values:
-    * Source: `[2003-03-01]`
-    * Target: `[2003-03-01T06:00:00]`
+- Input values:
+    - Source: `[2003-03-01]`
+    - Target: `[2003-03-01T06:00:00]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Missing days are set to 1 by default:**
 
-* Input values:
-    * Source: `[2003-01]`
-    * Target: `[2003-01-01]`
+- Input values:
+    - Source: `[2003-01]`
+    - Target: `[2003-01-01]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Missing months are set to 1 by default:**
 
-* Input values:
-    * Source: `[2003]`
-    * Target: `[2003-01-01]`
+- Input values:
+    - Source: `[2003]`
+    - Target: `[2003-01-01]`
 
-* Returns: `0.0`
+- Returns: `0.0`
+
 
 ---
 **Missing months and days are set to 1 by default:**
 
-* Input values:
-    * Source: `[2018]`
-    * Target: `[2019]`
+- Input values:
+    - Source: `[2018]`
+    - Target: `[2019]`
 
-* Returns: `365.0`
+- Returns: `365.0`
+
 
 ---
 **If 'requireMonthAndDay' is set, dates without a day and month will not match:**
 
-* Parameters
-    * requireMonthAndDay: `true`
+- Parameters
+    - requireMonthAndDay: `true`
 
-* Input values:
-    * Source: `[2003]`
-    * Target: `[2003-03-01]`
+- Input values:
+    - Source: `[2003]`
+    - Target: `[2003-03-01]`
 
-* Returns: `Infinity`
+- Returns: `Infinity`
+
 
 ---
 **If 'requireMonthAndDay' is set, dates without a day will not match:**
 
-* Parameters
-    * requireMonthAndDay: `true`
+- Parameters
+    - requireMonthAndDay: `true`
 
-* Input values:
-    * Source: `[2003-12]`
-    * Target: `[2003-03-01]`
+- Input values:
+    - Source: `[2003-12]`
+    - Target: `[2003-03-01]`
 
-* Returns: `Infinity`
+- Returns: `Infinity`
+
+
+
 
 ## Parameter
 
@@ -124,10 +138,14 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 If true, no distance value will be generated if months or days are missing (e.g., 2019-11). If false, missing month or day fields will default to 1.
 
-* ID: `requireMonthAndDay`
-* Datatype: `boolean`
-* Default Value: `false`
+- ID: `requireMonthAndDay`
+- Datatype: `boolean`
+- Default Value: `false`
 
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **dateTime** — The date time metric plugin is the date metric plugin at a finer scale: it resolves differences to the second rather than the day, but does not tolerate partial dates that lack a month or day.

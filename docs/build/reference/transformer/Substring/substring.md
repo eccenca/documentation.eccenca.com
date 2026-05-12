@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive). If 'endIndex' is 0 (default), it is ignored and the entire remaining string starting with 'beginIndex' is returned. If 'endIndex' is negative, -endIndex characters are removed from the end.
 
 ## Examples
@@ -28,6 +30,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 * Returns: `[a]`
 
+
 ---
 **Example 2:**
 
@@ -40,6 +43,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 * Returns: `[c]`
 
+
 ---
 **Example 3:**
 
@@ -51,6 +55,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
     1. `[abc]`
 
 * Returns: `[]`
+
 
 ---
 **Example 4:**
@@ -65,6 +70,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 * Returns: `[c]`
 * **Throws error:** `ValidationException`
 
+
 ---
 **Example 5:**
 
@@ -77,6 +83,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
     1. `[abc]`
 
 * Returns: `[c]`
+
 
 ---
 **Example 6:**
@@ -91,6 +98,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 * Returns: `[]`
 
+
 ---
 **Example 7:**
 
@@ -102,6 +110,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
     1. `[abc]`
 
 * Returns: `[ab]`
+
 
 ---
 **Example 8:**
@@ -115,6 +124,9 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 * Returns: `[bc]`
 
+
+
+
 ## Parameter
 
 ### Begin index
@@ -125,13 +137,17 @@ The beginning index, inclusive.
 * Datatype: `int`
 * Default Value: `0`
 
+
+
 ### End index
 
-The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string starting with 'beginIndex' is returned. If negative, -endIndex characters are removed from the end
+The end index, exclusive. Ignored if set to 0, i.e., the entire remaining string starting with 'beginIndex' is returned. If negative, -endIndex characters are removed from the end.
 
 * ID: `endIndex`
 * Datatype: `int`
 * Default Value: `0`
+
+
 
 ### String must be in range
 
@@ -144,3 +160,9 @@ If true, only strings will be accepted that are within the start and end indices
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **stripPrefix** — Substring removes a fixed number of characters from the start regardless of their content. Strip prefix is more selective: it only removes from the start if the configured string is actually found there.
+* **stripPostfix** — Substring works by index: it removes a fixed count of trailing characters regardless of their content. Strip postfix is the alternative when the trailing portion is a known string; it checks for it and leaves the value unchanged if not found.
+* **untilCharacter** — Substring extracts by position: the start and end indices are fixed and apply to every input value regardless of its content. Until character extracts up to a specific character.

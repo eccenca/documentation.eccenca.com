@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Strips a prefix of a string.
 
 ## Examples
@@ -27,6 +29,7 @@ Strips a prefix of a string.
 
 * Returns: `[Value]`
 
+
 ---
 **Example 2:**
 
@@ -37,6 +40,9 @@ Strips a prefix of a string.
     1. `[ValueWithoutPrefix]`
 
 * Returns: `[ValueWithoutPrefix]`
+
+
+
 
 ## Parameter
 
@@ -51,3 +57,8 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **stripPostfix** — Strip prefix removes a configured string from the start of the value, leaving it unchanged if the string is not found there. Strip postfix is the complement: it checks and removes from the end.
+* **substring** — Strip prefix removes a configured string from the start only if it is actually present. Substring removes by position: it skips the first N characters regardless of their content, so it will cut into the value even if the expected prefix is absent.

@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Validates if dates are within a specified range.
+
 
 ## Parameter
 
@@ -21,6 +24,8 @@ Earliest allowed date in YYYY-MM-DD
 - ID: `minDate`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Max date
 
@@ -33,3 +38,7 @@ Latest allowed data in YYYY-MM-DD
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **validateDateAfter** — Validate date range checks a date against a configured earliest and latest date. Validate date after checks whether one input date is later than another.

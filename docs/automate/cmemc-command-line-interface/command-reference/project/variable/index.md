@@ -17,6 +17,7 @@ Project variables can be used in dataset and task parameters, and in the templat
 
 Variables are identified by a `VARIABLE_ID`. To get a list of existing variables, execute the list command or use tab-completion. The `VARIABLE_ID` is a concatenation of a `PROJECT_ID` and a `VARIABLE_NAME`, such as `my-project:my-variable`.
 
+
 ## project variable list
 
 List available project variables.
@@ -25,7 +26,12 @@ List available project variables.
 cmemc project variable list [OPTIONS]
 ```
 
+
+
+
 Outputs a table or a list of project variables.
+
+
 
 ??? info "Options"
     ```text
@@ -34,10 +40,9 @@ Outputs a table or a list of project variables.
     --id-only                Lists only variables names and no other metadata.
                              This is useful for piping the IDs into other
                              commands.
-    --filter <TEXT TEXT>...  Filter variables based on metadata. First parameter
-                             CHOICE can be one of ['project', 'regex']. The
-                             second parameter is based on CHOICE, e.g. a project
-                             ID or a regular expression string.
+    --filter <TEXT TEXT>...  Filter project variables by one of the following
+                             filter names and a corresponding value: project,
+                             regex.
     ```
 
 ## project variable get
@@ -48,10 +53,16 @@ Get the value or other data of a project variable.
 cmemc project variable get [OPTIONS] VARIABLE_ID
 ```
 
+
+
+
 Use the ``--key`` option to specify which information you want to get.
 
 !!! note
     Only the `value` key is always available on a project variable. Static value variables have no `template` key, and the `description` key is optional for both types of variables.
+
+
+
 
 ??? info "Options"
     ```text
@@ -64,14 +75,30 @@ Use the ``--key`` option to specify which information you want to get.
 
 ## project variable delete
 
-Delete a project variable.
+Delete project variables.
 
 ```shell-session title="Usage"
-cmemc project variable delete VARIABLE_ID
+cmemc project variable delete [OPTIONS] [VARIABLE_IDS]...
 ```
 
-!!! note
-    You can not delete a variable which is used by another (template based) variable. In order to do so, delete the template based variable first.
+
+
+
+There are three selection mechanisms: with specific IDs - only those specified variables will be deleted; by using `--filter` - variables based on the filter type and value will be deleted; by using `--all`, which will delete all variables.
+
+Variables are automatically sorted by their dependencies and deleted in the correct order (template-based variables that depend on others are deleted first, then their dependencies).
+
+
+
+??? info "Options"
+    ```text
+
+    -a, --all                Delete all variables. This is a dangerous option,
+                             so use it with care.
+    --filter <TEXT TEXT>...  Filter project variables by one of the following
+                             filter names and a corresponding value: project,
+                             regex.
+    ```
 
 ## project variable create
 
@@ -81,14 +108,21 @@ Create a new project variable.
 cmemc project variable create [OPTIONS] VARIABLE_NAME
 ```
 
+
+
+
 Variables need to be created with a value or a template (not both). In addition to that, a project ID and a name are mandatory.
 
 ```shell-session title="Example"
 cmemc project variable create my_var --project my_project --value abc
 ```
 
+
 !!! note
     cmemc is currently not able to manage the order of the variables in a project. This means you have to create plain value variables in advance, before you can create template based variables, which access these values.
+
+
+
 
 ??? info "Options"
     ```text
@@ -112,10 +146,16 @@ Update data of an existing project variable.
 cmemc project variable update [OPTIONS] VARIABLE_ID
 ```
 
+
+
+
 With this command you can update the value or the template, as well as the description of a project variable.
 
 !!! note
     If you update the template of a static variable, it will be transformed to a template based variable. If you want to change the value of a template based variable, an error will be shown.
+
+
+
 
 ??? info "Options"
     ```text

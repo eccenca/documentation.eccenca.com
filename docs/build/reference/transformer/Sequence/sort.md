@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Sorts values lexicographically.
 
 ## Examples
@@ -24,6 +26,7 @@ Sorts values lexicographically.
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -32,6 +35,7 @@ Sorts values lexicographically.
 
 * Returns: `[a, b, c]`
 
+
 ---
 **Example 3:**
 
@@ -39,6 +43,9 @@ Sorts values lexicographically.
     1. `[Hans, Hansa, Hamburg]`
 
 * Returns: `[Hamburg, Hans, Hansa]`
+
+
+
 
 ## Parameter
 

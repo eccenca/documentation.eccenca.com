@@ -10,6 +10,9 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
+
 The dataset needs the document id of a "share via url" sheet on Google Drive as input.
 It will automatically correct the URL and add the "export as xlsx" option to a new URL
 that will be used to download an Excel Spreadsheet.
@@ -23,6 +26,7 @@ A file based cache is created to avoid CAPTCHAs. During the caching and validati
 access occurs with random wait times between 1 and 5 seconds.
 The cache is invalidated after 5 minutes by default.
 
+
 ## Parameter
 
 ### URL
@@ -32,6 +36,8 @@ Link to the document ('share with anyone having a link' must be enabled, URL par
 - ID: `url`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Lines to skip
 
@@ -50,6 +56,8 @@ Streaming enables reading and writing large Excels files. Warning: Be careful to
 - ID: `streaming`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Invalidate cache after
 

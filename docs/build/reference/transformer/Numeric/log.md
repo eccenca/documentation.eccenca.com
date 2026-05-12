@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Transforms all numbers by applying the logarithm function. Non-numeric values are left unchanged.
+
 
 ## Parameter
 

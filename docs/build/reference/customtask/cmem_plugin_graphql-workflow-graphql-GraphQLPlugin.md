@@ -23,6 +23,7 @@ This workflow task performs GraphQL operations by sending
      obtained from entities. The result of the query is saved as a JSON document
      in a pre-created JSON dataset.
 
+
 ## Parameter
 
 ### Endpoint
@@ -33,6 +34,8 @@ The URL of the GraphQL endpoint you want to query. A collective list of public G
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Query
 
 The query text of the GraphQL Query you want to execute. GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. Learn more on GraphQL [here](https://graphql.org/). Example Query: query allFruits { fruits { id scientific_name tree_name fruit_name family origin description climatic_zone } }
@@ -40,6 +43,8 @@ The query text of the GraphQL Query you want to execute. GraphQL is a query lang
 - ID: `graphql_query`
 - Datatype: `multiline string`
 - Default Value: `None`
+
+
 
 ### Query variables
 
@@ -58,6 +63,8 @@ The Dataset where this task will save the JSON results.
 - ID: `graphql_dataset`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### OAuth access token
 

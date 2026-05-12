@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel RAND(): Returns a random number between 0 and 1.
 
 ## Parameter

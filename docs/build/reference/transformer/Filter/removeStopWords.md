@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The stop word list is specified as a resource, e.g. a file identical to
 [this German stop word list](https://raw.githubusercontent.com/stopwords-iso/stopwords-de/refs/heads/master/stopwords-de.txt).
 
@@ -38,6 +40,7 @@ Additionally, notice the simpler filter 'removeDefaultStopWords', which uses a d
 
 * Returns: `[, question]`
 
+
 ---
 **Example 2:**
 
@@ -45,6 +48,9 @@ Additionally, notice the simpler filter 'removeDefaultStopWords', which uses a d
     1. `[It always seems impossible, until it's done]`
 
 * Returns: `[impossible, ]`
+
+
+
 
 ## Parameter
 
@@ -55,6 +61,8 @@ Resource for the stop word list
 * ID: `stopWordList`
 * Datatype: `resource`
 * Default Value: `None`
+
+
 
 ### Separator
 

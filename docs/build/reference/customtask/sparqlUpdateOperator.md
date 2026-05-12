@@ -10,12 +10,14 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 The SPARQL UPDATE query plugin is a task for outputting SPARQL UPDATE queries from the input RDF data source.
 
 ## Description
 
-The `sparqlUpdateOperator` plugin is an example of a _task_. Notice well that this plugin is **neither** a _RDF task_
-nor a _RDF dataset_. This is in contrast to e.g. the `sparqlSelectOperator` and the `sparqlEndpoint`, respectively.
+The SPARQL Update query plugin is an example of a _task_. Notice well that this plugin is neither a _RDF task_
+nor a _RDF dataset_. This is in contrast to e.g. the SPARQL Select query and the SPARQL endpoint, respectively.
 
 More specifically, this means the following: This plugin does not execute SPARQL queries of any sort, but _generates_
 them. It generates [SPARQL Update](https://www.w3.org/TR/sparql11-update/) queries from a templating engine. In order to
@@ -23,7 +25,7 @@ _execute_ these queries, we need to connect this task from an input into an outp
 
 ## Templating
 
-The `sparqlUpdateOperator` plugin uses a **template** in order to construct and output SPARQL update queries.
+The SPARQL Update query plugin uses a template in order to construct and output SPARQL update queries.
 There are two possible template engines supported by this plugin: a `Simple` engine and
 [`Velocity Engine`](https://velocity.apache.org/engine/2.4.1/user-guide.html).
 Each of these engines supports a different set of templating features, such as for example _variable interpolation_ with
@@ -56,14 +58,31 @@ can combine variable substitutions with fixed expressions to construct semi-flex
 Input values are accessible via various methods of the `row` variable (used with `$row`):
 
 - `$row.uri(inputPath: String)`: Renders an input value as **URI**. Throws an exception if the value isn't a valid URI.
-- `$row.plainLiteral(inputPath: String)`: Renders an input value as **plain literal**, i.e. it escapes problematic characters, etc.
-- `$row.rawUnsafe(inputPath: String)`: Renders an input value as is, i.e. **no escaping** is done. This should **only** be used if the input values can be trusted.
+- `$row.plainLiteral(inputPath: String)`: Renders an input value as **plain literal**, i.e. it escapes problematic
+  characters, etc.
+- `$row.rawUnsafe(inputPath: String)`: Renders an input value as is, i.e. **no escaping** is done.
+  This should **only** be used if the input values can be trusted.
 - `$row.exists(inputPath: String)`: Returns `true` if a value for the input path **exists**, else `false`.
 
-The methods `uri`, `plainLiteral` and `rawUnsafe` throw an exception if no input value is available for the given input path.
+The methods `uri`, `plainLiteral` and `rawUnsafe` throw an exception if no input value is available for the given
+input path.
 
 In addition to input values, properties of the input and output tasks can be accessed via the `inputProperties` and
-`outputProperties` objects in the same way as the `row` object. For example with `$inputProperties.uri("graph")`.
+`outputProperties` objects. The available keys in these objects are dynamic and correspond exactly to the configuration
+parameters of the tasks connected to the input and output ports of this operator.
+
+- To find the available keys for `$inputProperties`, check the parameter names of the task connected to the input port.
+- To find the available keys for `$outputProperties`, check the parameter names of the task connected to the output port.
+
+For example, if the connected input task has a parameter named `graph`, you can access it as `$inputProperties.uri("graph")`.
+Similarly, if the connected output task has a parameter named `endpoint`, you can access it as `$outputProperties.uri("endpoint")`.
+
+Both `inputProperties` and `outputProperties` support the same methods as the `row` object:
+
+- `uri(inputPath: String)`
+- `plainLiteral(inputPath: String)`
+- `rawUnsafe(inputPath: String)`
+- `exists(inputPath: String)`
 
 For more information about the Velocity Engine, visit <http://velocity.apache.org>.
 
@@ -71,13 +90,6 @@ For more information about the Velocity Engine, visit <http://velocity.apache.or
 
 In contrast to the SPARQL select operator, no `FROM` clause gets injected into the query.
 
-## Related plugins
-
-As mentioned, this plugin is neither a RDF task nor a RDF dataset. Those two categories of plugins are, nevertheless,
-related. Specifically, the RDF dataset plugins such as the `sparqlEndpoint` can be used as data input. Similarly,
-possible output datasets could be an **in-memory dataset** or a **Knowledge Graph** such as the one handled by the
-`eccencaDataPlatform` plugin, which is the flagship RDF dataset of
-[Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory).
 
 ## Parameter
 
@@ -89,6 +101,8 @@ The SPARQL UPDATE template for constructing SPARQL UPDATE queries for every enti
 - Datatype: `code-sparql`
 - Default Value: `None`
 
+
+
 ### Batch size
 
 How many entities should be handled in a single update request.
@@ -96,6 +110,8 @@ How many entities should be handled in a single update request.
 - ID: `batchSize`
 - Datatype: `int`
 - Default Value: `1`
+
+
 
 ### Templating mode
 
@@ -108,3 +124,8 @@ The templating mode for the template engine. The possible values are `Simple` an
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **sparqlEndpoint** — A SPARQL endpoint dataset in the workflow receives the update statements this plugin generates and executes them against the remote store.
+- **sparqlSelectOperator** — This plugin turns entity input into SPARQL Update statements that modify a store. The SPARQL Select query plugin reads from the same kind of store by executing a SELECT query and outputting the results as an entity table.

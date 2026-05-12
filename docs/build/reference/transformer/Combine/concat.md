@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Concatenates strings from multiple inputs.
 
 ## Examples
@@ -21,6 +23,7 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[]`
 
+
 ---
 **Example 2:**
 
@@ -28,6 +31,7 @@ Concatenates strings from multiple inputs.
     1. `[a]`
 
 * Returns: `[a]`
+
 
 ---
 **Example 3:**
@@ -37,6 +41,7 @@ Concatenates strings from multiple inputs.
     2. `[b]`
 
 * Returns: `[ab]`
+
 
 ---
 **Example 4:**
@@ -50,6 +55,7 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First-Last]`
 
+
 ---
 **Example 5:**
 
@@ -61,6 +67,7 @@ Concatenates strings from multiple inputs.
     2. `[Second, Third]`
 
 * Returns: `[First-Second, First-Third]`
+
 
 ---
 **Example 6:**
@@ -75,6 +82,7 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First--Second]`
 
+
 ---
 **Example 7:**
 
@@ -87,6 +95,7 @@ Concatenates strings from multiple inputs.
     3. `[Second]`
 
 * Returns: `[]`
+
 
 ---
 **Example 8:**
@@ -102,6 +111,7 @@ Concatenates strings from multiple inputs.
 
 * Returns: `[First--Second]`
 
+
 ---
 **Example 9:**
 
@@ -113,11 +123,11 @@ Concatenates strings from multiple inputs.
     2. `[Second]`
 
 * Returns:
-
     ```text
     [First
     Second]
     ```
+
 
 ---
 **Example 10:**
@@ -129,7 +139,10 @@ Concatenates strings from multiple inputs.
     1. `[First]`
     2. `[Second]`
 
-* Returns: `[First \\aSecond]`
+* Returns: `[First    \\aSecond]`
+
+
+
 
 ## Parameter
 
@@ -140,6 +153,8 @@ Separator to be inserted between two concatenated strings. The text can contain 
 * ID: `glue`
 * Datatype: `string`
 * Default Value: `None`
+
+
 
 ### Missing values as empty strings
 
@@ -152,3 +167,8 @@ Handle missing values as empty strings.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **concatPairwise** — Concatenate takes the Cartesian product of all inputs and produces one string per combination. Concatenate pairwise aligns values by position and produces one string per position, truncating to the shortest input.
+* **concatMultiValues** — Passing multiple values to a single input of Concatenate does not combine them — it multiplies the output. Concatenate multiple values is the plugin that collapses multiple values within an input into one string, producing exactly one result per input.

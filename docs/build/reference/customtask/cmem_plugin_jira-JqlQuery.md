@@ -29,6 +29,7 @@ where you should connect a JSON Dataset.
 Note that you need to create an [API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 for your Atlassian account, to access the API of your atlassian.net hosted Jira instance.
 
+
 ## Parameter
 
 ### Jira Server
@@ -39,17 +40,27 @@ Base URL of the jira service, e.g. '<https://jira.example.org>'
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Account
+
+
 
 - ID: `username`
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Password or Token
+
+
 
 - ID: `password`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### JQL Query
 
@@ -58,6 +69,8 @@ Warning: An empty query string retrieves all issues.
 - ID: `jql_query`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Limit
 
@@ -71,9 +84,13 @@ Maximum number of issues to retrieve (0 = retrieve all issues).
 
 ### Verify SSL Connection
 
+
+
 - ID: `ssl_verify`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Connection Timeout
 
@@ -82,6 +99,8 @@ Number of seconds, the plugin will wait to establish a connection to the Jira Se
 - ID: `timeout`
 - Datatype: `Long`
 - Default Value: `300`
+
+
 
 ### Results per Page
 

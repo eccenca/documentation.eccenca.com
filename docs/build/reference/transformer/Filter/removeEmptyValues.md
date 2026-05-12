@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Removes empty values.
 
 ## Examples
@@ -24,6 +26,7 @@ Removes empty values.
 
 * Returns: `[value1, value2]`
 
+
 ---
 **Example 2:**
 
@@ -32,6 +35,9 @@ Removes empty values.
 
 * Returns: `[]`
 
+
+
+
 ## Parameter
 
 `None`
@@ -39,3 +45,8 @@ Removes empty values.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **removeValues** — Remove empty values removes only empty strings and has no parameters. Remove values is the configurable alternative, filtering out values that match words from a user-supplied blacklist.
+* **emptyValue** — Empty value produces what Remove empty values removes: an empty sequence. Remove empty values is selective; Empty value is unconditional.

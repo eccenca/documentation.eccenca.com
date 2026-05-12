@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Tokenizes all input values.
 
 ## Examples
@@ -24,6 +26,7 @@ Tokenizes all input values.
 
 * Returns: `[Hello, World]`
 
+
 ---
 **Optionally, splits values at the provided regex:**
 
@@ -34,6 +37,9 @@ Tokenizes all input values.
     1. `[.175,.050]`
 
 * Returns: `[.175, .050]`
+
+
+
 
 ## Parameter
 
@@ -48,3 +54,7 @@ The regular expression used to split values.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **camelcasetokenizer** — A value written in camel case produces a single token under Tokenize, because there is no separator character to split on. Camel case tokenizer reads case transitions as boundaries and splits accordingly.

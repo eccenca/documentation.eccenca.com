@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Replace all occurrences of a string with another string.
 
 ## Examples
@@ -28,6 +30,7 @@ Replace all occurrences of a string with another string.
 
 * Returns: `[abc]`
 
+
 ---
 **Example 2:**
 
@@ -40,6 +43,9 @@ Replace all occurrences of a string with another string.
 
 * Returns: `[def]`
 
+
+
+
 ## Parameter
 
 ### Search
@@ -49,6 +55,8 @@ The string to search for
 * ID: `search`
 * Datatype: `string`
 * Default Value: `None`
+
+
 
 ### Replace
 
@@ -61,3 +69,8 @@ The replacement of each match
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexReplace** — The Replace plugin substitutes a literal search string everywhere it occurs. The Regex replace plugin does the same kind of rewrite, but the match is defined by a regular expression rather than a fixed substring.
+* **map** — Replace performs in-place substitution of a substring, leaving the rest of the value intact. The Map plugin replaces entire values based on exact key matches and returns a configured default when no match is found.

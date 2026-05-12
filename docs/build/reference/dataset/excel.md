@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Read from or write to an Excel workbook in Open XML format (XLSX). The sheet is selected by specifying it as type in the subsequent workflow operator.
+
 
 ## Parameter
 
@@ -22,6 +25,8 @@ File name inside the resources directory.
 - Datatype: `resource`
 - Default Value: `None`
 
+
+
 ### Lines to skip
 
 The number of lines to skip in the beginning when reading files.
@@ -30,6 +35,8 @@ The number of lines to skip in the beginning when reading files.
 - Datatype: `int`
 - Default Value: `0`
 
+
+
 ### Has header
 
 If true, the first line will be read as the table header, which defines the column names. If false, the first line will be read as data. In that case, the columns need to be adressed using #A, #B, etc.
@@ -37,6 +44,8 @@ If true, the first line will be read as the table header, which defines the colu
 - ID: `hasHeader`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Output object values
 

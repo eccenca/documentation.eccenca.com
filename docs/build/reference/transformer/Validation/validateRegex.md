@@ -10,9 +10,11 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Description
 
-The `validateRegex` plugin validates whether all values match a given regular expression.
+The Validate regex plugin validates whether all values match a given regular expression.
 
 This plugin is a _validation_ transformer plugin. This means that if the regular expression does _not_ match the input
 value, it will _fail_ with a validation exception.
@@ -29,22 +31,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `validateRegex` plugin, there are related plugins such as `ifMatchesRegex`, `regexReplace` and
-`regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `validateRegex` plugin is used for _validating_ the input, `ifMatchesRegex` is useful
-for _conditionally distinguishing_ which input to take, `regexReplace` _replaces_ all occurrences, and `regexExtract`
-_extracts_ them.
 
 ## Examples
 
@@ -61,6 +54,7 @@ _extracts_ them.
 
 * Returns: `[TestValue123]`
 
+
 ---
 **Example 2:**
 
@@ -72,6 +66,7 @@ _extracts_ them.
 
 * Returns: `[abcd]`
 
+
 ---
 **Example 3:**
 
@@ -82,6 +77,7 @@ _extracts_ them.
     1. `[Prefix abc]`
 
 * Returns: `[Prefix abc]`
+
 
 ---
 **Example 4:**
@@ -95,6 +91,7 @@ _extracts_ them.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
 ---
 **Example 5:**
 
@@ -107,6 +104,7 @@ _extracts_ them.
 * Returns: `[]`
 * **Throws error:** `ValidationException`
 
+
 ---
 **Example 6:**
 
@@ -118,6 +116,9 @@ _extracts_ them.
 
 * Returns: `[]`
 * **Throws error:** `ValidationException`
+
+
+
 
 ## Parameter
 
@@ -132,3 +133,10 @@ regular expression
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexReplace** — Regex replace rewrites the input string by substituting every match and returns the rewritten value. Validate regex treats the pattern as a full-value check on the resulting string.
+* **ifMatchesRegex** — A regular expression match plays different roles here. The Validate regex plugin checks each value against the pattern and passes it through only when it fully matches. The If matches regex plugin uses the match to choose which provided branch value is returned.
+* **regexSelect** — Regex selection turns one checked value and a list of patterns into a result sequence aligned with that list, placing the provided output value wherever a pattern matches. Validate regex keeps the original value and treats the pattern as a full-value check.
+* **regexExtract** — Regex extract turns the match into output by returning the matched substring or the first capturing group. Validate regex leaves the value unchanged and only lets it through when the full value matches the pattern.

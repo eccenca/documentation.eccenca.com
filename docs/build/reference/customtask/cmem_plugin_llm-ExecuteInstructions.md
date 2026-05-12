@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 ## Overview
 
 This plugin executes Large Language Model (LLM) instructions over entity collections, enabling
@@ -137,31 +138,8 @@ Customize the conversation structure beyond simple prompts:
 
 For detailed prompting guidance, see [OpenAI's Text Generation Guide](https://platform.openai.com/docs/guides/text?api-mode=chat).
 
+
 ## Parameter
-
-### Base URL
-
-The base URL of the OpenAI compatible API (without endpoint path).
-
-- ID: `base_url`
-- Datatype: `string`
-- Default Value: `https://api.openai.com/v1/`
-
-### API Type
-
-Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
-
-- ID: `api_type`
-- Datatype: `enumeration`
-- Default Value: `OPENAI`
-
-### API key
-
-An optional API key for authentication.
-
-- ID: `api_key`
-- Datatype: `password`
-- Default Value: `None`
 
 ### Instruct Model
 
@@ -169,7 +147,9 @@ The identifier of the instruct model to use. Note that some provider do not supp
 
 - ID: `model`
 - Datatype: `string`
-- Default Value: `gpt-4o-mini`
+- Default Value: `None`
+
+
 
 ### Instruction Prompt Template
 
@@ -181,6 +161,36 @@ The instruction prompt template. Please have a look at the task documentation fo
 
 ## Advanced Parameter
 
+### Base URL
+
+The base URL of the OpenAI compatible API (without endpoint path). If left empty CMEMs internal LLM proxy is used.
+
+- ID: `base_url`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### API Type
+
+Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
+
+- ID: `api_type`
+- Datatype: `enumeration`
+- Default Value: `OPENAI`
+
+
+
+### API key
+
+An optional API key for authentication. When using CMEMs internal LLM proxy this parameter is ignored and `EXPLORE_AI_APIKEY` in `environments/config.env` is used.
+
+- ID: `api_key`
+- Datatype: `password`
+- Default Value: `None`
+
+
+
 ### API Version
 
 Azure OpenAI API version (only used when API Type is `AZURE_OPENAI`). For more information about OpenAI API version at Azure, please see [the documentation](https://learn.microsoft.com/en-gb/azure/ai-foundry/openai/api-version-lifecycle).
@@ -188,6 +198,8 @@ Azure OpenAI API version (only used when API Type is `AZURE_OPENAI`). For more i
 - ID: `api_version`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Temperature (between 0 and 2)
 
@@ -197,6 +209,8 @@ A parameter that controls the randomness and creativity of the model. A high tem
 - Datatype: `double`
 - Default Value: `1.0`
 
+
+
 ### Timeout (seconds)
 
 The timeout for a single API request in seconds.
@@ -205,6 +219,8 @@ The timeout for a single API request in seconds.
 - Datatype: `double`
 - Default Value: `300`
 
+
+
 ### Instruction Output Path
 
 The entity path where the instruction result will be provided. Note: This parameter is not used when Output Format is set to STRUCTURED_OUTPUT. For structured outputs, only the Pydantic model fields are included in the output schema.
@@ -212,6 +228,8 @@ The entity path where the instruction result will be provided. Note: This parame
 - ID: `instruction_output_path`
 - Datatype: `string`
 - Default Value: `_instruction_output`
+
+
 
 ### Messages Template
 
@@ -234,6 +252,8 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 ]
 ```
 
+
+
 ### Output Format
 
 Specifying the format that the model must output. Possible values are `TEXT` - Standard text output, `STRUCTURED_OUTPUT` - output follows a given schema. Add your schema as Pydantic model in the parameter below, `JSON_MODE` - a more basic version of the structured outputs feature where you have to add your structure to the prompt template.
@@ -241,6 +261,8 @@ Specifying the format that the model must output. Possible values are `TEXT` - S
 - ID: `output_format`
 - Datatype: `enumeration`
 - Default Value: `TEXT`
+
+
 
 ### Pydantic Schema
 
@@ -260,6 +282,8 @@ class StructuredOutput(BaseModel):
 
 ```
 
+
+
 ### Raise on API errors
 
 How to react on API errors. When enable, any API errors will cause the workflow to stop with an exception. When disabled, API errors are logged and the error message is written to the entity output, allowing the workflow to continue processing other entities.
@@ -267,6 +291,8 @@ How to react on API errors. When enable, any API errors will cause the workflow 
 - ID: `raise_on_error`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Maximum Concurrent Requests
 
@@ -276,6 +302,8 @@ Maximum number of concurrent API requests to prevent rate limiting and resource 
 - Datatype: `Long`
 - Default Value: `10`
 
+
+
 ### Batch Size
 
 Number of entities to process in each batch for memory optimization.
@@ -283,6 +311,8 @@ Number of entities to process in each batch for memory optimization.
 - ID: `batch_size`
 - Datatype: `Long`
 - Default Value: `100`
+
+
 
 ### Request Delay (seconds)
 

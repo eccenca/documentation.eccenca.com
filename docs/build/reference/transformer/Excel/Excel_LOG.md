@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel LOG(number; base): Returns the logarithm of the given number to the specified base. Base is the base for the logarithm calculation.
 
 ## Parameter

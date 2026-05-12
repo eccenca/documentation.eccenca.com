@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Return 0 to 1 for strong similarity to weak similarity. Based on the paper: Stoilos, Giorgos, Giorgos Stamou, and Stefanos Kollias. "A string metric for ontology alignment." The Semantic Web-ISWC 2005. Springer Berlin Heidelberg, 2005. 624-637.
 
 ## Characteristics
@@ -31,3 +33,8 @@ The minimum length of a possible substring match.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **startsWith** — The Substring comparison plugin produces a continuous similarity score across the full string; Starts with reduces the comparison to a binary check on whether the source opens with the target.
+- **isSubstring** — The score from Substring comparison is continuous, reflecting overall string similarity; Is substring checks only whether the source appears anywhere inside the target, returning a binary result.

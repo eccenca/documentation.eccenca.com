@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Description of the plugin
 
 This transformer takes _three_ inputs: a single _output value_, a sequence of _regular expressions_ and a sequence of
@@ -35,22 +37,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `regexSelect` plugin, there are related plugins such as `ifMatchesRegex`, `validateRegex`,
-`regexReplace` and `regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `ifMatchesRegex` plugin is useful for _conditionally distinguishing_ which input to
-take, `validateRegex` is used for _validating_ the input, `regexReplace` _replaces_ all occurrences, and
-`regexExtract` _extracts_ them.
 
 ## Examples
 
@@ -69,6 +62,7 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[output, , output]`
 
+
 ---
 **return only first match position if oneOnly = true:**
 
@@ -81,6 +75,9 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
     3. `[catch]`
 
 * Returns: `[output, , ]`
+
+
+
 
 ## Parameter
 
@@ -95,3 +92,10 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **regexExtract** — The Regex selection plugin returns the provided output value in a result sequence aligned with the regex list, filling only the positions whose pattern matches the checked value. The Regex extract plugin returns the matched substring itself, or the first capturing group, so the output is taken from the input text rather than from the provided output value.
+* **ifMatchesRegex** — The If matches regex plugin returns one of the provided branch inputs based on whether the checked value matches. The Regex selection plugin returns a result sequence aligned with the pattern list, placing the provided output value at every matching position.
+* **regexReplace** — The Regex replace plugin returns a rewritten string by replacing every match inside the input text with the configured replacement. The Regex selection plugin returns a result sequence aligned with the pattern list and fills each matching position with the provided output value.
+* **filterByRegex** — The Regex selection plugin keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches. The Filter by regex plugin keeps or drops values from the input sequence based on full-string matching.

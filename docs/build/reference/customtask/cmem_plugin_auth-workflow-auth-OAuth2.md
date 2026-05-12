@@ -27,6 +27,7 @@ Note: The consuming task needs to have the parameter `oauth_access_token` in ord
 to use the output this task. You need to connect this task to the
 **config port** of the consuming task.
 
+
 ## Parameter
 
 ### Grant Type
@@ -37,6 +38,8 @@ Select the used OAuth Grant Type in order to specify how this plugin gets a vali
 - Datatype: `string`
 - Default Value: `client_credentials`
 
+
+
 ### Token Endpoint
 
 This is the OpenID Connect (OIDC) OAuth 2.0 token endpoint location (a HTTP(S) URL).
@@ -44,6 +47,8 @@ This is the OpenID Connect (OIDC) OAuth 2.0 token endpoint location (a HTTP(S) U
 - ID: `oauth_token_url`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Client ID
 
@@ -53,6 +58,8 @@ The Client ID obtained during registration.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Client Secret
 
 The Client Secret obtained during registration.
@@ -61,6 +68,8 @@ The Client Secret obtained during registration.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Username
 
 The user account name used for authentication.
@@ -68,6 +77,8 @@ The user account name used for authentication.
 - ID: `user_name`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Password
 

@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This task retrieves data from an incoming workflow task (such as a SPARQL query),
 and sends bulk API requests to the Salesforce Object API, in order to
 manipulate data in your organization's Salesforce account.
@@ -36,17 +37,18 @@ Example:
 
 - You want to create new Lead objects based on data from a Knowledge Graph.
 - The [Lead Object Reference](https://developer.salesforce.com/docs/atlas.en-us.238.0.object_reference.meta/object_reference/sforce_api_objects_lead.htm) lists the supported fields, e.g. `FirstName`,
-`LastName` and `Email`.
+  `LastName` and `Email`.
 - Your input SPARQL task looks like this. Note that the variables need
-to match the field strings from the Salesforce data model:
+  to match the field strings from the Salesforce data model:
 
-```text
+```sparql
 SELECT DISTINCT FirstName, LastName, Email ...
 ```
 
 - You select `Lead` as the Object API Name of this task and you connect both task in
 the workflow in order get the result of the SPARQL task as in input for this task.
 - For each SPARQL result, a new Lead is created.
+
 
 ## Parameter
 
@@ -58,11 +60,17 @@ Username of the Salesforce Account. This is typically your email address.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Password
+
+
 
 - ID: `password`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Security Token
 
@@ -71,6 +79,8 @@ In addition to your standard account credentials, you need to provide a security
 - ID: `security_token`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Object API Name
 

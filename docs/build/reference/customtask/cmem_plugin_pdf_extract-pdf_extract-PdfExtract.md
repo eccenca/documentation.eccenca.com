@@ -24,6 +24,7 @@ A task to extract text and tables from PDF files.
 The output is a JSON string on the path `pdf_extract_output`. The format depends on the
 ["Combine the results from all files into a single value"](#parameter_doc_all_files) parameter.
 
+
 ### Output one entity/value per file
 
 ```text
@@ -50,6 +51,7 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 }
 ```
 
+
 ### Output one entity/value for all files
 
 ```text
@@ -72,6 +74,7 @@ This task can either work with project files when a regular expression is being 
 entities coming from another task or dataset.
 The input must be file entities following the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).
 If a regular expression is set, the input ports will close and no connection will be possible.
+
 
 ## Parameters
 
@@ -127,12 +130,14 @@ Available strategies include:
 
 Defines the maximum number of processes to use for concurrent file processing. By default, this is set to (number of virtual cores - 1).
 
+
 ## Test regular expression
 
 Clicking the "Test regex pattern" button displays the files in the current project that match the regular expression
 specified with the ["File name regex filter"](#parameter_doc_regex) parameter.
 This does not display the files if there is another dataset or task connected to the input
 as the entities are not known before execution.
+
 
 ## Parameter
 
@@ -144,6 +149,8 @@ If set to 'Combine', the results of all files will be combined into a single out
 - Datatype: `string`
 - Default Value: `no_combine`
 
+
+
 ### Page selection
 
 Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files that do not contain any of the specified pages will return empty results with the information logged. If no page selection is specified, all pages will be processed.
@@ -151,6 +158,8 @@ Comma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files
 - ID: `page_selection`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Error Handling Mode
 
@@ -160,6 +169,8 @@ The mode in which errors during the extraction are handled. If set to "Ignore", 
 - Datatype: `string`
 - Default Value: `raise_on_error`
 
+
+
 ### Table extraction strategy
 
 Specifies the method used to detect tables in the PDF page. Options include "lines" and "text", each using different cues (such as lines or text alignment) to find tables. If "Custom" is selected, a custom setting needs to defined under advanced options.
@@ -167,6 +178,8 @@ Specifies the method used to detect tables in the PDF page. Options include "lin
 - ID: `table_strategy`
 - Datatype: `string`
 - Default Value: `lines`
+
+
 
 ### Text extraction strategy
 
@@ -185,6 +198,8 @@ Regular expression for filtering resources of the project. If this parameter is 
 - ID: `regex`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Custom table extraction strategy
 
@@ -221,6 +236,8 @@ Custom table extraction strategy in YAML format.
 # vertical_strategy: lines
 ```
 
+
+
 ### Custom_text_strategy
 
 Custom text extraction strategy in YAML format.
@@ -242,6 +259,8 @@ Custom text extraction strategy in YAML format.
 # y_density: 13
 # y_tolerance: 1
 ```
+
+
 
 ### Maximum number of processes for processing files
 

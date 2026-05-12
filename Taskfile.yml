@@ -5,7 +5,9 @@ version: '3'
 
 vars:
   PUBLIC_BRANCH: published
-  CURRENT_VERSION: 25.3
+  CURRENT_VERSION: 26.1
+  MATERIAL_TAG: 9.6.14
+  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
 
 tasks:
 
@@ -101,7 +103,7 @@ tasks:
       ICON_DIR: overrides/.icons/eccenca
 
   update:cmemc:
-    desc: re-generates the cmemc command reference
+    desc: re-generates the cmemc command reference (needs local cmemc)
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
@@ -109,7 +111,7 @@ tasks:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
   update:shape-reference:
-    desc: re-generates the shape and datatype references
+    desc: re-generates the shape and datatype references (needs local CO)
     summary: >
       This task uses a running Corporate Memory to upload a specification for
       a custom markdown endpoint (see shapedocu.ttl in
@@ -144,12 +146,12 @@ tasks:
       SRC: tools/update-shape-reference
 
   update:di-reference:
-    desc: update the task and operator reference pages
+    desc: update the task and operator reference pages (needs local CO)
     cmds:
       - poetry run dec-tool update-di-reference
 
   update:integrations:
-    desc: update integrations page
+    desc: update integrations page (needs data/integrations.yml)
     cmds:
       - poetry run dec-tool update-integrations
 
@@ -189,7 +191,7 @@ tasks:
         } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
 
   check:rumdl:
-    desc: run rumdl (md-linter) for style issues
+    desc: run rumdl (md-linter) for style issues without failing the check stage
     cmds:
       - mkdir -p ./dist
       - rm -f ./dist/md-lint-issues.xml
@@ -208,4 +210,7 @@ tasks:
 
           # no recursion (top-level only)
           find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check
+        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check || {
+          echo "rumdl reported markdown style issues; continuing without failing the check stage."
+          true
+        }

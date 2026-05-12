@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Reads and writes binary files. A typical use-case for this dataset is to process PDF documents or images using workflow operators that accept or output files. If an operator reads from this dataset that does not support files directly (such as transformation or linking tasks), it will only receive the file metadata, which includes the file path.
 
 ## ZIP files
@@ -29,6 +31,7 @@ Same for the `replacable output` flag, which will return the file content as a r
 
 The generic MIME type for files of this dataset is `application/octet-stream`.
 
+
 ## Parameter
 
 ### File
@@ -38,6 +41,8 @@ The file to read or write.
 - ID: `file`
 - Datatype: `resource`
 - Default Value: `None`
+
+
 
 ### ZIP file regex
 

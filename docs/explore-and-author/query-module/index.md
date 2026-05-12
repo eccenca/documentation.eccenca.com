@@ -1,6 +1,5 @@
 ---
 icon: eccenca/application-queries
-status: new
 tags:
     - SPARQL
     - KnowledgeGraph

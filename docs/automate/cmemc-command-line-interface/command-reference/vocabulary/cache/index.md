@@ -13,6 +13,7 @@ tags:
 
 List und update the vocabulary cache.
 
+
 ## vocabulary cache update
 
 Reload / updates the data integration cache for a vocabulary.
@@ -20,6 +21,10 @@ Reload / updates the data integration cache for a vocabulary.
 ```shell-session title="Usage"
 cmemc vocabulary cache update [OPTIONS] [IRIS]...
 ```
+
+
+
+
 
 ??? info "Options"
     ```text
@@ -34,6 +39,10 @@ Output the content of the global vocabulary cache.
 ```shell-session title="Usage"
 cmemc vocabulary cache list [OPTIONS]
 ```
+
+
+
+
 
 ??? info "Options"
     ```text

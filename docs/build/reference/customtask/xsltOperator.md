@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Description of the plugin
 
 The plugin `xsltOperator` is a custom task which can be used in a workflow in order to transform a given **XML file** using an **XSL transformation** from an XSLT file. The filename extension of such a XSL transformation is, accordingly, `.xslt`.
@@ -26,9 +28,9 @@ If you are well-versed in the XSL ecosystem, this is everything you need to know
 
 The acronym **XSL** stands for "eXtensible Stylesheet Language". XSL is not a single technology or specification, but a _family of languages_ for processing (transforming) and rendering (presenting) XML documents. It consists of three parts:
 
-1. XSLT: XSL Transformations
-2. XPath: XML Path Language
-3. XSL-FO: XSL Formatting Objects
+    1. XSLT: XSL Transformations
+    2. XPath: XML Path Language
+    3. XSL-FO: XSL Formatting Objects
 
 In a nutshell, this is simply the separation of concerns between "processing" XML and "rendering" the results.
 
@@ -52,13 +54,13 @@ The **XSL transform** turns the so-called **source tree** into a **result tree**
 
 A minimal example of the (1) XML input data, (2) a corresponding XSL transformation and the (3) generated output is the following:
 
-**XML data** (`.xml` file):
+##### XML data (`.xml` file)
 
 ```xml
 <book><title>1984</title></book>
 ```
 
-**XSL stylesheet** (`.xslt` file):
+##### XSL stylesheet (`.xslt` file)
 
 ```xml
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
@@ -68,7 +70,7 @@ A minimal example of the (1) XML input data, (2) a corresponding XSL transformat
 </xsl:stylesheet>
 ```
 
-**Output:** (`.html` file)
+##### Output: (`.html` file)
 
 ```html
 <html><body><h1>1984</h1></body></html>
@@ -237,6 +239,7 @@ To import XML into a **Knowledge Graph**, you typically:
 Whereas this process _does_ the job of importing XML into a knowledge graph, using a **data integration** solution based on **knowledge graphs**, such as [eccenca Corporate Memory](https://eccenca.com/products/enterprise-knowledge-graph-platform-corporate-memory) (CMEM), is a _much better fit_. For an example on this, see the [tutorial on lifting data from an XML source](https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources/), and notice how each of the steps (mapping, transforming, validating, loading) is realized. In such an improved setting, notice how the `xsltOperator` plugin  is _**not** used for transforming XML into RDF_, but only for _transforming the data you want to import and bring it to the XML format_. The second step of the list (_transform the XML into RDF_) is taken care of by CMEM itself. The usage of XSLT is, therefore, limited to what is required by your input data and data processing requirements, not by the technicalities behind the semantic data integration.
 
 Notice as well that the source of XML data does not need to be an XML _file_. An alternative could be a Web API providing XML instead of JSON responses. See the [tutorial on extracting data from a Web API](https://documentation.eccenca.com/latest/build/extracting-data-from-a-web-api/), and use an **XML parser** and **XML Dataset** instead of the JSON variants described in the tutorial. Otherwise, the process is the same.
+
 
 ## Parameter
 

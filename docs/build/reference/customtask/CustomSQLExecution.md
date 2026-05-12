@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Executes a custom SQL query on the first input Spark dataframe and returns the result as its output.
+
 
 ## Parameter
 

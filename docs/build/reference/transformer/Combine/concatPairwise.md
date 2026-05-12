@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Concatenates the values of multiple inputs pairwise.
 
 ## Examples
@@ -25,6 +27,7 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1, b2, c3]`
 
+
 ---
 **More than two inputs are supported as well:**
 
@@ -35,6 +38,7 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1x, b2y, c3z]`
 
+
 ---
 **If one of the inputs has more values than the other, its remaining values are ignored:**
 
@@ -44,10 +48,12 @@ Concatenates the values of multiple inputs pairwise.
 
 * Returns: `[a1, b2]`
 
+
 ---
 **Empty input leads to empty output:**
 
 * Returns: `[]`
+
 
 ---
 **A single input is just forwarded:**
@@ -56,6 +62,9 @@ Concatenates the values of multiple inputs pairwise.
     1. `[a]`
 
 * Returns: `[a]`
+
+
+
 
 ## Parameter
 
@@ -70,3 +79,8 @@ Separator to be inserted between two concatenated strings. The text can contain 
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **concat** — Concatenate pairwise matches values by position and produces one combined string per position. Concatenate does not align by position — it produces every combination of values across inputs, so two inputs with three values each yield nine strings, not three.
+* **zip** — When inputs have unequal lengths, Concatenate pairwise drops the extra values from the longer input. Zip solves the same alignment problem for exactly two inputs but keeps them by substituting a configurable placeholder for each missing value.

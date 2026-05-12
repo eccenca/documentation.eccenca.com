@@ -30,6 +30,7 @@ on configuration.
   An example XML document is shown below. This document will be sent as two messages
   to the configured topic. Each message is created as a proper XML document.
 
+
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <KafkaMessages>
@@ -58,6 +59,7 @@ on configuration.
 
   An example JSON document is shown below. This document will be sent as two messages
   to the configured topic. Each message is created as a proper JSON document.
+
 
 ```json
 [
@@ -105,6 +107,8 @@ on configuration.
 
 </details>
 
+
+
 ## Parameter
 
 ### Messages Dataset
@@ -115,6 +119,8 @@ Where do you want to retrieve the messages from? The dropdown lists usable datas
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Bootstrap Server
 
 This is URL of one of the Kafka brokers. The task fetches the initial metadata about your Kafka cluster from this URL.
@@ -123,6 +129,8 @@ This is URL of one of the Kafka brokers. The task fetches the initial metadata a
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Security Protocol
 
 Which security mechanisms need to be applied to connect? Use PLAINTEXT in case you connect to a plain Kafka, which is available inside your VPN. Use SASL in case you connect to a [confluent.cloud](https://confluent.cloud) cluster (then you also need to specify your SASL credentials in the advanced options section).
@@ -130,6 +138,8 @@ Which security mechanisms need to be applied to connect? Use PLAINTEXT in case y
 - ID: `security_protocol`
 - Datatype: `string`
 - Default Value: `PLAINTEXT`
+
+
 
 ### Topic
 
@@ -143,9 +153,13 @@ The name of the category/feed to which the messages will be published. Note that
 
 ### SASL Mechanisms
 
+
+
 - ID: `sasl_mechanisms`
 - Datatype: `string`
 - Default Value: `PLAIN`
+
+
 
 ### SASL Account
 
@@ -155,6 +169,8 @@ The account identifier for the SASL authentication. In case you are using a [con
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### SASL Password
 
 The credentials for the SASL Account. In case you are using a [confluent.cloud](https://confluent.cloud) cluster, this is the API secret.
@@ -162,6 +178,8 @@ The credentials for the SASL Account. In case you are using a [confluent.cloud](
 - ID: `sasl_password`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### Client Id
 
@@ -171,6 +189,8 @@ An optional identifier of a Kafka client (producer/consumer) that is passed to a
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Maximum Message Size
 
 The maximum size of a request message in bytes. This is also effectively a cap on the maximum record size. Note that the server has its own cap on record size which may be different from this.
@@ -178,6 +198,8 @@ The maximum size of a request message in bytes. This is also effectively a cap o
 - ID: `message_max_bytes`
 - Datatype: `Long`
 - Default Value: `1048576`
+
+
 
 ### Compression Type
 

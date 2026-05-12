@@ -10,7 +10,10 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Converts an xsd:duration to seconds.
+
 
 ## Parameter
 
@@ -19,3 +22,7 @@ Converts an xsd:duration to seconds.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- **numberToDuration** — Duration in seconds outputs a second count; Number to duration consumes one. Configured for seconds, Number to duration is the write operation to Duration in seconds' read.

@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This plugin enables execution of commands inside Kubernetes pods and captures their output.
 
 ## Features
@@ -44,6 +45,7 @@ downstream workflow tasks.
 - Gathering system information and logs
 - Performing health checks and troubleshooting
 
+
 ## Parameter
 
 ### Config Type
@@ -54,6 +56,8 @@ The type of configuration you wish to use.
 - Datatype: `string`
 - Default Value: `explicit`
 
+
+
 ### Namespace
 
 Namespaces provide a mechanism for isolating groups of resources.
@@ -61,6 +65,8 @@ Namespaces provide a mechanism for isolating groups of resources.
 - ID: `namespace`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Pod
 
@@ -70,6 +76,8 @@ Pods are an abstraction that represent groups of one or more application contain
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Container
 
 In case there is more than one container in the pod OR the default container selection does not work, you need to specify the container ID in addition to the pod ID.
@@ -77,6 +85,8 @@ In case there is more than one container in the pod OR the default container sel
 - ID: `container`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Command
 

@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel CODE(text): Returns a numeric code for the first character in a text string. Text is the text for which the code of the first character is to be found.
 
 ## Parameter

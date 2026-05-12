@@ -9,6 +9,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Forwards the first input that provides a non-empty similarity score.
 
 ## Examples
@@ -20,6 +22,9 @@ Forwards the first input that provides a non-empty similarity score.
 
 * Input values: `[null, 0.2, 0.5]`
 * Returns: `0.2`
+
+
+
 
 ## Parameter
 

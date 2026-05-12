@@ -38,6 +38,7 @@ This workflow task updates [Graph Insights](https://go.eccenca.com/feature/explo
 - User must have permissions to access Graph Insights
 - The plugin will skip execution with a warning if these conditions are not met
 
+
 ## Parameter
 
 ### Selected Graph

@@ -17,6 +17,7 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
+
 This workflow operator uses the Kafka Consumer API
 to receive messages from an [Apache Kafka](https://kafka.apache.org/) topic.
 
@@ -25,7 +26,7 @@ flat schema:
 
 - **key** - the optional key of the message,
 - **content** - the message itself as plain text (use other operators, such as
-  [Parse JSON](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-json) or [Parse XML](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-xml) to process
+  [Parse JSON](JsonParserOperator.md) or [Parse XML](XmlParserOperator.md) to process
   complex message content),
 - **offset** - the given offset of the message in the topic,
 - **ts-production** - the timestamp when the message was written to the topic,
@@ -113,6 +114,7 @@ In this case, a sample response from the consumer will appear as follows:
 
 </details>
 
+
 ## Parameter
 
 ### Messages Dataset
@@ -123,6 +125,8 @@ Where do you want to save the messages? The dropdown lists usable datasets from 
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Bootstrap Server
 
 This is URL of one of the Kafka brokers. The task fetches the initial metadata about your Kafka cluster from this URL.
@@ -131,6 +135,8 @@ This is URL of one of the Kafka brokers. The task fetches the initial metadata a
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Security Protocol
 
 Which security mechanisms need to be applied to connect? Use PLAINTEXT in case you connect to a plain Kafka, which is available inside your VPN. Use SASL in case you connect to a [confluent.cloud](https://confluent.cloud) cluster (then you also need to specify your SASL credentials in the advanced options section).
@@ -138,6 +144,8 @@ Which security mechanisms need to be applied to connect? Use PLAINTEXT in case y
 - ID: `security_protocol`
 - Datatype: `string`
 - Default Value: `PLAINTEXT`
+
+
 
 ### Topic
 
@@ -151,9 +159,13 @@ The name of the category/feed where messages were published.
 
 ### SASL Mechanisms
 
+
+
 - ID: `sasl_mechanisms`
 - Datatype: `string`
 - Default Value: `PLAIN`
+
+
 
 ### SASL Account
 
@@ -163,6 +175,8 @@ The account identifier for the SASL authentication. In case you are using a [con
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### SASL Password
 
 The credentials for the SASL Account. In case you are using a [confluent.cloud](https://confluent.cloud) cluster, this is the API secret.
@@ -170,6 +184,8 @@ The credentials for the SASL Account. In case you are using a [confluent.cloud](
 - ID: `sasl_password`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### Auto Offset Reset
 
@@ -179,6 +195,8 @@ What to do when there is no initial offset in Kafka or if the current offset doe
 - Datatype: `string`
 - Default Value: `latest`
 
+
+
 ### Consumer Group Name
 
 When a topic is consumed by consumers in the same group, every record will be delivered to only one consumer of that group. If all the consumers of a topic are labeled the same consumer group, then the records will effectively be load-balanced over these consumers. If all the consumer of a topic are labeled different consumer groups, then each record will be broadcast to all the consumers. When the Group Id field is empty, the plugin defaults to DNS:PROJECT ID:TASK ID.
@@ -186,6 +204,8 @@ When a topic is consumed by consumers in the same group, every record will be de
 - ID: `group_id`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Client Id
 
@@ -195,6 +215,8 @@ An optional identifier of a Kafka client (producer/consumer) that is passed to a
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Local Consumer Queue Size
 
 Maximum total message size in kilobytes that the consumer can buffer for a specific partition. The consumer will stop fetching from the partition if it hits this limit. This helps prevent consumers from running out of memory.
@@ -203,6 +225,8 @@ Maximum total message size in kilobytes that the consumer can buffer for a speci
 - Datatype: `Long`
 - Default Value: `5000`
 
+
+
 ### Message Limit
 
 The maximum number of messages to fetch and process in each run. If 0 or less, all messages will be fetched.
@@ -210,6 +234,8 @@ The maximum number of messages to fetch and process in each run. If 0 or less, a
 - ID: `message_limit`
 - Datatype: `Long`
 - Default Value: `100000`
+
+
 
 ### Disable Commit
 

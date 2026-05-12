@@ -1,6 +1,6 @@
 ---
 title: "Excel map"
-description: "Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: mapFrom,mapTo <source string>,<target string> ... and more An empty string can be created in Excel and alternatives by inserting `=''` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds."
+description: "Replaces values based on a map of values read from a file in Open XML format (XLSX). The XLSX file may contain several sheets of the form: ```mapFrom,mapTo <source string>,<target string>``` and more. An empty string can be created in Excel and alternatives by inserting `=''` in the input line of a cell. If there are multiple values for a single key, all values will be returned for the given key. Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
@@ -10,18 +10,25 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Replaces values based on a map of values read from a file in Open XML format (XLSX).
 The XLSX file may contain several sheets of the form:
 
+```text
 mapFrom,mapTo
 <source string>,<target string>
-... and more
+```
+
+and more.
 
 An empty string can be created in Excel and alternatives by inserting `=""` in the input line of a cell.
 
 If there are multiple values for a single key, all values will be returned for the given key.
 
 Note that the mapping table will be cached in memory. If the Excel file is updated (even while transforming), the map will be reloaded within seconds.
+
+
 
 ## Parameter
 
@@ -33,6 +40,8 @@ Excel file inside the resources directory containing one or more sheets with map
 - Datatype: `resource`
 - Default Value: `None`
 
+
+
 ### Sheet name
 
 The sheet that contains the mapping table or empty if the first sheet should be taken.
@@ -40,6 +49,8 @@ The sheet that contains the mapping table or empty if the first sheet should be 
 - ID: `sheetName`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Skip lines
 
@@ -49,6 +60,8 @@ How many rows to skip before reading the mapping table. By default the expected 
 - Datatype: `int`
 - Default Value: `1`
 
+
+
 ### Strict
 
 If set to true, the operator throws validation errors for values it cannot map. If set to false, the chosen conflict strategy will be applied for missing values.
@@ -56,6 +69,8 @@ If set to true, the operator throws validation errors for values it cannot map. 
 - ID: `strict`
 - Datatype: `boolean`
 - Default Value: `true`
+
+
 
 ### Conflict strategy
 

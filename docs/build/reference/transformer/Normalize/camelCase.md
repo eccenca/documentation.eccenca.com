@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Converts a string to camel case. Upper camel case is the default, lower camel case can be chosen.
 
 ## Examples
@@ -27,6 +29,7 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
 
 * Returns: `[HelloWorld]`
 
+
 ---
 **A sentence with several words is converted to a single word written in lowerCamelCase:**
 
@@ -37,6 +40,7 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
     1. `[hello world]`
 
 * Returns: `[helloWorld]`
+
 
 ---
 **A single lowercase letter is converted to UpperCamelCase, i.e. capitalized:**
@@ -49,6 +53,7 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
 
 * Returns: `[H]`
 
+
 ---
 **A single lowercase letter is converted to lowerCamelCase (aka. dromedary case), i.e. uncapitalized:**
 
@@ -59,6 +64,7 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
     1. `[h]`
 
 * Returns: `[h]`
+
 
 ---
 **An empty space is removed. The dromedary/lower case is irrelevant here:**
@@ -71,6 +77,7 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
 
 * Returns: `[]`
 
+
 ---
 **An empty space is removed. The upper case is irrelevant here:**
 
@@ -81,6 +88,9 @@ Converts a string to camel case. Upper camel case is the default, lower camel ca
     1. `[ ]`
 
 * Returns: `[]`
+
+
+
 
 ## Parameter
 

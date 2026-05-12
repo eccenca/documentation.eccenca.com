@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 This transformer plugin implements the **Soundex** phonetic algorithm for indexing names by their English sounds.
 
 ## Description
@@ -70,12 +72,6 @@ We can get an idea of the output of the Soundex algorithm using an online Sounde
 * `hairs`, `hark`, `hars`, `hayers`, `heers` and `hiers` are all mapped to `h093`.
 * All sorts of variations of `lambard`, such as `lambart`, `lambert`, `lambird` or `lampaert`, lead to `l7081096`.
 
-## Related plugins
-
-Other phonetic algorithms usually associated with Soundex are the variations or improvements implemented by the
-[`NYSIIS`](https://en.wikipedia.org/wiki/New_York_State_Identification_and_Intelligence_System)
-and [`Metaphone`](https://en.wikipedia.org/wiki/Metaphone) algorithms. The corresponding linguistic transformer plugins
-are named accordingly.
 
 ## Parameter
 
@@ -90,3 +86,8 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **metaphone** — The Soundex plugin turns a name into a short, fixed-format code built around the first letter and digit groups. The Metaphone plugin returns a letter-based phonetic key instead, so the output is not even the same kind of artifact.
+* **NYSIIS** — The Soundex plugin returns a short Soundex code, optionally in refined mode. The NYSIIS plugin returns a different phonetic key, and the refined flag is internal to each encoder rather than a shared setting that makes the two outputs compatible.

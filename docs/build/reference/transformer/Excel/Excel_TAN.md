@@ -10,6 +10,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 Excel TAN(number): Returns the tangent of the given number (angle in radians).
 
 ## Parameter

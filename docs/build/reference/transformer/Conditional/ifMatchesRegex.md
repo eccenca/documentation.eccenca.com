@@ -10,9 +10,11 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
+
+
 ## Description
 
-The `ifMatchesRegex` plugin uses a regular expression as a matching condition in order to distinguish which input to
+The If matches regex plugin uses a regular expression as a matching condition in order to distinguish which input to
 take.
 
 This plugin is a _conditional transformer_ plugin. This means that a _regular expression_ is used as a matching
@@ -50,22 +52,13 @@ characters, or `"\\D*"` for _non_-digits.
 Similarly, the hat sign `^` can be used for negating (arbitrary) character classes, such as `[^xyz]` for any character
 except `x`, `y` or `z`.
 
-**Attention**: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
+Attention: Slashes in regular expressions have to be _escaped_, e.g. instead of `\s` we need to escape it as `\\s`.
 
 ### Note for advanced users
 
 A compilation of the available constructs for building regular expressions is available in the
 [API of the Java `Pattern`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum).
 
-## Relation to other plugins
-
-Additionally to the `ifMatchesRegex` plugin, there are related plugins such as `validateRegex`, `regexReplace` and
-`regexExtract`.
-
-The distinctive feature of each of these plugins lies in what happens whenever the regular expression
-matches the input value(s): the `ifMatchesRegex` plugin is useful for _conditionally distinguishing_ which input to
-take, `validateRegex` is used for _validating_ the input, `regexReplace` _replaces_ all occurrences, and
-`regexExtract` _extracts_ them.
 
 ## Examples
 
@@ -85,6 +78,7 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[should be taken]`
 
+
 ---
 **returns the third input if the regex does not match the first input:**
 
@@ -99,6 +93,7 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[last value should be taken]`
 
+
 ---
 **returns an empty value if the regex does not match the first input:**
 
@@ -112,6 +107,9 @@ take, `validateRegex` is used for _validating_ the input, `regexReplace` _replac
 
 * Returns: `[]`
 
+
+
+
 ## Parameter
 
 ### Regex
@@ -121,6 +119,8 @@ No description
 * ID: `regex`
 * Datatype: `string`
 * Default Value: `None`
+
+
 
 ### Negate
 
@@ -133,3 +133,9 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* **validateRegex** — A regular expression match drives both operators, but the outcome differs. The “If matches regex” plugin routes between alternative input values, while the “Validate regex” plugin draws an acceptance boundary by deciding whether the checked value is valid.
+* **regexSelect** — The Regex selection plugin marks match positions by emitting copies of a provided output value wherever a regular expression matches the checked value sequence. The If matches regex plugin uses a regular expression match as a branch decision between alternative input values rather than producing positional markers.
+* **regexExtract** — The Regex extract plugin returns the matching content from the input string, or the first capturing group if the regular expression contains capturing groups. The If matches regex plugin does not return matched content; it uses the match only to choose which of the provided input values becomes the output.

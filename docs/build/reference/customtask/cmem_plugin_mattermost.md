@@ -43,6 +43,7 @@ input paths are recognized:
 - channel
 - message
 
+
 ## Parameter
 
 ### URL
@@ -53,6 +54,8 @@ The base URL of your Mattermost deployment. Example: <https://mattermost.example
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Access Token
 
 The Personal Access Token of the bot account.
@@ -60,6 +63,8 @@ The Personal Access Token of the bot account.
 - ID: `access_token`
 - Datatype: `password`
 - Default Value: `None`
+
+
 
 ### Bot name
 
@@ -69,6 +74,8 @@ The name or display name of the bot you want to use to connect.
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### User
 
 The user account which will receive the message. You can search for users if the connection was successful (Base URl, bot + token).
@@ -77,6 +84,8 @@ The user account which will receive the message. You can search for users if the
 - Datatype: `string`
 - Default Value: `None`
 
+
+
 ### Channel
 
 The channel which will receive the message. You can search for channels if the connection was successful (Base URl, bot + token). If you want to send your message to multiple channels, separate them with a comma.
@@ -84,6 +93,8 @@ The channel which will receive the message. You can search for channels if the c
 - ID: `channel`
 - Datatype: `string`
 - Default Value: `None`
+
+
 
 ### Message
 
