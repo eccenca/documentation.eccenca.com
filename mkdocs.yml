@@ -302,8 +302,9 @@ plugins:
 # }}}
 
 # {{{ Less important mkdocs configuration
-# https://www.mkdocs.org/user-guide/configuration/#watch
-watch:
-  - overrides
+# https://zensical.org/docs/setup/basics/#watch
+# TODO: commened out with v0.0.41 as it causes rebuild loop, check back with later releases
+# watch:
+#  - overrides
 # }}}
 
