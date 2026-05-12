@@ -1619,8 +1619,6 @@
       
         
       
-        
-      
     
     
     
@@ -3582,36 +3580,6 @@
     
   
     Update Graph Insights Snapshots
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../build/reference/customtask/cmem_plugin_semspect-task-Update/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L20.94 3h-3.69a.75.75 0 0 1-.75-.75"/><path d="M3.25 4a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 .75.75v3.19l3.72-3.72a.75.75 0 0 1 .53-.22h10a.25.25 0 0 0 .25-.25v-6a.75.75 0 0 1 1.5 0v6a1.75 1.75 0 0 1-1.75 1.75h-9.69l-3.573 3.573A1.457 1.457 0 0 1 5 21.043V18.5H3.25a1.75 1.75 0 0 1-1.75-1.75V4.25c0-.966.784-1.75 1.75-1.75h11a.75.75 0 0 1 0 1.5z"/></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Update SemSpect
   
 
     
@@ -26551,22 +26519,24 @@ A workflow trigger resource references a data integration workflow by URI.</p>
 <li><strong>Send Resource Reference</strong>: can be either <code>true</code>or <code>false</code>. If this value is set to <code>true</code>, a payload that consists of the <em>resource IRI</em> that is represented in the view as well as the <em>graph IRI </em>of the graph that is currently selected<em>.</em></li>
 </ul>
 <h2 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">¤</a></h2>
-<p>Once a trigger resources is defined, it can be attached to a Node Shape by using a special-purpose non-validating Property Shape resources.
-Such property shapes use a <code>shui:provideWorkflowTrigger</code> statement to define, which workflow trigger are to be represented.
-SHACL path statements on such Property Shape resources are meaningless and ignored, but may be provided.</p>
+<p>A <code>shui:WidgetIntegration</code> resource needs to be created from the previously defined workflow trigger.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="create_new_widget_integration.png" /></a></p>
+<p>Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating <a href="../node-shapes/#widgets">Widget property</a>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="adding_widget_to_node.png" /></a></p>
 <h2 id="payload-structure">Payload Structure<a class="headerlink" href="#payload-structure" title="Permanent link">¤</a></h2>
 <p>When <em>Send Resource Reference</em> is set to <em>true</em>, a payload is added to the call of the workflow.
 The payload consists of a JSON document with two attributes:</p>
 <p>Workflow Payload</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nt">&quot;graphIRI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/example-graph&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="nt">&quot;resourceIRI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/example-graph/examle-resource&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="nt">&quot;resourceIRI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://example.org/example-graph/example-resource&quot;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
 <li><code>graphIRI</code> is the IRI of the graph that is currently viewed, and</li>
-<li><code>resourceIRI</code>is the IRI of the resource that is viewed.</li>
+<li><code>resourceIRI</code> is the IRI of the resource that is viewed.</li>
 </ul>
+<p>To make use of this dynamic payload, the underlying workflow should define variable input using <a href="../../../../build/workflows/#replaceable-datasets">Replaceable Datasets</a>.</p>
 
 
 
@@ -26589,7 +26559,7 @@ The payload consists of a JSON document with two attributes:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 16, 2025 17:17:35 UTC"><span class="timeago" datetime="2025-12-16T17:17:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 16, 2025 17:17:35 UTC">2025-12-16</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 12, 2026 07:14:58 UTC"><span class="timeago" datetime="2026-05-12T07:14:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 12, 2026 07:14:58 UTC">2026-05-12</span>
   </span>
 
     
