@@ -34,7 +34,7 @@ A `shui:WidgetIntegration` resource needs to be created from the previously defi
 
 ![](create_new_widget_integration.png)
 
-Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating [Widget property](../node-shapes#widgets).
+Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating [Widget property](../node-shapes/index.md#widgets).
 
 ![](adding_widget_to_node.png)
 
@@ -55,4 +55,4 @@ Workflow Payload
 - `graphIRI` is the IRI of the graph that is currently viewed, and
 - `resourceIRI` is the IRI of the resource that is viewed.
 
-To make use of this dynamic payload, the underlying workflow should define variable input using [Replaceable Datasets](../../../../build/workflows#replaceable-datasets).
+To make use of this dynamic payload, the underlying workflow should define variable input using [Replaceable Datasets](../../../../build/workflows/index.md#replaceable-datasets).
