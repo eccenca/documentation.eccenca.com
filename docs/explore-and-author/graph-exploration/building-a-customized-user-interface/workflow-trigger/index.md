@@ -30,10 +30,9 @@ To define a workflow trigger the following information is needed:
 
 ## Integration
 
-A `shui:WidgetIntegration` shape element needs to be created from the previously defined workflow trigger.
+A `shui:WidgetIntegration` resource needs to be created from the previously defined workflow trigger.
 
 ![](create_new_widget_integration.png)
-
 
 Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating [Widget property](../node-shapes#widgets).
 
@@ -54,6 +53,6 @@ Workflow Payload
 ```
 
 - `graphIRI` is the IRI of the graph that is currently viewed, and
-- `resourceIRI`is the IRI of the resource that is viewed.
+- `resourceIRI` is the IRI of the resource that is viewed.
 
 To make use of this dynamic payload, the underlying workflow should define variable input using [Replaceable Datasets](../../../../build/workflows#replaceable-datasets).
