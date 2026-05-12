@@ -27,6 +27,13 @@ jinja_environment = Environment(
 def stripped_single_line(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
+class PluginReference(BaseModel):
+    """Reference to a related plugin."""
+
+    id: str
+    description: str | None = None
+
+
 class ActionDescription(BaseModel):
     """Action description"""
 
@@ -82,6 +89,7 @@ class PluginDescription(BaseModel):
     is_deprecated: bool | None = None
     tags: list[str] = Field(default_factory=list)
     pluginType: str | None = None
+    relatedPlugins: list[PluginReference] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def move_advanced_properties(self) -> Self:
@@ -173,8 +181,8 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
 
     content = plugin_template.render(
         plugin=plugin,
-        parameters=parameter_content,
-        parameters_advanced=parameter_advanced_content,
+        parameters=parameter_content.rstrip("\n"),
+        parameters_advanced=parameter_advanced_content.rstrip("\n"),
     )
 
     # create the file (incl. directory)
