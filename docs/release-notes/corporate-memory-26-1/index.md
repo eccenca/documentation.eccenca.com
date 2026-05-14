@@ -34,7 +34,7 @@ This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
 - eccenca Explore v26.1.2
-- eccenca Corporate Memory Control (cmemc) v26.1.2
+- eccenca Corporate Memory Control (cmemc) v26.1.3
 - eccenca Graph Insights v19.2.0
 
 We tested this release with the following dependency components:
@@ -240,9 +240,16 @@ We are pleased to announce the release of Explore v26.1, which introduces badges
     - SPARQL Excel downloads now have clean file names.
     - Notifications are now more robust when given non-string input.
 
-## eccenca Corporate Memory Control (cmemc) v26.1.2
+## eccenca Corporate Memory Control (cmemc) v26.1.3
 
 We are excited to announce the release of cmemc v26.1, which expands access-condition administration, adds richer project and query catalog operations, and improves list and output consistency across the CLI.
+
+**v26.1.3 of cmemc ships the following changes:**
+
+- `workflow scheduler` commands
+    - Migrated all subcommands (`list`, `inspect`, `enable`, `disable`, `open`) from cmempy to cmem-client
+    - Migrated `scheduler_ids` tab-completion from cmempy to cmem-client
+- update dependencies (esp. urllib3 for CVE-2026-44431 and CVE-2026-44432)
 
 **v26.1.2 of cmemc ships the following features:**
 
