@@ -1,4 +1,5 @@
 ---
+INHERIT: nav.yml
 # {{{ Main site config
 site_name: documentation.eccenca.com
 site_url: https://documentation.eccenca.com/
