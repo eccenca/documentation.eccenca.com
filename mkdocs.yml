@@ -303,6 +303,6 @@ plugins:
 
 # {{{ Less important mkdocs configuration
 # https://zensical.org/docs/setup/basics/#watch
-watch:
-  - overrides
+#watch:
+#  - overrides
 # }}}
