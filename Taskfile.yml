@@ -74,6 +74,29 @@ tasks:
     cmds:
       - poetry run mkdocs serve
 
+  pdf:
+    desc: Build a single PDF of the whole site via headless Chrome
+    summary: |
+      Builds the site (which exposes /print_page/ via mkdocs-print-site-plugin),
+      then runs tools/build_pdf.py to serve it locally and print to PDF.
+
+      Tunables (env vars):
+        CHROME        - path to a Chromium-family binary
+                        (default: macOS Google Chrome.app)
+        PORT          - local port for the temporary http server
+                        (default: auto-picked free port)
+        BUILD_VERSION - version stamped on the cover and folded into the
+                        default filename (default: {{.CURRENT_VERSION}})
+        PDF_OUT       - explicit output path; overrides the default
+                        (default: dist/documentation-eccenca-com-<ver>.pdf)
+    deps:
+      - task: install
+    env:
+      BUILD_VERSION: '{{.CURRENT_VERSION}}'
+    cmds:
+      - poetry run mkdocs build
+      - poetry run python tools/build_pdf.py
+
   use:public:
     desc: switch to public package (non insider)
     cmds:

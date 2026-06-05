@@ -1,0 +1,99 @@
+{# Cover page template for mkdocs-print-site-plugin.
+   Rendered as the first page of /print_page/. Context exposes `config`. #}
+<style>
+  .print-cover-page {
+    page-break-after: always;
+    break-after: page;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 3cm 2.5cm;
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+  }
+  .print-cover-page__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .print-cover-page__brand img {
+    width: 1.8cm;
+    height: 1.8cm;
+  }
+  .print-cover-page__brand span {
+    font-size: 14pt;
+    font-weight: 500;
+    color: #555;
+  }
+  .print-cover-page__body {
+    margin-top: 4cm;
+  }
+  .print-cover-page__title {
+    font-size: 34pt;
+    font-weight: 700;
+    margin: 0 0 0.3em 0;
+    line-height: 1.15;
+  }
+  .print-cover-page__subtitle {
+    font-size: 16pt;
+    color: #555;
+    font-weight: 400;
+    margin: 0;
+  }
+  .print-cover-page__rule {
+    border: none;
+    border-top: 3px solid #0a6cb2;
+    width: 6cm;
+    margin: 1.5cm 0 1cm 0;
+  }
+  .print-cover-page__edition {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.2em;
+    row-gap: 0.3em;
+    margin: 0;
+    font-size: 11pt;
+  }
+  .print-cover-page__edition dt {
+    color: #666;
+    font-weight: 500;
+  }
+  .print-cover-page__edition dd {
+    margin: 0;
+    color: #1a1a1a;
+  }
+  .print-cover-page__meta {
+    font-size: 10pt;
+    color: #666;
+    line-height: 1.5;
+  }
+  .print-cover-page__meta a { color: inherit; text-decoration: none; }
+  .print-cover-page__meta p { margin: 0.1em 0; }
+</style>
+
+<article class="print-cover-page">
+  <header class="print-cover-page__brand">
+    <img src="../assets/favicon.svg" alt="">
+    <span>eccenca</span>
+  </header>
+
+  <section class="print-cover-page__body">
+    <h1 class="print-cover-page__title">{{ config.site_name }}</h1>
+    <p class="print-cover-page__subtitle">Corporate Memory Documentation</p>
+    <hr class="print-cover-page__rule">
+    <dl class="print-cover-page__edition">
+      <dt>Version</dt>
+      <dd><span id="print-cover-version">unset</span></dd>
+      <dt>Generated</dt>
+      <dd><span id="print-cover-date">unset</span></dd>
+    </dl>
+  </section>
+
+  <footer class="print-cover-page__meta">
+    <p><a href="{{ config.site_url }}">{{ config.site_url }}</a></p>
+    <p>{{ config.copyright | safe }}</p>
+  </footer>
+</article>

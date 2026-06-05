@@ -164,6 +164,25 @@ img.bordered {
 }
 
 /**
+ * Override mkdocs-print-site-plugin's @page footer styling.
+ * The plugin sets `content: 'Page ' counter(page)` but no font-family or
+ * font-size, so Chrome's print-to-pdf falls back to a large serif. Pin
+ * Roboto and shrink to match body proportions.
+ */
+@page {
+    @bottom-right {
+        font-family: Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 9pt !important;
+        color: #666 !important;
+    }
+    @bottom-center {
+        font-family: Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 9pt !important;
+        color: #666 !important;
+    }
+}
+
+/**
  * simplify layout for print:
  * - only use logo and page title from header
  * - remove footer completely
@@ -200,6 +219,14 @@ img.bordered {
         margin: 0;
     }
     #__comments, .giscus {
+        display: none !important;
+    }
+    /* hide cookie consent dialog + backdrops in PDF output */
+    .md-consent,
+    .md-consent__overlay,
+    .md-overlay,
+    [data-md-component="consent"],
+    [data-md-component="dialog"] {
         display: none !important;
     }
 }
