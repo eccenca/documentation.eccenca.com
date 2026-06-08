@@ -4,7 +4,11 @@
   .print-cover-page {
     page-break-after: always;
     break-after: page;
-    height: 100vh;
+    /* In Chrome's paged context `100vh` is the full page box, including the
+       `@page { margin: 25mm }` set by print-site-material.css. Subtract those
+       top+bottom margins so the cover fits the printable area — otherwise the
+       footer (copyright line) overflows onto a second page. */
+    height: calc(100vh - 50mm);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
