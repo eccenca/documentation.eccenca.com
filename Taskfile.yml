@@ -157,6 +157,8 @@ tasks:
     desc: update integrations page (needs data/integrations.yml)
     cmds:
       - poetry run dec-tool update-integrations
+      - cmd: poetry run rumdl --config .markdownlint.jsonc check --fix docs/build/integrations/index.md
+        ignore_error: true
 
   public:versions:
     desc: List public documentation versions

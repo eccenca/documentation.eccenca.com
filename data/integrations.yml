@@ -19,7 +19,7 @@ integrations:
 
   - name: Neptune
     icon: ":other-neptune:"
-    content: |
+    content: >
       Load and write Knowledge Graphs to Amazon Neptune by using the {{p.sparqlEndpoint}} dataset.
       Query data from Amazon Neptune by using the SPARQL
       [Construct]({{p.sparqlCopyOperator_ref}}),
@@ -29,7 +29,7 @@ integrations:
 
   - name: GraphDB
     icon: ":other-graphdb:"
-    content: |
+    content: >
       Load and write Knowledge Graphs to an external GraphDB store by using the {{p.sparqlEndpoint}} dataset.
       Query data from GraphDB by using the SPARQL
       [Construct]({{p.sparqlCopyOperator_ref}}),
@@ -39,7 +39,7 @@ integrations:
 
   - name: Qlever
     icon: ":other-qlever:"
-    content: |
+    content: >
       Load and write Knowledge Graphs to an external Qlever store by using the {{p.sparqlEndpoint}} dataset.
       Query data from Qlever by using the SPARQL
       [Construct]({{p.sparqlCopyOperator_ref}}),
@@ -49,7 +49,7 @@ integrations:
 
   - name: Tentris
     icon: ":other-tentris:"
-    content: |
+    content: >
       Load and write Knowledge Graphs to an external Tentris store by using the {{p.sparqlEndpoint}} dataset.
       Query data from Tentris by using the SPARQL
       [Construct]({{p.sparqlCopyOperator_ref}}),
@@ -59,7 +59,7 @@ integrations:
 
   - name: Virtuoso
     icon: ":black_large_square:"
-    content: |
+    content: >
       Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the {{p.sparqlEndpoint}} dataset.
       Query data from Virtuoso by using the SPARQL
       [Construct]({{p.sparqlCopyOperator_ref}}),
@@ -188,6 +188,12 @@ integrations:
       Leverage your Knowledge Graphs in Redash using the integrated
       [Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
 
+  - name: n8n
+    icon: ":simple-n8n:"
+    content: |
+      Get data and trigger eccenca Corporate Memory build workflows by using our
+      [n8n Community Node](https://github.com/eccenca/n8n-nodes-corporate-memory).
+
   #####
   # Files
   #####
@@ -299,7 +305,7 @@ integrations:
 
   - name: SQLite
     icon: ":simple-sqlite:"
-    content: |
+    content: >
       SQLite can be accessed with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
       Please have a look at
@@ -307,7 +313,7 @@ integrations:
 
   - name: Trino
     icon: ":simple-trino:"
-    content: |
+    content: >
       [Trino](https://github.com/trinodb/trino) can be access with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
       Please have a look at
@@ -315,7 +321,7 @@ integrations:
 
   - name: Databricks
     icon: ":simple-databricks:"
-    content: |
+    content: >
       [Databricks](http://databricks.com/) can be accessed with the {{p.Jdbc}} dataset and a
       [Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
       Please have a look at
