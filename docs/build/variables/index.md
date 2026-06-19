@@ -200,12 +200,15 @@ For instance, an operator configured with the template `{{value}} {{execution.te
 
 ### Setting execution variables during a workflow run
 
-Execution variables can also be created or updated while a workflow is running, using the **Set execution variable** transform operator (category *Variables*).
-This operator writes the first value of its (single) input into the `execution` scope under the configured variable name and passes the input values through unchanged.
+Execution variables can also be created or updated while a workflow is running.
+Two operators in the *Variables* category support this:
+
+- **Set execution variable** (workflow operator) — a standalone workflow node placed between any two nodes; reads a value from its input and writes it to the `execution` scope, passing the input through unchanged.
+- **Set execution variable** (transform operator) — a transformer used inside a transformation mapping; writes the first value of its input to the `execution` scope and passes all values through unchanged.
 
 !!! note
 
-    The **Set execution variable** operator only has an effect while running inside a workflow execution.
+    Both operators only have an effect while running inside a workflow execution.
     Execution variables are scoped to a single workflow run; they are not persisted and are not shared between runs.
 
 ## Using Variables
