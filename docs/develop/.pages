@@ -2,6 +2,7 @@ nav:
     - Develop: index.md
     - Accessing Graphs with Java Applications: accessing-graphs-with-java-applications
     - Python Plugins: python-plugins
+    - Marketplace Packages: marketplace-packages
     - cmempy - Python API: cmempy-python-api
     - cmemc - Python Scripts: cmemc-scripts
     - Build (DataIntegration) APIs: dataintegration-apis
