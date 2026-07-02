@@ -24,19 +24,46 @@ proxy:
   languagePreferencesAnyLangFallback: true
 ```
 
-These properties define not only which properties and languages should be considered, but also the precedence of languages and properties over each other.
+These properties define not only which properties and languages should be considered, but also the precedence of properties and languages over each other.
 
 The retrieval process can be simplified to the following procedure:
 
-- First, when determining the label for a resource, the language is evaluated, then the property is considered.
-- Consequently, for a resource in the default case:
+- When determining the label for a resource, the **property** is the primary criterion and the **language** the secondary one. In other words, the complete list of preferred languages is evaluated for the first property before Explore backend (DataPlatform) moves on to the next property.
+- Consequently, for a resource with the default settings above, the candidates are tried in this order:
     1. An english value for `rdfs:label` is searched.
     2. A literal of the property `rdfs:label` without a language tag is searched (which is why there is an entry `""`).
     3. An english value of `skos:prefLabel` is searched.
     4. A literal of the property `skos:prefLabel` without a language tag is searched.
-    5. If nothing is found, Explore backend (DataPlatform) tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.
+    5. If nothing is found and `languagePreferencesAnyLangFallback` is `true`, a value in any remaining language is used, again honoring the property precedence (see [Example](#example)).
+    6. If still nothing is found, Explore backend (DataPlatform) tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.
 
-Additionally, in case more than one label could be retrieved, for example by conflicting values, the alphabetically first entry is used.
+Additionally, in case more than one label could be retrieved for the same property and language, for example by conflicting values, the alphabetically first entry is used.
+
+!!! note "Property precedence beats language precedence"
+
+    Because the property is the primary criterion, a value of an earlier property is preferred over a better-matching language on a later property. This especially affects untagged literals: an entry `""` in `languagePreferences` matches a literal without a language tag, so if an earlier property carries such an untagged literal, it wins over a later property that has a value in a preferred language.
+
+    Consider the following configuration and resource:
+
+    ``` yaml
+    proxy:
+      labelProperties:
+      - "http://www.w3.org/2004/02/skos/core#notation"
+      - "http://www.w3.org/2000/01/rdf-schema#label"
+      - "http://www.w3.org/2004/02/skos/core#prefLabel"
+      languagePreferences:
+      - "en"
+      - "de"
+      - ""
+    ```
+
+    ``` turtle
+    :labelEn a owl:Class ;
+        rdfs:label     "label en"@en, "label de"@de ;
+        skos:notation  "notation" .
+    ```
+
+    The resolved label is `notation`: `skos:notation` is the first property, and although it has no `en` or `de` value, its untagged literal is matched by the `""` language preference — so the search never reaches `rdfs:label`. To make `rdfs:label` win here, either list it before `skos:notation` in `labelProperties`, or remove the `""` entry from `languagePreferences` (which lets `skos:notation` fall through to `rdfs:label "label en"@en`).
 
 ## Example
 
