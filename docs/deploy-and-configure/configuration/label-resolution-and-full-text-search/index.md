@@ -63,7 +63,7 @@ Additionally, in case more than one label could be retrieved for the same proper
         skos:notation  "notation" .
     ```
 
-    The resolved label is `notation`: `skos:notation` is the first property, and although it has no `en` or `de` value, its untagged literal is matched by the `""` language preference — so the search never reaches `rdfs:label`. To make `rdfs:label` win here, either list it before `skos:notation` in `labelProperties`, or remove the `""` entry from `languagePreferences` (which lets `skos:notation` fall through to `rdfs:label "label en"@en`).
+    The resolved label is `notation`: `skos:notation` is the first property, and although it has no `en` or `de` value, its untagged literal is matched by the `""` language preference, so the search never reaches `rdfs:label`. To make `rdfs:label` win here, either list it before `skos:notation` in `labelProperties`, or remove the `""` entry from `languagePreferences` (which lets `skos:notation` fall through to `rdfs:label "label en"@en`).
 
 ## Example
 
