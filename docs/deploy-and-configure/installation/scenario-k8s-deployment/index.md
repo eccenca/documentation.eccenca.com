@@ -24,7 +24,7 @@ provisioned cluster.
 
 ## Architecture
 
- ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.png)
+ ![CMEM Helm Chart Architecture](images/cmem-helm-architecture.drawio.png)
 
 ## General Notice
 
