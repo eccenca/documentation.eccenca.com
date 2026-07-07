@@ -31,14 +31,10 @@ The following scopes are available:
 Project variables can only be used in the same project.
 If a project is exported those will be exported as well.
 
-`Task variables (User-defined)` (`task.`)
+`Execution variables (User-defined)` (`execution.`)
 
-:   They are defined by the user on an individual task and can only be used within that same task.
-Task variables can reference global and project variables in their templates.
-
-`Execution variables` (`execution.`)
-
-:   They are not defined statically but provided for a single workflow run, either when the workflow execution is triggered or while the workflow is running.
+:   They are defined by the user on an individual task or workflow as defaults and are only available while that task's execution is running.
+Each run can override them, and they can be changed while the run is in progress.
 
 Build variables can be particularly useful in scenarios where multiple tasks or components within a system need access to the same data or configuration values.
 Instead of repeating the same information in multiple places, project variables provide a centralized and reusable way to store and retrieve these values.
@@ -144,58 +140,46 @@ Type name as `email_ids`, in values we have updated all the email id’s of the 
 
     ![](di-var-email-defined.png){ class="bordered" }
 
-## Task Variables
-
-While project variables are shared across all tasks of a project, task variables are defined on a single task and are only available within that same task.
-They are useful for values that are specific to one task and should not leak into the rest of the project.
-
-Task variables are managed in the same way as project variables, but from the configuration view of an individual task.
-Open a task (for example a dataset, transformation or workflow) and locate the **Task variables** widget.
-Click on :eccenca-item-add-artefact: to add a variable and provide a name, value and description in the same dialog used for project variables.
-
-!!! note
-
-    The naming rules for task variables are the same as for project variables (letters, digits and underscores, not starting with a digit).
-
-Task variables are referenced with the `task.` prefix, for example `{{task.myVariable}}`.
-In their templates they may themselves reference global and project variables, so a task variable can be composed from project-wide values.
-
-!!! note
-
-    Task variables are stored together with the task.
-    When the task or its project is exported, the task variables are exported as well.
-    They are not visible to or usable by other tasks.
-
 ## Execution Variables
 
-Execution variables are not defined statically in advance.
-Instead, they are provided for a single workflow run and are available to all tasks of that workflow during the run.
+While project variables are shared across all tasks of a project, execution variables belong to a single task or workflow and exist only during its execution.
 They are referenced with the `execution.` prefix, for example `{{execution.myVariable}}`.
 
-!!! note "Execution scope fallback"
+Tasks (including workflows) have an **Execution variables** widget in its configuration view, managed in the same way as project variables:
+click on :eccenca-item-add-artefact: to add a variable and provide a name, value and description in the same dialog used for project variables.
+When an execution is started, these variables provide the default values of the execution scope.
+For a workflow run, the defaults come from the **workflow itself** — the execution variables of the operators and datasets inside the workflow are not used during a workflow run; they apply when such a task is executed directly.
 
-    When a template references `{{execution.<name>}}` but `<name>` has not been set directly in the execution scope, the value falls back to the variable of the same name in the `task`, then `project`, then `global` scope .
-    A value that is set directly in the execution scope (provided when starting the workflow, or written during workflow execution) always takes precedence and suppresses the fallback.
-    If the name is not defined in any of the execution, task, project or global scopes, the reference remains unbound and template evaluation fails.
+`{{execution.<name>}}` resolves only from the execution scope — there is no fallback to other scopes.
+If `<name>` has not been defined as a default, provided or set for the run, the reference cannot be resolved and the execution fails with an error.
+To base a default on a project or global variable, give the execution variable a *template* (e.g. `{{project.baseUrl}}/api`); it is resolved when the variable is saved, and the resulting value is used for each run.
 
-    This makes execution variables convenient as overridable defaults: a workflow can reference `{{execution.<name>}}` throughout, and unless a particular run overrides it, the value is taken from the task, project or global variable of the same name.
+!!! note
 
-There are two ways to supply execution variables:
+    Execution variables are resolved in templates that are evaluated **during execution**, for example the template of the template operator.
+
+!!! note
+
+    The execution variables of a task are stored together with the task (their default values, not any run-specific overrides).
+    When the task or its project is exported, they are exported as well.
+    The values of a running execution are never persisted and are not shared between runs.
+
+Besides the defaults defined in the widget, there are two further ways to supply execution variables for a run:
 
 ### Passing execution variables when starting a workflow
 
-When a workflow execution is triggered via the REST API, execution variables can be provided in the JSON request body under the `workflowVariables` key as a simple name/value map.
+When a workflow execution is triggered via the REST API, execution variables can be provided in the JSON request body under the `executionVariables` key as a simple name/value map.
 For example, executing a workflow with a single execution variable `testVar`:
 
 ```json
 {
-  "workflowVariables": {
+  "executionVariables": {
     "testVar": "World"
   }
 }
 ```
 
-Each entry is added to the `execution` scope and can be referenced anywhere in the workflow as `{{execution.<name>}}`.
+Each entry is set in the `execution` scope — overriding a default of the same name defined on the workflow — and can be referenced anywhere in the workflow as `{{execution.<name>}}`.
 For instance, an operator configured with the template `{{value}} {{execution.testVar}}` would resolve `execution.testVar` to `World` for that run.
 
 ### Setting execution variables during a workflow run
@@ -209,7 +193,6 @@ Two operators in the *Variables* category support this:
 !!! note
 
     Both operators only have an effect while running inside a workflow execution.
-    Execution variables are scoped to a single workflow run; they are not persisted and are not shared between runs.
 
 ## Using Variables
 
