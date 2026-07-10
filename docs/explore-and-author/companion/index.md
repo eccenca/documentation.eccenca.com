@@ -10,8 +10,8 @@ tags:
 !!! info "AI Disclaimer"
 
     Companion is an AI-based feature.
-    It uses large language models (LLMs) to generate answers.
-    Responses may be inaccurate, please verify important information.
+    AI-generated content may be inaccurate or incomplete.
+    Please verify important information.
 
 The Companion view enables you to interact with your data, graphs, vocabularies, resources and queries in a chat-like way.
 
