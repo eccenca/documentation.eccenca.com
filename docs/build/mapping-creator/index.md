@@ -9,9 +9,9 @@ tags:
 
 !!! info "AI Disclaimer"
 
-    Mapping Creator offers optional AI-based suggestion features.
-    It uses large language models (LLMs) to generate its suggestions.
-    Responses may be inaccurate, please verify important information.
+    Mapping Creator uses AI-generated suggestions.
+    AI-generated content may be inaccurate or incomplete.
+    Please review all suggestions carefully before applying them.
 
 ## Configuration Info
 
