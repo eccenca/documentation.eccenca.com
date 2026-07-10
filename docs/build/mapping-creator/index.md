@@ -7,6 +7,12 @@ tags:
 ---
 # Mapping Creator
 
+!!! info "AI Disclaimer"
+
+    Mapping Creator uses AI-generated suggestions.
+    AI-generated content may be inaccurate or incomplete.
+    Please review all suggestions carefully before applying them.
+
 ## Configuration Info
 
 A specific configuration is required to activate this feature.
