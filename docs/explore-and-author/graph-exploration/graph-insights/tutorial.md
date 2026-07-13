@@ -93,7 +93,7 @@ We define "VIP" as customers with the highest volume of incoming orders.
 
 ![USA Customer Filter](assets/tutorial-usa-customer-filter.png){ class="bordered" width="80%" }
 
-1. **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
+4. **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
 
 ![Top USA Customer Filter](assets/tutorial-top-usa-customer-filter.png){ class="bordered" width="85%" }
 
