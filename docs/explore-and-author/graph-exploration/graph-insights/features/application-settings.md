@@ -10,6 +10,7 @@ Access global configuration via the top-left dropdown menu.
 
 - **Technical details:** Toggles visibility of low-level metadata, including **IRIs** and **SPARQL queries**.
 - **Tree visibility:** Hides empty or deactivated classes in the class tree.
+- **Content language:** Sets the preferred language for captions and descriptions. Options are dynamically populated from the current database and selecting a new language triggers an immediate data reload.
 
 ![Settings Window](../assets/settings.png){ class="bordered" width="60%" }
 

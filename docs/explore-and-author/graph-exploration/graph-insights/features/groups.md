@@ -89,7 +89,7 @@ The **expansion menu** of a group presents the options available for adding a no
 
 ![Expansion Menu](../assets/expansion-menu.png){ class="bordered" width="65%" }
 
-1. **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
+4. **Alternative:** For schemas with deep object property hierarchies (or if you know exactly which object property) use the search bar to locate specific paths.
 
 ![Filtered Expansion Menu](../assets/expansion-menu-flattened.png){ class="bordered" width="65%" }
 
