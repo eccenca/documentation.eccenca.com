@@ -161,12 +161,59 @@ def get_plugin_descriptions() -> dict[str, list[PluginDescription]]:
         plugins[type_id] = plugins_of_type
     return plugins
 
-def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir: Path) -> None:
+def resolve_related_plugin_links(plugin: PluginDescription, plugin_path: str, plugin_paths: dict[str, str]) -> list[tuple[PluginReference, str]]:
+    """Resolve each related plugin reference to a path relative to the current plugin's own page.
+
+    Raises if a reference points at a plugin with no resolvable page — a
+    stale cross-reference (deprecated target, or a target outside the five
+    walked plugin types), not a typo (§4.1).
+    """
+    current_dir_parts = Path(plugin_path).parts[:-1]
+    resolved = []
+    for ref in plugin.relatedPlugins:
+        if ref.id not in plugin_paths:
+            raise Exception(f"Related plugin '{ref.id}' referenced by '{plugin.pluginId}' has no resolvable page")
+        resolved.append((ref, _relative_link(current_dir_parts, plugin_paths[ref.id])))
+    return resolved
+
+def _relative_link(current_dir_parts: tuple[str, ...], target_path: str) -> str:
+    """Build a relative link from a page's directory to a target path.
+
+    Climbs '../' out of the current directory to the point where the two paths
+    diverge, then descends into whatever remains of the target's path.
+    """
+    target_parts = Path(target_path).parts
+    shared = _shared_prefix_length(current_dir_parts, target_parts[:-1])
+    steps_up = ("..",) * (len(current_dir_parts) - shared)
+    return "/".join(steps_up + target_parts[shared:])
+
+def _shared_prefix_length(a: tuple[str, ...], b: tuple[str, ...]) -> int:
+    """Count the leading path segments two directories have in common."""
+    shared = 0
+    for a_part, b_part in zip(a, b):
+        if a_part != b_part:
+            break
+        shared += 1
+    return shared
+
+def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir: Path, plugin_paths: dict[str, str]) -> None:
     """Create markdown document from plugin description."""
     if plugin.is_deprecated:
         click.echo(f"Ignore deprecated plugin {plugin.pluginId}")
         return
     click.echo(f"Create reference documentation for {plugin.pluginId}")
+
+    # create the file (incl. directory)
+    if plugin.pluginType == "transformer":
+        directory = base_dir / plugin_type / plugin.main_category
+    else:
+        directory = base_dir / plugin_type
+    directory.mkdir(parents=True, exist_ok=True)
+    file = directory / f"{plugin.pluginId}.md"
+
+    # resolve related-plugin links relative to this plugin's own page
+    plugin_path = str(directory.relative_to(base_dir) / f"{plugin.pluginId}.md")
+    related_plugins_resolved = resolve_related_plugin_links(plugin, plugin_path, plugin_paths)
 
     # create content
     plugin_template = jinja_environment.get_template(f"plugin.md")
@@ -183,15 +230,9 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
         plugin=plugin,
         parameters=parameter_content.rstrip("\n"),
         parameters_advanced=parameter_advanced_content.rstrip("\n"),
+        related_plugins_resolved=related_plugins_resolved,
     )
 
-    # create the file (incl. directory)
-    if plugin.pluginType == "transformer":
-        directory = base_dir / plugin_type / plugin.main_category
-    else:
-        directory = base_dir / plugin_type
-    directory.mkdir(parents=True, exist_ok=True)
-    file = directory / f"{plugin.pluginId}.md"
     with file.open("w", encoding="utf-8") as f:
         f.write(content)
 
@@ -279,6 +320,17 @@ def update_di_reference(output_dir):
             if plugin.pluginId in plugins_dump:
                 raise Exception(f"Duplicate plugin ID: {plugin.pluginId}")
             plugins_dump[plugin.pluginId] = plugin.model_dump()
+
+    plugin_paths: dict[str, str] = {}
+    for type_id, plugins_list in plugins.items():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            if plugin.pluginType == "transformer":
+                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.main_category}/{plugin.pluginId}.md"
+            else:
+                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.pluginId}.md"
+
     plugins_json.write_text(json.dumps(plugins_dump, indent=2))
 
     click.echo(f"Creating DI reference documentation in {basedir}")
@@ -288,5 +340,5 @@ def update_di_reference(output_dir):
     for type_id in plugins:
         Path(basedir / type_id).mkdir(parents=True, exist_ok=True)
         for plugin in plugins[type_id]:
-            create_plugin_markdown(plugin, type_id, basedir)
+            create_plugin_markdown(plugin, type_id, basedir, plugin_paths)
     create_umbrella_pages(plugins=plugins, base_dir=basedir)
