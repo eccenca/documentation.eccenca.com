@@ -26,11 +26,11 @@ tags: {% for tag in plugin.tags %}
 
 {{parameters_advanced if plugin.properties_advanced else "`None`"}}
 
-{%- if plugin.relatedPlugins %}
+{%- if related_plugins_resolved %}
 
 ## Related Plugins
 
-{% for ref in plugin.relatedPlugins -%}
-- **{{ ref.id }}**{% if ref.description %} — {{ ref.description }}{% endif %}
+{% for ref, link in related_plugins_resolved -%}
+- [{{ ref.id }}]({{ link }}){% if ref.description %} — {{ ref.description }}{% endif %}
 {% endfor %}
 {%- endif %}

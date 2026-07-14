@@ -48,7 +48,7 @@ tasks:
       - poetry install
 
   check:
-    desc: Run complete test suite
+    desc: Check documentation links and Markdown style
     deps:
       - check:links
       - check:rumdl
@@ -59,6 +59,25 @@ tasks:
       - install
     cmds:
       - poetry run linkcheckMarkdown -r docs 2>&1 | grep -v "ResourceWarning"
+
+  test:
+    desc: Run the Python unit test suite
+    deps:
+      - test:unit
+
+  test:unit:
+    desc: Run tests that need no external service
+    deps:
+      - install
+    cmds:
+      - poetry run pytest -m "not integration"
+
+  test:integration:
+    desc: Run tests that need a live CO instance
+    deps:
+      - install
+    cmds:
+      - poetry run pytest -m integration
 
   build:
     desc: Build the page
