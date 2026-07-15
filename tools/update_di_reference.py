@@ -299,6 +299,21 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
             click.echo(f"Create .pages file {pages_file}")
             f.write(pages_content)
 
+def build_plugin_paths(plugins: dict[str, list[PluginDescription]]) -> dict[str, str]:
+    """Map every non-deprecated plugin's ID to the path its own page will have.
+
+    Deprecated plugins are excluded, since no page is ever generated for them.
+    """
+    plugin_paths: dict[str, str] = {}
+    for type_id, plugins_list in plugins.items():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            if plugin.pluginType == "transformer":
+                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.main_category}/{plugin.pluginId}.md"
+            else:
+                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.pluginId}.md"
+    return plugin_paths
 
 @click.command()
 @click.option(
@@ -321,15 +336,7 @@ def update_di_reference(output_dir):
                 raise Exception(f"Duplicate plugin ID: {plugin.pluginId}")
             plugins_dump[plugin.pluginId] = plugin.model_dump()
 
-    plugin_paths: dict[str, str] = {}
-    for type_id, plugins_list in plugins.items():
-        for plugin in plugins_list:
-            if plugin.is_deprecated:
-                continue
-            if plugin.pluginType == "transformer":
-                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.main_category}/{plugin.pluginId}.md"
-            else:
-                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.pluginId}.md"
+    plugin_paths = build_plugin_paths(plugins)
 
     plugins_json.write_text(json.dumps(plugins_dump, indent=2))
 

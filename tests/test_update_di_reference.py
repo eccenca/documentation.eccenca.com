@@ -9,6 +9,7 @@ from tools.update_di_reference import (
     _relative_link,
     _shared_prefix_length,
     create_plugin_markdown,
+    build_plugin_paths,
 )
 
 
@@ -105,6 +106,20 @@ def test_resolve_related_plugin_links_unresolvable_raises():
     plugin = _make_plugin("regexExtract", related=[ref])
     with pytest.raises(Exception, match="deprecatedPlugin"):
         resolve_related_plugin_links(plugin, "transformer/Extract/regexExtract.md", {"regexExtract": "transformer/Extract/regexExtract.md"})
+
+
+def test_build_plugin_paths():
+    plugins = {
+        "transformer": [_make_plugin("regexExtract", plugin_type="transformer", main_category="Extract")],
+        "dataset": [_make_plugin("sparqlEndpoint", plugin_type="dataset")],
+        "customtask": [_make_plugin("deprecatedPlugin", plugin_type="customtask")],
+    }
+    paths = build_plugin_paths(plugins)
+    assert paths == {
+        "regexExtract": "transformer/Extract/regexExtract.md",
+        "sparqlEndpoint": "dataset/sparqlEndpoint.md",
+    }
+    assert "deprecatedPlugin" not in paths
 
 
 def test_create_plugin_markdown_writes_resolved_links(tmp_path):
