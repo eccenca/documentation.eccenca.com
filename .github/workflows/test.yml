@@ -61,6 +61,9 @@ jobs:
       - name: reconfigure private repository access
         run: ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} task use:insider-https-token
 
+      - name: test
+        run: task test:unit
+
       - name: check
         run: task check
 
