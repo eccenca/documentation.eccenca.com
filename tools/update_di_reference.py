@@ -166,7 +166,7 @@ def resolve_related_plugin_links(plugin: PluginDescription, plugin_path: str, pl
 
     Raises if a reference points at a plugin with no resolvable page — a
     stale cross-reference (deprecated target, or a target outside the five
-    walked plugin types), not a typo (§4.1).
+    walked plugin types), not a typo.
     """
     current_dir_parts = Path(plugin_path).parts[:-1]
     resolved = []
