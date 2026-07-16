@@ -165,8 +165,7 @@ def resolve_related_plugin_links(plugin: PluginDescription, plugin_path: str, pl
     """Resolve each related plugin reference to a path relative to the current plugin's own page.
 
     Raises if a reference points at a plugin with no resolvable page — a
-    stale cross-reference (deprecated target, or a target outside the five
-    walked plugin types), not a typo.
+    stale cross-reference, not a typo.
     """
     current_dir_parts = Path(plugin_path).parts[:-1]
     resolved = []
@@ -315,6 +314,18 @@ def build_plugin_paths(plugins: dict[str, list[PluginDescription]]) -> dict[str,
                 plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.pluginId}.md"
     return plugin_paths
 
+def validate_related_plugin_references(plugins: dict[str, list[PluginDescription]], plugin_paths: dict[str, str]) -> None:
+    """Raise on the first relatedPlugins reference with no resolvable page.
+
+    Deprecated plugins are skipped, since no page is ever generated for
+    them and their relatedPlugins is otherwise never inspected.
+    """
+    for plugins_list in plugins.values():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            resolve_related_plugin_links(plugin, plugin_paths[plugin.pluginId], plugin_paths)
+
 @click.command()
 @click.option(
     "--output-dir", "-o",
@@ -337,6 +348,7 @@ def update_di_reference(output_dir):
             plugins_dump[plugin.pluginId] = plugin.model_dump()
 
     plugin_paths = build_plugin_paths(plugins)
+    validate_related_plugin_references(plugins, plugin_paths)
 
     plugins_json.write_text(json.dumps(plugins_dump, indent=2))
 
