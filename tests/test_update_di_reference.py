@@ -10,6 +10,7 @@ from tools.update_di_reference import (
     _shared_prefix_length,
     create_plugin_markdown,
     build_plugin_paths,
+    validate_related_plugin_references,
 )
 
 
@@ -120,6 +121,33 @@ def test_build_plugin_paths():
         "sparqlEndpoint": "dataset/sparqlEndpoint.md",
     }
     assert "deprecatedPlugin" not in paths
+
+
+def test_validate_related_plugin_references_passes_when_all_resolve():
+    plugins = {
+        "transformer": [_make_plugin("regexExtract", related=[PluginReference(id="regexReplace")])],
+    }
+    plugin_paths = {
+        "regexExtract": "transformer/Extract/regexExtract.md",
+        "regexReplace": "transformer/Replace/regexReplace.md",
+    }
+    validate_related_plugin_references(plugins, plugin_paths)
+
+
+def test_validate_related_plugin_references_raises_on_unresolvable():
+    plugins = {
+        "transformer": [_make_plugin("regexExtract", related=[PluginReference(id="removedPlugin")])],
+    }
+    plugin_paths = {"regexExtract": "transformer/Extract/regexExtract.md"}
+    with pytest.raises(Exception, match="removedPlugin"):
+        validate_related_plugin_references(plugins, plugin_paths)
+
+
+def test_validate_related_plugin_references_skips_deprecated_plugins():
+    plugins = {
+        "customtask": [_make_plugin("deprecatedPlugin", plugin_type="customtask", related=[PluginReference(id="removedPlugin")])],
+    }
+    validate_related_plugin_references(plugins, plugin_paths={})
 
 
 def test_create_plugin_markdown_writes_resolved_links(tmp_path):
