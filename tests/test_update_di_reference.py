@@ -152,7 +152,6 @@ def test_validate_related_plugin_references_skips_deprecated_plugins():
 
 
 def test_create_plugin_markdown_writes_resolved_links(tmp_path):
-    target = _make_plugin("sparqlEndpoint", plugin_type="dataset")
     plugin = _make_plugin(
         "sparqlSelectOperator",
         plugin_type="customtask",
