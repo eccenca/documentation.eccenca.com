@@ -165,30 +165,40 @@ class RelatedPluginReferenceError(Exception):
     """A relatedPlugins reference points at a plugin with no resolvable page."""
 
 
+class DuplicatePluginIdError(Exception):
+    """A plugin ID is not unique across the walked plugin types."""
+
+
 def resolve_related_plugin_links(plugin: PluginDescription, current_plugin_path: str, plugin_paths: dict[str, str]) -> list[tuple[PluginReference, str]]:
     """Resolve each related plugin reference to a path relative to the current plugin's own page.
 
-    Raises if a reference points at a plugin with no resolvable page — a
-    stale cross-reference, not a typo.
+    Raises if any reference points at a plugin with no resolvable page.
     """
     current_dir_parts = Path(current_plugin_path).parts[:-1]
     resolved = []
+    unresolvable = []
     for ref in plugin.relatedPlugins:
         if ref.id not in plugin_paths:
-            raise RelatedPluginReferenceError(f"Related plugin '{ref.id}' referenced by '{plugin.pluginId}' has no resolvable page")
+            unresolvable.append(ref.id)
+            continue
         resolved.append((ref, _relative_link(current_dir_parts, plugin_paths[ref.id])))
+    if unresolvable:
+        raise RelatedPluginReferenceError(
+            f"Related plugin(s) {', '.join(unresolvable)} referenced by '{plugin.pluginId}' have no resolvable page"
+        )
     return resolved
 
 def _relative_link(current_dir_parts: tuple[str, ...], target_path: str) -> str:
     """Build a relative link from a page's directory to a target path.
 
     Climbs '../' out of the current directory to the point where the two paths
-    diverge, then descends into whatever remains of the target's path.
+    diverge, then descends into the remaining segments of the target's path.
     """
     target_parts = Path(target_path).parts
-    shared = _shared_prefix_length(current_dir_parts, target_parts[:-1])
-    steps_up = ("..",) * (len(current_dir_parts) - shared)
-    return "/".join(steps_up + target_parts[shared:])
+    shared_segment_count = _shared_prefix_length(current_dir_parts, target_parts[:-1])
+    levels_to_climb = len(current_dir_parts) - shared_segment_count
+    steps_up = ("..",) * levels_to_climb
+    return "/".join(steps_up + target_parts[shared_segment_count:])
 
 def _shared_prefix_length(a: tuple[str, ...], b: tuple[str, ...]) -> int:
     """Count the leading path segments two directories have in common."""
@@ -253,34 +263,33 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
     - "Transformers": transformer"""
         f.write(content)
 
-    for plugin_type in plugins:
-        plugins_of_type = plugins[plugin_type]
-        if plugin_type == "transformer":
+    for type_id, plugins_of_type in plugins.items():
+        if type_id == "transformer":
             table_template = jinja_environment.get_template(f"operator_table_with_category.md")
         else:
             table_template = jinja_environment.get_template(f"operator_table.md")
 
         # Create type-specific index.md file
-        index_file = base_dir / f"{plugin_type}/index.md"
-        index_template = jinja_environment.get_template(f"{plugin_type}_base.md")
+        index_file = base_dir / f"{type_id}/index.md"
+        index_template = jinja_environment.get_template(f"{type_id}_base.md")
         items = table_template.render(plugins=plugins_of_type)
         with index_file.open("w", encoding="utf-8") as f:
-            click.echo(f"Create {plugin_type} index file in {index_file}")
+            click.echo(f"Create {type_id} index file in {index_file}")
             f.write(index_template.render(items=items))
 
         # Create the .pages files
-        pages_file = base_dir / plugin_type / ".pages"
+        pages_file = base_dir / type_id / ".pages"
         pages_content = "nav:\n    - index.md"
-        if plugin_type == "transformer":
+        if type_id == "transformer":
             # transformer get separated per main_category
-            categories = list(set([plugin.main_category for plugin in plugins[plugin_type]]))
+            categories = list(set([plugin.main_category for plugin in plugins[type_id]]))
             categories.sort()
             for category in categories:
                 pages_content += f'\n    - "{category}": {category}'
 
-                sub_pages_file = base_dir / plugin_type / category / ".pages"
+                sub_pages_file = base_dir / type_id / category / ".pages"
                 sub_pages_content = "nav:"
-                category_plugins = [plugin for plugin in plugins[plugin_type] if plugin.main_category == category]
+                category_plugins = [plugin for plugin in plugins[type_id] if plugin.main_category == category]
                 for plugin in category_plugins:
                     sub_pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
                 with sub_pages_file.open("w", encoding="utf-8") as f:
@@ -344,10 +353,10 @@ def update_di_reference(output_dir):
 
     click.echo(f"Dump plugins descriptions to {(plugins_json := Path('data/plugins.json'))}")
     plugins_dump: dict[str, dict] = {}
-    for category, plugins_list in plugins.items():
+    for type_id, plugins_list in plugins.items():
         for plugin in plugins_list:
             if plugin.pluginId in plugins_dump:
-                raise Exception(f"Duplicate plugin ID: {plugin.pluginId}")
+                raise DuplicatePluginIdError(f"Duplicate plugin ID: {plugin.pluginId}")
             plugins_dump[plugin.pluginId] = plugin.model_dump()
 
     plugin_paths = build_plugin_paths(plugins)
@@ -359,8 +368,8 @@ def update_di_reference(output_dir):
     # create directory structure
     rmtree(basedir, ignore_errors=True)
     basedir.mkdir(parents=True, exist_ok=True)
-    for type_id in plugins:
+    for type_id, plugins_of_type in plugins.items():
         Path(basedir / type_id).mkdir(parents=True, exist_ok=True)
-        for plugin in plugins[type_id]:
+        for plugin in plugins_of_type:
             create_plugin_markdown(plugin, basedir, plugin_paths)
     create_umbrella_pages(plugins=plugins, base_dir=basedir)
