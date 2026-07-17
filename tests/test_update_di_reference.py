@@ -167,3 +167,73 @@ def test_create_plugin_markdown_writes_resolved_links(tmp_path):
     written = (tmp_path / "customtask" / "sparqlSelectOperator.md").read_text()
     assert "[sparqlEndpoint](../dataset/sparqlEndpoint.md)" in written
     assert "**sparqlEndpoint**" not in written
+    assert "[sparqlEndpoint](../dataset/sparqlEndpoint.md) — a SPARQL endpoint dataset" in written
+
+
+@pytest.mark.parametrize(
+    "plugin_id, plugin_path, related_id, related_path, expected_link",
+    [
+        # same type, different category
+        ("regexExtract", "transformer/Extract/regexExtract.md", "regexReplace", "transformer/Replace/regexReplace.md", "../Replace/regexReplace.md"),
+        # reverse: shallower page linking to a deeper one
+        ("average", "aggregator/average.md", "regexExtract", "transformer/Extract/regexExtract.md", "../transformer/Extract/regexExtract.md"),
+        # same directory
+        ("sparqlSelectOperator", "customtask/sparqlSelectOperator.md", "sparqlUpdateOperator", "customtask/sparqlUpdateOperator.md", "sparqlUpdateOperator.md"),
+    ],
+)
+def test_create_plugin_markdown_link_path_shapes(tmp_path, plugin_id, plugin_path, related_id, related_path, expected_link):
+    plugin = _make_plugin(plugin_id, related=[PluginReference(id=related_id)])
+    plugin_paths = {plugin_id: plugin_path, related_id: related_path}
+
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
+
+    written = (tmp_path / plugin_path).read_text()
+    assert f"[{related_id}]({expected_link})" in written
+
+
+def test_create_plugin_markdown_writes_multiple_resolved_links(tmp_path):
+    plugin = _make_plugin(
+        "regexExtract",
+        plugin_type="transformer",
+        main_category="Extract",
+        related=[PluginReference(id="regexReplace"), PluginReference(id="regexSelect")],
+    )
+    plugin_paths = {
+        "regexExtract": "transformer/Extract/regexExtract.md",
+        "regexReplace": "transformer/Replace/regexReplace.md",
+        "regexSelect": "transformer/Selection/regexSelect.md",
+    }
+
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
+
+    written = (tmp_path / "transformer" / "Extract" / "regexExtract.md").read_text()
+    assert "[regexReplace](../Replace/regexReplace.md)" in written
+    assert "[regexSelect](../Selection/regexSelect.md)" in written
+
+
+def test_create_plugin_markdown_omits_description_when_absent(tmp_path):
+    plugin = _make_plugin(
+        "sparqlSelectOperator",
+        plugin_type="customtask",
+        related=[PluginReference(id="sparqlEndpoint")],
+    )
+    plugin_paths = {
+        "sparqlSelectOperator": "customtask/sparqlSelectOperator.md",
+        "sparqlEndpoint": "dataset/sparqlEndpoint.md",
+    }
+
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
+
+    written = (tmp_path / "customtask" / "sparqlSelectOperator.md").read_text()
+    assert "[sparqlEndpoint](../dataset/sparqlEndpoint.md)" in written
+    assert "[sparqlEndpoint](../dataset/sparqlEndpoint.md) —" not in written
+
+
+def test_create_plugin_markdown_omits_section_when_no_related_plugins(tmp_path):
+    plugin = _make_plugin("regexExtract", plugin_type="transformer", main_category="Extract", related=[])
+    plugin_paths = {"regexExtract": "transformer/Extract/regexExtract.md"}
+
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
+
+    written = (tmp_path / "transformer" / "Extract" / "regexExtract.md").read_text()
+    assert "Related Plugins" not in written
