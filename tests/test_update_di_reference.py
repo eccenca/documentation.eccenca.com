@@ -4,6 +4,7 @@ import pytest
 from tools.update_di_reference import (
     PluginDescription,
     PluginReference,
+    RelatedPluginReferenceError,
     get_plugin_descriptions,
     resolve_related_plugin_links,
     _relative_link,
@@ -105,7 +106,7 @@ def test_resolve_related_plugin_links_multiple_preserves_order():
 def test_resolve_related_plugin_links_unresolvable_raises():
     ref = PluginReference(id="deprecatedPlugin")
     plugin = _make_plugin("regexExtract", related=[ref])
-    with pytest.raises(Exception, match="deprecatedPlugin"):
+    with pytest.raises(RelatedPluginReferenceError, match="deprecatedPlugin"):
         resolve_related_plugin_links(plugin, "transformer/Extract/regexExtract.md", {"regexExtract": "transformer/Extract/regexExtract.md"})
 
 
@@ -139,7 +140,7 @@ def test_validate_related_plugin_references_raises_on_unresolvable():
         "transformer": [_make_plugin("regexExtract", related=[PluginReference(id="removedPlugin")])],
     }
     plugin_paths = {"regexExtract": "transformer/Extract/regexExtract.md"}
-    with pytest.raises(Exception, match="removedPlugin"):
+    with pytest.raises(RelatedPluginReferenceError, match="removedPlugin"):
         validate_related_plugin_references(plugins, plugin_paths)
 
 
@@ -162,7 +163,7 @@ def test_create_plugin_markdown_writes_resolved_links(tmp_path):
         "sparqlEndpoint": "dataset/sparqlEndpoint.md",
     }
 
-    create_plugin_markdown(plugin, "customtask", tmp_path, plugin_paths)
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
 
     written = (tmp_path / "customtask" / "sparqlSelectOperator.md").read_text()
     assert "[sparqlEndpoint](../dataset/sparqlEndpoint.md)" in written

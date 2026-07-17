@@ -161,17 +161,21 @@ def get_plugin_descriptions() -> dict[str, list[PluginDescription]]:
         plugins[type_id] = plugins_of_type
     return plugins
 
-def resolve_related_plugin_links(plugin: PluginDescription, plugin_path: str, plugin_paths: dict[str, str]) -> list[tuple[PluginReference, str]]:
+class RelatedPluginReferenceError(Exception):
+    """A relatedPlugins reference points at a plugin with no resolvable page."""
+
+
+def resolve_related_plugin_links(plugin: PluginDescription, current_plugin_path: str, plugin_paths: dict[str, str]) -> list[tuple[PluginReference, str]]:
     """Resolve each related plugin reference to a path relative to the current plugin's own page.
 
     Raises if a reference points at a plugin with no resolvable page — a
     stale cross-reference, not a typo.
     """
-    current_dir_parts = Path(plugin_path).parts[:-1]
+    current_dir_parts = Path(current_plugin_path).parts[:-1]
     resolved = []
     for ref in plugin.relatedPlugins:
         if ref.id not in plugin_paths:
-            raise Exception(f"Related plugin '{ref.id}' referenced by '{plugin.pluginId}' has no resolvable page")
+            raise RelatedPluginReferenceError(f"Related plugin '{ref.id}' referenced by '{plugin.pluginId}' has no resolvable page")
         resolved.append((ref, _relative_link(current_dir_parts, plugin_paths[ref.id])))
     return resolved
 
@@ -195,24 +199,15 @@ def _shared_prefix_length(a: tuple[str, ...], b: tuple[str, ...]) -> int:
         shared += 1
     return shared
 
-def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir: Path, plugin_paths: dict[str, str]) -> None:
+def create_plugin_markdown(plugin: PluginDescription, base_dir: Path, plugin_paths: dict[str, str]) -> None:
     """Create markdown document from plugin description."""
     if plugin.is_deprecated:
         click.echo(f"Ignore deprecated plugin {plugin.pluginId}")
         return
     click.echo(f"Create reference documentation for {plugin.pluginId}")
 
-    # create the file (incl. directory)
-    if plugin.pluginType == "transformer":
-        directory = base_dir / plugin_type / plugin.main_category
-    else:
-        directory = base_dir / plugin_type
-    directory.mkdir(parents=True, exist_ok=True)
-    file = directory / f"{plugin.pluginId}.md"
-
-    # resolve related-plugin links relative to this plugin's own page
-    plugin_path = str(directory.relative_to(base_dir) / f"{plugin.pluginId}.md")
-    related_plugins_resolved = resolve_related_plugin_links(plugin, plugin_path, plugin_paths)
+    current_plugin_path = plugin_paths[plugin.pluginId]
+    related_plugins_resolved = resolve_related_plugin_links(plugin, current_plugin_path, plugin_paths)
 
     # create content
     plugin_template = jinja_environment.get_template(f"plugin.md")
@@ -232,6 +227,8 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
         related_plugins_resolved=related_plugins_resolved,
     )
 
+    file = base_dir / current_plugin_path
+    file.parent.mkdir(parents=True, exist_ok=True)
     with file.open("w", encoding="utf-8") as f:
         f.write(content)
 
@@ -304,27 +301,33 @@ def build_plugin_paths(plugins: dict[str, list[PluginDescription]]) -> dict[str,
     Deprecated plugins are excluded, since no page is ever generated for them.
     """
     plugin_paths: dict[str, str] = {}
-    for type_id, plugins_list in plugins.items():
-        for plugin in plugins_list:
-            if plugin.is_deprecated:
-                continue
-            if plugin.pluginType == "transformer":
-                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.main_category}/{plugin.pluginId}.md"
-            else:
-                plugin_paths[plugin.pluginId] = f"{type_id}/{plugin.pluginId}.md"
-    return plugin_paths
-
-def validate_related_plugin_references(plugins: dict[str, list[PluginDescription]], plugin_paths: dict[str, str]) -> None:
-    """Raise on the first relatedPlugins reference with no resolvable page.
-
-    Deprecated plugins are skipped, since no page is ever generated for
-    them and their relatedPlugins is otherwise never inspected.
-    """
     for plugins_list in plugins.values():
         for plugin in plugins_list:
             if plugin.is_deprecated:
                 continue
-            resolve_related_plugin_links(plugin, plugin_paths[plugin.pluginId], plugin_paths)
+            if plugin.pluginType == "transformer":
+                plugin_paths[plugin.pluginId] = f"{plugin.pluginType}/{plugin.main_category}/{plugin.pluginId}.md"
+            else:
+                plugin_paths[plugin.pluginId] = f"{plugin.pluginType}/{plugin.pluginId}.md"
+    return plugin_paths
+
+def validate_related_plugin_references(plugins: dict[str, list[PluginDescription]], plugin_paths: dict[str, str]) -> None:
+    """Raise on every relatedPlugins reference with no resolvable page.
+
+    Deprecated plugins are skipped, since no page is ever generated for
+    them and their relatedPlugins is otherwise never inspected.
+    """
+    errors = []
+    for plugins_list in plugins.values():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            try:
+                resolve_related_plugin_links(plugin, plugin_paths[plugin.pluginId], plugin_paths)
+            except RelatedPluginReferenceError as error:
+                errors.append(str(error))
+    if errors:
+        raise RelatedPluginReferenceError("\n".join(errors))
 
 @click.command()
 @click.option(
@@ -359,5 +362,5 @@ def update_di_reference(output_dir):
     for type_id in plugins:
         Path(basedir / type_id).mkdir(parents=True, exist_ok=True)
         for plugin in plugins[type_id]:
-            create_plugin_markdown(plugin, type_id, basedir, plugin_paths)
+            create_plugin_markdown(plugin, basedir, plugin_paths)
     create_umbrella_pages(plugins=plugins, base_dir=basedir)
