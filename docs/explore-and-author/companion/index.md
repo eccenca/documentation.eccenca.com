@@ -7,6 +7,12 @@ tags:
 ---
 # Companion
 
+!!! info "AI Disclaimer"
+
+    Companion is an AI-based feature.
+    AI-generated content may be inaccurate or incomplete.
+    Please verify important information.
+
 The Companion view enables you to interact with your data, graphs, vocabularies, resources and queries in a chat-like way.
 
 ## Configuration Info
@@ -28,7 +34,7 @@ For optimal results, we recommend using Anthropic or OpenAI frontier-level model
 
 You can open the _Chat with Companion_ from any explore module via the :eccenca-application-ai-suggestion: Companion button in the top right of the application header, next to the :eccenca-application-useraccount: user menu.
 
-![Companion Chat](companion-anatomy.jpg){ class="bordered" width="60%" }
+![Companion Chat](companion-anatomy.png){ class="bordered" width="60%" }
 
 In the companion sidebar, use:
 
