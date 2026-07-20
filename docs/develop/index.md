@@ -21,6 +21,12 @@ API documentation and programming recipes.
 
     For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
 
+- :material-package: Packages
+
+    ---
+
+    [Create your own packages](packages/development) to allow easy distribution and reuse of existing content (data, workflows, ...) through [Marketplace Packages](packages/index.md).
+
 - :material-api: OpenAPI specification
 
     ---
