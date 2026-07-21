@@ -7,8 +7,6 @@ from tools.update_di_reference import (
     RelatedPluginReferenceError,
     get_plugin_descriptions,
     resolve_related_plugin_links,
-    _relative_link,
-    _shared_prefix_length,
     create_plugin_markdown,
     build_plugin_paths,
     validate_related_plugin_references,
@@ -47,34 +45,23 @@ def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", 
 
 
 @pytest.mark.parametrize(
-    "a, b, expected",
-    [
-        (("customtask",), ("dataset",), 0),
-        (("transformer", "Extract"), ("transformer", "Extract"), 2),
-        (("transformer", "Extract"), ("transformer", "Replace"), 1),
-        ((), ("dataset",), 0),
-        (("transformer", "Extract"), ("transformer",), 1),
-    ],
-)
-def test_shared_prefix_length(a, b, expected):
-    assert _shared_prefix_length(a, b) == expected
-
-
-@pytest.mark.parametrize(
-    "current_dir_parts, target_path, expected",
+    "current_path, target_path, expected",
     [
         # same type, different category
-        (("transformer", "Extract"), "transformer/Replace/regexReplace.md", "../Replace/regexReplace.md"),
+        ("transformer/Extract/regexExtract.md", "transformer/Replace/regexReplace.md", "../Replace/regexReplace.md"),
         # different type entirely
-        (("transformer", "Extract"), "aggregator/average.md", "../../aggregator/average.md"),
+        ("transformer/Extract/regexExtract.md", "aggregator/average.md", "../../aggregator/average.md"),
         # reverse: shallower page linking to a deeper one
-        (("aggregator",), "transformer/Extract/regexExtract.md", "../transformer/Extract/regexExtract.md"),
+        ("aggregator/average.md", "transformer/Extract/regexExtract.md", "../transformer/Extract/regexExtract.md"),
         # same directory
-        (("customtask",), "customtask/sparqlUpdateOperator.md", "sparqlUpdateOperator.md"),
+        ("customtask/sparqlSelectOperator.md", "customtask/sparqlUpdateOperator.md", "sparqlUpdateOperator.md"),
     ],
 )
-def test_relative_link(current_dir_parts, target_path, expected):
-    assert _relative_link(current_dir_parts, target_path) == expected
+def test_resolve_related_plugin_links_path_shapes(current_path, target_path, expected):
+    ref = PluginReference(id="target")
+    plugin = _make_plugin("current", related=[ref])
+    plugin_paths = {"current": current_path, "target": target_path}
+    assert resolve_related_plugin_links(plugin, current_path, plugin_paths) == [(ref, expected)]
 
 
 def test_resolve_related_plugin_links_empty():

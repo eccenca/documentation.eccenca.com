@@ -1,6 +1,7 @@
 """Update DI Reference documentation"""
 
 import json
+import posixpath
 import re
 from contextlib import suppress
 from pathlib import Path
@@ -174,40 +175,19 @@ def resolve_related_plugin_links(plugin: PluginDescription, current_plugin_path:
 
     Raises if any reference points at a plugin with no resolvable page.
     """
-    current_dir_parts = Path(current_plugin_path).parts[:-1]
+    current_dir = posixpath.dirname(current_plugin_path)
     resolved = []
     unresolvable = []
     for ref in plugin.relatedPlugins:
         if ref.id not in plugin_paths:
             unresolvable.append(ref.id)
             continue
-        resolved.append((ref, _relative_link(current_dir_parts, plugin_paths[ref.id])))
+        resolved.append((ref, posixpath.relpath(plugin_paths[ref.id], current_dir)))
     if unresolvable:
         raise RelatedPluginReferenceError(
             f"Related plugin(s) {', '.join(unresolvable)} referenced by '{plugin.pluginId}' have no resolvable page"
         )
     return resolved
-
-def _relative_link(current_dir_parts: tuple[str, ...], target_path: str) -> str:
-    """Build a relative link from a page's directory to a target path.
-
-    Climbs '../' out of the current directory to the point where the two paths
-    diverge, then descends into the remaining segments of the target's path.
-    """
-    target_parts = Path(target_path).parts
-    shared_segment_count = _shared_prefix_length(current_dir_parts, target_parts[:-1])
-    levels_to_climb = len(current_dir_parts) - shared_segment_count
-    steps_up = ("..",) * levels_to_climb
-    return "/".join(steps_up + target_parts[shared_segment_count:])
-
-def _shared_prefix_length(a: tuple[str, ...], b: tuple[str, ...]) -> int:
-    """Count the leading path segments two directories have in common."""
-    shared = 0
-    for a_part, b_part in zip(a, b):
-        if a_part != b_part:
-            break
-        shared += 1
-    return shared
 
 def create_plugin_markdown(plugin: PluginDescription, base_dir: Path, plugin_paths: dict[str, str]) -> None:
     """Create markdown document from plugin description."""
