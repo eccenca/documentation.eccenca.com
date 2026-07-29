@@ -4,13 +4,13 @@ tags:
     - LinkRules
     - KnowledgeGraph
 ---
-# Link Rules Module
+# Link Rules
 
 ## Introduction
 
-The Link Rules module provides mechanisms to simplify creating data linking and to imposes role specific workflows over the whole process.
+The Link Rules provides mechanisms to simplify creating data linking and to imposes role specific workflows over the whole process.
 
-Linking tasks allow the creation of links between resources based on rules in the Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your Knowledge Graph internals and may become a repetitive task. The Link rules module allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
+Linking tasks allow the creation of links between resources based on rules in the Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your Knowledge Graph internals and may become a repetitive task. The Link rules allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
 
 ## Usage
 

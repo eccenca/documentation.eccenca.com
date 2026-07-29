@@ -3,7 +3,7 @@ icon: eccenca/application-explore
 tags:
     - KnowledgeGraph
 ---
-# Graph Exploration
+# Knowledge Graphs
 
 ## Introduction
 

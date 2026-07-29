@@ -1,6 +1,5 @@
 ---
 icon: eccenca/application-ai-suggestion
-subtitle: LLM and MCP-tools based chat
 status: new
 tags:
     - Reference

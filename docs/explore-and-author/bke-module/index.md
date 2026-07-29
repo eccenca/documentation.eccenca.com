@@ -5,11 +5,11 @@ tags:
     - Video
 ---
 
-# Business Knowledge Editor Module
+# Business Knowledge Editor
 
 ## Introduction
 
-This feature allows for the visual exploration of Knowledge Graphs.
+This module allows the visual exploration of Knowledge Graphs.
 It allows to save and share explorations.
 Furthermore, sophisticated individual search settings (filter presets) can be created and configured per workspace.
 

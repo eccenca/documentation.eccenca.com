@@ -3,7 +3,7 @@ icon: eccenca/module-thesauri
 tags:
     - Vocabulary
 ---
-# Thesauri Management
+# Thesauri
 
 ## Introduction
 
