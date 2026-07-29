@@ -29,12 +29,16 @@ Similar to property shapes, SPARQL Constraints needed to be linked from a Node S
 In our running example, we create a Node Shape for `foaf:Person` resources.
 Then we add a SPARQL Constrain shape, which checks if the label of these resources contains the term `eccenca`.
 
-### Install Vocabularies
+### Install Ontologies / Vocabularies
 
-Go to the **:eccenca-application-vocabularies: [Vocabulary catalog](../../../vocabulary-catalog/index.md)** and install the RDF Schema and FOAF Vocabulary.
-Your vocabulary catalog should look like this after installation
+Install the RDF Schema and FOAF vocabulary, either as a package from the **Marketplace** or from an RDF file.
 
-![Vocabulary Catalog with Installed Vocabularies](vocabulary-catalog.png){ class="bordered" }
+<!-- TODO: the Vocabulary catalog was replaced by the Marketplace / package concept.
+Re-take the screenshot with the new installation flow, then re-enable the two lines below.
+
+
+![Marketplace with Installed Vocabularies](vocabulary-catalog.png){ class="bordered" }
+-->
 
 ### Create Shape Catalog
 

@@ -71,11 +71,12 @@ To access a module, click the module name. The active module is highlighted.
 
 By default, Corporate Memory provides the following modules:
 
-- EXPLORE - for Knowledge Graph browsing and exploration, specifically
-    - [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
-    - [Vocabularies](../explore-and-author/vocabulary-catalog/index.md) - for vocabulary management
-    - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
+- [EXPLORE](../explore-and-author/index.md) - for Knowledge Graph browsing and exploration, specifically
+    - [Knowledge Graphs](../explore-and-author/graph-exploration/index.md) - a generic and extensible RDF data browser and editor
+    - [Business knowledge editor](../explore-and-author/bke-module/index.md) - for visual graph interaction
     - [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
+    - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
+    - [Charts](../explore-and-author/charts-catalog/index.md) - for data visualization
 - [BUILD](../build/index.md) - for creating and integrating Knowledge Graphs, with specific links to
     - Projects - the BUILD Projects level
     - Datasets - the Datasets across all BUILD Projects
