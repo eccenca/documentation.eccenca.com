@@ -10,7 +10,7 @@ tags:
     This module is not activated by default and can be configured in the application view configuration.
 
 The **Service integrations** module embeds external web applications directly into the Corporate Memory user interface.
-Instead of switching to a separate tool, users open the integrated service from the main navigation and work with it without leaving their workspace.
+Instead of switching to a separate tool, users open the integrated service from the main navigation and work with it without leaving their Application view.
 
 A typical use case is a dashboarding service that visualizes data from your Enterprise Knowledge Graph.
 

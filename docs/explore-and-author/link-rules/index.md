@@ -119,7 +119,7 @@ In order to enable users to use the Link Rules Module, the following must be all
 - **Graph pattern for granting write access**
     - Pattern according to the *Output Graph Template*, e.g. `http://eccenca.com/user_rules/result_*`
 
-### Workspace configuration
+### Application view configuration
 
 Enable the *Link Rules* module.
 

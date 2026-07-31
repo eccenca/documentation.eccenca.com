@@ -51,11 +51,11 @@ After you logged in to your Corporate Memory instance, the main application view
 
 To log out, open the menu :material-dots-vertical: in the Module bar and click Logout.
 
-## Workspaces
+## Application views
 
-The specific configuration of the application defines which options are available here, i.e. whether you can select one of several workspaces, access only a default workspace or are allowed to create own workspaces.
+The specific configuration of the application defines which options are available here, i.e. whether you can select one of several Application views, access only a default Application view or are allowed to create own Application views.
 
-See the [workspaces](../explore-and-author/workspace-configuration/index.md) section for more details.
+See the [Application views](../explore-and-author/workspace-configuration/index.md) section for more details.
 
 ## User interface and modules
 
