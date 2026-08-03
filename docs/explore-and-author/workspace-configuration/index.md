@@ -13,7 +13,7 @@ Application views.
 
 ## Select an Application view
 
-To select an Application view click on the **user icon** on the right side of the page
+To select an Application view click on the **user icon** in the top right corner.
 
 ![User menu](user.png){ class="bordered" }
 
