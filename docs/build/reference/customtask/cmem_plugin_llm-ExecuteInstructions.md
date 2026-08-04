@@ -243,7 +243,7 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 [
     {
         "role": "developer",
-        "content": "You are a helpful assistant."
+        "content": "{{ developer_prompt }}"
     },
     {
         "role": "user",
@@ -251,6 +251,16 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
     }
 ]
 ```
+
+
+
+### Developer Prompt Template
+
+The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour. Leave the Messages Template's developer content hardcoded if this parameter is not needed.
+
+- ID: `developer_prompt_template`
+- Datatype: `code-jinja2`
+- Default Value: `You are a helpful assistant.`
 
 
 

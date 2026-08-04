@@ -53,7 +53,7 @@ with a SQL database as a source dataset.
 
 ### Graph
 
-The URI of the named graph.
+The URI of the named graph. If left empty, the default graph is used.
 
 - ID: `graph`
 - Datatype: `graph uri`
@@ -171,6 +171,6 @@ Use streaming HTTP upload (chunked transfer encoding) instead of multipart file 
 
 ## Related Plugins
 
-- **inMemory** — The Knowledge Graph plugin produces a durable graph in Corporate Memory's managed store; the In-memory dataset plugin produces a transient graph that is gone on restart. The two differ in persistence, not just scale: in-memory storage is not a lightweight version of the Knowledge Graph plugin.
-- **file** — The Knowledge Graph plugin writes to a named graph in Corporate Memory's managed store; the RDF file plugin writes to a file on disk. The two differ in where the data lives, not just how it is accessed.
-- **sparqlEndpoint** — Both the Knowledge Graph plugin and the SPARQL endpoint plugin use SPARQL. The difference is where the store lives: the Knowledge Graph plugin reads and writes a named graph in Corporate Memory's own store, while the SPARQL endpoint plugin connects to any external SPARQL endpoint.
+- [inMemory](inMemory.md) — The Knowledge Graph plugin produces a durable graph in Corporate Memory's managed store; the In-memory dataset plugin produces a transient graph that is gone on restart. The two differ in persistence, not just scale: in-memory storage is not a lightweight version of the Knowledge Graph plugin.
+- [file](file.md) — The Knowledge Graph plugin writes to a named graph in Corporate Memory's managed store; the RDF file plugin writes to a file on disk. The two differ in where the data lives, not just how it is accessed.
+- [sparqlEndpoint](sparqlEndpoint.md) — Both the Knowledge Graph plugin and the SPARQL endpoint plugin use SPARQL. The difference is where the store lives: the Knowledge Graph plugin reads and writes a named graph in Corporate Memory's own store, while the SPARQL endpoint plugin connects to any external SPARQL endpoint.

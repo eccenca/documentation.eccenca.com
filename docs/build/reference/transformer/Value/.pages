@@ -1,10 +1,11 @@
 nav:
+    - "Combined input hash": inputHash.md
     - "Constant": constant.md
     - "Constant URI": constantUri.md
     - "Dataset parameter": datasetParameter.md
     - "Default Value": defaultValue.md
     - "Empty value": emptyValue.md
-    - "Input hash": inputHash.md
+    - "Per-value hash": perValueHash.md
     - "Random number": randomNumber.md
     - "Read parameter": readParameter.md
     - "ULID": cmem-plugin-ulid.md

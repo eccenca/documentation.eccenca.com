@@ -24,7 +24,7 @@ A property `uri` will be added to each generated node, which holds the URI of th
 In applications, the URI property should be used instead of the node identifiers, which are auto-generated in Neo4j and do not represent stable URIs.
 
 When reading nodes, the entity URIs will be generated based on that property.
-At the moment, it's not supported to read nodes that do not provide a `uri` property.
+Nodes that do not provide a `uri` property are read with a generated entity URI, which is not stable across reads.
 
 ### Labels
 
@@ -136,3 +136,13 @@ This is deprecated, use the 'Clear dataset' operator instead to clear a dataset 
 - ID: `clearBeforeExecution`
 - Datatype: `boolean`
 - Default Value: `false`
+
+
+
+### Write batch size
+
+The number of entities to write in a single Neo4j transaction. Reduce this value if you encounter Neo4j transaction memory limits (dbms.memory.transaction.total.max).
+
+- ID: `writeBatchSize`
+- Datatype: `int`
+- Default Value: `1000`
