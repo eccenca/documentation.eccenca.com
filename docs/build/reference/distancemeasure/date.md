@@ -148,4 +148,4 @@ If true, no distance value will be generated if months or days are missing (e.g.
 
 ## Related Plugins
 
-- **dateTime** — The date time metric plugin is the date metric plugin at a finer scale: it resolves differences to the second rather than the day, but does not tolerate partial dates that lack a month or day.
+- [dateTime](dateTime.md) — The date time metric plugin is the date metric plugin at a finer scale: it resolves differences to the second rather than the day, but does not tolerate partial dates that lack a month or day.

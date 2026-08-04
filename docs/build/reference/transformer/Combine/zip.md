@@ -111,4 +111,4 @@ Separator to be inserted between two concatenated strings. The text can contain 
 
 ## Related Plugins
 
-* **concatPairwise** — Zip handles unequal input lengths by padding, not truncating, and is constrained to exactly two inputs. Concatenate pairwise removes that constraint — it accepts any number of inputs — but resolves the length mismatch by stopping at the shortest.
+* [concatPairwise](concatPairwise.md) — Zip handles unequal input lengths by padding, not truncating, and is constrained to exactly two inputs. Concatenate pairwise removes that constraint — it accepts any number of inputs — but resolves the length mismatch by stopping at the shortest.

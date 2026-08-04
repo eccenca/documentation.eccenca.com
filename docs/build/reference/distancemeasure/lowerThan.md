@@ -52,4 +52,4 @@ Reverse source and target inputs
 
 ## Related Plugins
 
-- **greaterThan** — The greater than plugin tests the same pair of values with the ordering flipped: it succeeds where the lower than plugin fails.
+- [greaterThan](greaterThan.md) — The greater than plugin tests the same pair of values with the ordering flipped: it succeeds where the lower than plugin fails.

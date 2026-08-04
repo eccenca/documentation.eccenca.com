@@ -21,7 +21,10 @@
       "figcaption",
       "figure",
       "img",
+      "key",
+      "name",
       "p",
+      "param",
       "span",
       "summary"
     ]

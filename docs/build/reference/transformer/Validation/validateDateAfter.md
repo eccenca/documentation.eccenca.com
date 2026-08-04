@@ -84,4 +84,4 @@ Allow both dates to be equal.
 
 ## Related Plugins
 
-* **validateDateRange** — Validate date after checks whether one input date is later than another. Validate date range instead tests a single date against a fixed interval with a configured minimum and maximum.
+* [validateDateRange](validateDateRange.md) — Validate date after checks whether one input date is later than another. Validate date range instead tests a single date against a fixed interval with a configured minimum and maximum.

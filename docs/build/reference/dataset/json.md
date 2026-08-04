@@ -20,7 +20,7 @@ In addition to plain JSON files, *JSON Lines* files can also be read.
 
 For reading, the JSON dataset supports a number of special paths:
 
-- `#id` Is a special syntax for generating an id for a selected element. It can be used in URI patterns for entities which do not provide an identifier. Examples: `http://example.org/{#id}` or `http://example.org/{/pathToEntity/#id}`.
+- `#id` is a special syntax for generating a hash-based id for a selected element. It can be used in URI patterns for entities which do not provide an identifier. Examples: `http://example.org/{#id}` or `http://example.org/{/pathToEntity/#id}`. If no URI pattern is configured, the dataset instead generates the default entity URI from the JSON source location.
 - `#text` retrieves the text of the selected node.
 - The backslash can be used to navigate to the parent JSON node, e.g., `\parent/key`. The name of the backslash key (here `parent`) is ignored.
 
@@ -108,3 +108,7 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.jsonl?$`
+
+## Related Plugins
+
+- [JsonParserOperator](../customtask/JsonParserOperator.md) — The JSON dataset is a pipeline source: it opens a file and needs no upstream input. Parse JSON is an operator: it reads a JSON string from a field value supplied by an upstream entity.
