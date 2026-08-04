@@ -80,4 +80,4 @@ No description
 
 ## Related Plugins
 
-* **datetoTimestamp** — Timestamp to date converts a Unix integer to a date string; Date to timestamp is the reverse of that, converting a date string back to a Unix integer.
+* [datetoTimestamp](datetoTimestamp.md) — Timestamp to date converts a Unix integer to a date string; Date to timestamp is the reverse of that, converting a date string back to a Unix integer.

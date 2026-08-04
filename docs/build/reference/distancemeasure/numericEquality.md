@@ -90,4 +90,4 @@ The range of tolerance in floating point number comparisons. Must be 0 or a non-
 
 ## Related Plugins
 
-- **num** — Matching and measuring distance are not the same operation. Numeric equality returns match or no match; Numeric similarity returns the actual distance between the two numbers.
+- [num](num.md) — Matching and measuring distance are not the same operation. Numeric equality returns match or no match; Numeric similarity returns the actual distance between the two numbers.

@@ -72,5 +72,5 @@ Default if the map defines no value
 
 ## Related Plugins
 
-* **mapWithDefaultInput** — The Map plugin returns a fixed default string — set as a parameter — for any value not found in the map. Map with default replaces that fixed fallback with a second connected input, so the fallback can differ per value.
-* **replace** — The Map plugin matches the entire input value against a lookup table and substitutes the whole value on an exact match. Replace substitutes a search string wherever it appears within the value, without requiring the full value to match.
+* [mapWithDefaultInput](mapWithDefaultInput.md) — The Map plugin returns a fixed default string — set as a parameter — for any value not found in the map. Map with default replaces that fixed fallback with a second connected input, so the fallback can differ per value.
+* [replace](replace.md) — The Map plugin matches the entire input value against a lookup table and substitutes the whole value on an exact match. Replace substitutes a search string wherever it appears within the value, without requiring the full value to match.

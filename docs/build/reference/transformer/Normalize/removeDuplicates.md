@@ -25,4 +25,4 @@ Removes duplicated values, making a value sequence distinct.
 
 ## Related Plugins
 
-- **removeValues** — Remove values is driven by a reference list — it drops every instance of a blacklisted word. Remove duplicates needs no such list: it keeps the first occurrence of each value and discards the rest, based solely on the input values repeating themselves.
+- [removeValues](../Filter/removeValues.md) — Remove values is driven by a reference list — it drops every instance of a blacklisted word. Remove duplicates needs no such list: it keeps the first occurrence of each value and discards the rest, based solely on the input values repeating themselves.

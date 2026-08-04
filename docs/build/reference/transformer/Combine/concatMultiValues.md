@@ -113,4 +113,4 @@ No description
 
 ## Related Plugins
 
-* **concat** — Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary — it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values.
+* [concat](concat.md) — Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary — it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values.
