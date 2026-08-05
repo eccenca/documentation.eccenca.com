@@ -20,7 +20,6 @@ By using the [cmem-plugin-kafka](https://pypi.org/project/cmem-plugin-kafka/) [P
 In order to use the [Kafka Consumer](../reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) or [Kafka Producer](../reference/customtask/cmem_plugin_kafka-SendMessages.md) workflow task, you need to extend your Corporate Memory instance with the `cmem-plugin-kafka` package.
 This can be done by using cmemc:
 
-<!--TODO: check command changed? -->
 ```shell-session title="Installing cmem-plugin-kafka on the instance 'my-cmem'"
 $ cmemc -c my-cmem admin workspace python install cmem-plugin-kafka
 Install package cmem-plugin-kafka ... done
