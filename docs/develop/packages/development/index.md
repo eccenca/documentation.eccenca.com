@@ -1,152 +1,271 @@
 ---
-title: "Marketplace Package Development"
+title: "Marketplace Packages: Development and Publication"
 icon: material/code-json
 tags:
     - Marketplace
     - Package
 ---
-# Marketplace Package Development
+# Development and Publication of Marketplace Packages
 
 ## Introduction
 
-In order to support the development of packages, we published a [package template](https://github.com/eccenca/cmem-package-template).
-Please have a look at this project to get started.
+Marketplace Packages are archives that bundle content, functionality, and configuration from Corporate Memory for sharing and reuse.
 
-This page walks you through a basic example of creating a new package, adding different type of content inside it and finally building it into a package archive ready for distribution.
+Each package has its own release cycle.
+Packages can be installed and uninstalled during runtime.
 
-## Creating your own package
+In order to support the development and publication of Marketplace Packages, we published a [package-template](https://github.com/eccenca/cmem-package-template).
+Please have a look at this template to get started.
 
-## Initializing
+This page gives an overview of the concepts you need to understand in order to develop packages.
+If you prefer to learn by doing, follow the [step-by-step tutorial](tutorial.md), which builds a package with a graph and a Build project from scratch.
 
-Using [described instructions](https://github.com/eccenca/cmem-package-template/tree/main#usage) have a local folder contain your newly templated project (`my-package-id`), for our example we will use :
-```shell
-🎤 Type of package
-   Project Package
-🎤 Package ID (e.g., 'eccenca-supply-chain-vocab', 'w3c-org-vocab')
-   my-package-id
-🎤 Human-readable package name (e.g., 'My Awesome Vocabulary', 'My Great Project' ..)
-   My own package
-🎤 Short description of the package (e.g., 'A vocabulary for ...', 'A project ...')
-   My project and graphs
+## Package Structure
+
+Use the [package-template](https://github.com/eccenca/cmem-package-template) to create the boilerplate for a package repository:
+
+```shell title="Create a package repository from the template"
+copier copy gh:eccenca/cmem-package-template my-package
 ```
 
-You should now have a folder with two level of files :
+The template asks for the following variables:
 
-- Top level — generic package information such as the changelog, README, CI instructions, and licensing.
-- Nested folder (my-package-id) — the actual package content, along with a manifest.
+`package_type`
+:   `vocabulary` (default) or `project`, see [Metadata](#metadata).
 
-## Package content
+`package_id`
+:   Unique package identifier in lowercase letters, numbers, and hyphens (e.g. `eccenca-supply-chain-vocab`).
 
-The nested folder `my-package-id` represents your working directory for developing the package.
+`package_name`
+:   Human-readable package name (3 - 50 characters).
 
-To add content to the package simply drag and drop files you want added into this folder or extract existing content from a live Corporate Memory instance to the working directory.
+`package_description`
+:   Short description of the package (10 - 150 characters).
 
-!!! Example "Extracting Corporate Memory content to add to the package "
+`python_dependencies`
+:   Comma-separated [Python plugin](../../python-plugins/index.md) dependencies (only asked for `project` packages).
 
-    ```shell
-    cmemc graph export https://my-company.org/queries/ --output-file my-package-id/queries.ttl
+`vocab_dependencies`
+:   Comma-separated dependencies on other Marketplace Packages (only asked for `project` packages).
 
-    cmemc project export MyProject_78e981443900a761 --output-dir my-package-id
-    Export project 1/1: MyProject_78e981443900a761 to my-package-id/2026-07-08-unnamed-MyProject_78e981443900a761.project.zip ... done
+`github_page`
+:   Optional URL of the package repository, used as the base for icons and the homepage link.
 
-    mv my-package-id/2026-07-08-unnamed-MyProject_78e981443900a761.project.zip my-package-id/project.zip
-    ```
+The generated repository has two levels:
+the top level holds the generic package repository files (changelog, README, license, CI configuration, and a `Taskfile.yaml`), while the nested `{package_id}/` folder is the **package directory** - the actual package content plus its manifest.
 
-## Declaring the files in the manifest
+### License
 
-In order for the package to know about these added files, the `cpa-manifest.json` needs to be edited.
+!!! info "No publication without license"
 
-The `"files":[]` section of the manifest references the files the package needs to bundle.
-Complete information about the [package manifest can be found here](https://github.com/eccenca/cmem-package-template/tree/main#package-manifest) and more specifically [how to declare new files](https://github.com/eccenca/cmem-package-template/tree/main#adding-files).
+    Packages without a license declaration cannot be published to a Corporate Memory Marketplace Server.
 
-For our example we will be adding a query graph and a project file, make sure you use valid `file_path` relative to your package working directory (nested folder).
+Our template will bootstrap your package with an _Apache License 2.0 ([`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html))_.
+See <https://spdx.org/licenses/> if you need a different license.
+You can remove a license entirely; however, a package that does not declare a license cannot be published.
 
-### Adding graph and project
+### Manifest
+
+The `cpa-manifest.json` in the package directory is the central package definition.
+It contains all relevant package metadata and describes the package contents.
+It is used to present package details and contents to the `inspect` command<!-- or in the marketplace frontends-->, to install, configure and uninstall all parts of a package.
+
+#### Metadata
+
+`package_type`
+:   `project`
+    :   A package that may ship any content, mainly intended to contain Build projects, (instance/data) graphs, SHACL shapes, workspace configuration, query catalogs, etc.
+
+    `vocabulary`
+    :   A package that is supposed to contribute vocabulary / ontology contents, such as `rdf:`, `org:`, `sso:`, etc. Such a package may contain multiple vocabularies / ontologies. Packaging related SHACL shapes is reasonable, too.
+
+`package_id`
+:   Unique package identifier
+
+`package_version`
+:   Semantic version identifier string of the package, but limited to proper releases.
+
+`metadata.name`
+:   The package name in English.
+
+`metadata.description`
+:   The package description in English.
+
+`metadata.license`
+:   The [SPDX license identifier](https://spdx.org/licenses/) of the package, e.g. `Apache-2.0`.
+
+`metadata.comment`
+:   A maintainer or publisher comment.
+
+`metadata.agents`
+:   Publishers, authors, and contributors of the package.
+
+`metadata.urls`
+:   Related links, e.g. the homepage or the issue tracker of the package.
+
+`metadata.tags`
+:   Free-text tags used to categorize the package on a Marketplace Server.
+
+#### Files
+
+A package can contain graphs, Build projects, text files, and images.
+These contents are referenced in the `files` section of the `cpa-manifest.json`.
+
+##### Graphs
+
+Use the following structure to include a graph.
+`register_as_vocabulary` and `import_into` are optional instructions.
+We suggest to organize graphs in a respective sub-folder (here `graphs/`), but this is up to you:
 
 ```json
 "files": [
-  {...},
-  {
-    "file_path": "queries.ttl", // inside my-package-id nested folder
-    "file_type": "graph",
-    "graph_iri": "https://my-company.org/queries/",
-    "import_into": [],
-     "register_as_vocabulary": false
-  },
-  {
-    "file_path": "project.zip", // inside my-package-id nested folder
-    "file_type": "project",
-    "project_id": "MyProject_78e981443900a761"
-  }
+    …
+    {
+        "file_type": "graph",
+        "file_path": "graphs/file.ttl",
+        "graph_iri": "http://www.example.org/file/",
+        "register_as_vocabulary": true,
+        "import_into": [
+            "http://www.example.org/integration_graph/"
+        ]
+    },
+    …
 ]
 ```
 
-## Testing your package
+##### Projects
 
-To ensure the package correctly detects your added files, you can try to import it in a Corporate Memory instance.
+Use the following structure to include a project.
+We suggest to organize projects in a respective sub-folder (here `projects/`), but this is up to you:
 
-The package template comes with a predefined `Taskfile.yaml` allowing you to wrap your development steps in single commands.
-```shell
-task: Available tasks for this project:
-* build:         Build package archive
-* check:         Run whole test suite
-* clean:         Removes dist, *.cpa, ...
-* delete:        Delete (uninstall) package from Corporate Memory
-* export:        Export package content from Corporate Memory
-* import:        Import (install) package to Corporate Memory
-* publish:       Publish package archive to the marketplace
+```json
+"files": [
+    …
+    {
+        "file_type": "project",
+        "file_path": "projects/my-build-project.zip",
+        "project_id": "my-build-project"
+    },
+    …
+]
 ```
 
-To tell the package system to take files from the local working directory and to import them inside Corporate Memory we use **task import**.
-An import will always try to uninstall previously installed version of the same package, to ensure it is correctly replaced.
+##### Texts and Images
 
-```shell
-task import
-task: [delete] cmemc package uninstall $package_id
-Package 'my-package-id' is not installed.
-task: [import] cmemc package install --input $package_dir
-Installing package 'my-package-id' from 'my-package-id' ... done
+Text files and images describe the package itself rather than shipping content.
+The template declares `README.md`, `CHANGELOG.md`, and `LICENSE` this way; images are used to represent the package on a Marketplace Server:
+
+```json
+"files": [
+    …
+    {
+        "file_type": "text",
+        "file_path": "README.md",
+        "file_role": "readme"
+    },
+    {
+        "file_path": "icon.png",
+        "file_type": "image",
+        "file_role": "icon"
+    },
+    …
+]
 ```
 
-!!! Warning "Importing duplicated content"
+#### Dependencies
 
-    If you extracted from Corporate Memory already existing content and added it to your package with the same identifiers (graph URIs, projects IDs, ...), and try to import it back in the form of a new package, the instance might raise a `MarketplacePackagesImportError` due to conflicting elements : (Repository item 'https://my-company.org/queries/' already exists.) .
+Dependencies to other packages or to Python plugins can be declared in the `copier copy` answers.
+The dependencies are added to the `cpa-manifest.json` as described in the next sections.
 
-    In this case, you can simply delete your duplicated content inside Corporate Memory (make sure you do backups in case) before importing them back as a package content.
-    The difference will be that now Corporate Memory will know this content is part of a managed package, and will handle import/export on that file from now on.
+##### Python Plugin Packages
 
-## Updating the package file content
+Use the following to declare a dependency to a Python plugin:
 
-If you make modifications to your package content in Corporate Memory, the files will not automatically sync back with your local working directory.
-
-To extract all the updated content from Corporate Memory into your package working directory in a managed way, simply run **task export**
-
-```shell
-task export
+```json
+"dependencies": [
+    …
+    {
+      "dependency_type": "python-package",
+      "pypi_id": "cmem-plugin-pyshacl"
+    },
+    …
+]
 ```
 
-!!! Warning "Exporting without installing first"
+##### Marketplace Packages
 
-    The platform can only export updated versions of package files that were imported at least once before. If you create new information directly in Corporate Memory that the package manifest doesn't yet declare, such as new graphs, you need to manually add them to your working directory and to your manifest and then import them.
+Use the following to declare a dependency to another Marketplace Package:
 
-    The rule of thumb is : if you need to make structural change to your package that requires for you to edit your manifest, then make sure to run `import` right after to let Corporate Memory keep track of new files.
-
-    Adding a workflow inside a project is not impacted by this limitation, since it is part of the "project" that is managed and tracked by the package.
-
-## Building your package
-
-To generate a `.cpa` file ready to be distributed and installed in different Corporate Memory instances you can run **task build**.
-
-Make sure your local package folder is a git repository with a clean state (the commit hash is used to generate the cpa).
-```shell
-task build
+```json
+"dependencies": [
+    …
+    {
+      "dependency_type": "marketplace-package",
+      "package_id": "w3c-rdfs-vocab"
+    }
+    …
+]
 ```
 
-To check how this output `.cpa` file can be imported in different places refer to the [Installation and Usage section](../installation/index.md).
+## Package Development Cycle
 
-!!! Success "Next steps"
+!!! info "`cmemc package` reference"
 
-    There are many improvements you can add to your package, such as declaring dependencies to other plugins or packages, to ensure your `.cpa` file can be installed with all it's requirements everywhere, for that you can refer to existing package examples or the template documentation.
+    The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md)
+    contains all needed commands to support the complete package lifecycle.
 
-    The final step is usually publishing a version of the package to a remote Marketplace repository, to avoid having to manually transfert the `.cpa` archive. This requires you to have publishing permissions on an eccenca Marketplace instance (either a public or private instance).
-    This can be done with task publish, either manually or from a CI runner.
+Some packages are simply wrapping existing artifacts into a managed structure (e.g. existing vocabulary/ontology).
+
+Most (solution) package development and evolution will be a back and forth between a package repository (making changes to `cpa-manifest.json` in terms of adding/removing dependencies, graph files, or Build project files) and a Corporate Memory (package development) instance.
+
+![Corporate Memory Marketplace Package Lifecycle](../mpp-lifecycle.svg){ width="50%" }
+
+!!! tip "Task wrappers"
+
+    The generated package repository ships a `Taskfile.yaml` which wraps the commands below into `task import`, `task export`, `task build`, `task check`, `task delete`, and `task publish`.
+    The [tutorial](tutorial.md) uses these wrappers.
+
+### Install (local) Packages
+
+Use the following command to install a local package folder content (or built `.cpa` file) to a Corporate Memory (package development) instance.
+
+```shell
+cmemc package install --input PATH
+```
+
+Make changes to graphs, configuration, or Build projects as needed.
+Newly created or imported graphs or Build projects need to be registered in `cpa-manifest.json` so they will be fetched by `export`.
+
+### Export Contents into a Package
+
+Use the following command to export the file artifacts declared in `cpa-manifest.json` from a Corporate Memory (package development) instance to a local package folder.
+
+```shell
+cmemc package export PACKAGE_ID
+```
+
+Run this to initially populate package contents from a solution configuration. You can also use it to update contents after making changes on your Corporate Memory (package development) instance, capturing them for building and releasing as a Marketplace Package.
+
+For version controlled package directories, add `--extract` to store Build projects as extracted directories instead of ZIP archives (the manifest still references the ZIP; `build` and `install` zip it silently).
+
+### Inspect Packages
+
+Review and verify the contents of a package with the following command:
+
+```shell
+cmemc package inspect PACKAGE_PATH
+```
+
+### Build Packages
+
+During development you can install a package from a local path (plain folder or a `.cpa` package) using the `cmemc package install --input PATH` command.
+
+Use the `cmemc package build` command.
+This will build a package archive from a package directory.
+
+This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory package archive (`.cpa`) with the following naming convention: `{package_id}-v{version}.cpa`.
+
+### Publish Packages
+
+Package archives can be published to the Marketplace Server using the `cmemc package publish` command.
+After being published packages can be found and installed directly from the Marketplace Server (potential users do not need to have the local package folder or `.cpa` file available).

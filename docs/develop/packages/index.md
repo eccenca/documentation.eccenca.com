@@ -1,33 +1,54 @@
 ---
+status: new
 title: "Marketplace Packages: Overview"
-icon: material/package
+icon: material/shopping
 tags:
     - Marketplace
     - Package
 hide:
     - toc
 ---
+
 # Marketplace Packages
 
-A package is a bundle that groups different parts of Corporate Memory configuration — data, workflows and dependencies — letting you share and reuse them across projects, teams, and different Corporate Memory instances.
+Starting with version 26.1, we support the creation and use of Marketplace Packages.
 
-A package is packed into a `.cpa` file, a zip-based archive you can either hand off directly or distribute through a Marketplace, a central repository that supports pushing and
-pulling packages.
+Marketplace Packages bundle everything for a specific Corporate Memory–based solution or project into a single shareable, managed artifact:
 
-The following pages give an overview about this feature:
+- Vocabularies / Ontologies
+- (SKOS) Taxonomies
+- (Instance / Data) Graphs
+- Build Projects
+- Dependencies on
+    - [python-plugins](../python-plugins/index.md)
+    - (other) Marketplace Packages
+
+This lets you share and reuse them across projects, teams, and different Corporate Memory instances.
+
+A Marketplace Package is distributed as a **C**orporate Memory **P**ackage **A**rchive (`.cpa` file), a zip-based archive which you can either hand over directly or publish to a Marketplace Server - a central repository which supports pushing and pulling packages.
+
+The lifecycle of a Corporate Memory Marketplace Package is shown in the following flowchart.
+
+![Corporate Memory Marketplace Package Lifecycle](mpp-lifecycle.svg){ width="50%" }
+
+The following pages give an overview of this feature:
 
 <div class="grid cards" markdown>
 
-- :material-download-circle-outline: [Installation and Usage](installation/index.md)
+- :material-download-circle-outline: [Installation and Management](installation/index.md)
 
     ---
 
-    Intended for Linked Data Experts and Deployment Engineers, this page outlines how to install and use existing marketplace packages.
+    Intended for Linked Data Experts, Deployment Engineers, and Corporate Memory Admins, this page outlines how to (un)install and manage Marketplace Packages, and where installed contents appear in Corporate Memory.
 
-- :material-code-json: [Development](development/index.md)
+    This section discusses the lifecycle commands and stages `search`, `install`, `list` and `uninstall`.
+
+- :material-code-json: [Development and Publication](development/index.md)
 
     ---
 
-    Intended for Developers, this page explains how to start developing your own packages.
+    Intended for Developers, Linked Data Experts, Consultants, and Partners, this page gives an overview of how to start developing and publish Marketplace Packages, followed by a [step-by-step tutorial](development/tutorial.md).
+
+    This section discusses the lifecycle commands and stages `copier copy`, _Package Definition and Release_, `inspect`, `install --input PATH` (from local), _Solution Development and Configuration_, `export`, `build`, and `publish`.
 
 </div>
