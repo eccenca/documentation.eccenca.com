@@ -6,9 +6,7 @@ tags:
   - Automate
   - cmemc
 ---
-
 # workflow scheduler Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, inspect, enable/disable or open scheduler.
@@ -21,7 +19,7 @@ Schedulers execute workflows in specified intervals. They are identified with a 
 Open scheduler(s) in the browser.
 
 ```shell-session title="Usage"
-cmemc workflow scheduler open [OPTIONS] SCHEDULER_IDS...
+$ cmemc workflow scheduler open [OPTIONS] SCHEDULER_IDS...
 ```
 
 
@@ -45,7 +43,7 @@ The command accepts multiple scheduler IDs which results in opening multiple bro
 List available scheduler.
 
 ```shell-session title="Usage"
-cmemc workflow scheduler list [OPTIONS]
+$ cmemc workflow scheduler list [OPTIONS]
 ```
 
 
@@ -68,7 +66,7 @@ Outputs a table or a list of scheduler IDs which can be used as reference for th
 Display all metadata of a scheduler.
 
 ```shell-session title="Usage"
-cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
+$ cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
 ```
 
 
@@ -86,7 +84,7 @@ cmemc workflow scheduler inspect [OPTIONS] SCHEDULER_ID
 Disable scheduler(s).
 
 ```shell-session title="Usage"
-cmemc workflow scheduler disable [OPTIONS] [SCHEDULER_IDS]...
+$ cmemc workflow scheduler disable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
 
@@ -107,7 +105,7 @@ The command accepts multiple scheduler IDs which results in disabling them one a
 Enable scheduler(s).
 
 ```shell-session title="Usage"
-cmemc workflow scheduler enable [OPTIONS] [SCHEDULER_IDS]...
+$ cmemc workflow scheduler enable [OPTIONS] [SCHEDULER_IDS]...
 ```
 
 
@@ -122,3 +120,4 @@ The command accepts multiple scheduler IDs which results in enabling them one af
 
     -a, --all   Enable all scheduler.
     ```
+

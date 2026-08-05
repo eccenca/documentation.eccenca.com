@@ -5,9 +5,7 @@ icon: material/folder-multiple-outline
 tags:
   - cmemc
 ---
-
 # admin workspace Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import, export and reload the project workspace.
@@ -37,6 +35,9 @@ The file name is optional and will be generated with by the template if absent.
                                   option, so use it with care.
     --type TEXT                   Type of the exported workspace file.
                                   [default: xmlZip]
+    --without-userdata            Do not export user-identifying metadata
+                                  (creation/modification timestamps and account
+                                  names) in the exported archive.
     -t, --filename-template TEXT  Template for the export file name. Possible
                                   placeholders are (Jinja2): {{connection}}
                                   (from the --connection option) and {{date}}
@@ -51,7 +52,7 @@ The file name is optional and will be generated with by the template if absent.
 Import the workspace from a file.
 
 ```shell-session title="Usage"
-cmemc admin workspace import [OPTIONS] FILE
+$ cmemc admin workspace import [OPTIONS] FILE
 ```
 
 
@@ -69,7 +70,7 @@ cmemc admin workspace import [OPTIONS] FILE
 Reload the workspace from the backend.
 
 ```shell-session title="Usage"
-cmemc admin workspace reload
+$ cmemc admin workspace reload
 ```
 
 
@@ -81,8 +82,9 @@ cmemc admin workspace reload
 Request a thread dump for all live threads.
 
 ```shell-session title="Usage"
-cmemc admin workspace thread-dump
+$ cmemc admin workspace thread-dump
 ```
+
 
 
 

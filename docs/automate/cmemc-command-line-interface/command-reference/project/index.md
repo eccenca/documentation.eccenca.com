@@ -6,9 +6,7 @@ tags:
   - Project
   - cmemc
 ---
-
 # project Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, import, export, create, delete or open projects.
@@ -25,7 +23,7 @@ Projects are identified by a `PROJECT_ID`.
 Open projects in the browser.
 
 ```shell-session title="Usage"
-cmemc project open PROJECT_IDS...
+$ cmemc project open PROJECT_IDS...
 ```
 
 
@@ -42,7 +40,7 @@ The command accepts multiple project IDs which results in opening multiple brows
 List available projects.
 
 ```shell-session title="Usage"
-cmemc project list [OPTIONS]
+$ cmemc project list [OPTIONS]
 ```
 
 
@@ -117,6 +115,10 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
                                   note that not all export types are
                                   extractable.
     --help-types                  Lists all possible export types.
+    --without-userdata            Do not export user-identifying metadata
+                                  (creation/modification timestamps and account
+                                  names) in the exported archives or
+                                  directories.
     ```
 
 ## project import
@@ -124,14 +126,14 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
 Import a project from a file or directory.
 
 ```shell-session title="Usage"
-cmemc project import [OPTIONS] PATH [PROJECT_ID]
+$ cmemc project import [OPTIONS] PATH [PROJECT_ID]
 ```
 
 
 
 
 ```shell-session title="Example"
-cmemc project import my_project.zip my_project
+$ cmemc project import my_project.zip my_project
 ```
 
 
@@ -149,7 +151,7 @@ cmemc project import my_project.zip my_project
 Delete projects.
 
 ```shell-session title="Usage"
-cmemc project delete [OPTIONS] [PROJECT_IDS]...
+$ cmemc project delete [OPTIONS] [PROJECT_IDS]...
 ```
 
 
@@ -181,7 +183,7 @@ This command deletes existing data integration projects from Corporate Memory.
 Create projects.
 
 ```shell-session title="Usage"
-cmemc project create [OPTIONS] PROJECT_IDS...
+$ cmemc project create [OPTIONS] PROJECT_IDS...
 ```
 
 
@@ -210,7 +212,7 @@ This command creates one or more new projects. Existing projects will not be ove
 Reload projects from the workspace provider.
 
 ```shell-session title="Usage"
-cmemc project reload [OPTIONS] [PROJECT_IDS]...
+$ cmemc project reload [OPTIONS] [PROJECT_IDS]...
 ```
 
 
@@ -233,3 +235,30 @@ This command reloads all tasks of a project from the workspace provider. This is
 
     -a, --all   Reload all projects
     ```
+
+## project status
+
+Show task loading errors of projects.
+
+```shell-session title="Usage"
+$ cmemc project status [OPTIONS] [PROJECT_IDS]...
+```
+
+
+
+
+This command checks the given projects (or all projects with the `--all` option) for task loading errors and outputs them as warnings.
+
+Use this to find out if your projects have tasks which could not be loaded, e.g. because a needed plugin is not installed.
+
+
+
+??? info "Options"
+    ```text
+
+    -a, --all   Check all projects
+    --exit-1    Exit with code 1 if at least one project has task loading
+                errors.
+    --raw       Outputs raw JSON of the task loading status.
+    ```
+

@@ -5,9 +5,7 @@ icon: material/chart-line-variant
 tags:
   - cmemc
 ---
-
 # admin metrics Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List and get metrics.
@@ -16,7 +14,7 @@ This command group consists of commands for reading and listing internal monitor
 
 Each metric family can consist of different samples identified by labels with a name and a value (dimensions). A metric has a specific type (counter, gauge, summary and histogram) and additional metadata.
 
-Please have a look at <https://prometheus.io/docs/concepts/data_model/> for further details.
+Please have a look at https://prometheus.io/docs/concepts/data_model/ for further details.
 
 
 ## admin metrics get
@@ -24,7 +22,7 @@ Please have a look at <https://prometheus.io/docs/concepts/data_model/> for furt
 Get sample data of a metric.
 
 ```shell-session title="Usage"
-cmemc admin metrics get [OPTIONS] METRIC_ID
+$ cmemc admin metrics get [OPTIONS] METRIC_ID
 ```
 
 
@@ -58,7 +56,7 @@ A metric of a specific job is identified by a metric ID. Possible metric IDs of 
 Inspect a metric.
 
 ```shell-session title="Usage"
-cmemc admin metrics inspect [OPTIONS] METRIC_ID
+$ cmemc admin metrics inspect [OPTIONS] METRIC_ID
 ```
 
 
@@ -79,7 +77,7 @@ This command outputs the data of a metric. The first table includes basic metada
 List metrics for a specific job.
 
 ```shell-session title="Usage"
-cmemc admin metrics list [OPTIONS]
+$ cmemc admin metrics list [OPTIONS]
 ```
 
 
@@ -99,3 +97,4 @@ For each metric, the output table shows the metric ID, the type of the metric, a
     --raw                    Outputs (sorted) JSON dict, parsed from the metrics
                              API output.
     ```
+

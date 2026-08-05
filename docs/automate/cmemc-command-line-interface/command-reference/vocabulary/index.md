@@ -6,9 +6,7 @@ tags:
   - Vocabulary
   - cmemc
 ---
-
 # vocabulary Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, (un-)install, import or open vocabs / manage cache.
@@ -19,7 +17,7 @@ List, (un-)install, import or open vocabs / manage cache.
 Open / explore a vocabulary graph in the browser.
 
 ```shell-session title="Usage"
-cmemc vocabulary open IRI
+$ cmemc vocabulary open IRI
 ```
 
 
@@ -34,7 +32,7 @@ Vocabularies are identified by their graph IRI. Installed vocabularies can be li
 Output a list of vocabularies.
 
 ```shell-session title="Usage"
-cmemc vocabulary list [OPTIONS]
+$ cmemc vocabulary list [OPTIONS]
 ```
 
 
@@ -59,16 +57,20 @@ Vocabularies are graphs (see `graph` command group) which consists of class and 
 
 ## vocabulary install
 
-Install one or more vocabularies from the catalog.
+Install one or more vocabularies from the catalog (deprecated).
 
 ```shell-session title="Usage"
-cmemc vocabulary install [OPTIONS] [IRIS]...
+$ cmemc vocabulary install [OPTIONS] [IRIS]...
 ```
 
 
 
 
 Vocabularies are identified by their graph IRI. Installable vocabularies can be listed with the vocabulary list command.
+
+!!! note
+    This command is deprecated. Vocabularies are now managed via packages; use the `package` command group instead.
+
 
 
 
@@ -84,13 +86,17 @@ Vocabularies are identified by their graph IRI. Installable vocabularies can be 
 Uninstall one or more vocabularies.
 
 ```shell-session title="Usage"
-cmemc vocabulary uninstall [OPTIONS] [IRIS]...
+$ cmemc vocabulary uninstall [OPTIONS] [IRIS]...
 ```
 
 
 
 
 Vocabularies are identified by their graph IRI. Already installed vocabularies can be listed with the vocabulary list command.
+
+!!! note
+    This command is deprecated. Vocabularies are now managed via packages; use the `package` command group instead. Vocabularies which are managed by a package can not be uninstalled with this command.
+
 
 
 
@@ -105,7 +111,7 @@ Vocabularies are identified by their graph IRI. Already installed vocabularies c
 Import a turtle file as a vocabulary.
 
 ```shell-session title="Usage"
-cmemc vocabulary import [OPTIONS] FILE
+$ cmemc vocabulary import [OPTIONS] FILE
 ```
 
 
@@ -128,3 +134,4 @@ The uploaded ontology file is analysed locally in order to discover the named gr
     --replace                   Replace (overwrite) existing vocabulary, if
                                 present.
     ```
+

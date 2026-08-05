@@ -6,9 +6,7 @@ tags:
   - KnowledgeGraph
   - cmemc
 ---
-
 # graph imports Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete and show graph imports.
@@ -25,7 +23,7 @@ Graphs are identified by an IRI. Statement imports are managed by creating owl:i
 Show graph tree(s) of the imports statement hierarchy.
 
 ```shell-session title="Usage"
-cmemc graph imports tree [OPTIONS] [IRIS]...
+$ cmemc graph imports tree [OPTIONS] [IRIS]...
 ```
 
 
@@ -53,7 +51,7 @@ Imported graphs which do not exist are shown as `[missing: IRI]`. Imported graph
 List accessible graph imports statements.
 
 ```shell-session title="Usage"
-cmemc graph imports list [OPTIONS]
+$ cmemc graph imports list [OPTIONS]
 ```
 
 
@@ -76,7 +74,7 @@ Graphs are identified by an IRI. Statement imports are managed by creating owl:i
 Add statement to import a TO_GRAPH into a FROM_GRAPH.
 
 ```shell-session title="Usage"
-cmemc graph imports create FROM_GRAPH TO_GRAPH
+$ cmemc graph imports create FROM_GRAPH TO_GRAPH
 ```
 
 
@@ -95,7 +93,7 @@ Graphs are identified by an IRI. Statement imports are managed by creating owl:i
 Delete statement to import a TO_GRAPH into a FROM_GRAPH.
 
 ```shell-session title="Usage"
-cmemc graph imports delete FROM_GRAPH TO_GRAPH
+$ cmemc graph imports delete FROM_GRAPH TO_GRAPH
 ```
 
 
@@ -105,6 +103,7 @@ Graphs are identified by an IRI. Statement imports are managed by creating owl:i
 
 !!! note
     The get a list of existing graph imports, execute the `graph imports list` command or use tab-completion.
+
 
 
 

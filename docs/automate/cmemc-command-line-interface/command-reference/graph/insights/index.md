@@ -5,9 +5,7 @@ icon: eccenca/graph-insights
 tags:
   - cmemc
 ---
-
 # graph insights Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete and inspect graph insight snapshots.
@@ -20,7 +18,7 @@ Graph Insight Snapshots are identified by an ID. To get a list of existing snaps
 List graph insight snapshots.
 
 ```shell-session title="Usage"
-cmemc graph insights list [OPTIONS]
+$ cmemc graph insights list [OPTIONS]
 ```
 
 
@@ -46,7 +44,7 @@ Graph Insights Snapshots are identified by an ID.
 Delete graph insight snapshots.
 
 ```shell-session title="Usage"
-cmemc graph insights delete [OPTIONS] [SNAPSHOT_IDS]...
+$ cmemc graph insights delete [OPTIONS] [SNAPSHOT_IDS]...
 ```
 
 
@@ -78,7 +76,7 @@ Graph Insight Snapshots are identified by an ID.
 Create or update a graph insight snapshot.
 
 ```shell-session title="Usage"
-cmemc graph insights create [OPTIONS] IRI
+$ cmemc graph insights create [OPTIONS] IRI
 ```
 
 
@@ -104,7 +102,7 @@ Create a graph insight snapshot for a given graph. If the snapshot already exist
 Update a graph insight snapshot.
 
 ```shell-session title="Usage"
-cmemc graph insights update [OPTIONS] [SNAPSHOT_ID]
+$ cmemc graph insights update [OPTIONS] [SNAPSHOT_ID]
 ```
 
 
@@ -121,7 +119,7 @@ After the update, the snapshot is hot-swapped.
                                     following filter names and a corresponding
                                     value: id, main-graph, status, affected-
                                     graph, valid.
-    -a, --all                       Delete all snapshots.
+    -a, --all                       Update all snapshots.
     --wait                          Wait until snapshot creation is done.
     --polling-interval INTEGER RANGE
                                     How many seconds to wait between status
@@ -135,7 +133,7 @@ After the update, the snapshot is hot-swapped.
 Inspect the metadata of a graph insight snapshot.
 
 ```shell-session title="Usage"
-cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
+$ cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
 ```
 
 
@@ -147,3 +145,4 @@ cmemc graph insights inspect [OPTIONS] SNAPSHOT_ID
 
     --raw       Outputs raw JSON.
     ```
+

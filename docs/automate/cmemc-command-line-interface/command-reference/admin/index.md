@@ -5,9 +5,7 @@ icon: material/key-link
 tags:
   - cmemc
 ---
-
 # admin Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import bootstrap data, backup/restore workspace or get status.
@@ -20,7 +18,7 @@ This command group consists of commands for setting up and configuring eccenca C
 Output health and version information.
 
 ```shell-session title="Usage"
-cmemc admin status [OPTIONS]
+$ cmemc admin status [OPTIONS]
 ```
 
 
@@ -33,7 +31,7 @@ Additionally, this command informs you in one of these cases: (1) A warning, if 
 To get status information of all configured deployments use this command in combination with parallel.
 
 ```shell-session title="Example"
-cmemc config list | parallel --ctag cmemc -c {} admin status
+$ cmemc config list | parallel --ctag cmemc -c {} admin status
 ```
 
 
@@ -68,7 +66,7 @@ cmemc config list | parallel --ctag cmemc -c {} admin status
 Fetch and output an access token.
 
 ```shell-session title="Usage"
-cmemc admin token [OPTIONS]
+$ cmemc admin token [OPTIONS]
 ```
 
 
@@ -77,7 +75,7 @@ cmemc admin token [OPTIONS]
 This command can be used to check for correct authentication as well as to use the token with wget / curl or similar standard tools:
 
 ```shell-session title="Example"
-curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
+$ curl -H "Authorization: Bearer $(cmemc -c my admin token)" $(cmemc -c my config get DP_API_ENDPOINT)/api/custom/slug
 ```
 
 
@@ -96,3 +94,4 @@ Please be aware that this command can reveal secrets which you might not want to
     --ttl       Output information about the lifetime of the access token. In
                 combination with --raw, it outputs the TTL in seconds.
     ```
+

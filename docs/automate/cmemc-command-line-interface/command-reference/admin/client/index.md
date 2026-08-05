@@ -7,9 +7,7 @@ tags:
   - Security
   - cmemc
 ---
-
 # admin client Command Group
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List client accounts, get or generate client account secrets.
@@ -26,7 +24,7 @@ In case your Corporate Memory deployment does not use the default deployment lay
 List client accounts.
 
 ```shell-session title="Usage"
-cmemc admin client list [OPTIONS]
+$ cmemc admin client list [OPTIONS]
 ```
 
 
@@ -53,7 +51,7 @@ Outputs a list of client accounts, which can be used to get an overview as well 
 Get or generate a new secret for a client account.
 
 ```shell-session title="Usage"
-cmemc admin client secret [OPTIONS] CLIENT_ID
+$ cmemc admin client secret [OPTIONS] CLIENT_ID
 ```
 
 
@@ -75,7 +73,7 @@ This command retrieves or generates a new secret for a client account from a rea
 Open clients in the browser.
 
 ```shell-session title="Usage"
-cmemc admin client open [CLIENT_IDS]...
+$ cmemc admin client open [CLIENT_IDS]...
 ```
 
 
@@ -84,5 +82,6 @@ cmemc admin client open [CLIENT_IDS]...
 With this command, you can open a client in the keycloak web interface in your browser.
 
 The command accepts multiple client IDs which results in opening multiple browser tabs.
+
 
 

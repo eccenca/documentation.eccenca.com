@@ -6,9 +6,7 @@ tags:
   - Reference
   - cmemc
 ---
-
 # Command Reference
-
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 !!! info
@@ -48,6 +46,13 @@ tags:
 | [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete user accounts. |
 | [admin user](admin/user/index.md) | [password](admin/user/index.md#admin-user-password) | Change the password of a user account. |
 | [admin user](admin/user/index.md) | [open](admin/user/index.md#admin-user-open) | Open user in the browser. |
+| [admin view](admin/view/index.md) | [list](admin/view/index.md#admin-view-list) | List explore application view configurations. |
+| [admin view](admin/view/index.md) | [export](admin/view/index.md#admin-view-export) | Export application view configurations to a JSON file. |
+| [admin view](admin/view/index.md) | [import](admin/view/index.md#admin-view-import) | Import application view configurations from a JSON file. |
+| [admin view](admin/view/index.md) | [delete](admin/view/index.md#admin-view-delete) | Delete custom application view configurations. |
+| [admin view](admin/view/index.md) | [create](admin/view/index.md#admin-view-create) | Create a new explore application view configuration. |
+| [admin view](admin/view/index.md) | [update](admin/view/index.md#admin-view-update) | Update a key in an existing explore application view configuration. |
+| [admin view](admin/view/index.md) | [inspect](admin/view/index.md#admin-view-inspect) | Inspect the configuration of an application view profile. |
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |
 | [admin workspace](admin/workspace/index.md) | [reload](admin/workspace/index.md#admin-workspace-reload) | Reload the workspace from the backend. |
@@ -90,6 +95,14 @@ tags:
 | [graph validation](graph/validation/index.md) | [inspect](graph/validation/index.md#graph-validation-inspect) | List and inspect errors found with a validation process. |
 | [graph validation](graph/validation/index.md) | [cancel](graph/validation/index.md#graph-validation-cancel) | Cancel a running validation process. |
 | [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
+| [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
+| [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
+| [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
+| [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
+| [package](package/index.md) | [export](package/index.md#package-export) | Export installed packages to package directories. |
+| [package](package/index.md) | [build](package/index.md#package-build) | Build a package archive from a package directory. |
+| [package](package/index.md) | [publish](package/index.md#package-publish) | Publish a package archive to the marketplace server. |
+| [package](package/index.md) | [search](package/index.md#package-search) | Search for available packages with a given search text. |
 | [project](project/index.md) | [open](project/index.md#project-open) | Open projects in the browser. |
 | [project](project/index.md) | [list](project/index.md#project-list) | List available projects. |
 | [project](project/index.md) | [export](project/index.md#project-export) | Export projects to files. |
@@ -97,6 +110,7 @@ tags:
 | [project](project/index.md) | [delete](project/index.md#project-delete) | Delete projects. |
 | [project](project/index.md) | [create](project/index.md#project-create) | Create projects. |
 | [project](project/index.md) | [reload](project/index.md#project-reload) | Reload projects from the workspace provider. |
+| [project](project/index.md) | [status](project/index.md#project-status) | Show task loading errors of projects. |
 | [project file](project/file/index.md) | [list](project/file/index.md#project-file-list) | List available file resources. |
 | [project file](project/file/index.md) | [delete](project/file/index.md#project-file-delete) | Delete file resources. |
 | [project file](project/file/index.md) | [download](project/file/index.md#project-file-download) | Download file resources to the local file system. |
@@ -120,7 +134,7 @@ tags:
 | [query](query/index.md) | [delete](query/index.md#query-delete) | Delete queries from a query catalog. |
 | [vocabulary](vocabulary/index.md) | [open](vocabulary/index.md#vocabulary-open) | Open / explore a vocabulary graph in the browser. |
 | [vocabulary](vocabulary/index.md) | [list](vocabulary/index.md#vocabulary-list) | Output a list of vocabularies. |
-| [vocabulary](vocabulary/index.md) | [install](vocabulary/index.md#vocabulary-install) | Install one or more vocabularies from the catalog. |
+| [vocabulary](vocabulary/index.md) | [install](vocabulary/index.md#vocabulary-install) | Install one or more vocabularies from the catalog (deprecated). |
 | [vocabulary](vocabulary/index.md) | [uninstall](vocabulary/index.md#vocabulary-uninstall) | Uninstall one or more vocabularies. |
 | [vocabulary](vocabulary/index.md) | [import](vocabulary/index.md#vocabulary-import) | Import a turtle file as a vocabulary. |
 | [vocabulary cache](vocabulary/cache/index.md) | [update](vocabulary/cache/index.md#vocabulary-cache-update) | Reload / updates the data integration cache for a vocabulary. |
@@ -135,3 +149,4 @@ tags:
 | [workflow scheduler](workflow/scheduler/index.md) | [inspect](workflow/scheduler/index.md#workflow-scheduler-inspect) | Display all metadata of a scheduler. |
 | [workflow scheduler](workflow/scheduler/index.md) | [disable](workflow/scheduler/index.md#workflow-scheduler-disable) | Disable scheduler(s). |
 | [workflow scheduler](workflow/scheduler/index.md) | [enable](workflow/scheduler/index.md#workflow-scheduler-enable) | Enable scheduler(s). |
+
