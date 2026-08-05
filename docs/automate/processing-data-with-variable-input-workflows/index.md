@@ -32,14 +32,8 @@ This allows you to solve all kinds of [☆ Automation](../index.md) tasks where 
 
 ## 1 Install the required ontologies / vocabularies
 
-Install the required ontologies / vocabularies from the eccenca Corporate Memory Package Marketplace or from an RDF file.
-
-### Used ontologies / vocabularies
-
 This tutorial makes use of the `rdfs:` and `schema.org` ontologies.
 Both can be installed from the **Marketplace**.
-
-### Install from Marketplace
 
 Click the :eccenca-module-marketplace: **Packages** icon in the main menu under the **Marketplace** section.
 
@@ -49,20 +43,6 @@ Search for the required ontologies / vocabularies and click the **Install** butt
 Wait for a package installation to complete (the **Install** button will change to **Uninstall**) before installing the next package.
 
 ![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" }
-
-### Install from File
-
-Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
-In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
-
-![Add new graph](pdwviw-add-new-graph.png){ class="bordered" }
-
-![New graph from File option](pdwviw-new-graph-from-file.png){ class="bordered" width="70%"}
-
-In the next step, select the RDF file via **browse** or add it via drag-and-drop.
-Define the **Target graph URI** and confirm to add / replace this graph in the final dialog step.
-
-![Define Target graph URI](pdwviw-define-target-graph-uri.png){ class="bordered" width="70%"}
 
 ## 2 Create a new project
 
@@ -117,14 +97,14 @@ In this tutorial we use this file: [feed.xml](feed.xml)(1)
 
 ![Create XML dataset dialog](pdwviw-create-xml-dataset.png){ class="bordered" width="70%" }
 
-Click the output menu of the feed.xml dataset task.
+Click the output port menu of the feed.xml dataset task.
 And click **Connect to newly created Transformation**.
 
 ![Create transformation](pdwviw-create-transformation.png){ class="bordered" width="70%"}
 
 If necessary change the details in the create dialog, complete by clicking the **Create** button.
 
-Click the output menu of the Transform feed.xml transformation task.
+Click the output port menu of the Transform feed.xml transformation task.
 And click **Connect to newly created Knowledge graph**.
 
 ![Create knowledge graph](pdwviw-create-knowledge-graph.png){ class="bordered" width="90%"}
