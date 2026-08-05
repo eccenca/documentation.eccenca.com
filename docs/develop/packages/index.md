@@ -47,7 +47,7 @@ The following pages give an overview of this feature:
 
     ---
 
-    Intended for Developers, Linked Data Experts, Consultants, and Partners, this page gives an overview of how to start developing and publish Marketplace Packages, followed by a [step-by-step tutorial](development/tutorial.md).
+    Intended for Developers, Linked Data Experts, Consultants, and Partners, this page gives an overview of how to start developing and publish Marketplace Packages, followed by a [step-by-step tutorial](development/tutorial/index.md).
 
     This section discusses the lifecycle commands and stages `copier copy`, _Package Definition and Release_, `inspect`, `install --input PATH` (from local), _Solution Development and Configuration_, `export`, `build`, and `publish`.
 

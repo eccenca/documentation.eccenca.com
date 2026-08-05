@@ -10,7 +10,7 @@ tags:
 This tutorial walks you through a basic example of creating a new Marketplace Package, adding different types of content to it, and finally building it into a package archive ready for distribution.
 
 It is a "how to" and does not replace the full documentation of the [package-template](https://github.com/eccenca/cmem-package-template) repository.
-See [Development and Publication](index.md) for the underlying concepts, and note that advanced scenarios such as publishing are only outlined at the end.
+See [Development and Publication](../index.md) for the underlying concepts, and note that advanced scenarios such as publishing are only outlined at the end.
 
 ## Initialize the Package Repository
 
@@ -147,11 +147,11 @@ Make sure your local package folder is a git repository with a clean state - the
 task build
 ```
 
-To check how this output `.cpa` file can be installed in different places, refer to the [Installation and Management](../installation/index.md) section.
+To check how this output `.cpa` file can be installed in different places, refer to the [Installation and Management](../../installation/index.md) section.
 
 !!! success "Next steps"
 
-    There are many improvements you can add to your package, such as declaring dependencies to other plugins or packages, to ensure your `.cpa` file can be installed with all its requirements everywhere. For that, you can refer to existing package examples, the [Development and Publication](index.md) page, or the template documentation.
+    There are many improvements you can add to your package, such as declaring dependencies to other plugins or packages, to ensure your `.cpa` file can be installed with all its requirements everywhere. For that, you can refer to existing package examples, the [Development and Publication](../index.md) page, or the template documentation.
 
     The final step is usually publishing a version of the package to a remote Marketplace Server, to avoid having to transfer the `.cpa` archive manually. This requires you to have publishing permissions on an eccenca Marketplace Server (either a public or private instance).
     This can be done with **task publish**, either manually or from a CI runner.

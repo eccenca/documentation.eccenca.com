@@ -18,7 +18,7 @@ In order to support the development and publication of Marketplace Packages, we 
 Please have a look at this template to get started.
 
 This page gives an overview of the concepts you need to understand in order to develop packages.
-If you prefer to learn by doing, follow the [step-by-step tutorial](tutorial.md), which builds a package with a graph and a Build project from scratch.
+If you prefer to learn by doing, follow the [step-by-step tutorial](tutorial/index.md), which builds a package with a graph and a Build project from scratch.
 
 ## Package Structure
 
@@ -223,7 +223,7 @@ Most (solution) package development and evolution will be a back and forth betwe
 !!! tip "Task wrappers"
 
     The generated package repository ships a `Taskfile.yaml` which wraps the commands below into `task import`, `task export`, `task build`, `task check`, `task delete`, and `task publish`.
-    The [tutorial](tutorial.md) uses these wrappers.
+    The [tutorial](tutorial/index.md) uses these wrappers.
 
 ### Install (local) Packages
 
