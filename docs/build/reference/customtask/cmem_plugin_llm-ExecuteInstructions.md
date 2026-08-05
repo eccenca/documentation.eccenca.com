@@ -159,10 +159,6 @@ The instruction prompt template. Please have a look at the task documentation fo
 - Datatype: `code-jinja2`
 - Default Value: `Write a paragraph about this entity: {{ entity }}`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Base URL
@@ -247,7 +243,7 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 [
     {
         "role": "developer",
-        "content": "You are a helpful assistant."
+        "content": "{{ developer_prompt }}"
     },
     {
         "role": "user",
@@ -255,6 +251,16 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
     }
 ]
 ```
+
+
+
+### Developer Prompt Template
+
+The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour. Leave the Messages Template's developer content hardcoded if this parameter is not needed.
+
+- ID: `developer_prompt_template`
+- Datatype: `code-jinja2`
+- Default Value: `You are a helpful assistant.`
 
 
 
@@ -325,4 +331,3 @@ Delay between API requests in seconds to respect rate limits.
 - ID: `request_delay`
 - Datatype: `double`
 - Default Value: `0.0`
-

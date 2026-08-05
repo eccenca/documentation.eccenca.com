@@ -30,10 +30,6 @@ No description
 - Datatype: `string`
 - Default Value: `km`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

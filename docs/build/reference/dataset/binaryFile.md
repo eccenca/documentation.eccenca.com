@@ -52,10 +52,6 @@ If the file is a ZIP file, read files are filtered via this regex. If empty, the
 - Datatype: `string`
 - Default Value: `.*`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

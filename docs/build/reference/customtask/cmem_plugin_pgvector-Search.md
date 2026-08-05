@@ -135,10 +135,6 @@ The number of entries to be returned in the search result.
 - Datatype: `Long`
 - Default Value: `10`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Distance Strategy
@@ -148,5 +144,3 @@ The distance strategy to use. (default: COSINE)
 - ID: `distance_strategy`
 - Datatype: `enumeration`
 - Default Value: `COSINE`
-
-

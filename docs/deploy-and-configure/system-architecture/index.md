@@ -11,7 +11,7 @@ hide:
 
 This page describes the overall system architecture of eccenca Corporate Memory and its components.
 
-![cmem-System-Architecture](Corporate-Memory-System-Architecture_25.3.drawio.png)
+![cmem-System-Architecture](Corporate-Memory-System-Architecture_26.2.drawio.png)
 
 eccenca Corporate Memory consists of three core components:
 

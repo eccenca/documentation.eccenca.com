@@ -120,10 +120,6 @@ No description
 * Datatype: `string`
 * Default Value: `urn:url-encoded-value:`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

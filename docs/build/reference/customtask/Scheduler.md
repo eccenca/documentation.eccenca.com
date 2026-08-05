@@ -94,10 +94,6 @@ If set to true, this will stop the scheduler, so the failed task is not schedule
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

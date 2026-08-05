@@ -22,3 +22,8 @@ Converts a string to upper case.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- [lowerCase](lowerCase.md) — Upper case and Lower case are exact complements — one raises all characters, the other lowers them. Lower case is the choice when uniform lowercase is the target.
+- [capitalize](capitalize.md) — Upper case raises every character to upper case. Capitalize raises only the first character of the string, leaving the rest in its original case.

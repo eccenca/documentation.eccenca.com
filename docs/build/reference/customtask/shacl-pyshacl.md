@@ -79,10 +79,6 @@ If enabled, the validation graph is cleared before workflow execution.
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Ontology graph URI
@@ -222,5 +218,3 @@ specify a custom max-evaluation-depth. If you find yourself with a legitimate us
 - ID: `max_validation_depth`
 - Datatype: `Long`
 - Default Value: `15`
-
-

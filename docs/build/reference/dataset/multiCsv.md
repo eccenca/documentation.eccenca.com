@@ -115,10 +115,6 @@ If 'True' then files in the ZIP archive are only added or updated, all other fil
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### ZIP file regex
@@ -148,5 +144,3 @@ If set to true, this will trim whitespace and non-printable characters from the 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

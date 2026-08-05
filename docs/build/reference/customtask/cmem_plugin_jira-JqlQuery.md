@@ -80,10 +80,6 @@ Maximum number of issues to retrieve (0 = retrieve all issues).
 - Datatype: `Long`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Verify SSL Connection
@@ -113,5 +109,3 @@ Number of items to return per request.
 - ID: `results_per_page`
 - Datatype: `Long`
 - Default Value: `100`
-
-

@@ -40,10 +40,6 @@ Applies only if none of the pre-defined namespaces is selected. If enabled, the 
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -24,10 +24,6 @@ The name of the Excel function
 - Datatype: `string`
 - Default Value: `NPV`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

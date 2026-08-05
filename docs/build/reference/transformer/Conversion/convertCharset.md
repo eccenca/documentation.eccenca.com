@@ -35,10 +35,6 @@ No description
 - Datatype: `string`
 - Default Value: `UTF-8`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

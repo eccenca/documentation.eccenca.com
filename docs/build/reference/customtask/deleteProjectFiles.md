@@ -56,10 +56,6 @@ If enabled the operator outputs entities, one entity for each deleted file, with
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -55,10 +55,6 @@ Name of the tables joined to the pivot. Comma separated list.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

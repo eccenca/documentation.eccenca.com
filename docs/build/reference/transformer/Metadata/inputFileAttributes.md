@@ -25,10 +25,6 @@ File attribute to be retrieved from the input dataset.
 - Datatype: `enumeration`
 - Default Value: `name`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

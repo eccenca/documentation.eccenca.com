@@ -189,10 +189,6 @@ Specifies how text is extracted from a PDF page. Options include "raw", "layout"
 - Datatype: `string`
 - Default Value: `default`
 
-
-
-
-
 ## Advanced Parameter
 
 ### File name regex filter
@@ -273,4 +269,3 @@ The maximum number of processes to use for processing multiple files concurrentl
 - ID: `max_processes`
 - Datatype: `Long`
 - Default Value: `9`
-

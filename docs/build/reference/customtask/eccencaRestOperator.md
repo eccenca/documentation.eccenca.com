@@ -394,10 +394,6 @@ If this is non-empty, a property is created in the root JSON object (if it exist
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

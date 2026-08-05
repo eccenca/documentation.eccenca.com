@@ -102,10 +102,6 @@ If true, lower camel case (aka. dromedary case) is used, otherwise upper camel c
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -108,10 +108,6 @@ A flag indicating whether files located in subfolders should be excluded from th
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

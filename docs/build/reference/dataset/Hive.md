@@ -127,10 +127,6 @@ The source internal encoding, e.g., UTF8, ISO-8859-1
 - Datatype: `string`
 - Default Value: `UTF-8`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

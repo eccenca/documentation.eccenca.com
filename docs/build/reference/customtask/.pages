@@ -21,6 +21,7 @@ nav:
     - "Execute Spark function": SparkFunction.md
     - "Extract from PDF files": cmem_plugin_pdf_extract-pdf_extract-PdfExtract.md
     - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
+    - "Generate random values": cmem_plugin_random-GenerateEntities.md
     - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
     - "Get project files": getProjectFiles.md
     - "Get workflow report": cmem_plugin_wfreports_get_report.md
@@ -28,6 +29,7 @@ nav:
     - "Join tables": Merge.md
     - "jq": cmem-plugin-jq-workflow.md
     - "JQL query": cmem_plugin_jira-JqlQuery.md
+    - "JSON to File": jsonToFile.md
     - "Kafka Consumer (Receive Messages)": cmem_plugin_kafka-ReceiveMessages.md
     - "Kafka Producer (Send Messages)": cmem_plugin_kafka-SendMessages.md
     - "List Nextcloud files": cmem_plugin_nextcloud-List.md
@@ -48,8 +50,10 @@ nav:
     - "Search addresses": SearchAddresses.md
     - "Search for Logs": cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
     - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
+    - "Select random entities": cmem_plugin_random-SelectEntities.md
     - "Send email": SendEMail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md
+    - "Set execution variable": setExecutionVariableOperator.md
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
     - "Set parameters": setParameters.md
     - "SHACL validation with pySHACL": shacl-pyshacl.md
@@ -64,7 +68,6 @@ nav:
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
     - "Unpivot": Unpivot.md
     - "Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
-    - "Update SemSpect": cmem_plugin_semspect-task-Update.md
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md

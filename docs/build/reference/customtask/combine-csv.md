@@ -70,10 +70,6 @@ Stop the workflow if no input files are found or all input files are empty.
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

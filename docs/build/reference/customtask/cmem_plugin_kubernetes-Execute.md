@@ -96,10 +96,6 @@ The command to execute.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Kube Config
@@ -109,5 +105,3 @@ YAML source code of the kube config.
 - ID: `kube_config`
 - Datatype: `code-yaml`
 - Default Value: `None`
-
-

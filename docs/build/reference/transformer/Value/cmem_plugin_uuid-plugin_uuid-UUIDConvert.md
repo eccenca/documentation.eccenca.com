@@ -44,10 +44,6 @@ Output string format
 - Datatype: `string`
 - Default Value: `hex`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

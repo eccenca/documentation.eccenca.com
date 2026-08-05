@@ -38,10 +38,6 @@ The hash algorithm to be used.
 - Datatype: `string`
 - Default Value: `SHA256`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

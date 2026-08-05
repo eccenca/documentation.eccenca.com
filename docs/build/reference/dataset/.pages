@@ -10,7 +10,7 @@ nav:
     - "Excel (Google Drive)": googlespreadsheet.md
     - "Excel (OneDrive, Office365)": office365preadsheet.md
     - "Hive database": Hive.md
-    - "In-memory dataset": inMemory.md
+    - "In-memory Knowledge Graph": inMemory.md
     - "Internal dataset": internal.md
     - "Internal dataset (single graph)": LocalInternalDataset.md
     - "JSON": json.md

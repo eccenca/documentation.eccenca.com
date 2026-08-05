@@ -66,10 +66,6 @@ The regex for filtering the file names. The regex needs to match the full path (
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -106,10 +106,6 @@ The currently selected path within your SSH instance. Auto-completion starts fro
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -71,10 +71,6 @@ The number of lines to skip in the beginning when reading files.
 - Datatype: `int`
 - Default Value: `0`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Streaming
@@ -94,5 +90,3 @@ Duration until file based cache is invalidated.
 - ID: `invalidateCacheAfter`
 - Datatype: `duration`
 - Default Value: `PT5M`
-
-

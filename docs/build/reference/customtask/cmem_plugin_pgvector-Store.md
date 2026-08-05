@@ -96,10 +96,6 @@ If set to true, then the collection will removed at the beginning.
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Source Path
@@ -139,5 +135,3 @@ The number of entries to be processed in batch.
 - ID: `batch_processing_size`
 - Datatype: `Long`
 - Default Value: `100`
-
-

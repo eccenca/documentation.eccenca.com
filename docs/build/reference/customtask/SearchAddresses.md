@@ -67,10 +67,6 @@ Optionally limits the number of results for each search.
 - Datatype: `option[int]`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### JSON-LD context
@@ -90,5 +86,3 @@ Additional URL parameters to be attached to each HTTP search request. Example: '
 - ID: `additionalParameters`
 - Datatype: `string`
 - Default Value: `None`
-
-

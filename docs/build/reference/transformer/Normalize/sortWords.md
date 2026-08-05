@@ -67,10 +67,6 @@ Separator to be inserted between sorted words.
 - Datatype: `string`
 - Default Value: ``
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

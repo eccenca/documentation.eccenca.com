@@ -48,7 +48,7 @@ tasks:
       - poetry install
 
   check:
-    desc: Run complete test suite
+    desc: Check documentation links and Markdown style
     deps:
       - check:links
       - check:rumdl
@@ -59,6 +59,25 @@ tasks:
       - install
     cmds:
       - poetry run linkcheckMarkdown -r docs 2>&1 | grep -v "ResourceWarning"
+
+  test:
+    desc: Run the Python unit test suite
+    deps:
+      - test:unit
+
+  test:unit:
+    desc: Run tests that need no external service
+    deps:
+      - install
+    cmds:
+      - poetry run pytest -m "not integration"
+
+  test:integration:
+    desc: Run tests that need a live CO instance
+    deps:
+      - install
+    cmds:
+      - poetry run pytest -m integration
 
   build:
     desc: Build the page
@@ -106,7 +125,7 @@ tasks:
       ICON_DIR: overrides/.icons/eccenca
 
   update:cmemc:
-    desc: re-generates the cmemc command reference
+    desc: re-generates the cmemc command reference (needs local cmemc)
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
@@ -114,7 +133,7 @@ tasks:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
   update:shape-reference:
-    desc: re-generates the shape and datatype references
+    desc: re-generates the shape and datatype references (needs local CO)
     summary: >
       This task uses a running Corporate Memory to upload a specification for
       a custom markdown endpoint (see shapedocu.ttl in
@@ -149,14 +168,16 @@ tasks:
       SRC: tools/update-shape-reference
 
   update:di-reference:
-    desc: update the task and operator reference pages
+    desc: update the task and operator reference pages (needs local CO)
     cmds:
       - poetry run dec-tool update-di-reference
 
   update:integrations:
-    desc: update integrations page
+    desc: update integrations page (needs data/integrations.yml)
     cmds:
       - poetry run dec-tool update-integrations
+      - cmd: poetry run rumdl --config .markdownlint.jsonc check --fix docs/build/integrations/index.md
+        ignore_error: true
 
   public:versions:
     desc: List public documentation versions

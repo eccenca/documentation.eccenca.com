@@ -45,10 +45,6 @@ Optional MIME type to assign to all retrieved files. If left empty, the MIME typ
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

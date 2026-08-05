@@ -45,3 +45,8 @@ Removes empty values.
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+* [removeValues](removeValues.md) — Remove empty values removes only empty strings and has no parameters. Remove values is the configurable alternative, filtering out values that match words from a user-supplied blacklist.
+* [emptyValue](../Value/emptyValue.md) — Empty value produces what Remove empty values removes: an empty sequence. Remove empty values is selective; Empty value is unconditional.

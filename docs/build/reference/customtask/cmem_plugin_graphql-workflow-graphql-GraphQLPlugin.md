@@ -54,10 +54,6 @@ Pass dynamic variables when making a query or mutation. Example Variables: {"id"
 - Datatype: `multiline string`
 - Default Value: `{}`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Target JSON Dataset
@@ -77,5 +73,3 @@ Access token that connects to a GraphQL endpoint to authorize and secure user ac
 - ID: `oauth_access_token`
 - Datatype: `string`
 - Default Value: `None`
-
-

@@ -105,10 +105,6 @@ Delete the input file after splitting.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Use internal projects directory
@@ -128,5 +124,3 @@ The path to the internal projects directory. If "Use internal projects directory
 - ID: `projects_path`
 - Datatype: `string`
 - Default Value: `/data/datalake`
-
-

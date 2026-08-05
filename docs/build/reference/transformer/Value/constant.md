@@ -39,10 +39,6 @@ The constant value to be generated
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

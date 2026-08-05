@@ -67,10 +67,6 @@ Maximum allowed number of values
 * Datatype: `int`
 * Default Value: `1`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

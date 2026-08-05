@@ -68,10 +68,6 @@ The XML file. This may also be a zip archive of multiple XML files that share th
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Base path
@@ -131,5 +127,3 @@ If the input resource is a ZIP file, files inside the file are filtered via this
 - ID: `zipFileRegex`
 - Datatype: `string`
 - Default Value: `^(?!.*[\/\\]\..*$|^\..*$).*\.xml$`
-
-

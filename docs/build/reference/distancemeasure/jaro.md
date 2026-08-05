@@ -29,3 +29,8 @@ Compares single values (as opposed to sequences of values). If multiple values a
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- [jaroWinkler](jaroWinkler.md) — The Jaro–Winkler distance plugin is a Jaro-style similarity measure that gives extra weight to shared prefixes. The Jaro distance metric plugin stays closer to the underlying common character and transposition signal without that prefix boost.
+- [metaphone](../transformer/Linguistic/metaphone.md) — The Metaphone plugin turns each input string into a phonetic key, reducing spelling variation before scoring. The Jaro distance metric plugin then compares those phonetic keys as ordinary strings.

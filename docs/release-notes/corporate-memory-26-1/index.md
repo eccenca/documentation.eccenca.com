@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.1.0
+# Corporate Memory 26.1.3
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
@@ -33,8 +33,8 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
-- eccenca Explore v26.1.0
-- eccenca Corporate Memory Control (cmemc) v26.1.0
+- eccenca Explore v26.1.3
+- eccenca Corporate Memory Control (cmemc) v26.1.3
 - eccenca Graph Insights v19.2.0
 
 We tested this release with the following dependency components:
@@ -115,9 +115,41 @@ We are excited to announce the release of DataIntegration v26.1, which expands M
 - Fixed cases where DI entity caches were not cleaned up.
 - Fixed cases where errors persisted after deleting the task from the project.
 
-## eccenca Explore v26.1.0
+## eccenca Explore v26.1.3
 
 We are pleased to announce the release of Explore v26.1, which introduces badges, a redesigned resource representation and table experience, versioning view, Companion improvements, and a broad platform refresh.
+
+**v26.1.3 of Explore ships the following fixes:**
+
+- Treat netty and tomcat-based CVEs
+
+**v26.1.2 of Explore ships the following fixes:**
+
+- **Workspace Configuration:**
+    - Override default n/a values fix
+- **Link Rules:**
+    - Several small visualisation issues
+    - Failed deletion of a linking rule if the output graph is missing
+    - Small fixes on query builder UI
+- **SHACL:**
+    - Disabled select list on removed property
+- **Query Catalog:**
+    - Query catalogue forgets variables
+- **Other:**
+    - Add detailed tooltip for RdfResource badges
+    - URI checks too restrictive
+    - Missing user info on failed graph upload in UI
+    - Spring Boot 4.0.6
+    - Invalidation of transistive `owl:imports`
+
+**v26.1.1 of Explore introduces the following changes:**
+
+- Update JSON logstash plugin for cloud deployments
+
+**v26.1.1 of Explore ships the following fixes:**
+
+- Fix the bug of not showing the tab for Graph Insights
+- Workspace configuration: Overridden string values in workspace configuration can be deleted again
 
 **v26.1.0 of Explore adds the following new features:**
 
@@ -212,9 +244,28 @@ We are pleased to announce the release of Explore v26.1, which introduces badges
     - SPARQL Excel downloads now have clean file names.
     - Notifications are now more robust when given non-string input.
 
-## eccenca Corporate Memory Control (cmemc) v26.1.0
+## eccenca Corporate Memory Control (cmemc) v26.1.3
 
 We are excited to announce the release of cmemc v26.1, which expands access-condition administration, adds richer project and query catalog operations, and improves list and output consistency across the CLI.
+
+**v26.1.3 of cmemc ships the following changes:**
+
+- `workflow scheduler` commands
+    - Migrated all subcommands (`list`, `inspect`, `enable`, `disable`, `open`) from cmempy to cmem-client
+    - Migrated `scheduler_ids` tab-completion from cmempy to cmem-client
+- update dependencies (esp. urllib3 for CVE-2026-44431 and CVE-2026-44432)
+
+**v26.1.2 of cmemc ships the following features:**
+
+- Support for arbitrary custom HTTP request headers via `CMEMC_CUSTOM_HEADER_*` environment variables and config keys
+    - Header name is derived from the suffix by replacing underscores with hyphens (e.g. `CMEMC_CUSTOM_HEADER_CF_ACCESS_CLIENT_ID` â†’ `CF-ACCESS-CLIENT-ID`)
+    - Protected headers (`Authorization`, `User-Agent`) cannot be overridden and raise a configuration error
+    - Custom headers are cleared when switching connections
+
+**v26.1.1 of cmemc ships the following fixes:**
+
+- `workflow status` command
+    - add `--activity-type` option to provide missing functionality to get the status of io workflows
 
 **v26.1.0 of cmemc adds the following new features:**
 

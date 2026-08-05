@@ -25,10 +25,6 @@ No description
 - Datatype: `stringmap`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -25,10 +25,6 @@ The XSD file to be used for validating the XML.
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -24,10 +24,6 @@ The name of the Excel function
 - Datatype: `string`
 - Default Value: `STDEVPA`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

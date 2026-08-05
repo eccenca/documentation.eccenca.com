@@ -25,3 +25,12 @@ tags: {% for tag in plugin.tags %}
 ## Advanced Parameter
 
 {{parameters_advanced if plugin.properties_advanced else "`None`"}}
+
+{%- if related_plugins_resolved %}
+
+## Related Plugins
+
+{% for ref, link in related_plugins_resolved -%}
+- [{{ ref.id }}]({{ link }}){% if ref.description %} — {{ ref.description }}{% endif %}
+{% endfor %}
+{%- endif %}

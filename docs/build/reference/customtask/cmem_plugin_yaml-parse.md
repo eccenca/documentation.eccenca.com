@@ -68,10 +68,6 @@ error handling for all supported modes.
 - Datatype: `code-yaml`
 - Default Value: `# Add your YAML code here (and select 'code' as input mode).`
 
-
-
-
-
 ## Advanced Parameter
 
 ### YAML File (when using the *file* input)
@@ -111,5 +107,3 @@ In case of source mode 'entities', you can specify the requested input path.
 - ID: `input_schema_path`
 - Datatype: `string`
 - Default Value: `text`
-
-

@@ -45,10 +45,6 @@ The MIME type of the serialization format of the RDF file.
 - Datatype: `enumeration`
 - Default Value: `application/n-triples`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -26,7 +26,7 @@ flat schema:
 
 - **key** - the optional key of the message,
 - **content** - the message itself as plain text (use other operators, such as
-  [Parse JSON](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-json) or [Parse XML](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-xml) to process
+  [Parse JSON](JsonParserOperator.md) or [Parse XML](XmlParserOperator.md) to process
   complex message content),
 - **offset** - the given offset of the message in the topic,
 - **ts-production** - the timestamp when the message was written to the topic,
@@ -155,10 +155,6 @@ The name of the category/feed where messages were published.
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### SASL Mechanisms
@@ -248,5 +244,3 @@ Setting this to true will disable committing messages after retrival. This means
 - ID: `disable_commit`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

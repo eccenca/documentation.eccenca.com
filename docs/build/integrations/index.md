@@ -53,11 +53,7 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
 
     ---
 
-    [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[Custom JDBC driver](https://github.com/databricks/databricks-jdbc).
-Please have a look at
-
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
+    [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [Custom JDBC driver](https://github.com/databricks/databricks-jdbc). Please have a look at [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 - :material-email-outline:{ .lg .middle } eMail / SMTP
@@ -85,13 +81,7 @@ Please have a look at
 
     ---
 
-    Load and write Knowledge Graphs to an external GraphDB store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
-Query data from GraphDB by using the SPARQL
-
-[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
-[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
-[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
-GraphDB can be used as the integrated Quad Store as well.
+    Load and write Knowledge Graphs to an external GraphDB store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from GraphDB by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. GraphDB can be used as the integrated Quad Store as well.
 
 
 - :simple-graphql:{ .lg .middle } GraphQL
@@ -173,6 +163,14 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     MySQL can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
+- :simple-n8n:{ .lg .middle } n8n
+
+    ---
+
+    Get data and trigger eccenca Corporate Memory build workflows by using our
+[n8n Community Node](https://github.com/eccenca/n8n-nodes-corporate-memory).
+
+
 - :simple-neo4j:{ .lg .middle } Neo4J
 
     ---
@@ -184,13 +182,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    Load and write Knowledge Graphs to Amazon Neptune by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
-Query data from Amazon Neptune by using the SPARQL
-
-[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
-[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
-[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
-Amazon Neptune can be used as the integrated Quad Store as well (beta).
+    Load and write Knowledge Graphs to Amazon Neptune by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Amazon Neptune by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Amazon Neptune can be used as the integrated Quad Store as well (beta).
 
 
 - :simple-nextcloud:{ .lg .middle } Nextcloud
@@ -273,13 +265,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    Load and write Knowledge Graphs to an external Qlever store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
-Query data from Qlever by using the SPARQL
-
-[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
-[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
-[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
-Qlever can be used as the integrated Quad Store as well (beta).
+    Load and write Knowledge Graphs to an external Qlever store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Qlever by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Qlever can be used as the integrated Quad Store as well (beta).
 
 
 - :simple-semanticweb:{ .lg .middle } RDF
@@ -333,11 +319,7 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc).
-Please have a look at
-
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
+    SQLite can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [Custom JDBC driver](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc). Please have a look at [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 - :material-ssh:{ .lg .middle } SSH
@@ -351,37 +333,21 @@ Please have a look at
 
     ---
 
-    Load and write Knowledge Graphs to an external Tentris store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
-Query data from Tentris by using the SPARQL
-
-[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
-[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
-[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
-Tentris can be used as the integrated Quad Store as well (beta).
+    Load and write Knowledge Graphs to an external Tentris store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Tentris by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Tentris can be used as the integrated Quad Store as well (beta).
 
 
 - :simple-trino:{ .lg .middle } Trino
 
     ---
 
-    [Trino](https://github.com/trinodb/trino) can be access with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a
-[Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html).
-Please have a look at
-
-[Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
+    [Trino](https://github.com/trinodb/trino) can be access with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [Custom JDBC driver](https://trino.io/docs/current/client/jdbc.html). Please have a look at [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
 - :black_large_square:{ .lg .middle } Virtuoso
 
     ---
 
-    Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset.
-Query data from Virtuoso by using the SPARQL
-
-[Construct](../../build/reference/customtask/sparqlCopyOperator.md),
-[Select](../../build/reference/customtask/sparqlSelectOperator.md) and
-[Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks.
-Virtuoso can be used as the integrated Quad Store as well (beta).
+    Load and write Knowledge Graphs to an external Openlink Virtuoso store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Virtuoso by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Virtuoso can be used as the integrated Quad Store as well (beta).
 
 
 - :material-xml:{ .lg .middle } XML

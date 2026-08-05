@@ -92,10 +92,6 @@ Presence of a thousands separator (default: absence), compatible with the chosen
 * Datatype: `boolean`
 * Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -55,10 +55,6 @@ If true, the workflow execution will fail if the condition is met. If false, the
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

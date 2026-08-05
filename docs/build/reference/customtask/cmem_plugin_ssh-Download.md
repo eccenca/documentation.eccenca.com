@@ -150,10 +150,6 @@ A regular expression used to define which files will get downloaded.
 - Datatype: `string`
 - Default Value: `^.*$`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Maximum amount of workers
@@ -163,4 +159,3 @@ Determines the amount of workers used for concurrent thread execution of the tas
 - ID: `max_workers`
 - Datatype: `Long`
 - Default Value: `1`
-

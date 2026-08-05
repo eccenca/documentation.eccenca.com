@@ -115,10 +115,6 @@ Escape character to be used inside quotes, used to escape the quote character. I
 - Datatype: `string`
 - Default Value: `"`
 
-
-
-
-
 ## Advanced Parameter
 
 ### URI pattern
@@ -168,5 +164,3 @@ If set to true, this will trim whitespace and non-printable characters from the 
 - ID: `trimWhitespaceAndNonPrintableCharacters`
 - Datatype: `boolean`
 - Default Value: `false`
-
-

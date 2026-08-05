@@ -55,10 +55,6 @@ Generate 'urn:x-ulid:*' strings.
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

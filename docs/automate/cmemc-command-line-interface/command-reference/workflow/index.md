@@ -145,6 +145,11 @@ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
     --raw                           Output raw JSON info.
     --filter [idle|not executed|finished|cancelled|failed|successful|canceling|running|waiting]
                                     Show only workflows of a specific status.
+    --activity-type [ExecuteDefaultWorkflow|ExecuteLocalWorkflow|ExecuteWorkflowWithPayload]
+                                    Activity type to get the status from.
+                                    Defaults to ExecuteDefaultWorkflow. When
+                                    using the IO command, consider using
+                                    ExecuteWorkflowWithPayload
     ```
 
 ## workflow open

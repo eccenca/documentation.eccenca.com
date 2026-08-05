@@ -92,10 +92,6 @@ The query text of your SOQL query. SOQL uses the SELECT statement combined with 
 - Datatype: `multiline string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Dataset
@@ -105,4 +101,3 @@ In addition to have direct output of the fetched entities of your SOQL query, yo
 - ID: `dataset`
 - Datatype: `string`
 - Default Value: `None`
-

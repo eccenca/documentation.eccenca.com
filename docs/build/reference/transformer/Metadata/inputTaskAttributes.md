@@ -25,10 +25,6 @@ Path to retrieve from the JSON, such as 'metadata/modified'. If left empty, the 
 - Datatype: `string`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

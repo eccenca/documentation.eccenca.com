@@ -54,10 +54,6 @@ All input similarity values are multiplied with this factor.
 * Datatype: `double`
 * Default Value: `1.0`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

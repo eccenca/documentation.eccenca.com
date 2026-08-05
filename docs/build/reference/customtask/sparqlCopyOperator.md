@@ -35,10 +35,6 @@ When copying directly to the same SPARQL Endpoint or when copying large amounts 
 - Datatype: `boolean`
 - Default Value: `true`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

@@ -178,10 +178,6 @@ Raise an error if inconsistencies are found. If enabled, the plugin does not out
 - Datatype: `boolean`
 - Default Value: `false`
 
-
-
-
-
 ## Advanced Parameter
 
 ### Maximum RAM Percentage
@@ -191,5 +187,3 @@ Maximum heap size for the reasoning process in the DI container. ⚠️ Setting 
 - ID: `max_ram_percentage`
 - Datatype: `Long`
 - Default Value: `20`
-
-

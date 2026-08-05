@@ -51,10 +51,6 @@ The default value to be generated, if input values are empty
 * Datatype: `string`
 * Default Value: `default`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`

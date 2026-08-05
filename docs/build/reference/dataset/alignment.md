@@ -87,10 +87,6 @@ The alignment file.
 - Datatype: `resource`
 - Default Value: `None`
 
-
-
-
-
 ## Advanced Parameter
 
 `None`
