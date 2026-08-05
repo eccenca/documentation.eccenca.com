@@ -1,0 +1,5 @@
+nav:
+    - Packages: index.md
+    - Installation and Usage: installation
+    - Development: development
+

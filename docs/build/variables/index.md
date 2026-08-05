@@ -17,17 +17,28 @@ They can be used in most Build configuration and input fields that take inputs o
 - integer parameters (any integer),
 - and boolean values (`true`/`false`).
 
-Two kinds of variables can be defined:
+Variables are organized in scopes.
+Each scope is addressed by a prefix that is used when referencing a variable in a template, e.g. a project variable named `host` is referenced as `{{project.host}}`.
+The following scopes are available:
 
-`Global variables`
+`Global variables` (`global.`)
 
-:   It is defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
+:   They are defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
 
-`Project variables (User-defined)`
+`Project variables (User-defined)` (`project.`)
 
-:   It is defined by the user in the UI.
-    Project variables can only be used in the same project.
-    If a project is exported those will be exported as well.
+:   They are defined by the user in the UI.
+Project variables can only be used in the same project.
+If a project is exported those will be exported as well.
+
+`Task variables (User-defined)` (`task.`)
+
+:   They are defined by the user on an individual task and can only be used within that same task.
+Task variables can reference global and project variables in their templates.
+
+`Execution variables` (`execution.`)
+
+:   They are not defined statically but provided for a single workflow run, either when the workflow execution is triggered or while the workflow is running.
 
 Build variables can be particularly useful in scenarios where multiple tasks or components within a system need access to the same data or configuration values.
 Instead of repeating the same information in multiple places, project variables provide a centralized and reusable way to store and retrieve these values.
@@ -35,20 +46,20 @@ Instead of repeating the same information in multiple places, project variables 
 ## Benefits of using variables
 
 1. When sending an email to all employees, instead of manually typing or copy pasting each email address, you can conveniently store all the email addresses once and utilize them with a single word.
-    This saves time and ensures that no email addresses are missed or incorrectly entered.
+   This saves time and ensures that no email addresses are missed or incorrectly entered.
 
 2. Another scenario where variables can be beneficial is when dealing with lengthy or hard-to-remember values.
-    For instance, consider the value "xmhnjnnjkmnlbbhbvfhnbjkm".
-    By assigning it to a variable, you can store it once and easily recall it whenever needed.
-    This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.
+   For instance, consider the value "xmhnjnnjkmnlbbhbvfhnbjkm".
+   By assigning it to a variable, you can store it once and easily recall it whenever needed.
+   This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.
 
 3. In software development, when working with URLs or file paths that are long or subject to change, you can store them in variables.
-    This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
-    For example, you can assign a URL like "<https://example.com/api/data>" to a variable named `apiURL` for consistent referencing.
+   This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
+   For example, you can assign a URL like "<https://example.com/api/data>" to a variable named `apiURL` for consistent referencing.
 
 4. When creating templates or form letters, variables can be used to personalize the content.
-    For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient's name and company information.
-    This way, you can generate customized communications quickly without manually editing each instance.
+   For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient's name and company information.
+   This way, you can generate customized communications quickly without manually editing each instance.
 
 5. You can save the message, port, host or IP address, tokens, passwords, properties etc.
 
@@ -132,6 +143,73 @@ Type name as `email_ids`, in values we have updated all the email id’s of the 
     The email_ids variable is added as shown below.
 
     ![](di-var-email-defined.png){ class="bordered" }
+
+## Task Variables
+
+While project variables are shared across all tasks of a project, task variables are defined on a single task and are only available within that same task.
+They are useful for values that are specific to one task and should not leak into the rest of the project.
+
+Task variables are managed in the same way as project variables, but from the configuration view of an individual task.
+Open a task (for example a dataset, transformation or workflow) and locate the **Task variables** widget.
+Click on :eccenca-item-add-artefact: to add a variable and provide a name, value and description in the same dialog used for project variables.
+
+!!! note
+
+    The naming rules for task variables are the same as for project variables (letters, digits and underscores, not starting with a digit).
+
+Task variables are referenced with the `task.` prefix, for example `{{task.myVariable}}`.
+In their templates they may themselves reference global and project variables, so a task variable can be composed from project-wide values.
+
+!!! note
+
+    Task variables are stored together with the task.
+    When the task or its project is exported, the task variables are exported as well.
+    They are not visible to or usable by other tasks.
+
+## Execution Variables
+
+Execution variables are not defined statically in advance.
+Instead, they are provided for a single workflow run and are available to all tasks of that workflow during the run.
+They are referenced with the `execution.` prefix, for example `{{execution.myVariable}}`.
+
+!!! note "Execution scope fallback"
+
+    When a template references `{{execution.<name>}}` but `<name>` has not been set directly in the execution scope, the value falls back to the variable of the same name in the `task`, then `project`, then `global` scope .
+    A value that is set directly in the execution scope (provided when starting the workflow, or written during workflow execution) always takes precedence and suppresses the fallback.
+    If the name is not defined in any of the execution, task, project or global scopes, the reference remains unbound and template evaluation fails.
+
+    This makes execution variables convenient as overridable defaults: a workflow can reference `{{execution.<name>}}` throughout, and unless a particular run overrides it, the value is taken from the task, project or global variable of the same name.
+
+There are two ways to supply execution variables:
+
+### Passing execution variables when starting a workflow
+
+When a workflow execution is triggered via the REST API, execution variables can be provided in the JSON request body under the `workflowVariables` key as a simple name/value map.
+For example, executing a workflow with a single execution variable `testVar`:
+
+```json
+{
+  "workflowVariables": {
+    "testVar": "World"
+  }
+}
+```
+
+Each entry is added to the `execution` scope and can be referenced anywhere in the workflow as `{{execution.<name>}}`.
+For instance, an operator configured with the template `{{value}} {{execution.testVar}}` would resolve `execution.testVar` to `World` for that run.
+
+### Setting execution variables during a workflow run
+
+Execution variables can also be created or updated while a workflow is running.
+Two operators in the *Variables* category support this:
+
+- **Set execution variable** (workflow operator) — a standalone workflow node placed between any two nodes; reads a value from its input and writes it to the `execution` scope, passing the input through unchanged.
+- **Set execution variable** (transform operator) — a transformer used inside a transformation mapping; writes the first value of its input to the `execution` scope and passes all values through unchanged.
+
+!!! note
+
+    Both operators only have an effect while running inside a workflow execution.
+    Execution variables are scoped to a single workflow run; they are not persisted and are not shared between runs.
 
 ## Using Variables
 
