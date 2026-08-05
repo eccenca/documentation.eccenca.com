@@ -7,7 +7,9 @@ tags:
   - Validation
   - cmemc
 ---
+
 # graph validation Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Validate resources in a graph.
@@ -24,7 +26,7 @@ This command group is dedicated to the management of resource validation process
 Start a new validation process.
 
 ```shell-session title="Usage"
-$ cmemc graph validation execute [OPTIONS] IRI
+cmemc graph validation execute [OPTIONS] IRI
 ```
 
 
@@ -75,7 +77,7 @@ Validation is performed on all typed resources of the data / context graph (and 
 List running and finished validation processes.
 
 ```shell-session title="Usage"
-$ cmemc graph validation list [OPTIONS]
+cmemc graph validation list [OPTIONS]
 ```
 
 
@@ -106,7 +108,7 @@ This command provides a filterable table or identifier list of validation proces
 List and inspect errors found with a validation process.
 
 ```shell-session title="Usage"
-$ cmemc graph validation inspect [OPTIONS] PROCESS_ID
+cmemc graph validation inspect [OPTIONS] PROCESS_ID
 ```
 
 
@@ -140,7 +142,7 @@ Use the ``--filter`` option to limit the output based on different criteria such
 Cancel a running validation process.
 
 ```shell-session title="Usage"
-$ cmemc graph validation cancel PROCESS_ID
+cmemc graph validation cancel PROCESS_ID
 ```
 
 
@@ -188,4 +190,3 @@ For jUnit XML: Each validation process result will be transformed to a single te
     --format [JSON|XML]     Export either the plain JSON report or a distilled
                             jUnit XML report.  [default: XML]
     ```
-

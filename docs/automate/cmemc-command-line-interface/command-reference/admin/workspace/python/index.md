@@ -6,7 +6,9 @@ tags:
   - Python
   - cmemc
 ---
+
 # admin workspace python Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, install, or uninstall python packages.
@@ -23,7 +25,7 @@ Python packages are used to extend the Build (DataIntegration) workspace with py
 Install a python package to the workspace.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python install PACKAGE
+cmemc admin workspace python install PACKAGE
 ```
 
 
@@ -44,7 +46,7 @@ You can install a package by uploading a source distribution .tar.gz file, by up
 Uninstall a python packages from the workspace.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python uninstall [OPTIONS] [PACKAGE_NAME]...
+cmemc admin workspace python uninstall [OPTIONS] [PACKAGE_NAME]...
 ```
 
 
@@ -67,7 +69,7 @@ This command is essentially a `pip uninstall` in the remote python environment.
 List installed python packages.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python list [OPTIONS]
+cmemc admin workspace python list [OPTIONS]
 ```
 
 
@@ -96,7 +98,7 @@ It outputs a table of python package identifiers with version information.
 List installed workspace plugins.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python list-plugins [OPTIONS]
+cmemc admin workspace python list-plugins [OPTIONS]
 ```
 
 
@@ -123,7 +125,7 @@ This commands lists all discovered plugins.
 Open a package pypi.org page in the browser.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python open PACKAGE
+cmemc admin workspace python open PACKAGE
 ```
 
 
@@ -138,13 +140,12 @@ With this command, you can open the pypi.org page of a published package in your
 Reload / Register all installed plugins.
 
 ```shell-session title="Usage"
-$ cmemc admin workspace python reload
+cmemc admin workspace python reload
 ```
 
 
 
 
 This command will register all installed plugins into the Build (DataIntegration) workspace. This command is useful, when you are installing packages into the Build Python environment without using the provided cmemc commands (e.g. by mounting a prepared filesystem in the docker container).
-
 
 

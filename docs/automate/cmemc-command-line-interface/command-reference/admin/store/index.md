@@ -6,7 +6,9 @@ tags:
   - SPARQL
   - cmemc
 ---
+
 # admin store Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Import, export and bootstrap the knowledge graph store.
@@ -19,7 +21,7 @@ This command group consist of commands to administrate the knowledge graph store
 Create showcase data.
 
 ```shell-session title="Usage"
-$ cmemc admin store showcase [OPTIONS]
+cmemc admin store showcase [OPTIONS]
 ```
 
 
@@ -49,7 +51,7 @@ This command creates a showcase scenario of multiple graphs including integratio
 Update/Import or remove bootstrap data.
 
 ```shell-session title="Usage"
-$ cmemc admin store bootstrap [OPTIONS]
+cmemc admin store bootstrap [OPTIONS]
 ```
 
 
@@ -106,7 +108,7 @@ This command will create lots of load on the server. It can take a long time to 
 Restore graphs from a ZIP archive.
 
 ```shell-session title="Usage"
-$ cmemc admin store import BACKUP_FILE
+cmemc admin store import BACKUP_FILE
 ```
 
 
@@ -117,6 +119,5 @@ The backup file is a ZIP archive containing all knowledge graphs  (one Turtle fi
 The command will load a single backup ZIP archive into the triple store by replacing all graphs with the content of the Turtle files in the archive and deleting all graphs which are not in the archive.
 
 This command will create lots of load on the server. It can take a long time to complete. The backup file will be transferred to the server, then unzipped and imported graph by graph. After the initial transfer the network connection is not used anymore and may be closed by proxies. This does not mean that the import failed.
-
 
 

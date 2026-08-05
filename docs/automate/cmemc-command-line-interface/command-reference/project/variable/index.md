@@ -6,7 +6,9 @@ tags:
   - Variables
   - cmemc
 ---
+
 # project variable Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete or get data from project variables.
@@ -21,7 +23,7 @@ Variables are identified by a `VARIABLE_ID`. To get a list of existing variables
 List available project variables.
 
 ```shell-session title="Usage"
-$ cmemc project variable list [OPTIONS]
+cmemc project variable list [OPTIONS]
 ```
 
 
@@ -48,7 +50,7 @@ Outputs a table or a list of project variables.
 Get the value or other data of a project variable.
 
 ```shell-session title="Usage"
-$ cmemc project variable get [OPTIONS] VARIABLE_ID
+cmemc project variable get [OPTIONS] VARIABLE_ID
 ```
 
 
@@ -76,7 +78,7 @@ Use the ``--key`` option to specify which information you want to get.
 Delete project variables.
 
 ```shell-session title="Usage"
-$ cmemc project variable delete [OPTIONS] [VARIABLE_IDS]...
+cmemc project variable delete [OPTIONS] [VARIABLE_IDS]...
 ```
 
 
@@ -103,7 +105,7 @@ Variables are automatically sorted by their dependencies and deleted in the corr
 Create a new project variable.
 
 ```shell-session title="Usage"
-$ cmemc project variable create [OPTIONS] VARIABLE_NAME
+cmemc project variable create [OPTIONS] VARIABLE_NAME
 ```
 
 
@@ -112,7 +114,7 @@ $ cmemc project variable create [OPTIONS] VARIABLE_NAME
 Variables need to be created with a value or a template (not both). In addition to that, a project ID and a name are mandatory.
 
 ```shell-session title="Example"
-$ cmemc project variable create my_var --project my_project --value abc
+cmemc project variable create my_var --project my_project --value abc
 ```
 
 
@@ -141,7 +143,7 @@ $ cmemc project variable create my_var --project my_project --value abc
 Update data of an existing project variable.
 
 ```shell-session title="Usage"
-$ cmemc project variable update [OPTIONS] VARIABLE_ID
+cmemc project variable update [OPTIONS] VARIABLE_ID
 ```
 
 
@@ -165,4 +167,3 @@ With this command you can update the value or the template, as well as the descr
                         accessing variables from the same project.
     --description TEXT  The new description of the project variable.
     ```
-

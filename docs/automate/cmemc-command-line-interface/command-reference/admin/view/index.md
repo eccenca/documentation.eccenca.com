@@ -5,7 +5,9 @@ icon: octicons/cross-reference-24
 tags:
   - cmemc
 ---
+
 # admin view Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List and update explore application view configurations.
@@ -18,7 +20,7 @@ This command group manages Explore (DataPlatform) application view configuration
 List explore application view configurations.
 
 ```shell-session title="Usage"
-$ cmemc admin view list [OPTIONS]
+cmemc admin view list [OPTIONS]
 ```
 
 
@@ -104,7 +106,7 @@ $ cmemc admin view export my-view
 Import application view configurations from a JSON file.
 
 ```shell-session title="Usage"
-$ cmemc admin view import [OPTIONS] INPUT_FILE
+cmemc admin view import [OPTIONS] INPUT_FILE
 ```
 
 
@@ -119,12 +121,12 @@ If `--replace` is specified, existing configurations with the same profile ID wi
 
 
 ```shell-session title="Example"
-$ cmemc admin view import configs.json
+cmemc admin view import configs.json
 ```
 
 
 ```shell-session title="Example"
-$ cmemc admin view import --replace configs.json
+cmemc admin view import --replace configs.json
 ```
 
 
@@ -144,7 +146,7 @@ $ cmemc admin view import --replace configs.json
 Delete custom application view configurations.
 
 ```shell-session title="Usage"
-$ cmemc admin view delete [OPTIONS] [PROFILE_IDS]...
+cmemc admin view delete [OPTIONS] [PROFILE_IDS]...
 ```
 
 
@@ -175,7 +177,7 @@ $ cmemc admin view delete [OPTIONS] [PROFILE_IDS]...
 Create a new explore application view configuration.
 
 ```shell-session title="Usage"
-$ cmemc admin view create [OPTIONS] PROFILE_ID
+cmemc admin view create [OPTIONS] PROFILE_ID
 ```
 
 
@@ -201,7 +203,7 @@ The new profile is created with its ID and label only. Use the `admin view updat
 Update a key in an existing explore application view configuration.
 
 ```shell-session title="Usage"
-$ cmemc admin view update [OPTIONS] PROFILE_ID
+cmemc admin view update [OPTIONS] PROFILE_ID
 ```
 
 
@@ -210,12 +212,12 @@ $ cmemc admin view update [OPTIONS] PROFILE_ID
 Any configuration key can be updated, including nested module keys. All other fields are preserved.
 
 ```shell-session title="Example"
-$ cmemc admin view update my-profile --key enableCompanion --value true
+cmemc admin view update my-profile --key enableCompanion --value true
 ```
 
 
 ```shell-session title="Example"
-$ cmemc admin view update my-profile --key modules.marketplaceModuleConfiguration.enabled --value false
+cmemc admin view update my-profile --key modules.marketplaceModuleConfiguration.enabled --value false
 ```
 
 
@@ -236,7 +238,7 @@ $ cmemc admin view update my-profile --key modules.marketplaceModuleConfiguratio
 Inspect the configuration of an application view profile.
 
 ```shell-session title="Usage"
-$ cmemc admin view inspect [OPTIONS] PROFILE_ID
+cmemc admin view inspect [OPTIONS] PROFILE_ID
 ```
 
 
@@ -263,4 +265,3 @@ cmemc admin view inspect my-profile `--key` "exploreGraphLists[4].comments[0]"
     --key TEXT  Get a specific key only from the configuration.
     --raw       Outputs raw JSON.
     ```
-

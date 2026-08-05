@@ -7,7 +7,9 @@ tags:
   - Security
   - cmemc
 ---
+
 # admin user Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, create, delete and modify user accounts.
@@ -24,7 +26,7 @@ In case your Corporate Memory deployment does not use the default deployment lay
 List user accounts.
 
 ```shell-session title="Usage"
-$ cmemc admin user list [OPTIONS]
+cmemc admin user list [OPTIONS]
 ```
 
 
@@ -50,7 +52,7 @@ Outputs a list of user accounts, which can be used to get an overview as well as
 Create a user account.
 
 ```shell-session title="Usage"
-$ cmemc admin user create USERNAME
+cmemc admin user create USERNAME
 ```
 
 
@@ -69,7 +71,7 @@ This command creates a new user account.
 Update a user account.
 
 ```shell-session title="Usage"
-$ cmemc admin user update [OPTIONS] USERNAME
+cmemc admin user update [OPTIONS] USERNAME
 ```
 
 
@@ -100,7 +102,7 @@ For each data value, a separate option needs to be used. All options can be comb
 Delete user accounts.
 
 ```shell-session title="Usage"
-$ cmemc admin user delete [OPTIONS] [USERNAMES]...
+cmemc admin user delete [OPTIONS] [USERNAMES]...
 ```
 
 
@@ -133,7 +135,7 @@ This command deletes user accounts from a realm.
 Change the password of a user account.
 
 ```shell-session title="Usage"
-$ cmemc admin user password [OPTIONS] USERNAME
+cmemc admin user password [OPTIONS] USERNAME
 ```
 
 
@@ -163,7 +165,7 @@ With this command, the password of a user account can be changed. The default ex
 Open user in the browser.
 
 ```shell-session title="Usage"
-$ cmemc admin user open [USERNAMES]...
+cmemc admin user open [USERNAMES]...
 ```
 
 
@@ -172,6 +174,5 @@ $ cmemc admin user open [USERNAMES]...
 With this command, you can open a user in the keycloak console in your browser to change them.
 
 The command accepts multiple usernames which results in opening multiple browser tabs.
-
 
 

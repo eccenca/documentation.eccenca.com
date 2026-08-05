@@ -6,7 +6,9 @@ tags:
   - Files
   - cmemc
 ---
+
 # project file Command Group
+
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 List, inspect, up-/download or delete project file resources.
@@ -23,7 +25,7 @@ File resources are identified with a `RESOURCE_ID` which is a concatenation of i
 List available file resources.
 
 ```shell-session title="Usage"
-$ cmemc project file list [OPTIONS]
+cmemc project file list [OPTIONS]
 ```
 
 
@@ -49,7 +51,7 @@ Outputs a table or a list of file resources.
 Delete file resources.
 
 ```shell-session title="Usage"
-$ cmemc project file delete [OPTIONS] [RESOURCE_IDS]...
+cmemc project file delete [OPTIONS] [RESOURCE_IDS]...
 ```
 
 
@@ -75,7 +77,7 @@ There are three selection mechanisms: with specific IDs - only those specified r
 Download file resources to the local file system.
 
 ```shell-session title="Usage"
-$ cmemc project file download [OPTIONS] [RESOURCE_IDS]...
+cmemc project file download [OPTIONS] [RESOURCE_IDS]...
 ```
 
 
@@ -86,12 +88,12 @@ This command downloads one or more file resources from projects to your local fi
 Resources are identified by their IDs in the format `PROJECT_ID`:`RESOURCE_NAME`.
 
 ```shell-session title="Example"
-$ cmemc project file download my-proj:my-file.csv
+cmemc project file download my-proj:my-file.csv
 ```
 
 
 ```shell-session title="Example"
-$ cmemc project file download my-proj:file1.csv my-proj:file2.csv --output-dir /tmp
+cmemc project file download my-proj:file1.csv my-proj:file2.csv --output-dir /tmp
 ```
 
 
@@ -112,7 +114,7 @@ $ cmemc project file download my-proj:file1.csv my-proj:file2.csv --output-dir /
 Upload a file to a project.
 
 ```shell-session title="Usage"
-$ cmemc project file upload [OPTIONS] INPUT_PATH
+cmemc project file upload [OPTIONS] INPUT_PATH
 ```
 
 
@@ -125,7 +127,7 @@ This command uploads a file to a project as a file resource.
 
 
 ```shell-session title="Example"
-$ cmemc project file upload my-file.csv --project my-project
+cmemc project file upload my-file.csv --project my-project
 ```
 
 
@@ -149,7 +151,7 @@ $ cmemc project file upload my-file.csv --project my-project
 Display all metadata of a file resource.
 
 ```shell-session title="Usage"
-$ cmemc project file inspect [OPTIONS] RESOURCE_ID
+cmemc project file inspect [OPTIONS] RESOURCE_ID
 ```
 
 
@@ -167,7 +169,7 @@ $ cmemc project file inspect [OPTIONS] RESOURCE_ID
 Display all usage data of a file resource.
 
 ```shell-session title="Usage"
-$ cmemc project file usage [OPTIONS] RESOURCE_ID
+cmemc project file usage [OPTIONS] RESOURCE_ID
 ```
 
 
@@ -179,4 +181,3 @@ $ cmemc project file usage [OPTIONS] RESOURCE_ID
 
     --raw       Outputs raw JSON.
     ```
-
