@@ -19,15 +19,15 @@ The workflow is then called with the actual payload via an HTTP REST call or via
 
 This allows you to solve all kinds of [☆ Automation](../index.md) tasks where you need to process lots of small data snippets or similar.
 
-!!! Abstract
+!!! Tutorial Package
 
-    The complete tutorial is available as a [project file](tutorial-varinput.project.zip). You can import this project
+    The complete tutorial is available as a Marketplace Package. You can install this package
 
-    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the web interface (:eccenca-module-marketplace: **Packages** → Search → "Variable Input") or
     - by using the [command line interface](../cmemc-command-line-interface/index.md)
 
         ``` shell-session
-        cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
+        cmemc -c my-cmem package install ecc-variable-input-tutorial
         ```
 
 ## 1 Install the required ontologies / vocabularies
