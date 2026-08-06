@@ -24,7 +24,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
  | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization's Salesforce account. |
  | [Delete project files](deleteProjectFiles.md) | Removes file resources from the project based on a regular expression. |
- | [Distinct by](DistinctBy.md) | Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. Since this operator accepts a flexible input schema, it can only be connected to operators that provide a non-flexible output schema. A typical way to achieve this is to place a transform operator before it, which produces a fixed output schema. |
+ | [Distinct by](DistinctBy.md) | Removes duplicated entities based on user-defined paths. Duplicates can be resolved by keeping the first or last entity, or by keeping the entity with the minimum or maximum value of a compare path. |
  | [Download file](downloadFile.md) | Downloads a file from a given URL. |
  | [Download Nextcloud files](cmem_plugin_nextcloud-Download.md) | Download files from a given Nextcloud instance. |
  | [Download Office 365 Files](cmem_plugin_office365-Download.md) | Download files from Microsoft OneDrive or Sites |
@@ -37,6 +37,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Execute Spark function](SparkFunction.md) | Applies a specified Scala function to a specified field. |
  | [Extract from PDF files](cmem_plugin_pdf_extract-pdf_extract-PdfExtract.md) | Extract text and tables from PDF files |
  | [Generate base36 IRDIs](cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md) | Create unique ECLASS IRDIs. |
+ | [Generate random values](cmem_plugin_random-GenerateEntities.md) | Generates entities with random values. |
  | [Generate SHACL shapes from data](cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md) | Generate SHACL node and property shapes from a data graph |
  | [Get project files](getProjectFiles.md) | Get file resources from the project. |
  | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output a workflow execution report as a JSON file. |
@@ -44,6 +45,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Join tables](Merge.md) | Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links. |
  | [jq](cmem-plugin-jq-workflow.md) | Process a JSON document with a jq filter / program. |
  | [JQL query](cmem_plugin_jira-JqlQuery.md) | Search and retrieve JIRA issues. |
+ | [JSON to File](jsonToFile.md) | Writes a JSON string held in a field on each valid incoming entity to a file. Depending on the output mode, it produces one file per entity, packs all entities into a single ZIP archive, or merges them into a single JSON array file. Produces a file entity downstream, suitable for wiring into a file-backed dataset or any operator that consumes file entities. |
  | [Kafka Consumer (Receive Messages)](cmem_plugin_kafka-ReceiveMessages.md) | Reads messages from a Kafka topic and saves it to a messages dataset (Consumer). |
  | [Kafka Producer (Send Messages)](cmem_plugin_kafka-SendMessages.md) | Reads a messages dataset and sends records to a Kafka topic (Producer). |
  | [List Nextcloud files](cmem_plugin_nextcloud-List.md) | List directories and files from a given Nextcloud folder. |
@@ -54,7 +56,7 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Normalize units of measurement](ucumNormalizationTask.md) | Custom task that will substitute numeric values and pertaining unit symbols with a SI-system-unit normalized representation. |
  | [OAuth2 Authentication](cmem_plugin_auth-workflow-auth-OAuth2.md) | Provide an OAuth2 access token for other tasks (via config port). |
  | [Office 365 Upload Files](cmem_plugin_office365-Upload.md) | Upload files to OneDrive or a site Sharepoint |
- | [Parse JSON](JsonParserOperator.md) | Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed. |
+ | [Parse JSON](JsonParserOperator.md) | Parses a JSON string held in a field on each incoming entity. Typically used before a transformation task. Takes exactly one input. |
  | [Parse XML](XmlParserOperator.md) | Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities. |
  | [Parse YAML](cmem_plugin_yaml-parse.md) | Parses files, source code or input values as YAML documents. |
  | [Pivot](Pivot.md) | The pivot operator takes data in separate rows, aggregates it and converts it into columns. |
@@ -64,15 +66,17 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
  | [Search for Logs](cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md) | Search and retrieve logs from a Logpoint SIEM system with flexible schema output. |
  | [Search Vector Embeddings](cmem_plugin_pgvector-Search.md) | Search for top-k metadata stored in Postgres Vector Store (PGVector). |
+ | [Select random entities](cmem_plugin_random-SelectEntities.md) | Select X random entities from an input dataset. |
  | [Send email](SendEMail.md) | Sends an email using an SMTP server. |
  | [Send Mattermost messages](cmem_plugin_mattermost.md) | Send messages to Mattermost channels and/or users. |
+ | [Set execution variable](setExecutionVariableOperator.md) | Sets an execution variable to the first value of the (single) input and passes the input through unchanged. The variable is written to the 'execution' scope and can be read downstream as 'execution.<name>'. Only works while running inside a workflow execution. |
  | [Set or Overwrite parameters](cmem_plugin_parameters-ParametersPlugin.md) | Connect this task to a config port of another task in order to set or overwrite the parameter values of this task. |
  | [Set parameters](setParameters.md) | Set and overwrite parameters of a task. |
  | [SHACL validation with pySHACL](shacl-pyshacl.md) | Performs SHACL validation with pySHACL. |
  | [SOQL query (Salesforce)](cmem_plugin_salesforce-SoqlQuery.md) | Executes a custom Salesforce Object Query (SOQL) to return sets of data your organization's Salesforce account. |
  | [Spark SQL query](CustomSQLExecution.md) | Executes a custom SQL query on the first input Spark dataframe and returns the result as its output. |
  | [SPARQL Construct query](sparqlCopyOperator.md) | A task that executes a SPARQL Construct query on a SPARQL enabled data source and outputs the SPARQL result. If the result should be written to the same RDF store it is read from, the SPARQL Update operator is preferable. |
- | [SPARQL Select query](sparqlSelectOperator.md) | A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected. |
+ | [SPARQL Select query](sparqlSelectOperator.md) | A task that executes a SPARQL Select query and outputs the SPARQL result. |
  | [SPARQL Update query](sparqlUpdateOperator.md) | A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written. |
  | [Split file](cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin.md) | Split a file into multiple parts with a specified size. |
  | [SQL Update query](sqlUpdateQueryOperator.md) | A task that outputs SQL queries. The output of this operator should be connected to a remote SQL endpoint on which queries should be executed. |

@@ -132,7 +132,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Clears the dataset that is connected to the output of this operator.",
-    "markdownDocumentation": "Clears the dataset that is connected to the output of this operator.\n",
+    "markdownDocumentation": "Clears the dataset that is connected to the output of this operator, e.g. deletes all triples of a Knowledge Graph or removes the contents of a CSV file.\n\nThe operator itself only emits a clear instruction. The **dataset node connected to its output** performs the physical clear when that node executes. Clearing a read-only dataset fails the workflow.\n\n## Execution order\n\nA dataset node fed by this operator (a \"clear node\") clears the dataset when the node executes. Its execution order relative to other nodes writing to the same dataset is undefined unless made explicit. Without an explicit order the clear may run before or after those writes. A clear that runs after them silently removes the just-written data. The workflow reports a warning when it detects this situation.\n\nThe order is explicit if one of the following holds:\n\n- A (transitive) data-flow or dependency path connects the clear node and the writing node; the direction of the path determines which of the two runs first.\n- Clear and write happen on the same dataset node; the input port order decides: a clear input on an earlier port runs before data inputs on later ports.\n\n## Recipes\n\n### Clear, then write single dataset\n\nExample: a `Customers` dataset that is rebuilt from scratch on every run.\n\nConnect the output of this operator to the first input port of the `Customers` node and the output of the data-producing task to a later input port of the same node. The port order guarantees that the dataset is emptied before the new data is written. No dependency connections are needed.\n\n### Clear before write on separate nodes\n\nIf the clear cannot share a node with the writes (for example because different branches of the workflow write to their own `Customers` nodes), place `Customers` on the canvas one more time and connect the output of this operator to it (the clear node). Then draw a *dependency* connection from the clear node to every node that `Customers` is written to, so all writes run after the clear.\n\nA dataset can also be cleared several times in one workflow (e.g. to reuse it freshly in a later phase), but then each clear node must be ordered against all writes this way. A clear that is left unordered may run after the writes and silently remove them.\n\n### Write before clear\n\nExample: a temporary `Staging` dataset that is filled and consumed during the workflow and should be left empty at the end.\n\nDraw a dependency connection from the node that writes to `Staging` to this operator (or to its clear node), so the clear runs after the write as the final step.\n",
     "pluginIcon": null,
     "properties": {},
     "properties_advanced": {},
@@ -615,16 +615,16 @@
       "Uncategorized"
     ],
     "main_category": "Uncategorized",
-    "description": "Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities. Since this operator accepts a flexible input schema, it can only be connected to operators that provide a non-flexible output schema. A typical way to achieve this is to place a transform operator before it, which produces a fixed output schema.",
-    "markdownDocumentation": "Removes duplicated entities based on a user-defined path. Note that this operator does not retain the order of the entities.\n\nSince this operator accepts a flexible input schema, it can only be connected to operators that provide a non-flexible output schema.\nA typical way to achieve this is to place a transform operator before it, which produces a fixed output schema.\n",
+    "description": "Removes duplicated entities based on user-defined paths. Duplicates can be resolved by keeping the first or last entity, or by keeping the entity with the minimum or maximum value of a compare path.",
+    "markdownDocumentation": "## 1. Introduction\n\nThe **Distinct by** operator removes duplicated entities based on one or more user-defined paths.\n\nAll entities that share the same values at all **distinct paths** (one path per line) are considered duplicates of each other,\nand exactly one of them is kept according to the chosen **duplicate resolution strategy**.\n\nNote that this operator does not retain the order of the entities.\n\n## 2. Duplicate Resolution Strategies\n\n- **Keep first duplicate** \u2013 keeps the first entity encountered in the input.\n- **Keep last duplicate** \u2013 keeps the last entity encountered in the input.\n- **Keep duplicate with minimum value** \u2013 keeps the entity with the lowest value at the **compare path**.\n- **Keep duplicate with maximum value** \u2013 keeps the entity with the highest value at the **compare path**.\n\nThe first and last strategies depend on the order of the input entities.\nThe minimum and maximum strategies are independent of the input order and follow these rules:\n\n- Entities that have a value at the compare path win over entities that do not have one.\n- If an entity has multiple values at the compare path, its lowest (minimum strategy) or highest (maximum strategy) value is used for comparison.\n- On ties, the first encountered entity is kept.\n\n## 3. Compare Order\n\nThe order used to compare values for the *Keep duplicate with minimum/maximum value* strategies can be configured:\n\n- `Autodetect` (default) \u2013 if both values are numbers, numerical order is used; otherwise, alphabetical order is used.\n- `Alphabetical` \u2013 values are always compared as strings.\n- `Numerical` \u2013 values are compared as decimal numbers; values that cannot be parsed never win a comparison.\n- `Integer` \u2013 values are compared as integers; values that cannot be parsed never win a comparison.\n\n## 4. Example\n\nInput:\n\n| key | value |\n|-----|-------|\n| A   | 2     |\n| A   | 1     |\n| B   | 2     |\n| A   | 3     |\n| B   | 1     |\n\nConfiguration:\n\n| Parameter          | Value                             |\n|--------------------|-----------------------------------|\n| Distinct paths     | `key`                             |\n| Resolve duplicates | Keep duplicate with minimum value |\n| Compare path       | `value`                           |\n| Compare order      | Autodetect (default)              |\n\nOutput:\n\n| key | value |\n|-----|-------|\n| A   | 1     |\n| B   | 1     |\n\nFor each distinct `key`, only the entity with the lowest `value` is kept.\n\n## 5. Connecting the Operator\n\nSince this operator accepts a flexible input schema, it can only be connected to operators that provide a\nnon-flexible output schema or an explicit schema, such as CSV datasets, which can be connected directly.\nFor other inputs, a typical way to achieve this is to place a transform operator before it,\nwhich produces a fixed output schema.\n\n## 6. Technical Notes\n\n- Entities are buffered in a temporary disk-based store, so the operator also works on datasets that do not fit into memory.\n",
     "pluginIcon": null,
     "properties": {
       "distinctPath": {
         "name": "distinctPath",
-        "title": "Distinct path",
-        "description": "Entities that share this path will be deduplicated.",
+        "title": "Distinct paths",
+        "description": "Entities that share the values of all these paths will be deduplicated. One path per line.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "multiline string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -637,6 +637,28 @@
         "type": "string",
         "parameterType": "enumeration",
         "value": "keepLast",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "comparePath": {
+        "name": "comparePath",
+        "title": "Compare path",
+        "description": "Path whose value decides which duplicate is kept for the 'Keep duplicate with minimum/maximum value' strategies. Ignored otherwise.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "order": {
+        "name": "order",
+        "title": "Compare order",
+        "description": "Order used to compare values for the 'Keep duplicate with minimum/maximum value' strategies. Per default, if both values are numbers, numerical order is used for comparison. Otherwise, alphabetical order is used. Ignored for other strategies.",
+        "type": "string",
+        "parameterType": "enumeration",
+        "value": "Autodetect",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -1642,7 +1664,18 @@
         "description": "A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.",
         "type": "string",
         "parameterType": "code-json",
-        "value": "[\n    {\n        \"role\": \"developer\",\n        \"content\": \"You are a helpful assistant.\"\n    },\n    {\n        \"role\": \"user\",\n        \"content\": \"{{ instruction_prompt }}\"\n    }\n]",
+        "value": "[\n    {\n        \"role\": \"developer\",\n        \"content\": \"{{ developer_prompt }}\"\n    },\n    {\n        \"role\": \"user\",\n        \"content\": \"{{ instruction_prompt }}\"\n    }\n]",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "developer_prompt_template": {
+        "name": "developer_prompt_template",
+        "title": "Developer Prompt Template",
+        "description": "The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour. Leave the Messages Template's developer content hardcoded if this parameter is not needed.",
+        "type": "string",
+        "parameterType": "code-jinja2",
+        "value": "You are a helpful assistant.",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -2527,6 +2560,98 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_random-GenerateEntities": {
+    "pluginId": "cmem_plugin_random-GenerateEntities",
+    "title": "Generate random values",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Generates entities with random values.",
+    "markdownDocumentation": "This workflow task generates entities with random values.\n\nThe plugin generates X entities with Y values, each value has a length of Z.\n\nAll parameters can be configured with the parameters.\n\nWarning: Please note that high numbers in any of the parameters will result in more\ncomputational time as well as disk usage to save the entities.\nFor example, while a configuration of 100 entities with 100 values / 100 characters\nresults in a 1.4 MB CSV file (which is generated in milliseconds),\na configuration of 1000 entities with 1000 values / 1000 characters will result\nalready in a 1.3 GB CSV file.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iOTAuODU4NjA0bW0iCiAgIGhlaWdodD0iOTcuMjEwOG1tIgogICB2aWV3Qm94PSIwIDAgOTAuODU4NjA1IDk3LjIxMDgwMSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iY3VzdG9tLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzgzNiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMi42OTMxODUxIgogICAgIGlua3NjYXBlOmN4PSIxNTkuMTA1MjkiCiAgICAgaW5rc2NhcGU6Y3k9IjE2OC43NTkyOSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAyNyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTcyOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjUiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc1IgogICAgIGZpdC1tYXJnaW4tdG9wPSIxMCIKICAgICBmaXQtbWFyZ2luLWxlZnQ9IjEwIgogICAgIGZpdC1tYXJnaW4tcmlnaHQ9IjEwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIxMCIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMiIgLz4KICA8ZwogICAgIGlkPSJsYXllcjEiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2Ljk1NDk3MSwtMTA2LjU0MjcxKSIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQiPgogICAgPGcKICAgICAgIGlkPSJnODM2IgogICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuMTAzODk2MSw0MS4wMjU5NzQpIgogICAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkIj4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNzIwNzEsMTI1LjUxMDI1IGMgMCwtMC44MDAzNiAwLjA0OTYsLTEuMTI3NzggMC4xMTAyMiwtMC43Mjc2IDAuMDYwNiwwLjQwMDE4IDAuMDYwNiwxLjA1NTAzIDAsMS40NTUyMSAtMC4wNjA2LDAuNDAwMTggLTAuMTEwMjIsMC4wNzI4IC0wLjExMDIyLC0wLjcyNzYxIHogbSAzLjQwMjA3LC0zLjQzOTU4IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IG0gLTI4LjA2NjcxOCwtNi41MDQzNCBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAyNi4xMDY3MTgsLTIuMTM3NTUgYyAwLjE4MTksLTAuMDczNCAwLjQ3OTU2LC0wLjA3MzQgMC42NjE0NiwwIDAuMTgxOSwwLjA3MzQgMC4wMzMxLDAuMTMzNDUgLTAuMzMwNzMsMC4xMzM0NSAtMC4zNjM4MSwwIC0wLjUxMjYzLC0wLjA2MDEgLTAuMzMwNzMsLTAuMTMzNDUgeiIKICAgICAgICAgaWQ9InBhdGg4NTIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTM5LjcwMzk4LDEzMC4xMTg0MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjgzIC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMzYuOTc3ODcsLTEuNjk3NzUgYyAwLC0wLjk0NTg4IDAuMDQ4LC0xLjMzMjg0IDAuMTA2NzEsLTAuODU5ODkgMC4wNTg3LDAuNDcyOTQgMC4wNTg3LDEuMjQ2ODQgMCwxLjcxOTc5IC0wLjA1ODcsMC40NzI5NCAtMC4xMDY3MSwwLjA4NiAtMC4xMDY3MSwtMC44NTk5IHogbSAtMzMuNjY1ODgyLDAuNjM5NDEgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MywtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI3IHogTSAxMDYuMTIyNzgsMTIzLjEyOSBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0yOC4wNjY3MTgsLTguMzU2NDIgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTk1ODM0LC0xMi40MzU0MSBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg2IDAuMDc2NDMsMC4xOTEgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSAyNS45MDgyNzksLTkuMjM4Mzc0IGMgMC4zNDE3NzYsLTAuMzYzODAyIDAuNjgwOTQsLTAuNjYxNDU4IDAuNzUzNywtMC42NjE0NTggMC4wNzI3NiwwIC0wLjE0NzM0MSwwLjI5NzY1NiAtMC40ODkxMTcsMC42NjE0NTggLTAuMzQxNzc1LDAuMzYzODAyIC0wLjY4MDkzOSwwLjY2MTQ1OSAtMC43NTM3LDAuNjYxNDU5IC0wLjA3Mjc2LDAgMC4xNDczNDEsLTAuMjk3NjU3IDAuNDg5MTE3LC0wLjY2MTQ1OSB6IgogICAgICAgICBpZD0icGF0aDg1MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNjYyMzEsMTQ4LjkwMzgzIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDYsLTAuMDY4NCAtMC4xMzg5NywtMC4zNDcyNyB6IG0gMy40Mzk1OSwwIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDUsLTAuMDY4NCAtMC4xMzg5NiwtMC4zNDcyNyB6IG0gLTMuMzcxNTIsLTE3LjA0MzU4IGMgMCwtMS4wOTE0IDAuMDQ2NywtMS41Mzc4OSAwLjEwMzc4LC0wLjk5MjE4IDAuMDU3MSwwLjU0NTcgMC4wNTcxLDEuNDM4NjcgMCwxLjk4NDM3IC0wLjA1NzEsMC41NDU3MSAtMC4xMDM3OCwwLjA5OTIgLTAuMTAzNzgsLTAuOTkyMTkgeiBtIC0zMy42NDkyNjMsLTMuNzA0MTYgYyAwLC0wLjM2MzggMC4wNjAwNSwtMC41MTI2MyAwLjEzMzQ1MiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NTIsMC4wMzMxIC0wLjEzMzQ1MiwtMC4zMzA3MyB6IG0gMzcuMDQxNjYzLC0zLjk2ODc1IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IE0gNzguMDU2MDYyLDExMy45Nzg4MyBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODMgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAtOC45OTU4MzQsLTEwLjg0NzkxIGMgMC4wMTI3LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTMsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjMsLTAuMzQ3MjYgeiBtIDcwLjY0Mzc1MiwtMC4yNjQ1OSBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ1LC0wLjA2ODMgLTAuMTM4OTYsLTAuMzQ3MjcgeiIKICAgICAgICAgaWQ9InBhdGg4NDgiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTAyLjY2MjMxLDE0OC4xMTAwOCBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ2LC0wLjA2ODMgLTAuMTM4OTcsLTAuMzQ3MjcgeiBtIDAuMDY1OSwtMTIuNjc3OTUgYyAxMGUtNCwtMS4wMTg2NSAwLjA0OSwtMS40MDI5NCAwLjEwNjI4LC0wLjg1NCAwLjA1NzMsMC41NDg5NSAwLjA1NjMsMS4zODIzOSAtMC4wMDIsMS44NTIwOSAtMC4wNTg1LDAuNDY5NyAtMC4xMDUzMSwwLjAyMDYgLTAuMTA0MTQsLTAuOTk4MDkgeiBtIDM2Ljk5NjYzLC02Ljc0Njg4IGMgMCwtMC4zNjM4IDAuMDYsLTAuNTEyNjMgMC4xMzM0NSwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NSwwLjAzMzEgLTAuMTMzNDUsLTAuMzMwNzMgeiBtIC03MC42NDM3NTMsLTEuNTg3NSBjIDAsLTAuMzYzOCAwLjA2MDA1LC0wLjUxMjYzIDAuMTMzNDUyLC0wLjMzMDcyIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTUgMCwwLjY2MTQ1IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1MiwwLjAzMzEgLTAuMTMzNDUyLC0wLjMzMDczIHogbSAzNy4wNTE0NzMsLTEuNzE5NzkgYyAwLjAwNSwtMC40MzY1NiAwLjA2NDcsLTAuNTgzMTIgMC4xMzE3NywtMC4zMjU2OSAwLjA2NzEsMC4yNTc0MyAwLjA2MjcsMC42MTQ2MiAtMC4wMSwwLjc5Mzc1IC0wLjA3MjUsMC4xNzkxMyAtMC4xMjczNiwtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA2IHogbSAyNC44ODA2MywtOC44NjM1NCBjIDAsLTAuNTA5MzIgMC4wNTQ1LC0wLjcxNzY4IDAuMTIxMDEsLTAuNDYzMDIgMC4wNjY1LDAuMjU0NjYgMC4wNjY1LDAuNjcxMzggMCwwLjkyNjA0IC0wLjA2NjYsMC4yNTQ2NiAtMC4xMjEwMSwwLjA0NjMgLTAuMTIxMDEsLTAuNDYzMDIgeiBtIC01Mi45NTcxNTgsLTMuMzI5MzQgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTY1MTQxLC04Ljk3Mzc4IGMgMC4wMDU0LC0wLjQzNjU3IDAuMDY0NjksLTAuNTgzMTMgMC4xMzE3NzMsLTAuMzI1NyAwLjA2NzA4LDAuMjU3NDMgMC4wNjI2NywwLjYxNDYyIC0wLjAwOTgsMC43OTM3NSAtMC4wNzI0OCwwLjE3OTEzIC0wLjEyNzM2MywtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA1IHogbSA3MC42MTMwNTksLTAuNTUxMjIgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzU0LC0wLjM3MDkyIDAuMTU5ODUsLTAuMTU5ODUgMC4wNzY0LDAuMTkwOTkgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI3IHoiCiAgICAgICAgIGlkPSJwYXRoODQ2IiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgICBkPSJtIDEwNi4xMDE5LDE0Ny41ODA5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMy40MTg3LC0wLjM3NDgzIGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ1LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1LDAuMDMzMSAtMC4xMzM0NSwtMC4zMzA3MyB6IG0gMC4wNDI5LC04LjQ2NjY3IGMgMCwtMC45NDU4OCAwLjA0OCwtMS4zMzI4NCAwLjEwNjcxLC0wLjg1OTg5IDAuMDU4NywwLjQ3Mjk0IDAuMDU4NywxLjI0Njg0IDAsMS43MTk3OSAtMC4wNTg3LDAuNDcyOTQgLTAuMTA2NzEsMC4wODYgLTAuMTA2NzEsLTAuODU5OSB6IG0gMzcuMDA4NTYsLTExLjI0NDc5IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gLTMzLjYwMjA4LC0wLjc5Mzc1IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gMTMuNTc0NDYsLTQuODk0NzkgYyAwLjI2MzM5LC0wLjI5MTA0IDAuNTM4NDIsLTAuNTI5MTcgMC42MTExOCwtMC41MjkxNyAwLjA3MjgsMCAtMC4wODMyLDAuMjM4MTMgLTAuMzQ2NiwwLjUyOTE3IC0wLjI2MzM5LDAuMjkxMDQgLTAuNTM4NDIsMC41MjkxNiAtMC42MTExOCwwLjUyOTE2IC0wLjA3MjgsMCAwLjA4MzIsLTAuMjM4MTIgMC4zNDY2LC0wLjUyOTE2IHogbSAtNTAuNTk1NjQ3LC0xNS44NzUgYyAwLC0wLjY1NDg1IDAuMDUxNiwtMC45MjI3NCAwLjExNDY2MywtMC41OTUzMSAwLjA2MzA2LDAuMzI3NDIgMC4wNjMwNiwwLjg2MzIgMCwxLjE5MDYyIC0wLjA2MzA3LDAuMzI3NDIgLTAuMTE0NjYzLDAuMDU5NSAtMC4xMTQ2NjMsLTAuNTk1MzEgeiBtIDcwLjYxMzQ2NywtMS4zMjI5MiBjIDAsLTAuMzYzOCAwLjA2LC0wLjUxMjYzIDAuMTMzNDUsLTAuMzMwNzMgMC4wNzM0LDAuMTgxOSAwLjA3MzQsMC40Nzk1NiAwLDAuNjYxNDYgLTAuMDczNCwwLjE4MTkgLTAuMTMzNDUsMC4wMzMxIC0wLjEzMzQ1LC0wLjMzMDczIHogbSAtMzYuMjY4OCwtMTMuMTE4OTIyIGMgMC4wMTI3LC0wLjMwODIyNSAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NTMgMC4wNzY0LDAuMTkwOTk2IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTE4IC0wLjA4NzksMC4wODc5MiAtMC4xNTA0NiwtMC4wNjgzNSAtMC4xMzg5NywtMC4zNDcyNjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDQiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjEyMjc4LDE0Ni42NzY5MiBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0zLjM3OTQsLTMuMTc1IGMgMCwtMS44MTkwMSAwLjA0MjMsLTIuNTYzMTUgMC4wOTM5LC0xLjY1MzY0IDAuMDUxNywwLjkwOTUgMC4wNTE3LDIuMzk3NzggMCwzLjMwNzI5IC0wLjA1MTcsMC45MDk1IC0wLjA5MzksMC4xNjUzNiAtMC4wOTM5LC0xLjY1MzY1IHogbSAzLjM5OTAxLC0xNS4zNDU4MyBjIDAsLTAuNTA5MzIgMC4wNTQ0LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NSwwLjI1NDY2IDAuMDY2NSwwLjY3MTM4IDAsMC45MjYwNCAtMC4wNjY2LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDIgeiBtIDMzLjYxNjM3LC0yLjUxMzU0IGMgMC4wMDIsLTAuNzI3NjEgMC4wNTM0LC0wLjk5Mzg2IDAuMTE0MTksLTAuNTkxNjggMC4wNjA4LDAuNDAyMTggMC4wNTkyLDAuOTk3NSAtMC4wMDQsMS4zMjI5MiAtMC4wNjI4LDAuMzI1NDIgLTAuMTEyNTYsLTAuMDA0IC0wLjExMDU3LC0wLjczMTI0IHogbSAtNzAuNjI2OTcxLC00Ljg5NDggYyAwLC0xLjIzNjkyIDAuMDQ1NTgsLTEuNzQyOTQgMC4xMDEyODEsLTEuMTI0NDcgMC4wNTU3LDAuNjE4NDYgMC4wNTU3LDEuNjMwNDkgMCwyLjI0ODk1IC0wLjA1NTcsMC42MTg0NyAtMC4xMDEyODEsMC4xMTI0NSAtMC4xMDEyODEsLTEuMTI0NDggeiBtIDAsLTcuOTM3NSBjIDAsLTEuMjM2OTIgMC4wNDU1OCwtMS43NDI5NCAwLjEwMTI4MSwtMS4xMjQ0NyAwLjA1NTcsMC42MTg0NiAwLjA1NTcsMS42MzA0OSAwLDIuMjQ4OTUgLTAuMDU1NywwLjYxODQ3IC0wLjEwMTI4MSwwLjExMjQ1IC0wLjEwMTI4MSwtMS4xMjQ0OCB6IG0gOC45MjQyNzMsLTAuOTQ4MDggYyAwLjAxMjY5LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjQsLTAuMzQ3MjYgeiBtIC04Ljk5NTgzNCwtNC40OTc5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg1IDAuMDc2NDMsMC4xOTA5OSAwLjA2NzAzLDAuNDE5MTkgLTAuMDIwODksMC41MDcxMSAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSA3MC42OTg1MzIsLTEuMDM2MjkgYyAwLjAwMiwtMC43Mjc2IDAuMDUzNCwtMC45OTM4NSAwLjExNDE5LC0wLjU5MTY3IDAuMDYwOCwwLjQwMjE4IDAuMDU5MiwwLjk5NzQ5IC0wLjAwNCwxLjMyMjkyIC0wLjA2MjgsMC4zMjU0MiAtMC4xMTI1NiwtMC4wMDQgLTAuMTEwNTcsLTAuNzMxMjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjE0NzczLDE0NS4yMjE3MSBjIDAuMDAzLC0wLjU4MjA4IDAuMDU3MSwtMC43ODkwNSAwLjEyMDQxLC0wLjQ1OTkzIDAuMDYzMywwLjMyOTEyIDAuMDYwOSwwLjgwNTM3IC0wLjAwNSwxLjA1ODMzIC0wLjA2NjIsMC4yNTI5NyAtMC4xMTgsLTAuMDE2MyAtMC4xMTUwNywtMC41OTg0IHogTSA4MS4yNzE1NTgsMTM1LjAzNTI1IGMgMCwtMC41MDkzMiAwLjA1NDQ1LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NTUsMC4yNTQ2NyAwLjA2NjU1LDAuNjcxMzggMCwwLjkyNjA1IC0wLjA2NjU1LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDMgeiBtIDI0Ljg5MTQzMiwtNC42MzAyIGMgMC4wMDIsLTAuODczMTMgMC4wNTA5LC0xLjE5ODQyIDAuMTA5NzcsLTAuNzIyODcgMC4wNTg5LDAuNDc1NTUgMC4wNTc3LDEuMTg5OTIgLTAuMDAzLDEuNTg3NSAtMC4wNjA0LDAuMzk3NTggLTAuMTA4NTUsMC4wMDggLTAuMTA3MDcsLTAuODY0NjMgeiBtIDMzLjYzODMzLC0xNC40MTk4IGMgMCwtNC43Mjk0MiAwLjAzNTksLTYuNjY0MTkgMC4wNzk3LC00LjI5OTQ3IDAuMDQzOSwyLjM2NDcxIDAuMDQzOSw2LjIzNDI0IDAsOC41OTg5NSAtMC4wNDM4LDIuMzY0NzIgLTAuMDc5NywwLjQyOTk1IC0wLjA3OTcsLTQuMjk5NDggeiBNIDEwMS4yNjg5LDg5Ljg3NTM0NyBjIDAuMTkwOTksLTAuMDc2NDMgMC40MTkyLC0wLjA2NzAzIDAuNTA3MTIsMC4wMjA4OSAwLjA4NzksMC4wODc5MiAtMC4wNjg0LDAuMTUwNDUzIC0wLjM0NzI3LDAuMTM4OTY1IC0wLjMwODIzLC0wLjAxMjY5IC0wLjM3MDkyLC0wLjA3NTM5IC0wLjE1OTg1LC0wLjE1OTg1MyB6IgogICAgICAgICBpZD0icGF0aDg0MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDAuNjMwODQsMTUyLjU4MDg1IGMgLTAuNjkzNzk3LC0wLjEzNjcxIC0yNy4wNTY5NTMsLTE1LjM0MTU0IC0yOC42NzY3NTUsLTE2LjUzOTIgLTAuNjUyNDY0LC0wLjQ4MjQyIC0xLjQ4NTkwMSwtMS40MTIyMyAtMS44NTIwODMsLTIuMDY2MjQgbCAtMC42NjU3ODcsLTEuMTg5MTEgLTAuMDc0MTEsLTE1Ljk3NTQzIGMgLTAuMDY1MzIsLTE0LjA4MDczIC0wLjAyNTM3LC0xNi4wNDk4MiAwLjMzNjgyOSwtMTYuNjAyNjEgMC44ODUxNzMsLTEuMzUwOTQyIDAuOTA1MjEsLTEuMzQxMjkgMTkuNTc2NjY0LDkuNDI5OTQgMTAuOTY0MDQyLDYuMzI0OTYgMTIuNTMxNjAyLDcuNDU0MjQgMTMuMDc3NzgyLDkuNDIxMzIgMC4xODkwMiwwLjY4MDc2IDAuMjg1NTksNi4zNTQzMSAwLjI4NjU3LDE2LjgzNTYzIDAuMDAxLDE1LjQ1NzA5IC0wLjAxMDMsMTUuODIwNjMgLTAuNTI3NjksMTYuMzM4MDIgLTAuMjkxMDQsMC4yOTEwNCAtMC42MTg0NywwLjUxMjk1IC0wLjcyNzYxLDAuNDkzMTQgLTAuMTA5MTQsLTAuMDE5OCAtMC40NDgzNSwtMC4wODUzIC0wLjc1MzgxLC0wLjE0NTQ2IHogbSAtMTMuOTYxNjY5LC0xOS4wMDQ5IGMgLTAuMTI4MjAxLC0wLjMzNDA5IC00Ljc1NzYxMiwtMy4wMzg2MSAtNS4yMDEyODEsLTMuMDM4NjEgLTAuMTc4NjYyLDAgLTAuMjQ5MjAxLDEuMDAwMSAtMC4yMDA1MjIsMi44NDI5NyBsIDAuMDc1MSwyLjg0Mjk4IDIuNjQ1ODM0LDEuNTI0MjYgMi42NDU4MzMsMS41MjQyNiAwLjA3NTk0LC0yLjY5NTcgYyAwLjA0MTc2LC0xLjQ4MjY0IDAuMDIzMzYsLTIuODMyNzEgLTAuMDQwOSwtMy4wMDAxNiB6IG0gMC41MDU1NTgsLTMuMzY0OTggYyAwLjIwNTUzMywtMC42OTQ1OSAwLjYxODg3MSwtMS4wNTYxIDIuMTk3MzQsLTEuOTIxNzggMi40ODkyMTEsLTEuMzY1MTcgMi43ODQ4MTEsLTEuODk2ODIgMi42MzU1MDIsLTQuNzQwMDYgLTAuMDk0ODEsLTEuODA1NTMgLTAuMjU0Njg4LC0yLjQwNzUgLTEuMDIzMTE1LC0zLjg1MjI4IC0xLjExNjg5MSwtMi4wOTk5NyAtMy4xMTc5MjEsLTQuMTQzMzEgLTUuNzIyNzcxLC01Ljg0Mzc4IC0yLjA2MjQ0NywtMS4zNDYzOCAtNi4wMzgzNzMsLTIuODM4MjcgLTYuNzkyNjY1LC0yLjU0ODgyIC0wLjM1Nzc1OSwwLjEzNzI4IC0wLjQzMzg0NiwwLjU4NTU2IC0wLjQzMzg0NiwyLjU1NjA0IDAsMS4zMTQyNSAwLjA4OTMsMi4zOTE5MSAwLjE5ODQzNywyLjM5NDc5IDAuMTA5MTQxLDAuMDAzIDEuMDA2Mjc2LDAuMTIyMDUgMS45OTM2MzUsMC4yNjQ4MiAzLjQ4MzI1MSwwLjUwMzY2IDYuMDEwMDExLDIuNDY1NzggNi4wMTAwMTEsNC42NjcgMCwxLjI0Mzk1IC0wLjMyNjUzLDEuNTcwMTggLTIuODM4MTg4LDIuODM1NTkgLTEuNTkyOTcxLDAuODAyNTYgLTIuMjU5MywxLjgyNzkxIC0yLjEzNzc3MywzLjI4OTYxIDAuMDc3OSwwLjkzNjk1IDAuMTgyNDM5LDEuMDMyMjEgMi41OTQ3MTEsMi4zNjQ0NCAxLjM4MjQ0OCwwLjc2MzQ5IDIuNjM3NzQ4LDEuMzg4NTcgMi43ODk1NTUsMS4zODkwNyAwLjE1MTgxLDUuMmUtNCAwLjM4OTkzNSwtMC4zODQwOSAwLjUyOTE2NywtMC44NTQ2NCB6IG0gMTkuNzQ2MDYxLDIyLjA2ODIzIGMgLTAuNDM4MjUsLTAuNDM4MjUgLTAuNTExMjksLTEuMTUwODEgLTAuNjc3NTgsLTYuNjExMDYgLTAuMTAyNTEsLTMuMzY1OTIgLTAuMTA0ODYsLTEwLjYxNzg3IC0wLjAwNSwtMTYuMTE1NDQgMC4yMzg1NCwtMTMuMTU5OTYgLTAuNDA4MDIsLTExLjg1MTYgOC4zNTkzNSwtMTYuOTE1NzYgMi44MTAzNCwtMS42MjMyOSA4LjQ0MzQ2LC00Ljg4MDQgMTIuNTE4MDQsLTcuMjM4MDIgMTAuNzI0MTcsLTYuMjA1MTkgMTEuMTY1NjksLTYuMzk5MzQxIDEyLjEyOTgyLC01LjMzMzk4IDAuMzk3MjIsMC40Mzg5MiAwLjQzNzg5LDEuOTU4MTUgMC40Mzc4OSwxNi4zNTY3MyB2IDE1Ljg3Mjg2IGwgLTAuNzI3NjEsMS40MzY1MSBjIC0wLjQ2ODE4LDAuOTI0MzQgLTEuMTU5NDYsMS43NTQ0OSAtMS45Mzg4OCwyLjMyODM4IC0yLjI4MjMzLDEuNjgwNTEgLTI3LjgxNjgxLDE2LjMxMjU0IC0yOC44ODEwNSwxNi41NDk3MiAtMC41MTExNSwwLjExMzkyIC0wLjg2Nzc3LDAuMDE3MSAtMS4yMTQ3NywtMC4zMjk5NCB6IG0gMTguMTQ0MDcsLTE0LjAwMDIxIDAuODU5OSwtMC40MzEzMyB2IC0zLjAxODk2IC0zLjAxODk2IGwgLTEuMzg5MDcsMC43ODU4OSBjIC0wLjc2Mzk4LDAuNDMyMjMgLTEuOTg0MzcsMS4xMzYyOCAtMi43MTE5NywxLjU2NDU0IGwgLTEuMzIyOTIsMC43Nzg2NSAtMC4wNzQ5LDIuOTcyNDcgLTAuMDc0OSwyLjk3MjQ3IDEuOTI3MDIsLTEuMDg2NzIgYyAxLjA1OTg2LC0wLjU5NzcgMi4zMTM5OCwtMS4yODA4MiAyLjc4NjkyLC0xLjUxODA1IHogbSAtMS44MDU3MSwtNy4xMDc5MiBjIDIuNTI0NjMsLTEuNDY2MTUgMi41NTcxLC0xLjQ5Nzg2IDIuODY2NTIsLTIuODAwNDYgMC4xNzIxMywtMC43MjQ2MyAxLjE0NTQsLTIuNzA2NDUgMi4xNjI4MiwtNC40MDQwNCAyLjAzMzAzLC0zLjM5MjE3IDIuNTg2NTEsLTQuNzIxMDEgMi44MzAyOSwtNi43OTUyIDAuMzA3NDgsLTIuNjE2MTggLTAuODM0MzMsLTQuMzYxMTIgLTIuODUzNzEsLTQuMzYxMTIgLTIuMTE4MjMsMCAtNi4wNTcwNiwyLjE4NjEyIC05LjU1MDIxLDUuMzAwNTEgbCAtMS41MjEzNSwxLjM1NjQgdiAyLjU0MTEzIDIuNTQxMTEgbCAyLjQ3NjI1LC0yLjQyODM3IGMgMy4yNjYyLC0zLjIwMzA1IDUuNDEzMzYsLTQuMTg0MjUgNS44MTI5MSwtMi42NTYzNSAwLjIyOTA4LDAuODc2MDEgLTAuNDQyNjQsMi42MDQxIC0xLjkzODU5LDQuOTg3MjQgLTAuNzc2NDUsMS4yMzY5MyAtMS43NTQxNywyLjk4MDA0IC0yLjE3MjcxLDMuODczNTggLTAuODE4MTcsMS43NDY2OCAtMS4zNzExNSw0LjMyODUgLTAuOTI3MDksNC4zMjg1IDAuMTQzNzMsMCAxLjQxMDQyLC0wLjY2NzMyIDIuODE0ODcsLTEuNDgyOTMgeiBNIDEwMS40NTA4LDExMi41ODM5NSBDIDk5Ljc5OTk0OSwxMTEuNzk4NzYgNzUuNzExOTkyLDk3LjkzMDI1MiA3My4xMjc0MDcsOTYuMjc2OTEzIDcxLjczMDIxNiw5NS4zODMxNCA3MS42NTgyNTIsOTUuMjgzODYzIDcxLjczNTc0Niw5NC4zNTcwNzMgNzEuODM1ODM1LDkzLjE2MDA1MiA3MC45OTE5NDUsOTMuNzAwODg1IDg5LjAxMjEwOSw4My4yODQ5OCBsIDEzLjIyNTg5MSwtNy42NDQ3NSAxLjg2MTEyLC0wLjA5Mzk4IGMgMS43NzUxLC0wLjA4OTY0IDEuOTY0NzcsLTAuMDM5MjggNC4xMDQzMSwxLjA4OTczOSA0LjQ5ODA3LDIuMzczNTk3IDI3LjY2MzYsMTUuODgxMTIzIDI4LjM3MDgxLDE2LjU0MjY1OSAxLjI2NzM3LDEuMTg1NTE1IDAuODkxNDcsMi4wNTgwODIgLTEuNTM0MTksMy41NjEyOTEgLTIuNDUxODEsMS41MTk0MTQgLTI0Ljc2NzA3LDE0LjM5Mjc3MSAtMjYuNzgyNywxNS40NTA1NjEgLTIuNzgxMTIsMS40NTk1MSAtNC4zNzE4NCwxLjU1MTQ2IC02LjgwNjU1LDAuMzkzNDUgeiBtIDE0LjM3ODEyLC0xMi4zMDU1MiAzLjAwMTA0LC0xLjY4MjI2NCAtMC44ODQzNywtMC41MjcyMDkgYyAtMi4xNTgwNiwtMS4yODY0OTkgLTMuODg0MDMsLTIuMTkyMDM2IC00LjE3ODA2LC0yLjE5MjAzNiAtMC40MTU0NSwwIC02LjA5OTk2LDMuMTY3Mjk2IC02LjA5NTk2LDMuMzk2NTQ0IDAuMDA0LDAuMjQzMiA0LjI3MTIxLDIuNjI4OTQ1IDQuNzU5NDQsMi42NjEwOTUgMC4yMTgyOCwwLjAxNDQgMS43NDczNCwtMC43MzA4OCAzLjM5NzkxLC0xLjY1NjEzIHogbSAtOC42MTQ2NCwtMi45NzYxNjQgYyAwLjc1OTE1LC0wLjM4MDIyNSAyLjA2NjI1LC0xLjEwNDA1NiAyLjkwNDY4LC0xLjYwODUxIGwgMS41MjQ0MSwtMC45MTcxOTIgLTAuNTQ4MzgsLTAuNzcwMTI1IGMgLTAuNDk2NDIsLTAuNjk3MTUgLTAuNTMxNjEsLTEuMDAyMjc5IC0wLjM3MTM4LC0zLjIyMDEzNCAwLjE2MzU4LC0yLjI2NDM2OSAwLjEzMzI3LC0yLjUwNTE1NCAtMC40MDAwNywtMy4xNzc4IC0wLjMxNzM5LC0wLjQwMDI4NSAtMS4xMzM5MSwtMS4wNTQxOTkgLTEuODE0NDksLTEuNDUzMTQxIC0xLjA5NzE1LC0wLjY0MzEyOCAtMS41NTc0NSwtMC43MzYzMTkgLTQuMDYwNzIsLTAuODIyMTE0IC0yLjM4NjM4LC0wLjA4MTc5IC0zLjEwMjkyLC0wLjAwNDggLTQuNjMwMjA0LDAuNDk3Njg4IC0yLjIyNDgzOSwwLjczMTk0NyAtNC45MDQ3NDUsMi4wMzAxMzEgLTYuODMyODA2LDMuMzA5OTA1IC0xLjUzMDY0NiwxLjAxNTk4NCAtNC4xMDI1NjMsMy4yMjI3OCAtNC4xMDE3NTYsMy41MTk0NTEgNS4yOWUtNCwwLjE5NDIwNiAxLjk3MDE0MywxLjQ3NjgxNyAzLjM0MTQ0MSwyLjE3NTk0NyBsIDAuODkxODM3LDAuNDU0Njg0IDEuODkzOTksLTEuOTUzMjgyIGMgMi4zMTcwNywtMi4zODk2MDMgMy45NjYyNDIsLTMuMjg0OTUyIDYuMDI4ODk4LC0zLjI3MzE0IDIuMzU2OCwwLjAxMzUgMi40OTY0LDAuMjMxNDkyIDIuMjcwNTIsMy41NDU0NjggbCAtMC4xODk5MywyLjc4NjU1MiAwLjc5ODUzLDAuNzk4NTMxIGMgMC45Nzc1NSwwLjk3NzU0OCAxLjUyMjM2LDAuOTk1MjczIDMuMjk1NDMsMC4xMDcyMTIgeiIKICAgICAgICAgaWQ9InBhdGg4MzgiIC8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K",
+    "properties": {
+      "number_of_entities": {
+        "name": "number_of_entities",
+        "title": "Number of Entities (Rows)",
+        "description": "How many rows will be created per run. Depending on your output dataset, this will result in different number of resources (Knowledge Graph),rows (CSV) or objects (JSON).",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "10",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "number_of_values": {
+        "name": "number_of_values",
+        "title": "Number of Values (Columns)",
+        "description": "How many values are created per entity / row. Depending on your output dataset, this will result in different number of datatype properties (Knowledge Graph), columns (CSV) or attributes (JSON).",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "5",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "string_length": {
+        "name": "string_length",
+        "title": "String Length",
+        "description": "How long (in characters) should each value be.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "16",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "random_function": {
+        "name": "random_function",
+        "title": "Random Function",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "token_urlsafe",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "property_namespace": {
+        "name": "property_namespace",
+        "title": "Property Namespace",
+        "description": "Output properties will have this namespace (following a number).",
+        "type": "string",
+        "parameterType": "string",
+        "value": "https://example.org/vocab/RandomValuePath",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "type_id": {
+        "name": "type_id",
+        "title": "Type Identifier",
+        "description": "Output entities will have this type identifier (IRI).",
+        "type": "string",
+        "parameterType": "string",
+        "value": "https://example.org/vocab/RandomValueRow",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "cmem_plugin_shapes-plugin_shapes-ShapesPlugin": {
     "pluginId": "cmem_plugin_shapes-plugin_shapes-ShapesPlugin",
     "title": "Generate SHACL shapes from data",
@@ -3059,6 +3184,79 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "jsonToFile": {
+    "pluginId": "jsonToFile",
+    "title": "JSON to File",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Writes a JSON string held in a field on each valid incoming entity to a file. Depending on the output mode, it produces one file per entity, packs all entities into a single ZIP archive, or merges them into a single JSON array file. Produces a file entity downstream, suitable for wiring into a file-backed dataset or any operator that consumes file entities.",
+    "markdownDocumentation": "## JSON to File\n\nThe JSON to File operator takes a JSON string held in a field on each incoming entity and writes it to a file. The\nresulting file is surfaced downstream as a file entity, so any operator that accepts file entities \u2014 a file-backed\ndataset, another file-processing operator \u2014 can pick it up.\n\nThe operator does not parse the JSON into structured entities. It validates that the value is well-formed JSON and then\nwrites the JSON value to the file. The content type of the produced file is set via the *MIME type* parameter and\ndefaults to *application/json*.\n\n## Input\n\nJSON to File accepts exactly one input. It iterates over every entity in that input, reads the JSON string from a\nfield on each entity, and validates it. What it then produces depends on the *Output mode*: in *file* mode (the\ndefault) one file per entity; in *zip* mode a single ZIP archive with one entry per entity; in *jsonArray* mode a\nsingle file holding all the JSON values merged into one JSON array. The output is surfaced as a stream of file\nentities for the downstream operator.\n\nWhich field holds the JSON string is controlled by the *Input path* parameter. When set, the operator reads the value\nat the given path expression. When left empty, it reads the value of the first property in the entity schema.\n\n## Invalid input\n\nValidation is per entity. An entity whose value is missing, empty, or not valid JSON is skipped and recorded as a\nwarning on the execution report, naming the entity and the reason; it produces no output. The remaining valid entities\nare written as usual, so a single malformed record no longer discards the whole batch. This applies in all three output\nmodes.\n\nWhen every entity is skipped, the operator still produces the mode's natural empty output: no files in *file* mode, an\nempty JSON array `[]` in *jsonArray* mode, and a ZIP archive with no entries in *zip* mode.\n\nConfiguration errors are not per-entity and still fail the task \u2014 for example, an input count other than one, or an\nunsupported output mode.\n\n## Output\n\nThe output of JSON to File is a stream of file entities. In *file* mode each file entity wraps a file holding the\nJSON value from one input entity. In *zip* mode the stream contains a single file entity whose backing file is a ZIP\narchive with one entry per input entity. In *jsonArray* mode the stream contains a single file entity backed by one\nfile holding a JSON array of all the input values. In *file* and *jsonArray* mode the MIME type is the value of the\n*MIME type* parameter; in *zip* mode a default *application/json* is overridden to *application/zip* (see *MIME type*\nbelow). Downstream operators or datasets that accept file entities consume the stream directly.\n\nWhen the output is wired to a file-backed dataset, the dataset writes the file's bytes into its own resource. The end\nresult is a file on disk \u2014 a JSON file per entity in *file* mode, a ZIP archive in *zip* mode, or a single JSON array\nfile in *jsonArray* mode.\n\n## Parameters\n\n**Input path** controls which field of the input entity holds the JSON string. When set to a Silk path expression\nsuch as */jsonContent*, the operator reads the value at that path. When left empty, the operator reads the value of\nthe first property in the entity schema.\n\n**MIME type** sets the content type of every produced file. Defaults to *application/json*. In *zip* mode, when this\nparameter is left at its default value, the executor overrides it to *application/zip* automatically; an explicit\nvalue is used as-is even in *zip* mode. In *file* and *jsonArray* mode the default *application/json* is correct and\nis not overridden.\n\n**Output property** wraps the JSON value in a JSON object under the given property key before writing. When set\nto *payload*, an input value of `{\"name\":\"Alice\"}` is written as `{\"payload\":{\"name\":\"Alice\"}}`. When left empty\n(default), the value is written as-is. The wrapping applies in all three output modes; in *jsonArray* mode each\nelement of the array is the wrapped form.\n\n**Output mode** selects what the operator produces. *file* (the default) writes one file per input entity. *zip* packs\nall input entities into a single ZIP file \u2014 one ZIP entry per entity, producing a single file entity whose backing\nfile is a ZIP archive. Entries are always named *entry-0.json*, *entry-1.json*, and so on, by position among valid\nentities. *jsonArray* merges all input entities into a single file\nholding one JSON array whose elements are the JSON values from each entity, in input order; there is always exactly\none output file.\n\n## Output mode examples\n\nIn *zip* mode: an upstream operator produces two entities, each with a JSON string in the *jsonContent* field. With\n*Input path* set to */jsonContent* and *Output mode* set to *zip*, JSON to File produces a single file entity backed\nby a ZIP archive containing two entries: *entry-0.json* and *entry-1.json*. The archive is written with a content type\nof *application/zip*. Wiring the output into a file-backed dataset writes the ZIP file to that dataset's resource.\n\nIn *jsonArray* mode: with two entities holding `{\"id\":1}` and `{\"id\":2}` and *Output mode* set to *jsonArray*, JSON to\nFile produces a single file containing the JSON array `[{\"id\":1},{\"id\":2}]`, with a content type of *application/json*.\n\n## Example\n\nAn upstream operator produces a single entity with the following JSON string in its *jsonContent* field. With\n*Input path* set to */jsonContent*, JSON to File reads from that field.\n\n```json\n{\n  \"response\": {\n    \"persons\": [\n      { \"id\": \"1\", \"name\": \"Alice\" },\n      { \"id\": \"2\", \"name\": \"Bob\" }\n    ]\n  }\n}\n```\n\nJSON to File validates the string and writes it to a file with a content type of *application/json*. The produced file\nentity can be wired into a downstream JSON dataset to persist the value as a file on disk, or fed into any other\noperator that accepts file entities.\n\nWith the `outputProperty` parameter set to `payload`, the same input is instead written as:\n\n```json\n{\n  \"payload\": {\n    \"response\": {\n      \"persons\": [\n        { \"id\": \"1\", \"name\": \"Alice\" },\n        { \"id\": \"2\", \"name\": \"Bob\" }\n      ]\n    }\n  }\n}\n```\n",
+    "pluginIcon": null,
+    "properties": {
+      "inputPath": {
+        "name": "inputPath",
+        "title": "Input path",
+        "description": "The Silk path expression of the input entity that contains the JSON string. If not set, the value of the first property in the entity schema will be taken.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "mimeType": {
+        "name": "mimeType",
+        "title": "Mime type",
+        "description": "MIME type of the produced file.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "application/json",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "outputMode": {
+        "name": "outputMode",
+        "title": "Output mode",
+        "description": "Output mode: \"One file per entity\" writes one file per entity, \"ZIP archive\" packs all entities into a single ZIP archive, \"Merged JSON array\" merges all entities into a single JSON array file.",
+        "type": "string",
+        "parameterType": "enumeration",
+        "value": "file",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "outputProperty": {
+        "name": "outputProperty",
+        "title": "Output property",
+        "description": "If set, the JSON value is wrapped in a JSON object under this property key before writing. For example, with outputProperty set to 'payload', the input {\"name\":\"Alice\"} is written as {\"payload\":{\"name\":\"Alice\"}}. When empty (default), the value is written as-is.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": [
+      {
+        "id": "JsonParserOperator",
+        "description": "JSON to File writes the JSON string from each input entity to a file; Parse JSON parses the same kind of input into structured entities driven by a downstream schema."
+      }
+    ]
+  },
   "cmem_plugin_kafka-ReceiveMessages": {
     "pluginId": "cmem_plugin_kafka-ReceiveMessages",
     "title": "Kafka Consumer (Receive Messages)",
@@ -3067,7 +3265,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Reads messages from a Kafka topic and saves it to a messages dataset (Consumer).",
-    "markdownDocumentation": "\nThis workflow operator uses the Kafka Consumer API\nto receive messages from an [Apache Kafka](https://kafka.apache.org/) topic.\n\nMessages received from the topic will be generated as entities with the following\nflat schema:\n\n- **key** - the optional key of the message,\n- **content** - the message itself as plain text (use other operators, such as\n  [Parse JSON](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-json) or [Parse XML](https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/plugin-reference/#parse-xml) to process\n  complex message content),\n- **offset** - the given offset of the message in the topic,\n- **ts-production** - the timestamp when the message was written to the topic,\n- **ts-consumption** - the timestamp when the message was consumed from the topic.\n\nIn order to process the resulting entities, they have to run through a transformation.\n\nAs an alternate working mode, messages can be exported directly to a JSON or XML\ndataset if you know that the messages on your topic are valid JSON or XML documents\n(see Advanced Options > Messages Dataset).\n\nIn this case, a sample response from the consumer will appear as follows:\n\n<details>\n  <summary>Sample JSON Response</summary>\n\n```json\n[\n  {\n    \"message\": {\n      \"key\": \"818432-942813-832642-453478\",\n      \"headers\": {\n        \"type\": \"ADD\"\n      },\n      \"content\": {\n        \"location\": [\"Leipzig\"],\n        \"obstacle\": {\n          \"name\": \"Iron Bars\",\n          \"order\": \"1\"\n        }\n      }\n    }\n  },\n  {\n    \"message\": {\n      \"key\": \"887428-119918-570674-866526\",\n      \"headers\": {\n        \"type\": \"REMOVE\"\n      },\n      \"content\": {\n        \"comments\": \"We can pass any json payload here.\"\n      }\n    }\n  },\n  {\n    \"message\": {\n      \"key\": \"TestKey\",\n      \"tombstone\": true,\n      \"headers\": {\n        \"h1\": \"v1\",\n        \"h2\": \"v2\"\n      },\n      \"content\": {\n        \"will_be_ignored\": \"...\"\n      }\n    }\n  }\n]\n```\n\n</details>\n<details>\n  <summary>Sample XML Response</summary>\n\n```xml\n    <?xml version=\"1.0\" encoding=\"utf-8\"?>\n    <KafkaMessages>\n        <Message>\n        <PurchaseOrder OrderDate=\"1996-04-06\">\n            <ShipTo country=\"string\">\n            <name>string</name>\n            </ShipTo>\n        </PurchaseOrder>\n        </Message>\n        <Message>\n        <PurchaseOrder OrderDate=\"1996-04-06\">\n            <ShipTo country=\"string\">\n            <name>string</name>\n            </ShipTo>\n        </PurchaseOrder>\n        </Message>\n        <Message key=\"TestKey\" tombstone=\"true\">will be ignored</Message>\n    </KafkaMessages>\n```\n\n</details>\n",
+    "markdownDocumentation": "\nThis workflow operator uses the Kafka Consumer API\nto receive messages from an [Apache Kafka](https://kafka.apache.org/) topic.\n\nMessages received from the topic will be generated as entities with the following\nflat schema:\n\n- **key** - the optional key of the message,\n- **content** - the message itself as plain text (use other operators, such as\n  [Parse JSON](JsonParserOperator.md) or [Parse XML](XmlParserOperator.md) to process\n  complex message content),\n- **offset** - the given offset of the message in the topic,\n- **ts-production** - the timestamp when the message was written to the topic,\n- **ts-consumption** - the timestamp when the message was consumed from the topic.\n\nIn order to process the resulting entities, they have to run through a transformation.\n\nAs an alternate working mode, messages can be exported directly to a JSON or XML\ndataset if you know that the messages on your topic are valid JSON or XML documents\n(see Advanced Options > Messages Dataset).\n\nIn this case, a sample response from the consumer will appear as follows:\n\n<details>\n  <summary>Sample JSON Response</summary>\n\n```json\n[\n  {\n    \"message\": {\n      \"key\": \"818432-942813-832642-453478\",\n      \"headers\": {\n        \"type\": \"ADD\"\n      },\n      \"content\": {\n        \"location\": [\"Leipzig\"],\n        \"obstacle\": {\n          \"name\": \"Iron Bars\",\n          \"order\": \"1\"\n        }\n      }\n    }\n  },\n  {\n    \"message\": {\n      \"key\": \"887428-119918-570674-866526\",\n      \"headers\": {\n        \"type\": \"REMOVE\"\n      },\n      \"content\": {\n        \"comments\": \"We can pass any json payload here.\"\n      }\n    }\n  },\n  {\n    \"message\": {\n      \"key\": \"TestKey\",\n      \"tombstone\": true,\n      \"headers\": {\n        \"h1\": \"v1\",\n        \"h2\": \"v2\"\n      },\n      \"content\": {\n        \"will_be_ignored\": \"...\"\n      }\n    }\n  }\n]\n```\n\n</details>\n<details>\n  <summary>Sample XML Response</summary>\n\n```xml\n    <?xml version=\"1.0\" encoding=\"utf-8\"?>\n    <KafkaMessages>\n        <Message>\n        <PurchaseOrder OrderDate=\"1996-04-06\">\n            <ShipTo country=\"string\">\n            <name>string</name>\n            </ShipTo>\n        </PurchaseOrder>\n        </Message>\n        <Message>\n        <PurchaseOrder OrderDate=\"1996-04-06\">\n            <ShipTo country=\"string\">\n            <name>string</name>\n            </ShipTo>\n        </PurchaseOrder>\n        </Message>\n        <Message key=\"TestKey\" tombstone=\"true\">will be ignored</Message>\n    </KafkaMessages>\n```\n\n</details>\n",
     "pluginIcon": null,
     "properties": {
       "message_dataset": {
@@ -4217,8 +4415,8 @@
       "Uncategorized"
     ],
     "main_category": "Uncategorized",
-    "description": "Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed.",
-    "markdownDocumentation": "Parses an incoming entity as a JSON dataset. Typically, it is used before a transformation task. Takes exactly one input of which only the first entity is processed.\n",
+    "description": "Parses a JSON string held in a field on each incoming entity. Typically used before a transformation task. Takes exactly one input.",
+    "markdownDocumentation": "## Parse JSON\n\nParse JSON is a workflow operator that extracts structured data from a JSON string held in a field on incoming\nentities. It sits inside a pipeline between an upstream source and a downstream operator \u2014 typically a transformation\n\u2014 and turns the JSON content into entities ready for further processing.\n\nThe operator is useful whenever JSON arrives not as a file but as a string stored in a field: the result of an HTTP\nrequest, a column in a database record, a payload embedded in another dataset. Parse JSON consumes that string in place\nand produces entities for the rest of the pipeline.\n\n## Input\n\nParse JSON accepts exactly one input. It iterates over every entity in that input, extracts the JSON string from a\nfield on each entity, parses it, and produces output entities from its contents. The output entities from all input\nentities are concatenated into a single stream for the downstream operator.\n\nWhich field is used as the JSON source is controlled by the *Input path* parameter. When set, Parse JSON looks for the\nJSON string at the given path expression. When left empty, it reads the value of the first available field. If no value\nis found at the expected location, or if the field is empty, the operator raises an error and stops.\n\n## Output\n\nThe output of Parse JSON is a set of entities extracted from the parsed JSON structure. These entities are shaped by\nthree parameters: *Base path*, *URI suffix pattern*, and *Navigate into arrays*.\n\n**Base path** determines the starting point within the JSON document. When set to a path such as */Persons/Person*, only\nelements found at that location are read as entities; everything else in the document is ignored. When left empty, all\ndirect children of the root element are read.\n\n**URI suffix pattern** controls how the URIs of the output entities are constructed. The pattern is evaluated relative\nto the URI of the input entity: whatever suffix is specified gets appended to that URI. For example, a pattern of\n*/{id}* applied to an input entity with URI *http://example.org/record/42* produces URIs by appending the value of the\n*id* field \u2014 so an entity whose *id* is *7* receives URI *http://example.org/record/42/7*. When left empty, URIs are\ngenerated automatically.\n\n**Navigate into arrays** controls how JSON arrays are handled during path traversal. In JSON, an array is an anonymous\ncontainer with no name of its own \u2014 just a list of items. When a path expression crosses an array mid-way, it is\nambiguous whether the array itself or its contents is the intended target. This parameter resolves that ambiguity. When\nenabled \u2014 the default \u2014 the operator descends into arrays automatically, so a path like */Persons/Person* reaches the\nPerson elements directly even if Persons is an array. When disabled, the array is treated as an explicit step in the\npath: to reach the same Person elements, the path must be written as */Persons/#array/Person*.\n\nParse JSON supports the same path expressions as the JSON dataset, including wildcards for children and descendants,\nbackward paths, and special paths for hash IDs, key names, and array elements.\n\n## Schema\n\nBefore producing output entities, Parse JSON needs to know which fields to extract. The set of fields \u2014 the output\nschema \u2014 is requested by the downstream operator and reaches Parse JSON before any parsing happens. For each\nrequested field, Parse JSON evaluates its path expression against the parsed JSON, starting from the configured base\npath, and writes the resulting values onto the output entity. When the downstream operator requests a multi-entity\nschema, Parse JSON produces the root entities and the nested sub-entity tables in a single pass. In practice that\noperator is a transformation.\n\nParse JSON cannot be connected directly to a dataset. A dataset declares no fields to read, so Parse JSON has nothing\nto extract. Workflows that wire Parse JSON straight into a dataset fail at execution time with an error naming the\nmissing schema and asking for a downstream operator that declares one.\n\n## Example\n\nAn upstream operator produces a single entity with the following JSON string in its first field. Because *Input path*\nis not set, Parse JSON reads from that first field by default.\n\n```json\n{\n  \"response\": {\n    \"persons\": [\n      { \"id\": \"1\", \"name\": \"Alice\", \"city\": \"Berlin\" },\n      { \"id\": \"2\", \"name\": \"Bob\", \"city\": \"London\" }\n    ]\n  }\n}\n```\n\nWith *Base path* set to */response/persons*, Parse JSON navigates past the response wrapper and reads each element of\nthe persons array as a separate entity. The array is crossed automatically because *Navigate into arrays* is enabled.\nWith *URI suffix pattern* set to */{id}*, the two output entities receive URIs constructed by appending the value of\ntheir id field to the URI of the input entity.\n\nThe result is two entities \u2014 one for Alice, one for Bob \u2014 each with id, name, and city as fields.\n\nIf the upstream operator produces several entities, Parse JSON parses the JSON string in each one in turn and\nconcatenates the resulting entities into a single output stream.\n",
     "pluginIcon": null,
     "properties": {
       "inputPath": {
@@ -4276,7 +4474,16 @@
       "WorkflowTask"
     ],
     "pluginType": "customtask",
-    "relatedPlugins": []
+    "relatedPlugins": [
+      {
+        "id": "json",
+        "description": "Parse JSON and the JSON dataset share path syntax but not a content source: Parse JSON reads from a field value in an incoming entity, the JSON dataset from a file resource it opens directly."
+      },
+      {
+        "id": "jsonToFile",
+        "description": "Parse JSON parses a JSON string on each input entity into structured entities driven by a downstream schema; JSON to File writes the same kind of input to a file for downstream operators that read files."
+      }
+    ]
   },
   "XmlParserOperator": {
     "pluginId": "XmlParserOperator",
@@ -5251,6 +5458,42 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_random-SelectEntities": {
+    "pluginId": "cmem_plugin_random-SelectEntities",
+    "title": "Select random entities",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Select X random entities from an input dataset.",
+    "markdownDocumentation": "This workflow task selects X random entities from an input dataset\nusing the standard pseudo-random generator (reservoir sampling).\n\nThe task supports only flat entities. Hierarchical entities are ignored.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iOTAuODU4NjA0bW0iCiAgIGhlaWdodD0iOTcuMjEwOG1tIgogICB2aWV3Qm94PSIwIDAgOTAuODU4NjA1IDk3LjIxMDgwMSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iY3VzdG9tLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzgzNiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMi42OTMxODUxIgogICAgIGlua3NjYXBlOmN4PSIxNTkuMTA1MjkiCiAgICAgaW5rc2NhcGU6Y3k9IjE2OC43NTkyOSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAyNyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTcyOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjUiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc1IgogICAgIGZpdC1tYXJnaW4tdG9wPSIxMCIKICAgICBmaXQtbWFyZ2luLWxlZnQ9IjEwIgogICAgIGZpdC1tYXJnaW4tcmlnaHQ9IjEwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIxMCIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMiIgLz4KICA8ZwogICAgIGlkPSJsYXllcjEiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2Ljk1NDk3MSwtMTA2LjU0MjcxKSIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQiPgogICAgPGcKICAgICAgIGlkPSJnODM2IgogICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuMTAzODk2MSw0MS4wMjU5NzQpIgogICAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkIj4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNzIwNzEsMTI1LjUxMDI1IGMgMCwtMC44MDAzNiAwLjA0OTYsLTEuMTI3NzggMC4xMTAyMiwtMC43Mjc2IDAuMDYwNiwwLjQwMDE4IDAuMDYwNiwxLjA1NTAzIDAsMS40NTUyMSAtMC4wNjA2LDAuNDAwMTggLTAuMTEwMjIsMC4wNzI4IC0wLjExMDIyLC0wLjcyNzYxIHogbSAzLjQwMjA3LC0zLjQzOTU4IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IG0gLTI4LjA2NjcxOCwtNi41MDQzNCBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAyNi4xMDY3MTgsLTIuMTM3NTUgYyAwLjE4MTksLTAuMDczNCAwLjQ3OTU2LC0wLjA3MzQgMC42NjE0NiwwIDAuMTgxOSwwLjA3MzQgMC4wMzMxLDAuMTMzNDUgLTAuMzMwNzMsMC4xMzM0NSAtMC4zNjM4MSwwIC0wLjUxMjYzLC0wLjA2MDEgLTAuMzMwNzMsLTAuMTMzNDUgeiIKICAgICAgICAgaWQ9InBhdGg4NTIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTM5LjcwMzk4LDEzMC4xMTg0MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjgzIC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMzYuOTc3ODcsLTEuNjk3NzUgYyAwLC0wLjk0NTg4IDAuMDQ4LC0xLjMzMjg0IDAuMTA2NzEsLTAuODU5ODkgMC4wNTg3LDAuNDcyOTQgMC4wNTg3LDEuMjQ2ODQgMCwxLjcxOTc5IC0wLjA1ODcsMC40NzI5NCAtMC4xMDY3MSwwLjA4NiAtMC4xMDY3MSwtMC44NTk5IHogbSAtMzMuNjY1ODgyLDAuNjM5NDEgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MywtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI3IHogTSAxMDYuMTIyNzgsMTIzLjEyOSBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0yOC4wNjY3MTgsLTguMzU2NDIgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTk1ODM0LC0xMi40MzU0MSBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg2IDAuMDc2NDMsMC4xOTEgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSAyNS45MDgyNzksLTkuMjM4Mzc0IGMgMC4zNDE3NzYsLTAuMzYzODAyIDAuNjgwOTQsLTAuNjYxNDU4IDAuNzUzNywtMC42NjE0NTggMC4wNzI3NiwwIC0wLjE0NzM0MSwwLjI5NzY1NiAtMC40ODkxMTcsMC42NjE0NTggLTAuMzQxNzc1LDAuMzYzODAyIC0wLjY4MDkzOSwwLjY2MTQ1OSAtMC43NTM3LDAuNjYxNDU5IC0wLjA3Mjc2LDAgMC4xNDczNDEsLTAuMjk3NjU3IDAuNDg5MTE3LC0wLjY2MTQ1OSB6IgogICAgICAgICBpZD0icGF0aDg1MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNjYyMzEsMTQ4LjkwMzgzIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDYsLTAuMDY4NCAtMC4xMzg5NywtMC4zNDcyNyB6IG0gMy40Mzk1OSwwIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDUsLTAuMDY4NCAtMC4xMzg5NiwtMC4zNDcyNyB6IG0gLTMuMzcxNTIsLTE3LjA0MzU4IGMgMCwtMS4wOTE0IDAuMDQ2NywtMS41Mzc4OSAwLjEwMzc4LC0wLjk5MjE4IDAuMDU3MSwwLjU0NTcgMC4wNTcxLDEuNDM4NjcgMCwxLjk4NDM3IC0wLjA1NzEsMC41NDU3MSAtMC4xMDM3OCwwLjA5OTIgLTAuMTAzNzgsLTAuOTkyMTkgeiBtIC0zMy42NDkyNjMsLTMuNzA0MTYgYyAwLC0wLjM2MzggMC4wNjAwNSwtMC41MTI2MyAwLjEzMzQ1MiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NTIsMC4wMzMxIC0wLjEzMzQ1MiwtMC4zMzA3MyB6IG0gMzcuMDQxNjYzLC0zLjk2ODc1IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IE0gNzguMDU2MDYyLDExMy45Nzg4MyBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODMgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAtOC45OTU4MzQsLTEwLjg0NzkxIGMgMC4wMTI3LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTMsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjMsLTAuMzQ3MjYgeiBtIDcwLjY0Mzc1MiwtMC4yNjQ1OSBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ1LC0wLjA2ODMgLTAuMTM4OTYsLTAuMzQ3MjcgeiIKICAgICAgICAgaWQ9InBhdGg4NDgiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTAyLjY2MjMxLDE0OC4xMTAwOCBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ2LC0wLjA2ODMgLTAuMTM4OTcsLTAuMzQ3MjcgeiBtIDAuMDY1OSwtMTIuNjc3OTUgYyAxMGUtNCwtMS4wMTg2NSAwLjA0OSwtMS40MDI5NCAwLjEwNjI4LC0wLjg1NCAwLjA1NzMsMC41NDg5NSAwLjA1NjMsMS4zODIzOSAtMC4wMDIsMS44NTIwOSAtMC4wNTg1LDAuNDY5NyAtMC4xMDUzMSwwLjAyMDYgLTAuMTA0MTQsLTAuOTk4MDkgeiBtIDM2Ljk5NjYzLC02Ljc0Njg4IGMgMCwtMC4zNjM4IDAuMDYsLTAuNTEyNjMgMC4xMzM0NSwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NSwwLjAzMzEgLTAuMTMzNDUsLTAuMzMwNzMgeiBtIC03MC42NDM3NTMsLTEuNTg3NSBjIDAsLTAuMzYzOCAwLjA2MDA1LC0wLjUxMjYzIDAuMTMzNDUyLC0wLjMzMDcyIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTUgMCwwLjY2MTQ1IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1MiwwLjAzMzEgLTAuMTMzNDUyLC0wLjMzMDczIHogbSAzNy4wNTE0NzMsLTEuNzE5NzkgYyAwLjAwNSwtMC40MzY1NiAwLjA2NDcsLTAuNTgzMTIgMC4xMzE3NywtMC4zMjU2OSAwLjA2NzEsMC4yNTc0MyAwLjA2MjcsMC42MTQ2MiAtMC4wMSwwLjc5Mzc1IC0wLjA3MjUsMC4xNzkxMyAtMC4xMjczNiwtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA2IHogbSAyNC44ODA2MywtOC44NjM1NCBjIDAsLTAuNTA5MzIgMC4wNTQ1LC0wLjcxNzY4IDAuMTIxMDEsLTAuNDYzMDIgMC4wNjY1LDAuMjU0NjYgMC4wNjY1LDAuNjcxMzggMCwwLjkyNjA0IC0wLjA2NjYsMC4yNTQ2NiAtMC4xMjEwMSwwLjA0NjMgLTAuMTIxMDEsLTAuNDYzMDIgeiBtIC01Mi45NTcxNTgsLTMuMzI5MzQgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTY1MTQxLC04Ljk3Mzc4IGMgMC4wMDU0LC0wLjQzNjU3IDAuMDY0NjksLTAuNTgzMTMgMC4xMzE3NzMsLTAuMzI1NyAwLjA2NzA4LDAuMjU3NDMgMC4wNjI2NywwLjYxNDYyIC0wLjAwOTgsMC43OTM3NSAtMC4wNzI0OCwwLjE3OTEzIC0wLjEyNzM2MywtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA1IHogbSA3MC42MTMwNTksLTAuNTUxMjIgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzU0LC0wLjM3MDkyIDAuMTU5ODUsLTAuMTU5ODUgMC4wNzY0LDAuMTkwOTkgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI3IHoiCiAgICAgICAgIGlkPSJwYXRoODQ2IiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgICBkPSJtIDEwNi4xMDE5LDE0Ny41ODA5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMy40MTg3LC0wLjM3NDgzIGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ1LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1LDAuMDMzMSAtMC4xMzM0NSwtMC4zMzA3MyB6IG0gMC4wNDI5LC04LjQ2NjY3IGMgMCwtMC45NDU4OCAwLjA0OCwtMS4zMzI4NCAwLjEwNjcxLC0wLjg1OTg5IDAuMDU4NywwLjQ3Mjk0IDAuMDU4NywxLjI0Njg0IDAsMS43MTk3OSAtMC4wNTg3LDAuNDcyOTQgLTAuMTA2NzEsMC4wODYgLTAuMTA2NzEsLTAuODU5OSB6IG0gMzcuMDA4NTYsLTExLjI0NDc5IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gLTMzLjYwMjA4LC0wLjc5Mzc1IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gMTMuNTc0NDYsLTQuODk0NzkgYyAwLjI2MzM5LC0wLjI5MTA0IDAuNTM4NDIsLTAuNTI5MTcgMC42MTExOCwtMC41MjkxNyAwLjA3MjgsMCAtMC4wODMyLDAuMjM4MTMgLTAuMzQ2NiwwLjUyOTE3IC0wLjI2MzM5LDAuMjkxMDQgLTAuNTM4NDIsMC41MjkxNiAtMC42MTExOCwwLjUyOTE2IC0wLjA3MjgsMCAwLjA4MzIsLTAuMjM4MTIgMC4zNDY2LC0wLjUyOTE2IHogbSAtNTAuNTk1NjQ3LC0xNS44NzUgYyAwLC0wLjY1NDg1IDAuMDUxNiwtMC45MjI3NCAwLjExNDY2MywtMC41OTUzMSAwLjA2MzA2LDAuMzI3NDIgMC4wNjMwNiwwLjg2MzIgMCwxLjE5MDYyIC0wLjA2MzA3LDAuMzI3NDIgLTAuMTE0NjYzLDAuMDU5NSAtMC4xMTQ2NjMsLTAuNTk1MzEgeiBtIDcwLjYxMzQ2NywtMS4zMjI5MiBjIDAsLTAuMzYzOCAwLjA2LC0wLjUxMjYzIDAuMTMzNDUsLTAuMzMwNzMgMC4wNzM0LDAuMTgxOSAwLjA3MzQsMC40Nzk1NiAwLDAuNjYxNDYgLTAuMDczNCwwLjE4MTkgLTAuMTMzNDUsMC4wMzMxIC0wLjEzMzQ1LC0wLjMzMDczIHogbSAtMzYuMjY4OCwtMTMuMTE4OTIyIGMgMC4wMTI3LC0wLjMwODIyNSAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NTMgMC4wNzY0LDAuMTkwOTk2IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTE4IC0wLjA4NzksMC4wODc5MiAtMC4xNTA0NiwtMC4wNjgzNSAtMC4xMzg5NywtMC4zNDcyNjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDQiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjEyMjc4LDE0Ni42NzY5MiBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0zLjM3OTQsLTMuMTc1IGMgMCwtMS44MTkwMSAwLjA0MjMsLTIuNTYzMTUgMC4wOTM5LC0xLjY1MzY0IDAuMDUxNywwLjkwOTUgMC4wNTE3LDIuMzk3NzggMCwzLjMwNzI5IC0wLjA1MTcsMC45MDk1IC0wLjA5MzksMC4xNjUzNiAtMC4wOTM5LC0xLjY1MzY1IHogbSAzLjM5OTAxLC0xNS4zNDU4MyBjIDAsLTAuNTA5MzIgMC4wNTQ0LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NSwwLjI1NDY2IDAuMDY2NSwwLjY3MTM4IDAsMC45MjYwNCAtMC4wNjY2LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDIgeiBtIDMzLjYxNjM3LC0yLjUxMzU0IGMgMC4wMDIsLTAuNzI3NjEgMC4wNTM0LC0wLjk5Mzg2IDAuMTE0MTksLTAuNTkxNjggMC4wNjA4LDAuNDAyMTggMC4wNTkyLDAuOTk3NSAtMC4wMDQsMS4zMjI5MiAtMC4wNjI4LDAuMzI1NDIgLTAuMTEyNTYsLTAuMDA0IC0wLjExMDU3LC0wLjczMTI0IHogbSAtNzAuNjI2OTcxLC00Ljg5NDggYyAwLC0xLjIzNjkyIDAuMDQ1NTgsLTEuNzQyOTQgMC4xMDEyODEsLTEuMTI0NDcgMC4wNTU3LDAuNjE4NDYgMC4wNTU3LDEuNjMwNDkgMCwyLjI0ODk1IC0wLjA1NTcsMC42MTg0NyAtMC4xMDEyODEsMC4xMTI0NSAtMC4xMDEyODEsLTEuMTI0NDggeiBtIDAsLTcuOTM3NSBjIDAsLTEuMjM2OTIgMC4wNDU1OCwtMS43NDI5NCAwLjEwMTI4MSwtMS4xMjQ0NyAwLjA1NTcsMC42MTg0NiAwLjA1NTcsMS42MzA0OSAwLDIuMjQ4OTUgLTAuMDU1NywwLjYxODQ3IC0wLjEwMTI4MSwwLjExMjQ1IC0wLjEwMTI4MSwtMS4xMjQ0OCB6IG0gOC45MjQyNzMsLTAuOTQ4MDggYyAwLjAxMjY5LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjQsLTAuMzQ3MjYgeiBtIC04Ljk5NTgzNCwtNC40OTc5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg1IDAuMDc2NDMsMC4xOTA5OSAwLjA2NzAzLDAuNDE5MTkgLTAuMDIwODksMC41MDcxMSAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSA3MC42OTg1MzIsLTEuMDM2MjkgYyAwLjAwMiwtMC43Mjc2IDAuMDUzNCwtMC45OTM4NSAwLjExNDE5LC0wLjU5MTY3IDAuMDYwOCwwLjQwMjE4IDAuMDU5MiwwLjk5NzQ5IC0wLjAwNCwxLjMyMjkyIC0wLjA2MjgsMC4zMjU0MiAtMC4xMTI1NiwtMC4wMDQgLTAuMTEwNTcsLTAuNzMxMjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjE0NzczLDE0NS4yMjE3MSBjIDAuMDAzLC0wLjU4MjA4IDAuMDU3MSwtMC43ODkwNSAwLjEyMDQxLC0wLjQ1OTkzIDAuMDYzMywwLjMyOTEyIDAuMDYwOSwwLjgwNTM3IC0wLjAwNSwxLjA1ODMzIC0wLjA2NjIsMC4yNTI5NyAtMC4xMTgsLTAuMDE2MyAtMC4xMTUwNywtMC41OTg0IHogTSA4MS4yNzE1NTgsMTM1LjAzNTI1IGMgMCwtMC41MDkzMiAwLjA1NDQ1LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NTUsMC4yNTQ2NyAwLjA2NjU1LDAuNjcxMzggMCwwLjkyNjA1IC0wLjA2NjU1LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDMgeiBtIDI0Ljg5MTQzMiwtNC42MzAyIGMgMC4wMDIsLTAuODczMTMgMC4wNTA5LC0xLjE5ODQyIDAuMTA5NzcsLTAuNzIyODcgMC4wNTg5LDAuNDc1NTUgMC4wNTc3LDEuMTg5OTIgLTAuMDAzLDEuNTg3NSAtMC4wNjA0LDAuMzk3NTggLTAuMTA4NTUsMC4wMDggLTAuMTA3MDcsLTAuODY0NjMgeiBtIDMzLjYzODMzLC0xNC40MTk4IGMgMCwtNC43Mjk0MiAwLjAzNTksLTYuNjY0MTkgMC4wNzk3LC00LjI5OTQ3IDAuMDQzOSwyLjM2NDcxIDAuMDQzOSw2LjIzNDI0IDAsOC41OTg5NSAtMC4wNDM4LDIuMzY0NzIgLTAuMDc5NywwLjQyOTk1IC0wLjA3OTcsLTQuMjk5NDggeiBNIDEwMS4yNjg5LDg5Ljg3NTM0NyBjIDAuMTkwOTksLTAuMDc2NDMgMC40MTkyLC0wLjA2NzAzIDAuNTA3MTIsMC4wMjA4OSAwLjA4NzksMC4wODc5MiAtMC4wNjg0LDAuMTUwNDUzIC0wLjM0NzI3LDAuMTM4OTY1IC0wLjMwODIzLC0wLjAxMjY5IC0wLjM3MDkyLC0wLjA3NTM5IC0wLjE1OTg1LC0wLjE1OTg1MyB6IgogICAgICAgICBpZD0icGF0aDg0MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDAuNjMwODQsMTUyLjU4MDg1IGMgLTAuNjkzNzk3LC0wLjEzNjcxIC0yNy4wNTY5NTMsLTE1LjM0MTU0IC0yOC42NzY3NTUsLTE2LjUzOTIgLTAuNjUyNDY0LC0wLjQ4MjQyIC0xLjQ4NTkwMSwtMS40MTIyMyAtMS44NTIwODMsLTIuMDY2MjQgbCAtMC42NjU3ODcsLTEuMTg5MTEgLTAuMDc0MTEsLTE1Ljk3NTQzIGMgLTAuMDY1MzIsLTE0LjA4MDczIC0wLjAyNTM3LC0xNi4wNDk4MiAwLjMzNjgyOSwtMTYuNjAyNjEgMC44ODUxNzMsLTEuMzUwOTQyIDAuOTA1MjEsLTEuMzQxMjkgMTkuNTc2NjY0LDkuNDI5OTQgMTAuOTY0MDQyLDYuMzI0OTYgMTIuNTMxNjAyLDcuNDU0MjQgMTMuMDc3NzgyLDkuNDIxMzIgMC4xODkwMiwwLjY4MDc2IDAuMjg1NTksNi4zNTQzMSAwLjI4NjU3LDE2LjgzNTYzIDAuMDAxLDE1LjQ1NzA5IC0wLjAxMDMsMTUuODIwNjMgLTAuNTI3NjksMTYuMzM4MDIgLTAuMjkxMDQsMC4yOTEwNCAtMC42MTg0NywwLjUxMjk1IC0wLjcyNzYxLDAuNDkzMTQgLTAuMTA5MTQsLTAuMDE5OCAtMC40NDgzNSwtMC4wODUzIC0wLjc1MzgxLC0wLjE0NTQ2IHogbSAtMTMuOTYxNjY5LC0xOS4wMDQ5IGMgLTAuMTI4MjAxLC0wLjMzNDA5IC00Ljc1NzYxMiwtMy4wMzg2MSAtNS4yMDEyODEsLTMuMDM4NjEgLTAuMTc4NjYyLDAgLTAuMjQ5MjAxLDEuMDAwMSAtMC4yMDA1MjIsMi44NDI5NyBsIDAuMDc1MSwyLjg0Mjk4IDIuNjQ1ODM0LDEuNTI0MjYgMi42NDU4MzMsMS41MjQyNiAwLjA3NTk0LC0yLjY5NTcgYyAwLjA0MTc2LC0xLjQ4MjY0IDAuMDIzMzYsLTIuODMyNzEgLTAuMDQwOSwtMy4wMDAxNiB6IG0gMC41MDU1NTgsLTMuMzY0OTggYyAwLjIwNTUzMywtMC42OTQ1OSAwLjYxODg3MSwtMS4wNTYxIDIuMTk3MzQsLTEuOTIxNzggMi40ODkyMTEsLTEuMzY1MTcgMi43ODQ4MTEsLTEuODk2ODIgMi42MzU1MDIsLTQuNzQwMDYgLTAuMDk0ODEsLTEuODA1NTMgLTAuMjU0Njg4LC0yLjQwNzUgLTEuMDIzMTE1LC0zLjg1MjI4IC0xLjExNjg5MSwtMi4wOTk5NyAtMy4xMTc5MjEsLTQuMTQzMzEgLTUuNzIyNzcxLC01Ljg0Mzc4IC0yLjA2MjQ0NywtMS4zNDYzOCAtNi4wMzgzNzMsLTIuODM4MjcgLTYuNzkyNjY1LC0yLjU0ODgyIC0wLjM1Nzc1OSwwLjEzNzI4IC0wLjQzMzg0NiwwLjU4NTU2IC0wLjQzMzg0NiwyLjU1NjA0IDAsMS4zMTQyNSAwLjA4OTMsMi4zOTE5MSAwLjE5ODQzNywyLjM5NDc5IDAuMTA5MTQxLDAuMDAzIDEuMDA2Mjc2LDAuMTIyMDUgMS45OTM2MzUsMC4yNjQ4MiAzLjQ4MzI1MSwwLjUwMzY2IDYuMDEwMDExLDIuNDY1NzggNi4wMTAwMTEsNC42NjcgMCwxLjI0Mzk1IC0wLjMyNjUzLDEuNTcwMTggLTIuODM4MTg4LDIuODM1NTkgLTEuNTkyOTcxLDAuODAyNTYgLTIuMjU5MywxLjgyNzkxIC0yLjEzNzc3MywzLjI4OTYxIDAuMDc3OSwwLjkzNjk1IDAuMTgyNDM5LDEuMDMyMjEgMi41OTQ3MTEsMi4zNjQ0NCAxLjM4MjQ0OCwwLjc2MzQ5IDIuNjM3NzQ4LDEuMzg4NTcgMi43ODk1NTUsMS4zODkwNyAwLjE1MTgxLDUuMmUtNCAwLjM4OTkzNSwtMC4zODQwOSAwLjUyOTE2NywtMC44NTQ2NCB6IG0gMTkuNzQ2MDYxLDIyLjA2ODIzIGMgLTAuNDM4MjUsLTAuNDM4MjUgLTAuNTExMjksLTEuMTUwODEgLTAuNjc3NTgsLTYuNjExMDYgLTAuMTAyNTEsLTMuMzY1OTIgLTAuMTA0ODYsLTEwLjYxNzg3IC0wLjAwNSwtMTYuMTE1NDQgMC4yMzg1NCwtMTMuMTU5OTYgLTAuNDA4MDIsLTExLjg1MTYgOC4zNTkzNSwtMTYuOTE1NzYgMi44MTAzNCwtMS42MjMyOSA4LjQ0MzQ2LC00Ljg4MDQgMTIuNTE4MDQsLTcuMjM4MDIgMTAuNzI0MTcsLTYuMjA1MTkgMTEuMTY1NjksLTYuMzk5MzQxIDEyLjEyOTgyLC01LjMzMzk4IDAuMzk3MjIsMC40Mzg5MiAwLjQzNzg5LDEuOTU4MTUgMC40Mzc4OSwxNi4zNTY3MyB2IDE1Ljg3Mjg2IGwgLTAuNzI3NjEsMS40MzY1MSBjIC0wLjQ2ODE4LDAuOTI0MzQgLTEuMTU5NDYsMS43NTQ0OSAtMS45Mzg4OCwyLjMyODM4IC0yLjI4MjMzLDEuNjgwNTEgLTI3LjgxNjgxLDE2LjMxMjU0IC0yOC44ODEwNSwxNi41NDk3MiAtMC41MTExNSwwLjExMzkyIC0wLjg2Nzc3LDAuMDE3MSAtMS4yMTQ3NywtMC4zMjk5NCB6IG0gMTguMTQ0MDcsLTE0LjAwMDIxIDAuODU5OSwtMC40MzEzMyB2IC0zLjAxODk2IC0zLjAxODk2IGwgLTEuMzg5MDcsMC43ODU4OSBjIC0wLjc2Mzk4LDAuNDMyMjMgLTEuOTg0MzcsMS4xMzYyOCAtMi43MTE5NywxLjU2NDU0IGwgLTEuMzIyOTIsMC43Nzg2NSAtMC4wNzQ5LDIuOTcyNDcgLTAuMDc0OSwyLjk3MjQ3IDEuOTI3MDIsLTEuMDg2NzIgYyAxLjA1OTg2LC0wLjU5NzcgMi4zMTM5OCwtMS4yODA4MiAyLjc4NjkyLC0xLjUxODA1IHogbSAtMS44MDU3MSwtNy4xMDc5MiBjIDIuNTI0NjMsLTEuNDY2MTUgMi41NTcxLC0xLjQ5Nzg2IDIuODY2NTIsLTIuODAwNDYgMC4xNzIxMywtMC43MjQ2MyAxLjE0NTQsLTIuNzA2NDUgMi4xNjI4MiwtNC40MDQwNCAyLjAzMzAzLC0zLjM5MjE3IDIuNTg2NTEsLTQuNzIxMDEgMi44MzAyOSwtNi43OTUyIDAuMzA3NDgsLTIuNjE2MTggLTAuODM0MzMsLTQuMzYxMTIgLTIuODUzNzEsLTQuMzYxMTIgLTIuMTE4MjMsMCAtNi4wNTcwNiwyLjE4NjEyIC05LjU1MDIxLDUuMzAwNTEgbCAtMS41MjEzNSwxLjM1NjQgdiAyLjU0MTEzIDIuNTQxMTEgbCAyLjQ3NjI1LC0yLjQyODM3IGMgMy4yNjYyLC0zLjIwMzA1IDUuNDEzMzYsLTQuMTg0MjUgNS44MTI5MSwtMi42NTYzNSAwLjIyOTA4LDAuODc2MDEgLTAuNDQyNjQsMi42MDQxIC0xLjkzODU5LDQuOTg3MjQgLTAuNzc2NDUsMS4yMzY5MyAtMS43NTQxNywyLjk4MDA0IC0yLjE3MjcxLDMuODczNTggLTAuODE4MTcsMS43NDY2OCAtMS4zNzExNSw0LjMyODUgLTAuOTI3MDksNC4zMjg1IDAuMTQzNzMsMCAxLjQxMDQyLC0wLjY2NzMyIDIuODE0ODcsLTEuNDgyOTMgeiBNIDEwMS40NTA4LDExMi41ODM5NSBDIDk5Ljc5OTk0OSwxMTEuNzk4NzYgNzUuNzExOTkyLDk3LjkzMDI1MiA3My4xMjc0MDcsOTYuMjc2OTEzIDcxLjczMDIxNiw5NS4zODMxNCA3MS42NTgyNTIsOTUuMjgzODYzIDcxLjczNTc0Niw5NC4zNTcwNzMgNzEuODM1ODM1LDkzLjE2MDA1MiA3MC45OTE5NDUsOTMuNzAwODg1IDg5LjAxMjEwOSw4My4yODQ5OCBsIDEzLjIyNTg5MSwtNy42NDQ3NSAxLjg2MTEyLC0wLjA5Mzk4IGMgMS43NzUxLC0wLjA4OTY0IDEuOTY0NzcsLTAuMDM5MjggNC4xMDQzMSwxLjA4OTczOSA0LjQ5ODA3LDIuMzczNTk3IDI3LjY2MzYsMTUuODgxMTIzIDI4LjM3MDgxLDE2LjU0MjY1OSAxLjI2NzM3LDEuMTg1NTE1IDAuODkxNDcsMi4wNTgwODIgLTEuNTM0MTksMy41NjEyOTEgLTIuNDUxODEsMS41MTk0MTQgLTI0Ljc2NzA3LDE0LjM5Mjc3MSAtMjYuNzgyNywxNS40NTA1NjEgLTIuNzgxMTIsMS40NTk1MSAtNC4zNzE4NCwxLjU1MTQ2IC02LjgwNjU1LDAuMzkzNDUgeiBtIDE0LjM3ODEyLC0xMi4zMDU1MiAzLjAwMTA0LC0xLjY4MjI2NCAtMC44ODQzNywtMC41MjcyMDkgYyAtMi4xNTgwNiwtMS4yODY0OTkgLTMuODg0MDMsLTIuMTkyMDM2IC00LjE3ODA2LC0yLjE5MjAzNiAtMC40MTU0NSwwIC02LjA5OTk2LDMuMTY3Mjk2IC02LjA5NTk2LDMuMzk2NTQ0IDAuMDA0LDAuMjQzMiA0LjI3MTIxLDIuNjI4OTQ1IDQuNzU5NDQsMi42NjEwOTUgMC4yMTgyOCwwLjAxNDQgMS43NDczNCwtMC43MzA4OCAzLjM5NzkxLC0xLjY1NjEzIHogbSAtOC42MTQ2NCwtMi45NzYxNjQgYyAwLjc1OTE1LC0wLjM4MDIyNSAyLjA2NjI1LC0xLjEwNDA1NiAyLjkwNDY4LC0xLjYwODUxIGwgMS41MjQ0MSwtMC45MTcxOTIgLTAuNTQ4MzgsLTAuNzcwMTI1IGMgLTAuNDk2NDIsLTAuNjk3MTUgLTAuNTMxNjEsLTEuMDAyMjc5IC0wLjM3MTM4LC0zLjIyMDEzNCAwLjE2MzU4LC0yLjI2NDM2OSAwLjEzMzI3LC0yLjUwNTE1NCAtMC40MDAwNywtMy4xNzc4IC0wLjMxNzM5LC0wLjQwMDI4NSAtMS4xMzM5MSwtMS4wNTQxOTkgLTEuODE0NDksLTEuNDUzMTQxIC0xLjA5NzE1LC0wLjY0MzEyOCAtMS41NTc0NSwtMC43MzYzMTkgLTQuMDYwNzIsLTAuODIyMTE0IC0yLjM4NjM4LC0wLjA4MTc5IC0zLjEwMjkyLC0wLjAwNDggLTQuNjMwMjA0LDAuNDk3Njg4IC0yLjIyNDgzOSwwLjczMTk0NyAtNC45MDQ3NDUsMi4wMzAxMzEgLTYuODMyODA2LDMuMzA5OTA1IC0xLjUzMDY0NiwxLjAxNTk4NCAtNC4xMDI1NjMsMy4yMjI3OCAtNC4xMDE3NTYsMy41MTk0NTEgNS4yOWUtNCwwLjE5NDIwNiAxLjk3MDE0MywxLjQ3NjgxNyAzLjM0MTQ0MSwyLjE3NTk0NyBsIDAuODkxODM3LDAuNDU0Njg0IDEuODkzOTksLTEuOTUzMjgyIGMgMi4zMTcwNywtMi4zODk2MDMgMy45NjYyNDIsLTMuMjg0OTUyIDYuMDI4ODk4LC0zLjI3MzE0IDIuMzU2OCwwLjAxMzUgMi40OTY0LDAuMjMxNDkyIDIuMjcwNTIsMy41NDU0NjggbCAtMC4xODk5MywyLjc4NjU1MiAwLjc5ODUzLDAuNzk4NTMxIGMgMC45Nzc1NSwwLjk3NzU0OCAxLjUyMjM2LDAuOTk1MjczIDMuMjk1NDMsMC4xMDcyMTIgeiIKICAgICAgICAgaWQ9InBhdGg4MzgiIC8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K",
+    "properties": {
+      "number_of_entities": {
+        "name": "number_of_entities",
+        "title": "Number of Entities",
+        "description": "How many entities should be selected.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "10",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "SendEMail": {
     "pluginId": "SendEMail",
     "title": "Send email",
@@ -5556,6 +5799,52 @@
     "tags": [
       "WorkflowTask",
       "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "setExecutionVariableOperator": {
+    "pluginId": "setExecutionVariableOperator",
+    "title": "Set execution variable",
+    "categories": [
+      "Variables"
+    ],
+    "main_category": "Variables",
+    "description": "Sets an execution variable to the first value of the (single) input and passes the input through unchanged. The variable is written to the 'execution' scope and can be read downstream as 'execution.<name>'. Only works while running inside a workflow execution.",
+    "markdownDocumentation": "Sets a single **execution-scope** template variable from this operator's input and passes the input through\nunchanged, so it can be inserted anywhere in a workflow chain.\n\nThe variable is written to the `execution` scope. A value set by this operator replaces an execution variable\nof the same name that was defined as a default on the workflow or provided when the run was started. This\noperator only takes effect while running inside a workflow execution, where all nodes share one\nexecution-variable holder.\n\nAny downstream node can read the variable as `{{execution.<name>}}`. Referencing an execution variable that\nhas not been set fails.\n\nIt is the workflow-operator counterpart of the **Set execution variable** transformer (`setExecutionVariable`):\nuse this operator to pass a value between workflow nodes without embedding a transform.\n\n## Behaviour\n\n- Reads a value from the **first entity** of the input: the first value of **Source path**, or the entity's\n  first value when no source path is given. Later entities are not consulted.\n- Writes it to the execution scope under `variableName`. If the input is empty or the first entity has no such\n  value, the variable is left unchanged (a default or run-start override stays in place).\n- Forwards the input entities unchanged (connect the output to keep the chain going, or leave it unconnected to\n  use this purely as a side-effecting node).\n",
+    "pluginIcon": null,
+    "properties": {
+      "variableName": {
+        "name": "variableName",
+        "title": "Variable name",
+        "description": "Name of the execution variable to set. It is written to the 'execution' scope and addressed downstream as 'execution.<name>'.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "myVariable",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "sourcePath": {
+        "name": "sourcePath",
+        "title": "Source path",
+        "description": "Optional path/attribute of the input that supplies the value. If left empty, the first value of the input is used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask"
     ],
     "pluginType": "customtask",
     "relatedPlugins": []
@@ -6067,14 +6356,14 @@
       "Uncategorized"
     ],
     "main_category": "Uncategorized",
-    "description": "A task that executes a SPARQL Select query on a SPARQL enabled data source and outputs the SPARQL result. If the SPARQL source is defined on a specific graph, a FROM clause will be added to the query at execution time, except when there already exists a GRAPH or FROM clause in the query. FROM NAMED clauses are not injected.",
-    "markdownDocumentation": "The SPARQL SELECT plugin is a task for executing SPARQL SELECT queries on the input RDF data source.\n\n## Description\n\nThe SPARQL Select query plugin is an example of a _RDF task_ or _operator_. Such a task can be used in a workflow,\nconnecting an input to an output. In this specific case, the _input_ is \u2014 in essence \u2014 a _SPARQL endpoint_ and the\n_output_ is the entity table containing the _SPARQL results_ of the SPARQL SELECT query execution.\n\nIn general terms, a [SPARQL 1.1 SELECT](https://www.w3.org/TR/sparql11-query/#select) query is supported. One of the\nsimplest examples is `SELECT * WHERE { ?s ?p ?o }`.\n\nThe [result limit](https://www.w3.org/TR/sparql11-query/#modResultLimit) can be specified for the SPARQL SELECT plugin\nitself, with the parameter `limit`. Additionally, a timeout can be specified with the parameter `sparqlTimeout`.\n\nAs usual, the SPARQL results contain both \"variables\" and \"bindings\", such as in\n[this example](https://www.w3.org/TR/sparql11-results-json/#json-result-object).\nThis tabular raw form is transformed into an _entity table_.\n\n### Internal Specifics\n\nIf the SPARQL source is defined on a specific graph, a `FROM` clause will be added to the query at execution time,\nexcept when there already exists a `GRAPH` or `FROM` clause in the query. `FROM NAMED` clauses are not injected.\n",
+    "description": "A task that executes a SPARQL Select query and outputs the SPARQL result.",
+    "markdownDocumentation": "The SPARQL SELECT plugin is a task for executing SPARQL SELECT queries on an RDF data source.\nIt can be used in a workflow, connecting an input to an output. A\n[SPARQL 1.1 SELECT](https://www.w3.org/TR/sparql11-query/#select) query is supported; the simplest example is\n`SELECT * WHERE { ?s ?p ?o }`.\n\n## Input and output\n\nThe _input_ depends on the configuration:\n\n- By default, the query is executed against the connected input, which must be a _SPARQL endpoint_\n  (i.e. an RDF dataset).\n- When **Use fallback RDF dataset** (`useDefaultDataset`) is enabled, the query is executed against the\n  fallback RDF dataset (as configured in `dataset.defaultRdf`) instead. The input port then depends on what\n  the template references:\n    - If the template references input entity properties (`input.entity.*`), the task accepts an entity input\n      and generates one query per input entity.\n    - If it references only parameters of the input task (`input.config.*`), an input connection is still\n      required \u2014 it supplies the parameter values \u2014 but the query is rendered and executed only once.\n    - If it references neither, the task has no input port.\n\nThe _output_ is an entity table built from the query's\n[SPARQL results](https://www.w3.org/TR/sparql11-results-json/#json-result-object): each projected variable becomes\na column, and each result binding becomes a row.\n\nThe [result size](https://www.w3.org/TR/sparql11-query/#modResultLimit) can be capped with the `limit` parameter,\nand a query timeout (in milliseconds) can be set via `sparqlTimeout`.\n\n## Automatic `FROM` clause injection\n\nIf the SPARQL source is defined on a specific graph, a `FROM` clause will be added to the query at execution time,\nexcept when there already exists a `GRAPH` or `FROM` clause in the query. `FROM NAMED` clauses are not injected.\n\n## Templating\n\nThe select query is rendered by a template engine before execution.\n[`Jinja`](https://jinja.palletsprojects.com/) is the default and is described below; for the deprecated `Simple`\nand `Velocity Engine` modes, see \"Legacy template engines\" at the end.\n\nJinja uses `{{ ... }}` for value expressions and `{% ... %}` for control flow such as conditionals.\n\n### Template variables\n\nThe following variables are available:\n\n- `input.config.<param>`: a parameter of the task connected to the input port. `<param>` is a parameter id\n  of that task's plugin, e.g. `graph` on a SPARQL dataset.\n- `output.config.<param>`: a parameter of the task the output is connected to.\n- `input.entity.<property>`: the value(s) of the given property of the current input entity. Only available\n  with **Use fallback RDF dataset** enabled, since only then the task receives input entities\n  (see _Input and output_ above).\n- `project.<key>`: a project-scoped template variable.\n- `global.<key>`: a global template variable.\n\nA single-valued entity property is inserted as a plain string. A multi-valued property can be iterated with\n`{% for value in input.entity.<property> %}`; inserting it directly concatenates all values without a\nseparator. Referencing a variable that is not available at execution time \u2014 an unknown parameter name or an\nentity property without a value \u2014 fails the query generation with an error.\n\nParameter, property and variable names must be valid Jinja identifiers (`[a-zA-Z_][a-zA-Z0-9_]*`);\nbracket-subscript access such as `input.entity[\"urn:prop:label\"]` is not supported.\n\nFor example, to query the named graph that is configured on the input dataset:\n\n```sparql\nSELECT * WHERE { GRAPH <{{ input.config.graph | validate_uri }}> { ?s ?p ?o } }\n```\n\n### Default scope\n\nThe `defaultScope` parameter declares one scope whose variables are additionally exposed at the top level of the\ntemplate context, so they can be referenced without the scope prefix. It defaults to `input.entity`, which means\na template may write `{{ property }}` as a shorthand for `{{ input.entity.property }}`:\n\n```\n{{ property }}   \u2261   {{ input.entity.property }}\n```\n\nBoth forms resolve to the same value. Set `defaultScope` to the empty string to disable this aliasing and require\nevery variable to be addressed with its full scope.\n\n### Filters\n\nValues are inserted verbatim by default, so URI brackets (`<...>`) and quotation marks around literals must be\nwritten in the template. The following filters are provided to render values safely:\n\n- `validate_uri`: validates that the value is a valid absolute IRI and returns it unchanged. Throws a validation\n  error otherwise. Wrap the output in `<...>` in the template.\n- `escape_literal`: escapes backslashes, quotes, newlines, carriage returns and tabs so the value can be used\n  inside a short-form SPARQL string literal (`\"...\"` or `'...'`). No enclosing quotes are added.\n- `escape_multiline_literal`: escapes backslashes and breaks any run of three or more consecutive single or double\n  quotes. Use for values that are wrapped in triple-quoted SPARQL literals (`\"\"\"...\"\"\"` or `'''...'''`).\n\nAll transformer plugins are also available as Jinja filters under their plugin id (for example `lowerCase`,\n`trim`, `urlEncode`).\n\n### Input schema inference\n\nThe input schema (the entity properties the task expects) is derived by scanning the raw template for\n`input.entity.<property>` references (or bare references resolved via `defaultScope`). This scan operates\non the template text before rendering, so SPARQL line comments (`# ...`) are **not** stripped: a\ncommented-out line such as\n\n```sparql\n# {{ input.entity.property }}\n```\n\nwill still cause `property` to appear in the inferred input schema.\n\n### Output schema inference\n\nThe output schema is derived from the raw template by a heuristic, without rendering it. The heuristic takes\nthe projection between `SELECT` and the first `WHERE`, `FROM` or `{`, drops a leading `DISTINCT` / `REDUCED`,\nand then:\n\n- For `SELECT *`, collects every distinct `?var` token in the query.\n- Otherwise, collects each top-level `?var` and the trailing `AS ?alias` from parenthesised expressions\n  (e.g. `(COUNT(?s) AS ?count)` yields `count`).\n\nEach variable becomes a string-typed path. If no variables can be detected (e.g. the projection is produced by\na Jinja expression), the output port is reported with an unknown schema.\n\n### Validation\n\nAt task creation, the Jinja template is checked against the available template variables:\n\n- Every `project.<...>` or `global.<...>` reference must resolve to a known variable, matched on the full\n  scoped name (so e.g. `project.metaData.label` is looked up at that exact scope).\n- Every `input.<...>` or `output.<...>` reference must use `config` or `entity` as its second segment.\n\nBare references are resolved through `defaultScope` before applying the same rules. The template is not\nrendered and the resulting SPARQL is not parsed.\n\n### Legacy template engines\n\nIn addition to Jinja, two deprecated template engines are supported for backwards compatibility: `Simple`\nand [`Velocity Engine`](https://velocity.apache.org/engine/2.4.1/user-guide.html). Their syntax is identical\nto the one used by the `SPARQL Update operator` and is documented there.\n",
     "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgICAgICB3aWR0aD0iMzJweCIKICAgICAgICBoZWlnaHQ9IjMycHgiCiAgICAgICAgdmlld0JveD0iMCAwIDMyIDMyIgogICAgICAgIHZlcnNpb249IjEuMSIKICAgICAgICBmaWxsPSJjdXJyZW50Q29sb3IiCiAgICAgICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICAgICAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgICAgICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICAgICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+CiAgICA8dGl0bGU+U1BBUlFMIFNlbGVjdCBxdWVyeTwvdGl0bGU+CiAgICA8cGF0aAogICAgICAgICAgICBkPSJtIDI3LDcgYSA0LDQgMCAwIDEgLTQsNCA0LDQgMCAwIDEgLTQsLTQgNCw0IDAgMCAxIDQsLTQgNCw0IDAgMCAxIDQsNCB6IiAvPgogICAgPHBhdGgKICAgICAgICAgICAgZD0iTSAxMiw2IEEgNCw0IDAgMCAxIDgsMTAgNCw0IDAgMCAxIDQsNiA0LDQgMCAwIDEgOCwyIDQsNCAwIDAgMSAxMiw2IFoiIC8+CiAgICA8cGF0aAogICAgICAgICAgICBkPSJtIDEyLDI2IGEgNCw0IDAgMCAxIC00LDQgNCw0IDAgMCAxIC00LC00IDQsNCAwIDAgMSA0LC00IDQsNCAwIDAgMSA0LDQgeiIgLz4KICAgIDxwYXRoCiAgICAgICAgICAgIGQ9Im0gMTEsMTYgYSAzLDMgMCAwIDEgLTMsMyAzLDMgMCAwIDEgLTMsLTMgMywzIDAgMCAxIDMsLTMgMywzIDAgMCAxIDMsMyB6IiAvPgogICAgPHBhdGgKICAgICAgICAgICAgZD0ibSAyNy42MDcxMjMsMjIuODIwMTQ1IGMgMC42NjYwOSwtMi4wNDQ0NDIgLTAuMTUyODk2LC00LjI3OTIyIC0xLjk4MjMwMSwtNS40MDkxMyAtMS44Mjk0MDQsLTEuMTI5OTExIC00LjE5NDM1OSwtMC44NjE2NTYgLTUuNzI0MjE0LDAuNjQ5MjkxIC0xLjUyOTg1NSwxLjUxMDk0OCAtMS44Mjc0OTgsMy44NzIzODQgLTAuNzIwNDIzLDUuNzE1Njk4IDEuMTA3MDc0LDEuODQzMzE0IDMuMzMxNDk1LDIuNjkwMDI3IDUuMzg0MDYyLDIuMDQ5NDEyIGwgMS45MDUxMzgsMy43MzkwNDIgMS4zODk5MDUsLTAuNzA4MTkyIC0xLjkwNTEzNywtMy43MzkwNDMgYyAwLjc3NTc1NiwtMC41NzU4NjEgMS4zNTMzODIsLTEuMzc4NTY4IDEuNjUyOTcsLTIuMjk3MDc4IHogbSAtNS4zOTI3NjIsMS41MTQ4MjkgYyAtMS42MzIwMzksLTAuNTMwMjgyIC0yLjUyNTE5LC0yLjI4MzE4OSAtMS45OTQ5MDksLTMuOTE1MjI4IDAuNTMwMjgyLC0xLjYzMjA0IDIuMjgzMTg5LC0yLjUyNTE5MSAzLjkxNTIyOSwtMS45OTQ5MDkgMS42MzIwMzksMC41MzAyODIgMi41MjUxOSwyLjI4MzE4OSAxLjk5NDkwOCwzLjkxNTIyOCAtMC4yNTQ2NSwwLjc4MzczMyAtMC44MTAyMDcsMS40MzQyMDcgLTEuNTQ0NDU1LDEuODA4MzI1IC0wLjczNDI0OCwwLjM3NDExOCAtMS41ODcwNCwwLjQ0MTIzNCAtMi4zNzA3NzMsMC4xODY1ODQgeiIgLz4KICAgIDxwYXRoCiAgICAgICAgICAgIGQ9Ik0gNy4yNSw1LjI1IFYgNiAyNi41IDI3LjI1IGggMS41IFYgMjYuNSA2IDUuMjUgWiIgLz4KICAgIDxwYXRoCiAgICAgICAgICAgIGQ9Ik0gMjMuMjQ0MTQxLDUuOTY4NzUgMjIuNjA1NDY5LDYuMzYxMzI4MSA3LjYwNTQ2ODcsMTUuNjExMzI4IDYuOTY4NzUsMTYuMDA1ODU5IDcuNzU1ODU5NCwxNy4yODEyNSA4LjM5NDUzMTMsMTYuODg4NjcyIDIzLjM5NDUzMSw3LjYzODY3MTkgMjQuMDMxMjUsNy4yNDQxNDA2IFoiIC8+CiAgICA8cGF0aAogICAgICAgICAgICBkPSJtIDcuNTcwMzEyNSwxNS4yNzkyOTcgLTAuNTQxMDE1NiwxLjQwMDM5IDAuNzAxMTcxOCwwLjI2OTUzMiAxMS4wMDAwMDAzLDQuMjUgMC42OTkyMTgsMC4yNzE0ODQgMC41NDEwMTYsLTEuNDAwMzkxIC0wLjcwMTE3MiwtMC4yNjk1MzEgLTEwLjk5OTk5OTcsLTQuMjUgeiIgLz4KICAgIDxtZXRhZGF0YT4KICAgICAgICA8cmRmOlJERj4KICAgICAgICAgICAgPGNjOldvcmsKICAgICAgICAgICAgICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgICAgICAgICA8ZGM6dGl0bGU+U1BBUlFMIFNlbGVjdCBxdWVyeTwvZGM6dGl0bGU+CiAgICAgICAgICAgIDwvY2M6V29yaz4KICAgICAgICA8L3JkZjpSREY+CiAgICA8L21ldGFkYXRhPgo8L3N2Zz4=",
     "properties": {
       "selectQuery": {
         "name": "selectQuery",
         "title": "Select query",
-        "description": "A SPARQL 1.1 select query",
+        "description": "A SPARQL 1.1 select query. The query supports Jinja templating. Parameters of the connected input and output tasks can be accessed via 'input.config.<param>' and 'output.config.<param>'. Project and global template variables are available as 'project.<key>' and 'global.<key>'. Example: SELECT * WHERE { GRAPH <{{ input.config.graph }}> { ?s ?p ?o } }",
         "type": "string",
         "parameterType": "code-sparql",
         "value": null,
@@ -6085,7 +6374,7 @@
       "limit": {
         "name": "limit",
         "title": "Result limit",
-        "description": "If set to a positive integer, the number of results is limited",
+        "description": "If set to a positive integer, the number of results is limited. The limit is applied per query: if one query is generated per input entity, it caps the results of each query, not the combined total.",
         "type": "string",
         "parameterType": "string",
         "value": "",
@@ -6104,6 +6393,41 @@
         "visibleInDialog": true,
         "properties": {}
       },
+      "useDefaultDataset": {
+        "name": "useDefaultDataset",
+        "title": "Use fallback RDF dataset",
+        "description": "If enabled, the query executes against the configured fallback RDF dataset (as configured in `dataset.defaultRdf`) when no RDF dataset is connected. If the query template references input entities, one query is generated per input entity.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "templatingMode": {
+        "name": "templatingMode",
+        "title": "Templating mode",
+        "description": "The templating mode for the template engine.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "jinja",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "defaultScope": {
+        "name": "defaultScope",
+        "title": "Default scope",
+        "description": "Variables from this scope can be accessed without the scope prefix in Jinja. For example, with default scope 'input.entity', a template may reference '{{ property }}' instead of '{{ input.entity.property }}'. Leave empty to disable.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "input.entity",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
       "sparqlTimeout": {
         "name": "sparqlTimeout",
         "title": "SPARQL query timeout (ms)",
@@ -6111,13 +6435,18 @@
         "type": "string",
         "parameterType": "int",
         "value": "0",
-        "advanced": false,
+        "advanced": true,
         "visibleInDialog": true,
         "properties": {}
       }
     },
-    "properties_advanced": {},
-    "actions": {},
+    "actions": {
+      "showPrefixes": {
+        "label": "Show prefixes",
+        "description": "Shows the available namespace prefixes as a SPARQL header that can be copied into the query.",
+        "icon": null
+      }
+    },
     "required": [
       "selectQuery"
     ],
@@ -6147,13 +6476,13 @@
     ],
     "main_category": "Uncategorized",
     "description": "A task that outputs SPARQL Update queries for every entity from the input based on a SPARQL Update template. The output of this operator should be connected to the SPARQL datasets to which the results should be written.",
-    "markdownDocumentation": "The SPARQL UPDATE query plugin is a task for outputting SPARQL UPDATE queries from the input RDF data source.\n\n## Description\n\nThe SPARQL Update query plugin is an example of a _task_. Notice well that this plugin is neither a _RDF task_\nnor a _RDF dataset_. This is in contrast to e.g. the SPARQL Select query and the SPARQL endpoint, respectively.\n\nMore specifically, this means the following: This plugin does not execute SPARQL queries of any sort, but _generates_\nthem. It generates [SPARQL Update](https://www.w3.org/TR/sparql11-update/) queries from a templating engine. In order to\n_execute_ these queries, we need to connect this task from an input into an output RDF dataset.\n\n## Templating\n\nThe SPARQL Update query plugin uses a template in order to construct and output SPARQL update queries.\nThere are two possible template engines supported by this plugin: a `Simple` engine and\n[`Velocity Engine`](https://velocity.apache.org/engine/2.4.1/user-guide.html).\nEach of these engines supports a different set of templating features, such as for example _variable interpolation_ with\nthe dollar sign (`$`), i.e. filling in input values via placeholders in the template.\n\n### Example of the `Simple` mode\n\n```\n  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${\"PROP_FROM_ENTITY_SCHEMA2\"} }\n  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${\"PROP_FROM_ENTITY_SCHEMA3\"} }\n```\n\nThis will insert the URI serialization of the property value `PROP_FROM_ENTITY_SCHEMA1` for the\n`${<PROP_FROM_ENTITY_SCHEMA1>}` expression.\nFurthermore, it will insert a plain literal serialization for the property values `PROP_FROM_ENTITY_SCHEMA2` and\n`PROP_FROM_ENTITY_SCHEMA3` for the template literal expressions.\n\nIt is also possible to write something like `${\"PROP\"}^^<http://someDatatype>`  or `${\"PROP\"}@en`. In other words, we\ncan combine variable substitutions with fixed expressions to construct semi-flexible expressions within the template.\n\n### Example of the `Velocity Engine` mode\n\n```\n  DELETE DATA { $row.uri(\"PROP_FROM_ENTITY_SCHEMA1\") rdf:label $row.plainLiteral(\"PROP_FROM_ENTITY_SCHEMA2\") }\n  #if ( $row.exists(\"PROP_FROM_ENTITY_SCHEMA1\") )\n    INSERT DATA { $row.uri(\"PROP_FROM_ENTITY_SCHEMA1\") rdf:label $row.plainLiteral(\"PROP_FROM_ENTITY_SCHEMA3\") }\n  #end\n```\n\nInput values are accessible via various methods of the `row` variable (used with `$row`):\n\n- `$row.uri(inputPath: String)`: Renders an input value as **URI**. Throws an exception if the value isn't a valid URI.\n- `$row.plainLiteral(inputPath: String)`: Renders an input value as **plain literal**, i.e. it escapes problematic\n  characters, etc.\n- `$row.rawUnsafe(inputPath: String)`: Renders an input value as is, i.e. **no escaping** is done.\n  This should **only** be used if the input values can be trusted.\n- `$row.exists(inputPath: String)`: Returns `true` if a value for the input path **exists**, else `false`.\n\nThe methods `uri`, `plainLiteral` and `rawUnsafe` throw an exception if no input value is available for the given\ninput path.\n\nIn addition to input values, properties of the input and output tasks can be accessed via the `inputProperties` and\n`outputProperties` objects. The available keys in these objects are dynamic and correspond exactly to the configuration\nparameters of the tasks connected to the input and output ports of this operator.\n\n- To find the available keys for `$inputProperties`, check the parameter names of the task connected to the input port.\n- To find the available keys for `$outputProperties`, check the parameter names of the task connected to the output port.\n\nFor example, if the connected input task has a parameter named `graph`, you can access it as `$inputProperties.uri(\"graph\")`.\nSimilarly, if the connected output task has a parameter named `endpoint`, you can access it as `$outputProperties.uri(\"endpoint\")`.\n\nBoth `inputProperties` and `outputProperties` support the same methods as the `row` object:\n\n- `uri(inputPath: String)`\n- `plainLiteral(inputPath: String)`\n- `rawUnsafe(inputPath: String)`\n- `exists(inputPath: String)`\n\nFor more information about the Velocity Engine, visit http://velocity.apache.org.\n\n### Internal Specifics\n\nIn contrast to the SPARQL select operator, no `FROM` clause gets injected into the query.\n",
+    "markdownDocumentation": "The SPARQL UPDATE query plugin is a task for outputting SPARQL UPDATE queries from the input RDF data source.\n\n## Description\n\nThe SPARQL Update query plugin is an example of a _task_. Notice well that this plugin is neither a _RDF task_\nnor a _RDF dataset_. This is in contrast to e.g. the SPARQL Select query and the SPARQL endpoint, respectively.\n\nMore specifically, this means the following: This plugin does not execute SPARQL queries of any sort, but _generates_\nthem. It generates [SPARQL Update](https://www.w3.org/TR/sparql11-update/) queries from a templating engine. In order to\n_execute_ these queries, we need to connect this task from an input into an output RDF dataset.\n\n## Templating\n\nThe `sparqlUpdateOperator` plugin uses a **template** in order to construct and output SPARQL update queries.\nThree template engines are supported: `Jinja` (the default), `Simple`, and\n[`Velocity Engine`](https://velocity.apache.org/engine/2.4.1/user-guide.html).\nThe `Simple` and `Velocity Engine` modes are deprecated.\n\n### Example of the `Jinja` mode\n\n[Jinja](https://jinja.palletsprojects.com/) is the recommended template engine. It uses `{{ }}` for expressions and\n`{% %}` for control flow statements such as conditionals.\n\n```\nDELETE DATA { <{{ input.entity.subject | validate_uri }}> rdfs:label \"{{ input.entity.oldLabel | escape_literal }}\" } ;\n{% if input.entity.subject %}\n  INSERT DATA { <{{ input.entity.subject | validate_uri }}> rdfs:label \"{{ input.entity.newLabel | escape_literal }}\" } ;\n{% endif %}\n```\n\nThe following variables are available:\n\n- `input.entity.<property>`: the value of the given property on the current input entity.\n- `input.config.<param>`: a parameter of the connected input task.\n- `output.config.<param>`: a parameter of the connected output task.\n- `project.<key>`: a project-scoped template variable.\n- `global.<key>`: a global template variable.\n\nEntity property names must be valid Jinja identifiers (`[a-zA-Z_][a-zA-Z0-9_]*`); bracket-subscript access such as\n`input.entity[\"urn:prop:label\"]` is not supported.\n\nValues are inserted verbatim by default, so URI brackets (`<...>`) and quotation marks around literals must be\nwritten in the template. The following filters are provided to render values safely:\n\n- `validate_uri`: validates that the value is a valid absolute IRI and returns it unchanged. Throws a validation\n  error otherwise. Wrap the output in `<...>` in the template.\n- `escape_literal`: escapes backslashes, quotes, newlines, carriage returns and tabs so the value can be used\n  inside a short-form SPARQL string literal (`\"...\"` or `'...'`). No enclosing quotes are added.\n- `escape_multiline_literal`: escapes backslashes and breaks any run of three or more consecutive single or double\n  quotes. Use for values that are wrapped in triple-quoted SPARQL literals (`\"\"\"...\"\"\"` or `'''...'''`).\n\nAll transformer plugins are also available as Jinja filters under their plugin id (for example `lowerCase`,\n`trim`, `urlEncode`).\n\n### Validation\n\nAt task creation, the template is checked against the available template variables. What is checked depends\non the selected templating mode:\n\n- `Jinja`:\n    - Every `project.<...>` or `global.<...>` reference must resolve to a known variable, matched on the full\n      scoped name (so e.g. `project.metaData.label` is looked up at that exact scope).\n    - Every `input.<...>` or `output.<...>` reference must use `config` or `entity` as its second segment.\n    - The template is not rendered and the resulting SPARQL is not parsed.\n- `Simple` / `Velocity Engine`:\n    - The template is rendered once with placeholder values and the result must parse as a SPARQL Update query.\n    - Templates that use `rawUnsafe` skip this parse check.\n\n### Example of the `Simple` mode (deprecated)\n\n```\n  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${\"PROP_FROM_ENTITY_SCHEMA2\"} }\n  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${\"PROP_FROM_ENTITY_SCHEMA3\"} }\n```\n\nThis will insert the URI serialization of the property value `PROP_FROM_ENTITY_SCHEMA1` for the\n`${<PROP_FROM_ENTITY_SCHEMA1>}` expression.\nFurthermore, it will insert a plain literal serialization for the property values `PROP_FROM_ENTITY_SCHEMA2` and\n`PROP_FROM_ENTITY_SCHEMA3` for the template literal expressions.\n\nIt is also possible to write something like `${\"PROP\"}^^<http://someDatatype>`  or `${\"PROP\"}@en`. In other words, we\ncan combine variable substitutions with fixed expressions to construct semi-flexible expressions within the template.\n\n### Example of the `Velocity Engine` mode (deprecated)\n\n```\n  DELETE DATA { $row.uri(\"PROP_FROM_ENTITY_SCHEMA1\") rdf:label $row.plainLiteral(\"PROP_FROM_ENTITY_SCHEMA2\") }\n  #if ( $row.exists(\"PROP_FROM_ENTITY_SCHEMA1\") )\n    INSERT DATA { $row.uri(\"PROP_FROM_ENTITY_SCHEMA1\") rdf:label $row.plainLiteral(\"PROP_FROM_ENTITY_SCHEMA3\") }\n  #end\n```\n\nInput values are accessible via various methods of the `row` variable (used with `$row`):\n\n- `$row.uri(inputPath: String)`: Renders an input value as **URI**. Throws an exception if the value isn't a valid URI.\n- `$row.plainLiteral(inputPath: String)`: Renders an input value as **plain literal**, i.e. it escapes problematic\n  characters, etc.\n- `$row.rawUnsafe(inputPath: String)`: Renders an input value as is, i.e. **no escaping** is done.\n  This should **only** be used if the input values can be trusted.\n- `$row.exists(inputPath: String)`: Returns `true` if a value for the input path **exists**, else `false`.\n\nThe methods `uri`, `plainLiteral` and `rawUnsafe` throw an exception if no input value is available for the given\ninput path.\n\nIn addition to input values, properties of the input and output tasks can be accessed via the `inputProperties` and\n`outputProperties` objects. The available keys in these objects are dynamic and correspond exactly to the configuration\nparameters of the tasks connected to the input and output ports of this operator.\n\n- To find the available keys for `$inputProperties`, check the parameter names of the task connected to the input port.\n- To find the available keys for `$outputProperties`, check the parameter names of the task connected to the output port.\n\nFor example, if the connected input task has a parameter named `graph`, you can access it as `$inputProperties.uri(\"graph\")`.\nSimilarly, if the connected output task has a parameter named `endpoint`, you can access it as `$outputProperties.uri(\"endpoint\")`.\n\nBoth `inputProperties` and `outputProperties` support the same methods as the `row` object:\n\n- `uri(inputPath: String)`\n- `plainLiteral(inputPath: String)`\n- `rawUnsafe(inputPath: String)`\n- `exists(inputPath: String)`\n\nFor more information about the Velocity Engine, visit http://velocity.apache.org.\n\n### Internal Specifics\n\nIn contrast to the SPARQL select operator, no `FROM` clause gets injected into the query.\n",
     "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjMycHgiCiAgIGhlaWdodD0iMzJweCIKICAgdmlld0JveD0iMCAwIDMyIDMyIgogICBmaWxsPSJjdXJyZW50Q29sb3IiCiAgIHZlcnNpb249IjEuMSIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+CiAgPHRpdGxlPlNQQVJRTCBVcGRhdGUgcXVlcnk8L3RpdGxlPgogIDxwYXRoCiAgICAgZD0iTSA0IDIgTCA0IDEwIEwgMTIgMTAgTCAxMiA4IEwgNy4wNzgxMjUgOCBDIDEwLjM5MTMwMiA0LjI5MTMyODIgMTUuNjUxODE2IDMuMDE0ODM3OSAyMC4yOTY4NzUgNC43OTEwMTU2IEMgMjQuOTQxOTM1IDYuNTY3MTkzMiAyOC4wMDY1NDQgMTEuMDI2OTM4IDI4IDE2IEwgMzAgMTYgQyAzMC4wMDkwMiAxMC4zMDY1NyAyNi41NjQ1OTkgNS4xNzcwNzExIDIxLjI5MTAxNiAzLjAzMTI1IEMgMTYuMDE3NDMzIDAuODg1NDI5IDkuOTY4Njg1OCAyLjE1MjEyNTUgNiA2LjIzNDM3NSBMIDYgMiBMIDQgMiB6IE0gMjMgMTMgQSAzIDMgMCAwIDAgMjAgMTYgQSAzIDMgMCAwIDAgMjAuMjQ2MDk0IDE3LjE5MTQwNiBMIDE2LjgyMjI2NiAyMC42MTUyMzQgQSAzIDMgMCAwIDAgMTUgMjAgQSAzIDMgMCAwIDAgMTIgMjMgQSAzIDMgMCAwIDAgMTUgMjYgQSAzIDMgMCAwIDAgMTcuMTI4OTA2IDI1LjExMzI4MSBMIDIyIDI2Ljk2ODc1IEEgMyAzIDAgMCAxIDIyIDI2Ljk3MDcwMyBBIDMgMyAwIDAgMCAyMiAyNyBBIDMgMyAwIDAgMCAyNSAzMCBBIDMgMyAwIDAgMCAyOCAyNyBBIDMgMyAwIDAgMCAyNS43MTI4OTEgMjQuMDg1OTM4IEwgMjQuODAyNzM0IDE4LjM5ODQzOCBBIDMgMyAwIDAgMCAyNiAxNiBBIDMgMyAwIDAgMCAyMyAxMyB6IE0gMiAxNiBDIDIuMDA4NzEgMjMuNzI4Mzc3IDguMjcxNjIzIDI5Ljk5MTI5MyAxNiAzMCBMIDE2IDI4IEMgOS4zNzU2NDQzIDI3Ljk5MjYxNSA0LjAwNzM4NDggMjIuNjI0MzU2IDQgMTYgTCAyIDE2IHogTSAyMS4xNzc3MzQgMTguMzg0NzY2IEEgMyAzIDAgMCAwIDIzIDE5IEEgMyAzIDAgMCAwIDIzLjM3Njk1MyAxOC45NzY1NjIgTCAyNC4xOTkyMTkgMjQuMTA5Mzc1IEEgMyAzIDAgMCAxIDI0LjE5NzI2NiAyNC4xMDkzNzUgQSAzIDMgMCAwIDAgMjIuMzk0NTMxIDI1LjUxMzY3MiBMIDE3Ljg5MjU3OCAyMy43OTg4MjggQSAzIDMgMCAwIDAgMTggMjMgQSAzIDMgMCAwIDAgMTcuNzUzOTA2IDIxLjgwODU5NCBMIDIxLjE3NzczNCAxOC4zODQ3NjYgeiAiIC8+CiAgPG1ldGFkYXRhPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6dGl0bGU+U1BBUlFMIFVwZGF0ZSBxdWVyeTwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgo8L3N2Zz4=",
     "properties": {
       "sparqlUpdateTemplate": {
         "name": "sparqlUpdateTemplate",
         "title": "SPARQL update query",
-        "description": "The SPARQL UPDATE template for constructing SPARQL UPDATE queries for every entity from the input. The possible values for the template engine are `Simple` and `Velocity Engine`. See the general documentation of this plugin for further details on the features of each template engine.",
+        "description": "The SPARQL UPDATE template for constructing SPARQL UPDATE queries for every entity from the input. The possible values for the template engine are `Jinja` (default), `Simple` and `Velocity Engine`. See the general documentation of this plugin for further details on the features of each template engine.",
         "type": "string",
         "parameterType": "code-sparql",
         "value": null,
@@ -6175,17 +6504,23 @@
       "templatingMode": {
         "name": "templatingMode",
         "title": "Templating mode",
-        "description": "The templating mode for the template engine. The possible values are `Simple` and `Velocity Engine`. See the general documentation of this plugin for further details on the features of each template engine.",
+        "description": "The templating mode for the template engine. See the general documentation of this plugin for further details on the features of each template engine.",
         "type": "string",
-        "parameterType": "enumeration",
-        "value": "simple",
+        "parameterType": "string",
+        "value": "jinja",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
       }
     },
     "properties_advanced": {},
-    "actions": {},
+    "actions": {
+      "showPrefixes": {
+        "label": "Show prefixes",
+        "description": "Shows the available namespace prefixes as a SPARQL header that can be copied into the query.",
+        "icon": null
+      }
+    },
     "required": [
       "sparqlUpdateTemplate"
     ],
@@ -8298,15 +8633,27 @@
   },
   "inMemory": {
     "pluginId": "inMemory",
-    "title": "In-memory dataset",
+    "title": "In-memory Knowledge Graph",
     "categories": [
       "Embedded"
     ],
     "main_category": "Embedded",
-    "description": "A Dataset that holds all data in-memory.",
-    "markdownDocumentation": "## 1. Purpose\n\nThe **in-memory dataset** is a small embedded RDF store that keeps all data **in memory** and exposes it via SPARQL. It is intended as a **temporary working graph** inside workflows, not as a large or persistent storage.\n\nTypical use cases:\n- Collecting intermediate results during a workflow run.\n- Storing small lookup graphs used by downstream operators.\n- Testing or prototyping workflows without configuring an external RDF store.\n\n## 2. Behaviour and lifecycle\n\n- The dataset maintains a single in-memory RDF model.\n- All read and write operations go through a SPARQL endpoint over this model.\n- Data exists only **in memory**:\n    - It is not persisted to disk by this dataset.\n    - After an application restart, the dataset contents are empty again.\n\nWithin a workflow:\n- The dataset can be used as both **input** and **output**:\n    - Upstream operators can write triples/entities/links into it.\n    - Downstream operators can read from it via SPARQL-based mechanisms.\n\n## 3. Reading data\n\n- When used as a **source**, the dataset exposes its data as a SPARQL endpoint.\n- Queries and retrievals behave like against a normal SPARQL dataset:\n    - Entity retrieval, path/type discovery, sampling, etc. are executed via SPARQL.\n- There is no file backing this dataset; everything comes from what has been written into the in-memory model during the lifetime of the process.\n\n## 4. Writing data\n\nThe in-memory dataset accepts RDF data through:\n\n- **Entity sink**\n    - Entities written by upstream components are converted to RDF triples and stored in the in-memory model.\n\n- **Link sink**\n    - Links are written as RDF triples in the same model.\n\n- **Triple sink**\n    - Triples are directly added to the in-memory model via SPARQL operations.\n\nAll three sinks ultimately write into the same in-memory graph; there is no separate physical storage per sink type.\n\n## 5. Configuration\n\n### Clear graph before workflow execution\n\n- **Parameter:** `Clear graph before workflow execution` (boolean)\n- **Default:** `true`\n\nBehaviour:\n\n- If **true**:\n    - Before the dataset is used in a workflow execution, the graph is cleared (for writes via this dataset).\n    - The workflow sees a **fresh, empty in-memory graph** at the start of the run.\n\n- If **false**:\n    - Existing data in the in-memory graph is **preserved** when the workflow starts.\n    - New data is added on top of whatever is already stored in the model.\n\nThis parameter controls whether the dataset behaves as a **fresh scratch graph per workflow run** or as a **longer-lived in-memory graph** within the lifetime of the running application.\n\n## 6. Limitations and recommendations\n\n- **Memory-bound**\n    - All data is kept in memory; large graphs will increase memory usage and may impact performance.\n    - For large or production RDF graphs, use an external RDF store and a SPARQL dataset instead.\n\n- **No persistence**\n    - Contents are lost when the application/server is restarted.\n    - Do not treat this dataset as long-term storage.\n\n- **Scope**\n    - Best suited for:\n        - small to medium intermediate results,\n        - testing and prototyping,\n        - temporary data that can be regenerated by re-running workflows.\n\n## 7. Example usage scenarios\n\n- Use as a **temporary integration graph**:\n    - Multiple sources write into the in-memory dataset.\n    - A downstream SPARQL-based operator queries the combined graph.\n\n- Use as a **scratch area for experimentation**:\n    - Quickly test mapping or linking logic by writing output into the in-memory dataset.\n    - Inspect the result via SPARQL without configuring an external endpoint.\n\n- Use as a **small lookup store**:\n    - Preload a small set of reference triples (e.g. codes or mappings).\n    - Let workflows query these during execution.\n",
+    "description": "A dataset that holds all data in-memory. In the default (workflow-scoped) mode, data is isolated per workflow execution and shared with nested workflows that reference the same dataset task. In application-scoped mode, data persists for the lifetime of the running process.",
+    "markdownDocumentation": "## 1. Purpose\n\nThe **in-memory dataset** is a small embedded RDF store that keeps all data **in memory** and exposes it via SPARQL. It is intended as a **temporary working graph** inside workflows, not as a large or persistent storage.\n\nTypical use cases:\n- Collecting intermediate results during a workflow run.\n- Storing small lookup graphs used by downstream operators.\n- Testing or prototyping workflows without configuring an external RDF store.\n\n## 2. Behaviour and lifecycle\n\nThe dataset maintains a single in-memory RDF model and exposes it via a SPARQL endpoint. Two lifecycle modes are available, controlled by the `workflowScoped` parameter:\n\n**Workflow-scoped mode** (default, `workflowScoped = true`):\n- A separate model is created for each workflow execution.\n- Concurrent workflow executions are fully isolated from each other.\n- A dataset task in a nested workflow shares the same model as the parent workflow for the same task identifier. Data written by the parent is available in the nested workflow and vice versa.\n- If the dataset is read from outside a workflow context, the data from the most recently started executor is returned.\n- When the workflow execution ends, the per-execution data is removed automatically.\n\n**Application-scoped mode** (`workflowScoped = false`):\n- A single shared model is created when the dataset is instantiated.\n- Data persists for the lifetime of the running application process.\n- All workflow executions share the same in-memory graph.\n- After an application restart, the dataset contents are empty again.\n\n## 3. Reading data\n\n- When used as a **source**, the dataset exposes its data as a SPARQL endpoint.\n- Queries and retrievals behave like against a normal SPARQL dataset:\n    - Entity retrieval, path/type discovery, sampling, etc. are executed via SPARQL.\n- There is no file backing this dataset; everything comes from what has been written into the in-memory model during the lifetime of the process (application-scoped) or the workflow execution (workflow-scoped).\n\n## 4. Writing data\n\nThe in-memory dataset accepts RDF data through:\n\n- **Entity sink**\n    - Entities written by upstream components are converted to RDF triples and stored in the in-memory model.\n\n- **Link sink**\n    - Links are written as RDF triples in the same model.\n\n- **Triple sink**\n    - Triples are directly added to the in-memory model via SPARQL operations.\n\nAll three sinks ultimately write into the same in-memory graph; there is no separate physical storage per sink type.\n\n## 5. Configuration\n\n### Workflow scoped <a id=\"parameter_doc_workflowScoped\"></a>\n\n- **Parameter:** `workflowScoped` (boolean)\n- **Default:** `true`\n\nWhen `true` (default, workflow-scoped mode):\n- Data is stored in a separate in-memory graph for each workflow execution.\n- Concurrent workflow executions are fully isolated from each other.\n- A dataset task in a nested workflow shares the same graph as the parent for the same task identifier. Data written by the parent is available in the nested workflow and vice versa.\n- If the dataset is read from outside a workflow context, the data of the workflow execution that most recently accessed this dataset is returned.\n- When the workflow execution ends, the per-execution data is removed automatically.\n\nWhen `false` (application-scoped mode):\n- Data persists in a single shared graph for the lifetime of the running process.\n- All workflow executions share the same graph.\n\n### Clear graph before workflow execution <a id=\"parameter_doc_clearGraphBeforeExecution\"></a>\n\n- **Parameter:** `clearGraphBeforeExecution` (boolean, **deprecated**)\n- **Default:** `false`\n\nThis parameter is deprecated. Use the **Clear dataset** operator in the workflow instead.\n\nBehaviour (application-scoped mode only):\n\n- If **true**:\n    - Before the dataset is used in a workflow execution, the graph is cleared.\n    - The workflow sees a **fresh, empty in-memory graph** at the start of the run.\n\n- If **false**:\n    - Existing data in the in-memory graph is **preserved** when the workflow starts.\n    - New data is added on top of whatever is already stored in the model.\n\nThis parameter has no effect when `workflowScoped = true` (the executor manages the lifecycle).\n\n## 6. Limitations and recommendations\n\n- **Memory-bound**\n    - All data is kept in memory; large graphs will increase memory usage and may impact performance.\n    - For large or production RDF graphs, use an external RDF store and a SPARQL dataset instead.\n    - A size limit is enforced: once the estimated size of data written to the dataset exceeds the value of `org.silkframework.runtime.resource.Resource.maxInMemorySize`, the workflow fails with an error. This prevents the JVM from running out of heap memory.\n\n- **No persistence**\n    - Contents are lost when the application/server is restarted.\n    - Do not treat this dataset as long-term storage.\n\n- **SPARQL engine**\n  - The dataset is backed by [Apache Jena](https://jena.apache.org/), exposed through a Jena in-memory SPARQL endpoint.\n\n- **No named-graph support**\n  - Only the **default graph** is available. Writing triples into a named graph is not possible.\n\n- **Scope**\n    - Best suited for:\n        - small to medium intermediate results,\n        - testing and prototyping,\n        - temporary data that can be regenerated by re-running workflows.\n\n## 7. Example usage scenarios\n\n- Use as a **temporary integration graph** (application-scoped):\n    - Multiple sources write into the in-memory dataset.\n    - A downstream SPARQL-based operator queries the combined graph.\n\n- Use as a **scratch area for experimentation** (application-scoped):\n    - Quickly test mapping or linking logic by writing output into the in-memory dataset.\n    - Inspect the result via SPARQL without configuring an external endpoint.\n\n- Use as a **small lookup store** (application-scoped):\n    - Preload a small set of reference triples (e.g. codes or mappings).\n    - Let workflows query these during execution.\n\n- Use as a **workflow-local intermediate store** (workflow-scoped):\n    - Multiple operators in a single workflow run write intermediate RDF results.\n    - Downstream operators in the same run read from the dataset without affecting parallel runs.\n\n- Use in **nested workflows** (workflow-scoped):\n    - A parent workflow writes data into a workflow-scoped dataset.\n    - A nested sub-workflow reads and enriches the same data.\n    - After the nested workflow completes, the parent can read the enriched result.\n",
     "pluginIcon": null,
-    "properties": {},
+    "properties": {
+      "workflowScoped": {
+        "name": "workflowScoped",
+        "title": "Workflow-scoped",
+        "description": "If true (default), data is isolated per workflow execution and cleared after the execution ends, sharing data with nested workflows that reference the same dataset task. If false, data persists for the lifetime of the application process.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "true",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
     "properties_advanced": {
       "clearGraphBeforeExecution": {
         "name": "clearGraphBeforeExecution",
@@ -8406,7 +8753,7 @@
     ],
     "main_category": "File",
     "description": "Read from or write to a JSON or JSON Lines file.",
-    "markdownDocumentation": "Typically, this dataset is used to transform an JSON file to another format, e.g., to RDF.\n\n## Reading\n\nIn addition to plain JSON files, *JSON Lines* files can also be read.\n\nFor reading, the JSON dataset supports a number of special paths:\n- `#id` Is a special syntax for generating an id for a selected element. It can be used in URI patterns for entities which do not provide an identifier. Examples: `http://example.org/{#id}` or `http://example.org/{/pathToEntity/#id}`.\n- `#text` retrieves the text of the selected node.\n- The backslash can be used to navigate to the parent JSON node, e.g., `\\parent/key`. The name of the backslash key (here `parent`) is ignored.\n\n## Writing\n\nWhen writing JSON, all entities need to possess a unique URI. Writing multiple root entities with the same URI will result in multiple entries in the generated JSON. If multiple nested entities with the same URI are written, only the last entity with a given URI will be written.\n",
+    "markdownDocumentation": "Typically, this dataset is used to transform an JSON file to another format, e.g., to RDF.\n\n## Reading\n\nIn addition to plain JSON files, *JSON Lines* files can also be read.\n\nFor reading, the JSON dataset supports a number of special paths:\n- `#id` is a special syntax for generating a hash-based id for a selected element. It can be used in URI patterns for entities which do not provide an identifier. Examples: `http://example.org/{#id}` or `http://example.org/{/pathToEntity/#id}`. If no URI pattern is configured, the dataset instead generates the default entity URI from the JSON source location.\n- `#text` retrieves the text of the selected node.\n- The backslash can be used to navigate to the parent JSON node, e.g., `\\parent/key`. The name of the backslash key (here `parent`) is ignored.\n\n## Writing\n\nWhen writing JSON, all entities need to possess a unique URI. Writing multiple root entities with the same URI will result in multiple entries in the generated JSON. If multiple nested entities with the same URI are written, only the last entity with a given URI will be written.\n",
     "pluginIcon": null,
     "properties": {
       "file": {
@@ -8511,7 +8858,12 @@
       "Dataset"
     ],
     "pluginType": "dataset",
-    "relatedPlugins": []
+    "relatedPlugins": [
+      {
+        "id": "JsonParserOperator",
+        "description": "The JSON dataset is a pipeline source: it opens a file and needs no upstream input. Parse JSON is an operator: it reads a JSON string from a field value supplied by an upstream entity."
+      }
+    ]
   },
   "eccencaDataPlatform": {
     "pluginId": "eccencaDataPlatform",
@@ -8527,10 +8879,10 @@
       "graph": {
         "name": "graph",
         "title": "Graph",
-        "description": "The URI of the named graph.",
+        "description": "The URI of the named graph. If left empty, the default graph is used.",
         "type": "string",
         "parameterType": "graph uri",
-        "value": null,
+        "value": "",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -8660,9 +9012,7 @@
       }
     },
     "actions": {},
-    "required": [
-      "graph"
-    ],
+    "required": [],
     "distanceMeasureRange": null,
     "backendType": "native",
     "is_deprecated": false,
@@ -8863,7 +9213,7 @@
     ],
     "main_category": "Remote",
     "description": "Neo4j graph",
-    "markdownDocumentation": "\nSupports reading and writing Neo4j graphs. The following sections outline how graphs are generated and read back.\n\nFor more information about Neo4j, please refer to the [Neo4j documentation](https://neo4j.com/docs/).\n\n### Nodes\n\nFor each entity that is written to a Neo4j dataset, a _node_ will be created.\nA property `uri` will be added to each generated node, which holds the URI of the original entity.\nIn applications, the URI property should be used instead of the node identifiers, which are auto-generated in Neo4j and do not represent stable URIs.\n\nWhen reading nodes, the entity URIs will be generated based on that property.\nAt the moment, it's not supported to read nodes that do not provide a `uri` property.\n\n### Labels\n\n_Labels_ in Neo4j are used to group nodes into sets where all nodes that have a certain _label_ belongs to the same set.\nNeo4j _labels_ are comparable with _classes_ in RDF (not to be confused with labels in RDF).\n\nWhen writing entities to the Neo4j dataset, the following _labels_ will be added to each generated node:\n\n- For each entity _type_ (such as the _type_ set in a mapping), a _label_ will be added to the node in Neo4j.\n  Since _types_ in eccenca DataIntegration are usually URIs, they will be converted according to the rules further down.\n- The _label_ as configured by the _label_ parameter on the Neo4j dataset itself.\n  This is typically used to identify all entities that have been written by a certain Neo4j dataset specification in the project.\n  For instance, if two Neo4j dataset specifications are added to a project - both writing to the same Neo4j database - different labels can be set to distinguish both sets of entities.\n  In that respect it may be used to model a similar concept as _graphs_ in RDF.\n\n### Relationships\n\nA relationship connects two nodes in Neo4j.\nHierarchical mappings will generate relationships for all object mappings.\n\nRelationships can be addressed with property paths in mappings.\nAt the moment, only paths of length 1 are supported, i.e., it's not possible to use non-property paths.\n\n### Handling of URIs\n\nIn eccenca DataIntegration, URIs are typically used to uniquely identify classes and properties.\nWhile URIs are central in RDF, Neo4j does allow arbitrary names and does not have any special support for URIs.\n\nWhen generating Neo4j labels, properties and relationships, URIs will be shortened according to the following rules.\n- If a registered project prefix matches a URI, a name `{prefixName}_{localPart}` will be generated. For instance, `http://xmlns.com/foaf/0.1/name` will become `foaf_name`.\n  Note that underscores (`_`) are used instead of colons (`:`) to separate the namespace and the local name.\n  The reason is that colons are reserved in the Cypher query language and some tools don't escape properly and fail on databases that use colons in names.\n- If no project prefix matches a URI, the URI will be used verbatim. This will look ugly in Neo4j tools, so generally it's recommended to define prefixes for all used namespaces.\n\nWhen reading generated entities, the URIs of the classes and properties will be reconstructed based on the prefix table of the project. If the prefixes change between writing and reading, different URIs will be generated.\n\n### RDF vs. Neo4j terminology\n\nNeo4j uses a different terminology than RDF or description logic.\nFor users familiar with RDF, the following table shows the correspondent terms for some central concepts.\nThis is meant to help understanding and does not aim to provide a precise mapping as there are semantic differences between Neo4j and RDF.\n\n| RDF | Neo4j |\n| --- |--- |\n| resource     | node |\n| class      | label      |\n| datatype property      | property      |\n| object property      | relationship |\n| graph | Do not exist in Neo4j, but labels can be used to mimic graphs.    |\n",
+    "markdownDocumentation": "\nSupports reading and writing Neo4j graphs. The following sections outline how graphs are generated and read back.\n\nFor more information about Neo4j, please refer to the [Neo4j documentation](https://neo4j.com/docs/).\n\n### Nodes\n\nFor each entity that is written to a Neo4j dataset, a _node_ will be created.\nA property `uri` will be added to each generated node, which holds the URI of the original entity.\nIn applications, the URI property should be used instead of the node identifiers, which are auto-generated in Neo4j and do not represent stable URIs.\n\nWhen reading nodes, the entity URIs will be generated based on that property.\nNodes that do not provide a `uri` property are read with a generated entity URI, which is not stable across reads.\n\n### Labels\n\n_Labels_ in Neo4j are used to group nodes into sets where all nodes that have a certain _label_ belongs to the same set.\nNeo4j _labels_ are comparable with _classes_ in RDF (not to be confused with labels in RDF).\n\nWhen writing entities to the Neo4j dataset, the following _labels_ will be added to each generated node:\n\n- For each entity _type_ (such as the _type_ set in a mapping), a _label_ will be added to the node in Neo4j.\n  Since _types_ in eccenca DataIntegration are usually URIs, they will be converted according to the rules further down.\n- The _label_ as configured by the _label_ parameter on the Neo4j dataset itself.\n  This is typically used to identify all entities that have been written by a certain Neo4j dataset specification in the project.\n  For instance, if two Neo4j dataset specifications are added to a project - both writing to the same Neo4j database - different labels can be set to distinguish both sets of entities.\n  In that respect it may be used to model a similar concept as _graphs_ in RDF.\n\n### Relationships\n\nA relationship connects two nodes in Neo4j.\nHierarchical mappings will generate relationships for all object mappings.\n\nRelationships can be addressed with property paths in mappings.\nAt the moment, only paths of length 1 are supported, i.e., it's not possible to use non-property paths.\n\n### Handling of URIs\n\nIn eccenca DataIntegration, URIs are typically used to uniquely identify classes and properties.\nWhile URIs are central in RDF, Neo4j does allow arbitrary names and does not have any special support for URIs.\n\nWhen generating Neo4j labels, properties and relationships, URIs will be shortened according to the following rules.\n- If a registered project prefix matches a URI, a name `{prefixName}_{localPart}` will be generated. For instance, `http://xmlns.com/foaf/0.1/name` will become `foaf_name`.\n  Note that underscores (`_`) are used instead of colons (`:`) to separate the namespace and the local name.\n  The reason is that colons are reserved in the Cypher query language and some tools don't escape properly and fail on databases that use colons in names.\n- If no project prefix matches a URI, the URI will be used verbatim. This will look ugly in Neo4j tools, so generally it's recommended to define prefixes for all used namespaces.\n\nWhen reading generated entities, the URIs of the classes and properties will be reconstructed based on the prefix table of the project. If the prefixes change between writing and reading, different URIs will be generated.\n\n### RDF vs. Neo4j terminology\n\nNeo4j uses a different terminology than RDF or description logic.\nFor users familiar with RDF, the following table shows the correspondent terms for some central concepts.\nThis is meant to help understanding and does not aim to provide a precise mapping as there are semantic differences between Neo4j and RDF.\n\n| RDF | Neo4j |\n| --- |--- |\n| resource     | node |\n| class      | label      |\n| datatype property      | property      |\n| object property      | relationship |\n| graph | Do not exist in Neo4j, but labels can be used to mimic graphs.    |\n",
     "pluginIcon": null,
     "properties": {
       "uri": {
@@ -8930,6 +9280,17 @@
         "type": "string",
         "parameterType": "boolean",
         "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "writeBatchSize": {
+        "name": "writeBatchSize",
+        "title": "Write batch size",
+        "description": "The number of entities to write in a single Neo4j transaction. Reduce this value if you encounter Neo4j transaction memory limits (dbms.memory.transaction.total.max).",
+        "type": "string",
+        "parameterType": "int",
+        "value": "1000",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -12416,6 +12777,50 @@
     "pluginType": "transformer",
     "relatedPlugins": []
   },
+  "inputHash": {
+    "pluginId": "inputHash",
+    "title": "Combined input hash",
+    "categories": [
+      "Value"
+    ],
+    "main_category": "Value",
+    "description": "Calculates a single hash value covering all input values combined, across all input ports. Values are fed into the hash function in port order without any separator between them.",
+    "markdownDocumentation": "The **Combined input hash** operator produces exactly one hash value covering all input values combined, across all connected input ports. However many values arrive and however many ports are connected, the output is always a single string.\n\n## How combining works\n\nAll values from all input ports are fed sequentially into a single hash function \u2014 port 1 first, then port 2, and so on. Within each port, values are processed in the order they arrive. No separator is inserted between values or between ports. The hash covers the concatenated byte content of all values in that traversal order.\n\nThis means the result depends on both the content and the order of values. The same set of values in a different order produces a different hash. Connecting one port with values `[\"apple\", \"banana\"]` produces the same hash as connecting two ports with `[\"apple\"]` and `[\"banana\"]` respectively, because the bytes are fed in the same sequence either way.\n\n## Output\n\nThe output is a single lowercase hexadecimal string. The length depends on the algorithm: 64 characters for SHA-256, 32 for MD5, 40 for SHA-1, 96 for SHA-384, 128 for SHA-512. If the input is empty, the output is the hash of an empty message.\n\nValues are encoded as UTF-8 before hashing.\n\n## Algorithm parameter\n\nThe algorithm parameter selects the hash function. The default is SHA-256. The following algorithms from the [SPARQL 1.1 specification](https://www.w3.org/TR/sparql11-query/#func-hash) are supported:\n\n| SPARQL name | Java name | Notes |\n|-------------|-----------|-------|\n| MD5 | MD5 | Weak \u2014 vulnerable to collision attacks. Avoid for security-sensitive use. |\n| SHA1 | SHA-1 | Weak \u2014 deprecated for most security purposes. |\n| SHA256 | SHA-256 | Recommended default. |\n| SHA384 | SHA-384 | Stronger than SHA-256. |\n| SHA512 | SHA-512 | Strongest in the SPARQL set. |\n\nAdditional algorithms available on the JVM (such as SHA-512/256 and SHA-3 variants) are also accepted. The full list is JVM-dependent and visible in the algorithm parameter dropdown.\n\nNote that the Java names use hyphens (SHA-256, SHA-1) where SPARQL uses none (SHA256, SHA1). Both forms are accepted by this operator.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**A single input value produces one combined SHA-256 hash:**\n\n* Input values:\n    1. `[input value]`\n\n* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`\n\n\n---\n**Multiple values on one input are combined into a single hash:**\n\n* Input values:\n    1. `[apple, banana]`\n\n* Returns: `[5b692305517af54eb5ae12b9ff89eaf89e31f6a6ee208365886a18b81a2fc2f8]`\n\n\n---\n**Reversing the value order produces a different hash, confirming order-sensitivity:**\n\n* Input values:\n    1. `[banana, apple]`\n\n* Returns: `[d4183362b538440bb9a5f82359791c647280e6b657a1812f16f7bcc2b8f141ca]`\n\n\n---\n**Values from multiple ports are combined in port order, producing the same hash as the equivalent single-port sequence:**\n\n* Input values:\n    1. `[apple]`\n    2. `[banana]`\n\n* Returns: `[5b692305517af54eb5ae12b9ff89eaf89e31f6a6ee208365886a18b81a2fc2f8]`\n\n\n---\n**The algorithm parameter selects the hash function (MD5):**\n\n* Parameters\n    * algorithm: `MD5`\n\n* Input values:\n    1. `[input value]`\n\n* Returns: `[cee963a28f70ee97751a85ef732e66dd]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-1):**\n\n* Parameters\n    * algorithm: `SHA-1`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[d0be2dc421be4fcd0172e5afceea3970e2f3d940]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-384):**\n\n* Parameters\n    * algorithm: `SHA-384`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[3d8786fcb588c93348756c6429717dc6c374a14f7029362281a3b21dc10250ddf0d0578052749822eb08bc0dc1e68b0f]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-512):**\n\n* Parameters\n    * algorithm: `SHA-512`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[844d8779103b94c18f4aa4cc0c3b4474058580a991fba85d3ca698a0bc9e52c5940feb7a65a3a290e17e6b23ee943ecc4f73e7490327245b4fe5d5efb590feb2]`\n\n\n---\n**Empty input produces the hash of an empty message:**\n\n* Input values:\n    1. `[]`\n\n* Returns: `[e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855]`\n\n\n---\n**Empty algorithm string causes IllegalArgumentException:**\n\n* Parameters\n    * algorithm: ``\n\n* Input values:\n    1. `[foo]`\n\n* Returns: `[]`\n* **Throws error:** `IllegalArgumentException`\n\n\n",
+    "pluginIcon": null,
+    "properties": {
+      "algorithm": {
+        "name": "algorithm",
+        "title": "Algorithm",
+        "description": "The hash algorithm to be used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "SHA256",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "perValueHash",
+        "description": "The Per-value hash plugin hashes each input value independently and returns one hash per value, preserving cardinality. The Combined input hash plugin instead feeds all values into a single hash function, producing one combined hash regardless of input size."
+      },
+      {
+        "id": "mapWithDefaultInput",
+        "description": "One hash value is produced for the entire set of inputs by the Combined input hash plugin. The Map with default plugin instead keeps a value sequence and rewrites it position by position through the mapping, falling back to the second input where no mapping entry is found."
+      }
+    ]
+  },
   "compareDates": {
     "pluginId": "compareDates",
     "title": "Compare dates",
@@ -12840,7 +13245,7 @@
         "description": "Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.",
         "type": "string",
         "parameterType": "string",
-        "value": "2026-05-12",
+        "value": "2026-08-04",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -13576,6 +13981,52 @@
         "properties": {}
       }
     },
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": []
+  },
+  "escape_multiline_literal": {
+    "pluginId": "escape_multiline_literal",
+    "title": "Escape SPARQL multiline literal",
+    "categories": [
+      "SPARQL"
+    ],
+    "main_category": "SPARQL",
+    "description": "Escapes a value so it can be safely used inside a SPARQL triple-quoted string literal (`\"\"\"...\"\"\"` or `'''...'''`). Escapes backslashes and breaks any run of three or more consecutive single or double quotes. Individual quotes and newlines are preserved. The returned value does not include enclosing quotation marks.",
+    "markdownDocumentation": "Escapes a value so it can be safely used inside a SPARQL triple-quoted string literal (`\"\"\"...\"\"\"` or `'''...'''`). Escapes backslashes and breaks any run of three or more consecutive single or double quotes. Individual quotes and newlines are preserved. The returned value does not include enclosing quotation marks.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Example 1:**\n\n* Input values:\n    1. \n    ```\n    [simple\n    value]\n    ```\n\n* Returns: \n    ```\n    [simple\n    value]\n    ```\n\n\n---\n**Example 2:**\n\n* Input values:\n    1. `[with \"quote\"]`\n\n* Returns: `[with \"quote\"]`\n\n\n---\n**Example 3:**\n\n* Input values:\n    1. `[back\\slash]`\n\n* Returns: `[back\\\\slash]`\n\n\n---\n**Example 4:**\n\n* Input values:\n    1. `[triple \"\"\" quotes]`\n\n* Returns: `[triple \\\"\\\"\\\" quotes]`\n\n\n---\n**Example 5:**\n\n* Input values:\n    1. `[triple ''' quotes]`\n\n* Returns: `[triple \\'\\'\\' quotes]`\n\n\n",
+    "pluginIcon": null,
+    "properties": {},
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": []
+  },
+  "escape_literal": {
+    "pluginId": "escape_literal",
+    "title": "Escape SPARQL plain literal",
+    "categories": [
+      "SPARQL"
+    ],
+    "main_category": "SPARQL",
+    "description": "Escapes a value so it can be safely used inside a SPARQL short-form string literal. Escapes backslashes, quotes, newlines, carriage returns and tabs. The returned value does not include enclosing quotation marks.",
+    "markdownDocumentation": "Escapes a value so it can be safely used inside a SPARQL short-form string literal. Escapes backslashes, quotes, newlines, carriage returns and tabs. The returned value does not include enclosing quotation marks.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Example 1:**\n\n* Input values:\n    1. `[simple value]`\n\n* Returns: `[simple value]`\n\n\n---\n**Example 2:**\n\n* Input values:\n    1. `[with \"quotes\"]`\n\n* Returns: `[with \\\"quotes\\\"]`\n\n\n---\n**Example 3:**\n\n* Input values:\n    1. `[back\\slash]`\n\n* Returns: `[back\\\\slash]`\n\n\n---\n**Example 4:**\n\n* Input values:\n    1. \n    ```\n    [line1\n    line2]\n    ```\n\n* Returns: `[line1\\nline2]`\n\n\n",
+    "pluginIcon": null,
+    "properties": {},
+    "properties_advanced": {},
     "actions": {},
     "required": [],
     "distanceMeasureRange": null,
@@ -14627,46 +15078,6 @@
     ],
     "pluginType": "transformer",
     "relatedPlugins": []
-  },
-  "inputHash": {
-    "pluginId": "inputHash",
-    "title": "Input hash",
-    "categories": [
-      "Value"
-    ],
-    "main_category": "Value",
-    "description": "Calculates the hash sum of the input values. Generates a single hash sum for all input values combined.",
-    "markdownDocumentation": "Calculates the hash sum of the input values. Generates a single hash sum for all input values combined.\nThis operator supports using different hash algorithms from the [Secure Hash Algorithms family](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) (SHA, e.g. SHA256) and two algorithms from the [Message-Digest Algorithm family](https://en.wikipedia.org/wiki/MD5) (MD2 / MD5). Please be aware that some of these algorithms are not secure due the possibility of collision attacks and other attacks.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Example 1:**\n\n* Input values:\n    1. `[input value]`\n\n* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`\n\n\n",
-    "pluginIcon": null,
-    "properties": {
-      "algorithm": {
-        "name": "algorithm",
-        "title": "Algorithm",
-        "description": "The hash algorithm to be used.",
-        "type": "string",
-        "parameterType": "string",
-        "value": "SHA256",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      }
-    },
-    "properties_advanced": {},
-    "actions": {},
-    "required": [],
-    "distanceMeasureRange": null,
-    "backendType": "native",
-    "is_deprecated": false,
-    "tags": [
-      "TransformOperator"
-    ],
-    "pluginType": "transformer",
-    "relatedPlugins": [
-      {
-        "id": "mapWithDefaultInput",
-        "description": "One hash value is produced for the entire set of inputs by the Input hash plugin. The Map with default plugin instead keeps a value sequence and rewrites it position by position through the mapping, falling back to the second input where no mapping entry is found."
-      }
-    ]
   },
   "inputTaskAttributes": {
     "pluginId": "inputTaskAttributes",
@@ -16662,6 +17073,46 @@
     "pluginType": "transformer",
     "relatedPlugins": []
   },
+  "perValueHash": {
+    "pluginId": "perValueHash",
+    "title": "Per-value hash",
+    "categories": [
+      "Value"
+    ],
+    "main_category": "Value",
+    "description": "Hashes each input value independently and returns one hash per value. Accepts exactly one input port.",
+    "markdownDocumentation": "The **Per-value hash** operator hashes each input value independently and returns one hash per value. The output count always equals the input count \u2014 cardinality is preserved.\n\n## SPARQL alignment\n\nThis operator produces the same output as the SPARQL 1.1 hash functions applied per value. For a single input value, `SHA256(?x)` in SPARQL returns the same result as this operator with the default SHA256 algorithm.\n\n## Single-input constraint\n\nThe operator accepts exactly one input port. Connecting more than one port throws an `IllegalArgumentException`. This constraint exists because per-value hashing is defined relative to a single value sequence \u2014 combining values across ports would require choosing a port-merging strategy, which is the behaviour of the **Combined input hash** operator instead.\n\n## Output\n\nEach input value produces one lowercase hexadecimal hash string. The output order matches the input order. If the input is empty, the output is empty \u2014 no hash is produced.\n\nValues are encoded as UTF-8 before hashing.\n\n## Algorithm parameter\n\nThe algorithm parameter selects the hash function. The default is SHA-256. The five algorithms from the [SPARQL 1.1 specification](https://www.w3.org/TR/sparql11-query/#func-hash) are supported:\n\n| SPARQL name | Java name | Notes |\n|-------------|-----------|-------|\n| MD5 | MD5 | Weak \u2014 vulnerable to collision attacks. Avoid for security-sensitive use. |\n| SHA1 | SHA-1 | Weak \u2014 deprecated for most security purposes. |\n| SHA256 | SHA-256 | Recommended default. |\n| SHA384 | SHA-384 | Stronger than SHA-256. |\n| SHA512 | SHA-512 | Strongest in the SPARQL set. |\n\nAdditional algorithms available on the JVM are also accepted. The full list is JVM-dependent and visible in the algorithm parameter dropdown.\n\nNote that the Java names use hyphens (SHA-256, SHA-1) where SPARQL uses none (SHA256, SHA1). Both forms are accepted by this operator.\n\n## Contrast with Combined input hash\n\nThe **Combined input hash** operator feeds all values from all ports into a single hash function and returns one hash regardless of input size. Use it when you need a single fingerprint for a set of values taken together.\n\nUse **Per-value hash** when each value needs its own hash \u2014 for example, to hash a column of URIs independently, or to replicate `SHA256(?x)` in SPARQL.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Single value produces one SHA-256 hash:**\n\n* Input values:\n    1. `[input value]`\n\n* Returns: `[f708c2afff0ed197e8551c4dd549ee5b848e0b407106cbdb8e451c8cd1479362]`\n\n\n---\n**Two values in, two independent hashes out \u2014 one per value, not a combined hash:**\n\n* Input values:\n    1. `[apple, banana]`\n\n* Returns: `[3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b, b493d48364afe44d11c0165cf470a4164d1e2609911ef998be868d46ade3de4e]`\n\n\n---\n**The algorithm parameter selects the hash function (MD5), single value:**\n\n* Parameters\n    * algorithm: `MD5`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[1f3870be274f6c49b3e31a0c6728957f]`\n\n\n---\n**The algorithm parameter selects the hash function (MD5), multiple values:**\n\n* Parameters\n    * algorithm: `MD5`\n\n* Input values:\n    1. `[apple, banana]`\n\n* Returns: `[1f3870be274f6c49b3e31a0c6728957f, 72b302bf297a228a75730123efef7c41]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-1):**\n\n* Parameters\n    * algorithm: `SHA-1`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[d0be2dc421be4fcd0172e5afceea3970e2f3d940]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-384):**\n\n* Parameters\n    * algorithm: `SHA-384`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[3d8786fcb588c93348756c6429717dc6c374a14f7029362281a3b21dc10250ddf0d0578052749822eb08bc0dc1e68b0f]`\n\n\n---\n**The algorithm parameter selects the hash function (SHA-512):**\n\n* Parameters\n    * algorithm: `SHA-512`\n\n* Input values:\n    1. `[apple]`\n\n* Returns: `[844d8779103b94c18f4aa4cc0c3b4474058580a991fba85d3ca698a0bc9e52c5940feb7a65a3a290e17e6b23ee943ecc4f73e7490327245b4fe5d5efb590feb2]`\n\n\n---\n**Empty input produces empty output:**\n\n* Input values:\n    1. `[]`\n\n* Returns: `[]`\n\n\n---\n**Two input ports causes IllegalArgumentException:**\n\n* Input values:\n    1. `[foo]`\n    2. `[bar]`\n\n* Returns: `[]`\n* **Throws error:** `IllegalArgumentException`\n\n\n---\n**Invalid algorithm name causes NoSuchAlgorithmException:**\n\n* Parameters\n    * algorithm: `NONEXISTENT`\n\n* Input values:\n    1. `[foo]`\n\n* Returns: `[]`\n* **Throws error:** `NoSuchAlgorithmException`\n\n\n---\n**Empty algorithm string causes IllegalArgumentException:**\n\n* Parameters\n    * algorithm: ``\n\n* Input values:\n    1. `[foo]`\n\n* Returns: `[]`\n* **Throws error:** `IllegalArgumentException`\n\n\n",
+    "pluginIcon": null,
+    "properties": {
+      "algorithm": {
+        "name": "algorithm",
+        "title": "Algorithm",
+        "description": "The hash algorithm to be used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "SHA256",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": [
+      {
+        "id": "inputHash",
+        "description": "The Combined input hash plugin produces one combined hash for all input values. The Per-value hash plugin instead hashes each value independently, preserving cardinality."
+      }
+    ]
+  },
   "Excel_PERCENTILE": {
     "pluginId": "Excel_PERCENTILE",
     "title": "Percentile",
@@ -17146,6 +17597,53 @@
     "is_deprecated": false,
     "tags": [
       "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_random-GenerateValues": {
+    "pluginId": "cmem_plugin_random-GenerateValues",
+    "title": "Random value",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Generates random values.",
+    "markdownDocumentation": null,
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iOTAuODU4NjA0bW0iCiAgIGhlaWdodD0iOTcuMjEwOG1tIgogICB2aWV3Qm94PSIwIDAgOTAuODU4NjA1IDk3LjIxMDgwMSIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iY3VzdG9tLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4xLjIgKGI4ZTI1YmU4LCAyMDIyLTAyLTA1KSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzgzNiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJtbSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMi42OTMxODUxIgogICAgIGlua3NjYXBlOmN4PSIxNTkuMTA1MjkiCiAgICAgaW5rc2NhcGU6Y3k9IjE2OC43NTkyOSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAyNyIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTcyOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjUiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc1IgogICAgIGZpdC1tYXJnaW4tdG9wPSIxMCIKICAgICBmaXQtbWFyZ2luLWxlZnQ9IjEwIgogICAgIGZpdC1tYXJnaW4tcmlnaHQ9IjEwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIxMCIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzMiIgLz4KICA8ZwogICAgIGlkPSJsYXllcjEiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU2Ljk1NDk3MSwtMTA2LjU0MjcxKSIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQiPgogICAgPGcKICAgICAgIGlkPSJnODM2IgogICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuMTAzODk2MSw0MS4wMjU5NzQpIgogICAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkIj4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNzIwNzEsMTI1LjUxMDI1IGMgMCwtMC44MDAzNiAwLjA0OTYsLTEuMTI3NzggMC4xMTAyMiwtMC43Mjc2IDAuMDYwNiwwLjQwMDE4IDAuMDYwNiwxLjA1NTAzIDAsMS40NTUyMSAtMC4wNjA2LDAuNDAwMTggLTAuMTEwMjIsMC4wNzI4IC0wLjExMDIyLC0wLjcyNzYxIHogbSAzLjQwMjA3LC0zLjQzOTU4IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IG0gLTI4LjA2NjcxOCwtNi41MDQzNCBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAyNi4xMDY3MTgsLTIuMTM3NTUgYyAwLjE4MTksLTAuMDczNCAwLjQ3OTU2LC0wLjA3MzQgMC42NjE0NiwwIDAuMTgxOSwwLjA3MzQgMC4wMzMxLDAuMTMzNDUgLTAuMzMwNzMsMC4xMzM0NSAtMC4zNjM4MSwwIC0wLjUxMjYzLC0wLjA2MDEgLTAuMzMwNzMsLTAuMTMzNDUgeiIKICAgICAgICAgaWQ9InBhdGg4NTIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTM5LjcwMzk4LDEzMC4xMTg0MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjgzIC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMzYuOTc3ODcsLTEuNjk3NzUgYyAwLC0wLjk0NTg4IDAuMDQ4LC0xLjMzMjg0IDAuMTA2NzEsLTAuODU5ODkgMC4wNTg3LDAuNDcyOTQgMC4wNTg3LDEuMjQ2ODQgMCwxLjcxOTc5IC0wLjA1ODcsMC40NzI5NCAtMC4xMDY3MSwwLjA4NiAtMC4xMDY3MSwtMC44NTk5IHogbSAtMzMuNjY1ODgyLDAuNjM5NDEgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MywtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI3IHogTSAxMDYuMTIyNzgsMTIzLjEyOSBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0yOC4wNjY3MTgsLTguMzU2NDIgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTk1ODM0LC0xMi40MzU0MSBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg2IDAuMDc2NDMsMC4xOTEgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSAyNS45MDgyNzksLTkuMjM4Mzc0IGMgMC4zNDE3NzYsLTAuMzYzODAyIDAuNjgwOTQsLTAuNjYxNDU4IDAuNzUzNywtMC42NjE0NTggMC4wNzI3NiwwIC0wLjE0NzM0MSwwLjI5NzY1NiAtMC40ODkxMTcsMC42NjE0NTggLTAuMzQxNzc1LDAuMzYzODAyIC0wLjY4MDkzOSwwLjY2MTQ1OSAtMC43NTM3LDAuNjYxNDU5IC0wLjA3Mjc2LDAgMC4xNDczNDEsLTAuMjk3NjU3IDAuNDg5MTE3LC0wLjY2MTQ1OSB6IgogICAgICAgICBpZD0icGF0aDg1MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDIuNjYyMzEsMTQ4LjkwMzgzIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDYsLTAuMDY4NCAtMC4xMzg5NywtMC4zNDcyNyB6IG0gMy40Mzk1OSwwIGMgMC4wMTI3LC0wLjMwODIyIDAuMDc1NCwtMC4zNzA5MiAwLjE1OTg1LC0wLjE1OTg1IDAuMDc2NCwwLjE5MDk5IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTIgLTAuMDg3OSwwLjA4NzkgLTAuMTUwNDUsLTAuMDY4NCAtMC4xMzg5NiwtMC4zNDcyNyB6IG0gLTMuMzcxNTIsLTE3LjA0MzU4IGMgMCwtMS4wOTE0IDAuMDQ2NywtMS41Mzc4OSAwLjEwMzc4LC0wLjk5MjE4IDAuMDU3MSwwLjU0NTcgMC4wNTcxLDEuNDM4NjcgMCwxLjk4NDM3IC0wLjA1NzEsMC41NDU3MSAtMC4xMDM3OCwwLjA5OTIgLTAuMTAzNzgsLTAuOTkyMTkgeiBtIC0zMy42NDkyNjMsLTMuNzA0MTYgYyAwLC0wLjM2MzggMC4wNjAwNSwtMC41MTI2MyAwLjEzMzQ1MiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NTIsMC4wMzMxIC0wLjEzMzQ1MiwtMC4zMzA3MyB6IG0gMzcuMDQxNjYzLC0zLjk2ODc1IGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ2LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ2LDAuMDMzMSAtMC4xMzM0NiwtMC4zMzA3MyB6IE0gNzguMDU2MDYyLDExMy45Nzg4MyBjIDAuMDEyNjksLTAuMzA4MjIgMC4wNzUzOSwtMC4zNzA5MiAwLjE1OTg1MiwtMC4xNTk4NSAwLjA3NjQzLDAuMTkwOTkgMC4wNjcwMywwLjQxOTIgLTAuMDIwODksMC41MDcxMiAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODMgLTAuMTM4OTY0LC0wLjM0NzI3IHogbSAtOC45OTU4MzQsLTEwLjg0NzkxIGMgMC4wMTI3LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTMsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjMsLTAuMzQ3MjYgeiBtIDcwLjY0Mzc1MiwtMC4yNjQ1OSBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ1LC0wLjA2ODMgLTAuMTM4OTYsLTAuMzQ3MjcgeiIKICAgICAgICAgaWQ9InBhdGg4NDgiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTAyLjY2MjMxLDE0OC4xMTAwOCBjIDAuMDEyNywtMC4zMDgyMiAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NSAwLjA3NjQsMC4xOTA5OSAwLjA2NywwLjQxOTIgLTAuMDIwOSwwLjUwNzEyIC0wLjA4NzksMC4wODc5IC0wLjE1MDQ2LC0wLjA2ODMgLTAuMTM4OTcsLTAuMzQ3MjcgeiBtIDAuMDY1OSwtMTIuNjc3OTUgYyAxMGUtNCwtMS4wMTg2NSAwLjA0OSwtMS40MDI5NCAwLjEwNjI4LC0wLjg1NCAwLjA1NzMsMC41NDg5NSAwLjA1NjMsMS4zODIzOSAtMC4wMDIsMS44NTIwOSAtMC4wNTg1LDAuNDY5NyAtMC4xMDUzMSwwLjAyMDYgLTAuMTA0MTQsLTAuOTk4MDkgeiBtIDM2Ljk5NjYzLC02Ljc0Njg4IGMgMCwtMC4zNjM4IDAuMDYsLTAuNTEyNjMgMC4xMzM0NSwtMC4zMzA3MiAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU1IDAsMC42NjE0NSAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NSwwLjAzMzEgLTAuMTMzNDUsLTAuMzMwNzMgeiBtIC03MC42NDM3NTMsLTEuNTg3NSBjIDAsLTAuMzYzOCAwLjA2MDA1LC0wLjUxMjYzIDAuMTMzNDUyLC0wLjMzMDcyIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTUgMCwwLjY2MTQ1IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1MiwwLjAzMzEgLTAuMTMzNDUyLC0wLjMzMDczIHogbSAzNy4wNTE0NzMsLTEuNzE5NzkgYyAwLjAwNSwtMC40MzY1NiAwLjA2NDcsLTAuNTgzMTIgMC4xMzE3NywtMC4zMjU2OSAwLjA2NzEsMC4yNTc0MyAwLjA2MjcsMC42MTQ2MiAtMC4wMSwwLjc5Mzc1IC0wLjA3MjUsMC4xNzkxMyAtMC4xMjczNiwtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA2IHogbSAyNC44ODA2MywtOC44NjM1NCBjIDAsLTAuNTA5MzIgMC4wNTQ1LC0wLjcxNzY4IDAuMTIxMDEsLTAuNDYzMDIgMC4wNjY1LDAuMjU0NjYgMC4wNjY1LDAuNjcxMzggMCwwLjkyNjA0IC0wLjA2NjYsMC4yNTQ2NiAtMC4xMjEwMSwwLjA0NjMgLTAuMTIxMDEsLTAuNDYzMDIgeiBtIC01Mi45NTcxNTgsLTMuMzI5MzQgYyAwLjAxMjY5LC0wLjMwODIyIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODUgMC4wNzY0MywwLjE5MDk5IDAuMDY3MDMsMC40MTkyIC0wLjAyMDg5LDAuNTA3MTIgLTAuMDg3OTIsMC4wODc5IC0wLjE1MDQ1MywtMC4wNjgzIC0wLjEzODk2NCwtMC4zNDcyNyB6IG0gLTguOTY1MTQxLC04Ljk3Mzc4IGMgMC4wMDU0LC0wLjQzNjU3IDAuMDY0NjksLTAuNTgzMTMgMC4xMzE3NzMsLTAuMzI1NyAwLjA2NzA4LDAuMjU3NDMgMC4wNjI2NywwLjYxNDYyIC0wLjAwOTgsMC43OTM3NSAtMC4wNzI0OCwwLjE3OTEzIC0wLjEyNzM2MywtMC4wMzE1IC0wLjEyMTk3LC0wLjQ2ODA1IHogbSA3MC42MTMwNTksLTAuNTUxMjIgYyAwLjAxMjcsLTAuMzA4MjIgMC4wNzU0LC0wLjM3MDkyIDAuMTU5ODUsLTAuMTU5ODUgMC4wNzY0LDAuMTkwOTkgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI3IHoiCiAgICAgICAgIGlkPSJwYXRoODQ2IiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgICBkPSJtIDEwNi4xMDE5LDE0Ny41ODA5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NiAwLjA3NjQsMC4xOTEgMC4wNjcsMC40MTkyIC0wLjAyMDksMC41MDcxMiAtMC4wODc5LDAuMDg3OSAtMC4xNTA0NSwtMC4wNjg0IC0wLjEzODk2LC0wLjM0NzI2IHogbSAtMy40MTg3LC0wLjM3NDgzIGMgMCwtMC4zNjM4IDAuMDYwMSwtMC41MTI2MyAwLjEzMzQ1LC0wLjMzMDczIDAuMDczNCwwLjE4MTkgMC4wNzM0LDAuNDc5NTYgMCwwLjY2MTQ2IC0wLjA3MzQsMC4xODE5IC0wLjEzMzQ1LDAuMDMzMSAtMC4xMzM0NSwtMC4zMzA3MyB6IG0gMC4wNDI5LC04LjQ2NjY3IGMgMCwtMC45NDU4OCAwLjA0OCwtMS4zMzI4NCAwLjEwNjcxLC0wLjg1OTg5IDAuMDU4NywwLjQ3Mjk0IDAuMDU4NywxLjI0Njg0IDAsMS43MTk3OSAtMC4wNTg3LDAuNDcyOTQgLTAuMTA2NzEsMC4wODYgLTAuMTA2NzEsLTAuODU5OSB6IG0gMzcuMDA4NTYsLTExLjI0NDc5IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gLTMzLjYwMjA4LC0wLjc5Mzc1IGMgMC4wMDUsLTAuNDM2NTYgMC4wNjQ3LC0wLjU4MzEzIDAuMTMxNzcsLTAuMzI1NjkgMC4wNjcxLDAuMjU3NDMgMC4wNjI3LDAuNjE0NjEgLTAuMDEsMC43OTM3NSAtMC4wNzI1LDAuMTc5MTMgLTAuMTI3MzYsLTAuMDMxNSAtMC4xMjE5NywtMC40NjgwNiB6IG0gMTMuNTc0NDYsLTQuODk0NzkgYyAwLjI2MzM5LC0wLjI5MTA0IDAuNTM4NDIsLTAuNTI5MTcgMC42MTExOCwtMC41MjkxNyAwLjA3MjgsMCAtMC4wODMyLDAuMjM4MTMgLTAuMzQ2NiwwLjUyOTE3IC0wLjI2MzM5LDAuMjkxMDQgLTAuNTM4NDIsMC41MjkxNiAtMC42MTExOCwwLjUyOTE2IC0wLjA3MjgsMCAwLjA4MzIsLTAuMjM4MTIgMC4zNDY2LC0wLjUyOTE2IHogbSAtNTAuNTk1NjQ3LC0xNS44NzUgYyAwLC0wLjY1NDg1IDAuMDUxNiwtMC45MjI3NCAwLjExNDY2MywtMC41OTUzMSAwLjA2MzA2LDAuMzI3NDIgMC4wNjMwNiwwLjg2MzIgMCwxLjE5MDYyIC0wLjA2MzA3LDAuMzI3NDIgLTAuMTE0NjYzLDAuMDU5NSAtMC4xMTQ2NjMsLTAuNTk1MzEgeiBtIDcwLjYxMzQ2NywtMS4zMjI5MiBjIDAsLTAuMzYzOCAwLjA2LC0wLjUxMjYzIDAuMTMzNDUsLTAuMzMwNzMgMC4wNzM0LDAuMTgxOSAwLjA3MzQsMC40Nzk1NiAwLDAuNjYxNDYgLTAuMDczNCwwLjE4MTkgLTAuMTMzNDUsMC4wMzMxIC0wLjEzMzQ1LC0wLjMzMDczIHogbSAtMzYuMjY4OCwtMTMuMTE4OTIyIGMgMC4wMTI3LC0wLjMwODIyNSAwLjA3NTQsLTAuMzcwOTIgMC4xNTk4NSwtMC4xNTk4NTMgMC4wNzY0LDAuMTkwOTk2IDAuMDY3LDAuNDE5MiAtMC4wMjA5LDAuNTA3MTE4IC0wLjA4NzksMC4wODc5MiAtMC4xNTA0NiwtMC4wNjgzNSAtMC4xMzg5NywtMC4zNDcyNjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDQiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjEyMjc4LDE0Ni42NzY5MiBjIDAsLTAuMzYzOCAwLjA2MDEsLTAuNTEyNjMgMC4xMzM0NiwtMC4zMzA3MyAwLjA3MzQsMC4xODE5IDAuMDczNCwwLjQ3OTU2IDAsMC42NjE0NiAtMC4wNzM0LDAuMTgxOSAtMC4xMzM0NiwwLjAzMzEgLTAuMTMzNDYsLTAuMzMwNzMgeiBtIC0zLjM3OTQsLTMuMTc1IGMgMCwtMS44MTkwMSAwLjA0MjMsLTIuNTYzMTUgMC4wOTM5LC0xLjY1MzY0IDAuMDUxNywwLjkwOTUgMC4wNTE3LDIuMzk3NzggMCwzLjMwNzI5IC0wLjA1MTcsMC45MDk1IC0wLjA5MzksMC4xNjUzNiAtMC4wOTM5LC0xLjY1MzY1IHogbSAzLjM5OTAxLC0xNS4zNDU4MyBjIDAsLTAuNTA5MzIgMC4wNTQ0LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NSwwLjI1NDY2IDAuMDY2NSwwLjY3MTM4IDAsMC45MjYwNCAtMC4wNjY2LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDIgeiBtIDMzLjYxNjM3LC0yLjUxMzU0IGMgMC4wMDIsLTAuNzI3NjEgMC4wNTM0LC0wLjk5Mzg2IDAuMTE0MTksLTAuNTkxNjggMC4wNjA4LDAuNDAyMTggMC4wNTkyLDAuOTk3NSAtMC4wMDQsMS4zMjI5MiAtMC4wNjI4LDAuMzI1NDIgLTAuMTEyNTYsLTAuMDA0IC0wLjExMDU3LC0wLjczMTI0IHogbSAtNzAuNjI2OTcxLC00Ljg5NDggYyAwLC0xLjIzNjkyIDAuMDQ1NTgsLTEuNzQyOTQgMC4xMDEyODEsLTEuMTI0NDcgMC4wNTU3LDAuNjE4NDYgMC4wNTU3LDEuNjMwNDkgMCwyLjI0ODk1IC0wLjA1NTcsMC42MTg0NyAtMC4xMDEyODEsMC4xMTI0NSAtMC4xMDEyODEsLTEuMTI0NDggeiBtIDAsLTcuOTM3NSBjIDAsLTEuMjM2OTIgMC4wNDU1OCwtMS43NDI5NCAwLjEwMTI4MSwtMS4xMjQ0NyAwLjA1NTcsMC42MTg0NiAwLjA1NTcsMS42MzA0OSAwLDIuMjQ4OTUgLTAuMDU1NywwLjYxODQ3IC0wLjEwMTI4MSwwLjExMjQ1IC0wLjEwMTI4MSwtMS4xMjQ0OCB6IG0gOC45MjQyNzMsLTAuOTQ4MDggYyAwLjAxMjY5LC0wLjMwODIzIDAuMDc1MzksLTAuMzcwOTIgMC4xNTk4NTIsLTAuMTU5ODYgMC4wNzY0MywwLjE5MSAwLjA2NzAzLDAuNDE5MiAtMC4wMjA4OSwwLjUwNzEyIC0wLjA4NzkyLDAuMDg3OSAtMC4xNTA0NTMsLTAuMDY4MyAtMC4xMzg5NjQsLTAuMzQ3MjYgeiBtIC04Ljk5NTgzNCwtNC40OTc5MiBjIDAuMDEyNywtMC4zMDgyMyAwLjA3NTM5LC0wLjM3MDkyIDAuMTU5ODUzLC0wLjE1OTg1IDAuMDc2NDMsMC4xOTA5OSAwLjA2NzAzLDAuNDE5MTkgLTAuMDIwODksMC41MDcxMSAtMC4wODc5MiwwLjA4NzkgLTAuMTUwNDUzLC0wLjA2ODQgLTAuMTM4OTYzLC0wLjM0NzI2IHogbSA3MC42OTg1MzIsLTEuMDM2MjkgYyAwLjAwMiwtMC43Mjc2IDAuMDUzNCwtMC45OTM4NSAwLjExNDE5LC0wLjU5MTY3IDAuMDYwOCwwLjQwMjE4IDAuMDU5MiwwLjk5NzQ5IC0wLjAwNCwxLjMyMjkyIC0wLjA2MjgsMC4zMjU0MiAtMC4xMTI1NiwtMC4wMDQgLTAuMTEwNTcsLTAuNzMxMjUgeiIKICAgICAgICAgaWQ9InBhdGg4NDIiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHN0eWxlPSJmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICAgIGQ9Im0gMTA2LjE0NzczLDE0NS4yMjE3MSBjIDAuMDAzLC0wLjU4MjA4IDAuMDU3MSwtMC43ODkwNSAwLjEyMDQxLC0wLjQ1OTkzIDAuMDYzMywwLjMyOTEyIDAuMDYwOSwwLjgwNTM3IC0wLjAwNSwxLjA1ODMzIC0wLjA2NjIsMC4yNTI5NyAtMC4xMTgsLTAuMDE2MyAtMC4xMTUwNywtMC41OTg0IHogTSA4MS4yNzE1NTgsMTM1LjAzNTI1IGMgMCwtMC41MDkzMiAwLjA1NDQ1LC0wLjcxNzY4IDAuMTIxLC0wLjQ2MzAyIDAuMDY2NTUsMC4yNTQ2NyAwLjA2NjU1LDAuNjcxMzggMCwwLjkyNjA1IC0wLjA2NjU1LDAuMjU0NjYgLTAuMTIxLDAuMDQ2MyAtMC4xMjEsLTAuNDYzMDMgeiBtIDI0Ljg5MTQzMiwtNC42MzAyIGMgMC4wMDIsLTAuODczMTMgMC4wNTA5LC0xLjE5ODQyIDAuMTA5NzcsLTAuNzIyODcgMC4wNTg5LDAuNDc1NTUgMC4wNTc3LDEuMTg5OTIgLTAuMDAzLDEuNTg3NSAtMC4wNjA0LDAuMzk3NTggLTAuMTA4NTUsMC4wMDggLTAuMTA3MDcsLTAuODY0NjMgeiBtIDMzLjYzODMzLC0xNC40MTk4IGMgMCwtNC43Mjk0MiAwLjAzNTksLTYuNjY0MTkgMC4wNzk3LC00LjI5OTQ3IDAuMDQzOSwyLjM2NDcxIDAuMDQzOSw2LjIzNDI0IDAsOC41OTg5NSAtMC4wNDM4LDIuMzY0NzIgLTAuMDc5NywwLjQyOTk1IC0wLjA3OTcsLTQuMjk5NDggeiBNIDEwMS4yNjg5LDg5Ljg3NTM0NyBjIDAuMTkwOTksLTAuMDc2NDMgMC40MTkyLC0wLjA2NzAzIDAuNTA3MTIsMC4wMjA4OSAwLjA4NzksMC4wODc5MiAtMC4wNjg0LDAuMTUwNDUzIC0wLjM0NzI3LDAuMTM4OTY1IC0wLjMwODIzLC0wLjAxMjY5IC0wLjM3MDkyLC0wLjA3NTM5IC0wLjE1OTg1LC0wLjE1OTg1MyB6IgogICAgICAgICBpZD0icGF0aDg0MCIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgICAgZD0ibSAxMDAuNjMwODQsMTUyLjU4MDg1IGMgLTAuNjkzNzk3LC0wLjEzNjcxIC0yNy4wNTY5NTMsLTE1LjM0MTU0IC0yOC42NzY3NTUsLTE2LjUzOTIgLTAuNjUyNDY0LC0wLjQ4MjQyIC0xLjQ4NTkwMSwtMS40MTIyMyAtMS44NTIwODMsLTIuMDY2MjQgbCAtMC42NjU3ODcsLTEuMTg5MTEgLTAuMDc0MTEsLTE1Ljk3NTQzIGMgLTAuMDY1MzIsLTE0LjA4MDczIC0wLjAyNTM3LC0xNi4wNDk4MiAwLjMzNjgyOSwtMTYuNjAyNjEgMC44ODUxNzMsLTEuMzUwOTQyIDAuOTA1MjEsLTEuMzQxMjkgMTkuNTc2NjY0LDkuNDI5OTQgMTAuOTY0MDQyLDYuMzI0OTYgMTIuNTMxNjAyLDcuNDU0MjQgMTMuMDc3NzgyLDkuNDIxMzIgMC4xODkwMiwwLjY4MDc2IDAuMjg1NTksNi4zNTQzMSAwLjI4NjU3LDE2LjgzNTYzIDAuMDAxLDE1LjQ1NzA5IC0wLjAxMDMsMTUuODIwNjMgLTAuNTI3NjksMTYuMzM4MDIgLTAuMjkxMDQsMC4yOTEwNCAtMC42MTg0NywwLjUxMjk1IC0wLjcyNzYxLDAuNDkzMTQgLTAuMTA5MTQsLTAuMDE5OCAtMC40NDgzNSwtMC4wODUzIC0wLjc1MzgxLC0wLjE0NTQ2IHogbSAtMTMuOTYxNjY5LC0xOS4wMDQ5IGMgLTAuMTI4MjAxLC0wLjMzNDA5IC00Ljc1NzYxMiwtMy4wMzg2MSAtNS4yMDEyODEsLTMuMDM4NjEgLTAuMTc4NjYyLDAgLTAuMjQ5MjAxLDEuMDAwMSAtMC4yMDA1MjIsMi44NDI5NyBsIDAuMDc1MSwyLjg0Mjk4IDIuNjQ1ODM0LDEuNTI0MjYgMi42NDU4MzMsMS41MjQyNiAwLjA3NTk0LC0yLjY5NTcgYyAwLjA0MTc2LC0xLjQ4MjY0IDAuMDIzMzYsLTIuODMyNzEgLTAuMDQwOSwtMy4wMDAxNiB6IG0gMC41MDU1NTgsLTMuMzY0OTggYyAwLjIwNTUzMywtMC42OTQ1OSAwLjYxODg3MSwtMS4wNTYxIDIuMTk3MzQsLTEuOTIxNzggMi40ODkyMTEsLTEuMzY1MTcgMi43ODQ4MTEsLTEuODk2ODIgMi42MzU1MDIsLTQuNzQwMDYgLTAuMDk0ODEsLTEuODA1NTMgLTAuMjU0Njg4LC0yLjQwNzUgLTEuMDIzMTE1LC0zLjg1MjI4IC0xLjExNjg5MSwtMi4wOTk5NyAtMy4xMTc5MjEsLTQuMTQzMzEgLTUuNzIyNzcxLC01Ljg0Mzc4IC0yLjA2MjQ0NywtMS4zNDYzOCAtNi4wMzgzNzMsLTIuODM4MjcgLTYuNzkyNjY1LC0yLjU0ODgyIC0wLjM1Nzc1OSwwLjEzNzI4IC0wLjQzMzg0NiwwLjU4NTU2IC0wLjQzMzg0NiwyLjU1NjA0IDAsMS4zMTQyNSAwLjA4OTMsMi4zOTE5MSAwLjE5ODQzNywyLjM5NDc5IDAuMTA5MTQxLDAuMDAzIDEuMDA2Mjc2LDAuMTIyMDUgMS45OTM2MzUsMC4yNjQ4MiAzLjQ4MzI1MSwwLjUwMzY2IDYuMDEwMDExLDIuNDY1NzggNi4wMTAwMTEsNC42NjcgMCwxLjI0Mzk1IC0wLjMyNjUzLDEuNTcwMTggLTIuODM4MTg4LDIuODM1NTkgLTEuNTkyOTcxLDAuODAyNTYgLTIuMjU5MywxLjgyNzkxIC0yLjEzNzc3MywzLjI4OTYxIDAuMDc3OSwwLjkzNjk1IDAuMTgyNDM5LDEuMDMyMjEgMi41OTQ3MTEsMi4zNjQ0NCAxLjM4MjQ0OCwwLjc2MzQ5IDIuNjM3NzQ4LDEuMzg4NTcgMi43ODk1NTUsMS4zODkwNyAwLjE1MTgxLDUuMmUtNCAwLjM4OTkzNSwtMC4zODQwOSAwLjUyOTE2NywtMC44NTQ2NCB6IG0gMTkuNzQ2MDYxLDIyLjA2ODIzIGMgLTAuNDM4MjUsLTAuNDM4MjUgLTAuNTExMjksLTEuMTUwODEgLTAuNjc3NTgsLTYuNjExMDYgLTAuMTAyNTEsLTMuMzY1OTIgLTAuMTA0ODYsLTEwLjYxNzg3IC0wLjAwNSwtMTYuMTE1NDQgMC4yMzg1NCwtMTMuMTU5OTYgLTAuNDA4MDIsLTExLjg1MTYgOC4zNTkzNSwtMTYuOTE1NzYgMi44MTAzNCwtMS42MjMyOSA4LjQ0MzQ2LC00Ljg4MDQgMTIuNTE4MDQsLTcuMjM4MDIgMTAuNzI0MTcsLTYuMjA1MTkgMTEuMTY1NjksLTYuMzk5MzQxIDEyLjEyOTgyLC01LjMzMzk4IDAuMzk3MjIsMC40Mzg5MiAwLjQzNzg5LDEuOTU4MTUgMC40Mzc4OSwxNi4zNTY3MyB2IDE1Ljg3Mjg2IGwgLTAuNzI3NjEsMS40MzY1MSBjIC0wLjQ2ODE4LDAuOTI0MzQgLTEuMTU5NDYsMS43NTQ0OSAtMS45Mzg4OCwyLjMyODM4IC0yLjI4MjMzLDEuNjgwNTEgLTI3LjgxNjgxLDE2LjMxMjU0IC0yOC44ODEwNSwxNi41NDk3MiAtMC41MTExNSwwLjExMzkyIC0wLjg2Nzc3LDAuMDE3MSAtMS4yMTQ3NywtMC4zMjk5NCB6IG0gMTguMTQ0MDcsLTE0LjAwMDIxIDAuODU5OSwtMC40MzEzMyB2IC0zLjAxODk2IC0zLjAxODk2IGwgLTEuMzg5MDcsMC43ODU4OSBjIC0wLjc2Mzk4LDAuNDMyMjMgLTEuOTg0MzcsMS4xMzYyOCAtMi43MTE5NywxLjU2NDU0IGwgLTEuMzIyOTIsMC43Nzg2NSAtMC4wNzQ5LDIuOTcyNDcgLTAuMDc0OSwyLjk3MjQ3IDEuOTI3MDIsLTEuMDg2NzIgYyAxLjA1OTg2LC0wLjU5NzcgMi4zMTM5OCwtMS4yODA4MiAyLjc4NjkyLC0xLjUxODA1IHogbSAtMS44MDU3MSwtNy4xMDc5MiBjIDIuNTI0NjMsLTEuNDY2MTUgMi41NTcxLC0xLjQ5Nzg2IDIuODY2NTIsLTIuODAwNDYgMC4xNzIxMywtMC43MjQ2MyAxLjE0NTQsLTIuNzA2NDUgMi4xNjI4MiwtNC40MDQwNCAyLjAzMzAzLC0zLjM5MjE3IDIuNTg2NTEsLTQuNzIxMDEgMi44MzAyOSwtNi43OTUyIDAuMzA3NDgsLTIuNjE2MTggLTAuODM0MzMsLTQuMzYxMTIgLTIuODUzNzEsLTQuMzYxMTIgLTIuMTE4MjMsMCAtNi4wNTcwNiwyLjE4NjEyIC05LjU1MDIxLDUuMzAwNTEgbCAtMS41MjEzNSwxLjM1NjQgdiAyLjU0MTEzIDIuNTQxMTEgbCAyLjQ3NjI1LC0yLjQyODM3IGMgMy4yNjYyLC0zLjIwMzA1IDUuNDEzMzYsLTQuMTg0MjUgNS44MTI5MSwtMi42NTYzNSAwLjIyOTA4LDAuODc2MDEgLTAuNDQyNjQsMi42MDQxIC0xLjkzODU5LDQuOTg3MjQgLTAuNzc2NDUsMS4yMzY5MyAtMS43NTQxNywyLjk4MDA0IC0yLjE3MjcxLDMuODczNTggLTAuODE4MTcsMS43NDY2OCAtMS4zNzExNSw0LjMyODUgLTAuOTI3MDksNC4zMjg1IDAuMTQzNzMsMCAxLjQxMDQyLC0wLjY2NzMyIDIuODE0ODcsLTEuNDgyOTMgeiBNIDEwMS40NTA4LDExMi41ODM5NSBDIDk5Ljc5OTk0OSwxMTEuNzk4NzYgNzUuNzExOTkyLDk3LjkzMDI1MiA3My4xMjc0MDcsOTYuMjc2OTEzIDcxLjczMDIxNiw5NS4zODMxNCA3MS42NTgyNTIsOTUuMjgzODYzIDcxLjczNTc0Niw5NC4zNTcwNzMgNzEuODM1ODM1LDkzLjE2MDA1MiA3MC45OTE5NDUsOTMuNzAwODg1IDg5LjAxMjEwOSw4My4yODQ5OCBsIDEzLjIyNTg5MSwtNy42NDQ3NSAxLjg2MTEyLC0wLjA5Mzk4IGMgMS43NzUxLC0wLjA4OTY0IDEuOTY0NzcsLTAuMDM5MjggNC4xMDQzMSwxLjA4OTczOSA0LjQ5ODA3LDIuMzczNTk3IDI3LjY2MzYsMTUuODgxMTIzIDI4LjM3MDgxLDE2LjU0MjY1OSAxLjI2NzM3LDEuMTg1NTE1IDAuODkxNDcsMi4wNTgwODIgLTEuNTM0MTksMy41NjEyOTEgLTIuNDUxODEsMS41MTk0MTQgLTI0Ljc2NzA3LDE0LjM5Mjc3MSAtMjYuNzgyNywxNS40NTA1NjEgLTIuNzgxMTIsMS40NTk1MSAtNC4zNzE4NCwxLjU1MTQ2IC02LjgwNjU1LDAuMzkzNDUgeiBtIDE0LjM3ODEyLC0xMi4zMDU1MiAzLjAwMTA0LC0xLjY4MjI2NCAtMC44ODQzNywtMC41MjcyMDkgYyAtMi4xNTgwNiwtMS4yODY0OTkgLTMuODg0MDMsLTIuMTkyMDM2IC00LjE3ODA2LC0yLjE5MjAzNiAtMC40MTU0NSwwIC02LjA5OTk2LDMuMTY3Mjk2IC02LjA5NTk2LDMuMzk2NTQ0IDAuMDA0LDAuMjQzMiA0LjI3MTIxLDIuNjI4OTQ1IDQuNzU5NDQsMi42NjEwOTUgMC4yMTgyOCwwLjAxNDQgMS43NDczNCwtMC43MzA4OCAzLjM5NzkxLC0xLjY1NjEzIHogbSAtOC42MTQ2NCwtMi45NzYxNjQgYyAwLjc1OTE1LC0wLjM4MDIyNSAyLjA2NjI1LC0xLjEwNDA1NiAyLjkwNDY4LC0xLjYwODUxIGwgMS41MjQ0MSwtMC45MTcxOTIgLTAuNTQ4MzgsLTAuNzcwMTI1IGMgLTAuNDk2NDIsLTAuNjk3MTUgLTAuNTMxNjEsLTEuMDAyMjc5IC0wLjM3MTM4LC0zLjIyMDEzNCAwLjE2MzU4LC0yLjI2NDM2OSAwLjEzMzI3LC0yLjUwNTE1NCAtMC40MDAwNywtMy4xNzc4IC0wLjMxNzM5LC0wLjQwMDI4NSAtMS4xMzM5MSwtMS4wNTQxOTkgLTEuODE0NDksLTEuNDUzMTQxIC0xLjA5NzE1LC0wLjY0MzEyOCAtMS41NTc0NSwtMC43MzYzMTkgLTQuMDYwNzIsLTAuODIyMTE0IC0yLjM4NjM4LC0wLjA4MTc5IC0zLjEwMjkyLC0wLjAwNDggLTQuNjMwMjA0LDAuNDk3Njg4IC0yLjIyNDgzOSwwLjczMTk0NyAtNC45MDQ3NDUsMi4wMzAxMzEgLTYuODMyODA2LDMuMzA5OTA1IC0xLjUzMDY0NiwxLjAxNTk4NCAtNC4xMDI1NjMsMy4yMjI3OCAtNC4xMDE3NTYsMy41MTk0NTEgNS4yOWUtNCwwLjE5NDIwNiAxLjk3MDE0MywxLjQ3NjgxNyAzLjM0MTQ0MSwyLjE3NTk0NyBsIDAuODkxODM3LDAuNDU0Njg0IDEuODkzOTksLTEuOTUzMjgyIGMgMi4zMTcwNywtMi4zODk2MDMgMy45NjYyNDIsLTMuMjg0OTUyIDYuMDI4ODk4LC0zLjI3MzE0IDIuMzU2OCwwLjAxMzUgMi40OTY0LDAuMjMxNDkyIDIuMjcwNTIsMy41NDU0NjggbCAtMC4xODk5MywyLjc4NjU1MiAwLjc5ODUzLDAuNzk4NTMxIGMgMC45Nzc1NSwwLjk3NzU0OCAxLjUyMjM2LDAuOTk1MjczIDMuMjk1NDMsMC4xMDcyMTIgeiIKICAgICAgICAgaWQ9InBhdGg4MzgiIC8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K",
+    "properties": {
+      "random_function": {
+        "name": "random_function",
+        "title": "Random Function",
+        "description": "",
+        "type": "string",
+        "parameterType": "string",
+        "value": "token_urlsafe",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "string_length": {
+        "name": "string_length",
+        "title": "String Length",
+        "description": "How long (in characters) should each value be.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "16",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator",
+      "PythonPlugin"
     ],
     "pluginType": "transformer",
     "relatedPlugins": []
@@ -18221,6 +18719,41 @@
     "markdownDocumentation": "Transforms the sequence of values to their respective indexes in the sequence. If there is more than one input, the values are numbered from the first input on and continued for the next inputs. Applied against an RDF source the order might not be deterministic.\n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Transforms the sequence of values to their respective indexes in the sequence:**\n\n* Input values:\n    1. `[a, b, c]`\n\n* Returns: `[0, 1, 2]`\n\n\n",
     "pluginIcon": null,
     "properties": {},
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": []
+  },
+  "setExecutionVariable": {
+    "pluginId": "setExecutionVariable",
+    "title": "Set execution variable",
+    "categories": [
+      "Variables"
+    ],
+    "main_category": "Variables",
+    "description": "Sets an execution variable to the first value of the (single) input and passes the input values through unchanged. The variable is written to the 'execution' scope and can be read downstream as 'execution.<name>'. Only works while running inside a workflow execution.",
+    "markdownDocumentation": "Sets an execution variable to the first value of the (single) input and passes the input values through unchanged. The variable is written to the 'execution' scope and can be read downstream as 'execution.<name>'. Only works while running inside a workflow execution.\n",
+    "pluginIcon": null,
+    "properties": {
+      "variableName": {
+        "name": "variableName",
+        "title": "Variable name",
+        "description": "Name of the execution variable to set. It is written to the 'execution' scope and addressed downstream as 'execution.<name>'.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "myVariable",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
     "properties_advanced": {},
     "actions": {},
     "required": [],
@@ -20285,6 +20818,30 @@
         "description": "Regex extract turns the match into output by returning the matched substring or the first capturing group. Validate regex leaves the value unchanged and only lets it through when the full value matches the pattern."
       }
     ]
+  },
+  "validate_uri": {
+    "pluginId": "validate_uri",
+    "title": "Validate URI",
+    "categories": [
+      "Validation",
+      "SPARQL"
+    ],
+    "main_category": "Validation",
+    "description": "Validates that the input is a valid absolute IRI and returns it unchanged. Throws a validation error if the input is not a valid IRI.",
+    "markdownDocumentation": "Validates that the input is a valid absolute IRI and returns it unchanged. Throws a validation error if the input is not a valid IRI. \n\n## Examples\n\n**Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values \"first\" and \"second\".\n\n---\n**Example 1:**\n\n* Input values:\n    1. `[http://example.org/entity1]`\n\n* Returns: `[http://example.org/entity1]`\n\n\n---\n**Example 2:**\n\n* Input values:\n    1. `[urn:example:1]`\n\n* Returns: `[urn:example:1]`\n\n\n---\n**Example 3:**\n\n* Input values:\n    1. `[not a uri]`\n\n* Returns: `[]`\n* **Throws error:** `ValidationException`\n\n\n---\n**Example 4:**\n\n* Input values:\n    1. `[]`\n\n* Returns: `[]`\n* **Throws error:** `ValidationException`\n\n\n",
+    "pluginIcon": null,
+    "properties": {},
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "native",
+    "is_deprecated": false,
+    "tags": [
+      "TransformOperator"
+    ],
+    "pluginType": "transformer",
+    "relatedPlugins": []
   },
   "Excel_VAR": {
     "pluginId": "Excel_VAR",
