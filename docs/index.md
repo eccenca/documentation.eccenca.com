@@ -4,7 +4,8 @@ hide:
   - toc
   - navigation
 ---
-# Welcome to documentation.eccenca.com 🤓
+
+# Welcome to the eccenca Corporate Memory documentation
 
 <div class="grid cards" markdown>
 
