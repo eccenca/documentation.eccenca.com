@@ -105,27 +105,21 @@ The following material is used in this tutorial:
     </orgmap>
     ```
 
-## 1 Register the vocabulary
+## 1 Install the required Ontologies / Vocabularies
 
-The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
+The vocabulary contains the classes and properties needed to map the data into the new structure in the Knowledge Graph.
 
-1. In Corporate Memory, click **Vocabularies** in the navigation under **EXPLORE** on the left side of the page.
 
-    ![Menu entry EXPLORE > Vocabularies](menu-explore-vocabularies.png){ class="bordered" width="30%" }
+1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
+    In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
 
-2. Click **Register new vocabulary** on the top right of the **Vocabulary catalog** page in Corporate Memory.
+    ![Add new graph](ldfjaxs-add-new-graph.png){ class="bordered"}
 
-    ![Vocabularies Catalog](vocab-catalog-xml+json.png){ class="bordered" }
+    ![New graph from File option](ldfjaxs-new-graph-from-file.png){ class="bordered" width="70%"}
 
-3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
+2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step.
 
-    - Name: _**Product Vocabulary**_
-    - Graph URI: _**<http://ld.company.org/prod-vocab/>**_
-    - Description: _**Example vocabulary modeled to describe relations between products and services.**_
-
-    ![Dialog to register a new vocabulary.](dialog-register-new-vocabulary.png){ class="bordered" width="50%" }
-
-4. Click **REGISTER**.
+    ![Define Target graph URI](ldfjaxs-define-target-graph-uri.png){ class="bordered" width="70%"}
 
 ## 2 Upload the data file
 

@@ -75,4 +75,4 @@ No description
 
 ## Related Plugins
 
-* **timeToDate** — The two plugins are inverses. Date to timestamp takes a date and outputs a Unix integer; Timestamp to date takes a Unix integer and outputs a date.
+* [timeToDate](timeToDate.md) — The two plugins are inverses. Date to timestamp takes a date and outputs a Unix integer; Timestamp to date takes a Unix integer and outputs a date.

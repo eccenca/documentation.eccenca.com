@@ -39,6 +39,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Coalesce (first non-empty input)](Selection/coalesce.md) | Selection | Forwards the first non-empty input, i.e. for which any value(s) exist. A single empty string is considered a value. |
  | [Code](Excel/Excel_CODE.md) | Excel | Excel CODE(text): Returns a numeric code for the first character in a text string. Text is the text for which the code of the first character is to be found. |
  | [Combin](Excel/Excel_COMBIN.md) | Excel | Excel COMBIN(count_1; count_2): Returns the number of combinations for a given number of objects. Count_1 is the total number of elements. Count_2 is the selected count from the elements. This is the same as the nCr function on a calculator. |
+ | [Combined input hash](Value/inputHash.md) | Value | Calculates a single hash value covering all input values combined, across all input ports. Values are fed into the hash function in port order without any separator between them. |
  | [Compare dates](Date/compareDates.md) | Date | Compares two dates. |
  | [Compare numbers](Numeric/compareNumbers.md) | Numeric | Compares the numbers of two sets. Returns 1 if the comparison yields true and 0 otherwise. If there are multiple numbers in both sets, the comparator must be true for all numbers. For instance, {1,2} < {2,3} yields 0 as not all numbers in the first set are smaller than in the second. |
  | [Concatenate](Combine/concat.md) | Combine | Concatenates strings from multiple inputs. |
@@ -70,6 +71,8 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Duration in years](Date/durationInYears.md) | Date | Converts an xsd:duration to years. |
  | [Empty value](Value/emptyValue.md) | Value | Generates an empty value. |
  | [Encode URL](Normalize/urlEncode.md) | Normalize | URL encodes the string. |
+ | [Escape SPARQL multiline literal](SPARQL/escape_multiline_literal.md) | SPARQL | Escapes a value so it can be safely used inside a SPARQL triple-quoted string literal (`"""..."""` or `'''...'''`). Escapes backslashes and breaks any run of three or more consecutive single or double quotes. Individual quotes and newlines are preserved. The returned value does not include enclosing quotation marks. |
+ | [Escape SPARQL plain literal](SPARQL/escape_literal.md) | SPARQL | Escapes a value so it can be safely used inside a SPARQL short-form string literal. Escapes backslashes, quotes, newlines, carriage returns and tabs. The returned value does not include enclosing quotation marks. |
  | [Evaluate template](Template/TemplateTransformer.md) | Template | Evaluates a template. Input values can be addressed using the variables 'input1', 'input2', etc. Global variables are available in the 'global' scope, e.g., 'global.myVar'. |
  | [Even](Excel/Excel_EVEN.md) | Excel | Excel EVEN(number): Rounds the given number up to the nearest even integer. |
  | [Exact](Excel/Excel_EXACT.md) | Excel | Excel EXACT(text_1; text_2): Compares two text strings and returns TRUE if they are identical. This function is case- sensitive. Text_1 is the first text to compare. Text_2 is the second text to compare. |
@@ -95,7 +98,6 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [If exists](Conditional/ifExists.md) | Conditional | Accepts two or three inputs. If the first input provides a value, the second input is forwarded. Otherwise, the third input is forwarded (if present). |
  | [If matches regex](Conditional/ifMatchesRegex.md) | Conditional | This transformer uses a regular expression as a matching condition, in order to distinguish which input to take. |
  | [Input file attributes](Metadata/inputFileAttributes.md) | Metadata | Retrieves a metadata attribute from the input file (such as the file name). |
- | [Input hash](Value/inputHash.md) | Value | Calculates the hash sum of the input values. Generates a single hash sum for all input values combined. |
  | [Input task attributes](Metadata/inputTaskAttributes.md) | Metadata | Retrieves individual attributes from the input task (such as the modified date) or the entire task as JSON. |
  | [Int](Excel/Excel_INT.md) | Excel | Excel INT(number): Rounds the given number down to the nearest integer. |
  | [Intercept](Excel/Excel_INTERCEPT.md) | Excel | Excel INTERCEPT(data_Y; data_X): Calculates the y-value at which a line will intersect the y-axis by using known x-values and y-values. Data_Y is the dependent set of observations or data. Data_X is the independent set of observations or data. Names, arrays or references containing numbers must be used here. Numbers can also be entered directly. |
@@ -148,6 +150,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Parse SKOS term](Parser/SkosTypeParser.md) | Parser | Parses values from a SKOS ontology. |
  | [Parse string](Parser/StringParser.md) | Parser | Parses string values. This is basically an identity function. |
  | [Pearson](Excel/Excel_PEARSON.md) | Excel | Excel PEARSON(data_1; data_2): Returns the Pearson product moment correlation coefficient r. Data_1 is the array of the first data set. Data_2 is the array of the second data set. |
+ | [Per-value hash](Value/perValueHash.md) | Value | Hashes each input value independently and returns one hash per value. Accepts exactly one input port. |
  | [Percentile](Excel/Excel_PERCENTILE.md) | Excel | Excel PERCENTILE(data; alpha): Returns the alpha-percentile of data values in an array. Data is the array of data. Alpha is the percentage of the scale between 0 and 1. |
  | [Percentrank](Excel/Excel_PERCENTRANK.md) | Excel | Excel PERCENTRANK(data; value): Returns the percentage rank (percentile) of the given value in a sample. Data is the array of data in the sample. |
  | [Pi](Excel/Excel_PI.md) | Excel | Excel PI(): Returns the value of PI to fourteen decimal places. |
@@ -161,6 +164,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Radians](Excel/Excel_RADIANS.md) | Excel | Excel RADIANS(number): Converts the given number in degrees to radians. |
  | [Rand](Excel/Excel_RAND.md) | Excel | Excel RAND(): Returns a random number between 0 and 1. |
  | [Random number](Value/randomNumber.md) | Value | Generates a set of random numbers. |
+ | [Random value](Uncategorized/cmem_plugin_random-GenerateValues.md) | Uncategorized | Generates random values. |
  | [Rank](Excel/Excel_RANK.md) | Excel | Excel RANK(value; data; type): Returns the rank of the given Value in a sample. Data is the array or range of data in the sample. Type (optional) is the sequence order, either ascending (0) or descending (1). |
  | [Rate](Excel/Excel_RATE.md) | Excel | Excel RATE(NPER; PMT; PV; FV; type; guess): Returns the constant interest rate per period of an annuity. NPER is the total number of periods, during which payments are made (payment period). PMT is the constant payment (annuity) paid during each period. PV is the cash value in the sequence of payments. FV (optional) is the future value, which is reached at the end of the periodic payments. Type (optional) defines whether the payment is due at the beginning (1) or the end (0) of a period. Guess (optional) determines the estimated value of the interest with iterative calculation. |
  | [Read parameter](Value/readParameter.md) | Value | Reads a parameter from a Java Properties file. |
@@ -189,6 +193,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Roundup](Excel/Excel_ROUNDUP.md) | Excel | Excel ROUNDUP(number; count): Rounds the given number up. Count (optional) is the number of digits to which rounding up is to be done. If the count parameter is negative, only the whole number portion is rounded. It is rounded to the place indicated by the count. |
  | [Search](Excel/Excel_SEARCH.md) | Excel | Excel SEARCH(find_text; text; position): Returns the position of a text segment within a character string. The start of the search can be set as an option. The search text can be a number or any sequence of characters. The search is not case-sensitive. The search supports regular expressions. Find_text is the text to be searched for. Text is the text where the search will take place. Position (optional) is the position in the text where the search is to start. |
  | [Sequence values to indexes](Sequence/toSequenceIndex.md) | Sequence | Transforms the sequence of values to their respective indexes in the sequence. If there is more than one input, the values are numbered from the first input on and continued for the next inputs. Applied against an RDF source the order might not be deterministic. |
+ | [Set execution variable](Variables/setExecutionVariable.md) | Variables | Sets an execution variable to the first value of the (single) input and passes the input values through unchanged. The variable is written to the 'execution' scope and can be read downstream as 'execution.<name>'. Only works while running inside a workflow execution. |
  | [Sign](Excel/Excel_SIGN.md) | Excel | Excel SIGN(number): Returns the sign of the given number. The function returns the result 1 for a positive sign, -1 for a negative sign, and 0 for zero. |
  | [Sin](Excel/Excel_SIN.md) | Excel | Excel SIN(number): Returns the sine of the given number (angle in radians). |
  | [Sinh](Excel/Excel_SINH.md) | Excel | Excel SINH(number): Returns the hyperbolic sine of the given number (angle in radians). |
@@ -243,6 +248,7 @@ Transform operators transform a one or more sequences of string values to a sequ
  | [Validate number of values](Validation/validateNumberOfValues.md) | Validation | Validates that the number of values lies in a specified range. |
  | [Validate numeric range](Validation/validateNumericRange.md) | Validation | Validates if a number is within a specified range. |
  | [Validate regex](Validation/validateRegex.md) | Validation | Validates if all values match a regular expression. |
+ | [Validate URI](Validation/validate_uri.md) | Validation | Validates that the input is a valid absolute IRI and returns it unchanged. Throws a validation error if the input is not a valid IRI. |
  | [Var](Excel/Excel_VAR.md) | Excel | Excel VAR(number_1; number_2; ... number_30): Estimates the variance based on a sample. Number_1; number_2; ... number_30 are numerical values or ranges representing a sample based on an entire population. |
  | [Vara](Excel/Excel_VARA.md) | Excel | Excel VARA(value_1; value_2; ... value_30): Estimates a variance based on a sample. The value of text is 0. Value_1; value_2; ... value_30 are values or ranges representing a sample derived from an entire population. Text has the value 0. |
  | [Varp](Excel/Excel_VARP.md) | Excel | Excel VARP(Number_1; number_2; ... number_30): Calculates a variance based on the entire population. Number_1; number_2; ... number_30 are numerical values or ranges representing an entire population. |

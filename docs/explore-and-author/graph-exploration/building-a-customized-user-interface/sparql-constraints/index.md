@@ -31,14 +31,14 @@ Then we add a SPARQL Constrain shape, which checks if the label of these resourc
 
 ### Install Ontologies / Vocabularies
 
-Install the RDF Schema and FOAF vocabulary, either as a package from the **Marketplace** or from an RDF file.
+Click the :eccenca-module-marketplace: **Packages** icon in the main menu under the **Marketplace** section.
 
-<!-- TODO: the Vocabulary catalog was replaced by the Marketplace / package concept.
-Re-take the screenshot with the new installation flow, then re-enable the two lines below.
+![Marketplace main menu](bacui-marketplace-menu.png){ class="bordered" }
 
+Search for the required ontologies / vocabularies, then click the **Install** button to install the "The RDF Schema Vocabulary" and "Friend of a Friend (FOAF)" vocabulary.
+Wait until each installation is complete (the **Install** button will change to **Uninstall**) before installing the next package.
 
-![Marketplace with Installed Vocabularies](vocabulary-catalog.png){ class="bordered" }
--->
+![Search and install ontologies](bacui-marketplace-schema-search.png){ class="bordered" }
 
 ### Create Shape Catalog
 

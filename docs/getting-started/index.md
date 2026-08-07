@@ -69,11 +69,13 @@ The user interface of Corporate Memory usually consists of two sections:
 Each module provides a set of functionalities and views for specific use cases.
 To access a module, click the module name. The active module is highlighted.
 
+<!-- TODO: Marketplace chapter must be created and linked CMEM-8002-->
+
 By default, Corporate Memory provides the following modules:
 
-- [EXPLORE](../explore-and-author/index.md) - for Knowledge Graph browsing and exploration, specifically
-    - [Knowledge Graphs](../explore-and-author/graph-exploration/index.md) - a generic and extensible RDF data browser and editor
-    - [Business knowledge editor](../explore-and-author/bke-module/index.md) - for visual graph interaction
+- EXPLORE - for Knowledge Graph browsing and exploration, specifically
+    - [Knowledge Graphs](../explore-and-author/index.md) - a generic and extensible RDF data browser and editor
+    - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
     - [Queries](../explore-and-author/query-module/index.md) - a SPARQL query interface
     - [Thesauri](../explore-and-author/thesauri-management/index.md) - for managing thesauri and taxonomies based on SKOS
     - [Charts](../explore-and-author/charts-catalog/index.md) - for data visualization
@@ -82,6 +84,7 @@ By default, Corporate Memory provides the following modules:
     - Datasets - the Datasets across all BUILD Projects
     - Workflows - the Workflows across all BUILD Projects
     - Activities - activities overview and monitoring
+- [MARKETPLACE](#) - for discovering, installing and managing solution packages such as ontologies / vocabularies or project and demo packages
 
 !!! note
 

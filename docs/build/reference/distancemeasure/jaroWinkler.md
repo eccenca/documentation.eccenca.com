@@ -32,4 +32,4 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 ## Related Plugins
 
-- **jaro** — The Jaro distance metric plugin provides the baseline Jaro similarity without emphasizing beginnings. The Jaro–Winkler distance plugin shifts the score toward shared prefixes, which can change rankings when many candidates start the same way.
+- [jaro](jaro.md) — The Jaro distance metric plugin provides the baseline Jaro similarity without emphasizing beginnings. The Jaro–Winkler distance plugin shifts the score toward shared prefixes, which can change rankings when many candidates start the same way.

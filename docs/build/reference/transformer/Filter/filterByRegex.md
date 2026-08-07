@@ -41,4 +41,4 @@ No description
 
 ## Related Plugins
 
-- **regexSelect** — Filter by regex keeps or drops values from the input sequence based on full-string matching. Regex selection keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches.
+- [regexSelect](../Selection/regexSelect.md) — Filter by regex keeps or drops values from the input sequence based on full-string matching. Regex selection keeps the checked value out of the output and instead returns a pattern-list-shaped result filled with the provided output value where a pattern matches.

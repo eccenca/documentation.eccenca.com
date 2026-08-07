@@ -63,28 +63,22 @@ The following material is used in this tutorial, you should download the files a
 
 ---
 
-## 1 Register the vocabulary
+## 1 Install the required Ontologies / Vocabularies
 
 The vocabulary contains the classes and properties needed to map the data into the new structure in the Knowledge Graph.
 
 === "Corporate Memory"
 
-    1. In Corporate Memory, click Vocabularies under **EXPLORE** in the navigation on the left side of the page.
+    1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
+        In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
 
-        ![](explore-vocab-catalog.png){ class="bordered" width="50%" }
+        ![Add new graph](ldftds-add-new-graph.png){ class="bordered"}
 
-    2. Click **Register new vocabulary** on the top right.
+        ![New graph from File option](ldftds-new-graph-from-file.png){ class="bordered" width="70%"}
 
-        ![](vocab-catalog.png){ class="bordered" width="50%" }
+    2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step.
 
-    3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
-
-        - Label: `Product Vocabulary`
-        - Graph URI: `http://ld.company.org/prod-vocab/`
-        - Description: `Example vocabulary modeled to describe relations between products and services.`
-        - Upload File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
-
-        ![Register new Vocabulary](register-new-vocab.png){ class="bordered" width="50%" }
+        ![Define Target graph URI](ldftds-define-target-graph-uri.png){ class="bordered" width="70%"}
 
 === "cmemc"
 
