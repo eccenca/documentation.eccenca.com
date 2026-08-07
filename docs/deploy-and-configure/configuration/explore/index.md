@@ -25,7 +25,7 @@ Explore frontend (DataManager) communicates with different API endpoints in orde
 The features of Explore frontend (DataManager) include:
 
 - Dataset Manager to create and update datasets and its meta data
-- Vocabulary Manager to install and remove Vocabulary descriptions
+- Marketplace to install and remove Ontology / Vocabulary and Project (Demo) Packages
 - Data browser to explore and manage graph-based data
 - Taxonomy Editor to manage and create SKOS based taxonomies
 - Query editor to query graph-based data via SPARQL queries

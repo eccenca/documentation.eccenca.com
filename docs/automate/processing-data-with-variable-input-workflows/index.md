@@ -29,13 +29,25 @@ This allows for solving all kinds of [☆ Automation](../index.md) tasks when yo
         cmemc -c my-cmem project import tutorial-varinput.project.zip varinput
         ```
 
-## 1 Install the required vocabularies
+## 1 Install the required Ontologies / Vocabularies
 
-First, install all required ontologies/vocabularies which are needed for mappings later in the tab **VOCABULARIES.**
+Install the required ontologies / vocabularies from the eccenca Corporate Memory Package Marketplace or from an RDF file.
 
-In this tutorial, we need the _Schema.org_ and the _RDFS_ vocabulary. Press the (toggle switch) button on the right to install them.
+### Used Ontologies / Vocabularies
 
-![Vocabulary catalog](pdwviw-vocab-catalog.png){ class="bordered" }
+This tutorial makes use of the `rdfs:` and `schema.org` ontologies.
+Both can be installed from the **Marketplace**.
+
+### Install from Marketplace
+
+Click the :eccenca-module-marketplace: **Packages** icon in the main menu under the **Marketplace** section.
+
+![Marketplace main menu](pdwviw-marketplace-menu.png){ class="bordered" }
+
+Search for the required ontologies / vocabularies and click the **Install** button.
+Wait for a package installation to complete (the **Install** button will change to **Uninstall**) before installing the next package.
+
+![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" }
 
 ## 2 Create a new project
 

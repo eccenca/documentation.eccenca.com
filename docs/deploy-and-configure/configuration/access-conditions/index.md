@@ -93,8 +93,8 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 | `:Explore-ListSystemGraphs` | Represents the action needed to list Corporate Memory system graphs (tagged with shui:isSystemResource) in the Knowledge Graph list. |
 | `:Explore-QueryCatalog` | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed). |
 | `:Explore-ThesaurusCatalog` | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well). |
-| `:Explore-VocabularyCatalog` | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well). |
 | `:LinkRulesUserInterface` | Represents the action needed to use the Link Rules Module. |
+| `:Marketplace-Frontend` | Represents the action needed to access and manage packages from the Marketplace. Access to the corresponding graphs is required as well. |
 
 In addition to these attributes, you can use the following special attributes to grant partial access to the access conditions itself:
 
