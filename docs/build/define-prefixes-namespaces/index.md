@@ -22,11 +22,13 @@ This is particularly useful when you have to write source code in Turtle and SPA
 
 ## Managing Namespace Declarations
 
-### Using the Vocabulary Catalog
+### Using the Marketplace
 
-After installing a vocabulary from the [Vocabulary Catalog](../../explore-and-author/vocabulary-catalog/index.md), the vocabulary namespace declaration is automatically added to all integration projects.
+<!--TODO: Marketplace chapter must be created and linked CMEM-8002-->
 
-In order to get the **prefix name** and the **namespace IRI** from the vocabulary graph, the following terms from the [VANN vocabulary](https://vocab.org/vann/) need to be used on the Ontology resource.
+After installing an ontology / vocabulary from the [Marketplace](#), the vocabulary namespace declaration is automatically added to all integration projects.
+
+In order to get the **prefix name** and the **namespace IRI** from the Ontology / Vocabulary graph, the following terms from the [VANN vocabulary](https://vocab.org/vann/) need to be used on the `owl:Ontology` resource.
 
 - [vann:preferredNamespacePrefix](https://vocab.org/vann/#preferredNamespacePrefix) - to specify the **prefix name**
 - [vann:preferredNamespaceUri](https://vocab.org/vann/#preferredNamespaceUri) - to specify the **namespace IRI**

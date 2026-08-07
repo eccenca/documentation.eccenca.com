@@ -30,7 +30,7 @@ This allows you to solve all kinds of [☆ Automation](../index.md) tasks where 
         cmemc -c my-cmem package install ecc-variable-input-tutorial
         ```
 
-## 1 Install the required ontologies / vocabularies
+## 1 Install the required Ontologies / Vocabularies
 
 This tutorial makes use of the `rdfs:` and `schema.org` ontologies.
 Both can be installed from the **Marketplace**.
