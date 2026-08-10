@@ -5,7 +5,7 @@ tags:
     - KnowledgeGraph
     - Video
 ---
-# Query Module
+# Queries
 
 ## Introduction
 

@@ -126,7 +126,7 @@ The following placeholders can be used in the SPARQL query text:
 
 For proper usage, include `?graph` or `?_graph` in the projection, bound to the IRI of the graph where the relation statement is stored or the context in which it was inferred.
 
-Link changing variables: If you bind the magic variables `?_linkGraph`/`?linkGraph` or `?_linkWorkspace`/`?linkWorkspace`, they override the default link behavior for generated context/workspace parts of links. Use the IRI of the target graph or the ID of the target workspace. The values apply to `?resource` or, if not present, the first variable in the projection.
+Link changing variables: If you bind the magic variables `?_linkGraph`/`?linkGraph` or `?_linkWorkspace`/`?linkWorkspace`, they override the default link behavior for generated context/Application view parts of links. Use the IRI of the target graph or the ID of the target Application view. The values apply to `?resource` or, if not present, the first variable in the projection.
 
 If the connected property value is a resource, the variables in the projection are used to populate the columns in the complex widget and the advanced editor.
 

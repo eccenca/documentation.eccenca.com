@@ -35,7 +35,7 @@ In order to get the **prefix name** and the **namespace IRI** from the Ontology 
 
 In the Explore area, an Ontology with a correct namespace declaration looks like this:
 
-![An ontology (graph) resource in the EXPLORE > Knowledge Graphs view](ontology-graph-resource.png)
+![An ontology (graph) resource in the EXPLORE > Knowledge Graphs view](ontology-graph-resource.png){ class="bordered" }
 
 ### Using cmemc
 
@@ -62,11 +62,11 @@ Prefixes in Data Integration are defined on a project basis. When creating a new
 
 After selecting a project from the search results the prefix management is available in the project configuration in the lower right area:
 
-![Build (DataIntegration) workspace](DI-workspace.png)
+![Build (DataIntegration) workspace](DI-workspace.png){ class="bordered" }
 
 By using the **Edit Prefix Settings** button in this Configuration area, you will see the **Manage Prefixes** dialog:
 
-![Build (DataIntegration) workspace prefix setup dialog](DI-workspace-prefix-dialog.png)
+![Build (DataIntegration) workspace prefix setup dialog](DI-workspace-prefix-dialog.png){ class="bordered" }
 
 In this dialog, you are able to
 
@@ -77,7 +77,7 @@ In this dialog, you are able to
 
 After adding namespace declarations to a project you are able to use the abbreviated IRIs in the user interface, for instance, in the mapping editor, the Turtle editor or the Query editor:
 
-![Prefixes displayed in the mapping dialogs, e.g. property selection.](prefix-displayed-in-mapping.png)
+![Prefixes displayed in the mapping dialogs, e.g. property selection.](prefix-displayed-in-mapping.png){ class="bordered" }
 
 ![Query Editor](DM-query-editor.png){ class="bordered" }
 
