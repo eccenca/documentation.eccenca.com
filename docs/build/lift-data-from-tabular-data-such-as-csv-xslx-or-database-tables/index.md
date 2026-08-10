@@ -26,7 +26,7 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
 
 The documentation consists of the following steps, which are described in detail below:
 
-1. Registration of the target vocabulary
+1. Install the required Ontologies / Vocabularies
 2. Uploading of the data (file)
 3. Creating the Transformation
 4. Configure Mapping
