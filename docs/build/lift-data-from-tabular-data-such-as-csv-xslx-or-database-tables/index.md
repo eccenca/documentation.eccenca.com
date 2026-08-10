@@ -26,7 +26,7 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
 
 The documentation consists of the following steps, which are described in detail below:
 
-1. Registration of the target vocabulary
+1. Install the required Ontologies / Vocabularies
 2. Uploading of the data (file)
 3. Creating the Transformation
 4. Configure Mapping
@@ -90,17 +90,27 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 ## 2 Uploading of the data (file)
 
-1. In Corporate Memory, click **:fontawesome-regular-folder: Projects** under **BUILD** in the navigation on the left side of the page.
+1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **Build** section.
+    Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
-    ![](menu-build-projects.png){ class="bordered" width="50%" }
+    ![Create new project](ldftds-create-project.png){ class="bordered" }
 
-2. Click **Create :octicons-plus-circle-24:** at the top right of the page.
+2. In the **Create new item** window, select **Project** and click **Add**.
+   The Create new item of type Project window appears.
 
-3. In the **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.  
+    ![Add new project](ldftds-add-new-project.png){ class="bordered" width="50%" }
 
-4. Fill in the required details such as Title and Description. Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
+3. Fill in the required details such as Title and Description.
+    In this example we will use:
 
-5. Click **Create**. Your project is created.
+    - Title: `Tutorial: Lift data from CSV tabular data`
+    - Description: `This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a comma-separated value file (.csv). https://documentation.eccenca.com/latest/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables`
+
+    ![Add Title and Description](ldftds-build-project-title-description.png){ class="bordered" width="70%" }
+
+    Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
+
+4. Click **Create**. Your project is created.
 
 ---
 
@@ -199,7 +209,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 ## 4 Configure Mapping
 
-1. Click on the 3 Dots from the previous created Transormation an choose **Mapping Editor**.
+1. Click on the 3 Dots from the previous created Transformation an choose **Mapping Editor**.
 
 2. Click **Mapping** in the main area to expand its menu.
 
@@ -266,7 +276,7 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
     ![](create-knowledge-graph.png){ class="bordered" width="50%" }
 
-3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. _In this example we will use:_
+3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. In this example we will use:
 
     - Label: `Service Knowledge Graph`
     - Graph: `http://ld.company.org/prod-instances/`
