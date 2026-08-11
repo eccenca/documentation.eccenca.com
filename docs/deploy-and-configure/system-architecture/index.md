@@ -38,7 +38,7 @@ Additionally, _Explore_ manages authorization of the users according to the acce
 The knowledge graph is stored in a quad store connected to _Explore_.
 This can either be a physical store like [GraphDB](http://graphdb.ontotext.com/), [Virtuoso](https://virtuoso.openlinksw.com/) or a remotely accessible SPARQL 1.1 compliant HTTP endpoint.
 
-_Graph Insights_ …
+_Graph Insights_ is an optional Corporate Memory component which enables interactive visual exploration and analysis of knowledge graphs. To keep even complex graphs readable, it groups nodes and aggregates relations while providing data-guided expansions and on-demand details. Interactive filters allow users to refine their exploration based on classes, attributes and relations. Each exploration can be converted into SPARQL, effectively providing a visual no-code query builder, while table-like views make graph data accessible to users less familiar with graph structures.
 
 Keycloak provides authentication.
 Keycloak can act as an authentication broker for already existing, external OpenId Connect or SAML infrastructures.
