@@ -69,8 +69,6 @@ The user interface of Corporate Memory usually consists of two sections:
 Each module provides a set of functionalities and views for specific use cases.
 To access a module, click the module name. The active module is highlighted.
 
-<!-- TODO: Marketplace chapter must be created and linked CMEM-8002-->
-
 By default, Corporate Memory provides the following modules:
 
 - EXPLORE - for Knowledge Graph browsing and exploration, specifically
@@ -82,7 +80,7 @@ By default, Corporate Memory provides the following modules:
     - Datasets - the Datasets across all BUILD Projects
     - Workflows - the Workflows across all BUILD Projects
     - Activities - activities overview and monitoring
-- [MARKETPLACE](#) - for discovering, installing and managing solution packages such as ontologies / vocabularies or project and demo packages
+- [MARKETPLACE](../distribution/marketplace/index.md) - for discovering, installing and managing solution packages such as ontologies / vocabularies or project and demo packages
 
 !!! note
 

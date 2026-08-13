@@ -13,6 +13,10 @@ Marketplace Packages can be installed directly from a Corporate Memory Marketpla
 
 This page describes how to search, install, list, and uninstall Marketplace Packages using `cmemc`.
 
+!!! info "Managing packages in the user interface"
+
+    Packages published on a Marketplace Server can also be installed and uninstalled in the [Marketplace](../../../distribution/marketplace/index.md) module of Corporate Memory.
+
 !!! info "`cmemc package` reference"
 
     The [cmemc package command group](../../../automate/cmemc-command-line-interface/command-reference/package/index.md)

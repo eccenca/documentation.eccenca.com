@@ -31,6 +31,11 @@ The lifecycle of a Corporate Memory Marketplace Package is shown in the followin
 
 ![Corporate Memory Marketplace Package Lifecycle](mpp-lifecycle.svg){ width="50%" }
 
+!!! info "Looking for the user interface?"
+
+    The [Marketplace](../../distribution/marketplace/index.md) chapter describes how to discover, install and uninstall packages in the Corporate Memory user interface.
+    The pages below focus on the command line and on package development.
+
 The following pages give an overview of this feature:
 
 <div class="grid cards" markdown>
