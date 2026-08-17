@@ -23,6 +23,7 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
         cmemc -c my-cmem package install ecc-product-data-project
         ```
 
+## Sample Material
 
 The following material is used in this tutorial:
 
@@ -136,8 +137,6 @@ The vocabulary contains the classes and properties needed to map the data into t
     - Description: `This tutorial shows how you can build a Knowledge Graph based on input data from hierarchical sources like a JavaScript Object Notation (.json) or Extensible Markup Language (.xml) file. https://documentation.eccenca.com/latest/build/lift-data-from-json-and-xml-sources`
 
     ![Add Title and Description](ldfjaxs-build-project-title-description.png){ class="bordered" width="70%" }
-
-    Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system. 
 
 4. Click **Create**. Your project is created.
 
@@ -352,7 +351,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
         Click **Save**.
 
-By clicking on the :eccenca-toggler-showmore: button in the **Examples of target data** property, you can get a preview for 3x value mapping to be created.
+By clicking on the :eccenca-toggler-showmore: button in the **Examples of target data** property, a preview for result of the value mapping is shown.
 
 === "JSON"
 
@@ -378,7 +377,7 @@ Click **Transform evaluation** to evaluate the transformed entities.
 ## 7 Build the Knowledge Graph
 
 1. Click **Transform execution**
-2. Click the :eccenca-item-start: button and validate the results. In this example, 9x Service entities were created in our Knowledge Graph based on the mapping.
+2. Click the :eccenca-item-start: button and validate the results. In this example, 6 Department (XML) or 9 Service (JSON) entities were created in our Knowledge Graph based on the mapping.
 3. Click :eccenca-application-explore: **Knowledge graphs** under **EXPLORE** to view the created Knowledge Graphs.
 4. Open the **Graphs** drop-down at the top of the left panel and enter the graph URI in its search field
    (not the **Enter search term** field of the **Navigation** panel below it — that one filters classes
