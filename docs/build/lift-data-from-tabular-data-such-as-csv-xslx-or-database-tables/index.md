@@ -1,6 +1,6 @@
 ---
 icon: material/table
-subtitle: such as CSV, XSLX and Database Tables
+# subtitle: such as CSV, XSLX and Database Tables
 tags:
   - BeginnersTutorial
   - KnowledgeGraph
@@ -11,27 +11,17 @@ tags:
 
 This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a **comma-separated value file** (.csv), an **excel file** (.xlsx) or a **database table** (jdbc).
 
-!!! Abstract
+!!! Tutorial Package
 
-    The complete tutorial is available as a [project file](tutorial-csv.project.zip). You can import this project
+    The complete tutorial is available as a Marketplace Package.
+    You can install this package
 
-    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
-    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
+    - by using the web interface (:eccenca-module-marketplace: **Packages** → Search → "Product Data Demo") or
+    - by using the [command line interface](../cmemc-command-line-interface/index.md)
 
-    ``` shell-session
-    cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
-    ```
-
-    This step is optional and makes some of the following steps of the tutorial superfluous.
-
-The documentation consists of the following steps, which are described in detail below:
-
-1. Install the required Ontologies / Vocabularies
-2. Uploading of the data (file)
-3. Creating the Transformation
-4. Configure Mapping
-5. Evaluate a Transformation
-6. Build the Knowledge Graph
+        ``` shell-session
+        cmemc -c my-cmem package install ecc-product-data-project
+        ```
 
 ## Sample Material
 
