@@ -1,6 +1,6 @@
 ---
 icon: fontawesome/solid/wand-magic-sparkles
-subtitle: build mappings visually and AI supported
+# subtitle: build mappings visually and AI supported
 status: new
 tags:
     - Reference

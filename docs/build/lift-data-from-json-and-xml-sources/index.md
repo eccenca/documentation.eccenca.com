@@ -1,6 +1,6 @@
 ---
 icon: material/family-tree
-subtitle: such as JSON and XML files
+# subtitle: such as JSON and XML files
 tags:
   - AdvancedTutorial
   - KnowledgeGraph
