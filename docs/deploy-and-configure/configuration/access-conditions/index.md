@@ -57,6 +57,14 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 
     Since both user and group resource are represented in the same namespace in the internal graph representation, users and groups cannot have the same identifier.
 
+!!! warning "Requirements combine as a logical AND"
+
+    All requirements of a single access condition must be met at once.
+    In particular, **Requires group** is evaluated as a conjunction: if you list several groups, the account must be a member of *every* one of them, not just one.
+    Combining **Requires account** with **Requires group** even narrows the access further.
+
+    To grant access to several audiences, create **one access condition per audience** or use [Dynamic Access Conditions](#dynamic-conditions).
+
 ### Define **what** grants are given
 
 - **Allow reading graph** is a list of graph IRI to allow to read these graphs.
