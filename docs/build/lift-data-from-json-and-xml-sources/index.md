@@ -11,22 +11,18 @@ tags:
 
 This tutorial shows how you can build a Knowledge Graph based on input data from hierarchical sources like a **JavaScript Object Notation** file (.json) or an **Extensible Markup Language** file (.xml).
 
-!!! Abstract
+!!! Tutorial Package
 
-    The complete tutorial is available as a [project file (XML)](tutorial-xml.project.zip) and a [project file (JSON)](tutorial-json.project.zip). You can import these projects:
+    The complete tutorial is available as a Marketplace Package.
+    You can install this package
 
-    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
-    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
+    - by using the web interface (:eccenca-module-marketplace: **Packages** → Search → "Product Data Demo") or
+    - by using the [command line interface](../cmemc-command-line-interface/index.md)
 
-        ```shell
-        cmemc -c my-cmem project import tutorial-xml.project.zip xml-transformation
+        ``` shell-session
+        cmemc -c my-cmem package install ecc-product-data-project
         ```
 
-        ```shell
-        cmemc -c my-cmem project import tutorial-json.project.zip json-transformation
-        ```
-
-The documentation consists of the following steps, which are described in detail below.
 
 The following material is used in this tutorial:
 
