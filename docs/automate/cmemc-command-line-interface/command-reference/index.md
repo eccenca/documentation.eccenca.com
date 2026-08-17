@@ -48,12 +48,12 @@ tags:
 | [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete user accounts. |
 | [admin user](admin/user/index.md) | [password](admin/user/index.md#admin-user-password) | Change the password of a user account. |
 | [admin user](admin/user/index.md) | [open](admin/user/index.md#admin-user-open) | Open user in the browser. |
-| [admin view](admin/view/index.md) | [list](admin/view/index.md#admin-view-list) | List explore application view configurations. |
+| [admin view](admin/view/index.md) | [list](admin/view/index.md#admin-view-list) | List Explore application view configurations. |
 | [admin view](admin/view/index.md) | [export](admin/view/index.md#admin-view-export) | Export application view configurations to a JSON file. |
 | [admin view](admin/view/index.md) | [import](admin/view/index.md#admin-view-import) | Import application view configurations from a JSON file. |
 | [admin view](admin/view/index.md) | [delete](admin/view/index.md#admin-view-delete) | Delete custom application view configurations. |
-| [admin view](admin/view/index.md) | [create](admin/view/index.md#admin-view-create) | Create a new explore application view configuration. |
-| [admin view](admin/view/index.md) | [update](admin/view/index.md#admin-view-update) | Update a key in an existing explore application view configuration. |
+| [admin view](admin/view/index.md) | [create](admin/view/index.md#admin-view-create) | Create a new Explore application view configuration. |
+| [admin view](admin/view/index.md) | [update](admin/view/index.md#admin-view-update) | Update a key in an existing Explore application view configuration. |
 | [admin view](admin/view/index.md) | [inspect](admin/view/index.md#admin-view-inspect) | Inspect the configuration of an application view profile. |
 | [admin workspace](admin/workspace/index.md) | [export](admin/workspace/index.md#admin-workspace-export) | Export the complete workspace (all projects) to a ZIP file. |
 | [admin workspace](admin/workspace/index.md) | [import](admin/workspace/index.md#admin-workspace-import) | Import the workspace from a file. |

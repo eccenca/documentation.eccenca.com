@@ -1,8 +1,9 @@
 ---
 title: "cmemc: Command Group - admin view"
-description: "List and update explore application view configurations."
-icon: octicons/cross-reference-24
+description: "List and update Explore application view configurations."
+icon: eccenca/module-workspace-configuration
 tags:
+  - Application View
   - cmemc
 ---
 
@@ -10,14 +11,14 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-List and update explore application view configurations.
+List and update Explore application view configurations.
 
-This command group manages Explore (DataPlatform) application view configurations. Application view configurations control the behavior of specific Explore view profiles including companion services and other settings.
+This command group manages Explore application view configurations. Application view configurations control the behavior of specific Explore view profiles including companion services and other settings.
 
 
 ## admin view list
 
-List explore application view configurations.
+List Explore application view configurations.
 
 ```shell-session title="Usage"
 cmemc admin view list [OPTIONS]
@@ -26,9 +27,11 @@ cmemc admin view list [OPTIONS]
 
 
 
-Outputs a list of application view configurations from the Explore component. The default application view (id: 'default') is always listed first, followed by any custom application view configurations.
+Outputs a list of application view configurations from the Explore component. The default application view (id: `default`) is always listed first, followed by any custom application view configurations.
 
-Profile IDs can be used as a reference for the other commands of the `admin view` command group.
+!!! note
+    Profile IDs can be used as a reference for the other commands of the `admin view` command group.
+
 
 
 
@@ -116,8 +119,8 @@ This command imports application view configurations from a JSON file that was c
 
 If `--replace` is specified, existing configurations with the same profile ID will be updated. Otherwise, existing configurations will be skipped.
 
-!!! note
-    Importing the default application view configuration updates the project-level overrides stored in /api/conf/workspaces/projectDefault.
+!!! warning
+    Importing the default application view configuration updates the project-level overrides.
 
 
 ```shell-session title="Example"
@@ -174,7 +177,7 @@ cmemc admin view delete [OPTIONS] [PROFILE_IDS]...
 
 ## admin view create
 
-Create a new explore application view configuration.
+Create a new Explore application view configuration.
 
 ```shell-session title="Usage"
 cmemc admin view create [OPTIONS] PROFILE_ID
@@ -200,7 +203,7 @@ The new profile is created with its ID and label only. Use the `admin view updat
 
 ## admin view update
 
-Update a key in an existing explore application view configuration.
+Update a key in an existing Explore application view configuration.
 
 ```shell-session title="Usage"
 cmemc admin view update [OPTIONS] PROFILE_ID
@@ -244,17 +247,26 @@ cmemc admin view inspect [OPTIONS] PROFILE_ID
 
 
 
-For accessing nested configuration values, use the following notation: exploreGraphLists[4].comments[0]
+For accessing nested configuration values, use the following notation: `exploreGraphLists[4].comments[0]`
 
 !!! note
     Some shell environments require quotes around expressions with square brackets.
 
 
-Examples: cmemc admin view inspect my-profile
+```shell-session title="Example"
+cmemc admin view inspect my-profile
+```
 
-cmemc admin view inspect my-profile `--key` enable
 
-cmemc admin view inspect my-profile `--key` "exploreGraphLists[4].comments[0]"
+```shell-session title="Example"
+cmemc admin view inspect my-profile --key enable
+```
+
+
+```shell-session title="Example"
+cmemc admin view inspect my-profile --key "exploreGraphLists[4].comments[0]"
+```
+
 
 
 

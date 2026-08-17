@@ -17,7 +17,7 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
     You can install this package
 
     - by using the web interface (:eccenca-module-marketplace: **Packages** → Search → "Product Data Demo") or
-    - by using the [command line interface](../cmemc-command-line-interface/index.md)
+    - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
         ``` shell-session
         cmemc -c my-cmem package install ecc-product-data-project

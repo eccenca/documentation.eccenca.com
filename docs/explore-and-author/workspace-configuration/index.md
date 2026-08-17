@@ -1,9 +1,9 @@
 ---
 icon: eccenca/module-workspace-configuration
 tags:
+    - Application View
     - KnowledgeGraph
 ---
-
 # Application view
 
 An Application view determines which modules are available in the Corporate Memory
