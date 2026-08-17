@@ -47,7 +47,7 @@ Wait for a package installation to complete (the **Install** button will change 
 ## 2 Create a new project
 
 Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **Build** section.
-Then click on **Create new** in the top right corner to create a new project.
+Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
 ![Create new project](pdwviw-build-project.png){ class="bordered" }
 

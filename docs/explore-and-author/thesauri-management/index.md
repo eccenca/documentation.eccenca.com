@@ -3,7 +3,7 @@ icon: eccenca/module-thesauri
 tags:
     - Vocabulary
 ---
-# Thesauri Management
+# Thesauri
 
 ## Introduction
 
@@ -32,7 +32,7 @@ The Thesaurus module allows to create, browse and edit such structures, providin
 
 !!! info
 
-    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* is installed from the **Marketplace** (see section Marketplace(#)).
+    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* (SKOS) is installed from the **Marketplace**.
 
 Click **:eccenca-module-thesauri: Thesauri** in the main menu, to open the Thesaurus project catalog.
 

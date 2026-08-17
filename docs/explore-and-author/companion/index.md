@@ -1,11 +1,10 @@
 ---
 icon: eccenca/application-ai-suggestion
-subtitle: LLM and MCP-tools based chat
 status: new
 tags:
     - Reference
 ---
-# Companion
+# Companion AI Chat
 
 !!! info "AI Disclaimer"
 
@@ -49,7 +48,7 @@ In the companion sidebar, use:
 
 To maximize the relevance and accuracy of the generated answer, your question is automatically enriched based on the context of the current view (e.g. the query text, the graph and the resource IRI).
 
-### Tool selection
+### Tool Selection
 
 ![Companion Tool Selection](companion-tool-selection.png){ class="bordered" width="40%" }
 
@@ -110,7 +109,7 @@ If your use case or question requires you to limit the available tools (e.g. if 
     `resource_get`
     :   Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
 
-### Interactive answers
+### Interactive Answers
 
 ![Enriched answers](companion-response-enrichment.png){ class="bordered" }
 

@@ -3,7 +3,7 @@ icon: eccenca/application-explore
 tags:
     - KnowledgeGraph
 ---
-# Graph Exploration
+# Knowledge Graphs
 
 ## Introduction
 
@@ -42,7 +42,7 @@ In the main area, the Metadata view of the selected graph appears, showing sev
 !!! note inline end
 
     This default categorization is just a suggestion and can be modified by
-    changing the workspace configuration in the **CMEM Configuration** graph.
+    changing the Application view configuration in the **CMEM Configuration** graph.
 
 The Graphs are categorized into groups as follows:
 
@@ -67,7 +67,7 @@ To add a new graph to the Graphs list:
 </div>
 
 1. More concrete, you select a shape here.
-    This can be configured in the workspace configuration as well.
+    This can be configured in the Application view configuration as well.
 
 ### :eccenca-item-download: Downloading a graph
 

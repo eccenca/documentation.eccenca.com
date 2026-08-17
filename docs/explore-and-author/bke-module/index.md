@@ -4,102 +4,162 @@ tags:
     - KnowledgeGraph
     - Video
 ---
-
-# Business Knowledge Editor Module
+# Business Knowledge Editor
 
 ## Introduction
 
-This feature allows for the visual exploration of Knowledge Graphs.
-It allows to save and share explorations.
-Furthermore, sophisticated individual search settings (filter presets) can be created and configured per workspace.
+The Business Knowledge Editor (BKE) allows the visual exploration and authoring of Knowledge Graphs.
+Resources are rendered as nodes on a canvas and can be expanded along the relationships that connect them to other resources.
+Explorations can be saved as named visualizations, shared and re-opened later.
+
+Which resources can be found, how edges are labeled and which graph is explored by default is controlled by the
+:eccenca-module-workspace-configuration: [Application view configuration](../workspace-configuration/index.md) module,
+see [Configuration](#configuration) below.
 
 ## Usage
 
-If enabled, content of Knowledge Graphs can be explored in a visual way, rendering nodes and edges and allowing the user to expand along the relationships between the nodes.
+Start the module by selecting :eccenca-module-bke: **Business knowledge editor** in the main navigation.
 
-Start using `Business Knowledge Editor` by selecting the respective module entry in the main navigation.
+![Business knowledge editor in the main navigation](bke-navigation.png){ class="bordered" }
 
-![](easynav-start.png)
+### Starting a visualization
 
-At the module welcome screen the user can either load a saved visualization of start searching for an initial node / resource by providing a search term.
+The module welcome screen offers three ways to begin:
+
+- **Search and select a resource** to start a new visualization from that resource.
+- **Create empty visualization** to start with an empty canvas, e.g. to [author an ontology](visually-authoring-ontologies/index.md).
+- **Load existing visualization** (upper right) to re-open a saved visualization.
+
+![The welcome screen of the Business knowledge editor](bke-welcome.png){ class="bordered" }
 
 !!! Note
 
-    The graph selection drop-down might or might not be visible depending the existence of an (optional) `Business Knowledge Editor Module` configuration.
-    In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown.
-    A `EasBusiness Knowledge EditoryNav Module` configuration pre-configures a graph.
-    Thus, the dropdown will not be shown if such has been configured for the current workspace.
+    The **Select a graph to explore** drop-down is only shown if no `contextGraph` is configured for the module in the
+    current Application view. If a `contextGraph` is configured, that graph is used and the drop-down is omitted.
 
-![Initial search on the welcome screen.](easynav-welcome-search.png)
+Enter at least three characters to populate the result list, then click a result to open the exploration canvas.
 
-Enter a search term to populate the result list.
-Click a result to start the visual graph exploration.
+![Search results on the welcome screen](bke-search-results.png){ class="bordered" }
 
-![The exploration canvas](easynav-canvas.png)
+!!! Note
 
-The exploration starts with the selected node (or a saved exploration).
-The nodes can further be expanded along the relationships that exist to other resources.
-Therefore, click the node expansion button on the right side of a node (the point where the arrows originate in the screenshot below).
+    The result list is produced by the `searchListQueries` configuration of the module.
+    By default it contains two presets, one for instances and one for classes, which is why the example above returns the class `Encoder` as well as the hardware instances labeled with it.
+    See [Configuration](#configuration) on how to tailor these presets.
 
-![Expanding the exploration](easynav-exploration-expand.png)
+### The canvas
 
-Any expanded resource / node can be added to the current exploration by double-clicking the node.
-Clicking anywhere on the empty canvas will close the relationship dialog and retain the added nodes and their relationships only.
+![The exploration canvas](bke-canvas.png){ class="bordered" }
 
-![Literal view](easynav-literal-inline.png)
+The canvas is framed by:
 
-Click :material-chevron-down: on a node to see literal values related to this resource :material-chevron-up: closes the details again.
+- **Search Instances** (upper left) — search for further resources to add to the canvas.
+  The tabs (`All`, plus one per configured search preset) let you restrict the search to a single preset.
+- **Classes** (lower left) — the classes of the explored graph. Drag an entry onto the canvas to create a new resource
+  of that class.
+- **Canvas toolbar** (upper right) — *Start new visualization from selected nodes*, *Arrange* (auto-layout),
+  *Undo*, *Redo* and *Save*.
+- **Zoom controls and minimap** — zoom in/out, *Fit View* and an overview of the whole visualization.
 
-`Save` allows to save an exploration, :octicons-plus-circle-24: will start a new exploration while :fontawesome-regular-folder: allows to open any previously saved exploration.
+### Expanding a resource
 
-![Load saved exploration from `Visualization catalog`](easynav-visualization-catalog.png)
+Hover a node and click the connector dot on its right edge to open the **Used properties** panel.
+It lists every property used by this resource together with the number of related resources.
+A :material-arrow-left: in front of the property name marks an incoming (inverse) relation.
 
-The `Visualization catalog` dialog shows the saved exploration and allows to :octicons-eye-24: open, :octicons-trash-24: delete or to :material-file-link-outline: copy the link to the exploration.
+![Expanding a node shows its used properties](bke-used-properties.png){ class="bordered" }
 
-## Setup
+Select a property to open the **Linked Resources** panel with the resources reachable via that property.
 
-This feature is enabled by default.
-It can be customized or disabled in the respective workspace configuration section.
+![Linked resources of the selected property](bke-linked-resources.png){ class="bordered" }
 
-Without further (workspace) specific configuration the feature can be used asking for the graph that shall be explored every time a new exploration is started.
+From here you can:
 
-Optionally a `Business Knowledge Editor Module` configuration can be created to provide a fixed graph selection and search filter settings.
+- **click a single resource** to add it to the canvas,
+- **drag `Add N entries`** onto the canvas to add all listed resources at once,
+- **drag `New <Class>`** onto the canvas to create a new resource of the property's target class and link it directly.
+  If the property has no target class or shape defined, this button is disabled and labeled `Undefined target class or shape`.
 
-### Create a Business Knowledge Editor Module Configuration
+Repeat the expansion on any node to grow the visualization.
+Use *Arrange* in the canvas toolbar to re-layout the result.
 
-![Create a `Business Knowledge Editor Module` Configuration](easynav-config-EasyNavModule.png)
+![A visualization built from several expansions](bke-visualization.png){ class="bordered" }
 
-In the `Knowledge Graphs` module navigate to the `CMEM Configuration` graph.
+### Inspecting and editing a resource
 
-Select the class `Business Knowledge Editor Module` and `Create a new "Business Knowledge Editor Module"`.
+Double-click a node to open the details panel on the right side.
+It shows the literal values of the resource and highlights its relations on the canvas.
 
-![New `Business Knowledge Editor Module` dialog](easynav-config-newEasyNavModule-dialog.png)
+![Details of the selected node](bke-node-details.png){ class="bordered" }
 
-Provide a `Name` for your configuration and select the `Default Graph` which contains the nodes you want to explore visually.
-This graph can of course be an integration graph.
+The buttons in the panel header are:
 
-`Search Configuration` is optional but a powerful feature to create predefined search filter/facets.
-If want to use this capability select existing `Search Configuration`s in the drop down or create stubs for the configurations you want to setup.
+| Button | Description |
+| --- | --- |
+| :material-eraser: Remove from visualization | Removes the node from the canvas, the resource stays in the graph. |
+| :material-delete-outline: Remove from graph | Marks the resource for deletion from the graph. |
+| :material-pencil-outline: Edit mode | Switches the panel into a form to change the resource's values. |
 
-### Set the Business Knowledge Editor Module in the Workspace configuration
+The :material-dots-vertical: menu of a node offers *View in Knowledge Graph*, *New query using this resource* and
+*Copy resource identifier*.
 
-![Select `Business Knowledge Editor Module` in `Workspace` configuration](easynav-config-select-in-workspace.png)
+### Saving
 
-After creating the `Business Knowledge Editor Module` configuration it need to be selected in workspace configuration(s) that shall be using it.
+Click **Save** in the canvas toolbar.
 
-### Create a Search Configuration
+![The save dialog](bke-save-changes.png){ class="bordered" }
 
-Follow the stub link from creating a new configuration in the `Module` dialog.
-Then click edit to provide the necessary details.
+The dialog covers both aspects of a BKE session:
 
-![Setup a `Search Configuration`](easynav-config-search-config-dialog.png)
+- **SAVE VISUALISATION** — stores the canvas itself as a named visualization.
+  Select the **Graph** it is stored in (`CMEM Query Catalog` by default) and provide **Name** and **Description**.
+  Switch the toggle off to only write the graph changes without storing a visualization.
+- **GRAPH CHANGES** — lists the resources you deleted, added or changed during the session, together with the
+  **RESOURCE VIOLATIONS** reported for them.
 
-At least a `Name` and `Search Weight` need to be specified.
-The weight can be used to boost the results of one search configuration over another in case multiple `Search Configuration`s are used.
+### Re-opening a saved visualization
 
-`Graph Resource Pattern` are a topic on its own and explained [here](../../deploy-and-configure/configuration/explore/graph-resource-pattern/index.md).
+Click :material-folder-outline: **Load existing visualization** in the application header to open the
+**Visualization catalog**.
 
-## Technical Background
+![The visualization catalog](bke-visualization-catalog.png){ class="bordered" }
 
-`Search Configuration`s will be cumulatively executed when search terms are provided.
-Which means each additional `Search Configuration` increases the time to produce results.
+The catalog is a faceted list of all saved visualizations. Click an entry to open it, or use
+:material-trash-can-outline: to delete it.
+
+## Configuration
+
+The module is enabled by default.
+All of its settings are part of the :eccenca-module-workspace-configuration:
+[Application view configuration](../workspace-configuration/index.md) module, in the **Business knowledge editor**
+section of the **Modules** list.
+
+![The module list of the Application view configuration](bke-config-modules.png){ class="bordered" }
+
+Expand the section to see the parameters.
+The **System Default Application View** column shows the platform-wide default, the column named after the current
+Application view (`default` in the screenshot) holds the value used by that Application view.
+
+![The Business knowledge editor configuration section](bke-config-section.png){ class="bordered" }
+
+### Parameters
+
+| Parameter | Description |
+| --- | --- |
+| `order` | Position of the module within the *Explore* section of the navigation bar. |
+| `contextGraph` | The graph explored by default. If set, the graph drop-down on the welcome screen is not shown. |
+| `searchListQueries` | Search result filter / query presets used by the module. Each entry is a [`GraphResourcePattern`](../../deploy-and-configure/configuration/explore/graph-resource-pattern/index.md) together with a label; the label becomes a tab in the **Search Instances** panel. Defaults to one preset for `Instances` (everything that is not a class) and one for `Classes`. |
+| `shapePropertyView` | Determines how edges are presented. If `true`, property shape information is used (`sh:name`, `sh:path`, …), if `false` the label of the property is used. |
+
+### Overriding a parameter for an Application view
+
+Click **Override** next to a parameter to set an Application view specific value.
+The value becomes editable and a :material-trash-can-outline: appears to drop the override again and fall back to the
+system default. Confirm your changes with **Save** in the application header.
+
+![Overriding the contextGraph parameter](bke-config-override.png){ class="bordered" }
+
+!!! Note
+
+    Toggling the module itself off in the section header removes :eccenca-module-bke: **Business knowledge editor**
+    from the navigation of that Application view.
