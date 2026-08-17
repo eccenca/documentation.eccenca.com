@@ -110,20 +110,20 @@ The following material is used in this tutorial:
 The vocabulary contains the classes and properties needed to map the data into the new structure in the Knowledge Graph.
 
 
-1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
+1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu under **EXPLORE**.
     In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
 
-    ![Add new graph](ldfjaxs-add-new-graph.png){ class="bordered"}
+    ![Add new graph](ldfjaxs-add-new-graph.png){ class="bordered" width="70%" }
 
     ![New graph from File option](ldfjaxs-new-graph-from-file.png){ class="bordered" width="70%"}
 
-2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step.
+2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step. Tick the **Add new graph** checkbox and click **Upload**.
 
     ![Define Target graph URI](ldfjaxs-define-target-graph-uri.png){ class="bordered" width="70%"}
 
 ## 2 Uploading of the data (file)
 
-1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **Build** section.
+1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **BUILD** section.
     Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
     ![Create new project](ldfjaxs-create-project.png){ class="bordered" }
@@ -141,7 +141,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     ![Add Title and Description](ldfjaxs-build-project-title-description.png){ class="bordered" width="70%" }
 
-    Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
+    Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system. 
 
 4. Click **Create**. Your project is created.
 
@@ -155,7 +155,7 @@ Follow the steps below for adding JSON and XML datasets.
 
         ![Dialog to create new JSON dataset](create-dataset-JSON.png){ class="bordered" width="50%" }
 
-    2. Define a **Label** for the dataset and upload the [services.json](services.json) file. You can leave all the other fields at default values.
+    2. Define a **Label** (in this example we use `JSON Services`), for the dataset, pick **Upload new file** and upload the [services.json](services.json) file. You can leave all the other fields at default values.
 
         ![Dialog to create new JSON dataset](dialog-create-new-json-dataset.png){ class="bordered" width="70%"}
 
@@ -167,7 +167,7 @@ Follow the steps below for adding JSON and XML datasets.
 
         ![Dialog to create new XML dataset](ldfjaxs-create-dataset-XML.png){ class="bordered" width="50%"}
 
-    2. Define a **Label** for the dataset and upload the [orgmap.xml](orgmap.xml) example file. You can leave all the other fields at default values.
+    2. Define a **Label** (in this example we use `Orgmap XML`) for the dataset, pick **Upload new file** and upload the [orgmap.xml](orgmap.xml) example file. You can leave all the other fields at default values.
 
         ![Dialog to label new XML dataset](ldfjaxs-dialog-create-new-xml-dataset.png){ class="bordered" width="70%"}
 
@@ -185,10 +185,12 @@ Follow the steps below for adding JSON and XML datasets.
 
     === "JSON"
 
-        Define a **Label** for the Knowlege Graph and provide **Graph** uri. You can leave all the other fields at default values. _In this example we use:_
+        Define a **Label** for the Knowledge Graph and provide **Graph** uri. You can leave all the other fields at default values. In this example we use:
 
-        - Name: _**Service Knowledge Graph**_
-        - Graph: _**http://ld.company.org/prod-instances/**_
+        - Name: `Service Knowledge Graph`
+        - Graph: `http://ld.company.org/prod-instances/`
+
+        After typing the Graph URI you must click the Custom entry: '…' suggestion. Typing alone leaves it unset.
 
         ![Dialog to create new Knowledge Graph dataset](ldfjaxs-create-new-kg-for-json.png){ class="bordered" width="70%"}
 
@@ -196,18 +198,22 @@ Follow the steps below for adding JSON and XML datasets.
 
     === "XML"
 
-        Define a **Label** for the Knowledge Graph and provide **Graph** uri. You can leave all the other fields at default values. _In this example we will use:_
+        Define a **Label** for the Knowledge Graph and provide **Graph** uri. You can leave all the other fields at default values. In this example we will use:
 
-        - Name: _**Organization Knowledge Graph**_
-        - Graph: _**http://ld.company.org/organization-data/**_
+        - Name: `Organization Knowledge Graph`
+        - Graph: `http://ld.company.org/organization-data/`
+
+        After typing the Graph URI you must click the Custom entry: '…' suggestion. Typing alone leaves it unset.
 
         ![Dialog to create new Knowledge Graph dataset](ldfjaxs-create-new-kg-for-xml.png){ class="bordered" width="70%"}
+
+        Click **Create**.
 
 ## 5 Create a Transformation
 
 The transformation defines how an input dataset (e.g.: JSON or XML) will be transformed into an output dataset (e.g.: Knowledge Graph).
 
-1. Click **Create** in your project.  
+1. Click **Create** in your project.
 
 2. On the **Create New Item** window, select **Transform** and click **Add** to create a new transformation.
 
@@ -217,12 +223,12 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
     === "JSON"
 
-        _For this example, enter the following:_
+        For this example, enter the following:
 
-        - Name: _**Create Service Triples**_
-        - (optional) Description: _**Lifts the Service file into the Knowledge Graph**_
-        - Select the Source Dataset: _**JSON Services**_
-        - Select the Output Dataset: _**Service Knowledge Graph**_
+        - Name: `Create Service Triples`
+        - (optional) Description: `Lifts the Service file into the Knowledge Graph`
+        - Select the Source Dataset: `JSON Services`
+        - Select the Output Dataset: `Service Knowledge Graph`
 
         ![Dialog to create new Transformation](ldfjaxs-create-new-tf-for-json.png){ class="bordered" width="70%"}
 
@@ -230,13 +236,13 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
     === "XML"
 
-        _For this example, enter the following:_
+        For this example, enter the following:
 
-        - Name: _**Create Organization Triples**_
-        - (optional) Description: _**Lifts the Orgmap XML file into the Knowledge GraphOrgmap XML**_
-        - Select the Source Dataset: _**Orgmap XML**_
-        - Type: _**dept**_ (define the Source Type, which defines the XML element that should be iterated when creating resources)
-        - Select the Output Dataset: _**Organization Knowledge Graph**_
+        - Name: `Create Organization Triples`
+        - (optional) Description: `Lifts the Orgmap XML file into the Knowledge Graph`
+        - Select the Source Dataset: `Orgmap XML`
+        - Type: `dept` (define the Source Type, which defines the XML element that should be iterated when creating resources)
+        - Select the Output Dataset: `Organization Knowledge Graph`
 
         ![Dialog to create new Transformation](ldfjaxs-create-new-tf-for-xml.png){ class="bordered" width="70%"}
 
@@ -250,6 +256,8 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
 6. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **Label** for the mapping.
 
+    The **URI pattern** field is read-only and shows `Default pattern.` until you click **Create custom pattern** next to it.
+
     === "JSON"
 
         Target Entity Type defines the class that will be instantiated when the mapping rule is applied.
@@ -260,44 +268,47 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
         - _service-instances/_ complements the instances prefix by adding a common prefix for all service instances
         - and finally _{ServiceID}_ is a placeholder that will resolve to the json-key _ServiceID_ (e.g. _"ServiceID": "Y704-9764759"_)
 
-        _In this example we will use:_
+        In this example we will use:
 
-        - Target Entity Type: **_Service_**
-        - URI Pattern: _**http://ld.company.org/prod-inst/service-instances/{ServiceID}**_
-        - An optional Label: _**Service**_
+        - Target Entity Type: `Service`
+        - URI Pattern: `http://ld.company.org/prod-inst/service-instances/{ServiceID}`
+        - An optional Label: `Service`
 
         Click **Save**.
 
-          ![Mapping editor department](ldfjaxs-mapping-json-department.png){ class="bordered" width="70%"}
+        ![Mapping editor department](ldfjaxs-mapping-json-department.png){ class="bordered" width="70%"}
 
-        _Example RDF triple in our Knowledge Graph based on the mapping definition:_
+        Example RDF triple in our Knowledge Graph based on the mapping definition:
 
         ```nt
-        <http://ld.company.org/services-instances/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
+        <http://ld.company.org/prod-inst/service-instances/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
         ```
 
     === "XML"
 
-        Target Entity Type defines the class that will be instantiated when the mapping rule is applied: **_Department_**
+        Target Entity Type defines the class that will be instantiated when the mapping rule is applied.
 
-        The URI pattern that defines the URI that shall be generated for each individual: _**http://ld.company.org/department/{@id}**_
+        The URI pattern that defines the URI that shall be generated for each individual:
 
-        - _http://ld.company.org/department/_ is a common prefix for the department instances in this use case,
+        - http://ld.company.org/department/{@id}
+        - http://ld.company.org/department/_ is a common prefix for the department instances in this use case,
         - and finally _{@id}_ is a placeholder that will resolve the XML attribute of the XML tag dept, which was configured as the Source Type of this transformation (see previous steps)
 
-        _In this example we will use:_
+        In this example we will use:
 
-        - Target Entity Type: **_Department_**
-        - URI Pattern: **_http://ld.company.org/department/{@id}_**
-        - An optional Label: _**Department**_
+        - Target Entity Type: `Department`
+        - URI Pattern: `http://ld.company.org/department/{@id}`
+        - An optional Label: `Department`
 
         Click **Save**.
 
         ![Mapping editor department](ldfjaxs-mapping-xml-department.png){ class="bordered" width="70%"}
 
-        _Example RDF triple in our Knowledge Graph based on the mapping definition:_
+        Example RDF triple in our Knowledge Graph based on the mapping definition:
 
-        `<http://ld.company.org/department/73191 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Department>`
+        ```nt
+        <http://ld.company.org/department/73191> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Department>
+        ```
 
 7. Evaluate your mapping by pressing on the :eccenca-toggler-showmore: button in the **Examples of target data** property to see at most three generated base URIs.
 
@@ -305,14 +316,11 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
         ![Examples of target data JSON](ldfjaxs-json-examples-target-data.png){ class="bordered" }
 
-
-
     === "XML"
 
         ![Examples of target data XML](ldfjaxs-xml-examples-target-data.png){ class="bordered" width="70%"}
 
-
-    We have now created the Service entities in the Knowledge Graph. Next we will now add the name of our entity.
+    We have now created the entities in the Knowledge Graph.
 
 
 8. Click the :eccenca-item-add-artefact: **Add Mapping** drop-down and select **Add value mapping**.
@@ -321,13 +329,14 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
     === "JSON"
 
-        Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example, enter the following:_
+        Define the **Target property**, the **Data type**, the **Value path** (path into the source data) and a **Label** for your value mapping. In this example, enter the following:
 
-        - Target Property: **_has product manager_**
-        - Data type: _**String**_
-        - Value path: _**ProductManager**_
-            - which corresponds to the following element in the json-file: _[ {"ProductManager": {  "name": "Corinna Ludwig"} ... } ...]_
-        - An optional Label: _**has Product Manager**_
+        - Target Property: `has product manager`
+        - Data type: `String`
+        - Value path: `ProductManager`
+            - which corresponds to the `ProductManager` key of each object in the JSON array, e.g. `"ProductManager": "Lambert.Faust@company.org"`
+            - the path is relative to the base mapping, which iterates over the objects of the array, so no leading path segment is needed
+        - An optional Label: `has Product Manager`
 
         ![Configuration of a mapping rule](mapping-rule-config-json.png){ class="bordered" width="70%" }
 
@@ -335,13 +344,13 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
     === "XML"
 
-        Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
+        Define the **Target property**, the **Data type**, the **Value path** (path into the source data) and a **Label** for your value mapping. In this example we will use:
 
-        - Target Property: **_name_**
-        - Data type: _**String**_
-        - Value path: _**@name**_
+        - Target Property: `name `
+        - Data type: `String`
+        - Value path: `@name`
             - which corresponds to the `department name` attribute in the XML file
-        - An optional Label: _**department name**_
+        - An optional Label: `department name`
 
         ![Configuration of a mapping rule](ldfjaxs-mapping-rule-config-xml.png){ class="bordered" width="70%" }
 
@@ -374,15 +383,19 @@ Click **Transform evaluation** to evaluate the transformed entities.
 
 1. Click **Transform execution**
 2. Click the :eccenca-item-start: button and validate the results. In this example, 9x Service entities were created in our Knowledge Graph based on the mapping.
-3. You can click **Knowledge Graphs** under **EXPLORE** to (re-)view of the created Knowledge Graphs
-4. Enter the following URIs in the Enter search term for JSON and XML respectively.
-    - JSON / Service: _**<http://ld.company.org/prod-instances/>**_
-    - XML / Department: _**<http://ld.company.org/organization-data/>**_
+3. Click :eccenca-application-explore: **Knowledge graphs** under **EXPLORE** to view the created Knowledge Graphs.
+4. Open the **Graphs** drop-down at the top of the left panel and enter the graph URI in its search field
+   (not the **Enter search term** field of the **Navigation** panel below it — that one filters classes
+   within the already-selected graph). Then select the graph from the result list.
+    - JSON / Service: `http://ld.company.org/prod-instances/`
+    - XML / Department: `http://ld.company.org/organization-data/`
 
-    === "JSON"
+   ![Searching for the graph URI in the Graphs drop-down (JSON example shown)](ldfjaxs-kg-search-graph.png){ class="bordered" width="70%" }
 
-        ![Service KG](kg-services.png){ class="bordered" }
+=== "JSON"
 
-    === "XML"
+    ![Service KG](kg-services.png){ class="bordered" width="70%" }
 
-        ![Organization KG](kg-organization.png){ class="bordered" }
+=== "XML"
+
+    ![Organization KG](kg-organization.png){ class="bordered" width="70%" }
