@@ -13,7 +13,7 @@ hide:
 
 Starting with version 26.1, we support the creation and use of Marketplace Packages.
 
-Marketplace Packages bundle everything for a specific Corporate Memory–based solution or project into a single shareable, managed artifact:
+Marketplace Packages bundle everything for a specific eccenca Corporate Memory–based solution or project into a single shareable, managed artifact:
 
 - Vocabularies / Ontologies
 - (SKOS) Taxonomies

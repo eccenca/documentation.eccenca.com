@@ -10,7 +10,7 @@ hide:
 
 # :material-star: Distribution
 
-This section describes how ready-made Corporate Memory content is distributed, shared and reused - across projects, teams and Corporate Memory instances.
+This section describes how ready-made eccenca Corporate Memory content is distributed, shared and reused - across projects, teams and Corporate Memory instances.
 
 Vocabularies / ontologies, taxonomies, data graphs, Build projects and query catalogs do not need to be moved around one by one.
 They are bundled into **Marketplace Packages**: single, versioned artifacts which are offered on a Marketplace Server and can be installed into your Corporate Memory instance with a few clicks.

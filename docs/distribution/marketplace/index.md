@@ -11,7 +11,7 @@ tags:
 
 ## Introduction
 
-The Marketplace is the place in Corporate Memory where you find ready-made content and add it to your instance: ontologies and vocabularies, taxonomies, data graphs, Build projects, query catalogs, as well as complete demo and solution setups.
+The Marketplace is the place in eccenca Corporate Memory where you find ready-made content and add it to your instance: ontologies and vocabularies, taxonomies, data graphs, Build projects, query catalogs, as well as complete demo and solution setups.
 
 All of this content is delivered as **Marketplace Packages**.
 A package is a single, versioned artifact which bundles everything belonging to a solution, together with the packages and plugins it depends on.
@@ -22,7 +22,7 @@ The public Marketplace Server operated by eccenca is available at [https://eccen
 
 !!! info "Availability"
 
-    The Marketplace is available starting with Corporate Memory version 26.1.
+    The Marketplace is available starting with eccenca Corporate Memory version 26.1.
 
     In order to open the Marketplace and to install or uninstall packages, your user account needs the `:Marketplace-Frontend` action, plus access to the graphs a package writes to.
     If the **Packages** entry is missing from the navigation menu, or if the **Install** and **Uninstall** buttons do not react, contact your Corporate Memory administrator.
