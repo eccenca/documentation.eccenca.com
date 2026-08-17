@@ -1,6 +1,6 @@
 ---
 # {{{ Main site config
-site_name: documentation.eccenca.com
+site_name: eccenca Corporate Memory documentation
 site_url: https://documentation.eccenca.com/
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
