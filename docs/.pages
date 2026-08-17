@@ -2,6 +2,7 @@ nav:
     - Build: build
     - Explore: explore-and-author
     - Consume: consume
+    - Distribution: distribution
     - Deploy and Configure: deploy-and-configure
     - Automate: automate
     - Develop: develop

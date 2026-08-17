@@ -45,6 +45,12 @@ hide:
 
     This section outlines how to consume data from the Knowledge Graph.
 
+- :material-star: [Distribution](distribution/index.md)
+
+    ---
+
+    Discover, install and manage ready-made Marketplace Packages.
+
 - :material-star-outline: [Deploy and Configure](deploy-and-configure/index.md)
 
     ---
