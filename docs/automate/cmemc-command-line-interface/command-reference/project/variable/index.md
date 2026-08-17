@@ -59,7 +59,7 @@ cmemc project variable get [OPTIONS] VARIABLE_ID
 Use the ``--key`` option to specify which information you want to get.
 
 !!! note
-    Only the `value` key is always available on a project variable. Static value variables have no `template` key, and the `description` key is optional for both types of variables.
+    Only the `value` key is always available on a project variable. Static value variables have no `template` key, and the `description` key is optional for both types of variables. Use `--raw` to access all fields.
 
 
 

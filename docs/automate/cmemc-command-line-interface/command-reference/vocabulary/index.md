@@ -59,7 +59,7 @@ Vocabularies are graphs (see `graph` command group) which consists of class and 
 
 ## vocabulary install
 
-Install one or more vocabularies from the catalog.
+Install one or more vocabularies from the catalog (deprecated).
 
 ```shell-session title="Usage"
 cmemc vocabulary install [OPTIONS] [IRIS]...
@@ -69,6 +69,10 @@ cmemc vocabulary install [OPTIONS] [IRIS]...
 
 
 Vocabularies are identified by their graph IRI. Installable vocabularies can be listed with the vocabulary list command.
+
+!!! note
+    This command is deprecated. Vocabularies are now managed via packages; use the `package` command group instead.
+
 
 
 
@@ -91,6 +95,10 @@ cmemc vocabulary uninstall [OPTIONS] [IRIS]...
 
 
 Vocabularies are identified by their graph IRI. Already installed vocabularies can be listed with the vocabulary list command.
+
+!!! note
+    This command is deprecated. Vocabularies are now managed via packages; use the `package` command group instead. Vocabularies which are managed by a package can not be uninstalled with this command.
+
 
 
 

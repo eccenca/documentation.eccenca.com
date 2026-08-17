@@ -121,7 +121,7 @@ After the update, the snapshot is hot-swapped.
                                     following filter names and a corresponding
                                     value: id, main-graph, status, affected-
                                     graph, valid.
-    -a, --all                       Delete all snapshots.
+    -a, --all                       Update all snapshots.
     --wait                          Wait until snapshot creation is done.
     --polling-interval INTEGER RANGE
                                     How many seconds to wait between status
