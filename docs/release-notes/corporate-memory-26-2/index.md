@@ -6,7 +6,7 @@ tags:
 
 # Corporate Memory 26.2.0
 
-Corporate Memory 26.2 is the second major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
+Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting to cmemc.
 
 <!--
 ![26.1: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
