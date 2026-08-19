@@ -36,11 +36,11 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- eccenca DataIntegration v26.2.0
-- eccenca Explore v26.2.0
-- eccenca Marketplace v26.2.4
-- eccenca Corporate Memory Control (cmemc) v26.2.0
-- eccenca Graph Insights v20.0.0
+- [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
+- [eccenca Explore v26.2.0](#eccenca-explore-v2620)
+- [eccenca Marketplace v26.2.4](#eccenca-marketplace-v2624)
+- [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
+- [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
 
 We tested this release with the following dependency components:
 
@@ -311,7 +311,7 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
 - **Query Catalog:**
     - The query catalog now supports the DataIntegration variable placeholder syntax.
 - **Graph Insights:**
-    - Updated Graph Insights to v20.0.0.
+    - Updated Graph Insights to v20.0.0, see the [Graph Insights section](#eccenca-graph-insights-v2000) below.
 - **Other:**
     - The graph list now highlights the current graph.
     - Improved data update handling in the UI.
@@ -513,6 +513,22 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
 - `admin metrics` command
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
 - Fixed the `eccenca-marketplace-client` imports, as they are now part of cmem-client.
+
+## eccenca Graph Insights v20.0.0
+
+We are excited to announce the release of Graph Insights v20.0, which adds a content language selection for the explored data and visual representations for resources.
+
+**v20.0.0 of Graph Insights adds the following new features:**
+
+- **Content language:**
+    - Added a **Content language** setting to the settings of the current graph, which switches the language used for captions and descriptions of the explored data at any time.
+    - The content language selected in Corporate Memory is applied when Graph Insights is opened, and changing it in Graph Insights is carried back to the surrounding application.
+- **Resource images and icons:**
+    - Resources are now shown with images and icons throughout the exploration. The image properties used for this are configurable.
+
+**v20.0.0 of Graph Insights ships the following fixes:**
+
+- An expired license is now reported with a clear error message when Graph Insights starts, instead of surfacing later during use.
 
 ## Migration Notes
 
