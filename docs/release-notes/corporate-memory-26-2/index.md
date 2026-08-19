@@ -9,15 +9,15 @@ tags:
 Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting to cmemc.
 
 <!--
-![26.1: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
+![26.2: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
 
-![26.1: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" }
+![26.2: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" }
 
-![26.1: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" }
+![26.2: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" }
 
-![26.1: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="80%"}
+![26.2: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="80%"}
 
-![26.1: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered"  width="90%"}
+![26.2: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered"  width="90%"}
 -->
 
 The highlights of this release are:
@@ -38,7 +38,7 @@ This release delivers the following component versions:
 
 - eccenca DataIntegration v26.2.0
 - eccenca Explore v26.2.0
-- eccenca Marketplace v26.2.3
+- eccenca Marketplace v26.2.4
 - eccenca Corporate Memory Control (cmemc) v26.2.0
 - eccenca Graph Insights v20.0.0
 
@@ -351,11 +351,55 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.3
+## eccenca Marketplace v26.2.4
 
-We are excited to announce the first generally available release of eccenca Marketplace. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
 
-**v26.2 of Marketplace provides the following capabilities:**
+**v26.2.4 of Marketplace introduces the following changes:**
+
+- `ROOT_PATH` now actually serves the application under the configured prefix.
+    - The application mounts itself there, so all routes, the API docs, the static files, and the OIDC endpoints live below the prefix, and requests without it are answered with `404`. `GET /` redirects into the application.
+    - The reverse proxy has to forward the prefix intact, i.e. without rewriting it, and the docker entrypoint no longer passes uvicorn's `--root-path`, which would strip the prefix before the mount matches.
+    - The OIDC redirect URI moves with the prefix, so `<base-url><root-path>/auth/callback` needs to be registered in Keycloak.
+    - The served `openapi.json` declares the prefix in `servers` and keeps its paths prefix-free, so the generated frontend client stays independent of the deployment path.
+- `/.well-known/openid-configuration` is served below the prefix as well, e.g. as `/marketplace/.well-known/openid-configuration`.
+    It is no longer answered at the bare host root, which on a shared host belongs to Corporate Memory.
+- The default `ROOT_PATH` is now `/` (was `/marketplace`), which makes a sub-path deployment opt-in and matches what the docker entrypoint used to default to.
+- An empty `ROOT_PATH`, e.g. an unset `${VAR}` in a docker compose file, is now read as `/` instead of failing at startup, while a value that cannot be mounted (query, fragment, whitespace, empty, `.` or `..` segments) is rejected.
+
+**v26.2.4 of Marketplace ships the following fixes:**
+
+- A root deployment no longer emits the protocol-relative `<base href="//">` and no longer builds login redirects with a doubled slash (`//auth/login`), which browsers resolve as a host.
+    The post-login `next` target is now confined to the deployment, so a target pointing outside the prefix returns to the application root.
+- The frontend no longer concatenates a remote marketplace URL and an API path without a separator, so remote marketplaces served under a sub-path are addressed correctly.
+
+**v26.2.3 of Marketplace adds the following new features:**
+
+- Added support for custom CA certificates.
+    - `*.crt` and `*.pem` files mounted at `/custom-cacert` are merged with the certifi bundle when the container starts, so self-signed Keycloak, Corporate Memory, and remote marketplace endpoints work.
+    - The result is written to `/tmp/pythoncacerts`, which can be overridden with `CA_BUNDLE_FILE`.
+- Added the `ECC_MARKETPLACE_SSL_VERIFY` setting, which is also readable as the unprefixed `SSL_VERIFY`.
+    - Set it to `false` to skip TLS certificate verification on all outgoing requests, i.e. the Keycloak well-known, JWKS, and token refresh requests, the OIDC login flow, remote marketplaces, and Corporate Memory.
+    - This is meant for development only and defaults to `true`.
+
+**v26.2.3 of Marketplace introduces the following changes:**
+
+- The `https://eccenca.market` deployment now also uses the `LICENSE_TOKEN` mode.
+- Updated cmem-client and trivy.
+
+**v26.2.2 of Marketplace adds the following new features:**
+
+- Added the `ECC_MARKETPLACE_LICENSE_TEXT` setting, which configures the license as a string, either as a raw multi-line `.asc` value or base64 encoded, instead of mounting a file via `ECC_MARKETPLACE_LICENSE_FILE`. It takes precedence when both are set.
+
+**v26.2.2 of Marketplace ships the following fixes:**
+
+- The secrets `license_text`, `session_secret`, and `keycloak_client_secret` are now masked in the settings dump that is logged at startup.
+
+**v26.2.1 of Marketplace introduces the following changes:**
+
+- Updated cmem-client to the latest version.
+
+**v26.2.0 of Marketplace is the first generally available release and provides the following capabilities:**
 
 - **Web application:**
     - A single-page web application with package list and package detail views, including filtering and pagination.
@@ -392,50 +436,15 @@ We are excited to announce the first generally available release of eccenca Mark
     - Browser login via Keycloak using the OIDC authorization code flow, so users no longer need to supply a bearer token manually. `GET /auth/login` and `GET /auth/callback` run the code flow and open a signed session cookie, `GET /auth/logout` clears the session.
     - Protected requests authenticate either from a bearer token, for API clients, or from the browser session, with transparent token refresh. Unauthenticated browser requests are redirected to the login.
     - Authorization is group-based: write and delete endpoints are restricted to the configured administrator group.
+- **Licensing:**
+    - A licenses endpoint at `GET /api/licenses`.
+    - The hosted `marketplace.eccenca.dev` deployment runs with license authorization enabled.
 - **Deployment and configuration:**
     - A multi-architecture Docker image based on the Red Hat Universal Base Image 10.
     - A file-based package repository with persistent storage.
     - Configuration via environment variables with the `ECC_MARKETPLACE_` prefix, including the Keycloak connection, the session secret, the list of marketplace URLs, and the Corporate Memory endpoints.
-    - `ROOT_PATH` (default `/marketplace`) supports running the service behind a reverse proxy under a sub-path.
+    - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
-
-**v26.2.3 of Marketplace adds the following new features:**
-
-- Added support for custom CA certificates.
-    - `*.crt` and `*.pem` files mounted at `/custom-cacert` are merged with the certifi bundle when the container starts, so self-signed Keycloak, Corporate Memory, and remote marketplace endpoints work.
-    - The result is written to `/tmp/pythoncacerts`, which can be overridden with `CA_BUNDLE_FILE`.
-- Added the `ECC_MARKETPLACE_SSL_VERIFY` setting, which is also readable as the unprefixed `SSL_VERIFY`.
-    - Set it to `false` to skip TLS certificate verification on all outgoing requests, i.e. the Keycloak well-known, JWKS, and token refresh requests, the OIDC login flow, remote marketplaces, and Corporate Memory.
-    - This is meant for development only and defaults to `true`.
-
-**v26.2.3 of Marketplace introduces the following changes:**
-
-- The `https://eccenca.market` deployment now also uses the `LICENSE_TOKEN` mode.
-- Updated cmem-client and trivy.
-
-**v26.2.2 of Marketplace adds the following new features:**
-
-- Added the `ECC_MARKETPLACE_LICENSE_TEXT` setting, which configures the license as a string, either as a raw multi-line `.asc` value or base64 encoded, instead of mounting a file via `ECC_MARKETPLACE_LICENSE_FILE`. It takes precedence when both are set.
-
-**v26.2.2 of Marketplace ships the following fixes:**
-
-- The secrets `license_text`, `session_secret`, and `keycloak_client_secret` are now masked in the settings dump that is logged at startup.
-
-**v26.2.1 of Marketplace introduces the following changes:**
-
-- Updated cmem-client to the latest version.
-
-**v26.2.0 of Marketplace adds the following new features:**
-
-- Added the licenses endpoint `/api/licenses`.
-
-**v26.2.0 of Marketplace introduces the following changes:**
-
-- The `marketplace.eccenca.dev` deployment now runs with license authorization enabled.
-
-**v26.2.0 of Marketplace removes the following functionality:**
-
-- Removed the `ECC_MARKETPLACE_CMEM_INSTALLATION_GROUP` setting, which will be replaced by actions.
 
 ## eccenca Corporate Memory Control (cmemc) v26.2.0
 
@@ -547,6 +556,13 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
 - Access to the hosted marketplaces requires license authorization.
     Provide the license either as a file via `ECC_MARKETPLACE_LICENSE_FILE` or as a string via `ECC_MARKETPLACE_LICENSE_TEXT`, which takes precedence when both are set.
 - The `ECC_MARKETPLACE_CMEM_INSTALLATION_GROUP` setting has been removed and will be replaced by actions.
+- **Sub-path deployments:** With v26.2.4 the application mounts itself below `ROOT_PATH` instead of only being aware of the prefix.
+    The default is now `/` (was `/marketplace`), so a deployment that relied on the previous default has to set `ROOT_PATH=/marketplace` explicitly.
+    Upgrading a sub-path deployment, e.g. `ROOT_PATH=/marketplace`, requires three changes:
+
+    - The reverse proxy has to forward the prefix intact, i.e. without stripping or rewriting it.
+    - uvicorn must not be given `--root-path`, since it would strip the prefix before the mount matches. The shipped docker entrypoint already dropped it.
+    - `<base-url>/marketplace/auth/callback` has to be re-registered as a valid redirect URI in Keycloak.
 
 ### cmemc
 
