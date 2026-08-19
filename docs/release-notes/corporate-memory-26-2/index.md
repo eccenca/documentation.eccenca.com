@@ -22,17 +22,17 @@ Corporate Memory 26.2 is the second major release in 2026. It introduces reusabl
 
 The highlights of this release are:
 
-- Build: **Reusable Rule Blocks, Execution Variables and Jinja for SPARQL**
-    - Build introduces reusable transform rule blocks with a dedicated editor, execution variables that parameterize a single task or workflow run, Jinja as the default template engine for SPARQL tasks, and an embedded MCP server that opens the workspace to LLM agents.
-
-- Explore: **Manage Module and Companion Authoring**
-    - Explore adds a new Manage module for system state and administration, extends Companion with external MCP server integration and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
-
 - Marketplace: **General Availability**
     - eccenca Marketplace ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
 
-- Automate: **Status Reporting and the Move to cmem-client**
-    - cmemc adds project-wide and workspace-wide reporting of task loading errors, options to exclude user-identifying metadata from exports, and versioned marketplace package installation. It is now based solely on the cmem-client library.
+- Build: **Reusable Rule Blocks, Execution Variables and Jinja for SPARQL**
+    - Build introduces reusable transform rule blocks with a dedicated editor, execution variables that parameterize a single task or workflow run, Jinja as the default template engine for SPARQL tasks, and an embedded MCP server that opens the workspace to LLM agents.
+
+- Explore: **Companion Authoring**
+    - Explore extends Companion with external MCP server integration and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
+
+- Graph Insights: **Resource Images and Icons**
+    - Graph Insights shows resources with images and icons throughout the exploration, resolved from configurable image properties, and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 This release delivers the following component versions:
 
@@ -565,20 +565,6 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 ### eccenca Explore
 
 - The default configuration of the graph tabs changed: the **Vocabularies** tab now excludes vocabularies marked with `shui:isSystemResource`.
-
-### eccenca Marketplace
-
-- eccenca Marketplace is shipped as a generally available component for the first time with this release, so there is no migration path from an earlier Corporate Memory version.
-- Access to the hosted marketplaces requires license authorization.
-    Provide the license either as a file via `ECC_MARKETPLACE_LICENSE_FILE` or as a string via `ECC_MARKETPLACE_LICENSE_TEXT`, which takes precedence when both are set.
-- The `ECC_MARKETPLACE_CMEM_INSTALLATION_GROUP` setting has been removed and will be replaced by actions.
-- **Sub-path deployments:** With v26.2.4 the application mounts itself below `ROOT_PATH` instead of only being aware of the prefix.
-    The default is now `/` (was `/marketplace`), so a deployment that relied on the previous default has to set `ROOT_PATH=/marketplace` explicitly.
-    Upgrading a sub-path deployment, e.g. `ROOT_PATH=/marketplace`, requires three changes:
-
-    - The reverse proxy has to forward the prefix intact, i.e. without stripping or rewriting it.
-    - uvicorn must not be given `--root-path`, since it would strip the prefix before the mount matches. The shipped docker entrypoint already dropped it.
-    - `<base-url>/marketplace/auth/callback` has to be re-registered as a valid redirect URI in Keycloak.
 
 ### cmemc
 
