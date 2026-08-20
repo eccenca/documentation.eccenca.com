@@ -1,12 +1,12 @@
 ---
-title: "True"
+title: "Excel True"
 description: "Excel TRUE(): Sets the logical value to TRUE. The TRUE() function does not require any arguments."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# True
+# Excel True
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

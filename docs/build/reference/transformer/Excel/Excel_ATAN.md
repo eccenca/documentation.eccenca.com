@@ -1,12 +1,12 @@
 ---
-title: "Atan"
+title: "Excel Atan"
 description: "Excel ATAN(number): Returns the inverse tangent of the given number in radians."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Atan
+# Excel Atan
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

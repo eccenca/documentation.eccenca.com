@@ -19,7 +19,7 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-**Example 1:**
+**By default, a milliseconds timestamp is converted to a full xsd:dateTime in UTC:**
 
 * Input values:
     1. `[1499117572000]`
@@ -28,7 +28,7 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 
 
 ---
-**Example 2:**
+**A custom date format returns only the requested fields:**
 
 * Parameters
     * format: `yyyy-MM-dd`
@@ -40,7 +40,7 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 
 
 ---
-**Example 3:**
+**The 'unit' parameter interprets the input as seconds instead of milliseconds:**
 
 * Parameters
     * format: `yyyy-MM-dd`
@@ -52,13 +52,25 @@ Convert a timestamp to xsd:date format. Expects an integer that denotes the pass
 * Returns: `[2017-07-03]`
 
 
+---
+**Custom formats are rendered in UTC, independently of the server timezone:**
+
+* Parameters
+    * format: `yyyy-MM-dd HH:mm`
+
+* Input values:
+    1. `[0]`
+
+* Returns: `[1970-01-01 00:00]`
+
+
 
 
 ## Parameter
 
 ### Format
 
-Custom output format (e.g., 'yyyy-MM-dd'). If left empty, a full xsd:dateTime (UTC) is returned.
+Custom output format (e.g., 'yyyy-MM-dd'), rendered in UTC. If left empty, a full xsd:dateTime (UTC) is returned.
 
 * ID: `format`
 * Datatype: `string`

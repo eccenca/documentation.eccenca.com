@@ -1,12 +1,12 @@
 ---
-title: "Fact"
+title: "Excel Fact"
 description: "Excel FACT(number): Returns the factorial of the given number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Fact
+# Excel Fact
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

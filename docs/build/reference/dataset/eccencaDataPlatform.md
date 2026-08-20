@@ -143,7 +143,7 @@ The strategy for retrieving entities. There are three options: `simple` retrieve
 
 ### Clear graph before workflow execution (deprecated)
 
-This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow. If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.
+This is deprecated, use the 'Clear dataset' operator instead to clear a dataset in a workflow — mind its execution-order semantics, see the operator's documentation. If set to `true`, this will clear the specified graph before executing a workflow that writes to it. Note that this will always use the configured graph and ignore any overwritten values from the config port.
 
 - ID: `clearGraphBeforeExecution`
 - Datatype: `boolean`

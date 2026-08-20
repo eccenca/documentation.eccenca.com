@@ -1,12 +1,12 @@
 ---
-title: "Covar"
+title: "Excel Covar"
 description: "Excel COVAR(data_1; data_2): Returns the covariance of the product of paired deviations. Data_1 is the first data set. Data_2 is the second data set."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Covar
+# Excel Covar
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

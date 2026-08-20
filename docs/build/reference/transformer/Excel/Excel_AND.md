@@ -1,12 +1,12 @@
 ---
-title: "And"
+title: "Excel And"
 description: "Excel AND(argument1; argument2 ...argument30): Returns TRUE if all the arguments are considered TRUE, and FALSE otherwise."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# And
+# Excel And
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

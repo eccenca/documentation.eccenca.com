@@ -64,6 +64,16 @@ Compares single values (as opposed to sequences of values). If multiple values a
 - Returns: `1.0`
 
 
+---
+**Two empty strings are equal:**
+
+- Input values:
+    - Source: `[]`
+    - Target: `[]`
+
+- Returns: `0.0`
+
+
 
 
 ## Parameter

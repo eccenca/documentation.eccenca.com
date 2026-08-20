@@ -83,8 +83,8 @@ on the selected templating mode:
 ### Example of the `Simple` mode (deprecated)
 
 ```text
-  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA2"} }
-  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdf:label ${"PROP_FROM_ENTITY_SCHEMA3"} }
+  DELETE DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdfs:label ${"PROP_FROM_ENTITY_SCHEMA2"} }
+  INSERT DATA { ${<PROP_FROM_ENTITY_SCHEMA1>} rdfs:label ${"PROP_FROM_ENTITY_SCHEMA3"} }
 ```
 
 This will insert the URI serialization of the property value `PROP_FROM_ENTITY_SCHEMA1` for the
@@ -98,9 +98,9 @@ can combine variable substitutions with fixed expressions to construct semi-flex
 ### Example of the `Velocity Engine` mode (deprecated)
 
 ```text
-  DELETE DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA2") }
+  DELETE DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdfs:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA2") }
   #if ( $row.exists("PROP_FROM_ENTITY_SCHEMA1") )
-    INSERT DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdf:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA3") }
+    INSERT DATA { $row.uri("PROP_FROM_ENTITY_SCHEMA1") rdfs:label $row.plainLiteral("PROP_FROM_ENTITY_SCHEMA3") }
   #end
 ```
 
@@ -135,9 +135,26 @@ Both `inputProperties` and `outputProperties` support the same methods as the `r
 
 For more information about the Velocity Engine, visit <http://velocity.apache.org>.
 
-### Internal Specifics
+## Graphs
 
-In contrast to the SPARQL select operator, no `FROM` clause gets injected into the query.
+No graph information is added to the generated queries, neither for the graph that is written to nor for the graph that
+is read from. In contrast to the SPARQL select operator, no `FROM` clause gets injected, and the graph configured on
+the connected output dataset is not used either. Each query is sent to the endpoint exactly as generated, so it has to
+name its graphs itself, e.g. via `GRAPH`, `WITH` or `USING`:
+
+```text
+WITH <http://example.org/graph>
+DELETE { ... }
+INSERT { ... }
+WHERE { ... } ;
+```
+
+To avoid repeating the graph URI, it can be taken from the `graph` parameter of the connected output dataset. It is
+empty if that dataset uses the default graph:
+
+```text
+INSERT DATA { GRAPH <{{ output.config.graph }}> { ... } } ;
+```
 
 
 ## Parameter

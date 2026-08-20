@@ -1,12 +1,12 @@
 ---
-title: "Ln"
+title: "Excel Ln"
 description: "Excel LN(number): Returns the natural logarithm based on the constant e of the given number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Ln
+# Excel Ln
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

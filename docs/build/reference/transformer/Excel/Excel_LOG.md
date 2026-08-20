@@ -1,12 +1,12 @@
 ---
-title: "Log"
+title: "Excel Log"
 description: "Excel LOG(number; base): Returns the logarithm of the given number to the specified base. Base is the base for the logarithm calculation."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Log
+# Excel Log
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

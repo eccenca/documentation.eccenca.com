@@ -1,12 +1,12 @@
 ---
-title: "Normsinv"
+title: "Excel Normsinv"
 description: "Excel NORMSINV(number): Returns the inverse of the standard normal distribution for the given Number, a probability value."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Normsinv
+# Excel Normsinv
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

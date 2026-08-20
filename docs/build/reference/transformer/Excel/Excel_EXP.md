@@ -1,12 +1,12 @@
 ---
-title: "Exp"
+title: "Excel Exp"
 description: "Excel EXP(number): Returns e raised to the power of the given number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Exp
+# Excel Exp
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
