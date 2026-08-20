@@ -26,7 +26,9 @@
       "p",
       "param",
       "span",
-      "summary"
+      "summary",
+      "connection",
+      "tool"
     ]
   },
   "MD035": false,
