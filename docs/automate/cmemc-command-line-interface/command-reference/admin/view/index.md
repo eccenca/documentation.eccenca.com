@@ -274,6 +274,8 @@ cmemc admin view inspect my-profile --key "exploreGraphLists[4].comments[0]"
 ??? info "Options"
     ```text
 
-    --key TEXT  Get a specific key only from the configuration.
+    --key TEXT  Get a specific key only. If the given value is the prefix of
+                more than one key, the table is reduced to these keys. Use `all`
+                to output the complete table.
     --raw       Outputs raw JSON.
     ```
