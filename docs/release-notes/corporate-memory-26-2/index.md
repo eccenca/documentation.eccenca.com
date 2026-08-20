@@ -8,17 +8,15 @@ tags:
 
 Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting to cmemc.
 
-<!--
-![26.2: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
+![26.2: Packages Marketplace](26-2-marketplace.png "26.2: Packages Marketplace"){ class="bordered" }
 
-![26.2: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" }
+![26.2: Build - Rule Blocks](26-2-build-rule-blocks.png "26.2: Build - Rule Blocks"){ class="bordered" }
 
-![26.2: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" }
+![26.2: Explore - Companion Authoring](26-2-companion-shaped-edit.png "26.2: Explore - Companion Authoring"){ class="bordered" }
 
-![26.2: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="80%"}
+<!-- TODO: add GI screeenshot -->
 
-![26.2: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered"  width="90%"}
--->
+![26.2: Automate - n8n Community Node](26-2-automate-n8n-cn.png "26.2: Automate - n8n Commmunity Node"){ class="bordered" width="80%" }
 
 The highlights of this release are:
 
@@ -34,6 +32,9 @@ The highlights of this release are:
 - Graph Insights: **Resource Images and Icons**
     - Graph Insights shows resources with images and icons throughout the exploration, resolved from configurable image properties, and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
+- Automate: **n8n Corporate Memory Community Node**
+    - Initial release of `@eccenca/n8n-nodes-corporate-memory` v0.4.2, a n8n community node available through the n8n community node installer.
+
 This release delivers the following component versions:
 
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
@@ -41,6 +42,7 @@ This release delivers the following component versions:
 - [eccenca Marketplace v26.2.4](#eccenca-marketplace-v2624)
 - [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
 - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
+- [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
 We tested this release with the following dependency components:
 
@@ -529,6 +531,10 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 **v20.0.0 of Graph Insights ships the following fixes:**
 
 - An expired license is now reported with a clear error message when Graph Insights starts, instead of surfacing later during use.
+
+## eccenca n8n Community Node v0.4.2
+
+We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory) for details.
 
 ## Migration Notes
 
