@@ -14,7 +14,7 @@ Corporate Memory 26.2 is the second major release in 2026. It introduces reusabl
 
 ![26.2: Explore - Companion Authoring](26-2-companion-shaped-edit.png "26.2: Explore - Companion Authoring"){ class="bordered" }
 
-<!-- TODO: add GI screeenshot -->
+![26.2: Graph Insights - Resource Images](26-2-graph-insights-depictions.png "26.2: Graph Insights - Resource Images"){ class="bordered" }
 
 ![26.2: Automate - n8n Community Node](26-2-automate-n8n-cn.png "26.2: Automate - n8n Commmunity Node"){ class="bordered" width="80%" }
 
