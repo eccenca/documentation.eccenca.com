@@ -154,6 +154,13 @@ semspect:
   core:
     enableCaptionPropertySelection: false
     enableDescriptionPropertySelection: false
+    appNameOverride: "Graph Insights"
+# Enable this to activate depiction resolving from given external domains and svg mime type
+# semspect.core.payloadResolution:
+#   allowedRedirectDomains:
+#     - "*.eccenca.com"
+#   allowedDataUrlMimeTypes: [ "image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
+
 
 frontend:
   appNameOverride: "Graph Insights"
