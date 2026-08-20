@@ -21,19 +21,19 @@ Corporate Memory 26.2 is the second major release in 2026. It introduces reusabl
 The highlights of this release are:
 
 - Marketplace: **General Availability**
-    - eccenca Marketplace ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
+    - [eccenca Marketplace](../../distribution/marketplace/index.md) ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
 
 - Build: **Reusable Rule Blocks, Execution Variables and Jinja for SPARQL**
-    - Build introduces reusable transform rule blocks with a dedicated editor, execution variables that parameterize a single task or workflow run, Jinja as the default template engine for SPARQL tasks, and an embedded MCP server that opens the workspace to LLM agents.
+    - Build introduces [reusable transform rule blocks](../../build/rule-blocks/index.md) with a dedicated editor, execution variables that parameterize a single task or workflow run, [Jinja as the default template engine for SPARQL tasks](../../build/reference/customtask/sparqlSelectOperator.md), and an embedded MCP server that opens the workspace to LLM agents.
 
 - Explore: **Companion Authoring**
-    - Explore extends Companion with external MCP server integration and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
+    - Explore extends [Companion with external MCP server integration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server) and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
 
 - Graph Insights: **Resource Images and Icons**
-    - Graph Insights shows resources with images and icons throughout the exploration, resolved from configurable image properties, and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
+    - Graph Insights shows [resources with images and icons throughout the exploration](../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 - Automate: **n8n Corporate Memory Community Node**
-    - Initial release of `@eccenca/n8n-nodes-corporate-memory` v0.4.2, a n8n community node available through the n8n community node installer.
+    - Initial release of [`@eccenca/n8n-nodes-corporate-memory` v0.4.2](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory), a n8n community node available through the n8n community node installer.
 
 This release delivers the following component versions:
 
