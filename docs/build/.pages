@@ -5,6 +5,7 @@ nav:
     - Task and Operator Reference: reference
     - Mapping Creator: mapping-creator
     - Rule Operators: rule-operators
+    - Rule Blocks: rule-blocks
     - Define Prefixes / Namespaces: define-prefixes-namespaces
     - Cool IRIs: cool-iris
     - Lift Tabular Data: lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
