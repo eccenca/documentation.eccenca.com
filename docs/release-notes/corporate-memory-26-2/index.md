@@ -618,9 +618,9 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 
     ```shell-session
     # old
-    $ cmemc admin metrics inspect ID --raw | jq '.[0]'
+    cmemc admin metrics inspect ID --raw | jq '.[0]'
     # new
-    $ cmemc admin metrics inspect ID --raw | jq '.'
+    cmemc admin metrics inspect ID --raw | jq '.'
     ```
 
 - `--raw` and `--key` can not be combined anymore on the inspect commands.
