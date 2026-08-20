@@ -6,7 +6,7 @@ tags:
 
 # Corporate Memory 26.2.0
 
-Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting to cmemc.
+Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
 ![26.2: Packages Marketplace](26-2-marketplace.png "26.2: Packages Marketplace"){ class="bordered" }
 
@@ -450,10 +450,20 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
 
 ## eccenca Corporate Memory Control (cmemc) v26.2.0
 
-We are excited to announce the release of cmemc v26.2, which adds status reporting for task loading errors, privacy-aware exports and versioned package installation, and completes the migration of the command line interface to the cmem-client library.
+We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
 
 **v26.2.0 of cmemc adds the following new features:**
 
+- `admin view` command group
+    - Added a command group to manage the view configurations of the Explore application.
+    - `admin view list` lists all Explore application view configurations.
+    - `admin view inspect` inspects a selected Explore application view configuration.
+        - `--key` outputs the plain value of a single key, `--key all` outputs the complete table.
+        - The key completion needs a given profile ID and does not fall back to the first available profile.
+    - `admin view create` creates a custom Explore application view configuration, with ID and label only.
+    - `admin view delete` deletes a custom Explore application view configuration.
+    - `admin view import` and `admin view export` import and export an Explore application view configuration.
+    - `admin view update` updates any configuration key, including nested module toggles such as `modules.marketplaceModuleConfiguration.enabled`, using the `a.b[i].c` notation.
 - `project status` command
     - Added a command to show the task loading errors of projects.
     - Added the `--all` option to check all projects and the `--exit-1` option to fail on loading errors.
@@ -461,6 +471,15 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
     - The command now reports task loading errors across all projects.
     - It uses the bulk `workspace/status` endpoint, i.e. a single request, and prints one summary line per affected project.
     - `project status --all` uses the same bulk endpoint instead of one request per project.
+- `admin user` commands
+    - Added the `admin user inspect` command to show all metadata of a user account, including the names of the assigned groups. It supports `--raw` for the complete JSON and `--key` for single keys.
+    - Added the `--filter group` option to `admin user list` and `admin user delete` to select user accounts by an assigned group name. Unknown group names result in an error which lists the valid groups.
+- inspect commands
+    - Added the `--key` option to `admin acl inspect`, `admin metrics inspect`, `admin user inspect`, `dataset inspect`, `graph insights inspect`, `project file inspect` and `workflow scheduler inspect`.
+    - The option outputs the plain value of a single key, which is useful for scripting, or a table of all keys which start with the given value.
+    - `--key all` outputs the complete table, and the shell completion lists the available keys.
+    - `package inspect` already had a `--key` option, which now supports `all` and the shell completion as well.
+    - `graph validation inspect` is not affected, as it does not output a Key/Value table.
 - `project export` and `admin workspace export` commands
     - Added the `--without-userdata` option to exclude user-identifying metadata, i.e. creation and modification timestamps and account names, from the export.
 - `package export` command
@@ -480,6 +499,7 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
         - `admin user` (`list`, `create`, `update`, `delete`, `password`, `open`)
         - `admin store` (`bootstrap`, `showcase`, `export`, `import`)
         - `admin workspace python`
+        - `graph` (`list`, `import`, `export`, `delete`, `count`, `open`), including the `graph_uris`, `writable_graph_uris`, `ignore_graph_uris` and `catalog_graph_uris` tab-completion
         - `graph validation` (`execute`, `list`, `inspect`, `cancel`, `export`)
         - `graph insights` (`list`, `create`, `delete`, `inspect`)
         - `vocabulary` (`list`, `install`, `uninstall`, `open`, `import`, `cache update`, `cache list`), which no longer uses the removed `/api/vocabs` endpoints
@@ -488,7 +508,14 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
     - Migrated the `MigrationRecipe` base class and all migration recipes. Migration recipes now receive the connected client injected from the command.
     - Migrated the shared helpers (`get_graphs`, `get_query_text`, `GraphLink`, `ResourceLink`, `TitleHelper`) and inject the connected client into them. They are used by the `query`, `graph`, `graph imports`, `graph insights`, `admin acl`, and `graph validation` commands.
     - Removed the cmempy dependency from the `WorkflowLink` string processor.
+    - `graph export` and `graph import` use httpx streaming via the cmem-client HTTP client, and `graph count` uses the cmem-client SPARQL wrapper with `owl:imports` resolution disabled.
     - `graph delete` and `graph import` refresh access conditions via cmem-client after access condition graph changes.
+    - The `eccenca-marketplace-client` imports moved as well, as the marketplace client is now part of cmem-client.
+- inspect commands
+    - All inspect commands now output a table caption which names the inspected item and the instance. `package inspect` keeps its manifest caption and `graph validation inspect` is not affected.
+    - `--raw` and `--key` can no longer be combined. This combination was accepted before, but `--key` was silently ignored. See the migration notes.
+    - `admin metrics inspect --raw` outputs the metric as a JSON object instead of a list with a single object, and the table keys lost the meaningless `0.` prefix. See the migration notes.
+    - `workflow scheduler inspect` uses the same key names in the table as in the `--raw` output.
 - `graph export` command
     - `--include-imports` now resolves `owl:imports` in the graph store when exporting to a file or to stdout.
         - This needs one request per selected graph instead of one request per graph in the import closure.
@@ -501,20 +528,23 @@ We are excited to announce the release of cmemc v26.2, which adds status reporti
     - The `--raw` output now includes the additional fields `variableInputs`, `variableOutputs`, `tags`, `warnings`, and `projectLabel`, sourced from the task search API.
 - Docker image
     - Switched to the ubi10/ubi-minimal base image.
+- update dependencies (esp. the certifi CA bundle)
 
 **v26.2.0 of cmemc deprecates the following functionality:**
 
 - `vocabulary` command group
-    - `vocabulary install` is deprecated, as the vocabulary catalog is not part of Corporate Memory 26.2 and higher.
-    - `vocabulary uninstall` is deprecated, as the vocabulary catalog is not part of Corporate Memory 26.2 and higher.
+    - `vocabulary install`, `vocabulary uninstall` and `vocabulary list --filter` are deprecated, as the vocabulary catalog is not part of Corporate Memory 26.2 and higher.
+    - Use the `package` command group to manage vocabularies instead.
 
 **v26.2.0 of cmemc ships the following fixes:**
 
 - `package install` and `package uninstall` commands
     - `--ignore-lock` now releases the package lock file when the top-level operation finishes, so a stale lock left behind by an interrupted run no longer blocks subsequent commands.
+- `graph count` command
+    - `--all` sorts its output by graph IRI now, so the output order is deterministic and consistent with `graph list --id-only`.
 - `admin metrics` command
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
-- Fixed the `eccenca-marketplace-client` imports, as they are now part of cmem-client.
+- HTTP errors, e.g. connection failures and timeouts, now result in a proper error message instead of a stack trace.
 
 ## eccenca Graph Insights v20.0.0
 
@@ -577,8 +607,21 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 **v26.2.0 of cmemc changes the following behaviour:**
 
 - The vocabulary catalog is not part of Corporate Memory 26.2 and higher.
-    The `vocabulary install` and `vocabulary uninstall` commands are deprecated and show a deprecation note.
+    The `vocabulary install`, `vocabulary uninstall` and `vocabulary list --filter` commands are deprecated and show a deprecation note.
     `vocabulary install` fails with an error if no vocabulary catalog is available.
+    Use the `package` command group to manage vocabularies instead.
 - cmemc is now based solely on cmem-client.
     The API client is composed from the resolved connection configuration instead of the environment, so ambient environment variables no longer leak into the client while a named connection (`-c`) is active.
-    Scripts that mix a named connection with environment variable overrides need to be adjusted.
+    Scripts which set configuration keys such as `CMEM_BASE_URI` or `OAUTH_*` in the environment **and** select a connection with `-c` now use the values of the connection exclusively, so these scripts need to be adjusted.
+- `admin metrics inspect --raw` outputs a JSON object instead of a list with a single object.
+    Scripts which post-process this output need to be adjusted:
+
+    ```shell-session
+    # old
+    $ cmemc admin metrics inspect ID --raw | jq '.[0]'
+    # new
+    $ cmemc admin metrics inspect ID --raw | jq '.'
+    ```
+
+- `--raw` and `--key` can not be combined anymore on the inspect commands.
+    This combination was accepted before, but `--key` was silently ignored. It raises an error now, so remove one of both options from your scripts.
