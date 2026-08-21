@@ -1,0 +1,29 @@
+---
+postgres:
+  internal: true
+  provisioning:
+    enabled: true
+    # If true, this will drop the public schema and re-provision the database on every start.
+    force: true
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/common-name: "kc.docker.localhost"
+  hosts:
+    - host: "kc.docker.localhost"
+      paths:
+        - path: /auth
+          pathType: Prefix
+          serviceName: keycloak
+          servicePort: 8080
+  tls:
+    - hosts:
+         - "kc.docker.localhost"
+      secretName:  keycloak-ingress-cert
+
+tests:
+  # Change this to your ingress controller IP in case you are using
+  # kind/docker-desktop/k3d with host.docker.internal or docker.localhost
+  ingressControllerIP: "10.43.82.133"

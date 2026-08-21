@@ -1,0 +1,8 @@
+{
+  "label": "Made for",
+  "message": "eccenca Corporate Memory",
+  "logoSvg": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?> <svg id=\"Layer_1\" data-name=\"Layer 1\" viewBox=\"0 0 81.290001 82.28986\" version=\"1.1\" width=\"81.290001\" height=\"82.289864\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\"> <defs id=\"defs826\"> <style id=\"style824\"> .cls-1 { fill: #f39200; } .cls-2 { fill: none; stroke: #f39200; stroke-width: 1.5px; } </style> </defs> <g id=\"g840\" transform=\"translate(-30.76,-31.140139)\"> <path class=\"cls-1\" d=\"M 55.9,85.19 A 20.14,20.14 0 1 0 35.76,65.05 20.14,20.14 0 0 0 55.9,85.19 Z\" id=\"path828\" /> <path class=\"cls-1\" d=\"m 98,54.14 a 9,9 0 1 0 -8.95,-9 8.95,8.95 0 0 0 8.95,9 z\" id=\"path830\" /> <path class=\"cls-1\" d=\"M 88.35,108.43 A 12.31,12.31 0 1 0 76,96.12 12.31,12.31 0 0 0 88.31,108.43 Z\" id=\"path832\" /> <line class=\"cls-2\" x1=\"86.970001\" y1=\"92.059998\" x2=\"58.779999\" y2=\"67.360001\" id=\"line834\" /> <line class=\"cls-2\" x1=\"99.18\" y1=\"45.84\" x2=\"55.48\" y2=\"66.120003\" id=\"line836\" /> <line class=\"cls-2\" x1=\"97.989998\" y1=\"44.650002\" x2=\"88.349998\" y2=\"92.839996\" id=\"line838\" /> </g> </svg>",
+  "logoWidth": 16,
+  "labelColor": "grey",
+  "color": "orange"
+}

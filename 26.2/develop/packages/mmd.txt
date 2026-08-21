@@ -1,0 +1,13 @@
+# mermaid
+
+## live editor
+
+https://mermaid.live/edit#pako:eNqFU12L2zAQ_CuLIHVb7DSxL3YiykFJHnpwgaMfL636oNgbR0SWjCIdlwv575WcuA6FUvxg7WhmZ3clnUipKySUJEnClBVWIoWlNq023CKssdHmCGtu9mhbyUuEJ17ueY3wKLZYHkuJTHXa0egklLAUThBJXT_iM8qIQlThxtVRDJHdYYMBUeis4TKCM5xHI6YO1lutBK8Nb5LnlKnwdSAw0tutcBvSC60-bsw9VxV8QYn8gCF8K3XJ5TtGgB-g3dc3creR4rDDqqPd9NGT3WYgj8uW9_0NaeENLB8-LFdXhecMiq9aulCTL-8ZQlFLrbai7sR_T7HXN9gMCR7CSsprff-QCHUI84Ve9F2JXnYhOCXCzH6-_wVJch8mABRK3Qo04XdkKkDDlpe3WFqmQsMBDkVd8JAWQjEeF6p1Fp4-ffs8JPg_s2MMXvjiW7I3CbwlhY0Tshr8_TF4sL0cVmglAGHD-wxuLPR9A3uyHbDQPQ2j6MkkJrURFaHWOIxJg6bhISQnpsCPsbuQjFC_vF5JRpg6e1nL1Q-tm15ptKt3hG65PPjItdVwX_-gBlWFZqmdsoSmWZp1WQg9kRdCs2k-nswWxSy7mxaLfF7MYnIkdDpPx5NJUeR5kWZ5ls7PMXntfCfjYpIWd9lsvkizrJjli5hgJaw268tz7V7t-TfNwDqo
+
+## cli
+
+https://github.com/mermaid-js/mermaid-cli
+
+```sh
+mmdc -i mpp-lifecycle.mmd -o mpp-lifecycle.svg -b transparent
+```
