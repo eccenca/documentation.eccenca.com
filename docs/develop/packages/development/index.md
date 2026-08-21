@@ -269,3 +269,21 @@ This command processes a package directory, validates its content including the 
 
 Package archives can be published to the Marketplace Server using the `cmemc package publish` command.
 After being published packages can be found and installed directly from the Marketplace Server (potential users do not need to have the local package folder or `.cpa` file available).
+
+```shell-session title="publish a package archive"
+cmemc package publish my-package-v1.0.0.cpa
+```
+
+The published package ID and version are taken from the manifest inside the archive.
+
+Publishing requires a Marketplace account.
+If you do not provide the credentials, cmemc requests them interactively.
+For non-interactive use, such as a release pipeline, provide them with the following options or the corresponding environment variables:
+
+| Option | Environment variable | Description |
+| ------ | -------------------- | ----------- |
+| `--marketplace-url` | `ECCENCA_MARKETPLACE_URL` | Base URL of the Marketplace Server, defaults to `https://eccenca.market`. |
+| `--marketplace-account` | `ECCENCA_MARKETPLACE_ACCOUNT` | The Marketplace account which publishes the package. |
+| `--marketplace-password` | `ECCENCA_MARKETPLACE_PASSWORD` | The password of this account. |
+
+Like all cmemc configuration keys, these variables can also be set per connection in your [cmemc configuration file](../../../automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md).

@@ -3,7 +3,10 @@ nav:
     - Installation: installation
     - Configuration: configuration
     - Invocation: invocation
+    - Finding and Filtering Objects: finding-and-filtering-objects
+    - Scripting with cmemc: scripting-with-cmemc
     - Workflow Execution: workflow-execution-and-orchestration
+    - Backup and Restore: backup-and-restore
     - Troubleshooting: troubleshooting-and-caveats
     - Command Reference: command-reference
 
