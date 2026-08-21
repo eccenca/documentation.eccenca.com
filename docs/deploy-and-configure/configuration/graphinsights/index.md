@@ -72,10 +72,24 @@ for more information.
 
 ## Activate and verify the installation
 
-First, you have to enable the Graph Insight in your Explore Application view configuration. By default, it is disabled.
+First, you have to enable Graph Insights in your Explore application view configuration. By default, it is disabled.
 
-<!--TODO: Update screenshot-->
-![Explore Application view configuration](explore-workspace-enable-graphinsights.png)
+Open the :eccenca-module-workspace-configuration:
+[Application view configuration](../../../explore-and-author/workspace-configuration/index.md) module, select the
+application view you want to change and expand the **Application view** section.
+There you find the `enableGraphInsights` configuration.
+
+!!! note
+
+    The switch next to the configuration key shows the value of the system default and is always disabled.
+    In order to change the value for your application view, you have to press the **Override** button first.
+
+![Override the enableGraphInsights configuration](explore-application-view-graphinsights-override.png)
+
+After pressing **Override**, an editable switch appears for your application view.
+Set it to `true` and press **Save**.
+
+![Enable Graph Insights for an application view](explore-application-view-enable-graphinsights.png)
 
 Then you are able to create a snapshot, send it to Graph Insights and select the Graph Insights tab in explore.
 
