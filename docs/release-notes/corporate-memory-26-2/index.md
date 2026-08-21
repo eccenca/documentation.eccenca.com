@@ -564,7 +564,7 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 
 ## eccenca n8n Community Node v0.4.2
 
-We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory) for details.
+We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [@eccenca/n8n-nodes-corporate-memory](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory) for details.
 
 ## Migration Notes
 
