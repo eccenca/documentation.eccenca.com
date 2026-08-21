@@ -1,7 +1,7 @@
 ---
 status: new
 title: "Rule Blocks"
-icon: material/puzzle-outline
+icon: eccenca/artefact-rule-block
 tags:
     - Project
     - BestPractice
@@ -134,7 +134,7 @@ The editor annotates every node with the values it produced, so you can follow t
 Rule blocks can be used in transformation rules and in linking rules.
 
 - Open the rule you want to extend, for example a value mapping in the mapping editor, and open its **Value formula editor**.
-- Switch the sidebar to the **:material-puzzle-outline: rule block** tab.
+- Switch the sidebar to the **:eccenca-artefact-rule-block: rule block** tab.
     It lists the rule blocks of the current project.
 - Drag the rule block onto the canvas and connect one operator to each of its input handles.
 
