@@ -64,7 +64,7 @@ tags:
 
     ---
 
-    Manage (`list`, `inspect`, `import`, `export`, ...) and Manipulate (`create`, `delete`, `execute`, ...) Vocabularies, Datasets, :simple-semanticweb: Knowledge Graphs, [:octicons-workflow-24: Workflows](workflow-execution-and-orchestration/index.md), Projects, Queries, Scheduler, Configurations and [much more](command-reference/index.md).
+    Manage (`list`, `inspect`, `import`, `export`, ...) and Manipulate (`create`, `delete`, `execute`, ...) Vocabularies, Datasets, :simple-semanticweb: Knowledge Graphs, [:octicons-workflow-24: Workflows](workflow-execution-and-orchestration/index.md), Projects, Queries, Packages, Scheduler, Configurations and [much more](command-reference/index.md).
 
     ``` shell-session title="Example: Backup the query catalog including imports."
     $ cmemc graph export \

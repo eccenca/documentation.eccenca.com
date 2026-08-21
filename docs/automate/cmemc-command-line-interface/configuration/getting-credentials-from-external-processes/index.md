@@ -35,7 +35,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: run cmemc
     env:
         CMEM_BASE_URI: https://your-cmem.eccenca.dev/
@@ -65,7 +65,7 @@ In order to get credential information from an external process you need to use 
 
 The credential executable can use the other cmemc environment keys of the configuration block for fetching the credentials (e.g. `CMEM_BASE_URI` and `OAUTH_USER`).
 
-If the credential executable is not given with a a full path, cmemc will look into your environment `PATH` for something that can be executed.
+If the credential executable is not given with a full path, cmemc will look into your environment `PATH` for something that can be executed.
 
 The configured process needs to return the credentials on the first line of `stdout`. In addition to that, the process needs to exit with exit code 0 (without failure).
 

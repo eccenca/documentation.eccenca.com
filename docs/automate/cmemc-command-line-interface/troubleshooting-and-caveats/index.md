@@ -17,7 +17,7 @@ If you feel that your system's proxy configuration negatively impacts the commun
 export no_proxy='*'
 ```
 
-This is due to the [python requests library proxy handling](https://docs.python.org/3/library/urllib.request.html#urllib.request.getproxies).
+cmemc uses [httpx](https://www.python-httpx.org/) for its HTTP requests, which picks up the proxy configuration from the environment in the same way as described for [python's urllib](https://docs.python.org/3/library/urllib.request.html#urllib.request.getproxies).
 
 > The no_proxy environment variable can be used to specify hosts which shouldn’t be reached via proxy;
 > if set, it should be a comma-separated list of hostname suffixes, optionally with :port appended,
