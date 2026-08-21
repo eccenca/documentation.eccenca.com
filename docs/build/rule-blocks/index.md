@@ -129,7 +129,7 @@ The editor annotates every node with the values it produced, so you can follow t
 
 ![The rule block editor after an evaluation](rule-blocks-editor-evaluation.png "The rule block editor after an evaluation"){ class="bordered" }
 
-## Use a Rule Block in a Rule
+## Use a Rule Block
 
 Rule blocks can be used in transformation rules and in linking rules.
 
@@ -160,7 +160,7 @@ Its context menu offers the actions specific to the reference:
 :   Removes the reference from this rule.
     The rule block itself is not deleted.
 
-### Look Inside a Rule Block
+### Look Inside
 
 For the surrounding rule, a rule block is a black box:
 the evaluation shows the values which go in and the values which come out, but not the operators in between.
@@ -173,14 +173,14 @@ A read-only view opens which shows the rule block with the values of the current
 This view is for inspection only.
 Change the rule block in its own editor.
 
-### Rule Blocks in the Evaluation Views
+### In the Evaluation Views
 
 The **Transform evaluation** and the linking evaluation resolve the rule block label as well.
 A rule block appears as one labelled step in the operator tree, with the value it contributed:
 
 ![A rule block in the transform evaluation](rule-blocks-transform-evaluation.png "A rule block in the transform evaluation"){ class="bordered" }
 
-## Change a Rule Block Which Is in Use
+## Change a used Rule Block
 
 The whole point of a rule block is that a change reaches every rule which references it.
 That also means a change can break those rules, so the editor restricts what may be changed once a rule block is used somewhere.
