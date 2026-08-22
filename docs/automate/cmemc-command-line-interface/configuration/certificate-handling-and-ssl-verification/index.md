@@ -28,19 +28,18 @@ cmemc will validate all used certificates of your HTTPS API endpoints by using a
 
 If you need to configure a custom CA bundle to use with a specific connection, you can do so by using the `REQUESTS_CA_BUNDLE` key in the config or as an environment variable.
 
-You can validate which CA bundle is used by switching on debugging (`–debug`) and watch for a CA bundle debug line (here, line 10).
+You can validate which CA bundle is used by switching on debugging (`--debug`) and watch for a CA bundle debug line (here, the last one).
 
 ``` shell-session title="using the debug mode to watch for the CA bundle"
 $ cmemc --debug -c ssltest.eccenca.com graph list
-[2020-03-11 17:50:59.135898] Set config to /home/user/Library/Application Support/cmemc/config.ini
-[2020-03-11 17:50:59.136284] Config loaded: /home/user/Library/Application Support/cmemc/config.ini
-[2020-03-11 17:50:59.137476] Use connection config: ssltest.eccenca.com
-[2020-03-11 17:50:59.137564] CMEM_BASE_URI set by config to https://ssltest.eccenca.com
-[2020-03-11 17:50:59.137611] REQUESTS_CA_BUNDLE set by config to cacert.pem
-[2020-03-11 17:50:59.137718] OAUTH_GRANT_TYPE set by config to client_credentials
-[2020-03-11 17:50:59.137760] OAUTH_CLIENT_ID set by config to cmem-service-account
-[2020-03-11 17:50:59.137804] OAUTH_CLIENT_SECRET set by config
-[2020-03-11 17:50:59.137978] CA bundle loaded from /home/user/cacert.pem
+[2026-08-21 16:50:59.135898+00:00] use config file: /home/user/.config/cmemc/config.ini
+[2026-08-21 16:50:59.136284+00:00] set connection: ssltest.eccenca.com
+[2026-08-21 16:50:59.137564+00:00] CMEM_BASE_URI set by config to https://ssltest.eccenca.com
+[2026-08-21 16:50:59.137611+00:00] REQUESTS_CA_BUNDLE set by config to cacert.pem
+[2026-08-21 16:50:59.137718+00:00] OAUTH_GRANT_TYPE set by config to client_credentials
+[2026-08-21 16:50:59.137760+00:00] OAUTH_CLIENT_ID set by config to cmem-service-account
+[2026-08-21 16:50:59.137804+00:00] OAUTH_CLIENT_SECRET set by config
+[2026-08-21 16:50:59.137978+00:00] CA bundle loaded from /home/user/cacert.pem
 ...
 ```
 

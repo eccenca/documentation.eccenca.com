@@ -41,8 +41,8 @@ workbench.host = "localhost:9090"
 oauth.logoutRedirectUrl = "http://localhost:9090/loggedOut"
 
 # The OAuth client that will be used to load the workspace initially and run the schedulers.
-workbench.superuser.client = "elds"
-workbench.superuser.clientSecret = "elds"
+workbench.superuser.client = ${?DATAINTEGRATION_CMEM_SERVICE_CLIENT}
+workbench.superuser.clientSecret = ${?DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET}
 
 # Optional parameter for specifying an alternative OAuth authorization endpoint.
 # If not specified, the default OAuth authorization endpoint of the specified eccenca Platform URL is used.
@@ -53,7 +53,7 @@ oauth.authorizationUrl = "http://localhost:9090/oauth/authorize"
 oauth.tokenUrl = "http://localhost:9090/oauth/token"
 
 # Optional parameter for specifying an alternative OAuth client ID.
-oauth.clientId = "eldsClient"
+oauth.clientId = ${OAUTH_CLIENT_ID}
 
 # Optional parameter for specifying an alternative OAuth client secret.
 oauth.clientSecret = "secret"
@@ -76,7 +76,7 @@ In order to activate OAuth using the eccenca Explore (DataPlatform), the followi
 ``` conf linenums="1"
 eccencaDataPlatform.url = "http://localhost:9090"
 eccencaDataPlatform.oauth = true
-oauth.clientId = "eldsClient"
+oauth.clientId = ${OAUTH_CLIENT_ID}
 oauth.clientSecret = "secret"
 ```
 
@@ -91,8 +91,8 @@ After loading, all schedulers will be started using the credentials of the super
 In addition to the configuration of eccenca Explore according to the previous section, a super user is configured by specifying the following two parameters:
 
 ``` bash linenums="1"
-workbench.superuser.client = "superUserClient"
-workbench.superuser.clientSecret = "superUserClientSecret"
+workbench.superuser.client = ${?DATAINTEGRATION_CMEM_SERVICE_CLIENT}
+workbench.superuser.clientSecret = ${?DATAINTEGRATION_CMEM_SERVICE_CLIENT_SECRET}
 ```
 
 ??? note
@@ -109,6 +109,9 @@ workspace.provider.plugin = <workspace-provider-plugin-name>
 ```
 
 The following sections describe the available workspace provider plugins and how they are configured.
+
+!!! note "Changed in 25.3"
+    To guarantee unique plugin identifiers, `file` was renamed to `fileWorkspaceProvider` and `inMemory` was renamed to `inMemoryWorkspaceProvider`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
 
 ### RDF-store Workspace - backend
 
@@ -146,7 +149,7 @@ workspace.provider.backend = {
 }
 ```
 
-### File-based Workspace - file
+### File-based Workspace - fileWorkspaceProvider
 
 The workspace can also be held on the filesystem.
 
@@ -159,11 +162,11 @@ This workspace can be configured using the following parameter:
 The corresponding configuration in your `dataintegration.conf` looks like the following:
 
 ```conf linenums="1"
-workspace.provider.plugin = file
+workspace.provider.plugin = fileWorkspaceProvider
 ...
-workspace.provider.file = {
+workspace.provider.fileWorkspaceProvider = {
   # The directory to which the workspace is persisted.
-  dir = ${user.home}"/myWorkspace"
+  dir = ${DATAINTEGRATION_DATA}"/myWorkspace"
 }
 ```
 
@@ -194,7 +197,7 @@ workspace.provider.plugin = fileAndDataPlatform
 ...
 workspace.provider.fileAndDataPlatform = {
   # The directory to which the workspace is persisted.
-  dir = ${user.home}"/myWorkspace"
+  dir = ${DATAINTEGRATION_DATA}"/myWorkspace"
   # Load prefixes defined by all known vocabularies.
   loadAllVocabularyPrefixes = false
   # Load prefixes defined by vocabularies that are actually loaded in the RDF store.
@@ -206,14 +209,14 @@ workspace.provider.fileAndDataPlatform = {
 }
 ```
 
-### In-memory Workspace - inMemory
+### In-memory Workspace - inMemoryWorkspaceProvider
 
 A workspace provider that holds all projects in memory. All contents will be gone on restart.
 
 The corresponding configuration in your `dataintegration.conf` looks like the following:
 
 ```conf linenums="1"
-workspace.provider.plugin = inMemory
+workspace.provider.plugin = inMemoryWorkspaceProvider
 ```
 
 #### **In-memory RDF Workspace - inMemoryRdfWorkspace**
@@ -255,6 +258,9 @@ workspace.repository.plugin = <resource-repository-plugin-name>
 
 The following sections describe the available resource repository plugins and how they are configured.
 
+!!! note "Changed in 25.3"
+    To guarantee unique plugin identifiers, `file` was renamed to `sharedFileRepository` and `inMemory` was renamed to `inMemoryResourceRepository`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
+
 ### Project Specific Directories - projectFile
 
 By default, resources are held in project specific directories.
@@ -271,11 +277,11 @@ The corresponding configuration in your `dataintegration.conf` looks like the 
 workspace.repository.plugin = projectFile
 ...
 workspace.repository.projectFile = {
-  dir = ${elds.home}"/var/dataintegration/workspace/"
+  dir = ${DATAINTEGRATION_DATA}"/datalake"
 }
 ```
 
-### Shared Directory - file
+### Shared Directory - sharedFileRepository
 
 Alternatively, all resources across all Build (DataIntegration) projects can be held in a single directory on the file system.
 
@@ -288,10 +294,10 @@ This plugin can be configured using the following parameter:
 The corresponding configuration in your `dataintegration.conf` looks like the following:
 
 ```conf linenums="1"
-workspace.repository.plugin = file
+workspace.repository.plugin = sharedFileRepository
 ...
-workspace.repository.file = {
-  dir = ${elds.home}"/var/dataintegration/resources/"
+workspace.repository.sharedFileRepository = {
+  dir = ${DATAINTEGRATION_DATA}"/datalake"
 }
 
 ```
@@ -403,12 +409,12 @@ workspace.repository.s3 = {
 }
 ```
 
-### In-Memory - inMemory
+### In-Memory - inMemoryResourceRepository
 
 Resources can also be held in-memory. The corresponding configuration in your `dataintegration.conf` looks like the following:
 
 ```conf linenums="1"
-workspace.repository.plugin = inMemory
+workspace.repository.plugin = inMemoryResourceRepository
 ```
 
 !!! note
@@ -428,6 +434,9 @@ workspace.repository.plugin = empty
 
 The execution report manager is used to persist execution reports. It allows to retrieve previous reports. you can use it with file and in-memory models. In addition you can specify a retention time. Reports older than this time will be deleted, if a new report is added. The retention time is expressed as a Java `Duration` string, see <https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-> for details.
 
+!!! note "Changed in 25.3"
+    To guarantee unique plugin identifiers, `file` was renamed to `fileExecutionReportManager` and `inMemory` was renamed to `inMemoryExecutionReportManager`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
+
 ### Disabled - None
 
 Discards execution reports and does not persist them.
@@ -437,27 +446,27 @@ workspace.reportManager.plugin = none # Discards execution reports and does not 
 
 ```
 
-### In-Memory - inMemory
+### In-Memory - inMemoryExecutionReportManager
 
 Holds the reports in memory.
 
 ```conf linenums="1"
-workspace.reportManager.plugin = inMemory # Holds the reports in memory.
+workspace.reportManager.plugin = inMemoryExecutionReportManager # Holds the reports in memory.
 
-workspace.reportManager.inMemory = {
+workspace.reportManager.inMemoryExecutionReportManager = {
   retentionTime = "P30D" # duration how long to keep - default is 30 Days
 }
 ```
 
-### File based - file
+### File based - fileExecutionReportManager
 
 Holds the reports in a specified directory on the filesystem.
 
 ```conf linenums="1"
-workspace.reportManager.plugin = file # Holds the reports in a specified directory on the filesystem.
+workspace.reportManager.plugin = fileExecutionReportManager # Holds the reports in a specified directory on the filesystem.
 
-workspace.reportManager.file = {
-  dir = "/data/reports" # directory where the reports will be stored
+workspace.reportManager.fileExecutionReportManager = {
+  dir = ${DATAINTEGRATION_DATA}"/reports" # directory where the reports will be stored
   retentionTime = "P30D" # duration how long to keep - default is 30 Days
 }
 ```
@@ -972,7 +981,7 @@ spark.interpreter.options = {
   eventLog = true
 
   # Folder for logs that people don't want in the log even though the information is necessary for debugging
-  logFolder = ${elds.home}"/var/dataintegration/logs/"
+  logFolder = ${DATAINTEGRATION_LOGS}"/spark"
 
   # Enable or disable an execution time log for benchmarking purposes
   timeLog = true

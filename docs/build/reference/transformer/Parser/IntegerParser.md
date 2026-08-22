@@ -70,6 +70,72 @@ Parses integer values.
 * Returns: `[1000]`
 
 
+---
+**Large integers are parsed exactly, without floating point precision loss:**
+
+* Input values:
+    1. `[1234567890123456789]`
+
+* Returns: `[1234567890123456789]`
+
+
+---
+**An explicit plus sign is accepted:**
+
+* Input values:
+    1. `[+42]`
+
+* Returns: `[42]`
+
+
+---
+**Integers outside the 64-bit range are rejected instead of silently corrupted:**
+
+* Input values:
+    1. `[99999999999999999999]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Values with unparsed characters are rejected, e.g. a thousands separator although it is disabled:**
+
+* Parameters
+    * commaAsDecimalPoint: `false`
+    * thousandSeparator: `false`
+
+* Input values:
+    1. `[1,000.00]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Values whose separators do not form valid thousands groups are rejected, e.g. a two-digit group:**
+
+* Parameters
+    * commaAsDecimalPoint: `false`
+    * thousandSeparator: `true`
+
+* Input values:
+    1. `[1,00]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Values that are not plain numbers are rejected, e.g. "NaN":**
+
+* Input values:
+    1. `[NaN]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
 
 
 ## Parameter

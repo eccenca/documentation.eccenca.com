@@ -13,7 +13,8 @@ This page describes a docker-compose based orchestration running on a server ins
 - A resolvable domain name to this server
 - Terminal with ssh client installed locally
 - An eccenca partner account for the docker registry as well as the release artifact area
-- A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
+- Triple store license (provided by eccenca)
+- Graph Insights license (optional, provided by eccenca)
 
 !!! Info
     make - do not use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650)

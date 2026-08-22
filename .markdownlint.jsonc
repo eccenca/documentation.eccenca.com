@@ -21,9 +21,14 @@
       "figcaption",
       "figure",
       "img",
+      "key",
+      "name",
       "p",
+      "param",
       "span",
-      "summary"
+      "summary",
+      "connection",
+      "tool"
     ]
   },
   "MD035": false,
@@ -32,5 +37,6 @@
   "MD045": false,
   "MD046": false,
   "MD059": false,
-  "MD060": false
+  "MD060": false,
+  "MD077": false
 }

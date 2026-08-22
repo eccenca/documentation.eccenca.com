@@ -8,7 +8,7 @@ tags:
 
 This page describes how to configure the eccenca Explore component which is done in two parts:
 
-1. The Explore frontend (DataManager) is configured visually through the :eccenca-module-workspace-configuration: _Workspace configuration_ module.
+1. The Explore frontend (DataManager) is configured visually through the :eccenca-module-workspace-configuration: _Application view configuration_ module.
 2. [The Explore backend (DataPlatform)](dataplatform/index.md), all details are described on the respective sub-page
 
 eccenca Explore frontend (DataManager) is a single-page JavaScript application, which means the application consists of a single HTML page which loads all needed web resources in the browser after loading the page itself.
@@ -25,7 +25,7 @@ Explore frontend (DataManager) communicates with different API endpoints in orde
 The features of Explore frontend (DataManager) include:
 
 - Dataset Manager to create and update datasets and its meta data
-- Vocabulary Manager to install and remove Vocabulary descriptions
+- Marketplace to install and remove ontology / vocabulary and Project (Demo) Packages
 - Data browser to explore and manage graph-based data
 - Taxonomy Editor to manage and create SKOS based taxonomies
 - Query editor to query graph-based data via SPARQL queries

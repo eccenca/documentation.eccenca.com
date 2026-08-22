@@ -54,21 +54,11 @@ In this example, the child mapping defines a `chapter` target property from whic
 
 ### Template
 
-The template
+The template, using Jinja syntax.
 
 - ID: `template`
 - Datatype: `template`
 - Default Value: `None`
-
-
-
-### Language
-
-The template language. Currently, Jinja is supported.
-
-- ID: `language`
-- Datatype: `string`
-- Default Value: `jinja`
 
 
 
@@ -102,4 +92,10 @@ If true, the input attributes will be forwarded to the output.
 
 ## Advanced Parameter
 
-`None`
+### Language
+
+The template language. Currently, Jinja is supported.
+
+- ID: `language`
+- Datatype: `string`
+- Default Value: `jinja`

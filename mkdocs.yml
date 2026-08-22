@@ -1,7 +1,7 @@
 ---
 INHERIT: nav.yml
 # {{{ Main site config
-site_name: documentation.eccenca.com
+site_name: eccenca Corporate Memory documentation
 site_url: https://documentation.eccenca.com/
 repo_url: https://github.com/eccenca/documentation.eccenca.com
 edit_uri: ./edit/main/docs
@@ -63,6 +63,9 @@ extra:
     # "Load Balancer": simple-awselasticloadbalancing
     Variables: variables
     JDBC: jdbc
+    Package: package
+    Marketplace: marketplace
+    "Application View": application-view
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
   version:
     provider: mike
@@ -189,6 +192,9 @@ theme:
       fontawesome-solid-hard-drive: fontawesome/solid/hard-drive
       variables: material/variable-box
       jdbc: material/database
+      package: eccenca/module-marketplace
+      marketplace: eccenca/module-marketplace
+      application-view: eccenca/module-workspace-configuration
     # https://squidfunk.github.io/mkdocs-material/reference/annotations/
     admonition:
       note: fontawesome/solid/note-sticky

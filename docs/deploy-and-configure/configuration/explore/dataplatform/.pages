@@ -6,6 +6,5 @@ nav:
         - GraphDB: application-graphdb-full.md
         - HTTP: application-http-full.md
         - In-Memory: application-inmemory-full.md
-        - Neptune: application-neptune-full.md
         - Virtuoso: application-virtuoso-full.md
 

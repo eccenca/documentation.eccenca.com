@@ -57,6 +57,16 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 
     Since both user and group resource are represented in the same namespace in the internal graph representation, users and groups cannot have the same identifier.
 
+!!! warning "All requirements in an access condition must be met"
+
+    Multiple **Requires group** values are combined with AND: the account must be a member of **every** listed group.
+
+    Combining **Requires account** and **Requires group** further restricts access.
+
+    To grant access to different audiences, create **one access condition per audience** or use [Dynamic Access Conditions](#dynamic-conditions).
+
+    For example, to grant access to members of either `group-a` **or** `group-b`, create two access conditions. Adding both groups to a single access condition would require the account to be a member of **both** groups.
+
 ### Define **what** grants are given
 
 - **Allow reading graph** is a list of graph IRI to allow to read these graphs.
@@ -93,8 +103,8 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 | `:Explore-ListSystemGraphs` | Represents the action needed to list Corporate Memory system graphs (tagged with shui:isSystemResource) in the Knowledge Graph list. |
 | `:Explore-QueryCatalog` | Represents the action needed to use the Query Catalog (needs access to catalog graph as well if changes should be allowed). |
 | `:Explore-ThesaurusCatalog` | Represents the action needed to use the Thesaurus Catalog as well as Thesaurus Project editing interface (needs access to specific thesaurus graphs as well). |
-| `:Explore-VocabularyCatalog` | Represents the action needed to use the Vocabulary Catalog (needs access to specific vocabulary graphs as well). |
 | `:LinkRulesUserInterface` | Represents the action needed to use the Link Rules Module. |
+| `:Marketplace-Frontend` | Represents the action needed to access and manage packages from the Marketplace. Access to the corresponding graphs is required as well. |
 
 In addition to these attributes, you can use the following special attributes to grant partial access to the access conditions itself:
 

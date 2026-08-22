@@ -52,4 +52,4 @@ Reverse source and target inputs
 
 ## Related Plugins
 
-- **lowerThan** — The Lower than plugin is the logical inverse of Greater than: given the same inputs, it returns 1.0 exactly where Greater than returns 0.0.
+- [lowerThan](lowerThan.md) — The Lower than plugin is the logical inverse of Greater than: given the same inputs, it returns 1.0 exactly where Greater than returns 0.0.

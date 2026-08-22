@@ -34,6 +34,7 @@ store:
 management.tracing.enabled: false
 ```
 
+
 ***Property: store.type***
 
 The type of the store must be set to "neptune"
@@ -138,3 +139,4 @@ The degree of parallelism (CPU) for the neptune loader, possible values are LOW,
 | Required | false |
 | Valid values | LOW, MEDIUM, HIGH, OVERSUBSCRIBE |
 | Environment | STORE_NEPTUNE_S3_BULKLOADPARALLELISM |
+

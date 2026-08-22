@@ -1,6 +1,6 @@
 ---
 title: "cmemc: Command Group - admin user"
-description: "List, create, delete and modify user accounts."
+description: "List, create, delete, inspect and modify user accounts."
 icon: material/account-cog
 tags:
   - Keycloak
@@ -12,7 +12,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-List, create, delete and modify user accounts.
+List, create, delete, inspect and modify user accounts.
 
 This command group is an opinionated interface to the Keycloak realm of your Corporate Memory instance. In order to be able to manage user data, the configured cmemc connection account needs to be equipped with the `manage-users` role in the used realm.
 
@@ -42,9 +42,37 @@ Outputs a list of user accounts, which can be used to get an overview as well as
     --raw                    Outputs raw JSON.
     --filter <TEXT TEXT>...  Filter users by one of the following filter names
                              and a corresponding value: enabled, email,
-                             username.
+                             username, group.
     --id-only                Lists only username. This is useful for piping the
                              IDs into other commands.
+    ```
+
+## admin user inspect
+
+Display all metadata of a user account.
+
+```shell-session title="Usage"
+cmemc admin user inspect [OPTIONS] USERNAME
+```
+
+
+
+
+In addition to the data of the `admin user list` command, this command outputs the names of all groups which are assigned to the user account.
+
+!!! note
+    User accounts can be listed by using the `admin user list` command.
+
+
+
+
+??? info "Options"
+    ```text
+
+    --key TEXT  Get a specific key only. If the given value is the prefix of
+                more than one key, the table is reduced to these keys. Use `all`
+                to output the complete table.
+    --raw       Outputs raw JSON.
     ```
 
 ## admin user create
@@ -127,7 +155,7 @@ This command deletes user accounts from a realm.
                              option, so use it with care.
     --filter <TEXT TEXT>...  Filter users by one of the following filter names
                              and a corresponding value: enabled, email,
-                             username.
+                             username, group.
     ```
 
 ## admin user password

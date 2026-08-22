@@ -39,5 +39,5 @@ Converts a string to lower case.
 
 ## Related Plugins
 
-- **upperCase** — Lower case and Upper case apply the same exhaustive rule in opposite directions — every character is converted, none left unchanged. Upper case is the choice when the target is uniform all-caps.
-- **capitalize** — Lower case converts every character without exception. Capitalize is more selective: it uppercases only the first character of the string, leaving the rest unchanged.
+- [upperCase](upperCase.md) — Lower case and Upper case apply the same exhaustive rule in opposite directions — every character is converted, none left unchanged. Upper case is the choice when the target is uniform all-caps.
+- [capitalize](capitalize.md) — Lower case converts every character without exception. Capitalize is more selective: it uppercases only the first character of the string, leaving the rest unchanged.

@@ -72,9 +72,10 @@ for more information.
 
 ## Activate and verify the installation
 
-First, you have to enable the Graph Insight in your Explore workspace. By default, it is disabled.
+First, you have to enable the Graph Insight in your Explore Application view configuration. By default, it is disabled.
 
-![Explore workspace configuration](explore-workspace-enable-graphinsights.png)
+<!--TODO: Update screenshot-->
+![Explore Application view configuration](explore-workspace-enable-graphinsights.png)
 
 Then you are able to create a snapshot, send it to Graph Insights and select the Graph Insights tab in explore.
 
@@ -153,6 +154,13 @@ semspect:
   core:
     enableCaptionPropertySelection: false
     enableDescriptionPropertySelection: false
+    appNameOverride: "Graph Insights"
+# Enable this to activate depiction resolving from given external domains and svg mime type
+# semspect.core.payloadResolution:
+#   allowedRedirectDomains:
+#     - "*.eccenca.com"
+#   allowedDataUrlMimeTypes: [ "image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
+
 
 frontend:
   appNameOverride: "Graph Insights"

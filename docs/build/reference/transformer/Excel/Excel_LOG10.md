@@ -1,12 +1,12 @@
 ---
-title: "Log10"
+title: "Excel Log10"
 description: "Excel LOG10(number): Returns the base-10 logarithm of the given number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Log10
+# Excel Log10
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

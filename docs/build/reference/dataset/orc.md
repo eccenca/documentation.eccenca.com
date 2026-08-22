@@ -64,7 +64,7 @@ The following table summarizes the key differences and typical use cases of the 
 
 ### File
 
-Path (e.g. relative like 'path/filename.orc' or absolute 'hdfs:///path/filename.orc').
+Path relative to the configured resource repository (e.g. 'path/filename.orc').
 
 - ID: `file`
 - Datatype: `resource`

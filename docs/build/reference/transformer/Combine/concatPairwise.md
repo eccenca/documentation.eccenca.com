@@ -82,5 +82,5 @@ Separator to be inserted between two concatenated strings. The text can contain 
 
 ## Related Plugins
 
-* **concat** — Concatenate pairwise matches values by position and produces one combined string per position. Concatenate does not align by position — it produces every combination of values across inputs, so two inputs with three values each yield nine strings, not three.
-* **zip** — When inputs have unequal lengths, Concatenate pairwise drops the extra values from the longer input. Zip solves the same alignment problem for exactly two inputs but keeps them by substituting a configurable placeholder for each missing value.
+* [concat](concat.md) — Concatenate pairwise matches values by position and produces one combined string per position. Concatenate does not align by position — it produces every combination of values across inputs, so two inputs with three values each yield nine strings, not three.
+* [zip](zip.md) — When inputs have unequal lengths, Concatenate pairwise drops the extra values from the longer input. Zip solves the same alignment problem for exactly two inputs but keeps them by substituting a configurable placeholder for each missing value.

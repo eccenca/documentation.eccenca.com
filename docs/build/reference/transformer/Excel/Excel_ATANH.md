@@ -1,12 +1,12 @@
 ---
-title: "Atanh"
+title: "Excel Atanh"
 description: "Excel ATANH(number): Returns the inverse hyperbolic tangent of the given number. (Angle is returned in radians.)"
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Atanh
+# Excel Atanh
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

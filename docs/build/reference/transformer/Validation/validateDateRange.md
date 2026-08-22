@@ -41,4 +41,4 @@ Latest allowed data in YYYY-MM-DD
 
 ## Related Plugins
 
-- **validateDateAfter** — Validate date range checks a date against a configured earliest and latest date. Validate date after checks whether one input date is later than another.
+- [validateDateAfter](validateDateAfter.md) — Validate date range checks a date against a configured earliest and latest date. Validate date after checks whether one input date is later than another.

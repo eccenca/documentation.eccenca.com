@@ -1,12 +1,12 @@
 ---
-title: "Asinh"
+title: "Excel Asinh"
 description: "Excel ASINH(number): Returns the inverse hyperbolic sine of the given number in radians."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Asinh
+# Excel Asinh
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

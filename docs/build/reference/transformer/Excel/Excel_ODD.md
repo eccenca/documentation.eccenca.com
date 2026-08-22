@@ -1,12 +1,12 @@
 ---
-title: "Odd"
+title: "Excel Odd"
 description: "Excel ODD(number): Rounds the given number up to the nearest odd integer."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Odd
+# Excel Odd
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

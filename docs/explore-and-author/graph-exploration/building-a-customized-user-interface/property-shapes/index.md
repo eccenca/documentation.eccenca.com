@@ -29,6 +29,14 @@ This name will be shown to the user.
 Used Path: `shacl:name`
 
 
+### Name (internal)
+
+
+This name is used for internal purposes.
+
+Used Path: `rdfs:label`
+
+
 ### Description
 
 
@@ -104,7 +112,7 @@ Used Path: `shacl:property`
 ### Path
 
 
-The datatype or object property used in this shape. This path will be ignored if there is a table report defined for the property shape. However, in the Business Knowledge Editor, this path can always be used for exploration.
+The datatype or object property used in this shape. This path will be ignored if there is a path builder query defined for the property shape. However, in the Business Knowledge Editor, this path can always be used for exploration.
 
 Used Path: `shacl:path`
 
@@ -174,9 +182,26 @@ Used Path: `shacl:datatype`
 ### Use textarea
 
 
-Default is false. A value of true enables multiline editing capabilities for Literals via a `textarea` widget.
+Default is `false`. A value of `true` enables multiline editing capabilities for Literals via a `textarea` widget.
+
+Note: Consider using `shui:markdown` (Use Markdown) instead of this feature.
+
 
 Used Path: `shui:textarea`
+
+
+### Use Markdown
+
+
+Default is `false`. A value of `true` enables Markdown editing and rendering capabilities for Literals.
+
+The editor includes syntax highlighting, live preview, and additional editing tools to improve the writing experience.
+
+The viewer displays the Markdown content as a complete document, without truncation, “show more” buttons, or other space limitations.
+In addition to standard Markdown syntax, Mermaid code is rendered as an image when placed inside a Mermaid code block.
+
+
+Used Path: `shui:markdown`
 
 
 ### Regex Pattern

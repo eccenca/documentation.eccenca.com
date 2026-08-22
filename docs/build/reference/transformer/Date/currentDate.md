@@ -1,6 +1,6 @@
 ---
 title: "Current date"
-description: "Outputs the current date."
+description: "Outputs the current date and time as an xsd:dateTime value, e.g. 2024-05-03T10:15:30.123+02:00. The value is generated at the moment each value is transformed, not once per workflow execution."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
@@ -12,7 +12,7 @@ tags:
 
 
 
-Outputs the current date.
+Outputs the current date and time as an xsd:dateTime value, e.g. 2024-05-03T10:15:30.123+02:00. The value is generated at the moment each value is transformed, not once per workflow execution.
 
 
 ## Parameter
@@ -25,4 +25,4 @@ Outputs the current date.
 
 ## Related Plugins
 
-- **parseDate** — Current date always outputs today's date, ignoring whatever values it receives. Parse date is input-driven: it reads a date from the input string and converts it according to a configured format.
+- [parseDate](parseDate.md) — Current date always outputs the current date and time, ignoring whatever values it receives. Parse date is input-driven: it reads a date from the input string and converts it according to a configured format.

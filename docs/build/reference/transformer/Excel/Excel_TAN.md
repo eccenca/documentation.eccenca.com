@@ -1,12 +1,12 @@
 ---
-title: "Tan"
+title: "Excel Tan"
 description: "Excel TAN(number): Returns the tangent of the given number (angle in radians)."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Tan
+# Excel Tan
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

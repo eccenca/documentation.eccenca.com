@@ -1,12 +1,12 @@
 ---
-title: "Acos"
+title: "Excel Acos"
 description: "Excel ACOS(number): Returns the inverse cosine of the given number in radians."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Acos
+# Excel Acos
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -16,6 +16,9 @@ cmemc is available as an [official pypi package](https://pypi.org/project/cmem-c
 pipx install cmem-cmemc
 ```
 
+cmemc needs **Python 3.13 or newer**.
+If your system provides an older Python version, use the [docker image](../invocation/docker-image/index.md) instead.
+
 ## ... via docker image
 
 This topic is described on a [stand-alone page](../invocation/docker-image/index.md).

@@ -1,12 +1,12 @@
 ---
-title: "Sin"
+title: "Excel Sin"
 description: "Excel SIN(number): Returns the sine of the given number (angle in radians)."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Sin
+# Excel Sin
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -37,6 +37,9 @@ The file name is optional and will be generated with by the template if absent.
                                   option, so use it with care.
     --type TEXT                   Type of the exported workspace file.
                                   [default: xmlZip]
+    --without-userdata            Do not export user-identifying metadata
+                                  (creation/modification timestamps and account
+                                  names) in the exported archive.
     -t, --filename-template TEXT  Template for the export file name. Possible
                                   placeholders are (Jinja2): {{connection}}
                                   (from the --connection option) and {{date}}

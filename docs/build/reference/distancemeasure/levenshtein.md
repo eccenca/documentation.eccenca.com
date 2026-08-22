@@ -64,6 +64,16 @@ Compares single values (as opposed to sequences of values). If multiple values a
 - Returns: `1.0`
 
 
+---
+**Two empty strings are equal:**
+
+- Input values:
+    - Source: `[]`
+    - Target: `[]`
+
+- Returns: `0.0`
+
+
 
 
 ## Parameter
@@ -102,4 +112,4 @@ The maximum character that is used for indexing
 
 ## Related Plugins
 
-- **levenshteinDistance** — The Levenshtein distance plugin counts the minimum edits needed to transform one string into the other. The normalized Levenshtein distance plugin divides that count by the length of the longer string, so the distance is comparable regardless of how long the strings are.
+- [levenshteinDistance](levenshteinDistance.md) — The Levenshtein distance plugin counts the minimum edits needed to transform one string into the other. The normalized Levenshtein distance plugin divides that count by the length of the longer string, so the distance is comparable regardless of how long the strings are.

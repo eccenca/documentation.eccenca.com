@@ -28,6 +28,12 @@ zensical = "^0.0.44"
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
 rumdl = "^0.0.194"
+pytest = "^9.1.1"
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: needs a live DI/CMEM instance to run",
+]
 
 [build-system]
 requires = ["poetry-core"]

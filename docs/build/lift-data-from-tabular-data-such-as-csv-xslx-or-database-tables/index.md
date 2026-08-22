@@ -1,6 +1,6 @@
 ---
 icon: material/table
-subtitle: such as CSV, XSLX and Database Tables
+# subtitle: such as CSV, XSLX and Database Tables
 tags:
   - BeginnersTutorial
   - KnowledgeGraph
@@ -11,27 +11,17 @@ tags:
 
 This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a **comma-separated value file** (.csv), an **excel file** (.xlsx) or a **database table** (jdbc).
 
-!!! Abstract
+!!! Tutorial Package
 
-    The complete tutorial is available as a [project file](tutorial-csv.project.zip). You can import this project
+    The complete tutorial is available as a Marketplace Package.
+    You can install this package
 
-    - by using the [web interface](../../build/introduction-to-the-user-interface/index.md) (Create → Project → Import project file) or
+    - by using the web interface (:eccenca-module-marketplace: **Packages** → Search → "Product Data Demo") or
     - by using the [command line interface](../../automate/cmemc-command-line-interface/index.md)
 
-    ``` shell-session
-    cmemc -c my-cmem project import tutorial-csv.project.zip tutorial-csv
-    ```
-
-    This step is optional and makes some of the following steps of the tutorial superfluous.
-
-The documentation consists of the following steps, which are described in detail below:
-
-1. Registration of the target vocabulary
-2. Uploading of the data (file)
-3. Creating the Transformation
-4. Configure Mapping
-5. Evaluate a Transformation
-6. Build the Knowledge Graph
+        ``` shell-session
+        cmemc -c my-cmem package install ecc-product-data-project
+        ```
 
 ## Sample Material
 
@@ -63,28 +53,22 @@ The following material is used in this tutorial, you should download the files a
 
 ---
 
-## 1 Register the vocabulary
+## 1 Install the required Ontologies / Vocabularies
 
 The vocabulary contains the classes and properties needed to map the data into the new structure in the Knowledge Graph.
 
 === "Corporate Memory"
 
-    1. In Corporate Memory, click Vocabularies under **EXPLORE** in the navigation on the left side of the page.
+    1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
+        In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
 
-        ![](explore-vocab-catalog.png){ class="bordered" width="50%" }
+        ![Add new graph](ldftds-add-new-graph.png){ class="bordered"}
 
-    2. Click **Register new vocabulary** on the top right.
+        ![New graph from File option](ldftds-new-graph-from-file.png){ class="bordered" width="70%"}
 
-        ![](vocab-catalog.png){ class="bordered" width="50%" }
+    2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step.
 
-    3. Define a **Name**, a **Graph URI** and a **Description** of the vocabulary. _In this example we will use:_
-
-        - Label: `Product Vocabulary`
-        - Graph URI: `http://ld.company.org/prod-vocab/`
-        - Description: `Example vocabulary modeled to describe relations between products and services.`
-        - Upload File: Browse in your filesystem for the **[products_vocabulary.nt](products_vocabulary.nt)** file and select it to be uploaded.
-
-        ![Register new Vocabulary](register-new-vocab.png){ class="bordered" width="50%" }
+        ![Define Target graph URI](ldftds-define-target-graph-uri.png){ class="bordered" width="70%"}
 
 === "cmemc"
 
@@ -96,17 +80,27 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 ## 2 Uploading of the data (file)
 
-1. In Corporate Memory, click **:fontawesome-regular-folder: Projects** under **BUILD** in the navigation on the left side of the page.
+1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **Build** section.
+    Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
-    ![](menu-build-projects.png){ class="bordered" width="50%" }
+    ![Create new project](ldftds-create-project.png){ class="bordered" }
 
-2. Click **Create :octicons-plus-circle-24:** at the top right of the page.
+2. In the **Create new item** window, select **Project** and click **Add**.
+   The Create new item of type Project window appears.
 
-3. In the **Create new item** window, select **Project** and click **Add**. The Create new item of type Project window appears.  
+    ![Add new project](ldftds-add-new-project.png){ class="bordered" width="50%" }
 
-4. Fill in the required details such as Title and Description. Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
+3. Fill in the required details such as Title and Description.
+    In this example we will use:
 
-5. Click **Create**. Your project is created.
+    - Title: `Tutorial: Lift data from CSV tabular data`
+    - Description: `This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a comma-separated value file (.csv). https://documentation.eccenca.com/latest/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables`
+
+    ![Add Title and Description](ldftds-build-project-title-description.png){ class="bordered" width="70%" }
+
+    Alternatively, import the existing project by clicking **Import Project File** and selecting the file from your system.  
+
+4. Click **Create**. Your project is created.
 
 ---
 
@@ -205,7 +199,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 ## 4 Configure Mapping
 
-1. Click on the 3 Dots from the previous created Transormation an choose **Mapping Editor**.
+1. Click on the 3 Dots from the previous created Transformation an choose **Mapping Editor**.
 
 2. Click **Mapping** in the main area to expand its menu.
 
@@ -272,7 +266,7 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
     ![](create-knowledge-graph.png){ class="bordered" width="50%" }
 
-3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. _In this example we will use:_
+3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. In this example we will use:
 
     - Label: `Service Knowledge Graph`
     - Graph: `http://ld.company.org/prod-instances/`
