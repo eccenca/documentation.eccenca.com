@@ -39,16 +39,26 @@ tasks:
 
   install:
     desc: Install needed dependencies
+    # `run: once` because five tasks depend on this and `task check` resolves its
+    # dependencies in parallel - without it, concurrent `poetry install`
+    # invocations collide and one of them fails with a non-obvious exit 1.
+    run: once
     cmds:
       - poetry install
 
   check:
     desc: Check documentation links, Markdown style, nav drift and build output
-    deps:
-      - check:links
-      - check:rumdl
-      - check:nav
-      - check:output
+    # Sequential (`cmds`, not `deps`) on purpose. Task resolves `deps` in
+    # parallel, which ran several `poetry install` invocations at once and, worse,
+    # ran `zensical build` alongside the link and style checks - under that load
+    # Zensical intermittently reports false "page does not exist" warnings and
+    # `--strict` fails the build (zensical/zensical#641). Serialising costs a
+    # little wall-clock and makes the stage deterministic.
+    cmds:
+      - task: check:links
+      - task: check:rumdl
+      - task: check:nav
+      - task: check:output
 
   check:nav:
     desc: Fail if nav.yml is out of sync with the docs/**/.pages files
@@ -112,18 +122,40 @@ tasks:
     deps:
       - task: install
     cmds:
-      - poetry run zensical build --strict
+      # `--clean` is not optional: with a warm .cache Zensical intermittently
+      # reports false "page does not exist" warnings and --strict then fails the
+      # build (zensical/zensical#641). Measured on this repo: 4 of 6 warm builds
+      # failed, 6 of 6 passed with --clean. Costs ~5s; buys a deterministic build.
+      - poetry run zensical build --strict --clean
       # Zensical bakes unpkg.com URLs into its JS bundle; rewrite them to the
       # vendored copies. Part of building, not of checking - without it the
       # published site issues third-party requests.
       - poetry run python tools/localize_bundle_assets.py site
+      # Zensical does not implement the tags plugin's listings and passes the
+      # `<!-- material/tags -->` markers through untouched. Render them here
+      # until it does - see tasks/spec.md.
+      - poetry run python tools/render_tag_listings.py site
 
   serve:
-    desc: Serve the page on localhost
+    desc: Serve the page on localhost with live reload (no post-build steps)
+    # `zensical serve` rebuilds into site/ on every change, which would overwrite
+    # anything the post-build steps in `build` produce. So this preview does NOT
+    # show the rendered tag listings and still loads glightbox from unpkg. Use
+    # `task preview` when you need to see the site exactly as it ships.
     deps:
       - task: install
     cmds:
       - poetry run zensical serve
+
+  preview:
+    desc: Build with all post-build steps and serve the result (no live reload)
+    deps:
+      - task: build
+    vars:
+      PORT: '{{.PORT | default "8001"}}'
+    cmds:
+      - echo "Serving the fully built site on http://localhost:{{.PORT}} - Ctrl-C to stop"
+      - python3 -m http.server {{.PORT}} --directory site
 
   update:icons:
     desc: update the used eccenca icons from carbon

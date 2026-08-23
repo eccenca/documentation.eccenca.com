@@ -60,7 +60,7 @@ extra:
     Validation: validation
     Filesystem: material-file-tree
     Volume: fontawesome-solid-hard-drive
-    # "Load Balancer": simple-awselasticloadbalancing
+    "Load Balancer": load-balancer
     Variables: variables
     JDBC: jdbc
     Package: package
@@ -186,7 +186,7 @@ theme:
       keycloak: material/openid
       validation: octicons/verified-16
       material-file-tree: material/file-tree
-      # simple-awselasticloadbalancing: simple/awselasticloadbalancing
+      load-balancer: other/load-balancer
       fontawesome-solid-hard-drive: fontawesome/solid/hard-drive
       variables: material/variable-box
       jdbc: material/database

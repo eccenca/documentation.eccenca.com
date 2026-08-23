@@ -62,10 +62,11 @@ TAG_RE = re.compile(r"<[^>]+>")
 # The Giscus snippet lives inside <article>, so without this the tag-listings
 # check reads ~105 "words" on a page whose visible body is just its title.
 SCRIPT_RE = re.compile(r"<(script|style)\b.*?</\1>", re.DOTALL | re.IGNORECASE)
-# Zensical does not expand the tag-listing markers, so they survive into the
-# output verbatim. Their presence is a direct signal that listings are missing.
-# Markers may carry arguments, e.g. `<!-- material/tags { include: [X] } -->`.
+# Zensical does not expand the tag-listing markers; tools/render_tag_listings.py
+# does it for us, so any marker surviving into the output means that step did not
+# run. Markers may carry arguments: `<!-- material/tags { include: [X] } -->`.
 TAGS_MARKER_RE = re.compile(r"<!--\s*material/tags\b.*?-->", re.DOTALL)
+TAGS_LISTING_RE = re.compile(r'<h2 id="tag:[^"]+"')
 
 failures: list[str] = []
 notices: list[str] = []
@@ -135,6 +136,42 @@ def check_comments(site: Path, pages: list[Path]) -> None:
     )
 
 
+def check_tag_listings(site: Path, pages: list[Path]) -> None:
+    """Tag listings are ours now - see tools/render_tag_listings.py.
+
+    Required rather than pending: we render these, so an empty listing is a
+    regression in our own code, not a missing upstream feature. The signal that
+    Zensical has implemented listings natively (and this can all be deleted)
+    lives in the renderer itself.
+    """
+    stale = {
+        p.relative_to(site).as_posix(): len(
+            TAGS_MARKER_RE.findall(p.read_text(encoding="utf-8", errors="replace"))
+        )
+        for p in pages
+    }
+    stale = {page: n for page, n in stale.items() if n}
+    report(
+        "tag-listings-expanded",
+        not stale,
+        "no unexpanded <!-- material/tags --> markers"
+        if not stale
+        else f"{sum(stale.values())} marker(s) left on {len(stale)} page(s): "
+        f"{', '.join(sorted(stale))}",
+        required=True,
+    )
+
+    for rel, minimum in (("tags", 40), ("tutorials", 3)):
+        page = site / rel / "index.html"
+        found = len(TAGS_LISTING_RE.findall(page.read_text(encoding="utf-8", errors="replace"))) if page.is_file() else 0
+        report(
+            f"tag-listings-{rel}",
+            found >= minimum,
+            f"/{rel}/ renders {found} tag section(s), expected >= {minimum}",
+            required=True,
+        )
+
+
 def check_external_assets(pages: list[Path]) -> None:
     """No third-party requests - replaces the privacy plugin's assets_fetch."""
     offenders: dict[str, int] = {}
@@ -166,22 +203,6 @@ def check_pending(site: Path, pages: list[Path]) -> None:
     social = sum(1 for p in pages if 'property="og:image"' in p.read_text(encoding="utf-8", errors="replace"))
     report("social-cards", social > 0, f"og:image on {social} pages (backlog #37)", required=False)
 
-    tags_page = site / "tags" / "index.html"
-    words = article_words(tags_page) if tags_page.is_file() else 0
-    markers = {
-        p.relative_to(site).as_posix(): len(
-            TAGS_MARKER_RE.findall(p.read_text(encoding="utf-8", errors="replace"))
-        )
-        for p in pages
-    }
-    stale = {page: n for page, n in markers.items() if n}
-    report(
-        "tag-listings",
-        words > 50 and not stale,
-        f"/tags/ article has {words} words, {sum(stale.values())} unexpanded "
-        f"<!-- material/tags --> marker(s) on {len(stale)} page(s) (backlog #38)",
-        required=False,
-    )
 
     revision = sum(1 for p in pages if "Last update" in p.read_text(encoding="utf-8", errors="replace"))
     report("revision-dates", revision > 0, f"last-update on {revision} pages (backlog #18)", required=False)
@@ -199,6 +220,7 @@ def main() -> int:
     check_redirects(site)
     check_comments(site, pages)
     check_external_assets(pages)
+    check_tag_listings(site, pages)
     print()
     check_pending(site, pages)
     print()

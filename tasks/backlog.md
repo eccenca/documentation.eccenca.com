@@ -1,9 +1,12 @@
 # Backlog: temporary tag-listing renderer
 
-Work breakdown for [spec.md](spec.md). Nothing here is started.
+Work breakdown for [spec.md](spec.md).
 
-**Blocked on:** answers to spec §5 (five open questions). B1 and B2 can proceed regardless;
-everything else depends on Q1 and Q4.
+**B0-B8: done** (2026-08-23). Listings render on `/tags/` and `/tutorials/`, guarded by
+three required checks, 30 unit tests, `task preview` added for accurate previews.
+
+**C1-C4: proposed**, spec §9 - linking each page's tag chips to its listing anchor.
+Blocked on Q6 below.
 
 ---
 
@@ -162,3 +165,100 @@ B1 and B2 are independent and can start as soon as Q1/Q4 are settled.
 - **The removal signal is the weak point** (B6). If it never fires, this "temporary" script
   becomes permanent. Worth a calendar reminder to re-check backlog #38 rather than relying
   only on the probe.
+
+---
+
+# Part 2: linked tag chips (spec §9)
+
+Rendering the listings created 45 anchors that nothing points at. Material links every
+per-page tag chip to its section on `/tags/`; Zensical emits inert `<span>`s. Measured:
+**531 pages, 703 chips, 0 links.**
+
+Smaller than Part 1 and a different mechanism - a **template override**, not another
+post-build pass, so it also works under `task serve`.
+
+## Q6 — Decide before coding
+
+Spec §9 open questions:
+
+| # | Question | Recommendation |
+|---|---|---|
+| 1 | Slug computed twice (MiniJinja + Python) | Accept the duplication, but assert reachability in the check |
+| 2 | Tag whose only page is the listing page itself → dead anchor | Covered by the same assert; no special case |
+| 3 | `hide: tags` pages | Keep the existing template branch; no decision |
+
+**Est:** one review pass.
+
+Decision: go with all above recommendations!
+
+---
+
+## C1 — `overrides/partials/tags.html`
+
+Copy Zensical's `partials/tags.html` verbatim and replace only the `tag.url` branch:
+
+```jinja
+{% set anchor = "tags/" | url ~ "#tag:" ~ (tag.name | lower | replace(" ", "-")) %}
+<a href="{{ anchor }}" class="{{ class }}">{{- tag.name -}}</a>
+```
+
+Keep everything else byte-identical, as `tabs-item.html` does, so it can be re-synced.
+Retain the `hide: tags` branch and the `md-tag-shadow` / `md-tag--<icon>` class logic.
+
+**Verified:** a spike produced output byte-identical to production and was reverted.
+**Est:** small. **Depends on:** Q6.
+
+---
+
+## C2 — Assert every chip anchor resolves
+
+New required check in `check_zensical_output.py`: for each `href="…/tags/#tag:X"` in the
+output, `#tag:X` must exist on `/tags/`. This is what keeps the MiniJinja slug and
+`render_tag_listings.tag_slug()` from silently drifting apart.
+
+Cheap: collect the anchor ids from `/tags/` once, then set-compare against the hrefs.
+
+**Verify:** hand-edit one slug in the override; the check must fail.
+**Est:** small. **Depends on:** C1.
+
+---
+
+## C3 — Tests
+
+Extend `tests/test_render_tag_listings.py`, or a sibling, with the slug-parity case: the
+Python `tag_slug()` and the template's expression must agree for every tag in use -
+including `Load Balancer` (space) and `Graph-Insights` (existing hyphen).
+
+Template rendering itself is covered by C2 against the real build rather than by unit test;
+MiniJinja is not worth mocking for three filters.
+
+**Est:** small. **Depends on:** C1, C2.
+
+---
+
+## C4 — Documentation
+
+README: the "reimplemented here" table gains a row for the chip links, pointing at the same
+`#38` and the same removal trigger. Spec §7 already lists the override for deletion.
+
+**Est:** trivial. **Depends on:** C1.
+
+---
+
+## Sequencing
+
+```
+Q6 ──> C1 ──> C2 ──> C3
+         └──> C4
+```
+
+## Risks
+
+- **Slug drift** between the template and the Python renderer is the only real one, and C2
+  exists specifically to make it loud. Do not skip C2 to save time.
+- **Chips link to `/tags/`, which is a large page.** 45 sections, 531 references. Jumping
+  to an anchor there is fine, but it is a heavy page to load from a chip click. Matches
+  production, so not a regression - noting it because it is the sort of thing that gets
+  raised later as if it were new.
+- **Override drift** if Zensical changes its `tags.html`. Same exposure as
+  `tabs-item.html`; mitigated by keeping the copy byte-identical apart from the one branch.

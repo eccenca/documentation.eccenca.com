@@ -1,6 +1,7 @@
 # Spec: temporary tag-listing renderer
 
-**Status:** proposed, awaiting review. No code written yet.
+**Status:** §1-§8 accepted 2026-08-23 and implemented. **§9 (linked tag chips) is
+proposed and awaiting review** - not implemented.
 **Replaces:** Material's `tags` plugin listings, which Zensical does not implement
 ([zensical/backlog#38](https://github.com/zensical/backlog/issues/38)).
 **Lifetime:** delete the moment Zensical ships listings. See "Removal" below.
@@ -120,7 +121,7 @@ front matter, so neither can appear in its own listing. Guard anyway.
   `PythonPlugin` (61), `cmemc` (47)
 - The `/tags/` listing is therefore large — production's is ~2100 words
 
-## 5. Open questions — need a decision before coding
+## 5. Open questions — resolved
 
 1. **Unmapped tags.** 14 tags in use have no `extra.tags` icon: `Build`, `Dataset`,
    `DistanceMeasure`, `EvaluateTemplate`, `Explainer`, `Files`, `Graph-Insights`,
@@ -149,18 +150,31 @@ front matter, so neither can appear in its own listing. Guard anyway.
    the bare marker exclude high-cardinality tags like `TransformOperator`? **Recommend:
    include everything**, matching production.  -> decision: match prod, include everything
 
-## 6. Removal
+## 6. Known limitation: `task serve`
+
+`zensical serve` rebuilds into `site/` on every change, so it would overwrite anything a
+post-build step writes. The live-reload preview therefore shows the raw
+`<!-- material/tags -->` markers, not the listings - measured: 0 tag sections, 3 markers
+left on `/tutorials/`. The same applies to the glightbox localisation.
+
+`task preview` covers the gap: it runs a full `task build` and serves the result on port
+8001. Verified: 45 sections on `/tags/`, 3 on `/tutorials/`, 0 markers, 0 unpkg references.
+This is inherent to post-build processing and goes away with the script.
+
+## 7. Removal
 
 The trigger is already wired. `check_zensical_output.py` tracks `tag-listings` as `PEND`
 and prints a `NEW` banner the moment Zensical renders a listing itself. On that signal:
 
 1. delete `tools/render_tag_listings.py`
 2. drop its line from `build` in `Taskfile.yml`
-3. move `tag-listings` from PENDING to a required check in `check_zensical_output.py`
+3. delete `overrides/partials/tags.html` if §9 was implemented - Zensical will populate
+   `tag.url` itself once it has a listing index, and its stock template already handles it
+4. drop the `tag-listings-*` checks from `check_zensical_output.py`
 
 Sources need no changes, because they were never changed.
 
-## 7. Acceptance
+## 8. Acceptance
 
 - `/tags/` renders 45 tag sections; `/tutorials/` renders 3, in marker order
 - zero `<!-- material/tags -->` comments remain in `site/**/*.html`
@@ -169,3 +183,82 @@ Sources need no changes, because they were never changed.
 - tag chips in listings render with icons for the 31 mapped tags
 - `task build` still clean under `--strict`; page count unchanged at 584
 - output stable across two consecutive builds (no ordering nondeterminism)
+
+## 9. Proposed: link page tag chips to their listing anchor
+
+**Status:** proposed. Feasibility spiked and reverted; nothing in the tree.
+
+### Problem
+
+Rendering the listings only solved half the feature. Material also turns each per-page tag
+chip into a link to its section on `/tags/`, so a reader can jump from "this page is tagged
+Docker" to "everything tagged Docker". Zensical emits the chips as inert `<span>`s.
+
+Measured on the current build: **531 pages carry a tag nav, 703 chips in total, 0 of them
+links.** Production, for the same page:
+
+```html
+<a href="../../../tags/#tag:configuration" class="md-tag md-tag-icon md-tag--configuration">Configuration</a>
+```
+
+versus ours:
+
+```html
+<span class="md-tag md-tag-icon md-tag--configuration">Configuration</span>
+```
+
+Now that §1-§8 generate those anchors, every one of these links has a valid destination.
+The anchors exist; nothing points at them.
+
+### Approach: template override, *not* post-build injection
+
+`zensical/templates/partials/tags.html` is **byte-identical to Material 9.7.7's**. It
+already contains the branch that produces a link:
+
+```jinja
+{% if tag.url %}
+  <a href="{{ tag.url | url }}" class="{{ class }}">{{ tag.name }}</a>
+{% else %}
+  <span class="{{ class }}">{{ tag.name }}</span>
+{% endif %}
+```
+
+The template is not the problem - `tag.url` is simply never populated, because Zensical has
+no listing index to point at. So the fix is to compute the URL in an override rather than
+depend on `tag.url`, exactly as `overrides/partials/tabs-item.html` does for tab icons.
+
+This is strictly better than extending `render_tag_listings.py`:
+
+| | template override | post-build injection |
+| :-- | :-- | :-- |
+| Works in `task serve` | **yes** | no (see §6) |
+| Extra build step | none | another pass over 531 pages |
+| Removal when #38 lands | delete one file | more code to unpick |
+
+### Verified feasible
+
+A spike produced output byte-identical to production's, then was reverted. MiniJinja
+supports the three filters needed (`url`, `lower`, `replace`):
+
+```jinja
+{% set anchor = "tags/" | url ~ "#tag:" ~ (tag.name | lower | replace(" ", "-")) %}
+<a href="{{ anchor }}" class="{{ class }}">{{- tag.name -}}</a>
+```
+
+`| url` resolves `tags/` relative to the current page, so it survives mike's versioned
+prefixes without special handling.
+
+### Open questions
+
+1. **Slug duplication.** The template computes the slug in MiniJinja; `render_tag_listings.
+   tag_slug()` computes it in Python. They must agree or every link dangles. Accept the
+   duplication with a comment in both places, or have the renderer assert that each anchor
+   it emits is reachable? **Recommend: assert** - it is a cheap required check and the
+   failure mode is otherwise silent.
+
+2. **Tags with no listing section.** A tag carried *only* by the listing page itself
+   produces no section (self-exclusion, §3), so its chip would link to a dead anchor. Does
+   not occur today. **Recommend: cover it with the check in Q1** rather than special-casing.
+
+3. **`hide: tags` pages.** The existing template already honours it; the override must keep
+   that branch. No decision needed, just do not drop it.
