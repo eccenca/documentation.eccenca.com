@@ -1,8 +1,13 @@
-"""Tests for tools/render_tag_listings.py."""
+"""Tests for tools/render_tag_listings.py and overrides/partials/tags.html."""
+
+import pathlib
+import re
 
 import pytest
 
 from tools import render_tag_listings as rtl
+
+TEMPLATE = pathlib.Path(__file__).resolve().parents[1] / "overrides" / "partials" / "tags.html"
 
 
 # --- marker parsing -------------------------------------------------------
@@ -204,3 +209,49 @@ def test_include_order_is_preserved_not_sorted():
     index = {"Zed": [("p", "/z/")], "Alpha": [("p", "/a/")]}
     html = rtl.render_listing(["Zed", "Alpha"], index, {}, "/t/", "¤")
     assert html.index("tag:zed") < html.index("tag:alpha")
+
+
+# --- slug parity with overrides/partials/tags.html -------------------------
+#
+# The chip links are built in MiniJinja, the listing anchors in Python. They must
+# agree or every link dangles. `check_zensical_output.py` catches drift against a
+# real build; these tests catch it without one, and pin the contract in words.
+
+
+def _template_slug_expression() -> str:
+    match = re.search(r'\{%\s*set anchor = (.+?)\s*%\}', TEMPLATE.read_text(encoding="utf-8"))
+    assert match, "the override no longer sets `anchor` - did the template change?"
+    return match.group(1)
+
+
+def test_override_exists():
+    """Without it Zensical renders inert <span> chips."""
+    assert TEMPLATE.is_file()
+
+
+def test_template_builds_the_anchor_from_the_tags_page():
+    expr = _template_slug_expression()
+    assert '"tags/" | url' in expr, "link must be relative, for mike's versioned prefixes"
+    assert '"#tag:"' in expr
+
+
+def test_template_slug_rules_match_tag_slug():
+    """lower-case and spaces to hyphens - the same two rules as tag_slug()."""
+    expr = _template_slug_expression()
+    assert "| lower" in expr
+    assert '| replace(" ", "-")' in expr
+
+
+@pytest.mark.parametrize(
+    "tag",
+    ["Load Balancer", "Application View", "Graph-Insights", "API", "cmemc", "TransformOperator"],
+)
+def test_python_slug_agrees_with_the_template_rules(tag):
+    """Mirror of the MiniJinja expression, applied to the tags that stress it."""
+    assert rtl.tag_slug(tag) == "tag:" + tag.lower().replace(" ", "-")
+
+
+def test_multiword_tags_are_the_case_that_actually_breaks():
+    """Dropping the replace() only shows up on tags containing a space."""
+    assert rtl.tag_slug("Load Balancer") == "tag:load-balancer"
+    assert rtl.tag_slug("Load Balancer") != "tag:load balancer"

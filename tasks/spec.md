@@ -1,7 +1,6 @@
 # Spec: temporary tag-listing renderer
 
-**Status:** §1-§8 accepted 2026-08-23 and implemented. **§9 (linked tag chips) is
-proposed and awaiting review** - not implemented.
+**Status:** accepted 2026-08-23 and fully implemented, §1-§9.
 **Replaces:** Material's `tags` plugin listings, which Zensical does not implement
 ([zensical/backlog#38](https://github.com/zensical/backlog/issues/38)).
 **Lifetime:** delete the moment Zensical ships listings. See "Removal" below.
@@ -184,9 +183,11 @@ Sources need no changes, because they were never changed.
 - `task build` still clean under `--strict`; page count unchanged at 584
 - output stable across two consecutive builds (no ordering nondeterminism)
 
-## 9. Proposed: link page tag chips to their listing anchor
+## 9. Link page tag chips to their listing anchor
 
-**Status:** proposed. Feasibility spiked and reverted; nothing in the tree.
+**Status:** implemented 2026-08-23 as `overrides/partials/tags.html`. All three open
+questions settled as recommended; the reachability assertion is `tag-chips-resolve` in
+`check_zensical_output.py`.
 
 ### Problem
 

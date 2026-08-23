@@ -5,8 +5,9 @@ Work breakdown for [spec.md](spec.md).
 **B0-B8: done** (2026-08-23). Listings render on `/tags/` and `/tutorials/`, guarded by
 three required checks, 30 unit tests, `task preview` added for accurate previews.
 
-**C1-C4: proposed**, spec §9 - linking each page's tag chips to its listing anchor.
-Blocked on Q6 below.
+**C1-C4: done** (2026-08-23). Every page tag chip links to its section on `/tags/` -
+703 chips across 531 pages - guarded by two more required checks and 10 more unit tests.
+Q6 settled as recommended.
 
 ---
 
@@ -177,7 +178,7 @@ per-page tag chip to its section on `/tags/`; Zensical emits inert `<span>`s. Me
 Smaller than Part 1 and a different mechanism - a **template override**, not another
 post-build pass, so it also works under `task serve`.
 
-## Q6 — Decide before coding
+## Q6 — Decide before coding — **done**, all as recommended
 
 Spec §9 open questions:
 
@@ -193,7 +194,7 @@ Decision: go with all above recommendations!
 
 ---
 
-## C1 — `overrides/partials/tags.html`
+## C1 — `overrides/partials/tags.html` — **done**
 
 Copy Zensical's `partials/tags.html` verbatim and replace only the `tag.url` branch:
 
@@ -205,12 +206,13 @@ Copy Zensical's `partials/tags.html` verbatim and replace only the `tag.url` bra
 Keep everything else byte-identical, as `tabs-item.html` does, so it can be re-synced.
 Retain the `hide: tags` branch and the `md-tag-shadow` / `md-tag--<icon>` class logic.
 
-**Verified:** a spike produced output byte-identical to production and was reverted.
-**Est:** small. **Depends on:** Q6.
+**Done:** output is byte-identical to production's, e.g.
+`<a href="../../../tags/#tag:configuration" class="md-tag md-tag-icon md-tag--configuration">Configuration</a>`.
+The override differs from Zensical's stock template by exactly the one branch.
 
 ---
 
-## C2 — Assert every chip anchor resolves
+## C2 — Assert every chip anchor resolves — **done**
 
 New required check in `check_zensical_output.py`: for each `href="…/tags/#tag:X"` in the
 output, `#tag:X` must exist on `/tags/`. This is what keeps the MiniJinja slug and
@@ -218,12 +220,14 @@ output, `#tag:X` must exist on `/tags/`. This is what keeps the MiniJinja slug a
 
 Cheap: collect the anchor ids from `/tags/` once, then set-compare against the hrefs.
 
-**Verify:** hand-edit one slug in the override; the check must fail.
-**Est:** small. **Depends on:** C1.
+**Done:** `tag-chips-linked` (703 chips on 531 pages) and `tag-chips-resolve` (every
+anchor exists), both required. Verified by removing `replace(" ", "-")` from the template:
+the check failed on `#tag:load balancer` and `#tag:application view`, the only two
+multi-word tags.
 
 ---
 
-## C3 — Tests
+## C3 — Tests — **done**
 
 Extend `tests/test_render_tag_listings.py`, or a sibling, with the slug-parity case: the
 Python `tag_slug()` and the template's expression must agree for every tag in use -
@@ -232,16 +236,17 @@ including `Load Balancer` (space) and `Graph-Insights` (existing hyphen).
 Template rendering itself is covered by C2 against the real build rather than by unit test;
 MiniJinja is not worth mocking for three filters.
 
-**Est:** small. **Depends on:** C1, C2.
+**Done:** 10 tests reading the override and asserting its slug expression matches
+`tag_slug()`. 59 tests pass in total.
 
 ---
 
-## C4 — Documentation
+## C4 — Documentation — **done**
 
 README: the "reimplemented here" table gains a row for the chip links, pointing at the same
 `#38` and the same removal trigger. Spec §7 already lists the override for deletion.
 
-**Est:** trivial. **Depends on:** C1.
+**Done.**
 
 ---
 

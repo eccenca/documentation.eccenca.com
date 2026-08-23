@@ -66,7 +66,11 @@ SCRIPT_RE = re.compile(r"<(script|style)\b.*?</\1>", re.DOTALL | re.IGNORECASE)
 # does it for us, so any marker surviving into the output means that step did not
 # run. Markers may carry arguments: `<!-- material/tags { include: [X] } -->`.
 TAGS_MARKER_RE = re.compile(r"<!--\s*material/tags\b.*?-->", re.DOTALL)
-TAGS_LISTING_RE = re.compile(r'<h2 id="tag:[^"]+"')
+TAGS_LISTING_RE = re.compile(r'<h2 id="tag:([^"]+)"')
+# Chips linked by overrides/partials/tags.html. The slug is built in MiniJinja
+# there and in Python in tools/render_tag_listings.py; this is what stops the two
+# drifting apart into silently dead links.
+TAG_CHIP_RE = re.compile(r'<a href="([^"]*tags/#tag:([^"]+))"[^>]*class="md-tag[ "]')
 
 failures: list[str] = []
 notices: list[str] = []
@@ -170,6 +174,49 @@ def check_tag_listings(site: Path, pages: list[Path]) -> None:
             f"/{rel}/ renders {found} tag section(s), expected >= {minimum}",
             required=True,
         )
+
+    check_tag_chip_links(site, pages)
+
+
+def check_tag_chip_links(site: Path, pages: list[Path]) -> None:
+    """Every per-page tag chip must link to an anchor that exists on /tags/."""
+    listing = site / "tags" / "index.html"
+    anchors = set(
+        TAGS_LISTING_RE.findall(listing.read_text(encoding="utf-8", errors="replace"))
+        if listing.is_file()
+        else []
+    )
+
+    linked_pages = 0
+    chips = 0
+    dangling: dict[str, str] = {}
+    for page in pages:
+        found = TAG_CHIP_RE.findall(page.read_text(encoding="utf-8", errors="replace"))
+        if not found:
+            continue
+        linked_pages += 1
+        chips += len(found)
+        for _href, slug in found:
+            if slug not in anchors:
+                dangling.setdefault(slug, page.relative_to(site).as_posix())
+
+    report(
+        "tag-chips-linked",
+        chips > 0,
+        f"{chips} chip(s) on {linked_pages} page(s) link to /tags/"
+        if chips
+        else "no tag chips link anywhere - is overrides/partials/tags.html in place?",
+        required=True,
+    )
+    report(
+        "tag-chips-resolve",
+        not dangling,
+        "every chip anchor exists on /tags/"
+        if not dangling
+        else f"{len(dangling)} slug(s) missing from /tags/, e.g. "
+        + ", ".join(f"#tag:{s} (on {p})" for s, p in sorted(dangling.items())[:3]),
+        required=True,
+    )
 
 
 def check_external_assets(pages: list[Path]) -> None:
