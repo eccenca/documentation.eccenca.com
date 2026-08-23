@@ -211,16 +211,22 @@ theme:
 
 # {{{ Extensions to the markdown processor
 markdown_extensions:
-  # These four were previously pulled in via the `extra` bundle. `extra` also
-  # bundles `fenced_code`, which claims the same ``` syntax as
-  # pymdownx.superfences below; under Zensical the precedence between the two is
-  # decided by hash ordering, so roughly half of all builds hand the fence to
-  # fenced_code, which does not understand `title="..."`. The fence then never
-  # opens and the rest of the page - headings and their anchors included - is
-  # emitted as raw text. superfences supersedes fenced_code, so listing the
-  # bundle's members individually and omitting fenced_code is the fix.
-  # `attr_list` and `md_in_html`, the two remaining members, are listed below.
-  # https://python-markdown.github.io/extensions/extra/
+  # These, plus `attr_list`, `md_in_html` and `pymdownx.superfences` further
+  # down, are exactly the members of `pymdownx.extra`. They are listed out
+  # rather than pulled in as that bundle so it stays visible that superfences
+  # carries our `custom_fences` configuration.
+  #
+  # Do NOT use `markdown.extensions.extra` here: it bundles `fenced_code`,
+  # which claims the same ``` syntax as superfences. superfences is documented
+  # to replace fenced_code, and enabling both is unsupported - the precedence
+  # between them then depends on hash ordering, so builds randomly handed the
+  # fence to fenced_code, which does not understand `title="..."`. The fence
+  # never opened and the rest of the page, headings and anchors included, was
+  # emitted as raw text. See zensical/zensical#882 and
+  # https://facelessuser.github.io/pymdown-extensions/usage_notes/
+  #
+  # https://facelessuser.github.io/pymdown-extensions/extensions/extra/
+  - pymdownx.betterem
   - abbr
   - def_list
   - footnotes
