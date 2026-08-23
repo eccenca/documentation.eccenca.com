@@ -9,3 +9,10 @@ repos:
         entry: task check:rumdl
         language: python
         pass_filenames: false
+
+      - id: nav-drift
+        name: check:nav
+        entry: task check:nav
+        language: python
+        pass_filenames: false
+        files: '(^docs/.*\.pages$|^nav\.yml$|^tools/build_nav\.py$)'

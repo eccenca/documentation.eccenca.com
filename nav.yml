@@ -1,8 +1,8 @@
 nav:
 - Build:
   - Build: build/index.md
-  - Introduction to the User Interface: build/introduction-to-the-user-interface
-  - Integrations: build/integrations
+  - Introduction to the User Interface: build/introduction-to-the-user-interface/index.md
+  - Integrations: build/integrations/index.md
   - Task and Operator Reference:
     - Task and Operator Reference: build/reference/index.md
     - Aggregators:
@@ -39,6 +39,7 @@ nav:
       - Execute Spark function: build/reference/customtask/SparkFunction.md
       - Extract from PDF files: build/reference/customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract.md
       - Generate base36 IRDIs: build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
+      - Generate random values: build/reference/customtask/cmem_plugin_random-GenerateEntities.md
       - Generate SHACL shapes from data: build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
       - Get project files: build/reference/customtask/getProjectFiles.md
       - Get workflow report: build/reference/customtask/cmem_plugin_wfreports_get_report.md
@@ -46,6 +47,7 @@ nav:
       - Join tables: build/reference/customtask/Merge.md
       - jq: build/reference/customtask/cmem-plugin-jq-workflow.md
       - JQL query: build/reference/customtask/cmem_plugin_jira-JqlQuery.md
+      - JSON to File: build/reference/customtask/jsonToFile.md
       - Kafka Consumer (Receive Messages): build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md
       - Kafka Producer (Send Messages): build/reference/customtask/cmem_plugin_kafka-SendMessages.md
       - List Nextcloud files: build/reference/customtask/cmem_plugin_nextcloud-List.md
@@ -66,8 +68,10 @@ nav:
       - Search addresses: build/reference/customtask/SearchAddresses.md
       - Search for Logs: build/reference/customtask/cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
       - Search Vector Embeddings: build/reference/customtask/cmem_plugin_pgvector-Search.md
+      - Select random entities: build/reference/customtask/cmem_plugin_random-SelectEntities.md
       - Send email: build/reference/customtask/SendEMail.md
       - Send Mattermost messages: build/reference/customtask/cmem_plugin_mattermost.md
+      - Set execution variable: build/reference/customtask/setExecutionVariableOperator.md
       - Set or Overwrite parameters: build/reference/customtask/cmem_plugin_parameters-ParametersPlugin.md
       - Set parameters: build/reference/customtask/setParameters.md
       - SHACL validation with pySHACL: build/reference/customtask/shacl-pyshacl.md
@@ -103,7 +107,7 @@ nav:
       - Excel (Google Drive): build/reference/dataset/googlespreadsheet.md
       - Excel (OneDrive, Office365): build/reference/dataset/office365preadsheet.md
       - Hive database: build/reference/dataset/Hive.md
-      - In-memory dataset: build/reference/dataset/inMemory.md
+      - In-memory Knowledge Graph: build/reference/dataset/inMemory.md
       - Internal dataset: build/reference/dataset/internal.md
       - Internal dataset (single graph): build/reference/dataset/LocalInternalDataset.md
       - JSON: build/reference/dataset/json.md
@@ -178,119 +182,119 @@ nav:
         - Parse date pattern: build/reference/transformer/Date/parseDate.md
         - Timestamp to date: build/reference/transformer/Date/timeToDate.md
       - Excel:
-        - Abs: build/reference/transformer/Excel/Excel_ABS.md
-        - Acos: build/reference/transformer/Excel/Excel_ACOS.md
-        - Acosh: build/reference/transformer/Excel/Excel_ACOSH.md
-        - And: build/reference/transformer/Excel/Excel_AND.md
-        - Asin: build/reference/transformer/Excel/Excel_ASIN.md
-        - Asinh: build/reference/transformer/Excel/Excel_ASINH.md
-        - Atan: build/reference/transformer/Excel/Excel_ATAN.md
-        - Atan2: build/reference/transformer/Excel/Excel_ATAN2.md
-        - Atanh: build/reference/transformer/Excel/Excel_ATANH.md
-        - Avedev: build/reference/transformer/Excel/Excel_AVEDEV.md
-        - Average: build/reference/transformer/Excel/Excel_AVERAGE.md
-        - Averagea: build/reference/transformer/Excel/Excel_AVERAGEA.md
-        - Ceiling: build/reference/transformer/Excel/Excel_CEILING.md
-        - Choose: build/reference/transformer/Excel/Excel_CHOOSE.md
-        - Clean: build/reference/transformer/Excel/Excel_CLEAN.md
-        - Code: build/reference/transformer/Excel/Excel_CODE.md
-        - Combin: build/reference/transformer/Excel/Excel_COMBIN.md
-        - Correl: build/reference/transformer/Excel/Excel_CORREL.md
-        - Cos: build/reference/transformer/Excel/Excel_COS.md
-        - Cosh: build/reference/transformer/Excel/Excel_COSH.md
-        - Count: build/reference/transformer/Excel/Excel_COUNT.md
-        - Counta: build/reference/transformer/Excel/Excel_COUNTA.md
-        - Covar: build/reference/transformer/Excel/Excel_COVAR.md
-        - Degrees: build/reference/transformer/Excel/Excel_DEGREES.md
-        - Devsq: build/reference/transformer/Excel/Excel_DEVSQ.md
-        - Even: build/reference/transformer/Excel/Excel_EVEN.md
-        - Exact: build/reference/transformer/Excel/Excel_EXACT.md
-        - Exp: build/reference/transformer/Excel/Excel_EXP.md
-        - Fact: build/reference/transformer/Excel/Excel_FACT.md
-        - 'False': build/reference/transformer/Excel/Excel_FALSE.md
-        - Find: build/reference/transformer/Excel/Excel_FIND.md
-        - Floor: build/reference/transformer/Excel/Excel_FLOOR.md
-        - Forecast: build/reference/transformer/Excel/Excel_FORECAST.md
-        - Fv: build/reference/transformer/Excel/Excel_FV.md
-        - Geomean: build/reference/transformer/Excel/Excel_GEOMEAN.md
-        - If: build/reference/transformer/Excel/Excel_IF.md
-        - Int: build/reference/transformer/Excel/Excel_INT.md
-        - Intercept: build/reference/transformer/Excel/Excel_INTERCEPT.md
-        - Ipmt: build/reference/transformer/Excel/Excel_IPMT.md
-        - Irr: build/reference/transformer/Excel/Excel_IRR.md
-        - Large: build/reference/transformer/Excel/Excel_LARGE.md
-        - Left: build/reference/transformer/Excel/Excel_LEFT.md
-        - Ln: build/reference/transformer/Excel/Excel_LN.md
-        - Log: build/reference/transformer/Excel/Excel_LOG.md
-        - Log10: build/reference/transformer/Excel/Excel_LOG10.md
-        - Max: build/reference/transformer/Excel/Excel_MAX.md
-        - Maxa: build/reference/transformer/Excel/Excel_MAXA.md
-        - Median: build/reference/transformer/Excel/Excel_MEDIAN.md
-        - Mid: build/reference/transformer/Excel/Excel_MID.md
-        - Min: build/reference/transformer/Excel/Excel_MIN.md
-        - Mina: build/reference/transformer/Excel/Excel_MINA.md
-        - Mirr: build/reference/transformer/Excel/Excel_MIRR.md
-        - Mod: build/reference/transformer/Excel/Excel_MOD.md
-        - Mode: build/reference/transformer/Excel/Excel_MODE.md
-        - Normdist: build/reference/transformer/Excel/Excel_NORMDIST.md
-        - Norminv: build/reference/transformer/Excel/Excel_NORMINV.md
-        - Normsdist: build/reference/transformer/Excel/Excel_NORMSDIST.md
-        - Normsinv: build/reference/transformer/Excel/Excel_NORMSINV.md
-        - Not: build/reference/transformer/Excel/Excel_NOT.md
-        - Nper: build/reference/transformer/Excel/Excel_NPER.md
-        - Npv: build/reference/transformer/Excel/Excel_NPV.md
-        - Odd: build/reference/transformer/Excel/Excel_ODD.md
-        - Or: build/reference/transformer/Excel/Excel_OR.md
-        - Pearson: build/reference/transformer/Excel/Excel_PEARSON.md
-        - Percentile: build/reference/transformer/Excel/Excel_PERCENTILE.md
-        - Percentrank: build/reference/transformer/Excel/Excel_PERCENTRANK.md
-        - Pi: build/reference/transformer/Excel/Excel_PI.md
-        - Pmt: build/reference/transformer/Excel/Excel_PMT.md
-        - Poisson: build/reference/transformer/Excel/Excel_POISSON.md
-        - Power: build/reference/transformer/Excel/Excel_POWER.md
-        - Ppmt: build/reference/transformer/Excel/Excel_PPMT.md
-        - Product: build/reference/transformer/Excel/Excel_PRODUCT.md
-        - Proper: build/reference/transformer/Excel/Excel_PROPER.md
-        - Pv: build/reference/transformer/Excel/Excel_PV.md
-        - Radians: build/reference/transformer/Excel/Excel_RADIANS.md
-        - Rand: build/reference/transformer/Excel/Excel_RAND.md
-        - Rank: build/reference/transformer/Excel/Excel_RANK.md
-        - Rate: build/reference/transformer/Excel/Excel_RATE.md
-        - Replace: build/reference/transformer/Excel/Excel_REPLACE.md
-        - Rept: build/reference/transformer/Excel/Excel_REPT.md
-        - Right: build/reference/transformer/Excel/Excel_RIGHT.md
-        - Roman: build/reference/transformer/Excel/Excel_ROMAN.md
-        - Round: build/reference/transformer/Excel/Excel_ROUND.md
-        - Rounddown: build/reference/transformer/Excel/Excel_ROUNDDOWN.md
-        - Roundup: build/reference/transformer/Excel/Excel_ROUNDUP.md
-        - Search: build/reference/transformer/Excel/Excel_SEARCH.md
-        - Sign: build/reference/transformer/Excel/Excel_SIGN.md
-        - Sin: build/reference/transformer/Excel/Excel_SIN.md
-        - Sinh: build/reference/transformer/Excel/Excel_SINH.md
-        - Slope: build/reference/transformer/Excel/Excel_SLOPE.md
-        - Small: build/reference/transformer/Excel/Excel_SMALL.md
-        - Sqrt: build/reference/transformer/Excel/Excel_SQRT.md
-        - Standardize: build/reference/transformer/Excel/Excel_STANDARDIZE.md
-        - Stdev: build/reference/transformer/Excel/Excel_STDEV.md
-        - Stdeva: build/reference/transformer/Excel/Excel_STDEVA.md
-        - Stdevp: build/reference/transformer/Excel/Excel_STDEVP.md
-        - Stdevpa: build/reference/transformer/Excel/Excel_STDEVPA.md
-        - Substitute: build/reference/transformer/Excel/Excel_SUBSTITUTE.md
-        - Sum: build/reference/transformer/Excel/Excel_SUM.md
-        - Sumproduct: build/reference/transformer/Excel/Excel_SUMPRODUCT.md
-        - Sumsq: build/reference/transformer/Excel/Excel_SUMSQ.md
-        - Sumx2my2: build/reference/transformer/Excel/Excel_SUMX2MY2.md
-        - Sumx2py2: build/reference/transformer/Excel/Excel_SUMX2PY2.md
-        - Sumxmy2: build/reference/transformer/Excel/Excel_SUMXMY2.md
-        - Tan: build/reference/transformer/Excel/Excel_TAN.md
-        - Tanh: build/reference/transformer/Excel/Excel_TANH.md
-        - Tdist: build/reference/transformer/Excel/Excel_TDIST.md
-        - 'True': build/reference/transformer/Excel/Excel_TRUE.md
-        - Trunc: build/reference/transformer/Excel/Excel_TRUNC.md
-        - Var: build/reference/transformer/Excel/Excel_VAR.md
-        - Vara: build/reference/transformer/Excel/Excel_VARA.md
-        - Varp: build/reference/transformer/Excel/Excel_VARP.md
-        - Varpa: build/reference/transformer/Excel/Excel_VARPA.md
+        - Excel Abs: build/reference/transformer/Excel/Excel_ABS.md
+        - Excel Acos: build/reference/transformer/Excel/Excel_ACOS.md
+        - Excel Acosh: build/reference/transformer/Excel/Excel_ACOSH.md
+        - Excel And: build/reference/transformer/Excel/Excel_AND.md
+        - Excel Asin: build/reference/transformer/Excel/Excel_ASIN.md
+        - Excel Asinh: build/reference/transformer/Excel/Excel_ASINH.md
+        - Excel Atan: build/reference/transformer/Excel/Excel_ATAN.md
+        - Excel Atan2: build/reference/transformer/Excel/Excel_ATAN2.md
+        - Excel Atanh: build/reference/transformer/Excel/Excel_ATANH.md
+        - Excel Avedev: build/reference/transformer/Excel/Excel_AVEDEV.md
+        - Excel Average: build/reference/transformer/Excel/Excel_AVERAGE.md
+        - Excel Averagea: build/reference/transformer/Excel/Excel_AVERAGEA.md
+        - Excel Ceiling: build/reference/transformer/Excel/Excel_CEILING.md
+        - Excel Choose: build/reference/transformer/Excel/Excel_CHOOSE.md
+        - Excel Clean: build/reference/transformer/Excel/Excel_CLEAN.md
+        - Excel Code: build/reference/transformer/Excel/Excel_CODE.md
+        - Excel Combin: build/reference/transformer/Excel/Excel_COMBIN.md
+        - Excel Correl: build/reference/transformer/Excel/Excel_CORREL.md
+        - Excel Cos: build/reference/transformer/Excel/Excel_COS.md
+        - Excel Cosh: build/reference/transformer/Excel/Excel_COSH.md
+        - Excel Count: build/reference/transformer/Excel/Excel_COUNT.md
+        - Excel Counta: build/reference/transformer/Excel/Excel_COUNTA.md
+        - Excel Covar: build/reference/transformer/Excel/Excel_COVAR.md
+        - Excel Degrees: build/reference/transformer/Excel/Excel_DEGREES.md
+        - Excel Devsq: build/reference/transformer/Excel/Excel_DEVSQ.md
+        - Excel Even: build/reference/transformer/Excel/Excel_EVEN.md
+        - Excel Exact: build/reference/transformer/Excel/Excel_EXACT.md
+        - Excel Exp: build/reference/transformer/Excel/Excel_EXP.md
+        - Excel Fact: build/reference/transformer/Excel/Excel_FACT.md
+        - Excel False: build/reference/transformer/Excel/Excel_FALSE.md
+        - Excel Find: build/reference/transformer/Excel/Excel_FIND.md
+        - Excel Floor: build/reference/transformer/Excel/Excel_FLOOR.md
+        - Excel Forecast: build/reference/transformer/Excel/Excel_FORECAST.md
+        - Excel Fv: build/reference/transformer/Excel/Excel_FV.md
+        - Excel Geomean: build/reference/transformer/Excel/Excel_GEOMEAN.md
+        - Excel If: build/reference/transformer/Excel/Excel_IF.md
+        - Excel Int: build/reference/transformer/Excel/Excel_INT.md
+        - Excel Intercept: build/reference/transformer/Excel/Excel_INTERCEPT.md
+        - Excel Ipmt: build/reference/transformer/Excel/Excel_IPMT.md
+        - Excel Irr: build/reference/transformer/Excel/Excel_IRR.md
+        - Excel Large: build/reference/transformer/Excel/Excel_LARGE.md
+        - Excel Left: build/reference/transformer/Excel/Excel_LEFT.md
+        - Excel Ln: build/reference/transformer/Excel/Excel_LN.md
+        - Excel Log: build/reference/transformer/Excel/Excel_LOG.md
+        - Excel Log10: build/reference/transformer/Excel/Excel_LOG10.md
+        - Excel Max: build/reference/transformer/Excel/Excel_MAX.md
+        - Excel Maxa: build/reference/transformer/Excel/Excel_MAXA.md
+        - Excel Median: build/reference/transformer/Excel/Excel_MEDIAN.md
+        - Excel Mid: build/reference/transformer/Excel/Excel_MID.md
+        - Excel Min: build/reference/transformer/Excel/Excel_MIN.md
+        - Excel Mina: build/reference/transformer/Excel/Excel_MINA.md
+        - Excel Mirr: build/reference/transformer/Excel/Excel_MIRR.md
+        - Excel Mod: build/reference/transformer/Excel/Excel_MOD.md
+        - Excel Mode: build/reference/transformer/Excel/Excel_MODE.md
+        - Excel Normdist: build/reference/transformer/Excel/Excel_NORMDIST.md
+        - Excel Norminv: build/reference/transformer/Excel/Excel_NORMINV.md
+        - Excel Normsdist: build/reference/transformer/Excel/Excel_NORMSDIST.md
+        - Excel Normsinv: build/reference/transformer/Excel/Excel_NORMSINV.md
+        - Excel Not: build/reference/transformer/Excel/Excel_NOT.md
+        - Excel Nper: build/reference/transformer/Excel/Excel_NPER.md
+        - Excel Npv: build/reference/transformer/Excel/Excel_NPV.md
+        - Excel Odd: build/reference/transformer/Excel/Excel_ODD.md
+        - Excel Or: build/reference/transformer/Excel/Excel_OR.md
+        - Excel Pearson: build/reference/transformer/Excel/Excel_PEARSON.md
+        - Excel Percentile: build/reference/transformer/Excel/Excel_PERCENTILE.md
+        - Excel Percentrank: build/reference/transformer/Excel/Excel_PERCENTRANK.md
+        - Excel Pi: build/reference/transformer/Excel/Excel_PI.md
+        - Excel Pmt: build/reference/transformer/Excel/Excel_PMT.md
+        - Excel Poisson: build/reference/transformer/Excel/Excel_POISSON.md
+        - Excel Power: build/reference/transformer/Excel/Excel_POWER.md
+        - Excel Ppmt: build/reference/transformer/Excel/Excel_PPMT.md
+        - Excel Product: build/reference/transformer/Excel/Excel_PRODUCT.md
+        - Excel Proper: build/reference/transformer/Excel/Excel_PROPER.md
+        - Excel Pv: build/reference/transformer/Excel/Excel_PV.md
+        - Excel Radians: build/reference/transformer/Excel/Excel_RADIANS.md
+        - Excel Rand: build/reference/transformer/Excel/Excel_RAND.md
+        - Excel Rank: build/reference/transformer/Excel/Excel_RANK.md
+        - Excel Rate: build/reference/transformer/Excel/Excel_RATE.md
+        - Excel Replace: build/reference/transformer/Excel/Excel_REPLACE.md
+        - Excel Rept: build/reference/transformer/Excel/Excel_REPT.md
+        - Excel Right: build/reference/transformer/Excel/Excel_RIGHT.md
+        - Excel Roman: build/reference/transformer/Excel/Excel_ROMAN.md
+        - Excel Round: build/reference/transformer/Excel/Excel_ROUND.md
+        - Excel Rounddown: build/reference/transformer/Excel/Excel_ROUNDDOWN.md
+        - Excel Roundup: build/reference/transformer/Excel/Excel_ROUNDUP.md
+        - Excel Search: build/reference/transformer/Excel/Excel_SEARCH.md
+        - Excel Sign: build/reference/transformer/Excel/Excel_SIGN.md
+        - Excel Sin: build/reference/transformer/Excel/Excel_SIN.md
+        - Excel Sinh: build/reference/transformer/Excel/Excel_SINH.md
+        - Excel Slope: build/reference/transformer/Excel/Excel_SLOPE.md
+        - Excel Small: build/reference/transformer/Excel/Excel_SMALL.md
+        - Excel Sqrt: build/reference/transformer/Excel/Excel_SQRT.md
+        - Excel Standardize: build/reference/transformer/Excel/Excel_STANDARDIZE.md
+        - Excel Stdev: build/reference/transformer/Excel/Excel_STDEV.md
+        - Excel Stdeva: build/reference/transformer/Excel/Excel_STDEVA.md
+        - Excel Stdevp: build/reference/transformer/Excel/Excel_STDEVP.md
+        - Excel Stdevpa: build/reference/transformer/Excel/Excel_STDEVPA.md
+        - Excel Substitute: build/reference/transformer/Excel/Excel_SUBSTITUTE.md
+        - Excel Sum: build/reference/transformer/Excel/Excel_SUM.md
+        - Excel Sumproduct: build/reference/transformer/Excel/Excel_SUMPRODUCT.md
+        - Excel Sumsq: build/reference/transformer/Excel/Excel_SUMSQ.md
+        - Excel Sumx2my2: build/reference/transformer/Excel/Excel_SUMX2MY2.md
+        - Excel Sumx2py2: build/reference/transformer/Excel/Excel_SUMX2PY2.md
+        - Excel Sumxmy2: build/reference/transformer/Excel/Excel_SUMXMY2.md
+        - Excel Tan: build/reference/transformer/Excel/Excel_TAN.md
+        - Excel Tanh: build/reference/transformer/Excel/Excel_TANH.md
+        - Excel Tdist: build/reference/transformer/Excel/Excel_TDIST.md
+        - Excel True: build/reference/transformer/Excel/Excel_TRUE.md
+        - Excel Trunc: build/reference/transformer/Excel/Excel_TRUNC.md
+        - Excel Var: build/reference/transformer/Excel/Excel_VAR.md
+        - Excel Vara: build/reference/transformer/Excel/Excel_VARA.md
+        - Excel Varp: build/reference/transformer/Excel/Excel_VARP.md
+        - Excel Varpa: build/reference/transformer/Excel/Excel_VARPA.md
       - Extract:
         - Regex extract: build/reference/transformer/Extract/regexExtract.md
       - Filter:
@@ -355,6 +359,9 @@ nav:
         - Map with default: build/reference/transformer/Replace/mapWithDefaultInput.md
         - Regex replace: build/reference/transformer/Replace/regexReplace.md
         - Replace: build/reference/transformer/Replace/replace.md
+      - SPARQL:
+        - Escape SPARQL multiline literal: build/reference/transformer/SPARQL/escape_multiline_literal.md
+        - Escape SPARQL plain literal: build/reference/transformer/SPARQL/escape_literal.md
       - Selection:
         - Coalesce (first non-empty input): build/reference/transformer/Selection/coalesce.md
         - Regex selection: build/reference/transformer/Selection/regexSelect.md
@@ -377,19 +384,22 @@ nav:
       - Uncategorized:
         - Convert currency values: build/reference/transformer/Uncategorized/cmem_plugin_currencies-transform.md
         - jq: build/reference/transformer/Uncategorized/cmem-plugin-jq-transform.md
+        - Random value: build/reference/transformer/Uncategorized/cmem_plugin_random-GenerateValues.md
       - Validation:
         - Validate date after: build/reference/transformer/Validation/validateDateAfter.md
         - Validate date range: build/reference/transformer/Validation/validateDateRange.md
         - Validate number of values: build/reference/transformer/Validation/validateNumberOfValues.md
         - Validate numeric range: build/reference/transformer/Validation/validateNumericRange.md
         - Validate regex: build/reference/transformer/Validation/validateRegex.md
+        - Validate URI: build/reference/transformer/Validation/validate_uri.md
       - Value:
+        - Combined input hash: build/reference/transformer/Value/inputHash.md
         - Constant: build/reference/transformer/Value/constant.md
         - Constant URI: build/reference/transformer/Value/constantUri.md
         - Dataset parameter: build/reference/transformer/Value/datasetParameter.md
         - Default Value: build/reference/transformer/Value/defaultValue.md
         - Empty value: build/reference/transformer/Value/emptyValue.md
-        - Input hash: build/reference/transformer/Value/inputHash.md
+        - Per-value hash: build/reference/transformer/Value/perValueHash.md
         - Random number: build/reference/transformer/Value/randomNumber.md
         - Read parameter: build/reference/transformer/Value/readParameter.md
         - ULID: build/reference/transformer/Value/cmem-plugin-ulid.md
@@ -404,34 +414,43 @@ nav:
         - UUID6: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID6.md
         - UUID7: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID7.md
         - UUID8: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8.md
-  - Mapping Creator: build/mapping-creator
-  - Rule Operators: build/rule-operators
-  - Define Prefixes / Namespaces: build/define-prefixes-namespaces
-  - Cool IRIs: build/cool-iris
-  - Lift Tabular Data: build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables
-  - Lift Hierarchical Data: build/lift-data-from-json-and-xml-sources
-  - Lift Web API Data: build/extracting-data-from-a-web-api
-  - Workflows: build/workflows
-  - Incremental Database Loading: build/loading-jdbc-datasets-incrementally
-  - Connect to Snowflake: build/snowflake-tutorial
-  - Active learning: build/active-learning
-  - Link Intrusion Detection Systems to Open-Source INTelligence: build/tutorial-how-to-link-ids-to-osint
-  - Project and Global Variables: build/variables
-  - Evaluate Template Operator: build/evaluate-template
-  - Build Knowledge Graphs from Kafka Topics: build/kafka-consumer
-  - Spark: build/spark
-- Explore and Author:
-  - Explore and Author: explore-and-author/index.md
-  - Workspace Selection and Configuration: explore-and-author/workspace-configuration
-  - Graph Exploration:
+      - Variables:
+        - Set execution variable: build/reference/transformer/Variables/setExecutionVariable.md
+  - Mapping Creator: build/mapping-creator/index.md
+  - Rule Operators: build/rule-operators/index.md
+  - Rule Blocks: build/rule-blocks/index.md
+  - Define Prefixes / Namespaces: build/define-prefixes-namespaces/index.md
+  - Cool IRIs: build/cool-iris/index.md
+  - Lift Tabular Data: build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md
+  - Lift Hierarchical Data: build/lift-data-from-json-and-xml-sources/index.md
+  - Lift Web API Data: build/extracting-data-from-a-web-api/index.md
+  - Workflows: build/workflows/index.md
+  - Incremental Database Loading: build/loading-jdbc-datasets-incrementally/index.md
+  - Connect to Snowflake: build/snowflake-tutorial/index.md
+  - Active learning: build/active-learning/index.md
+  - Link Intrusion Detection Systems to Open-Source INTelligence:
+    - build/tutorial-how-to-link-ids-to-osint/index.md
+    - Define the interfaces: build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/index.md
+    - Define the need: build/tutorial-how-to-link-ids-to-osint/define-the-need/index.md
+    - lift data from STIX 2.1 data of mitre attack: build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/index.md
+    - lift data from YAML data of hayabusa sigma: build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/index.md
+    - link IDS event to KG: build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/index.md
+    - link IDS event to KG via cmem: build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/index.md
+  - Project and Global Variables: build/variables/index.md
+  - Evaluate Template Operator: build/evaluate-template/index.md
+  - Build Knowledge Graphs from Kafka Topics: build/kafka-consumer/index.md
+  - Spark: build/spark/index.md
+- Explore:
+  - Explore: explore-and-author/index.md
+  - Knowledge graphs:
     - Graph Exploration: explore-and-author/graph-exploration/index.md
     - Building a Customized User Interface:
       - Building a Customized User Interface: explore-and-author/graph-exploration/building-a-customized-user-interface/index.md
-      - Workflow Trigger: explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger
-      - Node Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes
-      - Property Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes
-      - Datatypes: explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference
-      - SPARQL Constraints: explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints
+      - Workflow Trigger: explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/index.md
+      - Node Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/index.md
+      - Property Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/index.md
+      - Datatypes: explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/index.md
+      - SPARQL Constraints: explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/index.md
     - Graph Insights:
       - explore-and-author/graph-exploration/graph-insights/index.md
       - Core Concepts: explore-and-author/graph-exploration/graph-insights/concepts.md
@@ -447,41 +466,49 @@ nav:
         - Connections: explore-and-author/graph-exploration/graph-insights/features/connections.md
         - Persistence: explore-and-author/graph-exploration/graph-insights/features/persistence.md
       - Navigating to Corporate Memory: explore-and-author/graph-exploration/graph-insights/navigating-to-cmem.md
-    - Statement Annotations: explore-and-author/graph-exploration/statement-annotations
-    - Versioning of Graph Changes: explore-and-author/graph-exploration/versioning-of-graph-changes
-  - Companion: explore-and-author/companion
-  - Business Knowledge Editor Module: explore-and-author/bke-module
-  - Query Module: explore-and-author/query-module
-  - Thesauri Management: explore-and-author/thesauri-management
-  - Vocabulary Catalog: explore-and-author/vocabulary-catalog
-  - Charts Catalog: explore-and-author/charts-catalog
-  - Link Rules: explore-and-author/link-rules
-  - Embedding Services via the Integrations Module: explore-and-author/embedding-services-via-the-integrations-module
+    - Statement Annotations: explore-and-author/graph-exploration/statement-annotations/index.md
+    - Versioning of Graph Changes: explore-and-author/graph-exploration/versioning-of-graph-changes/index.md
+  - Business knowledge editor:
+    - explore-and-author/bke-module/index.md
+    - Visually authoring ontologies: explore-and-author/bke-module/visually-authoring-ontologies/index.md
+  - Queries: explore-and-author/query-module/index.md
+  - Thesauri: explore-and-author/thesauri-management/index.md
+  - Charts: explore-and-author/charts-catalog/index.md
+  - Companion AI chat: explore-and-author/companion/index.md
+  - Services integrations: explore-and-author/embedding-services-via-the-integrations-module/index.md
+  - Link rules: explore-and-author/link-rules/index.md
+  - Application view: explore-and-author/workspace-configuration/index.md
 - Consume:
   - Consume: consume/index.md
-  - Consuming Graphs in Power&nbsp;BI: consume/consuming-graphs-in-power-bi
-  - Consuming Graphs in Redash: consume/consuming-graphs-with-redash
-  - Consuming Graphs with SQL Databases: consume/consuming-graphs-with-sql-databases
-  - Provide Data in any Format via a Custom API: consume/provide-data-in-any-format-via-a-custom-api
-  - Populate Data to Neo4j: consume/populate-data-to-neo4j
-  - Populate Data to Apache Kafka: consume/consume-graphs-in-apache-kafka
+  - Consuming Graphs in Power&nbsp;BI: consume/consuming-graphs-in-power-bi/index.md
+  - Consuming Graphs in Redash: consume/consuming-graphs-with-redash/index.md
+  - Consuming Graphs with SQL Databases: consume/consuming-graphs-with-sql-databases/index.md
+  - Provide Data in any Format via a Custom API: consume/provide-data-in-any-format-via-a-custom-api/index.md
+  - Populate Data to Neo4j: consume/populate-data-to-neo4j/index.md
+  - Populate Data to Apache Kafka: consume/consume-graphs-in-apache-kafka/index.md
+- Distribution:
+  - Distribution: distribution/index.md
+  - Marketplace: distribution/marketplace/index.md
 - Deploy and Configure:
   - Deploy and Configure: deploy-and-configure/index.md
-  - System Architecture: deploy-and-configure/system-architecture
-  - Requirements: deploy-and-configure/requirements
+  - System Architecture: deploy-and-configure/system-architecture/index.md
+  - Requirements:
+    - deploy-and-configure/requirements/index.md
+    - deploy-and-configure/requirements/graph-insights-sizing.md
+    - deploy-and-configure/requirements/triple-store-hardware-sizing.md
   - Installation:
     - Installation: deploy-and-configure/installation/index.md
-    - 'Scenario: Single Node Cloud Installation': deploy-and-configure/installation/scenario-single-node-cloud-installation
-    - 'Scenario: Local Installation': deploy-and-configure/installation/scenario-local-installation
-    - 'Scenario: Kubernetes Deployment': deploy-and-configure/installation/scenario-k8s-deployment
-    - Migrating Stores: deploy-and-configure/installation/migrating-stores
+    - 'Scenario: Single Node Cloud Installation': deploy-and-configure/installation/scenario-single-node-cloud-installation/index.md
+    - 'Scenario: Local Installation': deploy-and-configure/installation/scenario-local-installation/index.md
+    - 'Scenario: Kubernetes Deployment': deploy-and-configure/installation/scenario-k8s-deployment/index.md
+    - Migrating Stores: deploy-and-configure/installation/migrating-stores/index.md
   - Configuration:
     - Configuration: deploy-and-configure/configuration/index.md
-    - Docker Orchestration: deploy-and-configure/configuration/docker-orchestration
+    - Docker Orchestration: deploy-and-configure/configuration/docker-orchestration/index.md
     - Build:
       - Build (DataIntegration): deploy-and-configure/configuration/dataintegration/index.md
-      - Adding JDBC drivers: deploy-and-configure/configuration/dataintegration/jdbc
-      - Activity Reference: deploy-and-configure/configuration/dataintegration/activity-reference
+      - Adding JDBC drivers: deploy-and-configure/configuration/dataintegration/jdbc/index.md
+      - Activity Reference: deploy-and-configure/configuration/dataintegration/activity-reference/index.md
     - Explore:
       - Explore: deploy-and-configure/configuration/explore/index.md
       - Explore backend:
@@ -492,80 +519,117 @@ nav:
           - GraphDB: deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full.md
           - HTTP: deploy-and-configure/configuration/explore/dataplatform/application-http-full.md
           - In-Memory: deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full.md
-          - Neptune: deploy-and-configure/configuration/explore/dataplatform/application-neptune-full.md
           - Virtuoso: deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full.md
-      - deploy-and-configure/configuration/explore/graph-resource-pattern
-    - Graph Insights: deploy-and-configure/configuration/graphinsights
+      - deploy-and-configure/configuration/explore/graph-resource-pattern/index.md
+    - Graph Insights: deploy-and-configure/configuration/graphinsights/index.md
     - Keycloak:
       - Keycloak: deploy-and-configure/configuration/keycloak/index.md
-      - Changing Passwords and Keys: deploy-and-configure/configuration/keycloak/change-passwords-and-keys
-      - Using an external Keycloak: deploy-and-configure/configuration/keycloak/using-external-keycloak
-    - Quad-Store: deploy-and-configure/configuration/quad-store-configuration
-    - Reverse Proxy: deploy-and-configure/configuration/reverse-proxy
-    - Access Conditions: deploy-and-configure/configuration/access-conditions
-    - Label Resolution and Full-Text Search: deploy-and-configure/configuration/label-resolution-and-full-text-search
-    - Production-Ready Settings: deploy-and-configure/configuration/production-ready-settings
-    - Caveats: deploy-and-configure/configuration/caveats
+      - Changing Passwords and Keys: deploy-and-configure/configuration/keycloak/change-passwords-and-keys/index.md
+      - Using an external Keycloak: deploy-and-configure/configuration/keycloak/using-external-keycloak/index.md
+    - Quad-Store: deploy-and-configure/configuration/quad-store-configuration/index.md
+    - Reverse Proxy: deploy-and-configure/configuration/reverse-proxy/index.md
+    - Access Conditions: deploy-and-configure/configuration/access-conditions/index.md
+    - Label Resolution and Full-Text Search: deploy-and-configure/configuration/label-resolution-and-full-text-search/index.md
+    - Production-Ready Settings: deploy-and-configure/configuration/production-ready-settings/index.md
+    - Caveats: deploy-and-configure/configuration/caveats/index.md
 - Automate:
   - Automate: automate/index.md
   - cmemc:
     - cmemc - Command Line Interface: automate/cmemc-command-line-interface/index.md
-    - Installation: automate/cmemc-command-line-interface/installation
+    - Installation: automate/cmemc-command-line-interface/installation/index.md
     - Configuration:
       - Configuration: automate/cmemc-command-line-interface/configuration/index.md
-      - File-based: automate/cmemc-command-line-interface/configuration/file-based-configuration
-      - Environment-based: automate/cmemc-command-line-interface/configuration/environment-based-configuration
-      - Completion Setup: automate/cmemc-command-line-interface/configuration/completion-setup
-      - Getting Credentials: automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes
-      - Certificate Handling: automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification
+      - File-based: automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md
+      - Environment-based: automate/cmemc-command-line-interface/configuration/environment-based-configuration/index.md
+      - Completion Setup: automate/cmemc-command-line-interface/configuration/completion-setup/index.md
+      - Getting Credentials: automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/index.md
+      - Certificate Handling: automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/index.md
     - Invocation:
       - Invocation: automate/cmemc-command-line-interface/invocation/index.md
-      - Docker Image: automate/cmemc-command-line-interface/invocation/docker-image
-      - Github Action: automate/cmemc-command-line-interface/invocation/github-action
-      - Gitlab Pipeline: automate/cmemc-command-line-interface/invocation/gitlab-pipeline
-      - SPARQL Scripts: automate/cmemc-command-line-interface/invocation/sparql-scripts
-    - Workflow Execution: automate/cmemc-command-line-interface/workflow-execution-and-orchestration
-    - Troubleshooting: automate/cmemc-command-line-interface/troubleshooting-and-caveats
-    - Command Reference: automate/cmemc-command-line-interface/command-reference
-  - Processing Data with variable input Workflows: automate/processing-data-with-variable-input-workflows
-  - Scheduling Workflows: automate/scheduling-workflows
-  - Continuous Integration: automate/continuous-integration
+      - Docker Image: automate/cmemc-command-line-interface/invocation/docker-image/index.md
+      - Github Action: automate/cmemc-command-line-interface/invocation/github-action/index.md
+      - Gitlab Pipeline: automate/cmemc-command-line-interface/invocation/gitlab-pipeline/index.md
+      - SPARQL Scripts: automate/cmemc-command-line-interface/invocation/sparql-scripts/index.md
+    - Finding and Filtering Objects: automate/cmemc-command-line-interface/finding-and-filtering-objects/index.md
+    - Scripting with cmemc: automate/cmemc-command-line-interface/scripting-with-cmemc/index.md
+    - Workflow Execution: automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md
+    - Backup and Restore: automate/cmemc-command-line-interface/backup-and-restore/index.md
+    - Troubleshooting: automate/cmemc-command-line-interface/troubleshooting-and-caveats/index.md
+    - Command Reference:
+      - automate/cmemc-command-line-interface/command-reference/index.md
+      - Admin:
+        - automate/cmemc-command-line-interface/command-reference/admin/index.md
+        - Acl: automate/cmemc-command-line-interface/command-reference/admin/acl/index.md
+        - Client: automate/cmemc-command-line-interface/command-reference/admin/client/index.md
+        - Metrics: automate/cmemc-command-line-interface/command-reference/admin/metrics/index.md
+        - Migration: automate/cmemc-command-line-interface/command-reference/admin/migration/index.md
+        - Store: automate/cmemc-command-line-interface/command-reference/admin/store/index.md
+        - User: automate/cmemc-command-line-interface/command-reference/admin/user/index.md
+        - View: automate/cmemc-command-line-interface/command-reference/admin/view/index.md
+        - Workspace:
+          - automate/cmemc-command-line-interface/command-reference/admin/workspace/index.md
+          - Python: automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md
+      - Config: automate/cmemc-command-line-interface/command-reference/config/index.md
+      - Dataset: automate/cmemc-command-line-interface/command-reference/dataset/index.md
+      - Graph:
+        - automate/cmemc-command-line-interface/command-reference/graph/index.md
+        - Imports: automate/cmemc-command-line-interface/command-reference/graph/imports/index.md
+        - Insights: automate/cmemc-command-line-interface/command-reference/graph/insights/index.md
+        - Validation: automate/cmemc-command-line-interface/command-reference/graph/validation/index.md
+      - Package: automate/cmemc-command-line-interface/command-reference/package/index.md
+      - Project:
+        - automate/cmemc-command-line-interface/command-reference/project/index.md
+        - File: automate/cmemc-command-line-interface/command-reference/project/file/index.md
+        - Variable: automate/cmemc-command-line-interface/command-reference/project/variable/index.md
+      - Query: automate/cmemc-command-line-interface/command-reference/query/index.md
+      - Vocabulary:
+        - automate/cmemc-command-line-interface/command-reference/vocabulary/index.md
+        - Cache: automate/cmemc-command-line-interface/command-reference/vocabulary/cache/index.md
+      - Workflow:
+        - automate/cmemc-command-line-interface/command-reference/workflow/index.md
+        - Scheduler: automate/cmemc-command-line-interface/command-reference/workflow/scheduler/index.md
+  - Processing Data with variable input Workflows: automate/processing-data-with-variable-input-workflows/index.md
+  - Scheduling Workflows: automate/scheduling-workflows/index.md
+  - Continuous Integration: automate/continuous-integration/index.md
 - Develop:
   - Develop: develop/index.md
-  - Accessing Graphs with Java Applications: develop/accessing-graphs-with-java-applications
+  - Accessing Graphs with Java Applications: develop/accessing-graphs-with-java-applications/index.md
   - Python Plugins:
     - Python Plugins: develop/python-plugins/index.md
-    - Installation and Usage: develop/python-plugins/installation
-    - Development: develop/python-plugins/development
-    - Setup and Configuration: develop/python-plugins/setup
+    - Installation and Usage: develop/python-plugins/installation/index.md
+    - Development: develop/python-plugins/development/index.md
+    - Setup and Configuration: develop/python-plugins/setup/index.md
   - Marketplace Packages:
-    - Marketplace Packages: develop/marketplace-packages/index.md
-    - Installation and Management: develop/marketplace-packages/installation
-    - Development and Publication: develop/marketplace-packages/development
-  - cmempy - Python API: develop/cmempy-python-api
-  - cmemc - Python Scripts: develop/cmemc-scripts
-  - Build (DataIntegration) APIs: develop/dataintegration-apis
-  - Explore backend APIs: develop/dataplatform-apis
+    - Marketplace Packages: develop/packages/index.md
+    - Installation and Management: develop/packages/installation/index.md
+    - Development and Publication:
+      - Development and Publication: develop/packages/development/index.md
+      - Tutorial: develop/packages/development/tutorial/index.md
+  - cmempy - Python API: develop/cmempy-python-api/index.md
+  - cmemc - Python Scripts: develop/cmemc-scripts/index.md
+  - Build (DataIntegration) APIs: develop/dataintegration-apis/index.md
+  - Explore backend APIs: develop/dataplatform-apis/index.md
 - Release Notes:
-  - Corporate Memory 26.1.1: release-notes/corporate-memory-26-1
-  - Corporate Memory 25.3.4: release-notes/corporate-memory-25-3
-  - Corporate Memory 25.2.7: release-notes/corporate-memory-25-2
-  - Corporate Memory 25.1.2: release-notes/corporate-memory-25-1
-  - Corporate Memory 24.3.2: release-notes/corporate-memory-24-3
-  - Corporate Memory 24.2.1: release-notes/corporate-memory-24-2
-  - Corporate Memory 24.1.3: release-notes/corporate-memory-24-1
-  - Corporate Memory 23.3.2: release-notes/corporate-memory-23-3
-  - Corporate Memory 23.2.1: release-notes/corporate-memory-23-2
-  - Corporate Memory 23.1.3: release-notes/corporate-memory-23-1
-  - Corporate Memory 22.2.3: release-notes/corporate-memory-22-2
-  - Corporate Memory 22.1: release-notes/corporate-memory-22-1
-  - Corporate Memory 21.11: release-notes/corporate-memory-21-11
-  - Corporate Memory 21.06: release-notes/corporate-memory-21-06
-  - Corporate Memory 21.04: release-notes/corporate-memory-21-04
-  - Corporate Memory 21.02: release-notes/corporate-memory-21-02
-  - Corporate Memory 20.12: release-notes/corporate-memory-20-12
-  - Corporate Memory 20.10: release-notes/corporate-memory-20-10
-  - Corporate Memory 20.06: release-notes/corporate-memory-20-06
-  - Corporate Memory 20.03: release-notes/corporate-memory-20-03
-  - Corporate Memory 19.10: release-notes/corporate-memory-19-10
-- Tutorials: tutorials
+  - Corporate Memory 26.2.0: release-notes/corporate-memory-26-2/index.md
+  - Corporate Memory 26.1.3: release-notes/corporate-memory-26-1/index.md
+  - Corporate Memory 25.3.4: release-notes/corporate-memory-25-3/index.md
+  - Corporate Memory 25.2.7: release-notes/corporate-memory-25-2/index.md
+  - Corporate Memory 25.1.2: release-notes/corporate-memory-25-1/index.md
+  - Corporate Memory 24.3.2: release-notes/corporate-memory-24-3/index.md
+  - Corporate Memory 24.2.1: release-notes/corporate-memory-24-2/index.md
+  - Corporate Memory 24.1.3: release-notes/corporate-memory-24-1/index.md
+  - Corporate Memory 23.3.2: release-notes/corporate-memory-23-3/index.md
+  - Corporate Memory 23.2.1: release-notes/corporate-memory-23-2/index.md
+  - Corporate Memory 23.1.3: release-notes/corporate-memory-23-1/index.md
+  - Corporate Memory 22.2.3: release-notes/corporate-memory-22-2/index.md
+  - Corporate Memory 22.1: release-notes/corporate-memory-22-1/index.md
+  - Corporate Memory 21.11: release-notes/corporate-memory-21-11/index.md
+  - Corporate Memory 21.06: release-notes/corporate-memory-21-06/index.md
+  - Corporate Memory 21.04: release-notes/corporate-memory-21-04/index.md
+  - Corporate Memory 21.02: release-notes/corporate-memory-21-02/index.md
+  - Corporate Memory 20.12: release-notes/corporate-memory-20-12/index.md
+  - Corporate Memory 20.10: release-notes/corporate-memory-20-10/index.md
+  - Corporate Memory 20.06: release-notes/corporate-memory-20-06/index.md
+  - Corporate Memory 20.03: release-notes/corporate-memory-20-03/index.md
+  - Corporate Memory 19.10: release-notes/corporate-memory-19-10/index.md
+- Tutorials: tutorials/index.md

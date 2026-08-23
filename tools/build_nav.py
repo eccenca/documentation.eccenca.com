@@ -24,9 +24,69 @@ def expand_dir(title: str | None, abs_dir: Path, docs_rel: Path) -> object:
     if pages and "nav" in pages and pages["nav"]:
         children = build_nav_list(pages["nav"], abs_dir, docs_rel)
         return {title: children} if title is not None else children
-    # No nav — emit a bare directory reference (zensical auto-discovers)
-    path_str = str(docs_rel).replace("\\", "/")
-    return {title: path_str} if title is not None else path_str
+    # No .pages nav in this directory, so discover its contents.
+    #
+    # This used to emit a bare directory reference on the assumption that
+    # Zensical auto-discovers what is inside. It does not - a bare directory is
+    # never resolved to a page object, which costs the entry its `icon:` front
+    # matter, leaves the target page with no active nav position (making the
+    # whole left sidebar render empty under `navigation.tabs`), and drops every
+    # other page in the directory from the navigation entirely.
+    #
+    # On `main` this worked because there is no `nav:` at all: MkDocs walks the
+    # docs tree itself and `.pages` only reorders what it finds. Here `nav.yml`
+    # is the complete navigation, so the walk has to happen at generation time
+    # or those pages become unreachable. The ordering below mirrors MkDocs'
+    # automatic navigation: index page first, then remaining Markdown files,
+    # then subdirectories, each group sorted by name.
+    children = discover_dir(abs_dir, docs_rel)
+    if not children:
+        path_str = str(docs_rel).replace("\\", "/")
+        return {title: path_str} if title is not None else path_str
+    if len(children) == 1 and isinstance(children[0], str):
+        # A lone index page stays a plain link rather than a one-item section.
+        return {title: children[0]} if title is not None else children[0]
+    return {title: children} if title is not None else children
+
+
+def dir_title(name: str) -> str:
+    """Section title for an auto-discovered directory, as MkDocs derives it.
+
+    MkDocs replaces the separators and then capitalises the result *only* when
+    the name is entirely lower case, so directories that already carry casing
+    keep it. That is what preserves acronyms: `link-IDS-event-to-KG` stays
+    "link IDS event to KG" rather than becoming "Link Ids Event To Kg".
+    """
+    title = name.replace("-", " ").replace("_", " ")
+    return title.capitalize() if title.lower() == title else title
+
+
+def has_markdown(directory: Path) -> bool:
+    return any(directory.rglob("*.md"))
+
+
+def discover_dir(abs_dir: Path, docs_rel: Path) -> list:
+    """List a directory's nav entries the way MkDocs' automatic nav would."""
+    rel = str(docs_rel).replace("\\", "/")
+    entries: list = []
+
+    if (abs_dir / "index.md").is_file():
+        entries.append(f"{rel}/index.md")
+
+    for md in sorted(
+        (p for p in abs_dir.iterdir() if p.is_file() and p.suffix == ".md"),
+        key=lambda p: p.name,
+    ):
+        if md.name != "index.md":
+            entries.append(f"{rel}/{md.name}")
+
+    for sub in sorted((p for p in abs_dir.iterdir() if p.is_dir()), key=lambda p: p.name):
+        if not has_markdown(sub):
+            continue
+        # Recurse through expand_dir so a nested .pages still wins.
+        entries.append(expand_dir(dir_title(sub.name), sub, docs_rel / sub.name))
+
+    return entries
 
 
 def expand_item(item: object, abs_base: Path, docs_rel_base: Path) -> object:

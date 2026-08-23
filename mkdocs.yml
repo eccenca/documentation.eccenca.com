@@ -79,10 +79,11 @@ extra:
       make our documentation better.
 # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme
 extra_css:
+  - assets/fonts.css
   - assets/extra.css
 extra_javascript:
   # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#sortable-tables
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/tablesort.min.js
   - assets/tablesort.js
   - assets/extra.js
 # }}}
@@ -100,10 +101,11 @@ theme:
   palette:
     - scheme: eccenca-light
 
+  # Fonts are self-hosted, see docs/assets/fonts.css. `false` suppresses the
+  # <link> tags to fonts.googleapis.com / fonts.gstatic.com; the families are
+  # set via --md-text-font / --md-code-font there instead.
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
 
   favicon: assets/favicon.svg
   logo: assets/favicon.svg
@@ -152,12 +154,8 @@ theme:
     # - toc.integrate
 
   # 404 page
-  static_templates:
-    - 404.html
 
   # Necessary for search to work properly
-  include_search_page: false
-  search_index_only: true
 
   icon:
     logo: logo
@@ -213,8 +211,20 @@ theme:
 
 # {{{ Extensions to the markdown processor
 markdown_extensions:
-  # multi extension: https://python-markdown.github.io/extensions/extra/
-  - extra
+  # These four were previously pulled in via the `extra` bundle. `extra` also
+  # bundles `fenced_code`, which claims the same ``` syntax as
+  # pymdownx.superfences below; under Zensical the precedence between the two is
+  # decided by hash ordering, so roughly half of all builds hand the fence to
+  # fenced_code, which does not understand `title="..."`. The fence then never
+  # opens and the rest of the page - headings and their anchors included - is
+  # emitted as raw text. superfences supersedes fenced_code, so listing the
+  # bundle's members individually and omitting fenced_code is the fix.
+  # `attr_list` and `md_in_html`, the two remaining members, are listed below.
+  # https://python-markdown.github.io/extensions/extra/
+  - abbr
+  - def_list
+  - footnotes
+  - tables
   # converts ASCII dashes, quotes and ellipses to their HTML entity equivalents
   - smarty
   # ordered list will not continue when an unordered item comes and vice versa
@@ -236,7 +246,6 @@ markdown_extensions:
   - pymdownx.snippets
   # https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
   - pymdownx.keys
-  - codehilite
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -266,15 +275,6 @@ markdown_extensions:
 
 # {{{ Extensions to mkdocs - some of them are used by material theme
 plugins:
-  # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#built-in-privacy-plugin
-  - privacy:
-      assets_fetch: true
-      assets_fetch_dir: assets/externals
-      assets_exclude:
-        - badge.fury.io/*
-        - img.shields.io/*
-        - cdn.jsdelivr.net/npm/mathjax@3/*
-        - giscus.app/*
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
   - search:
       lang: en
@@ -282,10 +282,12 @@ plugins:
   - awesome-pages
   # https://github.com/fralau/mkdocs_macros_plugin
   # - macros
-  # https://github.com/midnightprioriem/mkdocs-autolinks-plugin
-  - autolinks
   # https://github.com/blueswen/mkdocs-glightbox
   - glightbox
+  # The three plugins below are inert under Zensical: it neither implements nor
+  # reports them, so social cards, tag listings and revision dates are missing
+  # from the output. They are kept so the features return automatically once
+  # Zensical maps them. tools/check_zensical_output.py tracks all three.
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
   - social:
       cards: true
@@ -299,13 +301,6 @@ plugins:
       type: timeago
   # https://github.com/byrnereese/mkdocs-swagger-ui
   # - swagger-ui-tag
-  # https://github.com/mkdocs/mkdocs-redirects
-  - redirects:
-      redirect_maps:
-        'explore-and-author/building-a-customized-user-interface/index.md': 'explore-and-author/graph-exploration/building-a-customized-user-interface/index.md'
-        'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
-  # https://squidfunk.github.io/mkdocs-material/reference/#built-in-meta-plugin
-  - meta
 # }}}
 
 # {{{ Less important mkdocs configuration

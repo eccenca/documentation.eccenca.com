@@ -5,7 +5,7 @@ tasks:
     before: |
       brew install go-task/tap/go-task
     init: |
-      task use:insider-https-token
+      task install
     command: |
       task serve
 github:

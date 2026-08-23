@@ -6,8 +6,6 @@ version: '3'
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 26.2
-  MATERIAL_TAG: 9.6.14
-  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
 
 tasks:
 
@@ -45,10 +43,43 @@ tasks:
       - poetry install
 
   check:
-    desc: Check documentation links and Markdown style
+    desc: Check documentation links, Markdown style, nav drift and build output
     deps:
       - check:links
       - check:rumdl
+      - check:nav
+      - check:output
+
+  check:nav:
+    desc: Fail if nav.yml is out of sync with the docs/**/.pages files
+    deps:
+      - install
+    cmds:
+      - |
+        expected=$(mktemp)
+        trap 'rm -f "$expected"' EXIT
+        poetry run python tools/build_nav.py > "$expected"
+        if ! diff -u nav.yml "$expected"; then
+          echo
+          echo "nav.yml is out of date with respect to the docs/**/.pages files."
+          echo "Run 'task nav' and commit the result."
+          exit 1
+        fi
+        echo "nav.yml matches the .pages files."
+
+  check:output:
+    desc: Fail if a feature we reimplemented for Zensical regressed in the build
+    deps:
+      - build
+    cmds:
+      - poetry run python tools/check_zensical_output.py site
+
+  nav:
+    desc: Regenerate nav.yml from the docs/**/.pages files
+    deps:
+      - install
+    cmds:
+      - poetry run python tools/build_nav.py > nav.yml
 
   check:links:
     desc: Check outgoing links
@@ -82,6 +113,10 @@ tasks:
       - task: install
     cmds:
       - poetry run zensical build --strict
+      # Zensical bakes unpkg.com URLs into its JS bundle; rewrite them to the
+      # vendored copies. Part of building, not of checking - without it the
+      # published site issues third-party requests.
+      - poetry run python tools/localize_bundle_assets.py site
 
   serve:
     desc: Serve the page on localhost
@@ -89,27 +124,6 @@ tasks:
       - task: install
     cmds:
       - poetry run zensical serve
-
-  use:public:
-    desc: switch to public package (non insider)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add mkdocs-material=={{.MATERIAL_TAG}}
-      - poetry update
-
-  use:insider-ssh:
-    desc: switch to insider package from github:eccenca via ssh (default)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+ssh://git@github.com:eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
-
-  use:insider-https-token:
-    desc: switch to insider package from github:eccenca via ACCESS_TOKEN variable (build plan)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
 
   update:icons:
     desc: update the used eccenca icons from carbon
