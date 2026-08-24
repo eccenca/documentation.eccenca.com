@@ -105,7 +105,7 @@ On this page is search function for icons available as well.
   <summary>Extend section</summary>
 
 | Admonition Name | Used For | Example |
-| ----  ----------- | -------- | ------- |
+| --------------- | -------- | ------- |
 | Info | Information in documentation provides details about a topic or process that the reader needs to know. It is usually essential and relevant to the main subject of the document. | Statement annotations provide a way to express knowledge about statements. This group is dedicated to properties that configure the Statement Annotation feature |
 | Note | A note provides additional details that may or may not be directly related to the main topic. It could be an explanation, clarification, or an aside that the writer thinks would be helpful for the reader to know. | The graph selection drop-down might or might not be visible depending the existence of an (optional) EasyNav Module configuration. In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown. A EasyNav Module configuration pre-configures a graph. Thus, the dropdown will not be shown if such has been configured for the current workspace. |
 | Abstract | An abstract is a brief summary that provides an overview of the main points or contents of a document. It typically appears at the beginning of a document and is intended to give the reader an idea of what to expect from the document. | This tutorial explores the benefits of using cloud computing in enterprise organizations. It discusses the advantages of cloud computing over traditional on-premises infrastructure, and provides guidance for migrating to the cloud. |

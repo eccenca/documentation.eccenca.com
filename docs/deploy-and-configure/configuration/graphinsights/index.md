@@ -1,9 +1,9 @@
 ---
 tags:
     - Configuration
-    - Graph-Insights
     - GraphInsights
 ---
+
 # Graph Insights
 
 ## Enable Graph Insights
@@ -19,7 +19,7 @@ You can find the environment variables set as usual in `environments/default.env
 Add your license to `licenses/graphinsights.lic` then start the extension on an already running Corporate Memory
 deployment.
 
-``` console
+``` shell-session
 mkdir licenses
 ln -s your-license-file.lic graphinsights.lic
 make enable-extension EXTENSION=graphinsights
@@ -33,7 +33,7 @@ In helm based deployment you can enable Graph Insights by enabling it in your va
 It creates a new StatefulSet.
 Preemptively, you have to create a secret containing your license file.
 
-``` console
+``` shell-session
 kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
 ```
 
@@ -58,7 +58,7 @@ You should enable this in your `value.yaml` file.
 ```
 
 Also make sure you have set the clients and client credentials.
-See [Configure OAuth clients (helm)](../../../deploy-and-configure/configuration/graphinsights/index.md#configure-oauth-clients-helm)
+See [Configure OAuth clients (helm)](#configure-oauth-clients-helm)
 
 The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
 
@@ -72,16 +72,40 @@ for more information.
 
 ## Activate and verify the installation
 
-First, you have to enable the Graph Insight in your Explore Application view configuration. By default, it is disabled.
+First, you have to enable Graph Insights in your Explore application view configuration. By default, it is disabled.
 
-<!--TODO: Update screenshot-->
-![Explore Application view configuration](explore-workspace-enable-graphinsights.png)
+!!! info
 
-Then you are able to create a snapshot, send it to Graph Insights and select the Graph Insights tab in explore.
+    The `enableGraphInsights` configuration is part of every application view, no matter whether the Graph Insights
+    extension is deployed or not.
+    Switching it on does not result in a working Graph Insights tab as long as no Graph Insights service is running,
+    so make sure you have enabled the extension as described above.
 
-![Explore add snapshot](explore-add-snapshot.png)
+Open the :eccenca-module-workspace-configuration:
+[Application view configuration](../../../explore-and-author/workspace-configuration/index.md) module, select the
+application view you want to change and expand the **Application view** section.
+There you find the `enableGraphInsights` configuration.
 
-![Explore select_graphinsights](explore-select-graphinsights-tab.png)
+!!! note
+
+    The switch next to the configuration key shows the value of the system default and is always disabled.
+    In order to change the value for your application view, you have to press the **Override** button first.
+
+![Override the enableGraphInsights configuration](explore-application-view-graphinsights-override.png){ class="bordered" }
+
+After pressing **Override**, an editable switch appears for your application view.
+Set it to `true` and press **Save**.
+
+![Enable Graph Insights for an application view](explore-application-view-enable-graphinsights.png){ class="bordered" }
+
+Then you are able to use Graph Insights.
+Therefore, select the graph to view in Graph Insights and click the :eccenca-item-add-artefact: **Prepare Graph Insights snapshot** button.
+
+![Enable Graph Insights](explore-add-snapshot.png){ class="bordered" }
+
+This will enable the **Graph Insights** tab.
+
+![Explore Graph Insights](explore-select-graphinsights-tab.png){ class="bordered" }
 
 ## Configuration
 
@@ -96,7 +120,7 @@ This is why the configuration differs in both deployments, but we tried to use t
 
 ### Explore configuration
 
-In our **docker-orchestration** you find the file which is loaded as `graphinsight` profile
+In our **docker-orchestration** you find the file which is loaded as `graphinsights` profile
 at `conf/explore/application-graphinsights.yml`.
 Environment variables as usual can be found in `environments/default.env` and `environments/config.env`.
 Sizing can be changed in the loaded memory profile, e.g. at `environments/config.mem.16g.env`.
@@ -312,8 +336,7 @@ global:
 
 #### Creating separate OAuth clients for Graph Insights
 
-If you start Corporate Memory with the docker-orchestration (or use our keycloak helm chart) for the first time, the
-separate clients are already created when starting the Postgresql container.
+If you start Corporate Memory with the docker-orchestration (or use our keycloak helm chart) for the first time, the separate clients are already created when starting the Postgresql container.
 
 However, regenerating a new client secret is advisable:
 
@@ -324,10 +347,10 @@ However, regenerating a new client secret is advisable:
 - Press `Regenerate`
 - Then copy the new secret and fill in the values from above.
 
-![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png)
+![Keycloak client secret regenerate](keycloak-client-secret-regenerate.png){ class="bordered" }
 
 Also have a look below and check if your
-[Backchannel logout URL](../../../deploy-and-configure/configuration/graphinsights/index.md#set-backchannel-logout-url-for-graph-insights) is set.
+[Backchannel logout URL](#set-backchannel-logout-url-for-graph-insights) is set.
 
 In an already running deployment you would have to create those clients on your own.
 
@@ -346,4 +369,4 @@ In addition, one last step is missing: To have the logout working properly you h
 - Select the client `graph-insights`.
 - Scroll down to this section and add this: `https://<your-deploy-host>/graphinsights/logout/connect/back-channel/keycloak`
 
-![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png)
+![Keycloak backchannel LogExplore select_graphinsights](keycloak-client-backchannel.png){ class="bordered" }
