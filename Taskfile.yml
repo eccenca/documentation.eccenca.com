@@ -132,6 +132,31 @@ tasks:
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
+  update:cmem-client-api:
+    desc: re-generates the cmem-client Python API reference (needs local cmem-client checkout)
+    summary: |
+      Regenerates docs/develop/cmem-client-api from the docstrings of a local
+      cmem-client checkout, via that repository's own `task docs:export-md`
+      (see etc/export_api_md.py there).
+
+      This documents whatever branch/commit is currently checked out in
+      CMEM_CLIENT_DIR, not necessarily the last release - check out the ref
+      you want documented before running this.
+
+        CMEM_CLIENT_DIR=/path/to/cmem-client task update:cmem-client-api
+    preconditions:
+      - sh: '[ -n "{{.CMEM_CLIENT_DIR}}" ]'
+        msg: |
+          CMEM_CLIENT_DIR is not set. Run this task with the path to a local
+          cmem-client checkout, e.g.:
+
+            CMEM_CLIENT_DIR=/path/to/cmem-client task update:cmem-client-api
+    cmds:
+      - rm -rf {{.REFERENCE_DIR}}/*
+      - task -d {{.CMEM_CLIENT_DIR}} docs:export-md OUTPUT_DIR={{.ROOT_DIR}}/{{.REFERENCE_DIR}}
+    vars:
+      REFERENCE_DIR: docs/develop/cmem-client-api
+
   update:shape-reference:
     desc: re-generates the shape and datatype references (needs local CO)
     summary: >
