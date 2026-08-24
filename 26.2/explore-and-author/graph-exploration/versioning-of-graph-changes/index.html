@@ -27779,6 +27779,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-a-versioning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create a Versioning Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-a-graph-to-use-the-versioning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configure a graph to use the Versioning Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -27787,16 +27826,33 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-sets-of-a-tracked-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup
+        Change sets of a tracked graph
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-sets-in-the-versioning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change sets in the Versioning Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -27850,14 +27906,50 @@
 <h1 id="versioning-of-graph-changes">Versioning of Graph Changes<a class="headerlink" href="#versioning-of-graph-changes" title="Permanent link">¤</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¤</a></h2>
 <p>This feature keeps track of changes to your Knowledge Graphs by creating change set data based on the user&rsquo;s editing activities.</p>
+<p>Changes are not stored in the edited graph itself, but in a separate graph of type <code>shui:VersioningGraph</code> — the <strong>Versioning Graph</strong>.
+Setting this up is a two step process: you create a Versioning Graph, and then configure the graph you want to track to use it.</p>
 <div class="admonition info">
 <p class="admonition-title">Supported graph types</p>
-<p>Versioning of graph changes is currently supported for (tracked) graphs of type <code>void:Dataset</code> only.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="24-1-GraphTypes.png" /></a></p>
+<p>Versioning of graph changes is currently supported for (tracked) graphs of type <code>void:Dataset</code> only,
+i.e. graphs created as <strong>New Knowledge Graph (void:Dataset)</strong>.</p>
+<p>On other graph types, the <strong>Versioning Graph</strong> property described in
+<a href="#2-configure-a-graph-to-use-the-versioning-graph">Step 2</a> is not offered.</p>
 </div>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
+<p>To enable this feature on a specific graph, carry out the following steps in the
+<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M22.707,9.2931a.9992.9992,0,0,0-1.0234-.2417l-9,3a1.001,1.001,0,0,0-.6323.6323l-3,9a1,1,0,0,0,1.2651,1.2651l9-3a1.0013,1.0013,0,0,0,.6323-.6324l3-9A1,1,0,0,0,22.707,9.2931ZM11.5811,20.419l2.2094-6.6284L18.21,18.21Z"/><path d="M16,30A14,14,0,1,1,30,16,14.0158,14.0158,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12.0137,12.0137,0,0,0,16,4Z"/></svg></span> Knowledge Graphs</strong> module.</p>
+<h3 id="1-create-a-versioning-graph">1. Create a Versioning Graph<a class="headerlink" href="#1-create-a-versioning-graph" title="Permanent link">¤</a></h3>
+<p>Open the graph selection and click <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16,4c6.6,0,12,5.4,12,12s-5.4,12-12,12S4,22.6,4,16S9.4,4,16,4 M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14	S23.7,2,16,2z"/><path d="M24 15L17 15 17 8 15 8 15 15 8 15 8 17 15 17 15 24 17 24 17 17 24 17z"/></svg></span> Add new graph</strong>.
+In the <strong>Add new graph</strong> dialog, choose <strong>New Versioning Graph (shui:VersioningGraph)</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add new graph dialog with the Versioning Graph option" class="bordered" src="add-new-graph.png" /></a></p>
+<p>Provide a <strong>Graph label</strong> (e.g. <code>My Changelogs</code>).
+The <strong>Graph URI</strong> is generated from it, by default from your hostname and the label.
+You can simply type your own URI into the field, which switches the generation mode to <strong>Custom</strong>.
+Alternatively, use the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1-.07 1 2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42zm1.25-18-.37 2.61c-1.2.25-2.26.89-3.03 1.78L5.44 7.35l-.75 1.3L6.8 10.2a5.55 5.55 0 0 0 0 3.6l-2.12 1.56.75 1.3 2.43-1.04c.77.88 1.82 1.52 3.01 1.76l.37 2.62h1.52l.37-2.61c1.19-.25 2.24-.89 3.01-1.77l2.43 1.04.75-1.3-2.12-1.55c.4-1.17.4-2.44 0-3.61l2.11-1.55-.75-1.3-2.41 1.04a5.42 5.42 0 0 0-3.03-1.77L12.75 4z"/></svg></span> button to pick a different generation template
+(<strong>Hostname + provided label</strong>, <strong>Selected graph + provided label</strong>, <strong>UUID</strong> or <strong>Custom</strong>).</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a new graph, providing label and graph URI" class="bordered" src="create-versioning-graph.png" /></a></p>
+<p>Click <strong>Next</strong> to get to the metadata form, then click <strong>Save</strong> to create the graph.</p>
+<h3 id="2-configure-a-graph-to-use-the-versioning-graph">2. Configure a graph to use the Versioning Graph<a class="headerlink" href="#2-configure-a-graph-to-use-the-versioning-graph" title="Permanent link">¤</a></h3>
+<p>Switch to the Knowledge Graph whose changes you want to track and click <strong>Edit</strong> on the <strong>Resource</strong> tab.</p>
+<p>The <strong>Versioning Graph</strong> property is not part of the default graph form, so you have to add it first:
+open the <strong>Add data</strong> menu, type <code>Versioning</code> in the filter field,
+and select <strong>Versioning Graph (beta)</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Adding the Versioning Graph property through the Add data menu" class="bordered" src="add-versioning-graph-property.png" /></a></p>
+<p>The <strong>Versioning Graph (beta)</strong> field is now shown in the <strong>Configuration</strong> section.
+Open its dropdown and select the Versioning Graph you created in step 1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only graphs of type <code>shui:VersioningGraph</code> are offered here.
+If the list is empty, the Versioning Graph from step 1 was not created or does not have the correct type.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Selecting the Versioning Graph in the Configuration section" class="bordered" src="select-versioning-graph.png" /></a></p>
+<p>Click <strong>Save</strong>.
+The Versioning Graph is now listed in the <strong>Configuration</strong> section, and an additional
+<strong>Versioning</strong> tab appears for this graph.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The configured graph showing the Versioning Graph and the new Versioning tab" class="bordered" src="graph-with-versioning-graph.png" /></a></p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
-<p>If enabled on a graph, all changes using shaped user interfaces will be tracked in the configured Versioning Graph.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="20-10-ActualChangesets.png" /></a></p>
+<p>Once enabled on a graph, all changes made through shaped user interfaces are tracked in the configured Versioning Graph.
+You can inspect the recorded change sets either on the tracked graph or on the Versioning Graph.</p>
 <div class="admonition info">
 <p class="admonition-title">Versioning limitations</p>
 <p>The graph change history only captures changes made through the supported versioning workflow - namely the <a href="../building-a-customized-user-interface/">SHACL defined <strong>Resource</strong> tab</a>.</p>
@@ -27868,22 +27960,18 @@
 <li>changes executed through <strong>SPARQL UPDATE</strong> queries, including updates from the <strong>Queries catalogue</strong> or external clients</li>
 </ul>
 </div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">¤</a></h2>
-<p>To enable this feature on a specific graph you need to setup the following steps.</p>
-<details class="success">
-<summary>1. Create a Versioning Graph</summary>
-<p>In Exploration, create a new graph and define it as a Versioning Graph.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="20-10-CreateVersioningGraph.png" /></a></p>
-</details>
-<details class="success">
-<summary>2. Configure a graph to use this Versioning Graph</summary>
-<p>In Exploration, edit this graph and add the Versioning Graph property to select the newly created Versioning Graph.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="20-10-ConfigureVersioningGraph.png" /></a></p>
-</details>
+<h3 id="change-sets-of-a-tracked-graph">Change sets of a tracked graph<a class="headerlink" href="#change-sets-of-a-tracked-graph" title="Permanent link">¤</a></h3>
+<p>The <strong>Versioning</strong> tab of a tracked graph lists all change sets recorded for it, with author and timestamp.
+Select a change set to see the individual statements it added (<code>addition</code>) and removed (<code>removal</code>).</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Versioning tab listing change sets and the details of a selected change set" class="bordered" src="versioning-tab-changesets.png" /></a></p>
+<h3 id="change-sets-in-the-versioning-graph">Change sets in the Versioning Graph<a class="headerlink" href="#change-sets-in-the-versioning-graph" title="Permanent link">¤</a></h3>
+<p>The <strong>Resource</strong> tab of the Versioning Graph itself shows the <strong>Latest Changesets</strong> table,
+listing the change sets of all graphs tracked by it, together with the number of added and removed statements.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Versioning Graph showing the Latest Changesets table" class="bordered" src="versioning-graph-changesets.png" /></a></p>
 <h2 id="technical-background">Technical Background<a class="headerlink" href="#technical-background" title="Permanent link">¤</a></h2>
 <p>For each editing activity (→ Save a Form), a ChangeSet resource will be created.
 This resource has some metadata (user, timestamp, label) as well as links to added and deleted Statements (using RDF Reification).</p>
-<p>The details of the used vocabulary are available at the <a href="https://vocab.org/changeset/">Changeset Vocabulary</a> page.</p>
+<p>The details of the used vocabulary are available at the <a href="https://vocab.org/changeset/">Changeset Vocabulary</a> page.</p>
 
 
 
@@ -27906,7 +27994,7 @@ This resource has some metadata (user, timestamp, label) as well as links to add
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 9, 2026 16:19:43 UTC"><span class="timeago" datetime="2026-03-09T16:19:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 9, 2026 16:19:43 UTC">2026-03-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 24, 2026 09:45:16 UTC"><span class="timeago" datetime="2026-08-24T09:45:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 24, 2026 09:45:16 UTC">2026-08-24</span>
   </span>
 
     
