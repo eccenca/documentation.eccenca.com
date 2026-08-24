@@ -99,7 +99,7 @@ Set it to `true` and press **Save**.
 ![Enable Graph Insights for an application view](explore-application-view-enable-graphinsights.png){ class="bordered" }
 
 Then you are able to use Graph Insights.
-Therefore, select the graph to view in Graph Insights and click the :eccenca-item-add-artefact: **Prepare Graph Insights snapshot** button.
+Therefore, select the graph to view in Graph Insights and click the :eccenca-graph-insights-add: **Prepare Graph Insights snapshot** button.
 
 ![Enable Graph Insights](explore-add-snapshot.png){ class="bordered" }
 
