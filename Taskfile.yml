@@ -3,6 +3,8 @@
 
 version: '3'
 
+dotenv: ['.env']
+
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 26.2
