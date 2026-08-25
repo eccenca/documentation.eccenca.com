@@ -39,10 +39,11 @@ To create a realm, use the drop down menu for choosing a realm on the left side.
 Clients are used to link users and groups managed in Keycloak to Corporate Memory.
 There are two different types of clients used by Corporate Memory:
 
-- The first client is used to authenticate a user for using the web interface (usually named `cmem`).
+- The first client typee is used to authenticate a user for using the web interface (usually named `cmem`).
 - The second client is used as a technical user with the command line interface (usually named `cmem-service-account`).
-- (optional, when using Graph Insights) similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
-- (optional, when using Graph Insights) similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
+- (optional, but recommended when using the Markeplace) Similar to the `cmem` client you can configure the Marketplace to use a separate client (usually named `marketplace`)
+- (optional, when using Graph Insights) Similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
+- (optional, when using Graph Insights) Similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
 
 For Graph Insight please refer the [Graph Insights OAUTH documentation](../../../deploy-and-configure/configuration/graphinsights/index.md#oauth-configuration)
 Depending on the environment, there might be other use cases, when running background schedules, then a third client, also as technical user, might be useful.
@@ -74,7 +75,8 @@ To import a pre-configured `cmem` client for using the web interface, follow the
     ![Dialog import cmem client](import-client-cmem.png)
 
 - Login to Keycloak and select the Corporate Memory realm (`cmem`).
-- Download the [client configuration for using the web interface](cmem.json) (`cmem.json`).
+- Download the [cmem client configuration for using the web interface](cmem.json) (`cmem.json`).
+- Download the [markeplace client configuration for using the web interface](marketplace.json) (`marketplace.json`).
 - Select **Clients**, then **Import client**.
 - **Browse** for the downloaded `cmem.json` and select it.
 - **Save** new client.
@@ -85,7 +87,8 @@ To import a pre-configured `cmem-service-account` client, repeat the process wit
 
 #### Add the `cmem` client for using the web interface
 
-This client is intended for the usage with Explore and Build (DataIntegration) (user login):
+This client is intended for the usage with Explore and Build (DataIntegration) (user login). But you can also use this section to
+create the `marketplace` or `graphinsight` client.
 
 ![Dialog create cmem client](createClient_1.png){ class="bordered" }
 
