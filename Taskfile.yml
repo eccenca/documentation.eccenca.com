@@ -140,9 +140,13 @@ tasks:
   update:cmem-client-api:
     desc: re-generates the cmem-client Python API reference (needs local cmem-client checkout)
     summary: |
-      Regenerates docs/develop/cmem-client-api from the docstrings of a local
-      cmem-client checkout, via that repository's own `task docs:export-md`
-      (see etc/export_api_md.py there).
+      Regenerates docs/develop/cmem-client-api/api-reference from the
+      docstrings of a local cmem-client checkout, via that repository's own
+      `task docs:export-md` (see etc/export_api_md.py there).
+
+      The landing page (docs/develop/cmem-client-api/index.md) and its
+      .pages file are hand-written and untouched by this task - only the
+      api-reference/ subtree is wiped and regenerated.
 
       This documents whatever branch/commit is currently checked out in
       CMEM_CLIENT_DIR, not necessarily the last release - check out the ref
@@ -164,7 +168,7 @@ tasks:
           | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
         ignore_error: true
     vars:
-      REFERENCE_DIR: docs/develop/cmem-client-api
+      REFERENCE_DIR: docs/develop/cmem-client-api/api-reference
 
   update:shape-reference:
     desc: re-generates the shape and datatype references (needs local CO)
