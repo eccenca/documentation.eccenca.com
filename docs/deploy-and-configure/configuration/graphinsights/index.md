@@ -183,8 +183,7 @@ semspect:
 # semspect.core.payloadResolution:
 #   allowedRedirectDomains:
 #     - "*.eccenca.com"
-#   allowedDataUrlMimeTypes: [ "image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
-
+#   allowedDataUrlMimeTypes: ["image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
 
 frontend:
   appNameOverride: "Graph Insights"
