@@ -45,7 +45,7 @@ Dataset deletion configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `DatasetsRepository` {#cmem_client.repositories.datasets.DatasetsRepository}
 

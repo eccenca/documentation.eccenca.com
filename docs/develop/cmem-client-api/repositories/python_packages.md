@@ -44,7 +44,7 @@ Python packages deletion configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `PythonPackagesRepository` {#cmem_client.repositories.python_packages.PythonPackagesRepository}
 

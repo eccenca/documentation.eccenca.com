@@ -32,9 +32,9 @@ Import from a directory - no transformation needed.
 
 **Attributes:**
 
-- [**import_type**](#cmem_client.models.item.DirectoryImportItem.import_type) – 
-- [**model_config**](#cmem_client.models.item.DirectoryImportItem.model_config) – 
-- [**source**](#cmem_client.models.item.DirectoryImportItem.source) – 
+- [**import_type**](#cmem_client.models.item.DirectoryImportItem.import_type) –
+- [**model_config**](#cmem_client.models.item.DirectoryImportItem.model_config) –
+- [**source**](#cmem_client.models.item.DirectoryImportItem.source) –
 
 ### `cleanup` {#cmem_client.models.item.DirectoryImportItem.cleanup}
 
@@ -100,9 +100,9 @@ Import from a single file, copy to temp directory.
 
 **Attributes:**
 
-- [**import_type**](#cmem_client.models.item.FileImportItem.import_type) – 
-- [**model_config**](#cmem_client.models.item.FileImportItem.model_config) – 
-- [**source**](#cmem_client.models.item.FileImportItem.source) – 
+- [**import_type**](#cmem_client.models.item.FileImportItem.import_type) –
+- [**model_config**](#cmem_client.models.item.FileImportItem.model_config) –
+- [**source**](#cmem_client.models.item.FileImportItem.source) –
 
 ### `cleanup` {#cmem_client.models.item.FileImportItem.cleanup}
 
@@ -230,6 +230,7 @@ Prepare the import source and return a path to import from.
 
 This method transforms the source into a format suitable for import.
 For example:
+
 - Zip files are extracted to a temp directory
 - Directories are returned as-is
 
@@ -261,9 +262,9 @@ Import from a zip archive - extract to temp directory.
 
 **Attributes:**
 
-- [**import_type**](#cmem_client.models.item.ZipImportItem.import_type) – 
-- [**model_config**](#cmem_client.models.item.ZipImportItem.model_config) – 
-- [**source**](#cmem_client.models.item.ZipImportItem.source) – 
+- [**import_type**](#cmem_client.models.item.ZipImportItem.import_type) –
+- [**model_config**](#cmem_client.models.item.ZipImportItem.model_config) –
+- [**source**](#cmem_client.models.item.ZipImportItem.source) –
 
 ### `cleanup` {#cmem_client.models.item.ZipImportItem.cleanup}
 

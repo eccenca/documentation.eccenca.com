@@ -6,7 +6,7 @@ This module defines the DeleteItemProtocol that repositories can implement
 to provide item deletion capabilities. It includes validation to ensure items
 exist before deletion and provides both individual and bulk deletion methods.
 
-The protocol implements the Python __delitem__ method to support standard
+The protocol implements the Python **delitem** method to support standard
 dictionary-style deletion syntax while providing comprehensive error handling
 for HTTP communication failures.
 
@@ -17,7 +17,7 @@ for HTTP communication failures.
 
 **Attributes:**
 
-- [**DeleteItemConfig_contra**](#cmem_client.repositories.protocols.delete_item.DeleteItemConfig_contra) – 
+- [**DeleteItemConfig_contra**](#cmem_client.repositories.protocols.delete_item.DeleteItemConfig_contra) –
 
 ## `DeleteConfig` {#cmem_client.repositories.protocols.delete_item.DeleteConfig}
 
@@ -27,7 +27,7 @@ Abstract base class for repository item deletion configurations.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `DeleteItemConfig_contra` {#cmem_client.repositories.protocols.delete_item.DeleteItemConfig_contra}
 

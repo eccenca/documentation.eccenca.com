@@ -23,7 +23,7 @@ Sparql wrapper class
 
 **Attributes:**
 
-- [**logger**](#cmem_client.components.sparql_wrapper.SPARQLWrapper.logger) – 
+- [**logger**](#cmem_client.components.sparql_wrapper.SPARQLWrapper.logger) –
 
 ### `logger` {#cmem_client.components.sparql_wrapper.SPARQLWrapper.logger}
 

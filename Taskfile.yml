@@ -159,6 +159,10 @@ tasks:
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - task -d {{.CMEM_CLIENT_DIR}} docs:export-md OUTPUT_DIR={{.ROOT_DIR}}/{{.REFERENCE_DIR}}
+      - cmd: >
+          find {{.ROOT_DIR}}/{{.REFERENCE_DIR}} -type f -name '*.md' -print0
+          | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+        ignore_error: true
     vars:
       REFERENCE_DIR: docs/develop/cmem-client-api
 

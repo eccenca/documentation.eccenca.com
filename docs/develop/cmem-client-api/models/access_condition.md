@@ -24,8 +24,8 @@ action execution rights, and management permissions for other access conditions.
 
 **Attributes:**
 
-- [**NS_AC**](#cmem_client.models.access_condition.NS_AC) – 
-- [**NS_ACTION**](#cmem_client.models.access_condition.NS_ACTION) – 
+- [**NS_AC**](#cmem_client.models.access_condition.NS_AC) –
+- [**NS_ACTION**](#cmem_client.models.access_condition.NS_ACTION) –
 
 ## `AccessCondition` {#cmem_client.models.access_condition.AccessCondition}
 

@@ -46,7 +46,7 @@ Access condition creation config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `AccessConditionsDeleteConfig` {#cmem_client.repositories.access_conditions.AccessConditionsDeleteConfig}
 
@@ -56,7 +56,7 @@ Access conditions delete config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `AccessConditionsRepository` {#cmem_client.repositories.access_conditions.AccessConditionsRepository}
 
@@ -66,7 +66,7 @@ Repository for managing authorization access conditions.
 
 This repository manages access conditions that control authorization for resources
 in Corporate Memory. Access conditions are described with the
-[AccessCondition model][cmem_client.models.access_condition.AccessCondition].
+[AccessCondition model](../models/access_condition.md#cmem_client.models.access_condition.AccessCondition).
 
 The repository extends PagedListRepository and implements protocols for creating
 and deleting access conditions.
@@ -271,5 +271,5 @@ Access condition update config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 

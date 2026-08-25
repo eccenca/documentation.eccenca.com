@@ -23,6 +23,7 @@ Start a validation and read its result:
 List the known batches and cancel a running one:
 
 ```pycon
+>>> client.validations.fetch_data()
 >>> list(client.validations)
 >>> client.validations.cancel(batch_id)
 ```

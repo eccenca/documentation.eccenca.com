@@ -43,7 +43,7 @@ Files Delete Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `FilesExportConfig` {#cmem_client.repositories.files.FilesExportConfig}
 
@@ -53,7 +53,7 @@ Files Export Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `FilesImportConfig` {#cmem_client.repositories.files.FilesImportConfig}
 

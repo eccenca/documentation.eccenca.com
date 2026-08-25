@@ -294,10 +294,10 @@ Indicates where the query came from for tracking and editor URL generation.
 
 **Attributes:**
 
-- [**FILE**](#cmem_client.models.query_catalog.QueryOrigin.FILE) – 
-- [**REMOTE**](#cmem_client.models.query_catalog.QueryOrigin.REMOTE) – 
-- [**TEXT**](#cmem_client.models.query_catalog.QueryOrigin.TEXT) – 
-- [**UNKNOWN**](#cmem_client.models.query_catalog.QueryOrigin.UNKNOWN) – 
+- [**FILE**](#cmem_client.models.query_catalog.QueryOrigin.FILE) –
+- [**REMOTE**](#cmem_client.models.query_catalog.QueryOrigin.REMOTE) –
+- [**TEXT**](#cmem_client.models.query_catalog.QueryOrigin.TEXT) –
+- [**UNKNOWN**](#cmem_client.models.query_catalog.QueryOrigin.UNKNOWN) –
 
 ### `FILE` {#cmem_client.models.query_catalog.QueryOrigin.FILE}
 
@@ -425,22 +425,22 @@ and update operations (UPDATE, DELETE, INSERT, etc.).
 
 **Attributes:**
 
-- [**ADD**](#cmem_client.models.query_catalog.QueryType.ADD) – 
-- [**ASK**](#cmem_client.models.query_catalog.QueryType.ASK) – 
-- [**CLEAR**](#cmem_client.models.query_catalog.QueryType.CLEAR) – 
-- [**CONSTRUCT**](#cmem_client.models.query_catalog.QueryType.CONSTRUCT) – 
-- [**COPY**](#cmem_client.models.query_catalog.QueryType.COPY) – 
-- [**CREATE**](#cmem_client.models.query_catalog.QueryType.CREATE) – 
-- [**DELETE**](#cmem_client.models.query_catalog.QueryType.DELETE) – 
-- [**DESCRIBE**](#cmem_client.models.query_catalog.QueryType.DESCRIBE) – 
-- [**DROP**](#cmem_client.models.query_catalog.QueryType.DROP) – 
-- [**FAULTY**](#cmem_client.models.query_catalog.QueryType.FAULTY) – 
-- [**INSERT**](#cmem_client.models.query_catalog.QueryType.INSERT) – 
-- [**LOAD**](#cmem_client.models.query_catalog.QueryType.LOAD) – 
-- [**MOVE**](#cmem_client.models.query_catalog.QueryType.MOVE) – 
-- [**SELECT**](#cmem_client.models.query_catalog.QueryType.SELECT) – 
-- [**UNKNOWN**](#cmem_client.models.query_catalog.QueryType.UNKNOWN) – 
-- [**UPDATE**](#cmem_client.models.query_catalog.QueryType.UPDATE) – 
+- [**ADD**](#cmem_client.models.query_catalog.QueryType.ADD) –
+- [**ASK**](#cmem_client.models.query_catalog.QueryType.ASK) –
+- [**CLEAR**](#cmem_client.models.query_catalog.QueryType.CLEAR) –
+- [**CONSTRUCT**](#cmem_client.models.query_catalog.QueryType.CONSTRUCT) –
+- [**COPY**](#cmem_client.models.query_catalog.QueryType.COPY) –
+- [**CREATE**](#cmem_client.models.query_catalog.QueryType.CREATE) –
+- [**DELETE**](#cmem_client.models.query_catalog.QueryType.DELETE) –
+- [**DESCRIBE**](#cmem_client.models.query_catalog.QueryType.DESCRIBE) –
+- [**DROP**](#cmem_client.models.query_catalog.QueryType.DROP) –
+- [**FAULTY**](#cmem_client.models.query_catalog.QueryType.FAULTY) –
+- [**INSERT**](#cmem_client.models.query_catalog.QueryType.INSERT) –
+- [**LOAD**](#cmem_client.models.query_catalog.QueryType.LOAD) –
+- [**MOVE**](#cmem_client.models.query_catalog.QueryType.MOVE) –
+- [**SELECT**](#cmem_client.models.query_catalog.QueryType.SELECT) –
+- [**UNKNOWN**](#cmem_client.models.query_catalog.QueryType.UNKNOWN) –
+- [**UPDATE**](#cmem_client.models.query_catalog.QueryType.UPDATE) –
 
 ### `ADD` {#cmem_client.models.query_catalog.QueryType.ADD}
 

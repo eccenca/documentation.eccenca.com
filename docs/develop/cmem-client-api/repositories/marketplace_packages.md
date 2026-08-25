@@ -25,6 +25,7 @@ Install a package archive and export an installed package:
 ...     MarketplacePackagesExportConfig,
 ...     MarketplacePackagesImportConfig,
 ... )
+>>> from cmem_client.repositories.protocols.import_item import ImportConflictPolicy
 >>> client.marketplace_packages.import_item(
 ...     key="w3c-geo-vocab",
 ...     configuration=MarketplacePackagesImportConfig(install_from_marketplace=True),
@@ -51,8 +52,8 @@ Install a package archive and export an installed package:
 
 **Attributes:**
 
-- [**LOCK_FILE_RESOURCE**](#cmem_client.repositories.marketplace_packages.LOCK_FILE_RESOURCE) – 
-- [**MAX_DEPENDENCY_DEPTH**](#cmem_client.repositories.marketplace_packages.MAX_DEPENDENCY_DEPTH) – 
+- [**LOCK_FILE_RESOURCE**](#cmem_client.repositories.marketplace_packages.LOCK_FILE_RESOURCE) –
+- [**MAX_DEPENDENCY_DEPTH**](#cmem_client.repositories.marketplace_packages.MAX_DEPENDENCY_DEPTH) –
 
 ## `LOCK_FILE_RESOURCE` {#cmem_client.repositories.marketplace_packages.LOCK_FILE_RESOURCE}
 

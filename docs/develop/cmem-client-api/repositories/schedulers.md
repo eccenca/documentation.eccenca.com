@@ -36,7 +36,7 @@ Configuration for updating schedulers.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `SchedulersRepository` {#cmem_client.repositories.schedulers.SchedulersRepository}
 

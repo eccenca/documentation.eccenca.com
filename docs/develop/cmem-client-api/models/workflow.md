@@ -9,6 +9,8 @@ of all projects are the items of ``client.workflows``, keyed by
 A workflow which came out of the repository carries a client, so it can start itself
 and report its own status instead of going back through the repository:
 
+    >>> from cmem_client.client import Client
+    >>> client = Client.from_env()
     >>> workflow = client.workflows["my-project:my-workflow"]
     >>> workflow.execute_wait_for_completion()
     >>> workflow.get_status().concrete_status
@@ -21,11 +23,11 @@ and report its own status instead of going back through the repository:
 
 **Attributes:**
 
-- [**ACTIVITY_NAME**](#cmem_client.models.workflow.ACTIVITY_NAME) – 
-- [**ACTIVITY_TYPE_EXECUTE_DEFAULTWORKFLOW**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_DEFAULTWORKFLOW) – 
-- [**ACTIVITY_TYPE_EXECUTE_LOCALWORKFLOW**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_LOCALWORKFLOW) – 
-- [**ACTIVITY_TYPE_EXECUTE_WITH_PAYLOAD**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_WITH_PAYLOAD) – 
-- [**VALID_WORKFLOW_STATUSES**](#cmem_client.models.workflow.VALID_WORKFLOW_STATUSES) – 
+- [**ACTIVITY_NAME**](#cmem_client.models.workflow.ACTIVITY_NAME) –
+- [**ACTIVITY_TYPE_EXECUTE_DEFAULTWORKFLOW**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_DEFAULTWORKFLOW) –
+- [**ACTIVITY_TYPE_EXECUTE_LOCALWORKFLOW**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_LOCALWORKFLOW) –
+- [**ACTIVITY_TYPE_EXECUTE_WITH_PAYLOAD**](#cmem_client.models.workflow.ACTIVITY_TYPE_EXECUTE_WITH_PAYLOAD) –
+- [**VALID_WORKFLOW_STATUSES**](#cmem_client.models.workflow.VALID_WORKFLOW_STATUSES) –
 
 ## `ACTIVITY_NAME` {#cmem_client.models.workflow.ACTIVITY_NAME}
 

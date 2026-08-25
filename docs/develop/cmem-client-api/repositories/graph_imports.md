@@ -40,9 +40,9 @@ Resolve what a graph pulls in, directly and transitively:
 
 **Attributes:**
 
-- [**GRAPH_IMPORTS_CREATE_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_CREATE_SPARQL) – 
-- [**GRAPH_IMPORTS_DELETE_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_DELETE_SPARQL) – 
-- [**GRAPH_IMPORTS_LIST_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_LIST_SPARQL) – 
+- [**GRAPH_IMPORTS_CREATE_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_CREATE_SPARQL) –
+- [**GRAPH_IMPORTS_DELETE_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_DELETE_SPARQL) –
+- [**GRAPH_IMPORTS_LIST_SPARQL**](#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_LIST_SPARQL) –
 
 ## `GRAPH_IMPORTS_CREATE_SPARQL` {#cmem_client.repositories.graph_imports.GRAPH_IMPORTS_CREATE_SPARQL}
 
@@ -70,7 +70,7 @@ Graph Imports creation configuration
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `GraphImportsDeleteConfig` {#cmem_client.repositories.graph_imports.GraphImportsDeleteConfig}
 
@@ -80,7 +80,7 @@ Graph Imports deletion configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `GraphImportsRepository` {#cmem_client.repositories.graph_imports.GraphImportsRepository}
 

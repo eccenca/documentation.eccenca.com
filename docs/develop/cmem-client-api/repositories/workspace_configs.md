@@ -50,7 +50,7 @@ Custom workspace configuration creation config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `WorkspaceConfigsDeleteConfig` {#cmem_client.repositories.workspace_configs.WorkspaceConfigsDeleteConfig}
 
@@ -60,7 +60,7 @@ Custom workspace configuration deletion config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `WorkspaceConfigsExportConfig` {#cmem_client.repositories.workspace_configs.WorkspaceConfigsExportConfig}
 
@@ -70,7 +70,7 @@ Custom workspace configuration export config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `WorkspaceConfigsImportConfig` {#cmem_client.repositories.workspace_configs.WorkspaceConfigsImportConfig}
 
@@ -349,5 +349,5 @@ Custom workspace configuration update config.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 

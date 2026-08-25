@@ -20,11 +20,11 @@ violation; note that ``client.validations`` does not fetch on creation, so call
 
 **Attributes:**
 
-- [**STATUS_CANCELLED**](#cmem_client.models.validation.STATUS_CANCELLED) – 
-- [**STATUS_ERROR**](#cmem_client.models.validation.STATUS_ERROR) – 
-- [**STATUS_FINISHED**](#cmem_client.models.validation.STATUS_FINISHED) – 
-- [**STATUS_RUNNING**](#cmem_client.models.validation.STATUS_RUNNING) – 
-- [**STATUS_SCHEDULED**](#cmem_client.models.validation.STATUS_SCHEDULED) – 
+- [**STATUS_CANCELLED**](#cmem_client.models.validation.STATUS_CANCELLED) –
+- [**STATUS_ERROR**](#cmem_client.models.validation.STATUS_ERROR) –
+- [**STATUS_FINISHED**](#cmem_client.models.validation.STATUS_FINISHED) –
+- [**STATUS_RUNNING**](#cmem_client.models.validation.STATUS_RUNNING) –
+- [**STATUS_SCHEDULED**](#cmem_client.models.validation.STATUS_SCHEDULED) –
 
 ## `STATUS_CANCELLED` {#cmem_client.models.validation.STATUS_CANCELLED}
 

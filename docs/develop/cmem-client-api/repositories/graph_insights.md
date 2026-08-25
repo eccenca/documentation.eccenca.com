@@ -14,13 +14,16 @@ Check whether the extension is available, then create a snapshot:
 >>> from cmem_client.client import Client
 >>> client = Client.from_env()
 >>> client.graph_insights.is_available()
->>> client.graph_insights.create("https://ns.eccenca.com/data/config/")
+>>> snapshot_id = client.graph_insights.create("https://ns.eccenca.com/data/config/")
+>>> client.graph_insights.wait_for_completion(snapshot_id)
 ```
 
 Read the snapshots and drop them again:
 
 ```pycon
+>>> client.graph_insights.fetch_data()
 >>> list(client.graph_insights)
+>>> client.graph_insights.delete_item(snapshot_id)
 ```
 
 **Classes:**
@@ -37,7 +40,7 @@ Graph Insight Snapshot Delete Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `GraphInsightUpdateConfig` {#cmem_client.repositories.graph_insights.GraphInsightUpdateConfig}
 
@@ -47,7 +50,7 @@ Graph Insight Snapshot Update Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `GraphInsightsRepository` {#cmem_client.repositories.graph_insights.GraphInsightsRepository}
 

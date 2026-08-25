@@ -45,7 +45,7 @@ User account creation configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `UserAccountDeleteConfig` {#cmem_client.repositories.user_accounts.UserAccountDeleteConfig}
 
@@ -55,7 +55,7 @@ User account deletion configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `UserAccountRepository` {#cmem_client.repositories.user_accounts.UserAccountRepository}
 
@@ -294,5 +294,5 @@ User account update configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 

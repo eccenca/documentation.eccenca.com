@@ -63,8 +63,8 @@ OAuth flows are not feasible.
 <details class="see-also" open markdown="1">
 <summary>See Also</summary>
 
-https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow
-https://tools.ietf.org/html/rfc6749#section-4.3
+<https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow>
+<https://tools.ietf.org/html/rfc6749#section-4.3>
 
 </details>
 

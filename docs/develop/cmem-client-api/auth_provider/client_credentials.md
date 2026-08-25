@@ -18,7 +18,7 @@ This implementation handles token caching and automatic renewal when tokens expi
 
 **Attributes:**
 
-- [**DEFAULT_OAUTH_CLIENT_SECRET**](#cmem_client.auth_provider.client_credentials.DEFAULT_OAUTH_CLIENT_SECRET) – 
+- [**DEFAULT_OAUTH_CLIENT_SECRET**](#cmem_client.auth_provider.client_credentials.DEFAULT_OAUTH_CLIENT_SECRET) –
 
 ## `ClientCredentialsFlow` {#cmem_client.auth_provider.client_credentials.ClientCredentialsFlow}
 
@@ -50,8 +50,8 @@ rather than on behalf of a user.
 <details class="see-also" open markdown="1">
 <summary>See Also</summary>
 
-https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow
-https://tools.ietf.org/html/rfc6749#section-4.4
+<https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow>
+<https://tools.ietf.org/html/rfc6749#section-4.4>
 
 </details>
 

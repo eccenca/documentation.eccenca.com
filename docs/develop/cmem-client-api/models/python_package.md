@@ -12,7 +12,7 @@ keyed by their PyPI name.
 
 **Attributes:**
 
-- [**PipRequirementSpecifier**](#cmem_client.models.python_package.PipRequirementSpecifier) – 
+- [**PipRequirementSpecifier**](#cmem_client.models.python_package.PipRequirementSpecifier) –
 
 ## `PipRequirementSpecifier` {#cmem_client.models.python_package.PipRequirementSpecifier}
 

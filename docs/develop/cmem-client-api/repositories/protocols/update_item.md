@@ -17,7 +17,7 @@ Corporate Memory components.
 
 **Attributes:**
 
-- [**UpdateItemConfig_contra**](#cmem_client.repositories.protocols.update_item.UpdateItemConfig_contra) – 
+- [**UpdateItemConfig_contra**](#cmem_client.repositories.protocols.update_item.UpdateItemConfig_contra) –
 
 ## `UpdateConfig` {#cmem_client.repositories.protocols.update_item.UpdateConfig}
 
@@ -27,7 +27,7 @@ Abstract base class for repository item update configurations.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `UpdateItemConfig_contra` {#cmem_client.repositories.protocols.update_item.UpdateItemConfig_contra}
 

@@ -18,7 +18,7 @@ Corporate Memory components.
 
 **Attributes:**
 
-- [**CreateItemConfig_contra**](#cmem_client.repositories.protocols.create_item.CreateItemConfig_contra) – 
+- [**CreateItemConfig_contra**](#cmem_client.repositories.protocols.create_item.CreateItemConfig_contra) –
 
 ## `CreateConfig` {#cmem_client.repositories.protocols.create_item.CreateConfig}
 
@@ -28,7 +28,7 @@ Abstract base class for repository item creation configurations.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `CreateItemConfig_contra` {#cmem_client.repositories.protocols.create_item.CreateItemConfig_contra}
 

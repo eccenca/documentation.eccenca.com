@@ -15,8 +15,8 @@ This module provides the foundational classes for building repositories in the C
 
 **Attributes:**
 
-- [**ItemType**](#cmem_client.repositories.base.abc.ItemType) – 
-- [**KeysViewType**](#cmem_client.repositories.base.abc.KeysViewType) – 
+- [**ItemType**](#cmem_client.repositories.base.abc.ItemType) –
+- [**KeysViewType**](#cmem_client.repositories.base.abc.KeysViewType) –
 
 ## `ItemType` {#cmem_client.repositories.base.abc.ItemType}
 

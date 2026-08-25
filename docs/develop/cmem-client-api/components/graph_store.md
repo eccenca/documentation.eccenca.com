@@ -108,6 +108,7 @@ and testing environments.
 
 - **scale_factor** (<code>int | None</code>) – Multiplies the default showcase dataset by this factor.
 A value of 10 results in around 40k triples, a value of
+
 50 in around 350k triples. Defaults to the server default when None.
 
 **Raises:**
@@ -166,6 +167,7 @@ including all RDF graphs, system vocabularies, and metadata. The backup is
 streamed directly to the specified file path as a compressed ZIP archive.
 
 This operation creates a point-in-time snapshot that can be used for:
+
 - Disaster recovery and backup strategies
 - Environment migration and cloning
 - System maintenance and testing
@@ -175,6 +177,7 @@ This operation creates a point-in-time snapshot that can be used for:
 
 - **path** (<code>Path</code>) – The file system path where the ZIP backup archive will be saved.
 The path should include the .zip extension and the parent directory
+
 must exist and be writable.
 
 **Raises:**
@@ -269,6 +272,7 @@ rolling back the store to the state captured in the backup.
 
 - **path** (<code>Path</code>) – The file system path to the ZIP backup archive to import.
 The file must be a valid backup archive created by export_to_zip()
+
 or compatible with the Corporate Memory backup format.
 
 **Raises:**
@@ -341,6 +345,7 @@ provides real-time metadata about the running graph store instance.
 
 - **StoreInformation** (<code>[StoreInformation](#cmem_client.components.graph_store.StoreInformation)</code>) – A model containing store type and version information.
 The returned object includes the store implementation name
+
 (e.g., "GRAPHDB", "TENTRIS") and its version string.
 
 **Raises:**

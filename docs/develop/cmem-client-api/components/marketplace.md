@@ -17,7 +17,7 @@ enables automated package retrieval for installation and dependency resolution.
 **Attributes:**
 
 - [**LICENSE_HEADER**](#cmem_client.components.marketplace.LICENSE_HEADER) – Header carrying the encrypted license on outbound marketplace requests.
-- [**MARKETPLACE_CACHE_DIR**](#cmem_client.components.marketplace.MARKETPLACE_CACHE_DIR) – 
+- [**MARKETPLACE_CACHE_DIR**](#cmem_client.components.marketplace.MARKETPLACE_CACHE_DIR) –
 
 ## `LICENSE_HEADER` {#cmem_client.components.marketplace.LICENSE_HEADER}
 

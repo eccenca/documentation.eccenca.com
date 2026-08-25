@@ -31,7 +31,7 @@ Corporate Memory license metadata from the DataPlatform info payload.
 - [**edition**](#cmem_client.models.status.CmemLicense.edition) (<code>str | None</code>) – License edition (e.g. 'PEDAL').
 - [**grace_date**](#cmem_client.models.status.CmemLicense.grace_date) (<code>str | None</code>) – Date until which the license keeps working in grace period (ISO date string).
 - [**in_grace_period**](#cmem_client.models.status.CmemLicense.in_grace_period) (<code>bool</code>) – Whether the CMEM license is currently within its grace period.
-- [**model_config**](#cmem_client.models.status.CmemLicense.model_config) – 
+- [**model_config**](#cmem_client.models.status.CmemLicense.model_config) –
 - [**valid_date**](#cmem_client.models.status.CmemLicense.valid_date) (<code>str | None</code>) – Date until which the license is valid (ISO date string).
 
 ### `edition` {#cmem_client.models.status.CmemLicense.edition}
@@ -82,7 +82,7 @@ Version and health of a single Corporate Memory component.
 
 - [**error**](#cmem_client.models.status.ComponentStatus.error) (<code>str | None</code>) – Captured error message if status retrieval failed; None otherwise.
 - [**health**](#cmem_client.models.status.ComponentStatus.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Health state of the component.
-- [**model_config**](#cmem_client.models.status.ComponentStatus.model_config) – 
+- [**model_config**](#cmem_client.models.status.ComponentStatus.model_config) –
 - [**version**](#cmem_client.models.status.ComponentStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
 
 ### `error` {#cmem_client.models.status.ComponentStatus.error}
@@ -128,7 +128,7 @@ Status of the explore (DataPlatform) component, including raw actuator payload.
 - [**health_details**](#cmem_client.models.status.ExploreStatus.health_details) (<code>dict[str, Any] | None</code>) – Raw payload of the DataPlatform /actuator/health endpoint (component breakdown).
 - [**info**](#cmem_client.models.status.ExploreStatus.info) (<code>dict[str, Any] | None</code>) – Raw payload of the DataPlatform /actuator/info endpoint.
 - [**license**](#cmem_client.models.status.ExploreStatus.license) (<code>[CmemLicense](#cmem_client.models.status.CmemLicense) | None</code>) – Typed CMEM license info, or None if not reported (DataPlatform < 24.1).
-- [**model_config**](#cmem_client.models.status.ExploreStatus.model_config) – 
+- [**model_config**](#cmem_client.models.status.ExploreStatus.model_config) –
 - [**store_info**](#cmem_client.models.status.ExploreStatus.store_info) (<code>[StoreInfo](#cmem_client.models.status.StoreInfo) | None</code>) – Typed graph store info from the actuator payload, or None if absent.
 - [**version**](#cmem_client.models.status.ExploreStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
 - [**workspace_configuration**](#cmem_client.models.status.ExploreStatus.workspace_configuration) (<code>[WorkspaceConfiguration](#cmem_client.models.status.WorkspaceConfiguration) | None</code>) – Typed workspace configuration info, or None if absent.
@@ -224,9 +224,9 @@ Health state of a Corporate Memory component.
 
 **Attributes:**
 
-- [**DOWN**](#cmem_client.models.status.HealthState.DOWN) – 
-- [**UNKNOWN**](#cmem_client.models.status.HealthState.UNKNOWN) – 
-- [**UP**](#cmem_client.models.status.HealthState.UP) – 
+- [**DOWN**](#cmem_client.models.status.HealthState.DOWN) –
+- [**UNKNOWN**](#cmem_client.models.status.HealthState.UNKNOWN) –
+- [**UP**](#cmem_client.models.status.HealthState.UP) –
 
 ### `DOWN` {#cmem_client.models.status.HealthState.DOWN}
 
@@ -284,7 +284,7 @@ Aggregated status across all Corporate Memory components.
 - [**build**](#cmem_client.models.status.StatusInfo.build) (<code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>) – Status of the build (DataIntegration) component.
 - [**explore**](#cmem_client.models.status.StatusInfo.explore) (<code>[ExploreStatus](#cmem_client.models.status.ExploreStatus)</code>) – Status of the explore (DataPlatform) component.
 - [**health**](#cmem_client.models.status.StatusInfo.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Overall health: UP only if every component is UP, DOWN otherwise.
-- [**model_config**](#cmem_client.models.status.StatusInfo.model_config) – 
+- [**model_config**](#cmem_client.models.status.StatusInfo.model_config) –
 - [**shapes**](#cmem_client.models.status.StatusInfo.shapes) (<code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>) – Status of the shapes catalog (queried from the explore store).
 - [**store**](#cmem_client.models.status.StatusInfo.store) (<code>[StoreStatus](#cmem_client.models.status.StoreStatus)</code>) – Status of the graph store backing the DataPlatform.
 
@@ -360,7 +360,7 @@ Graph store metadata embedded in the DataPlatform info payload.
 **Attributes:**
 
 - [**license_expiration**](#cmem_client.models.status.StoreInfo.license_expiration) (<code>str | None</code>) – Graph store license expiration date (ISO date string), if reported.
-- [**model_config**](#cmem_client.models.status.StoreInfo.model_config) – 
+- [**model_config**](#cmem_client.models.status.StoreInfo.model_config) –
 - [**type**](#cmem_client.models.status.StoreInfo.type) (<code>str</code>) – Store implementation (e.g. 'GRAPHDB', 'TENTRIS').
 - [**version**](#cmem_client.models.status.StoreInfo.version) (<code>str</code>) – Store version string.
 
@@ -404,7 +404,7 @@ Status of the graph store backing the DataPlatform.
 
 - [**error**](#cmem_client.models.status.StoreStatus.error) (<code>str | None</code>) – Captured error message if status retrieval failed; None otherwise.
 - [**health**](#cmem_client.models.status.StoreStatus.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Health state of the component.
-- [**model_config**](#cmem_client.models.status.StoreStatus.model_config) – 
+- [**model_config**](#cmem_client.models.status.StoreStatus.model_config) –
 - [**type**](#cmem_client.models.status.StoreStatus.type) (<code>str</code>) – Store implementation (e.g. 'GRAPHDB', 'TENTRIS').
 - [**version**](#cmem_client.models.status.StoreStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
 
@@ -454,7 +454,7 @@ Workspace configuration metadata from the DataPlatform info payload.
 
 **Attributes:**
 
-- [**model_config**](#cmem_client.models.status.WorkspaceConfiguration.model_config) – 
+- [**model_config**](#cmem_client.models.status.WorkspaceConfiguration.model_config) –
 - [**version**](#cmem_client.models.status.WorkspaceConfiguration.version) (<code>int | None</code>) – Workspace configuration version.
 - [**workspaces_to_migrate**](#cmem_client.models.status.WorkspaceConfiguration.workspaces_to_migrate) (<code>list[Any]</code>) – Workspaces flagged as requiring configuration migration.
 

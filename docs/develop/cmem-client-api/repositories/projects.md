@@ -90,7 +90,7 @@ Project Create Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `ProjectsDeleteConfig` {#cmem_client.repositories.projects.ProjectsDeleteConfig}
 
@@ -100,7 +100,7 @@ Project Delete Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `ProjectsExportConfig` {#cmem_client.repositories.projects.ProjectsExportConfig}
 
@@ -186,7 +186,7 @@ Bases: <code>[PlainListRepository](../repositories/base/plain_list.md#cmem_clien
 Repository for Build (DataIntegration) projects.
 
 This repository manages Build (DataIntegration) projects which are described with
-the [Project model][cmem_client.models.project.Project].
+the [Project model](../models/project.md#cmem_client.models.project.Project).
 
 **Functions:**
 

@@ -29,7 +29,7 @@ outage still returns a populated StatusInfo for the healthy components.
 
 **Attributes:**
 
-- [**logger**](#cmem_client.components.deployment.Deployment.logger) – 
+- [**logger**](#cmem_client.components.deployment.Deployment.logger) –
 
 ### `get_status` {#cmem_client.components.deployment.Deployment.get_status}
 

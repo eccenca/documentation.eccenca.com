@@ -51,10 +51,10 @@ Read the global vocabulary cache of DataIntegration:
 
 **Attributes:**
 
-- [**CATALOG_ENTRIES_QUERY**](#cmem_client.repositories.vocabularies.CATALOG_ENTRIES_QUERY) – 
-- [**DEFAULT_CATALOG_GRAPH**](#cmem_client.repositories.vocabularies.DEFAULT_CATALOG_GRAPH) – 
-- [**REMOVE_CATALOG_ENTRY_IF_NOT_INSTALLABLE**](#cmem_client.repositories.vocabularies.REMOVE_CATALOG_ENTRY_IF_NOT_INSTALLABLE) – 
-- [**VocabularyFilter**](#cmem_client.repositories.vocabularies.VocabularyFilter) – 
+- [**CATALOG_ENTRIES_QUERY**](#cmem_client.repositories.vocabularies.CATALOG_ENTRIES_QUERY) –
+- [**DEFAULT_CATALOG_GRAPH**](#cmem_client.repositories.vocabularies.DEFAULT_CATALOG_GRAPH) –
+- [**REMOVE_CATALOG_ENTRY_IF_NOT_INSTALLABLE**](#cmem_client.repositories.vocabularies.REMOVE_CATALOG_ENTRY_IF_NOT_INSTALLABLE) –
+- [**VocabularyFilter**](#cmem_client.repositories.vocabularies.VocabularyFilter) –
 
 ## `CATALOG_ENTRIES_QUERY` {#cmem_client.repositories.vocabularies.CATALOG_ENTRIES_QUERY}
 

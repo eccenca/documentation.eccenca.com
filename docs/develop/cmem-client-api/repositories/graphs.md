@@ -53,9 +53,9 @@ Detect the serialization of a file before importing it:
 
 **Attributes:**
 
-- [**GET_ONTOLOGY_IRI_QUERY**](#cmem_client.repositories.graphs.GET_ONTOLOGY_IRI_QUERY) – 
-- [**GET_PREFIX_DECLARATION**](#cmem_client.repositories.graphs.GET_PREFIX_DECLARATION) – 
-- [**INSERT_CATALOG_ENTRY**](#cmem_client.repositories.graphs.INSERT_CATALOG_ENTRY) – 
+- [**GET_ONTOLOGY_IRI_QUERY**](#cmem_client.repositories.graphs.GET_ONTOLOGY_IRI_QUERY) –
+- [**GET_PREFIX_DECLARATION**](#cmem_client.repositories.graphs.GET_PREFIX_DECLARATION) –
+- [**INSERT_CATALOG_ENTRY**](#cmem_client.repositories.graphs.INSERT_CATALOG_ENTRY) –
 - [**VOCABULARY_CATALOG_GRAPH**](#cmem_client.repositories.graphs.VOCABULARY_CATALOG_GRAPH) – IRI of the (optional, legacy) vocabulary catalog graph.
 
 ## `GET_ONTOLOGY_IRI_QUERY` {#cmem_client.repositories.graphs.GET_ONTOLOGY_IRI_QUERY}
@@ -78,7 +78,7 @@ Graph Delete Configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `GraphExportConfig` {#cmem_client.repositories.graphs.GraphExportConfig}
 

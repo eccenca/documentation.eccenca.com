@@ -12,7 +12,7 @@ to support exporting items to files.
 
 **Attributes:**
 
-- [**ExportItemConfig_contra**](#cmem_client.repositories.protocols.export_item.ExportItemConfig_contra) – 
+- [**ExportItemConfig_contra**](#cmem_client.repositories.protocols.export_item.ExportItemConfig_contra) –
 
 ## `ExportConfig` {#cmem_client.repositories.protocols.export_item.ExportConfig}
 
@@ -22,7 +22,7 @@ Abstract base class for Export Item Configuration Objects
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `ExportItemConfig_contra` {#cmem_client.repositories.protocols.export_item.ExportItemConfig_contra}
 

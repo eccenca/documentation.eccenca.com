@@ -66,6 +66,7 @@ Import tree structure for a graph.
 it imports.
 - [**ignored**](#cmem_client.models.graph_import.GraphImportTree.ignored) (<code>dict[str, list[str]]</code>) – Imports which were not resolved, mapping the IRI of each graph to the
 IRIs it points at in vain, for example because the target does not exist or
+
 would close a cycle.
 
 ### `ignored` {#cmem_client.models.graph_import.GraphImportTree.ignored}

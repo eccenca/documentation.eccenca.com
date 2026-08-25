@@ -40,7 +40,7 @@ configuration applies when the caller passes none:
 
 **Attributes:**
 
-- [**ImportItemConfig_contra**](#cmem_client.repositories.protocols.import_item.ImportItemConfig_contra) – 
+- [**ImportItemConfig_contra**](#cmem_client.repositories.protocols.import_item.ImportItemConfig_contra) –
 
 ## `ImportConfig` {#cmem_client.repositories.protocols.import_item.ImportConfig}
 
@@ -78,10 +78,10 @@ MERGE: Add the imported data to the existing item without clearing it first.
 
 **Attributes:**
 
-- [**FAIL**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.FAIL) – 
-- [**MERGE**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.MERGE) – 
-- [**REPLACE**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.REPLACE) – 
-- [**SKIP**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.SKIP) – 
+- [**FAIL**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.FAIL) –
+- [**MERGE**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.MERGE) –
+- [**REPLACE**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.REPLACE) –
+- [**SKIP**](#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.SKIP) –
 
 ### `FAIL` {#cmem_client.repositories.protocols.import_item.ImportConflictPolicy.FAIL}
 
@@ -130,7 +130,9 @@ defaults to ``FileImportItem`` and ``ZipImportItem``, which excludes
 ``DirectoryImportItem``.
 - **_default_import_config** (<code>[ImportConfig](#cmem_client.repositories.protocols.import_item.ImportConfig) | None</code>) – Import configuration applied when the caller passes none.
 Repositories declare it for example when ``use_archive_handler`` has to be turned
+
 off. If not defined, defaults to None.
+
 - **_logger** (<code>Logger</code>) – Logger of this repository, created lazily on first access through the
 ``logger`` property as a child of the client logger.
 

@@ -34,6 +34,7 @@ This provider simply stores and returns a pre-obtained token without performing
 any validation, refresh, or expiration checking.
 
 This approach is commonly used in:
+
 - Containerized environments where tokens are injected at runtime
 - CI/CD pipelines with token management systems
 - Serverless functions with external authentication services

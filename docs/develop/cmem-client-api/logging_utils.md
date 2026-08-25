@@ -11,7 +11,7 @@ Note: This module uses Any for kwargs to match the stdlib logging interface sign
 
 **Attributes:**
 
-- [**TRACE_LEVEL**](#cmem_client.logging_utils.TRACE_LEVEL) – 
+- [**TRACE_LEVEL**](#cmem_client.logging_utils.TRACE_LEVEL) –
 
 ## `TRACE_LEVEL` {#cmem_client.logging_utils.TRACE_LEVEL}
 

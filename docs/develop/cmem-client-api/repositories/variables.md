@@ -43,7 +43,7 @@ Variable creation configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `VariableDeleteConfig` {#cmem_client.repositories.variables.VariableDeleteConfig}
 
@@ -53,7 +53,7 @@ Variable deletion configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `VariableUpdateConfig` {#cmem_client.repositories.variables.VariableUpdateConfig}
 
@@ -63,7 +63,7 @@ Variable update configuration.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `VariablesRepository` {#cmem_client.repositories.variables.VariablesRepository}
 

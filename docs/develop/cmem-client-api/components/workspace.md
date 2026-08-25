@@ -29,6 +29,7 @@ workspace-level operations including complete backup and restoration of all
 workspace contents as ZIP archives.
 
 The workspace contains all DataIntegration artifacts including:
+
 - Projects and their configurations
 - Datasets and data sources
 - Transformation workflows and mapping rules
@@ -100,6 +101,7 @@ specified file path as a compressed ZIP archive.
 
 This operation creates a point-in-time snapshot of the complete workspace
 that can be used for:
+
 - Environment migration and synchronization
 - Disaster recovery and backup strategies
 - Development and testing environment setup
@@ -110,7 +112,9 @@ that can be used for:
 
 - **path** (<code>Path</code>) – The file system path where the ZIP workspace archive will be saved.
 The path should include the .zip extension and the parent directory
+
 must exist and be writable.
+
 - **marshalling_plugin** (<code>str</code>) – The type of marshalling plugin to use.
 - **include_access_conditions** (<code>bool</code>) – Whether to include project specific access conditions.
 - **export_user_data** (<code>bool</code>) – Whether to include user-identifying metadata (created/modified
@@ -209,7 +213,9 @@ and configurations from the archive into the current workspace.
 
 - **path** (<code>Path</code>) – The file system path to the ZIP backup archive to import.
 The file must be a valid workspace backup archive created by
+
 export_to_zip() or compatible with the DataIntegration workspace format.
+
 - **marshalling_plugin** (<code>str</code>) – The type of marshalling plugin to use for import.
 - **include_access_conditions** (<code>bool</code>) – Whether to include project specific access conditions.
 
@@ -217,6 +223,7 @@ export_to_zip() or compatible with the DataIntegration workspace format.
 
 - **Response** (<code>Response</code>) – The HTTP response object from the import operation.
 Check response.status_code for success (200) and response.json()
+
 for detailed import results and any warnings or errors.
 
 **Raises:**

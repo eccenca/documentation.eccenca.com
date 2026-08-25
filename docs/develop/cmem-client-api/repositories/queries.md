@@ -87,7 +87,7 @@ Configuration for exporting queries.
 
 **Attributes:**
 
-- **model_config** – 
+- **model_config** –
 
 ## `QueriesRepository` {#cmem_client.repositories.queries.QueriesRepository}
 
@@ -246,7 +246,9 @@ operation (INSERT, DELETE, etc.) and returns the raw response.
 on query type (text/csv for SELECT, text/turtle for DESCRIBE, etc.).
 - **owl_imports_resolution** (<code>bool</code>) – Enable owl:imports resolution (default: True).
 When enabled, graphs that import other graphs via owl:imports will
+
 be queried as merged overall-graphs.
+
 - **base64_encoded** (<code>bool</code>) – Enable base64 encoding of query parameter (default: False).
 Useful when aggressive firewalls block SPARQL queries.
 - **distinct** (<code>bool</code>) – Override SELECT query to make result set DISTINCT (default: False).
@@ -293,6 +295,7 @@ which provides information about query optimization, execution order, and
 estimated complexity.
 
 The logical plan includes:
+
 - Optimization groups and their evaluation order
 - Collection sizes and complexity estimates
 - Unique subject and object counts
@@ -379,7 +382,8 @@ get(key, default=None, catalog_graph=None)
 Get a query by its identifier.
 
 Supports multiple identifier formats:
-- Full URI: https://ns.eccenca.com/data/queries/myQuery
+
+- Full URI: <https://ns.eccenca.com/data/queries/myQuery>
 - Short URI (qname): :myQuery (uses default namespace)
 
 Note: File paths are not supported. For file-based queries, create a

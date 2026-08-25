@@ -16,7 +16,7 @@ variables, making it suitable for different deployment environments.
 
 **Attributes:**
 
-- [**DEFAULT_CMEM_BASE_URI**](#cmem_client.config.DEFAULT_CMEM_BASE_URI) – 
+- [**DEFAULT_CMEM_BASE_URI**](#cmem_client.config.DEFAULT_CMEM_BASE_URI) –
 
 ## `Config` {#cmem_client.config.Config}
 

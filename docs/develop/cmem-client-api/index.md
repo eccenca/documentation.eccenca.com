@@ -50,18 +50,19 @@ a handler:
 Deployments which already describe their logging in a file use
 ``configure_logging_from_dict()`` or ``configure_logging_from_json()`` instead. Both
 validate the configuration against
-[LoggingConfig][cmem_client.models.logging_config.LoggingConfig] before handing it to
+[LoggingConfig](models/logging_config.md#cmem_client.models.logging_config.LoggingConfig) before handing it to
 ``logging.config.dictConfig()``:
 
 >>> client.configure_logging_from_json(Path("logging.json"))
 
 In addition to the standard levels, the client installs a ``TRACE`` level (5), which
 is more verbose than ``DEBUG``. Methods carrying the
-[log_method][cmem_client.logging_utils.log_method] decorator log their arguments on
+[log_method](logging_utils.md#cmem_client.logging_utils.log_method) decorator log their arguments on
 entry and their result on exit at that level, which makes it useful when a request
 does not do what you expect:
 
 >>> client.configure_client_logger(level="TRACE")
+>>> client.configure_client_logger(level="INFO")
 
 Because ``TRACE`` logs arguments and results verbatim, it can write credentials and
 payloads into your logs. Keep it out of production.

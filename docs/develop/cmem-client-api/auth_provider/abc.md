@@ -17,7 +17,7 @@ code changes by simply setting the OAUTH_GRANT_TYPE environment variable.
 
 **Attributes:**
 
-- [**DEFAULT_OAUTH_CLIENT_ID**](#cmem_client.auth_provider.abc.DEFAULT_OAUTH_CLIENT_ID) – 
+- [**DEFAULT_OAUTH_CLIENT_ID**](#cmem_client.auth_provider.abc.DEFAULT_OAUTH_CLIENT_ID) –
 
 ## `AuthProvider` {#cmem_client.auth_provider.abc.AuthProvider}
 
