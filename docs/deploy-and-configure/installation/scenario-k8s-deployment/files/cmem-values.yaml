@@ -35,11 +35,20 @@ global:
   cmemClientSecret: c8c12828-000c-467b-9b6d-2d6b5e16df4a
   hostname: "OVERRIDDEN_BY_TASKFILE"
   # This is the base keycloak realm url, e.g. https://cmem.example.com/auth/realms/cmem
+  # Use the free PEDAL license (chart 6.0.0 defaults this to "cmem-license").
+  license: ""
+  # If you created a license secret, reference it instead:
   # license: cmem-license
   disablePythonInstallFromOutside: false
 
 bootstrap:
   enabled: true
+
+# The Marketplace is enabled by default in chart 6.0.0. It requires a dedicated
+# Keycloak client (global.marketplaceClientId) and a commercial license.
+# It is disabled here to keep this basic setup self-contained.
+marketplace:
+  enabled: false
 
 explore:
   config:
@@ -69,7 +78,7 @@ dataintegration:
     playHTTPSecret: "waejai5aiMoShuvahcai3iaC3eefeichahYaemac"
   persistence:
     storageClassName: local-path
-  tmp:
+  temp:
     storageClassName: local-path
   initContainer:
     pythonPluginImageInstall:
