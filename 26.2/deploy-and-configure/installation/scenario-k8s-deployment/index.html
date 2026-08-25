@@ -27979,6 +27979,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#optional-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Optional) Marketplace
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -28242,12 +28253,19 @@ You need to have a keycloak instance and a supported graph database installed.</
 <p>By default, Corporate Memory is subject to the eccenca free Personal,
 Evaluation and Development License Agreement (PEDAL),
 a license intended for non-commercial usage.</p>
+<div class="admonition note">
+<p class="admonition-title">License default changed in chart 6.0.0</p>
+<p>As of chart version <code>6.0.0</code>, <code>global.license</code> defaults to <code>cmem-license</code>, i.e. the
+chart expects a Kubernetes secret with that name. To use the free PEDAL license,
+explicitly set <code>global.license: ""</code> in your <code>cmem-values.yaml</code> (as shown in the
+example below). Note that the default Marketplace functions require a commercial license.</p>
+</div>
 <p>If you have a dedicated license file, create a secret with a <code>license.asc</code> data entry:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>cmem-license<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>--from-file<span class="w"> </span>license.asc
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>--from-file<span class="o">=</span>license.asc<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
-<p>Then, add the secret name to your <code>values.yaml</code> file for the key <code>global.license</code>.</p>
+<p>Then, add the secret name to your <code>cmem-values.yaml</code> file for the key <code>global.license</code>.</p>
 <p>To configure your Corporate Memory deployment, create a file named <code>cmem-values.yaml</code>.
 At a minimum, you should configure the</p>
 <ul>
@@ -28288,52 +28306,79 @@ At a minimum, you should configure the</p>
 <a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span><span class="nt">keycloakBaseUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://&lt;your-keycloak-hostname&gt;/auth/</span>
 <a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">  </span><span class="nt">keycloakIssuerUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://&lt;your-keycloak-hostname&gt;/auth/realms/cmem</span>
 <a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
-<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">  </span><span class="c1"># (if license secret was created)</span>
-<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">  </span><span class="c1"># license: cmem-license</span>
-<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>
-<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="nt">explore</span><span class="p">:</span>
-<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">  </span><span class="nt">store</span><span class="p">:</span>
-<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">    </span><span class="nt">graphdb</span><span class="p">:</span>
-<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">      </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmem</span>
-<a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provisioner</span>
-<a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;iHaveSuperpowers&quot;</span>
-<a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;your-graphdb-hostname&gt;&quot;</span>
-<a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">      </span><span class="nt">sslEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">  </span><span class="c1"># Use the free PEDAL license (chart 6.0.0 defaults this to &quot;cmem-license&quot;).</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">  </span><span class="c1"># If you created a license secret above, reference it instead:</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">  </span><span class="c1"># license: cmem-license</span>
+<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>
+<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="nt">explore</span><span class="p">:</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="w">  </span><span class="nt">store</span><span class="p">:</span>
+<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">    </span><span class="nt">graphdb</span><span class="p">:</span>
+<a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="w">      </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cmem</span>
+<a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provisioner</span>
+<a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;iHaveSuperpowers&quot;</span>
+<a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;your-graphdb-hostname&gt;&quot;</span>
+<a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a><span class="w">      </span><span class="nt">sslEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>
+<a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="c1"># The Marketplace is enabled by default in chart 6.0.0. It requires a dedicated</span>
+<a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a><span class="c1"># Keycloak client (global.marketplaceClientId) and a commercial license.</span>
+<a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a><span class="c1"># It is disabled here to keep this basic setup self-contained.</span>
+<a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a><span class="nt">marketplace</span><span class="p">:</span>
+<a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <h4 id="optional-graph-insights">(Optional) Graph Insights<a class="headerlink" href="#optional-graph-insights" title="Permanent link">¤</a></h4>
 <p>Setting up Graph Insights in Kubernetes deployment done with helm is described in our
 <a href="../../configuration/graphinsights/#b-enable-in-helm-deployment">documentation for Graph Insights</a>.</p>
+<h4 id="optional-marketplace">(Optional) Marketplace<a class="headerlink" href="#optional-marketplace" title="Permanent link">¤</a></h4>
+<p>The Marketplace is enabled by default in chart <code>6.0.0</code> (<code>marketplace.enabled: true</code>).
+To use it, make sure to:</p>
+<ul>
+<li>add an ingress path routing <code>/marketplace</code> to the <code>marketplace</code> service on port <code>5050</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/marketplace</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">marketplace</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">servicePort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5050</span>
+</code></pre></div>
+<ul>
+<li>create a dedicated Keycloak OAuth client and reference it via <code>global.marketplaceClientId</code>
+  (defaults to <code>marketplace</code>),</li>
+<li>provide a commercial license via <code>global.license</code> (the default Marketplace functions require one), and</li>
+<li>set a secure <code>marketplace.config.sessionSecret</code> (or reference an existing secret via
+  <code>marketplace.config.existingSecret</code>).</li>
+</ul>
+<p>To skip the Marketplace, set <code>marketplace.enabled: false</code> (as in the basic example above).</p>
 <h3 id="3-install-the-corporate-memory-chart">3. Install the Corporate Memory chart<a class="headerlink" href="#3-install-the-corporate-memory-chart" title="Permanent link">¤</a></h3>
 <p>To pull the Corporate Memory images, you need to provide credentials for the eccenca
 Docker Registry.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>docker-registry<span class="w"> </span>eccenca-docker-registry-credentials<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>--docker-server<span class="o">=</span>https://docker-registry.eccenca.com<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>--docker-username<span class="o">=</span>&lt;your-docker-username&gt;<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span>--docker-password<span class="o">=</span>&lt;your-docker-password&gt;<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>docker-registry<span class="w"> </span>eccenca-docker-registry-credentials<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>--docker-server<span class="o">=</span>https://docker-registry.eccenca.com<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--docker-username<span class="o">=</span>&lt;your-docker-username&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>--docker-password<span class="o">=</span>&lt;your-docker-password&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 <p>Replace the placeholders with the provided registry details and credentials.</p>
 <p>Now use <code>helm</code> to deploy the chart.
 This command will install the chart in the specified namespace using your
 custom configuration.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># In case you have the chart or repository locally available</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># or use our helm repository</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>cmem-helm/cmem<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># In case you have the chart or repository locally available</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1"># or use our helm repository</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>cmem<span class="w"> </span>cmem-helm/cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">  </span>--namespace<span class="w"> </span>cmem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">  </span>-f<span class="w"> </span>cmem-values.yaml
 </code></pre></div>
 <h3 id="4-verify-the-installation">4. Verify the installation<a class="headerlink" href="#4-verify-the-installation" title="Permanent link">¤</a></h3>
 <p>After the installation is complete, you can check the status of the pods:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--namespace<span class="w"> </span>cmem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 <p>You can also check the rollout status of the StatefulSets:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/explore<span class="w"> </span>--namespace<span class="w"> </span>cmem
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/dataintegration<span class="w"> </span>--namespace<span class="w"> </span>cmem
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/explore<span class="w"> </span>--namespace<span class="w"> </span>cmem
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>statefulset/dataintegration<span class="w"> </span>--namespace<span class="w"> </span>cmem
 </code></pre></div>
 
 
@@ -28357,7 +28402,7 @@ custom configuration.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 30, 2026 13:39:53 UTC"><span class="timeago" datetime="2026-07-30T13:39:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 30, 2026 13:39:53 UTC">2026-07-30</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 25, 2026 14:15:46 UTC"><span class="timeago" datetime="2026-08-25T14:15:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 25, 2026 14:15:46 UTC">2026-08-25</span>
   </span>
 
     
