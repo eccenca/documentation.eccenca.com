@@ -43,6 +43,7 @@ tags:
 | [admin store](admin/store/index.md) | [export](admin/store/index.md#admin-store-export) | Backup all knowledge graphs to a ZIP archive. |
 | [admin store](admin/store/index.md) | [import](admin/store/index.md#admin-store-import) | Restore graphs from a ZIP archive. |
 | [admin user](admin/user/index.md) | [list](admin/user/index.md#admin-user-list) | List user accounts. |
+| [admin user](admin/user/index.md) | [inspect](admin/user/index.md#admin-user-inspect) | Display all metadata of a user account. |
 | [admin user](admin/user/index.md) | [create](admin/user/index.md#admin-user-create) | Create a user account. |
 | [admin user](admin/user/index.md) | [update](admin/user/index.md#admin-user-update) | Update a user account. |
 | [admin user](admin/user/index.md) | [delete](admin/user/index.md#admin-user-delete) | Delete user accounts. |

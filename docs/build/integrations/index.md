@@ -178,13 +178,6 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     Use the [Neo4j](../../build/reference/dataset/neo4j.md) dataset for reading and writing [Neo4j graphs](https://neo4j.com/).
 
 
-- :other-neptune:{ .lg .middle } Neptune
-
-    ---
-
-    Load and write Knowledge Graphs to Amazon Neptune by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Amazon Neptune by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Amazon Neptune can be used as the integrated Quad Store as well (beta).
-
-
 - :simple-nextcloud:{ .lg .middle } Nextcloud
 
     ---

@@ -131,6 +131,9 @@ tasks:
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
+      - >
+        find ./docs/automate/cmemc-command-line-interface -type f -name '*.md' -print0
+        | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 

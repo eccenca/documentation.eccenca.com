@@ -64,14 +64,17 @@ cmemc admin metrics inspect [OPTIONS] METRIC_ID
 
 
 
-This command outputs the data of a metric. The first table includes basic metadata about the metric. The second table includes sample labels and values.
+This command outputs the metadata of a metric, as well as the label names and label values which distinguish its samples. The sample values itself can be fetched with the `metrics get` command.
 
 
 
 ??? info "Options"
     ```text
 
-    --raw       Outputs raw JSON of the table data.
+    --key TEXT  Get a specific key only. If the given value is the prefix of
+                more than one key, the table is reduced to these keys. Use `all`
+                to output the complete table.
+    --raw       Outputs raw JSON.
     ```
 
 ## admin metrics list

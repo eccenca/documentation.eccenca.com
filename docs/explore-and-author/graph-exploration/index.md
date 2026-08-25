@@ -1,4 +1,5 @@
 ---
+status: new
 icon: eccenca/application-explore
 tags:
     - KnowledgeGraph

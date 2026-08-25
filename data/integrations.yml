@@ -17,16 +17,6 @@ integrations:
   # Triple / Quad Stores
   #####
 
-  - name: Neptune
-    icon: ":other-neptune:"
-    content: >
-      Load and write Knowledge Graphs to Amazon Neptune by using the {{p.sparqlEndpoint}} dataset.
-      Query data from Amazon Neptune by using the SPARQL
-      [Construct]({{p.sparqlCopyOperator_ref}}),
-      [Select]({{p.sparqlSelectOperator_ref}}) and
-      [Update]({{p.sparqlUpdateOperator_ref}}) tasks.
-      Amazon Neptune can be used as the integrated Quad Store as well (beta).
-
   - name: GraphDB
     icon: ":other-graphdb:"
     content: >
