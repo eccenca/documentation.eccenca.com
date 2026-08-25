@@ -39,11 +39,12 @@ To create a realm, use the drop down menu for choosing a realm on the left side.
 Clients are used to link users and groups managed in Keycloak to Corporate Memory.
 There are two different types of clients used by Corporate Memory:
 
-- The first client typee is used to authenticate a user for using the web interface (usually named `cmem`).
+- The first client type is used to authenticate a user for using the web interface (usually named `cmem`).
 - The second client is used as a technical user with the command line interface (usually named `cmem-service-account`).
-- (optional, but recommended when using the Markeplace) Similar to the `cmem` client you can configure the Marketplace to use a separate client (usually named `marketplace`)
-- (optional, when using Graph Insights) Similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
-- (optional, when using Graph Insights) Similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
+- Similar to the `cmem` client you can configure the Marketplace to use a separate client (usually named `marketplace`)
+- When using Graph Insights:
+    - Similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
+    - Similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
 
 For Graph Insight please refer the [Graph Insights OAUTH documentation](../../../deploy-and-configure/configuration/graphinsights/index.md#oauth-configuration)
 Depending on the environment, there might be other use cases, when running background schedules, then a third client, also as technical user, might be useful.
