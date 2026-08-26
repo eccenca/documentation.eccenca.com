@@ -1,5 +1,5 @@
 ---
-title: "files"
+title: "cmem-client: files module"
 tags:
   - API
   - Python

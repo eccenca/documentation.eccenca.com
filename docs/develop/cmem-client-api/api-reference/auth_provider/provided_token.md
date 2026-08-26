@@ -1,5 +1,5 @@
 ---
-title: "provided_token"
+title: "cmem-client: provided_token module"
 tags:
   - API
   - Python

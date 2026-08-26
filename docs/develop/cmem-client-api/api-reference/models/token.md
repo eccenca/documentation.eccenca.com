@@ -1,5 +1,5 @@
 ---
-title: "token"
+title: "cmem-client: token module"
 tags:
   - API
   - Python

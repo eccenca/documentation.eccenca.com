@@ -1,5 +1,5 @@
 ---
-title: "marketplace"
+title: "cmem-client: marketplace module"
 tags:
   - API
   - Python

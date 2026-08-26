@@ -1,5 +1,5 @@
 ---
-title: "error"
+title: "cmem-client: error module"
 tags:
   - API
   - Python

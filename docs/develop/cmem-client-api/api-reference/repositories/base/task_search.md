@@ -1,5 +1,5 @@
 ---
-title: "task_search"
+title: "cmem-client: task_search module"
 tags:
   - API
   - Python
@@ -30,7 +30,7 @@ Subclass of a ReadRepository that uses the task search endpoint.
 
 **Attributes:**
 
-- **_dict** (<code>dict[str, [TaskSearchRepository[ItemType]](#cmem_client.repositories.base.task_search.TaskSearchRepository[ItemType])]</code>) – Cached contents of the repository, mapping the key of each item to the item
+- **_dict** (<code>dict[str, [TaskSearchRepository[ItemType]](#cmem_client.repositories.base.task_search.TaskSearchRepository)]</code>) – Cached contents of the repository, mapping the key of each item to the item
 itself. Backs the Mapping interface and is populated by ``fetch_data()``.
 - **_client** (<code>[Client](../../client.md#cmem_client.client.Client)</code>) – Corporate Memory client used for the HTTP requests of this repository.
 - **_config** (<code>[TaskSearchRepositoryConfig](#cmem_client.repositories.base.task_search.TaskSearchRepositoryConfig)</code>) – Describes which task search endpoint to query and which task type to

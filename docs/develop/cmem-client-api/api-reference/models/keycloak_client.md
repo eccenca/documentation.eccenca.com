@@ -1,5 +1,5 @@
 ---
-title: "keycloak_client"
+title: "cmem-client: keycloak_client module"
 tags:
   - API
   - Python

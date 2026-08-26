@@ -1,5 +1,5 @@
 ---
-title: "status"
+title: "cmem-client: status module"
 tags:
   - API
   - Python

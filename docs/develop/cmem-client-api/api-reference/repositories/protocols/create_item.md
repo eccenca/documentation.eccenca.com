@@ -1,5 +1,5 @@
 ---
-title: "create_item"
+title: "cmem-client: create_item module"
 tags:
   - API
   - Python

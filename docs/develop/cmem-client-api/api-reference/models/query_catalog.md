@@ -1,5 +1,5 @@
 ---
-title: "query_catalog"
+title: "cmem-client: query_catalog module"
 tags:
   - API
   - Python

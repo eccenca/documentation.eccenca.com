@@ -1,1 +1,34 @@
 title: Models
+nav:
+    - Access Condition: access_condition.md
+    - Base: base.md
+    - Common: common.md
+    - Credentials: credentials.md
+    - Dataset: dataset.md
+    - Error: error.md
+    - Graph: graph.md
+    - Graph Import: graph_import.md
+    - Graph Insight: graph_insight.md
+    - Item: item.md
+    - Keycloak Client: keycloak_client.md
+    - Logging Config: logging_config.md
+    - Marshalling Plugins: marshalling_plugins.md
+    - Package: package.md
+    - Project: project.md
+    - Python Install: python_install.md
+    - Python Package: python_package.md
+    - Query Catalog: query_catalog.md
+    - Resource: resource.md
+    - Scheduler: scheduler.md
+    - Status: status.md
+    - Task: task.md
+    - Token: token.md
+    - Url: url.md
+    - User: user.md
+    - Validation: validation.md
+    - Variable: variable.md
+    - Vocabulary: vocabulary.md
+    - Workflow: workflow.md
+    - Workspace Config: workspace_config.md
+    - Workspace Plugin: workspace_plugin.md
+    - Workspace Status: workspace_status.md

@@ -1,5 +1,5 @@
 ---
-title: "common"
+title: "cmem-client: common module"
 tags:
   - API
   - Python

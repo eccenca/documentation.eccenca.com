@@ -1,5 +1,5 @@
 ---
-title: "sparql_wrapper"
+title: "cmem-client: sparql_wrapper module"
 tags:
   - API
   - Python

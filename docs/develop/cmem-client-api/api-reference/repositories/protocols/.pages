@@ -1,1 +1,7 @@
 title: Protocols
+nav:
+    - Create Item: create_item.md
+    - Delete Item: delete_item.md
+    - Export Item: export_item.md
+    - Import Item: import_item.md
+    - Update Item: update_item.md

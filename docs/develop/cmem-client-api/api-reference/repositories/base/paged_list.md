@@ -1,5 +1,5 @@
 ---
-title: "paged_list"
+title: "cmem-client: paged_list module"
 tags:
   - API
   - Python
@@ -77,7 +77,7 @@ Repository that uses a paged list endpoint.
 
 **Attributes:**
 
-- **_dict** (<code>dict[str, [PagedListRepository[ItemType]](#cmem_client.repositories.base.paged_list.PagedListRepository[ItemType])]</code>) – Cached contents of the repository, mapping the key of each item to the item
+- **_dict** (<code>dict[str, [PagedListRepository[ItemType]](#cmem_client.repositories.base.paged_list.PagedListRepository)]</code>) – Cached contents of the repository, mapping the key of each item to the item
 itself. Backs the Mapping interface and is populated by ``fetch_data()``.
 - **_client** (<code>[Client](../../client.md#cmem_client.client.Client)</code>) – Corporate Memory client used for the HTTP requests of this repository.
 - **_config** (<code>[RepositoryConfig](../../repositories/base/abc.md#cmem_client.repositories.base.abc.RepositoryConfig)</code>) – Describes which paged endpoint the repository fetches its data from.

@@ -1,5 +1,5 @@
 ---
-title: "prefetched_token"
+title: "cmem-client: prefetched_token module"
 tags:
   - API
   - Python

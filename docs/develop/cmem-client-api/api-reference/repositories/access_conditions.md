@@ -1,5 +1,5 @@
 ---
-title: "access_conditions"
+title: "cmem-client: access_conditions module"
 tags:
   - API
   - Python

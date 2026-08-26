@@ -1,5 +1,5 @@
 ---
-title: "logging_config"
+title: "cmem-client: logging_config module"
 tags:
   - API
   - Python

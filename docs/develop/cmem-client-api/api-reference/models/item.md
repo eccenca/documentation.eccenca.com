@@ -1,5 +1,5 @@
 ---
-title: "item"
+title: "cmem-client: item module"
 tags:
   - API
   - Python

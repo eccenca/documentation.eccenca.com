@@ -1,5 +1,5 @@
 ---
-title: "schedulers"
+title: "cmem-client: schedulers module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "deployment"
+title: "cmem-client: deployment module"
 tags:
   - API
   - Python

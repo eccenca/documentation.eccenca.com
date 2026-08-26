@@ -1,5 +1,5 @@
 ---
-title: "vocabularies"
+title: "cmem-client: vocabularies module"
 tags:
   - API
   - Python

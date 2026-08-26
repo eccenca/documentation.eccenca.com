@@ -1,5 +1,5 @@
 ---
-title: "datasets"
+title: "cmem-client: datasets module"
 tags:
   - API
   - Python

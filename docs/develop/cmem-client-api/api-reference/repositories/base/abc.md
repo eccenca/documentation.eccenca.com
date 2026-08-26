@@ -1,5 +1,5 @@
 ---
-title: "abc"
+title: "cmem-client: abc module"
 tags:
   - API
   - Python
@@ -52,7 +52,7 @@ ABC of a lazy loading, read-only, dictionary-mimicking repository
 
 **Attributes:**
 
-- **_dict** (<code>dict[str, [Repository[ItemType]](#cmem_client.repositories.base.abc.Repository[ItemType])]</code>) – Cached contents of the repository, mapping the key of each item to the item
+- **_dict** (<code>dict[str, [Repository[ItemType]](#cmem_client.repositories.base.abc.Repository)]</code>) – Cached contents of the repository, mapping the key of each item to the item
 itself. Backs the Mapping interface and is populated by ``fetch_data()``.
 - **_client** (<code>[Client](../../client.md#cmem_client.client.Client)</code>) – Corporate Memory client used for the HTTP requests of this repository.
 - **_config** (<code>[RepositoryConfig](#cmem_client.repositories.base.abc.RepositoryConfig)</code>) – Describes which endpoint the repository fetches its data from.

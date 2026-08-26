@@ -1,5 +1,5 @@
 ---
-title: "queries"
+title: "cmem-client: queries module"
 tags:
   - API
   - Python

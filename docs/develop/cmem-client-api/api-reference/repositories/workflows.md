@@ -1,5 +1,5 @@
 ---
-title: "workflows"
+title: "cmem-client: workflows module"
 tags:
   - API
   - Python

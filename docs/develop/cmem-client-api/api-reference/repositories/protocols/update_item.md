@@ -1,5 +1,5 @@
 ---
-title: "update_item"
+title: "cmem-client: update_item module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "graph_store"
+title: "cmem-client: graph_store module"
 tags:
   - API
   - Python

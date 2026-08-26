@@ -1,5 +1,5 @@
 ---
-title: "graph"
+title: "cmem-client: graph module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "delete_item"
+title: "cmem-client: delete_item module"
 tags:
   - API
   - Python

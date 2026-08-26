@@ -1,5 +1,5 @@
 ---
-title: "credentials"
+title: "cmem-client: credentials module"
 tags:
   - API
   - Python

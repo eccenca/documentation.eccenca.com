@@ -1,5 +1,5 @@
 ---
-title: "exceptions"
+title: "cmem-client: exceptions module"
 tags:
   - API
   - Python

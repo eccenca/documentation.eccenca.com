@@ -1,1 +1,6 @@
 title: Base
+nav:
+    - Abc: abc.md
+    - Paged List: paged_list.md
+    - Plain List: plain_list.md
+    - Task Search: task_search.md

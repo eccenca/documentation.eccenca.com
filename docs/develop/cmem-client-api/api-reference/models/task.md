@@ -1,5 +1,5 @@
 ---
-title: "task"
+title: "cmem-client: task module"
 tags:
   - API
   - Python

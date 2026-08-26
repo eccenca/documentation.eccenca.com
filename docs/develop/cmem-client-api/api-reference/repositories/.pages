@@ -1,1 +1,22 @@
 title: Repositories
+nav:
+    - Access Conditions: access_conditions.md
+    - Client Accounts: client_accounts.md
+    - Datasets: datasets.md
+    - Files: files.md
+    - Graph Imports: graph_imports.md
+    - Graph Insights: graph_insights.md
+    - Graphs: graphs.md
+    - Marketplace Packages: marketplace_packages.md
+    - Projects: projects.md
+    - Python Packages: python_packages.md
+    - Queries: queries.md
+    - Schedulers: schedulers.md
+    - User Accounts: user_accounts.md
+    - Validations: validations.md
+    - Variables: variables.md
+    - Vocabularies: vocabularies.md
+    - Workflows: workflows.md
+    - Workspace Configs: workspace_configs.md
+    - Base: base
+    - Protocols: protocols

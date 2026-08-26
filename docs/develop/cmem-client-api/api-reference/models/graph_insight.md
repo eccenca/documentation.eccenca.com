@@ -1,5 +1,5 @@
 ---
-title: "graph_insight"
+title: "cmem-client: graph_insight module"
 tags:
   - API
   - Python

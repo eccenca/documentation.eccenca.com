@@ -1,5 +1,5 @@
 ---
-title: "workspace_configs"
+title: "cmem-client: workspace_configs module"
 tags:
   - API
   - Python

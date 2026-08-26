@@ -1,5 +1,5 @@
 ---
-title: "python_install"
+title: "cmem-client: python_install module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "abc"
+title: "cmem-client: abc module"
 tags:
   - API
   - Python

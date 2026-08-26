@@ -1,5 +1,5 @@
 ---
-title: "package"
+title: "cmem-client: package module"
 tags:
   - API
   - Python

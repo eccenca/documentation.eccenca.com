@@ -1,5 +1,5 @@
 ---
-title: "user"
+title: "cmem-client: user module"
 tags:
   - API
   - Python

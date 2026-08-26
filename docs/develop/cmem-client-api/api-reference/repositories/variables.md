@@ -1,5 +1,5 @@
 ---
-title: "variables"
+title: "cmem-client: variables module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "graph_imports"
+title: "cmem-client: graph_imports module"
 tags:
   - API
   - Python

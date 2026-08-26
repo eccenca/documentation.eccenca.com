@@ -1,5 +1,5 @@
 ---
-title: "workspace_status"
+title: "cmem-client: workspace_status module"
 tags:
   - API
   - Python

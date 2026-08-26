@@ -1,5 +1,5 @@
 ---
-title: "project"
+title: "cmem-client: project module"
 tags:
   - API
   - Python

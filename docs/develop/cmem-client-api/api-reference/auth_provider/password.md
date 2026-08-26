@@ -1,5 +1,5 @@
 ---
-title: "password"
+title: "cmem-client: password module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "config"
+title: "cmem-client: config module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "resource"
+title: "cmem-client: resource module"
 tags:
   - API
   - Python

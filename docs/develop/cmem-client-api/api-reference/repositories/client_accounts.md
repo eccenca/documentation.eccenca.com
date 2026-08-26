@@ -1,5 +1,5 @@
 ---
-title: "client_accounts"
+title: "cmem-client: client_accounts module"
 tags:
   - API
   - Python

@@ -1,5 +1,5 @@
 ---
-title: "validation"
+title: "cmem-client: validation module"
 tags:
   - API
   - Python
