@@ -134,7 +134,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 === "JDBC"
 
-    Instead of uploading the [services.csv](services.csv) sample file into Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
+    Instead of uploading the [services.csv](services.csv) sample file into eccenca Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
 
     1. In the project, Click **Create** and select the **JDBC endpoint** type.
 

@@ -8,9 +8,9 @@ tags:
 Configuration example:
 
 This example configures a connection to a neptune instance in the AWS region eu-central-1. Authentication is enabled
-so it is assumed that CMEM runs on a EC2 VM with configured role for authentication to neptune. Files (uncompressed) greater than 100MB are
+so it is assumed that eccenca Corporate Memory runs on a EC2 VM with configured role for authentication to neptune. Files (uncompressed) greater than 100MB are
 uploaded via S3 based bulk loader. The S3 bucket is accessed in this case via an access point which is configured here. The EC2
-role CMEM runs under has write access to the bucket. One of the role the neptune cluster runs under is configured in this setting and has read access to the bucket.
+role Corporate Memory runs under has write access to the bucket. One of the role the neptune cluster runs under is configured in this setting and has read access to the bucket.
 On bulk load the loading runs parallel in the setting HIGH which causes higher cpu load but better performance.
 
 Also the example disables DPs generation of tracing IDs by micrometer tracing - Neptune needs UUIDs as IDs for queries etc.
@@ -98,7 +98,7 @@ Settings for S3 bucket connection and upload of large files to the neptune insta
 
 ***Property: store.neptune.s3.bucketNameOrAPAlias***
 
-The name of the bucket or access point -> the role CMEM runs under needs write access to the bucket
+The name of the bucket or access point -> the role Corporate Memory runs under needs write access to the bucket
 
 | Category | Value |
 |--- | ---: |

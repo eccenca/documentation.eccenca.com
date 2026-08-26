@@ -9,7 +9,7 @@ hide:
 
 # :material-star: Consume
 
-This section outlines how to consume data from Corporate Memory Knowledge Graphs.
+This section outlines how to consume data from eccenca Corporate Memory Knowledge Graphs.
 While there are several options to retrieve information from the Knowledge Graph, the most direct way is to issue SPARQL queries.
 SPARQL queries can be managed and executed in the Query Module UI.
 External applications may access the query catalog and execute queries through the REST API directly or more conveniently by using the [cmemc - Command Line Interface](../automate/cmemc-command-line-interface/index.md).

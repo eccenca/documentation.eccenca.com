@@ -115,7 +115,7 @@ The following sections describe the available workspace provider plugins and how
 
 ### RDF-store Workspace - backend
 
-When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca Explore.
+When running in eccenca Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca Explore.
 
 The workspace is held using the eccenca Explore backend (DataPlatform), i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
 

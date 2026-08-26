@@ -13,13 +13,13 @@ API documentation and programming recipes.
 
     ---
 
-    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to Corporate Memory using a Java program.
+    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to eccenca Corporate Memory using a Java program.
 
 - :material-language-python: Python
 
     ---
 
-    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
+    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating eccenca Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
 
 - :material-shopping: Marketplace Packages
 

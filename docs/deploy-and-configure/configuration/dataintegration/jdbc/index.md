@@ -5,7 +5,7 @@ tags:
 ---
 # Setup and use of JDBC Drivers
 
-Corporate Memory supports JDBC connections to database management systems (DBMSs).
+eccenca Corporate Memory supports JDBC connections to database management systems (DBMSs).
 The platform includes several JDBC drivers by default.
 You can also add and use custom drivers.
 

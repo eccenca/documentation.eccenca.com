@@ -38,7 +38,7 @@ Here, the figure 3 is nice but before this first schema during the project, ther
 ## Technical feasibility with the available information
 
 It's not really technical to check if the data is available or not, but without technical knowledge, it's hard to evaluate the difficulty to link each id to their instance in your RDF knowledge graph.
-In this tutorial, we learn to use Corporate Memory of Eccenca to transform these IDs to IRI to import properly these ID with the other data necessary to build these interface.
+In this tutorial, we learn to use eccenca Corporate Memory to transform these IDs to IRI to import properly these ID with the other data necessary to build these interface.
 
 After research and one meeting with analysts, we have chosen the datasets of Mitre Attack, the datasets of IoC rules (Sigma and Hayabusa) in Github and of course, the IoCs data already in the Splunk indexes.
 

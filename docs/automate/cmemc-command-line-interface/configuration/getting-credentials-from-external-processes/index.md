@@ -54,7 +54,7 @@ export OAUTH_CLIENT_SECRET=$(get-my-secret.sh)
 
 ## External Processes
 
-Another option, which is interesting when working with multiple Corporate Memory instances, is the configuration of an external process in your [cmemc configuration file](../file-based-configuration/index.md).
+Another option, which is interesting when working with multiple eccenca Corporate Memory instances, is the configuration of an external process in your [cmemc configuration file](../file-based-configuration/index.md).
 
 In order to get credential information from an external process you need to use the following configuration variables to set up an external executable:
 

@@ -4,7 +4,7 @@ tags:
 ---
 # Reverse Proxy
 
-A reverse proxy forwards all requests from the users to the called service and returns the result to the users. Corporate Memory is tested with an Apache HTTP server as a reverse proxy.
+A reverse proxy forwards all requests from the users to the called service and returns the result to the users. Eccenca Corporate Memory is tested with an Apache HTTP server as a reverse proxy.
 
 Reverse proxy is a necessary component in the Corporate Memory deployment. It enables you to:
 

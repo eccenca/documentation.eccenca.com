@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.2.0
+# eccenca Corporate Memory 26.2.0
 
 Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
@@ -37,12 +37,17 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-- [eccenca Explore v26.2.0](#eccenca-explore-v2620)
-- [eccenca Marketplace v26.2.4](#eccenca-marketplace-v2624)
-- [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
-- [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
-- [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
+- [eccenca Corporate Memory 26.2.0](#eccenca-corporate-memory-2620)
+  - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
+  - [eccenca Explore v26.2.0](#eccenca-explore-v2620)
+  - [eccenca Marketplace v26.2.4](#eccenca-marketplace-v2624)
+  - [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
+  - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
+  - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
+  - [Migration Notes](#migration-notes)
+    - [eccenca DataIntegration](#eccenca-dataintegration)
+    - [eccenca Explore](#eccenca-explore)
+    - [cmemc](#cmemc)
 
 We tested this release with the following dependency components:
 

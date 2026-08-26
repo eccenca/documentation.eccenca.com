@@ -15,7 +15,7 @@ In this document we provide an overview on how the environment files are loaded,
 ## Environment Files: Loading Sequence
 
 The environment files are supplied in the CONFIGFILE environment variable to the make targets inside the orchestration.
-For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the Corporate Memory instance using `prod.env` configuration:
+For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the eccenca Corporate Memory instance using `prod.env` configuration:
 
 ``` shell-session
 CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap

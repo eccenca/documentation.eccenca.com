@@ -18,14 +18,14 @@ You can define forms using SHACL rules. The rules state:
 3. Which other, linked resources are shown in the form. Linked resources can either be shown as links or as their full form.
 4. Which texts are used to name and describe fields, as well as the tab in the user interface.
 
-Forms are defined in the CMEM Shapes Catalog graph. The graph URI is `https://vocab.eccenca.com/shacl/`.
+Forms are defined in the eccenca Corporate Memory Shapes Catalog graph. The graph URI is `https://vocab.eccenca.com/shacl/`.
 
 Form definitions are twofold:
 
 1. The form itself is defined as so called `NodeShape`. NodeShapes define which types of resources the form applies to (the target class), and which fields are shown in the form (the Properties).
 2. The individual fields are defined as so called `PropertyShape`. PropertyShapes define which property is used to retrieve data for the field (the path), the name of the field, a description, its cardinality (min and max count), its position in the form (the order), and if it should always be shown. In case of object properties, it also defines the type of the linked resource (the class). The full list of features is described in [PropertyShapes](property-shapes/index.md).
 
-To define a new form, for example for `foaf:Person` resources, navigate to the CMEM Shapes Catalog graph and select `NodeShape` in Navigation. The list of existing NodeShapes is shown. Click "Create a new SHACL Node shape" in the upper right to create a new NodeShape. Enter a name of the resource. An empty NodeShape resource is created and shown.
+To define a new form, for example for `foaf:Person` resources, navigate to the Corporate Memory Shapes Catalog graph and select `NodeShape` in Navigation. The list of existing NodeShapes is shown. Click "Create a new SHACL Node shape" in the upper right to create a new NodeShape. Enter a name of the resource. An empty NodeShape resource is created and shown.
 
 ![](./createNodeShape.png){ class="bordered" }
 
@@ -37,7 +37,7 @@ You have now created an "empty" form that covers `foaf:Person` resources with 
 
 ![](./nodeshape.png){ class="bordered" }
 
-To define new fields, for example showing the email address of the person (defined as `foaf:mbox`), navigate to the CMEM Shapes Catalog graph and select `PropertyShape` in Navigation. The list of existing PropertyShapes is shown. Click CREATE NEW PROPERTYSHAPE in the upper right to create a new PropertyShape. Enter a name of the resource. An empty PropertyShape resource is created and shown.
+To define new fields, for example showing the email address of the person (defined as `foaf:mbox`), navigate to the Corporate Memory Shapes Catalog graph and select `PropertyShape` in Navigation. The list of existing PropertyShapes is shown. Click CREATE NEW PROPERTYSHAPE in the upper right to create a new PropertyShape. Enter a name of the resource. An empty PropertyShape resource is created and shown.
 
 Edit the form using ![](./ic_mode_edit_black_18dp_1x.png). A form is shown with all relevant properties of a field definition. Required in this step are:
 
