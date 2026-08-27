@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `python_install` {#cmem_client.models.python_install}
+# `cmem_client.models.python_install` {#cmem_client.models.python_install}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

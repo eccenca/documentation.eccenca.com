@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `vocabularies` {#cmem_client.repositories.vocabularies}
+# `cmem_client.repositories.vocabularies` {#cmem_client.repositories.vocabularies}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

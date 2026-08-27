@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workspace_configs` {#cmem_client.repositories.workspace_configs}
+# `cmem_client.repositories.workspace_configs` {#cmem_client.repositories.workspace_configs}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `marketplace` {#cmem_client.components.marketplace}
+# `cmem_client.components.marketplace` {#cmem_client.components.marketplace}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

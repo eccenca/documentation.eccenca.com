@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `token` {#cmem_client.models.token}
+# `cmem_client.models.token` {#cmem_client.models.token}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

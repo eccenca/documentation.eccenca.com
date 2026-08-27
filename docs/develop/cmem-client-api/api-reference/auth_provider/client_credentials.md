@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `client_credentials` {#cmem_client.auth_provider.client_credentials}
+# `cmem_client.auth_provider.client_credentials` {#cmem_client.auth_provider.client_credentials}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

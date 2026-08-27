@@ -4,7 +4,7 @@ nav:
     - config: config.md
     - exceptions: exceptions.md
     - logging_utils: logging_utils.md
-    - Auth Provider: auth_provider
-    - Components: components
-    - Models: models
-    - Repositories: repositories
+    - auth_provider: auth_provider
+    - components: components
+    - models: models
+    - repositories: repositories

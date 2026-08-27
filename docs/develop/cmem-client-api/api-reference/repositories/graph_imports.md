@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `graph_imports` {#cmem_client.repositories.graph_imports}
+# `cmem_client.repositories.graph_imports` {#cmem_client.repositories.graph_imports}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

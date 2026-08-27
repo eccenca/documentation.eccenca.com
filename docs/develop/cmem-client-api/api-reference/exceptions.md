@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `exceptions` {#cmem_client.exceptions}
+# `cmem_client.exceptions` {#cmem_client.exceptions}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

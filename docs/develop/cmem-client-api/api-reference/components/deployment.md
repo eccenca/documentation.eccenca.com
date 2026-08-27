@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `deployment` {#cmem_client.components.deployment}
+# `cmem_client.components.deployment` {#cmem_client.components.deployment}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

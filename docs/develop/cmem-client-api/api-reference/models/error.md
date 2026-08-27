@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `error` {#cmem_client.models.error}
+# `cmem_client.models.error` {#cmem_client.models.error}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

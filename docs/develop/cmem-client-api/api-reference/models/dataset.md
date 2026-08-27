@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `dataset` {#cmem_client.models.dataset}
+# `cmem_client.models.dataset` {#cmem_client.models.dataset}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

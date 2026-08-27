@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workflow` {#cmem_client.models.workflow}
+# `cmem_client.models.workflow` {#cmem_client.models.workflow}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

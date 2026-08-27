@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workspace_plugin` {#cmem_client.models.workspace_plugin}
+# `cmem_client.models.workspace_plugin` {#cmem_client.models.workspace_plugin}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

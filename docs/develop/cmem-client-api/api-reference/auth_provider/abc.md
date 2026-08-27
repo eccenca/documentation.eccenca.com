@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `abc` {#cmem_client.auth_provider.abc}
+# `cmem_client.auth_provider.abc` {#cmem_client.auth_provider.abc}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `export_item` {#cmem_client.repositories.protocols.export_item}
+# `cmem_client.repositories.protocols.export_item` {#cmem_client.repositories.protocols.export_item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

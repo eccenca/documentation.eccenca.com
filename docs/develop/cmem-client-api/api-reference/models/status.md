@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `status` {#cmem_client.models.status}
+# `cmem_client.models.status` {#cmem_client.models.status}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `files` {#cmem_client.repositories.files}
+# `cmem_client.repositories.files` {#cmem_client.repositories.files}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

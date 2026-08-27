@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `task` {#cmem_client.models.task}
+# `cmem_client.models.task` {#cmem_client.models.task}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `paged_list` {#cmem_client.repositories.base.paged_list}
+# `cmem_client.repositories.base.paged_list` {#cmem_client.repositories.base.paged_list}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `graph_insight` {#cmem_client.models.graph_insight}
+# `cmem_client.models.graph_insight` {#cmem_client.models.graph_insight}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `vocabulary` {#cmem_client.models.vocabulary}
+# `cmem_client.models.vocabulary` {#cmem_client.models.vocabulary}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

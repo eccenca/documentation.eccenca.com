@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `create_item` {#cmem_client.repositories.protocols.create_item}
+# `cmem_client.repositories.protocols.create_item` {#cmem_client.repositories.protocols.create_item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

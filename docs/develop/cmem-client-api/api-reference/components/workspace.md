@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workspace` {#cmem_client.components.workspace}
+# `cmem_client.components.workspace` {#cmem_client.components.workspace}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

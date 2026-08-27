@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `item` {#cmem_client.models.item}
+# `cmem_client.models.item` {#cmem_client.models.item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

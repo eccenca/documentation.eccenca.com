@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `task_search` {#cmem_client.repositories.base.task_search}
+# `cmem_client.repositories.base.task_search` {#cmem_client.repositories.base.task_search}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

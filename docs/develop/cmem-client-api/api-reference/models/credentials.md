@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `credentials` {#cmem_client.models.credentials}
+# `cmem_client.models.credentials` {#cmem_client.models.credentials}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

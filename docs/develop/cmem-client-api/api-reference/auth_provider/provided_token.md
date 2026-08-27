@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `provided_token` {#cmem_client.auth_provider.provided_token}
+# `cmem_client.auth_provider.provided_token` {#cmem_client.auth_provider.provided_token}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

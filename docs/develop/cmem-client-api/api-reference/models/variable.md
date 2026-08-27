@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `variable` {#cmem_client.models.variable}
+# `cmem_client.models.variable` {#cmem_client.models.variable}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

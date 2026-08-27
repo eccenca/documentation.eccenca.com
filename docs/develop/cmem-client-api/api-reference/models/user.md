@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `user` {#cmem_client.models.user}
+# `cmem_client.models.user` {#cmem_client.models.user}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

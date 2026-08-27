@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `variables` {#cmem_client.repositories.variables}
+# `cmem_client.repositories.variables` {#cmem_client.repositories.variables}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

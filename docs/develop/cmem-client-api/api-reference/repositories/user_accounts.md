@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `user_accounts` {#cmem_client.repositories.user_accounts}
+# `cmem_client.repositories.user_accounts` {#cmem_client.repositories.user_accounts}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

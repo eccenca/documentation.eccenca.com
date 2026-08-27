@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `resource` {#cmem_client.models.resource}
+# `cmem_client.models.resource` {#cmem_client.models.resource}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

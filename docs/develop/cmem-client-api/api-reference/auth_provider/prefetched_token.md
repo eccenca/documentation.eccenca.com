@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `prefetched_token` {#cmem_client.auth_provider.prefetched_token}
+# `cmem_client.auth_provider.prefetched_token` {#cmem_client.auth_provider.prefetched_token}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

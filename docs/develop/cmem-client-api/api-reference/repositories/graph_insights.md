@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `graph_insights` {#cmem_client.repositories.graph_insights}
+# `cmem_client.repositories.graph_insights` {#cmem_client.repositories.graph_insights}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

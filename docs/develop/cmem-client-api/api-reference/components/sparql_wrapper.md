@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `sparql_wrapper` {#cmem_client.components.sparql_wrapper}
+# `cmem_client.components.sparql_wrapper` {#cmem_client.components.sparql_wrapper}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

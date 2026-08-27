@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `schedulers` {#cmem_client.repositories.schedulers}
+# `cmem_client.repositories.schedulers` {#cmem_client.repositories.schedulers}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

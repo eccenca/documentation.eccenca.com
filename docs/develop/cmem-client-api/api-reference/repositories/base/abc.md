@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `abc` {#cmem_client.repositories.base.abc}
+# `cmem_client.repositories.base.abc` {#cmem_client.repositories.base.abc}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

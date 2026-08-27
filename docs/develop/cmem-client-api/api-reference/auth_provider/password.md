@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `password` {#cmem_client.auth_provider.password}
+# `cmem_client.auth_provider.password` {#cmem_client.auth_provider.password}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

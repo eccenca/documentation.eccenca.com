@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `graph` {#cmem_client.models.graph}
+# `cmem_client.models.graph` {#cmem_client.models.graph}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

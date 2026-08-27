@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workspace_config` {#cmem_client.models.workspace_config}
+# `cmem_client.models.workspace_config` {#cmem_client.models.workspace_config}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

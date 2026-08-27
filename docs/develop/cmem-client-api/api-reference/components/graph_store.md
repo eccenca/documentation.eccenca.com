@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `graph_store` {#cmem_client.components.graph_store}
+# `cmem_client.components.graph_store` {#cmem_client.components.graph_store}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

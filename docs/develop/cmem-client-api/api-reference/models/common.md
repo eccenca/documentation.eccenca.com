@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `common` {#cmem_client.models.common}
+# `cmem_client.models.common` {#cmem_client.models.common}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

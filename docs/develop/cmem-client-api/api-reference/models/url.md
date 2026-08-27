@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `url` {#cmem_client.models.url}
+# `cmem_client.models.url` {#cmem_client.models.url}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

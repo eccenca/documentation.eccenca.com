@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `delete_item` {#cmem_client.repositories.protocols.delete_item}
+# `cmem_client.repositories.protocols.delete_item` {#cmem_client.repositories.protocols.delete_item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

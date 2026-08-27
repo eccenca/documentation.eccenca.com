@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `scheduler` {#cmem_client.models.scheduler}
+# `cmem_client.models.scheduler` {#cmem_client.models.scheduler}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

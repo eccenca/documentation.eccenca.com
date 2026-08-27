@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `plain_list` {#cmem_client.repositories.base.plain_list}
+# `cmem_client.repositories.base.plain_list` {#cmem_client.repositories.base.plain_list}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

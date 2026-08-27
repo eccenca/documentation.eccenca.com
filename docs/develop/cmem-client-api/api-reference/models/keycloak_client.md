@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `keycloak_client` {#cmem_client.models.keycloak_client}
+# `cmem_client.models.keycloak_client` {#cmem_client.models.keycloak_client}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

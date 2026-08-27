@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `logging_utils` {#cmem_client.logging_utils}
+# `cmem_client.logging_utils` {#cmem_client.logging_utils}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

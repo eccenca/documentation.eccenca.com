@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `access_condition` {#cmem_client.models.access_condition}
+# `cmem_client.models.access_condition` {#cmem_client.models.access_condition}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

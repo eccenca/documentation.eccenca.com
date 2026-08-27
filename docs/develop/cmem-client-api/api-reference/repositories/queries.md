@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `queries` {#cmem_client.repositories.queries}
+# `cmem_client.repositories.queries` {#cmem_client.repositories.queries}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

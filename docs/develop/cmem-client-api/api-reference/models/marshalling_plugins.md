@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `marshalling_plugins` {#cmem_client.models.marshalling_plugins}
+# `cmem_client.models.marshalling_plugins` {#cmem_client.models.marshalling_plugins}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

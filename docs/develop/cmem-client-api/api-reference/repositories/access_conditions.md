@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `access_conditions` {#cmem_client.repositories.access_conditions}
+# `cmem_client.repositories.access_conditions` {#cmem_client.repositories.access_conditions}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

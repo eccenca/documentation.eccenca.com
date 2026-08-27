@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `python_packages` {#cmem_client.repositories.python_packages}
+# `cmem_client.repositories.python_packages` {#cmem_client.repositories.python_packages}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

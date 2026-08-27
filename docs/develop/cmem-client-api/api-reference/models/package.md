@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `package` {#cmem_client.models.package}
+# `cmem_client.models.package` {#cmem_client.models.package}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

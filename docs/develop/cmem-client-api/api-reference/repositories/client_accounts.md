@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `client_accounts` {#cmem_client.repositories.client_accounts}
+# `cmem_client.repositories.client_accounts` {#cmem_client.repositories.client_accounts}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

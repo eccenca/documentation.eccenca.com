@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `logging_config` {#cmem_client.models.logging_config}
+# `cmem_client.models.logging_config` {#cmem_client.models.logging_config}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `config` {#cmem_client.config}
+# `cmem_client.config` {#cmem_client.config}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

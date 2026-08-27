@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `update_item` {#cmem_client.repositories.protocols.update_item}
+# `cmem_client.repositories.protocols.update_item` {#cmem_client.repositories.protocols.update_item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

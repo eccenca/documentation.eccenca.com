@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `query_catalog` {#cmem_client.models.query_catalog}
+# `cmem_client.models.query_catalog` {#cmem_client.models.query_catalog}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

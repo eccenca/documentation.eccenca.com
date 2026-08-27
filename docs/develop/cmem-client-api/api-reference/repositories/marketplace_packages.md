@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `marketplace_packages` {#cmem_client.repositories.marketplace_packages}
+# `cmem_client.repositories.marketplace_packages` {#cmem_client.repositories.marketplace_packages}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

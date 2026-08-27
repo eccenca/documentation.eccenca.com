@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `import_item` {#cmem_client.repositories.protocols.import_item}
+# `cmem_client.repositories.protocols.import_item` {#cmem_client.repositories.protocols.import_item}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

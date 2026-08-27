@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `workspace_status` {#cmem_client.models.workspace_status}
+# `cmem_client.models.workspace_status` {#cmem_client.models.workspace_status}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

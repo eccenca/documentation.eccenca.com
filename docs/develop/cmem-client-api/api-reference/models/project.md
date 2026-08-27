@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `project` {#cmem_client.models.project}
+# `cmem_client.models.project` {#cmem_client.models.project}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

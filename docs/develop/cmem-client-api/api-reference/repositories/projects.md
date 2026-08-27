@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `projects` {#cmem_client.repositories.projects}
+# `cmem_client.repositories.projects` {#cmem_client.repositories.projects}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
