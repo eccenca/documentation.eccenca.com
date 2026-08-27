@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: error module"
+description: "Error response models for Corporate Memory API error handling."
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: abc module"
+description: "Abstract base classes and configuration for CMEM repositories."
 tags:
   - API
   - Python

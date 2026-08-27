@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: schedulers module"
+description: "Repository for the workflow schedulers of DataIntegration."
 tags:
   - API
   - Python

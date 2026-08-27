@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: task module"
+description: "Task models for the DataIntegration task endpoint."
 tags:
   - API
   - Python

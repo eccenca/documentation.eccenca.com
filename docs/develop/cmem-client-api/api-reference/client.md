@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: client module"
+description: "Main API client for eccenca Corporate Memory."
 tags:
   - API
   - Python

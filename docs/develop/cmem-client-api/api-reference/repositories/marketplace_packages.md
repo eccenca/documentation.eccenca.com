@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: marketplace_packages module"
+description: "Repository for the marketplace packages installed in Corporate Memory."
 tags:
   - API
   - Python

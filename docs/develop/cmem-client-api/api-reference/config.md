@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: config module"
+description: "Configuration management for the Corporate Memory client."
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: python_install module"
+description: "Result models for Python package installation and plugin management operations."
 tags:
   - API
   - Python

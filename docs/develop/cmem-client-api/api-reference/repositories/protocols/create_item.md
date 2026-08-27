@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: create_item module"
+description: "Protocol interface for repository item creation operations."
 tags:
   - API
   - Python

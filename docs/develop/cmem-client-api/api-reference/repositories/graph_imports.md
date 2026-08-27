@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graph_imports module"
+description: "Repository for the `owl:imports` relations between named graphs."
 tags:
   - API
   - Python

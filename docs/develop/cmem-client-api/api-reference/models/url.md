@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: url module"
+description: "HTTP URL validation and manipulation utilities."
 tags:
   - API
   - Python

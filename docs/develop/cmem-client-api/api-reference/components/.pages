@@ -1,7 +1,7 @@
 title: Components
 nav:
-    - Deployment: deployment.md
-    - Graph Store: graph_store.md
-    - Marketplace: marketplace.md
-    - Sparql Wrapper: sparql_wrapper.md
-    - Workspace: workspace.md
+    - components.deployment: deployment.md
+    - components.graph_store: graph_store.md
+    - components.marketplace: marketplace.md
+    - components.sparql_wrapper: sparql_wrapper.md
+    - components.workspace: workspace.md

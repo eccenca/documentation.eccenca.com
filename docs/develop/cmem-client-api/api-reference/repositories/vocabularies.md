@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: vocabularies module"
+description: "Repository for managing vocabularies in Corporate Memory."
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: export_item module"
+description: "Protocol interface for repository item export operations."
 tags:
   - API
   - Python

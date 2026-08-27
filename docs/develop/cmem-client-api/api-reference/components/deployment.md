@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: deployment module"
+description: "Corporate Memory deployment status component."
 tags:
   - API
   - Python

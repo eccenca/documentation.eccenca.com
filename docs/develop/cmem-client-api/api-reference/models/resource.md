@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: resource module"
+description: "A file resource model"
 tags:
   - API
   - Python

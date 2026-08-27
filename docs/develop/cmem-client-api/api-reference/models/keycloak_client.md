@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: keycloak_client module"
+description: "Keycloak client models."
 tags:
   - API
   - Python

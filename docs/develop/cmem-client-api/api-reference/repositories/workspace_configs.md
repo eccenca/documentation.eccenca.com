@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workspace_configs module"
+description: "Repository for the custom workspace configurations of DataIntegration."
 tags:
   - API
   - Python

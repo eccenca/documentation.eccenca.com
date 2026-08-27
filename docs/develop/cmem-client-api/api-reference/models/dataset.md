@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: dataset module"
+description: "Corporate Memory dataset models for data integration."
 tags:
   - API
   - Python

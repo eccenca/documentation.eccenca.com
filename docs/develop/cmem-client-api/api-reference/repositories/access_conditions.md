@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: access_conditions module"
+description: "Repository for the access conditions of Corporate Memory."
 tags:
   - API
   - Python

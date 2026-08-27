@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: base module"
+description: "Base model classes for all cmem_client data models."
 tags:
   - API
   - Python

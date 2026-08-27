@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: update_item module"
+description: "Protocol interface for repository item update operations."
 tags:
   - API
   - Python

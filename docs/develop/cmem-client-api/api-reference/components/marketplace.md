@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: marketplace module"
+description: "eccenca Marketplace server integration."
 tags:
   - API
   - Python

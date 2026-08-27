@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graph_insight module"
+description: "Graph Insight models for Corporate Memory."
 tags:
   - API
   - Python

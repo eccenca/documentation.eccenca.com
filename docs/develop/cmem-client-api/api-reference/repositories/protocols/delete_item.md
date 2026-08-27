@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: delete_item module"
+description: "Protocol interface for repository item deletion operations."
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: prefetched_token module"
+description: "Prefetched token authentication provider."
 tags:
   - API
   - Python

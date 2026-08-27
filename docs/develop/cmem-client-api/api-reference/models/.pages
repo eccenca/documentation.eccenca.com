@@ -1,34 +1,34 @@
 title: Models
 nav:
-    - Access Condition: access_condition.md
-    - Base: base.md
-    - Common: common.md
-    - Credentials: credentials.md
-    - Dataset: dataset.md
-    - Error: error.md
-    - Graph: graph.md
-    - Graph Import: graph_import.md
-    - Graph Insight: graph_insight.md
-    - Item: item.md
-    - Keycloak Client: keycloak_client.md
-    - Logging Config: logging_config.md
-    - Marshalling Plugins: marshalling_plugins.md
-    - Package: package.md
-    - Project: project.md
-    - Python Install: python_install.md
-    - Python Package: python_package.md
-    - Query Catalog: query_catalog.md
-    - Resource: resource.md
-    - Scheduler: scheduler.md
-    - Status: status.md
-    - Task: task.md
-    - Token: token.md
-    - Url: url.md
-    - User: user.md
-    - Validation: validation.md
-    - Variable: variable.md
-    - Vocabulary: vocabulary.md
-    - Workflow: workflow.md
-    - Workspace Config: workspace_config.md
-    - Workspace Plugin: workspace_plugin.md
-    - Workspace Status: workspace_status.md
+    - models.access_condition: access_condition.md
+    - models.base: base.md
+    - models.common: common.md
+    - models.credentials: credentials.md
+    - models.dataset: dataset.md
+    - models.error: error.md
+    - models.graph: graph.md
+    - models.graph_import: graph_import.md
+    - models.graph_insight: graph_insight.md
+    - models.item: item.md
+    - models.keycloak_client: keycloak_client.md
+    - models.logging_config: logging_config.md
+    - models.marshalling_plugins: marshalling_plugins.md
+    - models.package: package.md
+    - models.project: project.md
+    - models.python_install: python_install.md
+    - models.python_package: python_package.md
+    - models.query_catalog: query_catalog.md
+    - models.resource: resource.md
+    - models.scheduler: scheduler.md
+    - models.status: status.md
+    - models.task: task.md
+    - models.token: token.md
+    - models.url: url.md
+    - models.user: user.md
+    - models.validation: validation.md
+    - models.variable: variable.md
+    - models.vocabulary: vocabulary.md
+    - models.workflow: workflow.md
+    - models.workspace_config: workspace_config.md
+    - models.workspace_plugin: workspace_plugin.md
+    - models.workspace_status: workspace_status.md

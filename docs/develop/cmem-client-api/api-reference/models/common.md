@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: common module"
+description: "Shared domain models used across multiple resource types."
 tags:
   - API
   - Python

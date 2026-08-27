@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: item module"
+description: "ImportItem base class and inherited classes"
 tags:
   - API
   - Python

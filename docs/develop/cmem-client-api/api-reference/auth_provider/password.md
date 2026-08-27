@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: password module"
+description: "Resource Owner Password OAuth 2.0 flow authentication provider."
 tags:
   - API
   - Python

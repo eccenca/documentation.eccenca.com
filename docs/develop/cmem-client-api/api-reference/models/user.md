@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: user module"
+description: "Keycloak user and group models."
 tags:
   - API
   - Python

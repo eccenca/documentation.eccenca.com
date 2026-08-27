@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: abc module"
+description: "Abstract base class and factory for authentication providers."
 tags:
   - API
   - Python

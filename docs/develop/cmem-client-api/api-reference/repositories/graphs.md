@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graphs module"
+description: "Repository for managing named graphs in Corporate Memory."
 tags:
   - API
   - Python

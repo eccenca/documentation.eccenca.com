@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: plain_list module"
+description: "Repository implementation for simple list API endpoints."
 tags:
   - API
   - Python

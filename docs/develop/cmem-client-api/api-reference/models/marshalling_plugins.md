@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: marshalling_plugins module"
+description: "Marshalling Plugin models"
 tags:
   - API
   - Python

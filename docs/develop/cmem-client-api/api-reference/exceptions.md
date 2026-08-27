@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: exceptions module"
+description: "Custom exception classes for the cmem_client package."
 tags:
   - API
   - Python

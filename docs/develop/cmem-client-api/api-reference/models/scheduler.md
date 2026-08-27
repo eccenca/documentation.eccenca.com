@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: scheduler module"
+description: "Scheduler models"
 tags:
   - API
   - Python

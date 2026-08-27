@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: validation module"
+description: "Validation models for SHACL batch validation processes."
 tags:
   - API
   - Python

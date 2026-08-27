@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: client_credentials module"
+description: "Client Credentials OAuth 2.0 flow authentication provider."
 tags:
   - API
   - Python

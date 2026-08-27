@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workspace_status module"
+description: "Corporate Memory DataIntegration workspace status models."
 tags:
   - API
   - Python

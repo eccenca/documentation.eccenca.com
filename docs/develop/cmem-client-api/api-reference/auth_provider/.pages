@@ -1,7 +1,7 @@
 title: Auth Provider
 nav:
-    - Abc: abc.md
-    - Client Credentials: client_credentials.md
-    - Password: password.md
-    - Prefetched Token: prefetched_token.md
-    - Provided Token: provided_token.md
+    - auth_provider.abc: abc.md
+    - auth_provider.client_credentials: client_credentials.md
+    - auth_provider.password: password.md
+    - auth_provider.prefetched_token: prefetched_token.md
+    - auth_provider.provided_token: provided_token.md

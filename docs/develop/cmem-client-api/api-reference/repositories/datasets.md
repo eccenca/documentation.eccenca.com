@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: datasets module"
+description: "Repository for managing datasets in Corporate Memory."
 tags:
   - API
   - Python

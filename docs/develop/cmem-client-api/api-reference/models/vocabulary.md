@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: vocabulary module"
+description: "Vocabulary models for Corporate Memory vocabulary catalog."
 tags:
   - API
   - Python

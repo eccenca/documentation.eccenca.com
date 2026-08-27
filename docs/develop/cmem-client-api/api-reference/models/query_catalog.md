@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: query_catalog module"
+description: "Models for query catalog operations."
 tags:
   - API
   - Python

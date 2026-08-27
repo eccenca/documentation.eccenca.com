@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: task_search module"
+description: "Repository implementation for Corporate Memory task search endpoints."
 tags:
   - API
   - Python

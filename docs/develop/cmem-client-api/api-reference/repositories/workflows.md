@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workflows module"
+description: "Repository for the workflows of DataIntegration projects."
 tags:
   - API
   - Python

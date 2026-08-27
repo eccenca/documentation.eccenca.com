@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: project module"
+description: "Corporate Memory project models and metadata."
 tags:
   - API
   - Python

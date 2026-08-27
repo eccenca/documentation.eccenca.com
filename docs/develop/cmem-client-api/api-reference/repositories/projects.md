@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: projects module"
+description: "Repository for managing DataIntegration projects."
 tags:
   - API
   - Python

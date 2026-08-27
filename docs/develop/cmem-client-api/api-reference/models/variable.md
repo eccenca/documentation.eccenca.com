@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: variable module"
+description: "Corporate Memory project variable models for data integration."
 tags:
   - API
   - Python

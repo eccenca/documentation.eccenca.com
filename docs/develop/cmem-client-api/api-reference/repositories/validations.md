@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: validations module"
+description: "Repository for the SHACL validation batches of Corporate Memory."
 tags:
   - API
   - Python

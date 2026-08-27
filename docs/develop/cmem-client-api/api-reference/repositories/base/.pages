@@ -1,6 +1,6 @@
 title: Base
 nav:
-    - Abc: abc.md
-    - Paged List: paged_list.md
-    - Plain List: plain_list.md
-    - Task Search: task_search.md
+    - repositories.base.abc: abc.md
+    - repositories.base.paged_list: paged_list.md
+    - repositories.base.plain_list: plain_list.md
+    - repositories.base.task_search: task_search.md

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: user_accounts module"
+description: "Repository for the Keycloak user accounts of a Corporate Memory deployment."
 tags:
   - API
   - Python

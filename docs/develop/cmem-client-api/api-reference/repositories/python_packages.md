@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: python_packages module"
+description: "Repository for the Python packages installed in DataIntegration."
 tags:
   - API
   - Python

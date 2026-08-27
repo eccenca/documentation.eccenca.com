@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: client_accounts module"
+description: "Repository for the Keycloak OpenID Connect client accounts of a deployment."
 tags:
   - API
   - Python

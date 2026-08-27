@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: import_item module"
+description: "Protocol interface for repository item import operations."
 tags:
   - API
   - Python

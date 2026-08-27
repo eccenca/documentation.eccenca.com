@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: logging_utils module"
+description: "Logging utilities."
 tags:
   - API
   - Python

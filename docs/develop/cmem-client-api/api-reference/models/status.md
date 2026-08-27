@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: status module"
+description: "Models for Corporate Memory aggregated status information."
 tags:
   - API
   - Python

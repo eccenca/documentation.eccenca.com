@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: paged_list module"
+description: "Repository implementation for paginated API endpoints."
 tags:
   - API
   - Python

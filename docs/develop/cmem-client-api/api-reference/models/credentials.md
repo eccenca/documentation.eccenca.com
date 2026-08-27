@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: credentials module"
+description: "Models for the OAuth2 credentials."
 tags:
   - API
   - Python

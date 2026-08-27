@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: files module"
+description: "Repository for the file resources of DataIntegration projects."
 tags:
   - API
   - Python

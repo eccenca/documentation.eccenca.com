@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graph_store module"
+description: "Corporate Memory DataPlatform (explore) graph store management."
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: package module"
+description: "Marketplace package models."
 tags:
   - API
   - Python

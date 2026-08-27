@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graph_import module"
+description: "Graph import models for Corporate Memory."
 tags:
   - API
   - Python

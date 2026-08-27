@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: graph module"
+description: "RDF graph models for Corporate Memory knowledge graphs."
 tags:
   - API
   - Python

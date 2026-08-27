@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: sparql_wrapper module"
+description: "SPARQL Wrapper for eccenca Corporate Memory"
 tags:
   - API
   - Python

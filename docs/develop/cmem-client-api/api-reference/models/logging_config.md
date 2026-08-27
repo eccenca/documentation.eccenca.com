@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: logging_config module"
+description: "Models for the configuration of the logging module"
 tags:
   - API
   - Python

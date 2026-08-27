@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: variables module"
+description: "Repository for the variables of DataIntegration projects."
 tags:
   - API
   - Python

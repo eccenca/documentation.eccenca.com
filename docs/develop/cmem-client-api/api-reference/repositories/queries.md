@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: queries module"
+description: "Repository for managing queries from the Corporate Memory query catalog."
 tags:
   - API
   - Python

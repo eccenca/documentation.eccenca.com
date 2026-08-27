@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: token module"
+description: "Authentication token models for OAuth 2.0 flows."
 tags:
   - API
   - Python

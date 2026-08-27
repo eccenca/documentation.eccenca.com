@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: provided_token module"
+description: "Provided token authentication provider."
 tags:
   - API
   - Python

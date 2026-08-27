@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workspace_config module"
+description: "Corporate Memory Explore workspace configuration models."
 tags:
   - API
   - Python

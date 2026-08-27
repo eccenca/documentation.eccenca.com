@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workflow module"
+description: "Workflow models"
 tags:
   - API
   - Python

@@ -1,5 +1,6 @@
 ---
 title: "cmem-client: workspace module"
+description: "Corporate Memory DataIntegration (build) workspace management."
 tags:
   - API
   - Python
