@@ -1,10 +1,13 @@
 ---
+status: new
 title: "cmem-client: Python API"
 icon: material/language-python
 tags:
     - API
     - Python
     - cmem-client
+hide:
+    - toc
 ---
 
 # cmem-client: Python API
