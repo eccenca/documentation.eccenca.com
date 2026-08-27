@@ -7,6 +7,9 @@ tags:
 hide:
     - toc
 ---
+!!! info inline end ""
+
+    ![You are here](Functional_Architecture_26.2_pillars_only_distribute.drawio.png "You are here")
 
 # :material-star: Distribution
 
