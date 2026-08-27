@@ -116,8 +116,6 @@ The vocabulary contains the classes and properties needed to map the data into t
     $ cmemc project create tutorial-csv
 
     $ cmemc dataset create --project tutorial-csv services.csv
-
-    $ cmemc dataset create --project tutorial-csv products.xlsx
     ```
 
 === "JDBC"
