@@ -1,6 +1,6 @@
 title: base
 nav:
-    - abc: abc.md
-    - paged_list: paged_list.md
-    - plain_list: plain_list.md
-    - task_search: task_search.md
+    - abc: abc
+    - paged_list: paged_list
+    - plain_list: plain_list
+    - task_search: task_search

@@ -1,9 +1,9 @@
 nav:
     - API Reference: index.md
-    - client: client.md
-    - config: config.md
-    - exceptions: exceptions.md
-    - logging_utils: logging_utils.md
+    - client: client
+    - config: config
+    - exceptions: exceptions
+    - logging_utils: logging_utils
     - auth_provider: auth_provider
     - components: components
     - models: models
