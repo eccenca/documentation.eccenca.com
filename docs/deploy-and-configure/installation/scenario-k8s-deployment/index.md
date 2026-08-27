@@ -289,15 +289,22 @@ By default, Corporate Memory is subject to the eccenca free Personal,
 Evaluation and Development License Agreement (PEDAL),
 a license intended for non-commercial usage.
 
+!!! note "License default changed in chart 6.0.0"
+
+    As of chart version `6.0.0`, `global.license` defaults to `cmem-license`, i.e. the
+    chart expects a Kubernetes secret with that name. To use the free PEDAL license,
+    explicitly set `global.license: ""` in your `cmem-values.yaml` (as shown in the
+    example below). Note that the default Marketplace functions require a commercial license.
+
 If you have a dedicated license file, create a secret with a `license.asc` data entry:
 
 ```shell
 kubectl create secret generic cmem-license \
-  --from-file license.asc
+  --from-file=license.asc \
   --namespace cmem
 ```
 
-Then, add the secret name to your `values.yaml` file for the key `global.license`.
+Then, add the secret name to your `cmem-values.yaml` file for the key `global.license`.
 
 To configure your Corporate Memory deployment, create a file named `cmem-values.yaml`.
 At a minimum, you should configure the
@@ -342,7 +349,9 @@ global:
   keycloakBaseUrl: https://<your-keycloak-hostname>/auth/
   keycloakIssuerUrl: https://<your-keycloak-hostname>/auth/realms/cmem
 
-  # (if license secret was created)
+  # Use the free PEDAL license (chart 6.0.0 defaults this to "cmem-license").
+  license: ""
+  # If you created a license secret above, reference it instead:
   # license: cmem-license
 
 explore:
@@ -355,12 +364,39 @@ explore:
       host: "<your-graphdb-hostname>"
       sslEnabled: false
 
+# The Marketplace is enabled by default in chart 6.0.0. It requires a dedicated
+# Keycloak client (global.marketplaceClientId) and a commercial license.
+# It is disabled here to keep this basic setup self-contained.
+marketplace:
+  enabled: false
 ```
 
 #### (Optional) Graph Insights
 
 Setting up Graph Insights in Kubernetes deployment done with helm is described in our
 [documentation for Graph Insights](../../../deploy-and-configure/configuration/graphinsights/index.md#b-enable-in-helm-deployment).
+
+#### (Optional) Marketplace
+
+The Marketplace is enabled by default in chart `6.0.0` (`marketplace.enabled: true`).
+To use it, make sure to:
+
+- add an ingress path routing `/marketplace` to the `marketplace` service on port `5050`:
+
+  ``` yaml
+  - path: /marketplace
+    pathType: Prefix
+    serviceName: marketplace
+    servicePort: 5050
+  ```
+
+- create a dedicated Keycloak OAuth client and reference it via `global.marketplaceClientId`
+  (defaults to `marketplace`),
+- provide a commercial license via `global.license` (the default Marketplace functions require one), and
+- set a secure `marketplace.config.sessionSecret` (or reference an existing secret via
+  `marketplace.config.existingSecret`).
+
+To skip the Marketplace, set `marketplace.enabled: false` (as in the basic example above).
 
 ### 3. Install the Corporate Memory chart
 
