@@ -20,8 +20,7 @@ Add your license to `licenses/graphinsights.lic` then start the extension on an 
 deployment.
 
 ``` shell-session
-mkdir licenses
-ln -s your-license-file.lic graphinsights.lic
+cp your-license-file.lic licenses/graphinsights.lic
 make enable-extension EXTENSION=graphinsights
 ```
 
@@ -34,10 +33,15 @@ It creates a new StatefulSet.
 Preemptively, you have to create a secret containing your license file.
 
 ``` shell-session
-kubectl -n cmem create secret generic graphinsights-license --from-file your-graphinsights.lic
+kubectl -n cmem create secret generic graphinsights-license \
+  --from-file=graphinsights.lic=your-license-file.lic
 ```
 
-All needed configuration can be done in the Corporate Memory helm chart `value.yaml` file.
+The chart mounts this secret via `subPath: graphinsights.lic`, so the secret key must be
+named exactly `graphinsights.lic` (that is what `--from-file=graphinsights.lic=...` does).
+The secret name defaults to `graphinsights-license` (`graphinsights.license` in your values file).
+
+All needed configuration can be done in the Corporate Memory helm chart `values.yaml` file.
 This enables the plugin.
 
 ``` yaml
@@ -46,8 +50,8 @@ graphinsights:
 ```
 
 Besides enabling the extension you also have to create a route/path in your Ingress or Route.
-In the Chart's `value.yaml` file, a configuration is commented out.
-You should enable this in your `value.yaml` file.
+In the Chart's `values.yaml` file, a configuration is commented out.
+You should enable this in your `values.yaml` file.
 
 ``` yaml
     # GraphInsights at /graphinsights path (if enabled).
@@ -127,7 +131,7 @@ Sizing can be changed in the loaded memory profile, e.g. at `environments/config
 The deployment definition for explore with the extension is defined in `extensions/docker-compose.graphinsights.yml` in the explore service.
 
 In **helm deployments** you find the needed section inside the `.Values.graphinsights.enabled` block in the file at `configuration-files/explore-application.yml`, where most of the configuration is inserted with GO-templates.
-Some environment variables are set in the `value.yaml` and rendered in a ConfigMap `templates/explore-configmap.yaml`.
+Some environment variables are set in the `values.yaml` and rendered in a ConfigMap `templates/explore-configmap.yaml`.
 
 ``` yaml
 spring.security.oauth2.client.registration.explore-service:
@@ -163,8 +167,8 @@ Sizing can be changed in the loaded memory profile, e.g. at `environments/config
 The deployment definition of the extension is defined in `extensions/docker-compose.graphinsights.yml`.
 
 In **helm deployments** you find the file at `configuration-files/cmem.integration.config.yml`, which is rendered as a ConfigMap and then mounted into the Graph Insights StatefulSet.
-Environment variables are set in the `value.yaml` and rendered in a ConfigMap `templates/graphinsights-configmap.yaml`.
-Sizing regarding memory, CPU or disk usage are configured in the `value.yaml`.
+Environment variables are set in the `values.yaml` and rendered in a ConfigMap `templates/graphinsights-configmap.yaml`.
+Sizing regarding memory, CPU or disk usage are configured in the `values.yaml`.
 
 ``` yaml
 ---
@@ -183,8 +187,7 @@ semspect:
 # semspect.core.payloadResolution:
 #   allowedRedirectDomains:
 #     - "*.eccenca.com"
-#   allowedDataUrlMimeTypes: [ "image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
-
+#   allowedDataUrlMimeTypes: ["image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"]
 
 frontend:
   appNameOverride: "Graph Insights"
@@ -319,7 +322,7 @@ GRAPHINSIGHTS_OAUTH_SERVICE_CLIENT_SECRET=changeme
 
 #### Configure OAuth clients (helm)
 
-In **helm deployments**, once you have the clients available all you have to do is change these lines in your value.yaml
+In **helm deployments**, once you have the clients available all you have to do is change these lines in your values.yaml
 accordingly:
 
 ``` yaml

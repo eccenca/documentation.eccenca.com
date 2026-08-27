@@ -37,17 +37,12 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- [eccenca Corporate Memory 26.2.0](#eccenca-corporate-memory-2620)
-  - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-  - [eccenca Explore v26.2.0](#eccenca-explore-v2620)
-  - [eccenca Marketplace v26.2.4](#eccenca-marketplace-v2624)
-  - [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
-  - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
-  - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
-  - [Migration Notes](#migration-notes)
-    - [eccenca DataIntegration](#eccenca-dataintegration)
-    - [eccenca Explore](#eccenca-explore)
-    - [cmemc](#cmemc)
+- [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
+- [eccenca Explore v26.2.0](#eccenca-explore-v2620)
+- [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
+- [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
+- [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
+- [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
 We tested this release with the following dependency components:
 
@@ -358,9 +353,14 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.4
+## eccenca Marketplace v26.2.5
 
 We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+
+**v26.2.5 of Marketplace ships the following fixes:**
+
+- `GET /api/manifest` no longer requires a license: it returned `401 missing x-eccenca-auth header` on instances running `LICENSE_MODE=LICENSE_TOKEN` without a locally configured license, which made the manifest JSON Schema unreachable for editors.
+    The route is public in every license mode now — the schema is static and carries no package, instance or user data. The validating `POST /api/manifest` and `POST /api/archive` are unchanged and stay behind the Keycloak admin group.
 
 **v26.2.4 of Marketplace introduces the following changes:**
 
