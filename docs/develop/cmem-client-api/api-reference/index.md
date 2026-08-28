@@ -17,7 +17,7 @@ tags:
     cmem-client is organized as a package of modules, each documenting one part
     of the Corporate Memory API. Browse them in the table below or in the
     navigation on the left. New to the package? Start with the
-    [`client`](client.md) module, the main entry point to the API.
+    [`client`](client/index.md) module, the main entry point to the API.
 
 | Module | Description |
 | :----- | :---------- |
