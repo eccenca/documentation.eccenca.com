@@ -215,11 +215,11 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 5. Click **Save**
 
-_Example RDF triple in our Knowledge Graph based on the mapping definition:_
+    _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
-``` text
-<http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
-```
+    ``` text
+    <http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
+    ```
 
 6. Evaluate your mapping by clicking the :eccenca-toggler-showmore: button in the **Examples of target data** property to see at most three generated base URIs.
 
