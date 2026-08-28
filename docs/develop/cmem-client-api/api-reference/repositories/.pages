@@ -1,0 +1,22 @@
+title: repositories
+nav:
+    - access_conditions: access_conditions
+    - client_accounts: client_accounts
+    - datasets: datasets
+    - files: files
+    - graph_imports: graph_imports
+    - graph_insights: graph_insights
+    - graphs: graphs
+    - marketplace_packages: marketplace_packages
+    - projects: projects
+    - python_packages: python_packages
+    - queries: queries
+    - schedulers: schedulers
+    - user_accounts: user_accounts
+    - validations: validations
+    - variables: variables
+    - vocabularies: vocabularies
+    - workflows: workflows
+    - workspace_configs: workspace_configs
+    - base: base
+    - protocols: protocols
