@@ -45,7 +45,7 @@ and skips folder when there is no correct permission.
 #### Note
 
 - If a connection cannot be established within 20 seconds, a timeout occurs.
-- Currently supported key types are: RSA, DSS, ECDSA, Ed25519.
+- Currently supported key types are: RSA, ECDSA, Ed25519.
 - Setting the maximum amount of workers to more than 1 may cause a Channel Exception when
 the amount of files is too large
 

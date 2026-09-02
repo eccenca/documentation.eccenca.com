@@ -49,7 +49,7 @@ will be used to decrypt it.
 #### Note
 
 - If a connection cannot be established within 20 seconds, a timeout occurs.
-- Currently supported key types are: RSA, DSS, ECDSA, Ed25519.
+- Currently supported key types are: RSA, ECDSA, Ed25519.
 
 
 ## Parameter

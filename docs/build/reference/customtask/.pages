@@ -1,15 +1,20 @@
 nav:
     - index.md
     - "Add project files": addProjectFiles.md
+    - "Build Packages": cmem_plugin_packages-BuildPackages.md
+    - "Bump Version in Package Manifest": cmem_plugin_packages-BumpVersions.md
     - "Cancel Workflow": CancelWorkflow.md
     - "Clear dataset": clearDataset.md
     - "Combine CSV files": combine-csv.md
     - "Concatenate to file": ConcatenateToFile.md
     - "Create Embeddings": cmem_plugin_llm-CreateEmbeddings.md
+    - "Create or Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
     - "Create/Update Salesforce Objects": cmem_plugin_salesforce-workflow-operations-SobjectCreate.md
     - "Delete project files": deleteProjectFiles.md
     - "Distinct by": DistinctBy.md
+    - "Download CKAN files": cmem_plugin_ckan-Download.md
     - "Download file": downloadFile.md
+    - "Download Git files": cmem_plugin_git-Download.md
     - "Download Nextcloud files": cmem_plugin_nextcloud-Download.md
     - "Download Office 365 Files": cmem_plugin_office365-Download.md
     - "Download SSH files": cmem_plugin_ssh-Download.md
@@ -23,15 +28,18 @@ nav:
     - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
     - "Generate random values": cmem_plugin_random-GenerateEntities.md
     - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
+    - "Get emails": cmem-plugin-email-GetEmails.md
     - "Get project files": getProjectFiles.md
     - "Get workflow report": cmem_plugin_wfreports_get_report.md
     - "GraphQL query": cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
+    - "Install Packages": cmem_plugin_packages-InstallPackages.md
     - "Join tables": Merge.md
     - "jq": cmem-plugin-jq-workflow.md
     - "JQL query": cmem_plugin_jira-JqlQuery.md
     - "JSON to File": jsonToFile.md
     - "Kafka Consumer (Receive Messages)": cmem_plugin_kafka-ReceiveMessages.md
     - "Kafka Producer (Send Messages)": cmem_plugin_kafka-SendMessages.md
+    - "List Git files": cmem_plugin_git-List.md
     - "List Nextcloud files": cmem_plugin_nextcloud-List.md
     - "List Office 365 Files": cmem_plugin_office365-List.md
     - "List project files": cmem_plugin_project_resources-List.md
@@ -44,8 +52,10 @@ nav:
     - "Parse XML": XmlParserOperator.md
     - "Parse YAML": cmem_plugin_yaml-parse.md
     - "Pivot": Pivot.md
+    - "Publish Packages": cmem_plugin_packages-PublishPackages.md
     - "Reason": cmem_plugin_reason-plugin_reason-ReasonPlugin.md
     - "Request RDF triples": tripleRequestOperator.md
+    - "Run Apify actor": cmem_plugin_apify-RunActor.md
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
     - "Search for Logs": cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
@@ -66,10 +76,12 @@ nav:
     - "SQL Update query": sqlUpdateQueryOperator.md
     - "Start Workflow per Entity": cmem_plugin_loopwf-task-StartWorkflow.md
     - "Store Vector Embeddings": cmem_plugin_pgvector-Store.md
+    - "Uninstall Packages": cmem_plugin_packages-UninstallPackages.md
     - "Unpivot": Unpivot.md
-    - "Update Graph Insights Snapshots": cmem_plugin_graph_insights-Update.md
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
+    - "Upload files to CKAN": cmem_plugin_ckan-Upload.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
+    - "Upload Git files": cmem_plugin_git-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md
     - "Upload SSH files": cmem_plugin_ssh-Upload.md
     - "Validate Entities": cmem_plugin_validation-validate-ValidateEntities.md

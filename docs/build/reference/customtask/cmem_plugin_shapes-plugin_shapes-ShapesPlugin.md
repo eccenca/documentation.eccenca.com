@@ -84,7 +84,7 @@ graph:0fcf371d-f99a-5eeb-ab50-6e6b5fbb0e06 a sh:PropertyShape ;
 The knowledge graph containing the instance data to be analyzed for the SHACL shapes generation.
 
 - ID: `data_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -94,7 +94,7 @@ The knowledge graph containing the instance data to be analyzed for the SHACL sh
 The knowledge graph the generated shapes will be added to.
 
 - ID: `shapes_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
