@@ -40,7 +40,7 @@ This release delivers the following component versions:
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
 - [eccenca Explore v26.2.0](#eccenca-explore-v2620)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
-- [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
+- [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
 - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
 - [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
@@ -453,9 +453,24 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 
-## eccenca Corporate Memory Control (cmemc) v26.2.0
+## eccenca Corporate Memory Control (cmemc) v26.2.1
 
 We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
+
+**v26.2.1 of cmemc adds the following new features:**
+
+- `package download` command to fetch a package archive (.cpa) from the marketplace without installing it
+    - `--version` downloads a specific version, shell completion lists the available versions
+    - `--with-dependencies` also downloads the marketplace packages the package depends on
+    - Python plugin dependencies can not be downloaded and are reported as a warning
+
+**v26.2.1 of cmemc ships the following fixes:**
+
+- `workflow status --raw` crashed with `TypeError: Object of type datetime is not JSON serializable`
+    - the `queueTime` and `startTime` fields are now emitted as ISO 8601 strings again
+    - in addition, all `--raw` output now falls back to the canonical pydantic JSON representation instead of failing hard
+- nearly all commands crashed with `Unknown color ''` when click 8.5.0 or newer was installed
+    - click 8.5.0 started to validate color arguments, which turned the internal "no color" default into an error
 
 **v26.2.0 of cmemc adds the following new features:**
 
