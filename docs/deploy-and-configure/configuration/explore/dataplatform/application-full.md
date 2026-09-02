@@ -93,7 +93,7 @@ key: |
 | Default | *none* |
 | Required | false |
 | Valid values | PGP Key (Message) |
-  | Conflicts with | license.file |
+| Conflicts with | license.file |
 | Environment | LICENSE_KEY |
 
 ***Property: license.file***
@@ -105,7 +105,7 @@ Use this property to specify the location of the license file
 | Default | *none* |
 | Required | false |
 | Valid values | location of the license file |
-  | Conflicts with | license.key |
+| Conflicts with | license.key |
 | Environment | LICENSE_FILE |
 
 ## General platform settings for DataPlatform
@@ -328,10 +328,10 @@ Both SSE and streamable connections are supported.
 The configurations under CMEM are the same as Spring AI mcp client configuration.
 The name of a connection ("build" in the examples below) is part of the tool names.
 For instance for Streamable:
-  spring.ai.mcp.client.cmem.streamableConnections.build.url=https://my-cmem-system
+  spring.ai.mcp.client.cmem.streamableConnections.build.url=<https://my-cmem-system>
   spring.ai.mcp.client.cmem.streamableConnections.build.endpoint=/dataintegration/mcp/streamable
 For instance for SSE:
-  spring.ai.mcp.client.cmem.sseConnections.build.url=https://cmem-mcp-server.eccenca.com
+  spring.ai.mcp.client.cmem.sseConnections.build.url=<https://cmem-mcp-server.eccenca.com>
   spring.ai.mcp.client.cmem.sseConnections.build.sse-endpoint=/mcp/sse
 
 
@@ -379,7 +379,7 @@ Server version
 
 ***Property: spring.ai.mcp.server.type***
 
-Server type (SYNC/ASYNC) s. https://docs.spring.io/spring-ai/reference/index.html
+Server type (SYNC/ASYNC) s. <https://docs.spring.io/spring-ai/reference/index.html>
 
 | Category | Value |
 |--- | ---: |
@@ -451,7 +451,7 @@ Whether the mcp server is enabled or not
 
 ***Property: spring.ai.mcp.server.protocol***
 
-Protocol used for communication between mcp server and client s. https://docs.spring.io/spring-ai/reference/index.html
+Protocol used for communication between mcp server and client s. <https://docs.spring.io/spring-ai/reference/index.html>
 
 | Category | Value |
 |--- | ---: |
@@ -560,7 +560,8 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
@@ -591,7 +592,8 @@ This configures the possible chat models for interacting with the companion.
 
 | Category | Value |
 |--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" }
+| Default | { \"name\": \"string\", \"schema\": \"string\" } |
+
  |
 | Required | false |
 | Valid values | string |
@@ -828,7 +830,7 @@ http:
 
 ***Property: http.cors.allowedOrigins***
 
-Use this property to define the list of allowed origins. The values must be either specific origins, e.g. http://example.org, or * for all origins.
+Use this property to define the list of allowed origins. The values must be either specific origins, e.g. <http://example.org>, or * for all origins.
 
 | Category | Value |
 |--- | ---: |
@@ -990,7 +992,7 @@ Use this property to configure the URI of the public user group (see section Pub
 
 | Category | Value |
 |--- | ---: |
-| Default | https://vocab.eccenca.com/auth/PublicGroup |
+| Default | <https://vocab.eccenca.com/auth/PublicGroup> |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_PUBLICGROUP |
@@ -1003,19 +1005,19 @@ Use this property to configure the URI of the public user (see section Public ac
 
 | Category | Value |
 |--- | ---: |
-| Default | https://vocab.eccenca.com/auth/AnonymousUser |
+| Default | <https://vocab.eccenca.com/auth/AnonymousUser> |
 | Required | false |
 | Valid values | string |
 | Environment | AUTHORIZATION_ABOX_ANONYMOUSUSER |
 
-#### Access conditions
+### Access conditions
 
 **IMPORTANT:** The following properties are deprecated and have no function anymore!
 
 
 ***Property: authorization.abox.accessConditions.url***
 
-**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (http://...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
+**Deprecation:** Use this property to set the URL of the access conditions model file. This can be either a remote (<http://>...) or a local (file:...) .rdf file. Refer to section Access conditions for more information on the access conditions model.
 
 
 | Category | Value |
@@ -1033,10 +1035,10 @@ Use this property to configure the URI of the public user (see section Public ac
 
 | Category | Value |
 |--- | ---: |
-| Default | https://ns.eccenca.com/data/ac/ |
+| Default | <https://ns.eccenca.com/data/ac/> |
 | Required | false |
 | Valid values | string |
-  | Conflicts with | url |
+| Conflicts with | url |
 | Environment | AUTHORIZATION_ABOX_ACCESSCONDITIONS_GRAPH |
 
 ## SPARQL endpoints
@@ -1064,11 +1066,11 @@ proxy:
 
 ***Property: proxy.defaultBaseIri***
 
-Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to https://fallback.eccenca.com/
+Base IRI for this Corporate Memory instance. If not set falls back to environment variable DEPLOY_BASE_URL, further fallback to <https://fallback.eccenca.com/>
 
 | Category | Value |
 |--- | ---: |
-| Default | https://fallback.eccenca.com/ |
+| Default | <https://fallback.eccenca.com/> |
 | Required | false |
 | Valid values | URI |
 | Environment | PROXY_DEFAULTBASEIRI |
@@ -1081,7 +1083,7 @@ Use this property to specify which RDF properties should be used to provide labe
 
 | Category | Value |
 |--- | ---: |
-| Default | [http://www.w3.org/2004/02/skos/core#prefLabel, http://www.w3.org/2000/01/rdf-schema#label, http://purl.org/dc/terms/title, http://www.w3.org/ns/shacl#name] |
+| Default | [<http://www.w3.org/2004/02/skos/core#prefLabel>, <http://www.w3.org/2000/01/rdf-schema#label>, <http://purl.org/dc/terms/title>, <http://www.w3.org/ns/shacl#name>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_LABELPROPERTIES |
@@ -1094,7 +1096,7 @@ Use this property to specify which RDF properties should be used to provide desc
 
 | Category | Value |
 |--- | ---: |
-| Default | [http://www.w3.org/2004/02/skos/core#definition, http://purl.org/dc/terms/description, http://www.w3.org/2000/01/rdf-schema#comment] |
+| Default | [<http://www.w3.org/2004/02/skos/core#definition>, <http://purl.org/dc/terms/description>, <http://www.w3.org/2000/01/rdf-schema#comment>] |
 | Required | false |
 | Valid values | list of Properties |
 | Environment | PROXY_DESCRIPTIONPROPERTIES |
@@ -1251,6 +1253,7 @@ SHACL Batch Validation State Expiration - The state of a shacl batch validation 
 Value Fetch Strategy
 Determines how the Knowledge Graph is walked for values for specific resources.
 Used for resolving titles & comments and loading shaped resources.
+
 - RESOURCE_IN_VALUES uses a SPARQL `VALUES (?resource ) { (:resource1)(:resource2)}`
 - FILTER_ONLY Uses SPARQL uses a SPARQL `FILTER (?resource in (:resource1, :resource2))`
 
@@ -1809,4 +1812,3 @@ Query timeout as duration which is active if no timeout in request has been set
 | Required | false |
 | Valid values | ISO 8601 duration format |
 | Environment | STORE_QUERYTIMEOUTGENERAL |
-
