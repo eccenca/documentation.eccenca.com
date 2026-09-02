@@ -35836,7 +35836,7 @@ For instance for SSE:
 </table>
 <p>Activate <a href="https://docs.micrometer.io/micrometer/reference/">Micrometer Tracing capability</a> with <a href="https://github.com/openzipkin/brave">Brave</a>.</p>
 <p><strong><em>Property: management.tracing.enabled</em></strong></p>
-<p>Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism. Backend store &ldquo;neptune&rdquo; is not compatible with tracing enabled.</p>
+<p>Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism.</p>
 <table>
 <thead>
 <tr>
@@ -36834,6 +36834,34 @@ endpoints to fetch more data. Increasing this value will increase response time<
 <tr>
 <td>Environment</td>
 <td style="text-align: right;">PROXY_SHACLBATCHRESULTSMEMORYBOUNDARYINMB</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Property: proxy.shaclBatchStateExpiration</em></strong></p>
+<p>SHACL Batch Validation State Expiration - The state of a shacl batch validation run, which holds all validation results of that run, is removed this duration after the run has finished. Runs which have not finished are never removed.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td style="text-align: right;">PT1H</td>
+</tr>
+<tr>
+<td>Required</td>
+<td style="text-align: right;">false</td>
+</tr>
+<tr>
+<td>Valid values</td>
+<td style="text-align: right;">ISO 8601 duration format string i.e. PT30M, P1D</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td style="text-align: right;">PROXY_SHACLBATCHSTATEEXPIRATION</td>
 </tr>
 </tbody>
 </table>
@@ -37916,7 +37944,7 @@ Stored files and saved analysis will be deleted if older than maintenanceExpirat
 </tr>
 <tr>
 <td>Valid values</td>
-<td style="text-align: right;">MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE, TENTRIS</td>
+<td style="text-align: right;">MEMORY, HTTP, GRAPHDB, VIRTUOSO, TENTRIS</td>
 </tr>
 <tr>
 <td>Environment</td>
@@ -38030,7 +38058,7 @@ Stored files and saved analysis will be deleted if older than maintenanceExpirat
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 20, 2026 08:08:53 UTC"><span class="timeago" datetime="2026-08-20T08:08:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 20, 2026 08:08:53 UTC">2026-08-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 2, 2026 17:17:38 UTC"><span class="timeago" datetime="2026-09-02T17:17:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2026 17:17:38 UTC">2026-09-02</span>
   </span>
 
     

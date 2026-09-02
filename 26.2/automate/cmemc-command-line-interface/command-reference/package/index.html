@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="List, (un)install, export, create, or inspect packages.">
+        <meta name="description" content="List, (un)install, download, export, create, or inspect packages.">
       
       
       
@@ -314,7 +314,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="cmemc: Command Group - package - eccenca Corporate Memory documentation" />
-<meta property="og:description" content="List, (un)install, export, create, or inspect packages." />
+<meta property="og:description" content="List, (un)install, download, export, create, or inspect packages." />
 <meta property="og:image" content="https://documentation.eccenca.com/26.2/assets/images/social/automate/cmemc-command-line-interface/command-reference/package/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -322,7 +322,7 @@
 <meta property="og:url" content="https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/package/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="cmemc: Command Group - package - eccenca Corporate Memory documentation" />
-<meta property="twitter:description" content="List, (un)install, export, create, or inspect packages." />
+<meta property="twitter:description" content="List, (un)install, download, export, create, or inspect packages." />
 <meta property="twitter:image" content="https://documentation.eccenca.com/26.2/assets/images/social/automate/cmemc-command-line-interface/command-reference/package/index.png" />
  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
@@ -33459,6 +33459,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#package-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package download
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#package-uninstall" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -33576,9 +33587,9 @@
 <h1 id="package-command-group">package Command Group<a class="headerlink" href="#package-command-group" title="Permanent link">¤</a></h1>
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-<p>List, (un)install, export, create, or inspect packages.</p>
+<p>List, (un)install, download, export, create, or inspect packages.</p>
 <p>Packages bundle re-usable content such as projects or vocabularies together with a manifest, so that it can be distributed and installed in other deployments. Packages are identified by a <code>PACKAGE_ID</code> and are used either as a package directory, as a Corporate Memory Package Archive (.cpa), or from a marketplace.</p>
-<p>Typical workflows are to install packages from a marketplace (<code>package search</code> and <code>package install</code>), and to create packages from your own workspace (<code>package export</code>, <code>package build</code> and <code>package publish</code>).</p>
+<p>Typical workflows are to install packages from a marketplace (<code>package search</code> and <code>package install</code>), to fetch a package archive without installing it (<code>package download</code>), and to create packages from your own workspace (<code>package export</code>, <code>package build</code> and <code>package publish</code>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To get a list of installed packages, execute the <code>package list</code> command or use tab-completion.</p>
@@ -33641,9 +33652,34 @@
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                        [default: https://eccenca.market]
 </code></pre></div>
 </details>
+<h2 id="package-download">package download<a class="headerlink" href="#package-download" title="Permanent link">¤</a></h2>
+<p>Download a package archive from the marketplace.</p>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">cmemc package download [OPTIONS] PACKAGE_ID</span>
+</code></pre></div>
+<p>This command downloads a package from the marketplace to your local file system, without installing it in Corporate Memory. The package archive is created in the output directory with the following naming convention: <code>{package_id}-v{version}.cpa</code></p>
+<p>The downloaded archive can be examined with the <code>package inspect</code> command, installed with <code>package install</code>&ndash;input<code>`, or uploaded to another marketplace with the</code>package publish` command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available packages can be listed with the <code>package search</code> command.</p>
+</div>
+<details class="info">
+<summary>Options</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>--version TEXT          Specific version to download. Defaults to the latest
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                        version.
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>--output-dir DIRECTORY  Download the package archive into this directory.
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                        [default: .]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>--replace               Replace (overwrite) existing package archives, if
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>                        present.
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>--with-dependencies     Also download the marketplace packages this package
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>                        depends on.
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>--marketplace-url TEXT  Base URL of the Marketplace - uses environment
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>                        variable ECCENCA_MARKETPLACE_URL if available.
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>                        [default: https://eccenca.market]
+</code></pre></div>
+</details>
 <h2 id="package-uninstall">package uninstall<a class="headerlink" href="#package-uninstall" title="Permanent link">¤</a></h2>
 <p>Uninstall installed packages.</p>
-<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">cmemc package uninstall [OPTIONS] [PACKAGE_ID]</span>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">cmemc package uninstall [OPTIONS] [PACKAGE_ID]</span>
 </code></pre></div>
 <p>This command removes installed packages from Corporate Memory. The packages to uninstall are selected either by giving a package ID, by using the <code>--filter</code> option, or by using the <code>--all</code> flag.</p>
 <p>By default, dependencies between packages are respected, so uninstalling a package which is still needed by another installed package will fail. With the <code>--all</code> flag, all packages are removed regardless of their dependencies.</p>
@@ -33653,47 +33689,47 @@
 </div>
 <details class="info">
 <summary>Options</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>--ignore-lock            Ignore and release the package lock file for this
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                         operation. Use this to recover from a stale lock
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                         left by an interrupted run. Dangerous under
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                         concurrent access (it removes the lock other
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                         processes rely on); use with care.
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>--filter &lt;TEXT TEXT&gt;...  Filter installed packages by one of the following
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                         filter names and a corresponding value: type, name,
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>                         id.
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>-a, --all                Uninstall all packages. This is a dangerous option,
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>                         so use it with care.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>--ignore-lock            Ignore and release the package lock file for this
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>                         operation. Use this to recover from a stale lock
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                         left by an interrupted run. Dangerous under
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                         concurrent access (it removes the lock other
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>                         processes rely on); use with care.
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>--filter &lt;TEXT TEXT&gt;...  Filter installed packages by one of the following
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>                         filter names and a corresponding value: type, name,
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>                         id.
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>-a, --all                Uninstall all packages. This is a dangerous option,
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>                         so use it with care.
 </code></pre></div>
 </details>
 <h2 id="package-export">package export<a class="headerlink" href="#package-export" title="Permanent link">¤</a></h2>
 <p>Export installed packages to package directories.</p>
-<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>cmemc<span class="w"> </span>package<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>PACKAGE_ID<span class="o">]</span>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>cmemc<span class="w"> </span>package<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>PACKAGE_ID<span class="o">]</span>
 </code></pre></div>
 <p>This command exports installed packages from Corporate Memory to the local file system. For each exported package, a directory named after the package ID is created in the output directory, holding the manifest and the exported package content. The packages to export are selected either by giving a package ID, by using the <code>--filter</code> option, or by using the <code>--all</code> flag.</p>
 <p>With the <code>--extract</code> flag, the build project archives referenced in the manifest are unpacked into directories and the archives are removed. This results in a directory structure which is better suited for version control. Note that the manifest still references the project ZIP files, and that the <code>package build</code> and <code>package install</code> commands zip such directories again on the fly.</p>
 <details class="info">
 <summary>Options</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>--mime_type [text/turtle|text/turtle+pretty]
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>                                Choose the MIME type for graphs when
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                                exporting packages.  [default:
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                                text/turtle+pretty]
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>--filter &lt;TEXT TEXT&gt;...         Filter installed packages by one of the
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>                                following filter names and a corresponding
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>                                value: type, name, id.
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>-a, --all                       Export all installed packages.
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>--output-dir DIRECTORY          Create package directories in this base
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>                                directory.  [default: .]
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>--replace                       Replace (overwrite) existing files, if
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>                                present.
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>--extract                       Extract the project files specified in the
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>                                manifest and replace the archive with
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>                                itsextracted directory. This is useful for
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>                                version controlled package directories.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>--mime_type [text/turtle|text/turtle+pretty]
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>                                Choose the MIME type for graphs when
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>                                exporting packages.  [default:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>                                text/turtle+pretty]
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>--filter &lt;TEXT TEXT&gt;...         Filter installed packages by one of the
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>                                following filter names and a corresponding
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>                                value: type, name, id.
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>-a, --all                       Export all installed packages.
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>--output-dir DIRECTORY          Create package directories in this base
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>                                directory.  [default: .]
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>--replace                       Replace (overwrite) existing files, if
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>                                present.
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>--extract                       Extract the project files specified in the
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>                                manifest and replace the archive with
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>                                itsextracted directory. This is useful for
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>                                version controlled package directories.
 </code></pre></div>
 </details>
 <h2 id="package-build">package build<a class="headerlink" href="#package-build" title="Permanent link">¤</a></h2>
 <p>Build a package archive from a package directory.</p>
-<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">cmemc package build [OPTIONS] PACKAGE_DIRECTORY</span>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="go">cmemc package build [OPTIONS] PACKAGE_DIRECTORY</span>
 </code></pre></div>
 <p>This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory Package Archive (.cpa) with the following naming convention: {package_id}-v{version}.cpa</p>
 <p>If the package contains an extracted project (directory) instead of a ZIP, it is zipped automatically in a temporary copy — the original package directory is never modified. The manifest still need to reference the project ZIP. See the <code>package export</code> command for more information.</p>
@@ -33703,34 +33739,34 @@
 </div>
 <details class="info">
 <summary>Options</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>--version TEXT          Set the package version.
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>--replace               Replace package archive, if present.
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>--output-dir DIRECTORY  Create the package archive in a specific directory.
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>                        [default: .]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>--version TEXT          Set the package version.
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>--replace               Replace package archive, if present.
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>--output-dir DIRECTORY  Create the package archive in a specific directory.
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>                        [default: .]
 </code></pre></div>
 </details>
 <h2 id="package-publish">package publish<a class="headerlink" href="#package-publish" title="Permanent link">¤</a></h2>
 <p>Publish a package archive to the marketplace server.</p>
-<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="go">cmemc package publish [OPTIONS] PACKAGE_ARCHIVE</span>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">cmemc package publish [OPTIONS] PACKAGE_ARCHIVE</span>
 </code></pre></div>
 <p>This command uploads a Corporate Memory Package Archive (.cpa) to a marketplace server, so that it can be found with the <code>package search</code> command and installed with the <code>package install</code> command. Package archives are created with the <code>package build</code> command; the published package ID and version are taken from the manifest inside the archive.</p>
 <p>Publishing requires a marketplace account. Account and password are given with the <code>--marketplace-account</code> and <code>--marketplace-password</code> options or with the corresponding environment variables, otherwise they are requested interactively.</p>
 <details class="info">
 <summary>Options</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>--timeout INTEGER            Timeout for marketplace requests.
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>--marketplace-url TEXT       Base URL of the Marketplace - uses environment
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>                             variable ECCENCA_MARKETPLACE_URL if available.
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>                             [default: https://eccenca.market]
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>--marketplace-account TEXT   Marketplace account - uses environment variable
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>                             ECCENCA_MARKETPLACE_ACCOUNT if available.
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>--marketplace-password TEXT  Marketplace password - uses environment
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>                             variable ECCENCA_MARKETPLACE_PASSWORD if
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>                             available.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>--timeout INTEGER            Timeout for marketplace requests.
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>--marketplace-url TEXT       Base URL of the Marketplace - uses environment
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>                             variable ECCENCA_MARKETPLACE_URL if available.
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>                             [default: https://eccenca.market]
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>--marketplace-account TEXT   Marketplace account - uses environment variable
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>                             ECCENCA_MARKETPLACE_ACCOUNT if available.
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>--marketplace-password TEXT  Marketplace password - uses environment
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>                             variable ECCENCA_MARKETPLACE_PASSWORD if
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>                             available.
 </code></pre></div>
 </details>
 <h2 id="package-search">package search<a class="headerlink" href="#package-search" title="Permanent link">¤</a></h2>
 <p>Search for available packages with a given search text.</p>
-<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">cmemc package search [OPTIONS] [SEARCH_TERMS]...</span>
+<div class="highlight"><span class="filename">Usage</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">cmemc package search [OPTIONS] [SEARCH_TERMS]...</span>
 </code></pre></div>
 <p>This command fetches the list of packages which are available on the marketplace and outputs their ID, name, description and type. The package IDs can be used as a reference for the <code>package install</code> command.</p>
 <p>Each search term is matched case-insensitively against the ID, name, description and type of package, and only packages which match all given terms are listed. Without any search term, all available packages are listed.</p>
@@ -33740,10 +33776,10 @@
 </div>
 <details class="info">
 <summary>Options</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>--raw                   Outputs raw JSON.
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>--marketplace-url TEXT  Base URL of the Marketplace - uses environment
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>                        variable ECCENCA_MARKETPLACE_URL if available.
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>                        [default: https://eccenca.market]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>--raw                   Outputs raw JSON.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>--marketplace-url TEXT  Base URL of the Marketplace - uses environment
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>                        variable ECCENCA_MARKETPLACE_URL if available.
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>                        [default: https://eccenca.market]
 </code></pre></div>
 </details>
 
@@ -33768,7 +33804,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 20, 2026 12:21:53 UTC"><span class="timeago" datetime="2026-08-20T12:21:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 20, 2026 12:21:53 UTC">2026-08-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 2, 2026 07:24:33 UTC"><span class="timeago" datetime="2026-09-02T07:24:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2026 07:24:33 UTC">2026-09-02</span>
   </span>
 
     
