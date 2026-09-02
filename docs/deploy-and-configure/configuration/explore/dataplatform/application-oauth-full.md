@@ -49,7 +49,7 @@ If this property is set, the iss (issuer) claim is required to be contained in t
 
 | Category | Value |
 |--- | ---: |
-| Default | <http://docker.localhost/auth/realms/cmem> |
+| Default | http://docker.localhost/auth/realms/cmem |
 | Required | false |
 | Valid values | URI to OpenID Connect Provider |
   | Conflicts with | spring.security.oauth2.resourceserver.jwt.jwkSetUri |
@@ -88,7 +88,7 @@ Use this property to specify the claim identifying the roles (authorities) of th
 |--- | ---: |
 | Default | groups |
 | Required | false |
-| Valid values | string |
+| Valid values | string | list of strings |
 | Environment | SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_CLAIMS_GROUPS |
 
 ***Property: spring.security.oauth2.resourceserver.jwt.claims.clientId***
@@ -105,7 +105,7 @@ Use this property to specify the claim providing the OAuth 2.0 client ID to whic
 #### OAuth 2.0 client configuration
 
 In order to protect access to it's resources, DataPlatform acts as an OAuth 2.0 Client which provides authentication its own clients by means of a session cookie. For this type of authentication a JSON Web Token (JWT)
-is not necessary. The registration which is configured is named "keycloak" and provides a login page redirecting to a keycloak backend. For specific customizations please s. <https://docs.spring.io/spring-security/reference/servlet/oauth2/client/index.html>
+is not necessary. The registration which is configured is named "keycloak" and provides a login page redirecting to a keycloak backend. For specific customizations please s. https://docs.spring.io/spring-security/reference/servlet/oauth2/client/index.html
 
 
 One authentication backend is configured named 'keycloak'. The login page is accessible under '{basepath}/oauth2/authorization/keycloak'
@@ -166,7 +166,7 @@ One authentication backend is configured named 'keycloak'. The login page is acc
 
 | Category | Value |
 |--- | ---: |
-| Default | <http://docker.localhost/auth/realms/cmem> |
+| Default | http://docker.localhost/auth/realms/cmem |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_PROVIDER_KEYCLOAK_ISSUER_URI |
@@ -180,3 +180,4 @@ One authentication backend is configured named 'keycloak'. The login page is acc
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_PROVIDER_KEYCLOAK_USER_NAME_ATTRIBUTE |
+

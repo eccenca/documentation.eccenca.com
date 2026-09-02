@@ -158,7 +158,7 @@ The iri of the lucene index to be used for searches. If the default index is use
 
 | Category | Value |
 |--- | ---: |
-| Default | <http://www.ontotext.com/connectors/lucene/instance#cmembaseindex> |
+| Default | http://www.ontotext.com/connectors/lucene/instance#cmembaseindex |
 | Required | false |
 | Valid values | Valid URI of lucene index |
 | Environment | STORE_GRAPHDB_GDBBASEINDEX |
