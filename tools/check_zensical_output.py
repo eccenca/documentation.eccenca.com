@@ -56,20 +56,9 @@ ASSET_RE = re.compile(
 )
 # <link rel="canonical"> and friends are metadata, not asset loads.
 LINK_META_RE = re.compile(r'rel="(canonical|alternate|manifest)"', re.IGNORECASE)
-ARTICLE_RE = re.compile(r"<article.*?</article>", re.DOTALL)
-TAG_RE = re.compile(r"<[^>]+>")
-# Script and style bodies survive tag stripping and would be counted as prose.
-# The Giscus snippet lives inside <article>, so without this the tag-listings
-# check reads ~105 "words" on a page whose visible body is just its title.
-SCRIPT_RE = re.compile(r"<(script|style)\b.*?</\1>", re.DOTALL | re.IGNORECASE)
-# Zensical does not expand the tag-listing markers; tools/render_tag_listings.py
-# does it for us, so any marker surviving into the output means that step did not
-# run. Markers may carry arguments: `<!-- material/tags { include: [X] } -->`.
-TAGS_MARKER_RE = re.compile(r"<!--\s*material/tags\b.*?-->", re.DOTALL)
 TAGS_LISTING_RE = re.compile(r'<h2 id="tag:([^"]+)"')
-# Chips linked by overrides/partials/tags.html. The slug is built in MiniJinja
-# there and in Python in tools/render_tag_listings.py; this is what stops the two
-# drifting apart into silently dead links.
+# Zensical (0.0.58+) renders tag chips as links to their /tags/ listing anchor
+# natively; this just asserts every chip's target actually exists there.
 TAG_CHIP_RE = re.compile(r'<a href="([^"]*tags/#tag:([^"]+))"[^>]*class="md-tag[ "]')
 
 failures: list[str] = []
@@ -140,44 +129,6 @@ def check_comments(site: Path, pages: list[Path]) -> None:
     )
 
 
-def check_tag_listings(site: Path, pages: list[Path]) -> None:
-    """Tag listings are ours now - see tools/render_tag_listings.py.
-
-    Required rather than pending: we render these, so an empty listing is a
-    regression in our own code, not a missing upstream feature. The signal that
-    Zensical has implemented listings natively (and this can all be deleted)
-    lives in the renderer itself.
-    """
-    stale = {
-        p.relative_to(site).as_posix(): len(
-            TAGS_MARKER_RE.findall(p.read_text(encoding="utf-8", errors="replace"))
-        )
-        for p in pages
-    }
-    stale = {page: n for page, n in stale.items() if n}
-    report(
-        "tag-listings-expanded",
-        not stale,
-        "no unexpanded <!-- material/tags --> markers"
-        if not stale
-        else f"{sum(stale.values())} marker(s) left on {len(stale)} page(s): "
-        f"{', '.join(sorted(stale))}",
-        required=True,
-    )
-
-    for rel, minimum in (("tags", 40), ("tutorials", 3)):
-        page = site / rel / "index.html"
-        found = len(TAGS_LISTING_RE.findall(page.read_text(encoding="utf-8", errors="replace"))) if page.is_file() else 0
-        report(
-            f"tag-listings-{rel}",
-            found >= minimum,
-            f"/{rel}/ renders {found} tag section(s), expected >= {minimum}",
-            required=True,
-        )
-
-    check_tag_chip_links(site, pages)
-
-
 def check_tag_chip_links(site: Path, pages: list[Path]) -> None:
     """Every per-page tag chip must link to an anchor that exists on /tags/."""
     listing = site / "tags" / "index.html"
@@ -236,15 +187,6 @@ def check_external_assets(pages: list[Path]) -> None:
         report("external-assets", True, "no unexpected third-party hosts", required=True)
 
 
-def article_words(page: Path) -> int:
-    body = page.read_text(encoding="utf-8", errors="replace")
-    match = ARTICLE_RE.search(body)
-    if not match:
-        return 0
-    article = SCRIPT_RE.sub(" ", match.group(0))
-    return len(TAG_RE.sub(" ", article).split())
-
-
 def check_pending(site: Path, pages: list[Path]) -> None:
     """Features still missing from Zensical - warn only, never fail."""
     social = sum(1 for p in pages if 'property="og:image"' in p.read_text(encoding="utf-8", errors="replace"))
@@ -267,7 +209,7 @@ def main() -> int:
     check_redirects(site)
     check_comments(site, pages)
     check_external_assets(pages)
-    check_tag_listings(site, pages)
+    check_tag_chip_links(site, pages)
     print()
     check_pending(site, pages)
     print()

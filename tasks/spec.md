@@ -1,7 +1,9 @@
 # Spec: temporary tag-listing renderer
 
-**Status:** accepted 2026-08-23 and fully implemented, §1-§9.
-**Replaces:** Material's `tags` plugin listings, which Zensical does not implement
+**Status:** accepted 2026-08-23, fully implemented §1-§9, **removed 2026-09-03**.
+Zensical 0.0.58 ships native `tags` listings and populates `tag.url` itself; the
+"Removal" steps below were carried out as part of the 0.0.57 -> 0.0.58 bump.
+**Replaced:** Material's `tags` plugin listings, which Zensical did not implement
 ([zensical/backlog#38](https://github.com/zensical/backlog/issues/38)).
 **Lifetime:** delete the moment Zensical ships listings. See "Removal" below.
 

@@ -2,8 +2,8 @@
 title: "{{plugin.title | replace('"', "'") }}"
 description: "{{plugin.description | replace('"', "'") }}"
 icon: octicons/cross-reference-24
-tags: {% for tag in plugin.tags %}
-    - {{tag}}{% endfor %}
+tags:{% for tag in plugin.tags %}
+    - {{tag}}{% endfor %}{% if not plugin.tags %} []{% endif %}
 ---
 # {{plugin.title}}
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->

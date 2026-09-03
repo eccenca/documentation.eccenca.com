@@ -137,17 +137,13 @@ tasks:
       # vendored copies. Part of building, not of checking - without it the
       # published site issues third-party requests.
       - poetry run python tools/localize_bundle_assets.py site
-      # Zensical does not implement the tags plugin's listings and passes the
-      # `<!-- material/tags -->` markers through untouched. Render them here
-      # until it does - see tasks/spec.md.
-      - poetry run python tools/render_tag_listings.py site
 
   serve:
     desc: Serve the page on localhost with live reload (no post-build steps)
     # `zensical serve` rebuilds into site/ on every change, which would overwrite
-    # anything the post-build steps in `build` produce. So this preview does NOT
-    # show the rendered tag listings and still loads glightbox from unpkg. Use
-    # `task preview` when you need to see the site exactly as it ships.
+    # anything the post-build steps in `build` produce. So this preview still
+    # loads glightbox from unpkg. Use `task preview` when you need to see the
+    # site exactly as it ships.
     deps:
       - task: install
     cmds:

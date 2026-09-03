@@ -1,6 +1,7 @@
 # Backlog: temporary tag-listing renderer
 
-Work breakdown for [spec.md](spec.md).
+Work breakdown for [spec.md](spec.md). **Removed 2026-09-03** - see spec.md's Removal
+section; superseded by Zensical 0.0.58's native `tags` listings.
 
 **B0-B8: done** (2026-08-23). Listings render on `/tags/` and `/tutorials/`, guarded by
 three required checks, 30 unit tests, `task preview` added for accurate previews.

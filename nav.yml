@@ -19,15 +19,20 @@ nav:
     - Custom Workflow Tasks:
       - build/reference/customtask/index.md
       - Add project files: build/reference/customtask/addProjectFiles.md
+      - Build Packages: build/reference/customtask/cmem_plugin_packages-BuildPackages.md
+      - Bump Version in Package Manifest: build/reference/customtask/cmem_plugin_packages-BumpVersions.md
       - Cancel Workflow: build/reference/customtask/CancelWorkflow.md
       - Clear dataset: build/reference/customtask/clearDataset.md
       - Combine CSV files: build/reference/customtask/combine-csv.md
       - Concatenate to file: build/reference/customtask/ConcatenateToFile.md
       - Create Embeddings: build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md
+      - Create or Update Graph Insights Snapshots: build/reference/customtask/cmem_plugin_graph_insights-Update.md
       - Create/Update Salesforce Objects: build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate.md
       - Delete project files: build/reference/customtask/deleteProjectFiles.md
       - Distinct by: build/reference/customtask/DistinctBy.md
+      - Download CKAN files: build/reference/customtask/cmem_plugin_ckan-Download.md
       - Download file: build/reference/customtask/downloadFile.md
+      - Download Git files: build/reference/customtask/cmem_plugin_git-Download.md
       - Download Nextcloud files: build/reference/customtask/cmem_plugin_nextcloud-Download.md
       - Download Office 365 Files: build/reference/customtask/cmem_plugin_office365-Download.md
       - Download SSH files: build/reference/customtask/cmem_plugin_ssh-Download.md
@@ -41,15 +46,18 @@ nav:
       - Generate base36 IRDIs: build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
       - Generate random values: build/reference/customtask/cmem_plugin_random-GenerateEntities.md
       - Generate SHACL shapes from data: build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
+      - Get emails: build/reference/customtask/cmem-plugin-email-GetEmails.md
       - Get project files: build/reference/customtask/getProjectFiles.md
       - Get workflow report: build/reference/customtask/cmem_plugin_wfreports_get_report.md
       - GraphQL query: build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
+      - Install Packages: build/reference/customtask/cmem_plugin_packages-InstallPackages.md
       - Join tables: build/reference/customtask/Merge.md
       - jq: build/reference/customtask/cmem-plugin-jq-workflow.md
       - JQL query: build/reference/customtask/cmem_plugin_jira-JqlQuery.md
       - JSON to File: build/reference/customtask/jsonToFile.md
       - Kafka Consumer (Receive Messages): build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md
       - Kafka Producer (Send Messages): build/reference/customtask/cmem_plugin_kafka-SendMessages.md
+      - List Git files: build/reference/customtask/cmem_plugin_git-List.md
       - List Nextcloud files: build/reference/customtask/cmem_plugin_nextcloud-List.md
       - List Office 365 Files: build/reference/customtask/cmem_plugin_office365-List.md
       - List project files: build/reference/customtask/cmem_plugin_project_resources-List.md
@@ -62,8 +70,10 @@ nav:
       - Parse XML: build/reference/customtask/XmlParserOperator.md
       - Parse YAML: build/reference/customtask/cmem_plugin_yaml-parse.md
       - Pivot: build/reference/customtask/Pivot.md
+      - Publish Packages: build/reference/customtask/cmem_plugin_packages-PublishPackages.md
       - Reason: build/reference/customtask/cmem_plugin_reason-plugin_reason-ReasonPlugin.md
       - Request RDF triples: build/reference/customtask/tripleRequestOperator.md
+      - Run Apify actor: build/reference/customtask/cmem_plugin_apify-RunActor.md
       - Scheduler: build/reference/customtask/Scheduler.md
       - Search addresses: build/reference/customtask/SearchAddresses.md
       - Search for Logs: build/reference/customtask/cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
@@ -84,10 +94,12 @@ nav:
       - SQL Update query: build/reference/customtask/sqlUpdateQueryOperator.md
       - Start Workflow per Entity: build/reference/customtask/cmem_plugin_loopwf-task-StartWorkflow.md
       - Store Vector Embeddings: build/reference/customtask/cmem_plugin_pgvector-Store.md
+      - Uninstall Packages: build/reference/customtask/cmem_plugin_packages-UninstallPackages.md
       - Unpivot: build/reference/customtask/Unpivot.md
-      - Update Graph Insights Snapshots: build/reference/customtask/cmem_plugin_graph_insights-Update.md
       - Upload File to Knowledge Graph: build/reference/customtask/eccencaDataPlatformGraphStoreFileUploadOperator.md
+      - Upload files to CKAN: build/reference/customtask/cmem_plugin_ckan-Upload.md
       - Upload files to Nextcloud: build/reference/customtask/cmem_plugin_nextcloud-Upload.md
+      - Upload Git files: build/reference/customtask/cmem_plugin_git-Upload.md
       - Upload local files: build/reference/customtask/cmem_plugin_project_resources-UploadLocalFiles.md
       - Upload SSH files: build/reference/customtask/cmem_plugin_ssh-Upload.md
       - Validate Entities: build/reference/customtask/cmem_plugin_validation-validate-ValidateEntities.md
@@ -406,14 +418,14 @@ nav:
         - UUID: build/reference/transformer/Value/uuid.md
         - UUID Convert: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert.md
         - UUID Version: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion.md
-        - UUID1: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1.md
-        - UUID1 to UUID6: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6.md
-        - UUID3: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID3.md
-        - UUID4: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID4.md
-        - UUID5: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID5.md
-        - UUID6: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID6.md
-        - UUID7: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID7.md
-        - UUID8: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8.md
+        - UUIDv1: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1.md
+        - UUIDv1 to UUIDv6: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6.md
+        - UUIDv3: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID3.md
+        - UUIDv4: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID4.md
+        - UUIDv5: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID5.md
+        - UUIDv6: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID6.md
+        - UUIDv7: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID7.md
+        - UUIDv8: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8.md
       - Variables:
         - Set execution variable: build/reference/transformer/Variables/setExecutionVariable.md
   - Mapping Creator: build/mapping-creator/index.md
@@ -606,6 +618,89 @@ nav:
       - Development and Publication: develop/packages/development/index.md
       - Tutorial: develop/packages/development/tutorial/index.md
   - cmempy - Python API: develop/cmempy-python-api/index.md
+  - cmem-client - Python API:
+    - 'cmem-client: Python API': develop/cmem-client-api/index.md
+    - API Reference:
+      - API Reference: develop/cmem-client-api/api-reference/index.md
+      - client: develop/cmem-client-api/api-reference/client/index.md
+      - config: develop/cmem-client-api/api-reference/config/index.md
+      - exceptions: develop/cmem-client-api/api-reference/exceptions/index.md
+      - logging_utils: develop/cmem-client-api/api-reference/logging_utils/index.md
+      - auth_provider:
+        - abc: develop/cmem-client-api/api-reference/auth_provider/abc/index.md
+        - client_credentials: develop/cmem-client-api/api-reference/auth_provider/client_credentials/index.md
+        - password: develop/cmem-client-api/api-reference/auth_provider/password/index.md
+        - prefetched_token: develop/cmem-client-api/api-reference/auth_provider/prefetched_token/index.md
+        - provided_token: develop/cmem-client-api/api-reference/auth_provider/provided_token/index.md
+      - components:
+        - deployment: develop/cmem-client-api/api-reference/components/deployment/index.md
+        - graph_store: develop/cmem-client-api/api-reference/components/graph_store/index.md
+        - marketplace: develop/cmem-client-api/api-reference/components/marketplace/index.md
+        - sparql_wrapper: develop/cmem-client-api/api-reference/components/sparql_wrapper/index.md
+        - workspace: develop/cmem-client-api/api-reference/components/workspace/index.md
+      - models:
+        - access_condition: develop/cmem-client-api/api-reference/models/access_condition/index.md
+        - base: develop/cmem-client-api/api-reference/models/base/index.md
+        - common: develop/cmem-client-api/api-reference/models/common/index.md
+        - credentials: develop/cmem-client-api/api-reference/models/credentials/index.md
+        - dataset: develop/cmem-client-api/api-reference/models/dataset/index.md
+        - error: develop/cmem-client-api/api-reference/models/error/index.md
+        - graph: develop/cmem-client-api/api-reference/models/graph/index.md
+        - graph_import: develop/cmem-client-api/api-reference/models/graph_import/index.md
+        - graph_insight: develop/cmem-client-api/api-reference/models/graph_insight/index.md
+        - item: develop/cmem-client-api/api-reference/models/item/index.md
+        - keycloak_client: develop/cmem-client-api/api-reference/models/keycloak_client/index.md
+        - logging_config: develop/cmem-client-api/api-reference/models/logging_config/index.md
+        - marshalling_plugins: develop/cmem-client-api/api-reference/models/marshalling_plugins/index.md
+        - package: develop/cmem-client-api/api-reference/models/package/index.md
+        - project: develop/cmem-client-api/api-reference/models/project/index.md
+        - python_install: develop/cmem-client-api/api-reference/models/python_install/index.md
+        - python_package: develop/cmem-client-api/api-reference/models/python_package/index.md
+        - query_catalog: develop/cmem-client-api/api-reference/models/query_catalog/index.md
+        - resource: develop/cmem-client-api/api-reference/models/resource/index.md
+        - scheduler: develop/cmem-client-api/api-reference/models/scheduler/index.md
+        - status: develop/cmem-client-api/api-reference/models/status/index.md
+        - task: develop/cmem-client-api/api-reference/models/task/index.md
+        - token: develop/cmem-client-api/api-reference/models/token/index.md
+        - url: develop/cmem-client-api/api-reference/models/url/index.md
+        - user: develop/cmem-client-api/api-reference/models/user/index.md
+        - validation: develop/cmem-client-api/api-reference/models/validation/index.md
+        - variable: develop/cmem-client-api/api-reference/models/variable/index.md
+        - vocabulary: develop/cmem-client-api/api-reference/models/vocabulary/index.md
+        - workflow: develop/cmem-client-api/api-reference/models/workflow/index.md
+        - workspace_config: develop/cmem-client-api/api-reference/models/workspace_config/index.md
+        - workspace_plugin: develop/cmem-client-api/api-reference/models/workspace_plugin/index.md
+        - workspace_status: develop/cmem-client-api/api-reference/models/workspace_status/index.md
+      - repositories:
+        - access_conditions: develop/cmem-client-api/api-reference/repositories/access_conditions/index.md
+        - client_accounts: develop/cmem-client-api/api-reference/repositories/client_accounts/index.md
+        - datasets: develop/cmem-client-api/api-reference/repositories/datasets/index.md
+        - files: develop/cmem-client-api/api-reference/repositories/files/index.md
+        - graph_imports: develop/cmem-client-api/api-reference/repositories/graph_imports/index.md
+        - graph_insights: develop/cmem-client-api/api-reference/repositories/graph_insights/index.md
+        - graphs: develop/cmem-client-api/api-reference/repositories/graphs/index.md
+        - marketplace_packages: develop/cmem-client-api/api-reference/repositories/marketplace_packages/index.md
+        - projects: develop/cmem-client-api/api-reference/repositories/projects/index.md
+        - python_packages: develop/cmem-client-api/api-reference/repositories/python_packages/index.md
+        - queries: develop/cmem-client-api/api-reference/repositories/queries/index.md
+        - schedulers: develop/cmem-client-api/api-reference/repositories/schedulers/index.md
+        - user_accounts: develop/cmem-client-api/api-reference/repositories/user_accounts/index.md
+        - validations: develop/cmem-client-api/api-reference/repositories/validations/index.md
+        - variables: develop/cmem-client-api/api-reference/repositories/variables/index.md
+        - vocabularies: develop/cmem-client-api/api-reference/repositories/vocabularies/index.md
+        - workflows: develop/cmem-client-api/api-reference/repositories/workflows/index.md
+        - workspace_configs: develop/cmem-client-api/api-reference/repositories/workspace_configs/index.md
+        - base:
+          - abc: develop/cmem-client-api/api-reference/repositories/base/abc/index.md
+          - paged_list: develop/cmem-client-api/api-reference/repositories/base/paged_list/index.md
+          - plain_list: develop/cmem-client-api/api-reference/repositories/base/plain_list/index.md
+          - task_search: develop/cmem-client-api/api-reference/repositories/base/task_search/index.md
+        - protocols:
+          - create_item: develop/cmem-client-api/api-reference/repositories/protocols/create_item/index.md
+          - delete_item: develop/cmem-client-api/api-reference/repositories/protocols/delete_item/index.md
+          - export_item: develop/cmem-client-api/api-reference/repositories/protocols/export_item/index.md
+          - import_item: develop/cmem-client-api/api-reference/repositories/protocols/import_item/index.md
+          - update_item: develop/cmem-client-api/api-reference/repositories/protocols/update_item/index.md
   - cmemc - Python Scripts: develop/cmemc-scripts/index.md
   - Build (DataIntegration) APIs: develop/dataintegration-apis/index.md
   - Explore backend APIs: develop/dataplatform-apis/index.md

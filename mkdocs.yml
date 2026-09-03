@@ -290,21 +290,22 @@ plugins:
   # - macros
   # https://github.com/blueswen/mkdocs-glightbox
   - glightbox
-  # The three plugins below are inert under Zensical: it neither implements nor
-  # reports them, so social cards, tag listings and revision dates are missing
-  # from the output. They are kept so the features return automatically once
-  # Zensical maps them. tools/check_zensical_output.py tracks all three.
+  # The two plugins below are inert under Zensical: it neither implements nor
+  # reports them, so social cards and revision dates are missing from the
+  # output. They are kept so the features return automatically once Zensical
+  # maps them. tools/check_zensical_output.py tracks both.
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
   - social:
       cards: true
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
-  - tags:
-      listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
-      listings_sort_by: !!python/name:material.plugins.tags.item_title
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
+  # Natively implemented since Zensical 0.0.58 (listings included).
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  - tags:
+      listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
+      listings_sort_by: !!python/name:material.plugins.tags.item_title
   # https://github.com/byrnereese/mkdocs-swagger-ui
   # - swagger-ui-tag
 # }}}
