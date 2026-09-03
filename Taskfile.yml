@@ -8,8 +8,6 @@ dotenv: ['.env']
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 26.2
-  MATERIAL_TAG: 9.6.14
-  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
   # the markdown linter command, used by format:fix:path and check:rumdl
   RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
   # the default lint targets: the docs tree plus the top-level markdown files
@@ -98,27 +96,6 @@ tasks:
       - task: install
     cmds:
       - poetry run mkdocs serve
-
-  use:public:
-    desc: switch to public package (non insider)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add mkdocs-material=={{.MATERIAL_TAG}}
-      - poetry update
-
-  use:insider-ssh:
-    desc: switch to insider package from github:eccenca via ssh (default)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+ssh://git@github.com:eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
-
-  use:insider-https-token:
-    desc: switch to insider package from github:eccenca via ACCESS_TOKEN variable (build plan)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
 
   update:icons:
     desc: update the used eccenca icons from carbon
