@@ -38,7 +38,7 @@ If no input path is configured, values are read from the URIs of the input (Tran
 Graph in which the Item Code (IC) counter is stored
 
 - ID: `graph`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 

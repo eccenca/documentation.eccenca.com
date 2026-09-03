@@ -30,6 +30,8 @@ AI-powered text generation, analysis, and transformation tasks within Corporate 
 - **Entity Processing**: Processes entities individually or in batches with configurable
   concurrency
 - **Template System**: Uses Jinja2 templates for dynamic prompt generation from entity data
+- **File Inputs**: Optionally accept files (images and documents) from CMEM as multimodal
+  LLM inputs
 - **Output Formats**: Supports text, JSON mode, and structured outputs with Pydantic schemas
 - **Performance Optimization**: Includes batching, rate limiting, and async processing for
   high-throughput scenarios
@@ -41,11 +43,14 @@ containing the LLM response. For TEXT and JSON_MODE output formats, the response
 in this path. For STRUCTURED_OUTPUT, the Pydantic model fields are directly added to the
 entity (the `_instruction_output` path is not used).
 
-Input/output ports are automatically configured based on template variables:
+Input/output ports are automatically configured based on template variables and the
+**Enable File Inputs** option:
 
 - **No placeholders**: No input ports required
 - **With placeholders**: Single input port created for entity data
 - **Schema handling**: Fixed schemas when using specific entity paths, flexible schemas otherwise
+- **File Inputs enabled**: Single input port accepting `FileEntitySchema` entities (template
+  variables on the entity are ignored)
 
 ## Template System
 
@@ -61,6 +66,34 @@ The following template processing rules are implemented:
 1. **Variable Extraction**: Automatically detects template variables to configure input ports
 2. **Entity Iteration**: Processes entities from the single input port individually
 3. **Single Entity Context**: Each entity is processed independently with its own template context
+
+## File Inputs
+
+Enable **Enable File Inputs** to send files (images or documents) from CMEM to the LLM as
+multimodal input. When activated:
+
+- The input port switches to `FileEntitySchema`, accepting file entities.
+- Each file is read from the project, base64-encoded, and embedded into the chat message
+  as a `data:` URL.
+- The `message_template` parameter is ignored and the message structure is selected automatically
+  by MIME type:
+    - **Images** (e.g. PNG, JPEG) are sent as `image_url` content parts.
+    - **Documents** (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are
+      sent as `file` content parts with the original filename preserved.
+- If no MIME type is given, it is guessed by filename extension.
+- The `developer_prompt_template` and `instruct_prompt_template` is sent alongside the file.
+  Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode.
+- For **TEXT** and **JSON_MODE** outputs, the output entity additionally carries
+  `_filename` and `_mimetype` paths so downstream tasks can see what the model saw.
+  **STRUCTURED_OUTPUT** keeps the schema pure and does not add these paths.
+
+Note: Multimodal capability depends on the chosen model. Use a vision-capable model for
+images and a model that accepts file/document inputs for documents.
+
+For more details and all available MIME types see the official documentation:
+
+- [Images and vision](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
+- [File inputs](https://developers.openai.com/api/docs/guides/file-inputs?api-mode=chat)
 
 ## Output Formats
 
@@ -151,13 +184,33 @@ The identifier of the instruct model to use. Note that some provider do not supp
 
 
 
+### Developer Prompt Template
+
+The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour.
+
+- ID: `developer_prompt_template`
+- Datatype: `code-jinja2`
+- Default Value: `You are a helpful assistant.`
+
+
+
 ### Instruction Prompt Template
 
-The instruction prompt template. Please have a look at the task documentation for detailed instructions.
+The instruction (user) prompt inserted at `{{ instruction_prompt }}` in the Messages Template. Please have a look at the task documentation for detailed instructions.
 
 - ID: `instruct_prompt_template`
 - Datatype: `code-jinja2`
 - Default Value: `Write a paragraph about this entity: {{ entity }}`
+
+
+
+### Enable File Inputs
+
+Send files from CMEM to the LLM as multimodal input. When enabled, the input port accepts files (FileEntitySchema). Each file is base64-encoded and embedded into the chat message: images (e.g. PNG, JPEG) are sent as image content parts; documents and other files (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are sent as file content parts. Which MIME types are supported is highly dependent on the provider and model used. Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode. The `developer_prompt_template` as well as `instruct_prompt_template` are sent alongside the image/file. For TEXT and JSON_MODE outputs, the output entity carries `_filename` and `_mimetype` paths so downstream tasks can see what the model saw. Note: requires a multimodal-capable model for the chosen file type.
+
+- ID: `enable_file_inputs`
+- Datatype: `boolean`
+- Default Value: `false`
 
 ## Advanced Parameter
 
@@ -233,7 +286,7 @@ The entity path where the instruction result will be provided. Note: This parame
 
 ### Messages Template
 
-A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.
+A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Ignored if `enable_file_inputs` is active. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.
 
 - ID: `messages_template`
 - Datatype: `code-json`
@@ -251,16 +304,6 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
     }
 ]
 ```
-
-
-
-### Developer Prompt Template
-
-The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour. Leave the Messages Template's developer content hardcoded if this parameter is not needed.
-
-- ID: `developer_prompt_template`
-- Datatype: `code-jinja2`
-- Default Value: `You are a helpful assistant.`
 
 
 

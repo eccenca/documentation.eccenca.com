@@ -1,5 +1,5 @@
 ---
-title: "UUID3"
+title: "UUIDv3"
 description: "Generate a UUIDv3"
 icon: octicons/cross-reference-24
 tags:
@@ -7,7 +7,7 @@ tags:
     - PythonPlugin
 ---
 
-# UUID3
+# UUIDv3
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

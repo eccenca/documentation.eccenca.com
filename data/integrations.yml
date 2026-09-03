@@ -100,7 +100,10 @@ integrations:
   - name: Office 365
     icon: ":material-microsoft-office:"
     content: |
-      Use the {{p.office365preadsheet}} to read and write to Excel workbooks in Office 365.
+      Use the {{p.office365preadsheet}} to read and write to Excel workbooks in Office 365, or
+      [list]({{p.cmem_plugin_office365_List_ref}}),
+      [download]({{p.cmem_plugin_office365_Download_ref}}) and
+      [upload]({{p.cmem_plugin_office365_Upload_ref}}) files in Microsoft OneDrive or Sites.
 
   - name: Google Drive
     icon: ":material-google-drive:"
@@ -110,7 +113,10 @@ integrations:
   - name: SSH
     icon: ":material-ssh:"
     content: |
-      Interact with SSH servers to {{p.cmem_plugin_ssh_Download}} or {{p.cmem_plugin_ssh_Execute}}.
+      Interact with SSH servers: [list]({{p.cmem_plugin_ssh_List_ref}}),
+      [download]({{p.cmem_plugin_ssh_Download_ref}}) and
+      [upload]({{p.cmem_plugin_ssh_Upload_ref}}) files, or
+      [execute commands]({{p.cmem_plugin_ssh_Execute_ref}}) on them.
 
   - name: Kubernetes
     icon: ":simple-kubernetes:"
@@ -122,10 +128,11 @@ integrations:
     content: |
       You can execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
 
-  - name: eMail / SMTP
+  - name: eMail / SMTP / IMAP
     icon: ":material-email-outline:"
     content: |
-      Send plain text or HTML formatted [eMail messages]({{p.SendEMail_ref}}) using an SMTP server.
+      Send plain text or HTML formatted [eMail messages]({{p.SendEMail_ref}}) using an SMTP server,
+      or {{p.cmem_plugin_email_GetEmails}} including their attachments from an IMAP mailbox.
 
   - name: Jira
     icon: ":simple-jira:"
@@ -136,12 +143,14 @@ integrations:
     icon: ":simple-apachekafka:"
     content: |
       You can [send]({{p.cmem_plugin_kafka_SendMessages_ref}}) and
-      [receive messages]({{p.cmem_plugin_kafka_ReceiveMessages_ref}}) to and from a Kafka topic.
+      [receive messages]({{p.cmem_plugin_kafka_ReceiveMessages_ref}}) to and from a Kafka topic,
+      on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) cluster.
 
   - name: Nextcloud
     icon: ":simple-nextcloud:"
     content: |
-      Use a Nextcloud instance to [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process
+      Use a Nextcloud instance to [list]({{p.cmem_plugin_nextcloud_List_ref}}) and
+      [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process
       them or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) you created with Corporate Memory.
 
   - name: Salesforce
@@ -177,6 +186,52 @@ integrations:
     content: |
       Leverage your Knowledge Graphs in Redash using the integrated
       [Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
+
+  - name: Apify
+    icon: ":other-apify:"
+    content: |
+      Use the {{p.cmem_plugin_apify_RunActor}} task to run web scrapers and other
+      [Apify](https://apify.com) actors, and process the resulting dataset in your workflow.
+
+  - name: CKAN
+    icon: ":other-ckan:"
+    content: |
+      [Download the files]({{p.cmem_plugin_ckan_Download_ref}}) of a dataset from a
+      [CKAN](https://ckan.org) service, or
+      [publish files]({{p.cmem_plugin_ckan_Upload_ref}}) as the resources of a CKAN dataset.
+
+  - name: GitHub
+    icon: ":simple-github:"
+    content: |
+      [List]({{p.cmem_plugin_git_List_ref}}) and
+      [download]({{p.cmem_plugin_git_Download_ref}}) files from a GitHub repository, or
+      [commit]({{p.cmem_plugin_git_Upload_ref}}) the results of a workflow back into it.
+
+  - name: GitLab
+    icon: ":simple-gitlab:"
+    content: |
+      [List]({{p.cmem_plugin_git_List_ref}}) and
+      [download]({{p.cmem_plugin_git_Download_ref}}) files from a GitLab repository, or
+      [commit]({{p.cmem_plugin_git_Upload_ref}}) the results of a workflow back into it.
+
+  - name: eccenca Marketplace
+    icon: ":eccenca-module-marketplace:"
+    content: |
+      Manage [Marketplace Packages](../../develop/packages/index.md) in workflows:
+      [build package archives]({{p.cmem_plugin_packages_BuildPackages_ref}}),
+      [bump their version]({{p.cmem_plugin_packages_BumpVersions_ref}}),
+      [publish]({{p.cmem_plugin_packages_PublishPackages_ref}}) them to a Marketplace Server
+      such as [eccenca.market](https://eccenca.market), and
+      [install]({{p.cmem_plugin_packages_InstallPackages_ref}}) or
+      [uninstall]({{p.cmem_plugin_packages_UninstallPackages_ref}}) them on an instance.
+
+  - name: Geocoding
+    icon: ":simple-openstreetmap:"
+    content: |
+      {{p.SearchAddresses}} looks up locations from textual descriptions with a configurable
+      geocoding service, such as [Nominatim](https://nominatim.org/),
+      [Photon](https://photon.komoot.io/) or the
+      [French Base Adresse Nationale](https://adresse.data.gouv.fr/).
 
   - name: n8n
     icon: ":simple-n8n:"
@@ -247,6 +302,29 @@ integrations:
       ([N-Quads](https://www.w3.org/TR/n-quads/), [N-Triples](https://www.w3.org/TR/n-triples/),
       [Turtle](https://www.w3.org/TR/turtle/), [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) or
       [RDF/JSON](https://www.w3.org/TR/rdf-json/)).
+
+  - name: PDF
+    icon: ":material-file-pdf-box:"
+    content: |
+      Read PDF documents with the {{p.binaryFile}} dataset and use
+      {{p.cmem_plugin_pdf_extract_pdf_extract_PdfExtract}} to get their text and tables.
+
+  - name: Text
+    icon: ":material-text-box:"
+    content: |
+      Use the {{p.text}} dataset to read and write plain text files.
+
+  - name: Multi CSV ZIP
+    icon: ":fontawesome-solid-file-csv:"
+    content: |
+      Use the {{p.multiCsv}} dataset to read and write multiple CSV files
+      from and to a single ZIP archive.
+
+  - name: Binary Files
+    icon: ":material-file-outline:"
+    content: |
+      Use the {{p.binaryFile}} dataset to read and write files of any format, such as images or
+      PDF documents, as well as to compress and decompress ZIP archives.
 
   #####
   # Databases
