@@ -10,6 +10,10 @@ vars:
   CURRENT_VERSION: 26.2
   MATERIAL_TAG: 9.6.14
   MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
+  # the markdown linter command, used by format:fix:path and check:rumdl
+  RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
+  # the default lint targets: the docs tree plus the top-level markdown files
+  DOCS_PATHS: ./docs ./*.md
 
 tasks:
 
@@ -131,9 +135,9 @@ tasks:
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
-      - >
-        find ./docs/automate/cmemc-command-line-interface -type f -name '*.md' -print0
-        | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/automate/cmemc-command-line-interface
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
 
@@ -163,9 +167,9 @@ tasks:
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - task -d {{.CMEM_CLIENT_DIR}} docs:export-md OUTPUT_DIR={{.ROOT_DIR}}/{{.REFERENCE_DIR}}
-      - cmd: >
-          find {{.ROOT_DIR}}/{{.REFERENCE_DIR}} -type f -name '*.md' -print0
-          | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: '{{.ROOT_DIR}}/{{.REFERENCE_DIR}}'
         ignore_error: true
     vars:
       REFERENCE_DIR: docs/develop/cmem-client-api/api-reference
@@ -209,15 +213,17 @@ tasks:
     desc: update the task and operator reference pages (needs local CO)
     cmds:
       - poetry run dec-tool update-di-reference
-      - >
-        find ./docs/build/reference -type f -name '*.md' -print0
-        | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/build/reference
 
   update:integrations:
     desc: update integrations page (needs data/integrations.yml)
     cmds:
       - poetry run dec-tool update-integrations
-      - cmd: poetry run rumdl --config .markdownlint.jsonc check --fix docs/build/integrations/index.md
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/build/integrations/index.md
         ignore_error: true
 
   public:versions:
@@ -243,39 +249,42 @@ tasks:
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
+  format:fix:path:
+    internal: true
+    summary: |
+      Run rumdl (md-lint) with --fix on the markdown files below PATHS.
+
+      PATHS is a space separated list of files and/or directories, which is
+      used as the search roots of a find call, so directories are searched
+      recursively:
+
+        - task: format:fix:path
+          vars:
+            PATHS: ./docs/build/reference
+    requires:
+      vars: [PATHS]
+    cmds:
+      - >
+        find {{.PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --fix
+
   format:fix:
     desc: rumdl (md-lint) and apply possible style fixes
     cmds:
-      - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: '{{.DOCS_PATHS}}'
 
   check:rumdl:
     desc: run rumdl (md-linter) for style issues without failing the check stage
     cmds:
       - mkdir -p ./dist
       - rm -f ./dist/md-lint-issues.xml
+      - >
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --output-format junit > ./dist/md-lint-issues.xml || true
       - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --output-format junit > ./dist/md-lint-issues.xml || true
-      - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check || {
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0 | xargs -0 {{.RUMDL_CHECK}} || {
           echo "rumdl reported markdown style issues; continuing without failing the check stage."
           true
         }
