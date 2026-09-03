@@ -4,6 +4,7 @@ nav:
     - Python Plugins: python-plugins
     - Marketplace Packages: packages
     - cmempy - Python API: cmempy-python-api
+    - cmem-client - Python API: cmem-client-api
     - cmemc - Python Scripts: cmemc-scripts
     - Build (DataIntegration) APIs: dataintegration-apis
     - Explore backend APIs: dataplatform-apis

@@ -26,6 +26,14 @@ to interact with any
 (LLMs).
 
 
+- :other-apify:{ .lg .middle } Apify
+
+    ---
+
+    Use the [Run Apify actor](../../build/reference/customtask/cmem_plugin_apify-RunActor.md) task to run web scrapers and other
+[Apify](https://apify.com) actors, and process the resulting dataset in your workflow.
+
+
 - :other-apacheavro:{ .lg .middle } Avro
 
     ---
@@ -39,6 +47,23 @@ to interact with any
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
 to interact with any [Azure AI Foundry provided Large Language Models](https://ai.azure.com/catalog) (LLMs).
+
+
+- :material-file-outline:{ .lg .middle } Binary Files
+
+    ---
+
+    Use the [Binary file](../../build/reference/dataset/binaryFile.md) dataset to read and write files of any format, such as images or
+PDF documents, as well as to compress and decompress ZIP archives.
+
+
+- :other-ckan:{ .lg .middle } CKAN
+
+    ---
+
+    [Download the files](../../build/reference/customtask/cmem_plugin_ckan-Download.md) of a dataset from a
+[CKAN](https://ckan.org) service, or
+[publish files](../../build/reference/customtask/cmem_plugin_ckan-Upload.md) as the resources of a CKAN dataset.
 
 
 - :fontawesome-solid-file-csv:{ .lg .middle } CSV
@@ -56,11 +81,25 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     [Databricks](http://databricks.com/) can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset and a [Custom JDBC driver](https://github.com/databricks/databricks-jdbc). Please have a look at [Setup and use of JDBC Drivers](../../deploy-and-configure/configuration/dataintegration/jdbc/index.md).
 
 
-- :material-email-outline:{ .lg .middle } eMail / SMTP
+- :eccenca-module-marketplace:{ .lg .middle } eccenca Marketplace
 
     ---
 
-    Send plain text or HTML formatted [eMail messages](../../build/reference/customtask/SendEMail.md) using an SMTP server.
+    Manage [Marketplace Packages](../../develop/packages/index.md) in workflows:
+[build package archives](../../build/reference/customtask/cmem_plugin_packages-BuildPackages.md),
+[bump their version](../../build/reference/customtask/cmem_plugin_packages-BumpVersions.md),
+[publish](../../build/reference/customtask/cmem_plugin_packages-PublishPackages.md) them to a Marketplace Server
+such as [eccenca.market](https://eccenca.market), and
+[install](../../build/reference/customtask/cmem_plugin_packages-InstallPackages.md) or
+[uninstall](../../build/reference/customtask/cmem_plugin_packages-UninstallPackages.md) them on an instance.
+
+
+- :material-email-outline:{ .lg .middle } eMail / SMTP / IMAP
+
+    ---
+
+    Send plain text or HTML formatted [eMail messages](../../build/reference/customtask/SendEMail.md) using an SMTP server,
+or [Get emails](../../build/reference/customtask/cmem-plugin-email-GetEmails.md) including their attachments from an IMAP mailbox.
 
 
 - :material-file-excel:{ .lg .middle } Excel
@@ -68,6 +107,34 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     ---
 
     Use the [Excel](../../build/reference/dataset/excel.md) task to read and write to Excel workbooks in the Open XML format (XLSX).
+
+
+- :simple-openstreetmap:{ .lg .middle } Geocoding
+
+    ---
+
+    [Search addresses](../../build/reference/customtask/SearchAddresses.md) looks up locations from textual descriptions with a configurable
+geocoding service, such as [Nominatim](https://nominatim.org/),
+[Photon](https://photon.komoot.io/) or the
+[French Base Adresse Nationale](https://adresse.data.gouv.fr/).
+
+
+- :simple-github:{ .lg .middle } GitHub
+
+    ---
+
+    [List](../../build/reference/customtask/cmem_plugin_git-List.md) and
+[download](../../build/reference/customtask/cmem_plugin_git-Download.md) files from a GitHub repository, or
+[commit](../../build/reference/customtask/cmem_plugin_git-Upload.md) the results of a workflow back into it.
+
+
+- :simple-gitlab:{ .lg .middle } GitLab
+
+    ---
+
+    [List](../../build/reference/customtask/cmem_plugin_git-List.md) and
+[download](../../build/reference/customtask/cmem_plugin_git-Download.md) files from a GitLab repository, or
+[commit](../../build/reference/customtask/cmem_plugin_git-Upload.md) the results of a workflow back into it.
 
 
 - :material-google-drive:{ .lg .middle } Google Drive
@@ -124,7 +191,8 @@ to interact with any [Azure AI Foundry provided Large Language Models](https://a
     ---
 
     You can [send](../../build/reference/customtask/cmem_plugin_kafka-SendMessages.md) and
-[receive messages](../../build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) to and from a Kafka topic.
+[receive messages](../../build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) to and from a Kafka topic,
+on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) cluster.
 
 
 - :simple-kubernetes:{ .lg .middle } Kubernetes
@@ -156,6 +224,14 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     The Microsoft SQL Server can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
+- :fontawesome-solid-file-csv:{ .lg .middle } Multi CSV ZIP
+
+    ---
+
+    Use the [Multi CSV ZIP](../../build/reference/dataset/multiCsv.md) dataset to read and write multiple CSV files
+from and to a single ZIP archive.
+
+
 - :simple-mysql:{ .lg .middle } MySQL
 
     ---
@@ -182,7 +258,8 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     ---
 
-    Use a Nextcloud instance to [download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process
+    Use a Nextcloud instance to [list](../../build/reference/customtask/cmem_plugin_nextcloud-List.md) and
+[download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process
 them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) you created with Corporate Memory.
 
 
@@ -190,7 +267,10 @@ them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Up
 
     ---
 
-    Use the [Excel (OneDrive, Office365)](../../build/reference/dataset/office365preadsheet.md) to read and write to Excel workbooks in Office 365.
+    Use the [Excel (OneDrive, Office365)](../../build/reference/dataset/office365preadsheet.md) to read and write to Excel workbooks in Office 365, or
+[list](../../build/reference/customtask/cmem_plugin_office365-List.md),
+[download](../../build/reference/customtask/cmem_plugin_office365-Download.md) and
+[upload](../../build/reference/customtask/cmem_plugin_office365-Upload.md) files in Microsoft OneDrive or Sites.
 
 
 - :simple-ollama:{ .lg .middle } Ollama
@@ -229,6 +309,14 @@ to interact with any [OpenRouter provided Large Language Models](https://openrou
     ---
 
     Use the [Parquet](../../build/reference/dataset/parquet.md) dataset to read and write files in the [Parquet](https://parquet.apache.org/) format.
+
+
+- :material-file-pdf-box:{ .lg .middle } PDF
+
+    ---
+
+    Read PDF documents with the [Binary file](../../build/reference/dataset/binaryFile.md) dataset and use
+[Extract from PDF files](../../build/reference/customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract.md) to get their text and tables.
 
 
 - :black_large_square:{ .lg .middle } pgvector
@@ -319,7 +407,10 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
 
     ---
 
-    Interact with SSH servers to [Download SSH files](../../build/reference/customtask/cmem_plugin_ssh-Download.md) or [Execute commands via SSH](../../build/reference/customtask/cmem_plugin_ssh-Execute.md).
+    Interact with SSH servers: [list](../../build/reference/customtask/cmem_plugin_ssh-List.md),
+[download](../../build/reference/customtask/cmem_plugin_ssh-Download.md) and
+[upload](../../build/reference/customtask/cmem_plugin_ssh-Upload.md) files, or
+[execute commands](../../build/reference/customtask/cmem_plugin_ssh-Execute.md) on them.
 
 
 - :other-tentris:{ .lg .middle } Tentris
@@ -327,6 +418,13 @@ execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin
     ---
 
     Load and write Knowledge Graphs to an external Tentris store by using the [SPARQL endpoint](../../build/reference/dataset/sparqlEndpoint.md) dataset. Query data from Tentris by using the SPARQL [Construct](../../build/reference/customtask/sparqlCopyOperator.md), [Select](../../build/reference/customtask/sparqlSelectOperator.md) and [Update](../../build/reference/customtask/sparqlUpdateOperator.md) tasks. Tentris can be used as the integrated Quad Store as well (beta).
+
+
+- :material-text-box:{ .lg .middle } Text
+
+    ---
+
+    Use the [Text](../../build/reference/dataset/text.md) dataset to read and write plain text files.
 
 
 - :simple-trino:{ .lg .middle } Trino

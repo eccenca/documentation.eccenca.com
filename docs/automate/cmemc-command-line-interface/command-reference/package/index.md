@@ -1,6 +1,6 @@
 ---
 title: "cmemc: Command Group - package"
-description: "List, (un)install, export, create, or inspect packages."
+description: "List, (un)install, download, export, create, or inspect packages."
 icon: eccenca/module-marketplace
 tags:
   - cmemc
@@ -12,11 +12,11 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-List, (un)install, export, create, or inspect packages.
+List, (un)install, download, export, create, or inspect packages.
 
 Packages bundle re-usable content such as projects or vocabularies together with a manifest, so that it can be distributed and installed in other deployments. Packages are identified by a `PACKAGE_ID` and are used either as a package directory, as a Corporate Memory Package Archive (.cpa), or from a marketplace.
 
-Typical workflows are to install packages from a marketplace (`package search` and `package install`), and to create packages from your own workspace (`package export`, `package build` and `package publish`).
+Typical workflows are to install packages from a marketplace (`package search` and `package install`), to fetch a package archive without installing it (`package download`), and to create packages from your own workspace (`package export`, `package build` and `package publish`).
 
 !!! note
     To get a list of installed packages, execute the `package list` command or use tab-completion.
@@ -111,6 +111,43 @@ If a local package is chosen which has unzipped project directories, the install
                             processes rely on); use with care.
     --version TEXT          Specific version to install from the marketplace.
                             Defaults to the latest version.
+    --marketplace-url TEXT  Base URL of the Marketplace - uses environment
+                            variable ECCENCA_MARKETPLACE_URL if available.
+                            [default: https://eccenca.market]
+    ```
+
+## package download
+
+Download a package archive from the marketplace.
+
+```shell-session title="Usage"
+cmemc package download [OPTIONS] PACKAGE_ID
+```
+
+
+
+
+This command downloads a package from the marketplace to your local file system, without installing it in Corporate Memory. The package archive is created in the output directory with the following naming convention: `{package_id}-v{version}.cpa`
+
+The downloaded archive can be examined with the `package inspect` command, installed with `package install`--input``, or uploaded to another marketplace with the `package publish` command.
+
+!!! note
+    Available packages can be listed with the `package search` command.
+
+
+
+
+??? info "Options"
+    ```text
+
+    --version TEXT          Specific version to download. Defaults to the latest
+                            version.
+    --output-dir DIRECTORY  Download the package archive into this directory.
+                            [default: .]
+    --replace               Replace (overwrite) existing package archives, if
+                            present.
+    --with-dependencies     Also download the marketplace packages this package
+                            depends on.
     --marketplace-url TEXT  Base URL of the Marketplace - uses environment
                             variable ECCENCA_MARKETPLACE_URL if available.
                             [default: https://eccenca.market]

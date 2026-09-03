@@ -19,7 +19,7 @@ API documentation and programming recipes.
 
     ---
 
-    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating eccenca Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
+    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-client](cmem-client-api/index.md)).
 
 - :material-shopping: Marketplace Packages
 

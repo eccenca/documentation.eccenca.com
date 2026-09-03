@@ -56,6 +56,101 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_packages-BuildPackages": {
+    "pluginId": "cmem_plugin_packages-BuildPackages",
+    "title": "Build Packages",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Build package archives from a CPA manifest, using graphs, projects and files from this instance.",
+    "markdownDocumentation": "\nBuilds package archives from a CPA manifest.\n\nThe manifest lists what belongs in the package. Graphs are exported from the store,\nprojects from the workspace, and text and image files from the file resources of the\nproject this task runs in. All of it is collected into a single archive, named after\nthe package ID and version taken from the manifest.\n\nManifests arrive on the input port, which is replaced by a parameter when the manifest\nis configured on the task itself. Each manifest produces one archive.\n\nThe archives leave on the output port as `*.cpa` files, ready for the **Publish\nPackages** task to upload them to a marketplace service, or for the **Install\nPackages** task to install them on this instance. A release workflow typically chains\n**Bump Version in Package Manifest**, this task, and then **Publish Packages**.\n\nThe manifest is trusted to describe content which is really there. A graph, project or\nfile it lists but which is missing from this instance makes the task fail while that\ncontent is being exported. Text and image files are read from the project the task\nruns in, so a manifest cannot pull auxiliary files out of a different project.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHBhdGggZD0iTTI4LDExaC02VjdjMC0xLjctMS4zLTMtMy0zaC02Yy0xLjcsMC0zLDEuMy0zLDN2NEg0Yy0wLjYsMC0xLDAuNC0xLDFjMCwwLjEsMCwwLjEsMCwwLjJsMS45LDEyLjFjMC4xLDEsMSwxLjcsMiwxLjdIMTV2LTIgSDYuOUw1LjIsMTNIMjhWMTF6IE0xMiw3YzAtMC42LDAuNC0xLDEtMWg2YzAuNiwwLDEsMC40LDEsMXY0aC04Vjd6Ii8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUuMzgsMTUuMTUpIHNjYWxlKDAuNTgxNCkiPjxwYXRoIGQ9Ik05LDIwLjQyTDIuNzksMTQuMjFMNS42MiwxMS4zOEw5LDE0Ljc3TDE4Ljg4LDQuODhMMjEuNzEsNy43MUw5LDIwLjQyWiIvPjwvZz4KPC9zdmc+Cg==",
+    "properties": {
+      "manifest_file": {
+        "name": "manifest_file",
+        "title": "Manifest JSON",
+        "description": "The CPA manifest as JSON. If provided, the input port is removed and the package is built from this manifest. If left empty, the manifests are taken from the input port.",
+        "type": "string",
+        "parameterType": "multiline string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_packages-BumpVersions": {
+    "pluginId": "cmem_plugin_packages-BumpVersions",
+    "title": "Bump Version in Package Manifest",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Raise the version of a CPA manifest, by semantic level or to the current date.",
+    "markdownDocumentation": "\nRaises the `package_version` of a CPA manifest without touching anything else in it.\n\nThe version is either bumped by one semantic level, or replaced by the current date, so\nthat 20 August 2026 becomes `2026.8.20`. The date is read as UTC from the clock of this\ninstance. Leading zeros are not valid in a semantic version, which is why the date is\nwritten as `2026.8.20` and not as `2026.08.20`.\n\nA bump never lowers a version. In the date mode the new version can fail to be higher\nthan the current one, when the manifest was already bumped on the same day or carries a\nversion ahead of today's date; the task then fails by default.\n\nManifests arrive on the input port, which is replaced by a parameter when the manifest\nis configured on the task itself.\n\nThe bumped manifests leave on the output port. That port can feed several consumers at\nonce, so a release workflow typically wires it both to a file dataset, which stores the\nraised manifest back into the project, and to the **Build Packages** task, which builds\nthe archive from it and hands that to **Publish Packages**.\n\nThe emitted manifest is a canonical serialization of the manifest model, not the\noriginal file with a single line changed. It is reformatted, and fields left out of the\noriginal are filled in with their defaults. Storing it back over a hand-formatted\nmanifest therefore produces a larger diff than the version line alone.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHBhdGggZD0iTTI4LDExaC02VjdjMC0xLjctMS4zLTMtMy0zaC02Yy0xLjcsMC0zLDEuMy0zLDN2NEg0Yy0wLjYsMC0xLDAuNC0xLDFjMCwwLjEsMCwwLjEsMCwwLjJsMS45LDEyLjFjMC4xLDEsMSwxLjcsMiwxLjdIMTV2LTIgSDYuOUw1LjIsMTNIMjhWMTF6IE0xMiw3YzAtMC42LDAuNC0xLDEtMWg2YzAuNiwwLDEsMC40LDEsMXY0aC04Vjd6Ii8+CiAgPHBhdGggZD0iTTIyLjUsMTdMMjgsMTkuNVYyMkwyMi41LDE5LjVMMTcsMjJ2LTIuNUwyMi41LDE3eiBNMjIuNSwyM0wyOCwyNS41VjI4TDIyLjUsMjUuNUwxNywyOHYtMi41TDIyLjUsMjN6Ii8+Cjwvc3ZnPgo=",
+    "properties": {
+      "manifest_file": {
+        "name": "manifest_file",
+        "title": "Manifest JSON",
+        "description": "The CPA manifest as JSON. If provided, the input port is removed and the version is raised in this manifest. If left empty, the manifests are taken from the input port.",
+        "type": "string",
+        "parameterType": "multiline string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "bump_mode": {
+        "name": "bump_mode",
+        "title": "Bump mode",
+        "description": "How the new version is derived from the current one.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "patch",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "on_version_not_raised": {
+        "name": "on_version_not_raised",
+        "title": "When the version would not be raised",
+        "description": "What to do when the new version is not higher than the current one. This can only happen in the current date mode: the manifest was already bumped on the same day, or it carries a version ahead of today's date.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "error",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "CancelWorkflow": {
     "pluginId": "CancelWorkflow",
     "title": "Cancel Workflow",
@@ -480,6 +575,60 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_graph_insights-Update": {
+    "pluginId": "cmem_plugin_graph_insights-Update",
+    "title": "Create or Update Graph Insights Snapshots",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Create a snapshot for a graph that has none, or update it if one already exists.",
+    "markdownDocumentation": "This workflow task creates or updates [Graph Insights](https://go.eccenca.com/feature/explore-graph-insights?lang=en&origin=cmem-plugin-graph-insights)\n    snapshots for a specified graph in your system.\n\n## Behavior\n\n- **No graph selected**: All snapshots in the system are updated\n- **Graph selected**: Every snapshot associated with the selected graph (including\n  ones where it is only an imported sub-graph) is updated. If the selected graph\n  does not have a dedicated snapshot of its own yet, one is also created for it.\n\n## Usage\n\n1. Add this task to your workflow.\n2. Optionally select a specific graph to create or update its snapshot.\n3. Use the \"Preview Snapshots\" action to see which snapshots will be affected,\n   and whether a new one will be created, before execution.\n4. Run the workflow to create or update the snapshots.\n\n## Prerequisites\n\n- Graph Insights must be active in your system\n- User must have permissions to access Graph Insights\n- The plugin will skip execution with a warning if these conditions are not met\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjMycHgiCiAgIGhlaWdodD0iMzJweCIKICAgdmlld0JveD0iMCAwIDMyIDMyIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmc4NDQiCiAgIHNvZGlwb2RpOmRvY25hbWU9InVwZGF0ZV9zbmFwc2hvdHMuc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEuMiAoYjhlMjViZTgsIDIwMjItMDItMDUpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzg0NiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIyNi40Njg3NSIKICAgICBpbmtzY2FwZTpjeD0iMTYiCiAgICAgaW5rc2NhcGU6Y3k9IjE2IgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI3IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIxNDk2IgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNSIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2Zzg0NCIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzODI1Ij4KICAgIDxwYXRoCiAgICAgICBkPSJNMy41NTUsMTAuOTg3NSBMMS4wMDEyNSwxMC45ODc1IEwxLjAwMTI1LDkuNTU4NzUgTDUuNjM2MjUsOS41NTg3NSBMNi4yODg3NSwxMC4yMTEyNSBMNi4yODg3NSwxNC44NDYyNSBMNC44NiwxNC44NDYyNSBMNC44NiwxMi4yOTI1IEw0LjQ4ODc1LDEyLjYwNzUgQzQuMTUxMjQ4MzEsMTIuOTAwMDAxNSAzLjg3MDAwMTEzLDEzLjMxNjI0NzMgMy42NDUsMTMuODU2MjUgQzMuNDU3NDk5MDYsMTQuMzIxMjUyMyAzLjM2Mzc1LDE0LjgxNjI0NzQgMy4zNjM3NSwxNS4zNDEyNSBDMy4zNjM3NSwxNS44NTEyNTI1IDMuNDU3NDk5MDYsMTYuMzM2ODcyNyAzLjY0NSwxNi43OTgxMjUgQzMuODMyNTAwOTQsMTcuMjU5Mzc3MyA0LjEwOTk5ODE2LDE3LjY3NzQ5ODEgNC40Nzc1LDE4LjA1MjUgQzQuODQ1MDAxODQsMTguNDA1MDAxOCA1LjI2MTI0NzY3LDE4LjY4MjQ5OSA1LjcyNjI1LDE4Ljg4NSBDNi4xNjg3NTIyMSwxOS4wNzI1MDA5IDYuNjU5OTk3MywxOS4xNjYyNSA3LjIsMTkuMTY2MjUgQzcuNzQwMDAyNywxOS4xNjYyNSA4LjIxOTk5NzksMTkuMDcyNTAwOSA4LjY0LDE4Ljg4NSBDOS4xMjc1MDI0NCwxOC42NTk5OTg5IDkuNTM5OTk4MzEsMTguMzgyNTAxNyA5Ljg3NzUsMTguMDUyNSBDMTAuMjUyNTAxOSwxNy42Nzc0OTgxIDEwLjUzMzc0OTEsMTcuMjU5Mzc3MyAxMC43MjEyNSwxNi43OTgxMjUgQzEwLjkwODc1MDksMTYuMzM2ODcyNyAxMS4wMDI1LDE1Ljg1MTI1MjUgMTEuMDAyNSwxNS4zNDEyNSBDMTEuMDAyNSwxNC44MTYyNDc0IDEwLjkwODc1MDksMTQuMzIxMjUyMyAxMC43MjEyNSwxMy44NTYyNSBDMTAuNTQxMjQ5MSwxMy4zOTg3NDc3IDEwLjI1NjI1MiwxMi45ODI1MDE5IDkuODY2MjUsMTIuNjA3NSBMMTEuMjA1LDExLjMxMzc1IEMxMS43NjAwMDI4LDExLjg5MTI1MjkgMTIuMTc2MjQ4NiwxMi41MDYyNDY3IDEyLjQ1Mzc1LDEzLjE1ODc1IEMxMi43MzEyNTE0LDEzLjg0MTI1MzQgMTIuODcsMTQuNTY4NzQ2MSAxMi44NywxNS4zNDEyNSBDMTIuODcsMTYuMDk4NzUzOCAxMi43MzEyNTE0LDE2LjgxODc0NjYgMTIuNDUzNzUsMTcuNTAxMjUgQzEyLjE3NjI0ODYsMTguMTY4NzUzMyAxMS43NjAwMDI4LDE4Ljc4Mzc0NzIgMTEuMjA1LDE5LjM0NjI1IEMxMC42NjQ5OTczLDE5Ljg3ODc1MjcgMTAuMDUzNzUzNCwyMC4yOTEyNDg1IDkuMzcxMjUsMjAuNTgzNzUgQzguNzExMjQ2NywyMC44NjEyNTE0IDcuOTkxMjUzOSwyMSA3LjIxMTI1LDIxIEM2LjQwMTI0NTk1LDIxIDUuNjg1MDAzMTEsMjAuODYxMjUxNCA1LjA2MjUsMjAuNTgzNzUgQzQuMzQ5OTk2NDQsMjAuMjYxMjQ4NCAzLjczODc1MjU1LDE5Ljg0ODc1MjUgMy4yMjg3NSwxOS4zNDYyNSBDMi42ODg3NDczLDE4LjgwNjI0NzMgMi4yNzI1MDE0NiwxOC4xOTEyNTM0IDEuOTgsMTcuNTAxMjUgQzEuNjk0OTk4NTgsMTYuODQxMjQ2NyAxLjU1MjUsMTYuMTIxMjUzOSAxLjU1MjUsMTUuMzQxMjUgQzEuNTUyNSwxNC41Njg3NDYxIDEuNjk0OTk4NTgsMTMuODQxMjUzNCAxLjk4LDEzLjE1ODc1IEMyLjI2NTAwMTQzLDEyLjQ3NjI0NjYgMi42ODEyNDcyNiwxMS44NjEyNTI3IDMuMjI4NzUsMTEuMzEzNzUgTDMuNTU1LDEwLjk4NzUgWiIKICAgICAgIGlkPSJwYXRoLTEiIC8+CiAgPC9kZWZzPgogIDxwYXRoCiAgICAgZD0ibSAxNiwyIHYgMiBjIDYuNiwwIDEyLDUuNCAxMiwxMiAwLDYuNiAtNS40LDEyIC0xMiwxMiB2IDIgQyAyMy43LDMwIDMwLDIzLjcgMzAsMTYgMzAsOC4zIDIzLjcsMiAxNiwyIFoiCiAgICAgaWQ9IlBhdGgiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgogIDxwYXRoCiAgICAgZD0iTSA4LjIsMjUuMSA3LDI2LjcgYyAxLjIsMSAyLjYsMS45IDQuMiwyLjQgbCAwLjcsLTEuOSBDIDEwLjUsMjYuNyA5LjMsMjYgOC4yLDI1LjEgWiIKICAgICBpZD0icGF0aDgyOCIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjEiIC8+CiAgPHBhdGgKICAgICBkPSJtIDQuMiwxOCAtMiwwLjQgQyAyLjUsMjAgMy4xLDIxLjYgMy45LDIzIEwgNS42LDIyIEMgNC45LDIwLjggNC40LDE5LjQgNC4yLDE4IFoiCiAgICAgaWQ9InBhdGg4MzAiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgogIDxwYXRoCiAgICAgZD0iTSA1LjYsMTAgMy45LDkgYyAtMC44LDEuNCAtMS40LDMgLTEuNiw0LjYgbCAyLDAuMyBDIDQuNCwxMi41IDQuOSwxMS4yIDUuNiwxMCBaIgogICAgIGlkPSJwYXRoODMyIgogICAgIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MSIgLz4KICA8cGF0aAogICAgIGQ9Ik0gMTEuOCw0LjggMTEuMSwyLjkgQyA5LjYsMy41IDguMiw0LjMgNyw1LjMgbCAxLjMsMS41IGMgMSwtMC44IDIuMiwtMS41IDMuNSwtMiB6IgogICAgIGlkPSJwYXRoODM0IgogICAgIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MSIgLz4KICA8dXNlCiAgICAgeGxpbms6aHJlZj0iI3BhdGgtMSIKICAgICBpZD0idXNlODM3IgogICAgIHg9IjAiCiAgICAgeT0iMCIKICAgICB3aWR0aD0iMTAwJSIKICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOSwxKSIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjEiIC8+CiAgPHVzZQogICAgIHhsaW5rOmhyZWY9IiNwYXRoLTEiCiAgICAgaWQ9InVzZTgzOSIKICAgICB4PSIwIgogICAgIHk9IjAiCiAgICAgd2lkdGg9IjEwMCUiCiAgICAgaGVpZ2h0PSIxMDAlIgogICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDksMSkiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgo8L3N2Zz4K",
+    "properties": {
+      "selected_graph": {
+        "name": "selected_graph",
+        "title": "Selected Graph",
+        "description": "Graph to create or update a snapshot for. Leave empty to update every existing snapshot instead.",
+        "type": "string",
+        "parameterType": "scheme:string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "timeout": {
+        "name": "timeout",
+        "title": "Timeout",
+        "description": "Timeout in seconds for Graph Insights API.",
+        "type": "string",
+        "parameterType": "double",
+        "value": "100",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "preview_snapshots": {
+        "label": "Preview Snapshots",
+        "description": "Previews snapshots for graph insights in a workflow.",
+        "icon": null
+      }
+    },
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "cmem_plugin_salesforce-workflow-operations-SobjectCreate": {
     "pluginId": "cmem_plugin_salesforce-workflow-operations-SobjectCreate",
     "title": "Create/Update Salesforce Objects",
@@ -678,6 +827,104 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_ckan-Download": {
+    "pluginId": "cmem_plugin_ckan-Download",
+    "title": "Download CKAN files",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Download the files of a dataset from a CKAN service.",
+    "markdownDocumentation": "\nThis workflow task downloads the files of a dataset from a\n[CKAN](https://ckan.org) service, such as the\n[PMD Dataportal](https://dataportal.material-digital.de). What CKAN calls the\nresources of a package are files attached to a dataset, and this task fetches\ntheir content.\n\nFiles leave the task as file entities, written into a temporary directory of\nthe DataIntegration node. They exist for the length of the workflow run and are\nnot added to the project, so anything that is meant to survive the run has to be\nwritten somewhere by a following task - **Extract from PDF files** of\n`cmem-plugin-pdf-extract`, **Upload files to Nextcloud** of\n`cmem-plugin-nextcloud` and the **Upload files to CKAN** task of this package\nall take file entities.\n\nDatasets and files arrive on the input port, which is what a task in front of\nthis one is for: it can walk a list of datasets that a SPARQL query or another\ntask produced. Without such an input, the task fetches the dataset configured\non it.\n\nEach file is fetched from the address CKAN records for it, which is not\nnecessarily on the same service: a harvested dataset points at the service it\nwas harvested from, and a file behind a login there fails even though the\ndataset itself was readable.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogIDxwYXRoIGQ9Ik02IDNoN2w1IDV2NCIvPgogIDxwYXRoIGQ9Ik0xMyAzdjVoNSIvPgogIDxwYXRoIGQ9Ik0xOCAxMnYtNCIvPgogIDxwYXRoIGQ9Ik02IDN2MTEiLz4KICA8cGF0aCBkPSJNNiAyMWgxMiIvPgogIDxwYXRoIGQ9Ik0xMiAxMnY2Ii8+CiAgPHBhdGggZD0iTTkgMTVsMyAzIDMtMyIvPgo8L3N2Zz4K",
+    "properties": {
+      "url": {
+        "name": "url",
+        "title": "CKAN URL",
+        "description": "The base URL of the CKAN service, e.g. `https://dataportal.material-digital.de`.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "token": {
+        "name": "token",
+        "title": "API token",
+        "description": "An API token of the CKAN service. Can stay empty for a service that publishes its datasets without a login.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "dataset": {
+        "name": "dataset",
+        "title": "Dataset",
+        "description": "The dataset whose files are downloaded. Ignored for the datasets that arrive on the input port.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "name_regex": {
+        "name": "name_regex",
+        "title": "File matching regex",
+        "description": "Downloads only the files whose name matches this regular expression, e.g. `\\.csv$`. Empty means every file of the dataset.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "file_format": {
+        "name": "file_format",
+        "title": "File format",
+        "description": "Downloads only the files CKAN records under this format, e.g. `CSV`. Empty means every format. CKAN takes the format as free text, so it is often missing or spelled differently than expected.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "on_error": {
+        "name": "on_error",
+        "title": "On error",
+        "description": "What happens when a single file cannot be transferred. Either way the workflow ends in an error.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "stop",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "preview": {
+        "label": "Preview (max. 10)",
+        "description": "List the files the current configuration would download.",
+        "icon": null
+      }
+    },
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "downloadFile": {
     "pluginId": "downloadFile",
     "title": "Download file",
@@ -786,6 +1033,115 @@
     "is_deprecated": false,
     "tags": [
       "WorkflowTask"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_git-Download": {
+    "pluginId": "cmem_plugin_git-Download",
+    "title": "Download Git files",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Download files from a git repository and hand them to the next task.",
+    "markdownDocumentation": "\nThis workflow task reads files from a git repository at one revision and hands them\nto the next task in the workflow. It works on the objects of the repository rather\nthan on a checkout, so only the files it selects are transferred.\n\nFiles leave the task as file entities that any file consuming task can read. They are\nwritten into a temporary folder of the container the task runs in, and they are not\ndeleted afterwards, because the next task reads them only when it gets to them.\n\nThis task works in one of two mutually exclusive ways, decided by whether a\nRepository URL is configured. Set it, and the task fetches on its own, guided by\nthe folder, expression and subfolder settings, with the input closed. Leave it\nempty, and the input opens instead: it supplies both the repository and the\nfiles to read from it, and the folder and expression settings go unused. This is\nhow **List Git files** drives this task after the workflow has filtered its\noutput.\n\nThe repository is reached over HTTP(S), which is the only transport these tasks speak;\nan SSH address is refused. Reading needs a token with read access to the repository and\nno more than that: the `read_repository` scope on GitLab, or a fine grained GitHub token\ngranting `Contents: Read-only`. A public repository needs no token at all. The user name sent\nalongside the token matters on GitLab and not on GitHub, which is why its default is\nthe value GitLab accepts.\n\nSubmodules and files stored with Git LFS are reported as skipped rather than\ndownloaded, because the repository holds no content for them, only a reference. A\nsymbolic link is delivered under its own name with the content of the file it points\nat; one that points outside the repository is skipped. Reading a commit id rather\nthan a branch or a tag works only where the server allows fetching an object it does\nnot advertise.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgZm9jdXNhYmxlPSJmYWxzZSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImVjY2d1aS1pY29uIj48Y2lyY2xlIGN4PSI4IiBjeT0iNiIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOCIgY3k9IjI2IiByPSIzIj48L2NpcmNsZT48cmVjdCB4PSI3IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyMCI+PC9yZWN0PjxyZWN0IHg9IjgiIHk9IjE1IiB3aWR0aD0iNyIgaGVpZ2h0PSIyIj48L3JlY3Q+PGNpcmNsZSBjeD0iMTciIGN5PSIxNiIgcj0iMyI+PC9jaXJjbGU+PHJlY3QgeD0iMjYiIHk9IjYiIHdpZHRoPSIyIiBoZWlnaHQ9IjEzIj48L3JlY3Q+PHBhdGggZD0iTTIyIDE3aDEwbC01IDh6Ij48L3BhdGg+PC9zdmc+Cg==",
+    "properties": {
+      "url": {
+        "name": "url",
+        "title": "Repository URL",
+        "description": "The HTTP(S) address of the repository. The address of its web page works as well as its clone URL, with or without a trailing '.git'. Leave it empty to take the repository, and the files to read from it, from the connected input instead - which is how **List Git files** drives this task.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "token": {
+        "name": "token",
+        "title": "Access token",
+        "description": "An access token that may read the repository. Leave it empty to read a public repository.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ref": {
+        "name": "ref",
+        "title": "Revision",
+        "description": "The branch, tag or commit id to read. Leave it empty to read the repository's default branch. Ignored when the Repository URL is empty and the input drives file selection instead.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "path": {
+        "name": "path",
+        "title": "Folder",
+        "description": "The folder inside the repository to read from. Leave it empty to start at the top of the repository. Ignored when the Repository URL is empty and the input drives file selection instead.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "regex": {
+        "name": "regex",
+        "title": "Regular expression",
+        "description": "A regular expression the file name has to match. An empty expression matches every file. Ignored when the Repository URL is empty and the input drives file selection instead.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "no_subfolder": {
+        "name": "no_subfolder",
+        "title": "No subfolder",
+        "description": "If enabled, only files directly in the selected folder are used, and its subfolders are left alone. Ignored when the Repository URL is empty and the input drives file selection instead.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "username": {
+        "name": "username",
+        "title": "User name",
+        "description": "The user name sent with the access token. GitHub ignores it, GitLab checks it, and the default is the value GitLab accepts for a repository token.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "gitlab-ci-token",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "preview": {
+        "label": "Preview results (max. 10)",
+        "description": "List the first files this configuration selects.",
+        "icon": null
+      }
+    },
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
     ],
     "pluginType": "customtask",
     "relatedPlugins": []
@@ -1059,7 +1415,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Download files from a given SSH instance",
-    "markdownDocumentation": "\nThis workflow task downloads files from a specified SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder from which the data should be extracted.\n\nYou can also define a regular expression to include or exclude specific files.\n\nThere is also an option to prevent files in subfolders from being included.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Error handling modes:\n* **Ignore:** Ignores the permission rights of files and lists downloads all files it has access to.\nSkips folders and files when there is no correct permission.\n* **Warning:** Warns the user about files that the user has no permission rights to. Downloads\nall other files and skips files folder when there is no correct permission.\n* **Error:** Throws an error when there is a single file or folder with incorrect permission rights.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, DSS, ECDSA, Ed25519.\n* Setting the maximum amount of workers to more than 1 may cause a Channel Exception when\nthe amount of files is too large\n    ",
+    "markdownDocumentation": "\nThis workflow task downloads files from a specified SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder from which the data should be extracted.\n\nYou can also define a regular expression to include or exclude specific files.\n\nThere is also an option to prevent files in subfolders from being included.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Error handling modes:\n* **Ignore:** Ignores the permission rights of files and lists downloads all files it has access to.\nSkips folders and files when there is no correct permission.\n* **Warning:** Warns the user about files that the user has no permission rights to. Downloads\nall other files and skips files folder when there is no correct permission.\n* **Error:** Throws an error when there is a single file or folder with incorrect permission rights.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, ECDSA, Ed25519.\n* Setting the maximum amount of workers to more than 1 may cause a Channel Exception when\nthe amount of files is too large\n    ",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQuNSA5Yy0uNiAwLTEgLjUtMSAxdjEuNzVjMCAuNS40IDEgMSAxSDd2Ljc1SDMuNVYxNWg0Yy42IDAgMS0uNSAxLTF2LTEuNzVjMC0uNS0uNC0xLTEtMUg1di0uNzVoMy41Vjl6bTYgMGMtLjYgMC0xIC41LTEgMXYxLjc1YzAgLjUuNCAxIDEgMUgxM3YuNzVIOS41VjE1aDRjLjYgMCAxLS41IDEtMXYtMS43NWMwLS41LS40LTEtMS0xSDExdi0uNzVoMy41Vjl6bTUgMHY2SDE3di0yLjVoMlYxNWgxLjVWOUgxOXYyaC0yVjl6Ii8+PC9zdmc+",
     "properties": {
       "hostname": {
@@ -1297,7 +1653,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Connect to a cluster, execute a command and gather the output.",
-    "markdownDocumentation": "\nThis plugin enables execution of commands inside Kubernetes pods and captures their output.\n\n## Features\n\n- Supports multiple connection types:\n  - **In-cluster**: Uses the service account kubernetes gives to pods\n    (for plugins running inside k8s)\n  - **Explicit config**: Uses a YAML kubeconfig file for external connections\n- Executes shell commands in specified pods within namespaces\n- Captures both stdout and stderr output\n- Returns command output as a file entity for further processing\n- Includes namespace listing functionality to verify cluster access and connectivity\n\n## Output\n\nCommand output is captured and returned as a text file entity that can be consumed by\ndownstream workflow tasks.\n\n## Use Cases\n\n- Running external pipelines\n- Running diagnostic commands in production pods\n- Executing maintenance scripts from within or outside the cluster\n- Gathering system information and logs\n- Performing health checks and troubleshooting\n    ",
+    "markdownDocumentation": "\nThis plugin enables execution of commands inside Kubernetes pods and captures their output.\n\n## Features\n\n- Supports multiple connection types:\n  - **In-cluster**: Uses the service account kubernetes gives to pods\n    (for plugins running inside k8s)\n  - **Explicit config**: Uses a YAML kubeconfig file for external connections\n- Executes shell commands in specified pods within namespaces\n- Targets a pod either by name or by a label selector (the equivalent of the\n  `kubectl -l` / `--selector` flag, e.g. `app=nifi`); when a selector matches more\n  than one pod, the first one is used\n- Captures both stdout and stderr output\n- Returns command output as a file entity for further processing\n- Includes namespace listing functionality to verify cluster access and connectivity\n\n## Output\n\nCommand output is captured and returned as a text file entity that can be consumed by\ndownstream workflow tasks.\n\n## Use Cases\n\n- Running external pipelines\n- Running diagnostic commands in production pods\n- Executing maintenance scripts from within or outside the cluster\n- Gathering system information and logs\n- Performing health checks and troubleshooting\n    ",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEzLjk1IDEzLjVoLS4yM2MtLjE4LjExLS4yNi4zMi0uMTguNWwuODYgMi4xMWMuODMtLjUzIDEuNDYtMS4zMiAxLjc5LTIuMjVsLTIuMjMtLjM2em0tMy40NS4yOWEuNDE1LjQxNSAwIDAgMC0uMzgtLjI5aC0uMDhsLTIuMjIuMzdjLjMzLjkyLjk2IDEuNyAxLjc5IDIuMjNsLjg1LTIuMDdWMTRjLjA0LS4wNS4wNC0uMTQuMDQtLjIxbTEuODMuODFhLjM4LjM4IDAgMCAwLS41MS0uMTVjLS4wNy4wNS0uMTIuMDgtLjE1LjE1aC0uMDFsLTEuMDkgMS45N2MuNzguMjYgMS42Mi4zMSAyLjQzLjEyLjE0LS4wMy4yOS0uMDcuNDMtLjEybC0xLjA5LTEuOTd6bTMuNDUtNC41N0wxNC4xIDExLjVsLjAxLjAzYS4zNy4zNyAwIDAgMC0uMDQuNTNxLjA3NS4wOS4xOC4xMmwuMDEuMDEgMi4xNy42MmMuMDctLjk3LS4xNC0xLjk1LS42NS0yLjc4bS0zLjExLjE2Yy4wMS4yMS4xOC4zNy4zOS4zNi4wOCAwIC4xNS0uMDIuMjEtLjA1aC4wMWwxLjgzLTEuMzFhNC40NSA0LjQ1IDAgMCAwLTIuNTctMS4yNHptLTEuOTQuMzFjLjE3LjExLjQuMDguNTItLjA5LjA1LS4wNi4wNy0uMTMuMDgtLjIxaC4wMWwuMTItMi4yNWMtLjE1LjAyLS4zLjA1LS40Ni4wOC0uOC4xOC0xLjU0LjU4LTIuMTIgMS4xNmwxLjg0IDEuMzF6bS0uOTkgMS42OWMuMi0uMDUuMzItLjI2LjI2LS40NiAwLS4wOC0uMDUtLjE0LS4xMS0uMTl2LS4wMUw4LjIxIDEwYy0uNTIuODYtLjc0IDEuODQtLjYzIDIuODJsMi4xNi0uNjJ6bTEuNjQuNjYuNjIuMy42Mi0uMy4xNS0uNjctLjQzLS41M2gtLjY5bC0uNDMuNTN6bTEwLjg5IDEuMzJMMjAuNSA2LjVjLS4wOS0uNDItLjM3LS43Ni0uNzQtLjk0bC03LjE3LTMuNDNjLS4zNy0uMTctLjgxLS4xNy0xLjE5IDBMNC4yNCA1LjU2Yy0uMzcuMTgtLjY1LjUyLS43NC45NGwtMS43NyA3LjY3Yy0uMDUuMi0uMDUuNCAwIC41OS4wMS4wNi4wMy4xMi4wNS4xOC4wMy4wOS4wOC4xOS4xMy4yNy4wMy4wNC4wNS4wOC4wOS4xMWw0Ljk1IDYuMThjLjAyIDAgLjA1LjA0LjA1LjA2LjEuMDkuMTkuMTYuMjguMjIuMTIuMDguMjYuMTQuNC4xNy4xMS4wNS4yMy4wNS4zMi4wNWg4LjEyYy4wNyAwIC4xNC0uMDMuMi0uMDUuMDUtLjAxLjEtLjAzLjE0LS4wNC4wNC0uMDIuMDctLjAzLjExLS4wNS4wNS0uMDIuMS0uMDUuMTUtLjA4LjEyLS4wOC4yMy0uMTguMzMtLjI4bC4xNS0uMiA0LjgtNS45OGMuMS0uMTIuMTctLjI1LjIyLS4zOC4wMi0uMDYuMDQtLjEyLjA1LS4xOC4wNS0uMTkuMDUtLjQgMC0uNTltLTcuNDMgMi45OWMuMDIuMDYuMDQuMTIuMDcuMTctLjA0LjA4LS4wNi4xNy0uMDMuMjYuMTIuMjQuMjMuNDYuMzguNjguMDguMTEuMTYuMjMuMjQuMzQgMCAuMDMuMDMuMDguMDQuMTIuMTIuMi4wNi40Ni0uMTUuNTlzLS40Ny4wNS0uNTktLjE1Yy0uMDEtLjAzLS4wMi0uMDUtLjAzLS4wOC0uMDItLjAzLS4wNC0uMDktLjA2LS4wOS0uMDUtLjE1LS4wOS0uMjgtLjEyLS40MS0uMDktLjI1LS4xNy0uNDktLjMtLjcyYS4zOC4zOCAwIDAgMC0uMjEtLjE0bC0uMDgtLjE2Yy0xLjI5LjQ4LTIuNy40OC0zLjk3LS4wMWwtLjEuMThjLS4wNy4wMS0uMTQuMDQtLjE5LjA5LS4xNC4yNC0uMjQuNDktLjMzLjc3LS4wMy4xMy0uMDcuMjYtLjEyLjQtLjAyIDAtLjA0LjA3LS4wNi4xYS40My40MyAwIDAgMS0uODEtLjI5Yy4wMS0uMDMuMDMtLjA1LjA0LS4wOC4wNC0uMDMuMDQtLjA4LjA0LS4xMS4wOS0uMTIuMTYtLjIzLjI0LS4zNS4xNi0uMjEuMjktLjQ1LjM5LS42OWEuNTQuNTQgMCAwIDAtLjAzLS4yNWwuMDctLjE4YTUuNiA1LjYgMCAwIDEtMi40Ny0zLjA5bC0uMi4wM2EuNC40IDAgMCAwLS4yMy0uMDljLS4yNy4wNS0uNTEuMTMtLjc3LjIyLS4xMS4wNi0uMjQuMTEtLjM3LjE1LS4wMy4wMS0uMDcuMDItLjEzLjAzYS40NC40NCAwIDAgMS0uNTQtLjI3Yy0uMDctLjIzLjA0LS40Ny4yOC0uNTUuMDIgMCAuMDUtLjAxLjA4LS4wMXYtLjAxaC4wMWwuMTEtLjAyYy4xNC0uMDQuMjgtLjA0LjQxLS4wNC4yNiAwIC41Mi0uMDYuNzctLjEyLjA4LS4wNS4xNC0uMTEuMTktLjE5bC4xOS0uMDVjLS4yMS0xLjM2LjEtMi43My44Ni0zLjg3bC0uMTQtLjEyYzAtLjA5LS4wMy0uMTgtLjA4LS4yNS0uMi0uMTctLjQxLS4zMi0uNjQtLjQ1cS0uMTgtLjA5LS4zNi0uMjFjLS4wMi0uMDItLjA2LS4wNS0uMDgtLjA3bC0uMDEtLjAxYy0uMi0uMTYtLjI1LS40Mi0uMTEtLjYzLjA5LS4xLjIxLS4xNS4zNS0uMTVxLjE2NS4wMTUuMy4xMmwuMDkuMDdjLjEuMDkuMTkuMi4yOC4zLjE4LjE5LjM3LjM3LjU4LjUyLjA4LjA0LjE3LjA1LjI2LjAzbC4xNS4xMWMuNzUtLjggMS43My0xLjM2IDIuOC0xLjYuMjUtLjA2LjUyLS4xLjc4LS4xMmwuMDEtLjE4YS40NS40NSAwIDAgMCAuMTQtLjIzYy4wMS0uMjYtLjAxLS41Mi0uMDUtLjc3LS4wMy0uMTMtLjA1LS4yNy0uMDYtLjQxVjUuMWMtLjAyLS4yNC4xNS0uNDUuMzktLjQ4cy40NC4xNS40Ny4zOHYuMjJjLS4wMS4xNC0uMDMuMjgtLjA2LjQxLS4wNC4yNS0uMDYuNTEtLjA1Ljc3LjAyLjEuMDcuMTcuMTQuMjJsLjAxLjE5YzEuMzYuMTIgMi42Mi43MyAzLjU2IDEuNzJsLjE2LS4xMmMuMDkuMDIuMTguMDEuMjYtLjAzLjIxLS4xNS40MS0uMzMuNTgtLjUyLjA5LS4xLjE4LS4yLjI4LS4zLjAzLS4wMi4wNy0uMDYuMS0uMDYuMTctLjE4LjQ0LS4xOC41OSAwIC4xOS4xNi4xOC40MyAwIC42IDAgLjAyLS4wMy4wNC0uMDYuMDZhMi40OTUgMi40OTUgMCAwIDEtLjQ0LjI4Yy0uMjMuMTMtLjQ1LjI4LS42NC40NS0uMDYuMDctLjA5LjE1LS4wOC4yNGwtLjE2LjE0YTUuNDQgNS40NCAwIDAgMSAuODggMy44NmwuMTkuMDVjLjA0LjA4LjExLjE0LjE5LjE4LjI1LjA3LjUxLjExLjc3LjE0aC40MWMuMDMuMDMuMDguMDQuMTIuMDUuMjQuMDMuNC4yNS4zNy40OS0uMDUuMjMtLjI0LjQtLjQ4LjM3LS4wMy0uMDEtLjA3LS4wMS0uMDctLjAydi0uMDFjLS4wNiAwLS4xLS4wMS0uMTQtLjAycS0uMTk1LS4wNi0uMzYtLjE1Yy0uMjYtLjEtLjUtLjE3LS43Ny0uMjEtLjA5IDAtLjE3IDAtLjIzLjA4LS4wNy0uMDEtLjEzLS4wMi0uMTktLjAzLS40MSAxLjMxLTEuMzEgMi40MS0yLjQ3IDMuMTEiLz48L3N2Zz4=",
     "properties": {
       "config_type": {
@@ -1325,10 +1681,10 @@
       "pod": {
         "name": "pod",
         "title": "Pod",
-        "description": "Pods are an abstraction that represent groups of one or more application containers (such as Docker), and some shared resources for those containers.",
+        "description": "Pods are an abstraction that represent groups of one or more application containers (such as Docker), and some shared resources for those containers. Either a pod name or a label selector must be given (but not both).",
         "type": "string",
         "parameterType": "string",
-        "value": null,
+        "value": "",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -1351,6 +1707,17 @@
         "type": "string",
         "parameterType": "string",
         "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "label_selector": {
+        "name": "label_selector",
+        "title": "Pod Label Selector",
+        "description": "Instead of a fixed pod name, select a pod by label selector (the equivalent of the kubectl -l / --selector flag), e.g. 'app=nifi'. Multiple labels can be comma-separated, e.g. 'app=nifi,tier=frontend'. If the selector matches more than one pod, the first one is used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -1383,7 +1750,6 @@
     },
     "required": [
       "namespace",
-      "pod",
       "command"
     ],
     "distanceMeasureRange": null,
@@ -1404,7 +1770,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Execute commands on a given SSH instance.",
-    "markdownDocumentation": "\nThis workflow task executes commands on a given SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder in which the command should be executed in.\n\n#### Input Methods:\n* **No input:** The command will be executed with no input attached to the plugin. Stdin\nis non-existent in this case.\n* **File input:** The command will be executed with the stdin being represented by the\nfiles that are connected via the input port of the plugin. This also allows for looping\nover multiple files executing the same command over them.\n\n\n#### Output Methods:\n* **Structured process output:** The output will produce entities with its own schema including\nthe stdout and stderr as well as the exit code to confirm the execution of the command.\n* **File output:** The stdout will be converted into a file a be provided for further use.\n* **No output:** The output port will be closed.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, DSS, ECDSA, Ed25519.\n    ",
+    "markdownDocumentation": "\nThis workflow task executes commands on a given SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder in which the command should be executed in.\n\n#### Input Methods:\n* **No input:** The command will be executed with no input attached to the plugin. Stdin\nis non-existent in this case.\n* **File input:** The command will be executed with the stdin being represented by the\nfiles that are connected via the input port of the plugin. This also allows for looping\nover multiple files executing the same command over them.\n\n\n#### Output Methods:\n* **Structured process output:** The output will produce entities with its own schema including\nthe stdout and stderr as well as the exit code to confirm the execution of the command.\n* **File output:** The stdout will be converted into a file a be provided for further use.\n* **No output:** The output port will be closed.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, ECDSA, Ed25519.\n    ",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQuNSA5Yy0uNiAwLTEgLjUtMSAxdjEuNzVjMCAuNS40IDEgMSAxSDd2Ljc1SDMuNVYxNWg0Yy42IDAgMS0uNSAxLTF2LTEuNzVjMC0uNS0uNC0xLTEtMUg1di0uNzVoMy41Vjl6bTYgMGMtLjYgMC0xIC41LTEgMXYxLjc1YzAgLjUuNCAxIDEgMUgxM3YuNzVIOS41VjE1aDRjLjYgMCAxLS41IDEtMXYtMS43NWMwLS41LS40LTEtMS0xSDExdi0uNzVoMy41Vjl6bTUgMHY2SDE3di0yLjVoMlYxNWgxLjVWOUgxOXYyaC0yVjl6Ii8+PC9zdmc+",
     "properties": {
       "hostname": {
@@ -1555,7 +1921,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Send instructions (prompt) to an LLM and process the result.",
-    "markdownDocumentation": "\n## Overview\n\nThis plugin executes Large Language Model (LLM) instructions over entity collections, enabling\nAI-powered text generation, analysis, and transformation tasks within Corporate Memory workflows.\n\n## Core Functionality\n\n- **LLM Integration**: Supports OpenAI API, Azure OpenAI, and OpenAI-compatible endpoints\n  (Anthropic Claude, OpenRouter, etc.)\n- **Entity Processing**: Processes entities individually or in batches with configurable\n  concurrency\n- **Template System**: Uses Jinja2 templates for dynamic prompt generation from entity data\n- **Output Formats**: Supports text, JSON mode, and structured outputs with Pydantic schemas\n- **Performance Optimization**: Includes batching, rate limiting, and async processing for\n  high-throughput scenarios\n\n## Input/Output Behavior\n\nAfter processing, each entity receives an additional path (default: `_instruction_output`)\ncontaining the LLM response. For TEXT and JSON_MODE output formats, the response is stored\nin this path. For STRUCTURED_OUTPUT, the Pydantic model fields are directly added to the\nentity (the `_instruction_output` path is not used).\n\nInput/output ports are automatically configured based on template variables:\n\n- **No placeholders**: No input ports required\n- **With placeholders**: Single input port created for entity data\n- **Schema handling**: Fixed schemas when using specific entity paths, flexible schemas otherwise\n\n## Template System\n\nUses Jinja2 templating for dynamic prompts:\n\n```jinja2\n{{ entity }}           # Entire entity as JSON\n{{ entity.name }}      # Specific entity property\n```\n\nThe following template processing rules are implemented:\n\n1. **Variable Extraction**: Automatically detects template variables to configure input ports\n2. **Entity Iteration**: Processes entities from the single input port individually\n3. **Single Entity Context**: Each entity is processed independently with its own template context\n\n## Output Formats\n\n1. **Text Output (Default)** - Standard LLM text responses for general-purpose tasks.\n2. **JSON Mode** - Ensures valid JSON output format. Add JSON structure requirements\n   to your prompt template.\n3. **Structured Output** - Uses Pydantic schemas for type-safe, validated responses:\n\n```python\nfrom pydantic import BaseModel\n\nclass StructuredOutput(BaseModel):\n    title: str\n    summary: str\n    keywords: list[str]\n    confidence_score: float\n```\n\n## Performance Features\n\nParallel Processing:\n- **Concurrent Requests**: Configurable semaphore-controlled API calls\n- **Batch Processing**: Entities processed in configurable batch sizes\n- **Rate Limiting**: Optional delays between requests\n- **Memory Optimization**: Streaming processing with generator patterns\n\nError Handling:\n- **Graceful Degradation**: Continue processing on API errors (configurable)\n- **Detailed Logging**: Comprehensive error reporting and debugging information\n- **Workflow Integration**: Proper cancellation support and progress reporting\n\n## API Compatibility\n\nSupported Providers:\n- **OpenAI**: Direct API access with full feature support\n- **Azure OpenAI**: Enterprise Azure-hosted services with API versioning\n- **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints\n\nAuthentication:\n- **API Keys**: Secure password-type parameters for API authentication\n- **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration\n- **Flexible Endpoints**: Custom base URLs for various providers\n\n## Advanced Configuration\n\n### Message Templates\nCustomize the conversation structure beyond simple prompts:\n\n```json\n[\n    {\"role\": \"system\", \"content\": \"You are a data analyst.\"},\n    {\"role\": \"user\", \"content\": \"{{ instruction_prompt }}\"}\n]\n```\n\n### Performance Tuning\n- **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)\n- **Timeout Management**: Request-level timeout configuration\n- **Concurrency Limits**: Prevent rate limiting with request throttling\n- **Batch Optimization**: Balance memory usage vs. throughput\n\n## Best Practices\n\n1. **Schema Design**: Use specific entity paths in templates for fixed schemas\n2. **Error Strategy**: Enable error continuation for large datasets\n3. **Performance**: Adjust concurrency and batch size based on API limits\n4. **Templates**: Design prompts with clear instructions and expected outputs\n5. **Testing**: Start with small entity sets to validate templates and outputs\n\nFor detailed prompting guidance, see [OpenAI's Text Generation Guide](https://platform.openai.com/docs/guides/text?api-mode=chat).\n",
+    "markdownDocumentation": "\n## Overview\n\nThis plugin executes Large Language Model (LLM) instructions over entity collections, enabling\nAI-powered text generation, analysis, and transformation tasks within Corporate Memory workflows.\n\n## Core Functionality\n\n- **LLM Integration**: Supports OpenAI API, Azure OpenAI, and OpenAI-compatible endpoints\n  (Anthropic Claude, OpenRouter, etc.)\n- **Entity Processing**: Processes entities individually or in batches with configurable\n  concurrency\n- **Template System**: Uses Jinja2 templates for dynamic prompt generation from entity data\n- **File Inputs**: Optionally accept files (images and documents) from CMEM as multimodal\n  LLM inputs\n- **Output Formats**: Supports text, JSON mode, and structured outputs with Pydantic schemas\n- **Performance Optimization**: Includes batching, rate limiting, and async processing for\n  high-throughput scenarios\n\n## Input/Output Behavior\n\nAfter processing, each entity receives an additional path (default: `_instruction_output`)\ncontaining the LLM response. For TEXT and JSON_MODE output formats, the response is stored\nin this path. For STRUCTURED_OUTPUT, the Pydantic model fields are directly added to the\nentity (the `_instruction_output` path is not used).\n\nInput/output ports are automatically configured based on template variables and the\n**Enable File Inputs** option:\n\n- **No placeholders**: No input ports required\n- **With placeholders**: Single input port created for entity data\n- **Schema handling**: Fixed schemas when using specific entity paths, flexible schemas otherwise\n- **File Inputs enabled**: Single input port accepting `FileEntitySchema` entities (template\n  variables on the entity are ignored)\n\n## Template System\n\nUses Jinja2 templating for dynamic prompts:\n\n```jinja2\n{{ entity }}           # Entire entity as JSON\n{{ entity.name }}      # Specific entity property\n```\n\nThe following template processing rules are implemented:\n\n1. **Variable Extraction**: Automatically detects template variables to configure input ports\n2. **Entity Iteration**: Processes entities from the single input port individually\n3. **Single Entity Context**: Each entity is processed independently with its own template context\n\n## File Inputs\n\nEnable **Enable File Inputs** to send files (images or documents) from CMEM to the LLM as\nmultimodal input. When activated:\n\n- The input port switches to `FileEntitySchema`, accepting file entities.\n- Each file is read from the project, base64-encoded, and embedded into the chat message\n  as a `data:` URL.\n- The `message_template` parameter is ignored and the message structure is selected automatically\n  by MIME type:\n    - **Images** (e.g. PNG, JPEG) are sent as `image_url` content parts.\n    - **Documents** (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are\n      sent as `file` content parts with the original filename preserved.\n- If no MIME type is given, it is guessed by filename extension.\n- The `developer_prompt_template` and `instruct_prompt_template` is sent alongside the file.\n  Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode.\n- For **TEXT** and **JSON_MODE** outputs, the output entity additionally carries\n  `_filename` and `_mimetype` paths so downstream tasks can see what the model saw.\n  **STRUCTURED_OUTPUT** keeps the schema pure and does not add these paths.\n\nNote: Multimodal capability depends on the chosen model. Use a vision-capable model for\nimages and a model that accepts file/document inputs for documents.\n\nFor more details and all available MIME types see the official documentation:\n- [Images and vision](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)\n- [File inputs](https://developers.openai.com/api/docs/guides/file-inputs?api-mode=chat)\n\n## Output Formats\n\n1. **Text Output (Default)** - Standard LLM text responses for general-purpose tasks.\n2. **JSON Mode** - Ensures valid JSON output format. Add JSON structure requirements\n   to your prompt template.\n3. **Structured Output** - Uses Pydantic schemas for type-safe, validated responses:\n\n```python\nfrom pydantic import BaseModel\n\nclass StructuredOutput(BaseModel):\n    title: str\n    summary: str\n    keywords: list[str]\n    confidence_score: float\n```\n\n## Performance Features\n\nParallel Processing:\n- **Concurrent Requests**: Configurable semaphore-controlled API calls\n- **Batch Processing**: Entities processed in configurable batch sizes\n- **Rate Limiting**: Optional delays between requests\n- **Memory Optimization**: Streaming processing with generator patterns\n\nError Handling:\n- **Graceful Degradation**: Continue processing on API errors (configurable)\n- **Detailed Logging**: Comprehensive error reporting and debugging information\n- **Workflow Integration**: Proper cancellation support and progress reporting\n\n## API Compatibility\n\nSupported Providers:\n- **OpenAI**: Direct API access with full feature support\n- **Azure OpenAI**: Enterprise Azure-hosted services with API versioning\n- **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints\n\nAuthentication:\n- **API Keys**: Secure password-type parameters for API authentication\n- **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration\n- **Flexible Endpoints**: Custom base URLs for various providers\n\n## Advanced Configuration\n\n### Message Templates\nCustomize the conversation structure beyond simple prompts:\n\n```json\n[\n    {\"role\": \"system\", \"content\": \"You are a data analyst.\"},\n    {\"role\": \"user\", \"content\": \"{{ instruction_prompt }}\"}\n]\n```\n\n### Performance Tuning\n- **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)\n- **Timeout Management**: Request-level timeout configuration\n- **Concurrency Limits**: Prevent rate limiting with request throttling\n- **Batch Optimization**: Balance memory usage vs. throughput\n\n## Best Practices\n\n1. **Schema Design**: Use specific entity paths in templates for fixed schemas\n2. **Error Strategy**: Enable error continuation for large datasets\n3. **Performance**: Adjust concurrency and batch size based on API limits\n4. **Templates**: Design prompts with clear instructions and expected outputs\n5. **Testing**: Start with small entity sets to validate templates and outputs\n\nFor detailed prompting guidance, see [OpenAI's Text Generation Guide](https://platform.openai.com/docs/guides/text?api-mode=chat).\n",
     "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cgo8c3ZnCiAgIGZpbGw9IiMwMDAwMDAiCiAgIGhlaWdodD0iODAwcHgiCiAgIHdpZHRoPSI4MDBweCIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iTGF5ZXJfMSIKICAgdmlld0JveD0iMCAwIDUxMi4yNTYgNTEyLjI1NiIKICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZXhlY3V0ZV9pbnN0cnVjdGlvbi5zdmciCiAgIGlua3NjYXBlOnZlcnNpb249IjEuMS4yIChiOGUyNWJlOCwgMjAyMi0wMi0wNSkiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnMKICAgaWQ9ImRlZnM4MzMiIC8+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3ODMxIgogICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgIHNob3dncmlkPSJmYWxzZSIKICAgaW5rc2NhcGU6em9vbT0iMS4wNTg3NSIKICAgaW5rc2NhcGU6Y3g9IjQwMCIKICAgaW5rc2NhcGU6Y3k9IjQwMCIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iMTcyOCIKICAgaW5rc2NhcGU6d2luZG93LXk9IjI1IgogICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJMYXllcl8xIiAvPgo8ZwogICB0cmFuc2Zvcm09Im1hdHJpeCgwLjc1OTc0OTc5LDAsMCwwLjc1OTc0OTc5LDYwLjc3NTE1OCw2MS41MzQ2MTkpIgogICBpZD0iZzgyOCI+Cgk8ZwogICBpZD0iZzgyNiI+CgkJPHBhdGgKICAgZD0ibSA1MDYuODg1LDMzNy4wMDEgYyAtNi41MTMsLTYuNTEzIC0xMS42NzIsLTEzLjkwOCAtMTUuNjI4LC0yMi4wODMgLTcuNzE1LC0xNS45NDIgLTEwLjI3MywtMzMuMDA3IC05LjczLC00Ny41NjEgMjAuODExLC0yNi4xMDUgMzEuNjA3LC01NC4yNDYgMzEuNjA3LC04NS45MzkgMCwtODguNDQxIC04NC4xMSwtMTQ5LjMzMyAtMTkyLC0xNDkuMzMzIC05MS42MzEsMCAtMTY3LjAyLDQ0LjE5NCAtMTg2Ljc5LDExMy4wOTQgQyA1Ni4xODIsMTYzLjAxMSAxLjEyMywyMTYuNTI1IDEuMTIzLDI4OC4wNzcgYyAwLDMxLjY5NyAxMC44MDIsNTkuODYxIDMxLjYwNyw4NS45NDMgMC41NDIsMTQuNTUzIC0yLjAxNiwzMS42MTYgLTkuNzMsNDcuNTU2IC0zLjk1Niw4LjE3NSAtOS4xMTYsMTUuNTcgLTE1LjYyOCwyMi4wODMgLTE1Ljg5NCwxNS44OTQgMC40MjcsNDIuMzg5IDIxLjc3MiwzNS4zNDMgMTAuMTU2LC0zLjM1MyAyNy41MzYsLTEwLjA2NCA1MC40NTUsLTE5LjMzOSAxLjgxMiwtMC43MzQgMS44MTIsLTAuNzM0IDMuNjIxLC0xLjQ2OCAxMi4xMDgsLTQuOTE4IDI0Ljg2LC0xMC4xODEgMzcuNDcyLC0xNS40NDQgNS4xMTksLTIuMTM2IDkuNDQ5LC0zLjk1MiAxMi43NDcsLTUuMzQgaCA1OS42ODUgYyA4OS40OTIsMCAxNjIuNjE3LC00MS44OTcgMTg0Ljk1NywtMTA2LjY1OCBoIDIuNzM4IGMgMy4yOTgsMS4zODggNy42MjgsMy4yMDQgMTIuNzQ3LDUuMzQgMTIuNjEyLDUuMjYzIDI1LjM2NCwxMC41MjcgMzcuNDcyLDE1LjQ0NCAxLjgwOSwwLjczNCAxLjgwOSwwLjczNCAzLjYyMSwxLjQ2OCAyMi45MTksOS4yNzUgNDAuMjk5LDE1Ljk4NyA1MC40NTUsMTkuMzM5IDIxLjM0Myw3LjA0NiAzNy42NjUsLTE5LjQ0OSAyMS43NzEsLTM1LjM0MyB6IG0gLTMxMy43NjIsNTcuNzQzIGggLTY0IGMgLTIuODU2LDAgLTUuNjgzLDAuNTczIC04LjMxMywxLjY4NiAtMy4yNzEsMS4zODQgLTkuMDUyLDMuODE2IC0xNi41NSw2Ljk0NCAtMTEuNTAyLDQuOCAtMjMuMTE5LDkuNTk5IC0zNC4yMjgsMTQuMTIzIDUuMDA1LC0xNy42MTIgNi4yMDcsLTM0LjkxNiA1LjAzMiwtNTAuNDQxIC0wLjE0NCwtMS45MDggLTAuMzAyLC0zLjM2NCAtMC40MzQsLTQuMzIxIC0wLjU2MSwtNC4wNzUgLTIuMjg4LC03LjkwMiAtNC45NzQsLTExLjAxOCAtMTcuNDY4LC0yMC4yNjkgLTI1Ljg2NywtNDAuNTI1IC0yNS44NjcsLTYzLjY0MSAwLC01MS4zNDkgNDMuODQsLTkxLjQ1MiAxMDguOTg3LC0xMDMuMTcgMC45MjYsLTAuMDM1IDEuODY0LC0wLjEyNiAyLjgxLC0wLjI4NSAxMi41NjUsLTIuMTE1IDI1LjA0MiwtMy4yMDMgMzcuNTQ4LC0zLjIwMyA0Ni4wODMsMCA4NS4zNDgsMTIuNzg3IDExMi4wMzMsMzMuOTc0IDIzLjU0MSwxOC42OTUgMzcuMjksNDMuOTI3IDM3LjI5LDcyLjY4NSAwLDAuODQ1IC0wLjAxNywxLjY4NiAtMC4wNCwyLjUyNSAtMC4xNjQsNC41NTggLTAuNzY0LDkuMzM4IC0xLjgxNiwxNC43MzMgLTAuMTMyLDAuNjc4IC0wLjIyMywxLjM1MiAtMC4yODksMi4wMjQgLTExLjY2MSw1MS4zMzMgLTY5LjgxMSw4Ny4zODUgLTE0Ny4xODksODcuMzg1IHogTSA0NDQuNTk0LDI0NS4wNjggYyAtMi42ODIsMy4xMTUgLTQuNDA3LDYuOTM4IC00Ljk2OCwxMS4wMSAtMC4xMzIsMC45NTcgLTAuMjg5LDIuNDEzIC0wLjQzNCw0LjMyMSAtMS4xNzUsMTUuNTI1IDAuMDI3LDMyLjgyOSA1LjAzMiw1MC40NDEgLTExLjEwOSwtNC41MjQgLTIyLjcyNiwtOS4zMjMgLTM0LjIyOCwtMTQuMTIzIC03LjQ5OCwtMy4xMjkgLTEzLjI3OSwtNS41NiAtMTYuNTUsLTYuOTQ0IC0yLjYzLC0xLjExMyAtNS40NTcsLTEuNjg2IC04LjMxMywtMS42ODYgMCwtNDIuODQyIC0xOS43MzcsLTc5LjIxOSAtNTIuMzUyLC0xMDUuMzQyIC0zNC43MTYsLTI3LjgxIC04NC4wMjUsLTQ0IC0xMzkuNjU4LC00NCAtMy40MTQsMCAtNi44MDMsMC4wNjIgLTEwLjE2OCwwLjE4MyAyMS42NjksLTM4LjY2OSA3My41ODYsLTY0LjE3NCAxMzguMTc4LC02NC4xNzQgODYuNzQ4LDAgMTQ5LjMzMyw0NS4zMSAxNDkuMzMzLDEwNi42NjcgMTBlLTQsMjMuMTA3IC04LjM5Miw0My4zNDQgLTI1Ljg3Miw2My42NDcgeiIKICAgaWQ9InBhdGg4MjQiIC8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==",
     "properties": {
       "model": {
@@ -1569,13 +1935,35 @@
         "visibleInDialog": true,
         "properties": {}
       },
+      "developer_prompt_template": {
+        "name": "developer_prompt_template",
+        "title": "Developer Prompt Template",
+        "description": "The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour.",
+        "type": "string",
+        "parameterType": "code-jinja2",
+        "value": "You are a helpful assistant.",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
       "instruct_prompt_template": {
         "name": "instruct_prompt_template",
         "title": "Instruction Prompt Template",
-        "description": "The instruction prompt template. Please have a look at the task documentation for detailed instructions.",
+        "description": "The instruction (user) prompt inserted at `{{ instruction_prompt }}` in the Messages Template. Please have a look at the task documentation for detailed instructions.",
         "type": "string",
         "parameterType": "code-jinja2",
         "value": "Write a paragraph about this entity: {{ entity }}",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "enable_file_inputs": {
+        "name": "enable_file_inputs",
+        "title": "Enable File Inputs",
+        "description": "Send files from CMEM to the LLM as multimodal input. When enabled, the input port accepts files (FileEntitySchema). Each file is base64-encoded and embedded into the chat message: images (e.g. PNG, JPEG) are sent as image content parts; documents and other files (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are sent as file content parts. Which MIME types are supported is highly dependent on the provider and model used. Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode. The `developer_prompt_template` as well as `instruct_prompt_template` are sent alongside the image/file. For TEXT and JSON_MODE outputs, the output entity carries `_filename` and `_mimetype` paths so downstream tasks can see what the model saw. Note: requires a multimodal-capable model for the chosen file type.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -1662,21 +2050,10 @@
       "messages_template": {
         "name": "messages_template",
         "title": "Messages Template",
-        "description": "A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.",
+        "description": "A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Ignored if `enable_file_inputs` is active. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.",
         "type": "string",
         "parameterType": "code-json",
         "value": "[\n    {\n        \"role\": \"developer\",\n        \"content\": \"{{ developer_prompt }}\"\n    },\n    {\n        \"role\": \"user\",\n        \"content\": \"{{ instruction_prompt }}\"\n    }\n]",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
-      "developer_prompt_template": {
-        "name": "developer_prompt_template",
-        "title": "Developer Prompt Template",
-        "description": "The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour. Leave the Messages Template's developer content hardcoded if this parameter is not needed.",
-        "type": "string",
-        "parameterType": "code-jinja2",
-        "value": "You are a helpful assistant.",
         "advanced": true,
         "visibleInDialog": true,
         "properties": {}
@@ -2296,7 +2673,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Extract text and tables from PDF files",
-    "markdownDocumentation": "A task to extract text and tables from PDF files.\n\n## Output format\n\nThe output is a JSON string on the path `pdf_extract_output`. The format depends on the\n[\"Combine the results from all files into a single value\"](#parameter_doc_all_files) parameter.\n\n\n### Output one entity/value per file\n\n```\n{\n  \"metadata\": {\n    \"Filename\": \"sample.pdf\",\n    \"Title\": \"Sample Report\",\n    \"Author\": \"eccenca GmbH\",\n    ...\n  },\n  \"pages\": [\n    {\n      \"page_number\": 1,\n      \"text\": \"This is digital text from the PDF.\",\n      \"tables\": [...]\n    },\n    {\n      \"page_number\": 2,\n      \"text\": \"\",\n      \"tables\": []\n    },\n    ...\n  ]\n}\n```\n\n\n### Output one entity/value for all files\n\n```\n[\n    {\n        \"metadata\": {\"Filename\": \"file1.pdf\", ...},\n        \"pages\": [...]\n    },\n    {\n        \"metadata\": {\"Filename\": \"file2.pdf\", ...},\n        \"pages\": [...]\n    },\n    ...\n]\n```\n\n## Input format\n\nThis task can either work with project files when a regular expression is being used or with\nentities coming from another task or dataset. \nThe input must be file entities following the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).\nIf a regular expression is set, the input ports will close and no connection will be possible.\n\n\n## Parameters\n\n**<a id=\"parameter_doc_regex\">File name regex filter</a>**\n\nRegular expression used to filter the resources of the project to be processed. Only matching file names will be included in the extraction.\n\n**<a id=\"page_selection\">Page selection</a>**\n\nComma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files that do not contain any of the specified pages will return\nempty results with the information logged. If no page selection is specified, all pages will be processed.\n\n**<a id=\"parameter_doc_all_files\">Combine the results from all files into a single value</a>**\n\nIf set to \"Combine\", the results of all files will be combined into a single output value. If set to \"Don't combine\", each file result will be output in a separate entity.\n\n**<a id=\"parameter_doc_error_handling\">Error Handling Mode</a>**\n\nSpecifies how errors during PDF extraction should be handled.  \n- *Ignore*: Log errors and continue processing, returning empty or error-marked results.  \n- *Raise on errors*: Raise an error when extraction fails.  \n- *Raise on errors and warnings*: Treat any warning from the underlying PDF extraction module (pdfplumber) when extracting text and tables from pages as an error if empty results are returned.\n\n**<a id=\"parameter_doc_table_strategy\">Table extraction strategy</a>**\n\nMethod used to detect tables in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-tables).\n\nAvailable strategies include:  \n- *lines*: Uses detected lines in the PDF layout to find table boundaries.  \n- *text*: Relies on text alignment and spacing.\n- *lattice*: Best for machine-generated perfect grids.\n- *sparse*: Best for tables with minimal text content.\n- *custom*: Allows custom settings to be provided via the advanced parameter below.\n\n**<a id=\"parameter_doc_custom_table_strategy\">Custom table extraction strategy</a>**\n\nDefines a custom table extraction strategy using YAML syntax. Only used if \"custom\" is selected as the table strategy.\n\n**<a id=\"parameter_doc_text_strategy\">Text extraction strategy</a>**\n\nMethod used to extract text in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-text). \n\nAvailable strategies include:\n- *default*: Balanced for most digital PDFs.\n- *raw*: Extract the PDFs with no merging of text fragments.\n- *scanned*: Best for scanned PDFs as it merges text more agressively.\n- *layout*: Layout-aware extraction for complex/multi-column documents\n\n**<a id=\"parameter_doc_max_processes\">Maximum number of processes for processing files</a>**\n\nDefines the maximum number of processes to use for concurrent file processing. By default, this is set to (number of virtual cores - 1).\n\n\n## Test regular expression\n\nClicking the \"Test regex pattern\" button displays the files in the current project that match the regular expression\nspecified with the [\"File name regex filter\"](#parameter_doc_regex) parameter.\nThis does not display the files if there is another dataset or task connected to the input\nas the entities are not known before execution.\n",
+    "markdownDocumentation": "A task to extract text and tables from PDF files.\n\n## Output format\n\nThe output is a JSON string on the path `pdf_extract_output`. The format depends on the\n[\"Combine the results from all files into a single value\"](#parameter_doc_all_files) parameter.\n\n\n### Output one entity/value per file\n\n```\n{\n  \"metadata\": {\n    \"Filename\": \"sample.pdf\",\n    \"Title\": \"Sample Report\",\n    \"Author\": \"eccenca GmbH\",\n    ...\n  },\n  \"pages\": [\n    {\n      \"page_number\": 1,\n      \"text\": \"This is digital text from the PDF.\",\n      \"tables\": [...]\n    },\n    {\n      \"page_number\": 2,\n      \"text\": \"\",\n      \"tables\": []\n    },\n    ...\n  ]\n}\n```\n\n\n### Output one entity/value for all files\n\n```\n[\n    {\n        \"metadata\": {\"Filename\": \"file1.pdf\", ...},\n        \"pages\": [...]\n    },\n    {\n        \"metadata\": {\"Filename\": \"file2.pdf\", ...},\n        \"pages\": [...]\n    },\n    ...\n]\n```\n\n## Input format\n\nThis task takes file entities from a connected upstream task or dataset.\nThe input must follow the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).\n\n\n## Parameters\n\n**<a id=\"page_selection\">Page selection</a>**\n\nComma-separated page numbers or ranges (e.g., 1,2-5,7) for page selection. Files that do not contain any of the specified pages will return\nempty results with the information logged. If no page selection is specified, all pages will be processed.\n\n**<a id=\"parameter_doc_all_files\">Combine the results from all files into a single value</a>**\n\nIf set to \"Combine\", the results of all files will be combined into a single output value. If set to \"Don't combine\", each file result will be output in a separate entity.\n\n**<a id=\"parameter_doc_error_handling\">Error Handling Mode</a>**\n\nSpecifies how errors during PDF extraction should be handled.  \n- *Ignore*: Log errors and continue processing, returning empty or error-marked results.  \n- *Raise on errors*: Raise an error when extraction fails.  \n- *Raise on errors and warnings*: Treat any warning from the underlying PDF extraction module (pdfplumber) when extracting text and tables from pages as an error if empty results are returned.\n\n**<a id=\"parameter_doc_table_strategy\">Table extraction strategy</a>**\n\nMethod used to detect tables in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-tables).\n\nAvailable strategies include:  \n- *lines*: Uses detected lines in the PDF layout to find table boundaries.  \n- *text*: Relies on text alignment and spacing.\n- *lattice*: Best for machine-generated perfect grids.\n- *sparse*: Best for tables with minimal text content.\n- *custom*: Allows custom settings to be provided via the advanced parameter below.\n\n**<a id=\"parameter_doc_custom_table_strategy\">Custom table extraction strategy</a>**\n\nDefines a custom table extraction strategy using YAML syntax. Only used if \"custom\" is selected as the table strategy.\n\n**<a id=\"parameter_doc_text_strategy\">Text extraction strategy</a>**\n\nMethod used to extract text in PDF pages. For further explanation click [here](https://github.com/jsvine/pdfplumber/blob/stable/README.md#extracting-text). \n\nAvailable strategies include:\n- *default*: Balanced for most digital PDFs.\n- *raw*: Extract the PDFs with no merging of text fragments.\n- *scanned*: Best for scanned PDFs as it merges text more agressively.\n- *layout*: Layout-aware extraction for complex/multi-column documents\n\n**<a id=\"parameter_doc_max_processes\">Maximum number of processes for processing files</a>**\n\nDefines the maximum number of processes to use for concurrent file processing. By default, this is set to (number of virtual cores - 1).\n",
     "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB2ZXJzaW9uPSIxLjEiPgo8ZyBpZD0ic3VyZmFjZTEiPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGw6Y3VycmVudENvbG9yOyIgZD0iTSA1MCAzNS4wODU5MzggTCA1MCAzMi41ODU5MzggTCAyNy41IDMyLjU4NTkzOCBDIDIzLjM1OTM3NSAzMi41ODU5MzggMjAgMzUuOTQ1MzEyIDIwIDQwLjA4NTkzOCBMIDIwIDU3LjU4NTkzOCBMIDQ3LjUgNTcuNTg1OTM4IEMgNTcuNSA1Ny41ODU5MzggNTcuNSA3Mi41ODU5MzggNDcuNSA3Mi41ODU5MzggTCAyMCA3Mi41ODU5MzggTCAyMCA4NS4wODU5MzggQyAyMCA4OS4yMzA0NjkgMjMuMzU5Mzc1IDkyLjU4NTkzOCAyNy41IDkyLjU4NTkzOCBMIDcyLjUgOTIuNTg1OTM4IEMgNzYuNjQwNjI1IDkyLjU4NTkzOCA4MCA4OS4yMzA0NjkgODAgODUuMDg1OTM4IEwgODAgNDIuNTg1OTM4IEwgNTcuNSA0Mi41ODU5MzggQyA1My4zNTkzNzUgNDIuNTg1OTM4IDUwIDM5LjIzMDQ2OSA1MCAzNS4wODU5MzggTSAzMCA1MC4wODU5MzggQyAzMCA0OC43MDcwMzEgMzEuMTIxMDk0IDQ3LjU4NTkzOCAzMi41IDQ3LjU4NTkzOCBMIDY3LjUgNDcuNTg1OTM4IEMgNzAuODMyMDMxIDQ3LjU4NTkzOCA3MC44MzIwMzEgNTIuNTg1OTM4IDY3LjUgNTIuNTg1OTM4IEwgMzIuNSA1Mi41ODU5MzggQyAzMS4xMjEwOTQgNTIuNTg1OTM4IDMwIDUxLjQ2ODc1IDMwIDUwLjA4NTkzOCBNIDMwIDgwLjA4NTkzOCBDIDMwIDc4LjcwNzAzMSAzMS4xMjEwOTQgNzcuNTg1OTM4IDMyLjUgNzcuNTg1OTM4IEwgNjcuNSA3Ny41ODU5MzggQyA3MC44MzIwMzEgNzcuNTg1OTM4IDcwLjgzMjAzMSA4Mi41ODU5MzggNjcuNSA4Mi41ODU5MzggTCAzMi41IDgyLjU4NTkzOCBDIDMxLjEyMTA5NCA4Mi41ODU5MzggMzAgODEuNDY4NzUgMzAgODAuMDg1OTM4IE0gNTUgMzUuMDg1OTM4IEwgNTUgMTMuODM1OTM4IEwgNzguNzUgMzcuNTg1OTM4IEwgNTcuNSAzNy41ODU5MzggQyA1Ni4xMjEwOTQgMzcuNTg1OTM4IDU1IDM2LjQ2ODc1IDU1IDM1LjA4NTkzOCBNIDEyLjUgNjIuNTg1OTM4IEMgOS4xNjc5NjkgNjIuNTg1OTM4IDkuMTY3OTY5IDY3LjU4NTkzOCAxMi41IDY3LjU4NTkzOCBMIDQ3LjUgNjcuNTg1OTM4IEMgNTAuODMyMDMxIDY3LjU4NTkzOCA1MC44MzIwMzEgNjIuNTg1OTM4IDQ3LjUgNjIuNTg1OTM4IFogTSAxMi41IDYyLjU4NTkzOCAiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsOmN1cnJlbnRDb2xvcjsiIGQ9Ik0gMjEuMjk2ODc1IDE3LjI4OTA2MiBDIDIxLjI5Njg3NSAxNi4xMTcxODggMjAuNDgwNDY5IDE1LjQxNDA2MiAxOS4wNDI5NjkgMTUuNDE0MDYyIEMgMTguNDUzMTI1IDE1LjQxNDA2MiAxOC4wNTg1OTQgMTUuNDcyNjU2IDE3Ljg0NzY1NiAxNS41MjczNDQgTCAxNy44NDc2NTYgMTkuMzAwNzgxIEMgMTguMDk3NjU2IDE5LjM1NTQ2OSAxOC4zOTg0MzggMTkuMzc1IDE4LjgxNjQwNiAxOS4zNzUgQyAyMC4zNTE1NjIgMTkuMzc1IDIxLjI5Njg3NSAxOC41OTc2NTYgMjEuMjk2ODc1IDE3LjI4OTA2MiBNIDMwLjIxNDg0NCAxNS40NDkyMTkgQyAyOS41NzAzMTIgMTUuNDQ5MjE5IDI5LjE1MjM0NCAxNS41MDc4MTIgMjguOTA2MjUgMTUuNTY2NDA2IEwgMjguOTA2MjUgMjMuOTI5Njg4IEMgMjkuMTUyMzQ0IDIzLjk4NDM3NSAyOS41NTA3ODEgMjMuOTg0Mzc1IDI5LjkxMDE1NiAyMy45ODQzNzUgQyAzMi41MjczNDQgMjQuMDAzOTA2IDM0LjIzNDM3NSAyMi41NjI1IDM0LjIzNDM3NSAxOS41MTE3MTkgQyAzNC4yNTM5MDYgMTYuODU1NDY5IDMyLjY5OTIxOSAxNS40NDkyMTkgMzAuMjE0ODQ0IDE1LjQ0OTIxOSAiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsOmN1cnJlbnRDb2xvcjsiIGQ9Ik0gNDcuMjk2ODc1IDEwLjUzOTA2MiBDIDM0LjQ3NjU2MiAxMC41MzkwNjIgMjcuMzIwMzEyIDEwLjQzMzU5NCAxNC41NzgxMjUgMTAuNTM5MDYyIEMgMTIuNjc5Njg4IDEwLjM5NDUzMSAxMS41NDI5NjkgMTEuMDkzNzUgMTEuMDg1OTM4IDEyLjk4NDM3NSBMIDExLjA4NTkzOCAyNS43MDcwMzEgQyAxMS4wODU5MzggMjcuMDU4NTk0IDEyLjE3OTY4OCAyOC4xNTIzNDQgMTMuNTMxMjUgMjguMTUyMzQ0IEMgMTQuODgyODEyIDI4LjE1MjM0NCAzNy45NTcwMzEgMjguMTUyMzQ0IDQ3LjI5Njg3NSAyOC4xNTIzNDQgQyA0OC42NDg0MzggMjguMTUyMzQ0IDQ5Ljc0MjE4OCAyNy4wNTg1OTQgNDkuNzQyMTg4IDI1LjcwNzAzMSBMIDQ5Ljc0MjE4OCAxMi45ODQzNzUgQyA0OS43NDIxODggMTEuNjMyODEyIDQ4LjY0NDUzMSAxMC41MzkwNjIgNDcuMjk2ODc1IDEwLjUzOTA2MiBNIDM3LjMwNDY4OCAxOS40MTQwNjIgQyAzNy4zMDQ2ODggMjEuODU5Mzc1IDM2LjQxNDA2MiAyMy41NTA3ODEgMzUuMTc5Njg4IDI0LjU4OTg0NCBDIDMzLjgzNTkzOCAyNS43MTA5MzggMzEuNzg1MTU2IDI2LjI0MjE4OCAyOS4yODUxNTYgMjYuMjQyMTg4IEMgMjcuNzg1MTU2IDI2LjI0MjE4OCAyNi43MjI2NTYgMjYuMTQ0NTMxIDI2LjAwMzkwNiAyNi4wNTA3ODEgTCAyNi4wMDM5MDYgMTMuNDk2MDk0IEMgMjcuMDY2NDA2IDEzLjMyODEyNSAyOC40NDkyMTkgMTMuMjM0Mzc1IDI5LjkxMDE1NiAxMy4yMzQzNzUgQyAzMi4zMzU5MzggMTMuMjM0Mzc1IDMzLjkxMDE1NiAxMy42Njc5NjkgMzUuMTQwNjI1IDE0LjU5NzY1NiBDIDM2LjQ2ODc1IDE1LjU4MjAzMSAzNy4zMDQ2ODggMTcuMTU2MjUgMzcuMzA0Njg4IDE5LjQxNDA2MiBNIDE0Ljk4NDM3NSAyNi4xMDkzNzUgTCAxNC45ODQzNzUgMTMuNDk2MDk0IEMgMTUuODc1IDEzLjM0NzY1NiAxNy4xMjUgMTMuMjM0Mzc1IDE4Ljg5MDYyNSAxMy4yMzQzNzUgQyAyMC42NzE4NzUgMTMuMjM0Mzc1IDIxLjk0MTQwNiAxMy41NzQyMTkgMjIuNzk2ODc1IDE0LjI1NzgxMiBDIDIzLjYwOTM3NSAxNC45MDIzNDQgMjQuMTYwMTU2IDE1Ljk2NDg0NCAyNC4xNjAxNTYgMTcuMjE0ODQ0IEMgMjQuMTYwMTU2IDE4LjQ2ODc1IDIzLjc0MjE4OCAxOS41MjczNDQgMjIuOTg0Mzc1IDIwLjI1IEMgMjEuOTk2MDk0IDIxLjE3OTY4OCAyMC41MzkwNjIgMjEuNTk3NjU2IDE4LjgzMjAzMSAyMS41OTc2NTYgQyAxOC40NTMxMjUgMjEuNTk3NjU2IDE4LjEwOTM3NSAyMS41NzgxMjUgMTcuODQzNzUgMjEuNTM5MDYyIEwgMTcuODQzNzUgMjYuMTA5Mzc1IFogTSA0Ny4wMTU2MjUgMTUuNjk5MjE5IEwgNDIuMTA1NDY5IDE1LjY5OTIxOSBMIDQyLjEwNTQ2OSAxOC42MjEwOTQgTCA0Ni42OTE0MDYgMTguNjIxMDk0IEwgNDYuNjkxNDA2IDIwLjk3MjY1NiBMIDQyLjEwNTQ2OSAyMC45NzI2NTYgTCA0Mi4xMDU0NjkgMjYuMTA5Mzc1IEwgMzkuMjAzMTI1IDI2LjEwOTM3NSBMIDM5LjIwMzEyNSAxMy4zMjgxMjUgTCA0Ny4wMTU2MjUgMTMuMzI4MTI1IFogTSA0Ny4wMTU2MjUgMTUuNjk5MjE5ICIvPgo8L2c+Cjwvc3ZnPgo=",
     "properties": {
       "all_files": {
@@ -2356,17 +2733,6 @@
       }
     },
     "properties_advanced": {
-      "regex": {
-        "name": "regex",
-        "title": "File name regex filter",
-        "description": "Regular expression for filtering resources of the project. If this parameter is set, the input port will be closed and project files will be compared against the regular expression.",
-        "type": "string",
-        "parameterType": "string",
-        "value": "",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      },
       "custom_table_strategy": {
         "name": "custom_table_strategy",
         "title": "Custom table extraction strategy",
@@ -2401,13 +2767,7 @@
         "properties": {}
       }
     },
-    "actions": {
-      "test_regex": {
-        "label": "Preview files",
-        "description": "Preview all of the PDF files that have been found.",
-        "icon": null
-      }
-    },
+    "actions": {},
     "required": [],
     "distanceMeasureRange": null,
     "backendType": "python",
@@ -2435,7 +2795,7 @@
         "title": "Counter graph",
         "description": "Graph in which the Item Code (IC) counter is stored",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -2669,7 +3029,7 @@
         "title": "Input data graph",
         "description": "The knowledge graph containing the instance data to be analyzed for the SHACL shapes generation.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -2680,7 +3040,7 @@
         "title": "Output shape catalog",
         "description": "The knowledge graph the generated shapes will be added to.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -2770,6 +3130,125 @@
     "required": [
       "data_graph_iri",
       "shapes_graph_iri"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem-plugin-email-GetEmails": {
+    "pluginId": "cmem-plugin-email-GetEmails",
+    "title": "Get emails",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Search IMAP mailbox and get email metadata or file attachments.",
+    "markdownDocumentation": "\nThis task connects to an IMAP server, searches a configurable mailbox folder\nand returns matching emails as entities.\n\n## How It Works\n\nThis workflow task takes no workflow input and produces entities\ndirectly from a mailbox, so it sits at the beginning of a workflow. Each run:\n\n1. **Connects** to the IMAP server over SSL/TLS (default port 993).\n2. **Logs in** with the configured username and password.\n3. **Opens** the selected mailbox folder. The **Folder** field autocompletes the\n   folders available on the connected account.\n4. **Searches** that folder with your **Search Term** (IMAP search criteria) and\n   collects the matching messages.\n5. **Emits entities** according to the **Output Mode** \u2014 one entity per email\n   or one file entity per attachment.\n\n## Example Search Terms\n\n- `ALL` - all messages in the folder\n- `UNSEEN` - only unread messages\n- `FROM \"someone@example.com\"` - messages from a specific sender\n- `SUBJECT \"invoice\"` - messages with a subject containing \"invoice\"\n- `SINCE 01-Jan-2026` - messages received on or after a date\n- `BEFORE 01-Feb-2026` - messages received before a date\n- `LARGER 1000000` - messages larger than 1 MB (useful for finding emails with attachments)\n- `UNSEEN FROM \"someone@example.com\"` - unread messages from a specific sender\n- `UNSEEN SUBJECT \"invoice\"` - unread messages with a subject containing \"invoice\"\n- `SINCE 01-Jan-2026 BEFORE 01-Feb-2026` - messages received in January 2026\n- `UNSEEN FROM \"someone@example.com\" SINCE 01-Jan-2026` - unread messages from a sender since a date\n- `SUBJECT \"invoice\" SINCE 01-Jan-2026 BEFORE 01-Feb-2026` - invoices received in January 2026\n\nThese are common examples. For the complete list of search keys, see\n[RFC 3501, \u00a76.4.4](https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.4).\n\n## Output Modes\n\n### Emails\n\nReturns one entity per email with the following fields:\n\n- identity & content: `msg_id`, `subject`, `body` (plain text), `html_body` (raw HTML),\n `snippet` (short preview)\n- sender: `sender` (full), `sender_name`, `sender_email`\n- recipients (multi-valued): `recipient`, `cc`, `bcc` (full addresses) plus\n  `recipient_email`, `cc_email`, `bcc_email`.\n  `bcc*` is normally only populated when reading the **Sent** folder, not the Inbox.\n- dates: `date` (raw header), `date_sent` (ISO-8601 UTC), `date_sent_local` (ISO-8601,\n  original offset)\n- threading: `in_reply_to`, `references` (multi-valued)\n- attachments: `has_attachments`, `attachment_count`, `attachment_names` (multi-valued)\n\n### File attachments\n\nReturns one file entity per email attachment using the File Entity Schema.\nRequires a **Multi CSV ZIP**, **binary** or other dataset sink.\n",
+    "pluginIcon": null,
+    "properties": {
+      "imap_server": {
+        "name": "imap_server",
+        "title": "IMAP Server",
+        "description": "Address of the IMAP server (e.g. imap.example.org).",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "username": {
+        "name": "username",
+        "title": "Username",
+        "description": "Email account username (usually your email address).",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "password": {
+        "name": "password",
+        "title": "Password",
+        "description": "Password or app-specific password for the email account.",
+        "type": "string",
+        "parameterType": "password",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "folder": {
+        "name": "folder",
+        "title": "Folder",
+        "description": "Mailbox folder to search (e.g. INBOX, Sent, Drafts).",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "search_term": {
+        "name": "search_term",
+        "title": "Search Term",
+        "description": "IMAP search criteria (e.g. ALL, UNSEEN, FROM someone@example.com).",
+        "type": "string",
+        "parameterType": "string",
+        "value": "ALL",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "output_mode": {
+        "name": "output_mode",
+        "title": "Output Mode",
+        "description": "Controls what this task returns. `Emails` returns one entity per email with subject, sender, recipients, etc. ,`File attachments` returns one file entity per email attachment, readable by downstream tasks.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "metadata",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "attachment_regex": {
+        "name": "attachment_regex",
+        "title": "Attachment Regex",
+        "description": "Regular expression (Python `re` syntax) matched against each attachment's filename with `re.search` (matches anywhere; case-sensitive \u2014 prefix with `(?i)` for case-insensitive). Example: `\\.(pdf|xlsx)$` keeps PDF and Excel files. Leave empty to include all attachments. Only applies when Output Mode is set to File attachments.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "imap_port": {
+        "name": "imap_port",
+        "title": "IMAP Port",
+        "description": "Port number for the IMAP server (993 for SSL, 143 for plain).",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "993",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [
+      "imap_server",
+      "username",
+      "password",
+      "folder"
     ],
     "distanceMeasureRange": null,
     "backendType": "python",
@@ -2978,6 +3457,115 @@
       "graphql_url",
       "graphql_query"
     ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_packages-InstallPackages": {
+    "pluginId": "cmem_plugin_packages-InstallPackages",
+    "title": "Install Packages",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Install packages and their dependencies from a marketplace service or from package archives.",
+    "markdownDocumentation": "\nInstalls packages and their dependencies into Corporate Memory.\n\nThe task installs a single package chosen on the task, package archives which arrive on\nthe input port, or a list of package IDs which arrives on the input port. The three\nmodes exclude each other, and the input port exists only for the two which need it.\nConfiguring two of them at once makes the task fail before it runs.\n\nThere is no output port. Installing is a terminal step: the packages land on this\ninstance and nothing is handed on.\n\nPackage archives can come from the **Build Packages** task, or from any other task which\nprovides files. Dependencies are always fetched from a marketplace service, so even a\npackage installed from an archive needs one to be reachable.\n\nThe **Preview dependencies** action lists what an installation would pull in. It applies\nto a package chosen on the task, not to the two input port modes.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHBhdGggZD0iTTI4LDExaC02VjdjMC0xLjctMS4zLTMtMy0zaC02Yy0xLjcsMC0zLDEuMy0zLDN2NEg0Yy0wLjYsMC0xLDAuNC0xLDFjMCwwLjEsMCwwLjEsMCwwLjJsMS45LDEyLjFjMC4xLDEsMSwxLjcsMiwxLjdIMTV2LTIgSDYuOUw1LjIsMTNIMjhWMTF6IE0xMiw3YzAtMC42LDAuNC0xLDEtMWg2YzAuNiwwLDEsMC40LDEsMXY0aC04Vjd6Ii8+CiAgPHBhdGggZD0iTTIxLDE3aDN2NGg0djNoLTR2NGgtM3YtNGgtNHYtM2g0VjE3eiIvPgo8L3N2Zz4K",
+    "properties": {
+      "package_id": {
+        "name": "package_id",
+        "title": "Package ID",
+        "description": "The identifier of a package on the marketplace service.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "import_conflict_policy": {
+        "name": "import_conflict_policy",
+        "title": "Import conflict policy",
+        "description": "How to proceed when a package is already installed.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "fail",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "install_from_input_files": {
+        "name": "install_from_input_files",
+        "title": "Install package archives (*.cpa) from input port",
+        "description": "If enabled, the task provides an input port for package archives delivered by a previous task, and the package ID has to be left empty. The sending task needs to deliver the archive with the FileEntitySchema, e.g. [Get project files](https://documentation.eccenca.com/latest/build/reference/customtask/getProjectFiles/) or [Download Nextcloud files](https://documentation.eccenca.com/latest/build/reference/customtask/cmem_plugin_nextcloud-Download/).",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "install_from_list": {
+        "name": "install_from_list",
+        "title": "Install listed packages from input port",
+        "description": "If enabled, the task provides an input port for a package list delivered by a previous task, and the package ID has to be left empty. The requested input schema paths are `package_id` (mandatory) and `marketplace_url` (optional, defaults to `https://eccenca.market`).",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "marketplace_url": {
+        "name": "marketplace_url",
+        "title": "Marketplace URL",
+        "description": "The URL of the marketplace service from which packages are installed.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "https://eccenca.market",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "ignore_dependencies": {
+        "name": "ignore_dependencies",
+        "title": "Ignore dependencies",
+        "description": "If enabled, package dependencies are not installed.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "use_cache": {
+        "name": "use_cache",
+        "title": "Use cache",
+        "description": "If enabled, uses the local marketplace package cache. Disabled by default, as write access to the file system may not be available.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "preview_dependencies": {
+        "label": "Preview dependencies",
+        "description": "List the packages which would be installed as dependencies of the selected package.",
+        "icon": null
+      }
+    },
+    "required": [],
     "distanceMeasureRange": null,
     "backendType": "python",
     "is_deprecated": false,
@@ -3569,6 +4157,117 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_git-List": {
+    "pluginId": "cmem_plugin_git-List",
+    "title": "List Git files",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "List the files of a git repository, without transferring their content.",
+    "markdownDocumentation": "\nThis workflow task lists the files a git repository holds at one revision. It reads\nthe repository over HTTP(S) and transfers the directory listing only, never the\ncontent of a file.\n\nEach file leaves the task as one entity with its repository path, its name, its size\nin bytes, its git file mode, the id of its content, the id of the commit that was\nread, and this task's own Repository URL. The task takes no input.\n\nThe size is the one value that may be missing. A git tree records a name, a mode and\nan object id, but not a length, so a file's size is only known once its content has\nbeen transferred. Against a server that supports partial fetching - GitHub and GitLab\nboth do - this task deliberately does not transfer content, and the size stays empty;\nagainst a server that does not, the content arrives anyway and the size is filled in.\n\nIt is usually the first task of a chain: filter its output in the workflow, then\nconnect it to **Download Git files**, which then fetches exactly the files that\nsurvived the filtering. Leave Download's own Repository URL empty for this -\nit then reads the URL from this task's output as well, rather than needing it\nconfigured a second time.\n\nThe repository is reached over HTTP(S), which is the only transport these tasks speak;\nan SSH address is refused. Reading needs a token with read access to the repository and\nno more than that: the `read_repository` scope on GitLab, or a fine grained GitHub token\ngranting `Contents: Read-only`. A public repository needs no token at all. The user name sent\nalongside the token matters on GitLab and not on GitHub, which is why its default is\nthe value GitLab accepts.\n\nSubmodules and files stored with Git LFS are reported as skipped rather than listed,\nbecause neither holds content the repository can hand out. A symbolic link is listed\nunder its own name, carrying the size and the content id of the file it points at;\none that points outside the repository is skipped. Reading a commit id rather than a\nbranch or a tag works only where the server allows fetching an object it does not\nadvertise.\n\nThe task reads one revision and nothing around it. It answers no question about\nhistory: when a file last changed, who changed it, or how two revisions differ are\nall outside what these tasks do, because none of it can be had without fetching the\nhistory the design deliberately leaves on the server.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgZm9jdXNhYmxlPSJmYWxzZSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImVjY2d1aS1pY29uIj48Y2lyY2xlIGN4PSI4IiBjeT0iNiIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOCIgY3k9IjI2IiByPSIzIj48L2NpcmNsZT48cmVjdCB4PSI3IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyMCI+PC9yZWN0PjxyZWN0IHg9IjgiIHk9IjE1IiB3aWR0aD0iNyIgaGVpZ2h0PSIyIj48L3JlY3Q+PGNpcmNsZSBjeD0iMTciIGN5PSIxNiIgcj0iMyI+PC9jaXJjbGU+PHJlY3QgeD0iMjMiIHk9IjYiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiPjwvcmVjdD48cmVjdCB4PSIyMyIgeT0iMTUiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiPjwvcmVjdD48cmVjdCB4PSIyMyIgeT0iMjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiPjwvcmVjdD48L3N2Zz4K",
+    "properties": {
+      "url": {
+        "name": "url",
+        "title": "Repository URL",
+        "description": "The HTTP(S) address of the repository. The address of its web page works as well as its clone URL, with or without a trailing '.git'.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "token": {
+        "name": "token",
+        "title": "Access token",
+        "description": "An access token that may read the repository. Leave it empty to read a public repository.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ref": {
+        "name": "ref",
+        "title": "Revision",
+        "description": "The branch, tag or commit id to read. Leave it empty to read the repository's default branch.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "path": {
+        "name": "path",
+        "title": "Folder",
+        "description": "The folder inside the repository to read from. Leave it empty to start at the top of the repository.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "regex": {
+        "name": "regex",
+        "title": "Regular expression",
+        "description": "A regular expression the file name has to match. An empty expression matches every file.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "no_subfolder": {
+        "name": "no_subfolder",
+        "title": "No subfolder",
+        "description": "If enabled, only files directly in the selected folder are used, and its subfolders are left alone.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "username": {
+        "name": "username",
+        "title": "User name",
+        "description": "The user name sent with the access token. GitHub ignores it, GitLab checks it, and the default is the value GitLab accepts for a repository token.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "gitlab-ci-token",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "preview": {
+        "label": "Preview results (max. 10)",
+        "description": "List the first files this configuration selects.",
+        "icon": null
+      }
+    },
+    "required": [
+      "url"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "cmem_plugin_nextcloud-List": {
     "pluginId": "cmem_plugin_nextcloud-List",
     "title": "List Nextcloud files",
@@ -3876,7 +4575,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "List files from a given SSH instance.",
-    "markdownDocumentation": "\nThis workflow task generates structured output from a specified SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder from which the data should be extracted.\n\nYou can also define a regular expression to include or exclude specific files.\n\nThere is also an option to prevent files in subfolders from being included.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Error handling modes:\n* **Ignore:** Ignores the permission rights of files and lists them all. Skips folders when there\nis no correct permission.\n* **Warning:** Warns the user about files that the user has no permission rights to. Lists all files\nand skips folder when there is no correct permission.\n* **Error:** Throws an error when there is a single file or folder with incorrect permission rights.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, DSS, ECDSA, Ed25519.\n* Setting the maximum amount of workers to more than 1 may cause a Channel Exception when\nthe amount of files is too large\n    ",
+    "markdownDocumentation": "\nThis workflow task generates structured output from a specified SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder from which the data should be extracted.\n\nYou can also define a regular expression to include or exclude specific files.\n\nThere is also an option to prevent files in subfolders from being included.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Error handling modes:\n* **Ignore:** Ignores the permission rights of files and lists them all. Skips folders when there\nis no correct permission.\n* **Warning:** Warns the user about files that the user has no permission rights to. Lists all files\nand skips folder when there is no correct permission.\n* **Error:** Throws an error when there is a single file or folder with incorrect permission rights.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, ECDSA, Ed25519.\n* Setting the maximum amount of workers to more than 1 may cause a Channel Exception when\nthe amount of files is too large\n    ",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQuNSA5Yy0uNiAwLTEgLjUtMSAxdjEuNzVjMCAuNS40IDEgMSAxSDd2Ljc1SDMuNVYxNWg0Yy42IDAgMS0uNSAxLTF2LTEuNzVjMC0uNS0uNC0xLTEtMUg1di0uNzVoMy41Vjl6bTYgMGMtLjYgMC0xIC41LTEgMXYxLjc1YzAgLjUuNCAxIDEgMUgxM3YuNzVIOS41VjE1aDRjLjYgMCAxLS41IDEtMXYtMS43NWMwLS41LS40LTEtMS0xSDExdi0uNzVoMy41Vjl6bTUgMHY2SDE3di0yLjVoMlYxNWgxLjVWOUgxOXYyaC0yVjl6Ii8+PC9zdmc+",
     "properties": {
       "hostname": {
@@ -4740,6 +5439,64 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_packages-PublishPackages": {
+    "pluginId": "cmem_plugin_packages-PublishPackages",
+    "title": "Publish Packages",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Publish package archives to a marketplace service.",
+    "markdownDocumentation": "\nPublishes package archives to a marketplace service.\n\nThe input port expects package archives (`*.cpa`), for example as produced by the\n**Build Packages** task. Every archive on the port is uploaded, one after the other.\n\nThere is no output port. Publishing is the last step of a release workflow, which\ntypically chains **Bump Version in Package Manifest**, **Build Packages**, and then this\ntask. Once an archive is published, the **Install Packages** task can install it from\nthe same marketplace service.\n\nUploading needs an account on the target marketplace service, and the task authenticates\nwith the configured Keycloak credentials.\n\nAn upload which fails does not stop the task. The remaining archives are still uploaded,\nand the failure is reported when the task finishes. When more than one upload fails,\nonly the last failure is reported.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHBhdGggZD0iTTI4LDExaC02VjdjMC0xLjctMS4zLTMtMy0zaC02Yy0xLjcsMC0zLDEuMy0zLDN2NEg0Yy0wLjYsMC0xLDAuNC0xLDFjMCwwLjEsMCwwLjEsMCwwLjJsMS45LDEyLjFjMC4xLDEsMSwxLjcsMiwxLjdIMTV2LTIgSDYuOUw1LjIsMTNIMjhWMTF6IE0xMiw3YzAtMC42LDAuNC0xLDEtMWg2YzAuNiwwLDEsMC40LDEsMXY0aC04Vjd6Ii8+CiAgPHBhdGggZD0iTTIyLjUsMTdMMjcsMjJoLTN2M2gtM3YtM2gtM0wyMi41LDE3eiBNMTcsMjZoMTF2MkgxN1YyNnoiLz4KPC9zdmc+Cg==",
+    "properties": {
+      "marketplace_url": {
+        "name": "marketplace_url",
+        "title": "Marketplace URL",
+        "description": "The URL of the marketplace service to publish packages to.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "https://eccenca.market",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "username": {
+        "name": "username",
+        "title": "Keycloak username",
+        "description": "The username to authenticate with the Keycloak server of the marketplace service.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "password": {
+        "name": "password",
+        "title": "Keycloak password",
+        "description": "The password to authenticate with the Keycloak server of the marketplace service.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "cmem_plugin_reason-plugin_reason-ReasonPlugin": {
     "pluginId": "cmem_plugin_reason-plugin_reason-ReasonPlugin",
     "title": "Reason",
@@ -4756,7 +5513,7 @@
         "title": "Data graph IRI",
         "description": "The IRI of the input data graph.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -4767,7 +5524,7 @@
         "title": "Ontology graph IRI",
         "description": "The IRI of the input ontology graph.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -4789,7 +5546,7 @@
         "title": "Output graph IRI",
         "description": "The IRI of the output graph for the reasoning result. \u26a0\ufe0f Existing graphs will be overwritten.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -5032,6 +5789,166 @@
     "is_deprecated": false,
     "tags": [
       "WorkflowTask"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_apify-RunActor": {
+    "pluginId": "cmem_plugin_apify-RunActor",
+    "title": "Run Apify actor",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Run an Apify actor and deliver its dataset as a file.",
+    "markdownDocumentation": "\nThis task drives [Apify](https://apify.com) from a workflow. It starts an actor\nrun, waits for it, and hands the dataset the run produced on as a file.\n\nThe actor input is a JSON document written as a Jinja template. Whatever the\ntemplate refers to becomes the input port of this task, so the values come from\nthe entities of the preceding operator - the knowledge graph decides what is\nscraped. A template that refers to nothing has no input port and is sent as it\nstands. Substituted values need the `tojson` filter, as in\n`\"query\": {{ companyName | tojson }}`, which quotes and escapes them correctly\nand renders a list where a list is supplied.\n\nThe result leaves through the file port as one file per actor run, in the chosen\nformat. It is deliberately not turned into entities here: a dataset can be very\nlarge, and reading structure out of a file is what the JSON, CSV and XML\ndatasets of Corporate Memory already do.\n\nThe task covers three cases, which change its shape. Reading an existing Apify\ndataset starts no run and needs no input. Running an actor without reading it\ndelivers a record of the run instead of a file. Running and reading does both in\none step.\n\nCaveats worth knowing:\n\n* Editing the actor input changes the input port, which can invalidate the\n  mapping of a workflow that was already saved.\n* Values are read from the input entities by path name, so a path has to be a\n  name Jinja accepts. Rename it in a preceding operator if it is a URI.\n* With one run per entity, a path holding several values contributes only its\n  first; the report says how often that happened.\n* A build tag such as `latest` satisfies the Build parameter but pins nothing -\n  it follows whatever the actor's author publishes next. A version number pins.\n* Downloaded files stay in the temporary directory of the worker.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0iY3VycmVudENvbG9yIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkFwaWZ5Ij4KICA8cGF0aCBkPSJNMzIgMTIuNSA0Ny44IDUxaC04LjFMMzIgMzEuNyAyNC4zIDUxaC04LjF6Ii8+CiAgPHBhdGggZD0iTTI0LjYgNDAuMmgxNC44bDIuNiA2LjRIMjJ6IiBvcGFjaXR5PSIuNTUiLz4KPC9zdmc+Cg==",
+    "properties": {
+      "api_token": {
+        "name": "api_token",
+        "title": "API token",
+        "description": "The Apify API token used for every request this task makes.",
+        "type": "string",
+        "parameterType": "password",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "mode": {
+        "name": "mode",
+        "title": "Mode",
+        "description": "What this task does when it runs.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "run_and_read",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "actor": {
+        "name": "actor",
+        "title": "Actor",
+        "description": "The Apify actor to run. Required unless the mode is Read.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "build": {
+        "name": "build",
+        "title": "Build",
+        "description": "The version or build tag of the actor to run. Required unless the mode is Read.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "actor_input": {
+        "name": "actor_input",
+        "title": "Actor input",
+        "description": "The JSON document sent to the actor, as a Jinja template. The names it refers to become the input port of this task.",
+        "type": "string",
+        "parameterType": "code-jinja2",
+        "value": "{\n  \"startUrls\": [{ \"url\": \"https://example.org\" }]\n}",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "strategy": {
+        "name": "strategy",
+        "title": "Input strategy",
+        "description": "How several input entities are mapped onto actor runs.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "collect",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "apify_dataset": {
+        "name": "apify_dataset",
+        "title": "Apify dataset",
+        "description": "The existing Apify dataset to deliver. Required when the mode is Read.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "output_format": {
+        "name": "output_format",
+        "title": "Output format",
+        "description": "The format the Apify dataset is downloaded in.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "json",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "run_error_handling": {
+        "name": "run_error_handling",
+        "title": "Error handling",
+        "description": "What happens when an actor run does not succeed.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "warning",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "max_runs": {
+        "name": "max_runs",
+        "title": "Maximum number of runs",
+        "description": "The upper bound on actor runs started with one run per entity. More input entities than this aborts the task before anything is started.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "10",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "max_duration": {
+        "name": "max_duration",
+        "title": "Maximum duration (minutes)",
+        "description": "How long the task waits for its runs before it aborts them and fails. Apify enforces the same limit, so a run stops even if this task does not.",
+        "type": "string",
+        "parameterType": "Long",
+        "value": "60",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "show_actor_input": {
+        "label": "Show actor input",
+        "description": "Show the input schema of the selected actor and a JSON skeleton.",
+        "icon": null
+      },
+      "preview_dataset": {
+        "label": "Preview Apify dataset (max. 10)",
+        "description": "Show the first items of the selected Apify dataset.",
+        "icon": null
+      }
+    },
+    "required": [
+      "api_token"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
     ],
     "pluginType": "customtask",
     "relatedPlugins": []
@@ -5948,7 +6865,7 @@
         "title": "Data graph URI",
         "description": "The URI of the graph to be validated. The graph URI is selected from a list of graphs of types `void:Dataset`, `shui:ShapeCatalog`, `owl:Ontology` and `dsm:ThesaurusProject`.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -5959,7 +6876,7 @@
         "title": "SHACL shapes graph URI",
         "description": "The URI of the graph containing the SHACL shapes to be validated against. The graph URI is selected from a list of graphs of type `shui:ShapeCatalog`.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -6016,7 +6933,7 @@
         "title": "Ontology graph URI",
         "description": "The URI of a graph containing extra ontological information. RDFS and OWL definitions from this are used to inoculate the data graph. The graph URI is selected from a list of graphs of type `owl:Ontology`.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": "",
         "advanced": true,
         "visibleInDialog": true,
@@ -6913,6 +7830,81 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_packages-UninstallPackages": {
+    "pluginId": "cmem_plugin_packages-UninstallPackages",
+    "title": "Uninstall Packages",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Uninstall packages and their unused dependencies from this instance.",
+    "markdownDocumentation": "\nUninstalls packages and their dependencies from Corporate Memory.\n\nThe task uninstalls a single package chosen on the task, a list of package IDs which\narrives on the input port, or every package installed on this instance. The three modes\nexclude each other, and the input port exists only for the list mode. Configuring two of\nthem at once makes the task fail before it runs.\n\nThere is no output port. Uninstalling is a terminal step, and it is not reversible: a\npackage can only be brought back with the **Install Packages** task.\n\nDependencies of a package are removed with it, but only when nothing else needs them. A\ndependency which another installed package also uses stays, and so does one which was\nalready installed before the package pulled it in.\n\nThe **Preview dependencies** action lists what would be removed alongside the package.\nIt applies to a package chosen on the task, not to the other two modes.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHBhdGggZD0iTTI4LDExaC02VjdjMC0xLjctMS4zLTMtMy0zaC02Yy0xLjcsMC0zLDEuMy0zLDN2NEg0Yy0wLjYsMC0xLDAuNC0xLDFjMCwwLjEsMCwwLjEsMCwwLjJsMS45LDEyLjFjMC4xLDEsMSwxLjcsMiwxLjdIMTV2LTIgSDYuOUw1LjIsMTNIMjhWMTF6IE0xMiw3YzAtMC42LDAuNC0xLDEtMWg2YzAuNiwwLDEsMC40LDEsMXY0aC04Vjd6Ii8+CiAgPHBhdGggZD0iTTE3LDIxaDExdjNIMTdWMjF6Ii8+Cjwvc3ZnPgo=",
+    "properties": {
+      "package_id": {
+        "name": "package_id",
+        "title": "Package ID",
+        "description": "The identifier of a package installed on this instance.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ignore_not_installed_packages": {
+        "name": "ignore_not_installed_packages",
+        "title": "Ignore not installed packages",
+        "description": "If enabled, the task reports a warning instead of raising an error for packages which are not installed.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "uninstall_list_of_packages": {
+        "name": "uninstall_list_of_packages",
+        "title": "Uninstall listed packages from input port",
+        "description": "If enabled, the task provides an input port for a package list delivered by a previous task, and the package ID has to be left empty. The requested input schema path is `package_id` (mandatory).",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "uninstall_all_packages": {
+        "name": "uninstall_all_packages",
+        "title": "Uninstall all packages",
+        "description": "If enabled, every package installed on this instance is uninstalled, and the package ID has to be left empty. With nothing installed the task fails, unless not installed packages are ignored.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {},
+    "actions": {
+      "preview_dependencies": {
+        "label": "Preview dependencies",
+        "description": "List the dependencies which would be removed together with the selected package.",
+        "icon": null
+      }
+    },
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "Unpivot": {
     "pluginId": "Unpivot",
     "title": "Unpivot",
@@ -6994,60 +7986,6 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
-  "cmem_plugin_graph_insights-Update": {
-    "pluginId": "cmem_plugin_graph_insights-Update",
-    "title": "Update Graph Insights Snapshots",
-    "categories": [
-      "Uncategorized"
-    ],
-    "main_category": "Uncategorized",
-    "description": "Update one or more snapshots, optionally selected by affected graph.",
-    "markdownDocumentation": "This workflow task updates [Graph Insights](https://go.eccenca.com/feature/explore-graph-exploration-graph-insights?lang=en&origin=cmem-plugin-graph-insights)\n    snapshots for a specified graph in your system.\n\n## Behavior\n\n- **No graph selected**: All snapshots in the system are updated\n- **Graph selected**: Only snapshots associated with the selected graph are updated\n\n## Usage\n\n1. Add this task to your workflow.\n2. Optionally select a specific graph to limit which snapshots are updated.\n3. Use the \"Preview Snapshots\" action to see which snapshots will be affected before execution.\n4. Run the workflow to update the snapshots.\n\n## Prerequisites\n\n- Graph Insights must be active in your system\n- User must have permissions to access Graph Insights\n- The plugin will skip execution with a warning if these conditions are not met\n    ",
-    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgd2lkdGg9IjMycHgiCiAgIGhlaWdodD0iMzJweCIKICAgdmlld0JveD0iMCAwIDMyIDMyIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmc4NDQiCiAgIHNvZGlwb2RpOmRvY25hbWU9InVwZGF0ZV9zbmFwc2hvdHMuc3ZnIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEuMiAoYjhlMjViZTgsIDIwMjItMDItMDUpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzg0NiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIyNi40Njg3NSIKICAgICBpbmtzY2FwZTpjeD0iMTYiCiAgICAgaW5rc2NhcGU6Y3k9IjE2IgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI3IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIxNDk2IgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNSIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2Zzg0NCIgLz4KICA8ZGVmcwogICAgIGlkPSJkZWZzODI1Ij4KICAgIDxwYXRoCiAgICAgICBkPSJNMy41NTUsMTAuOTg3NSBMMS4wMDEyNSwxMC45ODc1IEwxLjAwMTI1LDkuNTU4NzUgTDUuNjM2MjUsOS41NTg3NSBMNi4yODg3NSwxMC4yMTEyNSBMNi4yODg3NSwxNC44NDYyNSBMNC44NiwxNC44NDYyNSBMNC44NiwxMi4yOTI1IEw0LjQ4ODc1LDEyLjYwNzUgQzQuMTUxMjQ4MzEsMTIuOTAwMDAxNSAzLjg3MDAwMTEzLDEzLjMxNjI0NzMgMy42NDUsMTMuODU2MjUgQzMuNDU3NDk5MDYsMTQuMzIxMjUyMyAzLjM2Mzc1LDE0LjgxNjI0NzQgMy4zNjM3NSwxNS4zNDEyNSBDMy4zNjM3NSwxNS44NTEyNTI1IDMuNDU3NDk5MDYsMTYuMzM2ODcyNyAzLjY0NSwxNi43OTgxMjUgQzMuODMyNTAwOTQsMTcuMjU5Mzc3MyA0LjEwOTk5ODE2LDE3LjY3NzQ5ODEgNC40Nzc1LDE4LjA1MjUgQzQuODQ1MDAxODQsMTguNDA1MDAxOCA1LjI2MTI0NzY3LDE4LjY4MjQ5OSA1LjcyNjI1LDE4Ljg4NSBDNi4xNjg3NTIyMSwxOS4wNzI1MDA5IDYuNjU5OTk3MywxOS4xNjYyNSA3LjIsMTkuMTY2MjUgQzcuNzQwMDAyNywxOS4xNjYyNSA4LjIxOTk5NzksMTkuMDcyNTAwOSA4LjY0LDE4Ljg4NSBDOS4xMjc1MDI0NCwxOC42NTk5OTg5IDkuNTM5OTk4MzEsMTguMzgyNTAxNyA5Ljg3NzUsMTguMDUyNSBDMTAuMjUyNTAxOSwxNy42Nzc0OTgxIDEwLjUzMzc0OTEsMTcuMjU5Mzc3MyAxMC43MjEyNSwxNi43OTgxMjUgQzEwLjkwODc1MDksMTYuMzM2ODcyNyAxMS4wMDI1LDE1Ljg1MTI1MjUgMTEuMDAyNSwxNS4zNDEyNSBDMTEuMDAyNSwxNC44MTYyNDc0IDEwLjkwODc1MDksMTQuMzIxMjUyMyAxMC43MjEyNSwxMy44NTYyNSBDMTAuNTQxMjQ5MSwxMy4zOTg3NDc3IDEwLjI1NjI1MiwxMi45ODI1MDE5IDkuODY2MjUsMTIuNjA3NSBMMTEuMjA1LDExLjMxMzc1IEMxMS43NjAwMDI4LDExLjg5MTI1MjkgMTIuMTc2MjQ4NiwxMi41MDYyNDY3IDEyLjQ1Mzc1LDEzLjE1ODc1IEMxMi43MzEyNTE0LDEzLjg0MTI1MzQgMTIuODcsMTQuNTY4NzQ2MSAxMi44NywxNS4zNDEyNSBDMTIuODcsMTYuMDk4NzUzOCAxMi43MzEyNTE0LDE2LjgxODc0NjYgMTIuNDUzNzUsMTcuNTAxMjUgQzEyLjE3NjI0ODYsMTguMTY4NzUzMyAxMS43NjAwMDI4LDE4Ljc4Mzc0NzIgMTEuMjA1LDE5LjM0NjI1IEMxMC42NjQ5OTczLDE5Ljg3ODc1MjcgMTAuMDUzNzUzNCwyMC4yOTEyNDg1IDkuMzcxMjUsMjAuNTgzNzUgQzguNzExMjQ2NywyMC44NjEyNTE0IDcuOTkxMjUzOSwyMSA3LjIxMTI1LDIxIEM2LjQwMTI0NTk1LDIxIDUuNjg1MDAzMTEsMjAuODYxMjUxNCA1LjA2MjUsMjAuNTgzNzUgQzQuMzQ5OTk2NDQsMjAuMjYxMjQ4NCAzLjczODc1MjU1LDE5Ljg0ODc1MjUgMy4yMjg3NSwxOS4zNDYyNSBDMi42ODg3NDczLDE4LjgwNjI0NzMgMi4yNzI1MDE0NiwxOC4xOTEyNTM0IDEuOTgsMTcuNTAxMjUgQzEuNjk0OTk4NTgsMTYuODQxMjQ2NyAxLjU1MjUsMTYuMTIxMjUzOSAxLjU1MjUsMTUuMzQxMjUgQzEuNTUyNSwxNC41Njg3NDYxIDEuNjk0OTk4NTgsMTMuODQxMjUzNCAxLjk4LDEzLjE1ODc1IEMyLjI2NTAwMTQzLDEyLjQ3NjI0NjYgMi42ODEyNDcyNiwxMS44NjEyNTI3IDMuMjI4NzUsMTEuMzEzNzUgTDMuNTU1LDEwLjk4NzUgWiIKICAgICAgIGlkPSJwYXRoLTEiIC8+CiAgPC9kZWZzPgogIDxwYXRoCiAgICAgZD0ibSAxNiwyIHYgMiBjIDYuNiwwIDEyLDUuNCAxMiwxMiAwLDYuNiAtNS40LDEyIC0xMiwxMiB2IDIgQyAyMy43LDMwIDMwLDIzLjcgMzAsMTYgMzAsOC4zIDIzLjcsMiAxNiwyIFoiCiAgICAgaWQ9IlBhdGgiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgogIDxwYXRoCiAgICAgZD0iTSA4LjIsMjUuMSA3LDI2LjcgYyAxLjIsMSAyLjYsMS45IDQuMiwyLjQgbCAwLjcsLTEuOSBDIDEwLjUsMjYuNyA5LjMsMjYgOC4yLDI1LjEgWiIKICAgICBpZD0icGF0aDgyOCIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjEiIC8+CiAgPHBhdGgKICAgICBkPSJtIDQuMiwxOCAtMiwwLjQgQyAyLjUsMjAgMy4xLDIxLjYgMy45LDIzIEwgNS42LDIyIEMgNC45LDIwLjggNC40LDE5LjQgNC4yLDE4IFoiCiAgICAgaWQ9InBhdGg4MzAiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgogIDxwYXRoCiAgICAgZD0iTSA1LjYsMTAgMy45LDkgYyAtMC44LDEuNCAtMS40LDMgLTEuNiw0LjYgbCAyLDAuMyBDIDQuNCwxMi41IDQuOSwxMS4yIDUuNiwxMCBaIgogICAgIGlkPSJwYXRoODMyIgogICAgIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MSIgLz4KICA8cGF0aAogICAgIGQ9Ik0gMTEuOCw0LjggMTEuMSwyLjkgQyA5LjYsMy41IDguMiw0LjMgNyw1LjMgbCAxLjMsMS41IGMgMSwtMC44IDIuMiwtMS41IDMuNSwtMiB6IgogICAgIGlkPSJwYXRoODM0IgogICAgIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MSIgLz4KICA8dXNlCiAgICAgeGxpbms6aHJlZj0iI3BhdGgtMSIKICAgICBpZD0idXNlODM3IgogICAgIHg9IjAiCiAgICAgeT0iMCIKICAgICB3aWR0aD0iMTAwJSIKICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOSwxKSIKICAgICBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjEiIC8+CiAgPHVzZQogICAgIHhsaW5rOmhyZWY9IiNwYXRoLTEiCiAgICAgaWQ9InVzZTgzOSIKICAgICB4PSIwIgogICAgIHk9IjAiCiAgICAgd2lkdGg9IjEwMCUiCiAgICAgaGVpZ2h0PSIxMDAlIgogICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDksMSkiCiAgICAgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxIiAvPgo8L3N2Zz4K",
-    "properties": {
-      "selected_graph": {
-        "name": "selected_graph",
-        "title": "Selected Graph",
-        "description": "Selected graph to update snapshots for. Leave empty for updating all snapshots.",
-        "type": "string",
-        "parameterType": "string",
-        "value": "",
-        "advanced": false,
-        "visibleInDialog": true,
-        "properties": {}
-      }
-    },
-    "properties_advanced": {
-      "timeout": {
-        "name": "timeout",
-        "title": "Timeout",
-        "description": "Timeout in seconds for Graph Insights API.",
-        "type": "string",
-        "parameterType": "double",
-        "value": "100",
-        "advanced": true,
-        "visibleInDialog": true,
-        "properties": {}
-      }
-    },
-    "actions": {
-      "preview_snapshots": {
-        "label": "Preview Snapshots",
-        "description": "Previews snapshots for graph insights in a workflow.",
-        "icon": null
-      }
-    },
-    "required": [],
-    "distanceMeasureRange": null,
-    "backendType": "python",
-    "is_deprecated": false,
-    "tags": [
-      "WorkflowTask",
-      "PythonPlugin"
-    ],
-    "pluginType": "customtask",
-    "relatedPlugins": []
-  },
   "eccencaDataPlatformGraphStoreFileUploadOperator": {
     "pluginId": "eccencaDataPlatformGraphStoreFileUploadOperator",
     "title": "Upload File to Knowledge Graph",
@@ -7103,6 +8041,87 @@
     "is_deprecated": false,
     "tags": [
       "WorkflowTask"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
+  "cmem_plugin_ckan-Upload": {
+    "pluginId": "cmem_plugin_ckan-Upload",
+    "title": "Upload files to CKAN",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Publish files as the files of a dataset on a CKAN service.",
+    "markdownDocumentation": "\nThis workflow task attaches the files that arrive on its input port to a\ndataset of a [CKAN](https://ckan.org) service, such as the\n[PMD Dataportal](https://dataportal.material-digital.de). What CKAN calls a\nresource of a package is a file attached to a dataset, and that is what this\ntask writes.\n\nFiles arrive as file entities, so anything that produces them can feed this\ntask - the **Download CKAN files** task of this package when files are moved\nbetween two services, or **Download Nextcloud files** of\n`cmem-plugin-nextcloud`. For every file it published, the task hands on the\ndataset, the file and the address the file now has, which is how a following\ntask can record in a graph where something was published.\n\nA file is recognised as being already there by its name. CKAN does allow a\ndataset to hold several files of one name, and replacing then updates the last\nof them and leaves the others alone.\n\nThe dataset has to exist on the service already. The task never creates one, so\nthe title, the description and the licence stay with whoever curates the\nservice, and a first publication starts by creating the dataset there.\n\nPublishing needs an API token, and it needs one whose user may write to that\ndataset. What the service accepts is up to the service: an instance running the\n`scheming` extension validates every file against a schema of its own, and\nrejects what does not fit.\n    ",
+    "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMS43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogIDxwYXRoIGQ9Ik02IDNoN2w1IDV2NCIvPgogIDxwYXRoIGQ9Ik0xMyAzdjVoNSIvPgogIDxwYXRoIGQ9Ik0xOCAxMnYtNCIvPgogIDxwYXRoIGQ9Ik02IDN2MTEiLz4KICA8cGF0aCBkPSJNNiAyMWgxMiIvPgogIDxwYXRoIGQ9Ik0xMiAxOHYtNiIvPgogIDxwYXRoIGQ9Ik05IDE1bDMtMyAzIDMiLz4KPC9zdmc+Cg==",
+    "properties": {
+      "url": {
+        "name": "url",
+        "title": "CKAN URL",
+        "description": "The base URL of the CKAN service, e.g. `https://dataportal.material-digital.de`.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "token": {
+        "name": "token",
+        "title": "API token",
+        "description": "An API token of the CKAN service, belonging to a user who may write to the dataset below.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "dataset": {
+        "name": "dataset",
+        "title": "Dataset",
+        "description": "The dataset the files are attached to. It has to exist already.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "on_existing": {
+        "name": "on_existing",
+        "title": "When the file is already there",
+        "description": "What happens to a file the dataset already holds under the same name. Replacing updates that file instead of adding a second one, which is what makes a repeated run leave the dataset as it was after the first one.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "replace",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "on_error": {
+        "name": "on_error",
+        "title": "On error",
+        "description": "What happens when a single file cannot be transferred. Either way the workflow ends in an error.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "stop",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {},
+    "required": [],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
     ],
     "pluginType": "customtask",
     "relatedPlugins": []
@@ -7192,6 +8211,150 @@
     "pluginType": "customtask",
     "relatedPlugins": []
   },
+  "cmem_plugin_git-Upload": {
+    "pluginId": "cmem_plugin_git-Upload",
+    "title": "Upload Git files",
+    "categories": [
+      "Uncategorized"
+    ],
+    "main_category": "Uncategorized",
+    "description": "Commit the files of the preceding task into a git repository.",
+    "markdownDocumentation": "\nThis workflow task commits the files it receives into a folder of a git repository\nand pushes them, as one commit per execution. It builds the commit from the objects\nof the repository rather than from a checkout, so nothing is cloned.\n\nFiles arrive on the input from any task that produces files. The task hands nothing\non: it is the last step of its chain, and it has no output.\n\nIt is the counterpart of **Download Git files**, and a workflow that reads a\nrepository, changes something and writes the result back usually ends here.\n\nThe repository is reached over HTTP(S), which is the only transport this task speaks; an\nSSH address is refused. Committing needs a token with write access: the\n`write_repository` scope on GitLab, or a fine grained GitHub token granting\n`Contents: Read and write`. On GitLab the token's role has to allow pushing to the target\nbranch as well, which a protected branch restricts to maintainers by default, and the\nuser name sent alongside the token is checked, which is why its default is the value\nGitLab accepts. The\n*Check connection* action asks the server for a write handshake and reports what it\nanswered, so a token that is not sufficient can be found before a workflow runs.\n\nEvery file is committed under its own name in the target folder; a folder structure\nit carried before is not reproduced, and two files that would end up under the same\nname abort the execution before anything is written. When the files are identical to\nwhat the repository already holds, no commit is created at all. Files excluded by the\nrepository's ignore rules are committed unless that is switched off. A branch that\nmoved while the task was working is not overwritten: the same files are applied to\nthe new tip and pushed again, and the task fails rather than discarding the other\nchange. A push the repository refuses - a protected branch, or a hook that declines\nit - fails with the reason the server gave, and nothing is committed.\n\nThe task writes a branch and stops there. It opens no merge request and no pull\nrequest, it creates no tag and no release, and the commits it writes are not signed.\nA file committed into a path the repository tracks with Git LFS is stored as ordinary\ncontent rather than as an LFS pointer, so do not point this task at such a path.\n",
+    "pluginIcon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgZm9jdXNhYmxlPSJmYWxzZSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBhcmlhLWhpZGRlbj0idHJ1ZSIgY2xhc3M9ImVjY2d1aS1pY29uIj48Y2lyY2xlIGN4PSI4IiBjeT0iNiIgcj0iMyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOCIgY3k9IjI2IiByPSIzIj48L2NpcmNsZT48cmVjdCB4PSI3IiB5PSI2IiB3aWR0aD0iMiIgaGVpZ2h0PSIyMCI+PC9yZWN0PjxyZWN0IHg9IjgiIHk9IjE1IiB3aWR0aD0iNyIgaGVpZ2h0PSIyIj48L3JlY3Q+PGNpcmNsZSBjeD0iMTciIGN5PSIxNiIgcj0iMyI+PC9jaXJjbGU+PHJlY3QgeD0iMjYiIHk9IjEzIiB3aWR0aD0iMiIgaGVpZ2h0PSIxMyI+PC9yZWN0PjxwYXRoIGQ9Ik0yNyA2bDUgOEgyMnoiPjwvcGF0aD48L3N2Zz4K",
+    "properties": {
+      "url": {
+        "name": "url",
+        "title": "Repository URL",
+        "description": "The HTTP(S) address of the repository. The address of its web page works as well as its clone URL, with or without a trailing '.git'.",
+        "type": "string",
+        "parameterType": "string",
+        "value": null,
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "token": {
+        "name": "token",
+        "title": "Access token",
+        "description": "An access token that may write to the repository.",
+        "type": "string",
+        "parameterType": "password",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "ref": {
+        "name": "ref",
+        "title": "Branch",
+        "description": "The branch to commit to. It is created from the repository's default branch when it does not exist yet. Leave it empty to commit to the default branch.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "path": {
+        "name": "path",
+        "title": "Folder",
+        "description": "The folder inside the repository to commit into. Leave it empty to commit at the top of the repository.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "commit_message": {
+        "name": "commit_message",
+        "title": "Commit message",
+        "description": "The message of the commit this task creates.",
+        "type": "string",
+        "parameterType": "multiline string",
+        "value": "Update files from an eccenca Corporate Memory workflow",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "remove_obsolete": {
+        "name": "remove_obsolete",
+        "title": "Remove obsolete files",
+        "description": "If enabled, files lying directly in the target folder that were not part of this execution are deleted in the same commit. Its subfolders, and everything outside it, are never touched.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "properties_advanced": {
+      "username": {
+        "name": "username",
+        "title": "User name",
+        "description": "The user name sent with the access token. GitHub ignores it, GitLab checks it, and the default is the value GitLab accepts for a repository token.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "gitlab-ci-token",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "honor_gitignore": {
+        "name": "honor_gitignore",
+        "title": "Honor ignore rules",
+        "description": "If enabled, a file excluded by the repository's .gitignore is reported and left out instead of being committed.",
+        "type": "string",
+        "parameterType": "boolean",
+        "value": "false",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "author_name": {
+        "name": "author_name",
+        "title": "Author name",
+        "description": "The name the commit is attributed to. Left empty, the name of the user who runs the workflow is used where the deployment provides it.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "author_mail": {
+        "name": "author_mail",
+        "title": "Author mail address",
+        "description": "The mail address the commit is attributed to. Left empty, the address of the user who runs the workflow is used where the deployment provides it.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": true,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
+    "actions": {
+      "check_connection": {
+        "label": "Check connection",
+        "description": "Test whether the repository can be written to, without pushing.",
+        "icon": null
+      }
+    },
+    "required": [
+      "url"
+    ],
+    "distanceMeasureRange": null,
+    "backendType": "python",
+    "is_deprecated": false,
+    "tags": [
+      "WorkflowTask",
+      "PythonPlugin"
+    ],
+    "pluginType": "customtask",
+    "relatedPlugins": []
+  },
   "cmem_plugin_project_resources-UploadLocalFiles": {
     "pluginId": "cmem_plugin_project_resources-UploadLocalFiles",
     "title": "Upload local files",
@@ -7267,7 +8430,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Upload files to a given SSH instance.",
-    "markdownDocumentation": "\nThis workflow task uploads files to a given SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder the data should be uploaded to.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, DSS, ECDSA, Ed25519.\n    ",
+    "markdownDocumentation": "\nThis workflow task uploads files to a given SSH instance.\n\nBy providing the hostname, username, port and authentication method, you can specify the\nfolder the data should be uploaded to.\n\n#### Authentication Methods:\n* **Password:** Only the password will be used for authentication. The private key field is\nignored, even if filled.\n* **Key:** The private key will be used for authentication. If the key is encrypted, the password\nwill be used to decrypt it.\n\n#### Note:\n* If a connection cannot be established within 20 seconds, a timeout occurs.\n* Currently supported key types are: RSA, ECDSA, Ed25519.\n    ",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQuNSA5Yy0uNiAwLTEgLjUtMSAxdjEuNzVjMCAuNS40IDEgMSAxSDd2Ljc1SDMuNVYxNWg0Yy42IDAgMS0uNSAxLTF2LTEuNzVjMC0uNS0uNC0xLTEtMUg1di0uNzVoMy41Vjl6bTYgMGMtLjYgMC0xIC41LTEgMXYxLjc1YzAgLjUuNCAxIDEgMUgxM3YuNzVIOS41VjE1aDRjLjYgMCAxLS41IDEtMXYtMS43NWMwLS41LS40LTEtMS0xSDExdi0uNzVoMy41Vjl6bTUgMHY2SDE3di0yLjVoMlYxNWgxLjVWOUgxOXYyaC0yVjl6Ii8+PC9zdmc+",
     "properties": {
       "hostname": {
@@ -7474,7 +8637,7 @@
         "title": "Context Graph",
         "description": "This graph holds the resources you want to validate.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -7485,7 +8648,7 @@
         "title": "Shape graph",
         "description": "This graph holds the shapes you want to use for validation.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": "https://vocab.eccenca.com/shacl/",
         "advanced": false,
         "visibleInDialog": true,
@@ -7496,7 +8659,7 @@
         "title": "Result graph",
         "description": "In this graph, the validation results are materialized. If left empty, results are not materialized.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": "",
         "advanced": false,
         "visibleInDialog": true,
@@ -7571,7 +8734,7 @@
     ],
     "main_category": "Uncategorized",
     "description": "Validates the consistency of an OWL ontology.",
-    "markdownDocumentation": "A task validating the consistency of an OWL ontology and generating an explanation if inconsistencies are found. \nThe plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI on the path \n\"ontology_graph_iri\", and, if enabled, the valid OWL2 profiles on the path \"valid_profiles\" as a comma-separated string.\n\n## Options\n\n### Ontology graph IRI\n\nThe IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type`owl:Ontology`.\n\n### Ignore missing imports\n\nIf enabled, missing imports (`owl:imports`) in the input graphs are ignored.\n\n### Reasoner\n\nThe following reasoner options are supported: \n- [ELK](https://code.google.com/p/elk-reasoner/) (elk)\n- [Expression Materializing Reasoner](http://static.javadoc.io/org.geneontology/expression-materializing-reasoner/0.1.3/org/geneontology/reasoner/ExpressionMaterializingReasoner.html) (emr)\n- [HermiT](http://www.hermit-reasoner.com/) (hermit)\n- [JFact](http://jfact.sourceforge.net/) (jfact)\n- [Structural Reasoner](http://owlcs.github.io/owlapi/apidocs_4/org/semanticweb/owlapi/reasoner/structural/StructuralReasoner.html) (structural)\n- [Whelk](https://github.com/balhoff/whelk) (whelk)\n\n### Produce output graph\n\nIf enabled, an explanation graph is created.\n\n### Output graph IRI\n\nThe IRI of the output graph for the reasoning result.\n\n\u26a0\ufe0f Existing graphs will be overwritten.\n\n### Write markdown explanation file\n\nIf enabled, an explanation markdown file is written to the project.\n\n### Output filename\n\nThe filename of the Markdown file with the explanation of inconsistencies.\n\n\u26a0\ufe0f Existing files will be overwritten.\n\n### Stop at inconsistencies\nRaise an error if inconsistencies are found. If enabled, the plugin does not output entities.\n\n### Validate OWL2 profiles\n\nValidate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.\n\n### Mode\nMode _inconsistency_ generates an explanation for an inconsistent ontology.  \nMode _unsatisfiability_ generates explanations for many unsatisfiable classes at once.\n\n### Output entities\n\nOutput entities. The plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI\non the path \"ontology_graph_iri\", the reasoner option on the path \"reasoner\", and, if enabled, the valid OWL2 profiles\non the path \"valid_profiles\".\n\n### Maximum RAM Percentage\n\nMaximum heap size for the Java virtual machine in the DI container running the reasoning process.\n\n\u26a0\ufe0f Setting the percentage too high may result in an out of memory error.\n",
+    "markdownDocumentation": "A task validating the consistency of an OWL ontology and generating an explanation if inconsistencies are found. \nThe plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI on the path \n\"ontology_graph_iri\", and, if enabled, the valid OWL2 profiles on the path \"valid_profiles\" as a comma-separated string.\n\n## Options\n\n### Ontology graph IRI\n\nThe IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type`owl:Ontology`.\n\n### Ignore missing imports\n\nIf enabled, missing imports (`owl:imports`) in the input graphs are ignored.\n\n### Reasoner\n\nThe following reasoner options are supported: \n- [ELK](https://code.google.com/p/elk-reasoner/) (elk)\n- [Expression Materializing Reasoner](http://static.javadoc.io/org.geneontology/expression-materializing-reasoner/0.1.3/org/geneontology/reasoner/ExpressionMaterializingReasoner.html) (emr)\n- [HermiT](http://www.hermit-reasoner.com/) (hermit)\n- [JFact](http://jfact.sourceforge.net/) (jfact)\n- [Structural Reasoner](http://owlcs.github.io/owlapi/apidocs_4/org/semanticweb/owlapi/reasoner/structural/StructuralReasoner.html) (structural)\n- [Whelk](https://github.com/balhoff/whelk) (whelk)\n\n\u26a0\ufe0f Only **HermiT** and **JFact** are recommended for consistency validation, since they are the\nonly reasoner options here that are complete OWL DL reasoners capable of generating explanations.\nThe remaining options are kept for backwards compatibility.\n\n### Produce output graph\n\nIf enabled, an explanation graph is created.\n\n### Output graph IRI\n\nThe IRI of the output graph for the reasoning result.\n\n\u26a0\ufe0f Existing graphs will be overwritten.\n\n### Write markdown explanation file\n\nIf enabled, an explanation markdown file is written to the project.\n\n### Output filename\n\nThe filename of the Markdown file with the explanation of inconsistencies.\n\n\u26a0\ufe0f Existing files will be overwritten.\n\n### Stop at inconsistencies\nRaise an error if inconsistencies are found. If enabled, the plugin does not output entities.\n\n### Validate OWL2 profiles\n\nValidate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.\n\n### Mode\nMode _inconsistency_ generates an explanation for an inconsistent ontology.  \nMode _unsatisfiability_ generates explanations for many unsatisfiable classes at once.\n\n### Output entities\n\nOutput entities. The plugin outputs the explanation as text in Markdown format on the path \"markdown\", the ontology IRI\non the path \"ontology_graph_iri\", the reasoner option on the path \"reasoner\", and, if enabled, the valid OWL2 profiles\non the path \"valid_profiles\".\n\n### Maximum RAM Percentage\n\nMaximum heap size for the Java virtual machine in the DI container running the reasoning process.\n\n\u26a0\ufe0f Setting the percentage too high may result in an out of memory error.\n",
     "pluginIcon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIC03MCAzMTggNjYwIj4KICAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE3Ny4xNjYgOTguNTI0Yy0uNDc4LTEyLjI2My0xNS4xNjMtMTguMzgtMjIuMjA5LTIzLjEyOGMtNS42NzMtMy44MjMtMzguNiAxNC43NzUtNTEuNTI0IDIzLjE3NkM4Ny41MDcgMTA4LjkyNCA5MS4xNyAxMzEuMzggOTEuMTcgMTMxLjM4Yy00LjMgNC42MTgtNi40NDcgNy4xMi03LjgwMyAxNC44MWMtLjk1NiA1LjQxNSAxLjM3NCAxMC45MyAyLjU0OCAxNi4wODVjLjk0OCA0LjE2Ny43OTYgNy4zMjYuNzk2IDcuMzI2Yy0xMC41MSAzLjE4NS0xOC4xNTUgMTQuODEtMTguMTU1IDE0LjgxSDY1LjM3Yy0yLjA3LTMuMDI2LTMuODIyLTI0LjUyNS0uMzE5LTMwLjQxN2MyNS44MTUtMTkuMzMuNDc4LTM5LjMzNi0yNS43OTktNTAuMTY1Yy02LjE1LTIuNTM1LTEwLjcxNS0uODQzLTE1LjQ0OC4xNTljLTIxLjgxNyA0LjYxOC0zLjk4IDU2LjA1Ny0zLjk4IDU2LjA1N3Y2LjA1MnMtMjEuMzM5LTQ1LjM3LTE5Ljc0LTU3LjI0OWMxLjE2OC04LjY3MSA5LjQ5Ni0xNi44MjUgMTcuODItMTguNzMzYzIuODgzLS42Ni4wMjktOC4wNjcgMS41OTktMTUuNzYzYzIuMDIzLTkuOTE2IDExLjAwOC0yMi41MSAxMS4wMDgtMjIuNTFjNS4yNSA2LjI5IDEyLjI3MSAzMy4xMyAxMi4yNzEgMzMuMTNsMTguNDU2LjA2OHM3OC44MjYtMzQuMzYyIDg4LjYyNy0zNi45MjhMMTY5LjAyMyAwYzEyLjk5NCA4Ljc5NiAyMC44MTQgMjYuMjQzIDIxLjQxNyA0OC41NjVjMCAwIDE4LjUwNCAyLjM3OSAyOC45NTggMTQuMTc3YzIxLjExNiAyMy44MyAyNC42OTIgNTguMDEgNTQuMjk3IDgxLjQ0NWMxMi43MDkgMTAuMDYgMjQuMTkgMTguMTIzIDMxLjg0MiAzNC43NzdjMTcuMzMxIDM3LjcyNCAxNi45MDggOTkuNS04LjIwNiAxMzkuMDEyYzAgMC02Mi43NDggOTIuNjc0LTU4Ljg4NyAxMTYuODA4YzMuODYyIDI0LjEzNCAyOS45MjYgMjUuNTgyIDY2LjEyNyAyNS41ODJsLTI3LjExOSAzNy42MjNjLTUyLjI3OSAxMC4zNzYtMTE0LjY0OCAzNS4wMjEtMTA4LjUxNC0yNC4xMDhjMCAwLTk5LjUyOCA1NS4xNy0xMzcuMDggMjkuOTI2Yy0xMy40MDUtOS4wMS0zOS41OC04OC43OTgtMTkuNzktMTQ3LjQ4OWM0LjgzNS0xNC4zMzcgMTUuMTAyLTMzLjQ1MyAyOC45Ni00OS40NDRjMzEuMzc1LTM2LjIgNTUuMDI2LTUyLjYxMiA3Mi4zODMtNjguNjAzYzEzLjMyNy0xMi4yOCAyNC43NTgtMTYuMzI2IDI5LjQ2My0yNC4wNzFjOS44Mi0xNi4xNjcgMS45MDgtMjguODcxIDEuOTA4LTI4Ljg3MWMxOC44NTYtNy42MyAzMS41NS0xOS41MjUgMzYuMTQ3LTI3Ljg1NmM1LjI0Mi05LjUwNC01LjYzOC04Ljc4OC01LjYzOC04Ljc4OHMxMC40MjItMTIuNDQ3IDEzLjEtMjIuNzE2Yy40NDUtMS43MTEtMy4xNjMtNC43NzMtMi44Mi02LjQ2N2MxLjIxMi01Ljk4IDIuMTU2LTE0LjI2LjY2NC0xNi43NDdjLTQuNzktNy45ODItOS4wNy00LjIzMS05LjA3LTQuMjMxbS03OC4wOTggMzMzLjdjNjAuMjQyLTYuMzQ4IDczLjU3MS0zMi4xOTMgNzMuNDEtMzMuMzE5YzAgMC0yNi43NTMtLjc1LTMwLjM0Ny0xLjQxMmMtNS4wMDktLjkyMy02LjU4Ni0zLjMzLTYuNTg2LTMuMzNjNjcuOTI2IDEuNzc2IDk2LjQyLTM5LjQ4MiAxMTYuNDE0LTczLjc3NGMyOC40NDctNDguNzg2IDEwLjA2MS0xMDQuMzQ3LTQuNy0xNDAuNDc5Yy00Ni42MDIgMzUuNzk5LTEzNy4yODkgOTguMzU3LTE3Ni4zMDQgMTU0LjQ3N2MtMjkuNzEgNDIuNzM0LTIuMzU4IDE0MS45OTcgNi45NzUgMTUxLjQ1NWM5LjMzMiA5LjQ1NyA4Mi43MDctNTMuNjk0IDgyLjcwNy01My42OTRjLTI3LjE0NyA3LjM1Mi01MC41OCAxMC41OTQtNjEuNTY5LjA3Nk02NC43MzggMTMwLjU0Yy41NzggOC4yMzMtNC45MTUgMjAuNTYtMjAuNTg0IDIxLjg2NWMtMTUuNjY4IDEuMzA2LTI1LjI1LTEzLjU5NC0yNS4zNS0xNy45NjVjLS4yODgtMTIuNzExIDkuMzktMTguMDU2IDIxLjA5LTE4LjA1NnMyNC4yNjYgNS45MjMgMjQuODQ0IDE0LjE1Nm0tOS42NCA2LjI4Yy43OTQtOC45NDItMy4zNzgtMTIuNTE4LTEzLjkwOC0xMi45MTVjLTEwLjUzLS4zOTgtMTMuOTA4IDcuMzUxLTEwLjczIDE0LjljMy4xOCA3LjU1IDIzLjg0MiA2Ljk1NSAyNC42MzctMS45ODZtNDguMDMzLTE1LjIwNWMxLjQzOS03LjQzNSA1Ljc2NC0xOS42NTYgMjkuOTc3LTIwLjYyNWMyOS45NzctMS4xOTkgMzQuMTg0IDIxLjY3MiAyOS43MzcgMzIuMzc2Yy02LjQ3NSAxNS41ODgtMjcuODE4IDI2LjM4LTQzLjQwNyAxNS4xMDhzLTE3Ljc0Ni0xOS40MjUtMTYuMzA3LTI2Ljg2bTEzLjY3IDcuOTE0czUuNTE1IDExLjc1IDE4LjIyNiAxMC41NTJjMTIuNzEtMS4yIDE2LjMwNy0xMC43OTIgMTYuNzg3LTE2LjA2OGMuMjE1LTIuMzczLTEuNjMxLTguNjg2LTYuNDc1LTExLjUxMWMtNS45MjgtMy40NTctMTUuNTM3LTMuMDcxLTIxLjM0NC0uOTZjLTEwLjU1MiAzLjgzNy03LjE5NSAxNy45ODctNy4xOTUgMTcuOTg3Ii8+Cjwvc3ZnPg==",
     "properties": {
       "ontology_graph_iri": {
@@ -7579,7 +8742,7 @@
         "title": "Ontology graph IRI",
         "description": "The IRI of the input ontology graph.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": null,
         "advanced": false,
         "visibleInDialog": true,
@@ -7601,7 +8764,7 @@
         "title": "Output graph IRI",
         "description": "The IRI of the output graph for the inconsistency validation. \u26a0\ufe0f Existing graphs will be overwritten.",
         "type": "string",
-        "parameterType": "string",
+        "parameterType": "scheme:string",
         "value": "",
         "advanced": false,
         "visibleInDialog": true,
@@ -7621,7 +8784,7 @@
       "reasoner": {
         "name": "reasoner",
         "title": "Reasoner",
-        "description": "Reasoner option.",
+        "description": "Reasoner option. Only \"HermiT\" and \"JFact\" are recommended for consistency validation, since they are the only reasoners offered here that are complete OWL DL reasoners capable of generating explanations. The remaining options are kept for backwards compatibility.",
         "type": "string",
         "parameterType": "string",
         "value": null,
@@ -12671,7 +13834,7 @@
         "description": "Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.",
         "type": "string",
         "parameterType": "string",
-        "value": "2026-08-20",
+        "value": "2026-09-02",
         "advanced": false,
         "visibleInDialog": true,
         "properties": {}
@@ -20438,7 +21601,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID1": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID1",
-    "title": "UUID1",
+    "title": "UUIDv1",
     "categories": [
       "Value",
       "Identifier"
@@ -20489,7 +21652,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID1ToUUID6",
-    "title": "UUID1 to UUID6",
+    "title": "UUIDv1 to UUIDv6",
     "categories": [
       "Value",
       "Identifier"
@@ -20514,7 +21677,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID3": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID3",
-    "title": "UUID3",
+    "title": "UUIDv3",
     "categories": [
       "Value",
       "Identifier"
@@ -20562,7 +21725,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID4": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID4",
-    "title": "UUID4",
+    "title": "UUIDv4",
     "categories": [
       "Value",
       "Identifier"
@@ -20587,7 +21750,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID5": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID5",
-    "title": "UUID5",
+    "title": "UUIDv5",
     "categories": [
       "Value",
       "Identifier"
@@ -20635,7 +21798,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID6": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID6",
-    "title": "UUID6",
+    "title": "UUIDv6",
     "categories": [
       "Value",
       "Identifier"
@@ -20683,7 +21846,7 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID7": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID7",
-    "title": "UUID7",
+    "title": "UUIDv7",
     "categories": [
       "Value",
       "Identifier"
@@ -20708,16 +21871,50 @@
   },
   "cmem_plugin_uuid-plugin_uuid-UUID8": {
     "pluginId": "cmem_plugin_uuid-plugin_uuid-UUID8",
-    "title": "UUID8",
+    "title": "UUIDv8",
     "categories": [
       "Value",
       "Identifier"
     ],
     "main_category": "Value",
-    "description": "Generate a UUIDv8 from a random number, and the current time.",
-    "markdownDocumentation": "UUIDv8 features a time-ordered value field derived from the\nwidely implemented and well known Unix Epoch timestamp source, the\nnumber of nanoseconds since midnight 1 Jan 1970 UTC, leap seconds\nexcluded.\n",
+    "description": "Generate a UUIDv8 from three custom data fields (RFC 9562 \u00a75.8).",
+    "markdownDocumentation": "UUIDv8 is a free-form / experimental UUID format defined in\nRFC 9562 \u00a75.8. The 122 bits available outside the version and variant fields\nare split into three custom data fields: 'a' (48 bits, octets 0-5), 'b' (12\nbits, octets 6-7), and 'c' (62 bits, octets 8-15). When a field is left\nempty, a random value is used.\n",
     "pluginIcon": null,
-    "properties": {},
+    "properties": {
+      "a": {
+        "name": "a",
+        "title": "Custom data 'a' (default: random)",
+        "description": "First 48-bit chunk of the UUID (octets 0-5) as a positive integer. If not given, a random value is used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "b": {
+        "name": "b",
+        "title": "Custom data 'b' (default: random)",
+        "description": "Middle 12-bit chunk of the UUID (octets 6-7) as a positive integer. If not given, a random value is used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      },
+      "c": {
+        "name": "c",
+        "title": "Custom data 'c' (default: random)",
+        "description": "Last 62-bit chunk of the UUID (octets 8-15) as a positive integer. If not given, a random value is used.",
+        "type": "string",
+        "parameterType": "string",
+        "value": "",
+        "advanced": false,
+        "visibleInDialog": true,
+        "properties": {}
+      }
+    },
     "properties_advanced": {},
     "actions": {},
     "required": [],

@@ -38,9 +38,9 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-- [eccenca Explore v26.2.0](#eccenca-explore-v2620)
+- [eccenca Explore v26.2.1](#eccenca-explore-v2621)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
-- [eccenca Corporate Memory Control (cmemc) v26.2.0](#eccenca-corporate-memory-control-cmemc-v2620)
+- [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
 - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
 - [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
@@ -279,9 +279,41 @@ We are excited to announce the release of DataIntegration v26.2, which brings re
     - Overriding a setting in `dataintegration.conf` now also updates the settings derived from it, e.g. setting `directories.base` moves the data, cache, and log directories along with it.
     - The `profiling.rdfSerialization.enabled` setting now controls the RDF profiling output; previously it was ignored and the output was controlled by `profiling.cache.enabled` instead.
 
-## eccenca Explore v26.2.0
+## eccenca Explore v26.2.1
 
 We are pleased to announce the release of Explore v26.2, which introduces the new Manage module, extends Companion with external MCP servers and SHACL based resource authoring, improves SHACL editing and chart handling, and ships a broad platform refresh.
+
+**v26.2.1 of Explore introduces the following changes:**
+
+- **Companion:**
+    - Added a Spring profile which enables the wire logging of LLM requests and responses.
+    - Upgraded Spring AI to 2.0.1.
+
+**v26.2.1 of Explore removes the following functionality:**
+
+- **Store backends:**
+    - Removed the support for the Amazon Neptune store backend.
+        - The store type `neptune` as well as all `store.neptune.*` properties are gone.
+        - This also drops the end-of-life dependencies `com.amazonaws:aws-java-sdk-core` and `aws-java-sdk-s3` together with `amazon-neptune-sigv4-signer`.
+        - See the [Migration Notes](#eccenca-explore) below.
+
+**v26.2.1 of Explore ships the following fixes:**
+
+- **Companion:**
+    - Special characters are now handled correctly.
+    - Partially saving a change set no longer breaks Companion.
+    - Fixed a strict JSON schema issue with OpenAI models.
+- **SHACL:**
+    - The first line of the edit form is no longer cropped.
+    - Badges: the color palette is no longer lost.
+    - Fixed memory leaks in the batch validation.
+- **Business Knowledge Editor (BKE):**
+    - A new visualization no longer loses all its nodes when an instance search term is entered.
+    - A visualization can now be saved even if a resource has a SHACL violation.
+    - Fixed the ontology engineering of `rdfs:subClassOf` relations.
+- **Other:**
+    - Logging into Explore no longer fails with a `ForbiddenException` if the user has no Build action.
+    - The Turtle editor now shows `emptySource` for resources without triples.
 
 **v26.2.0 of Explore adds the following new features:**
 
@@ -453,9 +485,24 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 
-## eccenca Corporate Memory Control (cmemc) v26.2.0
+## eccenca Corporate Memory Control (cmemc) v26.2.1
 
 We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
+
+**v26.2.1 of cmemc adds the following new features:**
+
+- `package download` command to fetch a package archive (.cpa) from the marketplace without installing it
+    - `--version` downloads a specific version, shell completion lists the available versions
+    - `--with-dependencies` also downloads the marketplace packages the package depends on
+    - Python plugin dependencies can not be downloaded and are reported as a warning
+
+**v26.2.1 of cmemc ships the following fixes:**
+
+- `workflow status --raw` crashed with `TypeError: Object of type datetime is not JSON serializable`
+    - the `queueTime` and `startTime` fields are now emitted as ISO 8601 strings again
+    - in addition, all `--raw` output now falls back to the canonical pydantic JSON representation instead of failing hard
+- nearly all commands crashed with `Unknown color ''` when click 8.5.0 or newer was installed
+    - click 8.5.0 started to validate color arguments, which turned the internal "no color" default into an error
 
 **v26.2.0 of cmemc adds the following new features:**
 
@@ -605,6 +652,8 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 
 ### eccenca Explore
 
+- **Amazon Neptune store backend:** The support for the Amazon Neptune store backend was removed with v26.2.1.
+    Deployments which are configured with `store.type: neptune` do not start anymore and need to be migrated to a supported store backend or configured via generic http backend configuration.
 - The default configuration of the graph tabs changed: the **Vocabularies** tab now excludes vocabularies marked with `shui:isSystemResource`.
 
 ### cmemc

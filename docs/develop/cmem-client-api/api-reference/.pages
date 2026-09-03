@@ -1,0 +1,10 @@
+nav:
+    - API Reference: index.md
+    - client: client
+    - config: config
+    - exceptions: exceptions
+    - logging_utils: logging_utils
+    - auth_provider: auth_provider
+    - components: components
+    - models: models
+    - repositories: repositories

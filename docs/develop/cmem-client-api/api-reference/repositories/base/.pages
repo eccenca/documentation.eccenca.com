@@ -1,0 +1,6 @@
+title: base
+nav:
+    - abc: abc
+    - paged_list: paged_list
+    - plain_list: plain_list
+    - task_search: task_search
