@@ -1,13 +1,13 @@
 ---
-title: "Update Graph Insights Snapshots"
-description: "Update one or more snapshots, optionally selected by affected graph."
+title: "Create or Update Graph Insights Snapshots"
+description: "Create a snapshot for a graph that has none, or update it if one already exists."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
     - PythonPlugin
 ---
 
-# Update Graph Insights Snapshots
+# Create or Update Graph Insights Snapshots
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
@@ -17,20 +17,23 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-This workflow task updates [Graph Insights](https://go.eccenca.com/feature/explore-graph-exploration-graph-insights?lang=en&origin=cmem-plugin-graph-insights)
+This workflow task creates or updates [Graph Insights](https://go.eccenca.com/feature/explore-graph-insights?lang=en&origin=cmem-plugin-graph-insights)
     snapshots for a specified graph in your system.
 
 ## Behavior
 
 - **No graph selected**: All snapshots in the system are updated
-- **Graph selected**: Only snapshots associated with the selected graph are updated
+- **Graph selected**: Every snapshot associated with the selected graph (including
+  ones where it is only an imported sub-graph) is updated. If the selected graph
+  does not have a dedicated snapshot of its own yet, one is also created for it.
 
 ## Usage
 
 1. Add this task to your workflow.
-2. Optionally select a specific graph to limit which snapshots are updated.
-3. Use the "Preview Snapshots" action to see which snapshots will be affected before execution.
-4. Run the workflow to update the snapshots.
+2. Optionally select a specific graph to create or update its snapshot.
+3. Use the "Preview Snapshots" action to see which snapshots will be affected,
+   and whether a new one will be created, before execution.
+4. Run the workflow to create or update the snapshots.
 
 ## Prerequisites
 
@@ -43,10 +46,10 @@ This workflow task updates [Graph Insights](https://go.eccenca.com/feature/explo
 
 ### Selected Graph
 
-Selected graph to update snapshots for. Leave empty for updating all snapshots.
+Graph to create or update a snapshot for. Leave empty to update every existing snapshot instead.
 
 - ID: `selected_graph`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 ## Advanced Parameter

@@ -3,9 +3,15 @@
 
 version: '3'
 
+dotenv: ['.env']
+
 vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 26.2
+  # the markdown linter command, used by format:fix:path and check:rumdl
+  RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
+  # the default lint targets: the docs tree plus the top-level markdown files
+  DOCS_PATHS: ./docs ./*.md
 
 tasks:
 
@@ -172,11 +178,44 @@ tasks:
     cmds:
       - rm -rf {{.REFERENCE_DIR}}/*
       - cmemc manual --format markdown-multi-page --output-dir {{.REFERENCE_DIR}}
-      - >
-        find ./docs/automate/cmemc-command-line-interface -type f -name '*.md' -print0
-        | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/automate/cmemc-command-line-interface
     vars:
       REFERENCE_DIR: docs/automate/cmemc-command-line-interface/command-reference
+
+  update:cmem-client-api:
+    desc: re-generates the cmem-client Python API reference (needs local cmem-client checkout)
+    summary: |
+      Regenerates docs/develop/cmem-client-api/api-reference from the
+      docstrings of a local cmem-client checkout, via that repository's own
+      `task docs:export-md` (see etc/export_api_md.py there).
+
+      The landing page (docs/develop/cmem-client-api/index.md) and its
+      .pages file are hand-written and untouched by this task - only the
+      api-reference/ subtree is wiped and regenerated.
+
+      This documents whatever branch/commit is currently checked out in
+      CMEM_CLIENT_DIR, not necessarily the last release - check out the ref
+      you want documented before running this.
+
+        CMEM_CLIENT_DIR=/path/to/cmem-client task update:cmem-client-api
+    preconditions:
+      - sh: '[ -n "{{.CMEM_CLIENT_DIR}}" ]'
+        msg: |
+          CMEM_CLIENT_DIR is not set. Run this task with the path to a local
+          cmem-client checkout, e.g.:
+
+            CMEM_CLIENT_DIR=/path/to/cmem-client task update:cmem-client-api
+    cmds:
+      - rm -rf {{.REFERENCE_DIR}}/*
+      - task -d {{.CMEM_CLIENT_DIR}} docs:export-md OUTPUT_DIR={{.ROOT_DIR}}/{{.REFERENCE_DIR}}
+      - task: format:fix:path
+        vars:
+          PATHS: '{{.ROOT_DIR}}/{{.REFERENCE_DIR}}'
+        ignore_error: true
+    vars:
+      REFERENCE_DIR: docs/develop/cmem-client-api/api-reference
 
   update:shape-reference:
     desc: re-generates the shape and datatype references (needs local CO)
@@ -217,12 +256,17 @@ tasks:
     desc: update the task and operator reference pages (needs local CO)
     cmds:
       - poetry run dec-tool update-di-reference
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/build/reference
 
   update:integrations:
     desc: update integrations page (needs data/integrations.yml)
     cmds:
       - poetry run dec-tool update-integrations
-      - cmd: poetry run rumdl --config .markdownlint.jsonc check --fix docs/build/integrations/index.md
+      - task: format:fix:path
+        vars:
+          PATHS: ./docs/build/integrations/index.md
         ignore_error: true
 
   public:versions:
@@ -248,39 +292,42 @@ tasks:
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
+  format:fix:path:
+    internal: true
+    summary: |
+      Run rumdl (md-lint) with --fix on the markdown files below PATHS.
+
+      PATHS is a space separated list of files and/or directories, which is
+      used as the search roots of a find call, so directories are searched
+      recursively:
+
+        - task: format:fix:path
+          vars:
+            PATHS: ./docs/build/reference
+    requires:
+      vars: [PATHS]
+    cmds:
+      - >
+        find {{.PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --fix
+
   format:fix:
     desc: rumdl (md-lint) and apply possible style fixes
     cmds:
-      - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --fix
+      - task: format:fix:path
+        vars:
+          PATHS: '{{.DOCS_PATHS}}'
 
   check:rumdl:
     desc: run rumdl (md-linter) for style issues without failing the check stage
     cmds:
       - mkdir -p ./dist
       - rm -f ./dist/md-lint-issues.xml
+      - >
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --output-format junit > ./dist/md-lint-issues.xml || true
       - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check --output-format junit > ./dist/md-lint-issues.xml || true
-      - |
-        {
-          # recurse
-          find ./docs -type f -name '*.md' -print0
-
-          # no recursion (top-level only)
-          find . -maxdepth 1 -type f -name '*.md' -print0
-        } | xargs -0 poetry run rumdl --config .markdownlint.jsonc check || {
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0 | xargs -0 {{.RUMDL_CHECK}} || {
           echo "rumdl reported markdown style issues; continuing without failing the check stage."
           true
         }

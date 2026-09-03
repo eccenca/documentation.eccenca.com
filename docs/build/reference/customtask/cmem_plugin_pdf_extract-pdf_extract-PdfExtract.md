@@ -70,17 +70,11 @@ The output is a JSON string on the path `pdf_extract_output`. The format depends
 
 ## Input format
 
-This task can either work with project files when a regular expression is being used or with
-entities coming from another task or dataset.
-The input must be file entities following the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).
-If a regular expression is set, the input ports will close and no connection will be possible.
+This task takes file entities from a connected upstream task or dataset.
+The input must follow the [FileEntitySchema](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/typed_entities/file.py).
 
 
 ## Parameters
-
-**<a id="parameter_doc_regex">File name regex filter</a>**
-
-Regular expression used to filter the resources of the project to be processed. Only matching file names will be included in the extraction.
 
 **<a id="page_selection">Page selection</a>**
 
@@ -129,14 +123,6 @@ Available strategies include:
 **<a id="parameter_doc_max_processes">Maximum number of processes for processing files</a>**
 
 Defines the maximum number of processes to use for concurrent file processing. By default, this is set to (number of virtual cores - 1).
-
-
-## Test regular expression
-
-Clicking the "Test regex pattern" button displays the files in the current project that match the regular expression
-specified with the ["File name regex filter"](#parameter_doc_regex) parameter.
-This does not display the files if there is another dataset or task connected to the input
-as the entities are not known before execution.
 
 
 ## Parameter
@@ -190,16 +176,6 @@ Specifies how text is extracted from a PDF page. Options include "raw", "layout"
 - Default Value: `default`
 
 ## Advanced Parameter
-
-### File name regex filter
-
-Regular expression for filtering resources of the project. If this parameter is set, the input port will be closed and project files will be compared against the regular expression.
-
-- ID: `regex`
-- Datatype: `string`
-- Default Value: `None`
-
-
 
 ### Custom table extraction strategy
 

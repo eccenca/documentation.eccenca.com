@@ -101,6 +101,7 @@ tags:
 | [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
 | [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
 | [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
+| [package](package/index.md) | [download](package/index.md#package-download) | Download a package archive from the marketplace. |
 | [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
 | [package](package/index.md) | [export](package/index.md#package-export) | Export installed packages to package directories. |
 | [package](package/index.md) | [build](package/index.md#package-build) | Build a package archive from a package directory. |

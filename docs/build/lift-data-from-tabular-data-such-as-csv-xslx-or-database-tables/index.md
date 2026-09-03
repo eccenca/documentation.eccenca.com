@@ -5,11 +5,11 @@ tags:
   - BeginnersTutorial
   - KnowledgeGraph
 ---
-# Lift data from tabular data such as CSV, XSLX or database tables
+# Lift data from tabular data
 
 ## Introduction
 
-This beginner-level tutorial shows how you can build a Knowledge Graph based on input data from a **comma-separated value file** (.csv), an **excel file** (.xlsx) or a **database table** (jdbc).
+This beginner-level tutorial shows how you can build a Knowledge Graph based on tabular input data. This tutorial will use a **comma-separated value file** (.csv), it applied equally to other tabular inputs such as **excel files** (.xlsx) or **database tables** (jdbc).
 
 !!! Tutorial Package
 
@@ -41,16 +41,6 @@ The following material is used in this tutorial, you should download the files a
         | I241-8776317 | Component Confabulation | Z249-1364492, L557-1467804, C721-7900144, ... | Corinna.Ludwig@company.org | 1082,00 EUR |
         | …            | …                       | …                                             | …                          | …           |
 
-- Sample Excel file: [products.xlsx](products.xlsx)
-
-    !!! info
-
-        | ProductID    | ProductName        | Height | Width | Depth | Weigth | ProductManager              | Price    |
-        | ------------ | ------------------ | ------ | ----- | ----- | ------ | --------------------------- | -------- |
-        | I241-8776317 | Strain Compensator | 12     | 68    | 15    | 8      | Baldwin.Dirksen@company.org | 0,50 EUR |
-        | D215-3449390 | Gauge Crystal      | 77     | 58    | 19    | 15     | Wanja.Hoffmann@company.org  | 2,00 EUR |
-        | …            | …                  | …      | …     | …     | …      | …                           | …        |
-
 ---
 
 ## 1 Install the required Ontologies / Vocabularies
@@ -59,14 +49,14 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 === "Corporate Memory"
 
-    1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu.
+    1. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu under **EXPLORE**.
         In the **Graphs** drop-down, click :eccenca-item-add-artefact: **Add new graph** and select the **New graph from File** option.
 
         ![Add new graph](ldftds-add-new-graph.png){ class="bordered"}
 
         ![New graph from File option](ldftds-new-graph-from-file.png){ class="bordered" width="70%"}
 
-    2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step.
+    2. In the next step, select the RDF file via **browse** or add it via drag-and-drop. Define the **Target graph URI** (should be populated automatically as `http://ld.company.org/prod-vocab/` as derived from the uploaded file) and confirm to add / replace this graph in the final dialog step. Tick the **Add new graph** checkbox and click **Upload**.
 
         ![Define Target graph URI](ldftds-define-target-graph-uri.png){ class="bordered" width="70%"}
 
@@ -80,7 +70,7 @@ The vocabulary contains the classes and properties needed to map the data into t
 
 ## 2 Uploading of the data (file)
 
-1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **Build** section.
+1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **BUILD** section.
     Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
     ![Create new project](ldftds-create-project.png){ class="bordered" }
@@ -108,19 +98,17 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     1. Within your project, click on  **Create workflow**.
 
-        ![](create-workflow.png){ class="bordered" width="50%" }
+        ![Create Workflow](create-workflow.png){ class="bordered" }
 
     2. Fill out a label and click **Create**.
 
-        ![](workflow.png){ class="bordered" width="50%" }
+        ![Label name](workflow.png){ class="bordered" width="50%" }
 
     3. Drag and drop the **[services.csv](services.csv) sample file** on the grid.
 
     4. Optionally change the Label, then click on **Create**.
 
-        ![](add-services-csv.png){ class="bordered" width="50%" }
-
-    5. Create a second **dataset** by drag & drop it on the grid using [products.xlsx](products.xlsx) file.
+        ![Add services csv](add-services-csv.png){ class="bordered" width="50%" }
 
 === "cmemc"
 
@@ -128,44 +116,47 @@ The vocabulary contains the classes and properties needed to map the data into t
     $ cmemc project create tutorial-csv
 
     $ cmemc dataset create --project tutorial-csv services.csv
-
-    $ cmemc dataset create --project tutorial-csv products.xlsx
     ```
 
 === "JDBC"
 
     Instead of uploading the [services.csv](services.csv) sample file into Corporate Memory, you can also load it into a SQL database and access it from Corporate Memory using the JDBC protocol.
 
-    1. In the project, Click **Create** and select the **JDBC endpoint** type.
+    1. Click again on **Create new** :eccenca-item-add-artefact: in the top right corner. In the **Create new item** window, select **JDBC endpoint** type and click **Add**.
 
         ![](build-dataset-types-jdbc.png){ class="bordered" width="50%" }
 
-    2. Define a **Label** for the dataset, specify the **JDBC Driver connection URL**, the **table** name and the **user** and **password** to connect to the database. _In this example we will use:_
+    2. Define a **Label** for the dataset, specify the **JDBC Driver connection URL**, the **table** name and the **user** and **password** to connect to the database.
+    In this example we will use:
 
-        - Name: _**Services_ServiceDB**_
-        - JDBC Driver Connection URL: _**jdbc:mysql://mysql:3306/ServicesDB**_
-        - table: _**Services**_
-        - username: _**root**_
-        - password: _**\*\*\*\***_
+        - Name: `Services_ServiceDB`
+        - JDBC Driver Connection URL: `jdbc:mysql://mysql:3306/ServicesDB`
+        - table: `Services`
+        - username: `root`
+        - password: `***`
 
         ![](create-new-dataset-jdbc.png){ class="bordered" width="50%" }
 
-        The general form of the JDBC connection string is:
+    3. Click **Create**.
 
-        ```text
-        jdbc:<vendor>://<hostname>:<portNumber>/<databaseName>
-        ```
+        !!! info
 
-        Default JDBC connection strings for popular Relational Database Management Systems:
+            The general form of the JDBC connection string is:
 
-        | Vendor               | Default JDBC Connection String                  | Default Port |
-        | -------------------- | ----------------------------------------------- | ------------ |
-        | Microsoft SQL Server | jdbc:sqlserver:<hostname>:1433/<databaseName>   | 1433         |
-        | PostgreSQL           | jdbc:postgresql:<hostname>:5432/<databaseName>  | 5432         |
-        | MySQL                | jdbc:mysql:<hostname>:3306/<databaseName>       | 3306         |
-        | MariaDB              | jdbc:mariadb:<hostname>:3306/<databaseName>     | 3306         |
-        | IBM DB2*             | jdbc:db2:<hostname>:50000/<databaseName>        | 50000        |
-        | Oracle*              | jdbc:oracle:thin:<hostname>:1521/<databaseName> | 1521         |
+            ```text
+            jdbc:<vendor>://<hostname>:<portNumber>/<databaseName>
+            ```
+
+            Default JDBC connection strings for popular Relational Database Management Systems:
+
+            | Vendor               | Default JDBC Connection String                  | Default Port |
+            | -------------------- | ----------------------------------------------- | ------------ |
+            | Microsoft SQL Server | jdbc:sqlserver:<hostname>:1433/<databaseName>   | 1433         |
+            | PostgreSQL           | jdbc:postgresql:<hostname>:5432/<databaseName>  | 5432         |
+            | MySQL                | jdbc:mysql:<hostname>:3306/<databaseName>       | 3306         |
+            | MariaDB              | jdbc:mariadb:<hostname>:3306/<databaseName>     | 3306         |
+            | IBM DB2*             | jdbc:db2:<hostname>:50000/<databaseName>        | 50000        |
+            | Oracle*              | jdbc:oracle:thin:<hostname>:1521/<databaseName> | 1521         |
 
         !!! info
 
@@ -183,15 +174,16 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 1. Click on the right dot and select **Connect to the newly created Transformation**.
 
-    ![](create-transformation.png){ class="bordered" width="50%" }
+    ![Create transformation](create-transformation.png){ class="bordered" }
 
-2. Fill out the **Label** with _**Lift Service Database**_.
+2. Fill out the **Label** with `Lift Service Database`.
 
-    ![](transformation-label.png){ class="bordered" width="50%" }
+3. Scroll down to **Target vocabularies**, select **Select individual vocabularies** and choose `pv: Products-Vocab` in the drop-down list.
 
-3. Scroll down to **Target vocabularies** and choose **Products vocabulary**.
 
-    ![](select-vocabulary.png){ class="bordered" width="50%" }
+    ![Label transformation](transformation-label.png){ class="bordered" width="50%" }
+
+    ![Select individual vocabularies](select-vocabulary.png){ class="bordered" width="50%" }
 
 4. Click on **Create**.
 
@@ -199,17 +191,19 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 ## 4 Configure Mapping
 
-1. Click on the 3 Dots from the previous created Transformation an choose **Mapping Editor**.
+1. Click on the 3 dots from the previous created Transformation an choose **Mapping Editor**.
 
-2. Click **Mapping** in the main area to expand its menu.
+    ![Mapping Editor](choose-mapping-editor.png){ class="bordered" }
+
+2. Expand the :eccenca-artefact-project: **Mapping** menu with the small arrow in the top right corner.
+
+    ![Expand mapping](expand-mapping.png){ class="bordered" width="70%" }
 
 3. Click **Edit** to create a base mapping.
 
-    ![](services-mapping-rule.png){ class="bordered" width="50%" }
+4. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. After typing the **Target entity type** you must click the custom entry: `Service` suggestion. Typing alone leaves it unset. In this example we will use:
 
-4. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. _In this example we will use:_
-
-    - Target entity type: _**Service**_
+    - Target entity type: `Service`
     - URI pattern:
 
         - Click **Create custom pattern**
@@ -221,40 +215,40 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 5. Click **Save**
 
-_Example RDF triple in our Knowledge Graph based on the mapping definition:_
+    _Example RDF triple in our Knowledge Graph based on the mapping definition:_
 
-``` text
-<http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
-```
+    ``` text
+    <http://ld.company.org/prod-inst/Y704-9764759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Service>
+    ```
 
-1. Evaluate your mapping by clicking the Expand :material-greater-than: button in the **Examples of target data** property to see at most three generated base URIs.
+6. Evaluate your mapping by clicking the :eccenca-toggler-showmore: button in the **Examples of target data** property to see at most three generated base URIs.
 
-    ![](mapping-inline-preview.png){ class="bordered" width="50%" }
+    ![Mapping Inline Preview](mapping-inline-preview.png){ class="bordered" width="50%" }
 
     We have now created the Service entities in the Knowledge Graph. As a next step, we will add the name of the Service entity.
 
-2. Press the circular **Blue + button** on the lower right and select **Add value mapping**.
+7. Click :eccenca-item-add-artefact: **Add mapping** on the lower right and select **Add value mapping**.
 
-    ![](services-mapping-add-rule.png){ class="bordered" width="50%" }
+    ![Add Mapping](services-mapping-add-rule.png){ class="bordered" }
 
-3. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. _In this example we will use:_
+8. Define the **Target property**, the **Data type**, the **Value path** (column name) and a **Label** for your value mapping. In this example we will use:
 
     - Target Property: `name`
-    - Data type: _**String**_
+    - Data type: `String`
     - Value path: `ServiceName` (which corresponds to the column of that name)
     - An optional Label: `service name`
 
     ![](services-mapping-rule-edit.png){ class="bordered" width="50%" }
 
-4. Click **Save**.
+9. Click **Save**.
 
 ---
 
 ## 5 Evaluate a Transformation
 
-Go the **Transform evaluation** tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.
+Go to the **Transform evaluation** tab of your transformation to view a list of generated entities. By clicking one of the generated entities, more details are provided.
 
-![](mapping-evaluation.png){ class="bordered" width="50%" }
+![List of generated entities](mapping-evaluation.png){ class="bordered" width="70%" }
 
 ---
 
@@ -262,14 +256,16 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 1. Switch back to the **Workflow view**.
 
-2. Select the red dot on the right side and click **Connect to the newly created Knowledge graph**.
+2. Select the orange dot on the right side and click **Connect to newly created Knowledge graph**.
 
-    ![](create-knowledge-graph.png){ class="bordered" width="50%" }
+    ![Create Knowdledge Graph](create-knowledge-graph.png){ class="bordered" }
 
-3. Define a **Label** for the Knowledge Graph and provide a **graph** uri. Leave all the other parameters at the default values. In this example we will use:
+3. Define a **Label** for the Knowledge Graph and provide a **Graph** URI. Leave all the other parameters at the default values. In this example we will use:
 
     - Label: `Service Knowledge Graph`
     - Graph: `http://ld.company.org/prod-instances/`
+
+    After typing the Graph URI you must click the Custom entry: `Service Knowledge Graph` suggestion. Typing alone leaves it unset.
 
     ![](knowledge-graph.png){ class="bordered" width="50%" }
 
@@ -277,22 +273,22 @@ Go the **Transform evaluation** tab of your transformation to view a list of gen
 
 5. Press the :material-play: button and click on **Save and run workflow**.
 
-6. Validate the results by selecting **Workflow report** In this example, 9x Service triples were created in our Knowledge Graph based on the mapping.
+6. Verify a successful run by selecting **Workflow report**.
 
-    ![](mapping-execution-result.png){ class="bordered" width="50%" }
+    ![](mapping-execution-result.png){ class="bordered" width="70%" }
 
-7. Click Knowledge Graph under **Explore** in the navigation on the left side of the page.
+7. Click the :eccenca-application-explore: **Knowledge graphs** icon in the main menu under **EXPLORE**.
 
     ![](explore-knowledge-graph.png){ class="bordered" width="50%" }
 
-8. Optionally, you can click on the Settings Icon and add more columns to the viw.
+8. Optionally, you can click on the Settings Icon and add more columns to the view.
 
-    ![](graph-settings.png){ class="bordered" width="50%" }
+    ![Add columns](graph-settings.png){ class="bordered" width="50%" }
 
 9. Here you can add `name` for example.
 
-    ![](add-name-column.png){ class="bordered" width="50%" }
+    ![Add name](add-name-column.png){ class="bordered" }
 
 10. Finally you can use the Explore **Knowledge Graphs** module to (re-)view of the created Knowledge Graph: `http://ld.company.org/prod-instances/`
 
-    ![](kg-result.png){ class="bordered" width="50%" }
+    ![](kg-result.png){ class="bordered" }

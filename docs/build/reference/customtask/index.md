@@ -17,15 +17,20 @@ A custom workflow task is an operator that can be used in a workflow.
 |         Name | Description              |
 |-------------:|:-------------------------|
  | [Add project files](addProjectFiles.md) | Adds file resources to the project that are piped into the input port. |
+ | [Build Packages](cmem_plugin_packages-BuildPackages.md) | Build package archives from a CPA manifest, using graphs, projects and files from this instance. |
+ | [Bump Version in Package Manifest](cmem_plugin_packages-BumpVersions.md) | Raise the version of a CPA manifest, by semantic level or to the current date. |
  | [Cancel Workflow](CancelWorkflow.md) | Cancels a workflow if a specified condition is fulfilled. A typical use case for this operator is to cancel the workflow execution if the input data is empty. |
  | [Clear dataset](clearDataset.md) | Clears the dataset that is connected to the output of this operator. |
  | [Combine CSV files](combine-csv.md) | Combine CSV files with the same structure to one dataset. |
  | [Concatenate to file](ConcatenateToFile.md) | Concatenates values into a file. |
  | [Create Embeddings](cmem_plugin_llm-CreateEmbeddings.md) | Fetch and output LLM created embeddings from input entities. |
+ | [Create or Update Graph Insights Snapshots](cmem_plugin_graph_insights-Update.md) | Create a snapshot for a graph that has none, or update it if one already exists. |
  | [Create/Update Salesforce Objects](cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) | Manipulate data in your organization's Salesforce account. |
  | [Delete project files](deleteProjectFiles.md) | Removes file resources from the project based on a regular expression. |
  | [Distinct by](DistinctBy.md) | Removes duplicated entities based on user-defined paths. Duplicates can be resolved by keeping the first or last entity, or by keeping the entity with the minimum or maximum value of a compare path. |
+ | [Download CKAN files](cmem_plugin_ckan-Download.md) | Download the files of a dataset from a CKAN service. |
  | [Download file](downloadFile.md) | Downloads a file from a given URL. |
+ | [Download Git files](cmem_plugin_git-Download.md) | Download files from a git repository and hand them to the next task. |
  | [Download Nextcloud files](cmem_plugin_nextcloud-Download.md) | Download files from a given Nextcloud instance. |
  | [Download Office 365 Files](cmem_plugin_office365-Download.md) | Download files from Microsoft OneDrive or Sites |
  | [Download SSH files](cmem_plugin_ssh-Download.md) | Download files from a given SSH instance |
@@ -39,15 +44,18 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Generate base36 IRDIs](cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md) | Create unique ECLASS IRDIs. |
  | [Generate random values](cmem_plugin_random-GenerateEntities.md) | Generates entities with random values. |
  | [Generate SHACL shapes from data](cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md) | Generate SHACL node and property shapes from a data graph |
+ | [Get emails](cmem-plugin-email-GetEmails.md) | Search IMAP mailbox and get email metadata or file attachments. |
  | [Get project files](getProjectFiles.md) | Get file resources from the project. |
  | [Get workflow report](cmem_plugin_wfreports_get_report.md) | Output a workflow execution report as a JSON file. |
  | [GraphQL query](cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) | Executes a custom GraphQL query to a GraphQL endpoint and saves result to a JSON dataset. |
+ | [Install Packages](cmem_plugin_packages-InstallPackages.md) | Install packages and their dependencies from a marketplace service or from package archives. |
  | [Join tables](Merge.md) | Joins a set of inputs into a single table. Expects a list of entity tables and links. All entity tables are joined into the first entity table using the provided links. |
  | [jq](cmem-plugin-jq-workflow.md) | Process a JSON document with a jq filter / program. |
  | [JQL query](cmem_plugin_jira-JqlQuery.md) | Search and retrieve JIRA issues. |
  | [JSON to File](jsonToFile.md) | Writes a JSON string held in a field on each valid incoming entity to a file. Depending on the output mode, it produces one file per entity, packs all entities into a single ZIP archive, or merges them into a single JSON array file. Produces a file entity downstream, suitable for wiring into a file-backed dataset or any operator that consumes file entities. |
  | [Kafka Consumer (Receive Messages)](cmem_plugin_kafka-ReceiveMessages.md) | Reads messages from a Kafka topic and saves it to a messages dataset (Consumer). |
  | [Kafka Producer (Send Messages)](cmem_plugin_kafka-SendMessages.md) | Reads a messages dataset and sends records to a Kafka topic (Producer). |
+ | [List Git files](cmem_plugin_git-List.md) | List the files of a git repository, without transferring their content. |
  | [List Nextcloud files](cmem_plugin_nextcloud-List.md) | List directories and files from a given Nextcloud folder. |
  | [List Office 365 Files](cmem_plugin_office365-List.md) | List files from OneDrive or Sites |
  | [List project files](cmem_plugin_project_resources-List.md) | List file resources from the project. |
@@ -60,8 +68,10 @@ A custom workflow task is an operator that can be used in a workflow.
  | [Parse XML](XmlParserOperator.md) | Takes exactly one input and reads either the defined inputPath or the first value of the first entity as XML document. Then executes the given output entity schema similar to the XML dataset to construct the result entities. |
  | [Parse YAML](cmem_plugin_yaml-parse.md) | Parses files, source code or input values as YAML documents. |
  | [Pivot](Pivot.md) | The pivot operator takes data in separate rows, aggregates it and converts it into columns. |
+ | [Publish Packages](cmem_plugin_packages-PublishPackages.md) | Publish package archives to a marketplace service. |
  | [Reason](cmem_plugin_reason-plugin_reason-ReasonPlugin.md) | Performs OWL reasoning. |
  | [Request RDF triples](tripleRequestOperator.md) | A task that requests all triples from an RDF dataset. |
+ | [Run Apify actor](cmem_plugin_apify-RunActor.md) | Run an Apify actor and deliver its dataset as a file. |
  | [Scheduler](Scheduler.md) | Executes a workflow at specified intervals. |
  | [Search addresses](SearchAddresses.md) | Looks up locations from textual descriptions using the configured geocoding API. Outputs results as RDF. |
  | [Search for Logs](cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md) | Search and retrieve logs from a Logpoint SIEM system with flexible schema output. |
@@ -82,10 +92,12 @@ A custom workflow task is an operator that can be used in a workflow.
  | [SQL Update query](sqlUpdateQueryOperator.md) | A task that outputs SQL queries. The output of this operator should be connected to a remote SQL endpoint on which queries should be executed. |
  | [Start Workflow per Entity](cmem_plugin_loopwf-task-StartWorkflow.md) | Loop over the output of a task and start a sub-workflow for each entity. |
  | [Store Vector Embeddings](cmem_plugin_pgvector-Store.md) | Store embeddings into Postgres Vector Store (PGVector). |
+ | [Uninstall Packages](cmem_plugin_packages-UninstallPackages.md) | Uninstall packages and their unused dependencies from this instance. |
  | [Unpivot](Unpivot.md) | Given a list of table columns, transforms those columns into attribute-value pairs. |
- | [Update Graph Insights Snapshots](cmem_plugin_graph_insights-Update.md) | Update one or more snapshots, optionally selected by affected graph. |
  | [Upload File to Knowledge Graph](eccencaDataPlatformGraphStoreFileUploadOperator.md) | Uploads an N-Triples or Turtle (limited support) file from the file repository to a 'Knowledge Graph' dataset. The output of this operatorcan be the input of datasets that support graph store file upload, e.g. 'Knowledge Graph'. The file will be uploaded to the graph specified in that dataset. |
+ | [Upload files to CKAN](cmem_plugin_ckan-Upload.md) | Publish files as the files of a dataset on a CKAN service. |
  | [Upload files to Nextcloud](cmem_plugin_nextcloud-Upload.md) | Upload files to a given Nextcloud instance. |
+ | [Upload Git files](cmem_plugin_git-Upload.md) | Commit the files of the preceding task into a git repository. |
  | [Upload local files](cmem_plugin_project_resources-UploadLocalFiles.md) | Replace a file dataset resource with a local file or upload multiple local files to a project. |
  | [Upload SSH files](cmem_plugin_ssh-Upload.md) | Upload files to a given SSH instance. |
  | [Validate Entities](cmem_plugin_validation-validate-ValidateEntities.md) | Use a JSON schema to validate entities or a JSON dataset. |
