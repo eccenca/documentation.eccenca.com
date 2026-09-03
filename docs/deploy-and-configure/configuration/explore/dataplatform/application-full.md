@@ -753,7 +753,7 @@ Activate [Micrometer Tracing capability](https://docs.micrometer.io/micrometer/r
 
 ***Property: management.tracing.enabled***
 
-Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism. Backend store "neptune" is not compatible with tracing enabled.
+Whether tracing is enabled. If not then IDs for i.e. queries are generated via UUID mechanism.
 
 | Category | Value |
 |--- | ---: |
@@ -1236,6 +1236,17 @@ Maximum amount of memory entries for shacl batch validation results can take up.
 | Required | false |
 | Valid values | Value in MB |
 | Environment | PROXY_SHACLBATCHRESULTSMEMORYBOUNDARYINMB |
+
+***Property: proxy.shaclBatchStateExpiration***
+
+SHACL Batch Validation State Expiration - The state of a shacl batch validation run, which holds all validation results of that run, is removed this duration after the run has finished. Runs which have not finished are never removed.
+
+| Category | Value |
+|--- | ---: |
+| Default | PT1H |
+| Required | false |
+| Valid values | ISO 8601 duration format string i.e. PT30M, P1D |
+| Environment | PROXY_SHACLBATCHSTATEEXPIRATION |
 
 ***Property: proxy.fetchValuesStrategy***
 
@@ -1766,7 +1777,7 @@ One of the supported types of backends DataPlatform can connect to
 |--- | ---: |
 | Default | *none* |
 | Required | true |
-| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, NEPTUNE, TENTRIS |
+| Valid values | MEMORY, HTTP, GRAPHDB, VIRTUOSO, TENTRIS |
 | Environment | STORE_TYPE |
 
 ***Property: store.owlImportsResolution***
