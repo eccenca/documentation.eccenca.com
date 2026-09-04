@@ -7,6 +7,9 @@ dotenv: ['.env']
 
 vars:
   PUBLIC_BRANCH: published
+  # Throwaway branch used by public:preview. Never pushed, recreated on every
+  # run and deleted again when the preview server stops.
+  PREVIEW_BRANCH: publish-preview
   CURRENT_VERSION: 26.2
   # the markdown linter command, used by format:fix:path and check:rumdl
   RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
@@ -42,6 +45,9 @@ tasks:
     run: once
     cmds:
       - rm -rf site
+      # Only ever the throwaway branch of public:preview, which normally deletes
+      # itself; this catches the run that was killed before it could.
+      - git branch -D {{.PREVIEW_BRANCH}} >/dev/null 2>&1 || true
 
   install:
     desc: Install needed dependencies
@@ -123,24 +129,18 @@ tasks:
 
   serve:
     desc: Serve the page on localhost with live reload (no post-build steps)
-    # `zensical serve` rebuilds into site/ on every change, which would overwrite
-    # anything the post-build steps in `build` produce. So this preview still
-    # loads glightbox from unpkg. Use `task preview` when you need to see the
-    # site exactly as it ships.
+    # `zensical serve` rebuilds into site/ on every change, which overwrites what
+    # the post-build steps in `build` produced - so this preview loads glightbox
+    # and the ResizeObserver polyfill from unpkg rather than from our vendored
+    # copies. Nothing downstream consumes a site/ left behind this way: `build`
+    # and `check:output` rebuild, and `public:deploy` refuses a site/ whose
+    # canonical URL is unversioned, which such a rebuild always is.
+    #
+    # Use `task public:preview` to see the site as it will actually be published.
     deps:
       - task: install
     cmds:
       - poetry run zensical serve
-
-  preview:
-    desc: Build with all post-build steps and serve the result (no live reload)
-    deps:
-      - task: build
-    vars:
-      PORT: '{{.PORT | default "8001"}}'
-    cmds:
-      - echo "Serving the fully built site on http://localhost:{{.PORT}} - Ctrl-C to stop"
-      - python3 -m http.server {{.PORT}} --directory site
 
   update:icons:
     desc: update the used eccenca icons from carbon
@@ -264,12 +264,28 @@ tasks:
 
   public:deploy:
     desc: Publish the working directory as version {{.CURRENT_VERSION}}
+    summary: |
+      Builds the site and commits it as version {{.CURRENT_VERSION}} on the
+      {{.PUBLIC_BRANCH}} branch. Nothing is pushed - that stays a deliberate
+      `git push` afterwards.
+
+      Deliberately not `mike deploy`: that builds the site itself, without
+      `--strict` and without the post-build steps below, and its rebuild would
+      overwrite them anyway. So the build happens here and `dec-tool publish`
+      hands the result to mike, which still owns versions.json, the aliases and
+      the root redirect.
+
+      MIKE_DOCS_VERSION is what makes the pages carry a versioned canonical URL;
+      `dec-tool publish` refuses to commit a site/ built without it.
     deps:
       - task: install
     cmds:
+      - MIKE_DOCS_VERSION={{.CURRENT_VERSION}} task build
       - >
-        poetry run mike deploy -b {{.PUBLIC_BRANCH}}
-        --update-aliases {{.CURRENT_VERSION}} latest
+        poetry run dec-tool publish
+        --branch {{.PUBLIC_BRANCH}}
+        --version {{.CURRENT_VERSION}}
+        --alias latest
 
   public:serve:
     desc: Start a webserver to manually validate the public branch
@@ -277,6 +293,42 @@ tasks:
       - task: install
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
+
+  public:preview:
+    desc: Rehearse a deployment on a throwaway branch and serve it
+    summary: |
+      Deploys the working directory into a throwaway copy of the public branch,
+      serves it on localhost, and deletes that branch again when the server
+      stops. Nothing is pushed and {{.PUBLIC_BRANCH}} is never touched.
+
+      The rehearsal is public:deploy itself, pointed at the throwaway branch, so
+      what it serves is exactly what publishing would produce.
+
+      Ctrl-C removes the branch. Should the process be killed harder than that,
+      `task clean` removes it, as does the next run.
+
+        task public:preview PORT=9000
+    deps:
+      - task: install
+    vars:
+      PORT: '{{.PORT | default "8002"}}'
+    cmds:
+      # Deleted when the server stops: `defer` runs on Ctrl-C too, since that
+      # reaches mike and Task alike.
+      - defer: git branch -D {{.PREVIEW_BRANCH}} >/dev/null 2>&1 || true
+      # Start from the branch as it stands - locally if it exists, otherwise as
+      # last fetched - so the rehearsal shows the new version among the existing
+      # ones: version selector, outdated banner and root redirect included.
+      - |
+        base={{.PUBLIC_BRANCH}}
+        git show-ref --verify --quiet refs/heads/{{.PUBLIC_BRANCH}} \
+          || base=origin/{{.PUBLIC_BRANCH}}
+        git branch -f --no-track {{.PREVIEW_BRANCH}} "$base"
+      - task: public:deploy
+        vars:
+          PUBLIC_BRANCH: "{{.PREVIEW_BRANCH}}"
+      - echo "Serving the deployment rehearsal on http://localhost:{{.PORT}} - Ctrl-C to stop and discard it"
+      - poetry run mike serve -b {{.PREVIEW_BRANCH}} --dev-addr localhost:{{.PORT}}
 
   format:fix:path:
     internal: true
