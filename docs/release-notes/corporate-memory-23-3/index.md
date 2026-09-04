@@ -118,7 +118,7 @@ v23.3.0 of DataManager ships the following changes:
 - Internal:
     - Query module is migrated from Redux to a Context storage.
     - Query module is extracted to a separate common component.
-- ResourceSelect doesn't request options anymore if they have already been requested earlier.
+- ResourceSelect does not request options anymore if they have already been requested earlier.
 - `shui:listQuery` allows usage of the `{{username}}` placeholder, which is replaced by the name (i.e.not the IRI) of the logged in user.
 
 v23.3.0 of DataManager ships the following fixes:

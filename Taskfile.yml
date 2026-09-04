@@ -9,7 +9,7 @@ vars:
   PUBLIC_BRANCH: published
   CURRENT_VERSION: 26.2
   # the markdown linter command, used by format:fix:path and check:rumdl
-  RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
+  RUMDL_CHECK: poetry run rumdl --config .rumdl.toml check
   # the default lint targets: the docs tree plus the top-level markdown files
   DOCS_PATHS: ./docs ./*.md
 

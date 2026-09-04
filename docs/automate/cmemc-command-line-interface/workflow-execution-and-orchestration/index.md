@@ -44,7 +44,7 @@ $ cmemc workflow execute cmem:my-workflow --wait
 cmem:my-workflow ... Started ... Finished (Finished in 32.931s, just now)
 ```
 
-For a reference of the `workflow execute` command, please have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow execute --help`).
+For a reference of the `workflow execute` command, have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow execute --help`).
 
 ## Retrieve Status Information
 
@@ -80,7 +80,7 @@ $ cmemc workflow status cmem:my-workflow --raw
 }
 ```
 
-For a reference of the `workflow status` command, please have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow status --help`).
+For a reference of the `workflow status` command, have a look at the [Command Reference](../command-reference/index.md) or the command-specific help (`cmemc workflow status --help`).
 
 ## Serial Execution
 
