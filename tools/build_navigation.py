@@ -43,9 +43,10 @@ def expand_dir(title: str | None, abs_dir: Path, docs_rel: Path) -> object:
     if not children:
         path_str = str(docs_rel).replace("\\", "/")
         return {title: path_str} if title is not None else path_str
-    if len(children) == 1 and isinstance(children[0], str):
-        # A lone index page stays a plain link rather than a one-item section.
-        return {title: children[0]} if title is not None else children[0]
+    if title is None and len(children) == 1 and isinstance(children[0], str):
+        # Titleless expansion has no section name to preserve, so splice the
+        # lone index page straight into the parent list as a plain link.
+        return children[0]
     return {title: children} if title is not None else children
 
 

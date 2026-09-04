@@ -90,7 +90,7 @@ def test_discover_dir_orders_like_mkdocs(tmp_path):
         "guide/index.md",
         "guide/alpha.md",
         "guide/zebra.md",
-        {"Nested": "guide/nested/index.md"},
+        {"Nested": ["guide/nested/index.md"]},
     ]
 
 
@@ -135,12 +135,18 @@ def test_expand_dir_expands_a_directory_without_pages(tmp_path):
     assert resolved != {"Guide": "guide"}
 
 
-def test_expand_dir_collapses_a_lone_index_page(tmp_path):
-    """A directory holding only an index page stays a plain link"""
+def test_expand_dir_keeps_a_titled_lone_index_page_as_a_section(tmp_path):
+    """A titled directory holding only an index page stays a one-item section
+
+    This is what lets MkDocs' `navigation.indexes` attach the page to the
+    section header (self-link) while still keeping it as its own resolvable
+    nav item -- collapsing it to a bare link here would instead attach it to
+    the *parent* section, silently swallowing this title from the sidebar.
+    """
     docs = make_docs(tmp_path, {"guide/index.md": "# Guide"})
 
     assert expand_dir("Guide", docs / "guide", Path("guide")) == {
-        "Guide": "guide/index.md"
+        "Guide": ["guide/index.md"]
     }
 
 

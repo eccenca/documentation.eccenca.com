@@ -1,8 +1,10 @@
 nav:
 - Build:
   - Build: build/index.md
-  - Introduction to the User Interface: build/introduction-to-the-user-interface/index.md
-  - Integrations: build/integrations/index.md
+  - Introduction to the User Interface:
+    - build/introduction-to-the-user-interface/index.md
+  - Integrations:
+    - build/integrations/index.md
   - Task and Operator Reference:
     - Task and Operator Reference: build/reference/index.md
     - Aggregators:
@@ -428,41 +430,68 @@ nav:
         - UUIDv8: build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8.md
       - Variables:
         - Set execution variable: build/reference/transformer/Variables/setExecutionVariable.md
-  - Mapping Creator: build/mapping-creator/index.md
-  - Rule Operators: build/rule-operators/index.md
-  - Rule Blocks: build/rule-blocks/index.md
-  - Define Prefixes / Namespaces: build/define-prefixes-namespaces/index.md
-  - Cool IRIs: build/cool-iris/index.md
-  - Lift Tabular Data: build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md
-  - Lift Hierarchical Data: build/lift-data-from-json-and-xml-sources/index.md
-  - Lift Web API Data: build/extracting-data-from-a-web-api/index.md
-  - Workflows: build/workflows/index.md
-  - Incremental Database Loading: build/loading-jdbc-datasets-incrementally/index.md
-  - Connect to Snowflake: build/snowflake-tutorial/index.md
-  - Active learning: build/active-learning/index.md
+  - Mapping Creator:
+    - build/mapping-creator/index.md
+  - Rule Operators:
+    - build/rule-operators/index.md
+  - Rule Blocks:
+    - build/rule-blocks/index.md
+  - Define Prefixes / Namespaces:
+    - build/define-prefixes-namespaces/index.md
+  - Cool IRIs:
+    - build/cool-iris/index.md
+  - Lift Tabular Data:
+    - build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md
+  - Lift Hierarchical Data:
+    - build/lift-data-from-json-and-xml-sources/index.md
+  - Lift Web API Data:
+    - build/extracting-data-from-a-web-api/index.md
+  - Workflows:
+    - build/workflows/index.md
+  - Incremental Database Loading:
+    - build/loading-jdbc-datasets-incrementally/index.md
+  - Connect to Snowflake:
+    - build/snowflake-tutorial/index.md
+  - Active learning:
+    - build/active-learning/index.md
   - Link Intrusion Detection Systems to Open-Source INTelligence:
     - build/tutorial-how-to-link-ids-to-osint/index.md
-    - Define the interfaces: build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/index.md
-    - Define the need: build/tutorial-how-to-link-ids-to-osint/define-the-need/index.md
-    - lift data from STIX 2.1 data of mitre attack: build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/index.md
-    - lift data from YAML data of hayabusa sigma: build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/index.md
-    - link IDS event to KG: build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/index.md
-    - link IDS event to KG via cmem: build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/index.md
-  - Project and Global Variables: build/variables/index.md
-  - Evaluate Template Operator: build/evaluate-template/index.md
-  - Build Knowledge Graphs from Kafka Topics: build/kafka-consumer/index.md
-  - Spark: build/spark/index.md
+    - Define the interfaces:
+      - build/tutorial-how-to-link-ids-to-osint/define-the-interfaces/index.md
+    - Define the need:
+      - build/tutorial-how-to-link-ids-to-osint/define-the-need/index.md
+    - lift data from STIX 2.1 data of mitre attack:
+      - build/tutorial-how-to-link-ids-to-osint/lift-data-from-STIX-2.1-data-of-mitre-attack/index.md
+    - lift data from YAML data of hayabusa sigma:
+      - build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/index.md
+    - link IDS event to KG:
+      - build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/index.md
+    - link IDS event to KG via cmem:
+      - build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/index.md
+  - Project and Global Variables:
+    - build/variables/index.md
+  - Evaluate Template Operator:
+    - build/evaluate-template/index.md
+  - Build Knowledge Graphs from Kafka Topics:
+    - build/kafka-consumer/index.md
+  - Spark:
+    - build/spark/index.md
 - Explore:
   - Explore: explore-and-author/index.md
   - Knowledge graphs:
     - Graph Exploration: explore-and-author/graph-exploration/index.md
     - Building a Customized User Interface:
       - Building a Customized User Interface: explore-and-author/graph-exploration/building-a-customized-user-interface/index.md
-      - Workflow Trigger: explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/index.md
-      - Node Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/index.md
-      - Property Shapes: explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/index.md
-      - Datatypes: explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/index.md
-      - SPARQL Constraints: explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/index.md
+      - Workflow Trigger:
+        - explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/index.md
+      - Node Shapes:
+        - explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/index.md
+      - Property Shapes:
+        - explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/index.md
+      - Datatypes:
+        - explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/index.md
+      - SPARQL Constraints:
+        - explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/index.md
     - Graph Insights:
       - explore-and-author/graph-exploration/graph-insights/index.md
       - Core Concepts: explore-and-author/graph-exploration/graph-insights/concepts.md
@@ -478,49 +507,74 @@ nav:
         - Connections: explore-and-author/graph-exploration/graph-insights/features/connections.md
         - Persistence: explore-and-author/graph-exploration/graph-insights/features/persistence.md
       - Navigating to Corporate Memory: explore-and-author/graph-exploration/graph-insights/navigating-to-cmem.md
-    - Statement Annotations: explore-and-author/graph-exploration/statement-annotations/index.md
-    - Versioning of Graph Changes: explore-and-author/graph-exploration/versioning-of-graph-changes/index.md
+    - Statement Annotations:
+      - explore-and-author/graph-exploration/statement-annotations/index.md
+    - Versioning of Graph Changes:
+      - explore-and-author/graph-exploration/versioning-of-graph-changes/index.md
   - Business knowledge editor:
     - explore-and-author/bke-module/index.md
-    - Visually authoring ontologies: explore-and-author/bke-module/visually-authoring-ontologies/index.md
-  - Queries: explore-and-author/query-module/index.md
-  - Thesauri: explore-and-author/thesauri-management/index.md
-  - Charts: explore-and-author/charts-catalog/index.md
-  - Companion AI chat: explore-and-author/companion/index.md
-  - Services integrations: explore-and-author/embedding-services-via-the-integrations-module/index.md
-  - Link rules: explore-and-author/link-rules/index.md
-  - Application view: explore-and-author/workspace-configuration/index.md
+    - Visually authoring ontologies:
+      - explore-and-author/bke-module/visually-authoring-ontologies/index.md
+  - Queries:
+    - explore-and-author/query-module/index.md
+  - Thesauri:
+    - explore-and-author/thesauri-management/index.md
+  - Charts:
+    - explore-and-author/charts-catalog/index.md
+  - Companion AI chat:
+    - explore-and-author/companion/index.md
+  - Services integrations:
+    - explore-and-author/embedding-services-via-the-integrations-module/index.md
+  - Link rules:
+    - explore-and-author/link-rules/index.md
+  - Application view:
+    - explore-and-author/workspace-configuration/index.md
 - Consume:
   - Consume: consume/index.md
-  - Consuming Graphs in Power&nbsp;BI: consume/consuming-graphs-in-power-bi/index.md
-  - Consuming Graphs in Redash: consume/consuming-graphs-with-redash/index.md
-  - Consuming Graphs with SQL Databases: consume/consuming-graphs-with-sql-databases/index.md
-  - Provide Data in any Format via a Custom API: consume/provide-data-in-any-format-via-a-custom-api/index.md
-  - Populate Data to Neo4j: consume/populate-data-to-neo4j/index.md
-  - Populate Data to Apache Kafka: consume/consume-graphs-in-apache-kafka/index.md
+  - Consuming Graphs in Power&nbsp;BI:
+    - consume/consuming-graphs-in-power-bi/index.md
+  - Consuming Graphs in Redash:
+    - consume/consuming-graphs-with-redash/index.md
+  - Consuming Graphs with SQL Databases:
+    - consume/consuming-graphs-with-sql-databases/index.md
+  - Provide Data in any Format via a Custom API:
+    - consume/provide-data-in-any-format-via-a-custom-api/index.md
+  - Populate Data to Neo4j:
+    - consume/populate-data-to-neo4j/index.md
+  - Populate Data to Apache Kafka:
+    - consume/consume-graphs-in-apache-kafka/index.md
 - Distribution:
   - Distribution: distribution/index.md
-  - Marketplace: distribution/marketplace/index.md
+  - Marketplace:
+    - distribution/marketplace/index.md
 - Deploy and Configure:
   - Deploy and Configure: deploy-and-configure/index.md
-  - System Architecture: deploy-and-configure/system-architecture/index.md
+  - System Architecture:
+    - deploy-and-configure/system-architecture/index.md
   - Requirements:
     - deploy-and-configure/requirements/index.md
     - deploy-and-configure/requirements/graph-insights-sizing.md
     - deploy-and-configure/requirements/triple-store-hardware-sizing.md
   - Installation:
     - Installation: deploy-and-configure/installation/index.md
-    - 'Scenario: Single Node Cloud Installation': deploy-and-configure/installation/scenario-single-node-cloud-installation/index.md
-    - 'Scenario: Local Installation': deploy-and-configure/installation/scenario-local-installation/index.md
-    - 'Scenario: Kubernetes Deployment': deploy-and-configure/installation/scenario-k8s-deployment/index.md
-    - Migrating Stores: deploy-and-configure/installation/migrating-stores/index.md
+    - 'Scenario: Single Node Cloud Installation':
+      - deploy-and-configure/installation/scenario-single-node-cloud-installation/index.md
+    - 'Scenario: Local Installation':
+      - deploy-and-configure/installation/scenario-local-installation/index.md
+    - 'Scenario: Kubernetes Deployment':
+      - deploy-and-configure/installation/scenario-k8s-deployment/index.md
+    - Migrating Stores:
+      - deploy-and-configure/installation/migrating-stores/index.md
   - Configuration:
     - Configuration: deploy-and-configure/configuration/index.md
-    - Docker Orchestration: deploy-and-configure/configuration/docker-orchestration/index.md
+    - Docker Orchestration:
+      - deploy-and-configure/configuration/docker-orchestration/index.md
     - Build:
       - Build (DataIntegration): deploy-and-configure/configuration/dataintegration/index.md
-      - Adding JDBC drivers: deploy-and-configure/configuration/dataintegration/jdbc/index.md
-      - Activity Reference: deploy-and-configure/configuration/dataintegration/activity-reference/index.md
+      - Adding JDBC drivers:
+        - deploy-and-configure/configuration/dataintegration/jdbc/index.md
+      - Activity Reference:
+        - deploy-and-configure/configuration/dataintegration/activity-reference/index.md
     - Explore:
       - Explore: deploy-and-configure/configuration/explore/index.md
       - Explore backend:
@@ -533,198 +587,350 @@ nav:
           - In-Memory: deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full.md
           - Virtuoso: deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full.md
       - deploy-and-configure/configuration/explore/graph-resource-pattern/index.md
-    - Graph Insights: deploy-and-configure/configuration/graphinsights/index.md
+    - Graph Insights:
+      - deploy-and-configure/configuration/graphinsights/index.md
     - Keycloak:
       - Keycloak: deploy-and-configure/configuration/keycloak/index.md
-      - Changing Passwords and Keys: deploy-and-configure/configuration/keycloak/change-passwords-and-keys/index.md
-      - Using an external Keycloak: deploy-and-configure/configuration/keycloak/using-external-keycloak/index.md
-    - Quad-Store: deploy-and-configure/configuration/quad-store-configuration/index.md
-    - Reverse Proxy: deploy-and-configure/configuration/reverse-proxy/index.md
-    - Access Conditions: deploy-and-configure/configuration/access-conditions/index.md
-    - Label Resolution and Full-Text Search: deploy-and-configure/configuration/label-resolution-and-full-text-search/index.md
-    - Production-Ready Settings: deploy-and-configure/configuration/production-ready-settings/index.md
-    - Caveats: deploy-and-configure/configuration/caveats/index.md
+      - Changing Passwords and Keys:
+        - deploy-and-configure/configuration/keycloak/change-passwords-and-keys/index.md
+      - Using an external Keycloak:
+        - deploy-and-configure/configuration/keycloak/using-external-keycloak/index.md
+    - Quad-Store:
+      - deploy-and-configure/configuration/quad-store-configuration/index.md
+    - Reverse Proxy:
+      - deploy-and-configure/configuration/reverse-proxy/index.md
+    - Access Conditions:
+      - deploy-and-configure/configuration/access-conditions/index.md
+    - Label Resolution and Full-Text Search:
+      - deploy-and-configure/configuration/label-resolution-and-full-text-search/index.md
+    - Production-Ready Settings:
+      - deploy-and-configure/configuration/production-ready-settings/index.md
+    - Caveats:
+      - deploy-and-configure/configuration/caveats/index.md
 - Automate:
   - Automate: automate/index.md
   - cmemc:
     - cmemc - Command Line Interface: automate/cmemc-command-line-interface/index.md
-    - Installation: automate/cmemc-command-line-interface/installation/index.md
+    - Installation:
+      - automate/cmemc-command-line-interface/installation/index.md
     - Configuration:
       - Configuration: automate/cmemc-command-line-interface/configuration/index.md
-      - File-based: automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md
-      - Environment-based: automate/cmemc-command-line-interface/configuration/environment-based-configuration/index.md
-      - Completion Setup: automate/cmemc-command-line-interface/configuration/completion-setup/index.md
-      - Getting Credentials: automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/index.md
-      - Certificate Handling: automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/index.md
+      - File-based:
+        - automate/cmemc-command-line-interface/configuration/file-based-configuration/index.md
+      - Environment-based:
+        - automate/cmemc-command-line-interface/configuration/environment-based-configuration/index.md
+      - Completion Setup:
+        - automate/cmemc-command-line-interface/configuration/completion-setup/index.md
+      - Getting Credentials:
+        - automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/index.md
+      - Certificate Handling:
+        - automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/index.md
     - Invocation:
       - Invocation: automate/cmemc-command-line-interface/invocation/index.md
-      - Docker Image: automate/cmemc-command-line-interface/invocation/docker-image/index.md
-      - Github Action: automate/cmemc-command-line-interface/invocation/github-action/index.md
-      - Gitlab Pipeline: automate/cmemc-command-line-interface/invocation/gitlab-pipeline/index.md
-      - SPARQL Scripts: automate/cmemc-command-line-interface/invocation/sparql-scripts/index.md
-    - Finding and Filtering Objects: automate/cmemc-command-line-interface/finding-and-filtering-objects/index.md
-    - Scripting with cmemc: automate/cmemc-command-line-interface/scripting-with-cmemc/index.md
-    - Workflow Execution: automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md
-    - Backup and Restore: automate/cmemc-command-line-interface/backup-and-restore/index.md
-    - Troubleshooting: automate/cmemc-command-line-interface/troubleshooting-and-caveats/index.md
+      - Docker Image:
+        - automate/cmemc-command-line-interface/invocation/docker-image/index.md
+      - Github Action:
+        - automate/cmemc-command-line-interface/invocation/github-action/index.md
+      - Gitlab Pipeline:
+        - automate/cmemc-command-line-interface/invocation/gitlab-pipeline/index.md
+      - SPARQL Scripts:
+        - automate/cmemc-command-line-interface/invocation/sparql-scripts/index.md
+    - Finding and Filtering Objects:
+      - automate/cmemc-command-line-interface/finding-and-filtering-objects/index.md
+    - Scripting with cmemc:
+      - automate/cmemc-command-line-interface/scripting-with-cmemc/index.md
+    - Workflow Execution:
+      - automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md
+    - Backup and Restore:
+      - automate/cmemc-command-line-interface/backup-and-restore/index.md
+    - Troubleshooting:
+      - automate/cmemc-command-line-interface/troubleshooting-and-caveats/index.md
     - Command Reference:
       - automate/cmemc-command-line-interface/command-reference/index.md
       - Admin:
         - automate/cmemc-command-line-interface/command-reference/admin/index.md
-        - Acl: automate/cmemc-command-line-interface/command-reference/admin/acl/index.md
-        - Client: automate/cmemc-command-line-interface/command-reference/admin/client/index.md
-        - Metrics: automate/cmemc-command-line-interface/command-reference/admin/metrics/index.md
-        - Migration: automate/cmemc-command-line-interface/command-reference/admin/migration/index.md
-        - Store: automate/cmemc-command-line-interface/command-reference/admin/store/index.md
-        - User: automate/cmemc-command-line-interface/command-reference/admin/user/index.md
-        - View: automate/cmemc-command-line-interface/command-reference/admin/view/index.md
+        - Acl:
+          - automate/cmemc-command-line-interface/command-reference/admin/acl/index.md
+        - Client:
+          - automate/cmemc-command-line-interface/command-reference/admin/client/index.md
+        - Metrics:
+          - automate/cmemc-command-line-interface/command-reference/admin/metrics/index.md
+        - Migration:
+          - automate/cmemc-command-line-interface/command-reference/admin/migration/index.md
+        - Store:
+          - automate/cmemc-command-line-interface/command-reference/admin/store/index.md
+        - User:
+          - automate/cmemc-command-line-interface/command-reference/admin/user/index.md
+        - View:
+          - automate/cmemc-command-line-interface/command-reference/admin/view/index.md
         - Workspace:
           - automate/cmemc-command-line-interface/command-reference/admin/workspace/index.md
-          - Python: automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md
-      - Config: automate/cmemc-command-line-interface/command-reference/config/index.md
-      - Dataset: automate/cmemc-command-line-interface/command-reference/dataset/index.md
+          - Python:
+            - automate/cmemc-command-line-interface/command-reference/admin/workspace/python/index.md
+      - Config:
+        - automate/cmemc-command-line-interface/command-reference/config/index.md
+      - Dataset:
+        - automate/cmemc-command-line-interface/command-reference/dataset/index.md
       - Graph:
         - automate/cmemc-command-line-interface/command-reference/graph/index.md
-        - Imports: automate/cmemc-command-line-interface/command-reference/graph/imports/index.md
-        - Insights: automate/cmemc-command-line-interface/command-reference/graph/insights/index.md
-        - Validation: automate/cmemc-command-line-interface/command-reference/graph/validation/index.md
-      - Package: automate/cmemc-command-line-interface/command-reference/package/index.md
+        - Imports:
+          - automate/cmemc-command-line-interface/command-reference/graph/imports/index.md
+        - Insights:
+          - automate/cmemc-command-line-interface/command-reference/graph/insights/index.md
+        - Validation:
+          - automate/cmemc-command-line-interface/command-reference/graph/validation/index.md
+      - Package:
+        - automate/cmemc-command-line-interface/command-reference/package/index.md
       - Project:
         - automate/cmemc-command-line-interface/command-reference/project/index.md
-        - File: automate/cmemc-command-line-interface/command-reference/project/file/index.md
-        - Variable: automate/cmemc-command-line-interface/command-reference/project/variable/index.md
-      - Query: automate/cmemc-command-line-interface/command-reference/query/index.md
+        - File:
+          - automate/cmemc-command-line-interface/command-reference/project/file/index.md
+        - Variable:
+          - automate/cmemc-command-line-interface/command-reference/project/variable/index.md
+      - Query:
+        - automate/cmemc-command-line-interface/command-reference/query/index.md
       - Vocabulary:
         - automate/cmemc-command-line-interface/command-reference/vocabulary/index.md
-        - Cache: automate/cmemc-command-line-interface/command-reference/vocabulary/cache/index.md
+        - Cache:
+          - automate/cmemc-command-line-interface/command-reference/vocabulary/cache/index.md
       - Workflow:
         - automate/cmemc-command-line-interface/command-reference/workflow/index.md
-        - Scheduler: automate/cmemc-command-line-interface/command-reference/workflow/scheduler/index.md
-  - Processing Data with variable input Workflows: automate/processing-data-with-variable-input-workflows/index.md
-  - Scheduling Workflows: automate/scheduling-workflows/index.md
-  - Continuous Integration: automate/continuous-integration/index.md
+        - Scheduler:
+          - automate/cmemc-command-line-interface/command-reference/workflow/scheduler/index.md
+  - Processing Data with variable input Workflows:
+    - automate/processing-data-with-variable-input-workflows/index.md
+  - Scheduling Workflows:
+    - automate/scheduling-workflows/index.md
+  - Continuous Integration:
+    - automate/continuous-integration/index.md
 - Develop:
   - Develop: develop/index.md
-  - Accessing Graphs with Java Applications: develop/accessing-graphs-with-java-applications/index.md
+  - Accessing Graphs with Java Applications:
+    - develop/accessing-graphs-with-java-applications/index.md
   - Python Plugins:
     - Python Plugins: develop/python-plugins/index.md
-    - Installation and Usage: develop/python-plugins/installation/index.md
-    - Development: develop/python-plugins/development/index.md
-    - Setup and Configuration: develop/python-plugins/setup/index.md
+    - Installation and Usage:
+      - develop/python-plugins/installation/index.md
+    - Development:
+      - develop/python-plugins/development/index.md
+    - Setup and Configuration:
+      - develop/python-plugins/setup/index.md
   - Marketplace Packages:
     - Marketplace Packages: develop/packages/index.md
-    - Installation and Management: develop/packages/installation/index.md
+    - Installation and Management:
+      - develop/packages/installation/index.md
     - Development and Publication:
       - Development and Publication: develop/packages/development/index.md
-      - Tutorial: develop/packages/development/tutorial/index.md
-  - cmempy - Python API: develop/cmempy-python-api/index.md
+      - Tutorial:
+        - develop/packages/development/tutorial/index.md
+  - cmempy - Python API:
+    - develop/cmempy-python-api/index.md
   - cmem-client - Python API:
     - 'cmem-client: Python API': develop/cmem-client-api/index.md
     - API Reference:
       - API Reference: develop/cmem-client-api/api-reference/index.md
-      - client: develop/cmem-client-api/api-reference/client/index.md
-      - config: develop/cmem-client-api/api-reference/config/index.md
-      - exceptions: develop/cmem-client-api/api-reference/exceptions/index.md
-      - logging_utils: develop/cmem-client-api/api-reference/logging_utils/index.md
+      - client:
+        - develop/cmem-client-api/api-reference/client/index.md
+      - config:
+        - develop/cmem-client-api/api-reference/config/index.md
+      - exceptions:
+        - develop/cmem-client-api/api-reference/exceptions/index.md
+      - logging_utils:
+        - develop/cmem-client-api/api-reference/logging_utils/index.md
       - auth_provider:
-        - abc: develop/cmem-client-api/api-reference/auth_provider/abc/index.md
-        - client_credentials: develop/cmem-client-api/api-reference/auth_provider/client_credentials/index.md
-        - password: develop/cmem-client-api/api-reference/auth_provider/password/index.md
-        - prefetched_token: develop/cmem-client-api/api-reference/auth_provider/prefetched_token/index.md
-        - provided_token: develop/cmem-client-api/api-reference/auth_provider/provided_token/index.md
+        - abc:
+          - develop/cmem-client-api/api-reference/auth_provider/abc/index.md
+        - client_credentials:
+          - develop/cmem-client-api/api-reference/auth_provider/client_credentials/index.md
+        - password:
+          - develop/cmem-client-api/api-reference/auth_provider/password/index.md
+        - prefetched_token:
+          - develop/cmem-client-api/api-reference/auth_provider/prefetched_token/index.md
+        - provided_token:
+          - develop/cmem-client-api/api-reference/auth_provider/provided_token/index.md
       - components:
-        - deployment: develop/cmem-client-api/api-reference/components/deployment/index.md
-        - graph_store: develop/cmem-client-api/api-reference/components/graph_store/index.md
-        - marketplace: develop/cmem-client-api/api-reference/components/marketplace/index.md
-        - sparql_wrapper: develop/cmem-client-api/api-reference/components/sparql_wrapper/index.md
-        - workspace: develop/cmem-client-api/api-reference/components/workspace/index.md
+        - deployment:
+          - develop/cmem-client-api/api-reference/components/deployment/index.md
+        - graph_store:
+          - develop/cmem-client-api/api-reference/components/graph_store/index.md
+        - marketplace:
+          - develop/cmem-client-api/api-reference/components/marketplace/index.md
+        - sparql_wrapper:
+          - develop/cmem-client-api/api-reference/components/sparql_wrapper/index.md
+        - workspace:
+          - develop/cmem-client-api/api-reference/components/workspace/index.md
       - models:
-        - access_condition: develop/cmem-client-api/api-reference/models/access_condition/index.md
-        - base: develop/cmem-client-api/api-reference/models/base/index.md
-        - common: develop/cmem-client-api/api-reference/models/common/index.md
-        - credentials: develop/cmem-client-api/api-reference/models/credentials/index.md
-        - dataset: develop/cmem-client-api/api-reference/models/dataset/index.md
-        - error: develop/cmem-client-api/api-reference/models/error/index.md
-        - graph: develop/cmem-client-api/api-reference/models/graph/index.md
-        - graph_import: develop/cmem-client-api/api-reference/models/graph_import/index.md
-        - graph_insight: develop/cmem-client-api/api-reference/models/graph_insight/index.md
-        - item: develop/cmem-client-api/api-reference/models/item/index.md
-        - keycloak_client: develop/cmem-client-api/api-reference/models/keycloak_client/index.md
-        - logging_config: develop/cmem-client-api/api-reference/models/logging_config/index.md
-        - marshalling_plugins: develop/cmem-client-api/api-reference/models/marshalling_plugins/index.md
-        - package: develop/cmem-client-api/api-reference/models/package/index.md
-        - project: develop/cmem-client-api/api-reference/models/project/index.md
-        - python_install: develop/cmem-client-api/api-reference/models/python_install/index.md
-        - python_package: develop/cmem-client-api/api-reference/models/python_package/index.md
-        - query_catalog: develop/cmem-client-api/api-reference/models/query_catalog/index.md
-        - resource: develop/cmem-client-api/api-reference/models/resource/index.md
-        - scheduler: develop/cmem-client-api/api-reference/models/scheduler/index.md
-        - status: develop/cmem-client-api/api-reference/models/status/index.md
-        - task: develop/cmem-client-api/api-reference/models/task/index.md
-        - token: develop/cmem-client-api/api-reference/models/token/index.md
-        - url: develop/cmem-client-api/api-reference/models/url/index.md
-        - user: develop/cmem-client-api/api-reference/models/user/index.md
-        - validation: develop/cmem-client-api/api-reference/models/validation/index.md
-        - variable: develop/cmem-client-api/api-reference/models/variable/index.md
-        - vocabulary: develop/cmem-client-api/api-reference/models/vocabulary/index.md
-        - workflow: develop/cmem-client-api/api-reference/models/workflow/index.md
-        - workspace_config: develop/cmem-client-api/api-reference/models/workspace_config/index.md
-        - workspace_plugin: develop/cmem-client-api/api-reference/models/workspace_plugin/index.md
-        - workspace_status: develop/cmem-client-api/api-reference/models/workspace_status/index.md
-      - repositories:
-        - access_conditions: develop/cmem-client-api/api-reference/repositories/access_conditions/index.md
-        - client_accounts: develop/cmem-client-api/api-reference/repositories/client_accounts/index.md
-        - datasets: develop/cmem-client-api/api-reference/repositories/datasets/index.md
-        - files: develop/cmem-client-api/api-reference/repositories/files/index.md
-        - graph_imports: develop/cmem-client-api/api-reference/repositories/graph_imports/index.md
-        - graph_insights: develop/cmem-client-api/api-reference/repositories/graph_insights/index.md
-        - graphs: develop/cmem-client-api/api-reference/repositories/graphs/index.md
-        - marketplace_packages: develop/cmem-client-api/api-reference/repositories/marketplace_packages/index.md
-        - projects: develop/cmem-client-api/api-reference/repositories/projects/index.md
-        - python_packages: develop/cmem-client-api/api-reference/repositories/python_packages/index.md
-        - queries: develop/cmem-client-api/api-reference/repositories/queries/index.md
-        - schedulers: develop/cmem-client-api/api-reference/repositories/schedulers/index.md
-        - user_accounts: develop/cmem-client-api/api-reference/repositories/user_accounts/index.md
-        - validations: develop/cmem-client-api/api-reference/repositories/validations/index.md
-        - variables: develop/cmem-client-api/api-reference/repositories/variables/index.md
-        - vocabularies: develop/cmem-client-api/api-reference/repositories/vocabularies/index.md
-        - workflows: develop/cmem-client-api/api-reference/repositories/workflows/index.md
-        - workspace_configs: develop/cmem-client-api/api-reference/repositories/workspace_configs/index.md
+        - access_condition:
+          - develop/cmem-client-api/api-reference/models/access_condition/index.md
         - base:
-          - abc: develop/cmem-client-api/api-reference/repositories/base/abc/index.md
-          - paged_list: develop/cmem-client-api/api-reference/repositories/base/paged_list/index.md
-          - plain_list: develop/cmem-client-api/api-reference/repositories/base/plain_list/index.md
-          - task_search: develop/cmem-client-api/api-reference/repositories/base/task_search/index.md
+          - develop/cmem-client-api/api-reference/models/base/index.md
+        - common:
+          - develop/cmem-client-api/api-reference/models/common/index.md
+        - credentials:
+          - develop/cmem-client-api/api-reference/models/credentials/index.md
+        - dataset:
+          - develop/cmem-client-api/api-reference/models/dataset/index.md
+        - error:
+          - develop/cmem-client-api/api-reference/models/error/index.md
+        - graph:
+          - develop/cmem-client-api/api-reference/models/graph/index.md
+        - graph_import:
+          - develop/cmem-client-api/api-reference/models/graph_import/index.md
+        - graph_insight:
+          - develop/cmem-client-api/api-reference/models/graph_insight/index.md
+        - item:
+          - develop/cmem-client-api/api-reference/models/item/index.md
+        - keycloak_client:
+          - develop/cmem-client-api/api-reference/models/keycloak_client/index.md
+        - logging_config:
+          - develop/cmem-client-api/api-reference/models/logging_config/index.md
+        - marshalling_plugins:
+          - develop/cmem-client-api/api-reference/models/marshalling_plugins/index.md
+        - package:
+          - develop/cmem-client-api/api-reference/models/package/index.md
+        - project:
+          - develop/cmem-client-api/api-reference/models/project/index.md
+        - python_install:
+          - develop/cmem-client-api/api-reference/models/python_install/index.md
+        - python_package:
+          - develop/cmem-client-api/api-reference/models/python_package/index.md
+        - query_catalog:
+          - develop/cmem-client-api/api-reference/models/query_catalog/index.md
+        - resource:
+          - develop/cmem-client-api/api-reference/models/resource/index.md
+        - scheduler:
+          - develop/cmem-client-api/api-reference/models/scheduler/index.md
+        - status:
+          - develop/cmem-client-api/api-reference/models/status/index.md
+        - task:
+          - develop/cmem-client-api/api-reference/models/task/index.md
+        - token:
+          - develop/cmem-client-api/api-reference/models/token/index.md
+        - url:
+          - develop/cmem-client-api/api-reference/models/url/index.md
+        - user:
+          - develop/cmem-client-api/api-reference/models/user/index.md
+        - validation:
+          - develop/cmem-client-api/api-reference/models/validation/index.md
+        - variable:
+          - develop/cmem-client-api/api-reference/models/variable/index.md
+        - vocabulary:
+          - develop/cmem-client-api/api-reference/models/vocabulary/index.md
+        - workflow:
+          - develop/cmem-client-api/api-reference/models/workflow/index.md
+        - workspace_config:
+          - develop/cmem-client-api/api-reference/models/workspace_config/index.md
+        - workspace_plugin:
+          - develop/cmem-client-api/api-reference/models/workspace_plugin/index.md
+        - workspace_status:
+          - develop/cmem-client-api/api-reference/models/workspace_status/index.md
+      - repositories:
+        - access_conditions:
+          - develop/cmem-client-api/api-reference/repositories/access_conditions/index.md
+        - client_accounts:
+          - develop/cmem-client-api/api-reference/repositories/client_accounts/index.md
+        - datasets:
+          - develop/cmem-client-api/api-reference/repositories/datasets/index.md
+        - files:
+          - develop/cmem-client-api/api-reference/repositories/files/index.md
+        - graph_imports:
+          - develop/cmem-client-api/api-reference/repositories/graph_imports/index.md
+        - graph_insights:
+          - develop/cmem-client-api/api-reference/repositories/graph_insights/index.md
+        - graphs:
+          - develop/cmem-client-api/api-reference/repositories/graphs/index.md
+        - marketplace_packages:
+          - develop/cmem-client-api/api-reference/repositories/marketplace_packages/index.md
+        - projects:
+          - develop/cmem-client-api/api-reference/repositories/projects/index.md
+        - python_packages:
+          - develop/cmem-client-api/api-reference/repositories/python_packages/index.md
+        - queries:
+          - develop/cmem-client-api/api-reference/repositories/queries/index.md
+        - schedulers:
+          - develop/cmem-client-api/api-reference/repositories/schedulers/index.md
+        - user_accounts:
+          - develop/cmem-client-api/api-reference/repositories/user_accounts/index.md
+        - validations:
+          - develop/cmem-client-api/api-reference/repositories/validations/index.md
+        - variables:
+          - develop/cmem-client-api/api-reference/repositories/variables/index.md
+        - vocabularies:
+          - develop/cmem-client-api/api-reference/repositories/vocabularies/index.md
+        - workflows:
+          - develop/cmem-client-api/api-reference/repositories/workflows/index.md
+        - workspace_configs:
+          - develop/cmem-client-api/api-reference/repositories/workspace_configs/index.md
+        - base:
+          - abc:
+            - develop/cmem-client-api/api-reference/repositories/base/abc/index.md
+          - paged_list:
+            - develop/cmem-client-api/api-reference/repositories/base/paged_list/index.md
+          - plain_list:
+            - develop/cmem-client-api/api-reference/repositories/base/plain_list/index.md
+          - task_search:
+            - develop/cmem-client-api/api-reference/repositories/base/task_search/index.md
         - protocols:
-          - create_item: develop/cmem-client-api/api-reference/repositories/protocols/create_item/index.md
-          - delete_item: develop/cmem-client-api/api-reference/repositories/protocols/delete_item/index.md
-          - export_item: develop/cmem-client-api/api-reference/repositories/protocols/export_item/index.md
-          - import_item: develop/cmem-client-api/api-reference/repositories/protocols/import_item/index.md
-          - update_item: develop/cmem-client-api/api-reference/repositories/protocols/update_item/index.md
-  - cmemc - Python Scripts: develop/cmemc-scripts/index.md
-  - Build (DataIntegration) APIs: develop/dataintegration-apis/index.md
-  - Explore backend APIs: develop/dataplatform-apis/index.md
+          - create_item:
+            - develop/cmem-client-api/api-reference/repositories/protocols/create_item/index.md
+          - delete_item:
+            - develop/cmem-client-api/api-reference/repositories/protocols/delete_item/index.md
+          - export_item:
+            - develop/cmem-client-api/api-reference/repositories/protocols/export_item/index.md
+          - import_item:
+            - develop/cmem-client-api/api-reference/repositories/protocols/import_item/index.md
+          - update_item:
+            - develop/cmem-client-api/api-reference/repositories/protocols/update_item/index.md
+  - cmemc - Python Scripts:
+    - develop/cmemc-scripts/index.md
+  - Build (DataIntegration) APIs:
+    - develop/dataintegration-apis/index.md
+  - Explore backend APIs:
+    - develop/dataplatform-apis/index.md
 - Release Notes:
-  - Corporate Memory 26.2.0: release-notes/corporate-memory-26-2/index.md
-  - Corporate Memory 26.1.3: release-notes/corporate-memory-26-1/index.md
-  - Corporate Memory 25.3.4: release-notes/corporate-memory-25-3/index.md
-  - Corporate Memory 25.2.7: release-notes/corporate-memory-25-2/index.md
-  - Corporate Memory 25.1.2: release-notes/corporate-memory-25-1/index.md
-  - Corporate Memory 24.3.2: release-notes/corporate-memory-24-3/index.md
-  - Corporate Memory 24.2.1: release-notes/corporate-memory-24-2/index.md
-  - Corporate Memory 24.1.3: release-notes/corporate-memory-24-1/index.md
-  - Corporate Memory 23.3.2: release-notes/corporate-memory-23-3/index.md
-  - Corporate Memory 23.2.1: release-notes/corporate-memory-23-2/index.md
-  - Corporate Memory 23.1.3: release-notes/corporate-memory-23-1/index.md
-  - Corporate Memory 22.2.3: release-notes/corporate-memory-22-2/index.md
-  - Corporate Memory 22.1: release-notes/corporate-memory-22-1/index.md
-  - Corporate Memory 21.11: release-notes/corporate-memory-21-11/index.md
-  - Corporate Memory 21.06: release-notes/corporate-memory-21-06/index.md
-  - Corporate Memory 21.04: release-notes/corporate-memory-21-04/index.md
-  - Corporate Memory 21.02: release-notes/corporate-memory-21-02/index.md
-  - Corporate Memory 20.12: release-notes/corporate-memory-20-12/index.md
-  - Corporate Memory 20.10: release-notes/corporate-memory-20-10/index.md
-  - Corporate Memory 20.06: release-notes/corporate-memory-20-06/index.md
-  - Corporate Memory 20.03: release-notes/corporate-memory-20-03/index.md
-  - Corporate Memory 19.10: release-notes/corporate-memory-19-10/index.md
-- Tutorials: tutorials/index.md
+  - Corporate Memory 26.2.0:
+    - release-notes/corporate-memory-26-2/index.md
+  - Corporate Memory 26.1.3:
+    - release-notes/corporate-memory-26-1/index.md
+  - Corporate Memory 25.3.4:
+    - release-notes/corporate-memory-25-3/index.md
+  - Corporate Memory 25.2.7:
+    - release-notes/corporate-memory-25-2/index.md
+  - Corporate Memory 25.1.2:
+    - release-notes/corporate-memory-25-1/index.md
+  - Corporate Memory 24.3.2:
+    - release-notes/corporate-memory-24-3/index.md
+  - Corporate Memory 24.2.1:
+    - release-notes/corporate-memory-24-2/index.md
+  - Corporate Memory 24.1.3:
+    - release-notes/corporate-memory-24-1/index.md
+  - Corporate Memory 23.3.2:
+    - release-notes/corporate-memory-23-3/index.md
+  - Corporate Memory 23.2.1:
+    - release-notes/corporate-memory-23-2/index.md
+  - Corporate Memory 23.1.3:
+    - release-notes/corporate-memory-23-1/index.md
+  - Corporate Memory 22.2.3:
+    - release-notes/corporate-memory-22-2/index.md
+  - Corporate Memory 22.1:
+    - release-notes/corporate-memory-22-1/index.md
+  - Corporate Memory 21.11:
+    - release-notes/corporate-memory-21-11/index.md
+  - Corporate Memory 21.06:
+    - release-notes/corporate-memory-21-06/index.md
+  - Corporate Memory 21.04:
+    - release-notes/corporate-memory-21-04/index.md
+  - Corporate Memory 21.02:
+    - release-notes/corporate-memory-21-02/index.md
+  - Corporate Memory 20.12:
+    - release-notes/corporate-memory-20-12/index.md
+  - Corporate Memory 20.10:
+    - release-notes/corporate-memory-20-10/index.md
+  - Corporate Memory 20.06:
+    - release-notes/corporate-memory-20-06/index.md
+  - Corporate Memory 20.03:
+    - release-notes/corporate-memory-20-03/index.md
+  - Corporate Memory 19.10:
+    - release-notes/corporate-memory-19-10/index.md
+- Tutorials:
+  - tutorials/index.md
