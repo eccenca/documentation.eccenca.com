@@ -158,7 +158,7 @@ def check_tag_chip_links(site: Path, pages: list[Path]) -> None:
         chips > 0,
         f"{chips} chip(s) on {linked_pages} page(s) link to /tags/"
         if chips
-        else "no tag chips link anywhere - is overrides/partials/tags.html in place?",
+        else "no tag chips link anywhere - did Zensical stop linking tag chips?",
         required=True,
     )
     report(
