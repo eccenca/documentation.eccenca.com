@@ -18,7 +18,7 @@ browsers that predate ResizeObserver). They are listed in ``INERT_URLS`` and
 asserted to stay unchanged, so that a Zensical upgrade which adds or moves a
 third-party URL fails the build instead of silently shipping it.
 
-Run after ``zensical build``. Usage: python tools/localize_bundle_assets.py [site_dir]
+Run after ``zensical build``. Usage: dec-tool localize-bundle-assets [--site-dir SITE_DIR]
 """
 
 from __future__ import annotations
@@ -26,6 +26,8 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+import click
 
 # Rewritten to the vendored copies under docs/assets/glightbox/. Zensical writes
 # a per-page `{"base": "."|".."|...}` into the `__config` element, which is what
@@ -79,16 +81,25 @@ def check_inert(site: Path) -> list[str]:
     return problems
 
 
-def main() -> int:
-    site = Path(sys.argv[1] if len(sys.argv) > 1 else "site")
+@click.command()
+@click.option(
+    "--site-dir",
+    type=click.Path(exists=False, dir_okay=True, file_okay=False),
+    default="site",
+    help="Which build output should be rewritten?",
+    show_default=True,
+)
+def localize_bundle_assets(site_dir: str) -> None:
+    """Rewrite third-party asset URLs in the built JavaScript bundle."""
+    site = Path(site_dir)
     if not site.is_dir():
         print(f"error: {site}/ not found - run `task build` first", file=sys.stderr)
-        return 2
+        sys.exit(2)
 
     found = bundles(site)
     if not found:
         print("error: no assets/javascripts/bundle*.min.js in the build", file=sys.stderr)
-        return 1
+        sys.exit(1)
 
     problems: list[str] = []
     for bundle in found:
@@ -124,11 +135,6 @@ def main() -> int:
         print(f"\n{len(problems)} problem(s):", file=sys.stderr)
         for item in problems:
             print(f"  - {item}", file=sys.stderr)
-        return 1
+        sys.exit(1)
 
     print(f"[OK] {len(INERT_URLS)} remaining third-party URL(s) are unreachable for this corpus")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

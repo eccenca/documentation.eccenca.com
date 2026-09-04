@@ -64,7 +64,7 @@ renderer - so `check_zensical_output.py` asserts that every chip anchor resolves
 `/tags/`. That check is what turns a slug mismatch into a failed build instead of 703 dead
 links.
 
-`task check:nav` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
+`task check:navigation` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
 files, which remain the source of truth for navigation (`task update:navigation` regenerates it).
 
 See `tasks/handoff.md` for the full migration notes.

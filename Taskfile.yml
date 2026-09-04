@@ -63,32 +63,22 @@ tasks:
     cmds:
       - task: check:links
       - task: check:rumdl
-      - task: check:nav
+      - task: check:navigation
       - task: check:output
 
-  check:nav:
+  check:navigation:
     desc: Fail if nav.yml is out of sync with the docs/**/.pages files
     deps:
       - install
     cmds:
-      - |
-        expected=$(mktemp)
-        trap 'rm -f "$expected"' EXIT
-        poetry run python tools/build_nav.py > "$expected"
-        if ! diff -u nav.yml "$expected"; then
-          echo
-          echo "nav.yml is out of date with respect to the docs/**/.pages files."
-          echo "Run 'task update:navigation' and commit the result."
-          exit 1
-        fi
-        echo "nav.yml matches the .pages files."
+      - poetry run dec-tool build-navigation --check
 
   check:output:
     desc: Fail if a feature we reimplemented for Zensical regressed in the build
     deps:
       - build
     cmds:
-      - poetry run python tools/check_zensical_output.py site
+      - poetry run dec-tool check-zensical-output
 
   check:links:
     desc: Check outgoing links
@@ -129,7 +119,7 @@ tasks:
       # Zensical bakes unpkg.com URLs into its JS bundle; rewrite them to the
       # vendored copies. Part of building, not of checking - without it the
       # published site issues third-party requests.
-      - poetry run python tools/localize_bundle_assets.py site
+      - poetry run dec-tool localize-bundle-assets
 
   serve:
     desc: Serve the page on localhost with live reload (no post-build steps)
@@ -263,7 +253,7 @@ tasks:
     deps:
       - install
     cmds:
-      - poetry run python tools/build_nav.py > nav.yml
+      - poetry run dec-tool build-navigation
 
   public:versions:
     desc: List public documentation versions

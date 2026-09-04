@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+import difflib
 import sys
 from pathlib import Path
 
+import click
 import yaml
-
-DOCS_DIR = Path("docs")
 
 
 def read_pages(directory: Path) -> dict | None:
@@ -141,25 +141,68 @@ def build_nav_list(nav: list, abs_dir: Path, docs_rel: Path) -> list:
     return result
 
 
-def main() -> None:
-    pages = read_pages(DOCS_DIR)
+def render_nav(docs_dir: Path) -> str:
+    """Render the nav.yml body for a docs tree."""
+    pages = read_pages(docs_dir)
     if not pages or "nav" not in pages:
-        print("ERROR: docs/.pages missing or has no nav: block", file=sys.stderr)
-        sys.exit(1)
+        raise click.ClickException(f"{docs_dir}/.pages missing or has no nav: block")
 
-    nav = build_nav_list(pages["nav"], DOCS_DIR, Path(""))
+    nav = build_nav_list(pages["nav"], docs_dir, Path(""))
 
     # Dump with a custom representer that keeps strings unquoted where safe
     # and preserves unicode (e.g. &nbsp; in titles)
-    output = yaml.dump(
+    return yaml.dump(
         {"nav": nav},
         default_flow_style=False,
         allow_unicode=True,
         width=120,
         indent=2,
     )
-    print(output, end="")
 
 
-if __name__ == "__main__":
-    main()
+@click.command()
+@click.option(
+    "--docs-dir",
+    type=click.Path(exists=True, dir_okay=True, file_okay=False),
+    default="docs",
+    help="Where to read the .pages files from?",
+    show_default=True,
+)
+@click.option(
+    "--output-file", "-o",
+    type=click.Path(exists=False, dir_okay=False, file_okay=True),
+    default="nav.yml",
+    help="Where to save the navigation to?",
+    show_default=True,
+)
+@click.option(
+    "--check",
+    is_flag=True,
+    help="Compare against the output file instead of writing it, exit 1 on drift.",
+)
+def build_navigation(docs_dir: str, output_file: str, check: bool) -> None:
+    """Build the navigation from the .pages files."""
+    output = render_nav(Path(docs_dir))
+    target = Path(output_file)
+
+    if not check:
+        click.echo(f"Write the navigation of {docs_dir} to {target}")
+        target.write_text(output)
+        return
+
+    current = target.read_text() if target.exists() else ""
+    if current == output:
+        click.echo(f"{target} matches the .pages files.")
+        return
+
+    diff = difflib.unified_diff(
+        current.splitlines(keepends=True),
+        output.splitlines(keepends=True),
+        fromfile=str(target),
+        tofile=f"{docs_dir}/**/.pages",
+    )
+    click.echo("".join(diff), nl=False)
+    click.echo()
+    click.echo(f"{target} is out of date with respect to the {docs_dir}/**/.pages files.")
+    click.echo("Run 'task update:navigation' and commit the result.")
+    sys.exit(1)
