@@ -65,7 +65,7 @@ renderer - so `check_zensical_output.py` asserts that every chip anchor resolves
 links.
 
 `task check:nav` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
-files, which remain the source of truth for navigation (`task nav` regenerates it).
+files, which remain the source of truth for navigation (`task update:navigation` regenerates it).
 
 See `tasks/handoff.md` for the full migration notes.
 

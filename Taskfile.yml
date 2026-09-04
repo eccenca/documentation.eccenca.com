@@ -78,7 +78,7 @@ tasks:
         if ! diff -u nav.yml "$expected"; then
           echo
           echo "nav.yml is out of date with respect to the docs/**/.pages files."
-          echo "Run 'task nav' and commit the result."
+          echo "Run 'task update:navigation' and commit the result."
           exit 1
         fi
         echo "nav.yml matches the .pages files."
@@ -89,13 +89,6 @@ tasks:
       - build
     cmds:
       - poetry run python tools/check_zensical_output.py site
-
-  nav:
-    desc: Regenerate nav.yml from the docs/**/.pages files
-    deps:
-      - install
-    cmds:
-      - poetry run python tools/build_nav.py > nav.yml
 
   check:links:
     desc: Check outgoing links
@@ -264,6 +257,13 @@ tasks:
         vars:
           PATHS: ./docs/build/integrations/index.md
         ignore_error: true
+
+  update:navigation:
+    desc: Regenerate nav.yml from the docs/**/.pages files
+    deps:
+      - install
+    cmds:
+      - poetry run python tools/build_nav.py > nav.yml
 
   public:versions:
     desc: List public documentation versions
