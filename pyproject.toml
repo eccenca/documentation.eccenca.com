@@ -23,10 +23,10 @@ mkdocs-material = "^9.7.6"
 cmem-cmempy = "^25.3.0"
 pydantic = "^2.11.7"
 jinja2 = "^3.1.6"
-# Zensical is pre-1.0: the caret pin resolves to >=0.0.58,<0.0.59, i.e. a single
+# Zensical is pre-1.0: the caret pin resolves to >=0.0.59,<0.0.60, i.e. a single
 # release. This narrowness is intentional -- bump it manually and re-run
 # `task build` plus `tools/check_zensical_output.py` when doing so.
-zensical = "^0.0.58"
+zensical = "^0.0.59"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"
