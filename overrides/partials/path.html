@@ -1,0 +1,24 @@
+{#-
+  Override of Zensical's partials/path.html.
+
+  Drops the leading "Welcome to the eccenca Corporate Memory documentation"
+  homepage crumb that Zensical's (and Material for MkDocs') stock template
+  always prepends via `nav.homepage`. Everything else is copied verbatim from
+  Zensical's own version, with the homepage branch removed and the
+  `depth > 1` guard lowered to `depth > 0` to match: without the homepage
+  crumb padding the count, one real ancestor is enough to show the trail.
+-#}
+{% import "partials/path-item.html" as item with context %}
+{% if page.meta and page.meta.hide %}
+  {% set hidden = "hidden" if "path" in page.meta.hide %}
+{% endif %}
+{% set depth = page.ancestors | length %}
+{% if depth > 0 %}
+  <nav class="md-path" aria-label="{{ lang.t('nav') }}" {{ hidden }}>
+    <ol class="md-path__list">
+      {% for nav_item in page.ancestors | reverse %}
+        {{ item.render(nav_item) }}
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}
