@@ -1,6 +1,6 @@
 # Contributing
 
-👍🎉 First off, thanks for taking the time to contribute! 🎉👍
+👍🎉 First off, we appreciate you taking the time to contribute! 🎉👍
 
 The following is a set of guidelines for contributing to the eccenca Corporate Memory documentation project.
 
@@ -96,7 +96,7 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 
 ## Icons
 
-Where possible, please use icons as described on [the material for mkdocs documention](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/).
+Where possible, use icons as described on [the material for mkdocs documention](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/).
 On this page is search function for icons available as well.
 
 ## Admonitions

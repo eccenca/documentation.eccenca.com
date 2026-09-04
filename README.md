@@ -9,7 +9,7 @@ Shared repository of the eccenca Corporate Memory documentation.
 | `main` | [https://dev.documentation.eccenca.com](https://dev.documentation.eccenca.com) |
 | `published` | [https://documentation.eccenca.com](https://documentation.eccenca.com) |
 
-If you consider to contribute to this project, please have a look on [CONTRIBUTING.md](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md)
+If you consider to contribute to this project, have a look on [CONTRIBUTING.md](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md)
 
 ## License
 

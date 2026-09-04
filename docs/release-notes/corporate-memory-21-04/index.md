@@ -106,9 +106,9 @@ In addition to that, these changes are shipped:
     - Use redux store to manage notifications in DataManager (MessageHandler) and improve error parse / handle
     - Use redux store to manage main application state.
     - Change value of `js.config.modules.explore.overallSearchQuery` and `js.config.modules.explore.navigation.searchQuery` to use the `""""` SPARQL string separator.
-    -   *BREAK* please use `"""` if you use custom queries for that values
+    -   *BREAK* use `"""` if you use custom queries for that values
 - Development
-    - Switch to GUI elements repository from Github
+    - Switch to GUI elements repository from GitHub
 
 In addition to that, multiple performance and stability issues were solved.
 

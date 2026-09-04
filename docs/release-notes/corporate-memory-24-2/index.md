@@ -62,7 +62,7 @@ v24.2.0 of DataIntegration introduces the following changes:
 - Rule editors: Add generic path operator to input path tabs.
 - When trying to execute an unsaved workflow notify the user that the workflow will be saved with the option to not show the dialog again.
 - Re-added reload button to data preview to get updated content on config and data changes.
-- Removed URL resource manager. URLs as file names won't be resolved anymore, e.g. for dataset inputs.
+- Removed URL resource manager. URLs as file names will not be resolved anymore, e.g. for dataset inputs.
 - The RDF datasets will always write the schema type for each entity.
 
 v24.2.0 of DataIntegration ships the following fixes:

@@ -18,7 +18,9 @@ terms = [
   "please", "thanks", "thank you",
 
   # Kontraktionen: negiert
-  "don't", "doesn't", "didn't", "can't", "cannot", "won't", "isn't", "aren't",
+  # "cannot" ist bewusst nicht gelistet: das ist die Standardschreibweise,
+  # keine Kontraktion - und damit das Ziel der Korrektur von "can't".
+  "don't", "doesn't", "didn't", "can't", "won't", "isn't", "aren't",
   "wasn't", "weren't", "hasn't", "haven't", "hadn't", "shouldn't", "wouldn't",
   "couldn't", "mustn't", "needn't",
 
@@ -32,4 +34,16 @@ terms = [
 case-sensitive = true                      # Exact case matching (default)
 
 [MD044]
-names = ["JavaScript", "GitHub", "Node.js", "TypeScript", "GitLab", "eccenca", "Corporate Memory", "eccenca Corporate Memory"]
+names = [
+  # Technische Bezeichner zuerst: laengere Treffer haben Vorrang und verhindern
+  # damit False Positives fuer die Markennamen weiter unten
+  # (Material-Icon-Shortcodes, Hostnamen, Umgebungsvariablen).
+  "material/github", "material/gitlab",
+  "material-github", "material-gitlab",
+  "simple-github", "simple-gitlab",
+  "gitlab.eccenca.com",
+  "COM_ECCENCA",
+
+  # Markennamen und Schreibweisen
+  "JavaScript", "GitHub", "Node.js", "TypeScript", "GitLab", "eccenca", "Corporate Memory", "eccenca Corporate Memory"
+]
