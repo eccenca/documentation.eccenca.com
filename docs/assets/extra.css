@@ -26,6 +26,17 @@
     text-decoration: underline;
 }
 
+/* .md-tags' own margin/padding are tuned for sitting below the page title,
+   which is where upstream renders it by default. This site renders tags
+   first (see overrides/partials/content.html), directly under the
+   breadcrumb path, so that spacing left a gap far bigger than the one
+   between the path and a title. Zero it out so the gap matches the
+   baseline space `.md-content__inner` already puts above its first child. */
+.md-content__inner > .md-tags:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 /* Comment out this section if the header should not be light colored */
 
 [data-md-color-scheme="eccenca-light"] .md-header,
