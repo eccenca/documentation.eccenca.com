@@ -48,24 +48,19 @@ check** - the build fails if any of it regresses:
 | `tablesort`, `glightbox` | vendored under `docs/assets/`; `tools/localize_bundle_assets.py` rewrites the CDN URLs Zensical bakes into its JS bundle |
 | Redirects | static stubs under `docs/` |
 | Comment opt-out | `overrides/partials/comments.html` |
-| Tag listings ([#38](https://github.com/zensical/backlog/issues/38)) | `tools/render_tag_listings.py` - **temporary**, see `tasks/spec.md` |
-| Tag chip links ([#38](https://github.com/zensical/backlog/issues/38)) | `overrides/partials/tags.html` - **temporary**, same removal trigger |
 
-The tag-listing renderer expands the `<!-- material/tags -->` markers on `/tags/` and
-`/tutorials/` after the build, and the `tags.html` override links each page's tag chips to
-its section there. Both are deliberately throwaway: the Markdown sources still use
-Material's own marker syntax and Zensical's stock template already knows how to render a
-linked chip - it just has no listing to point at yet. When Zensical ships listings the
-feature works natively, the renderer prints a banner telling you to delete it, and the
-override can go with it.
+Tag listings and the links from each page's tag chips to them are **native** as of
+Zensical 0.0.58. The local stand-ins for both - a post-build renderer and a `tags.html`
+partial override - are gone; the Markdown sources still carry Material's own
+`<!-- material/tags -->` markers, which Zensical now expands itself.
 
-The two build the anchor slug independently - MiniJinja in the template, Python in the
-renderer - so `check_zensical_output.py` asserts that every chip anchor resolves on
-`/tags/`. That check is what turns a slug mismatch into a failed build instead of 703 dead
-links.
+`check-zensical-output` keeps guarding the result: it asserts that tag chips link
+somewhere at all and that every anchor they point at exists on `/tags/`. A slug mismatch
+between a chip and its listing would otherwise ship as hundreds of dead links rather than
+fail the build.
 
-`task check:nav` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
-files, which remain the source of truth for navigation (`task nav` regenerates it).
+`task check:navigation` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
+files, which remain the source of truth for navigation (`task update:navigation` regenerates it).
 
 See `tasks/handoff.md` for the full migration notes.
 

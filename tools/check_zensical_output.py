@@ -13,7 +13,7 @@ Two classes of checks:
              but they shout loudly once they start passing, which is the signal
              to revisit the migration.
 
-Usage: python tools/check_zensical_output.py [site_dir]
+Usage: dec-tool check-zensical-output [--site-dir SITE_DIR]
 """
 
 from __future__ import annotations
@@ -21,6 +21,8 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+import click
 
 # Hosts that may legitimately appear in the output. Everything else must be
 # vendored locally - see the privacy-plugin replacement in handoff.md.
@@ -156,7 +158,7 @@ def check_tag_chip_links(site: Path, pages: list[Path]) -> None:
         chips > 0,
         f"{chips} chip(s) on {linked_pages} page(s) link to /tags/"
         if chips
-        else "no tag chips link anywhere - is overrides/partials/tags.html in place?",
+        else "no tag chips link anywhere - did Zensical stop linking tag chips?",
         required=True,
     )
     report(
@@ -197,11 +199,20 @@ def check_pending(site: Path, pages: list[Path]) -> None:
     report("revision-dates", revision > 0, f"last-update on {revision} pages (backlog #18)", required=False)
 
 
-def main() -> int:
-    site = Path(sys.argv[1] if len(sys.argv) > 1 else "site")
+@click.command()
+@click.option(
+    "--site-dir",
+    type=click.Path(exists=False, dir_okay=True, file_okay=False),
+    default="site",
+    help="Which build output should be checked?",
+    show_default=True,
+)
+def check_zensical_output(site_dir: str) -> None:
+    """Check the build output for regressed Zensical workarounds."""
+    site = Path(site_dir)
     if not site.is_dir():
         print(f"error: {site}/ not found - run `task build` first", file=sys.stderr)
-        return 2
+        sys.exit(2)
 
     pages = html_files(site)
     print(f"Checking {len(pages)} HTML files in {site}/\n")
@@ -224,11 +235,6 @@ def main() -> int:
         print(f"\n{len(failures)} required check(s) failed:")
         for item in failures:
             print(f"  - {item}")
-        return 1
+        sys.exit(1)
 
     print("All required checks passed.")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
