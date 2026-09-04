@@ -1,0 +1,35 @@
+[global]
+disable = ["MD035", "MD025", "MD012", "MD041", "MD045", "MD060", "MD051", "MD046", "MD024", "MD059", "MD077", "MD036", "MD013"]
+
+[MD007]
+indent = 4
+style = "fixed"
+
+[MD030]
+ul-multi = 1
+ul-single = 1
+
+[MD033]
+allowed-elements = ["a", "br", "cite", "details", "div", "figcaption", "figure", "img", "key", "name", "p", "param", "span", "summary", "connection", "tool", "code"]
+
+[MD061]
+terms = [
+  # Höflichkeitsfloskeln / Füllwörter
+  "please", "thanks", "thank you",
+
+  # Kontraktionen: negiert
+  "don't", "doesn't", "didn't", "can't", "cannot", "won't", "isn't", "aren't",
+  "wasn't", "weren't", "hasn't", "haven't", "hadn't", "shouldn't", "wouldn't",
+  "couldn't", "mustn't", "needn't",
+
+  # Kontraktionen: Verb + sein/haben/werden
+  "it's", "that's", "there's", "here's", "what's", "let's",
+  "you're", "we're", "they're", "you'll", "we'll", "they'll", "it'll",
+  "you've", "we've", "they've", "you'd", "we'd", "they'd",
+
+  "CorporateMemory"
+]
+case-sensitive = true                      # Exact case matching (default)
+
+[MD044]
+names = ["JavaScript", "GitHub", "Node.js", "TypeScript", "GitLab", "eccenca", "Corporate Memory", "eccenca Corporate Memory"]

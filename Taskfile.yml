@@ -11,7 +11,7 @@ vars:
   MATERIAL_TAG: 9.6.14
   MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
   # the markdown linter command, used by format:fix:path and check:rumdl
-  RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
+  RUMDL_CHECK: poetry run rumdl --config .rumdl.toml check
   # the default lint targets: the docs tree plus the top-level markdown files
   DOCS_PATHS: ./docs ./*.md
 
