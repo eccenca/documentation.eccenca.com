@@ -1,3 +1,4 @@
+---
 nav:
     - "Combined input hash": inputHash.md
     - "Constant": constant.md

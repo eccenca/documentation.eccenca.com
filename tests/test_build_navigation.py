@@ -6,6 +6,7 @@ import pytest
 from click.testing import CliRunner
 
 from tools.build_navigation import (
+    NAV_HEADER,
     build_nav_list,
     build_navigation,
     dir_title,
@@ -235,6 +236,28 @@ def test_render_nav_keeps_unicode_unescaped(tmp_path):
     assert "\u00dcberblick" in render_nav(docs)
 
 
+def test_render_nav_is_yamllint_clean(tmp_path):
+    """The rendered file carries the header and indents sequences under their key
+
+    This is the shape yamllint's default rules accept: a `---` document start,
+    sequences indented beneath their parent mapping key (`indent-sequences`),
+    a single space after each hyphen (`hyphens`), and a consistent two-column
+    step throughout (`indentation` with `spaces: consistent`).
+    """
+    docs = make_docs(tmp_path, {
+        ".pages": "nav:\n    - Section: sub\n",
+        "sub/index.md": "# Sub",
+        "sub/page.md": "# Page",
+    })
+
+    assert render_nav(docs) == NAV_HEADER + (
+        "nav:\n"
+        "  - Section:\n"
+        "      - sub/index.md\n"
+        "      - sub/page.md\n"
+    )
+
+
 def test_check_passes_when_in_sync(tmp_path):
     """A nav file matching the .pages files exits 0"""
     docs = make_docs(tmp_path, {".pages": "nav:\n    - index.md\n", "index.md": "# Home"})
@@ -243,7 +266,7 @@ def test_check_passes_when_in_sync(tmp_path):
     runner = CliRunner()
     written = runner.invoke(build_navigation, ["--docs-dir", str(docs), "-o", str(nav)])
     assert written.exit_code == 0
-    assert nav.read_text() == "nav:\n- index.md\n"
+    assert nav.read_text() == NAV_HEADER + "nav:\n  - index.md\n"
 
     checked = runner.invoke(
         build_navigation, ["--docs-dir", str(docs), "-o", str(nav), "--check"]
@@ -263,7 +286,7 @@ def test_check_fails_and_diffs_on_drift(tmp_path):
     )
     assert result.exit_code == 1
     assert "-- outdated.md" in result.output
-    assert "+- index.md" in result.output
+    assert "+  - index.md" in result.output
     assert "Run 'task update:navigation' and commit the result." in result.output
     # the stale file is left untouched, so the diff stays reproducible
     assert nav.read_text() == "nav:\n- outdated.md\n"

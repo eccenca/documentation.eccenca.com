@@ -20,8 +20,8 @@ ingress:
           servicePort: 8080
   tls:
     - hosts:
-         - "kc.docker.localhost"
-      secretName:  keycloak-ingress-cert
+        - "kc.docker.localhost"
+      secretName: keycloak-ingress-cert
 
 tests:
   # Change this to your ingress controller IP in case you are using

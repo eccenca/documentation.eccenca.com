@@ -1,3 +1,4 @@
+---
 nav:
     - Configuration: index.md
     - File-based: file-based-configuration
