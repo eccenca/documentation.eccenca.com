@@ -1,3 +1,4 @@
+---
 nav:
     - Automate: index.md
     - cmemc: cmemc-command-line-interface

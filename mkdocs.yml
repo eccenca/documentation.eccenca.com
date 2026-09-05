@@ -306,12 +306,10 @@ plugins:
   - tags:
       listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
       listings_sort_by: !!python/name:material.plugins.tags.item_title
-  # https://github.com/byrnereese/mkdocs-swagger-ui
-  # - swagger-ui-tag
 # }}}
 
 # {{{ Less important mkdocs configuration
 # https://zensical.org/docs/setup/basics/#watch
-#watch:
+# watch:
 #  - overrides
 # }}}

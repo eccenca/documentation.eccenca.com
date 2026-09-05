@@ -1,3 +1,4 @@
+---
 nav:
     - "Coalesce (first non-empty input)": coalesce.md
     - "Regex selection": regexSelect.md

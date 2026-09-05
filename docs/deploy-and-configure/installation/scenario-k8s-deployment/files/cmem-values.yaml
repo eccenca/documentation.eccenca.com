@@ -1,3 +1,4 @@
+---
 # Default values for cmem.
 nameOverride: ""
 
@@ -5,7 +6,7 @@ ingress:
   enabled: true
   className: nginx
   annotations:
-    #kubernetes.io/tls-acme: "true"
+    # kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: OVERRIDDEN_BY_TASKFILE
 
   hosts:
@@ -21,13 +22,14 @@ ingress:
           servicePort: 8080
   tls:
     - hosts:
-         - "OVERRIDDEN_BY_TASKFILE"
-      secretName:  cmem-ingress-cert
+        - "OVERRIDDEN_BY_TASKFILE"
+      secretName: cmem-ingress-cert
 
 global:
   # The OAuth client that will be used to load the workspace initially and run the schedulers.
   # In order to enable that feature, you have to enable the service account feature in the Keycloak
-  # OIDC client "cmem-service-client". Furthermore, an AccessCondition that maps with `eccauth:requiresClient :cmem-service-account`
+  # OIDC client "cmem-service-client". Furthermore, an AccessCondition that
+  # maps with `eccauth:requiresClient :cmem-service-account`
   # is required.
 
   protocol: "https"
@@ -53,7 +55,7 @@ marketplace:
 explore:
   config:
     # disabeld by default
-    # create Objects of kind Pod- or SeviceMonitor see 
+    # create Objects of kind Pod- or SeviceMonitor see
     # https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/developer/getting-started.md#deploying-a-sample-application
     serviceMonitorEnabaled: false
     podMonitorEnabled: true

@@ -1,3 +1,4 @@
+---
 nav:
     - "Concatenate": concat.md
     - "Concatenate multiple values": concatMultiValues.md
