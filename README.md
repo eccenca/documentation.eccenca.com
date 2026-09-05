@@ -86,6 +86,11 @@ fail the build.
 `task check:navigation` additionally fails if `nav.yml` no longer matches the `docs/**/.pages`
 files, which remain the source of truth for navigation (`task update:navigation` regenerates it).
 
+`task check:yamllint` lints every YAML file in the repository, including the extensionless
+`.pages` navigation sources, against the committed `.yamllint`. That config is committed rather
+than left to a user-level one so a local run and a CI run apply the same rules - without it CI
+would fall back to yamllint's stricter upstream defaults.
+
 See `tasks/handoff.md` for the full migration notes.
 
 ## License
