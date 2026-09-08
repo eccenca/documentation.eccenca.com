@@ -59,7 +59,7 @@ tasks:
       - poetry install
 
   check:
-    desc: Check documentation links, Markdown style, nav drift and build output
+    desc: Check documentation links, Markdown and YAML style, nav drift and build output
     # Sequential (`cmds`, not `deps`) on purpose. Task resolves `deps` in
     # parallel, which ran several `poetry install` invocations at once and, worse,
     # ran `zensical build` alongside the link and style checks - under that load
@@ -69,8 +69,18 @@ tasks:
     cmds:
       - task: check:links
       - task: check:rumdl
+      - task: check:yamllint
       - task: check:navigation
       - task: check:output
+
+  check:yamllint:
+    desc: Fail if any YAML file deviates from the style in .yamllint
+    deps:
+      - install
+    cmds:
+      # `.` picks up the repo .yamllint, which is what makes a local run and a
+      # CI run agree: GitHub runners have no user-level yamllint config.
+      - poetry run yamllint .
 
   check:navigation:
     desc: Fail if nav.yml is out of sync with the docs/**/.pages files

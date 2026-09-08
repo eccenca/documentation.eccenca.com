@@ -1,4 +1,3 @@
-
 ---
 repos:
   - repo: local
@@ -9,6 +8,13 @@ repos:
         entry: task check:rumdl
         language: python
         pass_filenames: false
+
+      - id: yamllint
+        name: check:yamllint
+        entry: task check:yamllint
+        language: python
+        pass_filenames: false
+        files: '\.(yml|yaml)$|(^|/)\.pages$|^\.yamllint$'
 
       - id: nav-drift
         name: check:navigation
