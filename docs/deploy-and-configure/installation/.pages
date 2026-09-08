@@ -1,3 +1,4 @@
+---
 nav:
     - Installation: index.md
     - "Scenario: Single Node Cloud Installation": scenario-single-node-cloud-installation

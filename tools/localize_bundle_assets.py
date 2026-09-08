@@ -6,17 +6,21 @@ bundle: there is no configuration option for them, and because the requests are
 issued by JavaScript rather than by a ``<script>`` tag in the HTML,
 ``tools/check_zensical_output.py`` cannot see them.
 
-For this site only ``glightbox`` is actually reachable - it is pulled in on
-every page that contains a lightbox image, which is most of the image-carrying
-pages. The previous Material for MkDocs build served glightbox from its own
-origin, so leaving it on unpkg would be a genuine regression: it leaks visitor
-IP addresses to a third party on page view. This script vendors it instead.
+Two of them are reachable here. ``glightbox`` is pulled in on every page that
+contains a lightbox image, which is most of the image-carrying pages. The
+``resize-observer-polyfill`` is fetched by any visitor whose browser has no
+``ResizeObserver`` of its own, whatever page they open. The previous Material
+for MkDocs build served both from its own origin, so leaving them on unpkg
+would be a genuine regression: it leaks visitor IP addresses to a third party
+on page view. This script rewrites both to vendored copies.
 
-The remaining URLs are unreachable for this corpus (no mermaid diagrams, no Ace
-editor blocks, no Pyodide REPLs, and the ResizeObserver polyfill only loads on
-browsers that predate ResizeObserver). They are listed in ``INERT_URLS`` and
+The remaining URLs are unreachable for this corpus - no mermaid diagrams, no
+Ace editor blocks, no Pyodide REPLs. They are listed in ``INERT_URLS`` and
 asserted to stay unchanged, so that a Zensical upgrade which adds or moves a
-third-party URL fails the build instead of silently shipping it.
+third-party URL fails the build instead of silently shipping it. Because their
+trigger is page content rather than the visitor's browser, ``check_inert`` can
+watch for a page that starts using one - which is what makes leaving them
+remote defensible, and is precisely what could not be done for the polyfill.
 
 Run after ``zensical build``. Usage: dec-tool localize-bundle-assets [--site-dir SITE_DIR]
 """
@@ -38,6 +42,13 @@ BASE_EXPR = 'JSON.parse(document.getElementById("__config").textContent).base'
 REWRITES = {
     "https://unpkg.com/glightbox@3/dist/js/glightbox.min.js": "assets/glightbox/glightbox.min.js",
     "https://unpkg.com/glightbox@3/dist/css/glightbox.min.css": "assets/glightbox/glightbox.min.css",
+    # Loaded when the browser has no ResizeObserver of its own - Safari below
+    # 13.1, Chrome below 64, older embedded webviews. Unlike the inert URLs
+    # below, nothing in the page content decides this, so no marker in
+    # `REACHABLE_MARKERS` could ever catch it: the visitor's browser age does.
+    "https://unpkg.com/resize-observer-polyfill": (
+        "assets/resize-observer-polyfill/ResizeObserver.global.js"
+    ),
 }
 
 # Third-party URLs left in the bundle because no page can trigger them. Keep in
@@ -48,7 +59,6 @@ INERT_URLS = {
     "https://unpkg.com/mermaid@11/dist/mermaid.min.js",
     "https://unpkg.com/pyodide@314.0.2/pyodide.js",
     "https://cdn.jsdelivr.net/pyodide/v314.0.2/full/",
-    "https://unpkg.com/resize-observer-polyfill",
 }
 
 URL_RE = re.compile(r'https://(?:unpkg\.com|cdn\.jsdelivr\.net|cdnjs\.cloudflare\.com)/[^"\')\s]+')
