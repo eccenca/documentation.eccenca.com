@@ -37,10 +37,20 @@ They are never fixed in the Markdown.
 ## Page and navigation structure
 
 - One directory per page with an `index.md` inside: `my-topic/index.md`.
-- Add the page to the `.pages` file of its directory (awesome-pages plugin) with the title used in the menu.
+- Add the page to the `.pages` file of its directory with the title used in the menu, then run
+  `task update:navigation` — see "Navigation" below.
 - The page title (`# Heading`) and the `.pages` nav title must correspond.
 - Images live next to the `index.md` that uses them.
-- Renaming or moving a page requires an entry in `redirect_maps` in `mkdocs.yml` (mkdocs-redirects).
+- Renaming or moving a page requires a redirect stub — see "Redirects" below.
+
+### One topic, one page
+
+Cover a subject in one place. Extending an existing page is usually better than adding a second page on the
+same subject: two pages describing the same procedure will disagree after the next change to the product.
+
+A page may name what another page documents in detail only where the reader cannot follow the steps without
+it — a prerequisite, or a choice that changes which path applies. Link to the other page for the detail
+rather than restating it.
 
 Front matter:
 
@@ -56,13 +66,37 @@ status: new                   # optional: new | deprecated
 
 A tag that is not mapped in `mkdocs.yml` renders without an icon — add the mapping or use an existing tag.
 
+## Navigation
+
+The `.pages` files are the source of the navigation, but Zensical does not read them. `mkdocs.yml` starts with
+`INHERIT: nav.yml`, and `nav.yml` is generated from the `.pages` files:
+
+```bash
+task update:navigation      # dec-tool build-navigation - rewrites nav.yml
+task check:navigation       # fails when nav.yml and the .pages files disagree
+```
+
+A `.pages` entry on its own therefore leaves the page out of the sidebar, and `zensical build --strict` does
+not complain about it — the page compiles and is reachable by URL, only unlisted. `check:navigation`, part of
+`task check`, is what catches this. Commit `nav.yml` together with the `.pages` file that changed.
+
+## Redirects
+
+The `mkdocs-redirects` plugin is not implemented by Zensical, so a moved page leaves a hand-written stub
+behind: an `index.html` at the old path under `docs/`, which Zensical copies into `site/` verbatim.
+`docs/cmemc/index.html` is the model — relative `http-equiv` refresh and visible link so that they survive
+mike's versioned prefixes, absolute canonical URL, `robots: noindex, follow`.
+
+Register the stub in `REDIRECTS` in `tools/check_zensical_output.py`; `task check:output` then fails if it
+disappears or stops pointing at its target.
+
 ## Links
 
 - Relative links to the target `index.md`: `[Property Shapes](property-shapes/index.md)`, `[cmemc](../../automate/cmemc-command-line-interface/index.md)`.
 - No absolute links to `https://documentation.eccenca.com/latest/...` for internal pages.
 - No base-relative links such as `/automate/...`.
 - Same-page references use a plain anchor: `[Configure OAuth clients](#configure-oauth-clients-helm)`, never a full path back to the same file.
-- `task check:links` runs the link checker; `task build` runs `mkdocs build --strict` and fails on unresolved internal links.
+- `task check:links` runs the link checker; `task build` runs `zensical build --strict` and fails on unresolved internal links.
 
 ## Images
 
@@ -156,7 +190,7 @@ Known drift to fix when touching a page: 32 `shell-session` blocks in hand-writt
 ```bash
 task format:fix     # rumdl --fix over ./docs and ./*.md
 task check          # link check + rumdl report (does not fail the stage)
-task build          # mkdocs build --strict
+task build          # zensical build --strict
 ```
 
 - Config: `.markdownlint.jsonc` (`rumdl --config .markdownlint.jsonc check`).

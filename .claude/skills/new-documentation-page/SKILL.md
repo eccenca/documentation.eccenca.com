@@ -37,7 +37,7 @@ Determine the section it belongs to — `docs/build/`, `docs/explore-and-author/
 If two sections are equally plausible, ask; the choice determines the URL and the navigation.
 
 Check that the topic is not already covered elsewhere — extending an existing page is usually better than a
-second page on the same subject (style guide 4.1).
+second page on the same subject (`repo-conventions.md`, "One topic, one page").
 
 Create the directory and its `index.md`:
 
@@ -72,6 +72,16 @@ nav:
 
 The menu title and the `# Heading` of the page must correspond.
 If the directory has no `.pages` file, follow how the parent section orders its entries.
+
+Then regenerate the navigation:
+
+```bash
+task update:navigation
+```
+
+The `.pages` files are the source, but Zensical does not read them.
+`mkdocs.yml` pulls in the generated `nav.yml` through `INHERIT`, so a `.pages` entry alone leaves the page out
+of the sidebar. Commit `nav.yml` together with the `.pages` change.
 
 ### 4. Write the page
 
@@ -113,8 +123,12 @@ and `class="bordered"`, and show only the relevant part of the interface with cl
 
 ```bash
 task format:fix
-task build          # mkdocs build --strict - fails on a page missing from the navigation
+task check          # link check, rumdl, yamllint, nav drift, build output
 ```
+
+`task check` is the gate, not `task build` on its own: `zensical build --strict` compiles a page that is
+missing from the navigation without complaining, and only `check:navigation` catches `nav.yml` drifting from
+the `.pages` files.
 
 Check the page in the local server (`task serve`): navigation entry, title, step numbering, image widths.
 
