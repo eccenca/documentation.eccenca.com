@@ -9,6 +9,7 @@ body:
       label: Contribution guidelines
       description: Please read the contribution guidelines before proceeding.
       options:
+        # yamllint disable-line rule:line-length
         - label: I've read the [contribution guidelines](https://github.com/eccenca/documentation.eccenca.com/blob/main/CONTRIBUTING.md) and wholeheartedly agree.
           required: true
   - type: textarea

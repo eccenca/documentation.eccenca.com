@@ -1,0 +1,26 @@
+---
+# Mirrors ~/.config/yamllint/config so `task check:yamllint` behaves identically
+# for a local run and on CI, where no user-level yamllint config exists and the
+# stricter upstream defaults (notably line-length 80) would otherwise apply.
+extends: default
+
+# The navigation source files are YAML but carry no extension yamllint knows
+# about, so they have to be named explicitly alongside the built-in globs.
+yaml-files:
+    - '*.yaml'
+    - '*.yml'
+    - '.yamllint'
+    - '.pages'
+
+rules:
+    empty-lines:
+        max-end: 1  # allow for one empty line at the end
+    line-length:
+        max: 120
+    # `on:` in a GitHub workflow is a mapping key, not the boolean `on`
+    truthy:
+        check-keys: false
+
+ignore: |
+    /site/
+    /.venv/

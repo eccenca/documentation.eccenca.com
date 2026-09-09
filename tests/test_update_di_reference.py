@@ -1,5 +1,6 @@
 """Test update DI references"""
 import pytest
+import yaml
 
 from tools.update_di_reference import (
     PluginDescription,
@@ -224,3 +225,18 @@ def test_create_plugin_markdown_omits_section_when_no_related_plugins(tmp_path):
 
     written = (tmp_path / "transformer" / "Extract" / "regexExtract.md").read_text()
     assert "Related Plugins" not in written
+
+
+def test_create_plugin_markdown_renders_empty_list_for_untagged_plugin(tmp_path):
+    """Aggregators get no tags from check_tags(); the front matter must stay a
+    valid empty list rather than a bare `tags:` key, which YAML parses as null
+    and crashes Zensical's tags plugin (expected iterable tags, but received: null)."""
+    plugin = _make_plugin("average", plugin_type="aggregator", related=[])
+    plugin_paths = {"average": "aggregator/average.md"}
+    assert plugin.tags == []
+
+    create_plugin_markdown(plugin, tmp_path, plugin_paths)
+
+    written = (tmp_path / "aggregator" / "average.md").read_text()
+    front_matter = written.split("---")[1]
+    assert yaml.safe_load(front_matter)["tags"] == []
