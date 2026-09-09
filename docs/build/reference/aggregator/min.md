@@ -2,7 +2,7 @@
 title: "And"
 description: "All input scores must be within the threshold. Selects the minimum score."
 icon: octicons/cross-reference-24
-tags:
+tags: []
 ---
 
 # And

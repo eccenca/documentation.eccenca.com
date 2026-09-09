@@ -1,4 +1,5 @@
 ---
+INHERIT: nav.yml
 # {{{ Main site config
 site_name: eccenca Corporate Memory documentation
 site_url: https://documentation.eccenca.com/
@@ -59,7 +60,7 @@ extra:
     Validation: validation
     Filesystem: material-file-tree
     Volume: fontawesome-solid-hard-drive
-    "Load Balancer": simple-awselasticloadbalancing
+    "Load Balancer": load-balancer
     Variables: variables
     JDBC: jdbc
     Package: package
@@ -78,10 +79,11 @@ extra:
       make our documentation better.
 # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme
 extra_css:
+  - assets/fonts.css
   - assets/extra.css
 extra_javascript:
   # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#sortable-tables
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - assets/tablesort.min.js
   - assets/tablesort.js
   - assets/extra.js
 # }}}
@@ -99,10 +101,11 @@ theme:
   palette:
     - scheme: eccenca-light
 
+  # Fonts are self-hosted, see docs/assets/fonts.css. `false` suppresses the
+  # <link> tags to fonts.googleapis.com / fonts.gstatic.com; the families are
+  # set via --md-text-font / --md-code-font there instead.
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
 
   favicon: assets/favicon.svg
   logo: assets/favicon.svg
@@ -127,6 +130,8 @@ theme:
     # documents can be directly attached to sections, which is particularly
     # useful for providing overview pages.
     - navigation.indexes
+    # renders a breadcrumb trail above the content
+    - navigation.path
     # clicks on all internal links will be intercepted and dispatched via XHR
     # without fully reloading the page
     - navigation.instant
@@ -151,12 +156,8 @@ theme:
     # - toc.integrate
 
   # 404 page
-  static_templates:
-    - 404.html
 
   # Necessary for search to work properly
-  include_search_page: false
-  search_index_only: true
 
   icon:
     logo: logo
@@ -187,7 +188,7 @@ theme:
       keycloak: material/openid
       validation: octicons/verified-16
       material-file-tree: material/file-tree
-      simple-awselasticloadbalancing: simple/awselasticloadbalancing
+      load-balancer: other/load-balancer
       fontawesome-solid-hard-drive: fontawesome/solid/hard-drive
       variables: material/variable-box
       jdbc: material/database
@@ -212,8 +213,26 @@ theme:
 
 # {{{ Extensions to the markdown processor
 markdown_extensions:
-  # multi extension: https://python-markdown.github.io/extensions/extra/
-  - extra
+  # These, plus `attr_list`, `md_in_html` and `pymdownx.superfences` further
+  # down, are exactly the members of `pymdownx.extra`. They are listed out
+  # rather than pulled in as that bundle so it stays visible that superfences
+  # carries our `custom_fences` configuration.
+  #
+  # Do NOT use `markdown.extensions.extra` here: it bundles `fenced_code`,
+  # which claims the same ``` syntax as superfences. superfences is documented
+  # to replace fenced_code, and enabling both is unsupported - the precedence
+  # between them then depends on hash ordering, so builds randomly handed the
+  # fence to fenced_code, which does not understand `title="..."`. The fence
+  # never opened and the rest of the page, headings and anchors included, was
+  # emitted as raw text. See zensical/zensical#882 and
+  # https://facelessuser.github.io/pymdown-extensions/usage_notes/
+  #
+  # https://facelessuser.github.io/pymdown-extensions/extensions/extra/
+  - pymdownx.betterem
+  - abbr
+  - def_list
+  - footnotes
+  - tables
   # converts ASCII dashes, quotes and ellipses to their HTML entity equivalents
   - smarty
   # ordered list will not continue when an unordered item comes and vice versa
@@ -235,7 +254,6 @@ markdown_extensions:
   - pymdownx.snippets
   # https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
   - pymdownx.keys
-  - codehilite
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -265,51 +283,38 @@ markdown_extensions:
 
 # {{{ Extensions to mkdocs - some of them are used by material theme
 plugins:
-  # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#built-in-privacy-plugin
-  - privacy:
-      assets_fetch: true
-      assets_fetch_dir: assets/externals
-      assets_exclude:
-        - badge.fury.io/*
-        - img.shields.io/*
-        - cdn.jsdelivr.net/npm/mathjax@3/*
-        - giscus.app/*
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
-  - search:
-      lang: en
+  # No `lang: en` here: Zensical 0.0.60 validates plugin options strictly and
+  # accepts only `enabled` and `separator` for search, so the key is a hard
+  # build error. Releases up to 0.0.59 silently ignored it, and English is the
+  # default, so nothing about the built index changes.
+  - search
   # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
   - awesome-pages
   # https://github.com/fralau/mkdocs_macros_plugin
   # - macros
-  # https://github.com/midnightprioriem/mkdocs-autolinks-plugin
-  - autolinks
   # https://github.com/blueswen/mkdocs-glightbox
   - glightbox
+  # The two plugins below are inert under Zensical: it neither implements nor
+  # reports them, so social cards and revision dates are missing from the
+  # output. They are kept so the features return automatically once Zensical
+  # maps them. tools/check_zensical_output.py tracks both.
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
   - social:
       cards: true
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
-  - tags:
-      listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
-      listings_sort_by: !!python/name:material.plugins.tags.item_title
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
-  # https://github.com/byrnereese/mkdocs-swagger-ui
-  # - swagger-ui-tag
-  # https://github.com/mkdocs/mkdocs-redirects
-  - redirects:
-      redirect_maps:
-        'explore-and-author/building-a-customized-user-interface/index.md': 'explore-and-author/graph-exploration/building-a-customized-user-interface/index.md'
-        'cmemc.md': 'automate/cmemc-command-line-interface/index.md'
-  # https://squidfunk.github.io/mkdocs-material/reference/#built-in-meta-plugin
-  - meta
+  # Natively implemented since Zensical 0.0.58 (listings included).
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  - tags:
+      listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
+      listings_sort_by: !!python/name:material.plugins.tags.item_title
 # }}}
 
 # {{{ Less important mkdocs configuration
-# https://www.mkdocs.org/user-guide/configuration/#watch
-watch:
-  - overrides
+# https://zensical.org/docs/setup/basics/#watch
+# watch:
+#  - overrides
 # }}}
-

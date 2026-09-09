@@ -1,4 +1,9 @@
-{% if page.meta.comments %}
+{# Comments are on by default; a page opts out with `comments: false` in its
+   front matter. This replaces the built-in `meta` plugin (and the global
+   `comments: true` in docs/.meta.yml), which Zensical does not implement.
+   MiniJinja's `default` filter substitutes only for undefined values, so an
+   explicit `false` is preserved. #}
+{% if page.meta.comments | default(true) %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
   <!-- Insert generated snippet here -->
 <script src="https://giscus.app/client.js"

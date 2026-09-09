@@ -1,0 +1,17 @@
+{#-
+  Override of Zensical's partials/content.html.
+
+  Zensical renders the page tags after `page.content`, at the bottom of the
+  page. This site renders them at the top instead, as page metadata rather
+  than a footer - but not from here: `partials/path.html` puts them on the
+  breadcrumb row, so the only change from Zensical's own version is that the
+  `tags.html` include is gone.
+-#}
+{% include "partials/actions.html" %}
+{% if "<h1" not in page.content %}
+  <h1 id="__skip">{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{{ page.content }}
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}
