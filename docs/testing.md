@@ -176,18 +176,18 @@ Current issues:
 
 - Input values:
     1.
-        ```json
-        [a
-        \b, c]
-        ```
+    ``` json
+    [a
+    \b, c]
+    ```
 
 - Returns:
     →
-        ```json
-        [a
-        \b
-        \c]
-        ```
+    ``` json
+    [a
+    \b
+    \c]
+    ```
 
 
 !!! example "Example 5"
