@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git log *)",
+      "WebFetch(domain:zensical.org)",
+      "WebSearch",
+      "Bash(gh release *)"
+    ]
+  }
+}

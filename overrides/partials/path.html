@@ -1,0 +1,70 @@
+{#-
+  Override of Zensical's partials/path.html.
+
+  Three changes over Zensical's own version:
+
+  1. The leading "Welcome to the eccenca Corporate Memory documentation"
+     homepage crumb that the stock template prepends via `nav.homepage` is
+     dropped, and the `depth > 1` guard is lowered to `depth > 0` to match:
+     without the homepage crumb padding the count, one real ancestor is
+     enough to show a trail.
+
+  2. The trailing crumb is dropped when it points at the page you are already
+     on. With `navigation.indexes` every `<dir>/index.md` is attached to the
+     section named after it, so that section is one of `page.ancestors` and
+     the stock template renders it as a self-link - a third copy of something
+     the highlighted sidebar entry and the page title already say. Sections
+     whose index page is a *different* page (`csv.md` inside `Datasets`, say)
+     keep their crumb, because there it carries real information.
+
+     The self-link is detected the way `path-item.html` resolves a section to
+     a link: the first child marked `is_index`. If that child's URL is this
+     page's URL, the crumb points back here and the section is skipped.
+
+  3. The page tags render here rather than in `partials/content.html`, so the
+     breadcrumb and the tags can share one row - the trail on the left, the
+     chips flowing past it and right-aligned. See `.md-path-row` in
+     docs/assets/extra.css for the layout. This ties the tags to
+     `navigation.path`: switch that feature off and base.html stops including
+     this file, taking the tags with it.
+-#}
+{% import "partials/path-item.html" as item with context %}
+{% if page.meta and page.meta.hide %}
+  {% set hidden = "hidden" if "path" in page.meta.hide %}
+{% endif %}
+{% set _ = namespace(trail = page.ancestors) %}
+{% if "navigation.indexes" in features and page.ancestors %}
+  {% set parent = page.ancestors | first %}
+  {% set current = namespace(is_index = false) %}
+  {% for child in parent.children %}
+    {% if child.is_index and child.url == page.url and not current.is_index %}
+      {% set current.is_index = true %}
+    {% endif %}
+  {% endfor %}
+  {% if current.is_index %}
+    {% set _.trail = page.ancestors[1:] %}
+  {% endif %}
+{% endif %}
+{% set tags_hidden = false %}
+{% if page.meta and page.meta.hide %}
+  {% set tags_hidden = "tags" in page.meta.hide %}
+{% endif %}
+{% set show_tags = tags and not tags_hidden %}
+{% if _.trail or show_tags %}
+  <div class="md-path-row{% if show_tags %} md-path-row--tagged{% endif %}">
+    {% if _.trail %}
+      <nav class="md-path" aria-label="{{ lang.t('nav') }}" {{ hidden }}>
+        <ol class="md-path__list">
+          {% for nav_item in _.trail | reverse %}
+            {{ item.render(nav_item) }}
+          {% endfor %}
+        </ol>
+      </nav>
+    {% endif %}
+    {% if show_tags %}
+      <div class="md-path-row__tags md-typeset">
+        {% include "partials/tags.html" %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
