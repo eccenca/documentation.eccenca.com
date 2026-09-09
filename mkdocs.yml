@@ -284,8 +284,11 @@ markdown_extensions:
 # {{{ Extensions to mkdocs - some of them are used by material theme
 plugins:
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
-  - search:
-      lang: en
+  # No `lang: en` here: Zensical 0.0.60 validates plugin options strictly and
+  # accepts only `enabled` and `separator` for search, so the key is a hard
+  # build error. Releases up to 0.0.59 silently ignored it, and English is the
+  # default, so nothing about the built index changes.
+  - search
   # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
   - awesome-pages
   # https://github.com/fralau/mkdocs_macros_plugin
