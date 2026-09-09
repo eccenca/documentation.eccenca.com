@@ -179,11 +179,19 @@ Use the same term for the same concept throughout the documentation.
 Do not alternate between synonyms unless they refer to different concepts.
 Prefer the terminology used by the eccenca product itself.
 
+> Repository clarification, not part of the Confluence page: do not settle which term the product uses by
+> counting occurrences in `docs/`.
+> See "Do not infer terminology from majority usage" in `repo-conventions.md`.
+
 ### 4.2 Use the full product name on first mention
 
 Use **eccenca Corporate Memory** on the first mention in prose text on each page; use **Corporate Memory** afterwards.
 Do not use "CMEM" in prose text — keep `CMEM` only in code, IRIs, JSON keys, parameters, and other literal technical values.
 Do not use articles as part of product names.
+
+> Repository clarification, not part of the Confluence page: `cmemc` is exempt from this rule and is never
+> expanded, being a product name of its own rather than an abbreviation.
+> See "The cmemc exemption" in `repo-conventions.md`.
 
 ### 4.3 Use US English
 

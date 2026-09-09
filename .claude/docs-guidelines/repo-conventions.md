@@ -185,6 +185,30 @@ Known drift to fix when touching a page: 32 `shell-session` blocks in hand-writt
   numbering restarts at 1 in the rendered page. Check the rendered result for any step list you touch.
 - `sane_lists` is enabled: an unordered item does not continue an ordered list.
 
+## Editorial decisions beyond the style guide
+
+`style-guide.md` is a transcription of the Confluence page and is not extended locally.
+These are the rulings this repository made where the transcription leaves room.
+Cite them by heading, the way style guide rules are cited by number.
+
+### The cmemc exemption
+
+Style guide 4.2 keeps `CMEM` out of prose and allows it only in literal technical values.
+`cmemc` is not covered by that rule and is never expanded: it is the separately branded eccenca command line
+client, a product name of its own rather than an abbreviation of Corporate Memory.
+It appears in 186 files under `docs/`, in prose as well as in commands, and is correct in both.
+
+The same applies to identifiers that carry the string verbatim — `CMEM_BASE_URI`, `cmem-plugin-base`, module
+paths and IRIs. They are written as they are, wherever they appear.
+
+### Do not infer terminology from majority usage
+
+Style guide 4.1 requires one term per concept, and prefers the term the product itself uses.
+Do not settle which term that is by counting how often each variant occurs in `docs/`.
+Majority usage is frequently the term the team has been trying to retire, and about 500 of the Markdown files
+are generated from sources that lag behind the interface, so a count is weighted towards the older wording.
+Check the running product, or ask, when the correct term is not obvious.
+
 ## Markdown linting
 
 ```bash

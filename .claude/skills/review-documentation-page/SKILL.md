@@ -77,6 +77,8 @@ poetry run rumdl --config .markdownlint.jsonc check <file>
 
 - **Claims** — mark every statement of fact that cannot be checked from the sources: counts, durations,
   version-specific behavior, "the dialog shows ...".
+  Where the page and the product disagree, the finding records what the product actually does — a defect in
+  the product is reported as a defect, never smoothed over in the wording of the finding.
 
 ### 4. Verify against the product
 

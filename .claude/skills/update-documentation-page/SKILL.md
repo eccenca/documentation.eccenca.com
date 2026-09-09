@@ -27,6 +27,10 @@ The order matters: diagnose first, then restructure, then rewrite, then images, 
   When the page is finished, offer `suggest-commit-message`.
 - **Never edit a generated file.** Check for the marker first; findings there go into a report for a ticket
   against the generator.
+- **Document the product as it behaves, and do not repair the product.** When a step turns out to be broken,
+  confusing or self-contradictory in the product itself, write down what actually happens and record the
+  defect as a finding for a ticket. Describing the intended behavior instead produces a page that reads
+  correctly and cannot be followed, which is the failure that survives review longest.
 - Change what is wrong or unclear. Do not reflow a whole page that is already correct.
 
 ## Steps
