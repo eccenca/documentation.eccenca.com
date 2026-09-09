@@ -14,7 +14,7 @@ The highlights of this release are:
 - Named query API to get data without SPARQL know-how
 - OpenAPI compliant DataPlatform API specification and UI
 - Preview/Beta release of the upcoming DataIntegration Workspace
-- Preview/Beta support for [GraphDB](../../deploy-and-configure/configuration/quad-store-configuration/index.md) as triple store backend → [Vendor Homepage](http://graphdb.ontotext.com/)
+- Preview/Beta support for [GraphDB](../../../deploy-and-configure/configuration/quad-store-configuration/index.md) as triple store backend → [Vendor Homepage](http://graphdb.ontotext.com/)
 
 !!! warning
 
@@ -153,7 +153,7 @@ The feature of this release are:
 - add and delete eccenca Corporate Memory data sources
 - get data out of SELECT queries from the Query Catalog
 
-We provided a tutorial for this new component: [Consuming Graphs in Power BI](../../consume/consuming-graphs-in-power-bi/index.md)
+We provided a tutorial for this new component: [Consuming Graphs in Power BI](../../../consume/consuming-graphs-in-power-bi/index.md)
 
 ## Migration Notes
 
