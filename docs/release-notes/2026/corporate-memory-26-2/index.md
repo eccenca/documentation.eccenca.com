@@ -38,7 +38,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-- [eccenca Explore v26.2.1](#eccenca-explore-v2621)
+- [eccenca Explore v26.2.2](#eccenca-explore-v2622)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
 - [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
 - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
@@ -279,9 +279,15 @@ We are excited to announce the release of DataIntegration v26.2, which brings re
     - Overriding a setting in `dataintegration.conf` now also updates the settings derived from it, e.g. setting `directories.base` moves the data, cache, and log directories along with it.
     - The `profiling.rdfSerialization.enabled` setting now controls the RDF profiling output; previously it was ignored and the output was controlled by `profiling.cache.enabled` instead.
 
-## eccenca Explore v26.2.1
+## eccenca Explore v26.2.2
 
 We are pleased to announce the release of Explore v26.2, which introduces the new Manage module, extends Companion with external MCP servers and SHACL based resource authoring, improves SHACL editing and chart handling, and ships a broad platform refresh.
+
+**v26.2.2 of Explore ships the following fixes:**
+
+- **Companion:**
+    - openai/anthropic providers without structured output support cannot be used.
+        - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
 
 **v26.2.1 of Explore introduces the following changes:**
 
