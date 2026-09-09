@@ -31,7 +31,7 @@ persistence:
   volumeClaimTemplate:
     name: "storage"
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: ["ReadWriteOnce"]
       resources:
         requests:
           storage: 5Gi

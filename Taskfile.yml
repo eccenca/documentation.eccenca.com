@@ -7,9 +7,10 @@ dotenv: ['.env']
 
 vars:
   PUBLIC_BRANCH: published
+  # Throwaway branch used by public:preview. Never pushed, recreated on every
+  # run and deleted again when the preview server stops.
+  PREVIEW_BRANCH: publish-preview
   CURRENT_VERSION: 26.2
-  MATERIAL_TAG: 9.6.14
-  MATERIAL_INSIDER_TAG: 9.6.14-insiders-4.53.16
   # the markdown linter command, used by format:fix:path and check:rumdl
   RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
   # the default lint targets: the docs tree plus the top-level markdown files
@@ -25,39 +26,75 @@ tasks:
       - task --list
 
   versions:
-    desc: List relevant versions for a mkdocs material bug report
+    desc: List relevant versions for a zensical material bug report
     silent: true
     cmds:
       - |
         cat << EOF
         - Python: {{.PYTHON_VERSION}}
-        - MkDocs: {{.MKDOCS_VERSION}}
-        - Material: {{.MATERIAL_VERSION}}
+        - Zensical: {{.ZENSICAL_VERSION}}
         EOF
     vars:
       PYTHON_VERSION:
         sh: poetry run python --version
-      MKDOCS_VERSION:
-        sh: poetry run mkdocs --version | cut -d " " -f -3
-      MATERIAL_VERSION:
-        sh: poetry run pip show mkdocs-material | grep Version | cut -d " " -f 2
+      ZENSICAL_VERSION:
+        sh: poetry run zensical --version | cut -d " " -f -3
 
   clean:
     desc: Clean up working directory
     run: once
     cmds:
       - rm -rf site
+      # Only ever the throwaway branch of public:preview, which normally deletes
+      # itself; this catches the run that was killed before it could.
+      - git branch -D {{.PREVIEW_BRANCH}} >/dev/null 2>&1 || true
 
   install:
     desc: Install needed dependencies
+    # `run: once` because five tasks depend on this and `task check` resolves its
+    # dependencies in parallel - without it, concurrent `poetry install`
+    # invocations collide and one of them fails with a non-obvious exit 1.
+    run: once
     cmds:
       - poetry install
 
   check:
-    desc: Check documentation links and Markdown style
+    desc: Check documentation links, Markdown and YAML style, nav drift and build output
+    # Sequential (`cmds`, not `deps`) on purpose. Task resolves `deps` in
+    # parallel, which ran several `poetry install` invocations at once and, worse,
+    # ran `zensical build` alongside the link and style checks - under that load
+    # Zensical intermittently reports false "page does not exist" warnings and
+    # `--strict` fails the build (zensical/zensical#641). Serialising costs a
+    # little wall-clock and makes the stage deterministic.
+    cmds:
+      - task: check:links
+      - task: check:rumdl
+      - task: check:yamllint
+      - task: check:navigation
+      - task: check:output
+
+  check:yamllint:
+    desc: Fail if any YAML file deviates from the style in .yamllint
     deps:
-      - check:links
-      - check:rumdl
+      - install
+    cmds:
+      # `.` picks up the repo .yamllint, which is what makes a local run and a
+      # CI run agree: GitHub runners have no user-level yamllint config.
+      - poetry run yamllint .
+
+  check:navigation:
+    desc: Fail if nav.yml is out of sync with the docs/**/.pages files
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool build-navigation --check
+
+  check:output:
+    desc: Fail if a feature we reimplemented for Zensical regressed in the build
+    deps:
+      - build
+    cmds:
+      - poetry run dec-tool check-zensical-output
 
   check:links:
     desc: Check outgoing links
@@ -90,35 +127,30 @@ tasks:
     deps:
       - task: install
     cmds:
-      - poetry run mkdocs build --strict
+      # `--clean` is not optional: with a warm .cache Zensical intermittently
+      # reports false "page does not exist" warnings and --strict then fails the
+      # build (zensical/zensical#641). Measured on this repo: 4 of 6 warm builds
+      # failed, 6 of 6 passed with --clean. Costs ~5s; buys a deterministic build.
+      - poetry run zensical build --strict --clean
+      # Zensical bakes unpkg.com URLs into its JS bundle; rewrite them to the
+      # vendored copies. Part of building, not of checking - without it the
+      # published site issues third-party requests.
+      - poetry run dec-tool localize-bundle-assets
 
   serve:
-    desc: Serve the page on localhost
+    desc: Serve the page on localhost with live reload (no post-build steps)
+    # `zensical serve` rebuilds into site/ on every change, which overwrites what
+    # the post-build steps in `build` produced - so this preview loads glightbox
+    # and the ResizeObserver polyfill from unpkg rather than from our vendored
+    # copies. Nothing downstream consumes a site/ left behind this way: `build`
+    # and `check:output` rebuild, and `public:deploy` refuses a site/ whose
+    # canonical URL is unversioned, which such a rebuild always is.
+    #
+    # Use `task public:preview` to see the site as it will actually be published.
     deps:
       - task: install
     cmds:
-      - poetry run mkdocs serve
-
-  use:public:
-    desc: switch to public package (non insider)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add mkdocs-material=={{.MATERIAL_TAG}}
-      - poetry update
-
-  use:insider-ssh:
-    desc: switch to insider package from github:eccenca via ssh (default)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+ssh://git@github.com:eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
-
-  use:insider-https-token:
-    desc: switch to insider package from github:eccenca via ACCESS_TOKEN variable (build plan)
-    cmds:
-      - poetry remove mkdocs-material || exit 0
-      - poetry add git+https://$ACCESS_TOKEN@github.com/eccenca/mkdocs-material-insiders.git#{{.MATERIAL_INSIDER_TAG}}
-      - poetry update
+      - poetry run zensical serve
 
   update:icons:
     desc: update the used eccenca icons from carbon
@@ -226,6 +258,13 @@ tasks:
           PATHS: ./docs/build/integrations/index.md
         ignore_error: true
 
+  update:navigation:
+    desc: Regenerate nav.yml from the docs/**/.pages files
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool build-navigation
+
   public:versions:
     desc: List public documentation versions
     deps:
@@ -235,12 +274,28 @@ tasks:
 
   public:deploy:
     desc: Publish the working directory as version {{.CURRENT_VERSION}}
+    summary: |
+      Builds the site and commits it as version {{.CURRENT_VERSION}} on the
+      {{.PUBLIC_BRANCH}} branch. Nothing is pushed - that stays a deliberate
+      `git push` afterwards.
+
+      Deliberately not `mike deploy`: that builds the site itself, without
+      `--strict` and without the post-build steps below, and its rebuild would
+      overwrite them anyway. So the build happens here and `dec-tool publish`
+      hands the result to mike, which still owns versions.json, the aliases and
+      the root redirect.
+
+      MIKE_DOCS_VERSION is what makes the pages carry a versioned canonical URL;
+      `dec-tool publish` refuses to commit a site/ built without it.
     deps:
       - task: install
     cmds:
+      - MIKE_DOCS_VERSION={{.CURRENT_VERSION}} task build
       - >
-        poetry run mike deploy -b {{.PUBLIC_BRANCH}}
-        --update-aliases {{.CURRENT_VERSION}} latest
+        poetry run dec-tool publish
+        --branch {{.PUBLIC_BRANCH}}
+        --version {{.CURRENT_VERSION}}
+        --alias latest
 
   public:serve:
     desc: Start a webserver to manually validate the public branch
@@ -248,6 +303,42 @@ tasks:
       - task: install
     cmds:
       - poetry run mike serve -b {{.PUBLIC_BRANCH}}
+
+  public:preview:
+    desc: Rehearse a deployment on a throwaway branch and serve it
+    summary: |
+      Deploys the working directory into a throwaway copy of the public branch,
+      serves it on localhost, and deletes that branch again when the server
+      stops. Nothing is pushed and {{.PUBLIC_BRANCH}} is never touched.
+
+      The rehearsal is public:deploy itself, pointed at the throwaway branch, so
+      what it serves is exactly what publishing would produce.
+
+      Ctrl-C removes the branch. Should the process be killed harder than that,
+      `task clean` removes it, as does the next run.
+
+        task public:preview PORT=9000
+    deps:
+      - task: install
+    vars:
+      PORT: '{{.PORT | default "8002"}}'
+    cmds:
+      # Deleted when the server stops: `defer` runs on Ctrl-C too, since that
+      # reaches mike and Task alike.
+      - defer: git branch -D {{.PREVIEW_BRANCH}} >/dev/null 2>&1 || true
+      # Start from the branch as it stands - locally if it exists, otherwise as
+      # last fetched - so the rehearsal shows the new version among the existing
+      # ones: version selector, outdated banner and root redirect included.
+      - |
+        base={{.PUBLIC_BRANCH}}
+        git show-ref --verify --quiet refs/heads/{{.PUBLIC_BRANCH}} \
+          || base=origin/{{.PUBLIC_BRANCH}}
+        git branch -f --no-track {{.PREVIEW_BRANCH}} "$base"
+      - task: public:deploy
+        vars:
+          PUBLIC_BRANCH: "{{.PREVIEW_BRANCH}}"
+      - echo "Serving the deployment rehearsal on http://localhost:{{.PORT}} - Ctrl-C to stop and discard it"
+      - poetry run mike serve -b {{.PREVIEW_BRANCH}} --dev-addr localhost:{{.PORT}}
 
   format:fix:path:
     internal: true

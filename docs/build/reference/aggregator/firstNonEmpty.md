@@ -2,7 +2,7 @@
 title: "First non-empty score"
 description: "Forwards the first input that provides a non-empty similarity score."
 icon: octicons/cross-reference-24
-tags:
+tags: []
 ---
 
 # First non-empty score

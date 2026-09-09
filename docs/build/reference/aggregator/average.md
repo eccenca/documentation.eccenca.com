@@ -2,7 +2,7 @@
 title: "Average"
 description: "Computes the weighted average."
 icon: octicons/cross-reference-24
-tags:
+tags: []
 ---
 
 # Average
