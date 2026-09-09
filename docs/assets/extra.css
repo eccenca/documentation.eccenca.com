@@ -280,3 +280,14 @@ img.bordered {
         display: none !important;
     }
 }
+/* Button injected by assets/extra.js to clear the search highlighting. The
+   theme styles .md-header__button for <a> and <label> elements, so a real
+   <button> needs its user agent chrome removed to sit flush with the rest of
+   the header icons. */
+.md-clear-highlight {
+    appearance: none;
+    background: none;
+    border: none;
+    font: inherit;
+    line-height: 0;
+}
