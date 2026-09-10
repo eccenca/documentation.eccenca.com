@@ -1,5 +1,6 @@
-{# Cover page template for mkdocs-print-site-plugin.
-   Rendered as the first page of /print_page/. Context exposes `config`. #}
+{# Cover page for the linearized PDF, prepended by tools/build_pdf.py.
+   The {{ config.* }} handles below are substituted verbatim by that script -
+   there is no template engine involved, so keep them spelled exactly. #}
 <style>
   .print-cover-page {
     page-break-after: always;

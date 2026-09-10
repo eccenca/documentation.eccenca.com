@@ -311,27 +311,6 @@ plugins:
   - tags:
       listings_tags_sort_by: !!python/name:material.plugins.tags.tag_name_casefold
       listings_sort_by: !!python/name:material.plugins.tags.item_title
-  # https://timvink.github.io/mkdocs-print-site-plugin/
-  # Combines all pages into a single /print_page/ - rendered to PDF by `task pdf`.
-  # Inert under Zensical like `social` and `git-revision-date-localized` above:
-  # Zensical does not run MkDocs plugins, so /print_page/ is not built and
-  # `task pdf` cannot work until the pipeline is ported. Kept so the target
-  # returns automatically if Zensical maps it.
-  # MUST remain the last plugin entry.
-  - print-site:
-      add_to_navigation: false
-      print_page_title: "documentation.eccenca.com"
-      add_print_site_banner: false
-      add_table_of_contents: true
-      toc_title: "Table of contents"
-      toc_depth: 3
-      add_full_urls: false
-      enumerate_headings: false
-      enumerate_figures: false
-      add_cover_page: true
-      cover_page_template: "overrides/print_cover.html"
-      include_css: true
-      path_to_pdf: ""
 # }}}
 
 # {{{ Less important mkdocs configuration

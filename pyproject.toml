@@ -29,17 +29,10 @@ mike = { git = "https://github.com/squidfunk/mike.git", rev = "2d4ad799442f4592d
 # NOT depend on it, but mkdocs.yml resolves `!!python/name:material.*` handles for
 # the twemoji index and the tags plugin, so the package must stay installed.
 mkdocs-material = "^9.7.6"
-# Feeds the single-page PDF export (`task pdf` -> tools/build_pdf.py).
-# Inert under Zensical, which does not run MkDocs plugins, so /print_page/ is
-# not generated and the PDF pipeline needs porting before it works again.
-# Kept because it is this branch's cornerstone dependency and it is what pulls
-# in beautifulsoup4, which tools/build_pdf.py imports.
-mkdocs-print-site-plugin = "^2.6.0"
-# tools/build_pdf.py imports bs4. It used to arrive transitively via
-# mkdocs-swagger-ui-tag (dropped in the Zensical migration), which is why the
-# import comments in build_pdf.py call it "transitive via mkdocs" - it never
-# was. Declared explicitly so the PDF tooling stops depending on an accident.
+# tools/build_pdf.py parses the built HTML to splice pages together.
 beautifulsoup4 = "^4.12"
+# tools/build_pdf.py reads nav.yml and mkdocs.yml directly.
+pyyaml = "^6.0"
 cmem-cmempy = "^25.3.0"
 pydantic = "^2.11.7"
 jinja2 = "^3.1.6"

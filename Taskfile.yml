@@ -155,13 +155,14 @@ tasks:
   pdf:
     desc: Build a single PDF of the whole site via headless Chrome
     summary: |
-      Runs `task build`, then tools/build_pdf.py to serve site/ locally and
-      print /print_page/ to PDF.
+      Runs `task build`, then tools/build_pdf.py, which assembles one
+      linearized HTML document from nav.yml and the per-page HTML in site/,
+      serves it and prints it with headless Chrome.
 
-      BROKEN under Zensical: /print_page/ came from mkdocs-print-site-plugin,
-      and Zensical does not run MkDocs plugins, so the page is never generated
-      and build_pdf.py stops with "print_page not found". Porting the pipeline
-      off the plugin is outstanding work - see the notes in mkdocs.yml.
+      nav.yml is the page order: it is generated from the .pages files and
+      gated by `task check`, so the PDF cannot drift from the sidebar. Pages
+      outside the navigation - the homepage, tags.md, testing.md and the
+      hidden Getting Started tutorial - are not included.
 
       Tunables (env vars):
         CHROME        - path to a Chromium-family binary

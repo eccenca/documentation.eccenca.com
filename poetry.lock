@@ -969,21 +969,6 @@ files = [
 ]
 
 [[package]]
-name = "mkdocs-print-site-plugin"
-version = "2.9"
-description = "MkDocs plugin that combines all pages into one, allowing for easy export to PDF and standalone HTML."
-optional = false
-python-versions = ">=3.8"
-groups = ["main"]
-files = [
-    {file = "mkdocs_print_site_plugin-2.9-py3-none-any.whl", hash = "sha256:bd26729160b5e2eec49f027448d1c54086f50b91ba5a0a5999d9d0e75938c345"},
-    {file = "mkdocs_print_site_plugin-2.9.tar.gz", hash = "sha256:fb7f749a73e606e97bec7f871d9fa55ea76ba6d806d7ce124c814ac2327f537a"},
-]
-
-[package.dependencies]
-mkdocs = ">=1.2.3,<=1.6.1"
-
-[[package]]
 name = "multidict"
 version = "6.7.1"
 description = "multidict implementation"
@@ -2117,4 +2102,4 @@ tomli = ">=2.4.0"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "eaed3b3e297b8294d48ce632ce8a39ca436544a834cf58b92b4c86421c3c48ee"
+content-hash = "b160dea6f6193228b7faff3104ab2334fe1f932a77ddbc0ce68a953c2719444e"
