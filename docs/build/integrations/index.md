@@ -244,7 +244,8 @@ from and to a single ZIP archive.
     ---
 
     Get data and trigger eccenca Corporate Memory build workflows with the
-[n8n Community Node](https://github.com/eccenca/n8n-nodes-corporate-memory).
+[n8n Community Node](../../automate/n8n-node/index.md), which is published in the
+[n8n-nodes-corporate-memory repository](https://github.com/eccenca/n8n-nodes-corporate-memory).
 
 
 - :simple-neo4j:{ .lg .middle } Neo4J
