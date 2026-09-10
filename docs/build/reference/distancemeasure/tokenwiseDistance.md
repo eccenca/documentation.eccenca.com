@@ -34,7 +34,7 @@ No description
 
 ### Metric name
 
-No description
+The metric used to compare tokens. One of `levenshtein`, `jaro`, `jaroWinkler`.
 
 - ID: `metricName`
 - Datatype: `string`

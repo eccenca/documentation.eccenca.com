@@ -19,7 +19,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-**Example 1:**
+**Substitutes each input variable by its value:**
 
 * Parameters
     * template:
@@ -43,41 +43,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 
 
 ---
-**Example 2:**
-
-* Parameters
-    * template: `Hello {{badVariable}} {{input1}}`
-
-* Input values:
-    1. `[John]`
-    2. `[Doe]`
-
-* Returns: `[]`
-* **Throws error:** `ValidationException`
-
-
----
-**Example 3:**
-
-* Parameters
-    * template: `Hello {{input01}}`
-
-* Returns: `[]`
-* **Throws error:** `ValidationException`
-
-
----
-**Example 4:**
-
-* Parameters
-    * template: `Hello {{input1}}`
-
-* Returns: `[]`
-* **Throws error:** `UnboundVariablesException`
-
-
----
-**Example 5:**
+**Concatenates all values of a multi-valued input:**
 
 * Parameters
     * template: `Hello {{input1}}`
@@ -89,7 +55,7 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 
 
 ---
-**Example 6:**
+**Supports iterating over the values of a multi-valued input:**
 
 * Parameters
     * template: `Hello {% for value in input1 %}{{value}}, {% endfor %}how are you doing?`
@@ -100,13 +66,68 @@ Evaluates a template. Input values can be addressed using the variables 'input1'
 * Returns: `[Hello Bob, Eve, how are you doing?]`
 
 
+---
+**Supports method calls on input values:**
+
+* Parameters
+    * template: `{{ input1.trim() }}`
+
+* Input values:
+    1. `[ John ]`
+
+* Returns: `[John]`
+
+
+---
+**Rejects unscoped variables that are no input variables:**
+
+* Parameters
+    * template: `Hello {{badVariable}} {{input1}}`
+
+* Input values:
+    1. `[John]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Rejects wrongly numbered input variables, the numbering starts at input1 without leading zeros:**
+
+* Parameters
+    * template: `Hello {{input01}}`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Rejects scoped variables from unknown scopes, e.g. misspelled scope names:**
+
+* Parameters
+    * template: `Hello {{projekt.myVar}}`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**Fails at execution time if a referenced input is not connected:**
+
+* Parameters
+    * template: `Hello {{input1}}`
+
+* Returns: `[]`
+* **Throws error:** `UnboundVariablesException`
+
+
 
 
 ## Parameter
 
 ### Template
 
-The template
+The template, using Jinja syntax.
 
 * ID: `template`
 * Datatype: `template`

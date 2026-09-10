@@ -60,5 +60,5 @@ No description
 
 ## Related Plugins
 
-* **stripPrefix** — Strip postfix removes from the end; Strip prefix removes from the start. Both leave the value unchanged when the configured string is not found at the expected position.
-* **substring** — Strip postfix checks for a specific string at the end before removing it. Substring does not check content: a negative end index removes a fixed character count from the end unconditionally.
+* [stripPrefix](stripPrefix.md) — Strip postfix removes from the end; Strip prefix removes from the start. Both leave the value unchanged when the configured string is not found at the expected position.
+* [substring](substring.md) — Strip postfix checks for a specific string at the end before removing it. Substring does not check content: a negative end index removes a fixed character count from the end unconditionally.

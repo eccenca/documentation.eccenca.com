@@ -1,12 +1,12 @@
 ---
-title: "Percentrank"
+title: "Excel Percentrank"
 description: "Excel PERCENTRANK(data; value): Returns the percentage rank (percentile) of the given value in a sample. Data is the array of data in the sample."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Percentrank
+# Excel Percentrank
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

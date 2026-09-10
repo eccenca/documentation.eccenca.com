@@ -1,6 +1,6 @@
 ---
 icon: material/table
-subtitle: such as STIX
+# subtitle: such as STIX
 tags:
   - ExpertTutorial
 ---

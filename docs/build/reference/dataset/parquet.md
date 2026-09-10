@@ -64,7 +64,7 @@ The following table summarizes the key differences and typical use cases of the 
 
 ### File
 
-Path (e.g. relative like 'path/filename.orc' or absolute 'hdfs:///path/filename.parquet').
+Path relative to the configured resource repository (e.g. 'path/filename.parquet').
 
 - ID: `file`
 - Datatype: `resource`

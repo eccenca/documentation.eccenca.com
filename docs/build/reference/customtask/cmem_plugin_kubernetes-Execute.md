@@ -28,6 +28,9 @@ This plugin enables execution of commands inside Kubernetes pods and captures th
 
     - **Explicit config**: Uses a YAML kubeconfig file for external connections
 - Executes shell commands in specified pods within namespaces
+- Targets a pod either by name or by a label selector (the equivalent of the
+  `kubectl -l` / `--selector` flag, e.g. `app=nifi`); when a selector matches more
+  than one pod, the first one is used
 - Captures both stdout and stderr output
 - Returns command output as a file entity for further processing
 - Includes namespace listing functionality to verify cluster access and connectivity
@@ -70,7 +73,7 @@ Namespaces provide a mechanism for isolating groups of resources.
 
 ### Pod
 
-Pods are an abstraction that represent groups of one or more application containers (such as Docker), and some shared resources for those containers.
+Pods are an abstraction that represent groups of one or more application containers (such as Docker), and some shared resources for those containers. Either a pod name or a label selector must be given (but not both).
 
 - ID: `pod`
 - Datatype: `string`
@@ -93,6 +96,16 @@ In case there is more than one container in the pod OR the default container sel
 The command to execute.
 
 - ID: `command`
+- Datatype: `string`
+- Default Value: `None`
+
+
+
+### Pod Label Selector
+
+Instead of a fixed pod name, select a pod by label selector (the equivalent of the kubectl -l / --selector flag), e.g. 'app=nifi'. Multiple labels can be comma-separated, e.g. 'app=nifi,tier=frontend'. If the selector matches more than one pod, the first one is used.
+
+- ID: `label_selector`
 - Datatype: `string`
 - Default Value: `None`
 

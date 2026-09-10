@@ -5,7 +5,7 @@ hide:
 ---
 !!! info inline end ""
 
-    ![Your are here](overview-consume.drawio.png "You are here")
+    ![You are here](Functional_Architecture_26.2_pillars_only_consume.drawio.png "You are here")
 
 # :material-star: Consume
 

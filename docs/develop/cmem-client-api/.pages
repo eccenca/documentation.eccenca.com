@@ -1,0 +1,4 @@
+---
+nav:
+    - "cmem-client: Python API": index.md
+    - API Reference: api-reference

@@ -1,12 +1,12 @@
 ---
-title: "Acosh"
+title: "Excel Acosh"
 description: "Excel ACOSH(number): Returns the inverse hyperbolic cosine of the given number in radians."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Acosh
+# Excel Acosh
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

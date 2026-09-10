@@ -15,8 +15,8 @@ The code examples in this section assume that you have a POSIX-compliant shell (
 - [docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/install/) (v2) installed locally
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed locally
 - [jq](https://jqlang.github.io/jq/download/) installed locally
-- A GraphDB license ([free](https://www.ontotext.com/products/graphdb/) or commercial)
-- (optional) A Graph Insights license
+- Triple store license (provided by eccenca)
+- Graph Insights license (optional, provided by eccenca)
 - make - build tool (apt-get install make) installed locally (don't use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650); e.g., 4.3 works well)
 - At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
@@ -26,7 +26,7 @@ Install the requirements
 
 === "Linux"
 
-    Install all the needed packages: 
+    Install all the needed packages:
 
     ```shell
     sudo apt-get install -y curl gnupg2 \

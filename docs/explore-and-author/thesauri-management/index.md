@@ -3,7 +3,7 @@ icon: eccenca/module-thesauri
 tags:
     - Vocabulary
 ---
-# Thesauri Management
+# Thesauri
 
 ## Introduction
 
@@ -28,9 +28,11 @@ SKOS is a convenient way to model taxonomical data.
 The [SKOS Reference](https://www.w3.org/TR/2009/REC-skos-reference-20090818/) provides detailed documentation on the usage of SKOS.
 The Thesaurus module allows to create, browse and edit such structures, providing a way to structure your hierarchical data in a simple interface and make it accessible for use cases like documentation and master data management.
 
+<!-- TODO: Marketplace chapter must be created and linked CMEM-8002-->
+
 !!! info
 
-    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* is installed in the Vocabulary catalog (see section [Vocabulary Catalog](../vocabulary-catalog/index.md)).
+    Before you start working with the Thesaurus module ensure that the vocabulary *Simple Knowledge Organization System* (SKOS) is installed from the **Marketplace**.
 
 Click **:eccenca-module-thesauri: Thesauri** in the main menu, to open the Thesaurus project catalog.
 

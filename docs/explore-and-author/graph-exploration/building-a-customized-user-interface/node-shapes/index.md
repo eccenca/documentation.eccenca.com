@@ -30,6 +30,14 @@ The name of the node is presented to the user only when he needs to distinguish 
 Used Path: `shacl:name`
 
 
+### Name (internal)
+
+
+The internal name of the shape shown when viewing the shape resource itself.
+
+Used Path: `rdfs:label`
+
+
 ### Description
 
 

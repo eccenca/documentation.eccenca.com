@@ -26,6 +26,83 @@
     text-decoration: underline;
 }
 
+/* ---------------------------------------------------------------------------
+   Breadcrumb and page tags share one row.
+
+   overrides/partials/path.html renders both into `.md-path-row`. The trail
+   floats left and the tag chips flow past it, right-aligned, so they start on
+   the breadcrumb's own line and drop onto the next one - still right-aligned -
+   only when the trail is long, the tags are many, or the window is narrow.
+
+   That flow is why the chips are not laid out with flexbox: a flex or grid
+   container establishes its own formatting context and steps around a float
+   instead of flowing beside it. The chips are inline-level boxes already, so
+   they wrap the way words do - at the price of `gap`, which needs a flex
+   parent and is replaced by margins below.
+   --------------------------------------------------------------------------- */
+
+.md-path-row {
+    display: flow-root; /* so the row contains its floated trail */
+    /* the padding and margin `.md-path` owns upstream, moved up to the row */
+    padding-top: 1.2rem;
+    margin: 0.4rem 0.8rem 0;
+    text-align: right;
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-path-row {
+        margin: 0.4rem 1.2rem 0;
+    }
+}
+
+.md-path-row .md-path {
+    float: left;
+    max-width: 100%;
+    padding-top: 0;
+    /* the gutter the chips may not cross, so the trail and the tags always
+       read as two groups even when the first line is full */
+    margin: 0 2.5rem 0 0;
+    text-align: left;
+}
+
+/* One tag chip is 1.424rem tall: line-height 1.6 plus 0.3125em of padding
+   above and below, all at the chips' own 0.64rem font size. Matching that here
+   puts the trail on the chips' centre line - and only where there are chips,
+   so a page without tags keeps the shorter row it has always had. */
+.md-path-row--tagged .md-path__list {
+    min-height: 1.424rem;
+}
+
+.md-path-row__tags {
+    /* upstream's `gap: .5em` and a slightly tighter row gap, both resolved at
+       the chips' own 0.64rem so they survive the `font-size: 0` below */
+    --dec-tag-gap: 0.32rem;
+    --dec-tag-row-gap: 0.26rem;
+}
+
+.md-path-row__tags .md-tags:not([hidden]) {
+    display: block;
+    /* the chips' own row gap, taken back off the last row */
+    margin: 0 0 calc(-1 * var(--dec-tag-row-gap));
+    padding: 0;
+    line-height: 1;
+    /* the newlines between two chips in tags.html would otherwise put a word
+       space between them on top of their margin, and a stray one after the
+       last chip that right alignment would show as a ragged edge */
+    font-size: 0;
+}
+
+.md-path-row__tags .md-tag {
+    /* what `min(.8em, .64rem)` upstream resolves to here anyway, said outright
+       because the zeroed parent font size would otherwise take it to 0 */
+    font-size: 0.64rem;
+    /* `gap` needs a flex parent; these are inline boxes, so it is margin */
+    margin: 0 0 var(--dec-tag-row-gap) var(--dec-tag-gap);
+    /* top, not baseline: an inline-flex box aligned on its baseline drags its
+       own descender space into the line box and spaces the rows unevenly */
+    vertical-align: top;
+}
+
 /* Comment out this section if the header should not be light colored */
 
 [data-md-color-scheme="eccenca-light"] .md-header,
@@ -229,4 +306,15 @@ img.bordered {
     [data-md-component="dialog"] {
         display: none !important;
     }
+}
+/* Button injected by assets/extra.js to clear the search highlighting. The
+   theme styles .md-header__button for <a> and <label> elements, so a real
+   <button> needs its user agent chrome removed to sit flush with the rest of
+   the header icons. */
+.md-clear-highlight {
+    appearance: none;
+    background: none;
+    border: none;
+    font: inherit;
+    line-height: 0;
 }

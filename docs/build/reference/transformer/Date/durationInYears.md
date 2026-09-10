@@ -25,4 +25,4 @@ Converts an xsd:duration to years.
 
 ## Related Plugins
 
-- **numberToDuration** — Duration in years reduces a duration to a plain year count. Number to duration goes the other direction: it builds a duration from a year count when configured for years.
+- [numberToDuration](numberToDuration.md) — Duration in years reduces a duration to a plain year count. Number to duration goes the other direction: it builds a duration from a year count when configured for years.

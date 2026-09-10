@@ -24,7 +24,7 @@ Compares single values (as opposed to sequences of values). If multiple values a
 
 ### Unit
 
-No description
+The unit in which the distance is measured. One of `m`, `meter`, `km`, `kilometer`.
 
 - ID: `unit`
 - Datatype: `string`

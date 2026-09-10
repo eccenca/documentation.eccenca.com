@@ -1,11 +1,16 @@
 ---
 icon: eccenca/application-ai-suggestion
-subtitle: LLM and MCP-tools based chat
 status: new
 tags:
     - Reference
 ---
-# Companion
+# Companion AI Chat
+
+!!! info "AI Disclaimer"
+
+    Companion is an AI-based feature.
+    AI-generated content may be inaccurate or incomplete.
+    Please verify important information.
 
 The Companion view enables you to interact with your data, graphs, vocabularies, resources and queries in a chat-like way.
 
@@ -28,7 +33,7 @@ For optimal results, we recommend using Anthropic or OpenAI frontier-level model
 
 You can open the _Chat with Companion_ from any explore module via the :eccenca-application-ai-suggestion: Companion button in the top right of the application header, next to the :eccenca-application-useraccount: user menu.
 
-![Companion Chat](companion-anatomy.jpg){ class="bordered" width="60%" }
+![Companion Chat](companion-anatomy.png){ class="bordered" width="60%" }
 
 In the companion sidebar, use:
 
@@ -43,7 +48,7 @@ In the companion sidebar, use:
 
 To maximize the relevance and accuracy of the generated answer, your question is automatically enriched based on the context of the current view (e.g. the query text, the graph and the resource IRI).
 
-### Tool selection
+### Tool Selection
 
 ![Companion Tool Selection](companion-tool-selection.png){ class="bordered" width="40%" }
 
@@ -104,7 +109,7 @@ If your use case or question requires you to limit the available tools (e.g. if 
     `resource_get`
     :   Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
 
-### Interactive answers
+### Interactive Answers
 
 ![Enriched answers](companion-response-enrichment.png){ class="bordered" }
 

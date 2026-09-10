@@ -1,12 +1,12 @@
 ---
-title: "Pi"
+title: "Excel Pi"
 description: "Excel PI(): Returns the value of PI to fourteen decimal places."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Pi
+# Excel Pi
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

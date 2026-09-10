@@ -2,8 +2,8 @@
 title: "{{plugin.title | replace('"', "'") }}"
 description: "{{plugin.description | replace('"', "'") }}"
 icon: octicons/cross-reference-24
-tags: {% for tag in plugin.tags %}
-    - {{tag}}{% endfor %}
+tags:{% for tag in plugin.tags %}
+    - {{tag}}{% endfor %}{% if not plugin.tags %} []{% endif %}
 ---
 # {{plugin.title}}
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
@@ -26,11 +26,11 @@ tags: {% for tag in plugin.tags %}
 
 {{parameters_advanced if plugin.properties_advanced else "`None`"}}
 
-{%- if plugin.relatedPlugins %}
+{%- if related_plugins_resolved %}
 
 ## Related Plugins
 
-{% for ref in plugin.relatedPlugins -%}
-- **{{ ref.id }}**{% if ref.description %} — {{ ref.description }}{% endif %}
+{% for ref, link in related_plugins_resolved -%}
+- [{{ ref.id }}]({{ link }}){% if ref.description %} — {{ ref.description }}{% endif %}
 {% endfor %}
 {%- endif %}

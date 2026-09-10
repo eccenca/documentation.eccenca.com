@@ -56,4 +56,4 @@ If a different stop word list is needed, the Remove stop words plugin supports p
 
 ## Related Plugins
 
-* **removeRemoteStopWords** — The Remove remote stop words plugin performs stop word removal using a stop word list fetched from a remote URL, while the Remove default stop words plugin performs stop word removal using the built-in default list.
+* [removeRemoteStopWords](removeRemoteStopWords.md) — The Remove remote stop words plugin performs stop word removal using a stop word list fetched from a remote URL, while the Remove default stop words plugin performs stop word removal using the built-in default list.

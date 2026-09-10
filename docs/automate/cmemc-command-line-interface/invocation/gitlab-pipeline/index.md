@@ -46,11 +46,11 @@ test:
         - cmemc graph count $GRAPH
         - cmemc graph delete $GRAPH
     variables:
-      GRAPH: "https://github.com/seebi/cmemc-workflow"
+      GRAPH: "https://github.com/eccenca/cmemc-workflow"
       CMEM_BASE_URI: $MY_CMEM_BASE_URI
       OAUTH_GRANT_TYPE: $MY_OAUTH_GRANT_TYPE
       OAUTH_CLIENT_ID: $MY_OAUTH_CLIENT_ID
-      AUTH_CLIENT_SECRET: $MY_OAUTH_CLIENT_SECRET
+      OAUTH_CLIENT_SECRET: $MY_OAUTH_CLIENT_SECRET
 ```
 
 The above snippet also demonstrates how you can map your project variables to [cmemc's configuration variables](../../configuration/file-based-configuration/index.md).

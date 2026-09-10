@@ -19,7 +19,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-**Example 1:**
+**Returns the substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive). Indices are zero-based:**
 
 * Parameters
     * beginIndex: `0`
@@ -32,7 +32,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 2:**
+**Extracts a single character if 'endIndex' is 'beginIndex' plus one:**
 
 * Parameters
     * beginIndex: `2`
@@ -45,7 +45,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 3:**
+**Equal indices yield an empty string:**
 
 * Parameters
     * beginIndex: `3`
@@ -58,7 +58,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 4:**
+**Indices that are out of range for the value are rejected by default:**
 
 * Parameters
     * beginIndex: `2`
@@ -67,12 +67,12 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 * Input values:
     1. `[abc]`
 
-* Returns: `[c]`
+* Returns: `[]`
 * **Throws error:** `ValidationException`
 
 
 ---
-**Example 5:**
+**If 'stringMustBeInRange' is false, out-of-range indices are clipped to the length of the value:**
 
 * Parameters
     * beginIndex: `2`
@@ -86,7 +86,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 6:**
+**Clipping yields an empty string if the whole range lies outside the value:**
 
 * Parameters
     * beginIndex: `10`
@@ -100,7 +100,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 7:**
+**A negative 'endIndex' removes that many characters from the end:**
 
 * Parameters
     * beginIndex: `0`
@@ -113,7 +113,7 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
 
 
 ---
-**Example 8:**
+**An 'endIndex' of 0 returns the entire remaining string starting at 'beginIndex':**
 
 * Parameters
     * beginIndex: `1`
@@ -123,6 +123,62 @@ Returns a substring between 'beginIndex' (inclusive) and 'endIndex' (exclusive).
     1. `[abc]`
 
 * Returns: `[bc]`
+
+
+---
+**Values shorter than the number of characters to remove from the end are rejected:**
+
+* Parameters
+    * beginIndex: `0`
+    * endIndex: `-3`
+
+* Input values:
+    1. `[ab]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**If 'stringMustBeInRange' is false, values shorter than the number of characters to remove yield an empty string:**
+
+* Parameters
+    * beginIndex: `0`
+    * endIndex: `-3`
+    * stringMustBeInRange: `false`
+
+* Input values:
+    1. `[ab]`
+
+* Returns: `[]`
+
+
+---
+**A begin index that exceeds the end index is rejected:**
+
+* Parameters
+    * beginIndex: `2`
+    * endIndex: `1`
+
+* Input values:
+    1. `[abc]`
+
+* Returns: `[]`
+* **Throws error:** `ValidationException`
+
+
+---
+**If 'stringMustBeInRange' is false, a begin index that exceeds the end index yields an empty string:**
+
+* Parameters
+    * beginIndex: `2`
+    * endIndex: `1`
+    * stringMustBeInRange: `false`
+
+* Input values:
+    1. `[abc]`
+
+* Returns: `[]`
 
 
 
@@ -163,6 +219,6 @@ If true, only strings will be accepted that are within the start and end indices
 
 ## Related Plugins
 
-* **stripPrefix** — Substring removes a fixed number of characters from the start regardless of their content. Strip prefix is more selective: it only removes from the start if the configured string is actually found there.
-* **stripPostfix** — Substring works by index: it removes a fixed count of trailing characters regardless of their content. Strip postfix is the alternative when the trailing portion is a known string; it checks for it and leaves the value unchanged if not found.
-* **untilCharacter** — Substring extracts by position: the start and end indices are fixed and apply to every input value regardless of its content. Until character extracts up to a specific character.
+* [stripPrefix](stripPrefix.md) — Substring removes a fixed number of characters from the start regardless of their content. Strip prefix is more selective: it only removes from the start if the configured string is actually found there.
+* [stripPostfix](stripPostfix.md) — Substring works by index: it removes a fixed count of trailing characters regardless of their content. Strip postfix is the alternative when the trailing portion is a known string; it checks for it and leaves the value unchanged if not found.
+* [untilCharacter](untilCharacter.md) — Substring extracts by position: the start and end indices are fixed and apply to every input value regardless of its content. Until character extracts up to a specific character.

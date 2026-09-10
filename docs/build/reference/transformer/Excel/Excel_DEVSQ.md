@@ -1,12 +1,12 @@
 ---
-title: "Devsq"
+title: "Excel Devsq"
 description: "Excel DEVSQ(number_1; number_2; ... number_30): Returns the sum of squares of deviations based on a sample mean. Number_1; number_2; ... number_30 are numerical values or ranges representing a sample."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Devsq
+# Excel Devsq
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -140,13 +140,25 @@
     {% endif %}
 
     <!-- Button to open search modal -->
-    {% if "material/search" in config.plugins %}
-      <label class="md-header__button md-icon" for="__search">
-        {% include ".icons/material/magnify.svg" %}
-      </label>
+    <!--
+      The plugin key is `search`. Material for MkDocs Insiders registered its
+      built-in search as `material/search`, which is what this override used
+      to test for - under Zensical that name never matches, so the button and
+      the dialog silently disappeared while the index and the search worker
+      were still being built and shipped. Condition copied from Zensical's own
+      partials/header.html.
+    -->
+    {% if "search" in config.plugins %}
+      {% set search = config.plugins["search"] | attr("config") %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon" for="__search" aria-label="{{ lang.t('search') }}">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
 
-      <!-- Search interface -->
-      {% include "partials/search.html" %}
+        <!-- Search interface -->
+        {% include "partials/search.html" %}
+      {% endif %}
     {% endif %}
 
     <!-- Get a Demo Link (Added) -->

@@ -21,6 +21,7 @@ store:
       - "/data/data.trig"
 ```
 
+
 ***Property: store.type***
 
 The type of the store must be set to "memory"
@@ -33,6 +34,7 @@ The type of the store must be set to "memory"
 | Environment | STORE_TYPE |
 
 ***Property: store.authorization***
+
 
 | Category | Value |
 |--- | ---: |
@@ -53,3 +55,4 @@ list of files in file URI scheme
 | Required | false |
 | Valid values | A list of files |
 | Environment | STORE_MEMORY_FILES |
+

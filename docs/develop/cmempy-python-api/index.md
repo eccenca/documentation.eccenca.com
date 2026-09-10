@@ -1,4 +1,5 @@
 ---
+status: deprecated
 icon: material/language-python
 tags:
     - API

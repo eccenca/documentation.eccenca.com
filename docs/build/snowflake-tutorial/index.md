@@ -1,6 +1,6 @@
 ---
 icon: material/database-export
-subtitle: cloud datawarehouse
+# subtitle: cloud datawarehouse
 tags:
   - AdvancedTutorial
   - KnowledgeGraph

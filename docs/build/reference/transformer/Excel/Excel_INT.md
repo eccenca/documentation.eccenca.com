@@ -1,12 +1,12 @@
 ---
-title: "Int"
+title: "Excel Int"
 description: "Excel INT(number): Rounds the given number down to the nearest integer."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Int
+# Excel Int
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

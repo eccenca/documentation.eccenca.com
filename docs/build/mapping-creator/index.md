@@ -1,11 +1,17 @@
 ---
 icon: fontawesome/solid/wand-magic-sparkles
-subtitle: build mappings visually and AI supported
+# subtitle: build mappings visually and AI supported
 status: new
 tags:
     - Reference
 ---
 # Mapping Creator
+
+!!! info "AI Disclaimer"
+
+    Mapping Creator uses AI-generated suggestions.
+    AI-generated content may be inaccurate or incomplete.
+    Please review all suggestions carefully before applying them.
 
 ## Configuration Info
 

@@ -27,10 +27,11 @@ $ cmemc workflow execute cmem:my-workflow
 cmem:my-workflow ... Started
 ```
 
-Workflow identifier can be extended with command-line completion on the command line but you can also get a list of workflows with the `workflow list` command:
+Workflow identifier can be extended with command-line completion on the command line but you can also get a list of workflows with the `workflow list` command.
+Use the `--id-only` option to get the plain identifiers, which is what you need when piping them into other commands:
 
 ``` shell-session title="workflow list command"
-$ cmemc workflow list
+$ cmemc workflow list --id-only
 cmem:my-workflow
 cmem:second-workflow
 ```
@@ -54,24 +55,28 @@ $ cmemc workflow status cmem:my-workflow
 cmem:my-workflow ... Finished (Finished in 32.931s, 4 minutes ago)
 ```
 
-Additionally, you can retrieve raw JSON data about a workflow, which can be used for post-processing:
+Additionally, you can retrieve raw JSON data about a workflow, which can be used for post-processing.
+Note that `queueTime` and `startTime` are ISO-8601 timestamps, while `lastUpdateTime` is given in milliseconds since the epoch:
 
 ``` shell-session title="workflow status command with JSON output"
-$ cmemc -workflow status cmem:my-workflow --raw
+$ cmemc workflow status cmem:my-workflow --raw
 {
-  "activity": "ExecuteLocalWorkflow",
-  "runtime": 32931,
-  "project": "cmem",
+  "statusName": "Finished",
+  "concreteStatus": "Successful",
+  "progress": 100.0,
   "failed": false,
   "message": "Finished in 32.931s",
+  "lastUpdateTime": 1787338094362,
+  "project": "cmem",
   "task": "my-workflow",
+  "activity": "ExecuteDefaultWorkflow",
+  "activityLabel": "Default execution",
+  "queueTime": "2026-08-21T18:47:41.430930Z",
+  "startTime": "2026-08-21T18:47:41.431248Z",
   "isRunning": false,
-  "statusName": "Finished",
-  "progress": 100,
+  "runtime": 32931,
   "cancelled": false,
-  "startTime": 1593679211989,
-  "exceptionMessage": null,
-  "lastUpdateTime": 1593679244920
+  "exceptionMessage": null
 }
 ```
 

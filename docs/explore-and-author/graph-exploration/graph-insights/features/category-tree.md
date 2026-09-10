@@ -33,7 +33,7 @@ The tree displays the hierarchical taxonomy of the dataset:
 The tree is the primary tool to populate the canvas:
 
 - **Drag and drop (Start):** Dragging a class to an empty area clears the canvas and starts a new exploration with a group of the selected class.
-  *Alternatives: Double-click the class or use its context menu item `Start exploration with class`.*
+    - *Alternatives: Double-click the class or use its context menu item `Start exploration with class`.*
 - **Drag and drop (Intersect):** Drag a class onto an **existing** group to apply an intersection filter (e.g., dragging `German Suppliers` onto `VIP Suppliers` restricts the group to resources with **both classes**).
 
 ---

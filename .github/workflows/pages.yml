@@ -66,10 +66,7 @@ jobs:
         run: sudo apt-get update -y
 
       - name: install packages
-        run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
-
-      - name: reconfigure private repository access
-        run: ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} task use:insider-https-token
+        run: sudo apt-get install -y libffi-dev libz-dev
 
       - name: check
         run: task check

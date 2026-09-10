@@ -63,5 +63,5 @@ No description
 
 ## Related Plugins
 
-- **soundex** — The NYSIIS plugin encodes a name into a phonetic key, but it is not the same kind of key as Soundex. The Soundex plugin produces a fixed, coarse code, while NYSIIS keeps more structure so fewer distinct names collapse into the same bucket.
-- **metaphone** — The Metaphone plugin follows its own phonetic encoding path and returns a key that lives in a different rule space than NYSIIS. Switching between Metaphone and the NYSIIS plugin changes which spellings end up identical after encoding, not just how the encoded strings look.
+- [soundex](soundex.md) — The NYSIIS plugin encodes a name into a phonetic key, but it is not the same kind of key as Soundex. The Soundex plugin produces a fixed, coarse code, while NYSIIS keeps more structure so fewer distinct names collapse into the same bucket.
+- [metaphone](metaphone.md) — The Metaphone plugin follows its own phonetic encoding path and returns a key that lives in a different rule space than NYSIIS. Switching between Metaphone and the NYSIIS plugin changes which spellings end up identical after encoding, not just how the encoded strings look.

@@ -22,6 +22,7 @@ store:
     password: "password"
 ```
 
+
 ***Property: store.type***
 
 The type of the store must be set to "http"
@@ -34,6 +35,7 @@ The type of the store must be set to "http"
 | Environment | STORE_TYPE |
 
 ***Property: store.authorization***
+
 
 | Category | Value |
 |--- | ---: |
@@ -120,3 +122,4 @@ Defines how the raw list of graphs is retrieved, and therefore which graphs are 
 | Required | false |
 | Valid values | Valid SPARQL query with bound variable "g" |
 | Environment | STORE_HTTP_GRAPHLISTQUERY |
+

@@ -5,33 +5,38 @@ tags:
     - Dashboards
 ---
 
-# Charts Catalog and Charts Integration
+# Charts
 
-The **Charts Catalog** is a module suitable to visualize your data in a chart.
+This section describes how charts can be defined in the **Charts module** and how they are integrated in your SHAPE configurations.
 
-## Graph Selection
+## Charts Module
 
-The charts module lists all the graphs containing queries - which will be the data foundation for your charts.
-Select the graphs that contains the queries you want to user to get started.
-You will see the charts that are already defined based select any to edit or add a new with **Create chart**.
+The **Charts module** is used to define and manage visualizations of your data.
+
+### Graph Selection
+
+The **Charts module** lists all the graphs containing queries - which will be the data foundation for your charts.
+Select the graph that contains the queries you want to use to get started.
+You will see the charts that are already defined.
+Select any to edit or add a new chart with **Create chart**.
 
 ![](Chart-graph-selection.png){ class="bordered" }
 
-## Charts Management
+### Charts Management
 
-You can open the Charts Catalog from the main menu on the left.
-You will see a list of existing charts or the information **Your charts catalog is empty**.
+You can open the **Charts module** from the main menu on the left.
+You will see a list of existing charts or that **Your charts catalog is empty**.
 Here you can create a new chart or edit an existing one.
 
 ![](23-03-ChartCreation.gif){ class="bordered" }
 
 After selecting **Create Chart** or an existing Chart, you will see the Chart Editor, which is divided into four components:
 
-### Metadata
+#### Metadata
 
 You can give your charts a name and a description.
 
-### Query selection
+#### Query Selection
 
 Select a query from the :eccenca-application-queries: [Query Catalog](../query-module/index.md) to retrieve the data you want to visualize.
 
@@ -44,7 +49,7 @@ The following activities can be performed in this component:
     - **Preview** — View a preview of the retrieved data.
     - **View in query catalog** — Opens the query in the query catalog.
 
-### Chart forms
+#### Chart Forms
 
 There are two types of forms: **Assisted** and **Advanced**.
 
@@ -56,7 +61,7 @@ It consists of a JSON editor that allows you to configure the chart yourself.
 
 For more information about chart configuration and examples, visit the [echarts.apache.org](https://echarts.apache.org/examples/en/index.html).
 
-### Preview
+#### Preview
 
 The main content on the right side is the preview, where you can see the visual results of your changes in the configuration.
 

@@ -117,6 +117,10 @@ $ cmemc config list | parallel -I% cmemc -c % project export --all -t "dump/{{co
                                   note that not all export types are
                                   extractable.
     --help-types                  Lists all possible export types.
+    --without-userdata            Do not export user-identifying metadata
+                                  (creation/modification timestamps and account
+                                  names) in the exported archives or
+                                  directories.
     ```
 
 ## project import
@@ -232,4 +236,30 @@ This command reloads all tasks of a project from the workspace provider. This is
     ```text
 
     -a, --all   Reload all projects
+    ```
+
+## project status
+
+Show task loading errors of projects.
+
+```shell-session title="Usage"
+cmemc project status [OPTIONS] [PROJECT_IDS]...
+```
+
+
+
+
+This command checks the given projects (or all projects with the `--all` option) for task loading errors and outputs them as warnings.
+
+Use this to find out if your projects have tasks which could not be loaded, e.g. because a needed plugin is not installed.
+
+
+
+??? info "Options"
+    ```text
+
+    -a, --all   Check all projects
+    --exit-1    Exit with code 1 if at least one project has task loading
+                errors.
+    --raw       Outputs raw JSON of the task loading status.
     ```

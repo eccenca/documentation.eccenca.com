@@ -1,0 +1,18 @@
+<svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon GI Add V1</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon-GI-Add-V1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="transform--binary" transform="translate(2.000000, 2.000000)" fill="#000000">
+            <g id="Group" transform="translate(8.000000, 9.000000)">
+                <rect id="Rectangle" x="4.125" y="0" width="2.75" height="11"/>
+                <polygon id="Rectangle" transform="translate(5.500000, 5.500000) rotate(90.000000) translate(-5.500000, -5.500000) " points="4.125 -8.8817842e-16 6.875 -8.8817842e-16 6.875 11 4.125 11"/>
+            </g>
+            <path d="M14,0 L14,2 C20.6,2 26,7.4 26,14 C26,20.6 20.6,26 14,26 L14,28 C21.7,28 28,21.7 28,14 C28,6.3 21.7,0 14,0 Z" id="Path"/>
+            <path d="M6.2,23.1 L5,24.7 C6.2,25.7 7.6,26.6 9.2,27.1 L9.9,25.2 C8.5,24.7 7.3,24 6.2,23.1 Z" id="Path"/>
+            <path d="M2.2,16 L0.2,16.4 C0.5,18 1.1,19.6 1.9,21 L3.6,20 C2.9,18.8 2.4,17.4 2.2,16 Z" id="Path"/>
+            <path d="M3.6,8 L1.9,7 C1.1,8.4 0.5,10 0.3,11.6 L2.3,11.9 C2.4,10.5 2.9,9.2 3.6,8 Z" id="Path"/>
+            <path d="M9.8,2.8 L9.1,0.9 C7.6,1.5 6.2,2.3 5,3.3 L6.3,4.8 C7.3,4 8.5,3.3 9.8,2.8 Z" id="Path"/>
+        </g>
+    </g>
+</svg>

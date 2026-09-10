@@ -17,12 +17,11 @@ The Scheduler plugin executes a given workflow at specified intervals.
 ## Description
 
 The Scheduler executes an existing workflow periodically. The workflow is specified via its _name_ in the `task`
-parameter, and the period is set with the `interval` (number of minutes). The workflow will then be scheduled for a
+parameter, and the period is set with the `interval` parameter. The workflow will then be scheduled for a
 _periodic execution **without termination**_, i.e. it will run _until cancelled_ or until an otherwise erroneous event
 occurs. In order to cancel a workflow, consider using the Cancel Workflow plugin.
 
-Additionally to the _period_ or interval of execution, we can also control the _starting time_ with the parameter
-`startTime`. The required format for this starting time is the international standard
+The required format for the `interval` is the duration format of the international standard
 [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601).
 In a nutshell, the relevant formatting for us is `PnDTnHnMn.nS`, where `P` indicates the **p**eriod, `nD` stands for the
 **n**umber of **d**ays, and `nH`, `nM` and `nS` are, respectively, the **n**umber of **h**ours, **m**inutes and
@@ -30,12 +29,23 @@ In a nutshell, the relevant formatting for us is `PnDTnHnMn.nS`, where `P` indic
 information related to a given day in the sense of 24 hours.
 
 Notice that the _full_ ISO-8601 format is `PnYnMnWnDTnHnMnS`, which includes the portion `"nYnMnW"` for the number of
-**y**ears, **m**onths and **w**eeks. In the case of this plugin, such long time periods should be avoided. That's why
-we restrict ourselves to the (sub)format `PnDTnHnMn.nS`.
+**y**ears, **m**onths and **w**eeks. These units are not supported by this plugin: only the (sub)format `PnDTnHnMn.nS`
+is accepted. The interval must be at least one millisecond.
+
+Additionally to the _period_ or interval of execution, we can also control the _starting time_ with the parameter
+`startTime`. It is an ISO-8601 date and time, e.g. `2017-12-03T10:15:30`, and is interpreted as **UTC**, independently
+of the timezone the server is configured with. Alternatively, an explicit UTC offset in the form `+01:00` or `Z` can
+be appended, e.g. `2017-12-03T10:15:30+01:00`. If no start time is set, midnight UTC on the day the scheduler is
+started is assumed.
 
 The scheduler can be disabled with the parameter `enabled`. It can also be made to stop after the first encountered
 error within a given execution of the specified workflow. This short-circuiting behavior may be useful in certain
 circumstances, so as to avoid the accumulation of errors (snowball effect).
+
+A scheduled execution is skipped if an execution of the same workflow is still running, e.g. one that has been started
+manually or one that was left running when the scheduler was restarted. The skipped execution is not caught up on
+later. The scheduler itself never runs the same workflow twice in parallel, since the interval is counted from the end
+of the previous execution.
 
 ### Special considerations
 
@@ -58,7 +68,7 @@ The name of the workflow to be executed
 
 ### Interval
 
-The interval at which the scheduler should run the referenced task. It must be in ISO-8601 duration format PnDTnHnMn.nS.
+The interval at which the scheduler should run the referenced task. It must be in ISO-8601 duration format PnDTnHnMn.nS and at least one millisecond.
 
 - ID: `interval`
 - Datatype: `duration`
@@ -68,7 +78,7 @@ The interval at which the scheduler should run the referenced task. It must be i
 
 ### Start time
 
-The time when the scheduled task is run for the first time, e.g., 2017-12-03T10:15:30. If no start time is set, midnight on the day the scheduler is started is assumed.
+The time when the scheduled task is run for the first time, in ISO-8601 format, e.g., 2017-12-03T10:15:30. The time is interpreted as UTC, independently of the server timezone; alternatively an explicit UTC offset in the form +01:00 or Z can be appended (e.g., 2017-12-03T10:15:30+01:00). If no start time is set, midnight UTC on the day the scheduler is started is assumed.
 
 - ID: `startTime`
 - Datatype: `string`

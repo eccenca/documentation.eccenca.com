@@ -35,7 +35,9 @@ export OAUTH_CLIENT_SECRET=...
 
 !!! info
 
-    When you combine file-based and environment-based configuration, the config file always overwrites the environment.
+    File-based and environment-based configuration interact in both directions:
+    an environment variable overrides a value from the `[DEFAULT]` section, while a named connection section (`-c my-connection`) overrides the environment.
+    See [Configuration value resolution order](../index.md) for the complete set of rules.
 
 ## Environment variables for parameters or options
 
@@ -44,7 +46,7 @@ The general pattern for parameter and option settings via environment variables 
 - all variables start with the prefix `CMEMC_`
 - command group and command follow the prefix in uppercase and separated by `_`
 - the option is in uppercase at the end.
-- The naming scheme is: `CMEM[_<COMMAND-GROUP>_<COMMAND>][_<OPTION>]`
+- The naming scheme is: `CMEMC[_<COMMAND-GROUP>_<COMMAND>][_<OPTION>]`
 
 The next sections demonstrate this pattern with examples.
 
@@ -95,15 +97,31 @@ Since there is a top level `--debug` option, the corresponding variable name is 
 export CMEMC_DEBUG=true
 ```
 
+The same works for the other top level options, which is useful to set them once for a whole terminal session:
+
+| Variable | Option | Description |
+| -------- | ------ | ----------- |
+| `CMEMC_CONNECTION` | `--connection` / `-c` | Use a specific connection from the config file. |
+| `CMEMC_CONFIG_FILE` | `--config-file` | Use this config file instead of the default one. |
+| `CMEMC_QUIET` | `--quiet` / `-q` | Suppress any non-error info messages. |
+| `CMEMC_DEBUG` | `--debug` / `-d` | Output debug messages and stack traces after errors. |
+| `CMEMC_LOG_LEVEL` | `--log-level` | Set the log level when `--debug` is enabled (defaults to `debug`). |
+| `CMEMC_EXTERNAL_HTTP_TIMEOUT` | `--external-http-timeout` | Timeout in seconds for external HTTP requests (defaults to `10`). |
+
+In addition to that, `CMEMC_CONSOLE_WIDTH` sets a fixed width for the rendered tables and other console output.
+This has no corresponding command line option and is mainly useful to get reproducible output in scripts and pipelines.
+
 ## Configuration environment export from the config file
 
-Beginning with v21.11, cmemc can export a configuration environment from a configuration file to set up an environment for later use with the `config eval` command.
+cmemc can export a configuration environment from a configuration file to set up an environment for later use with the `config eval` command.
 
 ``` shell-session
 $ cmemc -c my-cmem.example.org config eval
 export CMEM_BASE_URI="https://my-cmem.example.org"
 export DI_API_ENDPOINT="https://my-cmem.example.org/dataintegration"
 export DP_API_ENDPOINT="https://my-cmem.example.org/dataplatform"
+export KEYCLOAK_BASE_URI="https://my-cmem.example.org/auth"
+export KEYCLOAK_REALM_ID="cmem"
 unset OAUTH_ACCESS_TOKEN
 export OAUTH_CLIENT_ID="cmem-service-account"
 export OAUTH_CLIENT_SECRET="..."

@@ -1,5 +1,5 @@
 ---
-title: "UUID4"
+title: "UUIDv4"
 description: "Generate a random UUIDv4."
 icon: octicons/cross-reference-24
 tags:
@@ -7,7 +7,7 @@ tags:
     - PythonPlugin
 ---
 
-# UUID4
+# UUIDv4
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

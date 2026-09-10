@@ -25,4 +25,4 @@ Converts an xsd:duration to seconds.
 
 ## Related Plugins
 
-- **numberToDuration** — Duration in seconds outputs a second count; Number to duration consumes one. Configured for seconds, Number to duration is the write operation to Duration in seconds' read.
+- [numberToDuration](numberToDuration.md) — Duration in seconds outputs a second count; Number to duration consumes one. Configured for seconds, Number to duration is the write operation to Duration in seconds' read.

@@ -26,7 +26,7 @@ Performs SHACL validation with [pySHACL](https://github.com/RDFLib/pySHACL). Sel
 The URI of the graph to be validated. The graph URI is selected from a list of graphs of types `void:Dataset`, `shui:ShapeCatalog`, `owl:Ontology` and `dsm:ThesaurusProject`.
 
 - ID: `data_graph_uri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -36,7 +36,7 @@ The URI of the graph to be validated. The graph URI is selected from a list of g
 The URI of the graph containing the SHACL shapes to be validated against. The graph URI is selected from a list of graphs of type `shui:ShapeCatalog`.
 
 - ID: `shacl_graph_uri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -86,7 +86,7 @@ If enabled, the validation graph is cleared before workflow execution.
 The URI of a graph containing extra ontological information. RDFS and OWL definitions from this are used to inoculate the data graph. The graph URI is selected from a list of graphs of type `owl:Ontology`.
 
 - ID: `ontology_graph_uri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 

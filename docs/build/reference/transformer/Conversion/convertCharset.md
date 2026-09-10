@@ -19,7 +19,7 @@ Convert the string from "sourceCharset" to "targetCharset".
 
 ### Source charset
 
-No description
+The source charset, e.g., ISO-8859-1.
 
 - ID: `sourceCharset`
 - Datatype: `string`
@@ -29,7 +29,7 @@ No description
 
 ### Target charset
 
-No description
+The target charset, e.g., UTF-8.
 
 - ID: `targetCharset`
 - Datatype: `string`

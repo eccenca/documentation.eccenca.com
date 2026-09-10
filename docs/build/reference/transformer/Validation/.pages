@@ -1,6 +1,8 @@
+---
 nav:
     - "Validate date after": validateDateAfter.md
     - "Validate date range": validateDateRange.md
     - "Validate number of values": validateNumberOfValues.md
     - "Validate numeric range": validateNumericRange.md
     - "Validate regex": validateRegex.md
+    - "Validate URI": validate_uri.md

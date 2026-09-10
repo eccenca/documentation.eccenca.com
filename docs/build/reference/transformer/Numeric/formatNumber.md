@@ -23,7 +23,7 @@ tags:
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-**Example 1:**
+**The digit '0' in the pattern pads the number with leading zeros:**
 
 * Parameters
     * pattern: `000`
@@ -35,7 +35,7 @@ tags:
 
 
 ---
-**Example 2:**
+**Padding applies to the integer and the fraction part:**
 
 * Parameters
     * pattern: `000000.000`
@@ -47,7 +47,7 @@ tags:
 
 
 ---
-**Example 3:**
+**The placeholder '#' stands for an optional digit and ',' inserts a grouping separator:**
 
 * Parameters
     * pattern: `###,###.###`
@@ -59,7 +59,7 @@ tags:
 
 
 ---
-**Example 4:**
+**The pattern is interpreted in the configured locale, here German with '.' as grouping and ',' as decimal separator:**
 
 * Parameters
     * pattern: `###.###,###`
@@ -72,7 +72,7 @@ tags:
 
 
 ---
-**Example 5:**
+**Literal text in the pattern is kept in the output:**
 
 * Parameters
     * pattern: `# apples`
@@ -84,7 +84,7 @@ tags:
 
 
 ---
-**Example 6:**
+**Quoted characters are copied to the output as-is, even if they are digits:**
 
 * Parameters
     * pattern: `000'0'`
@@ -96,7 +96,7 @@ tags:
 
 
 ---
-**Example 7:**
+**A pattern without fraction digits rounds to a whole number:**
 
 * Parameters
     * pattern: `0`
@@ -108,7 +108,7 @@ tags:
 
 
 ---
-**Example 8:**
+**Leading zeros of the input are removed unless the pattern demands them:**
 
 * Parameters
     * pattern: `0.0`
@@ -125,7 +125,7 @@ tags:
 
 ### Pattern
 
-No description
+The number pattern, e.g., '###,###.###'.
 
 * ID: `pattern`
 * Datatype: `string`
@@ -135,7 +135,7 @@ No description
 
 ### Locale
 
-No description
+The locale in which the pattern is interpreted, given as an IETF BCP 47 language tag, e.g., 'en'.
 
 * ID: `locale`
 * Datatype: `string`
@@ -147,4 +147,4 @@ No description
 
 ## Related Plugins
 
-* **extractPhysicalQuantity** — Format number requires a numeric input. If the source data contains quantity strings with embedded unit symbols, Extract physical quantity parses those strings and returns the numeric value in the base unit — the form that Format number can then render according to a decimal pattern.
+* [extractPhysicalQuantity](extractPhysicalQuantity.md) — Format number requires a numeric input. If the source data contains quantity strings with embedded unit symbols, Extract physical quantity parses those strings and returns the numeric value in the base unit — the form that Format number can then render according to a decimal pattern.

@@ -198,7 +198,7 @@ Maximum heap size for the Java virtual machine in the DI container running the r
 The IRI of the input data graph.
 
 - ID: `data_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -208,7 +208,7 @@ The IRI of the input data graph.
 The IRI of the input ontology graph.
 
 - ID: `ontology_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -228,7 +228,7 @@ Ignore missing graphs from the import tree of the input graphs.
 The IRI of the output graph for the reasoning result. ⚠️ Existing graphs will be overwritten.
 
 - ID: `output_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 

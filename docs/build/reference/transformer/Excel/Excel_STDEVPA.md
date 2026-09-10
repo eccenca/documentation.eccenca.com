@@ -1,12 +1,12 @@
 ---
-title: "Stdevpa"
+title: "Excel Stdevpa"
 description: "Excel STDEVPA(value_1; value_2; ... value_30): Calculates the standard deviation based on the entire population. Value_1; value_2; ... value_30 are values or ranges representing a sample derived from an entire population. Text has the value 0."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Stdevpa
+# Excel Stdevpa
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

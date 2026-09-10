@@ -25,4 +25,4 @@ Generates an empty value.
 
 ## Related Plugins
 
-- **removeEmptyValues** — Empty value always outputs an empty sequence, discarding all input. Remove empty values is selective: it passes non-empty strings through and drops only the empty ones.
+- [removeEmptyValues](../Filter/removeEmptyValues.md) — Empty value always outputs an empty sequence, discarding all input. Remove empty values is selective: it passes non-empty strings through and drops only the empty ones.

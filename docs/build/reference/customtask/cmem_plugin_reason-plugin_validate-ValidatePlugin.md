@@ -42,6 +42,10 @@ The following reasoner options are supported:
 - [Structural Reasoner](http://owlcs.github.io/owlapi/apidocs_4/org/semanticweb/owlapi/reasoner/structural/StructuralReasoner.html) (structural)
 - [Whelk](https://github.com/balhoff/whelk) (whelk)
 
+⚠️ Only **HermiT** and **JFact** are recommended for consistency validation, since they are the
+only reasoner options here that are complete OWL DL reasoners capable of generating explanations.
+The remaining options are kept for backwards compatibility.
+
 ### Produce output graph
 
 If enabled, an explanation graph is created.
@@ -95,7 +99,7 @@ Maximum heap size for the Java virtual machine in the DI container running the r
 The IRI of the input ontology graph.
 
 - ID: `ontology_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -115,7 +119,7 @@ Ignore missing graphs from the import tree of the input graphs.
 The IRI of the output graph for the inconsistency validation. ⚠️ Existing graphs will be overwritten.
 
 - ID: `output_graph_iri`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -132,7 +136,7 @@ Output entities. The plugin outputs the explanation as text in Markdown format o
 
 ### Reasoner
 
-Reasoner option.
+Reasoner option. Only "HermiT" and "JFact" are recommended for consistency validation, since they are the only reasoners offered here that are complete OWL DL reasoners capable of generating explanations. The remaining options are kept for backwards compatibility.
 
 - ID: `reasoner`
 - Datatype: `string`

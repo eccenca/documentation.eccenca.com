@@ -22,6 +22,7 @@ store:
     databasePort: 1111
 ```
 
+
 ***Property: store.type***
 
 The type of the store must be set to "virtuoso"
@@ -100,3 +101,4 @@ The credentials of the given user
 | Required | false |
 | Valid values | string |
 | Environment | STORE_VIRTUOSO_PASSWORD |
+

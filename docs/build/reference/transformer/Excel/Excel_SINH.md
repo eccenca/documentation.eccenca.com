@@ -1,12 +1,12 @@
 ---
-title: "Sinh"
+title: "Excel Sinh"
 description: "Excel SINH(number): Returns the hyperbolic sine of the given number (angle in radians)."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Sinh
+# Excel Sinh
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

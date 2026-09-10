@@ -24,23 +24,21 @@ If you need to change this location and want to use another config file, you hav
 - run cmemc with the `--config-file path/to/your/config.ini` option
 - set a new config file with the environment variable `CMEMC_CONFIG_FILE`
 
-However, once you start cmemc the first time without any command or option, it will create an empty configuration file at this location and will output a general introduction.
+If you start cmemc without any command or option, it outputs a general introduction to the available command groups and top level options.
 
 ??? example "First cmemc run ..."
     ``` shell-session
     $ cmemc
-    Empty config created: /home/user/.config/cmemc/config.ini
     Usage: cmemc [OPTIONS] COMMAND [ARGS]...
 
-      eccenca Corporate Memory Control (cmemc).
+      Eccenca Corporate Memory Control (cmemc).
 
       cmemc is the eccenca Corporate Memory Command Line Interface (CLI).
 
       Available commands are grouped by affecting resource type (such as graph,
-      project and query). Each command and group has a separate --help screen
-      for detailed documentation. In order to see possible commands in a group,
-      simply execute the group command without further parameter (e.g. cmemc
-      project).
+      project and query). Each command and group has a separate --help screen for
+      detailed documentation. In order to see possible commands in a group, simply
+      execute the group command without further parameter (e.g. cmemc project).
 
       If your terminal supports colors, these coloring rules are applied: Groups
       are colored in white; Commands which change data are colored in red; all
@@ -50,29 +48,45 @@ However, once you start cmemc the first time without any command or option, it w
 
                           https://eccenca.com/go/cmemc
 
-      cmemc is © 2023 eccenca GmbH, licensed under the Apache License 2.0.
+      cmemc is © 2026 eccenca GmbH, licensed under the Apache License 2.0.
 
     Options:
-      -c, --connection TEXT  Use a specific connection from the config file.
-      --config-file FILE     Use this config file instead of the default one.
-                             [default: /Users/seebi/Library/Application
-                             Support/cmemc/config.ini]
-
-      -q, --quiet            Suppress any non-error info messages.
-      -d, --debug            Output debug messages and stack traces after errors.
-      --version              Show the version and exit.
-      -h, --help             Show this message and exit.
+      -c, --connection TEXT           Use a specific connection from the config
+                                      file.
+      --config-file FILE              Use this config file instead of the default
+                                      one.  [default:
+                                      (/home/user/.config/cmemc/config.ini)]
+      -q, --quiet                     Suppress any non-error info messages.
+      -d, --debug                     Output debug messages and stack traces after
+                                      errors.
+      --log-level [trace|debug|info|warning|error|critical]
+                                      Set the log level when --debug is enabled.
+                                      [default: debug]
+      --external-http-timeout INTEGER
+                                      Timeout in seconds for external HTTP
+                                      requests.  [default: 10]
+      --version                       Show the version and exit.
+      -h, --help                      Show this message and exit.
 
     Commands:
       admin       Import bootstrap data, backup/restore workspace or get status.
       config      List and edit configs as well as get config values.
       dataset     List, create, delete, inspect, up-/download or open datasets.
       graph       List, import, export, delete, count, tree or open graphs.
+      package     List, (un)install, export, create, or inspect packages.
       project     List, import, export, create, delete or open projects.
       query       List, execute, get status or open SPARQL queries.
       vocabulary  List, (un-)install, import or open vocabs / manage cache.
       workflow    List, execute, status or open (io) workflows.
     ```
+
+An empty configuration file is created at this location as soon as you run a command which reads the configuration:
+
+``` shell-session
+$ cmemc config list
+Empty config created: config.ini
+No connections found.
+```
 
 You can now edit your configuration file and add credentials and URL parameters for your Corporate Memory deployment.
 You either search for the configuration manually in your home directory or you can use the `config edit` command, which opens the configuration file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
@@ -141,7 +155,7 @@ This is the base location (HTTP(S) URL) of your eccenca Corporate Memory deploym
 
 You **always** have to set this configuration variable.
 
-This variable defaults to `http://docker.localhost/`.
+This variable defaults to `http://docker.localhost`.
 
 #### DI_API_ENDPOINT
 
@@ -206,9 +220,9 @@ This variable defaults to `cmem-service-account`.
 
 This variable specifies your user account.
 
-You **only** need to set this configuration variable if you use the `password` grant type.
+You **only** need to set this configuration variable if you use the `password` grant type, where it is mandatory.
 
-This variable defaults to `admin`.
+This variable has no default value.
 
 #### OAUTH_PASSWORD
 
@@ -234,7 +248,7 @@ In order to avoid saving credentials in configuration files you can use this opt
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
-This variable defaults to `none`.
+This variable is not set by default.
 
 #### OAUTH_CLIENT_SECRET_PROCESS
 
@@ -242,7 +256,7 @@ In order to avoid saving credentials in configuration files you can use this opt
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
-This variable defaults to `none`.
+This variable is not set by default.
 
 #### OAUTH_ACCESS_TOKEN_PROCESS
 
@@ -250,7 +264,7 @@ In order to avoid saving credentials in configuration files you can use this opt
 
 Please refer to [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md) for more information.
 
-This variable defaults to `none`.
+This variable is not set by default.
 
 ### Network related
 
@@ -273,8 +287,19 @@ This variable defaults to `$PYTHON_HOME/site-packages/certifi/cacert.pem`.
 
 #### CMEMC_CUSTOM_HEADER_*
 
-Enabling this setting ensures that all HTTP requests made by cmemc include the specified custom headers.
+Configuration keys which start with `CMEMC_CUSTOM_HEADER_` add custom headers to all HTTP requests made by cmemc.
+This is mostly needed when your Corporate Memory deployment sits behind an access proxy which expects additional headers.
 
-The CMEMC_CUSTOM_HEADER_ prefix is automatically removed, so only the header name (*) is used in the request.
+The prefix is removed and each remaining underscore is converted to a hyphen in order to build the header name.
+Setting `CMEMC_CUSTOM_HEADER_CF_ACCESS_CLIENT_ID=abc` therefore sends the header `CF-ACCESS-CLIENT-ID: abc`.
 
-By default, this variable is set to none.
+The `Authorization` and `User-Agent` headers are managed by cmemc itself and can not be overwritten.
+Configuring `CMEMC_CUSTOM_HEADER_AUTHORIZATION` or `CMEMC_CUSTOM_HEADER_USER_AGENT` results in an error:
+
+``` shell-session
+InvalidConfigurationError: 'CMEMC_CUSTOM_HEADER_AUTHORIZATION' targets the protected header 'AUTHORIZATION' which is managed by cmemc and cannot be overridden.
+```
+
+Header values can also be fetched from an external process, see [Getting Credentials from external Processes](../getting-credentials-from-external-processes/index.md).
+
+No custom headers are sent by default.

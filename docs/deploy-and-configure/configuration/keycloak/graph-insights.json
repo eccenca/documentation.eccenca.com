@@ -1,0 +1,81 @@
+{
+  "clientId": "graph-insights",
+  "name": "Graph Insights",
+  "description": "A general client allowing login from Graph Insights",
+  "rootUrl": "",
+  "adminUrl": "",
+  "baseUrl": "",
+  "surrogateAuthRequired": false,
+  "enabled": true,
+  "alwaysDisplayInConsole": false,
+  "clientAuthenticatorType": "client-secret",
+  "redirectUris": [
+    "*"
+  ],
+  "webOrigins": [],
+  "notBefore": 0,
+  "bearerOnly": false,
+  "consentRequired": false,
+  "standardFlowEnabled": true,
+  "implicitFlowEnabled": false,
+  "directAccessGrantsEnabled": false,
+  "serviceAccountsEnabled": false,
+  "publicClient": true,
+  "frontchannelLogout": false,
+  "protocol": "openid-connect",
+  "attributes": {
+    "standard.token.exchange.enabled": "false",
+    "post.logout.redirect.uris": "+",
+    "oauth2.device.authorization.grant.enabled": "false",
+    "backchannel.logout.revoke.offline.tokens": "false",
+    "use.refresh.tokens": "true",
+    "tls-client-certificate-bound-access-tokens": "false",
+    "realm_client": "false",
+    "oidc.ciba.grant.enabled": "false",
+    "backchannel.logout.session.required": "true",
+    "backchannel.logout.url": "http://docker.localhost/graphinsights/logout/connect/back-channel/keycloak",
+    "client_credentials.use_refresh_token": "false",
+    "acr.loa.map": "{}",
+    "require.pushed.authorization.requests": "false",
+    "display.on.consent.screen": "false",
+    "token.response.type.bearer.lower-case": "false"
+  },
+  "authenticationFlowBindingOverrides": {},
+  "fullScopeAllowed": true,
+  "nodeReRegistrationTimeout": -1,
+  "protocolMappers": [
+    {
+      "name": "groups",
+      "protocol": "openid-connect",
+      "protocolMapper": "oidc-group-membership-mapper",
+      "consentRequired": false,
+      "config": {
+        "full.path": "false",
+        "id.token.claim": "false",
+        "access.token.claim": "true",
+        "claim.name": "groups",
+        "userinfo.token.claim": "true",
+        "multivalued": "true"
+      }
+    }
+  ],
+  "defaultClientScopes": [
+    "web-origins",
+    "acr",
+    "roles",
+    "profile",
+    "basic",
+    "email"
+  ],
+  "optionalClientScopes": [
+    "address",
+    "phone",
+    "offline_access",
+    "microprofile-jwt"
+  ],
+  "access": {
+    "view": true,
+    "configure": true,
+    "manage": true
+  }
+}

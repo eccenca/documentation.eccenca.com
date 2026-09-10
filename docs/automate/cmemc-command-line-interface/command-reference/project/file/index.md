@@ -161,6 +161,9 @@ cmemc project file inspect [OPTIONS] RESOURCE_ID
 ??? info "Options"
     ```text
 
+    --key TEXT  Get a specific key only. If the given value is the prefix of
+                more than one key, the table is reduced to these keys. Use `all`
+                to output the complete table.
     --raw       Outputs raw JSON.
     ```
 

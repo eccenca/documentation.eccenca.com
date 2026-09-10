@@ -1,12 +1,12 @@
 ---
-title: "Tanh"
+title: "Excel Tanh"
 description: "Excel TANH(number): Returns the hyperbolic tangent of the given number (angle in radians)."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Tanh
+# Excel Tanh
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

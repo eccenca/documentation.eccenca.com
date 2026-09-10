@@ -46,4 +46,4 @@ The maximum number that is used for indexing
 
 ## Related Plugins
 
-- **numericEquality** — Numeric similarity measures how far apart two numbers are; Numeric equality asks only whether they match, with no in-between value.
+- [numericEquality](numericEquality.md) — Numeric similarity measures how far apart two numbers are; Numeric equality asks only whether they match, with no in-between value.

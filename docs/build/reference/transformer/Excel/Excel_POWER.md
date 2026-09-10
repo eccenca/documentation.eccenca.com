@@ -1,12 +1,12 @@
 ---
-title: "Power"
+title: "Excel Power"
 description: "Excel POWER(base; power): Returns the result of a number raised to a power. Base is the number that is to be raised to the given power. Power is the exponent by which the base is to be raised."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Power
+# Excel Power
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

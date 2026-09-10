@@ -60,4 +60,4 @@ No description
 
 ## Related Plugins
 
-* **substring** — Until character adapts to the content of each value: the extracted portion ends wherever the target character appears. Substring does not adapt; it cuts at configured numeric indices that are the same for every input.
+* [substring](substring.md) — Until character adapts to the content of each value: the extracted portion ends wherever the target character appears. Substring does not adapt; it cuts at configured numeric indices that are the same for every input.

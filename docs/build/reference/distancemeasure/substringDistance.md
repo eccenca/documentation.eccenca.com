@@ -36,5 +36,5 @@ The minimum length of a possible substring match.
 
 ## Related Plugins
 
-- **startsWith** — The Substring comparison plugin produces a continuous similarity score across the full string; Starts with reduces the comparison to a binary check on whether the source opens with the target.
-- **isSubstring** — The score from Substring comparison is continuous, reflecting overall string similarity; Is substring checks only whether the source appears anywhere inside the target, returning a binary result.
+- [startsWith](startsWith.md) — The Substring comparison plugin produces a continuous similarity score across the full string; Starts with reduces the comparison to a binary check on whether the source opens with the target.
+- [isSubstring](isSubstring.md) — The score from Substring comparison is continuous, reflecting overall string similarity; Is substring checks only whether the source appears anywhere inside the target, returning a binary result.

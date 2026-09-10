@@ -1,87 +1,69 @@
 ---
-icon: eccenca/application-config
+icon: eccenca/module-workspace-configuration
 tags:
+    - Application View
     - KnowledgeGraph
 ---
+# Application view
 
-# Workspaces
+An Application view determines which modules are available in the Corporate Memory
+user interface. The Application view configuration module lets you select the
+Application view you work in, configure its details, and create or delete
+Application views.
 
-The specific configuration of the application defines which options are available here, i.e. whether you can select one of several workspaces, access only a default workspace or are allowed to create own workspaces.
+## Select an Application view
 
-## Select a workspace
-
-To select a workspace click on the **user icon** on the right side of the page
+To select an Application view click on the **user icon** in the top right corner.
 
 ![User menu](user.png){ class="bordered" }
 
-Click the drop-down list and click the workspace you want to open.
+Click the drop-down list and click the Application view you want to open.
 
-![Workspace selector](workspace.png){ class="bordered" }
+![Application view selector](workspace.png){ class="bordered" }
 
-!!! success "Step Result"
+## Configure an Application view
 
-    The workspace opens and now you can enable or disabled the modules and change modeule configuration as per your requirement.
-
-    ![Configuration module de-/activation](enable.png){ class="bordered" }
-
-## Configure a workspace
-
-Click on the **user icon** on the right side of the page then click on **Configuration**.
+Click the :eccenca-module-workspace-configuration: **Application view configuration** icon in the main menu.
 
 ![Configuration module](configuration.png){ class="bordered" }
 
-Click on **Workspace** then select the workspace you want to see the details.
+Select the Application view from the dropdown menu to configure.
 
-![Select workspace to configure](select-workspace.png){ class="bordered" }
+![Select Application view to configure](select-workspace.png){ class="bordered" width="70%" }
 
- Click on down arrow to expand the **Workspace** and **DI Workspace Configuration** to see the configuration details as shown below.
+Click the down arrows to expand the sections to configure the details as shown below (like **Application view** or **Build configuration**).
 
+![Configuration module settings](application-view-details.png){ class="bordered" }
 ![Configuration module settings](details.png){ class="bordered" }
 
-## Add a Workspace
+## Add an Application view
 
-Click on the **user icon** on the right side of the page then click on **Configuration**.
+Click on :eccenca-module-workspace-configuration: **Application view configuration** icon in the main menu then click on **Create new application view**
 
-![Configuration module](configuration.png){ class="bordered" }
-
-Click on **Workspace** on the left side of the page then click on **Create New Workspace**
-
-![Create workspace](create-new-workspace.png){ class="bordered" }
+![Create Application view](create-new-workspace.png){ class="bordered" }
 
 Type the **Id** and **Label** name then click on **Add**
 
-![Add new workspace](add-workspace.png){ class="bordered" }
+![Add new Application view](add-workspace.png){ class="bordered" width="50%" }
 
-!!! success "Step Result"
+## Delete an Application view
 
-    The workspace created sucessfully and now you can enable or disabled the modules and change modeule configuration as per your requirement.
+Click on :eccenca-module-workspace-configuration: **Application view configuration** icon in the main menu then click on **Application view**
+<!--TODO: update screenshot-->
+![Delete Application view](delete-application-view.png){ class="bordered" }
 
-    ![Workspace created](enable.png){ class="bordered" }
+Select the Application view from the drop-down you want to delete
 
-## Delete a workspace
-
-Click on **User Icon** on the right side of the page then click on **Configuration** then click on **Workspace**
-
-![Create workspace](create-new-workspace.png){ class="bordered" }
-
-Select the Workspace from the drop-down you want to delete
-
-![Select workspace to configure](select-workspace-1.png){ class="bordered" }
+![Select Application view to configure](select-workspace-1.png){ class="bordered" }
 
 Click on the **Delete Icon** on the right side of the page.
 
-![Delete selected workspace](delete.png){ class="bordered" }
+![Delete selected Application view](delete.png){ class="bordered" }
 
 Click on **Delete**
 
-![Delete confirmation dialog](delete-select.png){ class="bordered" }
-
-!!! success "Step Result"
-
-    The workspace has been deleted.
-
-    ![Deletion result](delete-stepresult.png){ class="bordered" }
+![Delete confirmation dialog](delete-select.png){ class="bordered" width="50%" }
 
 !!! note
 
-    When you delete a workspace, no graphs or Build projects are deleted.
+    When you delete an Application view, no graphs or Build projects are deleted.

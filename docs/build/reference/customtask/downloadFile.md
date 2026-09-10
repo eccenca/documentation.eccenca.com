@@ -100,7 +100,7 @@ Typical failure scenarios:
 - **Invalid URL / DNS / connection issues**
     - The operator fails the execution; no file is produced.
 - **Non-2xx HTTP status codes (e.g. 404, 500)**
-    - The request fails and the file is not created.
+    - The execution fails with an error that includes the HTTP status code and description; the file is not created.
 - **Timeouts**
     - If connection or read timeouts are exceeded, the request is aborted.
 - **Streaming / I/O errors**

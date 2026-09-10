@@ -1,5 +1,5 @@
 ---
-title: "UUID1"
+title: "UUIDv1"
 description: "Generate a UUIDv1 from a host ID, sequence number, and the current time"
 icon: octicons/cross-reference-24
 tags:
@@ -7,7 +7,7 @@ tags:
     - PythonPlugin
 ---
 
-# UUID1
+# UUIDv1
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

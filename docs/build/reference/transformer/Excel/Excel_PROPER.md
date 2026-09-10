@@ -1,12 +1,12 @@
 ---
-title: "Proper"
+title: "Excel Proper"
 description: "Excel PROPER(text): Capitalizes the first letter in all words of a text string. Text is the text to be converted."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Proper
+# Excel Proper
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

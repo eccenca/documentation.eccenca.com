@@ -2,7 +2,7 @@
 title: "Geometric mean"
 description: "Compute the (weighted) geometric mean."
 icon: octicons/cross-reference-24
-tags:
+tags: []
 ---
 
 # Geometric mean
@@ -62,6 +62,20 @@ Compute the (weighted) geometric mean.
 
 * Input values: `[-1.0, null, 1.0]`
 * Returns: `null`
+
+
+---
+**If any score is negative (a definite mismatch), the lowest score is returned instead of a link-generating 0:**
+
+* Input values: `[-1.0, 1.0]`
+* Returns: `-1.0`
+
+
+---
+**The lowest of several negative scores is returned:**
+
+* Input values: `[-0.2, -0.5, 1.0]`
+* Returns: `-0.5`
 
 
 

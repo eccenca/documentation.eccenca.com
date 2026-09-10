@@ -19,7 +19,13 @@ API documentation and programming recipes.
 
     ---
 
-    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-cmempy](cmempy-python-api/index.md)).
+    For Python developers, we offer a [Plugin SDK](python-plugins/index.md) as well as an API for accessing and manipulating Corporate Memory Instances ([cmem-client](cmem-client-api/index.md)).
+
+- :material-shopping: Marketplace Packages
+
+    ---
+
+    [Marketplace Packages](packages/index.md) bundle existing content (graphs, Build projects, dependencies, ...) into a single shareable artifact. [Create your own packages](packages/development/index.md) for easy distribution and reuse.
 
 - :material-api: OpenAPI specification
 
@@ -27,7 +33,7 @@ API documentation and programming recipes.
 
     API Specifications are available for
 
-    - [Build (DataIntegration) (Build)](dataintegration-apis/index.md) and
+    - [Build (DataIntegration)](dataintegration-apis/index.md) and
     - [Explore backend (Explore/Consume)](dataplatform-apis/index.md).
 
 </div>

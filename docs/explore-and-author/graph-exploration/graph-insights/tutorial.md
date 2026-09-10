@@ -91,11 +91,11 @@ We define "VIP" as customers with the highest volume of incoming orders.
 2. **Filter by country:** Open the menu of the `country` column from its header (using the menu dropdown or a right-click) and enter `USA` in the text field of the filter submenu.
 3. **Identify VIPs:** Click the **Predecessors** column header to **Sort Descending**. This ranks customers by their incoming connection count (number of Orders).
 
-![USA Customer Filter](assets/tutorial-usa-customer-filter.png){ class="bordered" width="80%" }
+    ![USA Customer Filter](assets/tutorial-usa-customer-filter.png){ class="bordered" width="80%" }
 
-1. **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
+4. **Select and restrict:** Check the boxes for the top 5 customers and click `Restrict to selection`.
 
-![Top USA Customer Filter](assets/tutorial-top-usa-customer-filter.png){ class="bordered" width="85%" }
+    ![Top USA Customer Filter](assets/tutorial-top-usa-customer-filter.png){ class="bordered" width="85%" }
 
 ### 3.2. Isolate UK Suppliers
 
@@ -163,11 +163,11 @@ Finally, we convert this visual insight into an actionable list for the procurem
     - Right-click a specific high-value item (e.g., "Teatime Chocolate Biscuits") to open its context menu.
     - Select `Flag all connected resources on the branch`.
 
-![Supply Chain: Flag Branch](assets/tutorial-supply-chain-flag-branch-menu.png){ class="bordered" width="85%" }
+        ![Supply Chain: Flag Branch](assets/tutorial-supply-chain-flag-branch-menu.png){ class="bordered" width="85%" }
 
-- Graph Insights highlights all resources on a specific high-risk traversal: The specific UK Supplier &rarr; The specific Biscuit &rarr; The specific VIP US Customers buying it.
+    - Graph Insights highlights all resources on a specific high-risk traversal: The specific UK Supplier &rarr; The specific Biscuit &rarr; The specific VIP US Customers buying it.
 
-![Supply Chain: Flagged Branch](assets/tutorial-supply-chain-flagged-branch.png){ class="bordered" width="85%" }
+        ![Supply Chain: Flagged Branch](assets/tutorial-supply-chain-flagged-branch.png){ class="bordered" width="85%" }
 
 ---
 

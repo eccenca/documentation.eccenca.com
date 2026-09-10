@@ -1,6 +1,7 @@
 """Update DI Reference documentation"""
 
 import json
+import posixpath
 import re
 from contextlib import suppress
 from pathlib import Path
@@ -161,12 +162,42 @@ def get_plugin_descriptions() -> dict[str, list[PluginDescription]]:
         plugins[type_id] = plugins_of_type
     return plugins
 
-def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir: Path) -> None:
+class RelatedPluginReferenceError(Exception):
+    """A relatedPlugins reference points at a plugin with no resolvable page."""
+
+
+class DuplicatePluginIdError(Exception):
+    """A plugin ID is not unique across the walked plugin types."""
+
+
+def resolve_related_plugin_links(plugin: PluginDescription, current_plugin_path: str, plugin_paths: dict[str, str]) -> list[tuple[PluginReference, str]]:
+    """Resolve each related plugin reference to a path relative to the current plugin's own page.
+
+    Raises if any reference points at a plugin with no resolvable page.
+    """
+    current_dir = posixpath.dirname(current_plugin_path)
+    resolved = []
+    unresolvable = []
+    for ref in plugin.relatedPlugins:
+        if ref.id not in plugin_paths:
+            unresolvable.append(ref.id)
+            continue
+        resolved.append((ref, posixpath.relpath(plugin_paths[ref.id], current_dir)))
+    if unresolvable:
+        raise RelatedPluginReferenceError(
+            f"Related plugin(s) {', '.join(unresolvable)} referenced by '{plugin.pluginId}' have no resolvable page"
+        )
+    return resolved
+
+def create_plugin_markdown(plugin: PluginDescription, base_dir: Path, plugin_paths: dict[str, str]) -> None:
     """Create markdown document from plugin description."""
     if plugin.is_deprecated:
         click.echo(f"Ignore deprecated plugin {plugin.pluginId}")
         return
     click.echo(f"Create reference documentation for {plugin.pluginId}")
+
+    current_plugin_path = plugin_paths[plugin.pluginId]
+    related_plugins_resolved = resolve_related_plugin_links(plugin, current_plugin_path, plugin_paths)
 
     # create content
     plugin_template = jinja_environment.get_template(f"plugin.md")
@@ -183,15 +214,11 @@ def create_plugin_markdown(plugin: PluginDescription, plugin_type: str, base_dir
         plugin=plugin,
         parameters=parameter_content.rstrip("\n"),
         parameters_advanced=parameter_advanced_content.rstrip("\n"),
+        related_plugins_resolved=related_plugins_resolved,
     )
 
-    # create the file (incl. directory)
-    if plugin.pluginType == "transformer":
-        directory = base_dir / plugin_type / plugin.main_category
-    else:
-        directory = base_dir / plugin_type
-    directory.mkdir(parents=True, exist_ok=True)
-    file = directory / f"{plugin.pluginId}.md"
+    file = base_dir / current_plugin_path
+    file.parent.mkdir(parents=True, exist_ok=True)
     with file.open("w", encoding="utf-8") as f:
         f.write(content)
 
@@ -216,34 +243,33 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
     - "Transformers": transformer"""
         f.write(content)
 
-    for plugin_type in plugins:
-        plugins_of_type = plugins[plugin_type]
-        if plugin_type == "transformer":
+    for type_id, plugins_of_type in plugins.items():
+        if type_id == "transformer":
             table_template = jinja_environment.get_template(f"operator_table_with_category.md")
         else:
             table_template = jinja_environment.get_template(f"operator_table.md")
 
         # Create type-specific index.md file
-        index_file = base_dir / f"{plugin_type}/index.md"
-        index_template = jinja_environment.get_template(f"{plugin_type}_base.md")
+        index_file = base_dir / f"{type_id}/index.md"
+        index_template = jinja_environment.get_template(f"{type_id}_base.md")
         items = table_template.render(plugins=plugins_of_type)
         with index_file.open("w", encoding="utf-8") as f:
-            click.echo(f"Create {plugin_type} index file in {index_file}")
+            click.echo(f"Create {type_id} index file in {index_file}")
             f.write(index_template.render(items=items))
 
         # Create the .pages files
-        pages_file = base_dir / plugin_type / ".pages"
+        pages_file = base_dir / type_id / ".pages"
         pages_content = "nav:\n    - index.md"
-        if plugin_type == "transformer":
+        if type_id == "transformer":
             # transformer get separated per main_category
-            categories = list(set([plugin.main_category for plugin in plugins[plugin_type]]))
+            categories = list(set([plugin.main_category for plugin in plugins[type_id]]))
             categories.sort()
             for category in categories:
                 pages_content += f'\n    - "{category}": {category}'
 
-                sub_pages_file = base_dir / plugin_type / category / ".pages"
+                sub_pages_file = base_dir / type_id / category / ".pages"
                 sub_pages_content = "nav:"
-                category_plugins = [plugin for plugin in plugins[plugin_type] if plugin.main_category == category]
+                category_plugins = [plugin for plugin in plugins[type_id] if plugin.main_category == category]
                 for plugin in category_plugins:
                     sub_pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
                 with sub_pages_file.open("w", encoding="utf-8") as f:
@@ -258,6 +284,39 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
             click.echo(f"Create .pages file {pages_file}")
             f.write(pages_content)
 
+def build_plugin_paths(plugins: dict[str, list[PluginDescription]]) -> dict[str, str]:
+    """Map every non-deprecated plugin's ID to the path its own page will have.
+
+    Deprecated plugins are excluded, since no page is ever generated for them.
+    """
+    plugin_paths: dict[str, str] = {}
+    for plugins_list in plugins.values():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            if plugin.pluginType == "transformer":
+                plugin_paths[plugin.pluginId] = f"{plugin.pluginType}/{plugin.main_category}/{plugin.pluginId}.md"
+            else:
+                plugin_paths[plugin.pluginId] = f"{plugin.pluginType}/{plugin.pluginId}.md"
+    return plugin_paths
+
+def validate_related_plugin_references(plugins: dict[str, list[PluginDescription]], plugin_paths: dict[str, str]) -> None:
+    """Raise on every relatedPlugins reference with no resolvable page.
+
+    Deprecated plugins are skipped, since no page is ever generated for
+    them and their relatedPlugins is otherwise never inspected.
+    """
+    errors = []
+    for plugins_list in plugins.values():
+        for plugin in plugins_list:
+            if plugin.is_deprecated:
+                continue
+            try:
+                resolve_related_plugin_links(plugin, plugin_paths[plugin.pluginId], plugin_paths)
+            except RelatedPluginReferenceError as error:
+                errors.append(str(error))
+    if errors:
+        raise RelatedPluginReferenceError("\n".join(errors))
 
 @click.command()
 @click.option(
@@ -274,19 +333,23 @@ def update_di_reference(output_dir):
 
     click.echo(f"Dump plugins descriptions to {(plugins_json := Path('data/plugins.json'))}")
     plugins_dump: dict[str, dict] = {}
-    for category, plugins_list in plugins.items():
+    for type_id, plugins_list in plugins.items():
         for plugin in plugins_list:
             if plugin.pluginId in plugins_dump:
-                raise Exception(f"Duplicate plugin ID: {plugin.pluginId}")
+                raise DuplicatePluginIdError(f"Duplicate plugin ID: {plugin.pluginId}")
             plugins_dump[plugin.pluginId] = plugin.model_dump()
+
+    plugin_paths = build_plugin_paths(plugins)
+    validate_related_plugin_references(plugins, plugin_paths)
+
     plugins_json.write_text(json.dumps(plugins_dump, indent=2))
 
     click.echo(f"Creating DI reference documentation in {basedir}")
     # create directory structure
     rmtree(basedir, ignore_errors=True)
     basedir.mkdir(parents=True, exist_ok=True)
-    for type_id in plugins:
+    for type_id, plugins_of_type in plugins.items():
         Path(basedir / type_id).mkdir(parents=True, exist_ok=True)
-        for plugin in plugins[type_id]:
-            create_plugin_markdown(plugin, type_id, basedir)
+        for plugin in plugins_of_type:
+            create_plugin_markdown(plugin, basedir, plugin_paths)
     create_umbrella_pages(plugins=plugins, base_dir=basedir)

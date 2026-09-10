@@ -1,12 +1,12 @@
 ---
-title: "Abs"
+title: "Excel Abs"
 description: "Excel ABS(number): Returns the absolute value of the given number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Abs
+# Excel Abs
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

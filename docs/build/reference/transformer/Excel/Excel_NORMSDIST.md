@@ -1,12 +1,12 @@
 ---
-title: "Normsdist"
+title: "Excel Normsdist"
 description: "Excel NORMSDIST(number): Returns the standard normal cumulative distribution for the given Number."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Normsdist
+# Excel Normsdist
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

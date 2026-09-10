@@ -1,3 +1,4 @@
+---
 nav:
     - Invocation: index.md
     - Docker Image: docker-image

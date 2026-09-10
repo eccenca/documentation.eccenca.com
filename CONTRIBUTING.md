@@ -73,11 +73,11 @@ Have a look at the [mkdocs-material documentation](https://squidfunk.github.io/m
 
 - always create a directory + `index.md`, e.g. `my-topic/index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/automate/cmemc-command-line-interface))
 - add new pages to the `.pages` file to add them in the right order and with correct title to the menu ([Example](https://github.com/eccenca/documentation.eccenca.com/blob/main/docs/automate/cmemc-command-line-interface/.pages))
-- put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
+- put images side by side to the `index.md` ([Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/2022/corporate-memory-22-1))
 - do not use images for icons esp. icons from the application
     - use eccenca icons, e.g. [:eccenca-application-queries:](https://github.com/eccenca/documentation.eccenca.com/blob/main/overrides/.icons/eccenca/application-queries.svg) -> [list](https://github.com/eccenca/documentation.eccenca.com/tree/main/overrides/.icons/eccenca)
     - use theme icons where no eccenca icon is available -> [list](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
-- name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/corporate-memory-22-1))
+- name image files properly (not just `Screenshot.xxx.png`, [Example](https://github.com/eccenca/documentation.eccenca.com/tree/main/docs/release-notes/2022/corporate-memory-22-1))
 - used advanced features where suitable
     - [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage) (esp. use notes and warnings where needed) -> see Admonition section for more details
     - [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) (e.g. enable highlightning and add a title)
@@ -105,7 +105,7 @@ On this page is search function for icons available as well.
   <summary>Extend section</summary>
 
 | Admonition Name | Used For | Example |
-| ----  ----------- | -------- | ------- |
+| --------------- | -------- | ------- |
 | Info | Information in documentation provides details about a topic or process that the reader needs to know. It is usually essential and relevant to the main subject of the document. | Statement annotations provide a way to express knowledge about statements. This group is dedicated to properties that configure the Statement Annotation feature |
 | Note | A note provides additional details that may or may not be directly related to the main topic. It could be an explanation, clarification, or an aside that the writer thinks would be helpful for the reader to know. | The graph selection drop-down might or might not be visible depending the existence of an (optional) EasyNav Module configuration. In case no specific module configuration exists or non has not has been set for the current workspace the graph selection will be shown. A EasyNav Module configuration pre-configures a graph. Thus, the dropdown will not be shown if such has been configured for the current workspace. |
 | Abstract | An abstract is a brief summary that provides an overview of the main points or contents of a document. It typically appears at the beginning of a document and is intended to give the reader an idea of what to expect from the document. | This tutorial explores the benefits of using cloud computing in enterprise organizations. It discusses the advantages of cloud computing over traditional on-premises infrastructure, and provides guidance for migrating to the cloud. |

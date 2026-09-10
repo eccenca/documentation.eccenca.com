@@ -19,13 +19,13 @@ Concatenates multiple values received for an input. If applied to multiple input
 **Notation:** List of values are represented via square brackets. Example: `[first, second]` represents a list of two values "first" and "second".
 
 ---
-**Example 1:**
+**Without input values, no output is generated:**
 
 * Returns: `[]`
 
 
 ---
-**Example 2:**
+**A single value is returned unchanged:**
 
 * Input values:
     1. `[a]`
@@ -34,7 +34,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 
 ---
-**Example 3:**
+**All values of an input are concatenated into one value. The default glue is the empty string:**
 
 * Input values:
     1. `[a, b]`
@@ -43,7 +43,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 
 ---
-**Example 4:**
+**The glue string is inserted between the values:**
 
 * Parameters
     * glue: `x`
@@ -55,7 +55,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 
 ---
-**Example 5:**
+**Each input is concatenated separately, yielding one value per input:**
 
 * Input values:
     1. `[a, b]`
@@ -65,7 +65,7 @@ Concatenates multiple values received for an input. If applied to multiple input
 
 
 ---
-**Example 6:**
+**Escaped character sequences in the glue are replaced by the actual characters (newline, tab, backslash):**
 
 * Parameters
     * glue: `\n\t\\`
@@ -83,6 +83,44 @@ Concatenates multiple values received for an input. If applied to multiple input
     	\b
     	\c]
     ```
+
+
+---
+**Duplicates are removed, also when they span multiple values:**
+
+* Parameters
+    * glue: ``
+    * removeDuplicates: `true`
+
+* Input values:
+    1. `[Albert, Einstein, Albert Einstein]`
+
+* Returns: `[Albert Einstein]`
+
+
+---
+**With an empty glue, only whole duplicate values are removed:**
+
+* Parameters
+    * removeDuplicates: `true`
+
+* Input values:
+    1. `[a, b, a]`
+
+* Returns: `[ab]`
+
+
+---
+**Values consisting only of the glue collapse to an empty string:**
+
+* Parameters
+    * glue: `x`
+    * removeDuplicates: `true`
+
+* Input values:
+    1. `[x, x]`
+
+* Returns: `[]`
 
 
 
@@ -113,4 +151,4 @@ No description
 
 ## Related Plugins
 
-* **concat** — Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary — it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values.
+* [concat](concat.md) — Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary — it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values.

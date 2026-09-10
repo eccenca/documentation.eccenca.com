@@ -1,0 +1,8 @@
+---
+title: components
+nav:
+    - deployment: deployment
+    - graph_store: graph_store
+    - marketplace: marketplace
+    - sparql_wrapper: sparql_wrapper
+    - workspace: workspace

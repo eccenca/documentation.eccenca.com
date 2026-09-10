@@ -57,4 +57,4 @@ The regular expression used to split values.
 
 ## Related Plugins
 
-* **camelcasetokenizer** — A value written in camel case produces a single token under Tokenize, because there is no separator character to split on. Camel case tokenizer reads case transitions as boundaries and splits accordingly.
+* [camelcasetokenizer](camelcasetokenizer.md) — A value written in camel case produces a single token under Tokenize, because there is no separator character to split on. Camel case tokenizer reads case transitions as boundaries and splits accordingly.

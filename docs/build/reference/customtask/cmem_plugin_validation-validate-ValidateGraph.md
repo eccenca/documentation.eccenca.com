@@ -29,7 +29,7 @@ according to the node shapes in a shape catalog graph.
 This graph holds the resources you want to validate.
 
 - ID: `context_graph`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 
@@ -39,7 +39,7 @@ This graph holds the resources you want to validate.
 This graph holds the shapes you want to use for validation.
 
 - ID: `shape_graph`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `https://vocab.eccenca.com/shacl/`
 
 
@@ -49,7 +49,7 @@ This graph holds the shapes you want to use for validation.
 In this graph, the validation results are materialized. If left empty, results are not materialized.
 
 - ID: `result_graph`
-- Datatype: `string`
+- Datatype: `scheme:string`
 - Default Value: `None`
 
 

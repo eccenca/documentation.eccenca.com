@@ -2,7 +2,7 @@
 title: "Euclidian distance"
 description: "Calculates the Euclidian distance."
 icon: octicons/cross-reference-24
-tags:
+tags: []
 ---
 
 # Euclidian distance
@@ -70,6 +70,14 @@ Calculates the Euclidian distance.
 
 * Input values: `[-1.0, null, 1.0]`
 * Returns: `null`
+
+
+---
+**Negative scores (mismatches) contribute 0 instead of being squared into a match:**
+
+* Weights: `[1, 1]`
+* Input values: `[-1.0, 1.0]`
+* Returns: `0.707107`
 
 
 

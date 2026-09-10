@@ -26,7 +26,7 @@ Datasets are collections of data that can be read or written.
  | [Excel (Google Drive)](googlespreadsheet.md) | Read data from a remote Google Spreadsheet. |
  | [Excel (OneDrive, Office365)](office365preadsheet.md) | Read data from a remote onedrive or Office365 Spreadsheet. |
  | [Hive database](Hive.md) | Read from or write to an embedded Apache Hive endpoint. |
- | [In-memory dataset](inMemory.md) | A Dataset that holds all data in-memory. |
+ | [In-memory Knowledge Graph](inMemory.md) | A dataset that holds all data in-memory. In the default (workflow-scoped) mode, data is isolated per workflow execution and shared with nested workflows that reference the same dataset task. In application-scoped mode, data persists for the lifetime of the running process. |
  | [Internal dataset](internal.md) | Dataset for storing entities between workflow steps. The underlying dataset type can be configured using the `dataset.internal.*` configuration parameters. |
  | [Internal dataset (single graph)](LocalInternalDataset.md) | Dataset for storing entities between workflow steps. This variant does use the same graph for all internal datasets in a workflow. The underlying dataset type can be configured using the `dataset.internal.*` configuration parameters. |
  | [JSON](json.md) | Read from or write to a JSON or JSON Lines file. |

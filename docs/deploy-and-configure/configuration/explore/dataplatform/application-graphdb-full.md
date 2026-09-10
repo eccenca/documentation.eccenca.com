@@ -27,6 +27,7 @@ store:
     createRepositoryOnStartup: true
 ```
 
+
 ***Property: store.type***
 
 The type of the store must be set to "graphdb"
@@ -39,6 +40,7 @@ The type of the store must be set to "graphdb"
 | Environment | STORE_TYPE |
 
 ### Specific settings for GraphDB
+
 
 ***Property: store.graphdb.host***
 
@@ -182,3 +184,4 @@ Maximum amount of quads of change tracking result which will be loaded in memory
 | Required | false |
 | Valid values | int |
 | Environment | STORE_GRAPHDB_GRAPHDBCHANGETRACKINGMAXQUADMEMORY |
+

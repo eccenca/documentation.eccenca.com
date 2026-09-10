@@ -1,12 +1,12 @@
 ---
-title: "Not"
+title: "Excel Not"
 description: "Excel NOT(logical_value): Reverses the logical value. Logical_value is any value to be reversed."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Not
+# Excel Not
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 

@@ -136,7 +136,7 @@ regular expression
 
 ## Related Plugins
 
-* **regexReplace** — Regex replace rewrites the input string by substituting every match and returns the rewritten value. Validate regex treats the pattern as a full-value check on the resulting string.
-* **ifMatchesRegex** — A regular expression match plays different roles here. The Validate regex plugin checks each value against the pattern and passes it through only when it fully matches. The If matches regex plugin uses the match to choose which provided branch value is returned.
-* **regexSelect** — Regex selection turns one checked value and a list of patterns into a result sequence aligned with that list, placing the provided output value wherever a pattern matches. Validate regex keeps the original value and treats the pattern as a full-value check.
-* **regexExtract** — Regex extract turns the match into output by returning the matched substring or the first capturing group. Validate regex leaves the value unchanged and only lets it through when the full value matches the pattern.
+* [regexReplace](../Replace/regexReplace.md) — Regex replace rewrites the input string by substituting every match and returns the rewritten value. Validate regex treats the pattern as a full-value check on the resulting string.
+* [ifMatchesRegex](../Conditional/ifMatchesRegex.md) — A regular expression match plays different roles here. The Validate regex plugin checks each value against the pattern and passes it through only when it fully matches. The If matches regex plugin uses the match to choose which provided branch value is returned.
+* [regexSelect](../Selection/regexSelect.md) — Regex selection turns one checked value and a list of patterns into a result sequence aligned with that list, placing the provided output value wherever a pattern matches. Validate regex keeps the original value and treats the pattern as a full-value check.
+* [regexExtract](../Extract/regexExtract.md) — Regex extract turns the match into output by returning the matched substring or the first capturing group. Validate regex leaves the value unchanged and only lets it through when the full value matches the pattern.

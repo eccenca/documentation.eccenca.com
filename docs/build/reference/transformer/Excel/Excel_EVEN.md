@@ -1,12 +1,12 @@
 ---
-title: "Even"
+title: "Excel Even"
 description: "Excel EVEN(number): Rounds the given number up to the nearest even integer."
 icon: octicons/cross-reference-24
 tags:
     - TransformOperator
 ---
 
-# Even
+# Excel Even
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
