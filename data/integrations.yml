@@ -121,12 +121,12 @@ integrations:
   - name: Kubernetes
     icon: ":simple-kubernetes:"
     content: |
-      You can {{p.cmem_plugin_kubernetes_Execute}} and captures its output to process it.
+      {{p.cmem_plugin_kubernetes_Execute}} and capture its output for further processing.
 
   - name: GraphQL
     icon: ":simple-graphql:"
     content: |
-      You can execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
+      Execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
 
   - name: eMail / SMTP / IMAP
     icon: ":material-email-outline:"
@@ -142,7 +142,7 @@ integrations:
   - name: Kafka
     icon: ":simple-apachekafka:"
     content: |
-      You can [send]({{p.cmem_plugin_kafka_SendMessages_ref}}) and
+      [Send]({{p.cmem_plugin_kafka_SendMessages_ref}}) and
       [receive messages]({{p.cmem_plugin_kafka_ReceiveMessages_ref}}) to and from a Kafka topic,
       on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) cluster.
 
@@ -151,18 +151,18 @@ integrations:
     content: |
       Use a Nextcloud instance to [list]({{p.cmem_plugin_nextcloud_List_ref}}) and
       [download files]({{p.cmem_plugin_nextcloud_Download_ref}}) to process
-      them or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) you created with Corporate Memory.
+      them, or [upload files]({{p.cmem_plugin_nextcloud_Upload_ref}}) created with Corporate Memory.
 
   - name: Salesforce
     icon: ":fontawesome-brands-salesforce:"
     content: |
-      Interact with your Salesforce data, such as {{p.cmem_plugin_salesforce_workflow_operations_SobjectCreate}} or
+      Interact with Salesforce data, such as {{p.cmem_plugin_salesforce_workflow_operations_SobjectCreate}} or
       execute a {{p.cmem_plugin_salesforce_SoqlQuery}}.
 
   - name: Mattermost
     icon: ":simple-mattermost:"
     content: |
-      Send workflow reports or any other message to user and groups in you Mattermost with
+      Send workflow reports or any other message to users and groups in Mattermost with
       the {{p.cmem_plugin_mattermost}} task.
 
   - name: Spark
@@ -178,20 +178,20 @@ integrations:
   - name: PowerBI
     icon: ":other-powerbi:"
     content: |
-      Leverage your Knowledge Graphs in PowerBI by using our
+      Leverage Knowledge Graphs in PowerBI with the
       [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
 
   - name: Redash
     icon: ":other-redash:"
     content: |
-      Leverage your Knowledge Graphs in Redash using the integrated
+      Leverage Knowledge Graphs in Redash with the integrated
       [Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
 
   - name: Apify
     icon: ":other-apify:"
     content: |
       Use the {{p.cmem_plugin_apify_RunActor}} task to run web scrapers and other
-      [Apify](https://apify.com) actors, and process the resulting dataset in your workflow.
+      [Apify](https://apify.com) actors, and process the resulting dataset in a workflow.
 
   - name: CKAN
     icon: ":other-ckan:"
@@ -236,7 +236,7 @@ integrations:
   - name: n8n
     icon: ":simple-n8n:"
     content: |
-      Get data and trigger eccenca Corporate Memory build workflows by using our
+      Get data and trigger eccenca Corporate Memory build workflows with the
       [n8n Community Node](https://github.com/eccenca/n8n-nodes-corporate-memory).
 
   #####

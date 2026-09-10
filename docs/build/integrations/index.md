@@ -31,7 +31,7 @@ to interact with any
     ---
 
     Use the [Run Apify actor](../../build/reference/customtask/cmem_plugin_apify-RunActor.md) task to run web scrapers and other
-[Apify](https://apify.com) actors, and process the resulting dataset in your workflow.
+[Apify](https://apify.com) actors, and process the resulting dataset in a workflow.
 
 
 - :other-apacheavro:{ .lg .middle } Avro
@@ -155,7 +155,7 @@ geocoding service, such as [Nominatim](https://nominatim.org/),
 
     ---
 
-    You can execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
+    Execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
 
 
 - :simple-apachehive:{ .lg .middle } Hive
@@ -190,7 +190,7 @@ geocoding service, such as [Nominatim](https://nominatim.org/),
 
     ---
 
-    You can [send](../../build/reference/customtask/cmem_plugin_kafka-SendMessages.md) and
+    [Send](../../build/reference/customtask/cmem_plugin_kafka-SendMessages.md) and
 [receive messages](../../build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md) to and from a Kafka topic,
 on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) cluster.
 
@@ -199,7 +199,7 @@ on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) clu
 
     ---
 
-    You can [Execute a command in a kubernetes pod](../../build/reference/customtask/cmem_plugin_kubernetes-Execute.md) and captures its output to process it.
+    [Execute a command in a kubernetes pod](../../build/reference/customtask/cmem_plugin_kubernetes-Execute.md) and capture its output for further processing.
 
 
 - :simple-mariadb:{ .lg .middle } MariaDB
@@ -213,7 +213,7 @@ on a plain broker as well as on a [Confluent Cloud](https://confluent.cloud) clu
 
     ---
 
-    Send workflow reports or any other message to user and groups in you Mattermost with
+    Send workflow reports or any other message to users and groups in Mattermost with
 the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_mattermost.md) task.
 
 
@@ -243,7 +243,7 @@ from and to a single ZIP archive.
 
     ---
 
-    Get data and trigger eccenca Corporate Memory build workflows by using our
+    Get data and trigger eccenca Corporate Memory build workflows with the
 [n8n Community Node](https://github.com/eccenca/n8n-nodes-corporate-memory).
 
 
@@ -260,7 +260,7 @@ from and to a single ZIP archive.
 
     Use a Nextcloud instance to [list](../../build/reference/customtask/cmem_plugin_nextcloud-List.md) and
 [download files](../../build/reference/customtask/cmem_plugin_nextcloud-Download.md) to process
-them or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) you created with Corporate Memory.
+them, or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-Upload.md) created with Corporate Memory.
 
 
 - :material-microsoft-office:{ .lg .middle } Office 365
@@ -338,7 +338,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    Leverage your Knowledge Graphs in PowerBI by using our
+    Leverage Knowledge Graphs in PowerBI with the
 [Corporate Memory Power-BI-Connector](../../consume/consuming-graphs-in-power-bi/index.md).
 
 
@@ -363,7 +363,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    Leverage your Knowledge Graphs in Redash using the integrated
+    Leverage Knowledge Graphs in Redash with the integrated
 [Corporate Memory Redash-Connector](../../consume/consuming-graphs-with-redash/index.md).
 
 
@@ -378,7 +378,7 @@ using the [Search Vector Embeddings](../../build/reference/customtask/cmem_plugi
 
     ---
 
-    Interact with your Salesforce data, such as [Create/Update Salesforce Objects](../../build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) or
+    Interact with Salesforce data, such as [Create/Update Salesforce Objects](../../build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate.md) or
 execute a [SOQL query (Salesforce)](../../build/reference/customtask/cmem_plugin_salesforce-SoqlQuery.md).
 
 
