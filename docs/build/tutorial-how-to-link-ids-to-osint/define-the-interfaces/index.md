@@ -47,7 +47,7 @@ After research and one meeting with analysts, we have chosen the datasets of Mit
 <figcaption>Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.</figcaption>
 </figure>
 
-The Splunk indexes of IoCs are selected by the analysts in the dashboard via the component [multiselect input](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/FormEditor#Multiselect) in the form part of dashboard (the form part inits other Splunk tokens). We have choosen the IDs to link these data and the figure 5 resumes how we are going to link these data via Corporate Memory of Eccenca.
+The Splunk indexes of IoCs are selected by the analysts in the dashboard via the component [multiselect input](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/FormEditor#Multiselect) in the form part of dashboard (the form part inits other Splunk tokens). We have choosen the IDs to link these data and the figure 5 resumes how we are going to link these data via eccenca Corporate Memory.
 
 ## Understand the base of Splunk dashboards
 
