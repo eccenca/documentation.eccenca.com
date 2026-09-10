@@ -110,8 +110,8 @@ In addition to that, multiple performance and stability issues were solved.
 This version of cmemc adds the following new features:
 
 - The `workflow io` command was added to allow for executing workflows with variable file payload (input) and receive data from a workflow (output).
-    - This feature is described in the advanced tutorial [Processing data with variable input workflows](../../automate/processing-data-with-variable-input-workflows/index.md).
-    - In addition to that, the concepts of io workflows is described in [Workflow execution and orchestration](../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md).
+    - This feature is described in the advanced tutorial [Processing data with variable input workflows](../../../automate/processing-data-with-variable-input-workflows/index.md).
+    - In addition to that, the concepts of io workflows is described in [Workflow execution and orchestration](../../../automate/cmemc-command-line-interface/workflow-execution-and-orchestration/index.md).
 - The `admin` command group was added and includes the following commands:
     - `bootstrap` - Update/Import bootstrap data.
     - `showcase` - Create showcase data.
@@ -126,7 +126,7 @@ In addition to that, these changes are shipped:
 ## eccenca Corporate Memory PowerBI Connector v20.12
 
 This release of our PowerBI Connector does not introduce new features or relevant changes.
-We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../consume/consuming-graphs-in-power-bi/index.md).
+We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../../consume/consuming-graphs-in-power-bi/index.md).
 
 ## Migration Notes
 

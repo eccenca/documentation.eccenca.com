@@ -21,16 +21,16 @@ Corporate Memory 26.2 is the second major release in 2026. It introduces reusabl
 The highlights of this release are:
 
 - Marketplace: **General Availability**
-    - [eccenca Marketplace](../../distribution/marketplace/index.md) ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
+    - [eccenca Marketplace](../../../distribution/marketplace/index.md) ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
 
 - Build: **Reusable Rule Blocks, Execution Variables and Jinja for SPARQL**
-    - Build introduces [reusable transform rule blocks](../../build/rule-blocks/index.md) with a dedicated editor, execution variables that parameterize a single task or workflow run, [Jinja as the default template engine for SPARQL tasks](../../build/reference/customtask/sparqlSelectOperator.md), and an embedded MCP server that opens the workspace to LLM agents.
+    - Build introduces [reusable transform rule blocks](../../../build/rule-blocks/index.md) with a dedicated editor, execution variables that parameterize a single task or workflow run, [Jinja as the default template engine for SPARQL tasks](../../../build/reference/customtask/sparqlSelectOperator.md), and an embedded MCP server that opens the workspace to LLM agents.
 
 - Explore: **Companion Authoring**
-    - Explore extends [Companion with external MCP server integration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server) and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
+    - Explore extends [Companion with external MCP server integration](../../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server) and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
 
 - Graph Insights: **Resource Images and Icons**
-    - Graph Insights shows [resources with images and icons throughout the exploration](../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
+    - Graph Insights shows [resources with images and icons throughout the exploration](../../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 - Automate: **n8n Corporate Memory Community Node**
     - Initial release of [`@eccenca/n8n-nodes-corporate-memory` v0.4.2](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory), a n8n community node available through the n8n community node installer.
@@ -38,7 +38,7 @@ The highlights of this release are:
 This release delivers the following component versions:
 
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-- [eccenca Explore v26.2.1](#eccenca-explore-v2621)
+- [eccenca Explore v26.2.2](#eccenca-explore-v2622)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
 - [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
 - [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
@@ -279,9 +279,15 @@ We are excited to announce the release of DataIntegration v26.2, which brings re
     - Overriding a setting in `dataintegration.conf` now also updates the settings derived from it, e.g. setting `directories.base` moves the data, cache, and log directories along with it.
     - The `profiling.rdfSerialization.enabled` setting now controls the RDF profiling output; previously it was ignored and the output was controlled by `profiling.cache.enabled` instead.
 
-## eccenca Explore v26.2.1
+## eccenca Explore v26.2.2
 
 We are pleased to announce the release of Explore v26.2, which introduces the new Manage module, extends Companion with external MCP servers and SHACL based resource authoring, improves SHACL editing and chart handling, and ships a broad platform refresh.
+
+**v26.2.2 of Explore ships the following fixes:**
+
+- **Companion:**
+    - openai/anthropic providers without structured output support cannot be used.
+        - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
 
 **v26.2.1 of Explore introduces the following changes:**
 

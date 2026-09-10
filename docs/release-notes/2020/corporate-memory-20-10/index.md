@@ -10,10 +10,10 @@ Corporate Memory 20.10 is the third release in 2020.
 
 The highlights of this release are:
 
-- Release of the new [DataIntegration workspace](../../build/introduction-to-the-user-interface/index.md).
-- Support for [statement annotations](../../explore-and-author/graph-exploration/statement-annotations/index.md), in order to express knowledge about specific statements.
-- Support for [tracking change sets](../../explore-and-author/graph-exploration/statement-annotations/index.md) for all shape based editing activities.
-- Support for automation of vocabulary and dataset management with [cmemc](../../automate/cmemc-command-line-interface/index.md).
+- Release of the new [DataIntegration workspace](../../../build/introduction-to-the-user-interface/index.md).
+- Support for [statement annotations](../../../explore-and-author/graph-exploration/statement-annotations/index.md), in order to express knowledge about specific statements.
+- Support for [tracking change sets](../../../explore-and-author/graph-exploration/statement-annotations/index.md) for all shape based editing activities.
+- Support for automation of vocabulary and dataset management with [cmemc](../../../automate/cmemc-command-line-interface/index.md).
 
 !!! warning
 
@@ -107,8 +107,8 @@ This version of eccenca DataManager adds the following new features:
 
 - General
     - Add translations and i18n language selection (and ship english and german translations)
-    - Allow for [Annotation of Statements with additional meta data](../../explore-and-author/graph-exploration/statement-annotations/index.md)
-    - Integrate with the new [DataIntegration workspace](../../build/introduction-to-the-user-interface/index.md) (Data Integration Tab)
+    - Allow for [Annotation of Statements with additional meta data](../../../explore-and-author/graph-exploration/statement-annotations/index.md)
+    - Integrate with the new [DataIntegration workspace](../../../build/introduction-to-the-user-interface/index.md) (Data Integration Tab)
 - Shacline
     - Add support for 'sh:languageIn' (as multiple values) in literal properties
 - Resource Tables
@@ -175,7 +175,7 @@ In addition to that, multiple performance and stability issues were solved.
 This version of cmemc adds the following new features:
 
 - A `dataset` command group, enabling users to `create`, `delete` and `update` datasets as well as `upload` and `download` dataset file resources.
-- A `vocabulary` command group, enabling users to manage vocabularies similar to the [vocabulary catalog](../../explore-and-author/vocabulary-catalog/index.md).
+- A `vocabulary` command group, enabling users to manage vocabularies similar to the [vocabulary catalog](../../../explore-and-author/vocabulary-catalog/index.md).
 - The `query execute` command has some new options for limit, offset distinct and timeout settings.
 
 In addition to that, these changes are shipped:
@@ -194,7 +194,7 @@ In addition to that, these changes are shipped:
 
 ## eccenca Corporate Memory PowerBI Connector (v20.10)
 
-This release of our PowerBI Connector does not introduce new features or relevant changes. We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../consume/consuming-graphs-in-power-bi/index.md)
+This release of our PowerBI Connector does not introduce new features or relevant changes. We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../../consume/consuming-graphs-in-power-bi/index.md)
 
 # Migration Notes
 
