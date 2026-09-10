@@ -13,7 +13,7 @@ Corporate Memory 23.3.2 is the second patch release in the 23.3 release line.
 The highlights of this release are:
 
 - Explore and Author:
-    - new **[charts catalog](../../explore-and-author/charts-catalog/index.md)** module added, which allows for defining BI widgets / charts which can be integrated into shapes
+    - new **[charts catalog](../../../explore-and-author/charts-catalog/index.md)** module added, which allows for defining BI widgets / charts which can be integrated into shapes
     - preview release of our generative AI / LLM based **Ontology and Query Assistant**
 - Build:
     - operate BUILD like never before by using the new **keyboard shortcuts** (press "?" in the build module to learn the details)
@@ -262,6 +262,6 @@ From v23.3 `AccessCondition`s are only regarded if their IRIs use the prefix `ht
 
 ### cmemc
 
-- The upgrade to `click` v8 involves new completion functions (see [completion manual](../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
+- The upgrade to `click` v8 involves new completion functions (see [completion manual](../../../automate/cmemc-command-line-interface/configuration/completion-setup/index.md))
     - Old: `_CMEMC_COMPLETE=source_zsh cmemc`
     - New: `_CMEMC_COMPLETE=zsh_source cmemc`

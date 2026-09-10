@@ -111,7 +111,7 @@ workspace.provider.plugin = <workspace-provider-plugin-name>
 The following sections describe the available workspace provider plugins and how they are configured.
 
 !!! note "Changed in 25.3"
-    To guarantee unique plugin identifiers, `file` was renamed to `fileWorkspaceProvider` and `inMemory` was renamed to `inMemoryWorkspaceProvider`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
+    To guarantee unique plugin identifiers, `file` was renamed to `fileWorkspaceProvider` and `inMemory` was renamed to `inMemoryWorkspaceProvider`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/2025/corporate-memory-25-3/index.md#eccenca-dataintegration).
 
 ### RDF-store Workspace - backend
 
@@ -259,7 +259,7 @@ workspace.repository.plugin = <resource-repository-plugin-name>
 The following sections describe the available resource repository plugins and how they are configured.
 
 !!! note "Changed in 25.3"
-    To guarantee unique plugin identifiers, `file` was renamed to `sharedFileRepository` and `inMemory` was renamed to `inMemoryResourceRepository`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
+    To guarantee unique plugin identifiers, `file` was renamed to `sharedFileRepository` and `inMemory` was renamed to `inMemoryResourceRepository`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/2025/corporate-memory-25-3/index.md#eccenca-dataintegration).
 
 ### Project Specific Directories - projectFile
 
@@ -435,7 +435,7 @@ workspace.repository.plugin = empty
 The execution report manager is used to persist execution reports. It allows to retrieve previous reports. you can use it with file and in-memory models. In addition you can specify a retention time. Reports older than this time will be deleted, if a new report is added. The retention time is expressed as a Java `Duration` string, see <https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-> for details.
 
 !!! note "Changed in 25.3"
-    To guarantee unique plugin identifiers, `file` was renamed to `fileExecutionReportManager` and `inMemory` was renamed to `inMemoryExecutionReportManager`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/corporate-memory-25-3/index.md#eccenca-dataintegration).
+    To guarantee unique plugin identifiers, `file` was renamed to `fileExecutionReportManager` and `inMemory` was renamed to `inMemoryExecutionReportManager`. Only configuration references are affected, existing projects remain intact. See the [25.3 migration notes](../../../release-notes/2025/corporate-memory-25-3/index.md#eccenca-dataintegration).
 
 ### Disabled - None
 

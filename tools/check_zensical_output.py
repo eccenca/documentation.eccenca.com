@@ -47,6 +47,30 @@ REDIRECTS = {
     "explore-and-author/building-a-customized-user-interface": (
         "explore-and-author/graph-exploration/building-a-customized-user-interface/"
     ),
+    # Release notes were regrouped into year directories; the flat paths below
+    # are what external links and search results still point at.
+    "release-notes/corporate-memory-19-10": "release-notes/2019/corporate-memory-19-10/",
+    "release-notes/corporate-memory-20-03": "release-notes/2020/corporate-memory-20-03/",
+    "release-notes/corporate-memory-20-06": "release-notes/2020/corporate-memory-20-06/",
+    "release-notes/corporate-memory-20-10": "release-notes/2020/corporate-memory-20-10/",
+    "release-notes/corporate-memory-20-12": "release-notes/2020/corporate-memory-20-12/",
+    "release-notes/corporate-memory-21-02": "release-notes/2021/corporate-memory-21-02/",
+    "release-notes/corporate-memory-21-04": "release-notes/2021/corporate-memory-21-04/",
+    "release-notes/corporate-memory-21-06": "release-notes/2021/corporate-memory-21-06/",
+    "release-notes/corporate-memory-21-11": "release-notes/2021/corporate-memory-21-11/",
+    "release-notes/corporate-memory-22-1": "release-notes/2022/corporate-memory-22-1/",
+    "release-notes/corporate-memory-22-2": "release-notes/2022/corporate-memory-22-2/",
+    "release-notes/corporate-memory-23-1": "release-notes/2023/corporate-memory-23-1/",
+    "release-notes/corporate-memory-23-2": "release-notes/2023/corporate-memory-23-2/",
+    "release-notes/corporate-memory-23-3": "release-notes/2023/corporate-memory-23-3/",
+    "release-notes/corporate-memory-24-1": "release-notes/2024/corporate-memory-24-1/",
+    "release-notes/corporate-memory-24-2": "release-notes/2024/corporate-memory-24-2/",
+    "release-notes/corporate-memory-24-3": "release-notes/2024/corporate-memory-24-3/",
+    "release-notes/corporate-memory-25-1": "release-notes/2025/corporate-memory-25-1/",
+    "release-notes/corporate-memory-25-2": "release-notes/2025/corporate-memory-25-2/",
+    "release-notes/corporate-memory-25-3": "release-notes/2025/corporate-memory-25-3/",
+    "release-notes/corporate-memory-26-1": "release-notes/2026/corporate-memory-26-1/",
+    "release-notes/corporate-memory-26-2": "release-notes/2026/corporate-memory-26-2/",
 }
 
 # Only tags that make the browser fetch something. Plain <a href> hyperlinks to
