@@ -10,6 +10,7 @@ supported entry points and pass the right options.
 | Command | Used by | Purpose |
 | :------ | :------ | :------ |
 | `build-navigation` | `task update:navigation`, `task check:navigation` | Build `nav.yml` from the `docs/**/.pages` files; `--check` diffs instead of writing and fails on drift |
+| `build-pdf` | `task pdf` | Assemble the built `site/` into one linearized document along `nav.yml` and print it to a single PDF with headless Chrome |
 | `check-zensical-output` | `task check:output` | Inspect the built `site/` and fail if a feature we reimplemented for Zensical regressed |
 | `localize-bundle-assets` | `task build` | Rewrite the third-party asset URLs Zensical bakes into its JavaScript bundle to the vendored copies |
 | `update-icons` | `task update:icons` | Fetch the eccenca icon set from the gui-elements repository |

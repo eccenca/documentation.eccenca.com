@@ -152,6 +152,41 @@ tasks:
     cmds:
       - poetry run zensical serve
 
+  pdf:
+    desc: Build a single PDF of the whole site via headless Chrome
+    summary: |
+      Runs `task build`, then tools/build_pdf.py, which assembles one
+      linearized HTML document from nav.yml and the per-page HTML in site/,
+      serves it and prints it with headless Chrome.
+
+      nav.yml is the page order: it is generated from the .pages files and
+      gated by `task check`, so the PDF cannot drift from the sidebar. Pages
+      outside the navigation - the homepage, tags.md, testing.md and the
+      hidden Getting Started tutorial - are not included.
+
+      Links the PDF cannot resolve within itself - downloadable resources,
+      full-size screenshots, those excluded pages - point at the published
+      site under the built version, or under `latest` for a dev build.
+
+      Tunables are options of `dec-tool build-pdf`, each with an environment
+      variable fallback - see `poetry run dec-tool build-pdf --help`:
+        --chrome / CHROME               - path to a Chromium-family binary
+                                          (default: macOS Google Chrome.app)
+        --port / PORT                   - local port for the temporary http
+                                          server (default: a free port)
+        --build-version / BUILD_VERSION - version stamped on the cover and
+                                          folded into the default filename
+                                          (default: {{.CURRENT_VERSION}})
+        --output-file / PDF_OUT         - explicit output path
+                                          (default:
+                                          dist/documentation-eccenca-com-<ver>.pdf)
+    deps:
+      - task: build
+    env:
+      BUILD_VERSION: '{{.CURRENT_VERSION}}'
+    cmds:
+      - poetry run dec-tool build-pdf
+
   update:icons:
     desc: update the used eccenca icons from carbon
     cmds:
