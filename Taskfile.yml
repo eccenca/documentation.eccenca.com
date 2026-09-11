@@ -164,6 +164,10 @@ tasks:
       outside the navigation - the homepage, tags.md, testing.md and the
       hidden Getting Started tutorial - are not included.
 
+      Links the PDF cannot resolve within itself - downloadable resources,
+      full-size screenshots, those excluded pages - point at the published
+      site under the built version, or under `latest` for a dev build.
+
       Tunables (env vars):
         CHROME        - path to a Chromium-family binary
                         (default: macOS Google Chrome.app)

@@ -128,6 +128,20 @@ def md_to_url_path(src_md: str) -> str:
     return "/" + src_md
 
 
+def public_base_url(config: dict, version: str) -> str:
+    """The published URL prefix that links leaving the PDF resolve against.
+
+    The merged document is printed from a throwaway local server, so a link it
+    does not resolve inside the PDF would otherwise carry that server's address
+    into the file. The site is published per version with mike, so a 26.2 PDF
+    points into the 26.2 tree and the resources it links to stay the ones it
+    describes; a build without a real version falls back to the `latest` alias.
+    """
+    site_url = str(config.get("site_url") or "/").rstrip("/") + "/"
+    segment = "latest" if version in ("", "dev") else version
+    return urllib.parse.urljoin(site_url, segment + "/")
+
+
 def url_to_section_id(url_path: str) -> str:
     """Convert a URL path like /build/active-learning/ to its section id."""
     return url_path.strip("/").replace("/", "-")
@@ -149,13 +163,16 @@ def namespace_ids(section, section_id: str) -> None:
             a["href"] = f"#{section_id}-{a['href'][1:]}"
 
 
-def resolve_links(section, base_url: str, valid_ids: set) -> None:
+def resolve_links(section, base_url: str, valid_ids: set, public_base: str) -> None:
     """Turn page-relative URLs into something valid inside the merged document.
 
     Links to other documented pages become in-PDF anchor jumps. Everything
-    else relative - images, downloads, pages outside the nav - is made
-    root-absolute, because the merged document is served from /print_page/ and
-    would otherwise resolve them against the wrong directory.
+    else relative - downloadable resources, screenshots opened at full size,
+    pages outside the navigation - becomes an absolute link into the published
+    site, which is the only address a reader of the PDF can follow.
+
+    Image sources stay root-absolute: they are fetched by the local server
+    while Chrome prints, and are embedded in the PDF rather than linked.
     """
     for a in section.find_all("a", href=True):
         href = a["href"]
@@ -175,7 +192,7 @@ def resolve_links(section, base_url: str, valid_ids: set) -> None:
                 else f"#{section_id}"
             )
         else:
-            a["href"] = absolute
+            a["href"] = urllib.parse.urljoin(public_base, absolute.lstrip("/"))
 
     for el in section.find_all(src=True):
         src = el["src"]
@@ -231,6 +248,7 @@ def assemble_print_page(
     entries: list[NavEntry], config: dict, version: str, generated_at: str
 ) -> tuple[int, list[str]]:
     """Build the merged document at PRINT_PAGE. Returns (pages, missing)."""
+    public_base = public_base_url(config, version)
     shell = BeautifulSoup(SHELL_PAGE.read_text(encoding="utf-8"), "html.parser")
     # The shell's own asset URLs are relative to the site root, but the merged
     # document is served one level down.
@@ -244,6 +262,11 @@ def assemble_print_page(
     # replaced below.
     for skip in shell.select("a.md-skip"):
         skip.decompose()
+
+    # The logo on the cover links to the site root, which under the print
+    # server means the print server.
+    for logo in shell.select("a.md-logo"):
+        logo["href"] = public_base
 
     container = shell.select_one(CONTENT_SELECTOR)
     if container is None:
@@ -279,7 +302,7 @@ def assemble_print_page(
             section.append(child.extract())
 
         namespace_ids(section, section_id)
-        resolve_links(section, md_to_url_path(entry.md), valid_ids)
+        resolve_links(section, md_to_url_path(entry.md), valid_ids, public_base)
         demote_headings(section, entry.depth)
         container.append(section)
         count += 1
