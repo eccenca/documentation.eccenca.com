@@ -288,7 +288,7 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
 - **Companion:**
     - openai/anthropic providers without structured output support cannot be used.
         - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
-- **Graph Insights:*
+- **Graph Insights:**
     - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2002) below.
 
 **v26.2.1 of Explore introduces the following changes:**
