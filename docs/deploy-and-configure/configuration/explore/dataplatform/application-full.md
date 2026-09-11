@@ -93,7 +93,7 @@ key: |
 | Default | *none* |
 | Required | false |
 | Valid values | PGP Key (Message) |
-| Conflicts with | license.file |
+  | Conflicts with | license.file |
 | Environment | LICENSE_KEY |
 
 ***Property: license.file***
@@ -105,7 +105,7 @@ Use this property to specify the location of the license file
 | Default | *none* |
 | Required | false |
 | Valid values | location of the license file |
-| Conflicts with | license.key |
+  | Conflicts with | license.key |
 | Environment | LICENSE_FILE |
 
 ## General platform settings for DataPlatform
@@ -545,28 +545,6 @@ This configures the possible chat models for interacting with the companion.
 | Valid values | string |
 | Environment | SPRING_AI_OPENAI_API_KEY |
 
-***Property: spring.ai.openai.chat.options.response-format.type***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | json_schema |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE |
-
-***Property: spring.ai.openai.chat.options.response-format.schema***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" } |
-
- |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |
-
 ***Property: spring.ai.azure.openai.endpoint***
 
 
@@ -577,28 +555,6 @@ This configures the possible chat models for interacting with the companion.
 | Valid values | string |
 | Environment | SPRING_AI_AZURE_OPENAI_ENDPOINT |
 
-***Property: spring.ai.azure.openai.chat.options.response-format.type***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | json_schema |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE |
-
-***Property: spring.ai.azure.openai.chat.options.response-format.schema***
-
-
-| Category | Value |
-|--- | ---: |
-| Default | { \"name\": \"string\", \"schema\": \"string\" } |
-
- |
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |
-
 ***Property: spring.ai.mistral-ai.api-key***
 
 
@@ -608,6 +564,31 @@ This configures the possible chat models for interacting with the companion.
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_MISTRAL_AI_API_KEY |
+
+## Companion (LLM) fine tuning
+
+Settings for how Explore talks to the configured LLM provider, beyond what Spring AI itself
+offers under spring.ai.*.
+
+
+***Property: explore.llm.structured-output.native-schema***
+
+Sends the schema of the companion response to the model as a provider option - response_format
+for openai and mistral, output_config for anthropic - so that the model is held to it by the
+provider.
+
+Set this to false for a deployment whose LLM gateway rejects structured output; some proxies
+forbid it for anthropic models. The schema is then spelled out in the system message instead,
+which costs a few more tokens per call and is only as reliable as the model. Ollama is
+unaffected either way, its native format is limited to "json" and never carries the schema.
+
+
+| Category | Value |
+|--- | ---: |
+| Default | true |
+| Required | false |
+| Valid values | boolean |
+| Environment | EXPLORE_LLM_STRUCTURED_OUTPUT_NATIVE_SCHEMA |
 
 ***Property: management.info.env.enabled***
 
@@ -1038,7 +1019,7 @@ Use this property to configure the URI of the public user (see section Public ac
 | Default | <https://ns.eccenca.com/data/ac/> |
 | Required | false |
 | Valid values | string |
-| Conflicts with | url |
+  | Conflicts with | url |
 | Environment | AUTHORIZATION_ABOX_ACCESSCONDITIONS_GRAPH |
 
 ## SPARQL endpoints
