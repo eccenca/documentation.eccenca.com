@@ -39,7 +39,14 @@ They are never fixed in the Markdown.
 - One directory per page with an `index.md` inside: `my-topic/index.md`.
 - Add the page to the `.pages` file of its directory with the title used in the menu, then run
   `task update:navigation` — see "Navigation" below.
-- The page title (`# Heading`) and the `.pages` nav title must correspond.
+- A page carries its name in three places, which serve different purposes and are not required to match:
+  the `.pages` entry is the label in the navigation menu, `title:` in the front matter is the site page title
+  and the entry on the tags page, and the `# Heading` is the visible title on the page itself.
+  A menu label is written for scanning inside its section and is often shorter than the heading, which is read
+  without that context. Do not "fix" such a divergence as if it were drift.
+- The front matter `title` is often written *longer* than the heading, because the tags page lists pages flat,
+  without the navigation hierarchy that would say what a page belongs to. The cmemc pages are the model:
+  `title: "cmemc: Installation"` against a heading of `Installation`, and the same for every page in that group.
 - Images live next to the `index.md` that uses them.
 - Renaming or moving a page requires a redirect stub — see "Redirects" below.
 

@@ -707,6 +707,8 @@ nav:
           - automate/scheduling-workflows/index.md
       - Continuous Integration:
           - automate/continuous-integration/index.md
+      - n8n Integration:
+          - automate/n8n-node/index.md
   - Develop:
       - Develop: develop/index.md
       - Accessing Graphs with Java Applications:
@@ -893,7 +895,7 @@ nav:
           - develop/dataplatform-apis/index.md
   - Release Notes:
       - '2026':
-          - v26.2.0:
+          - v26.2.1:
               - release-notes/2026/corporate-memory-26-2/index.md
           - v26.1.3:
               - release-notes/2026/corporate-memory-26-1/index.md
