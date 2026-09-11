@@ -4,12 +4,11 @@ Assembles one HTML document from `nav.yml` - the generated, `check:navigation`
 gated navigation spine - splicing in the already-rendered per-page HTML from
 `site/`, then serves that document and prints it with headless Chrome.
 
-Standalone helper (not part of dec-tool CLI) - invoked by `task pdf`.
-Reads CHROME, PORT and PDF_OUT from the environment; everything has a default.
+Invoked by `task pdf`. Every option falls back to an environment variable,
+so CHROME, BUILD_VERSION, PORT and PDF_OUT keep working as tunables.
 """
 from __future__ import annotations
 
-import os
 import re
 import socket
 import subprocess
@@ -22,6 +21,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+import click
 import yaml
 from bs4 import BeautifulSoup
 
@@ -335,29 +335,54 @@ def wait_for(url: str, timeout: float = 30.0) -> None:
     )
 
 
-def main() -> int:
-    chrome = os.environ.get("CHROME", DEFAULT_CHROME)
-    version = os.environ.get("BUILD_VERSION", "").strip() or "dev"
+@click.command()
+@click.option(
+    "--chrome",
+    type=click.Path(exists=False, dir_okay=False, file_okay=True),
+    default=DEFAULT_CHROME,
+    envvar="CHROME",
+    help="Which Chromium-family binary should print the document?",
+    show_default=True,
+)
+@click.option(
+    "--build-version",
+    default="dev",
+    envvar="BUILD_VERSION",
+    help="Which version to stamp on the cover and fold into the file name?",
+    show_default=True,
+)
+@click.option(
+    "--output-file", "-o",
+    type=click.Path(exists=False, dir_okay=False, file_okay=True),
+    default=None,
+    envvar="PDF_OUT",
+    help=f"Where to write the PDF?  [default: {DEFAULT_OUT_STEM}-<version>.pdf]",
+)
+@click.option(
+    "--port",
+    type=int,
+    default=None,
+    envvar="PORT",
+    help="Which port to serve the assembled document on?  [default: a free port]",
+)
+def build_pdf(
+    chrome: str, build_version: str, output_file: str | None, port: int | None
+) -> None:
+    """Build a single PDF of the whole site with headless Chrome."""
+    version = build_version.strip() or "dev"
     generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
     default_out = f"{DEFAULT_OUT_STEM}-{version.replace('.', '-')}.pdf"
-    out = Path(os.environ.get("PDF_OUT", default_out))
-    port_env = os.environ.get("PORT", "").strip()
-    port = int(port_env) if port_env else free_port()
+    out = Path(output_file or default_out)
+    port = port or free_port()
 
     if not SHELL_PAGE.exists():
-        print(
-            f"ERROR: {SHELL_PAGE} not found - run `task build` first.",
-            file=sys.stderr,
-        )
-        return 1
+        raise click.ClickException(f"{SHELL_PAGE} not found - run `task build` first.")
     if not Path(chrome).exists():
-        print(f"ERROR: Chrome binary not found at: {chrome}", file=sys.stderr)
-        return 1
+        raise click.ClickException(f"Chrome binary not found at: {chrome}")
 
     entries = load_nav_entries()
     if not entries:
-        print(f"ERROR: no pages found in {NAV_YML}", file=sys.stderr)
-        return 1
+        raise click.ClickException(f"no pages found in {NAV_YML}")
     print(f"Assembling {len(entries)} pages from {NAV_YML}")
     count, missing = assemble_print_page(
         entries, load_site_config(), version, generated_at
@@ -387,12 +412,9 @@ def main() -> int:
             wait_for(url)
         except RuntimeError as exc:
             log.flush()
-            print(
-                f"ERROR: {exc}\n--- server log ({log_path}) ---\n"
-                f"{log_path.read_text()}",
-                file=sys.stderr,
-            )
-            return 1
+            raise click.ClickException(
+                f"{exc}\n--- server log ({log_path}) ---\n{log_path.read_text()}"
+            ) from exc
 
         print(f"Rendering {url} -> {out}")
         chrome_log_path = out.parent / "build_pdf.chrome.log"
@@ -429,21 +451,14 @@ def main() -> int:
                 check=False,
             )
         if result.returncode != 0:
-            print(
-                f"ERROR: Chrome exited with {result.returncode}. "
-                f"Server log: {log_path}  Chrome log: {chrome_log_path}",
-                file=sys.stderr,
+            raise click.ClickException(
+                f"Chrome exited with {result.returncode}. "
+                f"Server log: {log_path}  Chrome log: {chrome_log_path}"
             )
-            return result.returncode
         if not out.exists() or out.stat().st_size < 1024:
-            print(
-                f"ERROR: PDF missing or suspiciously small: {out}",
-                file=sys.stderr,
-            )
-            return 1
+            raise click.ClickException(f"PDF missing or suspiciously small: {out}")
         size_kb = out.stat().st_size // 1024
         print(f"PDF written to {out} ({size_kb} KB)")
-        return 0
     finally:
         server.terminate()
         try:
@@ -451,7 +466,3 @@ def main() -> int:
         except subprocess.TimeoutExpired:
             server.kill()
         log.close()
-
-
-if __name__ == "__main__":
-    sys.exit(main())
