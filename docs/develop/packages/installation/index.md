@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-Marketplace Packages can be installed directly from a Corporate Memory Marketplace Server (e.g. [https://eccenca.market](https://eccenca.market)), or from local **C**orporate Memory **P**ackage **A**rchives (`.cpa` files) and package directories.
+Marketplace Packages can be installed directly from the eccenca Corporate Memory Marketplace Server (e.g. [https://eccenca.market](https://eccenca.market)), or from local **C**orporate Memory **P**ackage **A**rchives (`.cpa` files) and package directories.
 
 This page describes how to search, install, list, and uninstall Marketplace Packages using `cmemc`.
 

@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-For a time-based execution of a workflow, Corporate Memory provides the Scheduler operator. Please note that, in case you want to schedule workflows externally, [cmemc can be used for that](../cmemc-command-line-interface/workflow-execution-and-orchestration/index.md).
+For a time-based execution of a workflow, eccenca Corporate Memory provides the Scheduler operator. Please note that, in case you want to schedule workflows externally, [cmemc can be used for that](../cmemc-command-line-interface/workflow-execution-and-orchestration/index.md).
 
 ## Create a scheduler
 

@@ -33,7 +33,7 @@ Install the requirements
         gnupg lsb-release gettext zip unzip git \
         make=4.3-4.1 vim jq
     ```
-    To install Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
+    To install eccenca Corporate Memory, you need to modify your local hosts file (located in /etc/hosts), minimal configuration is as follows:
 
     ```shell
     ##

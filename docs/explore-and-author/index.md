@@ -10,7 +10,7 @@ hide:
 
 # :material-star: Explore
 
-In the Explore section you will learn how Corporate Memory allows you to interact with your Enterprise Knowledge Graph.
+In the Explore section you will learn how eccenca Corporate Memory allows you to interact with your Enterprise Knowledge Graph.
 Exploring includes authoring: besides browsing, searching and visualizing, the modules described here let you create, edit and curate graph content.
 All relevant modules and functionalities are described.
 You will also learn how we make use of [SHACL Shapes](https://www.w3.org/TR/shacl/) in order to [customize the way how you can interact with your data](./graph-exploration/building-a-customized-user-interface/index.md).

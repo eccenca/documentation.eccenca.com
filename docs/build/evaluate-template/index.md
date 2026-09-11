@@ -56,7 +56,7 @@ The tutorial consists of the following steps, which are described in detail belo
 
     The vocabulary contains the classes and properties needed to map the source data into entities in the Knowledge Graph.
 
-1. In Corporate Memory, click **Knowledge Graphs** in the navigation under **Explore** on the left side of the page.
+1. In eccenca Corporate Memory, click **Knowledge Graphs** in the navigation under **Explore** on the left side of the page.
 
     ![Menu entry EXPLORE > Knowledge Graphs](menu-explore-knowledge-graphs.png){ class="bordered" width="40%" }
 

@@ -12,7 +12,7 @@ Follow the instructions related to your deployment type: a) docker-compose or b)
 
 ### (a) Enable in docker-compose deployment
 
-In our Corporate Memory docker-orchestration all main configurations can be directed by setting environment
+In our eccenca Corporate Memory docker-orchestration all main configurations can be directed by setting environment
 variables in `environments/config.env`.
 You can find the environment variables set as usual in `environments/default.env` and `environments/config.env`.
 
@@ -328,7 +328,7 @@ accordingly:
 ``` yaml
 global:
   # GraphInsights service account OAuth credentials (if using GraphInsights).
-  # Can use the same credentials as CMEM or separate ones.
+  # Can use the same credentials as Corporate Memory or separate ones.
   graphinsightsClientId: graph-insights-service-account
   graphinsightsClientSecret: changeme  # IMPORTANT: Change this to a secure value!
 

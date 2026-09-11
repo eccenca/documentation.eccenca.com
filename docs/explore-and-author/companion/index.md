@@ -52,7 +52,7 @@ To maximize the relevance and accuracy of the generated answer, your question is
 
 ![Companion Tool Selection](companion-tool-selection.png){ class="bordered" width="40%" }
 
-The companion chat uses various tools to interact with Corporate Memory.
+The companion chat uses various tools to interact with eccenca Corporate Memory.
 These tools are used autonomously by the configured LLM model to gather the relevant context needed to generate the best answer.
 If your use case or question requires you to limit the available tools (e.g. if you only want to use queries from the query catalogue and not generate any), you can configure the tools the model can use via the drop-down widget.
 

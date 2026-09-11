@@ -34,7 +34,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
     - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
     - [Active learning](active-learning/index.md) --- Advanced workflows that improve results iteratively by incorporating feedback signals.
-    - [Connect to Snowflake](snowflake-tutorial/index.md) --- Connect Snowflake as a scalable cloud warehouse and lift/link its data in Corporate Memory to unify it with your other sources in one knowledge graph.
+    - [Connect to Snowflake](snowflake-tutorial/index.md) --- Connect Snowflake as a scalable cloud warehouse and lift/link its data in eccenca Corporate Memory to unify it with your other sources in one knowledge graph.
     - [Build Knowledge Graphs from Kafka Topics](kafka-consumer/index.md) --- Consume Kafka topics and lift event streams into a Knowledge Graph.
     - [Evaluate Jinja Template and Send an Email Message](evaluate-template/index.md) --- Template and send an email after a workflow execution.
     - [Link Intrusion Detection Systems to Open-Source INTelligence](tutorial-how-to-link-ids-to-osint/index.md) --- Link IDS data to OSINT sources.

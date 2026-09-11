@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.2.1
+# eccenca Corporate Memory 26.2.1
 
 Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 

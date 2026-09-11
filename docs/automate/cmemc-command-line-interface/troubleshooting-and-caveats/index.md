@@ -11,7 +11,7 @@ This page lists and documents possible issues and warnings when working with cme
 
 ## Proxy is in the way
 
-If you feel that your system's proxy configuration negatively impacts the communication between cmemc and Corporate Memory, you can disable using any proxy by setting this variable:
+If you feel that your system's proxy configuration negatively impacts the communication between cmemc and eccenca Corporate Memory, you can disable using any proxy by setting this variable:
 
 ``` shell-session
 export no_proxy='*'

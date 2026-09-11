@@ -16,7 +16,7 @@ There are three things to know to describe a need:
 2. What
 3. The context
 
-With our customers, we claim a knowledge graph can reduce the work of analysts in the Cybersecurity. So, one of our customer wanted to help their IN Analysts with the software Corporate Memory of eccenca.
+With our customers, we claim a knowledge graph can reduce the work of analysts in the Cybersecurity. So, one of our customer wanted to help their IN Analysts with the software eccenca Corporate Memory.
 After several meeting, we defined the need.
 
 ### For who
@@ -64,7 +64,7 @@ Here, the context shows this project is an exploration with like deliverable pro
 During this step of R&D, we are developing the tools to request a SPARQL service via an authentification OAuth directly by Splunk dashboard. You will install these Splunk apps step-by-step during this tutorial or you can download their "tar.gz" in SPlunk now:
 
 - "[Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz)" to install the SPARQL command. You need to configure it with the details in his README file or in [its tutorial page](../link-IDS-event-to-KG/index.md).
-- "[Investigate lateral movements with a knowledge graph](../link-IDS-event-to-KG-via-cmem/eccenca_poc_investigate.tar.gz)" to install our demonstrator to connect SPLUNK to CMEM. You need to read his README or [its tutorial page](../link-IDS-event-to-KG/index.md) to understand this example.
+- "[Investigate lateral movements with a knowledge graph](../link-IDS-event-to-KG-via-cmem/eccenca_poc_investigate.tar.gz)" to install our demonstrator to connect SPLUNK to eccenca Corporate Memory. You need to read his README or [its tutorial page](../link-IDS-event-to-KG/index.md) to understand this example.
 
 After several propositions, analysts oriented the implementation of our first dashboards and finally, we showed clearly a benefice to use a knowledge graph via these results.
 

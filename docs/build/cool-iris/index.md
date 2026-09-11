@@ -28,7 +28,7 @@ The following list of example IRIs demonstrate the broad scope of this concept:
 - `telnet://192.0.2.16:80/`
 - `urn:oasis:names:specification:docbook:dtd:xml:4.1.2`
 
-## Best practices in Corporate Memory
+## Best practices in eccenca Corporate Memory
 
 A good IRI is unique, stable, simple and manageable.
 
