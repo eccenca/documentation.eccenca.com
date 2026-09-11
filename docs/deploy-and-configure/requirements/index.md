@@ -6,7 +6,7 @@ icon: material/exclamation-thick
 # Requirements
 
 This page lists software and hardware requirements for eccenca Corporate Memory deployments.
-For a general overview of a deployment setup please refer to the [System Architecture](../system-architecture/index.md).
+For a general overview of a deployment setup refer to the [System Architecture](../system-architecture/index.md).
 
 ## Minimal Setup
 

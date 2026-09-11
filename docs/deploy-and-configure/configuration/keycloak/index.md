@@ -46,7 +46,7 @@ There are two different types of clients used by Corporate Memory:
     - Similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
     - Similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
 
-For Graph Insight please refer the [Graph Insights OAUTH documentation](../../../deploy-and-configure/configuration/graphinsights/index.md#oauth-configuration)
+For Graph Insight refer to the [Graph Insights OAUTH documentation](../../../deploy-and-configure/configuration/graphinsights/index.md#oauth-configuration)
 Depending on the environment, there might be other use cases, when running background schedules, then a third client, also as technical user, might be useful.
 
 ### Access conditions, roles and groups

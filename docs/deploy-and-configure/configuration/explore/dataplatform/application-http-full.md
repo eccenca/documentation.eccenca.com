@@ -6,6 +6,8 @@ tags:
 
 ## Configuration for connecting to arbitrary SPARQL HTTP backend
 
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
 Use the following set of properties to connect to arbitrary HTTP SPARQL services.
 
 Configuration example:

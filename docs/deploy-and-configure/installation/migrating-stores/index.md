@@ -36,7 +36,7 @@ icon: material/database
 - optimizing customization (e.g. queries in SHAPES; DI; DM-config)
     - "textmatch" / "lucene" queries need to be migrated (a query can be helpful to find these queries...)
     - performance comparisons could be automated via `cmemc query replay`
-        - identify query that won't run or run slow
+        - identify query that will not run or run slow
 - general query best practices
     - → query optimization guide
         - use `VALUE` instead of `FILTER (?x IN (...))` (esp. on GDB)

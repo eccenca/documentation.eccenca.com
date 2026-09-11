@@ -61,7 +61,7 @@ v24.1.1 of DataIntegration adds the following new features:
 
 v24.1.1 of DataIntegration introduces the following changes:
 
-- Icon of notification menu was aligned to DM, it's now a bell.
+- Icon of notification menu was aligned to DM, it is now a bell.
 
 v24.1.1 of DataIntegration ships the following fixes:
 

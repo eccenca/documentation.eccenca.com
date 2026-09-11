@@ -17,7 +17,7 @@ The code examples in this section assume that you have a POSIX-compliant shell (
 - [jq](https://jqlang.github.io/jq/download/) installed locally
 - Triple store license (provided by eccenca)
 - Graph Insights license (optional, provided by eccenca)
-- make - build tool (apt-get install make) installed locally (don't use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650); e.g., 4.3 works well)
+- make - build tool (apt-get install make) installed locally (do not use version 4.4.1 [→](https://savannah.gnu.org/bugs/?63650); e.g., 4.3 works well)
 - At least 4 CPUs and 12GB of RAM (recommended: 16GB) dedicated to docker
 
 ## Setup & Check Installation Environment

@@ -177,7 +177,7 @@ In addition to that, these changes are shipped:
 
 - Timestamp to date operator changed default behavior
     - The "Timestamp to date" now assumes milliseconds instead of seconds by default. In addition, it generates full xsd:dateTime values instead of simple dates.
-        - To makes sure that existing usages don't break, please open {DataIntegration}/api/core/usages/plugins/timeToDate and check all usages.
+        - To makes sure that existing usages do not break, open {DataIntegration}/api/core/usages/plugins/timeToDate and check all usages.
         - In order to revert to the previous behavior, the following changes have to be made to each usage:
             - Change the unit to "seconds".
             - Change the format to "yyyy-MM-dd"

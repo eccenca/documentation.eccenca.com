@@ -14,7 +14,7 @@ As a more lightweight and fault-tolerant alternative to using cmempy directly, w
 The advantages of this approach are:
 
 - You can test and use your calls in the command line before integrating them.
-- You don't have to worry about internal details and have a well-documented and stable interface.
+- You do not have to worry about internal details and have a well-documented and stable interface.
 - Authorization is done in the same way, cmemc is doing this.
 
 ## Installation
