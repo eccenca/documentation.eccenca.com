@@ -20712,6 +20712,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#companion-llm-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Companion (LLM) fine tuning
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#openapi-specification-and-swagger-ui" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -31909,7 +31920,7 @@
   <span class="md-ellipsis">
     
   
-  v26.2.0
+  v26.2.1
 
     
   </span>
@@ -31933,7 +31944,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-  v26.2.0
+  v26.2.1
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -34016,6 +34027,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#companion-llm-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Companion (LLM) fine tuning
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#openapi-specification-and-swagger-ui" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -35651,52 +35673,6 @@ For instance for SSE:
 </tr>
 </tbody>
 </table>
-<p><strong><em>Property: spring.ai.openai.chat.options.response-format.type</em></strong></p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Default</td>
-<td style="text-align: right;">json_schema</td>
-</tr>
-<tr>
-<td>Required</td>
-<td style="text-align: right;">false</td>
-</tr>
-<tr>
-<td>Valid values</td>
-<td style="text-align: right;">string</td>
-</tr>
-<tr>
-<td>Environment</td>
-<td style="text-align: right;">SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE</td>
-</tr>
-</tbody>
-</table>
-<p><strong><em>Property: spring.ai.openai.chat.options.response-format.schema</em></strong></p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Default</td>
-<td style="text-align: right;">{ "name": "string", "schema": "string" }</td>
-</tr>
-</tbody>
-</table>
-<p>|
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |</p>
 <p><strong><em>Property: spring.ai.azure.openai.endpoint</em></strong></p>
 <table>
 <thead>
@@ -35724,52 +35700,6 @@ For instance for SSE:
 </tr>
 </tbody>
 </table>
-<p><strong><em>Property: spring.ai.azure.openai.chat.options.response-format.type</em></strong></p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Default</td>
-<td style="text-align: right;">json_schema</td>
-</tr>
-<tr>
-<td>Required</td>
-<td style="text-align: right;">false</td>
-</tr>
-<tr>
-<td>Valid values</td>
-<td style="text-align: right;">string</td>
-</tr>
-<tr>
-<td>Environment</td>
-<td style="text-align: right;">SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_TYPE</td>
-</tr>
-</tbody>
-</table>
-<p><strong><em>Property: spring.ai.azure.openai.chat.options.response-format.schema</em></strong></p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Default</td>
-<td style="text-align: right;">{ "name": "string", "schema": "string" }</td>
-</tr>
-</tbody>
-</table>
-<p>|
-| Required | false |
-| Valid values | string |
-| Environment | SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_RESPONSE_FORMAT_SCHEMA |</p>
 <p><strong><em>Property: spring.ai.mistral-ai.api-key</em></strong></p>
 <table>
 <thead>
@@ -35794,6 +35724,43 @@ For instance for SSE:
 <tr>
 <td>Environment</td>
 <td style="text-align: right;">SPRING_AI_MISTRAL_AI_API_KEY</td>
+</tr>
+</tbody>
+</table>
+<h2 id="companion-llm-fine-tuning">Companion (LLM) fine tuning<a class="headerlink" href="#companion-llm-fine-tuning" title="Permanent link">¤</a></h2>
+<p>Settings for how Explore talks to the configured LLM provider, beyond what Spring AI itself
+offers under spring.ai.*.</p>
+<p><strong><em>Property: explore.llm.structured-output.native-schema</em></strong></p>
+<p>Sends the schema of the companion response to the model as a provider option - response_format
+for openai and mistral, output_config for anthropic - so that the model is held to it by the
+provider.</p>
+<p>Set this to false for a deployment whose LLM gateway rejects structured output; some proxies
+forbid it for anthropic models. The schema is then spelled out in the system message instead,
+which costs a few more tokens per call and is only as reliable as the model. Ollama is
+unaffected either way, its native format is limited to &ldquo;json&rdquo; and never carries the schema.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td style="text-align: right;">true</td>
+</tr>
+<tr>
+<td>Required</td>
+<td style="text-align: right;">false</td>
+</tr>
+<tr>
+<td>Valid values</td>
+<td style="text-align: right;">boolean</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td style="text-align: right;">EXPLORE_LLM_STRUCTURED_OUTPUT_NATIVE_SCHEMA</td>
 </tr>
 </tbody>
 </table>
