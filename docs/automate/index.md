@@ -35,4 +35,10 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     Setup processes which continuously integrate data artifacts such as vocabularies and shapes with your Corporate Memory instances.
 
+- :simple-n8n: [n8n Community Node](n8n-node/index.md)
+
+    ---
+
+    Trigger Corporate Memory workflows and read from the Knowledge Graph inside event-driven n8n automations.
+
 </div>

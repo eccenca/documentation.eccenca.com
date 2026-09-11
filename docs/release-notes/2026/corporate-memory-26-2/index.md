@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# eccenca Corporate Memory 26.2.0
+# eccenca Corporate Memory 26.2.1
 
 Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
@@ -33,7 +33,7 @@ The highlights of this release are:
     - Graph Insights shows [resources with images and icons throughout the exploration](../../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 - Automate: **n8n Corporate Memory Community Node**
-    - Initial release of [`@eccenca/n8n-nodes-corporate-memory` v0.4.2](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory), a n8n community node available through the n8n community node installer.
+    - Initial release of the [n8n Corporate Memory community node](../../../automate/n8n-node/index.md) v0.4.2, available through the n8n community node installer.
 
 This release delivers the following component versions:
 
@@ -41,13 +41,13 @@ This release delivers the following component versions:
 - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
 - [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
-- [eccenca Graph Insights v20.0.0](#eccenca-graph-insights-v2000)
+- [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
 - [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
 We tested this release with the following dependency components:
 
-- Ontotext GraphDB v11.4.1
-- Keycloak v26.6.4
+- Ontotext GraphDB v11.5.0
+- Keycloak v26.7.3
 
 More detailed information for this release is provided in the next sections.
 
@@ -288,6 +288,8 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
 - **Companion:**
     - openai/anthropic providers without structured output support cannot be used.
         - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
+- **Graph Insights:**
+    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2002) below.
 
 **v26.2.1 of Explore introduces the following changes:**
 
@@ -350,8 +352,6 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Shacline: badges are now placed on top of the group header.
 - **Query Catalog:**
     - The query catalog now supports the DataIntegration variable placeholder syntax.
-- **Graph Insights:**
-    - Updated Graph Insights to v20.0.0, see the [Graph Insights section](#eccenca-graph-insights-v2000) below.
 - **Other:**
     - The graph list now highlights the current graph.
     - Improved data update handling in the UI.
@@ -604,7 +604,7 @@ We are excited to announce the release of cmemc v26.2, which adds a command grou
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
 - HTTP errors, e.g. connection failures and timeouts, now result in a proper error message instead of a stack trace.
 
-## eccenca Graph Insights v20.0.0
+## eccenca Graph Insights v20.0.2
 
 We are excited to announce the release of Graph Insights v20.0, which adds a content language selection for the explored data and visual representations for resources.
 
@@ -622,7 +622,7 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 
 ## eccenca n8n Community Node v0.4.2
 
-We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [@eccenca/n8n-nodes-corporate-memory](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory) for details.
+We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [n8n Community Node](../../../automate/n8n-node/index.md) for details.
 
 ## Migration Notes
 
