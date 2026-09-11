@@ -46,6 +46,11 @@ comes from the generated `nav.yml`, pulled in by `INHERIT` at the top of `mkdocs
 `task update:navigation` to update `nav.yml` with the `.pages` change. `zensical build --strict` compiles an
 unlisted page without complaining — only `task check` catches the drift.
 
+**A page has three titles, and they need not be the same.** The `.pages` entry is the menu label, `title:` in
+the front matter is the site page title and the tags page entry, and the `# Heading` is the visible title on
+the page. They serve different purposes — a menu label is written for scanning inside its section. Divergence
+between them is not drift and is not something to correct.
+
 **`task check` is the gate, not `task build`.** It runs the link check, rumdl, yamllint, the navigation check
 and the build-output check. Do not leave it failing.
 

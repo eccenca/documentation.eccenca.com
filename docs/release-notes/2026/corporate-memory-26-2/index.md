@@ -33,7 +33,7 @@ The highlights of this release are:
     - Graph Insights shows [resources with images and icons throughout the exploration](../../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 - Automate: **n8n Corporate Memory Community Node**
-    - Initial release of [`@eccenca/n8n-nodes-corporate-memory` v0.4.2](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory), a n8n community node available through the n8n community node installer.
+    - Initial release of the [n8n Corporate Memory community node](../../../automate/n8n-node/index.md) v0.4.2, available through the n8n community node installer.
 
 This release delivers the following component versions:
 
@@ -622,7 +622,7 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 
 ## eccenca n8n Community Node v0.4.2
 
-We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [@eccenca/n8n-nodes-corporate-memory](https://www.npmjs.com/package/@eccenca/n8n-nodes-corporate-memory) for details.
+We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [n8n Community Node](../../../automate/n8n-node/index.md) for details.
 
 ## Migration Notes
 
