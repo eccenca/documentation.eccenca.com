@@ -175,8 +175,8 @@
 
 // DEVIATION: a policy has one contents. A part of this book has a cover page -
 // its title and, if the part has one, the diagram of where it sits - and its
-// own contents on the pages after: the part's pages and their sections, up to
-// the next part. The build places the call after the cover.
+// own contents on the pages after: the part's pages and two levels of their
+// sections, up to the next part. The build places the call after the cover.
 #let part-contents() = {
   pagebreak(weak: true)
   contents-title
@@ -184,14 +184,15 @@
   context {
     let next-part = selector(heading.where(level: 1)).after(here(), inclusive: false)
     set par(justify: false)
-    // Closer than the front contents: Build alone lists over a hundred sections.
+    // Closer than the front contents: Build alone lists over 350 entries.
     set block(spacing: 0.8em)
     show outline.entry.where(level: 2): set text(weight: "medium")
     show outline.entry.where(level: 2): set block(above: 1.1em)
     outline(
       title: none,
       indent: auto,
-      target: heading.where(level: 2).or(heading.where(level: 3)).after(here()).before(next-part),
+      target: heading.where(level: 2).or(heading.where(level: 3)).or(heading.where(level: 4))
+        .after(here()).before(next-part),
     )
   }
   pagebreak(weak: true)
@@ -328,10 +329,9 @@
   // shows above its title stays with it.
   //
   // DEVIATION: a policy numbers 1.1.1. if it numbers at all. The parts of the
-  // book are lettered and a part numbers its pages from 1 (A, A.1, A.1.1), down
+  // book are lettered and a part numbers its pages from 1 (A, A.1, A.1.1.1), down
   // to the sections its contents list; deeper headings carry no number.
-  set heading(numbering: "A.1.1")
-  show heading.where(level: 4): set heading(numbering: none)
+  set heading(numbering: "A.1.1.1")
   show heading.where(level: 5): set heading(numbering: none)
   show heading.where(level: 6): set heading(numbering: none)
   let with-number(it, gap) = {
@@ -364,7 +364,7 @@
   show heading.where(level: 3): it => block(above: 1.8em, below: 0.9em, sticky: true,
     text(size: size-h2, weight: "bold", fill: ec-slate, with-number(it, 0.5em)))
   show heading.where(level: 4): it => block(above: 1.5em, below: 0.8em, sticky: true,
-    text(size: size-h3, weight: "bold", fill: ec-slate, it.body))
+    text(size: size-h3, weight: "bold", fill: ec-slate, with-number(it, 0.5em)))
   show heading.where(level: 5): it => block(above: 1.3em, below: 0.7em, sticky: true,
     text(size: size-h3, weight: "medium", fill: ec-grey, it.body))
   show heading.where(level: 6): it => block(above: 1.3em, below: 0.7em, sticky: true,
