@@ -48,7 +48,7 @@ They are never fixed in the Markdown.
   without the navigation hierarchy that would say what a page belongs to. The cmemc pages are the model:
   `title: "cmemc: Installation"` against a heading of `Installation`, and the same for every page in that group.
 - Images live next to the `index.md` that uses them.
-- Renaming or moving a page requires a redirect stub — see "Redirects" below.
+- Renaming or moving a page requires a redirect — see "Redirects" below.
 
 ### One topic, one page
 
@@ -89,13 +89,25 @@ not complain about it — the page compiles and is reachable by URL, only unlist
 
 ## Redirects
 
-The `mkdocs-redirects` plugin is not implemented by Zensical, so a moved page leaves a hand-written stub
-behind: an `index.html` at the old path under `docs/`, which Zensical copies into `site/` verbatim.
-`docs/cmemc/index.html` is the model — relative `http-equiv` refresh and visible link so that they survive
-mike's versioned prefixes, absolute canonical URL, `robots: noindex, follow`.
+A renamed, moved or removed page keeps its old URL working through the `redirects` plugin, which Zensical
+implements natively since 0.0.61. Add one line to `redirect_maps` in `mkdocs.yml`, from the old Markdown path
+to the new one, both relative to `docs/`:
 
-Register the stub in `REDIRECTS` in `tools/check_zensical_output.py`; `task check:output` then fails if it
-disappears or stops pointing at its target.
+```yaml
+plugins:
+  - redirects:
+      redirect_maps:
+        release-notes/corporate-memory-26-2/index.md: release-notes/2026/corporate-memory-26-2/index.md
+```
+
+Zensical writes a redirect page at the old URL. Its links are relative, so it survives mike's versioned
+prefixes, and it carries a `#fragment` over to the new page. No file may remain at the old path.
+
+`zensical build --strict` fails when a target does not exist or a source is still a page.
+`task check:output` resolves every page redirect in the built `site/` and fails when one is missing or lands
+somewhere else, which also catches a regression in Zensical's redirect output.
+
+Do not write `index.html` stubs under `docs/`.
 
 ## Links
 
@@ -243,4 +255,4 @@ grep -rnE '\[[^]]*\b(Gitlab|Github|Javascript|Typescript|Eccenca)\b[^]]*\]' --in
 `attr_list`, `md_in_html`, `admonition`, `pymdownx.details`, `pymdownx.highlight`, `pymdownx.inlinehilite`,
 `pymdownx.snippets`, `pymdownx.keys` (`++tab++`), `pymdownx.tasklist`, `pymdownx.tabbed`,
 `pymdownx.superfences` (including mermaid), `toc`, `pymdownx.emoji` with `overrides/.icons`.
-Plugins: `awesome-pages`, `autolinks`, `glightbox`, `tags`, `social`, `git-revision-date-localized`, `redirects`, `meta`, `privacy`.
+Plugins: `awesome-pages`, `glightbox`, `tags`, `redirects`, `social`, `git-revision-date-localized`.
