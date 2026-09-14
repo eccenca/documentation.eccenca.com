@@ -65,6 +65,10 @@ parties - but it also makes us their redistributor, so each copy carries its lic
 | `assets/resize-observer-polyfill/ResizeObserver.global.js` | 1.5.1 | MIT, © 2016 Denis Rul | [resize-observer-polyfill](https://github.com/que-etc/resize-observer-polyfill) |
 | `assets/tablesort.min.js` | 5.2.1 | MIT, © 2021 Tristen Brown | [tablesort](http://tristen.ca/tablesort/demo/) |
 | `assets/fonts/*.woff2` | - | Apache-2.0 | Roboto and Roboto Mono via Google Fonts |
+| `tools/pdf/fonts/roboto/*.ttf` | 2.137 | Apache-2.0, © 2011 Google Inc. | [Roboto](https://github.com/googlefonts/roboto-2) |
+| `tools/pdf/fonts/roboto-mono/*.ttf` | 3.001 | OFL-1.1, © 2015 The Roboto Mono Project Authors | [Roboto Mono](https://github.com/googlefonts/RobotoMono) |
+| `tools/pdf/fonts/noto-color-emoji/Noto-COLRv1.ttf` | 2.051 | OFL-1.1, © 2022 Google Inc. | [Noto Emoji](https://github.com/googlefonts/noto-emoji) |
+| `tools/pdf/fonts/dejavu/*.ttf` | 2.37 | Bitstream Vera and Arev licences, DejaVu changes public domain | [DejaVu Fonts](https://github.com/dejavu-fonts/dejavu-fonts) |
 
 The files are byte-identical to their upstream builds except for a prepended `/*! … */`
 licence banner, which is the notice MIT asks to travel with a copy; the full licence text
@@ -72,6 +76,12 @@ sits next to each one where upstream ships it. Three of the URLs Zensical bakes 
 bundle are deliberately **not** vendored - mermaid, Ace and Pyodide are unreachable for
 this corpus, and `localize_bundle_assets.py` fails the build if a page ever starts using
 one.
+
+The fonts under `tools/pdf/fonts/` are not served to visitors: `task pdf` embeds them in
+the PDF, and they are vendored so the build does not depend on what is installed on the
+machine running it. They are unmodified upstream files, and each font directory carries
+the full licence text. They keep their own licences - the Creative Commons licence below
+covers the documentation, not these fonts.
 
 Tag listings and the links from each page's tag chips to them are **native** as of
 Zensical 0.0.58. The local stand-ins for both - a post-build renderer and a `tags.html`
