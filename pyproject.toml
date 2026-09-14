@@ -29,6 +29,10 @@ mike = { git = "https://github.com/squidfunk/mike.git", rev = "2d4ad799442f4592d
 # NOT depend on it, but mkdocs.yml resolves `!!python/name:material.*` handles for
 # the twemoji index and the tags plugin, so the package must stay installed.
 mkdocs-material = "^9.7.6"
+# tools/build_pdf.py parses the built HTML to splice pages together.
+beautifulsoup4 = "^4.12"
+# tools/build_pdf.py reads nav.yml and mkdocs.yml directly.
+pyyaml = "^6.0"
 cmem-cmempy = "^25.3.0"
 pydantic = "^2.11.7"
 jinja2 = "^3.1.6"
