@@ -38,6 +38,8 @@ function Div(el)
     return nil
   elseif c:includes('chapter-break') then
     return raw('#pagebreak(weak: true)')
+  elseif c:includes('part-contents') then
+    return raw('#part-contents()')
   elseif c:includes('admonition') then
     local kind = 'note'
     for _, cl in ipairs(c) do

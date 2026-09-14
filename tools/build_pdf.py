@@ -27,7 +27,7 @@ from pathlib import Path
 
 import click
 import yaml
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 DEFAULT_OUT_STEM = "dist/documentation-eccenca-com"
 SITE_DIR = Path("site")
@@ -248,13 +248,38 @@ def demote_headings(section, depth: int) -> None:
         h.name = f"h{min(6, int(h.name[1]) + depth)}"
 
 
+def part_cover(doc: BeautifulSoup, section) -> None:
+    """Lay out a part page's cover: its title, then what the page shows above it, then the contents marker.
+
+    The part pages show a "you are here" diagram beside their title, written
+    before it in an admonition. On the cover it follows the title, without the
+    admonition's box. `part-contents()` in style.typ starts a new page for the
+    part's contents, and another after them.
+    """
+    marker = doc.new_tag("div", attrs={"class": "part-contents"})
+    title = section.find("h1")
+    if title is None:
+        section.insert(0, marker)
+        return
+    above = list(reversed(list(title.previous_siblings)))
+    anchor = title
+    for node in above:
+        anchor.insert_after(node)
+        anchor = node
+    anchor.insert_after(marker)
+    for node in above:
+        if node.name == "div" and "admonition" in node.get("class", []):
+            node.unwrap()
+
+
 def merge_pages(
     entries: list[NavEntry], site_dir: Path, public_base: str
 ) -> tuple[BeautifulSoup, list[str]]:
     """Merge the built articles along the navigation into one HTML document.
 
-    Every top-level entry is preceded by a chapter break, so a chapter starts
-    on a new page together with anything its page shows above its title.
+    Every top-level entry is a part. It is preceded by a chapter break, so a
+    part starts on a new page, and its page opens with the part's cover (see
+    `part_cover`); a part without a page gets its title and the contents marker.
     Returns the document and the navigation pages that had no built HTML.
     """
     doc = BeautifulSoup('<html><head><meta charset="utf-8"></head><body></body></html>', "html.parser")
@@ -268,6 +293,8 @@ def merge_pages(
             heading = doc.new_tag(f"h{min(6, entry.depth + 1)}")
             heading.string = entry.title or ""
             doc.body.append(heading)
+            if entry.depth == 0:
+                heading.insert_after(doc.new_tag("div", attrs={"class": "part-contents"}))
             continue
 
         built = site_dir / md_to_built_html(entry.md)
@@ -289,6 +316,8 @@ def merge_pages(
         namespace_ids(section, section_id)
         resolve_links(section, md_to_url_path(entry.md), valid_ids, public_base)
         demote_headings(section, entry.depth)
+        if entry.depth == 0:
+            part_cover(doc, section)
         doc.body.append(section)
 
     return doc, missing
@@ -394,8 +423,20 @@ def mark_cards(doc: BeautifulSoup, stats: Counter) -> None:
 
 
 def inline_icons(doc: BeautifulSoup, stats: Counter) -> None:
-    """Icons: an <img> carrying the SVG as a data URI, which pandoc sizes to the text."""
+    """Icons: an <img> carrying the SVG as a data URI, which pandoc sizes to the text.
+
+    An icon in a heading is dropped instead. The title band, the contents, the
+    running footer and the PDF outline all print the heading's title.
+    """
     for icon in doc.select("span.twemoji"):
+        heading = icon.find_parent(HEADING)
+        if heading is not None:
+            icon.decompose()
+            for edge, strip in ((0, str.lstrip), (-1, str.rstrip)):
+                if heading.contents and isinstance(heading.contents[edge], NavigableString):
+                    heading.contents[edge].replace_with(strip(str(heading.contents[edge])))
+            stats["icons dropped from headings"] += 1
+            continue
         svg = icon.find("svg")
         if svg is None:
             icon.unwrap()
@@ -520,7 +561,23 @@ def normalize(doc: BeautifulSoup, site_dir: Path) -> tuple[Counter, list[str]]:
 # -- typesetting ---------------------------------------------------------------
 
 
-def edition(config: dict, version: str, public_base: str, today: date) -> dict[str, str]:
+def source_commit() -> str:
+    """The abbreviated commit the PDF is built from, or an empty string outside a git checkout.
+
+    Tracked changes that are not committed append `-dirty`, so a PDF built from
+    a working tree does not claim to be that commit.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "describe", "--always", "--dirty", "--exclude=*"],
+            capture_output=True, text=True, check=False,
+        )
+    except OSError:
+        return ""
+    return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def edition(config: dict, version: str, public_base: str, today: date, commit: str) -> dict[str, str]:
     """What the title page, header and PDF metadata print, as Typst --input values."""
     copyright_html = str(config.get("copyright") or "")
     copyright_text = " ".join(BeautifulSoup(copyright_html, "html.parser").get_text().split())
@@ -530,6 +587,7 @@ def edition(config: dict, version: str, public_base: str, today: date) -> dict[s
         "context": BOOK_CONTEXT,
         "version": version,
         "generated": today.isoformat(),
+        "commit": commit,
         "site-url": public_base,
         "copyright": copyright_text,
     }
@@ -646,7 +704,7 @@ def build_pdf(
         typst, "compile", "--root", ".", "--ignore-system-fonts",
         "--font-path", str(PDF_ASSETS / "fonts"),
     ]
-    for key, value in edition(config, version, public_base, date.today()).items():
+    for key, value in edition(config, version, public_base, date.today(), source_commit()).items():
         command += ["--input", f"{key}={value}"]
     run(command + [str(typ_path), str(out)], "typst")
 

@@ -139,7 +139,7 @@ The following features have been removed in this release:
 
 In addition to that, multiple performance and stability issues were solved.
 
-# eccenca Corporate Memory Control (cmemc) v20.03
+## eccenca Corporate Memory Control (cmemc) v20.03
 
 This version of eccenca Corporate Memory Control (cmemc) adds the following new features:
 
@@ -153,7 +153,7 @@ This version of eccenca Corporate Memory Control (cmemc) adds the following new 
 
 ## Migration Notes
 
-### DataIntegration
+#### DataIntegration
 
 With v20.03 the following changes need to be made in your dataintegration.conf file when upgrading from v19.10:
 
@@ -178,7 +178,7 @@ plugin.parameters.password.crypt.key = "uiodshfoun78qwg8"
 
     The property `plugin.parameters.password.crypt.key` is used to encrypt / decrypt the passwords stored with you project configuration (e.g. JDBC passwords). When you set or change this property, all passwords in your DataIntegration projects need to be re-entered.
 
-### DataManager
+#### DataManager
 
 With v20.03 a the new BUILD module is introduced. In order to enable and configure it add the following section to you `application.yml`:
 
@@ -190,7 +190,7 @@ js.config.modules.build:
 
 Where `<DI-BASE-URI>` need to point to the DataIntegration URI (e.g. `https://host.domain.com/dataintegration`).
 
-### DataPlatform
+#### DataPlatform
 
 With v20.03 the following changes need to be made in your `application.yml` file when upgrading from v19.10:
 

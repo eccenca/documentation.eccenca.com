@@ -196,9 +196,9 @@ In addition to that, these changes are shipped:
 
 This release of our PowerBI Connector does not introduce new features or relevant changes. We provided a tutorial on how to use this component: [Consuming Graphs in Power BI](../../../consume/consuming-graphs-in-power-bi/index.md)
 
-# Migration Notes
+## Migration Notes
 
-## DataIntegration
+### DataIntegration
 
 - XML serialization for meta data elements is not forward compatible, i.e. projects exported with this version cannot be imported in older DataIntegration versions.
 - The logout URL needs to be set to make sure that DataIntegration also triggers a logout inside the Keycloak instance:
@@ -207,7 +207,7 @@ This release of our PowerBI Connector does not introduce new features or relevan
     oauth.logoutRedirectUrl = ${DEPLOY_BASE_URL}"/auth/realms/cmem/protocol/openid-connect/logout?redirect_uri="${DEPLOY_BASE_URL}
     ```
 
-## DataManager
+### DataManager
 
 - The `graphInfo` flag in the explore module is now enabled by default.
 - Due to the introduction of the new DataIntegration workspace these changes need to be applied:
@@ -221,6 +221,6 @@ This release of our PowerBI Connector does not introduce new features or relevan
           url: /dataintegration/workbench
       ```
 
-## cmemc
+### cmemc
 
 - If your automation scripts rely on the created file name of the project export command, you need to change your scripts and set the old export name explicitly with `-t {{id}}`.

@@ -154,6 +154,49 @@
   body
 })
 
+// DEVIATION: a policy links nowhere outside itself. The docs link to other
+// sites and to the published site for what the PDF cannot carry, and such a
+// link has to read apart from a jump within the book. The arrow is a glyph,
+// not an icon box, so a line cannot break between it and the link text. Its
+// font is named, because the emoji font would draw it as a coloured emoji.
+#let external-mark = text(font: "DejaVu Sans", weight: "regular", size: 0.8em, fill: ec-link)[↗]
+
+// A heading's number and title, as the running footer prints them.
+#let numbered-title(it) = {
+  if it.numbering != none {
+    numbering(it.numbering, ..counter(heading).at(it.location()))
+    [ ]
+  }
+  it.body
+}
+
+// The label above a contents.
+#let contents-title = text(size: size-h2, weight: "bold", fill: ec-slate)[Content]
+
+// DEVIATION: a policy has one contents. A part of this book has a cover page -
+// its title and, if the part has one, the diagram of where it sits - and its
+// own contents on the pages after: the part's pages and their sections, up to
+// the next part. The build places the call after the cover.
+#let part-contents() = {
+  pagebreak(weak: true)
+  contents-title
+  v(0.4em)
+  context {
+    let next-part = selector(heading.where(level: 1)).after(here(), inclusive: false)
+    set par(justify: false)
+    // Closer than the front contents: Build alone lists over a hundred sections.
+    set block(spacing: 0.8em)
+    show outline.entry.where(level: 2): set text(weight: "medium")
+    show outline.entry.where(level: 2): set block(above: 1.1em)
+    outline(
+      title: none,
+      indent: auto,
+      target: heading.where(level: 2).or(heading.where(level: 3)).after(here()).before(next-part),
+    )
+  }
+  pagebreak(weak: true)
+}
+
 // -----------------------------------------------------------------------------
 // The book: title page, contents, then the documentation itself.
 // -----------------------------------------------------------------------------
@@ -162,6 +205,7 @@
   subtitle: "",
   context-line: "",
   generated: "",
+  commit: "",
   version: "",
   site-url: "",
   copyright: "",
@@ -172,6 +216,9 @@
     author: "eccenca GmbH",
     keywords: ("Corporate Memory", "documentation", version),
   )
+
+  // DEVIATION: the commit next to the date, so a PDF can be traced to its source.
+  let generated = if commit == "" { generated } else { generated + " (" + commit + ")" }
 
   // -- page furniture (house style geometry) -------------------------------------
   set page(
@@ -194,14 +241,23 @@
       },
     ),
     // DEVIATION: the policy footer repeats the document title. In a book the
-    // chapter the reader is in is the more useful running title.
+    // chapter and the page the reader is in are the more useful running title.
     footer: context {
       let page-no = here().page()
       if page-no > 1 {
-        let chapters = query(heading.where(level: 1)).filter(h => h.location().page() <= page-no)
-        let running = if chapters.len() > 0 { chapters.last().body } else { [#title #subtitle] }
+        // A long page title wraps; spread to the full width, it would gape.
+        set par(justify: false, leading: 0.56em)
+        let started(h) = h.location().page() <= page-no
+        let chapters = query(heading.where(level: 1)).filter(started)
+        let running = if chapters.len() == 0 { [#title #subtitle] } else {
+          let chapter = chapters.last()
+          let pages = query(heading.where(level: 2).after(chapter.location())).filter(started)
+          numbered-title(chapter)
+          if pages.len() > 0 { [ › #numbered-title(pages.last())] }
+        }
         grid(
           columns: (1fr, auto),
+          column-gutter: 1em,
           text(size: size-meta, fill: ec-orange, running),
           text(size: size-meta, fill: ec-orange)[Page #counter(page).display() | #counter(page).final().first()],
         )
@@ -239,7 +295,10 @@
   )
   set enum(indent: 1.84em, body-indent: 1.64em, spacing: 0.85em)
   set block(spacing: 1.52em)
-  show link: it => text(fill: ec-link, underline(it))
+  show link: it => {
+    text(fill: ec-link, underline(it))
+    if type(it.dest) == str and it.dest.starts-with(regex("https?://")) { external-mark }
+  }
 
   // -- code ---------------------------------------------------------------------
   show raw: set text(font: mono, weight: "regular")
@@ -267,6 +326,21 @@
   // uses for its top-level headings. Chapters start on a new page; the build
   // places that break before the chapter, not in this rule, so content a page
   // shows above its title stays with it.
+  //
+  // DEVIATION: a policy numbers 1.1.1. if it numbers at all. The parts of the
+  // book are lettered and a part numbers its pages from 1 (A, A.1, A.1.1), down
+  // to the sections its contents list; deeper headings carry no number.
+  set heading(numbering: "A.1.1")
+  show heading.where(level: 4): set heading(numbering: none)
+  show heading.where(level: 5): set heading(numbering: none)
+  show heading.where(level: 6): set heading(numbering: none)
+  let with-number(it, gap) = {
+    if it.numbering != none {
+      counter(heading).display(it.numbering)
+      h(gap)
+    }
+    it.body
+  }
   show heading.where(level: 1): it => block(
     width: 100%,
     fill: ec-peach,
@@ -274,7 +348,8 @@
     outset: (x: 2pt),
     below: 1.4em,
     sticky: true,
-    text(size: size-chapter, weight: "medium", fill: ec-slate, it.body),
+    // DEVIATION: a part's title names it as one - Part A: Build.
+    text(size: size-chapter, weight: "medium", fill: ec-slate)[Part #counter(heading).display("A"): #it.body],
   )
   show heading.where(level: 2): it => block(
     width: 100%,
@@ -284,10 +359,10 @@
     above: 2.6em,
     below: 1.1em,
     sticky: true,
-    text(size: size-h1, weight: "medium", fill: ec-slate, it.body),
+    text(size: size-h1, weight: "medium", fill: ec-slate, with-number(it, 0.6em)),
   )
   show heading.where(level: 3): it => block(above: 1.8em, below: 0.9em, sticky: true,
-    text(size: size-h2, weight: "bold", fill: ec-slate, it.body))
+    text(size: size-h2, weight: "bold", fill: ec-slate, with-number(it, 0.5em)))
   show heading.where(level: 4): it => block(above: 1.5em, below: 0.8em, sticky: true,
     text(size: size-h3, weight: "bold", fill: ec-slate, it.body))
   show heading.where(level: 5): it => block(above: 1.3em, below: 0.7em, sticky: true,
@@ -355,13 +430,14 @@
   pagebreak()
 
   // -- contents ----------------------------------------------------------------------
-  text(size: size-h2, weight: "bold", fill: ec-slate)[Content]
+  // The parts only. Each part opens with the contents of its pages.
+  contents-title
   v(0.4em)
   {
     set par(justify: false)
-    show outline.entry.where(level: 1): set text(weight: "medium")
-    show outline.entry.where(level: 1): set block(above: 1.1em)
-    outline(title: none, depth: 2, indent: 1.2em)
+    show outline.entry: set text(weight: "medium")
+    show outline.entry: set block(above: 1.1em)
+    outline(title: none, depth: 1, indent: auto)
   }
   pagebreak(weak: true)
 

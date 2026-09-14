@@ -16,6 +16,7 @@ $endif$
   subtitle: sys.inputs.at("subtitle"),
   context-line: sys.inputs.at("context"),
   generated: sys.inputs.at("generated"),
+  commit: sys.inputs.at("commit"),
   version: sys.inputs.at("version"),
   site-url: sys.inputs.at("site-url"),
   copyright: sys.inputs.at("copyright"),

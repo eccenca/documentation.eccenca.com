@@ -174,8 +174,14 @@ tasks:
       full-size screenshots, those excluded pages - point at the published
       site under the built version, or under `latest` for a dev build.
 
+      The header and the title page print the build date and the commit,
+      marked -dirty when tracked files have uncommitted changes.
+
       The merged HTML and the Typst source pandoc writes stay in dist/pdf/
       for debugging a rendering problem.
+
+      On every push to main, .github/workflows/pdf.yml runs this task with
+      the pinned pandoc and Typst and keeps the PDF as a workflow artifact.
 
       Tunables are options of `dec-tool build-pdf`, each with an environment
       variable fallback - see `poetry run dec-tool build-pdf --help`:

@@ -10,6 +10,7 @@ from tools.build_pdf import (
     admonitions,
     edition,
     flatten_code_blocks,
+    inline_icons,
     merge_pages,
     nav_entries,
     pair_tabs,
@@ -75,9 +76,26 @@ def test_merge_breaks_chapters_adds_section_headings_and_drops_web_chrome(tmp_pa
     doc, missing = merge_pages(entries, site, "https://example.org/latest/")
     assert missing == ["release-notes/v2/index.md"]
     assert str(doc.body) == (
-        '<body><div class="chapter-break"></div><h1>Release Notes</h1>'
+        '<body><div class="chapter-break"></div><h1>Release Notes</h1><div class="part-contents"></div>'
         '<section class="print-page" id="release-notes-v1">'
         '<h2 id="release-notes-v1-v1">Version 1</h2><p>Text</p></section></body>'
+    )
+
+
+def test_part_cover_is_the_title_then_the_diagram_the_page_shows_above_it(tmp_path):
+    site = tmp_path / "site"
+    (site / "build").mkdir(parents=True)
+    (site / "build" / "index.html").write_text(
+        '<html><body><article class="md-content__inner">'
+        '<div class="admonition info inline end"><p><img alt="You are here" src="here.png"/></p></div>'
+        '<h1 id="build">Build</h1><p>Intro</p>'
+        '</article></body></html>'
+    )
+    doc, _ = merge_pages([NavEntry(depth=0, md="build/index.md")], site, "https://example.org/latest/")
+    assert str(doc.body) == (
+        '<body><div class="chapter-break"></div><section class="print-page" id="build">'
+        '<h1 id="build-build">Build</h1><p><img alt="You are here" src="/build/here.png"/></p>'
+        '<div class="part-contents"></div><p>Intro</p></section></body>'
     )
 
 
@@ -127,6 +145,18 @@ def test_tabs_pair_each_label_with_its_panel():
     assert [(t["data-label"], t.get_text()) for t in tabs] == [("Corporate Memory", "Click"), ("cmemc", "Run")]
 
 
+def test_icons_are_dropped_from_headings_and_inlined_elsewhere():
+    doc = soup(
+        '<h1 id="build"><span class="twemoji"><svg viewbox="0 0 24 24"><path d="M0 0"/></svg></span> Build</h1>'
+        '<p><span class="twemoji"><svg viewbox="0 0 24 24"><path d="M0 0"/></svg></span> Search</p>'
+    )
+    stats = Counter()
+    inline_icons(doc, stats)
+    assert str(doc.h1) == '<h1 id="build">Build</h1>'
+    assert doc.p.img["class"] == ["icon"] and doc.p.img["src"].startswith("data:image/svg+xml;base64,")
+    assert stats == Counter({"icons dropped from headings": 1, "icons": 1})
+
+
 def test_internal_links_target_headings_or_are_unwrapped():
     doc = soup(
         '<section class="print-page" id="build-spark"><h2 id="build-spark-spark">Spark</h2>'
@@ -163,7 +193,8 @@ def test_images_are_embedded_emoji_become_characters_and_badges_alt_text(tmp_pat
 
 def test_edition_reads_copyright_as_plain_text():
     config = {"copyright": 'Copyright &copy; 2026\n<a href="https://eccenca.com">eccenca GmbH</a>'}
-    values = edition(config, "26.2", "https://documentation.eccenca.com/26.2/", date(2026, 9, 14))
+    values = edition(config, "26.2", "https://documentation.eccenca.com/26.2/", date(2026, 9, 14), "31b5663")
     assert values["copyright"] == "Copyright © 2026 eccenca GmbH"
     assert values["subtitle"] == "Version 26.2"
     assert values["generated"] == "2026-09-14"
+    assert values["commit"] == "31b5663"
