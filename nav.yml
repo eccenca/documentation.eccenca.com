@@ -472,7 +472,7 @@ nav:
               - build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/index.md
           - link IDS event to KG via cmem:
               - build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/index.md
-      - Project and Global Variables:
+      - Variables:
           - build/variables/index.md
       - Evaluate Template Operator:
           - build/evaluate-template/index.md
