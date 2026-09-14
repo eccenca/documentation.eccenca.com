@@ -51,7 +51,6 @@ check** - the build fails if any of it regresses:
 | :------ | :---------- |
 | Self-hosted fonts | `docs/assets/fonts.css` plus `theme.font: false` |
 | `tablesort`, `glightbox`, `resize-observer-polyfill` | vendored under `docs/assets/`; `tools/localize_bundle_assets.py` rewrites the CDN URLs Zensical bakes into its JS bundle |
-| Redirects | static stubs under `docs/` |
 | Comment opt-out | `overrides/partials/comments.html` |
 
 ### Vendored third-party assets
