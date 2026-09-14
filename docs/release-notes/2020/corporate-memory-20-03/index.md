@@ -153,7 +153,7 @@ This version of eccenca Corporate Memory Control (cmemc) adds the following new 
 
 ## Migration Notes
 
-#### DataIntegration
+### DataIntegration
 
 With v20.03 the following changes need to be made in your dataintegration.conf file when upgrading from v19.10:
 
