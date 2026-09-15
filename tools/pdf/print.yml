@@ -50,17 +50,23 @@ authors:
 # darker in black and white.
 body-weight: light
 
-# How a navigation section is printed, keyed by the docs/ directory its pages
-# live in. A section that is not listed prints in full.
+# How a navigation section or a page is printed, keyed by the docs/ directory
+# its pages live in (ending in /) or by a single page (ending in .md). What is
+# not listed prints in full; keys do not nest.
 #   full - as on the site
-#   list - its overview: the section page and the overview pages of its
-#          subsections; pages no overview lists become a two-column table of
-#          title and first paragraph, under `columns` when given; navigation
-#          titles whose pages an overview lists become one table of the
-#          titles and their page names
-#   omit - left out; a note names the online edition
+#   list - a directory only: its overview - the section page and the overview
+#          pages of its subsections; pages no overview lists become a
+#          two-column table of title and first paragraph, under `columns`
+#          when given; navigation titles whose pages an overview lists become
+#          one table of the titles and their page names
+#   omit - left out without a trace; the imprint names the online edition as
+#          the complete reference. The only mode a page accepts
+# A part of a page is left out with the class `print-exclude` in the Markdown,
+# e.g. ```sql { .print-exclude }; a note naming the page online takes its place.
 sections:
   build/reference/: list
   release-notes/:
     mode: list
     columns: [Release, Summary]
+  develop/cmem-client-api/: omit
+  build/tutorial-how-to-link-ids-to-osint/: omit

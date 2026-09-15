@@ -74,7 +74,7 @@ def test_merge_breaks_chapters_adds_section_headings_and_drops_web_chrome(tmp_pa
         NavEntry(depth=1, md="release-notes/v1/index.md"),
         NavEntry(depth=1, md="release-notes/v2/index.md"),
     ]
-    doc, missing = merge_pages(entries, site, "https://example.org/latest/")
+    doc, missing, _ = merge_pages(entries, site, "https://example.org/latest/")
     assert missing == ["release-notes/v2/index.md"]
     assert str(doc.body) == (
         '<body><div class="chapter-break"></div><h1>Release Notes</h1><div class="part-contents"></div>'
@@ -92,7 +92,7 @@ def test_part_cover_is_the_title_then_the_diagram_the_page_shows_above_it(tmp_pa
         '<h1 id="build">Build</h1><p>Intro</p>'
         '</article></body></html>'
     )
-    doc, _ = merge_pages([NavEntry(depth=0, md="build/index.md")], site, "https://example.org/latest/")
+    doc, _, _ = merge_pages([NavEntry(depth=0, md="build/index.md")], site, "https://example.org/latest/")
     assert str(doc.body) == (
         '<body><div class="chapter-break"></div><section class="print-page" id="build">'
         '<h1 id="build-build">Build</h1><p><img alt="You are here" src="/build/here.png"/></p>'

@@ -89,7 +89,7 @@ Here you can populate some test data with the following SQL query:
 
 ??? example "INSERT query"
 
-    ```sql
+    ```sql { .print-exclude }
     INSERT INTO product(product_id,product_name,height,width,depth,weigth,product_manager,price) VALUES
      ('I241-8776317','Strain Compensator',12,68,15,8,'Baldwin.Dirksen@company.org','0,50 EUR')
     ,('D215-3449390','Gauge Crystal',77,58,19,15,'Wanja.Hoffmann@company.org','2,00 EUR')

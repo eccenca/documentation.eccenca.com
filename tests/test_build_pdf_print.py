@@ -1,4 +1,4 @@
-"""Test the print edition's section modes: full, list and omit"""
+"""Test the print edition's section modes - full, list and omit - and its excluded parts of a page"""
 import click
 import pytest
 
@@ -76,6 +76,41 @@ def test_an_unknown_mode_fails(tmp_path):
         load_section_rules(path)
 
 
+def test_a_key_may_name_a_single_page(tmp_path):
+    path = tmp_path / "print.yml"
+    path.write_text("sections:\n  develop/cmem-client-api/: omit\n  build/tutorial/step/index.md: omit\n")
+    subtree, page = load_section_rules(path)
+    assert (subtree, page) == (
+        SectionRule("develop/cmem-client-api/", "omit"),
+        SectionRule("build/tutorial/step/index.md", "omit"),
+    )
+    assert subtree.matches("develop/cmem-client-api/api-reference/client/index.md")
+    assert page.matches("build/tutorial/step/index.md")
+    assert not page.matches("build/tutorial/step/index.md/more")
+
+
+@pytest.mark.parametrize("mode", ["list", "full"])
+def test_a_page_key_accepts_only_omit(tmp_path, mode):
+    path = tmp_path / "print.yml"
+    path.write_text(f"sections:\n  build/tutorial/step/index.md: {mode}\n")
+    with pytest.raises(click.ClickException, match="only `omit`"):
+        load_section_rules(path)
+
+
+@pytest.mark.parametrize(
+    "keys",
+    [
+        "  build/: list\n  build/reference/: omit\n",
+        "  build/tutorial/: omit\n  build/tutorial/step/index.md: omit\n",
+    ],
+)
+def test_keys_do_not_nest(tmp_path, keys):
+    path = tmp_path / "print.yml"
+    path.write_text("sections:\n" + keys)
+    with pytest.raises(click.ClickException, match="nest"):
+        load_section_rules(path)
+
+
 def test_list_keeps_the_overview_pages_and_drops_what_they_list():
     entries, dropped = apply_section_rules(REFERENCE, [SectionRule("build/reference/", "list")])
     assert entries == [
@@ -125,14 +160,33 @@ def test_list_turns_the_titles_an_overview_empties_into_one_table():
     assert dropped == {CATEGORIES[3].md, CATEGORIES[4].md, CATEGORIES[6].md}
 
 
-def test_omit_drops_the_pages_and_leaves_a_heading_with_a_note():
+def test_omit_drops_a_subtree_without_a_trace():
     entries, dropped = apply_section_rules(REFERENCE, [SectionRule("build/reference/", "omit")])
-    assert entries == [
-        NavEntry(0, "build/index.md"),
-        NavEntry(1, generated=Generated("note", "build/reference/", "omit", ["build/reference/index.md"])),
-        NavEntry(1, "build/spark.md"),
-    ]
+    assert entries == [NavEntry(0, "build/index.md"), NavEntry(1, "build/spark.md")]
     assert len(dropped) == 6
+
+
+def test_omit_drops_a_single_page():
+    entries, dropped = apply_section_rules(REFERENCE, [SectionRule("build/spark.md", "omit")])
+    assert entries == REFERENCE[:-1]
+    assert dropped == {"build/spark.md"}
+
+
+def test_omitting_an_index_page_keeps_its_pages_under_the_section_title():
+    nav = [
+        NavEntry(0, "build/index.md", "Build"),
+        NavEntry(1, "build/tutorial/index.md", "Tutorial"),
+        NavEntry(2, "build/tutorial/step/index.md", "Step"),
+        NavEntry(1, "build/spark.md", "Spark"),
+    ]
+    entries, dropped = apply_section_rules(nav, [SectionRule("build/tutorial/index.md", "omit")])
+    assert entries == [nav[0], NavEntry(1, title="Tutorial"), nav[2], nav[3]]
+    assert dropped == {"build/tutorial/index.md"}
+
+
+def test_a_page_key_that_names_no_page_of_the_navigation_fails():
+    with pytest.raises(click.ClickException, match="build/missing.md"):
+        apply_section_rules(REFERENCE, [SectionRule("build/missing.md", "omit")])
 
 
 def test_omitting_a_whole_part_without_a_page_leaves_nothing_of_it():
@@ -186,7 +240,7 @@ def test_merge_renders_notes_and_tables_and_unlinks_what_the_section_drops(tmp_p
     ]
     rules = [SectionRule("build/reference/", "list"), SectionRule("release-notes/", "list", ("Release", "Summary"))]
     dropped = {"build/reference/aggregator/average.md", first, second}
-    doc, missing = merge_pages(entries, site, "https://example.org/26.2/", rules, dropped)
+    doc, missing, _ = merge_pages(entries, site, "https://example.org/26.2/", rules, dropped)
     assert missing == []
     html = str(doc.body)
     text = " ".join(doc.body.get_text(" ").split())
@@ -222,7 +276,7 @@ def test_merge_renders_notes_and_tables_and_unlinks_what_the_section_drops(tmp_p
 def test_merge_renders_the_emptied_titles_as_one_table_of_their_pages(tmp_path):
     site = tmp_path / "site"
     write_page(site, "build/reference/transformer/Date/duration.md", '<h1 id="d">Duration</h1>')
-    doc, _ = merge_pages([NavEntry(3, generated=CATEGORY_TABLE)], site, "https://example.org/26.2/")
+    doc, _, _ = merge_pages([NavEntry(3, generated=CATEGORY_TABLE)], site, "https://example.org/26.2/")
     table = doc.find("table", class_="print-list")
     rows = [[cell.get_text(" ", strip=True) for cell in row.find_all(["th", "td"])] for row in table.find_all("tr")]
     # A page without a navigation title is named by its own title.
@@ -236,13 +290,52 @@ def test_merge_renders_the_emptied_titles_as_one_table_of_their_pages(tmp_path):
     assert {cell.get("style") for cell in table.find_all(["th", "td"])} == {"text-align: left;"}
 
 
-def test_merge_renders_an_omitted_section_as_its_title_and_a_note(tmp_path):
+PART_NOTE = "This print edition leaves out a part of this page. The online edition has the full details:"
+
+
+def test_the_print_edition_replaces_each_run_of_excluded_parts_with_one_note(tmp_path):
     site = tmp_path / "site"
-    write_page(site, "build/reference/index.md", '<h1 id="ref">Task and Operator Reference</h1>')
-    entries = [NavEntry(1, generated=Generated("note", "build/reference/", "omit", ["build/reference/index.md"]))]
-    doc, _ = merge_pages(entries, site, "https://example.org/26.2/", [SectionRule("build/reference/", "omit")], set())
-    assert doc.body.find("h2").get_text() == "Task and Operator Reference"
-    assert (
-        "The Task and Operator Reference is not part of this print edition. It is part of the online edition: "
-        "https://example.org/26.2/build/reference/"
-    ) in " ".join(doc.body.get_text(" ").split())
+    write_page(
+        site, "build/snowflake/index.md",
+        '<h1 id="connect">Connect</h1><p>Intro.</p>'
+        '<h2 id="data">Data</h2><p>Populate:</p>'
+        '<details class="example print-exclude"><summary>INSERT query</summary>'
+        '<div class="highlight print-exclude"><pre><code>INSERT INTO product</code></pre></div></details>\n'
+        '<p class="print-exclude">Second part.</p>'
+        '<p>Kept between.</p>'
+        '<div class="print-exclude"><p>Third part.</p></div>',
+    )
+    doc, missing, excluded = merge_pages(
+        [NavEntry(0, "build/snowflake/index.md")], site, "https://example.org/26.2/", print_edition=True
+    )
+    text = " ".join(doc.body.get_text(" ").split())
+    # Two runs, each after the heading "Data", whose anchor the online address carries.
+    assert text.count(f"{PART_NOTE} https://example.org/26.2/build/snowflake/#data") == 2
+    for gone in ("INSERT", "Second part.", "Third part."):
+        assert gone not in text
+    for kept in ("Intro.", "Populate:", "Kept between."):
+        assert kept in text
+    # A marked element inside a marked one goes with it and is not counted again.
+    assert excluded == {"build/snowflake/index.md": 3}
+    assert missing == []
+
+
+def test_the_screen_edition_keeps_the_excluded_parts(tmp_path):
+    site = tmp_path / "site"
+    write_page(site, "build/snowflake/index.md", '<h1 id="c">Connect</h1><p class="print-exclude">On screen.</p>')
+    doc, _, excluded = merge_pages([NavEntry(0, "build/snowflake/index.md")], site, "https://example.org/26.2/")
+    text = doc.body.get_text(" ")
+    assert "On screen." in text and "leaves out" not in text
+    assert excluded == {}
+
+
+def test_a_list_table_summarizes_a_page_by_its_first_paragraph_that_prints(tmp_path):
+    site = tmp_path / "site"
+    write_page(
+        site, "release-notes/2026/cm-26-2/index.md",
+        '<h1 id="r">Corporate Memory 26.2.1</h1><p class="print-exclude">Online only.</p><p>The second release.</p>',
+    )
+    table = Generated("table", "release-notes/", "list", ["release-notes/2026/cm-26-2/index.md"], ("Release", "Summary"))
+    doc, _, _ = merge_pages([NavEntry(2, generated=table)], site, "https://example.org/26.2/", print_edition=True)
+    rows = [[cell.get_text(" ", strip=True) for cell in row.find_all(["th", "td"])] for row in doc.find_all("tr")]
+    assert rows == [["Release", "Summary"], ["Corporate Memory 26.2.1", "The second release."]]

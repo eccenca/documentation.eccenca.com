@@ -204,6 +204,24 @@ Known drift to fix when touching a page: 32 `shell-session` blocks in hand-writt
   numbering restarts at 1 in the rendered page. Check the rendered result for any step list you touch.
 - `sane_lists` is enabled: an unordered item does not continue an ordered list.
 
+## Leaving content out of the print edition
+
+The print edition of the PDF (`task pdf:print`, `tasks/spec.md` §10) can leave out content that only makes sense online.
+
+- A subtree or a single page: an `omit` entry under `sections` in `tools/pdf/print.yml`, keyed by its `docs/` path.
+  The page itself carries no marker, so this works for generated pages too.
+- A part of a page: the class `print-exclude` on the block. The print edition prints a note in its place that points
+  to the page online; the site and the screen PDF show the part unchanged.
+
+| Block | Markup |
+| --- | --- |
+| code block | `sql { .print-exclude }` right after the backticks of the opening fence |
+| admonition or collapsible block | `??? example print-exclude "INSERT query"` |
+| paragraph | `{ .print-exclude }` on the line after the paragraph |
+| several blocks | `<div class="print-exclude" markdown>` … `</div>`, with blank lines around the content |
+
+A generated page cannot carry the class: the next generator run removes it.
+
 ## Editorial decisions beyond the style guide
 
 `style-guide.md` is a transcription of the Confluence page and is not extended locally.

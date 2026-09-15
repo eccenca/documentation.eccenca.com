@@ -12,7 +12,8 @@ Every task names how it is verified. A task is not done until that verification 
 
 Spec §4, D1-D11: BoD, A4, black and white on 80 g, no ISBN, authors by name (first GitHub IDs, revised 2026-09-15), separate screen and
 print editions, section modes with A.3 and Release Notes as lists, page references and URL footnotes,
-no logo or version on text pages, 10 pt body, optional Ghostscript normalization.
+no logo or version on text pages, 10 pt body, optional Ghostscript normalization. D12-D14, decided
+2026-09-15: excluding content from the print edition (spec §10), implemented by P18.
 
 ---
 
@@ -342,6 +343,61 @@ so it is not forgotten; it has its own spec.
 
 ---
 
+## P18 - Content exclusion - **done**
+
+Spec §10, D12-D14: leave subtrees, pages and parts of a page out of the print edition.
+
+- `sections` keys in `tools/pdf/print.yml` may name a page (`.md`), which accepts `omit` only; a nested
+  key, or one that matches no page in `nav.yml`, fails the build
+- `omit` drops a page or a subtree without a title or a note. For directories this revises P8, which
+  left the section's title and a note naming the online edition
+- dropping a section's index page keeps its other pages under a heading with the navigation title
+- in the print edition, elements with the class `print-exclude` are removed from the page's article
+  before ids, links and headings are processed. A note takes their place: "This print edition leaves
+  out a part of this page. The online edition has the full details:" and the page's online address,
+  with the anchor of the heading before the part; consecutive parts share one note. The build logs the
+  parts removed per page
+- the site and the screen PDF ignore the class
+- documentation: the `sections` comment in `print.yml`, and a line for authors in
+  `.claude/docs-guidelines/repo-conventions.md` on the class, which generated pages cannot carry
+- configuration: `develop/cmem-client-api/: omit`, `build/tutorial-how-to-link-ids-to-osint/: omit` (all
+  7 pages), and `{ .sql .print-exclude }` on the SQL code block of the Snowflake tutorial - lines 92-1094
+  of `docs/build/snowflake-tutorial/index.md` on 2026-09-15, inside `??? example "INSERT query"`, which
+  keeps its title
+
+**Verify:** unit tests for page keys, the mode check, nesting, a dropped index page, the removal with
+one note per run of parts and its address, and no removal in the screen edition. `task pdf:print` with
+the three examples: G.5 and A.16 leave no heading or note, the `INSERT query` block of
+the Snowflake tutorial holds the note instead of the listing, and the page count drops by about 300
+(spec §10). `task pdf`: page count and text unchanged apart
+from the stamp. `task check` passes.
+**Est:** small to medium. **Depends on:** P8, P9.
+
+**Done 2026-09-15:**
+
+- `SectionRule` knows page rules (`page`, `matches`). `load_section_rules` accepts page keys with `omit`
+  only and rejects nested keys.
+- `omit_section` drops a page or a subtree without a trace. An index page omitted on its own leaves its
+  navigation title as a heading.
+- `exclude_parts` replaces each run of `.print-exclude` elements with the note, whose address carries the
+  anchor of the heading before the part. `merge_pages` returns the parts left out per page, which the
+  build logs. List tables skip marked elements as well.
+- `print.yml` omits `develop/cmem-client-api/` (75 pages) and `build/tutorial-how-to-link-ids-to-osint/`
+  (7 pages). The SQL block of the Snowflake tutorial carries `sql { .print-exclude }`. Authors find the
+  markup in `.claude/docs-guidelines/repo-conventions.md`.
+- Measured:
+    - The print edition drops from 966 to 666 pages, the Snowflake tutorial from 46 to 22.
+    - No bookmark is left for G.5 or A.16.
+    - The note stands inside the `INSERT query` block (p. 120), with the anchor
+      `#1-create-a-database-in-snowflake`.
+    - No page runs into the footer and no line runs past the text column.
+    - The screen PDF keeps 1683 pages, its text unchanged and the listing in it.
+    - 134 unit tests pass.
+    - The `task check` steps pass; yamllint passes on the tracked files, while the untracked `scratch/`
+      folder still fails it.
+
+---
+
 ## Sequencing
 
 ```text
@@ -354,6 +410,7 @@ P1 ──> P2 ──> P3 ──> P4 ──> P5 ──> P7
        └──────────────┼──> P13 <────┘
                       └──> P14 ──> P16
 P17 after P8 and P14
+P18 after P8 and P9
 ```
 
 P1, P6, P8, P10, P11 and P12 can start now.

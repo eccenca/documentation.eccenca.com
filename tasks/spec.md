@@ -2,7 +2,8 @@
 
 **Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P12 implemented 2026-09-15
 (`task pdf:print`, 962 pages); P13-P17 open. The backlog's "Done" notes record where the implementation
-refines this spec.
+refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
+and implemented the same day (backlog P18): the print edition has 666 pages.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -157,7 +158,7 @@ are left out of the book block - Ghostscript refuses PDF/X output while a page c
 
 ## 4. Decisions
 
-All made 2026-09-14.
+D1-D11 made 2026-09-14; D12-D14 made 2026-09-15 (§10).
 
 | # | Question | Decision |
 | :-- | :-- | :-- |
@@ -172,6 +173,9 @@ All made 2026-09-14.
 | D9 | Logo and version in the running header | title page and imprint only (R1) |
 | D10 | Body type size | keep 10 pt and tighten the spacing (§5). A smaller body, 9 pt or even 8 pt, only if the page limit is still exceeded - not needed for the default configuration |
 | D11 | Normalization | an **optional** Ghostscript pass after Typst: PDF/X-4, CMYK, all images at 300 dpi (§7) |
+| D12 | Subtrees and pages | path rules in `tools/pdf/print.yml`: a `sections` key may name a page, which accepts `omit` only; no front matter property, no `.pdfexclude` (§10) |
+| D13 | Parts of a page | the class `print-exclude`, effective in the print edition only; the site and the screen PDF are unchanged (§10) |
+| D14 | What stands in for excluded content | pages and subtrees: nothing, also for a directory's `omit` (revises §5); parts of a page: one note per run of parts, pointing to the page in the online edition for the full details (§10) |
 
 ## 5. Page budget
 
@@ -199,8 +203,9 @@ measure its page cost before deciding.
 
 ### Section modes
 
-`full` prints the section as today. `omit` leaves it out; the part contents point to the online
-edition. `list` reduces it to a two-column table:
+`full` prints the section as today. `omit` leaves it out without a trace in the text (D14, revised
+2026-09-15); the imprint names the online edition as the complete reference. `list` reduces it to a
+two-column table:
 
 | Section | `list` renders | Measured |
 | :-- | :-- | :-- |
@@ -369,6 +374,9 @@ the same task, for checking the palette (P11).
 - every image at 300 ppi or more at its printed size, or listed and accepted
 - with normalization: the file declares PDF/X-4, carries a FOGRA39 output intent, CMYK images only, no
   image above 300 ppi
+- a page key in `print.yml` drops that page; `omit` leaves no title and no note for a page or a section
+- in the print edition, each run of `.print-exclude` parts is replaced by one note with the page's
+  online address; the site and the screen PDF show the parts unchanged
 - `task check` and `task test:unit` pass
 
 ## 9. Out of scope
@@ -377,3 +385,132 @@ the same task, for checking the palette (P11).
 - ISBN and retail distribution (D3, maybe later)
 - EPUB or other e-book formats
 - translations
+
+## 10. Excluding content from the print edition
+
+**Status:** decided and implemented 2026-09-15 (D12-D14 in §4, backlog P18). With the three examples
+configured, the print edition has 666 pages instead of 966.
+
+The section modes (§5) shorten whole reference sections. Some content is unfit for paper at a finer
+grain:
+
+| Grain | Example | Print pages |
+| :-- | :-- | --: |
+| subtree | G.5 cmem-client: Python API, `develop/cmem-client-api/` - 75 pages, 74 of them generated | 207 |
+| subtree | A.16 How to link IDS to OSINT, `build/tutorial-how-to-link-ids-to-osint/` - all 7 pages (decided 2026-09-15) | 68 |
+| page | none configured yet; a page key leaves out a single page when one needs it | - |
+| part of a page | A.14 Connect to Snowflake: the SQL code block of the collapsed `??? example "INSERT query"` block, lines 92-1094 of `docs/build/snowflake-tutorial/index.md` on 2026-09-15 - about 1,000 lines (decided 2026-09-15) | 25 (pp. 122-146) |
+
+Measured in the print edition of 2026-09-15 (966 pages). Excluding all three saves about 300 pages.
+
+### Constraints
+
+- The build reads the rendered site, not the Markdown. A marker for a part of a page must survive
+  Zensical's rendering; a rule for a page or subtree must be decidable from the paths in `nav.yml`.
+- Generated pages are rewritten wholesale: `task update:cmemc` and `task update:cmem-client-api` run
+  `rm -rf <dir>/*`, and `dec-tool update-di-reference` deletes its whole tree. Whatever is stored in a
+  generated page, or next to it, is lost on the next run.
+- The site and the screen PDF stay as they are (D6).
+
+### Options
+
+| Option | Subtree | Page | Part | Verdict |
+| :-- | :-- | :-- | :-- | :-- |
+| front matter property, e.g. `print: exclude` | each page marked | yes | no | rejected: lost on generated pages; a subtree means marking every page; no single place shows what the book leaves out |
+| `.pdfexclude` file in gitignore syntax | yes | yes | no | rejected: a second configuration next to `print.yml`, with a new format and a discovery rule, spread over the tree; deleted with a generated directory |
+| path rules in `tools/pdf/print.yml` | yes - `omit` exists | yes, once a key may name a page | no | **chosen** for subtrees and pages (D12) |
+| comment pair `<!-- pdf-print-exclude-begin -->` … `<!-- pdf-print-exclude-end -->` | no | no | yes | works, not proposed: the pair must stay siblings, a single block costs two extra lines, and a misspelt marker is ignored without a trace |
+| class `print-exclude` on the rendered element | no | no | yes | **chosen** for parts of a page (D13) |
+| CSS selectors per page in `print.yml` | no | no | yes | rejected: ties the configuration to theme markup |
+| `exclude_docs` or `not_in_nav` in `mkdocs.yml` | yes | yes | no | rejected: removes the pages from the site as well |
+
+Verified on 2026-09-15 in a scratch project with Zensical 0.0.62 and the Markdown extensions of
+`mkdocs.yml`:
+
+- **Comment pairs:** they arrive in the HTML as unescaped comments. Both comments of a pair stay
+  side by side, at top level and inside an admonition, a content tab and a list item.
+- **The class:** it lands on the element in every spelling listed below. Removing the `.print-exclude`
+  elements leaves exactly the unmarked content.
+- **Front matter:** an unknown front matter key builds without a warning.
+
+### Design
+
+#### Subtrees and pages: path rules in `print.yml` (D12)
+
+A key under `sections` names a docs directory, ending in `/` as today, or a single page, ending in
+`.md`:
+
+```yaml
+sections:
+  develop/cmem-client-api/: omit
+  build/tutorial-how-to-link-ids-to-osint/: omit
+  # a single page: <docs path>/index.md: omit
+```
+
+- A directory key keeps its three modes (§5). `omit` drops the section without a title or a note (D14).
+  The first implementation (P8) left both; the imprint names the online edition as the complete
+  reference instead.
+- A page key accepts `omit` only; any other mode fails the build. The page is dropped without a note.
+- Dropping the index page of a section keeps its other pages, under a heading with the section's
+  navigation title - the shape Release Notes already has (§3).
+- Keys do not nest: a key inside a directory that another key shortens fails the build.
+- A key that matches no page in `nav.yml` fails the build, as today.
+- A link to a dropped page prints the page's online address in a footnote, like any link that leaves
+  the book (R4). Within a section that `list` or `omit` shortens, it prints as text, as today.
+
+#### Parts of a page: the class `print-exclude` (D13)
+
+One class, spelled the way the element takes it:
+
+````markdown
+??? example print-exclude "INSERT query"
+
+    ```sql
+    INSERT INTO product(...) VALUES ...
+    ```
+
+```{ .sql .print-exclude }
+SELECT ...
+```
+
+A paragraph the print edition leaves out.
+{ .print-exclude }
+
+<div class="print-exclude" markdown>
+
+Several blocks - also inside a list item, a content tab or an admonition.
+
+</div>
+````
+
+- The print edition removes every element with the class from a page's article, before ids, links and
+  headings are processed. The class has no effect on the site and the screen PDF.
+- A heading inside a removed part leaves the numbering and the contents. Links to it print as text, the
+  rule for any link without a target.
+- The build logs how many parts it removed per page, so a marker that no longer matches shows.
+- A note takes the place of a removed part (D14): *This print edition leaves out a part of this page.
+  The online edition has the full details:* followed by the page's online address, with the anchor of
+  the heading the part belongs to. Consecutive removed parts share one note.
+- In the Snowflake tutorial the class goes on the SQL code block, as `{ .sql .print-exclude }` on its
+  opening fence: exactly lines 92-1094 are removed. The `??? example "INSERT query"` block around it keeps
+  its title and holds the note.
+- A generated page cannot carry the class: its generator has to emit it, or a path rule drops the page.
+- The name follows the edition. The site does not style the class; a later `@media print` rule could
+  use it for printing from the browser.
+
+### Implementation outline
+
+- **Rules:** `load_section_rules` accepts `.md` keys, rejects any mode but `omit` for them and rejects
+  nested keys.
+- **Page `omit`:** `apply_section_rules` drops the page's entry. For an index page it inserts a heading
+  entry with the navigation title, which `NavEntry.title` already carries.
+- **Parts:** in the print edition, `page_article` replaces the `.print-exclude` elements with the note -
+  one per run of consecutive parts - and counts them.
+- **`omit` for directories:** no title and no note any more. `test_omit_drops_the_pages_and_leaves_a_heading_with_a_note`
+  and `test_merge_renders_an_omitted_section_as_its_title_and_a_note` change with it.
+- **Tests:** `tests/test_build_pdf_print.py` gets page keys, the mode check, nesting, a dropped index
+  page, and the removal with its note and online address in the print edition only.
+- **Documentation:** the `sections` comment in `print.yml`, and for authors a line in
+  `.claude/docs-guidelines/repo-conventions.md` on the class, including that generated pages cannot
+  carry it.
+- **Effort:** small to medium; backlog P18.

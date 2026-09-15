@@ -77,6 +77,11 @@ DEFAULT_COLUMNS = ("Page", "Summary")
 # A `groups` table: the navigation titles under an overview page - the operator
 # categories of the reference - and their pages, under the overview's title.
 GROUP_COLUMNS = ("Category", "Pages")
+# The class that leaves a part of a page out of the print edition, and the note
+# that takes its place (tasks/spec.md, §10).
+PRINT_EXCLUDE = "print-exclude"
+EXCLUDED_NOTE = "print-excluded"
+PART_NOTE = "This print edition leaves out a part of this page. The online edition has the full details:"
 # The print edition's text column is 16 cm wide, and BoD asks for images at
 # 300 dpi at their printed size (tasks/spec.md, §2).
 TEXT_WIDTH_PT = 16 / 2.54 * 72
@@ -87,10 +92,10 @@ PRINT_PPI = 300
 class Generated:
     """Content the print edition sets in place of a section's pages.
 
-    A `note` names the online edition for a section in `list` or `omit` mode; a
-    `table` lists pages that no overview page of the section lists; `groups`
-    lists the navigation titles whose pages an overview page lists, each with
-    the names of its pages.
+    A `note` names the online edition for a section in `list` mode; a `table`
+    lists pages that no overview page of the section lists; `groups` lists the
+    navigation titles whose pages an overview page lists, each with the names
+    of its pages.
     """
 
     kind: str
@@ -119,11 +124,19 @@ class NavEntry:
 
 @dataclass
 class SectionRule:
-    """How the print edition prints the pages under one docs/ directory."""
+    """How the print edition prints the pages under one docs/ directory, or a single page."""
 
     prefix: str
     mode: str
     columns: tuple[str, str] = DEFAULT_COLUMNS
+
+    @property
+    def page(self) -> bool:
+        """Whether the rule names a single page rather than a directory."""
+        return self.prefix.endswith(".md")
+
+    def matches(self, md: str) -> bool:
+        return md == self.prefix if self.page else md.startswith(self.prefix)
 
 
 def load_site_config() -> dict:
@@ -212,28 +225,38 @@ def load_nav_entries(nav_yml: Path = NAV_YML) -> list[NavEntry]:
 # section's overview pages and drops the pages they list; pages no overview
 # lists become a table of title and first paragraph, and navigation titles left
 # without pages become one table of titles and page names. `omit` drops a
-# section and leaves a note naming the online edition.
+# section or a single page without a trace (tasks/spec.md, §10).
 
 
 def load_section_rules(path: Path = PRINT_YML) -> list[SectionRule]:
     """The section modes of the print edition.
 
-    A mode is given either as the value of a section, or as `mode` in a mapping
-    that may also name the two `columns` of the section's tables.
+    A key names a docs/ directory, or a single page by its `.md` path, which
+    accepts only `omit`. A mode is given either as the value of a key, or as
+    `mode` in a mapping that may also name the two `columns` of the section's
+    tables. Keys do not nest.
     """
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     rules = []
-    for prefix, value in (data.get("sections") or {}).items():
+    for key, value in (data.get("sections") or {}).items():
         spec = value if isinstance(value, dict) else {"mode": value}
         mode = spec.get("mode", "full")
         if mode not in SECTION_MODES:
             raise click.ClickException(
-                f"{path}: section {prefix} has mode {mode!r}, not one of {', '.join(SECTION_MODES)}"
+                f"{path}: section {key} has mode {mode!r}, not one of {', '.join(SECTION_MODES)}"
             )
         columns = tuple(spec.get("columns") or DEFAULT_COLUMNS)
         if len(columns) != 2:
-            raise click.ClickException(f"{path}: section {prefix} needs two columns, not {len(columns)}")
-        rules.append(SectionRule(str(prefix).rstrip("/") + "/", mode, columns))
+            raise click.ClickException(f"{path}: section {key} needs two columns, not {len(columns)}")
+        name = str(key)
+        rule = SectionRule(name if name.endswith(".md") else name.rstrip("/") + "/", mode, columns)
+        if rule.page and mode != "omit":
+            raise click.ClickException(f"{path}: {rule.prefix} names a page, which accepts only `omit`, not {mode!r}")
+        rules.append(rule)
+    for rule in rules:
+        outer = next((o for o in rules if o is not rule and not o.page and rule.prefix.startswith(o.prefix)), None)
+        if outer is not None:
+            raise click.ClickException(f"{path}: {rule.prefix} lies inside {outer.prefix} - section keys do not nest")
     return rules
 
 
@@ -360,17 +383,22 @@ def drop_empty_headings(entries: list[NavEntry]) -> list[NavEntry]:
 
 
 def omit_section(entries: list[NavEntry], rule: SectionRule) -> tuple[list[NavEntry], set[str]]:
-    """Drop a section. A section with a page of its own leaves its title and a note in its place."""
-    root = rule.prefix + "index.md"
+    """Drop a subtree or a single page, without a trace in the text (tasks/spec.md, §10).
+
+    A dropped page with pages beneath it that stay - an index page omitted on its
+    own - leaves the section's navigation title as a heading, so those pages keep
+    their place.
+    """
     result: list[NavEntry] = []
     dropped: set[str] = set()
-    for entry in entries:
-        if entry.md and entry.md.startswith(rule.prefix):
-            dropped.add(entry.md)
-            if entry.md == root:
-                result.append(NavEntry(entry.depth, generated=Generated("note", rule.prefix, "omit", [root])))
+    for i, entry in enumerate(entries):
+        if not (entry.md and rule.matches(entry.md)):
+            result.append(entry)
             continue
-        result.append(entry)
+        dropped.add(entry.md)
+        following = entries[i + 1] if i + 1 < len(entries) else None
+        if following is not None and following.depth > entry.depth and not (following.md and rule.matches(following.md)):
+            result.append(NavEntry(entry.depth, title=entry.title or section_name(entry.md.rsplit("/", 1)[0])))
     return drop_empty_headings(result), dropped
 
 
@@ -378,8 +406,9 @@ def apply_section_rules(entries: list[NavEntry], rules: list[SectionRule]) -> tu
     """Shorten the navigation by the section modes. Returns the entries and the pages dropped from them."""
     dropped: set[str] = set()
     for rule in rules:
-        if not any(e.md and e.md.startswith(rule.prefix) for e in entries):
-            raise click.ClickException(f"{PRINT_YML}: no page in {NAV_YML} lies under {rule.prefix}")
+        if not any(e.md and rule.matches(e.md) for e in entries):
+            where = f"{rule.prefix} is not a page" if rule.page else f"no page lies under {rule.prefix}"
+            raise click.ClickException(f"{PRINT_YML}: {where} in {NAV_YML}")
         if rule.mode == "list":
             entries, gone = list_section(entries, rule)
         elif rule.mode == "omit":
@@ -580,6 +609,10 @@ def summary_table(doc: BeautifulSoup, generated: Generated, site_dir: Path):
     table, body = list_table(doc, generated.columns)
     for md in generated.pages:
         article = page_article(site_dir, md)
+        # A part the print edition leaves out does not summarize the page either.
+        for part in article.select(f".{PRINT_EXCLUDE}") if article is not None else ():
+            if not part.decomposed:
+                part.decompose()
         heading = article.find("h1") if article is not None else None
         row = doc.new_tag("tr")
         title = list_cell(doc)
@@ -636,20 +669,38 @@ def render_generated(doc: BeautifulSoup, entry: NavEntry, site_dir: Path, public
         return [groups_table(doc, generated, site_dir)]
     name = generated.name or page_title(site_dir, generated.pages[0])
     url = section_url(generated, site_dir, public_base)
-    elements = []
-    if generated.mode == "omit":
-        heading = doc.new_tag(f"h{min(6, entry.depth + 1)}")
-        heading.string = name
-        elements.append(heading)
-        text = f"The {name} is not part of this print edition. It is part of the online edition: {url}"
-    else:
-        text = f"This print edition lists the {name} in short. The complete section is part of the online edition: {url}"
     note = doc.new_tag("div", attrs={"class": "admonition info"})
     paragraph = doc.new_tag("p")
-    paragraph.string = text
+    paragraph.string = (
+        f"This print edition lists the {name} in short. The complete section is part of the online edition: {url}"
+    )
     note.append(paragraph)
-    elements.append(note)
-    return elements
+    return [note]
+
+
+def exclude_parts(doc: BeautifulSoup, article, page_url: str) -> int:
+    """Replace the parts of a page marked `print-exclude` with a note naming the page online (tasks/spec.md, §10).
+
+    The note's address carries the anchor of the heading before the part, and
+    consecutive parts share one note. A marked element inside another marked one
+    goes with it. Returns the number of parts removed.
+    """
+    parts = [part for part in article.select(f".{PRINT_EXCLUDE}") if part.find_parent(class_=PRINT_EXCLUDE) is None]
+    for part in parts:
+        previous = next(
+            (node for node in part.previous_siblings if not (isinstance(node, NavigableString) and not node.strip())),
+            None,
+        )
+        if previous is not None and not isinstance(previous, NavigableString) and EXCLUDED_NOTE in previous.get("class", []):
+            part.decompose()
+            continue
+        heading = part.find_previous(HEADING, id=True)
+        note = doc.new_tag("div", attrs={"class": ["admonition", "info", EXCLUDED_NOTE]})
+        paragraph = doc.new_tag("p")
+        paragraph.string = f"{PART_NOTE} {page_url}" + (f"#{heading['id']}" if heading is not None else "")
+        note.append(paragraph)
+        part.replace_with(note)
+    return len(parts)
 
 
 def merge_pages(
@@ -658,7 +709,8 @@ def merge_pages(
     public_base: str,
     rules: list[SectionRule] | None = None,
     dropped: set[str] | None = None,
-) -> tuple[BeautifulSoup, list[str]]:
+    print_edition: bool = False,
+) -> tuple[BeautifulSoup, list[str], dict[str, int]]:
     """Merge the built articles along the navigation into one HTML document.
 
     Every top-level entry is a part. It is preceded by a chapter break, so a
@@ -666,13 +718,16 @@ def merge_pages(
     `part_cover`); a part without a page gets its title and the contents marker.
     Generated entries of the print edition's section modes are rendered where
     they stand, and a shortened section's links to the pages it drops print as
-    text. Returns the document and the navigation pages that had no built HTML.
+    text. In the print edition, the parts of a page marked `print-exclude` give
+    way to a note (`exclude_parts`). Returns the document, the navigation pages
+    that had no built HTML, and the number of parts left out per page.
     """
     doc = BeautifulSoup('<html><head><meta charset="utf-8"></head><body></body></html>', "html.parser")
     valid_ids = {url_to_section_id(md_to_url_path(e.md)) for e in entries if e.md}
     dropped_ids = {url_to_section_id(md_to_url_path(md)) for md in dropped or ()}
-    shortened = [rule.prefix for rule in rules or () if rule.mode != "full"]
+    shortening = [rule for rule in rules or () if rule.mode != "full"]
     missing: list[str] = []
+    excluded: dict[str, int] = {}
 
     for entry in entries:
         if entry.generated is not None:
@@ -695,20 +750,25 @@ def merge_pages(
         if article is None:
             missing.append(entry.md)
             continue
+        if print_edition:
+            page_url = urllib.parse.urljoin(public_base, md_to_url_path(entry.md).lstrip("/"))
+            parts = exclude_parts(doc, article, page_url)
+            if parts:
+                excluded[entry.md] = parts
 
         section_id = url_to_section_id(md_to_url_path(entry.md))
         section = doc.new_tag("section", attrs={"class": "print-page", "id": section_id})
         for child in list(article.children):
             section.append(child.extract())
         namespace_ids(section, section_id)
-        unlink_ids = dropped_ids if any(entry.md.startswith(prefix) for prefix in shortened) else frozenset()
+        unlink_ids = dropped_ids if any(rule.matches(entry.md) for rule in shortening) else frozenset()
         resolve_links(section, md_to_url_path(entry.md), valid_ids, public_base, unlink_ids)
         demote_headings(section, entry.depth)
         if entry.depth == 0:
             part_cover(doc, section)
         doc.body.append(section)
 
-    return doc, missing
+    return doc, missing, excluded
 
 
 # -- normalization -------------------------------------------------------------
@@ -1132,11 +1192,11 @@ def build_pdf(
     entries, dropped = apply_section_rules(entries, rules)
     for rule in rules:
         if rule.mode != "full":
-            count = sum(1 for md in dropped if md.startswith(rule.prefix))
+            count = sum(1 for md in dropped if rule.matches(md))
             print(f"Print edition: {rule.prefix} as {rule.mode}, {count} pages dropped")
     config = load_site_config()
     public_base = public_base_url(config, version)
-    doc, missing = merge_pages(entries, SITE_DIR, public_base, rules, dropped)
+    doc, missing, excluded = merge_pages(entries, SITE_DIR, public_base, rules, dropped, print_edition)
     pages = sum(1 for e in entries if e.md) - len(missing)
     headings = sum(1 for e in entries if is_heading_entry(e))
     if missing:
@@ -1146,6 +1206,8 @@ def build_pdf(
             + (" ..." if len(missing) > 5 else ""),
             file=sys.stderr,
         )
+    for md, count in sorted(excluded.items()):
+        print(f"Print edition: {count} {'part' if count == 1 else 'parts'} of {md} left out")
     print(f"Merged {pages} pages and {headings} section headings along {NAV_YML}")
 
     stats, warnings = normalize(doc, SITE_DIR, work_dir / "images" if print_edition else None)
