@@ -1,9 +1,11 @@
 """Test the author list of the print edition's imprint"""
+import os
 import shutil
 import subprocess
 import time
 import urllib.error
 import urllib.request
+from pathlib import Path
 
 import click
 import pytest
@@ -13,9 +15,13 @@ from tools.pdf_authors import (
     AuthorRules,
     add_names,
     authors_yaml,
+    commit_accounts,
+    count_commits,
+    file_commits,
     get_json,
     github_token,
     imprint_names,
+    printed_files,
     load_author_rules,
     load_imprint_names,
     next_page,
@@ -66,6 +72,89 @@ def test_bots_agents_and_anonymous_contributions_are_not_authors():
         {"login": "sobo", "contributions": 53, "type": "User"},
     ]
     assert select_authors(contributors) == [{"id": "sobo", "commits": 53}]
+
+
+def test_printed_files_are_the_pages_not_generated_and_the_images_they_reference(tmp_path):
+    docs = tmp_path / "docs"
+    (docs / "build/tutorial").mkdir(parents=True)
+    (docs / "build/shared").mkdir()
+    (docs / "build/reference").mkdir()
+    (docs / "build/tutorial/index.md").write_text(
+        "# Tutorial\n\n"
+        '![Shot](shot.png){ width="50%" }\n\n'
+        '<img src="../shared/logo.png" alt="">\n\n'
+        "![Remote](https://example.org/remote.png)\n\n"
+        "![Missing](gone.png)\n"
+    )
+    (docs / "build/tutorial/shot.png").write_bytes(b"png")
+    (docs / "build/shared/logo.png").write_bytes(b"png")
+    (docs / "build/reference/index.md").write_text(
+        "# Reference\n<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->\n\n![x](x.png)\n"
+    )
+    files = printed_files(["build/tutorial/index.md", "build/reference/index.md", "build/missing.md"], docs)
+    assert [Path(f).relative_to(docs).as_posix() for f in files] == [
+        "build/tutorial/index.md",
+        "build/tutorial/shot.png",
+        "build/shared/logo.png",
+    ]
+
+
+def test_each_commit_counts_once_for_the_account_that_made_it():
+    commits = {
+        "a1": "jane@example.org",
+        "a2": "jane@example.org",
+        "b1": "JOHN@example.org",
+        "c1": "bot@example.org",
+        "d1": "nobody@example.org",
+    }
+    api = [
+        {"sha": "a1", "author": {"login": "jane", "type": "User"}, "commit": {"author": {"email": "jane@example.org"}}},
+        {"sha": "x9", "author": {"login": "john", "type": "User"}, "commit": {"author": {"email": "john@example.org"}}},
+        {"sha": "c1", "author": {"login": "dependabot[bot]", "type": "Bot"}, "commit": {"author": {"email": "bot@example.org"}}},
+        {"sha": "d1", "author": None, "commit": {"author": {"email": "nobody@example.org"}}},
+    ]
+    by_sha, by_email = commit_accounts(api)
+    records = count_commits(commits, by_sha, by_email)
+    # a2 is not on GitHub yet and b1 was made elsewhere: their e-mail names the
+    # account, case-insensitively. d1 maps to no account and is left out.
+    assert sorted(records, key=lambda r: r["login"]) == [
+        {"login": "dependabot[bot]", "type": "Bot", "contributions": 1},
+        {"login": "jane", "type": "User", "contributions": 2},
+        {"login": "john", "type": "User", "contributions": 1},
+    ]
+    assert [a["id"] for a in select_authors(records)] == ["jane", "john"]
+
+
+def test_file_commits_follow_renames_and_skip_merges(tmp_path):
+    isolated = {
+        **os.environ,
+        "GIT_CONFIG_GLOBAL": os.devnull,
+        "GIT_CONFIG_NOSYSTEM": "1",
+        "GIT_AUTHOR_NAME": "Jane", "GIT_AUTHOR_EMAIL": "jane@example.org",
+        "GIT_COMMITTER_NAME": "Jane", "GIT_COMMITTER_EMAIL": "jane@example.org",
+    }
+
+    def git(*args):
+        subprocess.run(["git", *args], cwd=tmp_path, env=isolated, check=True, capture_output=True)
+
+    git("init", "-q", "-b", "main")
+    (tmp_path / "old.md").write_text("one\n")
+    git("add", ".")
+    git("commit", "-q", "-m", "one")
+    git("mv", "old.md", "new.md")
+    git("commit", "-q", "-m", "rename")
+    git("checkout", "-q", "-b", "side")
+    (tmp_path / "new.md").write_text("two\n")
+    git("commit", "-q", "-am", "two")
+    git("checkout", "-q", "main")
+    (tmp_path / "other.md").write_text("other\n")
+    git("add", ".")
+    git("commit", "-q", "-m", "other")
+    git("merge", "-q", "--no-ff", "-m", "merge", "side")
+    commits = file_commits([Path("new.md")], repo=tmp_path, env=isolated)
+    # one, rename and two - the merge commit does not count, other.md is not asked for.
+    assert len(commits) == 3
+    assert set(commits.values()) == {"jane@example.org"}
 
 
 def test_excluded_ids_are_not_authors_whatever_their_case():

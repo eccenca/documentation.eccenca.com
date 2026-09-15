@@ -41,6 +41,11 @@ function Div(el)
     return raw('#chapter-break()')
   elseif c:includes('part-contents') then
     return raw('#part-contents()')
+  elseif c:includes('operator-fields') then
+    return wrap('#operator-fields[', el.content, ']')
+  elseif c:includes('part-end') then
+    -- The web addresses the part cites; the print edition only.
+    return raw('#part-addresses()')
   elseif c:includes('admonition') then
     local kind = 'note'
     for _, cl in ipairs(c) do

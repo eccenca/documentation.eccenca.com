@@ -1,10 +1,11 @@
 """Write the author list the imprint of the print edition prints.
 
-The authors are the GitHub accounts that contributed to the documentation
-repository, most commits first, each with the name its GitHub profile shows.
-Anonymous contributions - commits whose e-mail maps to no GitHub account - bot
-accounts, software agents and the IDs excluded in tools/pdf/print.yml are not
-listed, and the names of excluded IDs are never looked up.
+The authors are the GitHub accounts behind the commits to what the print
+edition prints - its pages that are not generated, and the images they
+reference - most commits first, each with the name its GitHub profile shows.
+Anonymous commits - whose e-mail maps to no GitHub account - bot accounts,
+software agents and the IDs excluded in tools/pdf/print.yml are not listed, and
+the names of excluded IDs are never looked up.
 
 The list is committed as tools/pdf/authors.yml, so a PDF build stays offline
 and reproducible, and a changed list shows up in review. The hand-maintained
@@ -14,7 +15,8 @@ committed list (`load_imprint_names`). Each run adds the authors that section
 does not list yet, without a name, so every name to maintain is in one place
 (`prefill_names`). Invoked by `task pdf:authors`. Requests use GITHUB_TOKEN or
 GH_TOKEN, else the token of a logged-in GitHub CLI: without a token GitHub
-allows 60 requests an hour, and a run takes one per author.
+allows 60 requests an hour, and a run takes one per author and one per hundred
+commits.
 """
 from __future__ import annotations
 
@@ -28,6 +30,8 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
@@ -262,17 +266,107 @@ def get_json(url: str, token: str | None) -> tuple[object, str | None]:
         raise click.ClickException(f"cannot reach the GitHub API ({getattr(error, 'reason', error)})") from error
 
 
-def fetch_contributors(repository: str, token: str | None) -> list[dict]:
-    """Every contributor of a repository, following the API's pagination.
+# The marker a generated page carries (.claude/docs-guidelines/repo-conventions.md).
+GENERATED_MARK = re.compile(r"generated - do not change it manually|auto-generated", re.IGNORECASE)
+# An image a page references, in Markdown or as an <img> element.
+IMAGE_REFERENCE = re.compile(r'!\[[^\]]*\]\(\s*<?([^)\s>]+)|<img\b[^>]*\bsrc="([^"]+)"')
 
-    Without `anon=1` the API leaves out contributions that map to no account.
+
+def printed_pages() -> list[str]:
+    """The pages the print edition prints, after the section rules of print.yml."""
+    # Imported here: tools.build_pdf imports this module for the imprint.
+    from tools.build_pdf import apply_section_rules, load_nav_entries, load_section_rules
+
+    entries, _ = apply_section_rules(load_nav_entries(), load_section_rules())
+    return [entry.md for entry in entries if entry.md]
+
+
+def printed_files(pages: list[str], docs_dir: Path = Path("docs")) -> list[Path]:
+    """The source files of printed pages: the pages that are not generated, and the images they reference.
+
+    A generated page credits whoever ran its generator, so it does not count.
     """
-    url: str | None = f"{API}/repos/{repository}/contributors?per_page=100"
-    contributors: list[dict] = []
+    files: list[Path] = []
+    for md in pages:
+        page = docs_dir / md
+        if not page.is_file():
+            continue
+        text = page.read_text(encoding="utf-8", errors="ignore")
+        if GENERATED_MARK.search("\n".join(text.splitlines()[:15])):
+            continue
+        files.append(page)
+        for match in IMAGE_REFERENCE.finditer(text):
+            source = urllib.parse.unquote((match.group(1) or match.group(2)).split("#")[0].split("?")[0])
+            if not source or source.startswith(("http://", "https://", "data:", "/")):
+                continue
+            image = Path(os.path.normpath(page.parent / source))
+            if image.is_file() and image not in files:
+                files.append(image)
+    return files
+
+
+def file_commits(files: list[Path], repo: Path = Path("."), env: dict | None = None) -> dict[str, str]:
+    """The commits of the files, without merges and following renames: each hash with its author's e-mail."""
+
+    def log(path: Path) -> list[list[str]]:
+        result = subprocess.run(
+            ["git", "log", "--no-merges", "--follow", "--format=%H%x09%ae", "--", str(path)],
+            cwd=repo, env=env, capture_output=True, text=True, check=False,
+        )
+        return [line.split("\t", 1) for line in result.stdout.splitlines() if "\t" in line]
+
+    commits: dict[str, str] = {}
+    # One `git log` per file: --follow follows a single path only.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        for rows in pool.map(log, files):
+            commits.update(rows)
+    return commits
+
+
+def commit_accounts(commits: list[dict]) -> tuple[dict[str, dict], dict[str, dict]]:
+    """The GitHub accounts behind commits, from the commits API: by commit hash, and by author e-mail.
+
+    The e-mail names the account of a commit the API does not list - one that is
+    not pushed yet, or that was made on another branch.
+    """
+    by_sha: dict[str, dict] = {}
+    by_email: dict[str, dict] = {}
+    for item in commits:
+        author = item.get("author") or {}
+        if not author.get("login"):
+            continue
+        account = {"login": author["login"], "type": author.get("type", "User")}
+        by_sha[item["sha"]] = account
+        email = ((item.get("commit") or {}).get("author") or {}).get("email")
+        if email:
+            by_email.setdefault(email.casefold(), account)
+    return by_sha, by_email
+
+
+def count_commits(commits: dict[str, str], by_sha: dict[str, dict], by_email: dict[str, dict]) -> list[dict]:
+    """Contributor records - login, type and commits - counting each commit once.
+
+    A commit that maps to no account is anonymous and left out.
+    """
+    counts: Counter = Counter()
+    types: dict[str, str] = {}
+    for sha, email in commits.items():
+        account = by_sha.get(sha) or by_email.get(email.casefold())
+        if account is None:
+            continue
+        counts[account["login"]] += 1
+        types[account["login"]] = account["type"]
+    return [{"login": login, "type": types[login], "contributions": count} for login, count in counts.items()]
+
+
+def fetch_commits(repository: str, token: str | None) -> list[dict]:
+    """Every commit the GitHub API lists for the repository's default branch, following the pagination."""
+    url: str | None = f"{API}/repos/{repository}/commits?per_page=100"
+    commits: list[dict] = []
     while url:
         page, url = get_json(url, token)
-        contributors.extend(page)
-    return contributors
+        commits.extend(page)
+    return commits
 
 
 def fetch_profile_name(login: str, token: str | None) -> str | None:
@@ -292,8 +386,8 @@ def authors_yaml(repository: str, authors: list[dict]) -> str:
     """The committed file: a header naming its source, then the list in imprint order."""
     header = (
         "---\n"
-        "# Generated by `dec-tool pdf-authors` from the GitHub contributors of\n"
-        f"# {repository} and the names their profiles show.\n"
+        "# Generated by `dec-tool pdf-authors` from the commits to the pages of the print\n"
+        f"# edition, their GitHub accounts in {repository} and the names on their profiles.\n"
         "# Do not edit - run `task pdf:authors`. Names and exclusions: tools/pdf/print.yml.\n"
     )
     body = yaml.dump(
@@ -307,7 +401,7 @@ def authors_yaml(repository: str, authors: list[dict]) -> str:
 @click.option(
     "--repository",
     default=REPOSITORY,
-    help="Which GitHub repository's contributors are the authors?",
+    help="Which GitHub repository maps the commits to accounts?",
     show_default=True,
 )
 @click.option(
@@ -318,7 +412,7 @@ def authors_yaml(repository: str, authors: list[dict]) -> str:
     show_default=True,
 )
 def pdf_authors(repository: str, output_file: str) -> None:
-    """Write the imprint's author list from the repository's GitHub contributors and their profile names."""
+    """Write the imprint's author list from the commits to the printed pages and the authors' profile names."""
     token, source = github_token()
     if source:
         # Flushed, so the line comes before an error message also when the output is piped.
@@ -326,13 +420,17 @@ def pdf_authors(repository: str, output_file: str) -> None:
     else:
         print(
             "WARNING: no GitHub token - GitHub allows 60 requests an hour without one, and this run takes one "
-            f"per author; {TOKEN_HINT}",
+            f"per author and one per hundred commits; {TOKEN_HINT}",
             file=sys.stderr,
         )
     rules = load_author_rules()
-    authors = select_authors(fetch_contributors(repository, token), rules)
+    files = printed_files(printed_pages())
+    commits = file_commits(files)
+    print(f"{len(commits)} commits to {len(files)} printed files", flush=True)
+    by_sha, by_email = commit_accounts(fetch_commits(repository, token))
+    authors = select_authors(count_commits(commits, by_sha, by_email), rules)
     if not authors:
-        raise click.ClickException(f"no contributors found for {repository}")
+        raise click.ClickException("no author found in the commits to the printed pages")
     authors = add_names(authors, lambda login: fetch_profile_name(login, token))
     Path(output_file).write_text(authors_yaml(repository, authors), encoding="utf-8")
     print(f"{len(authors)} authors written to {output_file}")

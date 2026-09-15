@@ -159,16 +159,50 @@
   }
 })
 
-#let cards(..items) = grid(columns: (1fr, 1fr), column-gutter: 10pt, row-gutter: 10pt, ..items.pos())
-
 // A card is not breakable: split across pages, its title and rule would stay
 // behind on one page and its text start the next.
-#let card(body) = block(width: 100%, breakable: false, stroke: 0.5pt + ec-grey.lighten(55%), radius: 2pt, inset: 10pt, {
-  set text(size: size-small)
-  set par(spacing: 1em, justify: false)
-  set block(spacing: 0.9em)
-  set list(indent: 0.2em, body-indent: 0.8em)
-  body
+#let card-frame(body, height: auto) = block(
+  width: 100%,
+  height: height,
+  breakable: false,
+  stroke: 0.5pt + ec-grey.lighten(55%),
+  radius: 2pt,
+  inset: 10pt,
+  {
+    set text(size: size-small)
+    set par(spacing: 1em, justify: false)
+    set block(spacing: 0.9em)
+    set list(indent: 0.2em, body-indent: 0.8em)
+    body
+  },
+)
+
+// tools/pdf/filter.lua passes each card's content through card() to cards().
+#let card(body) = body
+
+// The field line under an operator's title in the compact operator reference:
+// type, category, plugin ID (tasks/spec.md, §11). Kept with what follows.
+#let operator-fields(body) = block(above: 0.35em, below: 0.9em, sticky: true, {
+  set par(justify: false)
+  text(size: size-small, fill: ec-grey, body)
+})
+
+// DEVIATION: facing cards end on one line (tasks/spec.md, §11). The cards of a
+// row are measured at the column width and both framed at the height of the
+// taller one; a card alone in the last row keeps its own height.
+#let cards(..items) = layout(region => {
+  let bodies = items.pos()
+  let gutter = 10pt
+  let width = (region.width - gutter) / 2
+  let cells = ()
+  for row in range(0, bodies.len(), step: 2) {
+    let pair = bodies.slice(row, calc.min(row + 2, bodies.len()))
+    let height = if pair.len() < 2 { auto } else {
+      calc.max(..pair.map(body => measure(card-frame(body), width: width).height))
+    }
+    cells += pair.map(body => card-frame(body, height: height))
+  }
+  grid(columns: (1fr, 1fr), column-gutter: gutter, row-gutter: gutter, ..cells)
 })
 
 // DEVIATION: a policy links nowhere outside itself. The docs link to other
@@ -223,7 +257,10 @@
     let pages = query(heading.where(level: 2).after(parts.last().location())).filter(started)
     if pages.len() > 0 { pages.last() } else { parts.last() }
   }
-  let title = if running == none { [] } else { numbered-title(running) }
+  // A left-hand page names its part as the part's title band does: Part A: Build.
+  let title = if running == none { [] } else if calc.even(page-no) and running.level == 1 {
+    [Part #numbering("A", ..counter(heading).at(running.location())): #running.body]
+  } else { numbered-title(running) }
   if calc.even(page-no) {
     grid(columns: (auto, 1fr), column-gutter: 1.2em, folio, title)
   } else {
@@ -263,6 +300,65 @@
   chapter-break()
 }
 
+// DEVIATION (print): a link out of the book carries a superscript number, and
+// its part ends with a list of the web addresses it cites (tasks/spec.md, §11,
+// D15). The numbers run within a part, and an address cited again keeps its
+// number. The list is set as text, without link annotations - Typst footnotes
+// link marker and entry, and PDF/X output wants no annotations.
+#let part-start() = query(heading.where(level: 1).before(here())).at(-1, default: none)
+
+#let cited-addresses() = {
+  let part = part-start()
+  let cited = selector(<web-address>)
+  query(if part == none { cited } else { cited.after(part.location()) }.before(here()))
+}
+
+#let web-address(address) = {
+  [#metadata(address) <web-address>]
+  context {
+    let order = ()
+    for cited in cited-addresses() {
+      if cited.value not in order { order.push(cited.value) }
+    }
+    super(str(order.position(value => value == address) + 1))
+  }
+}
+
+// The build places the call at the end of every part (tools/build_pdf.py).
+#let part-addresses() = if print-edition {
+  context {
+    let order = ()
+    let pages = (:)
+    for cited in cited-addresses() {
+      let page = numbering("1", ..counter(page).at(cited.location()))
+      let known = pages.at(cited.value, default: none)
+      if known == none {
+        order.push(cited.value)
+        pages.insert(cited.value, (page,))
+      } else if page not in known {
+        pages.insert(cited.value, known + (page,))
+      }
+    }
+    if order.len() > 0 {
+      pagebreak(weak: true)
+      heading(level: 2, numbering: none, outlined: false, bookmarked: true)[Web addresses]
+      set text(size: size-table)
+      set par(justify: false)
+      show regex("[/._-]"): mark => mark + sym.zws
+      grid(
+        columns: (auto, 1fr),
+        column-gutter: 0.8em,
+        row-gutter: 0.65em,
+        ..order.enumerate().map(((index, address)) => {
+          let cited = pages.at(address)
+          let label = if cited.len() == 1 { "p." } else { "pp." }
+          (str(index + 1), [#address #text(fill: ec-grey)[(#label~#cited.join(", "))]])
+        }).flatten(),
+      )
+    }
+  }
+}
+
 // DEVIATION (print): the back of the title page is the imprint - edition,
 // publisher, authors, licence and the online edition - and it carries the
 // edition stamp the screen PDF prints in its header. tools/pdf/print.yml holds
@@ -278,7 +374,7 @@
   v(1fr)
   entry(title)[#context-line, #subtitle \ Print edition, generated #generated]
   entry("Publisher")[#config.publisher.name \ #config.publisher.address.join(linebreak())]
-  entry("Authors")[The contributors to the documentation, most commits first: #authors.]
+  entry("Authors")[The contributors to the documentation, most commits to the printed pages first: #authors.]
   // The URL is a string: written as markup, Typst would turn it into a link.
   entry("Licence")[
     This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License,
@@ -415,8 +511,9 @@
   set enum(indent: 1.84em, body-indent: 1.64em, spacing: 0.85em)
   set block(spacing: if print-edition { 1.0em } else { 1.52em })
   // DEVIATION (print): paper cannot follow a link. A link within the book prints
-  // the page it leads to, a link out of the book its address in a footnote, and
-  // neither leaves a link in the PDF (tasks/spec.md, R4).
+  // the page it leads to, a link out of the book a number whose address its part
+  // lists at the end (part-addresses), and neither leaves a link in the PDF
+  // (tasks/spec.md, R4, D15).
   show link: it => if not print-edition {
     text(fill: ec-link, underline(it))
     if type(it.dest) == str and it.dest.starts-with(regex("https?://")) { external-mark }
@@ -429,8 +526,8 @@
   } else if type(it.dest) == str {
     let address = it.dest.trim("mailto:", at: start)
     it.body
-    // An address that prints as its own text needs no footnote repeating it.
-    if it.body.at("text", default: none) != address { footnote(address) }
+    // An address that prints as its own text needs no number repeating it.
+    if it.body.at("text", default: none) != address { web-address(address) }
   } else {
     it.body
   }

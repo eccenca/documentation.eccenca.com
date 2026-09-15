@@ -401,7 +401,7 @@ from the stamp. `task check` passes.
 
 ---
 
-## P19 - Part label in the footer
+## P19 - Part label in the footer - **done**
 
 Spec §11: the running footer of a left-hand page prints the part as the part band does, `Part A: Build`.
 The contents, the bookmarks and the right-hand footer keep theirs. `print-footer` in `tools/pdf/style.typ`.
@@ -409,9 +409,13 @@ The contents, the bookmarks and the right-hand footer keep theirs. `print-footer
 **Verify:** render a left-hand and a right-hand page of two parts; the screen PDF is unchanged.
 **Est:** small. **Depends on:** P3.
 
+**Done 2026-09-15:** `print-footer` prints a part on a left-hand page as `Part A: Build`; right-hand footers,
+contents and bookmarks keep `A Build`. 313 left-hand pages carried the label in the build before P23;
+the screen PDF is unchanged.
+
 ---
 
-## P20 - Web addresses as endnotes
+## P20 - Web addresses as endnotes - **done**
 
 Spec §11, D15. In the print edition, a link out of the book prints its text and a superscript number
 instead of a footnote. The numbers run within a part and start again at 1 in the next; an address cited
@@ -424,9 +428,19 @@ address and correct pages; numbering restarts per part; no link annotations from
 layout that failed to converge; compile time and page count before and after.
 **Est:** medium. **Depends on:** P9.
 
+**Done 2026-09-15:**
+
+- `web-address()` in `style.typ` places the address as metadata and prints a superscript number, counted
+  within the part with `context` and `query`. `part-addresses()` sets the list on a new page under an
+  unnumbered heading that is bookmarked but not in the contents: number, address and the pages citing it.
+- In the print edition, `merge_pages` puts a `part-end` marker at the end of every part, and
+  `filter.lua` turns it into `#part-addresses()`; a unit test covers the markers.
+- Measured with P23 in place: 8 lists with 390 entries, 159 of them in part A. Typst compiles in 4 s
+  without a convergence warning; the screen PDF is unchanged.
+
 ---
 
-## P21 - Author order from the printed content
+## P21 - Author order from the printed content - **done**
 
 Spec §11, D16. `dec-tool pdf-authors` counts only the commits to the files the print edition
 prints: the pages left after the section rules and the images in their directories, from
@@ -438,9 +452,23 @@ stay excluded; the imprint says "most commits to the printed pages first".
 mapping; a real run shows the new order next to today's; the imprint follows it.
 **Est:** medium. **Depends on:** P6, P18.
 
+**Done 2026-09-15:**
+
+- `tools/pdf_authors.py` counts the commits to the printed files. `printed_pages` applies the section
+  rules, and `printed_files` returns the pages that are not generated plus the images they reference.
+  `file_commits` runs `git log --no-merges --follow` per file, and `commit_accounts` with
+  `count_commits` maps each commit once to its account, falling back to the author e-mail.
+  `fetch_commits` replaces the contributors API.
+- The imprint reads "most commits to the printed pages first".
+- `tests/test_pdf_authors.py` has 31 tests; new are printed files, counting and rename following in an
+  isolated git repository.
+- Measured: 661 commits to 638 printed files, 18 authors instead of 19 - `haschek` has no commit to
+  printed content. The order starts with `rpietzsch` (249), `seebi` (156), `sobo` (46),
+  `muddymudskipper` (45) and `irangareddy` (37).
+
 ---
 
-## P22 - Cards of equal height
+## P22 - Cards of equal height - **done**
 
 Spec §11: `cards()` in `tools/pdf/style.typ` lays out its grid row by row and gives both cards of a row
 the height of the taller one; a card alone in the last row keeps its own height. The rounded frame and
@@ -450,9 +478,14 @@ the height of the taller one; a card alone in the last row keeps its own height.
 card breaks across pages.
 **Est:** small. **Depends on:** nothing.
 
+**Done 2026-09-15:** `cards()` measures the cards of each row at the column width and frames both with
+`card-frame()` at the height of the taller one; `card()` now only passes the content through. Checked on
+the card grids of the Build page (p. 11) and the reference (p. 30); the screen PDF keeps its page count
+and text.
+
 ---
 
-## P23 - Operator reference in a compact format
+## P23 - Operator reference in a compact format - **done**
 
 Spec §11, D17. A section mode `reference` prints `build/reference/` as one compact, harmonized
 entry per operator; the entries replace the overview tables.
@@ -478,6 +511,26 @@ print build shows 389 entries, no Examples heading and no `None`. The page count
 estimate of spec §11 (about 860) and BoD's limit (P14). Render a transformer, a dataset and a custom task
 with more than 20 parameters.
 **Est:** medium to large. **Depends on:** P8.
+
+**Done 2026-09-15:**
+
+- Section mode `reference` in `tools/build_pdf.py`. `reference_section` places a note after the section
+  page and the operators of each type after its overview page, alphabetically, drops the category
+  headings, and fails when pages and `data/plugins.json` disagree. `merge_pages` removes the overview
+  tables.
+- `operator_entries` renders each entry: `operator_fields`; `operator_description` without the title,
+  the Python plugin note and the template sections, with headings as run-in labels; `parameter_table`
+  with the type vocabulary of `data_type`, an `Advanced` row, `parent.child` sub-parameters, `see below`
+  defaults and Markdown descriptions; and `operator_related`.
+- `operator-fields()` in `style.typ` and its mapping in `filter.lua`. `print.yml` switches
+  `build/reference/` to `reference`. `tests/test_build_pdf_reference.py` has 5 tests.
+- Measured: 389 entries with bookmarks; A.3 takes 213 pages (pp. 29-241) and the book 870 (spec §11
+  estimated 860). No `Advanced Parameter` heading and no generated example is left; 9 defaults print as
+  `see below`, 80 entries have a `Related:` line, and 1 web address still points to an operator page.
+  The screen PDF is unchanged.
+- Open: example subsections the plugins write into their own documentation - `5. Example` in Pivot,
+  `6. Examples` in RDF file, `Example usage` in Knowledge Graph - still print as run-in labels with their
+  text; only the generated `## Examples` sections are dropped.
 
 ---
 

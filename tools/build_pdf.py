@@ -22,6 +22,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import io
+import json
 import re
 import shutil
 import subprocess
@@ -34,8 +35,9 @@ from datetime import date
 from pathlib import Path
 
 import click
+import markdown
 import yaml
-from bs4 import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup, NavigableString, Tag
 from PIL import Image
 
 from tools.pdf_authors import load_imprint_names
@@ -72,7 +74,7 @@ BOOK_CONTEXT = "Documentation"
 # The screen PDF, and the book block of the printed book (tasks/spec.md).
 EDITIONS = ("screen", "print")
 # How the print edition prints a navigation section (tools/pdf/print.yml).
-SECTION_MODES = ("full", "list", "omit")
+SECTION_MODES = ("full", "list", "omit", "reference")
 DEFAULT_COLUMNS = ("Page", "Summary")
 # A `groups` table: the navigation titles under an overview page - the operator
 # categories of the reference - and their pages, under the overview's title.
@@ -82,6 +84,32 @@ GROUP_COLUMNS = ("Category", "Pages")
 PRINT_EXCLUDE = "print-exclude"
 EXCLUDED_NOTE = "print-excluded"
 PART_NOTE = "This print edition leaves out a part of this page. The online edition has the full details:"
+# The operator reference in `reference` mode (tasks/spec.md, §11): the plugin
+# descriptions its pages are generated from (tools/update_di_reference.py), and
+# how an entry names operator types and data types.
+OPERATORS_JSON = Path("data/plugins.json")
+OPERATOR_TYPES = {
+    "aggregator": "Aggregator",
+    "customtask": "Workflow task",
+    "dataset": "Dataset",
+    "distancemeasure": "Distance measure",
+    "transformer": "Transformer",
+}
+DATA_TYPES = {
+    "string": "text", "multiline string": "text", "boolean": "boolean", "int": "integer", "Long": "integer",
+    "double": "number", "char": "character", "enumeration": "choice", "password": "password",
+    "resource": "file", "scheme:string": "URI", "uri": "URI", "graph uri": "graph URI",
+    "traversable[string]": "list of text", "stringmap": "map", "keyValuePairs": "key-value pairs",
+    "objectParameter": "group", "duration": "duration", "template": "template", "task": "task",
+    "project": "project", "SPARQL endpoint": "SPARQL endpoint", "identifier": "identifier", "locale": "locale",
+}
+CODE_LANGUAGES = {
+    "sparql": "SPARQL", "sql": "SQL", "json": "JSON", "yaml": "YAML", "jinja2": "Jinja template",
+    "python": "Python", "html": "HTML", "xml": "XML",
+}
+# The sections of an operator page an entry does not print: the examples, and
+# what it sets from the plugin description instead.
+OPERATOR_SECTIONS_LEFT_OUT = {"examples", "example", "parameter", "parameters", "advanced parameter", "related plugins"}
 # The print edition's text column is 16 cm wide, and BoD asks for images at
 # 300 dpi at their printed size (tasks/spec.md, §2).
 TEXT_WIDTH_PT = 16 / 2.54 * 72
@@ -95,7 +123,7 @@ class Generated:
     A `note` names the online edition for a section in `list` mode; a `table`
     lists pages that no overview page of the section lists; `groups` lists the
     navigation titles whose pages an overview page lists, each with the names
-    of its pages.
+    of its pages; `operators` sets the compact entries of an operator reference.
     """
 
     kind: str
@@ -107,6 +135,10 @@ class Generated:
     name: str | None = None
     # The rows of a `groups` table: a navigation title and the page entries beneath it.
     groups: list[tuple[str, list[NavEntry]]] = field(default_factory=list)
+    # An `operators` entry: the plugin descriptions of its pages, in their order,
+    # and the page and title of every operator of the reference by plugin ID.
+    operators: list[dict] = field(default_factory=list)
+    catalog: dict[str, tuple[str, str]] = field(default_factory=dict)
 
 
 @dataclass
@@ -402,8 +434,82 @@ def omit_section(entries: list[NavEntry], rule: SectionRule) -> tuple[list[NavEn
     return drop_empty_headings(result), dropped
 
 
-def apply_section_rules(entries: list[NavEntry], rules: list[SectionRule]) -> tuple[list[NavEntry], set[str]]:
-    """Shorten the navigation by the section modes. Returns the entries and the pages dropped from them."""
+def load_operators(path: Path = OPERATORS_JSON) -> list[dict]:
+    """The plugin descriptions of the operators the reference documents: all that are not deprecated."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return [record for record in data.values() if not record.get("is_deprecated")]
+
+
+def operator_page(prefix: str, record: dict) -> str:
+    """The docs/ path of an operator's page, as tools/update_di_reference.py writes it."""
+    if record["pluginType"] == "transformer":
+        return f"{prefix}transformer/{record['main_category']}/{record['pluginId']}.md"
+    return f"{prefix}{record['pluginType']}/{record['pluginId']}.md"
+
+
+def reference_overview(rule: SectionRule, md: str) -> str | None:
+    """The operator type whose overview page `md` is, in a `reference` section."""
+    match = re.fullmatch(re.escape(rule.prefix) + r"([^/]+)/index\.md", md)
+    return match.group(1) if match else None
+
+
+def reference_section(
+    entries: list[NavEntry], rule: SectionRule, operators: list[dict]
+) -> tuple[list[NavEntry], set[str]]:
+    """Print the operators of a reference as compact entries after the overview page of their type (tasks/spec.md, §11).
+
+    The section's own page is followed by a note on what an entry shows. Each
+    type's overview page is followed by its operators in alphabetical order; the
+    pages and navigation titles beneath it give way to them, so no page is
+    dropped. The operator pages in the navigation and the plugin descriptions
+    must agree.
+    """
+    root = rule.prefix + "index.md"
+    catalog = {record["pluginId"]: (operator_page(rule.prefix, record), record["title"]) for record in operators}
+    pages = {
+        e.md for e in entries
+        if e.md and e.md.startswith(rule.prefix) and e.md != root and reference_overview(rule, e.md) is None
+    }
+    expected = {page for page, _ in catalog.values()}
+    if pages != expected:
+        without_page = sorted(plugin for plugin, (page, _) in catalog.items() if page not in pages)
+        raise click.ClickException(
+            f"{rule.prefix}: operator pages without a description in {OPERATORS_JSON}: "
+            f"{', '.join(sorted(pages - expected)) or 'none'}; descriptions without a page: "
+            f"{', '.join(without_page) or 'none'}"
+        )
+    by_type: dict[str, list[dict]] = {}
+    for record in operators:
+        by_type.setdefault(record["pluginType"], []).append(record)
+    result: list[NavEntry] = []
+    beneath: int | None = None
+    for entry in entries:
+        if beneath is not None:
+            if entry.depth > beneath:
+                continue
+            beneath = None
+        result.append(entry)
+        if entry.md == root:
+            result.append(NavEntry(entry.depth, generated=Generated("note", rule.prefix, "reference", [root])))
+        kind = reference_overview(rule, entry.md) if entry.md else None
+        if kind is not None:
+            records = sorted(by_type.get(kind, []), key=lambda record: record["title"].casefold())
+            result.append(NavEntry(entry.depth + 1, generated=Generated(
+                "operators", rule.prefix, "reference", [catalog[record["pluginId"]][0] for record in records],
+                operators=records, catalog=catalog,
+            )))
+            beneath = entry.depth
+    return result, set()
+
+
+def apply_section_rules(
+    entries: list[NavEntry], rules: list[SectionRule], operators: list[dict] | None = None
+) -> tuple[list[NavEntry], set[str]]:
+    """Shorten the navigation by the section modes. Returns the entries and the pages dropped from them.
+
+    A `reference` rule reads the plugin descriptions from data/plugins.json
+    unless `operators` passes them.
+    """
     dropped: set[str] = set()
     for rule in rules:
         if not any(e.md and rule.matches(e.md) for e in entries):
@@ -413,6 +519,10 @@ def apply_section_rules(entries: list[NavEntry], rules: list[SectionRule]) -> tu
             entries, gone = list_section(entries, rule)
         elif rule.mode == "omit":
             entries, gone = omit_section(entries, rule)
+        elif rule.mode == "reference":
+            if operators is None:
+                operators = load_operators()
+            entries, gone = reference_section(entries, rule, operators)
         else:
             continue
         dropped |= gone
@@ -660,22 +770,226 @@ def section_url(generated: Generated, site_dir: Path, public_base: str) -> str:
     return urllib.parse.urljoin(public_base, path)
 
 
-def render_generated(doc: BeautifulSoup, entry: NavEntry, site_dir: Path, public_base: str) -> list:
+def render_generated(
+    doc: BeautifulSoup, entry: NavEntry, site_dir: Path, public_base: str, valid_ids: set | frozenset = frozenset()
+) -> list:
     """The elements that stand in for a shortened section's pages."""
     generated = entry.generated
     if generated.kind == "table":
         return [summary_table(doc, generated, site_dir)]
     if generated.kind == "groups":
         return [groups_table(doc, generated, site_dir)]
+    if generated.kind == "operators":
+        return operator_entries(doc, entry, site_dir, public_base, valid_ids)
     name = generated.name or page_title(site_dir, generated.pages[0])
     url = section_url(generated, site_dir, public_base)
     note = doc.new_tag("div", attrs={"class": "admonition info"})
     paragraph = doc.new_tag("p")
-    paragraph.string = (
-        f"This print edition lists the {name} in short. The complete section is part of the online edition: {url}"
-    )
+    if generated.mode == "reference":
+        paragraph.string = (
+            f"This print edition lists every operator of the {name} with its description and parameters. "
+            f"The examples are part of the online edition: {url}. An operator marked Python plugin belongs to a "
+            "Python plugin package, which has to be installed first, for example with cmemc."
+        )
+    else:
+        paragraph.string = (
+            f"This print edition lists the {name} in short. The complete section is part of the online edition: {url}"
+        )
     note.append(paragraph)
     return [note]
+
+
+def data_type(parameter_type: str) -> str:
+    """How an entry names a parameter's data type (tasks/spec.md, §11)."""
+    if parameter_type.startswith("option[") and parameter_type.endswith("]"):
+        return f"{data_type(parameter_type[len('option['):-1])}, optional"
+    if parameter_type.startswith("code-"):
+        language = parameter_type[len("code-"):]
+        return CODE_LANGUAGES.get(language, language.upper())
+    return DATA_TYPES.get(parameter_type, parameter_type)
+
+
+def inline_markdown(text: str) -> list:
+    """A parameter description, rendered from its Markdown, as inline nodes."""
+    if not text.strip():
+        return []
+    fragment = BeautifulSoup(markdown.markdown(text), "html.parser")
+    blocks = [node for node in fragment.contents if not (isinstance(node, NavigableString) and not node.strip())]
+    root = blocks[0] if len(blocks) == 1 and getattr(blocks[0], "name", None) == "p" else fragment
+    return [child.extract() for child in list(root.contents)]
+
+
+def operator_fields(doc: BeautifulSoup, record: dict) -> Tag:
+    """An entry's field line: type, transformer category, plugin ID, Python plugin and a distance measure's range."""
+    fields: list = [OPERATOR_TYPES.get(record["pluginType"], record["pluginType"])]
+    if record["pluginType"] == "transformer" and record.get("main_category"):
+        fields.append(record["main_category"])
+    plugin_id = doc.new_tag("code")
+    plugin_id.string = record["pluginId"]
+    fields.append(plugin_id)
+    if record.get("backendType") == "python":
+        fields.append("Python plugin")
+    if record.get("distanceMeasureRange"):
+        fields.append(f"range: {record['distanceMeasureRange']}")
+    line = doc.new_tag("div", attrs={"class": "operator-fields"})
+    for index, value in enumerate(fields):
+        if index:
+            line.append(" · ")
+        line.append(value)
+    return line
+
+
+def operator_description(doc: BeautifulSoup, site_dir: Path, md: str) -> list:
+    """The description of an operator's page, as its entry prints it.
+
+    Without the page title, the Python plugin note and the sections the entry
+    sets from the plugin description or leaves out; the page's own headings print
+    as run-in labels.
+    """
+    article = page_article(site_dir, md)
+    if article is None:
+        return []
+    title = article.find("h1")
+    if title is not None:
+        title.decompose()
+    for note in article.select("div.admonition"):
+        label = note.find(class_="admonition-title")
+        if label is not None and plain_heading(label).casefold() == "python plugin":
+            note.decompose()
+    for heading in article.find_all("h2"):
+        if heading.decomposed or plain_heading(heading).casefold() not in OPERATOR_SECTIONS_LEFT_OUT:
+            continue
+        for sibling in list(heading.find_next_siblings()):
+            if sibling.name == "h2":
+                break
+            sibling.decompose()
+        heading.decompose()
+    for heading in article.find_all(HEADING):
+        label = doc.new_tag("p")
+        strong = doc.new_tag("strong")
+        strong.string = plain_heading(heading)
+        label.append(strong)
+        heading.replace_with(label)
+    return [child.extract() for child in list(article.contents)]
+
+
+def parameter_table(doc: BeautifulSoup, record: dict) -> list:
+    """An entry's parameter table, and the defaults too long for a cell (tasks/spec.md, §11).
+
+    Parameter with its ID, Type, Default and Description; advanced parameters
+    after a row of their own, sub-parameters after their parameter. An operator
+    without parameters has no table.
+    """
+    basic = list((record.get("properties") or {}).values())
+    advanced = list((record.get("properties_advanced") or {}).values())
+    if not basic and not advanced:
+        return []
+    table, body = list_table(doc, ("Parameter", "Type", "Default", "Description"))
+    columns = doc.new_tag("colgroup")
+    for width in ("27%", "13%", "13%", "47%"):
+        columns.append(doc.new_tag("col", attrs={"style": f"width: {width}"}))
+    table.insert(0, columns)
+    blocks: list = []
+
+    def code(text: str) -> Tag:
+        element = doc.new_tag("code")
+        element.string = text
+        return element
+
+    def add(parameter: dict, prefix: str = "") -> None:
+        ident = prefix + parameter["name"]
+        kind = parameter["parameterType"]
+        value = parameter.get("value")
+        name = list_cell(doc)
+        name.append(parameter["title"])
+        name.append(doc.new_tag("br"))
+        name.append(code(ident))
+        data = list_cell(doc)
+        data.string = data_type(kind)
+        default = list_cell(doc)
+        if kind in ("password", "objectParameter") or value in (None, "") or isinstance(value, dict):
+            default.string = "–"
+        elif "\n" in str(value):
+            default.string = "see below"
+            label = doc.new_tag("p")
+            label.append("Default of ")
+            label.append(code(ident))
+            label.append(":")
+            block = doc.new_tag("pre")
+            content = code(str(value))
+            if kind.startswith("code-"):
+                content["class"] = f"language-{kind[len('code-'):]}"
+            block.append(content)
+            blocks.extend([label, block])
+        else:
+            default.append(code(str(value)))
+        description = list_cell(doc)
+        for node in inline_markdown(parameter.get("description") or ""):
+            description.append(node)
+        row = doc.new_tag("tr")
+        for cell in (name, data, default, description):
+            row.append(cell)
+        body.append(row)
+        for sub in (parameter.get("properties") or {}).values():
+            add(sub, f"{ident}.")
+
+    for parameter in basic:
+        add(parameter)
+    if advanced:
+        row = doc.new_tag("tr")
+        cell = list_cell(doc)
+        cell["colspan"] = "4"
+        strong = doc.new_tag("strong")
+        strong.string = "Advanced"
+        cell.append(strong)
+        row.append(cell)
+        body.append(row)
+        for parameter in advanced:
+            add(parameter)
+    return [table, *blocks]
+
+
+def operator_related(doc: BeautifulSoup, record: dict, catalog: dict[str, tuple[str, str]]) -> Tag | None:
+    """The line naming an entry's related operators, each linked to its entry."""
+    related = [catalog[ref["id"]] for ref in record.get("relatedPlugins") or [] if ref.get("id") in catalog]
+    if not related:
+        return None
+    line = doc.new_tag("p", attrs={"class": "operator-related"})
+    line.append("Related: ")
+    for index, (md, title) in enumerate(related):
+        if index:
+            line.append(", ")
+        link = doc.new_tag("a", href=f"#{url_to_section_id(md_to_url_path(md))}")
+        link.string = title
+        line.append(link)
+    return line
+
+
+def operator_entries(
+    doc: BeautifulSoup, entry: NavEntry, site_dir: Path, public_base: str, valid_ids: set | frozenset
+) -> list:
+    """The compact entries of a reference's operators: heading, field line, description, parameters, related."""
+    generated = entry.generated
+    level = min(6, entry.depth + 1)
+    sections = []
+    for md, record in zip(generated.pages, generated.operators):
+        section_id = url_to_section_id(md_to_url_path(md))
+        section = doc.new_tag("section", attrs={"class": "print-page", "id": section_id})
+        for node in operator_description(doc, site_dir, md) + parameter_table(doc, record):
+            section.append(node)
+        namespace_ids(section, section_id)
+        resolve_links(section, md_to_url_path(md), valid_ids, public_base)
+        # Added after the ids and links are settled: namespacing would rewrite
+        # the related operators' in-document links.
+        heading = doc.new_tag(f"h{level}", attrs={"id": f"{section_id}-operator"})
+        heading.string = record["title"]
+        section.insert(0, heading)
+        section.insert(1, operator_fields(doc, record))
+        related = operator_related(doc, record, generated.catalog)
+        if related is not None:
+            section.append(related)
+        sections.append(section)
+    return sections
 
 
 def exclude_parts(doc: BeautifulSoup, article, page_url: str) -> int:
@@ -724,17 +1038,29 @@ def merge_pages(
     """
     doc = BeautifulSoup('<html><head><meta charset="utf-8"></head><body></body></html>', "html.parser")
     valid_ids = {url_to_section_id(md_to_url_path(e.md)) for e in entries if e.md}
+    # The operator pages of a reference print as entries, and links to them stay in the book.
+    valid_ids |= {
+        url_to_section_id(md_to_url_path(md))
+        for e in entries if e.generated is not None and e.generated.kind == "operators"
+        for md in e.generated.pages
+    }
     dropped_ids = {url_to_section_id(md_to_url_path(md)) for md in dropped or ()}
     shortening = [rule for rule in rules or () if rule.mode != "full"]
     missing: list[str] = []
     excluded: dict[str, int] = {}
 
+    part_count = 0
     for entry in entries:
         if entry.generated is not None:
-            for element in render_generated(doc, entry, site_dir, public_base):
+            for element in render_generated(doc, entry, site_dir, public_base, valid_ids):
                 doc.body.append(element)
             continue
         if entry.depth == 0:
+            # The print edition closes a part with the web addresses it cites
+            # (part-addresses in style.typ).
+            if print_edition and part_count:
+                doc.body.append(doc.new_tag("div", attrs={"class": "part-end"}))
+            part_count += 1
             doc.body.append(doc.new_tag("div", attrs={"class": "chapter-break"}))
         if entry.md is None:
             heading = doc.new_tag(f"h{min(6, entry.depth + 1)}")
@@ -755,6 +1081,11 @@ def merge_pages(
             parts = exclude_parts(doc, article, page_url)
             if parts:
                 excluded[entry.md] = parts
+        if any(rule.mode == "reference" and reference_overview(rule, entry.md) for rule in rules or ()):
+            # The operator entries that follow replace the overview table.
+            for table in article.find_all("table"):
+                if not table.decomposed:
+                    table.decompose()
 
         section_id = url_to_section_id(md_to_url_path(entry.md))
         section = doc.new_tag("section", attrs={"class": "print-page", "id": section_id})
@@ -768,6 +1099,8 @@ def merge_pages(
             part_cover(doc, section)
         doc.body.append(section)
 
+    if print_edition and part_count:
+        doc.body.append(doc.new_tag("div", attrs={"class": "part-end"}))
     return doc, missing, excluded
 
 
@@ -1191,7 +1524,13 @@ def build_pdf(
     rules = load_section_rules() if print_edition else []
     entries, dropped = apply_section_rules(entries, rules)
     for rule in rules:
-        if rule.mode != "full":
+        if rule.mode == "reference":
+            count = sum(
+                len(e.generated.pages) for e in entries
+                if e.generated is not None and e.generated.kind == "operators" and e.generated.section == rule.prefix
+            )
+            print(f"Print edition: {rule.prefix} as {rule.mode}, {count} operator entries")
+        elif rule.mode != "full":
             count = sum(1 for md in dropped if rule.matches(md))
             print(f"Print edition: {rule.prefix} as {rule.mode}, {count} pages dropped")
     config = load_site_config()

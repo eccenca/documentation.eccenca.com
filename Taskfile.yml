@@ -228,10 +228,11 @@ tasks:
   pdf:authors:
     desc: Refresh the author list of the print edition's imprint
     summary: |
-      Writes tools/pdf/authors.yml from the GitHub contributors of this
-      repository and the names their GitHub profiles show: most commits
-      first, without anonymous contributions, bot accounts, software agents
-      and the IDs excluded in tools/pdf/print.yml. Adds each author that
+      Writes tools/pdf/authors.yml from the commits to what the print edition
+      prints - its pages that are not generated, and the images they
+      reference: most commits first, with the names the GitHub profiles show,
+      without anonymous commits, bot accounts, software agents and the IDs
+      excluded in tools/pdf/print.yml. Adds each author that
       print.yml does not list yet to its authors.names, without a name, and
       warns about each author who would print as a GitHub ID. Commit both
       files. Uses GITHUB_TOKEN or GH_TOKEN, else the token of a logged-in

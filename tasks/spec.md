@@ -4,7 +4,8 @@
 (`task pdf:print`, 962 pages); P13-P17 open. The backlog's "Done" notes record where the implementation
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
 and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
-review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24.
+review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24, of which P19-P23 were implemented
+on 2026-09-15: the print edition has 870 pages.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -524,6 +525,7 @@ Several blocks - also inside a list item, a content tab or an admonition.
 ## 11. Review of the first print build
 
 **Status:** findings of the pull request review, 2026-09-15, decided the same day as D15-D18 (§4).
+P19-P23 are implemented; P24 and P13 are open.
 
 | Finding | Today | Proposal | Backlog |
 | :-- | :-- | :-- | :-- |
@@ -680,7 +682,8 @@ regeneration that updated only one of them shows.
 A rough count - 95 characters per line of description, one row per parameter and more for a long
 description, four lines for heading and field line - gives about 180 pages for the 389 entries. The part
 contents add about 8 pages. The book would grow from 666 to about 860 pages; the operator pages in full
-took about 458 (§5). BoD takes 1,200 pages on 80 g and 1,050 on 90 g (D5). P23 measures the real count.
+took about 458 (§5). BoD takes 1,200 pages on 80 g and 1,050 on 90 g (D5). Measured after P23: A.3 takes 213 pages and the
+book 870.
 
 The site and the generator stay as they are. The same format could later serve the site as well; that is
 not part of this proposal.

@@ -61,10 +61,13 @@ body-weight: light
 #          one table of the titles and their page names
 #   omit - left out without a trace; the imprint names the online edition as
 #          the complete reference. The only mode a page accepts
+#   reference - the operator reference only: each type's overview page keeps
+#          its introduction, and its operators follow as compact entries from
+#          data/plugins.json instead of the overview table (tasks/spec.md, §11)
 # A part of a page is left out with the class `print-exclude` in the Markdown,
 # e.g. ```sql { .print-exclude }; a note naming the page online takes its place.
 sections:
-  build/reference/: list
+  build/reference/: reference
   release-notes/:
     mode: list
     columns: [Release, Summary]

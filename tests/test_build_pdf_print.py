@@ -320,6 +320,22 @@ def test_the_print_edition_replaces_each_run_of_excluded_parts_with_one_note(tmp
     assert missing == []
 
 
+def test_the_print_edition_marks_the_end_of_each_part(tmp_path):
+    site = tmp_path / "site"
+    write_page(site, "build/index.md", '<h1 id="b">Build</h1>')
+    write_page(site, "explore/index.md", '<h1 id="e">Explore</h1>')
+    entries = [NavEntry(0, "build/index.md"), NavEntry(0, "explore/index.md")]
+
+    def markers(print_edition):
+        doc, _, _ = merge_pages(entries, site, "https://example.org/26.2/", print_edition=print_edition)
+        classes = [div.get("class") for div in doc.body.find_all("div")]
+        names = [" ".join(c) if isinstance(c, list) else c for c in classes]
+        return [name for name in names if name in ("chapter-break", "part-end")]
+
+    assert markers(True) == ["chapter-break", "part-end", "chapter-break", "part-end"]
+    assert markers(False) == ["chapter-break", "chapter-break"]
+
+
 def test_the_screen_edition_keeps_the_excluded_parts(tmp_path):
     site = tmp_path / "site"
     write_page(site, "build/snowflake/index.md", '<h1 id="c">Connect</h1><p class="print-exclude">On screen.</p>')
