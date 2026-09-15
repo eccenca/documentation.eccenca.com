@@ -37,7 +37,8 @@ function Div(el)
     -- Consumed by the enclosing admonition below.
     return nil
   elseif c:includes('chapter-break') then
-    return raw('#pagebreak(weak: true)')
+    -- A new page on screen, a right-hand page in print; style.typ decides.
+    return raw('#chapter-break()')
   elseif c:includes('part-contents') then
     return raw('#part-contents()')
   elseif c:includes('admonition') then

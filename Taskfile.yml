@@ -200,6 +200,43 @@ tasks:
     cmds:
       - poetry run dec-tool build-pdf
 
+  pdf:print:
+    desc: Build the print edition of the PDF - the book block for print on demand
+    summary: |
+      Runs `task build`, then `dec-tool build-pdf --edition print`: the same
+      merge, pandoc run and fonts as `task pdf`, typeset as the book block of
+      a printed book (BoD, A4, black and white). tasks/spec.md describes it:
+      mirrored page furniture, right-hand part starts, title page and
+      imprint, links printed as page references and footnotes, and images
+      normalized to 300 ppi without transparency.
+
+      tools/pdf/print.yml configures the edition: the publisher, and how each
+      navigation section is printed (full, list or omit).
+      tools/pdf/authors.yml is the imprint's author list; refresh it with
+      `task pdf:authors`.
+
+      Writes dist/documentation-eccenca-com-<ver>-print.pdf; the merged HTML,
+      the Typst source and the normalized images stay in dist/pdf/print/. The
+      screen PDF of `task pdf` is not affected.
+    deps:
+      - task: build
+    env:
+      BUILD_VERSION: '{{.CURRENT_VERSION}}'
+    cmds:
+      - poetry run dec-tool build-pdf --edition print
+
+  pdf:authors:
+    desc: Refresh the author list of the print edition's imprint
+    summary: |
+      Writes tools/pdf/authors.yml from the GitHub contributors of this
+      repository: most commits first, without anonymous contributions, bot
+      accounts and software agents. Commit the result. Uses GITHUB_TOKEN or
+      GH_TOKEN when set; unauthenticated requests are rate limited.
+    deps:
+      - task: install
+    cmds:
+      - poetry run dec-tool pdf-authors
+
   update:icons:
     desc: update the used eccenca icons from carbon
     cmds:

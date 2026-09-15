@@ -1,0 +1,30 @@
+---
+# The print edition of the PDF: `task pdf:print`, see tasks/spec.md.
+# tools/build_pdf.py reads `sections`; tools/pdf/style.typ reads the rest.
+
+# Printed on the title page and in the imprint.
+publisher:
+  name: eccenca GmbH
+  address:
+    - Hainstraße 8
+    - 04109 Leipzig
+    - Germany
+
+# The weight of the body text: light, as on screen, or regular, which prints
+# darker in black and white.
+body-weight: light
+
+# How a navigation section is printed, keyed by the docs/ directory its pages
+# live in. A section that is not listed prints in full.
+#   full - as on the site
+#   list - its overview: the section page and the overview pages of its
+#          subsections; pages no overview lists become a two-column table of
+#          title and first paragraph, under `columns` when given; navigation
+#          titles whose pages an overview lists become one table of the
+#          titles and their page names
+#   omit - left out; a note names the online edition
+sections:
+  build/reference/: list
+  release-notes/:
+    mode: list
+    columns: [Release, Summary]

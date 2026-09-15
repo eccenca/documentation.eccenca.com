@@ -24,6 +24,7 @@ def soup(markup: str) -> BeautifulSoup:
 
 
 def test_section_opens_with_its_index_page():
+    # A page keeps its navigation title; an index page takes its section's.
     nav = [
         {"Build": [
             {"Build": "build/index.md"},
@@ -32,10 +33,10 @@ def test_section_opens_with_its_index_page():
         ]},
     ]
     assert nav_entries(nav) == [
-        NavEntry(depth=0, md="build/index.md"),
-        NavEntry(depth=1, md="build/rules/index.md"),
-        NavEntry(depth=2, md="build/rules/linking.md"),
-        NavEntry(depth=1, md="build/spark.md"),
+        NavEntry(depth=0, md="build/index.md", title="Build"),
+        NavEntry(depth=1, md="build/rules/index.md", title="Rules"),
+        NavEntry(depth=2, md="build/rules/linking.md", title="Linking"),
+        NavEntry(depth=1, md="build/spark.md", title="Spark"),
     ]
 
 
@@ -50,13 +51,13 @@ def test_section_without_index_page_gets_a_heading():
     assert nav_entries(nav) == [
         NavEntry(depth=0, title="Release Notes"),
         NavEntry(depth=1, title="2026"),
-        NavEntry(depth=2, md="release-notes/2026/corporate-memory-26-2/index.md"),
+        NavEntry(depth=2, md="release-notes/2026/corporate-memory-26-2/index.md", title="v26.2.1"),
     ]
 
 
 def test_page_listed_twice_appears_once_and_links_are_skipped():
     nav = [{"A": ["a/index.md", {"Again": "a/index.md"}, {"Site": "https://example.org/"}]}]
-    assert nav_entries(nav) == [NavEntry(depth=0, md="a/index.md")]
+    assert nav_entries(nav) == [NavEntry(depth=0, md="a/index.md", title="A")]
 
 
 def test_merge_breaks_chapters_adds_section_headings_and_drops_web_chrome(tmp_path):

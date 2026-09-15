@@ -8,12 +8,20 @@ document, normalized into plain elements pandoc's HTML reader understands,
 converted to Typst by pandoc with `tools/pdf/filter.lua`, and typeset by Typst
 with the eccenca house style in `tools/pdf/style.typ`.
 
-Invoked by `task pdf`. Every option falls back to an environment variable, so
-BUILD_VERSION, PDF_OUT, PANDOC and TYPST keep working as tunables.
+`--edition print` builds the book block of a printed book instead of the screen
+PDF: the same pipeline, shortened by the section modes in `tools/pdf/print.yml`,
+with images copied at 300 ppi without transparency, and typeset by the print
+branches of the style (tasks/spec.md).
+
+Invoked by `task pdf` and `task pdf:print`. Every option falls back to an
+environment variable, so BUILD_VERSION, PDF_EDITION, PDF_OUT, PANDOC and TYPST
+keep working as tunables.
 """
 from __future__ import annotations
 
 import base64
+import hashlib
+import io
 import re
 import shutil
 import subprocess
@@ -21,13 +29,14 @@ import sys
 import time
 import urllib.parse
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
 
 import click
 import yaml
 from bs4 import BeautifulSoup, NavigableString
+from PIL import Image
 
 DEFAULT_OUT_STEM = "dist/documentation-eccenca-com"
 SITE_DIR = Path("site")
@@ -35,6 +44,8 @@ NAV_YML = Path("nav.yml")
 MKDOCS_YML = Path("mkdocs.yml")
 # Style, pandoc template, filter, logo and vendored fonts.
 PDF_ASSETS = Path("tools/pdf")
+# Publisher and section modes of the print edition.
+PRINT_YML = PDF_ASSETS / "print.yml"
 # The merged HTML and the Typst source pandoc writes, kept for debugging.
 WORK_DIR = Path("dist/pdf")
 CONTENT_SELECTOR = "article.md-content__inner"
@@ -56,15 +67,61 @@ BOX_DRAWING = re.compile("[─-╿]")
 TESTED_TYPST = "0.15"
 BOOK_TITLE = "eccenca Corporate Memory"
 BOOK_CONTEXT = "Documentation"
+# The screen PDF, and the book block of the printed book (tasks/spec.md).
+EDITIONS = ("screen", "print")
+# How the print edition prints a navigation section (tools/pdf/print.yml).
+SECTION_MODES = ("full", "list", "omit")
+DEFAULT_COLUMNS = ("Page", "Summary")
+# A `groups` table: the navigation titles under an overview page - the operator
+# categories of the reference - and their pages, under the overview's title.
+GROUP_COLUMNS = ("Category", "Pages")
+# The print edition's text column is 16 cm wide, and BoD asks for images at
+# 300 dpi at their printed size (tasks/spec.md, §2).
+TEXT_WIDTH_PT = 16 / 2.54 * 72
+PRINT_PPI = 300
+
+
+@dataclass
+class Generated:
+    """Content the print edition sets in place of a section's pages.
+
+    A `note` names the online edition for a section in `list` or `omit` mode; a
+    `table` lists pages that no overview page of the section lists; `groups`
+    lists the navigation titles whose pages an overview page lists, each with
+    the names of its pages.
+    """
+
+    kind: str
+    section: str
+    mode: str
+    pages: list[str] = field(default_factory=list)
+    columns: tuple[str, str] = DEFAULT_COLUMNS
+    # The section's name when no page of it carries one.
+    name: str | None = None
+    # The rows of a `groups` table: a navigation title and the page entries beneath it.
+    groups: list[tuple[str, list[NavEntry]]] = field(default_factory=list)
 
 
 @dataclass
 class NavEntry:
-    """One stop along the navigation: a page, or the title of a section that has none."""
+    """One stop along the navigation: a page, the title of a section that has none, or generated content.
+
+    A page carries the title the navigation gives it, when it gives one.
+    """
 
     depth: int
     md: str | None = None
     title: str | None = None
+    generated: Generated | None = None
+
+
+@dataclass
+class SectionRule:
+    """How the print edition prints the pages under one docs/ directory."""
+
+    prefix: str
+    mode: str
+    columns: tuple[str, str] = DEFAULT_COLUMNS
 
 
 def load_site_config() -> dict:
@@ -106,14 +163,16 @@ def nav_entries(nav: list) -> list[NavEntry]:
     depth. A section without one - Release Notes and its years - gets its title
     as a heading of its own; otherwise its pages would read as part of whichever
     chapter came before. Everything else in a section sits one level below it.
+    A page keeps the title the navigation gives it; an index page takes its
+    section's.
     """
     entries: list[NavEntry] = []
     seen: set[str] = set()
 
-    def add_page(md: str, depth: int) -> None:
+    def add_page(md: str, depth: int, title: str | None = None) -> None:
         if md.endswith(".md") and md not in seen:
             seen.add(md)
-            entries.append(NavEntry(depth=depth, md=md))
+            entries.append(NavEntry(depth=depth, md=md, title=title))
 
     def add_section(title: str, children: list, depth: int) -> None:
         index = section_index(children[0]) if children else None
@@ -121,7 +180,7 @@ def nav_entries(nav: list) -> list[NavEntry]:
             entries.append(NavEntry(depth=depth, title=str(title)))
             add_items(children, depth + 1)
         else:
-            add_page(index, depth)
+            add_page(index, depth, str(title))
             add_items(children[1:], depth + 1)
 
     def add_items(items: list, depth: int) -> None:
@@ -131,7 +190,7 @@ def nav_entries(nav: list) -> list[NavEntry]:
             elif isinstance(item, dict):
                 for title, value in item.items():
                     if isinstance(value, str):
-                        add_page(value, depth)
+                        add_page(value, depth, str(title))
                     elif isinstance(value, list):
                         add_section(title, value, depth)
 
@@ -143,6 +202,193 @@ def load_nav_entries(nav_yml: Path = NAV_YML) -> list[NavEntry]:
     """The navigation entries of nav.yml, in PDF order."""
     data = yaml.safe_load(nav_yml.read_text(encoding="utf-8")) or {}
     return nav_entries(data.get("nav") or [])
+
+
+# -- print edition: section modes ------------------------------------------------
+# The print edition fits the page limit of a printed book by shortening sections
+# that are reference material online (tools/pdf/print.yml). `list` keeps a
+# section's overview pages and drops the pages they list; pages no overview
+# lists become a table of title and first paragraph, and navigation titles left
+# without pages become one table of titles and page names. `omit` drops a
+# section and leaves a note naming the online edition.
+
+
+def load_section_rules(path: Path = PRINT_YML) -> list[SectionRule]:
+    """The section modes of the print edition.
+
+    A mode is given either as the value of a section, or as `mode` in a mapping
+    that may also name the two `columns` of the section's tables.
+    """
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    rules = []
+    for prefix, value in (data.get("sections") or {}).items():
+        spec = value if isinstance(value, dict) else {"mode": value}
+        mode = spec.get("mode", "full")
+        if mode not in SECTION_MODES:
+            raise click.ClickException(
+                f"{path}: section {prefix} has mode {mode!r}, not one of {', '.join(SECTION_MODES)}"
+            )
+        columns = tuple(spec.get("columns") or DEFAULT_COLUMNS)
+        if len(columns) != 2:
+            raise click.ClickException(f"{path}: section {prefix} needs two columns, not {len(columns)}")
+        rules.append(SectionRule(str(prefix).rstrip("/") + "/", mode, columns))
+    return rules
+
+
+def is_heading_entry(entry: NavEntry) -> bool:
+    """A section title the navigation gives without a page."""
+    return entry.md is None and entry.generated is None
+
+
+def section_name(prefix: str) -> str:
+    """A readable name for a section that has neither a page nor a navigation title."""
+    return prefix.rstrip("/").rsplit("/", 1)[-1].replace("-", " ").replace("_", " ").title()
+
+
+def list_section(entries: list[NavEntry], rule: SectionRule) -> tuple[list[NavEntry], set[str]]:
+    """Keep a section's own page and its subsections' overview pages; table what no overview lists.
+
+    The navigation titles left without pages are tabled too (`group_listed_titles`).
+    """
+    root = rule.prefix + "index.md"
+    overview = re.compile(re.escape(rule.prefix) + r"[^/]+/index\.md$")
+    kept = {e.md for e in entries if e.md and (e.md == root or overview.match(e.md))}
+    # An overview page lists the pages in and below its own directory.
+    listed_by = [md[: -len("index.md")] for md in kept]
+    result: list[NavEntry] = []
+    dropped: set[str] = set()
+    listed: set[str] = set()
+    table: Generated | None = None
+    for entry in entries:
+        if not (entry.md and entry.md.startswith(rule.prefix)):
+            result.append(entry)
+            table = None
+            continue
+        if entry.md in kept:
+            result.append(entry)
+            table = None
+            if entry.md == root:
+                result.append(NavEntry(entry.depth, generated=Generated("note", rule.prefix, "list", [root])))
+            continue
+        dropped.add(entry.md)
+        if any(entry.md.startswith(directory) for directory in listed_by):
+            listed.add(entry.md)
+            continue
+        if table is None:
+            table = Generated("table", rule.prefix, "list", [], rule.columns)
+            result.append(NavEntry(entry.depth, generated=table))
+        table.pages.append(entry.md)
+    result = group_listed_titles(entries, result, listed, rule)
+
+    if root not in kept:
+        first = next((i for i, e in enumerate(result) if e.generated and e.generated.section == rule.prefix), None)
+        if first is not None:
+            # The note opens the section: before the titles that lead into its
+            # first table, after the part title they belong to.
+            start = first
+            while start > 0 and is_heading_entry(result[start - 1]) and result[start - 1].depth > 0:
+                start -= 1
+            before = result[start - 1] if start > 0 else None
+            name = before.title if before is not None and is_heading_entry(before) else section_name(rule.prefix)
+            pages = result[first].generated.pages[:1]
+            note = Generated("note", rule.prefix, "list", pages, name=name)
+            result.insert(start, NavEntry(result[start].depth, generated=note))
+    return result, dropped
+
+
+def group_listed_titles(
+    entries: list[NavEntry], result: list[NavEntry], listed: set[str], rule: SectionRule
+) -> list[NavEntry]:
+    """Replace each run of navigation titles whose pages an overview lists by one table.
+
+    Without their pages such titles would print as empty headings - the
+    operator categories after the Transformers overview do. The table has a row
+    per title naming the pages beneath it; the overview before the run names the
+    column of pages. Titles are told apart by identity, as two can read the same.
+    """
+    beneath: dict[int, list[NavEntry]] = {}
+    for i, entry in enumerate(entries):
+        if is_heading_entry(entry):
+            pages: list[NavEntry] = []
+            for below in entries[i + 1:]:
+                if below.depth <= entry.depth:
+                    break
+                if below.md:
+                    pages.append(below)
+            beneath[id(entry)] = pages
+
+    def emptied(index: int) -> bool:
+        entry = result[index]
+        pages = beneath.get(id(entry), []) if is_heading_entry(entry) else []
+        following = result[index + 1] if index + 1 < len(result) else None
+        return (
+            bool(pages)
+            and all(page.md in listed for page in pages)
+            and (following is None or following.depth <= entry.depth)
+        )
+
+    grouped: list[NavEntry] = []
+    i = 0
+    while i < len(result):
+        if not emptied(i):
+            grouped.append(result[i])
+            i += 1
+            continue
+        depth = result[i].depth
+        rows = []
+        while i < len(result) and result[i].depth == depth and emptied(i):
+            rows.append((result[i].title, beneath[id(result[i])]))
+            i += 1
+        overview = next((e for e in reversed(grouped) if e.md and e.depth < depth), None)
+        pages_column = overview.title if overview is not None and overview.title else GROUP_COLUMNS[1]
+        table = Generated("groups", rule.prefix, "list", columns=(GROUP_COLUMNS[0], pages_column), groups=rows)
+        grouped.append(NavEntry(depth, generated=table))
+    return grouped
+
+
+def drop_empty_headings(entries: list[NavEntry]) -> list[NavEntry]:
+    """Remove section titles that no longer have anything beneath them."""
+    result: list[NavEntry] = []
+    for entry in reversed(entries):
+        following = result[-1] if result else None
+        if is_heading_entry(entry) and (following is None or following.depth <= entry.depth):
+            continue
+        result.append(entry)
+    return list(reversed(result))
+
+
+def omit_section(entries: list[NavEntry], rule: SectionRule) -> tuple[list[NavEntry], set[str]]:
+    """Drop a section. A section with a page of its own leaves its title and a note in its place."""
+    root = rule.prefix + "index.md"
+    result: list[NavEntry] = []
+    dropped: set[str] = set()
+    for entry in entries:
+        if entry.md and entry.md.startswith(rule.prefix):
+            dropped.add(entry.md)
+            if entry.md == root:
+                result.append(NavEntry(entry.depth, generated=Generated("note", rule.prefix, "omit", [root])))
+            continue
+        result.append(entry)
+    return drop_empty_headings(result), dropped
+
+
+def apply_section_rules(entries: list[NavEntry], rules: list[SectionRule]) -> tuple[list[NavEntry], set[str]]:
+    """Shorten the navigation by the section modes. Returns the entries and the pages dropped from them."""
+    dropped: set[str] = set()
+    for rule in rules:
+        if not any(e.md and e.md.startswith(rule.prefix) for e in entries):
+            raise click.ClickException(f"{PRINT_YML}: no page in {NAV_YML} lies under {rule.prefix}")
+        if rule.mode == "list":
+            entries, gone = list_section(entries, rule)
+        elif rule.mode == "omit":
+            entries, gone = omit_section(entries, rule)
+        else:
+            continue
+        dropped |= gone
+    return entries, dropped
+
+
+# -- merging ---------------------------------------------------------------------
 
 
 def md_to_built_html(src_md: str) -> str:
@@ -200,13 +446,17 @@ def namespace_ids(section, section_id: str) -> None:
             a["href"] = f"#{section_id}-{a['href'][1:]}"
 
 
-def resolve_links(section, base_url: str, valid_ids: set, public_base: str) -> None:
+def resolve_links(
+    section, base_url: str, valid_ids: set, public_base: str, unlink_ids: set | frozenset = frozenset()
+) -> None:
     """Turn page-relative URLs into something valid inside the merged document.
 
-    Links to other documented pages become in-PDF anchor jumps. Everything
-    else relative - downloadable resources, screenshots opened at full size,
-    pages outside the navigation - becomes an absolute link into the published
-    site, which is the only address a reader of the PDF can follow.
+    Links to other documented pages become in-PDF anchor jumps. Links to a page
+    in `unlink_ids` - one the print edition drops from the section being merged
+    - print as their text. Everything else relative - downloadable resources,
+    screenshots opened at full size, pages outside the navigation - becomes an
+    absolute link into the published site, which is the only address a reader of
+    the PDF can follow.
 
     Image sources become root-absolute site paths; they are embedded, not linked.
     """
@@ -227,6 +477,8 @@ def resolve_links(section, base_url: str, valid_ids: set, public_base: str) -> N
                 if parsed.fragment
                 else f"#{section_id}"
             )
+        elif section_id and section_id in unlink_ids:
+            a.unwrap()
         else:
             a["href"] = urllib.parse.urljoin(public_base, absolute.lstrip("/"))
 
@@ -272,21 +524,159 @@ def part_cover(doc: BeautifulSoup, section) -> None:
             node.unwrap()
 
 
+def page_article(site_dir: Path, md: str):
+    """A page's built article with its web chrome dropped, or None when the page is not built."""
+    built = site_dir / md_to_built_html(md)
+    if not built.exists():
+        return None
+    article = BeautifulSoup(built.read_text(encoding="utf-8"), "html.parser").select_one(CONTENT_SELECTOR)
+    if article is not None:
+        drop_noise(article)
+    return article
+
+
+def plain_heading(heading) -> str:
+    """A heading's text without the icons some titles carry."""
+    for icon in heading.select(".twemoji"):
+        icon.decompose()
+    return " ".join(heading.get_text(" ", strip=True).split())
+
+
+def page_title(site_dir: Path, md: str) -> str:
+    article = page_article(site_dir, md)
+    heading = article.find("h1") if article is not None else None
+    return plain_heading(heading) if heading is not None else md
+
+
+def list_cell(doc: BeautifulSoup, name: str = "td"):
+    """A cell of a print-list table, set left: pandoc centres a cell that has no alignment."""
+    return doc.new_tag(name, attrs={"style": "text-align: left;"})
+
+
+def list_table(doc: BeautifulSoup, columns: tuple[str, str]):
+    """An empty print-list table under its two column labels, and the body to fill."""
+    table = doc.new_tag("table", attrs={"class": "print-list"})
+    head = doc.new_tag("thead")
+    row = doc.new_tag("tr")
+    for label in columns:
+        cell = list_cell(doc, "th")
+        cell.string = label
+        row.append(cell)
+    head.append(row)
+    body = doc.new_tag("tbody")
+    table.append(head)
+    table.append(body)
+    return table, body
+
+
+def summary_table(doc: BeautifulSoup, generated: Generated, site_dir: Path):
+    """A two-column table of pages: the title, and the paragraph that opens the page.
+
+    A page that opens with something else is summarized by its second-level
+    headings, which on a release page name the components released.
+    """
+    table, body = list_table(doc, generated.columns)
+    for md in generated.pages:
+        article = page_article(site_dir, md)
+        heading = article.find("h1") if article is not None else None
+        row = doc.new_tag("tr")
+        title = list_cell(doc)
+        title.string = plain_heading(heading) if heading is not None else md
+        summary = list_cell(doc)
+        opening = heading.find_next_sibling() if heading is not None else None
+        if opening is not None and opening.name == "p":
+            for link in opening.find_all("a"):
+                link.unwrap()
+            for image in opening.find_all("img"):
+                image.decompose()
+            for child in list(opening.contents):
+                summary.append(child.extract())
+        elif article is not None:
+            summary.string = ", ".join(plain_heading(h) for h in article.find_all("h2"))
+        row.append(title)
+        row.append(summary)
+        body.append(row)
+    return table
+
+
+def groups_table(doc: BeautifulSoup, generated: Generated, site_dir: Path):
+    """A two-column table of navigation titles: the title, and the names of the pages beneath it.
+
+    A page is named by its navigation title, or by its own title when the
+    navigation gives it none.
+    """
+    table, body = list_table(doc, generated.columns)
+    for title, pages in generated.groups:
+        row = doc.new_tag("tr")
+        for text in (title, ", ".join(page.title or page_title(site_dir, page.md) for page in pages)):
+            cell = list_cell(doc)
+            cell.string = text
+            row.append(cell)
+        body.append(row)
+    return table
+
+
+def section_url(generated: Generated, site_dir: Path, public_base: str) -> str:
+    """Where a shortened section is complete: its own page online, else the first page it lists."""
+    if (site_dir / generated.section / "index.html").is_file():
+        path = generated.section
+    else:
+        path = md_to_url_path(generated.pages[0]).lstrip("/")
+    return urllib.parse.urljoin(public_base, path)
+
+
+def render_generated(doc: BeautifulSoup, entry: NavEntry, site_dir: Path, public_base: str) -> list:
+    """The elements that stand in for a shortened section's pages."""
+    generated = entry.generated
+    if generated.kind == "table":
+        return [summary_table(doc, generated, site_dir)]
+    if generated.kind == "groups":
+        return [groups_table(doc, generated, site_dir)]
+    name = generated.name or page_title(site_dir, generated.pages[0])
+    url = section_url(generated, site_dir, public_base)
+    elements = []
+    if generated.mode == "omit":
+        heading = doc.new_tag(f"h{min(6, entry.depth + 1)}")
+        heading.string = name
+        elements.append(heading)
+        text = f"The {name} is not part of this print edition. It is part of the online edition: {url}"
+    else:
+        text = f"This print edition lists the {name} in short. The complete section is part of the online edition: {url}"
+    note = doc.new_tag("div", attrs={"class": "admonition info"})
+    paragraph = doc.new_tag("p")
+    paragraph.string = text
+    note.append(paragraph)
+    elements.append(note)
+    return elements
+
+
 def merge_pages(
-    entries: list[NavEntry], site_dir: Path, public_base: str
+    entries: list[NavEntry],
+    site_dir: Path,
+    public_base: str,
+    rules: list[SectionRule] | None = None,
+    dropped: set[str] | None = None,
 ) -> tuple[BeautifulSoup, list[str]]:
     """Merge the built articles along the navigation into one HTML document.
 
     Every top-level entry is a part. It is preceded by a chapter break, so a
     part starts on a new page, and its page opens with the part's cover (see
     `part_cover`); a part without a page gets its title and the contents marker.
-    Returns the document and the navigation pages that had no built HTML.
+    Generated entries of the print edition's section modes are rendered where
+    they stand, and a shortened section's links to the pages it drops print as
+    text. Returns the document and the navigation pages that had no built HTML.
     """
     doc = BeautifulSoup('<html><head><meta charset="utf-8"></head><body></body></html>', "html.parser")
     valid_ids = {url_to_section_id(md_to_url_path(e.md)) for e in entries if e.md}
+    dropped_ids = {url_to_section_id(md_to_url_path(md)) for md in dropped or ()}
+    shortened = [rule.prefix for rule in rules or () if rule.mode != "full"]
     missing: list[str] = []
 
     for entry in entries:
+        if entry.generated is not None:
+            for element in render_generated(doc, entry, site_dir, public_base):
+                doc.body.append(element)
+            continue
         if entry.depth == 0:
             doc.body.append(doc.new_tag("div", attrs={"class": "chapter-break"}))
         if entry.md is None:
@@ -297,24 +687,20 @@ def merge_pages(
                 heading.insert_after(doc.new_tag("div", attrs={"class": "part-contents"}))
             continue
 
-        built = site_dir / md_to_built_html(entry.md)
-        article = None
-        if built.exists():
-            page = BeautifulSoup(built.read_text(encoding="utf-8"), "html.parser")
-            article = page.select_one(CONTENT_SELECTOR)
+        # page_article drops the web chrome before the ids are namespaced:
+        # selectors such as #__comments would no longer match afterwards.
+        article = page_article(site_dir, entry.md)
         if article is None:
             missing.append(entry.md)
             continue
-        # Before the ids are namespaced: selectors such as #__comments would no
-        # longer match afterwards.
-        drop_noise(article)
 
         section_id = url_to_section_id(md_to_url_path(entry.md))
         section = doc.new_tag("section", attrs={"class": "print-page", "id": section_id})
         for child in list(article.children):
             section.append(child.extract())
         namespace_ids(section, section_id)
-        resolve_links(section, md_to_url_path(entry.md), valid_ids, public_base)
+        unlink_ids = dropped_ids if any(entry.md.startswith(prefix) for prefix in shortened) else frozenset()
+        resolve_links(section, md_to_url_path(entry.md), valid_ids, public_base, unlink_ids)
         demote_headings(section, entry.depth)
         if entry.depth == 0:
             part_cover(doc, section)
@@ -458,14 +844,54 @@ def typst_path(path: Path) -> str:
     return "/" + path.resolve().relative_to(Path.cwd().resolve()).as_posix()
 
 
-def resolve_images(doc: BeautifulSoup, site_dir: Path, stats: Counter, warnings: list[str]) -> None:
-    """Point images at the built files Typst embeds, and replace what it cannot embed.
+def printed_width_pt(image: Image.Image, width: str | None) -> float:
+    """The width Typst prints an image at in the print edition's text column.
+
+    A percentage is that share of the column. Without one, Typst sizes an image
+    by the pixel density it declares - 72 dpi when it declares none - and never
+    wider than the column.
+    """
+    if width and width.strip().endswith("%"):
+        return TEXT_WIDTH_PT * float(width.strip()[:-1]) / 100
+    dpi = image.info.get("dpi")
+    density = float(dpi[0]) if dpi and dpi[0] else 72.0
+    return min(image.width * 72 / density, TEXT_WIDTH_PT)
+
+
+def print_image(source: Path, width: str | None, cache_dir: Path) -> Path:
+    """A copy of an image for the print edition: flattened onto white, at 300 ppi at its printed width.
+
+    BoD asks for 300 dpi and no transparency. The copy declares 300 dpi, so Typst
+    prints it at the width the original printed at, resampled up or down with
+    Lanczos. Copies are cached by the original's content and the pixel width.
+    """
+    data = source.read_bytes()
+    with Image.open(io.BytesIO(data)) as image:
+        pixels = max(1, round(printed_width_pt(image, width) / 72 * PRINT_PPI))
+        target = cache_dir / f"{hashlib.sha256(data).hexdigest()[:16]}-{pixels}.png"
+        if target.is_file():
+            return target
+        image.seek(0)
+        frame = image.convert("RGBA")
+        flat = Image.new("RGB", frame.size, "white")
+        flat.paste(frame, mask=frame.getchannel("A"))
+        height = max(1, round(frame.height * pixels / frame.width))
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        flat.resize((pixels, height), Image.Resampling.LANCZOS).save(target, "PNG", dpi=(PRINT_PPI, PRINT_PPI))
+    return target
+
+
+def resolve_images(
+    doc: BeautifulSoup, site_dir: Path, stats: Counter, warnings: list[str], print_images: Path | None = None
+) -> None:
+    """Point images at the files Typst embeds, and replace what it cannot embed.
 
     Emoji that the site loads as Twemoji images become the emoji character,
     which the vendored emoji font draws. Other remote images - status badges -
     become their alt text: the build does not fetch from the network. An SVG
     that keeps its text in foreignObject elements, as Mermaid does by default,
-    renders without that text in Typst, so it is reported.
+    renders without that text in Typst, so it is reported. With `print_images`,
+    raster images point at their print copies in that directory (`print_image`).
     """
     for lightbox in doc.select("a.glightbox"):
         lightbox.unwrap()
@@ -492,7 +918,11 @@ def resolve_images(doc: BeautifulSoup, site_dir: Path, stats: Counter, warnings:
             continue
         if path.suffix.lower() == ".svg" and "<foreignObject" in path.read_text(encoding="utf-8", errors="ignore"):
             warnings.append(f"SVG text in foreignObject elements does not render, embed a PNG instead: {src}")
-        img["src"] = typst_path(path)
+        if print_images is not None and path.suffix.lower() != ".svg":
+            img["src"] = typst_path(print_image(path, img.get("width"), print_images))
+            stats["images normalized for print"] += 1
+        else:
+            img["src"] = typst_path(path)
         stats["images"] += 1
 
 
@@ -539,7 +969,7 @@ def settle_internal_links(doc: BeautifulSoup, stats: Counter) -> None:
         section.unwrap()
 
 
-def normalize(doc: BeautifulSoup, site_dir: Path) -> tuple[Counter, list[str]]:
+def normalize(doc: BeautifulSoup, site_dir: Path, print_images: Path | None = None) -> tuple[Counter, list[str]]:
     """Rewrite the merged document into elements pandoc's HTML reader understands.
 
     Returns counts of what was rewritten and warnings about content the PDF
@@ -552,7 +982,7 @@ def normalize(doc: BeautifulSoup, site_dir: Path) -> tuple[Counter, list[str]]:
     pair_tabs(doc, stats)
     mark_cards(doc, stats)
     inline_icons(doc, stats)
-    resolve_images(doc, site_dir, stats, warnings)
+    resolve_images(doc, site_dir, stats, warnings, print_images)
     embedded_media_to_links(doc, stats)
     settle_internal_links(doc, stats)
     return stats, warnings
@@ -613,6 +1043,24 @@ def run(command: list[str], what: str) -> None:
     print(f"{what} took {time.monotonic() - started:.0f}s")
 
 
+def unpadded_pages(compile_command: list[str], typ_path: Path) -> int:
+    """How many pages the print edition has before it is padded to an even count.
+
+    The style marks the book's last page with `<book-end>`. Typst cannot add the
+    blank page itself: a page break that depends on the page count never lets the
+    layout converge. So the build asks first and passes `pad=true` when needed.
+    """
+    started = time.monotonic()
+    command = [compile_command[0], "eval", "query(<book-end>).first().value", "--in", str(typ_path)]
+    command += compile_command[2:]
+    result = subprocess.run(command, capture_output=True, text=True, check=False)
+    if result.returncode != 0:
+        raise click.ClickException(f"typst eval failed: {result.stderr.strip()[:500]}")
+    pages = int(result.stdout.strip())
+    print(f"typst eval took {time.monotonic() - started:.0f}s: {pages} pages before padding")
+    return pages
+
+
 @click.command()
 @click.option(
     "--build-version",
@@ -622,11 +1070,19 @@ def run(command: list[str], what: str) -> None:
     show_default=True,
 )
 @click.option(
+    "--edition", "edition_name",
+    type=click.Choice(EDITIONS),
+    default="screen",
+    envvar="PDF_EDITION",
+    help="Which edition: the screen PDF, or the book block for print on demand?",
+    show_default=True,
+)
+@click.option(
     "--output-file", "-o",
     type=click.Path(exists=False, dir_okay=False, file_okay=True),
     default=None,
     envvar="PDF_OUT",
-    help=f"Where to write the PDF?  [default: {DEFAULT_OUT_STEM}-<version>.pdf]",
+    help=f"Where to write the PDF?  [default: {DEFAULT_OUT_STEM}-<version>.pdf, -print.pdf for print]",
 )
 @click.option(
     "--pandoc", "pandoc_binary",
@@ -643,11 +1099,16 @@ def run(command: list[str], what: str) -> None:
     show_default=True,
 )
 def build_pdf(
-    build_version: str, output_file: str | None, pandoc_binary: str, typst_binary: str
+    build_version: str, edition_name: str, output_file: str | None, pandoc_binary: str, typst_binary: str
 ) -> None:
     """Build a single PDF of the whole site with pandoc and Typst."""
     version = build_version.strip() or "dev"
-    out = Path(output_file or f"{DEFAULT_OUT_STEM}-{version.replace('.', '-')}.pdf")
+    print_edition = edition_name == "print"
+    suffix = "-print" if print_edition else ""
+    out = Path(output_file or f"{DEFAULT_OUT_STEM}-{version.replace('.', '-')}{suffix}.pdf")
+    # The print edition merges and normalizes differently, so its intermediate
+    # files must not overwrite the screen edition's.
+    work_dir = WORK_DIR / "print" if print_edition else WORK_DIR
 
     if not (SITE_DIR / "index.html").exists():
         raise click.ClickException(f"{SITE_DIR} is not built - run `task build` first.")
@@ -665,11 +1126,17 @@ def build_pdf(
     entries = load_nav_entries()
     if not entries:
         raise click.ClickException(f"no pages found in {NAV_YML}")
+    rules = load_section_rules() if print_edition else []
+    entries, dropped = apply_section_rules(entries, rules)
+    for rule in rules:
+        if rule.mode != "full":
+            count = sum(1 for md in dropped if md.startswith(rule.prefix))
+            print(f"Print edition: {rule.prefix} as {rule.mode}, {count} pages dropped")
     config = load_site_config()
     public_base = public_base_url(config, version)
-    doc, missing = merge_pages(entries, SITE_DIR, public_base)
+    doc, missing = merge_pages(entries, SITE_DIR, public_base, rules, dropped)
     pages = sum(1 for e in entries if e.md) - len(missing)
-    headings = sum(1 for e in entries if e.md is None)
+    headings = sum(1 for e in entries if is_heading_entry(e))
     if missing:
         print(
             f"WARNING: {len(missing)} page(s) in {NAV_YML} had no built HTML: "
@@ -679,14 +1146,14 @@ def build_pdf(
         )
     print(f"Merged {pages} pages and {headings} section headings along {NAV_YML}")
 
-    stats, warnings = normalize(doc, SITE_DIR)
+    stats, warnings = normalize(doc, SITE_DIR, work_dir / "images" if print_edition else None)
     for warning in warnings:
         print(f"WARNING: {warning}", file=sys.stderr)
     print("Normalized " + ", ".join(f"{count} {what}" for what, count in sorted(stats.items())))
 
-    WORK_DIR.mkdir(parents=True, exist_ok=True)
-    html_path = WORK_DIR / "book.html"
-    typ_path = WORK_DIR / "book.typ"
+    work_dir.mkdir(parents=True, exist_ok=True)
+    html_path = work_dir / "book.html"
+    typ_path = work_dir / "book.typ"
     html_path.write_text(str(doc), encoding="utf-8")
 
     run(
@@ -704,8 +1171,16 @@ def build_pdf(
         typst, "compile", "--root", ".", "--ignore-system-fonts",
         "--font-path", str(PDF_ASSETS / "fonts"),
     ]
-    for key, value in edition(config, version, public_base, date.today(), source_commit()).items():
+    inputs = edition(config, version, public_base, date.today(), source_commit())
+    # Only the print edition passes the switch, so the screen edition's Typst
+    # call is the one it always was.
+    if print_edition:
+        inputs["edition"] = "print"
+    for key, value in inputs.items():
         command += ["--input", f"{key}={value}"]
+    if print_edition and unpadded_pages(command, typ_path) % 2:
+        # A printed book has an even page count; the style adds a blank last page.
+        command += ["--input", "pad=true"]
     run(command + [str(typ_path), str(out)], "typst")
 
     print(f"PDF written to {out} ({out.stat().st_size // 1024} KB)")
