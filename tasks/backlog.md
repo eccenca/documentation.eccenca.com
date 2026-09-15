@@ -13,7 +13,8 @@ Every task names how it is verified. A task is not done until that verification 
 Spec §4, D1-D11: BoD, A4, black and white on 80 g, no ISBN, authors by name (first GitHub IDs, revised 2026-09-15), separate screen and
 print editions, section modes with A.3 and Release Notes as lists, page references and URL footnotes,
 no logo or version on text pages, 10 pt body, optional Ghostscript normalization. D12-D14, decided
-2026-09-15: excluding content from the print edition (spec §10), implemented by P18.
+2026-09-15: excluding content from the print edition (spec §10), implemented by P18. D15-D18, decided
+2026-09-15: the findings of the pull request review (spec §11), backlog P19-P24.
 
 ---
 
@@ -316,11 +317,13 @@ pages blank. Non-zero exit on a violation; run by `task pdf:print`, on the norma
 
 ## P15 - Low-resolution originals
 
-49 images are below 150 ppi at printed size; resampling (P12) hides that from the preflight but adds no
-detail. Work through the list: replace with a fresh screenshot, or accept in spec §8.
+49 images were below 150 ppi at printed size; resampling (P12) hides that from the preflight but adds no
+detail. After P18, 43 images in the printed pages that are not generated print below 150 ppi, 37 of them
+without a `width` - P24 sizes those first (spec §11). Work through what stays below 150 ppi: replace it
+with a fresh screenshot, or accept it in spec §8.
 
 **Verify:** every entry replaced or accepted.
-**Est:** medium, mostly content. **Depends on:** P12.
+**Est:** medium, mostly content. **Depends on:** P12, P24.
 
 ---
 
@@ -398,6 +401,102 @@ from the stamp. `task check` passes.
 
 ---
 
+## P19 - Part label in the footer
+
+Spec §11: the running footer of a left-hand page prints the part as the part band does, `Part A: Build`.
+The contents, the bookmarks and the right-hand footer keep theirs. `print-footer` in `tools/pdf/style.typ`.
+
+**Verify:** render a left-hand and a right-hand page of two parts; the screen PDF is unchanged.
+**Est:** small. **Depends on:** P3.
+
+---
+
+## P20 - Web addresses as endnotes
+
+Spec §11, D15. In the print edition, a link out of the book prints its text and a superscript number
+instead of a footnote. The numbers run within a part and start again at 1 in the next; an address cited
+twice in a part keeps its first number. A list "Web addresses" on a new page, under an unnumbered heading,
+closes each part that cites any: number, address and the pages citing it, laid out without link
+annotations. Links within the book keep their page reference.
+
+**Verify:** no footnote left in the book block; each part's list holds every number of that part with its
+address and correct pages; numbering restarts per part; no link annotations from notes; Typst reports no
+layout that failed to converge; compile time and page count before and after.
+**Est:** medium. **Depends on:** P9.
+
+---
+
+## P21 - Author order from the printed content
+
+Spec §11, D16. `dec-tool pdf-authors` counts only the commits to the files the print edition
+prints: the pages left after the section rules and the images in their directories, from
+`git log --no-merges` following renames, each commit once, generated pages left out. The GitHub
+commits API maps each commit to its account. Bots, agents, anonymous commits and `authors.exclude`
+stay excluded; the imprint says "most commits to the printed pages first".
+
+**Verify:** unit tests with a fake history for file selection, rename following, counting and account
+mapping; a real run shows the new order next to today's; the imprint follows it.
+**Est:** medium. **Depends on:** P6, P18.
+
+---
+
+## P22 - Cards of equal height
+
+Spec §11: `cards()` in `tools/pdf/style.typ` lays out its grid row by row and gives both cards of a row
+the height of the taller one; a card alone in the last row keeps its own height. The rounded frame and
+`breakable: false` stay; the screen PDF changes with it.
+
+**Verify:** render the card grids of the part pages in both editions; facing cards end on one line; no
+card breaks across pages.
+**Est:** small. **Depends on:** nothing.
+
+---
+
+## P23 - Operator reference in a compact format
+
+Spec §11, D17. A section mode `reference` prints `build/reference/` as one compact, harmonized
+entry per operator; the entries replace the overview tables.
+
+- **Structure:** each type chapter keeps its introduction. Operators follow alphabetically, numbered
+  A.3.x.y and listed in the part contents; the transformer category moves into the entry.
+- **Entry:** the title and a field line with type, category, plugin ID, `Python plugin` and a distance
+  range. Then the rendered description without `## Examples` and without the Python plugin note, its
+  headings as run-in labels. Then one parameter table with the columns Parameter and its ID, Type, Default
+  and Description, an `Advanced` row and `parent.child` sub-parameters, and a `Related:` line with page
+  references.
+- **Sparse data prints as nothing:** no table without parameters, `–` for a missing default, and
+  `see below` with a code block for a multi-line default. The data types map to the vocabulary of spec
+  §11.
+- **Data:** structure and parameters come from `data/plugins.json`, the description from the site page.
+  The build fails when pages and JSON disagree.
+- **Configuration:** `print.yml` switches `build/reference/` from `list` to `reference`. The A.3
+  introduction names the online examples and Python plugins once.
+
+**Verify:** unit tests build entries from a JSON fixture - an operator without parameters, one with
+advanced and sub-parameters, a multi-line default, every data type - and cover the page/JSON check. The
+print build shows 389 entries, no Examples heading and no `None`. The page count is measured against the
+estimate of spec §11 (about 860) and BoD's limit (P14). Render a transformer, a dataset and a custom task
+with more than 20 parameters.
+**Est:** medium to large. **Depends on:** P8.
+
+---
+
+## P24 - Image widths in the sources
+
+Spec §11, D18. `dec-tool image-widths --check|--fix` writes `{ width="NN%" }` for raster images without a
+width in pages that are not generated: the pixel width divided by the capture scale and by the full page
+width - the 16 cm text column, 605 CSS pixels - rounded to 5 %, at most 100 %. The capture scale is 2 for
+144 dpi (macOS Retina), otherwise the declared density / 96, and 1 without one. Optionally `task check`
+runs `--check`.
+
+**Verify:** unit tests for capture scale, percentage, rounding and the skip rules; after `--fix` no raster
+image in a page that is not generated lacks a width; spot checks of the changed pages on the site and in
+the print edition; the count below 150 ppi in the print edition before and after - no image prints less
+sharply than before.
+**Est:** medium, touches many pages. **Depends on:** nothing. P15 follows it.
+
+---
+
 ## Sequencing
 
 ```text
@@ -411,6 +510,8 @@ P1 ──> P2 ──> P3 ──> P4 ──> P5 ──> P7
                       └──> P14 ──> P16
 P17 after P8 and P14
 P18 after P8 and P9
+P19 after P3, P20 after P9, P21 after P6 and P18, P22 any time, P23 after P8
+P24 before P15
 ```
 
 P1, P6, P8, P10, P11 and P12 can start now.

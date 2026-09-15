@@ -3,7 +3,8 @@
 **Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P12 implemented 2026-09-15
 (`task pdf:print`, 962 pages); P13-P17 open. The backlog's "Done" notes record where the implementation
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
-and implemented the same day (backlog P18): the print edition has 666 pages.
+and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
+review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -70,7 +71,7 @@ For comparison, not pursued: Amazon KDP allows 828 pages (black ink on white), L
 
 - Page numbers sit on the **outer edge**: left on even (verso) pages, right on odd (recto) pages.
 - Running titles mirror too, following book convention (the larger unit on the left page):
-  - verso: `1234` at the outer left, `A Build` beside it
+  - verso: `1234` at the outer left, `Part A: Build` beside it (revised after the review, §11)
   - recto: `A.3 Task and Operator Reference` beside `1235` at the outer right
 - `| total` is dropped - it has no meaning on paper.
 - No logo and no version stamp on text pages (D9); both stay on the title page and the imprint.
@@ -153,29 +154,34 @@ in `authors.names`, or they print as their ID, and the build warns about each.
 ### R4 - Links on paper
 
 In the print edition (D8): internal links print their text plus a page reference `(p. 34)`; external
-links print their text with a footnote holding the URL; no colour, underline or arrow. Link annotations
+links print their text with a superscript number, and each part ends with a list of its web addresses
+(D15, §11); no colour, underline or arrow. Link annotations
 are left out of the book block - Ghostscript refuses PDF/X output while a page carries one (§7).
 
 ## 4. Decisions
 
-D1-D11 made 2026-09-14; D12-D14 made 2026-09-15 (§10).
+D1-D11 made 2026-09-14; D12-D18 made 2026-09-15 (§10, §11).
 
 | # | Question | Decision |
 | :-- | :-- | :-- |
 | D1 | Scope | The print edition reduces sections instead of printing them in full, **configurable per section** as `full`, `list` or `omit`. Default: A.3 Task and Operator Reference → `list`, H Release Notes → `list`, everything else `full` (§5) |
 | D2 | Provider | **BoD** (§2) |
 | D3 | ISBN | none for now; may come later |
-| D4 | Authors | names, most commits first: from `authors.names` in `print.yml`, else the GitHub profile, else the ID; no anonymous entries, bots, agents or excluded IDs (§3). Revised 2026-09-15 - first decided as GitHub IDs |
+| D4 | Authors | names, most commits first: from `authors.names` in `print.yml`, else the GitHub profile, else the ID; no anonymous entries, bots, agents or excluded IDs (§3). Revised 2026-09-15 - first decided as GitHub IDs; commits count only on printed pages (D16) |
 | D5 | Colour and paper | black and white interior on 80 g paper. BoD offers 80 g to publishers only - eccenca GmbH needs a publisher account |
 | D6 | Editions | separate screen and print PDFs. `task pdf` stays the screen edition, unchanged; `task pdf:print` builds the book block, switched by a Typst input (`edition=print`) and a print configuration |
 | D7 | Trim size | A4 |
-| D8 | Links on paper | page references and URL footnotes, no link styling (R4) |
+| D8 | Links on paper | page references and URL footnotes, no link styling (R4); the footnotes become endnotes per part (D15) |
 | D9 | Logo and version in the running header | title page and imprint only (R1) |
 | D10 | Body type size | keep 10 pt and tighten the spacing (§5). A smaller body, 9 pt or even 8 pt, only if the page limit is still exceeded - not needed for the default configuration |
 | D11 | Normalization | an **optional** Ghostscript pass after Typst: PDF/X-4, CMYK, all images at 300 dpi (§7) |
 | D12 | Subtrees and pages | path rules in `tools/pdf/print.yml`: a `sections` key may name a page, which accepts `omit` only; no front matter property, no `.pdfexclude` (§10) |
 | D13 | Parts of a page | the class `print-exclude`, effective in the print edition only; the site and the screen PDF are unchanged (§10) |
 | D14 | What stands in for excluded content | pages and subtrees: nothing, also for a directory's `omit` (revises §5); parts of a page: one note per run of parts, pointing to the page in the online edition for the full details (§10) |
+| D15 | Web addresses on paper | endnotes: a superscript number per address, numbered within each part; a list "Web addresses" with each address and the pages citing it closes each part (§11; revises R4 and D8) |
+| D16 | Author order | commits to the printed pages and their images, renames followed, each commit once; merges and generated pages do not count (§11) |
+| D17 | Operator reference | section mode `reference`: one compact entry per operator from `data/plugins.json` and the rendered description, without examples, replacing the overview tables; operators in alphabetical order with the category as a field, listed in the part contents; one type vocabulary (§11) |
+| D18 | Screenshot widths | written into the sources for raster images without a width: pixel width / capture scale / the full page width (the 16 cm text column), rounded to 5 %, at most 100 %; capture scale 2 for 144 dpi, otherwise the declared density / 96, 1 without one (§11) |
 
 ## 5. Page budget
 
@@ -514,3 +520,203 @@ Several blocks - also inside a list item, a content tab or an admonition.
   `.claude/docs-guidelines/repo-conventions.md` on the class, including that generated pages cannot
   carry it.
 - **Effort:** small to medium; backlog P18.
+
+## 11. Review of the first print build
+
+**Status:** findings of the pull request review, 2026-09-15, decided the same day as D15-D18 (§4).
+
+| Finding | Today | Proposal | Backlog |
+| :-- | :-- | :-- | :-- |
+| A left-hand page's footer should read `Part A: Build` | `A Build` (R1) | the part label the part band prints | P19 |
+| Web addresses belong at the end of the document | a footnote for each link out of the book (R4) | endnotes, listed at the end of each part (D15) | P20 |
+| The author order should follow the printed content | commits to the whole repository (§3) | commits to the printed pages (D16) | P21 |
+| Facing cards in a two-column grid should be equally high | each card as high as its text | one height per row | P22 |
+| The operator reference should print descriptions and parameters | overview tables, `list` mode (§5) | one compact entry per operator, replacing the overview tables (D17) | P23 |
+| PDF/X-4 and CMYK | specified, not built (§7) | unchanged | P13 |
+| Low-resolution images mostly lack `width` in the Markdown | an image without `width` prints at its declared density | widths computed from pixels and capture density against the full page width, written into the sources (D18) | P24, then P15 |
+
+### Footer: the part label
+
+R1 names the part beside the page number of a left-hand page as `A Build`. The part band already prints
+`Part A: Build`, while the contents and the bookmarks print `A Build`. The left-hand footer follows the
+band: `1234  Part A: Build`. The contents, the bookmarks and the right-hand footer stay as they are.
+
+### Web addresses as endnotes (D15)
+
+Today every link out of the book prints its address in a footnote on the same page (R4). Decided:
+
+- A link out of the book prints its text and a superscript number.
+- The numbers run within a part and start again at 1 in the next one. An address cited more than once in
+  a part keeps its first number there.
+- A list "Web addresses", on a new page under an unnumbered heading, closes each part that cites any. It
+  holds each number, its address and the pages that cite it, for example
+  `17  https://github.com/eccenca/cmemc (pp. 412, 530)`.
+- The list is laid out without link annotations, like the contents (P9). Footnotes link marker and entry
+  internally, which Typst cannot switch off, and PDF/X output wants no annotation at all (§7).
+- Links within the book keep their page reference.
+
+Numbering in a `context` rule over every link costs layout passes; measure the compile time and watch
+for Typst's warning that the layout did not converge.
+
+### Author order from the printed content (D16)
+
+Today `tools/pdf/authors.yml` counts a contributor's commits to the whole repository, from the GitHub
+contributors API. Tooling, generated references and content the print edition leaves out weigh as much
+as the printed pages. The repository has 1,633 commits, 1,292 of them touching `docs/`. Decided:
+
+- The printed files: the pages the print edition prints after the section rules (§5, §10), and the
+  images in their directories.
+- The commits: `git log --no-merges` for those files, following renames. A commit counts once, however
+  many printed files it touches.
+- The account of each commit: `author.login` from the GitHub commits API, which maps a commit's e-mail
+  to a GitHub account - one request per 100 commits, about 17.
+- The existing rules stay: no anonymous commits, bots or agents; `authors.exclude`; names from
+  `authors.names` or the profile.
+- `authors.yml` records these counts. The imprint reads "most commits to the printed pages first".
+
+Commits to generated pages credit whoever ran the generator, so they do not count.
+
+### Cards of equal height
+
+`cards()` sets `card()` blocks in two columns, each as high as its text, so facing cards end at
+different heights. Plan: lay the grid out row by row, measure both cards of a row at the column
+width, and give both the taller height. A card alone in the last row keeps its own height. The rounded
+frame and `breakable: false` stay. The screen PDF uses the same grid and changes with it.
+
+### The operator reference in a compact format (D17)
+
+A.3 prints as `list` (§5): the overview pages with their `Name | Description` tables, while the 389
+operator pages are dropped. The review asks for the operators themselves, with their descriptions and
+parameters but without examples. In the print edition the operator entries replace the overview tables.
+The format below was decided as proposed (D17).
+
+All 389 operators share one structure. `tools/templates/plugin.md` generates their pages, and the
+generator dumps the same data to `data/plugins.json`, which is tracked and was last regenerated together
+with the pages on 2026-09-02. Much of the structure is sparse (measured 2026-09-15):
+
+| Part | Measured |
+| :-- | :-- |
+| parameters | 1,040 in all; 59 operators have none, 316 have no advanced ones. Median per operator: 4 for custom workflow tasks (at most 24), 3 for datasets, 1 for distance measures and transformers, 0 for aggregators |
+| defaults | 431 parameters have none; 8 are multi-line, 4 structured |
+| parameter descriptions | 27 are empty |
+| sub-parameters | 21 |
+| descriptions | median 263 characters; 154 under 200, 43 over 2,000 |
+| examples | on 91 operators, 19 % of the documentation text |
+| related plugins | on 81 operators |
+| Python plugins | 71 |
+
+A generated page spends a heading and three bullets on every parameter (`ID`, `Datatype`,
+`Default Value`). It writes `None` both for a missing default and for an empty advanced section, and
+repeats the Python plugin note on every Python operator.
+
+#### Structure
+
+- **Chapters:** each operator type keeps its chapter and its introduction, A.3.1 Aggregators to A.3.5
+  Transformers. The chapter's operator entries replace its overview table.
+- **Order:** operators follow in alphabetical order, as in the overview tables. The transformer category
+  becomes a field of the entry instead of a level of headings. So every operator sits at the same level,
+  A.3.x.y, and the part contents list them with their pages.
+- **Introduction:** the introduction of A.3 says once what an entry shows, that the examples are part of
+  the online edition, and what a Python plugin needs.
+
+#### An entry
+
+```text
+A.3.5.42  Constant                                    transformer · Value · constant
+
+Generates a constant value.
+
+Parameter           Type       Default   Description
+Value               text       –         The constant value to be generated
+value
+```
+
+- **Heading:** the operator's title, numbered, kept together with what follows.
+- **Field line:** the operator type, the transformer category, the plugin ID in monospace, `Python plugin`
+  where it applies, and a distance measure's range. It is small, grey and one line long.
+- **Description:** the rendered description from the site page, without its `## Examples` section and
+  without the Python plugin note. Its own second-level headings, such as `## Characteristics`, print as
+  run-in labels, not as numbered sections.
+- **Parameters:** one table per operator, in the plugin's order. The columns are Parameter (the title, and
+  the ID in monospace below it), Type, Default and Description. Advanced parameters follow in the same
+  table after a row labelled `Advanced`; a sub-parameter follows its parameter as `parent.child`.
+- **Related:** one line, for example `Related: Merge (p. 214), Zip (p. 230)`.
+
+Sparse data prints as nothing:
+
+- An operator without parameters has no table, and one without advanced parameters no `Advanced` row.
+- A parameter without a default shows `–`; a password never shows one.
+- A multi-line or structured default shows `see below`, and a code block follows the table.
+- An operator without related plugins has no `Related` line, and an empty parameter description leaves
+  its cell empty.
+
+The data types print in one vocabulary:
+
+| Data type | Printed |
+| :-- | :-- |
+| `string`, `multiline string` | text |
+| `int`, `Long` | integer |
+| `double` | number |
+| `boolean` | boolean |
+| `char` | character |
+| `enumeration` | choice |
+| `password` | password |
+| `resource` | file |
+| `scheme:string` | URI - to confirm |
+| `traversable[string]` | list of text |
+| `stringmap` | map |
+| `code-sparql` | SPARQL |
+
+#### Data source
+
+The build takes the structure and the parameters from `data/plugins.json` and only the description from
+the rendered site page. The JSON tells a missing default apart from the text `None`, and it carries the
+types, the advanced flags and the sub-parameters that the page shows only as bullets. The build fails when
+an operator page and the JSON disagree - an operator without an entry, or an entry without a page - so a
+regeneration that updated only one of them shows.
+
+#### Budget
+
+A rough count - 95 characters per line of description, one row per parameter and more for a long
+description, four lines for heading and field line - gives about 180 pages for the 389 entries. The part
+contents add about 8 pages. The book would grow from 666 to about 860 pages; the operator pages in full
+took about 458 (§5). BoD takes 1,200 pages on 80 g and 1,050 on 90 g (D5). P23 measures the real count.
+
+The site and the generator stay as they are. The same format could later serve the site as well; that is
+not part of this proposal.
+
+### PDF/X-4 and CMYK
+
+Unchanged: the optional normalization pass (§7, D11), backlog P13. The review confirms that it is
+needed.
+
+### Image widths in the sources (D18)
+
+Typst prints an image without `width` at the pixel density it declares, 72 dpi when it declares none,
+and never wider than the column. On 2026-09-15 the printed pages that are not generated hold 500 raster
+images, 352 of them without `width`. The declared densities: none on 231, 144 dpi on 180 (Retina
+captures on macOS), 120 dpi on 80, 96 dpi on 8, 192 dpi on 1. 43 images print below 150 ppi, 37 of them
+without `width`.
+
+Decided (D18) - `dec-tool image-widths`, with `--check` and `--fix`, writes the missing `{ width="NN%" }`
+into the Markdown of pages that are not generated:
+
+- **Capture scale:** 2 for 144 dpi, the density of a Retina capture on macOS (2 × 72). Any other declared
+  density is divided by 96, so 120 dpi gives 1.25 and 192 dpi gives 2. An image that declares none, 72 or
+  96 dpi has scale 1.
+- **Natural width:** the pixel width divided by the capture scale, in CSS pixels at 96 per inch.
+- **Width:** the natural width as a share of the full page width - the 16 cm text column, 605 CSS pixels -
+  rounded to 5 % and at most 100 %.
+- **Scope:** raster images only. SVGs and images that already have a width stay as they are.
+- **Check:** `task check` may run `--check`, so a new screenshot gets its width.
+
+The same percentage serves the site and the PDF. In print an image then keeps its natural size and prints
+at its capture scale times 96 ppi - 96 ppi at scale 1, 192 ppi for a Retina capture - and an image wider
+than the column still fills it. No image prints less sharply than today, when Typst assumes 72 dpi for an
+image without a declared density. P15 handles what stays below 150 ppi.
+
+### Decisions
+
+Decided on 2026-09-15 as D15-D18, recorded in §4: web addresses in a list at the end of each part (D15),
+the author order from commits to the printed pages (D16), the compact operator reference as proposed
+(D17), and screenshot widths against the full page width (D18).
