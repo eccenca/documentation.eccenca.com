@@ -266,19 +266,19 @@
 // DEVIATION (print): the back of the title page is the imprint - edition,
 // publisher, authors, licence and the online edition - and it carries the
 // edition stamp the screen PDF prints in its header. tools/pdf/print.yml holds
-// the publisher and the section modes, tools/pdf/authors.yml the authors.
-#let imprint(title: "", context-line: "", subtitle: "", generated: "", site-url: "", copyright: "") = {
+// the publisher and the section modes. The authors arrive as an input: the build
+// applies the names and exclusions of print.yml to tools/pdf/authors.yml.
+#let imprint(title: "", context-line: "", subtitle: "", generated: "", site-url: "", copyright: "", authors: "") = {
   let config = yaml("print.yml")
   let mode(section) = if type(section) == dictionary { section.at("mode", default: "full") } else { section }
   let shortened = config.at("sections", default: (:)).values().any(section => mode(section) != "full")
-  let authors = yaml("authors.yml").authors.map(author => author.id)
   set text(size: size-small, fill: ec-slate)
   set par(justify: false, leading: 0.6em, spacing: 1.2em)
   let entry(label, body) = block(below: 1.3em, [#text(weight: "bold", label) \ #body])
   v(1fr)
   entry(title)[#context-line, #subtitle \ Print edition, generated #generated]
   entry("Publisher")[#config.publisher.name \ #config.publisher.address.join(linebreak())]
-  entry("Authors")[The contributors to the documentation by their GitHub IDs, most commits first: #authors.join(", ").]
+  entry("Authors")[The contributors to the documentation, most commits first: #authors.]
   // The URL is a string: written as markup, Typst would turn it into a link.
   entry("Licence")[
     This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License,
@@ -306,6 +306,7 @@
   version: "",
   site-url: "",
   copyright: "",
+  authors: "",
   body,
 ) = {
   set document(
@@ -640,7 +641,7 @@
   if print-edition {
     imprint(
       title: title, context-line: context-line, subtitle: subtitle,
-      generated: generated, site-url: site-url, copyright: copyright,
+      generated: generated, site-url: site-url, copyright: copyright, authors: authors,
     )
     pagebreak()
   }

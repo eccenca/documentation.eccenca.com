@@ -38,6 +38,8 @@ import yaml
 from bs4 import BeautifulSoup, NavigableString
 from PIL import Image
 
+from tools.pdf_authors import load_imprint_names
+
 DEFAULT_OUT_STEM = "dist/documentation-eccenca-com"
 SITE_DIR = Path("site")
 NAV_YML = Path("nav.yml")
@@ -1176,6 +1178,16 @@ def build_pdf(
     # call is the one it always was.
     if print_edition:
         inputs["edition"] = "print"
+        # The imprint's authors: the committed list with the names and
+        # exclusions of print.yml applied.
+        names, unnamed = load_imprint_names()
+        if unnamed:
+            print(
+                f"WARNING: the imprint prints {len(unnamed)} authors as their GitHub ID, for want of a name "
+                f"in {PRINT_YML} (authors.names): {', '.join(unnamed)}",
+                file=sys.stderr,
+            )
+        inputs["authors"] = ", ".join(names)
     for key, value in inputs.items():
         command += ["--input", f"{key}={value}"]
     if print_edition and unpadded_pages(command, typ_path) % 2:

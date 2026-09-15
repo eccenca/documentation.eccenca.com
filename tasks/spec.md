@@ -101,11 +101,15 @@ Page 2, verso, no page furniture. Contents:
 
 #### Authors
 
-Rule (D4): GitHub accounts of the contributors to
+Rule (D4, revised 2026-09-15): GitHub accounts of the contributors to
 [eccenca/documentation.eccenca.com](https://github.com/eccenca/documentation.eccenca.com), **most
-commits first**, printed as their **GitHub IDs**. Not listed: anonymous contributions (commits whose
-e-mail maps to no GitHub account), bot accounts and software agents (codex, claude). Ties are ordered by
-ID, case-insensitive.
+commits first**, printed with their **names**: the name in the hand-maintained `authors.names` of
+`tools/pdf/print.yml` - for a profile without a name, or to add a title - else the name the GitHub
+profile shows, else the GitHub ID. Not listed: anonymous contributions (commits whose e-mail maps to no
+GitHub account), bot accounts, software agents (codex, claude) and the IDs in `authors.exclude`, whose
+names are not looked up. Ties are ordered by ID, case-insensitive. `task pdf:authors` adds each author
+that `authors.names` does not list yet, without a name and with the profile's name in a comment, so all
+names are maintained in one place; an entry left empty prints the profile's name.
 
 Measured with `gh api repos/eccenca/documentation.eccenca.com/contributors` on 2026-09-14:
 
@@ -136,6 +140,10 @@ Measured with `gh api repos/eccenca/documentation.eccenca.com/contributors` on 2
 
 Dropped: two anonymous entries (33 and 2 commits).
 
+Names, checked with `gh api users/<id>` on 2026-09-15: 16 of the 22 profiles show a name. `rpietzsch`,
+`annamakor`, `MaximilianWenzel`, `adelahaye-ecc`, `dgrtner-ecc` and `pkgut` show none; they need an entry
+in `authors.names`, or they print as their ID, and the build warns about each.
+
 - **No software agent is in the list today.** Claude's commits carry a `Co-Authored-By` trailer and
   count for the human author; GitHub does not list co-authors as contributors. The exclusion rule
   still belongs in the tooling.
@@ -156,7 +164,7 @@ All made 2026-09-14.
 | D1 | Scope | The print edition reduces sections instead of printing them in full, **configurable per section** as `full`, `list` or `omit`. Default: A.3 Task and Operator Reference → `list`, H Release Notes → `list`, everything else `full` (§5) |
 | D2 | Provider | **BoD** (§2) |
 | D3 | ISBN | none for now; may come later |
-| D4 | Authors | GitHub IDs, most commits first, no anonymous entries, no bots or agents (§3) |
+| D4 | Authors | names, most commits first: from `authors.names` in `print.yml`, else the GitHub profile, else the ID; no anonymous entries, bots, agents or excluded IDs (§3). Revised 2026-09-15 - first decided as GitHub IDs |
 | D5 | Colour and paper | black and white interior on 80 g paper. BoD offers 80 g to publishers only - eccenca GmbH needs a publisher account |
 | D6 | Editions | separate screen and print PDFs. `task pdf` stays the screen edition, unchanged; `task pdf:print` builds the book block, switched by a Typst input (`edition=print`) and a print configuration |
 | D7 | Trim size | A4 |
@@ -347,7 +355,7 @@ the same task, for checking the palette (P11).
 - `task pdf` builds the screen PDF exactly as before: 1680 pages, unchanged look
 - `task pdf:print` builds the book block with the configuration in `tools/pdf/print.yml`
 - page 1 is the title page naming eccenca GmbH as publisher; page 2 is the imprint with the publisher's
-  address and the authors from `tools/pdf/authors.yml`, most commits first
+  address and the authors by name, from `tools/pdf/authors.yml` and `print.yml`, most commits first
 - on every numbered page the page number sits at the outer edge: left on even pages, right on odd
   pages - checked by the preflight report, not by eye
 - title page, imprint, part covers and blank pages carry no header and no footer; text pages carry no

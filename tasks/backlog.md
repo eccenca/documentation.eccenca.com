@@ -10,7 +10,7 @@ Every task names how it is verified. A task is not done until that verification 
 
 ## P0 - Decisions - done
 
-Spec §4, D1-D11: BoD, A4, black and white on 80 g, no ISBN, GitHub IDs as authors, separate screen and
+Spec §4, D1-D11: BoD, A4, black and white on 80 g, no ISBN, authors by name (first GitHub IDs, revised 2026-09-15), separate screen and
 print editions, section modes with A.3 and Release Notes as lists, page references and URL footnotes,
 no logo or version on text pages, 10 pt body, optional Ghostscript normalization.
 
@@ -119,6 +119,21 @@ exclusion of bots, agents and anonymous entries, pagination, file format), `task
 generated `tools/pdf/authors.yml` lists the 22 IDs of spec §3 in the same order and passes yamllint -
 list items are indented, which PyYAML's default dumper does not do.
 
+**Revised 2026-09-15 - names instead of IDs (D4):** `dec-tool pdf-authors` also writes the name each
+GitHub profile shows (`GET /users/<id>`), and skips the IDs in `authors.exclude` of `tools/pdf/print.yml`
+before any lookup. The build applies `authors.names` - for a profile without a name, or to add a title -
+and the exclusions to the committed list (`load_imprint_names`), passes the names to Typst as the
+`authors` input, and warns about each author it still prints as an ID. 16 of the 22 profiles show a
+name; `rpietzsch`, `annamakor`, `MaximilianWenzel`, `adelahaye-ecc`, `dgrtner-ecc` and `pkgut` need an
+entry. Each run also adds the authors `authors.names` does not list yet, without a name and with the
+profile's name in a comment (`prefill_names`); it edits `print.yml` as text, so comments stay, and reads
+it back to check that only those entries changed. A name left empty prints the profile's. First run: all
+22 IDs added; a second run adds none. Requests use GITHUB_TOKEN or GH_TOKEN, else the token of a
+logged-in GitHub CLI; without one GitHub allows 60 requests an hour, and a run takes one per author. A
+failed request - rate limit with its reset time, rejected token, unreachable API - ends the command with
+a message instead of a traceback, before any file is written. `tests/test_pdf_authors.py` has 28 tests:
+rules, exclusion, profile names, the order of names, the prefill, token sources and API failures.
+
 ---
 
 ## P7 - Imprint - **done**
@@ -135,6 +150,9 @@ publisher and address from `tools/pdf/print.yml`, the 22 author IDs, licence and
 edition - with a sentence that the print edition shortens sections whenever `print.yml` lists one as
 `list` or `omit` - and the typesetting. Checked on the rendered page and in its text: the author IDs match
 `authors.yml` in order. The licence URL is set as a string, because Typst links URLs written in markup.
+
+**Revised 2026-09-15:** the imprint prints the authors' names, not their IDs. `imprint()` no longer
+reads `authors.yml`; the build passes the names as the `authors` input (P6).
 
 ---
 

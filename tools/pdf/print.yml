@@ -1,6 +1,7 @@
 ---
 # The print edition of the PDF: `task pdf:print`, see tasks/spec.md.
-# tools/build_pdf.py reads `sections`; tools/pdf/style.typ reads the rest.
+# tools/build_pdf.py reads `sections`, tools/pdf_authors.py `authors`, and
+# tools/pdf/style.typ the rest.
 
 # Printed on the title page and in the imprint.
 publisher:
@@ -9,6 +10,41 @@ publisher:
     - Hainstraße 8
     - 04109 Leipzig
     - Germany
+
+# The imprint's authors. `task pdf:authors` writes tools/pdf/authors.yml from
+# the GitHub contributors, most commits first, with the name each GitHub
+# profile shows. The imprint prints the name given here, else the profile's,
+# else the GitHub ID - the build warns about each author it prints as an ID.
+authors:
+  # GitHub ID: the name to print - for a profile that shows no name, or to add
+  # a title. IDs match case-insensitively. `task pdf:authors` adds each new
+  # author without a name and the profile's name in a comment; an entry left
+  # empty prints the profile's name.
+  names:
+    rpietzsch: René Pietzsch
+    seebi: Dr. Sebastian Tramp
+    irangareddy: Ranga Reddy
+    muddymudskipper: Dr. Thomas Wilmering
+    mgns: Magnus Knuth
+    sobo: Thomas Telleis
+    annamakor: Annamária Koren
+    msaipraneeth:  # GitHub profile: Saipraneeth
+    saradaimi786:  # GitHub profile: syeda sara daimi
+    louiswesterheide: Louis Westerheide
+    robertisele: Dr. Robert Isele
+    spl0tt: Sebastian Plott
+    white-gecko: Dr. Natanael Arndt
+    BorderCloud: Dr. Karima Rafes
+    haschek: Michael Haschke
+    MaximilianWenzel: Maximilian Wenzel
+    tomatophantastico: Jörg Unbehauen
+    adelahaye-ecc: Alexis Delahaye
+    dgrtner-ecc: Denis Gärtner
+    looooph: Istvan Mocsy
+    peterfreytag: Peter Freytag
+    pkgut:  # no name on the GitHub profile
+  # GitHub IDs never to list; `task pdf:authors` does not look up their names.
+  exclude: [msaipraneeth, saradaimi786, pkgut]
 
 # The weight of the body text: light, as on screen, or regular, which prints
 # darker in black and white.

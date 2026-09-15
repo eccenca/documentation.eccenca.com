@@ -210,10 +210,10 @@ tasks:
       imprint, links printed as page references and footnotes, and images
       normalized to 300 ppi without transparency.
 
-      tools/pdf/print.yml configures the edition: the publisher, and how each
-      navigation section is printed (full, list or omit).
-      tools/pdf/authors.yml is the imprint's author list; refresh it with
-      `task pdf:authors`.
+      tools/pdf/print.yml configures the edition: the publisher, the authors'
+      names and exclusions, and how each navigation section is printed (full,
+      list or omit). tools/pdf/authors.yml is the imprint's author list;
+      refresh it with `task pdf:authors`.
 
       Writes dist/documentation-eccenca-com-<ver>-print.pdf; the merged HTML,
       the Typst source and the normalized images stay in dist/pdf/print/. The
@@ -229,9 +229,14 @@ tasks:
     desc: Refresh the author list of the print edition's imprint
     summary: |
       Writes tools/pdf/authors.yml from the GitHub contributors of this
-      repository: most commits first, without anonymous contributions, bot
-      accounts and software agents. Commit the result. Uses GITHUB_TOKEN or
-      GH_TOKEN when set; unauthenticated requests are rate limited.
+      repository and the names their GitHub profiles show: most commits
+      first, without anonymous contributions, bot accounts, software agents
+      and the IDs excluded in tools/pdf/print.yml. Adds each author that
+      print.yml does not list yet to its authors.names, without a name, and
+      warns about each author who would print as a GitHub ID. Commit both
+      files. Uses GITHUB_TOKEN or GH_TOKEN, else the token of a logged-in
+      GitHub CLI (`gh auth login`); without a token GitHub allows 60
+      requests an hour, and a run takes one per author.
     deps:
       - task: install
     cmds:
