@@ -5,7 +5,9 @@
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
 and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
 review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24, of which P19-P23 were implemented
-on 2026-09-15: the print edition has 870 pages.
+on 2026-09-15: the print edition has 870 pages. P13, P14 and P24, and the tooling of P15, followed the same
+day: PDF/X-4 normalization (§7, with the transparency Ghostscript cannot convert rendered to images), the
+preflight report, image widths in the sources and the list of low-resolution originals; 868 pages.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -72,8 +74,8 @@ For comparison, not pursued: Amazon KDP allows 828 pages (black ink on white), L
 
 - Page numbers sit on the **outer edge**: left on even (verso) pages, right on odd (recto) pages.
 - Running titles mirror too, following book convention (the larger unit on the left page):
-  - verso: `1234` at the outer left, `Part A: Build` beside it (revised after the review, §11)
-  - recto: `A.3 Task and Operator Reference` beside `1235` at the outer right
+    - verso: `1234` at the outer left, `Part A: Build` beside it (revised after the review, §11)
+    - recto: `A.3 Task and Operator Reference` beside `1235` at the outer right
 - `| total` is dropped - it has no meaning on paper.
 - No logo and no version stamp on text pages (D9); both stay on the title page and the imprint.
 - Margins become `inside`/`outside` with `binding: left` on A4 (D7). The gutter must grow with the
@@ -246,6 +248,10 @@ About 1,015 pages: within BoD's 1,200 for A4 on 80 g.
 - The front contents start on page 3, recto.
 - Blank pages stay empty - no header, no footer, no page number.
 - The final page count is even.
+- A heading never ends a page with a single line under it. Headings are sticky, which keeps one block with
+  them; a short lead - the intended audience of a section, say - satisfies that and leaves the two of them
+  at the foot of the page. The build therefore makes a lead of at most 200 characters under a heading of
+  level 1 to 4 sticky as well (backlog P25), so both move to where the content starts.
 
 ### Typography
 
@@ -337,7 +343,27 @@ Traps found:
   truncated file - supply the profile only through the prefix file, which reads it with
   `--permit-file-read=<profile>`.
 - Ghostscript ships a generic `default_cmyk.icc`, not FOGRA39. The ISO Coated v2 profile comes from the
-  ECI and has to be downloaded and vendored (with its licence) or fetched in CI.
+  ECI. **Not vendored** (checked 2026-09-15): the ECI only says the profiles may be "freely downloaded",
+  and the profile's own copyright reads "© Heidelberger Druckmaschinen AG. All Rights Reserved". The
+  normalization fetches `ECI_Offset_2009/ISOcoated_v2_eci.icc` from
+  `https://www.eci.org/lib/exe/eci_offset_2009.zip` once, checks its SHA-256
+  (`128dc02f…94b8`) and caches it in the gitignored `dist/icc/`; `--icc-profile` or `PDF_ICC_PROFILE`
+  names a local copy instead, for CI without network access.
+- **Ghostscript 10.08 cannot convert transparency drawn by Typst** (found on the full book block,
+  2026-09-15). Typst writes colour emoji as a Type 3 font whose glyphs carry shadings and soft masks, and
+  embeds SVGs that use opacity or masks with transparency groups and soft masks:
+    - with CMYK conversion, the emoji pages make pdfwrite **segfault** (exit -11) when it closes the file -
+      not on every run, and after all pages, leaving a truncated file
+    - with `-dPDFX=4`, it reports `error executing PDF token`, calls the error repaired, exits 0 and
+      **leaves out** what it could not draw: the ⚠️ emoji, most of the CKAN card icon
+    - `-dNOTRANSPARENCY` avoids the error but ignores the masks: an Excalidraw diagram then prints its
+      arrow through the label
+    - `qpdf --check` finds nothing wrong in the input, and without `-dPDFX` and CMYK the pages convert
+
+  So the print edition hands Ghostscript no transparency (backlog P13): the build renders SVGs that use
+  opacity, masks or filters, and every colour emoji sequence, to PNG on white with Typst, and the style
+  swaps each emoji sequence for its image with a show rule, in code too. The preflight fails on
+  transparency and Type 3 fonts, and the normalization fails on a token error instead of trusting exit 0.
 
 ### Upsampling to 300 dpi
 
@@ -358,9 +384,12 @@ need replacing (P14).
 ### Black and white
 
 The book prints in black and white, but BoD converts RGB itself and the pass is specified as CMYK. A
-greyscale variant (`-sColorConversionStrategy=Gray`, output intent from a grey profile) would show the
-final tones on screen and give smaller files. Keep CMYK as specified; add greyscale as a preview mode of
-the same task, for checking the palette (P11).
+greyscale variant (`-sColorConversionStrategy=Gray`) shows the final tones on screen and gives smaller
+files. Kept CMYK as specified; greyscale is a preview mode of the same pass for checking the palette
+(P11), built on 2026-09-15 as `--gray`: DeviceGray with the same image handling and failure checks. It is
+PDF/X-4 as well (2026-09-16), with the generic grey profile Ghostscript ships, `default_gray.icc`, as its
+output intent - one component instead of four, the condition `sGray`, and no registry, since the
+condition is not a registered one. `--icc-profile` names another grey profile.
 
 ## 8. Acceptance
 
@@ -378,7 +407,9 @@ the same task, for checking the palette (P11).
 - internal links print page references, external links footnotes; the book block has no link annotations
 - page count even and at most 1,200
 - grey areas at least 20 % black; all fonts embedded; no soft masks left
-- every image at 300 ppi or more at its printed size, or listed and accepted
+- every image at 300 ppi or more at its printed size; an original below 150 ppi is listed in
+  `dist/pdf/print/low-resolution.tsv` until it is replaced or accepted under `accepted-low-resolution` in
+  `print.yml`
 - with normalization: the file declares PDF/X-4, carries a FOGRA39 output intent, CMYK images only, no
   image above 300 ppi
 - a page key in `print.yml` drops that page; `omit` leaves no title and no note for a page or a section
@@ -525,7 +556,7 @@ Several blocks - also inside a list item, a content tab or an admonition.
 ## 11. Review of the first print build
 
 **Status:** findings of the pull request review, 2026-09-15, decided the same day as D15-D18 (§4).
-P19-P23 are implemented; P24 and P13 are open.
+P19-P24 and P13 are implemented; P15 keeps 42 images to replace or accept.
 
 | Finding | Today | Proposal | Backlog |
 | :-- | :-- | :-- | :-- |
@@ -534,8 +565,8 @@ P19-P23 are implemented; P24 and P13 are open.
 | The author order should follow the printed content | commits to the whole repository (§3) | commits to the printed pages (D16) | P21 |
 | Facing cards in a two-column grid should be equally high | each card as high as its text | one height per row | P22 |
 | The operator reference should print descriptions and parameters | overview tables, `list` mode (§5) | one compact entry per operator, replacing the overview tables (D17) | P23 |
-| PDF/X-4 and CMYK | specified, not built (§7) | unchanged | P13 |
-| Low-resolution images mostly lack `width` in the Markdown | an image without `width` prints at its declared density | widths computed from pixels and capture density against the full page width, written into the sources (D18) | P24, then P15 |
+| PDF/X-4 and CMYK | specified, not built (§7) | unchanged; done, with transparency rendered to images first | P13 |
+| Low-resolution images mostly lack `width` in the Markdown | an image without `width` prints at its declared density | widths computed from pixels and capture density against the full page width, written into the sources (D18); done, 42 originals stay below 150 ppi | P24, then P15 |
 
 ### Footer: the part label
 

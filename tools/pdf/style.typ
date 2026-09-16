@@ -393,6 +393,12 @@
 // -----------------------------------------------------------------------------
 // The book: title page, contents, then the documentation itself.
 // -----------------------------------------------------------------------------
+// DEVIATION (print): a heading is sticky, so it never ends a page alone - but a
+// one-line lead under it, such as the intended audience, satisfies that and
+// leaves the two of them at the foot of the page. The build wraps such a lead
+// (build_pdf.py, keep_lead_with_heading), and this carries it to the next block.
+#let keep-with-next(body) = block(sticky: true, body)
+
 #let book(
   title: "",
   subtitle: "",
@@ -489,6 +495,17 @@
     // built into Typst instead of printing as an empty box.
     fallback: true,
   )
+  // DEVIATION (print): colour emoji print as images the build renders
+  // (build_pdf.py, emoji_images) - Typst writes their glyphs as a Type 3 font
+  // with shadings and soft masks, which Ghostscript cannot convert to PDF/X-4.
+  // Noto Color Emoji spans 950 + 250 of 1024 units from ascender to descender:
+  // the image is that high and lowered by the descender, where the glyph sits.
+  // The first pair's rule is the innermost, so it wins where sequences overlap.
+  let emoji-images = json(bytes(sys.inputs.at("emoji", default: "[]")))
+  show: body => emoji-images.fold(body, (inner, pair) => {
+    show pair.at(0): box(baseline: 0.244em, image(pair.at(1), height: 1.172em, alt: pair.at(0)))
+    inner
+  })
   show heading: set text(hyphenate: false)
   // DEVIATION (print): the house spacing suits a two-page policy; over a
   // thousand printed pages it costs a tenth of the book (tasks/spec.md, §5).

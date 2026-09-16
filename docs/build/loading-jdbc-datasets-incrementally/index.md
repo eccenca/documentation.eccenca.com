@@ -37,7 +37,7 @@ To extract data from a relational database, you need to first register a **JDBC 
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png){ class="bordered" }
+    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png){ class="bordered" width="45%" }
 
 2. Click **Create** at the top of the page.
 3. In the Create new item window, select Project and click Add. The Create new item of type Project window appears.

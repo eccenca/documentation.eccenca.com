@@ -50,6 +50,11 @@ authors:
 # darker in black and white.
 body-weight: light
 
+# Images below 150 ppi at their printed size that are accepted as they are, by
+# their path under docs/. The print build lists the others in
+# dist/pdf/print/low-resolution.tsv, to replace (backlog P15).
+accepted-low-resolution: []
+
 # How a navigation section or a page is printed, keyed by the docs/ directory
 # its pages live in (ending in /) or by a single page (ending in .md). What is
 # not listed prints in full; keys do not nest.

@@ -89,7 +89,7 @@ Dragging **New input port** onto the canvas creates a port as well.
 Existing ports are listed below that entry.
 Click the **:material-pencil-outline: edit** icon of a port to open the **Edit input port** dialog, or the **:material-delete-outline: delete** icon to remove it:
 
-![The Edit input port dialog](rule-blocks-input-port.png "The Edit input port dialog")
+![The Edit input port dialog](rule-blocks-input-port.png "The Edit input port dialog"){ width="95%" }
 
 **Label**
 :   The name of the port.
@@ -145,7 +145,7 @@ It has one input handle per input port, in the port order defined in the rule bl
 
 Its context menu offers the actions specific to the reference:
 
-![The context menu of a rule block node](rule-blocks-node-menu.png "The context menu of a rule block node")
+![The context menu of a rule block node](rule-blocks-node-menu.png "The context menu of a rule block node"){ width="50%" }
 
 **Clone**
 :   Adds a second reference to the same rule block.

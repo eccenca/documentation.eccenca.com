@@ -1,12 +1,16 @@
 """Test the print edition's section modes - full, list and omit - and its excluded parts of a page"""
+from collections import Counter
+
 import click
 import pytest
+from bs4 import BeautifulSoup
 
 from tools.build_pdf import (
     Generated,
     NavEntry,
     SectionRule,
     apply_section_rules,
+    keep_lead_with_heading,
     load_section_rules,
     md_to_built_html,
     merge_pages,
@@ -355,3 +359,21 @@ def test_a_list_table_summarizes_a_page_by_its_first_paragraph_that_prints(tmp_p
     doc, _, _ = merge_pages([NavEntry(2, generated=table)], site, "https://example.org/26.2/", print_edition=True)
     rows = [[cell.get_text(" ", strip=True) for cell in row.find_all(["th", "td"])] for row in doc.find_all("tr")]
     assert rows == [["Release", "Summary"], ["Corporate Memory 26.2.1", "The second release."]]
+
+
+def test_a_short_lead_line_is_kept_with_its_heading():
+    doc = BeautifulSoup(
+        '<h2 id="a">Reference</h2><p><strong>Intended audience:</strong> Experts</p><div class="cards">cards</div>'
+        f'<h3 id="b">Details</h3><p>{"word " * 60}</p>'
+        '<h4 id="c">A step</h4><p>Short, under a heading the rule still covers.</p>'
+        '<h5 id="d">A small heading</h5><p>Short, but not under one of the larger headings.</p>'
+        "<p>A paragraph that follows no heading.</p>",
+        "html.parser",
+    )
+    stats = Counter()
+    keep_lead_with_heading(doc, stats)
+    assert [div.p.get_text(" ", strip=True) for div in doc.select("div.keep-with-next")] == [
+        "Intended audience: Experts",
+        "Short, under a heading the rule still covers.",
+    ]
+    assert stats["lead lines kept with their heading"] == 2

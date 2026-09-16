@@ -1,6 +1,7 @@
 # Backlog: print-on-demand book block
 
-Work breakdown for [spec.md](spec.md). **Status 2026-09-15: P0-P12 done and verified, P13-P17 open.**
+Work breakdown for [spec.md](spec.md). **Status 2026-09-15: P0-P14 and P18-P24 done and verified; P15 has its tooling and
+42 images to replace or accept; P16 and P17 open.**
 
 The previous content of this file (the temporary tag-listing renderer) is in the git history.
 
@@ -246,7 +247,7 @@ edition; the preflight measures the lightest fill.
 
 **Done 2026-09-15:** in print, text and alarm accents are black, the orange a dark grey, the peach bands
 20 % black; code, code spans and admonitions have no ground - a thin frame marks a code block, the bar on
-the left an admonition. The greyscale preview of P13 does not exist yet, so Ghostscript's `pnggray`
+the left an admonition. The greyscale preview of P13 did not exist then (it does now: `--gray`), so Ghostscript's `pnggray`
 rendered all 962 pages instead: on the 610 pages without images no area is lighter than 20 % black, and
 the bands measure 204 (20 % black) on 36 pages. The part diagrams' red frames are part of their images and
 stay visible as a dark frame on the covers.
@@ -282,7 +283,33 @@ copies in `dist/pdf/print/images/`. The PDF grows from 72 to 165 MB with the los
 
 ---
 
-## P13 - Normalization pass (optional)
+## P13 - Normalization pass (optional) - **done**
+
+Done 2026-09-15: `dec-tool pdf-normalize` (`tools/pdf_normalize.py`), run by `task pdf:print -- --normalize`
+or PDF_NORMALIZE=1, writes `…-print-x4.pdf`. Refinements:
+
+- **Profile not vendored:** its copyright reads "All Rights Reserved" (spec §7). It is fetched from the ECI
+  into `dist/icc/` with a SHA-256 check; `--icc-profile` / PDF_ICC_PROFILE name a copy.
+- **No prefix file in the repository:** the pdfmark prefix is generated with the title and the profile's path.
+- **Transparency first:** Ghostscript 10.08 segfaults on Typst's colour emoji and leaves out transparent
+  SVG content (spec §7). The print edition therefore renders the 5 transparent SVGs and the 10 emoji sequences
+  to PNG with Typst; the style swaps emoji by show rule, in code too. The screen PDF is verified unchanged.
+- **Failures are loud:** the run fails on a non-zero exit, on `error executing PDF token` and on a missing
+  PDF/X marker, and deletes the output.
+- **Checked twice:** the build runs the preflight (P14) on the book block before Ghostscript, and on the
+  PDF/X-4 copy with `--pdfx` after.
+- **Greyscale preview:** `task pdf:print -- --gray` (PDF_GRAY=1; `dec-tool pdf-normalize --gray` for an
+  existing PDF) writes `…-print-gray-x4.pdf`. It is the same pass in DeviceGray, and it serves as a screen
+  check of the black-and-white print for P11. It combines with `--normalize`. Verified on the 868-page
+  book block: 181 s, 59 MB, all 556 images grey, A4 unchanged. Since 2026-09-16 it is PDF/X-4 as well,
+  by the generic `default_gray.icc` of Ghostscript (condition `sGray`, one component, no registry).
+  Verified on the 872-page book: 176 s, 57 MB, the marker and a one-component intent, all 556 images grey,
+  and `dec-tool pdf-preflight --pdfx --intent sGray` passes; four unit tests.
+
+Verified on the full book block: 868 pages, Ghostscript 218 s, 175 MB; the preflight passes with
+`--pdfx`: PDF/X-4 marker, FOGRA39 intent, 556 images all CMYK and none above 300 ppi, fonts embedded, no
+Type 3 font, no transparency, no annotations. Rendered pages 26 (card icons), 472 (Excalidraw diagram)
+and 662 (emoji) match the RGB file. 9 unit tests, 5 more for the rendered emoji and SVGs.
 
 `dec-tool pdf-normalize <pdf>` (run by `task pdf:print` with `--normalize` / `PDF_NORMALIZE=1`), spec §7:
 
@@ -304,7 +331,18 @@ unchanged; render sample pages before and after and compare.
 
 ---
 
-## P14 - Preflight report
+## P14 - Preflight report - **done**
+
+Done 2026-09-15: `dec-tool pdf-preflight <pdf> [--pdfx] [--max-pages]` (`tools/pdf_preflight.py`). Page
+sizes, annotations and fill colours come from pypdf, fonts, images and word boxes from poppler's
+`pdffonts`, `pdfimages -list` and `pdftotext -bbox`. Light areas are a **warning** that does not fail the
+run - artwork and emoji carry light fills too; every other check is an error. With `--pdfx` it also
+requires the PDF/X-4 marker, a FOGRA39 output intent and CMYK or grey images at most 300 ppi.
+`build-pdf --edition print` runs it on its final file, the normalized one when P13 ran, and fails on an
+error after writing the PDF. Verified: 9 unit tests; the print book block (868 pages) passes every check
+in 7 s; the screen PDF fails as it should - 778 pages with annotations, 840 page numbers on the inner
+edge, soft masks, light fills. Refinement: a fill of exactly 20 % black (`0.8 g`, 0.19999… in floating
+point) counts as passing - the first run reported it on 102 pages.
 
 `dec-tool pdf-preflight <pdf>`: A4 page size, page count at most 1,200 and even, fonts embedded, images
 below 300 ppi, soft masks, lightest fill below 20 % black, page-number position (P3's check), blank
@@ -324,6 +362,13 @@ with a fresh screenshot, or accept it in spec §8.
 
 **Verify:** every entry replaced or accepted.
 **Est:** medium, mostly content. **Depends on:** P12, P24.
+
+Tooling done 2026-09-15: the print build collects every original below 150 ppi at its printed size
+(`resolve_images(..., low_resolution)`), leaves out those listed under `accepted-low-resolution` in
+`tools/pdf/print.yml`, writes the rest lowest first to `dist/pdf/print/low-resolution.tsv` and prints
+their count. Accepting moved from spec §8 to `print.yml`, next to the other print settings. **Open, content
+work:** 42 images, 85-149 ppi, most in `consume/populate-data-to-neo4j` (8), `explore-and-author/bke-module`
+(5) and `distribution/marketplace` (4).
 
 ---
 
@@ -534,7 +579,15 @@ with more than 20 parameters.
 
 ---
 
-## P24 - Image widths in the sources
+## P24 - Image widths in the sources - **done**
+
+Done 2026-09-15: `dec-tool image-widths` (`tools/image_widths.py`) checks without `--fix` and fails when
+an image lacks a width. Refinement: an image at 100 % or wider gets **no** width - the column caps it in
+print anyway, and 456 such images would otherwise have been pinned to the article width on the site,
+upscaling the narrower ones there. `--fix` wrote 24 widths into 14 pages (20 % to 95 %), 10 of them on
+the IDS/OSINT tutorial, which the print edition omits; rumdl clean. Below 150 ppi in the print edition:
+43 before, 42 after - an image without a declared density now prints at 96 instead of 72 ppi, still
+below 150, so P15 keeps its list. `task check` does not run the check yet. 15 unit tests.
 
 Spec §11, D18. `dec-tool image-widths --check|--fix` writes `{ width="NN%" }` for raster images without a
 width in pages that are not generated: the pixel width divided by the capture scale and by the full page
@@ -547,6 +600,26 @@ image in a page that is not generated lacks a width; spot checks of the changed 
 the print edition; the count below 150 ppi in the print edition before and after - no image prints less
 sharply than before.
 **Est:** medium, touches many pages. **Depends on:** nothing. P15 follows it.
+
+---
+
+## P25 - A heading with a single line at the foot of a page - **done**
+
+Review finding of 2026-09-16: A.3 Task and Operator Reference sat at the foot of page 29 with its
+intended-audience line under it, and the section started on the next page. A heading is sticky, so it is
+never last on a page - but a one-line lead satisfies that, and the break falls after the line.
+
+Done the same day: `keep_lead_with_heading` in `tools/build_pdf.py` (print edition only) wraps a paragraph
+that directly follows a heading of level 1 to 4 and is at most 200 characters long in
+`div.keep-with-next`; `filter.lua` maps it to `keep-with-next` in `style.typ`, a sticky block, so the lead
+carries heading and line to the block that follows. Levels 5 and 6 are left out: they are the operator
+entries, which have their own sticky field blocks.
+
+**Verified:** 304 lead lines wrapped; A.3 now starts a page with its content; across the book, headings
+with at most one line under them at a page foot fall from 23 to 6, and the book grows from 868 to 872
+pages. Measured against levels 1 to 3 alone, which leaves 17 of them at 868 pages: the four pages buy
+eleven fewer stranded headings, and one new one appears (B.2.2.6). `LEAD_HEADINGS` is the one place to
+change if the shorter book matters more. The screen edition does not run the step. One unit test.
 
 ---
 

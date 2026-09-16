@@ -218,12 +218,23 @@ tasks:
       Writes dist/documentation-eccenca-com-<ver>-print.pdf; the merged HTML,
       the Typst source and the normalized images stay in dist/pdf/print/. The
       screen PDF of `task pdf` is not affected.
+
+      The build lists images below 150 ppi at their printed size in
+      dist/pdf/print/low-resolution.tsv and runs the preflight report
+      (`dec-tool pdf-preflight`), failing on an error. `task pdf:print --
+      --normalize` (or PDF_NORMALIZE=1) also writes a PDF/X-4 copy in CMYK
+      with Ghostscript, -print-x4.pdf, and checks that one; the ISO Coated v2
+      profile is fetched from the ECI into dist/icc/ unless PDF_ICC_PROFILE
+      names one. `task pdf:print -- --gray` (or PDF_GRAY=1) writes a
+      greyscale preview, -print-gray-x4.pdf, to check on screen how the book
+      prints in black and white; it is PDF/X-4 by the grey profile Ghostscript
+      ships, and the two flags combine.
     deps:
       - task: build
     env:
       BUILD_VERSION: '{{.CURRENT_VERSION}}'
     cmds:
-      - poetry run dec-tool build-pdf --edition print
+      - poetry run dec-tool build-pdf --edition print {{.CLI_ARGS}}
 
   pdf:authors:
     desc: Refresh the author list of the print edition's imprint

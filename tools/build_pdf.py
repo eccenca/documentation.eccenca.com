@@ -25,6 +25,7 @@ import io
 import json
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import time
@@ -32,6 +33,7 @@ import urllib.parse
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import date
+from functools import lru_cache
 from pathlib import Path
 
 import click
@@ -41,6 +43,8 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 from PIL import Image
 
 from tools.pdf_authors import load_imprint_names
+from tools.pdf_normalize import ensure_profile, gray_path, gray_preview, normalize as normalize_pdf, normalized_path
+from tools.pdf_preflight import print_report, run_preflight
 
 DEFAULT_OUT_STEM = "dist/documentation-eccenca-com"
 SITE_DIR = Path("site")
@@ -114,6 +118,21 @@ OPERATOR_SECTIONS_LEFT_OUT = {"examples", "example", "parameter", "parameters", 
 # 300 dpi at their printed size (tasks/spec.md, §2).
 TEXT_WIDTH_PT = 16 / 2.54 * 72
 PRINT_PPI = 300
+# Originals below this density at their printed size need replacing or accepting (backlog P15).
+LOW_RESOLUTION_PPI = 150
+# Colour emoji in the print edition: rendered as images from the vendored font,
+# for text the body font does not cover.
+EMOJI_FONT = PDF_ASSETS / "fonts" / "noto-color-emoji" / "Noto-COLRv1.ttf"
+TEXT_FONT = PDF_ASSETS / "fonts" / "roboto" / "Roboto-Light.ttf"
+# What the print edition renders to PNG with Typst: colour emoji and SVGs that
+# draw with transparency - opacity, masks, filters, translucent colours.
+RENDER_PPI = 600
+MAX_RENDER_WIDTH = round(16 / 2.54 * RENDER_PPI)
+SVG_TRANSPARENCY = re.compile(r"opacity|<mask|<filter|rgba\(|hsla\(", re.IGNORECASE)
+# A short line under one of the larger headings - the intended audience, say -
+# is carried to the next page with it (print edition).
+LEAD_HEADINGS = ("h1", "h2", "h3", "h4")
+LEAD_MAX_CHARS = 200
 
 
 @dataclass
@@ -1276,8 +1295,36 @@ def print_image(source: Path, width: str | None, cache_dir: Path) -> Path:
     return target
 
 
+def printed_density(source: Path, width: str | None) -> int:
+    """An original image's pixel density at the width the print edition prints it, in ppi."""
+    with Image.open(source) as image:
+        return round(image.width / (printed_width_pt(image, width) / 72))
+
+
+def load_accepted_low_resolution(path: Path = PRINT_YML) -> set[str]:
+    """The low-resolution originals print.yml accepts as they are, by their path under docs/ (backlog P15)."""
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    accepted = data.get("accepted-low-resolution") or []
+    if not isinstance(accepted, list) or not all(isinstance(image, str) for image in accepted):
+        raise click.ClickException(f"{path}: accepted-low-resolution is a list of image paths under docs/")
+    return set(accepted)
+
+
+def unaccepted_low_resolution(low_resolution: dict[str, int], accepted: set[str]) -> list[tuple[str, int]]:
+    """The low-resolution originals that are not accepted, lowest density first."""
+    return sorted(
+        ((image, ppi) for image, ppi in low_resolution.items() if image not in accepted),
+        key=lambda item: (item[1], item[0]),
+    )
+
+
 def resolve_images(
-    doc: BeautifulSoup, site_dir: Path, stats: Counter, warnings: list[str], print_images: Path | None = None
+    doc: BeautifulSoup,
+    site_dir: Path,
+    stats: Counter,
+    warnings: list[str],
+    print_images: Path | None = None,
+    low_resolution: dict[str, int] | None = None,
 ) -> None:
     """Point images at the files Typst embeds, and replace what it cannot embed.
 
@@ -1286,7 +1333,9 @@ def resolve_images(
     become their alt text: the build does not fetch from the network. An SVG
     that keeps its text in foreignObject elements, as Mermaid does by default,
     renders without that text in Typst, so it is reported. With `print_images`,
-    raster images point at their print copies in that directory (`print_image`).
+    raster images point at their print copies in that directory (`print_image`),
+    and `low_resolution` collects the originals below 150 ppi at their printed
+    size, by their path under docs/, at their lowest density.
     """
     for lightbox in doc.select("a.glightbox"):
         lightbox.unwrap()
@@ -1314,6 +1363,11 @@ def resolve_images(
         if path.suffix.lower() == ".svg" and "<foreignObject" in path.read_text(encoding="utf-8", errors="ignore"):
             warnings.append(f"SVG text in foreignObject elements does not render, embed a PNG instead: {src}")
         if print_images is not None and path.suffix.lower() != ".svg":
+            if low_resolution is not None:
+                density = printed_density(path, img.get("width"))
+                if density < LOW_RESOLUTION_PPI:
+                    source = urllib.parse.unquote(src.split("#")[0].split("?")[0]).lstrip("/")
+                    low_resolution[source] = min(density, low_resolution.get(source, density))
             img["src"] = typst_path(print_image(path, img.get("width"), print_images))
             stats["images normalized for print"] += 1
         else:
@@ -1364,7 +1418,209 @@ def settle_internal_links(doc: BeautifulSoup, stats: Counter) -> None:
         section.unwrap()
 
 
-def normalize(doc: BeautifulSoup, site_dir: Path, print_images: Path | None = None) -> tuple[Counter, list[str]]:
+def font_codepoints(path: Path) -> set[int]:
+    """The code points a TrueType font maps to a glyph, read from its Windows cmap subtable (format 12 or 4)."""
+    data = path.read_bytes()
+    tables = {}
+    for index in range(struct.unpack(">H", data[4:6])[0]):
+        entry = 12 + 16 * index
+        tables[data[entry:entry + 4]] = struct.unpack(">I", data[entry + 8:entry + 12])[0]
+    cmap = tables[b"cmap"]
+    subtables = {}
+    for index in range(struct.unpack(">H", data[cmap + 2:cmap + 4])[0]):
+        platform, encoding, offset = struct.unpack(">HHI", data[cmap + 4 + 8 * index:cmap + 12 + 8 * index])
+        subtables[(platform, encoding)] = cmap + offset
+    codepoints: set[int] = set()
+    table = subtables.get((3, 10))
+    if table is not None and struct.unpack(">H", data[table:table + 2])[0] == 12:
+        for group in range(struct.unpack(">I", data[table + 12:table + 16])[0]):
+            start, end, _ = struct.unpack(">III", data[table + 16 + 12 * group:table + 28 + 12 * group])
+            codepoints.update(range(start, end + 1))
+        return codepoints
+    table = subtables[(3, 1)]
+    segments = struct.unpack(">H", data[table + 6:table + 8])[0] // 2
+    ends = struct.unpack(f">{segments}H", data[table + 14:table + 14 + 2 * segments])
+    starts_at = table + 16 + 2 * segments
+    starts = struct.unpack(f">{segments}H", data[starts_at:starts_at + 2 * segments])
+    deltas = struct.unpack(f">{segments}h", data[starts_at + 2 * segments:starts_at + 4 * segments])
+    offsets_at = starts_at + 4 * segments
+    offsets = struct.unpack(f">{segments}H", data[offsets_at:offsets_at + 2 * segments])
+    for segment, (start, end, delta, offset) in enumerate(zip(starts, ends, deltas, offsets)):
+        for code in range(start, min(end, 0xFFFE) + 1):
+            if offset == 0:
+                glyph = (code + delta) & 0xFFFF
+            else:
+                position = offsets_at + 2 * segment + offset + 2 * (code - start)
+                glyph = struct.unpack(">H", data[position:position + 2])[0]
+                glyph = (glyph + delta) & 0xFFFF if glyph else 0
+            if glyph:
+                codepoints.add(code)
+    return codepoints
+
+
+@lru_cache(maxsize=None)
+def emoji_pattern(emoji_font: Path = EMOJI_FONT, text_font: Path = TEXT_FONT) -> re.Pattern:
+    """Emoji the text font leaves to the emoji font: a flag, or a base emoji with its variation selector,
+    skin tone and zero-width joins."""
+    modifiers = {0xFE0F, 0x200D, 0x20E3, *range(0x1F3FB, 0x1F400), *range(0xE0020, 0xE0080)}
+    codes = sorted(font_codepoints(emoji_font) - font_codepoints(text_font) - modifiers)
+    ranges: list[list[int]] = []
+    for code in codes:
+        if ranges and code == ranges[-1][1] + 1:
+            ranges[-1][1] = code
+        else:
+            ranges.append([code, code])
+    base = "[" + "".join(
+        re.escape(chr(start)) if start == end else f"{re.escape(chr(start))}-{re.escape(chr(end))}"
+        for start, end in ranges
+    ) + "]"
+    modifier = "[️\U0001F3FB-\U0001F3FF]*"
+    return re.compile(f"[\U0001F1E6-\U0001F1FF]{{2}}|{base}{modifier}(?:‍{base}{modifier})*")
+
+
+def typst_png(pages: list[str], targets: list[Path], typst: str, preamble: str, what: str) -> None:
+    """Render Typst markup to PNG, a page each, on white at 600 ppi, and save each page without alpha.
+
+    Each page is as large as its content. A copy that would be wider than the
+    text column at 600 ppi is scaled down and declares a lower density, so it
+    keeps the size Typst prints it at.
+    """
+    work = targets[0].parent
+    work.mkdir(parents=True, exist_ok=True)
+    source = work / "render.typ"
+    source.write_text(
+        "#set page(width: auto, height: auto, margin: 0pt, fill: white)\n" + preamble
+        + "\n#pagebreak()\n".join(pages) + "\n",
+        encoding="utf-8",
+    )
+    run(
+        [
+            # An unknown font is only a warning to Typst, so the fonts are found from this module, not the
+            # working directory.
+            typst, "compile", "--root", ".", "--ignore-system-fonts",
+            "--font-path", str(Path(__file__).resolve().parent / "pdf" / "fonts"),
+            "--format", "png", "--ppi", str(RENDER_PPI), str(source), str(work / "page-{p}.png"),
+        ],
+        what,
+    )
+    for number, target in enumerate(targets, 1):
+        page = work / f"page-{number}.png"
+        with Image.open(page) as image:
+            flat = image.convert("RGB")
+            density = RENDER_PPI
+            if flat.width > MAX_RENDER_WIDTH:
+                density = RENDER_PPI * MAX_RENDER_WIDTH / flat.width
+                height = max(1, round(flat.height * MAX_RENDER_WIDTH / flat.width))
+                flat = flat.resize((MAX_RENDER_WIDTH, height), Image.Resampling.LANCZOS)
+            flat.save(target, "PNG", dpi=(density, density))
+        page.unlink()
+
+
+def render_emoji(sequences: list[str], targets: list[Path], typst: str) -> None:
+    """Render emoji with Typst, which draws the COLRv1 glyphs: 10 pt, from the font's ascender to its descender."""
+    typst_png(
+        sequences, targets, typst,
+        '#set text(font: "Noto Color Emoji", size: 10pt, top-edge: "ascender", bottom-edge: "descender")\n',
+        "typst (emoji)",
+    )
+
+
+def emoji_images(
+    doc: BeautifulSoup, emoji_dir: Path, typst: str, stats: Counter, render=render_emoji
+) -> list[list[str]]:
+    """Render the colour emoji of the document as images, for the style to print instead (print edition).
+
+    Typst writes colour emoji as a Type 3 font whose glyphs carry shadings and
+    soft masks: transparency in the book block, and content Ghostscript 10.08
+    drops or crashes on when it converts the book to CMYK (P13). The style swaps
+    each sequence for its image with a show rule, so emoji in code and headings
+    print as images too. Returns (sequence, image) pairs, the longest sequence
+    first: the style gives the first pair precedence where sequences overlap.
+    """
+    pattern = emoji_pattern()
+    sequences = {
+        match.group(0)
+        for node in doc.find_all(string=pattern)
+        if type(node) is NavigableString and not any(parent.name in ("script", "style") for parent in node.parents)
+        for match in pattern.finditer(node)
+    }
+    if not sequences:
+        return []
+    ordered = sorted(sequences, key=lambda sequence: (-len(sequence), sequence))
+    targets = [emoji_dir / ("-".join(f"{ord(char):x}" for char in sequence) + ".png") for sequence in ordered]
+    render(ordered, targets, typst)
+    stats["emoji rendered as images"] += len(ordered)
+    return [[sequence, typst_path(target)] for sequence, target in zip(ordered, targets)]
+
+
+def keep_lead_with_heading(doc: BeautifulSoup, stats: Counter) -> None:
+    """Keep a short lead paragraph with its heading and what follows it (print edition).
+
+    A heading is sticky, so it is never the last thing on a page - but a one-line
+    lead under it, such as the intended audience of a section, satisfies that and
+    the break falls after the line, leaving heading and line alone at the foot of
+    the page. A sticky lead carries both to where the section's content starts.
+    """
+    for paragraph in doc.find_all("p"):
+        previous = paragraph.find_previous_sibling()
+        if previous is None or previous.name not in LEAD_HEADINGS:
+            continue
+        if len(paragraph.get_text(" ", strip=True)) > LEAD_MAX_CHARS:
+            continue
+        paragraph.wrap(doc.new_tag("div", attrs={"class": "keep-with-next"}))
+        stats["lead lines kept with their heading"] += 1
+
+
+def rasterize_transparent_svgs(
+    doc: BeautifulSoup, svg_dir: Path, typst: str, stats: Counter, render=typst_png
+) -> None:
+    """Render SVG images that draw with transparency as PNG on white, at their natural size (print edition).
+
+    Typst embeds such an SVG with transparency groups and soft masks, which
+    Ghostscript 10.08 draws incompletely when it writes PDF/X-4 (P13); telling it
+    to ignore transparency instead strikes arrows through the labels of an
+    Excalidraw diagram. Icons arrive as data URIs, other SVGs as files.
+    """
+    found: list[tuple[Tag, Path]] = []
+    for img in doc.find_all("img"):
+        src = img.get("src", "")
+        if src.startswith("data:image/svg+xml;base64,"):
+            markup = base64.b64decode(src.split(",", 1)[1])
+            if not SVG_TRANSPARENCY.search(markup.decode("utf-8", errors="ignore")):
+                continue
+            source = svg_dir / f"{hashlib.sha256(markup).hexdigest()[:16]}.svg"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_bytes(markup)
+        elif src.startswith("/") and src.lower().endswith(".svg"):
+            source = Path(src.lstrip("/"))
+            if not source.is_file() or not SVG_TRANSPARENCY.search(source.read_text(encoding="utf-8", errors="ignore")):
+                continue
+        else:
+            continue
+        found.append((img, source))
+    if not found:
+        return
+    sources = sorted({source for _, source in found})
+    targets = {
+        source: svg_dir / f"{source.stem}-{hashlib.sha256(str(source).encode()).hexdigest()[:8]}.png"
+        for source in sources
+    }
+    render(
+        [f'#image("{typst_path(source)}")' for source in sources],
+        [targets[source] for source in sources],
+        typst, "", "typst (SVG)",
+    )
+    for img, source in found:
+        img["src"] = typst_path(targets[source])
+        stats["SVG images with transparency rendered as PNG"] += 1
+
+
+def normalize(
+    doc: BeautifulSoup,
+    site_dir: Path,
+    print_images: Path | None = None,
+    low_resolution: dict[str, int] | None = None,
+) -> tuple[Counter, list[str]]:
     """Rewrite the merged document into elements pandoc's HTML reader understands.
 
     Returns counts of what was rewritten and warnings about content the PDF
@@ -1377,7 +1633,7 @@ def normalize(doc: BeautifulSoup, site_dir: Path, print_images: Path | None = No
     pair_tabs(doc, stats)
     mark_cards(doc, stats)
     inline_icons(doc, stats)
-    resolve_images(doc, site_dir, stats, warnings, print_images)
+    resolve_images(doc, site_dir, stats, warnings, print_images, low_resolution)
     embedded_media_to_links(doc, stats)
     settle_internal_links(doc, stats)
     return stats, warnings
@@ -1493,12 +1749,33 @@ def unpadded_pages(compile_command: list[str], typ_path: Path) -> int:
     help="Which Typst binary typesets the PDF?",
     show_default=True,
 )
+@click.option(
+    "--normalize", "normalize_output",
+    is_flag=True,
+    envvar="PDF_NORMALIZE",
+    help="Also write a PDF/X-4 copy in CMYK with Ghostscript, and check that one? Print edition only.",
+)
+@click.option(
+    "--gray", "gray_output",
+    is_flag=True,
+    envvar="PDF_GRAY",
+    help="Also write a greyscale preview with Ghostscript, to see the black-and-white print on screen? "
+    "Print edition only.",
+)
 def build_pdf(
-    build_version: str, edition_name: str, output_file: str | None, pandoc_binary: str, typst_binary: str
+    build_version: str,
+    edition_name: str,
+    output_file: str | None,
+    pandoc_binary: str,
+    typst_binary: str,
+    normalize_output: bool,
+    gray_output: bool,
 ) -> None:
     """Build a single PDF of the whole site with pandoc and Typst."""
     version = build_version.strip() or "dev"
     print_edition = edition_name == "print"
+    if (normalize_output or gray_output) and not print_edition:
+        raise click.ClickException("--normalize and --gray belong to the print edition - add --edition print")
     suffix = "-print" if print_edition else ""
     out = Path(output_file or f"{DEFAULT_OUT_STEM}-{version.replace('.', '-')}{suffix}.pdf")
     # The print edition merges and normalizes differently, so its intermediate
@@ -1549,12 +1826,29 @@ def build_pdf(
         print(f"Print edition: {count} {'part' if count == 1 else 'parts'} of {md} left out")
     print(f"Merged {pages} pages and {headings} section headings along {NAV_YML}")
 
-    stats, warnings = normalize(doc, SITE_DIR, work_dir / "images" if print_edition else None)
+    low_resolution: dict[str, int] = {}
+    stats, warnings = normalize(doc, SITE_DIR, work_dir / "images" if print_edition else None, low_resolution)
+    emoji: list[list[str]] = []
+    if print_edition:
+        keep_lead_with_heading(doc, stats)
+        # Transparency Ghostscript cannot convert to PDF/X-4 becomes images (P13).
+        rasterize_transparent_svgs(doc, work_dir / "svg", typst, stats)
+        emoji = emoji_images(doc, work_dir / "emoji", typst, stats)
     for warning in warnings:
         print(f"WARNING: {warning}", file=sys.stderr)
     print("Normalized " + ", ".join(f"{count} {what}" for what, count in sorted(stats.items())))
 
     work_dir.mkdir(parents=True, exist_ok=True)
+    if print_edition:
+        # The originals to replace or accept (backlog P15).
+        unaccepted = unaccepted_low_resolution(low_resolution, load_accepted_low_resolution())
+        report = work_dir / "low-resolution.tsv"
+        report.write_text("ppi\timage\n" + "".join(f"{ppi}\t{image}\n" for image, ppi in unaccepted), encoding="utf-8")
+        if unaccepted:
+            print(
+                f"Print edition: {len(unaccepted)} images below {LOW_RESOLUTION_PPI} ppi at their printed size, "
+                f"listed in {report} - replace them, or accept them in {PRINT_YML}"
+            )
     html_path = work_dir / "book.html"
     typ_path = work_dir / "book.typ"
     html_path.write_text(str(doc), encoding="utf-8")
@@ -1589,6 +1883,7 @@ def build_pdf(
                 file=sys.stderr,
             )
         inputs["authors"] = ", ".join(names)
+        inputs["emoji"] = json.dumps(emoji)
     for key, value in inputs.items():
         command += ["--input", f"{key}={value}"]
     if print_edition and unpadded_pages(command, typ_path) % 2:
@@ -1597,3 +1892,16 @@ def build_pdf(
     run(command + [str(typ_path), str(out)], "typst")
 
     print(f"PDF written to {out} ({out.stat().st_size // 1024} KB)")
+
+    # The book block is checked before Ghostscript runs for minutes on it, and the
+    # PDF/X-4 copy again for what the conversion must deliver.
+    if print_edition and not print_report(out, run_preflight(out)):
+        raise click.ClickException(f"preflight found errors in {out} - it is written, but not ready for print")
+    if normalize_output:
+        final = normalize_pdf(out, normalized_path(out), ensure_profile(), title=f"{BOOK_TITLE} - {BOOK_CONTEXT}")
+        print(f"PDF/X-4 written to {final} ({final.stat().st_size // 1024} KB)")
+        if not print_report(final, run_preflight(final, pdfx=True)):
+            raise click.ClickException(f"preflight found errors in {final} - it is written, but not ready for print")
+    if gray_output:
+        preview = gray_preview(out, gray_path(out), title=f"{BOOK_TITLE} - {BOOK_CONTEXT}")
+        print(f"Greyscale preview written to {preview} ({preview.stat().st_size // 1024} KB)")

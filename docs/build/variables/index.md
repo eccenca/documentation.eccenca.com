@@ -225,7 +225,7 @@ Select the `project.email_ids` and include the double curly brackets at last.
 
 Same as above, add the variable click on :eccenca-item-add-artefact: and type name as `password`, value as `xmhnjnnjkmnlbbhbvfhnbjkm` and in the description `Gmail account password` as shown below then click on **Add**.
 
-![](di-var-password-definition.png){ class="bordered" }
+![](di-var-password-definition.png){ class="bordered" width="95%" }
 
 !!! success "Step Result"
 

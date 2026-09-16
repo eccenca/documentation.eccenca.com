@@ -41,6 +41,10 @@ function Div(el)
     return raw('#chapter-break()')
   elseif c:includes('part-contents') then
     return raw('#part-contents()')
+  elseif c:includes('keep-with-next') then
+    -- A short lead line under a heading: it stays with the block after it, so
+    -- heading and line do not sit alone at the foot of a page.
+    return wrap('#keep-with-next[', el.content, ']')
   elseif c:includes('operator-fields') then
     return wrap('#operator-fields[', el.content, ']')
   elseif c:includes('part-end') then

@@ -55,7 +55,7 @@ The **Clear Dataset** operator empties the dataset connected to its output befor
 
 Place the Clear Dataset operator in the workflow and connect its output to the dataset that should be cleared. The operator takes no data inputs; connect it using a **dependency connection** from the upstream node that must complete first, or leave it unconnected if the dataset should be cleared before any subsequent nodes execute.
 
-![Clear Datasets](wf-clear-datasets.png)
+![Clear Datasets](wf-clear-datasets.png){ width="90%" }
 
 Some datasets historically provided their own clear attributes (e.g., `Clear graph before workflow execution` on the Knowledge Graph dataset). These per-dataset attributes are **deprecated** and should no longer be used. Use the Clear Dataset operator instead, which works uniformly across all dataset types.
 
