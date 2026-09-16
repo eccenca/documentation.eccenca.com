@@ -14,6 +14,8 @@ from tools.pdf_normalize import (
     ensure_gray_profile,
     fetch_profile,
     ghostscript_command,
+    ghostscript_is_tested,
+    ghostscript_writes_pdfx4,
     gray_command,
     gray_path,
     gray_preview,
@@ -68,6 +70,26 @@ def test_each_output_is_named_after_what_it_is():
     book = Path("dist/documentation-eccenca-com-26-2-print.pdf")
     assert normalized_path(book).name == "documentation-eccenca-com-26-2-print-x4.pdf"
     assert gray_path(book).name == "documentation-eccenca-com-26-2-print-gray-x4.pdf"
+
+
+@pytest.mark.parametrize(
+    "version, writes_pdfx4, tested",
+    [
+        ("10.08.0", True, True),
+        ("10.10.0", True, True),
+        ("11.0.0", True, True),
+        ("10.07.1", True, False),   # writes PDF/X-4, but is not the verified release
+        ("10.03.0", True, False),
+        ("10.02.1", False, False),  # -dPDFX is a boolean here
+        ("GPL Ghostscript 10.02.1 (2023-11-01)", False, False),
+        ("9.55.0", False, False),
+        ("", True, True),           # an unknown version says nothing
+        ("Page 1\nPage 2", True, True),  # nor does a wrapper that answers with something of its own
+    ],
+)
+def test_the_ghostscript_version_is_judged_by_what_it_can_do(version, writes_pdfx4, tested):
+    assert ghostscript_writes_pdfx4(version) is writes_pdfx4
+    assert ghostscript_is_tested(version) is tested
 
 
 def test_the_grey_profile_can_be_named_by_the_environment(tmp_path, monkeypatch):

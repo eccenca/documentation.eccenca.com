@@ -345,6 +345,11 @@ Traps found:
 - `-sOutputICCProfile` with `-dPDFX` crashes the PDF interpreter (`/undefined in --runpdf--`) and leaves a
   truncated file - supply the profile only through the prefix file, which reads it with
   `--permit-file-read=<profile>`.
+- **PDF/X-4 needs Ghostscript 10.03 or newer.** Before that, pdfwrite declares `PDFX` a boolean
+  (`gs_param_type_bool` in `devices/vector/gdevpdfp.c`), so the 4 of `-dPDFX=4` raises
+  `/typecheck in --pdfmark--` while the prefix runs. Ubuntu 24.04 ships 10.02 and cannot write PDF/X-4 at
+  all; its own `PDFX_def.ps` only ever writes `PDF/X-3:2002`. The build says so before it starts, and CI
+  runs Ghostscript from a container instead (backlog P16).
 - Ghostscript ships a generic `default_cmyk.icc`, not FOGRA39. The ISO Coated v2 profile comes from the
   ECI. **Not vendored** (checked 2026-09-15): the ECI only says the profiles may be "freely downloaded",
   and the profile's own copyright reads "© Heidelberger Druckmaschinen AG. All Rights Reserved". The

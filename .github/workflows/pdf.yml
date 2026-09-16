@@ -68,10 +68,10 @@ jobs:
       - name: update packages
         run: sudo apt-get update -y
 
-      # Ghostscript converts the book block to PDF/X-4 and to greyscale; poppler
-      # carries the pdffonts, pdfimages and pdftotext the preflight report reads.
+      # Poppler carries the pdffonts, pdfimages and pdftotext the preflight report
+      # reads. Ghostscript comes from a container below, not from apt.
       - name: install packages
-        run: sudo apt-get install -y libffi-dev libz-dev ghostscript poppler-utils
+        run: sudo apt-get install -y libffi-dev libz-dev poppler-utils
 
       - name: install pandoc
         run: |
@@ -95,16 +95,29 @@ jobs:
           path: dist/icc
           key: icc-iso-coated-v2-eci
 
-      # Where a distribution puts Ghostscript's own grey profile differs, so the
-      # greyscale pass is told which file to use instead of guessing.
-      - name: find the grey profile
+      # Ubuntu ships Ghostscript 10.02, where `-dPDFX=4` is still a boolean, so
+      # the 4 raises `/typecheck in --pdfmark--` and PDF/X-4 cannot be written at
+      # all. A container carries a newer one, behind a shim that runs it at the
+      # paths the build uses, so the PDFs, the pdfmark prefix and the profiles
+      # resolve inside the container exactly as they do outside. The grey output
+      # intent profile comes out of the same image.
+      - name: ghostscript from a container
         run: |
-          profile="$(find /usr/share /usr/lib -name default_gray.icc -print -quit 2>/dev/null || true)"
-          if [ -z "$profile" ]; then
-            echo "no default_gray.icc found - install it or drop --gray" >&2
-            exit 1
-          fi
-          echo "PDF_GRAY_PROFILE=$profile" >> "$GITHUB_ENV"
+          printf 'FROM alpine:edge\nRUN apk add --no-cache ghostscript\n' | docker build -q -t pdfx-gs -
+          W="$GITHUB_WORKSPACE"
+          sudo tee /usr/local/bin/gs-docker >/dev/null <<SHIM
+          #!/bin/sh
+          exec docker run --rm -v "$W:$W" -v /tmp:/tmp -w "$W" pdfx-gs gs "\$@"
+          SHIM
+          sudo chmod +x /usr/local/bin/gs-docker
+          gs-docker --version
+          mkdir -p dist/icc
+          docker run --rm pdfx-gs cat /usr/share/ghostscript/iccprofiles/default_gray.icc \
+            > dist/icc/default_gray.icc
+          {
+            echo "GHOSTSCRIPT=/usr/local/bin/gs-docker"
+            echo "PDF_GRAY_PROFILE=$W/dist/icc/default_gray.icc"
+          } >> "$GITHUB_ENV"
 
       - name: build the screen pdf
         run: task pdf

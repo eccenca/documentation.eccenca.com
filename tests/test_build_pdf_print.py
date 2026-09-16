@@ -10,6 +10,7 @@ from tools.build_pdf import (
     NavEntry,
     SectionRule,
     apply_section_rules,
+    build_pdf,
     keep_lead_with_heading,
     load_section_rules,
     md_to_built_html,
@@ -377,3 +378,15 @@ def test_a_short_lead_line_is_kept_with_its_heading():
         "Short, under a heading the rule still covers.",
     ]
     assert stats["lead lines kept with their heading"] == 2
+
+
+def test_the_ghostscript_of_the_conversions_can_be_named(monkeypatch):
+    """CI runs Ghostscript from a container, so the binary must be nameable - by option and by variable."""
+    monkeypatch.delenv("GHOSTSCRIPT", raising=False)
+    context = build_pdf.make_context("build-pdf", ["--edition", "print"])
+    assert context.params["ghostscript"] == "gs"
+    context = build_pdf.make_context("build-pdf", ["--edition", "print", "--ghostscript", "/usr/local/bin/gs-docker"])
+    assert context.params["ghostscript"] == "/usr/local/bin/gs-docker"
+    monkeypatch.setenv("GHOSTSCRIPT", "/usr/local/bin/gs-docker")
+    context = build_pdf.make_context("build-pdf", ["--edition", "print"])
+    assert context.params["ghostscript"] == "/usr/local/bin/gs-docker"

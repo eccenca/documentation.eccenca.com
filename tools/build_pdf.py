@@ -1771,6 +1771,13 @@ def unpadded_pages(compile_command: list[str], typ_path: Path) -> int:
     help="Also write a greyscale preview with Ghostscript, to see the black-and-white print on screen? "
     "Print edition only.",
 )
+@click.option(
+    "--ghostscript",
+    default="gs",
+    envvar="GHOSTSCRIPT",
+    show_default=True,
+    help="Which Ghostscript converts the book block? A wrapper works, for one that runs in a container.",
+)
 def build_pdf(
     build_version: str,
     edition_name: str,
@@ -1779,6 +1786,7 @@ def build_pdf(
     typst_binary: str,
     normalize_output: bool,
     gray_output: bool,
+    ghostscript: str,
 ) -> None:
     """Build a single PDF of the whole site with pandoc and Typst."""
     version = build_version.strip() or "dev"
@@ -1912,10 +1920,14 @@ def build_pdf(
     if print_edition and not print_report(out, run_preflight(out)):
         raise click.ClickException(f"preflight found errors in {out} - it is written, but not ready for print")
     if normalize_output:
-        final = normalize_pdf(out, normalized_path(out), ensure_profile(), title=f"{BOOK_TITLE} - {BOOK_CONTEXT}")
+        final = normalize_pdf(
+            out, normalized_path(out), ensure_profile(), ghostscript, title=f"{BOOK_TITLE} - {BOOK_CONTEXT}"
+        )
         print(f"PDF/X-4 written to {final} ({final.stat().st_size // 1024} KB)")
         if not print_report(final, run_preflight(final, pdfx=True)):
             raise click.ClickException(f"preflight found errors in {final} - it is written, but not ready for print")
     if gray_output:
-        preview = gray_preview(out, gray_path(out), title=f"{BOOK_TITLE} - {BOOK_CONTEXT}")
+        preview = gray_preview(
+            out, gray_path(out), ghostscript=ghostscript, title=f"{BOOK_TITLE} - {BOOK_CONTEXT}"
+        )
         print(f"Greyscale preview written to {preview} ({preview.stat().st_size // 1024} KB)")

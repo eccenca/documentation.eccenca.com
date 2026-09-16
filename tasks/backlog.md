@@ -384,8 +384,15 @@ Done 2026-09-16: `.github/workflows/pdf.yml` builds every edition after a push t
 `feature/print-on-demand`, and on demand from the Actions tab - the screen PDF from `task pdf`, and the
 book block, its PDF/X-4 copy in CMYK and the greyscale preview from `task pdf:print -- --normalize --gray`.
 
-- **The runner gets Ghostscript and poppler.** The preflight report shells out to `pdffonts`, `pdfimages`
-  and `pdftotext`, so without poppler the print build fails rather than the check being skipped.
+- **The runner gets poppler; Ghostscript comes from a container.** The preflight shells out to `pdffonts`,
+  `pdfimages` and `pdftotext`, so poppler is installed with apt. Ghostscript is not: Ubuntu ships 10.02,
+  where `-dPDFX=4` is a boolean and the 4 raises `/typecheck in --pdfmark--` (spec §7). The workflow builds
+  an `alpine:edge` image with Ghostscript 10.07 and writes a shim to `/usr/local/bin/gs-docker` that runs
+  it with the workspace and `/tmp` mounted at the paths they already have, so the PDFs, the pdfmark prefix
+  and the profiles resolve inside the container as they do outside. `GHOSTSCRIPT` points the build at the
+  shim, and `default_gray.icc` is copied out of the same image into `dist/icc`, which the greyscale pass
+  finds through `PDF_GRAY_PROFILE`. Verified end to end against that image: the CMYK copy carries the
+  FOGRA39 intent with four components, the preview the `sGray` intent with one.
 - **Four artifacts**, one per edition (`pdf-screen`, `pdf-print`, `pdf-print-x4`, `pdf-print-gray-x4`),
   kept 30 days and stored uncompressed, since a PDF is compressed already.
 - **The run summary** lists each edition with its page count, size and download link, so nothing has to be

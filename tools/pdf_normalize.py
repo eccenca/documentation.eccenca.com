@@ -25,8 +25,10 @@ import glob
 import hashlib
 import io
 import os
+import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.error
@@ -41,6 +43,13 @@ PROFILE_URL = "https://www.eci.org/lib/exe/eci_offset_2009.zip"
 PROFILE_MEMBER = "ECI_Offset_2009/ISOcoated_v2_eci.icc"
 PROFILE_SHA256 = "128dc02f7246cc3807af0323695379f64151a8f27a587736acc59f8b6ce894b8"
 PROFILE_CACHE = Path("dist/icc/ISOcoated_v2_eci.icc")
+# The recipe of tasks/spec.md, §7 was verified with this release.
+TESTED_GHOSTSCRIPT = "10.08"
+# PDF/X-4 needs `-dPDFX=4`, and pdfwrite took that parameter as an integer only
+# from 10.03 on. Before that it is a boolean (`gs_param_type_bool` in
+# devices/vector/gdevpdfp.c), so the 4 raises `/typecheck in --pdfmark--` -
+# Ubuntu 24.04 ships 10.02 and cannot write PDF/X-4 at all.
+PDFX4_GHOSTSCRIPT = "10.03"
 FOGRA39 = "FOGRA39"
 FOGRA39_INFO = "ISO Coated v2 (ECI)"
 COLOR_REGISTRY = "http://www.color.org"
@@ -207,10 +216,45 @@ def gray_path(pdf: Path) -> Path:
     return pdf.with_name(f"{pdf.stem}-gray-x4.pdf")
 
 
+def ghostscript_at_least(version: str, wanted: str) -> bool:
+    """Whether a Ghostscript version string names `wanted` or a newer release.
+
+    Only a dotted `major.minor` counts as a version; anything else - a wrapper
+    that answers `--version` with something of its own - passes unjudged.
+    """
+    found = re.search(r"(\d+)\.(\d+)", version)
+    if found is None:
+        return True
+    return tuple(int(number) for number in found.groups()) >= tuple(int(n) for n in wanted.split("."))
+
+
+def ghostscript_is_tested(version: str) -> bool:
+    """Whether a Ghostscript version is the release series the recipe was verified with, or a newer one."""
+    return ghostscript_at_least(version, TESTED_GHOSTSCRIPT)
+
+
+def ghostscript_writes_pdfx4(version: str) -> bool:
+    """Whether a Ghostscript version can write PDF/X-4 at all - `-dPDFX=4` is an integer only from 10.03 on."""
+    return ghostscript_at_least(version, PDFX4_GHOSTSCRIPT)
+
+
 def ghostscript_binary(ghostscript: str) -> str:
+    """The Ghostscript to run, with a word about its version - an old one fails deep inside pdfmark."""
     binary = shutil.which(ghostscript)
     if binary is None:
         raise click.ClickException(f"{ghostscript} not found - install Ghostscript or name the binary with --ghostscript")
+    version = subprocess.run([binary, "--version"], capture_output=True, text=True, check=False).stdout.strip()
+    if version and not ghostscript_writes_pdfx4(version):
+        raise click.ClickException(
+            f"Ghostscript {version} cannot write PDF/X-4: `-dPDFX=4` is a boolean before {PDFX4_GHOSTSCRIPT} and "
+            "the 4 raises `/typecheck in --pdfmark--`. Name a newer one with --ghostscript or GHOSTSCRIPT "
+            f"(the recipe is verified with {TESTED_GHOSTSCRIPT})."
+        )
+    if version and not ghostscript_is_tested(version):
+        print(
+            f"NOTE: Ghostscript {version} is older than the {TESTED_GHOSTSCRIPT} the recipe was verified with.",
+            file=sys.stderr,
+        )
     return binary
 
 
