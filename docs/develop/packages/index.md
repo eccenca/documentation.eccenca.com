@@ -29,7 +29,7 @@ A Marketplace Package is distributed as a **C**orporate Memory **P**ackage **A**
 
 The lifecycle of a Corporate Memory Marketplace Package is shown in the following flowchart.
 
-![Corporate Memory Marketplace Package Lifecycle](mpp-lifecycle.svg){ width="50%" }
+![Corporate Memory Marketplace Package Lifecycle](mpp-lifecycle.png){ width="50%" }
 
 !!! info "Looking for the user interface?"
 
