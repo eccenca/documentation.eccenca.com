@@ -1310,10 +1310,12 @@ def load_accepted_low_resolution(path: Path = PRINT_YML) -> set[str]:
     return set(accepted)
 
 
-def unaccepted_low_resolution(low_resolution: dict[str, int], accepted: set[str]) -> list[tuple[str, int]]:
-    """The low-resolution originals that are not accepted, lowest density first."""
+def unaccepted_low_resolution(
+    low_resolution: dict[str, tuple[int, str]], accepted: set[str]
+) -> list[tuple[str, int, str]]:
+    """The low-resolution originals that are not accepted, lowest density first, each with the width its page declares."""
     return sorted(
-        ((image, ppi) for image, ppi in low_resolution.items() if image not in accepted),
+        ((image, ppi, width) for image, (ppi, width) in low_resolution.items() if image not in accepted),
         key=lambda item: (item[1], item[0]),
     )
 
@@ -1324,7 +1326,7 @@ def resolve_images(
     stats: Counter,
     warnings: list[str],
     print_images: Path | None = None,
-    low_resolution: dict[str, int] | None = None,
+    low_resolution: dict[str, tuple[int, str]] | None = None,
 ) -> None:
     """Point images at the files Typst embeds, and replace what it cannot embed.
 
@@ -1335,7 +1337,8 @@ def resolve_images(
     renders without that text in Typst, so it is reported. With `print_images`,
     raster images point at their print copies in that directory (`print_image`),
     and `low_resolution` collects the originals below 150 ppi at their printed
-    size, by their path under docs/, at their lowest density.
+    size, by their path under docs/: their lowest density, and the width the
+    page declares there - the `width="NN%"` of the Markdown source.
     """
     for lightbox in doc.select("a.glightbox"):
         lightbox.unwrap()
@@ -1364,10 +1367,12 @@ def resolve_images(
             warnings.append(f"SVG text in foreignObject elements does not render, embed a PNG instead: {src}")
         if print_images is not None and path.suffix.lower() != ".svg":
             if low_resolution is not None:
-                density = printed_density(path, img.get("width"))
+                width = img.get("width", "")
+                density = printed_density(path, width or None)
                 if density < LOW_RESOLUTION_PPI:
                     source = urllib.parse.unquote(src.split("#")[0].split("?")[0]).lstrip("/")
-                    low_resolution[source] = min(density, low_resolution.get(source, density))
+                    if source not in low_resolution or density < low_resolution[source][0]:
+                        low_resolution[source] = (density, width)
             img["src"] = typst_path(print_image(path, img.get("width"), print_images))
             stats["images normalized for print"] += 1
         else:
@@ -1619,7 +1624,7 @@ def normalize(
     doc: BeautifulSoup,
     site_dir: Path,
     print_images: Path | None = None,
-    low_resolution: dict[str, int] | None = None,
+    low_resolution: dict[str, tuple[int, str]] | None = None,
 ) -> tuple[Counter, list[str]]:
     """Rewrite the merged document into elements pandoc's HTML reader understands.
 
@@ -1826,7 +1831,7 @@ def build_pdf(
         print(f"Print edition: {count} {'part' if count == 1 else 'parts'} of {md} left out")
     print(f"Merged {pages} pages and {headings} section headings along {NAV_YML}")
 
-    low_resolution: dict[str, int] = {}
+    low_resolution: dict[str, tuple[int, str]] = {}
     stats, warnings = normalize(doc, SITE_DIR, work_dir / "images" if print_edition else None, low_resolution)
     emoji: list[list[str]] = []
     if print_edition:
@@ -1843,7 +1848,12 @@ def build_pdf(
         # The originals to replace or accept (backlog P15).
         unaccepted = unaccepted_low_resolution(low_resolution, load_accepted_low_resolution())
         report = work_dir / "low-resolution.tsv"
-        report.write_text("ppi\timage\n" + "".join(f"{ppi}\t{image}\n" for image, ppi in unaccepted), encoding="utf-8")
+        # The width is the one the page declares, so the entry says whether the
+        # image prints too large for its pixels or needs a fresh screenshot.
+        report.write_text(
+            "ppi\twidth\timage\n" + "".join(f"{ppi}\t{width}\t{image}\n" for image, ppi, width in unaccepted),
+            encoding="utf-8",
+        )
         if unaccepted:
             print(
                 f"Print edition: {len(unaccepted)} images below {LOW_RESOLUTION_PPI} ppi at their printed size, "

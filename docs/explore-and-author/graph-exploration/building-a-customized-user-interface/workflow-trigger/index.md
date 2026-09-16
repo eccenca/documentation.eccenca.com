@@ -36,7 +36,7 @@ A `shui:WidgetIntegration` resource needs to be created from the previously defi
 
 Once the widget is created, it can be attached to a Node Shape by using a special-purpose non-validating [Widget property](../node-shapes/index.md#widgets).
 
-![](adding_widget_to_node.png){ width="95%" }
+![](adding_widget_to_node.png){ width="62%" }
 
 ## Payload Structure
 

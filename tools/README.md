@@ -15,7 +15,7 @@ supported entry points and pass the right options.
 | `pdf-normalize` | `task pdf:print -- --normalize`, `task pdf:print -- --gray` | Write the print PDF as PDF/X-4 in CMYK with Ghostscript, checking the result for the PDF/X marker; the ISO Coated v2 profile is fetched into `dist/icc/`. `--gray` writes a greyscale preview of the black-and-white print instead, PDF/X-4 by the grey profile Ghostscript ships |
 | `pdf-preflight` | `task pdf:print` | Check the book block for print: A4, even page count, embedded fonts, image resolution, soft masks, annotations, page-number position, blank pages, light grey areas |
 | `check-zensical-output` | `task check:output` | Inspect the built `site/` and fail if a feature we reimplemented for Zensical regressed |
-| `image-widths` | - | List raster images without a width in pages that are not generated; `--fix` writes `width="NN%"` from pixels and capture density |
+| `image-widths` | - | List raster images that print below 150 ppi in pages that are not generated; `--fix` writes the `width="NN%"` their pixels support in the 16 cm print column |
 | `localize-bundle-assets` | `task build` | Rewrite the third-party asset URLs Zensical bakes into its JavaScript bundle to the vendored copies |
 | `update-icons` | `task update:icons` | Fetch the eccenca icon set from the gui-elements repository |
 | `update-di-reference` | `task update:di-reference` | Generate the task and operator reference pages from a running Corporate Memory |

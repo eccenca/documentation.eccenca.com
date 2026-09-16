@@ -127,10 +127,11 @@ Do not write `index.html` stubs under `docs/`.
 - `class="bordered"` on every product screenshot (436 uses in the tree).
 - `width="50%"` or `width="70%"` for dialogs and modals, no width for full-screen views. Keep the width
   consistent within one page.
-- A screenshot narrower than the page needs a width, or the print edition prints it too small or too
-  coarse. `poetry run dec-tool image-widths` lists raster images without one in pages that are not
-  generated, and `--fix` writes `width="NN%"` from the pixel width and the capture density (a Retina
-  capture at 144 dpi counts half), against the 16 cm print column. An image as wide as the page gets none.
+- A screenshot needs a width small enough for its pixels, or it prints coarse: an image of 900 pixels
+  across the full 16 cm column prints at 143 ppi. `poetry run dec-tool image-widths` lists every raster
+  image in a page that is not generated that prints below 150 ppi, and `--fix` writes the `width="NN%"`
+  that reaches it — the pixel width divided by the column and the target, rounded down. The same width
+  then governs the site.
 - `.off-glb` opts an image out of the glightbox lightbox — used for inline icons and decorative images.
 - File names: lowercase, hyphen-separated, descriptive (style guide 5.5).
 - Delete screenshots that are no longer referenced. Orphan check for one page directory:

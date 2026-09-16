@@ -353,7 +353,7 @@ pages blank. Non-zero exit on a violation; run by `task pdf:print`, on the norma
 
 ---
 
-## P15 - Low-resolution originals
+## P15 - Low-resolution originals - **done**
 
 49 images were below 150 ppi at printed size; resampling (P12) hides that from the preflight but adds no
 detail. After P18, 43 images in the printed pages that are not generated print below 150 ppi, 37 of them
@@ -363,12 +363,18 @@ with a fresh screenshot, or accept it in spec §8.
 **Verify:** every entry replaced or accepted.
 **Est:** medium, mostly content. **Depends on:** P12, P24.
 
+Done 2026-09-16 by the revised P24: no screenshot had to be replaced. Narrowing the 42 entries to the
+width their pixels support empties the report, so `accepted-low-resolution` in `tools/pdf/print.yml`
+stays an empty list, and the report keeps watch over new screenshots.
+
 Tooling done 2026-09-15: the print build collects every original below 150 ppi at its printed size
 (`resolve_images(..., low_resolution)`), leaves out those listed under `accepted-low-resolution` in
-`tools/pdf/print.yml`, writes the rest lowest first to `dist/pdf/print/low-resolution.tsv` and prints
-their count. Accepting moved from spec §8 to `print.yml`, next to the other print settings. **Open, content
-work:** 42 images, 85-149 ppi, most in `consume/populate-data-to-neo4j` (8), `explore-and-author/bke-module`
-(5) and `distribution/marketplace` (4).
+`tools/pdf/print.yml`, writes the rest lowest first to `dist/pdf/print/low-resolution.tsv` - density, the
+width the page declares (the `width="NN%"` of the Markdown source, empty where there is none) and the
+image - and prints their count. Accepting moved from spec §8 to `print.yml`, next to the other print
+settings. The 42 entries it listed - 85 to 149 ppi, most in `consume/populate-data-to-neo4j` (8),
+`explore-and-author/bke-module` (5) and `distribution/marketplace` (4) - are resolved by the revised P24:
+the report is empty.
 
 ---
 
@@ -581,25 +587,31 @@ with more than 20 parameters.
 
 ## P24 - Image widths in the sources - **done**
 
-Done 2026-09-15: `dec-tool image-widths` (`tools/image_widths.py`) checks without `--fix` and fails when
-an image lacks a width. Refinement: an image at 100 % or wider gets **no** width - the column caps it in
-print anyway, and 456 such images would otherwise have been pinned to the article width on the site,
-upscaling the narrower ones there. `--fix` wrote 24 widths into 14 pages (20 % to 95 %), 10 of them on
-the IDS/OSINT tutorial, which the print edition omits; rumdl clean. Below 150 ppi in the print edition:
-43 before, 42 after - an image without a declared density now prints at 96 instead of 72 ppi, still
-below 150, so P15 keeps its list. `task check` does not run the check yet. 15 unit tests.
+Revised on 2026-09-16, once the report of P15 made the effect visible: the width follows from the density
+an image *prints* at, not from the density it was *captured* at. `dec-tool image-widths`
+(`tools/image_widths.py`) narrows every raster image that prints below 150 ppi in the 16 cm column, in
+pages that are not generated, and leaves the rest as it is.
 
-Spec §11, D18. `dec-tool image-widths --check|--fix` writes `{ width="NN%" }` for raster images without a
-width in pages that are not generated: the pixel width divided by the capture scale and by the full page
-width - the 16 cm text column, 605 CSS pixels - rounded to 5 %, at most 100 %. The capture scale is 2 for
-144 dpi (macOS Retina), otherwise the declared density / 96, and 1 without one. Optionally `task check`
-runs `--check`.
+- **Width:** `pixels / (6.3 inches * 150)`, rounded down to a whole percent - not to a multiple of 5. The
+  width a page already declares cancels out of `declared * density / target`, so the pixels alone decide;
+  one further step down covers the case where the rounding of the density leaves it a pixel short.
+- **Measured at** the width the page declares, quoted or not - two of 187 are written `width=11%` - and an
+  image without one fills the column, so it counts as 100 %.
+- **No floor:** the smallest results are `marketplace-filter-installed.png` at 14 % and
+  `marketplace-filter-package-type.png` at 21 %. Both show a single snippet of a dialog, so the user chose
+  the calculated value over a floor.
+- **Scope:** raster images only; SVGs, remote images and fenced code stay untouched, and generated pages
+  belong to their generators - none of them held an image below the target.
 
-**Verify:** unit tests for capture scale, percentage, rounding and the skip rules; after `--fix` no raster
-image in a page that is not generated lacks a width; spot checks of the changed pages on the site and in
-the print edition; the count below 150 ppi in the print edition before and after - no image prints less
-sharply than before.
-**Est:** medium, touches many pages. **Depends on:** nothing. P15 follows it.
+**Verified:** `--fix` wrote 47 widths into 21 pages; the report of P15 is empty afterwards and the book
+shrinks from 872 to 864 pages. The gate was a throwaway PDF of just those images at their new widths.
+Five of the 47 sit in the IDS/OSINT tutorial, which print omits, so they change the site only. rumdl
+clean; the unit tests cover the density, the target width, and the rewriting of quoted, unquoted and
+missing width attributes.
+
+**Superseded:** the first implementation (2026-09-15, D18 as written) took the natural width from the
+capture scale, rounded it to 5 % and skipped anything at 100 %. Its 24 widths stay where the new rule does
+not narrow them further. `task check` does not run the check yet.
 
 ---
 

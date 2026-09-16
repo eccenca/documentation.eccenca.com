@@ -114,7 +114,7 @@ In order to add project variables, login to eccenca Corporate Memory, select the
 
 On the right side of the page you can see the variable section Click on :eccenca-item-add-artefact: to add the variables.
 
-![](di-var-add-variable.png){ class="bordered" }
+![](di-var-add-variable.png){ class="bordered" width="80%" }
 
 The variable definition dialog opens.
 Type the name, value and description of the variable.
@@ -138,7 +138,7 @@ Type name as `email_ids`, in values we have updated all the email id’s of the 
 
     The email_ids variable is added as shown below.
 
-    ![](di-var-email-defined.png){ class="bordered" }
+    ![](di-var-email-defined.png){ class="bordered" width="84%" }
 
 ## Execution Variables
 
@@ -225,7 +225,7 @@ Select the `project.email_ids` and include the double curly brackets at last.
 
 Same as above, add the variable click on :eccenca-item-add-artefact: and type name as `password`, value as `xmhnjnnjkmnlbbhbvfhnbjkm` and in the description `Gmail account password` as shown below then click on **Add**.
 
-![](di-var-password-definition.png){ class="bordered" width="95%" }
+![](di-var-password-definition.png){ class="bordered" width="76%" }
 
 !!! success "Step Result"
 

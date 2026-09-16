@@ -55,7 +55,7 @@ The **Clear Dataset** operator empties the dataset connected to its output befor
 
 Place the Clear Dataset operator in the workflow and connect its output to the dataset that should be cleared. The operator takes no data inputs; connect it using a **dependency connection** from the upstream node that must complete first, or leave it unconnected if the dataset should be cleared before any subsequent nodes execute.
 
-![Clear Datasets](wf-clear-datasets.png){ width="90%" }
+![Clear Datasets](wf-clear-datasets.png){ width="57%" }
 
 Some datasets historically provided their own clear attributes (e.g., `Clear graph before workflow execution` on the Knowledge Graph dataset). These per-dataset attributes are **deprecated** and should no longer be used. Use the Clear Dataset operator instead, which works uniformly across all dataset types.
 
@@ -67,7 +67,7 @@ The operators of a workflow can be reconfigured completely in the context of a w
 During its execution, new parameters are loaded from any possible source and translated by a transformation task to allow an injection into the dataset configuration that overwrites originally set parameters.
 To reconfigure a workflow operator, the transformation task has to be connected to the red dot at the top of this operator as shown in the following image:
 
-![Workflow config port](wf-config-port.png)
+![Workflow config port](wf-config-port.png){ width="86%" }
 
 Although this feature has been developed to support the ingestion of database deltas, the possible applications are various since any parameter can be overwritten to make workflow operators even more dynamic and reusable in various contexts.
 The incremental ingestion of database content that was implemented as a first use-case can be found the application section of this page.

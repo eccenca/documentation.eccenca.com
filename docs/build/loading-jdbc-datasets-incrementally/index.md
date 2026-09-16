@@ -37,13 +37,13 @@ To extract data from a relational database, you need to first register a **JDBC 
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
-    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png){ class="bordered" width="45%" }
+    ![Menu BUILD > Projects](incr-jdbc-menu-build-projects.png){ class="bordered" width="29%" }
 
 2. Click **Create** at the top of the page.
 3. In the Create new item window, select Project and click Add. The Create new item of type Project window appears.
 4. In the Create new item window, select Dataset under **Item Type**, search for JDBC endpoint, and click **Add**.
 
-    ![Create JDBC Dataset](create-dataset-JDBC.png){ class="bordered" }
+    ![Create JDBC Dataset](create-dataset-JDBC.png){ class="bordered" width="71%" }
 
 5. Provide the required configuration details for the JDBC endpoint:
     - **Label**: Provide a table name.

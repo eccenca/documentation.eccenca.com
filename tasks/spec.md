@@ -566,7 +566,7 @@ P19-P24 and P13 are implemented; P15 keeps 42 images to replace or accept.
 | Facing cards in a two-column grid should be equally high | each card as high as its text | one height per row | P22 |
 | The operator reference should print descriptions and parameters | overview tables, `list` mode (§5) | one compact entry per operator, replacing the overview tables (D17) | P23 |
 | PDF/X-4 and CMYK | specified, not built (§7) | unchanged; done, with transparency rendered to images first | P13 |
-| Low-resolution images mostly lack `width` in the Markdown | an image without `width` prints at its declared density | widths computed from pixels and capture density against the full page width, written into the sources (D18); done, 42 originals stay below 150 ppi | P24, then P15 |
+| Low-resolution images mostly lack `width` in the Markdown | an image without `width` prints at its declared density | widths written into the sources so every image prints at 150 ppi or better (D18, revised 2026-09-16); done, and P15 with it | P24, then P15 |
 
 ### Footer: the part label
 
@@ -732,22 +732,26 @@ images, 352 of them without `width`. The declared densities: none on 231, 144 dp
 captures on macOS), 120 dpi on 80, 96 dpi on 8, 192 dpi on 1. 43 images print below 150 ppi, 37 of them
 without `width`.
 
-Decided (D18) - `dec-tool image-widths`, with `--check` and `--fix`, writes the missing `{ width="NN%" }`
-into the Markdown of pages that are not generated:
+Decided as D18 on 2026-09-15 from the capture density, and **revised on 2026-09-16** once the report of
+P15 showed what each image actually prints at. The rule is the printed density: `dec-tool image-widths`,
+with `--fix`, narrows every raster image that prints below 150 ppi in pages that are not generated.
 
-- **Capture scale:** 2 for 144 dpi, the density of a Retina capture on macOS (2 × 72). Any other declared
-  density is divided by 96, so 120 dpi gives 1.25 and 192 dpi gives 2. An image that declares none, 72 or
-  96 dpi has scale 1.
-- **Natural width:** the pixel width divided by the capture scale, in CSS pixels at 96 per inch.
-- **Width:** the natural width as a share of the full page width - the 16 cm text column, 605 CSS pixels -
-  rounded to 5 % and at most 100 %.
-- **Scope:** raster images only. SVGs and images that already have a width stay as they are.
-- **Check:** `task check` may run `--check`, so a new screenshot gets its width.
+- **Width:** the pixel width divided by the 6.3 inches of the text column and by the 150 ppi target,
+  rounded **down to a whole percent**, with one further step down where the rounding of the density would
+  leave it short. The width a page declares cancels out of `declared × density ÷ target`, so the pixels
+  alone decide it.
+- **Measured at** the width the page declares, quoted or not; an image without one fills the column and
+  counts as 100 %.
+- **Scope:** raster images only. SVGs, remote images, fenced code and images already at 150 ppi or more
+  stay as they are, as do generated pages.
+- **No floor:** an image whose pixels only support a thumbnail gets the thumbnail; the two smallest are
+  14 % and 21 %, each a snippet of a dialog.
+- **Check:** `task check` may run the check, so a new screenshot is caught.
 
-The same percentage serves the site and the PDF. In print an image then keeps its natural size and prints
-at its capture scale times 96 ppi - 96 ppi at scale 1, 192 ppi for a Retina capture - and an image wider
-than the column still fills it. No image prints less sharply than today, when Typst assumes 72 dpi for an
-image without a declared density. P15 handles what stays below 150 ppi.
+The same percentage serves the site and the PDF: on paper the image prints at 150 ppi or better, and the
+site shows it at the share of the article it fills on the page. This closes P15 - `--fix` wrote 47 widths
+into 21 pages and the report is empty - rather than replacing screenshots. The superseded rule, natural
+width from the capture scale rounded to 5 %, left 42 images below the target.
 
 ### Decisions
 

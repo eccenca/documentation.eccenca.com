@@ -1,80 +1,93 @@
-"""Test the screenshot widths written into the Markdown sources (tasks/spec.md, §11, D18)"""
+"""Test the screenshot widths written into the Markdown sources (tasks/spec.md, §11, D18; backlog P24)"""
 import pytest
 from PIL import Image
 
-from tools.image_widths import add_widths, capture_scale, width_percent
+from tools.image_widths import TARGET_PPI, fit_widths, printed_density, target_width
 
 
 @pytest.mark.parametrize(
-    "dpi, scale",
-    [(None, 1.0), (72, 1.0), (96, 1.0), (120, 1.25), (144, 2.0), (192, 2.0)],
-)
-def test_the_capture_scale_follows_the_declared_density(dpi, scale):
-    assert capture_scale(dpi) == scale
-
-
-@pytest.mark.parametrize(
-    "pixels, dpi, percent",
+    "pixels, percent, ppi",
     [
-        (605, None, 100),   # the full page width at scale 1
-        (300, None, 50),    # 49.6 % rounds to 50
-        (1210, 144, 100),   # a Retina capture: 605 CSS pixels
-        (400, 144, 35),     # 200 CSS pixels: 33 % rounds to 35
-        (480, 120, 65),     # 384 CSS pixels: 63.5 % rounds to 65
-        (20, None, 5),      # never below 5 %
-        (2000, None, 100),  # never above 100 %
+        (945, 100, 150),   # the 16 cm column is 6.3 inches
+        (472, 50, 150),    # half the column, half the pixels
+        (945, 50, 300),    # the same image at half the width prints twice as sharp
+        (300, 100, 48),
     ],
 )
-def test_the_width_is_the_natural_width_as_a_share_of_the_full_page(pixels, dpi, percent):
-    assert width_percent(pixels, dpi) == percent
+def test_the_density_follows_from_the_width_on_the_page(pixels, percent, ppi):
+    assert printed_density(pixels, percent) == ppi
 
 
-def picture(path, width, dpi=None):
-    image = Image.new("RGB", (width, 10), "white")
-    if dpi:
-        image.save(path, dpi=(dpi, dpi))
-    else:
-        image.save(path)
+@pytest.mark.parametrize(
+    "pixels, percent, width",
+    [
+        (472, 100, 50),    # 75 ppi at the full column: half of it reaches the target exactly
+        (472, 50, 50),     # the declared width cancels out - the pixels decide
+        (904, 100, 95),    # 144 ppi: floor gives 96 %, which still measures 149
+        (282, 50, 29),     # 90 ppi at half the column
+        (150, 20, 15),     # a thumbnail keeps shrinking
+    ],
+)
+def test_the_width_brings_the_image_to_the_target_density(pixels, percent, width):
+    assert target_width(pixels, percent) == width
+    assert printed_density(pixels, width) >= TARGET_PPI
 
 
-def test_images_without_a_width_get_one_and_the_rest_stay_as_they_are(tmp_path):
-    picture(tmp_path / "plain.png", 300)
-    picture(tmp_path / "framed.png", 600, dpi=144)
-    picture(tmp_path / "sized.png", 300)
-    picture(tmp_path / "titled.png", 400)
-    picture(tmp_path / "wide.png", 1500)
+def test_an_image_too_small_for_the_target_keeps_the_smallest_width():
+    assert target_width(9, 100) == 1
+    assert printed_density(9, 1) < TARGET_PPI
+
+
+def picture(path, width):
+    Image.new("RGB", (width, 10), "white").save(path)
+
+
+def test_images_that_print_too_coarse_are_narrowed_and_the_rest_stay_as_they_are(tmp_path):
+    picture(tmp_path / "plain.png", 472)
+    picture(tmp_path / "framed.png", 472)
+    picture(tmp_path / "quoted.png", 282)
+    picture(tmp_path / "unquoted.png", 282)
+    picture(tmp_path / "sharp.png", 1200)
+    picture(tmp_path / "titled.png", 472)
     picture(tmp_path / "coded.png", 300)
     (tmp_path / "diagram.svg").write_text("<svg/>")
     text = (
         "# Page\n\n"
         "![Plain](plain.png)\n\n"
         '![Framed](framed.png){ class="bordered" }\n\n'
-        '![Sized](sized.png){ class="bordered" width="70%" }\n\n'
+        '![Quoted](quoted.png){ class="bordered" width="50%" }\n\n'
+        "![Unquoted](unquoted.png){ width=50% }\n\n"
+        "![Sharp](sharp.png)\n\n"
         '![Titled](titled.png "A title")\n\n'
-        "![Wide](wide.png)\n\n"
         "![Remote](https://example.org/remote.png)\n\n"
         "![Vector](diagram.svg)\n\n"
         "![Missing](gone.png)\n\n"
         "```markdown\n![Coded](coded.png)\n```\n"
     )
-    result, changes = add_widths(text, tmp_path)
-    # A full-width image gets no width: it fills the column in print either way.
+    result, changes = fit_widths(text, tmp_path)
     assert result == (
         "# Page\n\n"
         '![Plain](plain.png){ width="50%" }\n\n'
         '![Framed](framed.png){ class="bordered" width="50%" }\n\n'
-        '![Sized](sized.png){ class="bordered" width="70%" }\n\n'
-        '![Titled](titled.png "A title"){ width="65%" }\n\n'
-        "![Wide](wide.png)\n\n"
+        '![Quoted](quoted.png){ class="bordered" width="29%" }\n\n'
+        '![Unquoted](unquoted.png){ width="29%" }\n\n'
+        "![Sharp](sharp.png)\n\n"
+        '![Titled](titled.png "A title"){ width="50%" }\n\n'
         "![Remote](https://example.org/remote.png)\n\n"
         "![Vector](diagram.svg)\n\n"
         "![Missing](gone.png)\n\n"
         "```markdown\n![Coded](coded.png)\n```\n"
     )
-    assert changes == [("plain.png", 50), ("framed.png", 50), ("titled.png", 65)]
+    assert [(source, percent, width) for source, percent, width, _, _ in changes] == [
+        ("plain.png", 100, 50),
+        ("framed.png", 100, 50),
+        ("quoted.png", 50, 29),
+        ("unquoted.png", 50, 29),
+        ("titled.png", 100, 50),
+    ]
 
 
-def test_a_page_whose_images_all_have_widths_is_unchanged(tmp_path):
-    picture(tmp_path / "sized.png", 300)
+def test_a_page_whose_images_print_sharply_is_unchanged(tmp_path):
+    picture(tmp_path / "sized.png", 472)
     text = '![Sized](sized.png){ width="40%" }\n'
-    assert add_widths(text, tmp_path) == (text, [])
+    assert fit_widths(text, tmp_path) == (text, [])
