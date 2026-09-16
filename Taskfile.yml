@@ -69,6 +69,7 @@ tasks:
     cmds:
       - task: check:links
       - task: check:rumdl
+      - task: check:images
       - task: check:yamllint
       - task: check:navigation
       - task: check:output
@@ -81,6 +82,18 @@ tasks:
       # `.` picks up the repo .yamllint, which is what makes a local run and a
       # CI run agree: GitHub runners have no user-level yamllint config.
       - poetry run yamllint .
+
+  check:images:
+    desc: Fail if a screenshot prints below 150 ppi in the print edition
+    summary: |
+      Runs `dec-tool image-widths`: every raster image in a page that is not
+      generated must carry a width small enough for its pixels, or it prints
+      coarse (tasks/spec.md, §11, D18). `dec-tool image-widths --fix` writes
+      the width a listed image needs.
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool image-widths
 
   check:navigation:
     desc: Fail if nav.yml is out of sync with the docs/**/.pages files

@@ -1,7 +1,7 @@
 # Backlog: print-on-demand book block
 
-Work breakdown for [spec.md](spec.md). **Status 2026-09-15: P0-P14 and P18-P24 done and verified; P15 has its tooling and
-42 images to replace or accept; P16 and P17 open.**
+Work breakdown for [spec.md](spec.md). **Status 2026-09-16: P0-P15 and P18-P25 done and verified;
+P16 (CI) and P17 (the cover) open.**
 
 The previous content of this file (the temporary tag-listing renderer) is in the git history.
 
@@ -611,7 +611,7 @@ missing width attributes.
 
 **Superseded:** the first implementation (2026-09-15, D18 as written) took the natural width from the
 capture scale, rounded it to 5 % and skipped anything at 100 %. Its 24 widths stay where the new rule does
-not narrow them further. `task check` does not run the check yet.
+not narrow them further. `task check` runs the check as `check:images`.
 
 ---
 

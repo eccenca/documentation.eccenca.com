@@ -30,10 +30,12 @@ from pathlib import Path
 import click
 from PIL import Image, UnidentifiedImageError
 
+from tools.print_geometry import COLUMN_INCHES, LOW_RESOLUTION_PPI
+
 DOCS_DIR = Path("docs")
-# The text column of the print edition, the width an image at 100 % fills.
-COLUMN_INCHES = 16 / 2.54
-TARGET_PPI = 150
+# The text column an image at 100 % fills, and the density it must reach, both
+# shared with the builder and the preflight (tools/print_geometry.py).
+TARGET_PPI = LOW_RESOLUTION_PPI
 RASTER_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 # The marker a generated page carries (.claude/docs-guidelines/repo-conventions.md).
 GENERATED_MARK = re.compile(r"generated - do not change it manually|auto-generated", re.IGNORECASE)

@@ -50,9 +50,10 @@ authors:
 # darker in black and white.
 body-weight: light
 
-# Images below 150 ppi at their printed size that are accepted as they are, by
-# their path under docs/. The print build lists the others in
-# dist/pdf/print/low-resolution.tsv, to replace (backlog P15).
+# Images below 150 ppi at their printed size that are accepted at that size, by
+# their path under docs/. `dec-tool image-widths --fix` narrows such an image
+# instead, which keeps this list empty; what is left over stands in
+# dist/pdf/print/low-resolution.tsv (backlog P15, P24).
 accepted-low-resolution: []
 
 # How a navigation section or a page is printed, keyed by the docs/ directory

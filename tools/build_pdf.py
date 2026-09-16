@@ -45,6 +45,7 @@ from PIL import Image
 from tools.pdf_authors import load_imprint_names
 from tools.pdf_normalize import ensure_profile, gray_path, gray_preview, normalize as normalize_pdf, normalized_path
 from tools.pdf_preflight import print_report, run_preflight
+from tools.print_geometry import COLUMN_INCHES, LOW_RESOLUTION_PPI, PRINT_PPI, TEXT_WIDTH_PT
 
 DEFAULT_OUT_STEM = "dist/documentation-eccenca-com"
 SITE_DIR = Path("site")
@@ -116,10 +117,8 @@ CODE_LANGUAGES = {
 OPERATOR_SECTIONS_LEFT_OUT = {"examples", "example", "parameter", "parameters", "advanced parameter", "related plugins"}
 # The print edition's text column is 16 cm wide, and BoD asks for images at
 # 300 dpi at their printed size (tasks/spec.md, §2).
-TEXT_WIDTH_PT = 16 / 2.54 * 72
-PRINT_PPI = 300
-# Originals below this density at their printed size need replacing or accepting (backlog P15).
-LOW_RESOLUTION_PPI = 150
+# The column and the densities come from tools/print_geometry.py, which the
+# image tools and the preflight share.
 # Colour emoji in the print edition: rendered as images from the vendored font,
 # for text the body font does not cover.
 EMOJI_FONT = PDF_ASSETS / "fonts" / "noto-color-emoji" / "Noto-COLRv1.ttf"
@@ -127,7 +126,7 @@ TEXT_FONT = PDF_ASSETS / "fonts" / "roboto" / "Roboto-Light.ttf"
 # What the print edition renders to PNG with Typst: colour emoji and SVGs that
 # draw with transparency - opacity, masks, filters, translucent colours.
 RENDER_PPI = 600
-MAX_RENDER_WIDTH = round(16 / 2.54 * RENDER_PPI)
+MAX_RENDER_WIDTH = round(COLUMN_INCHES * RENDER_PPI)
 SVG_TRANSPARENCY = re.compile(r"opacity|<mask|<filter|rgba\(|hsla\(", re.IGNORECASE)
 # A short line under one of the larger headings - the intended audience, say -
 # is carried to the next page with it (print edition).
@@ -1295,8 +1294,13 @@ def print_image(source: Path, width: str | None, cache_dir: Path) -> Path:
     return target
 
 
-def printed_density(source: Path, width: str | None) -> int:
-    """An original image's pixel density at the width the print edition prints it, in ppi."""
+def typst_density(source: Path, width: str | None) -> int:
+    """An original image's pixel density at the width Typst prints it, in ppi.
+
+    Typst sizes an image by the width the page declares, else by the density the
+    file declares, capped at the column - `image_widths.printed_density` instead
+    measures a share of the column, which is what a source may declare.
+    """
     with Image.open(source) as image:
         return round(image.width / (printed_width_pt(image, width) / 72))
 
@@ -1368,7 +1372,7 @@ def resolve_images(
         if print_images is not None and path.suffix.lower() != ".svg":
             if low_resolution is not None:
                 width = img.get("width", "")
-                density = printed_density(path, width or None)
+                density = typst_density(path, width or None)
                 if density < LOW_RESOLUTION_PPI:
                     source = urllib.parse.unquote(src.split("#")[0].split("?")[0]).lstrip("/")
                     if source not in low_resolution or density < low_resolution[source][0]:

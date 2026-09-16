@@ -1,13 +1,15 @@
 # Spec: print-on-demand book block
 
-**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P12 implemented 2026-09-15
-(`task pdf:print`, 962 pages); P13-P17 open. The backlog's "Done" notes record where the implementation
+**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P15 and P18-P25 are implemented;
+P16 (CI) and P17 (the cover) are open. The backlog's "Done" notes record where the implementation
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
 and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
 review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24, of which P19-P23 were implemented
 on 2026-09-15: the print edition has 870 pages. P13, P14 and P24, and the tooling of P15, followed the same
 day: PDF/X-4 normalization (§7, with the transparency Ghostscript cannot convert rendered to images), the
-preflight report, image widths in the sources and the list of low-resolution originals; 868 pages.
+preflight report, image widths in the sources and the list of low-resolution originals. On 2026-09-16 the
+width rule was revised (D18, P24, which closed P15) and a short lead line under a heading became sticky
+(P25): the print edition has 864 pages.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -408,8 +410,8 @@ condition is not a registered one. `--icc-profile` names another grey profile.
 - page count even and at most 1,200
 - grey areas at least 20 % black; all fonts embedded; no soft masks left
 - every image at 300 ppi or more at its printed size; an original below 150 ppi is listed in
-  `dist/pdf/print/low-resolution.tsv` until it is replaced or accepted under `accepted-low-resolution` in
-  `print.yml`
+  `dist/pdf/print/low-resolution.tsv`, which `dec-tool image-widths` empties by narrowing the image to the
+  width its pixels support - `accepted-low-resolution` in `print.yml` keeps one at its size instead
 - with normalization: the file declares PDF/X-4, carries a FOGRA39 output intent, CMYK images only, no
   image above 300 ppi
 - a page key in `print.yml` drops that page; `omit` leaves no title and no note for a page or a section
@@ -746,7 +748,7 @@ with `--fix`, narrows every raster image that prints below 150 ppi in pages that
   stay as they are, as do generated pages.
 - **No floor:** an image whose pixels only support a thumbnail gets the thumbnail; the two smallest are
   14 % and 21 %, each a snippet of a dialog.
-- **Check:** `task check` may run the check, so a new screenshot is caught.
+- **Check:** `task check` runs it as `check:images`, so a new screenshot is caught before it is built.
 
 The same percentage serves the site and the PDF: on paper the image prints at 150 ppi or better, and the
 site shows it at the share of the article it fills on the page. This closes P15 - `--fix` wrote 47 widths

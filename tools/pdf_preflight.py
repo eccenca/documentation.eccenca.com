@@ -22,14 +22,12 @@ from pathlib import Path
 import click
 from pypdf import PdfReader
 
-from tools.pdf_normalize import is_pdfx4
+from tools.pdf_normalize import FOGRA39, is_pdfx4
+from tools.print_geometry import PRINT_PPI as MIN_PPI
 
 A4 = (595.28, 841.89)
-# The output intent of the book block; the greyscale preview names its grey profile instead.
-FOGRA39 = "FOGRA39"
 SIZE_TOLERANCE = 1.0
 MAX_PAGES = 1200
-MIN_PPI = 300
 # pdfimages rounds densities to whole pixels.
 PPI_TOLERANCE = 1
 MIN_AREA_BLACK = 0.20
