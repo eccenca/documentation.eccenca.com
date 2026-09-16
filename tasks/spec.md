@@ -1,6 +1,6 @@
 # Spec: print-on-demand book block
 
-**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P15 and P18-P25 are implemented;
+**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P15 and P18-P26 are implemented;
 P16 (CI) and P17 (the cover) are open. The backlog's "Done" notes record where the implementation
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
 and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
@@ -9,7 +9,8 @@ on 2026-09-15: the print edition has 870 pages. P13, P14 and P24, and the toolin
 day: PDF/X-4 normalization (§7, with the transparency Ghostscript cannot convert rendered to images), the
 preflight report, image widths in the sources and the list of low-resolution originals. On 2026-09-16 the
 width rule was revised (D18, P24, which closed P15) and a short lead line under a heading became sticky
-(P25): the print edition has 864 pages.
+(P25). On 2026-09-16 the first edition's scope was set to a user guide, omitting parts E and G whole
+(P26): the print edition has 668 pages.
 **Branch:** `feature/print-on-demand`, based on `main` at `c20d74b94` (PDF export merged).
 **Goal:** a *book block* - the interior file of a printed, perfect-bound book - built next to the
 screen PDF, which BoD accepts without rework.
@@ -482,7 +483,8 @@ A key under `sections` names a docs directory, ending in `/` as today, or a sing
 
 ```yaml
 sections:
-  develop/cmem-client-api/: omit
+  deploy-and-configure/: omit
+  develop/: omit
   build/tutorial-how-to-link-ids-to-osint/: omit
   # a single page: <docs path>/index.md: omit
 ```
@@ -493,6 +495,11 @@ sections:
 - A page key accepts `omit` only; any other mode fails the build. The page is dropped without a note.
 - Dropping the index page of a section keeps its other pages, under a heading with the section's
   navigation title - the shape Release Notes already has (§3).
+- **Scope of the first edition (decided 2026-09-16, backlog P26):** it is a user guide, so the parts an
+  administrator or a developer needs are omitted whole - E `deploy-and-configure/` (34 pages) and
+  G `develop/` (89 pages). The narrower `develop/cmem-client-api/` key goes with it, because keys do not
+  nest. A reference from a printed page into an omitted part is not lost: it becomes a web address in its
+  part's endnote list (D15), pointing at the online edition.
 - Keys do not nest: a key inside a directory that another key shortens fails the build.
 - A key that matches no page in `nav.yml` fails the build, as today.
 - A link to a dropped page prints the page's online address in a footnote, like any link that leaves

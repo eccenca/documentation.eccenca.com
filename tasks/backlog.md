@@ -1,6 +1,6 @@
 # Backlog: print-on-demand book block
 
-Work breakdown for [spec.md](spec.md). **Status 2026-09-16: P0-P15 and P18-P25 done and verified;
+Work breakdown for [spec.md](spec.md). **Status 2026-09-16: P0-P15 and P18-P26 done and verified;
 P16 (CI) and P17 (the cover) open.**
 
 The previous content of this file (the temporary tag-listing renderer) is in the git history.
@@ -414,7 +414,8 @@ Spec §10, D12-D14: leave subtrees, pages and parts of a page out of the print e
 - the site and the screen PDF ignore the class
 - documentation: the `sections` comment in `print.yml`, and a line for authors in
   `.claude/docs-guidelines/repo-conventions.md` on the class, which generated pages cannot carry
-- configuration: `develop/cmem-client-api/: omit`, `build/tutorial-how-to-link-ids-to-osint/: omit` (all
+- configuration: `develop/cmem-client-api/: omit` (P26 widened it to all of `develop/`),
+  `build/tutorial-how-to-link-ids-to-osint/: omit` (all
   7 pages), and `{ .sql .print-exclude }` on the SQL code block of the Snowflake tutorial - lines 92-1094
   of `docs/build/snowflake-tutorial/index.md` on 2026-09-15, inside `??? example "INSERT query"`, which
   keeps its title
@@ -436,8 +437,8 @@ from the stamp. `task check` passes.
 - `exclude_parts` replaces each run of `.print-exclude` elements with the note, whose address carries the
   anchor of the heading before the part. `merge_pages` returns the parts left out per page, which the
   build logs. List tables skip marked elements as well.
-- `print.yml` omits `develop/cmem-client-api/` (75 pages) and `build/tutorial-how-to-link-ids-to-osint/`
-  (7 pages). The SQL block of the Snowflake tutorial carries `sql { .print-exclude }`. Authors find the
+- `print.yml` omits `develop/cmem-client-api/` (75 pages, widened to all of `develop/` by P26) and
+  `build/tutorial-how-to-link-ids-to-osint/` (7 pages). The SQL block of the Snowflake tutorial carries `sql { .print-exclude }`. Authors find the
   markup in `.claude/docs-guidelines/repo-conventions.md`.
 - Measured:
     - The print edition drops from 966 to 666 pages, the Snowflake tutorial from 46 to 22.
@@ -632,6 +633,24 @@ with at most one line under them at a page foot fall from 23 to 6, and the book 
 pages. Measured against levels 1 to 3 alone, which leaves 17 of them at 868 pages: the four pages buy
 eleven fewer stranded headings, and one new one appears (B.2.2.6). `LEAD_HEADINGS` is the one place to
 change if the shorter book matters more. The screen edition does not run the step. One unit test.
+
+---
+
+## P26 - The first edition is a user guide - **done**
+
+Decided 2026-09-16: the first print edition serves users, so what an administrator or a developer needs
+stays in the online edition. `tools/pdf/print.yml` omits part E (`deploy-and-configure/`, 34 pages) and
+part G (`develop/`, 89 pages) whole, and the narrower `develop/cmem-client-api/` key goes, since section
+keys do not nest.
+
+**Verified:** the book drops from 864 to 668 pages and the preflight passes unchanged. No cross-reference
+dies: a link from a printed page into an omitted part becomes a web address in its part's endnote list -
+the JDBC driver setup, for one, prints as
+`https://documentation.eccenca.com/latest/deploy-and-configure/configuration/dataintegration/jdbc/` -
+and internal links without a target fall from 17 to 4, because most of those lived in the dropped trees.
+
+**Open:** the imprint's author list counts commits to the printed pages (D16), and 123 pages left the
+book, so `task pdf:authors` should run before the edition goes to print.
 
 ---
 

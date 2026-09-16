@@ -77,5 +77,8 @@ sections:
   release-notes/:
     mode: list
     columns: [Release, Summary]
-  develop/cmem-client-api/: omit
+  # The first print edition is a user guide: what an administrator or a
+  # developer needs stays in the online edition (parts E and G).
+  deploy-and-configure/: omit
+  develop/: omit
   build/tutorial-how-to-link-ids-to-osint/: omit
