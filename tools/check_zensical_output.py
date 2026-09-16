@@ -13,16 +13,19 @@ Two classes of checks:
              but they shout loudly once they start passing, which is the signal
              to revisit the migration.
 
-Usage: dec-tool check-zensical-output [--site-dir SITE_DIR]
+Usage: dec-tool check-zensical-output [--site-dir SITE_DIR] [--config-file CONFIG_FILE]
 """
 
 from __future__ import annotations
 
+import html
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
 
 import click
+import yaml
 
 # Hosts that may legitimately appear in the output. Everything else must be
 # vendored locally - see the privacy-plugin replacement in handoff.md.
@@ -42,36 +45,10 @@ COMMENTS_OPT_OUT = [
     "getting-started/with-your-sandbox/material",
 ]
 
-REDIRECTS = {
-    "cmemc": "automate/cmemc-command-line-interface/",
-    "explore-and-author/building-a-customized-user-interface": (
-        "explore-and-author/graph-exploration/building-a-customized-user-interface/"
-    ),
-    # Release notes were regrouped into year directories; the flat paths below
-    # are what external links and search results still point at.
-    "release-notes/corporate-memory-19-10": "release-notes/2019/corporate-memory-19-10/",
-    "release-notes/corporate-memory-20-03": "release-notes/2020/corporate-memory-20-03/",
-    "release-notes/corporate-memory-20-06": "release-notes/2020/corporate-memory-20-06/",
-    "release-notes/corporate-memory-20-10": "release-notes/2020/corporate-memory-20-10/",
-    "release-notes/corporate-memory-20-12": "release-notes/2020/corporate-memory-20-12/",
-    "release-notes/corporate-memory-21-02": "release-notes/2021/corporate-memory-21-02/",
-    "release-notes/corporate-memory-21-04": "release-notes/2021/corporate-memory-21-04/",
-    "release-notes/corporate-memory-21-06": "release-notes/2021/corporate-memory-21-06/",
-    "release-notes/corporate-memory-21-11": "release-notes/2021/corporate-memory-21-11/",
-    "release-notes/corporate-memory-22-1": "release-notes/2022/corporate-memory-22-1/",
-    "release-notes/corporate-memory-22-2": "release-notes/2022/corporate-memory-22-2/",
-    "release-notes/corporate-memory-23-1": "release-notes/2023/corporate-memory-23-1/",
-    "release-notes/corporate-memory-23-2": "release-notes/2023/corporate-memory-23-2/",
-    "release-notes/corporate-memory-23-3": "release-notes/2023/corporate-memory-23-3/",
-    "release-notes/corporate-memory-24-1": "release-notes/2024/corporate-memory-24-1/",
-    "release-notes/corporate-memory-24-2": "release-notes/2024/corporate-memory-24-2/",
-    "release-notes/corporate-memory-24-3": "release-notes/2024/corporate-memory-24-3/",
-    "release-notes/corporate-memory-25-1": "release-notes/2025/corporate-memory-25-1/",
-    "release-notes/corporate-memory-25-2": "release-notes/2025/corporate-memory-25-2/",
-    "release-notes/corporate-memory-25-3": "release-notes/2025/corporate-memory-25-3/",
-    "release-notes/corporate-memory-26-1": "release-notes/2026/corporate-memory-26-1/",
-    "release-notes/corporate-memory-26-2": "release-notes/2026/corporate-memory-26-2/",
-}
+# Zensical's redirect pages refresh to a URL relative to their own location.
+REFRESH_RE = re.compile(r'<meta http-equiv="refresh" content="\d+;\s*url=([^"]+)"', re.IGNORECASE)
+# Any absolute base will do: it only anchors urljoin while it resolves `..`.
+URL_BASE = "https://site.invalid/"
 
 # Only tags that make the browser fetch something. Plain <a href> hyperlinks to
 # the outside world are content, not a privacy problem.
@@ -91,6 +68,13 @@ failures: list[str] = []
 notices: list[str] = []
 
 
+class TolerantLoader(yaml.SafeLoader):
+    """A safe YAML loader that reads tags it cannot construct, such as `!!python/name:`, as null."""
+
+
+TolerantLoader.add_multi_constructor("", lambda loader, suffix, node: None)
+
+
 def report(name: str, ok: bool, detail: str, required: bool) -> None:
     """Record and print the outcome of a single check."""
     if required:
@@ -107,23 +91,70 @@ def html_files(site: Path) -> list[Path]:
     return sorted(site.rglob("*.html"))
 
 
-def check_redirects(site: Path) -> None:
-    """Redirect stubs replace the mkdocs-redirects plugin."""
-    for source, target in REDIRECTS.items():
-        page = site / source / "index.html"
+def redirect_maps(config: Path) -> dict[str, str]:
+    """Return the `redirect_maps` of the redirects plugin in a MkDocs configuration."""
+    data = yaml.load(config.read_text(encoding="utf-8"), Loader=TolerantLoader) or {}  # noqa: S506
+    plugins = data.get("plugins") or []
+    if isinstance(plugins, dict):
+        plugins = [{name: options} for name, options in plugins.items()]
+    for plugin in plugins:
+        if isinstance(plugin, dict) and "redirects" in plugin:
+            return dict((plugin["redirects"] or {}).get("redirect_maps") or {})
+    return {}
+
+
+def page_url(path: str) -> str:
+    """Return the site-relative URL of a docs/ Markdown path, e.g. `a/index.md#b` -> `a/#b`."""
+    path, hash_mark, fragment = path.partition("#")
+    stem = path.removesuffix(".md")
+    if stem == "index" or stem.endswith("/index"):
+        url = stem.removesuffix("index")
+    else:
+        url = f"{stem}/"
+    return url + hash_mark + fragment
+
+
+def check_redirects(site: Path, config: Path) -> None:
+    """Every page redirect in mkdocs.yml must land on its target in the build.
+
+    Zensical's redirects plugin writes the redirect pages since 0.0.61, and
+    `--strict` rejects a target that does not exist. What it cannot catch is a
+    redirect page that is missing or points elsewhere - a regression in
+    Zensical's output. Anchor redirects (`page.md#old`) are resolved in the
+    browser from redirect.json and are not checked here.
+    """
+    if not config.is_file():
+        report("redirects", False, f"{config} not found", required=True)
+        return
+    maps = redirect_maps(config)
+    if not maps:
+        report("redirects", False, f"no redirect_maps in {config}, so no old URL resolves", required=True)
+        return
+
+    for source, target in maps.items():
+        if "#" in source:
+            continue
+        source_url = page_url(source)
+        internal = not target.startswith(("http://", "https://"))
+        expected = page_url(target) if internal else target
+        shown = f"/{expected}" if internal else expected
+
+        page = site / source_url / "index.html"
         if not page.is_file():
-            report("redirects", False, f"missing stub for /{source}/", required=True)
+            report("redirects", False, f"no redirect page at /{source_url}", required=True)
             continue
-        body = page.read_text(encoding="utf-8", errors="replace")
-        if "http-equiv" not in body.lower() or target.rstrip("/") not in body:
-            report(
-                "redirects",
-                False,
-                f"/{source}/ does not redirect to /{target}",
-                required=True,
-            )
+        match = REFRESH_RE.search(page.read_text(encoding="utf-8", errors="replace"))
+        if not match:
+            report("redirects", False, f"/{source_url} is not a redirect page", required=True)
             continue
-        report("redirects", True, f"/{source}/ -> /{target}", required=True)
+        landed = urljoin(URL_BASE + source_url, html.unescape(match.group(1))).removeprefix(URL_BASE)
+        if landed != expected:
+            report("redirects", False, f"/{source_url} redirects to /{landed}, expected {shown}", required=True)
+            continue
+        if internal and not (site / expected.partition("#")[0] / "index.html").is_file():
+            report("redirects", False, f"/{source_url} redirects to {shown}, which was not built", required=True)
+            continue
+        report("redirects", True, f"/{source_url} -> {shown}", required=True)
 
 
 def check_comments(site: Path, pages: list[Path]) -> None:
@@ -231,7 +262,14 @@ def check_pending(site: Path, pages: list[Path]) -> None:
     help="Which build output should be checked?",
     show_default=True,
 )
-def check_zensical_output(site_dir: str) -> None:
+@click.option(
+    "--config-file",
+    type=click.Path(exists=False, dir_okay=False, file_okay=True),
+    default="mkdocs.yml",
+    help="Which configuration holds the redirect_maps?",
+    show_default=True,
+)
+def check_zensical_output(site_dir: str, config_file: str) -> None:
     """Check the build output for regressed Zensical workarounds."""
     site = Path(site_dir)
     if not site.is_dir():
@@ -241,7 +279,7 @@ def check_zensical_output(site_dir: str) -> None:
     pages = html_files(site)
     print(f"Checking {len(pages)} HTML files in {site}/\n")
 
-    check_redirects(site)
+    check_redirects(site, Path(config_file))
     check_comments(site, pages)
     check_external_assets(pages)
     check_tag_chip_links(site, pages)

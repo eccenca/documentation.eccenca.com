@@ -152,6 +152,54 @@ tasks:
     cmds:
       - poetry run zensical serve
 
+  pdf:
+    desc: Build a single PDF of the whole site with pandoc and Typst
+    summary: |
+      Runs `task build`, then tools/build_pdf.py, which merges the per-page
+      HTML in site/ along nav.yml into one document, converts it to Typst
+      with pandoc and typesets it with Typst in the eccenca house style.
+      Style, pandoc template, filter and the vendored fonts are in tools/pdf/;
+      system fonts are ignored, so the PDF does not depend on the machine.
+
+      Needs pandoc and typst on the PATH. The style is tested with typst
+      0.15; another minor release prints a warning, since Typst layout
+      changes between them.
+
+      nav.yml is the page order: it is generated from the .pages files and
+      gated by `task check`, so the PDF cannot drift from the sidebar. Pages
+      outside the navigation - the homepage, tags.md, testing.md and the
+      hidden Getting Started tutorial - are not included.
+
+      Links the PDF cannot resolve within itself - downloadable resources,
+      full-size screenshots, those excluded pages - point at the published
+      site under the built version, or under `latest` for a dev build.
+
+      The header and the title page print the build date and the commit,
+      marked -dirty when tracked files have uncommitted changes.
+
+      The merged HTML and the Typst source pandoc writes stay in dist/pdf/
+      for debugging a rendering problem.
+
+      On every push to main, .github/workflows/pdf.yml runs this task with
+      the pinned pandoc and Typst and keeps the PDF as a workflow artifact.
+
+      Tunables are options of `dec-tool build-pdf`, each with an environment
+      variable fallback - see `poetry run dec-tool build-pdf --help`:
+        --build-version / BUILD_VERSION - version stamped on the title page
+                                          and folded into the default filename
+                                          (default: {{.CURRENT_VERSION}})
+        --output-file / PDF_OUT         - explicit output path
+                                          (default:
+                                          dist/documentation-eccenca-com-<ver>.pdf)
+        --pandoc / PANDOC               - pandoc binary (default: pandoc)
+        --typst / TYPST                 - typst binary (default: typst)
+    deps:
+      - task: build
+    env:
+      BUILD_VERSION: '{{.CURRENT_VERSION}}'
+    cmds:
+      - poetry run dec-tool build-pdf
+
   update:icons:
     desc: update the used eccenca icons from carbon
     cmds:
