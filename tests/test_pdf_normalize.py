@@ -70,6 +70,16 @@ def test_each_output_is_named_after_what_it_is():
     assert gray_path(book).name == "documentation-eccenca-com-26-2-print-gray-x4.pdf"
 
 
+def test_the_grey_profile_can_be_named_by_the_environment(tmp_path, monkeypatch):
+    profile = tmp_path / "gray.icc"
+    profile.write_bytes(b"icc profile bytes")
+    monkeypatch.setenv("PDF_GRAY_PROFILE", str(profile))
+    assert ensure_gray_profile() == profile
+    monkeypatch.setenv("PDF_GRAY_PROFILE", str(tmp_path / "gone.icc"))
+    with pytest.raises(click.ClickException, match="not found"):
+        ensure_gray_profile()
+
+
 def test_the_grey_prefix_names_one_component_and_no_registry():
     prefix = pdfx_prefix(
         Path("/profiles/gray.icc"), "Book", components=1, identifier="sGray", condition="A grey profile",

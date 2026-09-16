@@ -1,7 +1,7 @@
 # Spec: print-on-demand book block
 
-**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P15 and P18-P26 are implemented;
-P16 (CI) and P17 (the cover) are open. The backlog's "Done" notes record where the implementation
+**Status:** accepted 2026-09-14 - all decisions made (§4). Backlog P0-P16 and P18-P26 are implemented;
+P17 (the cover) is open. The backlog's "Done" notes record where the implementation
 refines this spec. §10, excluding content from the print edition, was decided on 2026-09-15 (D12-D14)
 and implemented the same day (backlog P18): the print edition has 666 pages. §11 collects the pull request
 review of 2026-09-15, decided the same day (D15-D18); backlog P19-P24, of which P19-P23 were implemented

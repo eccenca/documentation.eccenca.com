@@ -1,7 +1,7 @@
 # Backlog: print-on-demand book block
 
-Work breakdown for [spec.md](spec.md). **Status 2026-09-16: P0-P15 and P18-P26 done and verified;
-P16 (CI) and P17 (the cover) open.**
+Work breakdown for [spec.md](spec.md). **Status 2026-09-16: P0-P16 and P18-P26 done and verified;
+P17 (the cover) open.**
 
 The previous content of this file (the temporary tag-listing renderer) is in the git history.
 
@@ -378,12 +378,25 @@ the report is empty.
 
 ---
 
-## P16 - CI
+## P16 - CI - **done**
 
-`.github/workflows/pdf.yml` also builds the normalized book block and uploads it with the preflight
-report, as a separate artifact. Installs Ghostscript on the runner.
+Done 2026-09-16: `.github/workflows/pdf.yml` builds every edition after a push to `main` or to
+`feature/print-on-demand`, and on demand from the Actions tab - the screen PDF from `task pdf`, and the
+book block, its PDF/X-4 copy in CMYK and the greyscale preview from `task pdf:print -- --normalize --gray`.
 
-**Verify:** a push to `main` produces both artifacts.
+- **The runner gets Ghostscript and poppler.** The preflight report shells out to `pdffonts`, `pdfimages`
+  and `pdftotext`, so without poppler the print build fails rather than the check being skipped.
+- **Four artifacts**, one per edition (`pdf-screen`, `pdf-print`, `pdf-print-x4`, `pdf-print-gray-x4`),
+  kept 30 days and stored uncompressed, since a PDF is compressed already.
+- **The run summary** lists each edition with its page count, size and download link, so nothing has to be
+  dug out of the artifact section (user decision 2026-09-16: summary links, no release page).
+- **The output intent profile** is cached in `dist/icc` between runs; its licence keeps it out of the
+  repository, and CI would otherwise fetch it from the ECI every time.
+- **The grey profile** is located with `find` and passed as `PDF_GRAY_PROFILE`, because distributions put
+  Ghostscript's `default_gray.icc` in different places; `ensure_gray_profile` honours that variable.
+- Concurrency is per ref, so a push to `main` no longer cancels a branch build.
+
+**Verify:** a push produces the four artifacts and the summary table; a failing preflight fails the job.
 **Est:** small. **Depends on:** P1, P13, P14.
 
 ---

@@ -177,7 +177,13 @@ def ensure_profile(profile: Path | None = None) -> Path:
 
 
 def ensure_gray_profile(profile: Path | None = None) -> Path:
-    """The grey output intent profile: the one named, else the generic one Ghostscript ships."""
+    """The grey output intent profile: the one named, else PDF_GRAY_PROFILE, else the one Ghostscript ships.
+
+    Where a distribution puts `default_gray.icc` differs, so a build that cannot
+    rely on the search paths - CI, for one - names the file it found instead.
+    """
+    if profile is None and os.environ.get("PDF_GRAY_PROFILE"):
+        profile = Path(os.environ["PDF_GRAY_PROFILE"])
     if profile is not None:
         if not profile.is_file():
             raise click.ClickException(f"ICC profile {profile} not found")
