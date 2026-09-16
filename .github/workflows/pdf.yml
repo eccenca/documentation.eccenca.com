@@ -1,0 +1,92 @@
+---
+name: PDF
+
+# Builds the PDF of the whole documentation after every push to main, merged
+# pull requests included, and keeps it as an artifact of the workflow run.
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+# A newer push to main makes a running build obsolete.
+concurrency:
+  group: "pdf"
+  cancel-in-progress: true
+
+env:
+  # The versions the PDF style is tested with (TESTED_TYPST in tools/build_pdf.py).
+  # Typst is pre-1.0 and its minor releases change layout, and the pandoc Ubuntu
+  # ships is older, so both come from their own releases.
+  PANDOC_VERSION: "3.11"
+  TYPST_VERSION: "0.15.1"
+
+jobs:
+
+  pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+          fetch-depth: "0"
+
+      - name: setup python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: install task
+        uses: arduino/setup-task@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: install and configure poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: load environment cache
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: update packages
+        run: sudo apt-get update -y
+
+      - name: install packages
+        run: sudo apt-get install -y libffi-dev libz-dev
+
+      - name: install pandoc
+        run: |
+          release="https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}"
+          curl --fail --silent --show-error --location --output "$RUNNER_TEMP/pandoc.deb" \
+            "${release}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+
+      - name: install typst
+        run: |
+          release="https://github.com/typst/typst/releases/download/v${TYPST_VERSION}"
+          curl --fail --silent --show-error --location "${release}/typst-x86_64-unknown-linux-musl.tar.xz" \
+            | tar -xJ -C "$RUNNER_TEMP"
+          sudo install -m 0755 "$RUNNER_TEMP/typst-x86_64-unknown-linux-musl/typst" /usr/local/bin/typst
+
+      - name: build pdf
+        run: task pdf
+
+      - name: upload pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-eccenca-com-pdf
+          path: dist/documentation-eccenca-com-*.pdf
+          if-no-files-found: error
+          # A PDF is compressed already.
+          compression-level: 0

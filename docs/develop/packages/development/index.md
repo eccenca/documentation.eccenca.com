@@ -218,7 +218,7 @@ Some packages are simply wrapping existing artifacts into a managed structure (e
 
 Most (solution) package development and evolution will be a back and forth between a package repository (making changes to `cpa-manifest.json` in terms of adding/removing dependencies, graph files, or Build project files) and a Corporate Memory (package development) instance.
 
-![Corporate Memory Marketplace Package Lifecycle](../mpp-lifecycle.svg){ width="50%" }
+![Corporate Memory Marketplace Package Lifecycle](../mpp-lifecycle.png){ width="50%" }
 
 !!! tip "Task wrappers"
 

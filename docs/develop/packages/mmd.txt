@@ -10,4 +10,7 @@ https://github.com/mermaid-js/mermaid-cli
 
 ```sh
 mmdc -i mpp-lifecycle.mmd -o mpp-lifecycle.svg -b transparent
+# The pages embed the PNG: the SVG carries its labels in foreignObject elements,
+# which the PDF export (Typst) cannot render.
+mmdc -i mpp-lifecycle.mmd -o mpp-lifecycle.png -b transparent -s 3
 ```
