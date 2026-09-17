@@ -168,33 +168,38 @@ jobs:
           retention-days: 30
           compression-level: 0
 
+      # The table is built in one go and printed to the log as well, so the
+      # editions and their links are readable even if the summary ever stays
+      # empty - which is how the first run of this step ended.
       - name: list the pdfs in the run summary
         run: |
-          row() {
-            file="$1"
-            edition="$2"
-            url="$3"
-            pages="$(pdfinfo "$file" | awk '/^Pages/ {print $2}')"
-            size="$(du -h "$file" | cut -f1)"
-            printf '| %s | %s | %s | [%s](%s) |\n' \
-              "$edition" "$pages" "$size" "$(basename "$file")" "$url" >> "$GITHUB_STEP_SUMMARY"
+          # $1 is a glob; $4, when given, drops what the glob also matches - the
+          # screen edition is the one file whose name carries no `-print`.
+          describe() {
+            file="$(ls $1 2>/dev/null | grep -v -- "${4:-^$}" | head -1)"
+            if [ -z "$file" ]; then
+              printf '| %s | - | - | missing |\n' "$2"
+              return
+            fi
+            printf '| %s | %s | %s | [%s](%s) |\n' "$2" \
+              "$(pdfinfo "$file" 2>/dev/null | awk '/^Pages/ {print $2}')" \
+              "$(du -h "$file" | cut -f1)" "$(basename "$file")" "$3"
           }
           {
             echo "## PDF editions of ${GITHUB_REF_NAME}"
             echo
             echo "| Edition | Pages | Size | Download |"
             echo "| :------ | ----: | ---: | :------- |"
-          } >> "$GITHUB_STEP_SUMMARY"
-          row "$(ls dist/documentation-eccenca-com-*.pdf | grep -v -- '-print' | head -1)" \
-            "Screen" "${{ steps.screen.outputs.artifact-url }}"
-          row "$(ls dist/documentation-eccenca-com-*-print.pdf | head -1)" \
-            "Print, book block" "${{ steps.print.outputs.artifact-url }}"
-          row "$(ls dist/documentation-eccenca-com-*-print-x4.pdf | head -1)" \
-            "Print, PDF/X-4 in CMYK" "${{ steps.pdfx.outputs.artifact-url }}"
-          row "$(ls dist/documentation-eccenca-com-*-print-gray-x4.pdf | head -1)" \
-            "Print, greyscale preview" "${{ steps.gray.outputs.artifact-url }}"
-          {
+            describe "dist/documentation-eccenca-com-*.pdf" \
+              "Screen" "${{ steps.screen.outputs.artifact-url }}" "-print"
+            describe "dist/documentation-eccenca-com-*-print.pdf" \
+              "Print, book block" "${{ steps.print.outputs.artifact-url }}"
+            describe "dist/documentation-eccenca-com-*-print-x4.pdf" \
+              "Print, PDF/X-4 in CMYK" "${{ steps.pdfx.outputs.artifact-url }}"
+            describe "dist/documentation-eccenca-com-*-print-gray-x4.pdf" \
+              "Print, greyscale preview" "${{ steps.gray.outputs.artifact-url }}"
             echo
             echo "The print editions carry the preflight report of \`dec-tool pdf-preflight\`;"
             echo "a failed check fails this job."
-          } >> "$GITHUB_STEP_SUMMARY"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "summary file: $GITHUB_STEP_SUMMARY, $(wc -c < "$GITHUB_STEP_SUMMARY") bytes"

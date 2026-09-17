@@ -396,7 +396,10 @@ book block, its PDF/X-4 copy in CMYK and the greyscale preview from `task pdf:pr
 - **Four artifacts**, one per edition (`pdf-screen`, `pdf-print`, `pdf-print-x4`, `pdf-print-gray-x4`),
   kept 30 days and stored uncompressed, since a PDF is compressed already.
 - **The run summary** lists each edition with its page count, size and download link, so nothing has to be
-  dug out of the artifact section (user decision 2026-09-16: summary links, no release page).
+  dug out of the artifact section (user decision 2026-09-16: summary links, no release page). The first
+  run wrote nothing there, although the step passed, so the table is now built in one block, printed to
+  the log with `tee` as well, and followed by the byte count of the summary file - a silent non-write
+  cannot pass for success again. **Open:** the next run has to show the table in both places.
 - **The output intent profile** is cached in `dist/icc` between runs; its licence keeps it out of the
   repository, and CI would otherwise fetch it from the ECI every time.
 - **The grey profile** is located with `find` and passed as `PDF_GRAY_PROFILE`, because distributions put
