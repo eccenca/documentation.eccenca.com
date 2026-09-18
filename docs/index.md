@@ -33,7 +33,7 @@ hide:
 
     Lift your data by integrating multiple datasets into a Knowledge Graph.
 
-- :material-star: [Explore and Author](explore-and-author/index.md)
+- :material-star: [Explore](explore-and-author/index.md)
 
     ---
 
