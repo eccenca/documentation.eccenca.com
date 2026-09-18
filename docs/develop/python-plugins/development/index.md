@@ -350,7 +350,7 @@ The method returns a list of `Autocompletion` objects, which represent the possi
 
 The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context objects](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py), which are passed to the plugin depending on the executed method.
 
-![context-api-flow-diagram](23-1-context-api-flow-diagram.png)
+![context-api-flow-diagram](23-1-context-api-flow-diagram.png){ width="75%" }
 
 ### Basic Understanding
 
@@ -453,7 +453,7 @@ The following image shows these terms and their relationships. (1)
 
 1. The concrete implementation details of entities can be found in the [entity module](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) of the cmem-plugin-base package.
 
-![entities-flow-diagram](22-2-entities-flow-diagram.png)
+![entities-flow-diagram](22-2-entities-flow-diagram.png){ width="90%" }
 
 | Class          | Description                                                        |
 | -------------- | ------------------------------------------------------------------ |

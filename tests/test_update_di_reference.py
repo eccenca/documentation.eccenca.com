@@ -29,13 +29,13 @@ def test_get_plugin_descriptions():
         assert titles == sorted(titles)
 
 
-def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", related=None):
+def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", related=None, description="test plugin"):
     """Build a minimal valid PluginDescription for a test, filling in only what varies."""
     return PluginDescription(
         pluginId=plugin_id,
         title=plugin_id,
         categories=[main_category],
-        description="test plugin",
+        description=description,
         properties={},
         actions={},
         required=[],
@@ -43,6 +43,31 @@ def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", 
         pluginType=plugin_type,
         relatedPlugins=related or [],
     )
+
+
+@pytest.mark.parametrize(
+    "description, expected",
+    [
+        # the Excel map transformer: a fence without a language
+        (
+            "sheets of the form:\n```\nmapFrom,mapTo\n<source string>,<target string>\n```\nand more.",
+            "sheets of the form: `mapFrom,mapTo <source string>,<target string>` and more.",
+        ),
+        # a fence with a language
+        ("Run:\n```sparql\nSELECT *\nWHERE { ?s ?p ?o }\n```", "Run: `SELECT * WHERE { ?s ?p ?o }`"),
+        # a fence already on one line
+        ("Use ```a,b``` here.", "Use `a,b` here."),
+        # a backtick inside needs a longer delimiter
+        ("Quote:\n```\nx = `y`\n```", "Quote: `` x = `y` ``"),
+        # inline code stays as it is
+        ("Insert `=\"\"` in a cell.", "Insert `=\"\"` in a cell."),
+    ],
+)
+def test_description_turns_a_fenced_block_into_a_code_span(description, expected):
+    # A fence squeezed onto one line is no fence in Markdown, but rumdl --fix
+    # still takes it for one and inserts a blank line before it - which ends the
+    # operator table the description is a row of.
+    assert _make_plugin("excelMap", description=description).description == expected
 
 
 @pytest.mark.parametrize(

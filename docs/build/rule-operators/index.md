@@ -54,7 +54,7 @@ The following parameters can be set for each comparison:
 
 !!! info inline end ""
 
-    ![Confidence graph](confidence-graph.png)
+    ![Confidence graph](confidence-graph.png){ width="38%" }
 
 The threshold is used to convert the computed distance to a confidence between -1.0 and 1.0. Links will be generated for confidences above 0 while higher confidence values imply a higher similarity between the compared entities.
 

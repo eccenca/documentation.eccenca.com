@@ -25,8 +25,20 @@ jinja_environment = Environment(
     undefined=StrictUndefined
 )
 
+# A fenced block, with or without a language. Squeezed onto one line it is no
+# fence, but rumdl --fix still takes it for one and inserts a blank line before
+# it - which ends the operator table whose row the description is.
+FENCED_BLOCK = re.compile(r"```(?:\w*\n)?(.*?)```", re.DOTALL)
+
+
+def code_span(match: re.Match) -> str:
+    """A fenced block's content as a code span, delimited by two backticks when it holds one."""
+    content = re.sub(r"\s+", " ", match.group(1)).strip()
+    return f"`` {content} ``" if "`" in content else f"`{content}`"
+
+
 def stripped_single_line(value: str) -> str:
-    return re.sub(r"\s+", " ", value).strip()
+    return re.sub(r"\s+", " ", FENCED_BLOCK.sub(code_span, value)).strip()
 
 class PluginReference(BaseModel):
     """Reference to a related plugin."""
