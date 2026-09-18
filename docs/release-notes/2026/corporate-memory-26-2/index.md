@@ -4,45 +4,45 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.2.1
+# eccenca Corporate Memory 26.2.1
 
-Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
-
-![26.2: Packages Marketplace](26-2-marketplace.png "26.2: Packages Marketplace"){ class="bordered" }
-
-![26.2: Build - Rule Blocks](26-2-build-rule-blocks.png "26.2: Build - Rule Blocks"){ class="bordered" }
-
-![26.2: Explore - Companion Authoring](26-2-companion-shaped-edit.png "26.2: Explore - Companion Authoring"){ class="bordered" }
-
-![26.2: Graph Insights - Resource Images](26-2-graph-insights-depictions.png "26.2: Graph Insights - Resource Images"){ class="bordered" }
-
-![26.2: Automate - n8n Community Node](26-2-automate-n8n-cn.png "26.2: Automate - n8n Commmunity Node"){ class="bordered" width="80%" }
+eccenca Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
 The highlights of this release are:
 
 - Marketplace: **General Availability**
+    ![26.2: Packages Marketplace](26-2-marketplace.png "26.2: Packages Marketplace"){ class="bordered" width="20%" align=right }
     - [eccenca Marketplace](../../../distribution/marketplace/index.md) ships as a generally available component for the first time: a package registry with a web application, a REST API for publishing and retrieving versioned packages, and direct installation of packages into a connected Corporate Memory.
 
 - Build: **Reusable Rule Blocks, Execution Variables and Jinja for SPARQL**
+    ![26.2: Build - Rule Blocks](26-2-build-rule-blocks.png "26.2: Build - Rule Blocks"){ class="bordered" width="20%" align=right }
     - Build introduces [reusable transform rule blocks](../../../build/rule-blocks/index.md) with a dedicated editor, execution variables that parameterize a single task or workflow run, [Jinja as the default template engine for SPARQL tasks](../../../build/reference/customtask/sparqlSelectOperator.md), and an embedded MCP server that opens the workspace to LLM agents.
 
 - Explore: **Companion Authoring**
+    ![26.2: Explore - Companion Authoring](26-2-companion-shaped-edit.png "26.2: Explore - Companion Authoring"){ class="bordered" width="20%" align=right }
     - Explore extends [Companion with external MCP server integration](../../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server) and SHACL based resource creation, editing and validation, and refreshes SHACL authoring together with the underlying platform.
 
 - Graph Insights: **Resource Images and Icons**
+    ![26.2: Graph Insights - Resource Images](26-2-graph-insights-depictions.png "26.2: Graph Insights - Resource Images"){ class="bordered" width="20%" align=right }
     - Graph Insights shows [resources with images and icons throughout the exploration](../../../deploy-and-configure/configuration/graphinsights/index.md#graph-insights-configuration), and adds a content language selection that switches the language of captions and descriptions of the explored data at any time.
 
 - Automate: **n8n Corporate Memory Community Node**
+    ![26.2: Automate - n8n Community Node](26-2-automate-n8n-cn.png "26.2: Automate - n8n Community Node"){ class="bordered" width="20%" align=right }
     - Initial release of the [n8n Corporate Memory community node](../../../automate/n8n-node/index.md) v0.4.2, available through the n8n community node installer.
 
 This release delivers the following component versions:
 
-- [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-- [eccenca Explore v26.2.2](#eccenca-explore-v2622)
-- [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
-- [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
-- [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
-- [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
+- [eccenca Corporate Memory 26.2.1](#eccenca-corporate-memory-2621)
+    - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
+    - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
+    - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
+    - [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
+    - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
+    - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
+    - [Migration Notes](#migration-notes)
+        - [eccenca DataIntegration](#eccenca-dataintegration)
+        - [eccenca Explore](#eccenca-explore)
+        - [cmemc](#cmemc)
 
 We tested this release with the following dependency components:
 
