@@ -123,7 +123,7 @@ The basic setup provides a `/data` directory inside of the Build (DataIntegratio
 The environment variable `PYTHONPATH` defines the directory, where the user-managed python packages are saved.
 This directory shall be persisted between restarts of Build (DataIntegration).
 The default value of this variable is `/data/python-packages/`.
-DataIntegration won't start if the directory defined by `PYTHONPATH` is not present and can't be created.
+DataIntegration will not start if the directory defined by `PYTHONPATH` is not present and cannot be created.
 In addition Build (DataIntegration) needs write access to that folder.
 This is tested on Build (DataIntegration) startup.
 

@@ -862,7 +862,7 @@ There exist a number of option for secure JDBC connections via Thrift and Hive:
 - User impersonation
 - Server and Client Certificates
 
-Eccenca provides a custom Authentification provider which allows to set 1 user/password combination for JDBC connections via:
+eccenca provides a custom Authentification provider which allows to set 1 user/password combination for JDBC connections via:
 
 ```code
 spark.sql.options = {

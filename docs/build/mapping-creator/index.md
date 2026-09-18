@@ -120,7 +120,7 @@ Accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each sugges
 
 ![Smart Class Suggestions](mapping-creator-class-suggestion.png){ class="bordered" }
 
-If you haven't selected a target class yet, the AI will suggest classes from the selected vocabularies that best fit your source data.
+If you have not selected a target class yet, the AI will suggest classes from the selected vocabularies that best fit your source data.
 Alternatively, you can search for classes manually by typing text into the search field.
 
 Hover over the wand icon for each suggestion to understand why this class has been recommended.

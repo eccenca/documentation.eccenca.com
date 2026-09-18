@@ -5,6 +5,8 @@ tags:
 
 ## Configuration for connecting to Virtuoso backend
 
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
 Configuration example:
 
 This example configures a connection with HTTPS to a remote Virtuoso store (<https://remote:8080>).

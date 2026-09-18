@@ -6,6 +6,8 @@ tags:
 
 ### Authentication
 
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
 Access to DataPlatform resources is restricted using OAuth 2.0.
 
 #### Configuration example
