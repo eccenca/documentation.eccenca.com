@@ -4,9 +4,9 @@ tags:
     - GraphInsights
 ---
 
-# Navigating to Corporate Memory
+# Navigating to eccenca Corporate Memory
 
-Graph Insights allows you to seamlessly jump from your visual analysis directly back to the source records in Corporate Memory. This creates a smooth transition from a high-level exploration to operational data management.
+Graph Insights allows you to seamlessly jump from your visual analysis directly back to the source records in eccenca Corporate Memory. This creates a smooth transition from a high-level exploration to operational data management.
 
 ---
 

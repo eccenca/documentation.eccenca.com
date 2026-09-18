@@ -17,7 +17,7 @@ tags:
     2. [Indicators of compromise rules, like Hayabusa and Sigma rules](lift-data-from-YAML-data-of-hayabusa-sigma/index.md)
 5. Link IDS event to a knowledge graph in dashboards via:
     1. [Queries](link-IDS-event-to-KG/index.md)
-    2. [Inferences](link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of Corporate Memory)
+    2. [Inferences](link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of eccenca Corporate Memory)
 
 ## Introduction
 

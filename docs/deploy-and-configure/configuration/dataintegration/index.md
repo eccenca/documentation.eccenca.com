@@ -115,7 +115,7 @@ The following sections describe the available workspace provider plugins and how
 
 ### RDF-store Workspace - backend
 
-When running in Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca Explore.
+When running in eccenca Corporate Memory, by default the workspace is held in the RDF store configured in the eccenca Explore.
 
 The workspace is held using the eccenca Explore backend (DataPlatform), i.e., it requires the `eccencaDataPlatform.url` parameter to be configured.
 
@@ -862,7 +862,7 @@ There exist a number of option for secure JDBC connections via Thrift and Hive:
 - User impersonation
 - Server and Client Certificates
 
-Eccenca provides a custom Authentification provider which allows to set 1 user/password combination for JDBC connections via:
+eccenca provides a custom Authentification provider which allows to set 1 user/password combination for JDBC connections via:
 
 ```code
 spark.sql.options = {

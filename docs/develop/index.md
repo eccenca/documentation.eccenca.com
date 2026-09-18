@@ -13,7 +13,7 @@ API documentation and programming recipes.
 
     ---
 
-    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to Corporate Memory using a Java program.
+    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to eccenca Corporate Memory using a Java program.
 
 - :material-language-python: Python
 
