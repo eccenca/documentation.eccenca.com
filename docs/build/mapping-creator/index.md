@@ -1,6 +1,5 @@
 ---
 icon: fontawesome/solid/wand-magic-sparkles
-# subtitle: build mappings visually and AI supported
 status: new
 tags:
     - Reference
@@ -13,128 +12,261 @@ tags:
     AI-generated content may be inaccurate or incomplete.
     Please review all suggestions carefully before applying them.
 
-## Configuration Info
+The Mapping Creator connects source data to a semantic model.
+It shows the source schema on the left, the target schema on the right, and the mapping rules between them as connections.
+Connections are created by dragging them, by adding classes and properties from the installed vocabularies, or by accepting AI-generated suggestions.
+The result is stored as the mapping rules of a transformation task, which can be refined in the **Mapping editor** and executed like any other transformation.
 
-A specific configuration is required to activate this feature.
-Furthermore, for the best experience, an LLM provider configuration is also needed.
-See the link in the info box for details.
+The Mapping Creator is a feature of eccenca Corporate Memory and is labeled **Mapping creator (beta)** in the user interface.
+
+## Prerequisites
 
 !!! info "Configuration"
 
     See [Mapping Creator and LLM Configuration](../../deploy-and-configure/configuration/dataintegration/index.md#mapping-creator-and-llm-configuration) to learn how to enable and configure this feature.
 
-## Usage
+- The feature is enabled in the configuration of the deployment.
+- A transformation task exists.
+  Its **Input** provides the source schema, or the input is connected in a workflow.
+- The vocabularies that provide the target classes and properties are installed.
+  The **Target vocabularies** parameter of the transformation task defines which of them are available, either `all installed vocabularies` or a selection.
+- Smart suggestions additionally require a configured Large Language Model (LLM).
 
-The Mapping Creator is a feature of BUILD transformation tasks (_BUILD_ > _Project_ > (_Workflow_ >) _Transformation_ > _Mapping Creator_).
+## Open the Mapping Creator
+
+The Mapping Creator is one of the task views of a transformation task.
+It is reached from the task itself or from a workflow that uses the task.
+
+### From a transformation task
+
+1. Open the transformation task in its project.
+
+2. Select **Mapping creator (beta)** in the header of the **Mapping editor** panel.
+
+    ![Task views of a transformation task with the Mapping creator (beta) entry](mapping-creator-open-from-task.png){ class="bordered" width="80%" }
+
+3. Click :eccenca-toggler-maximize: in the same header to use the full browser window.
+
+### From a workflow
+
+A transformation task without an **Input** receives its input from the workflow it is connected in.
+Opened from the project, such a task shows only the source paths that its existing rules use.
+Opened from the workflow, it shows the complete source schema of the connected input.
+
+1. Open the workflow.
+
+2. Click :eccenca-item-moremenu: on the transformation node.
+
+    ![Menu of a transformation node in the workflow editor](mapping-creator-open-from-workflow.png){ class="bordered" width="40%" }
+
+3. Select **Mapping editor**.
+
+4. Select **Mapping creator (beta)** in the header of the dialog.
+
+## The mapping canvas
+
+![Mapping Creator with the source schema, the target schema and the saved mapping rules](mapping-creator.png){ class="bordered" }
+
+The canvas consists of three parts:
+
+- **Source schema** on the left, with the elements of the input data
+- **Target schema** on the right, with the classes and properties of the target vocabularies
+- The connections between both, which represent the mapping rules
+
+Each element carries its own actions, which appear when the pointer is over the element:
+
+- :eccenca-application-ai-suggestion: suggests classes and properties for the element.
+- **Focus element** reduces the tree to the parent and the direct child elements.
+- :eccenca-item-edit: opens the menu that adds classes and properties.
+- :eccenca-item-moremenu: opens the remaining actions of the element.
+
+Clicking an element of the source schema opens **Source element info**, described in [Inspect a source element](#inspect-a-source-element).
+Clicking an element of the target schema opens **Mapping info**, described in [Inspect and edit a mapping rule](#inspect-and-edit-a-mapping-rule).
+
+Several target elements can be removed in one step.
+Select them with their checkboxes or with **Select all**, then click **Delete**, which states the number of selected elements.
 
 !!! question "Help"
 
-    ![Help](mapping-creator-help.png){ class="bordered" width="20%" align=right padding=40 }
+    ![Help menu of the Mapping Creator](mapping-creator-help.png){ class="bordered" width="20%" align=right }
 
-    Access help and a feature tour via the help menu :eccenca-item-question:.
+    Click :eccenca-item-question: to open the **Color legend**, the **Introduction tour** through the important elements, and this **Documentation**.
 
-Use the Mapping Creator to connect your data to semantic models.
-Using visual tools, drag-and-drop, and suggestions, you can create mappings between your source data and knowledge graph classes as well as their properties.
+### Color legend
 
-![Mapping Creator](mapping-creator.png){ class="bordered" }
+Each color and line type has a specific meaning.
 
-The Mapping Creator consists of three parts:
+![Color legend of the Mapping Creator](mapping-creator-color-legend.png){ class="bordered" width="60%" }
 
-- Source schema shown on the left side
-- Target Schema shown on the right side
-- Mappings between elements in the source schema and in the target schema
+| Element | Meaning |
+| --- | --- |
+| Purple box | Object element that represents an object value and can have child mappings |
+| Dashed purple box | Object element that is not persisted yet |
+| Green box | Value element that represents a literal value |
+| Dashed green box | Value element that is not persisted yet |
+| Grey line | Direct mapping that is already persisted |
+| Purple line | Edge of an object mapping rule, which generates an object instead of a literal value |
+| Blue line | Newly added edge that is not saved yet |
+| Dashed blue line | Suggested mapping connection that is neither confirmed nor declined |
+| Green line | Suggested mapping connection that is confirmed |
+| Dashed red line | Suggested mapping connection that is declined |
+| Dashed grey line | Grouped edge that combines the connections of a collapsed element |
 
-You can move, connect or disconnect, and inspect each element visually.
+### Inspect a source element
 
-<!--
-**TODO**: Clicking on an element in the source schema opens a detail view showing more schema information and describe the actual _sidebars_ properly (left: schema information, right: see below (Edit saved mapping rule)) **TODO**:@rpietzsch please add Details...
--->
+Click an element of the source schema to open **Source element info**.
+The panel opens to the left of the source schema and shows the details of the element and of the data behind it.
 
-### Color Legend
+![Source element info of a value element with its example data](mapping-creator-source-element-info.png){ class="bordered" width="80%" }
 
-Each color and visual element used in the Mapping Creator has a specific meaning as shown in the screenshot below.
+- **Label:** the label of the element
+- **Source path:** the path of the element relative to its parent element
+- **Value type:** `Object` for an object element, `Literal` for a value element
+- **Full source path:** the path of the element starting at the root element of the source schema
+- **Datatype:** the data type of the values, shown for value elements only
+- **Source path information:** **Example data** with values that the input provides for the path
 
-**TODO:** show the color legend here, too
+**Source path profiling information** follows when profiling data is available for the source path.
 
-![Color Legend](mapping-creator-color-legend.png){ class="bordered" }
+![Source path profiling information with the statistics of a source path](mapping-creator-source-profiling.png){ class="bordered" width="40%" }
 
-### Manual creation
+The table lists the statistics of the values, among them **Data type**, **Count**, **Count (unique)**, the minimum, maximum and average length, **Max. value**, **Min. value**, **Regex patterns** that the values match, **Samples** and **Profiling timestamp**.
 
-To start a mapping you need to select or define a target class first.
-The target class defines where your data will be mapped in the knowledge graph.
+Click :eccenca-navigation-close: to close the panel.
 
-#### Add properties
+## Create a mapping manually
 
-![Resource edit actions](mapping-creator-edit-actions.png){ class="bordered" width="40%" }
+A mapping starts with a target class.
+The target class defines where the data is mapped in the knowledge graph.
 
-To complete a mapping, properties need to be added to complete your desired target schema (i.e. the graph fragment that your transformation shall yield).
+### Add a target class
 
-There are two options to add properties:
+1. Click :eccenca-item-edit: on the target element that receives the class.
 
-- during class selection
-- from vocabularies
+    ![Menu of a target element with the Add class entry](mapping-creator-add-class-menu.png){ class="bordered" width="60%" }
 
-##### During class selection
+2. Select **Add class**.
 
-![Properties option in the class selection dialog](mapping-creator-class-selection.png){ class="bordered" width="80%" }
+3. Select a class in **Choose class from vocabularies**.
 
-In the _add target class_ dialog you may select different kind of properties:
+    ![Choose class from vocabularies dialog with the preview of the properties](mapping-creator-class-selection.png){ class="bordered" width="60%" }
 
-- class properties - properties defined in the domain of the selected class or its super-classes
-- default properties - typical well-known properties like `rdfs:label` or `rdfs:comment`
-- generic properties - properties defined with no explicit domain (or in domain of `owl:Thing`)
+    The dialog adds properties together with the class:
 
-The property preview helps to confirm your choice.
+    - **Add class properties:** properties defined in the domain of the selected class or its super-classes
+    - **Add default properties:** well-known properties such as `rdfs:label` or `rdfs:comment`
+    - **Include generic properties (owl:Thing and undefined domains)?:** properties defined with no explicit domain
 
-##### From vocabularies
+    **Preview of properties that would be added** states how many properties each option contributes and gives examples.
 
-![Adding a property from your vocabulary](mapping-creator-property-selection.png){ class="bordered" width="80%" }
+4. Click **Add**.
 
-The _add property from vocabularies_ dialog allows you to search and select a property and to configure it in the desired way:
+**Remove class** in the same menu removes the class from the element again.
 
-- redefine the role of a property, to use a DatatypeProperty in the role of an ObjectProperty, or vice versa
-- define the _direction_ an ObjectProperty should be used in
+### Add properties
 
-#### Create direct mappings
+Properties can also be added on their own, through **Add properties** in the menu of the target element.
 
-Drag from a property in your source data to a class or property in the canvas to create your mapping.
-This is helpful when smart suggestions are not sufficient.
+![Menu of a target element with the Add properties submenu](mapping-creator-edit-actions.png){ class="bordered" width="60%" }
 
-#### Edit saved mapping rule
+- **Include properties from target class** adds the properties of the class that is assigned to the element.
 
-![Editing a saved rule](mapping-creator-edit-rule.png){ class="bordered" width="60%" }
+    ![Include properties from target class dialog with the preview of the properties](mapping-creator-include-class-properties.png){ class="bordered" width="60%" }
 
-Click on an already saved target element to show more details.
-With the :eccenca-item-edit: Pencil icon you can edit the mapping rule and rename elements, or adjust configurations.
-Advanced users can refine transformation logic here.
+    The dialog offers the same options as **Choose class from vocabularies**: **Add class properties**, **Add default properties** and **Include generic properties (owl:Thing and undefined domains)?**.
+    **Preview of properties that would be added** states, for each category, the number of properties that would be added and the number of properties that the category provides.
+    Properties that the element already has are not added again, for example `0/ 1` for a class whose only property is already in the target schema.
+    **Add** adds the properties as child elements of the target element.
+    They are not persisted until the mapping is saved.
 
-### Smart suggestions with AI support
+- **Add property from vocabularies** opens a dialog to search for a single property.
+
+    ![Choose a property from the vocabularies dialog with the direction of an object property](mapping-creator-property-selection.png){ class="bordered" width="60%" }
+
+    **Add as object property** uses a property in the role of an object property, or, when it is turned off, in the role of a datatype property.
+    For an object property, **Object property direction** defines whether the element is connected with **Connect from parent element** or **Connect to parent element**.
+
+### Connect source and target elements
+
+Drag the connector of a source element onto a target element to create a mapping between them.
+The new connection is not persisted until the mapping is saved.
+This is the way to map elements that the suggestions do not cover.
+
+### Inspect and edit a mapping rule
+
+![Mapping info of a saved value mapping](mapping-creator-edit-rule.png){ class="bordered" width="80%" }
+
+Click a target element to open **Mapping info**.
+The panel shows the label, the URI of the target property, the value type, the full source path and the data type.
+**Transformation example** shows a source value and the value that the rule produces from it.
+
+Click :eccenca-item-edit: in **Mapping info** to edit the rule.
+The form changes **Target property**, **Cardinality**, **Data type**, **Value path**, **Mapping label** and **Mapping description**.
+More complex transformation logic is defined in the **Mapping editor** of the transformation task.
+
+## Create a mapping with smart suggestions
 
 !!! info
-    Note that this feature is only available if a Large Language Model is configured.
 
-Click the :eccenca-application-ai-suggestion: Magic Wand to automatically generate mapping suggestions based on your data and the selected class.
-Accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion as needed.
+    Smart suggestions are only available if a Large Language Model is configured.
 
-#### Class suggestions
+While the target schema is empty, the canvas offers **Suggest classes and properties via AI** and **Add classes and/or properties to the schema**.
+The same suggestions are available later through :eccenca-application-ai-suggestion: on a target element.
+The first AI action of a session opens **AI disclaimer**, which is closed with **Close** or suppressed with **Do not show this notice automatically again**.
 
-![Smart Class Suggestions](mapping-creator-class-suggestion.png){ class="bordered" }
+### Get class suggestions
 
-If you haven't selected a target class yet, the AI will suggest classes from the selected vocabularies that best fit your source data.
-Alternatively, you can search for classes manually by typing text into the search field.
+Click **Suggest classes and properties via AI**.
+A class selector replaces the toolbar and lists the classes of the target vocabularies that fit the source data.
 
-Hover over the wand icon for each suggestion to understand why this class has been recommended.
+![Suggested target class with its vocabulary and description](mapping-creator-class-suggestion.png){ class="bordered" }
 
-#### Property suggestions
+Hover over :eccenca-application-ai-suggestion: of a suggestion to read why the class has been suggested.
+Classes can also be searched by typing into the field.
 
-Property suggestions are generated that map your source data to elements of the selected target vocabularies.
-You can accept (:octicons-thumbsup-16:) or reject (:octicons-thumbsdown-16:) each suggestion.
+!!! tip
 
-![Smart Property Suggestions](smart-suggestions.png){ class="bordered" }
+    If the list stays empty and reports `No classes found`, click :eccenca-item-reload: in the field to request the suggestions again.
 
-Once the smart suggestions have been generated, you need to perform two steps:
+### Get property suggestions
 
-1. For each property, decide whether to accept or reject the AI-generated mapping.
-    Click :octicons-thumbsup-16: Confirm to accept or :octicons-thumbsdown-16: Decline to reject.
+Selecting a class from the list generates the property mappings between the source elements and the properties defined on that class.
+The status in the toolbar states how many suggestions have been added.
 
-2. Once you have completed your mapping, click the _Save Mapping_ button to apply and save your changes to the transformation task.
+![Suggested property mappings between the source schema and the target schema](mapping-creator-property-suggestions.png){ class="bordered" }
+
+The buttons next to the status act on all suggestions:
+
+- Confirm all undecided property suggestions, which asks for confirmation before it is applied
+- Request the property suggestions again
+- Hide the source elements that are not part of a suggestion
+- Hide the target elements that are not part of a suggestion
+- Restrict the suggestions to the target properties that are currently loaded in the target schema
+
+### Confirm or decline a suggestion
+
+Click a suggested connection to decide on it.
+
+![Decision menu of a suggested connection with the reason for the suggestion](mapping-creator-suggestion-decision.png){ class="bordered" width="80%" }
+
+- **Confirm** accepts the suggestion.
+- **Decline** rejects it.
+- **Set to undecided** returns a decided suggestion to its original state.
+
+**REASON** in the same menu explains why the connection has been suggested.
+
+### Apply and save the suggestions
+
+1. Click **Add** to apply the confirmed suggestions to the target schema.
+    **Cancel** discards all suggestions instead.
+
+2. Click **Save mapping** to persist the mapping rules in the transformation task.
+
+### Provide additional context
+
+Click :eccenca-item-moremenu: next to the class selector and select **Show suggestion context** to improve the suggestions.
+**Suggestion context** takes an example input, an example output, an extra user prompt and PDF files, and applies them with **Update**.
+
+## Reuse the target schema of another transformation
+
+**Use transformation as schema template** in the menu of a target element extracts the target schema of another transformation task and inserts it under the selected element.
