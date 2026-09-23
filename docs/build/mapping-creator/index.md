@@ -57,7 +57,7 @@ Opened from the workflow, it shows the complete source schema of the connected i
 
 2. Click :eccenca-item-moremenu: on the transformation node.
 
-    ![Menu of a transformation node in the workflow editor](mapping-creator-open-from-workflow.png){ class="bordered" width="40%" }
+    ![Menu of a transformation node in the workflow editor](mapping-creator-open-from-workflow.png){ class="bordered" width="32%" }
 
 3. Select **Mapping editor**.
 
@@ -96,7 +96,7 @@ Select them with their checkboxes or with **Select all**, then click **Delete**,
 
 Each color and line type has a specific meaning.
 
-![Color legend of the Mapping Creator](mapping-creator-color-legend.png){ class="bordered" width="60%" }
+![Color legend of the Mapping Creator](mapping-creator-color-legend.png){ class="bordered" width="57%" }
 
 | Element | Meaning |
 | --- | --- |
@@ -117,7 +117,7 @@ Each color and line type has a specific meaning.
 Click an element of the source schema to open **Source element info**.
 The panel opens to the left of the source schema and shows the details of the element and of the data behind it.
 
-![Source element info of a value element with its example data](mapping-creator-source-element-info.png){ class="bordered" width="80%" }
+![Source element info of a value element with its example data](mapping-creator-source-element-info.png){ class="bordered" width="76%" }
 
 - **Label:** the label of the element
 - **Source path:** the path of the element relative to its parent element
@@ -128,7 +128,7 @@ The panel opens to the left of the source schema and shows the details of the el
 
 **Source path profiling information** follows when profiling data is available for the source path.
 
-![Source path profiling information with the statistics of a source path](mapping-creator-source-profiling.png){ class="bordered" width="40%" }
+![Source path profiling information with the statistics of a source path](mapping-creator-source-profiling.png){ class="bordered" width="36%" }
 
 The table lists the statistics of the values, among them **Data type**, **Count**, **Count (unique)**, the minimum, maximum and average length, **Max. value**, **Min. value**, **Regex patterns** that the values match, **Samples** and **Profiling timestamp**.
 
@@ -143,13 +143,13 @@ The target class defines where the data is mapped in the knowledge graph.
 
 1. Click :eccenca-item-edit: on the target element that receives the class.
 
-    ![Menu of a target element with the Add class entry](mapping-creator-add-class-menu.png){ class="bordered" width="60%" }
+    ![Menu of a target element with the Add class entry](mapping-creator-add-class-menu.png){ class="bordered" width="51%" }
 
 2. Select **Add class**.
 
 3. Select a class in **Choose class from vocabularies**.
 
-    ![Choose class from vocabularies dialog with the preview of the properties](mapping-creator-class-selection.png){ class="bordered" width="60%" }
+    ![Choose class from vocabularies dialog with the preview of the properties](mapping-creator-class-selection.png){ class="bordered" width="57%" }
 
     The dialog adds properties together with the class:
 
@@ -167,11 +167,11 @@ The target class defines where the data is mapped in the knowledge graph.
 
 Properties can also be added on their own, through **Add properties** in the menu of the target element.
 
-![Menu of a target element with the Add properties submenu](mapping-creator-edit-actions.png){ class="bordered" width="60%" }
+![Menu of a target element with the Add properties submenu](mapping-creator-edit-actions.png){ class="bordered" width="57%" }
 
 - **Include properties from target class** adds the properties of the class that is assigned to the element.
 
-    ![Include properties from target class dialog with the preview of the properties](mapping-creator-include-class-properties.png){ class="bordered" width="60%" }
+    ![Include properties from target class dialog with the preview of the properties](mapping-creator-include-class-properties.png){ class="bordered" width="49%" }
 
     The dialog offers the same options as **Choose class from vocabularies**: **Add class properties**, **Add default properties** and **Include generic properties (owl:Thing and undefined domains)?**.
     **Preview of properties that would be added** states, for each category, the number of properties that would be added and the number of properties that the category provides.
@@ -181,7 +181,7 @@ Properties can also be added on their own, through **Add properties** in the men
 
 - **Add property from vocabularies** opens a dialog to search for a single property.
 
-    ![Choose a property from the vocabularies dialog with the direction of an object property](mapping-creator-property-selection.png){ class="bordered" width="60%" }
+    ![Choose a property from the vocabularies dialog with the direction of an object property](mapping-creator-property-selection.png){ class="bordered" width="57%" }
 
     **Add as object property** uses a property in the role of an object property, or, when it is turned off, in the role of a datatype property.
     For an object property, **Object property direction** defines whether the element is connected with **Connect from parent element** or **Connect to parent element**.
@@ -194,7 +194,7 @@ This is the way to map elements that the suggestions do not cover.
 
 ### Inspect and edit a mapping rule
 
-![Mapping info of a saved value mapping](mapping-creator-edit-rule.png){ class="bordered" width="80%" }
+![Mapping info of a saved value mapping](mapping-creator-edit-rule.png){ class="bordered" width="75%" }
 
 Click a target element to open **Mapping info**.
 The panel shows the label, the URI of the target property, the value type, the full source path and the data type.
