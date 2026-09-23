@@ -80,7 +80,7 @@ Each element carries its own actions, which appear when the pointer is over the 
 - :eccenca-item-edit: opens the menu that adds classes and properties.
 - :eccenca-item-moremenu: opens the remaining actions of the element.
 
-Clicking an element of the source schema opens **Source element info** with the label, the source path, the full source path, the value type and the data type.
+Clicking an element of the source schema opens **Source element info**, described in [Inspect a source element](#inspect-a-source-element).
 Clicking an element of the target schema opens **Mapping info**, described in [Inspect and edit a mapping rule](#inspect-and-edit-a-mapping-rule).
 
 Several target elements can be removed in one step.
@@ -112,6 +112,28 @@ Each color and line type has a specific meaning.
 | Dashed red line | Suggested mapping connection that is declined |
 | Dashed grey line | Grouped edge that combines the connections of a collapsed element |
 
+### Inspect a source element
+
+Click an element of the source schema to open **Source element info**.
+The panel opens to the left of the source schema and shows the details of the element and of the data behind it.
+
+![Source element info of a value element with its example data](mapping-creator-source-element-info.png){ class="bordered" width="80%" }
+
+- **Label:** the label of the element
+- **Source path:** the path of the element relative to its parent element
+- **Value type:** `Object` for an object element, `Literal` for a value element
+- **Full source path:** the path of the element starting at the root element of the source schema
+- **Datatype:** the data type of the values, shown for value elements only
+- **Source path information:** **Example data** with values that the input provides for the path
+
+**Source path profiling information** follows when profiling data is available for the source path.
+
+![Source path profiling information with the statistics of a source path](mapping-creator-source-profiling.png){ class="bordered" width="40%" }
+
+The table lists the statistics of the values, among them **Data type**, **Count**, **Count (unique)**, the minimum, maximum and average length, **Max. value**, **Min. value**, **Regex patterns** that the values match, **Samples** and **Profiling timestamp**.
+
+Click :eccenca-navigation-close: to close the panel.
+
 ## Create a mapping manually
 
 A mapping starts with a target class.
@@ -121,7 +143,7 @@ The target class defines where the data is mapped in the knowledge graph.
 
 1. Click :eccenca-item-edit: on the target element that receives the class.
 
-    ![Menu of a target element with the Add properties submenu](mapping-creator-edit-actions.png){ class="bordered" width="60%" }
+    ![Menu of a target element with the Add class entry](mapping-creator-add-class-menu.png){ class="bordered" width="60%" }
 
 2. Select **Add class**.
 
@@ -143,9 +165,20 @@ The target class defines where the data is mapped in the knowledge graph.
 
 ### Add properties
 
-Properties can also be added on their own, through **Add properties** in the menu of the target element:
+Properties can also be added on their own, through **Add properties** in the menu of the target element.
+
+![Menu of a target element with the Add properties submenu](mapping-creator-edit-actions.png){ class="bordered" width="60%" }
 
 - **Include properties from target class** adds the properties of the class that is assigned to the element.
+
+    ![Include properties from target class dialog with the preview of the properties](mapping-creator-include-class-properties.png){ class="bordered" width="60%" }
+
+    The dialog offers the same options as **Choose class from vocabularies**: **Add class properties**, **Add default properties** and **Include generic properties (owl:Thing and undefined domains)?**.
+    **Preview of properties that would be added** states, for each category, the number of properties that would be added and the number of properties that the category provides.
+    Properties that the element already has are not added again, for example `0/ 1` for a class whose only property is already in the target schema.
+    **Add** adds the properties as child elements of the target element.
+    They are not persisted until the mapping is saved.
+
 - **Add property from vocabularies** opens a dialog to search for a single property.
 
     ![Choose a property from the vocabularies dialog with the direction of an object property](mapping-creator-property-selection.png){ class="bordered" width="60%" }
