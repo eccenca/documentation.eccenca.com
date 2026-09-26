@@ -5,6 +5,7 @@ nav:
     - Integrations: integrations
     - Task and Operator Reference: reference
     - Mapping Creator: mapping-creator
+    - Mapping Creator Tutorial: mapping-creator-tutorial
     - Rule Operators: rule-operators
     - Rule Blocks: rule-blocks
     - Define Prefixes / Namespaces: define-prefixes-namespaces

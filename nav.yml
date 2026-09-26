@@ -436,6 +436,8 @@ nav:
                   - Set execution variable: build/reference/transformer/Variables/setExecutionVariable.md
       - Mapping Creator:
           - build/mapping-creator/index.md
+      - Mapping Creator Tutorial:
+          - build/mapping-creator-tutorial/index.md
       - Rule Operators:
           - build/rule-operators/index.md
       - Rule Blocks:
