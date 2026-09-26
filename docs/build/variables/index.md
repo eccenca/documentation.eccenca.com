@@ -4,7 +4,7 @@ tags:
   - KnowledgeGraph
   - Variables
 ---
-# Project and Global Build Variables
+# Build Variables
 
 ## Introduction
 
@@ -147,8 +147,40 @@ They are referenced with the `execution.` prefix, for example `{{execution.myVar
 
 Tasks (including workflows) have an **Execution variables** widget in its configuration view, managed in the same way as project variables:
 click on :eccenca-item-add-artefact: to add a variable and provide a name, value and description in the same dialog used for project variables.
-When an execution is started, these variables provide the default values of the execution scope.
-For a workflow run, the defaults come from the **workflow itself** — the execution variables of the operators and datasets inside the workflow are not used during a workflow run; they apply when such a task is executed directly.
+The widget is offered on every task.
+Its values take effect when that task is the one being executed, where they provide the defaults of the execution scope.
+A task that only runs as part of a workflow receives its values from the enclosing workflow, so its own widget stays unused.
+
+### Where Execution Variables Resolve
+
+Project and global variables are resolved when a task is saved, which is why they can be used in any parameter field that offers the **{#}** toggle.
+An execution variable only has a value while a run is in progress.
+It therefore takes effect in parameters that are evaluated once per execution, such as the template of the **Evaluate template** workflow operator and of the **Evaluate template** transformer.
+A reference such as `{{execution.myVariable}}` resolves there to the value of the current run.
+
+A template in an ordinary parameter field behaves differently.
+It is resolved when the task is loaded, and the result is kept until the task is loaded again.
+An execution variable referenced in such a field does not change the result from run to run and is not a way to parameterize a plugin per execution.
+To give a plugin parameter a value that differs per run, use the [config port](../workflows/index.md#workflow-reconfiguration) of the operator.
+
+### Determining the Variables of a Run
+
+The set of execution variables of a single run is built in three steps:
+
+1. The defaults come from the task that is executed.
+   For a workflow run these are the execution variables of the workflow itself.
+   The execution variables of the operators, datasets and sub-workflows inside the workflow are not read; they apply when such a task is executed directly.
+2. Values given at the start of the run replace defaults of the same name.
+   A value given at the start of a run also defines a variable that is not declared on any task.
+3. **Set execution variable** operators create or replace entries while the run proceeds.
+
+The resulting set is used by every task of the run, including sub-workflows.
+Two consequences follow from this:
+
+- A variable that a task or a sub-workflow inside a workflow references must be defined on the executed workflow itself, or be given at the start of the run.
+  There is no fallback to the definition on the inner task.
+- Variable names form a single flat set.
+  The same name used by two tasks always receives the same value; different values for the same name in different tasks are not possible.
 
 `{{execution.<name>}}` resolves only from the execution scope — there is no fallback to other scopes.
 If `<name>` has not been defined as a default, provided or set for the run, the reference cannot be resolved and the execution fails with an error.
@@ -156,20 +188,23 @@ To base a default on a project or global variable, give the execution variable a
 
 !!! note
 
-    Execution variables are resolved in templates that are evaluated **during execution**, for example the template of the template operator.
-
-!!! note
-
     The execution variables of a task are stored together with the task (their default values, not any run-specific overrides).
     When the task or its project is exported, they are exported as well.
     The values of a running execution are never persisted and are not shared between runs.
 
-Besides the defaults defined in the widget, there are two further ways to supply execution variables for a run:
+### Passing Execution Variables When Starting a Workflow
 
-### Passing execution variables when starting a workflow
+When a workflow execution is triggered via the REST API, execution variables are provided in one of two ways.
 
-When a workflow execution is triggered via the REST API, execution variables can be provided in the JSON request body under the `executionVariables` key as a simple name/value map.
-For example, executing a workflow with a single execution variable `testVar`:
+The first is a query parameter per variable, with the reserved prefix `variable-`:
+
+```text
+?variable-testVar=World
+```
+
+This form works for every endpoint, request content type and request method, including `GET`.
+
+The second is a name/value map under the `executionVariables` key of a JSON request body:
 
 ```json
 {
@@ -179,10 +214,18 @@ For example, executing a workflow with a single execution variable `testVar`:
 }
 ```
 
+Values are strings in both forms.
+The request body form is not available on endpoints that accept a replaceable input dataset, because the body of such a request carries the data for that dataset.
+
 Each entry is set in the `execution` scope — overriding a default of the same name defined on the workflow — and can be referenced anywhere in the workflow as `{{execution.<name>}}`.
 For instance, an operator configured with the template `{{value}} {{execution.testVar}}` would resolve `execution.testVar` to `World` for that run.
 
-### Setting execution variables during a workflow run
+Querying `GET /api/core/variableTemplate/variables` for a workflow with the `transitive` flag returns every variable that has to be set for a run of that workflow:
+the execution variables of the workflow itself together with those of every task and sub-workflow that may take part in the execution.
+If the same name is defined on several levels, the definition of the enclosing workflow is returned, which is the one that applies during the run.
+These endpoints are described in the [DataIntegration API documentation](../../develop/dataintegration-apis/index.md).
+
+### Setting Execution Variables During a Workflow Run
 
 Execution variables can also be created or updated while a workflow is running.
 Two operators in the *Variables* category support this:
