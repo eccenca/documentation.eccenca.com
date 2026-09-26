@@ -29,6 +29,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
 
     ---
 
+    - [Build a mapping with the Mapping Creator](mapping-creator-tutorial/index.md) --- Map a hierarchical XML file to a vocabulary with the visual editor and its AI-generated suggestions.
     - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from tabular data such as CSV, XSLX or database tables.
     - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
     - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
