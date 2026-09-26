@@ -40,6 +40,19 @@ jinja2 = "^3.1.6"
 # release. This narrowness is intentional -- bump it manually and re-run
 # `task build` plus `tools/check_zensical_output.py` when doing so.
 zensical = "^0.0.64"
+pillow = "^11.3.0"
+# tools/pdf_normalize.py and tools/pdf_preflight.py read the PDFs the print
+# edition writes: the PDF/X-4 marker, the output intent, page sizes and annotations.
+pypdf = "^6.18"
+# Every dec-tool subcommand is a click command (tools/__init__.py). click, markdown
+# and requests used to arrive as dependencies of other packages; a tool that imports
+# them directly declares them, or an upstream bump takes them away.
+click = "^8.5"
+# tools/build_pdf.py renders the Markdown fields of data/plugins.json for the
+# operator reference of the print edition.
+markdown = "^3.10"
+# tools/update_icons.py fetches the eccenca icon set from the gui-elements repository.
+requests = "^2.32"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

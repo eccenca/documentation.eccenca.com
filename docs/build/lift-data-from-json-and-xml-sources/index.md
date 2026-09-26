@@ -309,7 +309,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
     === "JSON"
 
-        ![Examples of target data JSON](ldfjaxs-json-examples-target-data.png){ class="bordered" }
+        ![Examples of target data JSON](ldfjaxs-json-examples-target-data.png){ class="bordered" width="64%" }
 
     === "XML"
 

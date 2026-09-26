@@ -20,6 +20,7 @@ $endif$
   version: sys.inputs.at("version"),
   site-url: sys.inputs.at("site-url"),
   copyright: sys.inputs.at("copyright"),
+  authors: sys.inputs.at("authors", default: ""),
 )
 
 $body$

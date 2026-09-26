@@ -29,7 +29,7 @@ In the following, we have a more detailed look at each of the three operators.
 
 Create a dataset of the type Knowledge Graph (embedded) and set the graph parameter to the URI of the graph that contains the resources to be exported:
 
-![create-dataset](22-1-1-create-dataset.png)
+![create-dataset](22-1-1-create-dataset.png){ width="70%" }
 
 ### Create Transformation
 

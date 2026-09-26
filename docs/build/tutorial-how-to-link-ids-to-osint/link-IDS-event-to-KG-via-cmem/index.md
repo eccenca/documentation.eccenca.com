@@ -56,17 +56,17 @@ For each investigation, an analyst selects and navigates in the data with two da
 </figure>
 
 <figure markdown="span">
-![Figure 2: High-level investigation dashboard with the list of computers implicated in the incident](poc-app_high_level_computers.png)
+![Figure 2: High-level investigation dashboard with the list of computers implicated in the incident](poc-app_high_level_computers.png){ width="68%" }
 <figcaption>Figure 2: High-level investigation dashboard with the list of computers implicated in the incident</figcaption>
 </figure>
 
 <figure markdown="span">
-![Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details](poc-app_high_level_period.png)
+![Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details](poc-app_high_level_period.png){ width="69%" }
 <figcaption>Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details</figcaption>
 </figure>
 
 <figure markdown="span">
-![Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard](poc-app_low_level.png)
+![Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard](poc-app_low_level.png){ width="73%" }
 <figcaption>Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ The idea is the analyst can do an investigation high-level without using a lot o
 To follow the calculation of investigations and free memory when one investigation is closed, we developed another dashboard "investigation_list.xml" (see figure 5). This dashboard prints the status of investigations actually in the knowledge graph. Here, each investigation is saved in tempory graphs and the analyst can create and delete them directly in Splunk.
 
 <figure markdown="span">
-![Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.](poc-app_list_investigations.png)
+![Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.](poc-app_list_investigations.png){ width="82%" }
 <figcaption>Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.</figcaption>
 </figure>
 
