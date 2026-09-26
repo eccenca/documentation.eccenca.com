@@ -11,7 +11,7 @@ Here, we are working with the Hayabusa/Sigma rules available via GitHub:
 - [https://github.com/Yamato-Security/hayabusa-rules](https://github.com/Yamato-Security/hayabusa-rules)
 - [https://github.com/SigmaHQ/sigma](https://github.com/Yamato-Security/hayabusa-rules)
 
-The problem of interoperability, here, is the YAML format of files, their random position in their folders in their Github projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
+The problem of interoperability, here, is the YAML format of files, their random position in their folders in their GitHub projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
 
 To build this knowledge graph of rules, we need to:
 
@@ -24,7 +24,7 @@ To build this knowledge graph of rules, we need to:
 
 The YAML syntax is used to define each rule and there is one file by rule.
 
-Corporate Memory doesn't support YAML (for the moment) but you can convert the files in JSON with this bash where you need to install git and [yq](https://github.com/mikefarah/yq).
+Corporate Memory does not support YAML (for the moment) but you can convert the files in JSON with this bash where you need to install git and [yq](https://github.com/mikefarah/yq).
 
 Moreover, we use yq to add the field `rulePath` in each file with their paths in their repositories to have the possibility to rebuild their positions on the Web and so allowing the analyst to click directly on this link to read the details and may be, modify this rule.
 
@@ -153,7 +153,7 @@ This new transformer are building the following RDF model for your use case:
 
     ![](23-1-success-workflow.png)
 
-    And don't forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
+    And do not forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
 
     ![](23-1-workflow-allow-replacement.png)
 

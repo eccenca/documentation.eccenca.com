@@ -59,19 +59,19 @@ If your use case or question requires you to limit the available tools (e.g. if 
 - Query Catalog related
 
     `query_list`
-    :   Lists all existing SPARQL queries on this corporate memory instance.
+    :   Lists all existing SPARQL queries on this Corporate Memory instance.
 
     `query_details`
     :   Retrieve all information about a certain query in the query catalog.
 
     `query_execute_saved`
-    :   Executes a saved SPARQL query on this corporate memory instance.
+    :   Executes a saved SPARQL query on this Corporate Memory instance.
     The query is identified by its IRI.
 
 - Query related:
 
     `query_execute_json`
-    :   Executes a `SPARQL SELECT` query on this corporate memory instance.
+    :   Executes a `SPARQL SELECT` query on this Corporate Memory instance.
     The query is provided as a string.
 
 - Introspection related:
@@ -83,7 +83,7 @@ If your use case or question requires you to limit the available tools (e.g. if 
     :   Shows how classes are connected in a particular graph to each other by different properties.
 
     `graph_list`
-    :   Lists all existing RDF graphs on this corporate memory instance.
+    :   Lists all existing RDF graphs on this Corporate Memory instance.
 
     `graph_properties_list`
     :   Lists all used RDF properties used in this graph.

@@ -78,7 +78,7 @@ In addition to that, these changes are shipped:
 - Mapping Rule Editor will show the rule label (if any) and the mapping target.
 - The JSON dataset supports streaming.
     - The change applies to reading JSON, writing was already streamed.
-    - If streaming is enabled, files won't be loaded into memory, allowing to read large JSON files without running into OutOfMemory errors.
+    - If streaming is enabled, files will not be loaded into memory, allowing to read large JSON files without running into OutOfMemory errors.
 - Allow to open the value mapping rule formula editor from the create/edit value mapping rule form.
 - Improvements to Template operators:
     - Added option to forward input attributes.
@@ -107,7 +107,7 @@ This version of eccenca DataManager adds the following new features:
         - can get expanded permanently
         - offers option to get expanded in a reduced form by hovering it with the cursor
         - we now have various section in the main nav, modules with main navigation items can be configured via `subSection` parameter (order of sections need to be defined in `Navigationbar` component, currently we have `timetracker`, `explore`, `build` and `other` as options, if not set it is automatically organized into `explore` or `other`)
-        - **Deprecation notice:** configuration variables `windowTitle` and `headerName` are now deprecated, please use `companyName`, `productName` and `applicationName` from `appPresentation`
+        - **Deprecation notice:** configuration variables `windowTitle` and `headerName` are now deprecated, use `companyName`, `productName` and `applicationName` from `appPresentation`
 - Query Module
     - New Query Module v2
     - Activated per default
@@ -197,7 +197,7 @@ This version of eccenca DataPlatform ships the following new features:
 - Prefixes are now used in TURTLE serializations
     - Prefixes defined in the Vocaulary catalog are used.
 - Added support for all shacl:path expressions
-    - `shui:inversePath` is still supported, however please use [`sh:inversePath`](https://www.w3.org/TR/shacl/#property-path-inverse) wherever possible.
+    - `shui:inversePath` is still supported, however, use [`sh:inversePath`](https://www.w3.org/TR/shacl/#property-path-inverse) wherever possible.
 - Property usage analytics endpoints `api/vocabusage/*` for both explicit Vocab definitions and usage information. Please refer to the OpenAPI definitions for more information.
 - Explicitly defined supported-submit-methods property to enable / disable "Try I Out" button in Swagger UI.
 - Server side UI configuration Support

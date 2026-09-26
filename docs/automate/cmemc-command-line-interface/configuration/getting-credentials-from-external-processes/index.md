@@ -28,7 +28,7 @@ export OAUTH_CLIENT_SECRET="...secret..."
 cmemc graph list
 ```
 
-In the context of a CI/CD pipeline, e.g., on github, these credentials can be taken from the repository secrets:
+In the context of a CI/CD pipeline, e.g., on GitHub, these credentials can be taken from the repository secrets:
 
 ``` yaml
 jobs:

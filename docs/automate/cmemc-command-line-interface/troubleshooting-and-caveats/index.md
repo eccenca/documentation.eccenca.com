@@ -54,7 +54,7 @@ $ cmemc -c my-cmem project import my-project.zip my-project
 Import file my-project.zip to project my-project ... 504 Server Error: Gateway Time-out for url: https://my-cmem/dataintegration/workspace/projects
 ```
 
-This can have multiple reasons - please check in the following order:
+This can have multiple reasons - check in the following order:
 
 - `application.yaml` of DataIntegration
 - reverse proxy configuration

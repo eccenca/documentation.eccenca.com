@@ -20,7 +20,7 @@ This connection allows organizations to store and manage large amounts of data i
 By integrating Snowflake with eccenca Corporate Memory, organizations can achieve a centralized and unified data management system that allows them to gain a complete and accurate view of all their data assets.
 This integration enables organizations to make informed decisions, improve their business processes, and drive growth and innovation by leveraging their data assets.
 
-This tutorial contains the following step-by-step instructions to connect the Snowflake data-warehouse with eccenca corporate memory:
+This tutorial contains the following step-by-step instructions to connect the Snowflake data-warehouse with eccenca Corporate Memory:
 
 - [1. Create a database in Snowflake](#1-create-a-database-in-snowflake)
 - [2. Create a project in eccenca Corporate Memory](#2-create-a-project-in-eccenca-corporate-memory)
