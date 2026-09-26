@@ -95,7 +95,7 @@ The following material is used in this tutorial:
                 <service id="D215-3449390" />
             </services>
         </dept>
-        <dept id="22183" name="Product Management">        
+        <dept id="22183" name="Product Management">        
             ...
         </dept>
         ...
@@ -118,15 +118,15 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     ![Define Target graph URI](ldfjaxs-define-target-graph-uri.png){ class="bordered" width="70%"}
 
-## 2 Uploading of the data (file)
+## 2 Create the project
 
 1. Click the :eccenca-artefact-project: **Projects** icon in the main menu under the **BUILD** section.
     Then click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new project.
 
     ![Create new project](ldfjaxs-create-project.png){ class="bordered" }
 
-2. In the **Create new item** window, select **Project** and click **Add**.
-   The Create new item of type Project window appears.
+2. In the **Create new item** window, select **Project** and click **Add**.
+   The Create new item of type Project window appears.
 
     ![Add new project](ldfjaxs-add-new-project.png){ class="bordered" width="50%" }
 
@@ -138,118 +138,111 @@ The vocabulary contains the classes and properties needed to map the data into t
 
     ![Add Title and Description](ldfjaxs-build-project-title-description.png){ class="bordered" width="70%" }
 
-4. Click **Create**. Your project is created.
+4. Click **Create**. Your project is created.
 
-## 3 Create a new dataset
+## 3 Create the workflow
 
-Follow the steps below for adding JSON and XML datasets.
+The workflow holds the whole pipeline, from the source files to the Knowledge Graphs.
+Every item of this tutorial is created from inside the workflow editor.
+
+1. Click **Create workflow** in the **Contents** of the project.
+
+    In a project that already contains items, click :eccenca-item-add-artefact: **Create new**, select **Workflow**, and click **Add** instead.
+
+2. Enter the following value:
+
+    - **Label:** `Lift JSON and XML sources`
+
+3. Click **Create**.
+
+    The workflow page opens with an empty **Workflow editor**.
+
+4. Click the :eccenca-toggler-maximize: icon of the **Workflow editor** to use the full browser window.
+
+## 4 Add the source files to the workflow
 
 === "JSON"
 
-    1. Click again on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new JSON dataset. Select Dataset on the left, then select **JSON** and click **Add**.
+    1. Drag the [services.json](services.json) file from the file manager of the operating system and drop it on the canvas of the workflow editor.
 
-        ![Dialog to create new JSON dataset](create-dataset-JSON.png){ class="bordered" width="50%" }
+        The file is uploaded, and the **Create new item of type JSON** dialog opens with the **JSON** type preselected for the file.
 
-    2. Define a **Label** (in this example we use `JSON Services`), for the dataset, pick **Upload new file** and upload the [services.json](services.json) file. You can leave all the other fields at default values.
+    2. Enter the following value:
 
-        ![Dialog to create new JSON dataset](dialog-create-new-json-dataset.png){ class="bordered" width="70%"}
+        - **Label:** `JSON Services`
+
+        All other fields can remain at their default values.
+
+        ![Create new item of type JSON dialog with the dropped file](dialog-create-new-json-dataset.png){ class="bordered" width="70%" }
 
     3. Click **Create**.
 
+        The `JSON Services` dataset appears on the canvas.
+
 === "XML"
 
-    1. Click again on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new XML dataset. Select Dataset, then select **XML** and click **Add**.
+    1. Drag the [orgmap.xml](orgmap.xml) file from the file manager of the operating system and drop it on the canvas of the workflow editor.
 
-        ![Dialog to create new XML dataset](ldfjaxs-create-dataset-XML.png){ class="bordered" width="50%"}
+        The file is uploaded, and the **Create new item of type XML** dialog opens with the **XML** type preselected for the file.
 
-    2. Define a **Label** (in this example we use `Orgmap XML`) for the dataset, pick **Upload new file** and upload the [orgmap.xml](orgmap.xml) example file. You can leave all the other fields at default values.
+    2. Enter the following value:
 
-        ![Dialog to label new XML dataset](ldfjaxs-dialog-create-new-xml-dataset.png){ class="bordered" width="70%"}
+        - **Label:** `Orgmap XML`
 
-    3. Click **Create**.
+        All other fields can remain at their default values.
 
-## 4 Create a Knowledge Graph
+        ![Create new item of type XML dialog with the dropped file](ldfjaxs-dialog-create-new-xml-dataset.png){ class="bordered" width="70%" }
 
-1. Click on **Create new** :eccenca-item-add-artefact: in the top right corner to create a new **Knowledge Graph**.
+    3. Click **Create**.
 
-2. In **Create new item** window, select Dataset, then select **Knowledge Graph** and click **Add**.
+        The `Orgmap XML` dataset appears on the canvas.
 
-    ![Dialog to create new Knowledge Graph dataset](ldfjaxs-create-dataset-KG.png){ class="bordered" width="50%" }
+## 5 Create a transformation
 
-3. Fill in the required details such as Label and Description.
+The transformation defines how an input dataset (JSON or XML) is transformed into an output dataset (a Knowledge Graph).
 
-    === "JSON"
+1. Click the dot on the right of the dataset node and select **Connect to newly created Transformation**.
 
-        Define a **Label** for the Knowledge Graph and provide **Graph** uri. You can leave all the other fields at default values. In this example we use:
-
-        - Name: `Service Knowledge Graph`
-        - Graph: `http://ld.company.org/prod-instances/`
-
-        After typing the Graph URI you must click the Custom entry: '…' suggestion. Typing alone leaves it unset.
-
-        ![Dialog to create new Knowledge Graph dataset](ldfjaxs-create-new-kg-for-json.png){ class="bordered" width="70%"}
-
-        Click **Create**.
-
-    === "XML"
-
-        Define a **Label** for the Knowledge Graph and provide **Graph** uri. You can leave all the other fields at default values. In this example we will use:
-
-        - Name: `Organization Knowledge Graph`
-        - Graph: `http://ld.company.org/organization-data/`
-
-        After typing the Graph URI you must click the Custom entry: '…' suggestion. Typing alone leaves it unset.
-
-        ![Dialog to create new Knowledge Graph dataset](ldfjaxs-create-new-kg-for-xml.png){ class="bordered" width="70%"}
-
-        Click **Create**.
-
-## 5 Create a Transformation
-
-The transformation defines how an input dataset (e.g.: JSON or XML) will be transformed into an output dataset (e.g.: Knowledge Graph).
-
-1. Click **Create** in your project.
-
-2. On the **Create New Item** window, select **Transform** and click **Add** to create a new transformation.
-
-    ![Create new Transformation](ldfjaxs-create-new-tf.png){ class="bordered" width="50%" }
-
-3. In the **Create new item of type Transform** window, enter the required fields.
+2. Enter the following values:
 
     === "JSON"
 
-        For this example, enter the following:
+        - **Label:** `Create Service Triples`
+        - **Description (optional):** `Lifts the Service file into the Knowledge Graph`
 
-        - Name: `Create Service Triples`
-        - (optional) Description: `Lifts the Service file into the Knowledge Graph`
-        - Select the Source Dataset: `JSON Services`
-        - Select the Output Dataset: `Service Knowledge Graph`
-
-        ![Dialog to create new Transformation](ldfjaxs-create-new-tf-for-json.png){ class="bordered" width="70%"}
-
-        Click **Create**.
+        ![Create new item of type Transform dialog for the JSON dataset](ldfjaxs-create-new-tf-for-json.png){ class="bordered" width="70%" }
 
     === "XML"
 
-        For this example, enter the following:
+        - **Label:** `Create Organization Triples`
+        - **Description (optional):** `Lifts the Orgmap XML file into the Knowledge Graph`
+        - **Type:** `dept`
 
-        - Name: `Create Organization Triples`
-        - (optional) Description: `Lifts the Orgmap XML file into the Knowledge Graph`
-        - Select the Source Dataset: `Orgmap XML`
-        - Type: `dept` (define the Source Type, which defines the XML element that should be iterated when creating resources)
-        - Select the Output Dataset: `Organization Knowledge Graph`
+        **Type** defines the XML element that is iterated when creating resources.
 
-        ![Dialog to create new Transformation](ldfjaxs-create-new-tf-for-xml.png){ class="bordered" width="70%"}
+        ![Create new item of type Transform dialog for the XML dataset](ldfjaxs-create-new-tf-for-xml.png){ class="bordered" width="70%" }
 
-        Click **Create**.
+    **Input** is already set to the dataset the transformation is connected to.
 
-4. Expand the :eccenca-artefact-project: **Mapping** menu by clicking the arrow on the right side of the page to expand the menu.
+3. Click **Create**.
 
-5. Click **Edit** to create a base mapping.
+    The transformation appears on the canvas, connected to the dataset.
+
+4. Click **Save** in the workflow editor.
+
+5. Click the :eccenca-item-moremenu: menu of the transformation node and select **Mapping editor**.
+
+    ![Menu of a transformation node in the workflow editor](open-mapping-editor.png){ class="bordered" width="50%" }
+
+    The transformation opens in a window over the workflow, with the **Mapping editor** tab selected.
+
+6. Expand the :eccenca-artefact-project: **Mapping** header by clicking the icon on its right side.
+
+7. Click **Edit** to create a base mapping.
 
     ![Mapping header configuration.](ldfjaxs-mapping-configuration-header.png){ class="bordered" width="70%"}
 
-6. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **Label** for the mapping.
+8. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **Label** for the mapping.
 
     The **URI pattern** field is read-only and shows `Default pattern.` until you click **Create custom pattern** next to it.
 
@@ -265,8 +258,8 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
         In this example we will use:
 
-        - Target Entity Type: `Service`
-        - URI Pattern: `http://ld.company.org/prod-inst/service-instances/{ServiceID}`
+        - Target Entity Type: `Service`
+        - URI Pattern: `http://ld.company.org/prod-inst/service-instances/{ServiceID}`
         - An optional Label: `Service`
 
         Click **Save**.
@@ -291,7 +284,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
         In this example we will use:
 
-        - Target Entity Type: `Department`
+        - Target Entity Type: `Department`
         - URI Pattern: `http://ld.company.org/department/{@id}`
         - An optional Label: `Department`
 
@@ -305,7 +298,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
         <http://ld.company.org/department/73191> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Department>
         ```
 
-7. Evaluate your mapping by pressing on the :eccenca-toggler-showmore: button in the **Examples of target data** property to see at most three generated base URIs.
+9. Evaluate your mapping by pressing on the :eccenca-toggler-showmore: button in the **Examples of target data** property to see at most three generated base URIs.
 
     === "JSON"
 
@@ -318,7 +311,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
     We have now created the entities in the Knowledge Graph.
 
 
-8. Click the :eccenca-item-add-artefact: **Add Mapping** drop-down and select **Add value mapping**.
+10. Click the :eccenca-item-add-artefact: **Add Mapping** drop-down and select **Add value mapping**.
 
     ![Add a mapping rule](ldfjaxs-service-mapping-add-rule.png){ class="bordered" width="70%" }
 
@@ -343,7 +336,7 @@ The transformation defines how an input dataset (e.g.: JSON or XML) will be tran
 
         - Target Property: `name `
         - Data type: `String`
-        - Value path: `@name`
+        - Value path: `@name`
             - which corresponds to the `department name` attribute in the XML file
         - An optional Label: `department name`
 
@@ -361,9 +354,9 @@ By clicking on the :eccenca-toggler-showmore: button in the **Examples of target
 
     ![Mapping result](mapping-result-xml.png){ class="bordered" width="70%" }
 
-## 6 Evaluate a Transformation
+## 6 Evaluate a transformation
 
-Click **Transform evaluation** to evaluate the transformed entities.
+Select the **Transform evaluation** tab of the transformation window to evaluate the transformed entities.
 
 === "JSON"
 
@@ -373,19 +366,59 @@ Click **Transform evaluation** to evaluate the transformed entities.
 
     ![Transformation evaluation view XML](ldfjaxs-xml-transform-evaluation.png){ class="bordered" width="70%" }
 
-
 ## 7 Build the Knowledge Graph
 
-1. Click **Transform execution**
-2. Click the :eccenca-item-start: button and validate the results. In this example, 6 Department (XML) or 9 Service (JSON) entities were created in our Knowledge Graph based on the mapping.
-3. Click :eccenca-application-explore: **Knowledge graphs** under **EXPLORE** to view the created Knowledge Graphs.
-4. Open the **Graphs** drop-down at the top of the left panel and enter the graph URI in its search field
-   (not the **Enter search term** field of the **Navigation** panel below it — that one filters classes
-   within the already-selected graph). Then select the graph from the result list.
+The Knowledge Graph is the last node of each pipeline in the workflow.
+
+1. Click the close icon in the top right corner of the transformation window.
+
+    The workflow editor is shown again.
+
+2. Click the dot on the right of the transformation node and select **Connect to newly created Knowledge graph**.
+
+    ![Menu of the output port of a transformation](connect-knowledge-graph.png){ class="bordered" width="50%" }
+
+3. Enter the following values:
+
+    === "JSON"
+
+        - **Label:** `Service Knowledge Graph`
+        - **Graph:** `http://ld.company.org/prod-instances/`
+
+        ![Create new item of type Knowledge Graph dialog for the JSON pipeline](ldfjaxs-create-new-kg-for-json.png){ class="bordered" width="70%" }
+
+    === "XML"
+
+        - **Label:** `Organization Knowledge Graph`
+        - **Graph:** `http://ld.company.org/organization-data/`
+
+        ![Create new item of type Knowledge Graph dialog for the XML pipeline](ldfjaxs-create-new-kg-for-xml.png){ class="bordered" width="70%" }
+
+    After entering the graph URI, select the **Custom entry** suggestion to confirm the value.
+    All other fields can remain at their default values.
+
+4. Click **Create**.
+
+    The workflow now connects each dataset to its Knowledge Graph.
+
+    ![The workflow with the JSON and the XML pipeline](complete-workflow.png){ class="bordered" }
+
+5. Click the :eccenca-item-start: start icon in the toolbar of the workflow editor and click **Save and run workflow**.
+
+    Each node shows a check mark and the number of entities it processed: 9 `Service` entities from the JSON file and 6 `Department` entities from the XML file.
+
+    ![Result of the workflow execution](workflow-execution.png){ class="bordered" }
+
+6. Click :eccenca-application-explore: **Knowledge graphs** under **EXPLORE** to view the created Knowledge Graphs.
+
+7. Open the **Graphs** drop-down at the top of the left panel, enter the graph URI in its search field, and select the graph from the result list:
+
     - JSON / Service: `http://ld.company.org/prod-instances/`
     - XML / Department: `http://ld.company.org/organization-data/`
 
-   ![Searching for the graph URI in the Graphs drop-down (JSON example shown)](ldfjaxs-kg-search-graph.png){ class="bordered" width="70%" }
+    Use the search field of the **Graphs** drop-down, not the **Enter search term** field of the **Navigation** panel below it, which filters the classes of the selected graph.
+
+    ![Searching for the graph URI in the Graphs drop-down (JSON example shown)](ldfjaxs-kg-search-graph.png){ class="bordered" width="70%" }
 
 === "JSON"
 
