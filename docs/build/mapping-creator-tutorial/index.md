@@ -14,7 +14,11 @@ This beginner-level tutorial builds a Knowledge Graph from a hierarchical XML fi
 The Mapping Creator connects a source schema to a target schema visually.
 Instead of adding one mapping rule after another, the target schema is assembled from classes and properties of a vocabulary, and the source elements are connected to it by drag-and-drop or by AI-generated suggestions.
 
-Along the way the tutorial uses the features of the editor:
+The tutorial works workflow first.
+It starts with an empty workflow and creates every item from inside the workflow editor: the dataset from the dropped file, the transformation from the dataset, and the Knowledge Graph from the transformation.
+The workflow is the place where the pipeline is visible as a whole, and running it builds the Knowledge Graph in one step.
+
+Along the way the tutorial uses the features of the Mapping Creator:
 adding classes and properties from a vocabulary, direct mappings by drag-and-drop, AI suggestions with their reasons, nested entities, the direction and the role of a property, focus mode, and the editor for a saved mapping rule.
 [Mapping Creator](../mapping-creator/index.md) describes the same features as a reference.
 
@@ -123,69 +127,110 @@ The vocabulary provides the classes and properties the mapping maps the XML data
 
 5. Click **Create**.
 
+    The project page opens.
+
+6. Click the :eccenca-item-edit: pencil icon next to **Prefix** in the **Configuration** panel.
+
+7. Enter the following values under **Add project prefix** and click **Add**:
+
+    - **Prefix:** `pv`
+    - **URI:** `http://ld.company.org/prod-vocab/`
+
+    ![Add project prefix form of the Manage prefixes dialog](add-project-prefix.png){ class="bordered" width="70%" }
+
+    With the prefix, the Mapping Creator shows the classes and properties of the vocabulary as `pv:Department` and `name (pv)` instead of their full IRIs.
+    [Define prefixes / namespaces](../define-prefixes-namespaces/index.md) explains project prefixes in detail.
+
+8. Click **Close**.
+
 ---
 
-## 3 Add the XML file as a dataset
+## 3 Create the workflow
 
-1. Click :eccenca-item-add-artefact: **Create new** inside the project.
+The workflow holds the whole pipeline, from the XML file to the Knowledge Graph.
 
-2. Select **XML** and click **Add**.
+1. Click **Create workflow** in the **Contents** of the project.
 
-3. Enter the following values:
+    In a project that already contains items, click :eccenca-item-add-artefact: **Create new**, select **Workflow**, and click **Add** instead.
+
+2. Enter the following value:
+
+    - **Label:** `Build Org Map Knowledge Graph`
+
+    ![Create new item of type Workflow dialog](create-workflow.png){ class="bordered" width="70%" }
+
+3. Click **Create**.
+
+    The workflow page opens with an empty **Workflow editor**.
+
+4. Click the :eccenca-toggler-maximize: icon of the **Workflow editor** to use the full browser window.
+
+---
+
+## 4 Add the XML file to the workflow
+
+1. Drag the `orgmap.xml` file from the file manager of the operating system and drop it on the canvas of the workflow editor.
+
+    The file is uploaded, and the **Create new item of type XML** dialog opens with the **XML** type preselected for the file.
+
+2. Enter the following value:
 
     - **Label:** `Org Map`
-    - **FILE:** select **Upload new file** and upload the `orgmap.xml` file
 
-    ![Create new item of type XML dialog with the uploaded file](create-xml-dataset.png){ class="bordered" width="70%" }
+    ![Create new item of type XML dialog with the dropped file](create-xml-dataset.png){ class="bordered" width="70%" }
 
-4. Expand **ADVANCED OPTIONS** and disable **Streaming**.
+3. Expand **ADVANCED OPTIONS** and disable **Streaming**.
 
     Streaming reads large XML files without holding them in memory, but it does not support backward paths.
     The mapping built in this tutorial navigates from the manager of a department back to its employees, which is such a path.
 
-5. Click **Create**.
+4. Click **Create**.
 
-    The **Data preview** of the dataset lists the paths of the XML file under **TYPE SELECTION**.
-    Select `dept` to see the six departments.
-
-    ![Data preview of the Org Map dataset with the dept type selected](dataset-preview.png){ class="bordered" }
+    The `Org Map` dataset appears on the canvas.
 
 ---
 
-## 4 Create the transformation
+## 5 Create the transformation
 
 A transformation task holds the mapping rules.
 Its **Type** defines which XML element becomes one entity of the Knowledge Graph.
 
-1. Click :eccenca-item-add-artefact: **Create new** inside the project.
+1. Click the dot on the right of the `Org Map` node and select **Connect to newly created Transformation**.
 
-2. Select **Transform** and click **Add**.
+    ![Menu of the output port of the Org Map dataset](connect-transformation.png){ class="bordered" width="50%" }
 
-3. Enter the following values:
+2. Enter the following values:
 
     - **Label:** `Lift Departments`
-    - **Input:** `Org Map`
     - **Type:** `dept`
 
-    ![Create new item of type Transform dialog](create-transformation.png){ class="bordered" width="70%" }
+    **Input** is already set to `Org Map`, the dataset the transformation is connected to.
 
-4. Scroll down to **Target vocabularies**, select **Select individual vocabularies**, and select `pv: Products - Vocab`.
+    ![Input and Type of the new transformation](create-transformation.png){ class="bordered" width="70%" }
+
+3. Scroll down to **Target vocabularies**, select **Select individual vocabularies**, and select `pv: Products - Vocab`.
 
     ![Target vocabularies restricted to the products vocabulary](select-target-vocabulary.png){ class="bordered" width="70%" }
 
     Restricting the vocabularies keeps the class and property lists of the Mapping Creator short.
 
-5. Click **Create**.
+4. Click **Create**.
+
+    The transformation appears on the canvas, connected to `Org Map`.
+
+5. Click **Save** in the workflow editor.
 
 ---
 
-## 5 Open the Mapping Creator
+## 6 Open the Mapping Creator
 
-1. Select the **Mapping creator (beta)** tab of the transformation.
+1. Click the :eccenca-item-moremenu: menu of the `Lift Departments` node and select **Mapping editor**.
 
-    ![Tabs of a transformation task](open-mapping-creator.png){ class="bordered" }
+    The transformation opens in a window over the workflow.
 
-2. Click the :eccenca-toggler-maximize: icon on the right of the tabs to use the full browser window.
+2. Select the **Mapping creator (beta)** tab.
+
+    ![Tabs of the transformation window](open-mapping-creator.png){ class="bordered" }
 
     ![The Mapping Creator before the first target class is added](mapping-creator-start.png){ class="bordered" }
 
@@ -215,7 +260,7 @@ a dashed element or connection is not saved yet.
 
 ---
 
-## 6 Add the target class
+## 7 Add the target class
 
 A mapping starts with a target class.
 The target class defines what the entities of the Knowledge Graph are.
@@ -235,6 +280,7 @@ The target class defines what the entities of the Knowledge Graph are.
     - **Add default properties** adds well-known properties such as `rdfs:label` and `rdfs:comment`.
     - **Include generic properties (owl:Thing and undefined domains)?** adds properties without an explicit domain, such as `pv:name` and `pv:id`.
 
+    The first two switches are enabled by default.
     **Preview of properties that would be added** shows how many properties each option contributes.
 
     ![Choose class from vocabularies dialog with all three switches enabled](add-target-class.png){ class="bordered" width="70%" }
@@ -248,7 +294,7 @@ The target class defines what the entities of the Knowledge Graph are.
 
 ---
 
-## 7 Map a value by drag-and-drop
+## 8 Map a value by drag-and-drop
 
 Drag from the dot on the right of a source element to the dot on the left of a target element to create a mapping.
 
@@ -260,14 +306,14 @@ The new connection is drawn as a solid line in the "not saved yet" color, and th
 
 ---
 
-## 8 Generate property mappings with AI
+## 9 Generate property mappings with AI
 
 The magic wand generates mapping suggestions for the direct children of a target element.
 
 !!! info
 
     This step needs a configured Large Language Model.
-    Without one, map the remaining properties by drag-and-drop as in step 7.
+    Without one, map the remaining properties by drag-and-drop as in step 8.
 
 1. Hover over the root element of the target schema to show its action icons.
 
@@ -289,16 +335,16 @@ The magic wand generates mapping suggestions for the direct children of a target
 4. Click a suggested connection to decide on it.
 
     The menu offers **Confirm**, **Set to undecided**, and **Decline**, and **REASON** states why the suggestion was made.
-    A suggestion that combines several source elements into one rule offers **Confirm all** and **Decline all** instead.
+    A suggestion that combines several source elements into one rule also offers **Confirm all** and **Decline all**.
 
     ![Decision menu and reason of a suggested mapping](suggestion-decision-menu.png){ class="bordered" }
 
 5. Work through the suggestions and check the source element of each one.
 
     The suggestions are generated for every run and can differ from the ones described here.
-    This run produced three of them:
+    Typical suggestions for the department are:
 
-    - `Label (rdfs)` from `@name` and `@id`, combined by a template. Confirm it.
+    - `Label (rdfs)` from `@name`, possibly combined with `@id` by a template. Confirm it.
     - `ID (pv)` from `@id`. Confirm it.
     - `responsible for (pv)` from `products`. Decline it: `products` occurs once per department, so the mapping would create a single product per department instead of one product per `product` element.
 
@@ -312,10 +358,15 @@ The magic wand generates mapping suggestions for the direct children of a target
 
 ---
 
-## 9 Map the products
+## 10 Map the products
 
 `responsible for (pv)` is an object property: it does not carry a value, it points to another entity.
 Connecting it to a source element defines which element becomes that entity.
+
+!!! tip
+
+    Collapse the `services`, `manager`, and `employees` source elements to bring `products` into view.
+    A connection can only be drawn between two dots that are both visible.
 
 1. Drag `products/product` onto `responsible for (pv)`.
 
@@ -323,7 +374,7 @@ Connecting it to a source element defines which element becomes that entity.
 
 2. Hover over `responsible for (pv)`, click the :eccenca-item-edit: element menu, and select **Add properties** → **Add property from vocabularies**.
 
-3. Enter `ID` in the search field and select the `pv:id` entry.
+3. Enter `ID` in the search field and select the `ID (value)` entry with the IRI `http://ld.company.org/prod-vocab/id`.
 
     `pv:id` is a datatype property, so **Add as object property** stays switched off and the direction options below it remain inactive.
 
@@ -331,21 +382,16 @@ Connecting it to a source element defines which element becomes that entity.
 
 5. Drag `products/product/@id` onto the new `ID` element.
 
-    !!! tip
-
-        Collapse the `services`, `manager`, and `employees` source elements to bring `products` into view.
-        A connection can only be drawn between two dots that are both visible.
-
 ---
 
-## 10 Add the manager as a nested entity
+## 11 Add the manager as a nested entity
 
 The department manager is a separate entity of the Knowledge Graph, connected to the department.
 No property of the `Department` class points to a `Manager`, so the property is taken from the vocabulary directly.
 
 1. Hover over the root element of the target schema, click the :eccenca-item-edit: element menu, and select **Add properties** → **Add property from vocabularies**.
 
-2. Enter `has manager` in the search field and select the `pv:hasManager` entry.
+2. Enter `has manager` in the search field and select the `has manager (object)` entry.
 
 3. Keep **Add as object property** enabled and **Connect from parent element** selected.
 
@@ -359,13 +405,14 @@ No property of the `Department` class points to a `Manager`, so the property is 
 
     The new element carries the range of the property, `Manager`, as its class.
 
-5. Drag `manager` onto `has manager`.
+5. Expand `manager` in the source schema and drag it onto `has manager`.
 
 6. Click the :eccenca-application-ai-suggestion: magic wand of `has manager` and close the disclaimer.
 
-7. Check the suggestions and decline the one for `ID (pv)`.
+7. Check the source element of each suggestion.
 
-    It uses the `@id` of the department, which identifies the department and not the manager.
+    Decline every suggestion whose source lies outside `manager`.
+    A suggestion for `ID (pv)` from `@id`, for example, uses the identifier of the department and not of the manager.
 
 8. Click :octicons-thumbsup-16: in the toolbar to confirm all remaining suggestions and confirm the dialog with **Confirm all**.
 
@@ -379,11 +426,11 @@ No property of the `Department` class points to a `Manager`, so the property is 
 
 ---
 
-## 11 Map the employees
+## 12 Map the employees
 
 The suggestions for the manager also propose `has direct report (pv)`, which points from the manager to the employees of the department.
 
-1. Check which source element `has direct report (pv)` is connected to.
+1. Expand `employees` in the source schema and check which source element `has direct report (pv)` is connected to.
 
     The connection must start at `employees/employee`, not at `employees`.
     `employees` occurs once per department and would produce one employee per department.
@@ -392,21 +439,30 @@ The suggestions for the manager also propose `has direct report (pv)`, which poi
 
     ![Menu of an existing connection](delete-connection.png){ class="bordered" }
 
-3. Drag `employees/employee` onto `has direct report (pv)`.
+3. If the connection was deleted, drag `employees/employee` onto `has direct report (pv)`.
 
 4. Click the :eccenca-application-ai-suggestion: magic wand of `has direct report (pv)` and close the disclaimer.
 
-5. Decline the suggestion for `has manager (pv)`.
+5. Expand `manager` and `employees/employee` in the source schema.
 
-    It points back to the `manager` element outside the employee, which repeats a relation the mapping already describes.
+    A collapsed source element bundles the connections of its children into one line, which hides where a suggestion starts.
 
-6. Confirm the remaining suggestions and click **Add**.
+6. Decline every suggestion whose source lies outside `employees/employee`.
 
-7. Add the area of expertise, which the suggestions do not cover.
+    Examples are `has manager (pv)` from `manager`, which repeats a relation the mapping already describes, and `ID (pv)` or `name (pv)` from the `@id` or `@name` of the department.
+    When a suggestion combines an employee element with such a source, click the connection from the wrong source and select **Decline**, not **Decline all**.
+
+7. Confirm the remaining suggestions and click **Add**.
+
+8. Check that every property below `has direct report (pv)` is connected to an element of `employees/employee` only.
+
+    Delete any remaining connection from an element of `manager`: click it and select **Delete**.
+
+9. Add the area of expertise, which the suggestions do not cover.
 
     1. Open the :eccenca-item-edit: element menu of `has direct report (pv)` and select **Add properties** → **Add property from vocabularies**.
 
-    2. Enter `expertise` in the search field and select the `pv:areaOfExpertise` entry.
+    2. Enter `expertise` in the search field and select the `area of expertise (object)` entry.
 
     3. Disable **Add as object property**.
 
@@ -430,7 +486,7 @@ The suggestions for the manager also propose `has direct report (pv)`, which poi
 
 ---
 
-## 12 Remove unused elements and save
+## 13 Remove unused elements and save
 
 Target elements that stay unconnected are not written to the transformation, but removing them keeps the editor readable.
 
@@ -457,7 +513,7 @@ Target elements that stay unconnected are not written to the transformation, but
 
 ---
 
-## 13 Set a custom URI pattern
+## 14 Set a custom URI pattern
 
 Without a URI pattern, the entities of the Knowledge Graph get generated identifiers.
 A pattern built from the source data produces stable and readable IRIs.
@@ -474,7 +530,7 @@ A pattern built from the source data produces stable and readable IRIs.
 
     - **URI pattern:** `http://ld.company.org/prod-inst/dept-{@id}`
 
-    **Examples of target data** shows the IRI the pattern produces for the first department.
+    **Examples of target data** shows the IRI the pattern produces for the first department once the field loses focus.
 
     ![Mapping rule editor with a custom URI pattern](edit-uri-pattern.png){ class="bordered" width="70%" }
 
@@ -487,7 +543,7 @@ A pattern built from the source data produces stable and readable IRIs.
 
 ---
 
-## 14 Evaluate the transformation
+## 15 Evaluate the transformation
 
 1. Select the **Transform evaluation** tab.
 
@@ -499,13 +555,20 @@ A pattern built from the source data produces stable and readable IRIs.
 
 ---
 
-## 15 Build the Knowledge Graph
+## 16 Build the Knowledge Graph
 
 The mapping is complete, but nothing has been written to a Knowledge Graph yet.
+The Knowledge Graph is the last node of the workflow.
 
-1. Click :eccenca-item-add-artefact: **Create new** inside the project, select **Knowledge Graph**, and click **Add**.
+1. Click the close icon in the top right corner of the transformation window.
 
-2. Enter the following values:
+    The workflow editor is shown again.
+
+2. Click the dot on the right of the `Lift Departments` node and select **Connect to newly created Knowledge graph**.
+
+    ![Menu of the output port of the Lift Departments transformation](connect-knowledge-graph.png){ class="bordered" width="50%" }
+
+3. Enter the following values:
 
     - **Label:** `Org Map Knowledge Graph`
     - **Graph:** `http://ld.company.org/prod-orgmap/`
@@ -514,21 +577,20 @@ The mapping is complete, but nothing has been written to a Knowledge Graph yet.
 
     ![Create new item of type Knowledge Graph dialog](create-knowledge-graph.png){ class="bordered" width="70%" }
 
-3. Click **Create**.
+4. Click **Create**.
 
-4. Open the `Lift Departments` transformation and click the :eccenca-item-edit: pencil icon of **Configuration: transform**.
+    The workflow now connects the three nodes.
 
-5. Set **Output dataset** to `Org Map Knowledge Graph` and click **Update**.
+    ![The complete workflow from the XML file to the Knowledge Graph](complete-workflow.png){ class="bordered" }
 
-    ![Output dataset of the transformation](set-output-dataset.png){ class="bordered" width="70%" }
+5. Click the :eccenca-item-start: start icon in the toolbar of the workflow editor and click **Save and run workflow**.
 
-6. Select the **Transform execution** tab and click the :eccenca-item-start: start icon next to **Execute Transform**.
+    The workflow reads the XML file, transforms it, and writes the generated entities into the Knowledge Graph.
+    Each node shows a check mark and the number of entities it processed.
 
-    The transformation writes the generated entities into the Knowledge Graph.
+    ![Result of the workflow execution](workflow-execution.png){ class="bordered" }
 
-    ![Result of the transform execution](transform-execution.png){ class="bordered" }
-
-7. Click the :eccenca-application-queries: **Queries** icon in the main menu under **EXPLORE** and run the following query in the **Query editor**:
+6. Click the :eccenca-application-queries: **Queries** icon in the main menu under **EXPLORE** and run the following query in the **Query editor**:
 
     ``` sparql
     PREFIX pv: <http://ld.company.org/prod-vocab/>
@@ -557,4 +619,5 @@ The mapping is complete, but nothing has been written to a Knowledge Graph yet.
 
 - [Lift data from tabular data](../lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) builds a Knowledge Graph from the CSV part of the same sample data.
 - [Lift data from JSON and XML sources](../lift-data-from-json-and-xml-sources/index.md) maps hierarchical sources with the classic mapping editor.
+- [Workflows](../workflows/index.md) describes the workflow editor in detail.
 - [Mapping Creator](../mapping-creator/index.md) describes every feature used here as a reference.
