@@ -60,4 +60,4 @@ The **user guide** presents the visual analysis workflow of Graph Insights. It d
     - **Interaction:** [Groups](features/groups.md), [Connections](features/connections.md), and [Details](features/objects.md#object-details).
     - **Analysis:** [Histograms](features/groups.md#histograms) and [Persistence](features/persistence.md).
 
-4. **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node to other Corporate Memory views.
+4. **[Platform Integration](navigating-to-cmem.md):** Learn how to seamlessly jump from a graph node to other eccenca Corporate Memory views.

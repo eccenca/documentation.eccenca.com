@@ -69,7 +69,7 @@ export CMEMC_CONFIG_FILE=cmemc.ini
 export CMEMC_CONNECTION=mycmem
 ```
 
-This alone allows us to save a lot of typing for a series of commands on the same Corporate Memory instance.
+This alone allows us to save a lot of typing for a series of commands on the same eccenca Corporate Memory instance.
 
 ``` shell-session
 $ cmemc graph list --raw
