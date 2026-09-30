@@ -618,6 +618,55 @@ provenance.graph = https://ns.eccenca.com/example/data/dataset/
 provenance.persistWorkflowProvenancePlugin.plugin = rdfWorkflowProvenance
 ```
 
+## Project access control
+
+By default, every user who is allowed to use eccenca Build (DataIntegration) can access all projects.
+Project access control restricts individual projects to the members of selected user groups.
+It is disabled by default and is enabled with the following parameter:
+
+```conf
+workspace.accessControl.enabled = true
+```
+
+Enabling project access control does not restrict any existing project.
+A project without assigned groups remains accessible to all users.
+The groups are assigned per project in the user interface, see [Project access control](../../../build/project-access-control/index.md).
+
+The following parameters are available:
+
+| Parameter | Type | Description | Default |
+|-|-|-|-|
+| workspace.accessControl.enabled | Boolean | Enables project access control. If disabled, all users can access all projects, regardless of the groups assigned to a project. | false |
+| workspace.accessControl.adminAction | String | The action that grants access to all projects, regardless of group membership. | <https://vocab.eccenca.com/auth/Action/Build-AdminWorkspace> |
+| workspace.accessControl.groupProvider.plugin | String | The plugin that provides the groups offered for selection in the user interface. | dpAccessControlGroupProvider |
+
+### Group membership
+
+The groups of a user are read from the `groups` claim of the OAuth access token.
+A user can access a restricted project if at least one of these groups is assigned to the project.
+Group names are compared exactly, including capitalization.
+
+In Keycloak, a **Group Membership** mapper adds the `groups` claim to the token, see [Access conditions, roles and groups](../keycloak/index.md#access-conditions-roles-and-groups).
+
+### Groups offered for selection
+
+The default group provider `dpAccessControlGroupProvider` requests the known groups from the eccenca Explore backend (DataPlatform).
+These are the groups of users who have already logged in and the groups that are used in access conditions.
+If the request fails, for example because the account is not allowed to manage access conditions, the groups that are already assigned to Build (DataIntegration) projects are offered instead.
+
+In addition, the selection always contains the groups of the current user and the groups already assigned to the project.
+The list can therefore be incomplete.
+A group that is not listed can be entered manually.
+
+### Administrators
+
+Accounts that hold the action configured in `workspace.accessControl.adminAction` can access and manage all projects, regardless of the assigned groups.
+By default, this is the `:Build-AdminWorkspace` action, see [Access Conditions](../access-conditions/index.md#define-what-grants-are-given).
+Accounts that are granted `:AllActions` hold this action as well.
+
+Grant this action to at least one account.
+Otherwise, a project whose groups no longer match any user cannot be opened or changed by anyone.
+
 ## Logging
 
 Logging for eccenca Build (DataIntegration) is based on the [Logback](https://logback.qos.ch/) logging framework. There are two ways to change the logging behavior from the default, the first is to provide a logback.xml file, the second is to set various logging properties in the `dataintegration.conf` file.
