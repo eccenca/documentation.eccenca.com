@@ -20,7 +20,7 @@ As valid-logout-redirect-uri we suggest the base basic URL of your deployment. e
 Once you restrict these URLs in Keycloak you might see error messages in your keycloak log indicating that those redirect uri's are not valid.
 Please update the settings accordingly.
 
-For fine granular set the Root URL to you base like `` . Then add these to the clients, depending on the purpose:
+For fine granular set the Root URL to you base like `https://cmem.example.net` . Then add these to the clients, depending on the purpose:
 - For Explore: `/dataplatform/login/oauth2/code/keycloak`
 - For DataIntegration/Build: `/dataintegration/login`
 - For Marketplace: `marketplace/auth/callback`
