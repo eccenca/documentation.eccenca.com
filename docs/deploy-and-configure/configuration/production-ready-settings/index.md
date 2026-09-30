@@ -21,6 +21,7 @@ Once you restrict these URLs in Keycloak you might see error messages in your ke
 Please update the settings accordingly.
 
 For fine granular set the Root URL to you base like `https://cmem.example.net` . Then add these to the clients, depending on the purpose:
+
 - For Explore: `/dataplatform/login/oauth2/code/keycloak`
 - For DataIntegration/Build: `/dataintegration/login`
 - For Marketplace: `marketplace/auth/callback`
