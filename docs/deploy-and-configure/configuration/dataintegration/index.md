@@ -628,7 +628,6 @@ It is disabled by default and is enabled with the following parameter:
 workspace.accessControl.enabled = true
 ```
 
-Enabling project access control does not restrict any existing project.
 A project without assigned groups remains accessible to all users.
 The groups are assigned per project in the user interface, see [Project access control](../../../build/project-access-control/index.md).
 
@@ -652,6 +651,7 @@ In Keycloak, a **Group Membership** mapper adds the `groups` claim to the token,
 
 The default group provider `dpAccessControlGroupProvider` requests the known groups from the eccenca Explore backend (DataPlatform).
 These are the groups of users who have already logged in and the groups that are used in access conditions.
+Only groups whose IRI starts with `http://eccenca.com/` are offered, and they are shown without this prefix.
 If the request fails, for example because the account is not allowed to manage access conditions, the groups that are already assigned to Build (DataIntegration) projects are offered instead.
 
 In addition, the selection always contains the groups of the current user and the groups already assigned to the project.

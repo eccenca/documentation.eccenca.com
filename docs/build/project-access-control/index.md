@@ -36,7 +36,7 @@ Opening a link to such a project shows an error message instead of the project.
 
 Open the project.
 The **Access control** section shows the assigned groups under **Groups**.
-If no groups are assigned, the section shows the message `No groups configured. This project is visible to all users.` instead.
+If no groups are assigned, the section shows the message "No groups configured. This project is visible to all users." instead.
 
 ## Restrict a project to groups
 
@@ -45,7 +45,7 @@ If no groups are assigned, the section shows the message `No groups configured. 
 3. Select one or more groups in the **Groups** field.
 4. Click **Save**.
 
-The **Groups** field marks each group that the current user is a member of with `(member)`.
+The **Groups** field marks each group that the current user is a member of with "(member)".
 For administrators, the groups are not marked.
 
 To make the project accessible to all users again, remove all groups from the **Groups** field and click **Save**.
@@ -62,6 +62,7 @@ A misspelled group matches no user, so a warning lists the custom groups for rev
 
 A warning appears when a group is added that the current user is not a member of.
 After saving, the current user keeps access only if at least one of the selected groups is a group of this user.
+Administrators do not see this warning, because they keep access to all projects.
 
 !!! warning "Loss of access"
 
@@ -76,3 +77,9 @@ The **Groups** field is also part of the dialogs that create, clone, and import 
 - When a project is cloned, the field is prefilled with the groups of the original project that the current user is a member of.
 - When a project is imported, the field is empty.
   If the import replaces an existing project, the field is not shown and the project keeps its groups.
+
+!!! warning "Groups are not part of a project export"
+
+    By default, a project export does not contain the groups of the project.
+    Select the groups again when importing a restricted project.
+    Otherwise, the imported project is accessible to all users.

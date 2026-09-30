@@ -92,7 +92,7 @@ PREFIX :        <https://vocab.eccenca.com/auth/Action/>
 | `:AllActions` | Represents all actions. You can use it to grant execution rights to all actions. |
 | `:Build` | Represents the action needed to use eccenca Build (DataIntegration) component of eccenca Corporate Memory. |
 | `:Build-AdminPython` | Represents the action needed to use eccenca Build (DataIntegration)'s Python plugin management component of eccenca Corporate Memory. |
-| `:Build-AdminWorkspace` | Represents the action needed to use eccenca Build (DataIntegration)'s workspace administration component of eccenca Corporate Memory. If [project access control](../dataintegration/index.md#project-access-control) is enabled, this action also grants access to all projects. |
+| `:Build-AdminWorkspace` | Represents the action needed to use eccenca Build (DataIntegration)'s workspace administration component of eccenca Corporate Memory. If [project access control](../dataintegration/index.md#project-access-control) is enabled, this action also grants access to all projects, unless a different admin action is configured. |
 | `:ChangeAccessConditions` | Represents the action needed to use the Authorization management API (see Developer Manual). You can use it as object of the `eccauth:allowedAction` property to grant access to the Authorization management API if the user fulfills the access condition. |
 | `:Explore-BKE-Manage` | Represents the action needed to view, create, edit and delete visualisations in the BKE-Module (needs access to config graph as well). |
 | `:Explore-BKE-Read` | Allows to use the BKE-Module interface in read-only mode (needs access to config graph as well). |
