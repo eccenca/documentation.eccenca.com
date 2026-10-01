@@ -40,7 +40,7 @@ This release delivers the following component versions:
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
 - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
 - [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
-- [eccenca Corporate Memory Control (cmemc) v26.2.1](#eccenca-corporate-memory-control-cmemc-v2621)
+- [eccenca Corporate Memory Control (cmemc) v26.2.2](#eccenca-corporate-memory-control-cmemc-v2622)
 - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
 - [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
 
@@ -491,9 +491,30 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 
-## eccenca Corporate Memory Control (cmemc) v26.2.1
+## eccenca Corporate Memory Control (cmemc) v26.2.2
 
 We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
+
+**v26.2.2 of cmemc adds the following new features:**
+
+- `admin status` lists a `MARKETPLACE` component with its version and health
+    - the row is left out on DataIntegration builds older than v26.2, which have no marketplace, so an unreachable marketplace there does not affect the overall health
+- `admin status` lists a `GRAPHINSIGHTS` component with its version and health when the Graph Insights extension is active
+    - a Graph Insights build without actuator endpoints is shown with `UNKNOWN` version and health and does not affect the overall health
+
+**v26.2.2 of cmemc introduces the following changes:**
+
+- `--version` output also shows the version of the installed cmem-client library
+- `MARKETPLACE_BASE_URI` is renamed to `MARKETPLACE_API_ENDPOINT`, matching the `DI_API_ENDPOINT` and `DP_API_ENDPOINT` naming convention, see the [migration notes](#cmemc)
+
+**v26.2.2 of cmemc ships the following fixes:**
+
+- `admin status` crashed with an uncaught `HTTPStatusError` when the bulk workspace status endpoint was unavailable, e.g. on an older DataIntegration build
+    - the task loading error check is now best-effort like every other check of the command, instead of aborting the whole status output
+- `MARKETPLACE_BASE_URI` set in the config of a connection was silently dropped and never reached the marketplace client
+    - `package install` and `package download` always used the default license issuer URL (`CMEM_BASE_URI` + `/marketplace/`) instead of the configured override
+- `package export --extract` left stale task files behind
+    - resources deleted in Corporate Memory, e.g. a removed task, are now also removed from a previously extracted project directory, instead of surviving and being re-imported on the next `package build` or `package install`
 
 **v26.2.1 of cmemc adds the following new features:**
 
@@ -663,6 +684,12 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 - The default configuration of the graph tabs changed: the **Vocabularies** tab now excludes vocabularies marked with `shui:isSystemResource`.
 
 ### cmemc
+
+**v26.2.2 of cmemc changes the following behaviour:**
+
+- The `MARKETPLACE_BASE_URI` configuration key is renamed to `MARKETPLACE_API_ENDPOINT`.
+    Connections which set `MARKETPLACE_BASE_URI` in their config, e.g. to override the marketplace URL, need to rename the key to `MARKETPLACE_API_ENDPOINT`.
+    cmemc no longer forwards the old name at all, even though the cmem-client library still accepts it as a fallback for other callers.
 
 **v26.2.0 of cmemc changes the following behaviour:**
 
