@@ -5,6 +5,7 @@ nav:
     - Integrations: integrations
     - Task and Operator Reference: reference
     - Mapping Creator: mapping-creator
+    - Mapping Creator Tutorial: mapping-creator-tutorial
     - Rule Operators: rule-operators
     - Rule Blocks: rule-blocks
     - Define Prefixes / Namespaces: define-prefixes-namespaces
@@ -21,3 +22,4 @@ nav:
     - Evaluate Template Operator: evaluate-template
     - Build Knowledge Graphs from Kafka Topics: kafka-consumer
     - Spark: spark
+    - Project Access Control: project-access-control

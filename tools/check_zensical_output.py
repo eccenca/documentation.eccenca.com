@@ -22,7 +22,7 @@ import html
 import re
 import sys
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import unquote, urljoin, urlparse
 
 import click
 import yaml
@@ -59,6 +59,7 @@ ASSET_RE = re.compile(
 )
 # <link rel="canonical"> and friends are metadata, not asset loads.
 LINK_META_RE = re.compile(r'rel="(canonical|alternate|manifest)"', re.IGNORECASE)
+OG_IMAGE_RE = re.compile(r'<meta property="og:image" content="([^"]+)"')
 TAGS_LISTING_RE = re.compile(r'<h2 id="tag:([^"]+)"')
 # Zensical (0.0.58+) renders tag chips as links to their /tags/ listing anchor
 # natively; this just asserts every chip's target actually exists there.
@@ -244,11 +245,49 @@ def check_external_assets(pages: list[Path]) -> None:
         report("external-assets", True, "no unexpected third-party hosts", required=True)
 
 
+def check_social_cards(site: Path, pages: list[Path]) -> None:
+    """Every content page carries an og:image whose card was written to site/."""
+    with_card = 0
+    missing: list[str] = []
+    dangling: dict[str, str] = {}
+    for page in pages:
+        body = page.read_text(encoding="utf-8", errors="replace")
+        # Redirect stubs and the 404 page get no card.
+        if REFRESH_RE.search(body) or page == site / "404.html":
+            continue
+        found = OG_IMAGE_RE.search(body)
+        if not found:
+            missing.append(page.relative_to(site).as_posix())
+            continue
+        with_card += 1
+        path = unquote(urlparse(html.unescape(found.group(1))).path)
+        # site_url's path and, in MIKE_DOCS_VERSION builds, the version lead the
+        # URL path but are not directories in site/ - drop segments until it lands.
+        segments = path.strip("/").split("/")
+        if not any((site / "/".join(segments[i:])).is_file() for i in range(len(segments))):
+            dangling.setdefault(path, page.relative_to(site).as_posix())
+
+    report(
+        "social-cards",
+        with_card > 0 and not missing,
+        f"og:image on {with_card} page(s)"
+        if not missing
+        else f"{len(missing)} page(s) without og:image, e.g. " + ", ".join(missing[:3]),
+        required=True,
+    )
+    report(
+        "social-cards-resolve",
+        not dangling,
+        "every og:image card exists in site/"
+        if not dangling
+        else f"{len(dangling)} card(s) missing from site/, e.g. "
+        + ", ".join(f"{u} (on {p})" for u, p in sorted(dangling.items())[:3]),
+        required=True,
+    )
+
+
 def check_pending(site: Path, pages: list[Path]) -> None:
     """Features still missing from Zensical - warn only, never fail."""
-    social = sum(1 for p in pages if 'property="og:image"' in p.read_text(encoding="utf-8", errors="replace"))
-    report("social-cards", social > 0, f"og:image on {social} pages (backlog #37)", required=False)
-
 
     revision = sum(1 for p in pages if "Last update" in p.read_text(encoding="utf-8", errors="replace"))
     report("revision-dates", revision > 0, f"last-update on {revision} pages (backlog #18)", required=False)
@@ -283,6 +322,7 @@ def check_zensical_output(site_dir: str, config_file: str) -> None:
     check_comments(site, pages)
     check_external_assets(pages)
     check_tag_chip_links(site, pages)
+    check_social_cards(site, pages)
     print()
     check_pending(site, pages)
     print()

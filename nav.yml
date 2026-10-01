@@ -436,6 +436,8 @@ nav:
                   - Set execution variable: build/reference/transformer/Variables/setExecutionVariable.md
       - Mapping Creator:
           - build/mapping-creator/index.md
+      - Mapping Creator Tutorial:
+          - build/mapping-creator-tutorial/index.md
       - Rule Operators:
           - build/rule-operators/index.md
       - Rule Blocks:
@@ -480,6 +482,8 @@ nav:
           - build/kafka-consumer/index.md
       - Spark:
           - build/spark/index.md
+      - Project Access Control:
+          - build/project-access-control/index.md
   - Explore:
       - Explore: explore-and-author/index.md
       - Knowledge graphs:

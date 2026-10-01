@@ -24,11 +24,13 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Cool IRIs](cool-iris/index.md) --- URIs and IRIs are character strings identifying the nodes and edges in the graph. Defining them is an important step in creating an exploitable Knowledge Graph for your Company.
     - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
     - [Spark](spark/index.md) --- Explainer of Apache Spark and its integration within the BUILD platform.
+    - [Project Access Control](project-access-control/index.md) --- Restrict a project to the members of selected user groups.
 
 - :material-list-status: Tutorials
 
     ---
 
+    - [Build a mapping with the Mapping Creator](mapping-creator-tutorial/index.md) --- Map a hierarchical XML file to a vocabulary with the visual editor and its AI-generated suggestions.
     - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from tabular data such as CSV, XSLX or database tables.
     - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
     - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.

@@ -1,0 +1,316 @@
+<http://creativecommons.org/licenses/by/4.0/> <http://www.w3.org/2000/01/rdf-schema#label> "Creative Commons Attribution 4.0 International" .
+<http://creativecommons.org/ns#license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://creativecommons.org/ns#license> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://creativecommons.org/ns> .
+<http://dbpedia.org/ontology/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://dbpedia.org/ontology/Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country"@en .
+<http://dbpedia.org/ontology/Country> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/gis/search-country.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/4.0/> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/contributor> <https://ns.eccenca.com/stramp> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/created> "2018-08-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/creator> <https://ns.eccenca.com/rpietzsch> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/modified> "2025-01-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/dc/terms/publisher> <https://ns.eccenca.com/eccenca-GmbH> .
+<http://ld.company.org/prod-vocab/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "pv" .
+<http://ld.company.org/prod-vocab/> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://ld.company.org/prod-vocab/" .
+<http://ld.company.org/prod-vocab/> <http://rdfs.org/ns/void#vocabulary> <http://purl.org/vocab/vann/> .
+<http://ld.company.org/prod-vocab/> <http://rdfs.org/ns/void#vocabulary> <http://xmlns.com/foaf/0.1/> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#comment> "Example vocabulary modeled from a simple sentence about products and services."@en .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2000/01/rdf-schema#label> "pv: Products - Vocab"@en .
+<http://ld.company.org/prod-vocab/> <http://www.w3.org/2002/07/owl#versionInfo> "v1.2.0" .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract base class for people, robots or other things that can act."@en .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent"@en .
+<http://ld.company.org/prod-vocab/Agent> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/mdi/anonymous.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/BillOfMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/BillOfMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "The Bill of Material (BOM) of a complex product."@en .
+<http://ld.company.org/prod-vocab/BillOfMaterial> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/BillOfMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "Bill of Material (BOM)"@en .
+<http://ld.company.org/prod-vocab/BillOfMaterial> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/icon-park-outline/tree-list.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/BomPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/BomPart> <http://www.w3.org/2000/01/rdf-schema#comment> "A (number of) part(s) in a BOM."@en .
+<http://ld.company.org/prod-vocab/BomPart> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/BomPart> <http://www.w3.org/2000/01/rdf-schema#label> "BOM Part"@en .
+<http://ld.company.org/prod-vocab/BomPart> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/fluent/puzzle-cube-piece-20-filled.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#comment> "A department in an organization."@en .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Department> <http://www.w3.org/2000/01/rdf-schema#label> "Department"@en .
+<http://ld.company.org/prod-vocab/Department> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/arcticons/emoji-department-store.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#comment> "An employee in my company."@en .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#label> "Employee"@en .
+<http://ld.company.org/prod-vocab/Employee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/Employee> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/clarity/employee-line.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#comment> "The hardware products produced."@en .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#label> "Hardware"@en .
+<http://ld.company.org/prod-vocab/Hardware> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/Hardware> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/ion/hardware-chip-outline.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#comment> "An employee with some direct reports and management duties."@en .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#label> "Manager"@en .
+<http://ld.company.org/prod-vocab/Manager> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/Manager> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/hugeicons/manager.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#comment> "A price object to deal with multiple prices and/or currencies."@en .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price"@en .
+<http://ld.company.org/prod-vocab/Price> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/solar/tag-price-bold.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#comment> "Anything that we make and/or sell."@en .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Product> <http://www.w3.org/2000/01/rdf-schema#label> "Product"@en .
+<http://ld.company.org/prod-vocab/Product> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/ant-design/product-outlined.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "The category of a product."@en .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://www.w3.org/2000/01/rdf-schema#label> "Product Category"@en .
+<http://ld.company.org/prod-vocab/ProductCategory> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/material-symbols-light/category-outline.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#comment> "Some value added service realized based on other product(s)."@en .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#label> "Service"@en .
+<http://ld.company.org/prod-vocab/Service> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/Service> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/mdi/account-service-outline.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/Supplier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ld.company.org/prod-vocab/Supplier> <http://www.w3.org/2000/01/rdf-schema#comment> "The Supplier of some item(s)."@en .
+<http://ld.company.org/prod-vocab/Supplier> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/Supplier> <http://www.w3.org/2000/01/rdf-schema#label> "Supplier"@en .
+<http://ld.company.org/prod-vocab/Supplier> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/mdi/company.svg?color=%23D6AF00&format=svg> .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/2000/01/rdf-schema#comment> "The address country."@en .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/2000/01/rdf-schema#label> "address country"@en .
+<http://ld.company.org/prod-vocab/addressCountry> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/addressCountry> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/2000/01/rdf-schema#comment> "The address country code."@en .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/2000/01/rdf-schema#label> "address country code"@en .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/addressCountryCode> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/2000/01/rdf-schema#comment> "The address locality (city)."@en .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/2000/01/rdf-schema#label> "address locality"@en .
+<http://ld.company.org/prod-vocab/addressLocality> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/addressLocality> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/2000/01/rdf-schema#comment> "The address text."@en .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/2000/01/rdf-schema#label> "address text"@en .
+<http://ld.company.org/prod-vocab/addressText> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/addressText> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#comment> "The amount."@en .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#label> "amount"@en .
+<http://ld.company.org/prod-vocab/amount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/amount> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/2000/01/rdf-schema#comment> "The product category agent is expert for."@en .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/2000/01/rdf-schema#label> "area of expertise"@en .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/ProductCategory> .
+<http://ld.company.org/prod-vocab/areaOfExpertise> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/2000/01/rdf-schema#comment> "A compatible product."@en .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/2000/01/rdf-schema#label> "compatible product"@en .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/compatibleProduct> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#comment> "The country where the supplier is located."@en .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Supplier> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#label> "country"@en .
+<http://ld.company.org/prod-vocab/country> <http://www.w3.org/2000/01/rdf-schema#range> <http://dbpedia.org/ontology/Country> .
+<http://ld.company.org/prod-vocab/country> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#comment> "The currency."@en .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#label> "currency"@en .
+<http://ld.company.org/prod-vocab/currency> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/currency> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#comment> "The depth of an item measured in millimeter."@en .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#label> "depth (mm)"@en .
+<http://ld.company.org/prod-vocab/depth_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/depth_mm> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Valid product service combinations (bundles, accessories)."@en .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Service> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#label> "eligible for"@en .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/eligibleFor> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#comment> "The e-mail of an agent."@en .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#label> "email"@en .
+<http://ld.company.org/prod-vocab/email> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/email> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/2000/01/rdf-schema#comment> "A part(s) used in this BOM."@en .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/BillOfMaterial> .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/2000/01/rdf-schema#label> "has BOM Part"@en .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/BomPart> .
+<http://ld.company.org/prod-vocab/hasBomPart> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "The category name of a product."@en .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#label> "has category"@en .
+<http://ld.company.org/prod-vocab/hasCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/ProductCategory> .
+<http://ld.company.org/prod-vocab/hasCategory> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#comment> "The employees manager she is reporting to."@en .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Manager> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#label> "has direct report"@en .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasDirectReport> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#comment> "The manager of the employee."@en .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#label> "has manager"@en .
+<http://ld.company.org/prod-vocab/hasManager> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Manager> .
+<http://ld.company.org/prod-vocab/hasManager> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/2000/01/rdf-schema#comment> "The Product needed."@en .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/BomPart> .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/2000/01/rdf-schema#label> "part"@en .
+<http://ld.company.org/prod-vocab/hasPart> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/hasPart> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#comment> "The employee acting as the product manager of the product."@en .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#label> "has product manager"@en .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Employee> .
+<http://ld.company.org/prod-vocab/hasProductManager> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/2000/01/rdf-schema#comment> "The supplier of a product."@en .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/2000/01/rdf-schema#label> "supplier"@en .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Supplier> .
+<http://ld.company.org/prod-vocab/hasSupplier> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#comment> "The height of an item measured in millimeter."@en .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#label> "height (mm)"@en .
+<http://ld.company.org/prod-vocab/height_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/height_mm> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#comment> "The ID of a thing."@en .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#label> "ID"@en .
+<http://ld.company.org/prod-vocab/id> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/id> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#comment> "The department to which an agents belongs."@en .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#label> "member of"@en .
+<http://ld.company.org/prod-vocab/memberOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Department> .
+<http://ld.company.org/prod-vocab/memberOf> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of something."@en .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#label> "name"@en .
+<http://ld.company.org/prod-vocab/name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/name> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#comment> "A phone number."@en .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Agent> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#label> "phone number"@en .
+<http://ld.company.org/prod-vocab/phone> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ld.company.org/prod-vocab/phone> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#comment> "The price specification of a product."@en .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#label> "price"@en .
+<http://ld.company.org/prod-vocab/price> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Price> .
+<http://ld.company.org/prod-vocab/price> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/2000/01/rdf-schema#comment> "The quantity needed."@en .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/BomPart> .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/2000/01/rdf-schema#label> "quantity"@en .
+<http://ld.company.org/prod-vocab/quantity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/quantity> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/2000/01/rdf-schema#comment> "A computed KPI to have an reliablity indicator in the context of a supply chain."@en .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/2000/01/rdf-schema#label> "has reliability index"@en .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/reliabilityIndex> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#comment> "The product for which a department is responsible."@en .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Department> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#label> "responsible for"@en .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://ld.company.org/prod-vocab/Product> .
+<http://ld.company.org/prod-vocab/responsibleFor> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%230085C6&format=svg> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#comment> "The weight of an item measured in grams."@en .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#label> "weight (g)"@en .
+<http://ld.company.org/prod-vocab/weight_g> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/weight_g> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#comment> "The width of an item measured in millimeter."@en .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ld.company.org/prod-vocab/Hardware> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ld.company.org/prod-vocab/> .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#label> "width (mm)"@en .
+<http://ld.company.org/prod-vocab/width_mm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ld.company.org/prod-vocab/width_mm> <http://xmlns.com/foaf/0.1/depiction> <https://api.iconify.design/carbon:property-relationship.svg?color=%2339AB4B&format=svg> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/rights> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/vocab/vann/> .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/vocab/vann/> .
+<https://ns.eccenca.com/eccenca-GmbH> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
+<https://ns.eccenca.com/eccenca-GmbH> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://ns.eccenca.com/eccenca-GmbH> <http://xmlns.com/foaf/0.1/name> "eccenca GmbH" .
+<https://ns.eccenca.com/rpietzsch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
+<https://ns.eccenca.com/rpietzsch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<https://ns.eccenca.com/rpietzsch> <http://www.w3.org/2000/01/rdf-schema#label> "René Pietzsch" .
+<https://ns.eccenca.com/stramp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Agent> .
+<https://ns.eccenca.com/stramp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<https://ns.eccenca.com/stramp> <http://www.w3.org/2000/01/rdf-schema#label> "Sebastian Tramp" .
