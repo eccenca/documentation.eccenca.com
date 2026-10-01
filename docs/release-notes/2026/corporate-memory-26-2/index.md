@@ -39,7 +39,7 @@ This release delivers the following component versions:
 
 - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
 - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
-- [eccenca Marketplace v26.2.5](#eccenca-marketplace-v2625)
+- [eccenca Marketplace v26.2.7](#eccenca-marketplace-v2627)
 - [eccenca Corporate Memory Control (cmemc) v26.2.2](#eccenca-corporate-memory-control-cmemc-v2622)
 - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
 - [eccenca n8n Corporate Memory Community Node v0.4.2](#eccenca-n8n-community-node-v042)
@@ -391,9 +391,29 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.5
+## eccenca Marketplace v26.2.7
 
 We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+
+**v26.2.7 of Marketplace adds the following new features:**
+
+- Added the `ECC_MARKETPLACE_BOOTSTRAP_DIR` setting, which is unset by default.
+    - On startup, the marketplace ingests the `.cpa` archives found in this directory into its local package storage, so a standalone instance in an isolated environment can ship pre-vetted packages without pre-built manifest and metadata JSON files.
+    - A missing directory and already installed versions are skipped silently, a bad archive is logged and skipped without failing the startup.
+
+**v26.2.6 of Marketplace introduces the following changes:**
+
+- The package and version read routes (list, get, manifest, download, files) now require an authenticated marketplace user, unless the instance is a central marketplace, i.e. it runs `LICENSE_MODE=LICENSE_TOKEN` and receives the license per request via the `x-eccenca-auth` header instead of a mounted license file or text.
+    - Before, these routes were only gated by license validation, which in the default `ANONYMOUS` mode and in the locally licensed `LICENSE_TOKEN` mode never checked the caller, so anyone with network access could list and download the entire package catalog without credentials.
+    - The badge routes stay public by design. The publish, delete and Corporate Memory integration routes were already restricted via Keycloak and are unaffected.
+    - `canList` of `GET /api/session` reflects this as well, so the web application no longer offers browsing that would be rejected.
+
+**v26.2.6 of Marketplace ships the following fixes:**
+
+- A local-only deployment, i.e. with the local marketplace enabled and no marketplace URLs configured, crashed on the first load with `Configuration Error: No marketplace available` instead of showing the local marketplace.
+    The web application now redirects anonymous callers to the login, and shows a "no marketplaces configured" message if there is still nothing to show after the login.
+- Installing a package hosted on the local marketplace of the instance via the web application failed with `400: Marketplace URL is not in the configured list of allowed marketplaces`.
+    The package is now installed directly from the local package repository of the instance when it is hosted locally and no remote marketplace URL is given.
 
 **v26.2.5 of Marketplace ships the following fixes:**
 
@@ -682,6 +702,11 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 - **Amazon Neptune store backend:** The support for the Amazon Neptune store backend was removed with v26.2.1.
     Deployments which are configured with `store.type: neptune` do not start anymore and need to be migrated to a supported store backend or configured via generic http backend configuration.
 - The default configuration of the graph tabs changed: the **Vocabularies** tab now excludes vocabularies marked with `shui:isSystemResource`.
+
+### eccenca Marketplace
+
+- **Authenticated read access:** With v26.2.6, listing, inspecting and downloading packages requires an authenticated marketplace user, except on a central marketplace which receives the license per request.
+    Clients which read packages anonymously from an instance in the `ANONYMOUS` mode or in the `LICENSE_TOKEN` mode with a mounted license need to authenticate now.
 
 ### cmemc
 
