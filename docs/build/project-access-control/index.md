@@ -6,6 +6,11 @@ tags:
 ---
 # Project access control
 
+!!! info "Beta"
+
+    Project access control is a beta feature.
+    Its behavior, configuration and user interface are subject to change.
+
 ## Introduction
 
 In eccenca Corporate Memory, project access control restricts a Build project to the members of selected user groups.
