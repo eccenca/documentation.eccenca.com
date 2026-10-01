@@ -24,7 +24,7 @@ For fine granular set the Root URL to you base like `https://cmem.example.net` .
 
 - For Explore: `/dataplatform/login/oauth2/code/keycloak`
 - For DataIntegration/Build: `/dataintegration/login`
-- For Marketplace: `marketplace/auth/callback`
+- For Marketplace: `/marketplace/auth/callback`
 - For Graph Insights: `/graphinsights/login/oauth2/code/keycloak`
 
 
