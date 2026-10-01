@@ -232,7 +232,7 @@ The transformation defines how an input dataset (JSON or XML) is transformed int
 
 5. Click the :eccenca-item-moremenu: menu of the transformation node and select **Mapping editor**.
 
-    ![Menu of a transformation node in the workflow editor](open-mapping-editor.png){ class="bordered" width="50%" }
+    ![Menu of a transformation node in the workflow editor](open-mapping-editor.png){ class="bordered" width="37%" }
 
     The transformation opens in a window over the workflow, with the **Mapping editor** tab selected.
 
