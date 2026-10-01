@@ -24,6 +24,7 @@ The Build stage turns your source data—across files, databases, APIs, and stre
     - [Cool IRIs](cool-iris/index.md) --- URIs and IRIs are character strings identifying the nodes and edges in the graph. Defining them is an important step in creating an exploitable Knowledge Graph for your Company.
     - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
     - [Spark](spark/index.md) --- Explainer of Apache Spark and its integration within the BUILD platform.
+    - [Project Access Control](project-access-control/index.md) --- Restrict a project to the members of selected user groups.
 
 - :material-list-status: Tutorials
 

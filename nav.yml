@@ -482,6 +482,8 @@ nav:
           - build/kafka-consumer/index.md
       - Spark:
           - build/spark/index.md
+      - Project Access Control:
+          - build/project-access-control/index.md
   - Explore:
       - Explore: explore-and-author/index.md
       - Knowledge graphs:
