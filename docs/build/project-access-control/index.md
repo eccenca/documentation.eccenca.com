@@ -61,7 +61,7 @@ If no groups are assigned, the section shows the message "No groups configured. 
 The **Groups** field marks each group that the current user is a member of with "(member)".
 For administrators, the groups are not marked.
 
-![Groups field with the list of groups, one of them marked as a group of the current user](groups-field-member.png){ class="bordered" width="56%" }
+![Groups field with the list of groups, one of them marked as a group of the current user](groups-field-member.png){ class="bordered" width="55%" }
 
 To make the project accessible to all users again, remove all groups from the **Groups** field and click **Save**.
 
@@ -70,19 +70,19 @@ To make the project accessible to all users again, remove all groups from the **
 The list of groups in the **Groups** field can be incomplete.
 To assign a group that is not listed, enter its name in the **Groups** field and select the **Add custom group** entry, which repeats the entered name.
 
-![Groups field with the entry to add the custom group purchasing](groups-field-add-custom-group.png){ class="bordered" width="56%" }
+![Groups field with the entry to add the custom group purchasing](groups-field-add-custom-group.png){ class="bordered" width="55%" }
 
 The name must match the name of the group exactly, including capitalization.
 A misspelled group matches no user, so a warning lists the custom groups for review before saving.
 
-![Warning that the custom group purchasing is unknown to the system](groups-field-custom-group-warning.png){ class="bordered" width="56%" }
+![Warning that the custom group purchasing is unknown to the system](groups-field-custom-group-warning.png){ class="bordered" width="55%" }
 
 ### Avoid losing access
 
 A warning appears when a group is added that the current user is not a member of.
 The selected groups show whether the current user is a member: a green group with an open lock is a group of the user, an orange group with a closed lock is not.
 
-![Groups field with a group the user is not a member of, a group the user is a member of, and the warning about losing access](groups-field-loss-of-access-warning.png){ class="bordered" width="56%" }
+![Groups field with a group the user is not a member of, a group the user is a member of, and the warning about losing access](groups-field-loss-of-access-warning.png){ class="bordered" width="55%" }
 
 The warning remains when a group of the user is selected as well.
 After saving, the current user keeps access only if at least one of the selected groups is a group of this user.
@@ -102,7 +102,7 @@ The **Groups** field is also part of the dialogs that create, clone, and import 
 - When a project is imported, the field is empty.
   If the import replaces an existing project, the field is not shown and the project keeps its groups.
 
-![Clone project dialog with the Groups field prefilled with a group of the current user](clone-project-groups.png){ class="bordered" width="47%" }
+![Clone project dialog with the Groups field prefilled with a group of the current user](clone-project-groups.png){ class="bordered" width="46%" }
 
 A project created with `cmemc project create` or through the API without groups is assigned the groups of the account that creates it.
 It is therefore accessible only to members of these groups and to administrators.
