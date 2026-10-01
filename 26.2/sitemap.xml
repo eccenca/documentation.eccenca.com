@@ -1,13 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
+        <loc>https://documentation.eccenca.com/26.2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/backup-and-restore/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/acl/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/client/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/metrics/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/migration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/store/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/user/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/view/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/workspace/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/workspace/python/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/config/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/dataset/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/imports/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/insights/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/validation/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/package/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/file/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/variable/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/query/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/vocabulary/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/vocabulary/cache/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/workflow/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/workflow/scheduler/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/completion-setup/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/environment-based-configuration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/file-based-configuration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/finding-and-filtering-objects/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/installation/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/docker-image/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/github-action/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/gitlab-pipeline/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/sparql-scripts/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/scripting-with-cmemc/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/troubleshooting-and-caveats/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/workflow-execution-and-orchestration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/continuous-integration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/n8n-node/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/processing-data-with-variable-input-workflows/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/automate/scheduling-workflows/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/active-learning/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/cool-iris/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/define-prefixes-namespaces/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/evaluate-template/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/extracting-data-from-a-web-api/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/integrations/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/introduction-to-the-user-interface/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/integrations/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/kafka-consumer/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/lift-data-from-json-and-xml-sources/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/loading-jdbc-datasets-incrementally/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/mapping-creator-tutorial/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/mapping-creator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/project-access-control/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/</loc>
@@ -16,13 +202,7 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/min/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/average/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/quadraticMean/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/firstNonEmpty/</loc>
@@ -34,10 +214,16 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/handleMissingValues/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/max/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/min/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/negate/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/max/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/quadraticMean/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/aggregator/scale/</loc>
@@ -46,172 +232,28 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/addProjectFiles/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-BuildPackages/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-BumpVersions/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/CancelWorkflow/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/clearDataset/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/combine-csv/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/ConcatenateToFile/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_llm-CreateEmbeddings/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_graph_insights-Update/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/deleteProjectFiles/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/CustomSQLExecution/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/DistinctBy/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ckan-Download/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/downloadFile/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_git-Download/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-Download/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-Download/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-Download/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Template/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kubernetes-Execute/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-Execute/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_llm-ExecuteInstructions/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/eccencaRestOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/SparkFunction/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_random-GenerateEntities/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem-plugin-email-GetEmails/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/getProjectFiles/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_wfreports_get_report/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-InstallPackages/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/JsonParserOperator/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Merge/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem-plugin-jq-workflow/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_jira-JqlQuery/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/jsonToFile/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kafka-ReceiveMessages/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kafka-SendMessages/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_git-List/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-List/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-List/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_project_resources-List/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-List/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/MultiTableMerge/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/ucumNormalizationTask/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_auth-workflow-auth-OAuth2/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-Upload/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/JsonParserOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/XmlParserOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_yaml-parse/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Pivot/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-PublishPackages/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_reason-plugin_reason-ReasonPlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/tripleRequestOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_apify-RunActor/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Scheduler/</loc>
@@ -220,79 +262,172 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/SearchAddresses/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_logpoint-search_logs_task-RetrieveLogs/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pgvector-Search/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_random-SelectEntities/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/SendEMail/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_mattermost/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/SparkFunction/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/setExecutionVariableOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_parameters-ParametersPlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/setParameters/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/shacl-pyshacl/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_salesforce-SoqlQuery/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/CustomSQLExecution/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlCopyOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlSelectOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlUpdateOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sqlUpdateQueryOperator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_loopwf-task-StartWorkflow/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pgvector-Store/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-UninstallPackages/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Template/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/Unpivot/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/eccencaDataPlatformGraphStoreFileUploadOperator/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/XmlParserOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/addProjectFiles/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/clearDataset/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem-plugin-email-GetEmails/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem-plugin-jq-workflow/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_apify-RunActor/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_auth-workflow-auth-OAuth2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ckan-Download/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ckan-Upload/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-Upload/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_git-Download/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_git-List/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_git-Upload/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_graph_insights-Update/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_jira-JqlQuery/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kafka-ReceiveMessages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kafka-SendMessages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_kubernetes-Execute/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_llm-CreateEmbeddings/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_llm-ExecuteInstructions/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_logpoint-search_logs_task-RetrieveLogs/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_loopwf-task-StartWorkflow/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_mattermost/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-Download/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-List/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_nextcloud-Upload/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-Download/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-List/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_office365-Upload/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-BuildPackages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-BumpVersions/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-InstallPackages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-PublishPackages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_packages-UninstallPackages/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_parameters-ParametersPlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pdf_extract-pdf_extract-PdfExtract/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pgvector-Search/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_pgvector-Store/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_project_resources-List/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_project_resources-UploadLocalFiles/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_random-GenerateEntities/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_random-SelectEntities/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_reason-plugin_reason-ReasonPlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_reason-plugin_validate-ValidatePlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_salesforce-SoqlQuery/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_salesforce-workflow-operations-SobjectCreate/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_splitfile-plugin_splitfile-SplitFilePlugin/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-Download/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-Execute/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-List/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_ssh-Upload/</loc>
@@ -304,7 +439,58 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_validation-validate-ValidateGraph/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_reason-plugin_validate-ValidatePlugin/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_wfreports_get_report/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/cmem_plugin_yaml-parse/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/combine-csv/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/deleteProjectFiles/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/downloadFile/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/eccencaDataPlatformGraphStoreFileUploadOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/eccencaRestOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/getProjectFiles/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/jsonToFile/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/setExecutionVariableOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/setParameters/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/shacl-pyshacl/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlCopyOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlSelectOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sparqlUpdateOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/sqlUpdateQueryOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/tripleRequestOperator/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/ucumNormalizationTask/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/customtask/validateXsdOperator/</loc>
@@ -314,6 +500,18 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/Hive/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/Jdbc/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/LocalInternalDataset/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/SnowflakeJdbc/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/alignment/</loc>
@@ -328,22 +526,16 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/csv/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/sparkView/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/sqlEndpoint/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/eccencaDataPlatform/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/excel/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/file/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/googlespreadsheet/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/office365preadsheet/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/Hive/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/inMemory/</loc>
@@ -352,13 +544,7 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/internal/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/LocalInternalDataset/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/json/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/eccencaDataPlatform/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/multiCsv/</loc>
@@ -367,22 +553,22 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/neo4j/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/office365preadsheet/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/orc/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/parquet/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/file/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/Jdbc/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/SnowflakeJdbc/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/sparkView/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/sparqlEndpoint/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/sqlEndpoint/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/dataset/text/</loc>
@@ -394,10 +580,10 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/cjkReadingDistance/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/PhysicalQuantitiesDistance/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/PhysicalQuantitiesDistance/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/cjkReadingDistance/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/constantDistance/</loc>
@@ -415,7 +601,7 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/dice/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/wgs84/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/equality/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/greaterThan/</loc>
@@ -445,19 +631,19 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/koreanTranslitDistance/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/levenshtein/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/levenshteinDistance/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/lowerThan/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/levenshtein/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/num/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/numericEquality/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/num/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/qGrams/</loc>
@@ -472,13 +658,13 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/startsWith/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/equality/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/substringDistance/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/tokenwiseDistance/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/distancemeasure/wgs84/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/</loc>
@@ -922,13 +1108,13 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Geo/RetrieveLongitude/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Linguistic/NYSIIS/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Linguistic/metaphone/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Linguistic/normalizeChars/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Linguistic/NYSIIS/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Linguistic/soundex/</loc>
@@ -946,6 +1132,9 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Metadata/inputTaskAttributes/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/alphaReduce/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/camelCase/</loc>
       </url>
       <url>
@@ -953,12 +1142,6 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/htmlCleaner/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/urlEncode/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/uriFix/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/lowerCase/</loc>
@@ -979,22 +1162,28 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/sortWords/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/alphaReduce/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/trim/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/upperCase/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/uriFix/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Normalize/urlEncode/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/PhysicalQuantitiesNormalizer/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/aggregateNumbers/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/compareNumbers/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/cmem-plugin-number-conversion/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/cmem-plugin-number-conversion/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/compareNumbers/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/extractPhysicalQuantity/</loc>
@@ -1004,9 +1193,6 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/log/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/PhysicalQuantitiesNormalizer/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Numeric/numOperation/</loc>
@@ -1054,10 +1240,10 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Replace/replace/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/SPARQL/escape_multiline_literal/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/SPARQL/escape_literal/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/SPARQL/escape_literal/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/SPARQL/escape_multiline_literal/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Selection/coalesce/</loc>
@@ -1072,10 +1258,10 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Sequence/getValueByIndex/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Sequence/toSequenceIndex/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Sequence/sort/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Sequence/sort/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Sequence/toSequenceIndex/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Substring/stripPostfix/</loc>
@@ -1102,10 +1288,10 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Tokenization/tokenize/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Uncategorized/cmem_plugin_currencies-transform/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Uncategorized/cmem-plugin-jq-transform/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Uncategorized/cmem-plugin-jq-transform/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Uncategorized/cmem_plugin_currencies-transform/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Uncategorized/cmem_plugin_random-GenerateValues/</loc>
@@ -1129,43 +1315,7 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Validation/validate_uri/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/inputHash/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/constant/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/constantUri/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/datasetParameter/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/defaultValue/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/emptyValue/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/perValueHash/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/randomNumber/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/readParameter/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem-plugin-ulid/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/uuid/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID1/</loc>
@@ -1192,43 +1342,55 @@
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUID8/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDConvert/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/cmem_plugin_uuid-plugin_uuid-UUIDVersion/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/constant/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/constantUri/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/datasetParameter/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/defaultValue/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/emptyValue/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/inputHash/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/perValueHash/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/randomNumber/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/readParameter/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Value/uuid/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/transformer/Variables/setExecutionVariable/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/mapping-creator/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/rule-operators/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/rule-blocks/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/define-prefixes-namespaces/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/cool-iris/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/lift-data-from-json-and-xml-sources/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/extracting-data-from-a-web-api/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/workflows/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/loading-jdbc-datasets-incrementally/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/rule-operators/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/snowflake-tutorial/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/active-learning/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/spark/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/</loc>
@@ -1246,121 +1408,22 @@
         <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/lift-data-from-YAML-data-of-hayabusa-sigma/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG-via-cmem/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/tutorial-how-to-link-ids-to-osint/link-IDS-event-to-KG/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/build/variables/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/build/evaluate-template/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/kafka-consumer/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/build/spark/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/concepts/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/tutorial/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/application-settings/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/canvas-ui/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/category-tree/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/groups/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/objects-table/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/objects/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/connections/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/persistence/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/navigating-to-cmem/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/statement-annotations/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/versioning-of-graph-changes/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/bke-module/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/bke-module/visually-authoring-ontologies/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/query-module/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/thesauri-management/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/charts-catalog/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/companion/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/embedding-services-via-the-integrations-module/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/link-rules/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/workspace-configuration/</loc>
+        <loc>https://documentation.eccenca.com/26.2/build/workflows/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/consume/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/consume/consume-graphs-in-apache-kafka/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/consume/consuming-graphs-in-power-bi/</loc>
@@ -1372,64 +1435,34 @@
         <loc>https://documentation.eccenca.com/26.2/consume/consuming-graphs-with-sql-databases/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/consume/provide-data-in-any-format-via-a-custom-api/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/consume/populate-data-to-neo4j/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/consume/consume-graphs-in-apache-kafka/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/distribution/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/distribution/marketplace/</loc>
+        <loc>https://documentation.eccenca.com/26.2/consume/provide-data-in-any-format-via-a-custom-api/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/system-architecture/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/graph-insights-sizing/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/triple-store-hardware-sizing/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-single-node-cloud-installation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-local-installation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-k8s-deployment/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/migrating-stores/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/docker-orchestration/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/access-conditions/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/caveats/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/dataintegration/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/dataintegration/activity-reference/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/dataintegration/jdbc/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/dataintegration/activity-reference/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/docker-orchestration/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/</loc>
@@ -1441,9 +1474,6 @@
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-full/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-graphdb-full/</loc>
       </url>
       <url>
@@ -1451,6 +1481,9 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-inmemory-full/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-oauth-full/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/explore/dataplatform/application-virtuoso-full/</loc>
@@ -1471,169 +1504,43 @@
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/keycloak/using-external-keycloak/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/quad-store-configuration/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/reverse-proxy/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/access-conditions/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/label-resolution-and-full-text-search/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/production-ready-settings/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/caveats/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/quad-store-configuration/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/configuration/reverse-proxy/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/installation/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/migrating-stores/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-k8s-deployment/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/file-based-configuration/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-local-installation/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/environment-based-configuration/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/installation/scenario-single-node-cloud-installation/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/completion-setup/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/getting-credentials-from-external-processes/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/graph-insights-sizing/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/configuration/certificate-handling-and-ssl-verification/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/requirements/triple-store-hardware-sizing/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/docker-image/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/github-action/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/gitlab-pipeline/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/invocation/sparql-scripts/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/finding-and-filtering-objects/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/scripting-with-cmemc/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/workflow-execution-and-orchestration/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/backup-and-restore/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/troubleshooting-and-caveats/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/acl/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/client/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/metrics/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/migration/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/store/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/user/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/view/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/workspace/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/admin/workspace/python/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/config/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/dataset/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/imports/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/insights/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/graph/validation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/package/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/file/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/project/variable/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/query/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/vocabulary/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/vocabulary/cache/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/workflow/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/cmemc-command-line-interface/command-reference/workflow/scheduler/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/processing-data-with-variable-input-workflows/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/scheduling-workflows/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/continuous-integration/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/automate/n8n-node/</loc>
+        <loc>https://documentation.eccenca.com/26.2/deploy-and-configure/system-architecture/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/</loc>
@@ -1642,49 +1549,10 @@
         <loc>https://documentation.eccenca.com/26.2/develop/accessing-graphs-with-java-applications/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/installation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/development/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/setup/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/installation/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/tutorial/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmempy-python-api/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/client/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/config/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/exceptions/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/logging_utils/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/auth_provider/abc/</loc>
@@ -1702,6 +1570,9 @@
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/auth_provider/provided_token/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/client/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/components/deployment/</loc>
       </url>
       <url>
@@ -1715,6 +1586,15 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/components/workspace/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/config/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/exceptions/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/logging_utils/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/models/access_condition/</loc>
@@ -1816,6 +1696,18 @@
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/access_conditions/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/abc/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/paged_list/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/plain_list/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/task_search/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/client_accounts/</loc>
       </url>
       <url>
@@ -1838,6 +1730,21 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/projects/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/create_item/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/delete_item/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/export_item/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/import_item/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/update_item/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/python_packages/</loc>
@@ -1867,34 +1774,10 @@
         <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/workspace_configs/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/abc/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/paged_list/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/plain_list/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/base/task_search/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/create_item/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/delete_item/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/export_item/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/import_item/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/cmem-client-api/api-reference/repositories/protocols/update_item/</loc>
-      </url>
-      <url>
         <loc>https://documentation.eccenca.com/26.2/develop/cmemc-scripts/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/develop/cmempy-python-api/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/dataintegration-apis/</loc>
@@ -1903,70 +1786,217 @@
         <loc>https://documentation.eccenca.com/26.2/develop/dataplatform-apis/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2026/corporate-memory-26-2/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/packages/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2026/corporate-memory-26-1/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-3/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/tutorial/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-2/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/packages/installation/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-1/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-3/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/development/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-2/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/installation/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-1/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/setup/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-3/</loc>
+        <loc>https://documentation.eccenca.com/26.2/distribution/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-2/</loc>
+        <loc>https://documentation.eccenca.com/26.2/distribution/marketplace/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-1/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2022/corporate-memory-22-2/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/bke-module/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2022/corporate-memory-22-1/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/bke-module/visually-authoring-ontologies/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-11/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/charts-catalog/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-06/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/companion/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-04/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/embedding-services-via-the-integrations-module/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-02/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-12/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-10/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/datatype-reference/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-06/</loc>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/node-shapes/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/property-shapes/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/sparql-constraints/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/building-a-customized-user-interface/workflow-trigger/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/_README/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/concepts/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/application-settings/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/canvas-ui/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/category-tree/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/connections/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/groups/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/objects-table/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/objects/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/features/persistence/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/navigating-to-cmem/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/tutorial/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/statement-annotations/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/versioning-of-graph-changes/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/link-rules/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/query-module/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/thesauri-management/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/vocabulary-catalog/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/explore-and-author/workspace-configuration/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/getting-started/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/getting-started/with-your-sandbox/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/getting-started/with-your-sandbox/material/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2019/corporate-memory-19-10/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-03/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/release-notes/2019/corporate-memory-19-10/</loc>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-06/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-10/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2020/corporate-memory-20-12/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-02/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-04/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-06/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2021/corporate-memory-21-11/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2022/corporate-memory-22-1/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2022/corporate-memory-22-2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-1/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2023/corporate-memory-23-3/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-1/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2024/corporate-memory-24-3/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-1/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2025/corporate-memory-25-3/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2026/corporate-memory-26-1/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/release-notes/2026/corporate-memory-26-2/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/tags/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/testing/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/tutorials/</loc>
