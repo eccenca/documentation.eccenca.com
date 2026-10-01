@@ -136,7 +136,7 @@ The vocabulary provides the classes and properties the mapping maps the XML data
     - **Prefix:** `pv`
     - **URI:** `http://ld.company.org/prod-vocab/`
 
-    ![Add project prefix form of the Manage prefixes dialog](add-project-prefix.png){ class="bordered" width="70%" }
+    ![Add project prefix form of the Manage prefixes dialog](add-project-prefix.png){ class="bordered" width="63%" }
 
     With the prefix, the Mapping Creator shows the classes and properties of the vocabulary as `pv:Department` and `name (pv)` instead of their full IRIs.
     [Define prefixes / namespaces](../define-prefixes-namespaces/index.md) explains project prefixes in detail.
@@ -197,7 +197,7 @@ Its **Type** defines which XML element becomes one entity of the Knowledge Graph
 
 1. Click the dot on the right of the `Org Map` node and select **Connect to newly created Transformation**.
 
-    ![Menu of the output port of the Org Map dataset](connect-transformation.png){ class="bordered" width="50%" }
+    ![Menu of the output port of the Org Map dataset](connect-transformation.png){ class="bordered" width="46%" }
 
 2. Enter the following values:
 
@@ -247,7 +247,7 @@ Both schemas have a search field, and each element with children can be collapse
 Every color and line type in the editor has a meaning.
 Click the :eccenca-item-question: help icon to reach three entries.
 
-![Help menu of the Mapping Creator](help-menu.png){ class="bordered" }
+![Help menu of the Mapping Creator](help-menu.png){ class="bordered" width="33%" }
 
 - **Color legend** explains the node and edge colors.
 - **Introduction tour** walks through the editor step by step.
@@ -256,7 +256,7 @@ Click the :eccenca-item-question: help icon to reach three entries.
 Select **Color legend** and keep the meaning of the dashed lines in mind:
 a dashed element or connection is not saved yet.
 
-![Color legend of the Mapping Creator](color-legend.png){ class="bordered" width="70%" }
+![Color legend of the Mapping Creator](color-legend.png){ class="bordered" width="63%" }
 
 ---
 
@@ -283,14 +283,14 @@ The target class defines what the entities of the Knowledge Graph are.
     The first two switches are enabled by default.
     **Preview of properties that would be added** shows how many properties each option contributes.
 
-    ![Choose class from vocabularies dialog with all three switches enabled](add-target-class.png){ class="bordered" width="70%" }
+    ![Choose class from vocabularies dialog with all three switches enabled](add-target-class.png){ class="bordered" width="63%" }
 
 4. Click **Add**.
 
     The target schema now holds the `Department` class and five properties.
     All of them are dashed: nothing is saved yet, and a property that stays unconnected is not written to the transformation at all.
 
-    ![Target schema with the Department class and its properties](target-schema-department.png){ class="bordered" width="70%" }
+    ![Target schema with the Department class and its properties](target-schema-department.png){ class="bordered" width="54%" }
 
 ---
 
@@ -317,7 +317,7 @@ The magic wand generates mapping suggestions for the direct children of a target
 
 1. Hover over the root element of the target schema to show its action icons.
 
-    ![Action icons of a target element](element-actions.png){ class="bordered" }
+    ![Action icons of a target element](element-actions.png){ class="bordered" width="50%" }
 
     From left to right: suggest classes and properties via AI, focus element, element menu, and collapse or expand all children.
 
@@ -325,7 +325,7 @@ The magic wand generates mapping suggestions for the direct children of a target
 
 3. Read the **AI disclaimer** and click **Close**.
 
-    ![AI disclaimer of the Mapping Creator](ai-disclaimer.png){ class="bordered" width="70%" }
+    ![AI disclaimer of the Mapping Creator](ai-disclaimer.png){ class="bordered" width="42%" }
 
     The editor switches to the suggestion mode.
     Suggested connections are drawn as dashed blue lines, and a toolbar above the schemas collects the actions for the whole set of suggestions.
@@ -337,7 +337,7 @@ The magic wand generates mapping suggestions for the direct children of a target
     The menu offers **Confirm**, **Set to undecided**, and **Decline**, and **REASON** states why the suggestion was made.
     A suggestion that combines several source elements into one rule also offers **Confirm all** and **Decline all**.
 
-    ![Decision menu and reason of a suggested mapping](suggestion-decision-menu.png){ class="bordered" }
+    ![Decision menu and reason of a suggested mapping](suggestion-decision-menu.png){ class="bordered" width="27%" }
 
 5. Work through the suggestions and check the source element of each one.
 
@@ -395,7 +395,7 @@ No property of the `Department` class points to a `Manager`, so the property is 
 
 3. Keep **Add as object property** enabled and **Connect from parent element** selected.
 
-    ![Choose a property from the vocabularies dialog with the direction options](object-property-direction.png){ class="bordered" width="70%" }
+    ![Choose a property from the vocabularies dialog with the direction options](object-property-direction.png){ class="bordered" width="63%" }
 
     **OBJECT PROPERTY DIRECTION** decides which of the two entities is the subject of the generated triple.
     **Connect from parent element** writes `Department pv:hasManager Manager`.
@@ -416,7 +416,7 @@ No property of the `Department` class points to a `Manager`, so the property is 
 
 8. Click :octicons-thumbsup-16: in the toolbar to confirm all remaining suggestions and confirm the dialog with **Confirm all**.
 
-    ![Confirmation dialog for all undecided suggestions](confirm-all-suggestions.png){ class="bordered" width="70%" }
+    ![Confirmation dialog for all undecided suggestions](confirm-all-suggestions.png){ class="bordered" width="42%" }
 
 9. Click **Add**.
 
@@ -437,7 +437,7 @@ The suggestions for the manager also propose `has direct report (pv)`, which poi
 
 2. If the connection starts at `employees`, click it and select **Delete**.
 
-    ![Menu of an existing connection](delete-connection.png){ class="bordered" }
+    ![Menu of an existing connection](delete-connection.png){ class="bordered" width="31%" }
 
 3. If the connection was deleted, drag `employees/employee` onto `has direct report (pv)`.
 
@@ -466,7 +466,7 @@ The suggestions for the manager also propose `has direct report (pv)`, which poi
 
     3. Disable **Add as object property**.
 
-        ![Choose a property from the vocabularies dialog with the role switch disabled](property-role.png){ class="bordered" width="70%" }
+        ![Choose a property from the vocabularies dialog with the role switch disabled](property-role.png){ class="bordered" width="63%" }
 
         `pv:areaOfExpertise` is defined as an object property, but the `productExpert` element holds a text.
         Disabling the switch uses the property in the role of a datatype property, so the text is written as a literal.
@@ -494,7 +494,7 @@ Target elements that stay unconnected are not written to the transformation, but
 
     **Delete** in the header of the target schema counts the selected elements.
 
-    ![Target schema with one element selected for deletion](delete-unused-element.png){ class="bordered" width="70%" }
+    ![Target schema with one element selected for deletion](delete-unused-element.png){ class="bordered" width="54%" }
 
 2. Click **Delete (1)** and confirm.
 
@@ -522,7 +522,7 @@ A pattern built from the source data produces stable and readable IRIs.
 
     The **Mapping info** sidebar shows the saved mapping rule.
 
-    ![Mapping info of the Department element](mapping-info.png){ class="bordered" width="70%" }
+    ![Mapping info of the Department element](mapping-info.png){ class="bordered" width="41%" }
 
 2. Click the :eccenca-item-edit: pencil icon in the sidebar.
 
@@ -532,7 +532,7 @@ A pattern built from the source data produces stable and readable IRIs.
 
     **Examples of target data** shows the IRI the pattern produces for the first department once the field loses focus.
 
-    ![Mapping rule editor with a custom URI pattern](edit-uri-pattern.png){ class="bordered" width="70%" }
+    ![Mapping rule editor with a custom URI pattern](edit-uri-pattern.png){ class="bordered" width="41%" }
 
 4. Click **Save**.
 
