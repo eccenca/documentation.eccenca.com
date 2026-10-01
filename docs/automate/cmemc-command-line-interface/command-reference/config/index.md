@@ -124,9 +124,10 @@ Get the value of a known cmemc configuration key.
 
 ```shell-session title="Usage"
 $ cmemc config get {cmem_base_uri|ssl_verify|requests_ca_bundle|dp_api_end
-             point|di_api_endpoint|keycloak_base_uri|keycloak_realm_id|oauth_t
-             oken_uri|oauth_grant_type|oauth_user|oauth_password|oauth_client_
-             id|oauth_client_secret|oauth_access_token}
+             point|di_api_endpoint|marketplace_api_endpoint|keycloak_base_uri|
+             keycloak_realm_id|oauth_token_uri|oauth_grant_type|oauth_user|oau
+             th_password|oauth_client_id|oauth_client_secret|oauth_access_toke
+             n}
 ```
 
 
