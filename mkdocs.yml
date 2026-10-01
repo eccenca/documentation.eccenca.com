@@ -161,7 +161,6 @@ theme:
   # Necessary for search to work properly
 
   icon:
-    logo: logo
     tag:
       # https://squidfunk.github.io/mkdocs-material/reference/?h=page+icon#setting-the-page-icon
       video: material/video-outline
@@ -328,13 +327,20 @@ plugins:
         release-notes/corporate-memory-25-3/index.md: release-notes/2025/corporate-memory-25-3/index.md
         release-notes/corporate-memory-26-1/index.md: release-notes/2026/corporate-memory-26-1/index.md
         release-notes/corporate-memory-26-2/index.md: release-notes/2026/corporate-memory-26-2/index.md
-  # The two plugins below are inert under Zensical: it neither implements nor
-  # reports them, so social cards and revision dates are missing from the
-  # output. They are kept so the features return automatically once Zensical
-  # maps them. tools/check_zensical_output.py tracks both.
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
+  # Natively implemented since Zensical 0.0.67. The colors are required: the
+  # default card layout reads `theme.palette.primary`, which the custom scheme
+  # leaves unset, and the build aborts on it. #0a66a3 is --md-primary-fg-color
+  # in docs/assets/extra.css. The font defaults to Roboto, the site font.
+  # https://zensical.org/docs/setup/social-cards/
   - social:
       cards: true
+      cards_layout_options:
+        background_color: "#0a66a3"
+        color: "#ffffff"
+  # Inert under Zensical: it neither implements nor reports the plugin, so
+  # revision dates are missing from the output. It is kept so the feature
+  # returns automatically once Zensical maps it.
+  # tools/check_zensical_output.py tracks it.
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true
