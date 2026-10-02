@@ -7,7 +7,7 @@ subtitle: and Delivery
 ## Introduction
 
 Project teams often manage crucial parts of their work assets inside of git repositories.
-This includes Corporate Memory related files such as ontologies, shapes or project configurations.
+This includes eccenca Corporate Memory related files such as ontologies, shapes or project configurations.
 Given such a project setup, it is often wanted to start activities with these Corporate Memory files.
 Continuous integration (CI) is the practice of automating the integration of changes from multiple contributors into a single project.
 Originated from software projects, CI can (and should) be applied to Knowledge Graph projects as well.

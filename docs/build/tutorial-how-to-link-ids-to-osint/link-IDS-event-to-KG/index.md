@@ -420,6 +420,6 @@ In the next page, we are using advanced tools in Coporate Memory to "Accelerate 
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
-Next chapter: [Link IDS event to a knowledge graph in dashboards via inferences](../link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of Corporate Memory)
+Next chapter: [Link IDS event to a knowledge graph in dashboards via inferences](../link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of eccenca Corporate Memory)
 
 Previous chapter: [Build a Knowledge Graph from indicators of compromise rules, like Hayabusa and Sigma rules](../lift-data-from-YAML-data-of-hayabusa-sigma/index.md)

@@ -49,7 +49,7 @@ Combining `--id-only` with `--filter` is the basic building block of most cmemc 
 
 ## JSON output
 
-The `--raw` option is available on more than 40 commands and outputs the JSON as it was received from the Corporate Memory APIs.
+The `--raw` option is available on more than 40 commands and outputs the JSON as it was received from the eccenca Corporate Memory APIs.
 Together with a tool such as [jq](https://jqlang.github.io/jq/), this allows for arbitrary post-processing:
 
 ``` shell-session title="IRIs of all writeable graphs"

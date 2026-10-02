@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-This page describes how to work with Corporate Memory and shortly outlines all functionalities of the user interface.
+This page describes how to work with eccenca Corporate Memory and shortly outlines all functionalities of the user interface.
 For the installation and configuration of Corporate Memory refer to the [☆ Deploy and Configure](../deploy-and-configure/index.md) section.
 
 !!! info

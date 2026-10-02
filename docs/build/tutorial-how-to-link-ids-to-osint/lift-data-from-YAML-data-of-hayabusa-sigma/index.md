@@ -11,7 +11,7 @@ Here, we are working with the Hayabusa/Sigma rules available via GitHub:
 - [https://github.com/Yamato-Security/hayabusa-rules](https://github.com/Yamato-Security/hayabusa-rules)
 - [https://github.com/SigmaHQ/sigma](https://github.com/Yamato-Security/hayabusa-rules)
 
-The problem of interoperability, here, is the YAML format of files, their random position in their folders in their Github projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
+The problem of interoperability, here, is the YAML format of files, their random position in their folders in their Github projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In eccenca Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
 
 To build this knowledge graph of rules, we need to:
 
