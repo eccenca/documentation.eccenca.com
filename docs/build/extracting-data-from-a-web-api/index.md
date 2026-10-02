@@ -95,7 +95,7 @@ To create a JSON-to-RDF-mapping within Corporate Memory, we have to first regist
 
 1. Click the **Create** button (top right) in the data integration workspace and select the type **JSON**.
 
-    ![Create JSON dataset](create-new-json-dataset.png)
+    ![Create JSON dataset](create-new-json-dataset.png){ width="71%" }
 
 2. Upload the JSON file [repos.json](repos.json) (API response) as a Dataset into Corporate Memory.
 

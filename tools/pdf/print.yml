@@ -1,0 +1,84 @@
+---
+# The print edition of the PDF: `task pdf:print`, see tasks/spec.md.
+# tools/build_pdf.py reads `sections`, tools/pdf_authors.py `authors`, and
+# tools/pdf/style.typ the rest.
+
+# Printed on the title page and in the imprint.
+publisher:
+  name: eccenca GmbH
+  address:
+    - Hainstraße 8
+    - 04109 Leipzig
+    - Germany
+
+# The imprint's authors. `task pdf:authors` writes tools/pdf/authors.yml from
+# the GitHub contributors, most commits first, with the name each GitHub
+# profile shows. The imprint prints the name given here, else the profile's,
+# else the GitHub ID - the build warns about each author it prints as an ID.
+authors:
+  # GitHub ID: the name to print - for a profile that shows no name, or to add
+  # a title. IDs match case-insensitively. `task pdf:authors` adds each new
+  # author without a name and the profile's name in a comment; an entry left
+  # empty prints the profile's name.
+  names:
+    rpietzsch: René Pietzsch
+    seebi: Dr. Sebastian Tramp
+    irangareddy: Ranga Reddy
+    muddymudskipper: Dr. Thomas Wilmering
+    mgns: Magnus Knuth
+    sobo: Thomas Telleis
+    annamakor: Annamária Koren
+    msaipraneeth:  # GitHub profile: Saipraneeth
+    saradaimi786:  # GitHub profile: syeda sara daimi
+    louiswesterheide: Louis Westerheide
+    robertisele: Dr. Robert Isele
+    spl0tt: Sebastian Plott
+    white-gecko: Dr. Natanael Arndt
+    BorderCloud: Dr. Karima Rafes
+    haschek: Michael Haschke
+    MaximilianWenzel: Maximilian Wenzel
+    tomatophantastico: Jörg Unbehauen
+    adelahaye-ecc: Alexis Delahaye
+    dgrtner-ecc: Denis Gärtner
+    looooph: Istvan Mocsy
+    peterfreytag: Peter Freytag
+    pkgut:  # no name on the GitHub profile
+  # GitHub IDs never to list; `task pdf:authors` does not look up their names.
+  exclude: [msaipraneeth, saradaimi786, pkgut]
+
+# The weight of the body text: light, as on screen, or regular, which prints
+# darker in black and white.
+body-weight: light
+
+# Images below 150 ppi at their printed size that are accepted at that size, by
+# their path under docs/. `dec-tool image-widths --fix` narrows such an image
+# instead, which keeps this list empty; what is left over stands in
+# dist/pdf/print/low-resolution.tsv (backlog P15, P24).
+accepted-low-resolution: []
+
+# How a navigation section or a page is printed, keyed by the docs/ directory
+# its pages live in (ending in /) or by a single page (ending in .md). What is
+# not listed prints in full; keys do not nest.
+#   full - as on the site
+#   list - a directory only: its overview - the section page and the overview
+#          pages of its subsections; pages no overview lists become a
+#          two-column table of title and first paragraph, under `columns`
+#          when given; navigation titles whose pages an overview lists become
+#          one table of the titles and their page names
+#   omit - left out without a trace; the imprint names the online edition as
+#          the complete reference. The only mode a page accepts
+#   reference - the operator reference only: each type's overview page keeps
+#          its introduction, and its operators follow as compact entries from
+#          data/plugins.json instead of the overview table (tasks/spec.md, §11)
+# A part of a page is left out with the class `print-exclude` in the Markdown,
+# e.g. ```sql { .print-exclude }; a note naming the page online takes its place.
+sections:
+  build/reference/: reference
+  release-notes/: omit
+  #   mode: list
+  #   columns: [Release, Summary]
+  # The first print edition is a user guide: what an administrator or a
+  # developer needs stays in the online edition (parts E and G).
+  deploy-and-configure/: omit
+  develop/: omit
+  build/tutorial-how-to-link-ids-to-osint/: omit

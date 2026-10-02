@@ -77,7 +77,7 @@ Each domain dataset is saved in GitHub:
     !!! Success
 
         Now, you can see these JSON datasets in Corporate Memory:
-        ![](23-1-import-JSON-result.png)
+        ![](23-1-import-JSON-result.png){ width="80%" }
 
 ### Create named graphs
 
@@ -118,7 +118,7 @@ Create one RDF dataset for each Mitre dataset:
     !!! Success
 
         Now, you can see these RDF datasets in Corporate Memory:
-        ![](23-1-create-RDF-dataset-result.png)
+        ![](23-1-create-RDF-dataset-result.png){ width="80%" }
 
     !!! Tip
 
@@ -404,7 +404,7 @@ Create one RDF dataset for each Mitre dataset:
 
         You can test the result when you search the Mitre ID via the explorer of knowledge graph "MA Entreprise":
 
-        ![](23-1-success-extract-rdfslabel.png)
+        ![](23-1-success-extract-rdfslabel.png){ width="55%" }
 
 ### Create a workflow
 
@@ -754,7 +754,7 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
 
 5. Create a new workflow "MITRE ATT&CK® workflow" where you will insert the other workflows, like that:
 
-    ![](23-1-ex-workflow-global.png)
+    ![](23-1-ex-workflow-global.png){ width="75%" }
 
     !!! Success
 
