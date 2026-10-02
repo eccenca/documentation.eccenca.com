@@ -6,19 +6,18 @@ tags:
 
 Corporate Memory 25.1 is the first major release in 2025.
 
-![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" }
-![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" }
-![25.1: Explore - Streamlined Shape Management](25-1-explore-node-shape-quick-access.png "25.1: Explore - Streamlined Shape Management"){ class="bordered" }
-
 The highlights of this release are:
 
 - Build: **Seamless Workflow Integration**
+    ![25.1: Build - Seamless Workflow Integration](25-1-build-connect-csv-datasets-directly.png "25.1: Build - Seamless Workflow Integration"){ class="bordered" width="20%" align=right style="clear: right" }
     - Directly connecting datasets with explicit schemas to workflow operators simplifies data ingestion and processing, allowing users to quickly incorporate CSV and text data into their workflows.
 
 - Build: **Improved Rule Editing Experience**
+    ![25.1: Build - Improved Rule Editing Experience](25-1-build-copy-paste.png "25.1: Build - Improved Rule Editing Experience"){ class="bordered" width="20%" align=right style="clear: right" }
     - Enhanced copy & paste functionality in rule editors boosts productivity by making it easier to manage and edit rules accurately and efficiently.
 
-- Explore and Autor: **Streamlined Shape Management**
+- Explore and Author: **Streamlined Shape Management**
+    ![25.1: Explore - Streamlined Shape Management](25-1-explore-node-shape-quick-access.png "25.1: Explore - Streamlined Shape Management"){ class="bordered" width="20%" align=right style="clear: right" }
     - The introduction of new SHACL shape quick-access options empowers users to effortlessly build, validate, and troubleshoot complex shape configuration.
 
 - Automate: **Lightning-fast Parameterized Queries**

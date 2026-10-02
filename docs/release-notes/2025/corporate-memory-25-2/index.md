@@ -6,21 +6,21 @@ tags:
 
 Corporate Memory 25.2 is the second major release in 2025.
 
-![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" }
-![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" }
-![25.2: Explore - Multi-Graph Query Management](25-2-explore-multiple-query-catalogs.png "25.2: Explore - Multi-Graph Query Management"){ class="bordered" }
 <!--
 -->
 
 The highlights of this release are:
 
 - Build: **Enhanced File Management in Workflows**
+    ![25.2: Build - Binary Files and Dataset Workflow Operators](25-2-build-binary-files-dataset.png "25.2: Build - Binary Files and Dataset Workflow Operators"){ class="bordered" width="20%" align=right style="clear: right" }
     - New binary file dataset and project file operators enable seamless integration of PDFs, images, and other binary files directly into workflows, streamlining document processing pipelines.
 
 - Explore: **Dynamic Class and Property Creation**
+    ![25.2: Explore - Dynamic Class and Property Creation](25-2-explore-dynamic-concept-creation.png "25.2: Explore - Dynamic Class and Property Creation"){ class="bordered" width="20%" align=right style="clear: right" }
     - Create classes and properties on-the-fly while defining SHACL shapes, dramatically accelerating ontology development and data modeling workflows without context switching.
 
 - Explore and Automate: **Multi-Graph Query Management**
+    ![25.2: Explore - Multi-Graph Query Management](25-2-explore-multiple-query-catalogs.png "25.2: Explore - Multi-Graph Query Management"){ class="bordered" width="20%" align=right style="clear: right" }
     - The enhanced query catalog now supports multiple query graphs and arbitrary graph selection, enabling better organization and management of SPARQL queries across different knowledge domains.
 
 - Build: **Mapping Creator** (BETA)
