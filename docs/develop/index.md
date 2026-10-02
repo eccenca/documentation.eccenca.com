@@ -3,7 +3,7 @@ icon: material/star-outline
 ---
 # Develop
 
-API documentation and programming recipes.
+Extend eccenca Corporate Memory with custom plugins and packages, and access it programmatically through the Python, Java and REST APIs.
 
 **:octicons-people-24: Intended audience**: Software Developers and Linked Data Experts
 

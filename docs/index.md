@@ -67,6 +67,6 @@ hide:
 
     ---
 
-    API documentation and programming recipes.
+    Extend Corporate Memory with custom plugins and packages, and access it programmatically through the Python, Java and REST APIs.
 
 </div>
