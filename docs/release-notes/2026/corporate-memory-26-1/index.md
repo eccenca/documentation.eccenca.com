@@ -7,24 +7,22 @@ tags:
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
-![26.1: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" }
-
-![26.1: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" }
-
-![26.1: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" }
-
-![26.1: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="80%"}
-
-![26.1: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered"  width="90%"}
-
-
 The highlights of this release are:
 
 - Build: **Mapping Creator**
+    ![26.1: Build - Target Schema Extraction](26-1-build-mapping-creator-target-schema.png "26.1: Build - Target Schema Extraction"){ class="bordered" width="20%" align=right style="clear: right" }
+    ![26.1: Build - Mapping Creator AI Suggestions](26-1-build-mapping-creator-suggest.png "26.1: Build - Mapping Creator AI Suggestions"){ class="bordered" width="20%" align=right style="clear: right" }
     - Mapping Creator continues to mature with target schema extraction, richer context and profiling data for AI-assisted suggestions, finer-grained connection handling, and faster cleanup of suggested mappings.
 
+    <div style="clear: right"></div>
+
 - Explore: **Badges, Resource Representation, and Resource Tables**
+    ![26.1: Explore - Badges](26-1-explore-badges.png "26.1: Explore - Badges"){ class="bordered" width="20%" align=right style="clear: right" }
+    ![26.1: Explore - Resource Representation](26-1-explore-resources.png "26.1: Explore - Resource Representation"){ class="bordered" width="20%" align=right style="clear: right" }
+    ![26.1: Explore - Resource Table and Filter](26-1-explore-rt-filter.png "26.1: Explore - Resource Table and Filter"){ class="bordered" width="20%" align=right style="clear: right" }
     - Explore introduces badges, a redesigned resource representation and table experience, a new versioning tab, and broader usability improvements across shaped resource views and graph exploration.
+
+    <div style="clear: right"></div>
 
 - Automate: **Access Conditions and Query Catalog Operations**
     - cmemc expands administrative automation with richer access-condition import/export and filtering, new query catalog create/update/delete/explain commands, and more consistent list and delete workflows.
