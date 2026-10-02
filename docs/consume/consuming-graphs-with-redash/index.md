@@ -34,7 +34,7 @@ This configuration screen basically clones the basic configuration of [cmemc](..
 
 Once you added a eccenca Corporate Memory data source to Redash, you can create queries, configure visualisation widgets based on the query results, and combine these widgets as dashboards.
 
-To get familiar with Redash, please have a look at the Redash user guide, especially the [Getting Started](https://redash.io/help/user-guide/getting-started) page.
+To get familiar with Redash, have a look at the Redash user guide, especially the [Getting Started](https://redash.io/help/user-guide/getting-started) page.
 
 !!! Info
 

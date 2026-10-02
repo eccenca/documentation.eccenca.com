@@ -167,4 +167,4 @@ Refer to [Environment-based Configuration](../configuration/environment-based-co
 
 - [Workflow Execution and Orchestration](../workflow-execution-and-orchestration/index.md) - a complete example script which starts workflows in parallel and waits for the results.
 - [Backup and Restore](../backup-and-restore/index.md) - creating and restoring backup artifacts with cmemc.
-- [Using Gitlab Pipelines](../invocation/gitlab-pipeline/index.md) and [Using Github Actions](../invocation/github-action/index.md) - running cmemc on a build server.
+- [Using GitLab Pipelines](../invocation/gitlab-pipeline/index.md) and [Using GitHub Actions](../invocation/github-action/index.md) - running cmemc on a build server.

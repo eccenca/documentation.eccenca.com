@@ -64,12 +64,12 @@ You should enable this in your `values.yaml` file.
 Also make sure you have set the clients and client credentials.
 See [Configure OAuth clients (helm)](#configure-oauth-clients-helm)
 
-The configuration mentioned below is rendered with those files, but you usually don't have to touch those:
+The configuration mentioned below is rendered with those files, but you usually do not have to touch those:
 
 - `configuration-files/explore-application.yml` for Explore
 - `configuration-files/cmem.integration.config.yml` for Graph Insights
 
-For more details please have a look in the helm value file.
+For more details have a look in the helm value file.
 Every configuration is documented there.
 Please refer to [Kubernetes deployments](../../../deploy-and-configure/installation/scenario-k8s-deployment/index.md)
 for more information.
@@ -284,7 +284,7 @@ In case you want to have separate clients for production deployments, this chapt
 
 #### Configure OAuth clients (docker-compose)
 
-In our **docker-orchestration** to enrol those other clients, please follow these steps:
+In our **docker-orchestration** to enrol those other clients, follow these steps:
 
 1.) take a look at `environments/default.env` and copy these variables to your `environments/config.env` file:
 
