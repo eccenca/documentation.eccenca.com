@@ -555,6 +555,12 @@ nav:
       - Distribution: distribution/index.md
       - Marketplace:
           - distribution/marketplace/index.md
+      - FAIR Data:
+          - FAIR Data: distribution/fair-data/index.md
+          - FAIR Principles:
+              - distribution/fair-data/principles/index.md
+          - FAIRification:
+              - distribution/fair-data/fairification/index.md
   - Deploy and Configure:
       - Deploy and Configure: deploy-and-configure/index.md
       - System Architecture:
