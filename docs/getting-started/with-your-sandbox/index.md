@@ -15,6 +15,16 @@ Thank you for registering your eccenca Corporate Memory Sandbox! We are excited 
 
 eccenca's Corporate Memory is a platform for creating and managing Enterprise Knowledge Graphs. It has three main stages: _Build_, _Explore_, and _Consume_. In the _Build_ stage, you can convert legacy data points from existing datasets into a Knowledge Graph structure. The _Explore_ stage allows you to interact with your Knowledge Graph, while the _Consume_ stage is used to retrieve information from the graph and integrate it programmatically with your IT infrastructure.
 
+!!! warning "Python plugins are not available in the sandbox"
+
+    ![Error message 503 Service Temporarily Unavailable when installing a package that depends on cmem-plugin-shapes](python-plugin-install-error.png){ class="bordered" width="20%" align=right }
+
+    Python plugins cannot be used with sandbox instances.
+    The installation of a [Marketplace Package](../../develop/packages/index.md) fails if the package depends on a Python plugin (any `cmem-plugin-*`).
+    The sandbox then returns the error shown here.
+
+    Contact [info@eccenca.com](mailto:info@eccenca.com) to discuss your requirements.
+
 <div class="grid cards" markdown>
 
 - :material-rocket-launch:{ .lg .middle } __Get Started and Get Help__
@@ -27,7 +37,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
 
     Community support for the sandbox is provided in this [:simple-github: forum](https://github.com/eccenca/documentation.eccenca.com/discussions){target=_blank}, use it seek for help, report issues or suggestions, or discuss solution ideas.
 
-    Find and contact us at: [:simple-github:](https://github.com/eccenca){target=_blank} • [:simple-x:](https://x.com/eccenca){target=_blank} • [:simple-linkedin:](https://de.linkedin.com/company/eccenca-gmbh){target=_blank} • [:octicons-mail-24:](mailto:info@eccenca.com)
+    Find and contact us at: [:simple-github:](https://github.com/eccenca){target=_blank} • [:simple-x:](https://x.com/eccenca){target=_blank} • [:fontawesome-brands-linkedin:](https://de.linkedin.com/company/eccenca-gmbh){target=_blank} • [:octicons-mail-24:](mailto:info@eccenca.com)
 
 - :fontawesome-brands-dropbox:{ .lg .middle } __Sandbox Resources__
 
