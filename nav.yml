@@ -713,6 +713,8 @@ nav:
           - automate/continuous-integration/index.md
       - n8n Integration:
           - automate/n8n-node/index.md
+      - Agent Integration:
+          - automate/agent-integration/index.md
   - Develop:
       - Develop: develop/index.md
       - Accessing Graphs with Java Applications:
