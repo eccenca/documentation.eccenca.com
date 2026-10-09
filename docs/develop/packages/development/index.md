@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-Marketplace Packages are archives that bundle content, functionality, and configuration from Corporate Memory for sharing and reuse.
+Marketplace Packages are archives that bundle content, functionality, and configuration from eccenca Corporate Memory for sharing and reuse.
 
 Each package has its own release cycle.
 Packages can be installed and uninstalled during runtime.

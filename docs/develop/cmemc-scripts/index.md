@@ -90,7 +90,7 @@ for workflow in cmemc(command):
 
 ## Using a shebang to create an executable file
 
-As a nice addon, you could extend your script with a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) to start [uv](https://docs.astral.sh/uv/).
+As a nice add on, you could extend your script with a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) to start [uv](https://docs.astral.sh/uv/).
 This will also install and manage dependencies and python versions for you:
 
 The complete script looks like this:

@@ -59,7 +59,7 @@ A dataset represents an abstraction over raw data. In order to work with data, y
 
 There is a range of different dataset types for different kinds of source data. Important dataset types include:
 
-- **Knowledge Graph** - Read RDF from or write RDF to a Knowledge Graph embedded in Corporate Memory.
+- **Knowledge Graph** - Read RDF from or write RDF to a Knowledge Graph embedded in eccenca Corporate Memory.
 - **CSV** - Read from or write to an CSV file.
 - **XML** - Read from or write to an XML file.
 - **JSON** - Read from or write to a JSON file.

@@ -5,7 +5,7 @@ icon: simple/kubernetes
 
 ## Introduction
 
-This page describes the basic principles of installing Corporate Memory in a
+This page describes the basic principles of installing eccenca Corporate Memory in a
 Kubernetes cluster with `helm` and `kubectl`.
 It will not explain the basic principles of Kubernetes or help in installing
 the required tools.

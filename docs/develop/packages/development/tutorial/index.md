@@ -43,7 +43,7 @@ You should now have a folder with two levels of files:
 
 The nested folder `my-package-id` represents your working directory for developing the package.
 
-To add content to the package, simply copy the files you want to add into this folder, or extract existing content from a live Corporate Memory instance into the working directory.
+To add content to the package, simply copy the files you want to add into this folder, or extract existing content from a live eccenca Corporate Memory instance into the working directory.
 
 !!! example "Extracting Corporate Memory content to add to the package"
 
