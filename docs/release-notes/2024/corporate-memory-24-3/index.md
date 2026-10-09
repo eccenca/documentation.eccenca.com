@@ -107,7 +107,7 @@ We're excited to bring you the latest update to DataIntegration v24.3, which int
 
 - Optimized writing to Neo4j, resulting in a 25x speed improvement.
 - Upgraded Spark to 3.5.3.
-- Upgraded to typescript version 5.5.3.
+- Upgraded to TypeScript version 5.5.3.
 - After saving a workflow the undo/redo queues are cleared which is consistent with other editors in DI/DM.
 - Renamed DI action from `urn:eccenca:di` to `<https://vocab.eccenca.com/auth/Action/Build>`.
 - Line breaks are forced for evaluation preview tooltips.
