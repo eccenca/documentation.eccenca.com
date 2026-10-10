@@ -191,7 +191,7 @@ For an agent that depends on a bearer token, create a dedicated Keycloak client 
 
 === "Antigravity CLI"
 
-    The [Antigravity CLI](https://antigravity.google/docs/cli) (`agy`) does not discover the OAuth configuration of the server.
+    The [Antigravity CLI](https://antigravity.google/docs/cli) (`agy`) signs in by itself only to a server that supports dynamic client registration, which Keycloak rejects, see [Choose a method](#choose-a-method).
     Pass a bearer token in a header instead.
 
     1. Fetch an access token with cmemc:
@@ -225,6 +225,9 @@ For an agent that depends on a bearer token, create a dedicated Keycloak client 
     ```
 
     The token expires, see [Protect the token](#protect-the-token).
+
+    `agy` also reads OAuth credentials from `oauth.clientId` and `oauth.clientSecret` in the same file.
+    The shipped `cmem` client is a public client and has no secret, so this recipe does not use them.
 
 === "Mistral Vibe"
 
