@@ -21,7 +21,7 @@ As described in the [Configuration with Environment Variables](../environment-ba
 The following code snippet demonstrates the behaviour:
 
 ``` shell-session
-export CMEM_BASE_URI="https://your-cmem.eccenca.dev/"
+export CMEM_BASE_URI="https://your-cmem.example.org/"
 export OAUTH_GRANT_TYPE="client_credentials"
 export OAUTH_CLIENT_ID="cmem-service-account"
 export OAUTH_CLIENT_SECRET="...secret..."
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: run cmemc
     env:
-        CMEM_BASE_URI: https://your-cmem.eccenca.dev/
+        CMEM_BASE_URI: https://your-cmem.example.org/
         OAUTH_GRANT_TYPE: client_credentials
         OAUTH_CLIENT_ID: cmem-service-account
         OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
@@ -73,7 +73,7 @@ The following config section demonstrates this behaviour:
 
 ``` ini
 [your-cmem]
-CMEM_BASE_URI=https://your-cmem.eccenca.dev/
+CMEM_BASE_URI=https://your-cmem.example.org/
 OAUTH_GRANT_TYPE=client_credentials
 OAUTH_CLIENT_ID=cmem-service-account
 OAUTH_CLIENT_SECRET_PROCESS=get-my-secret.sh
@@ -83,7 +83,7 @@ If you need to add options to the call, you can write the call as a list:
 
 ``` ini
 [your-cmem]
-CMEM_BASE_URI=https://your-cmem.eccenca.dev/
+CMEM_BASE_URI=https://your-cmem.example.org/
 OAUTH_GRANT_TYPE=client_credentials
 OAUTH_CLIENT_ID=cmem-service-account
 OAUTH_CLIENT_SECRET_PROCESS=["getpass.sh", "parameter1", "parameter2"]
@@ -95,10 +95,10 @@ Note: You need to define a named connection for this to take effect. Using the `
 
 Here is a working example with the MacOS Keychain, which can be queried with the command line tool `security`.
 
-This example fetches a password for the account `cmem-service-account` for the service `https://your-cmem.eccenca.dev/`.
+This example fetches a password for the account `cmem-service-account` for the service `https://your-cmem.example.org/`.
 
 ``` ini
-OAUTH_CLIENT_SECRET_PROCESS=["security", "find-generic-password", "-w", "-a", "cmem-service-account", "-s", "https://your-cmem.eccenca.dev/" ]
+OAUTH_CLIENT_SECRET_PROCESS=["security", "find-generic-password", "-w", "-a", "cmem-service-account", "-s", "https://your-cmem.example.org/" ]
 ```
 
 The corresponding keychain entry looks like this:
