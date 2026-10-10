@@ -158,7 +158,7 @@ A complete example on how to deploy the Corporate Memory instance on Hetzner wit
 CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
 STARDOG_PASSWORD=admin
 # change DEPLOYHOST to your own value! the one you have configured in your DNS
-DEPLOYHOST=corporate-memory.eccenca.dev
+DEPLOYHOST=corporate-memory.example.com
 PROXY_ADDRESS_FORWARDING=true
 DATAINTEGRATION_JAVA_TOOL_OPTIONS=-Xmx4g
 DATAPLATFORM_JAVA_TOOL_OPTIONS=-Xms2g -Xmx4g

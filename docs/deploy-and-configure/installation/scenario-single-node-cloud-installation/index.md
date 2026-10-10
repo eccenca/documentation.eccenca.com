@@ -138,7 +138,7 @@ Change `CMEM_BASE_URI` according to your `DEPLOYHOST`.
 rm conf/cmemc/cmemc.ini
 cat <<EOF > conf/cmemc/cmemc.ini
 [cmem]
-CMEM_BASE_URI=https://corporate-memory.eccenca.dev/
+CMEM_BASE_URI=https://corporate-memory.example.com/
 OAUTH_GRANT_TYPE=client_credentials
 OAUTH_CLIENT_ID=cmem-service-account
 OAUTH_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
@@ -176,7 +176,7 @@ Please also visit our extended [documentation for Graph Insights](../../../deplo
 
 ## Validation and Finalisation
 
-Open your browser and navigate to the host you have created in DNS server, e.g. `https://corporate-memory.eccenca.dev`
+Open your browser and navigate to the host you have created in DNS server, e.g. `https://corporate-memory.example.com`
 
 Click **CONTINUE WITH LOGIN** and use one of these default accounts:
 

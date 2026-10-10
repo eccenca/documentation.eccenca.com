@@ -35,7 +35,7 @@ This release delivers the following component versions:
 - [eccenca Corporate Memory 26.2.1](#eccenca-corporate-memory-2621)
     - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
     - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
-    - [eccenca Marketplace v26.2.7](#eccenca-marketplace-v2627)
+    - [eccenca Marketplace v26.2.8](#eccenca-marketplace-v2628)
     - [eccenca Corporate Memory Control (cmemc) v26.2.2](#eccenca-corporate-memory-control-cmemc-v2622)
     - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
@@ -392,9 +392,48 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.7
+## eccenca Marketplace v26.2.8
 
 We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+
+**v26.2.8 of Marketplace adds the following new features:**
+
+- Added an MCP (Model Context Protocol) endpoint at `<root-path>/mcp`, which opens the package catalog and the manifest rules to agents such as Corporate Memory Companion or Claude Code, see [Agent Integration](../../../automate/agent-integration/index.md).
+    - The tools are `package_list`, `package_info`, `package_list_installed`, `package_install`, `package_uninstall`, `manifest_check`, `manifest_schema`, `manifest_example` and `package_build_guide`.
+    - `ECC_MARKETPLACE_MCP` serves the endpoint and defaults to `True`.
+        `ECC_MARKETPLACE_MCP_READ_ONLY` defaults to `True` and decides whether the tools that install and uninstall packages are registered at all.
+    - `ECC_MARKETPLACE_PUBLIC_URL` names the externally reachable URL of the instance, which is recorded as the origin of the packages installed from it.
+    - The endpoint publishes OAuth 2.0 protected resource metadata (RFC 9728) at `/.well-known/oauth-protected-resource`, so an agent discovers the Keycloak realm to authenticate against.
+    - The server instructions name the Corporate Memory deployment the instance is bound to and the marketplaces it is configured for, and `GET /api/info` reports whether the endpoint is enabled, whether it is read-only, and its URL.
+- `package_build_guide` describes how to build a package archive (`.cpa`) from a package directory: the layout, the file path rules, the content and metadata limits, and the `cmemc package build` command that builds and validates it locally.
+    - It covers choosing the package type, checking that the package id is free before the directory exists, and how a vocabulary graph gets its namespace prefix through `vann:preferredNamespacePrefix` and `vann:preferredNamespaceUri`.
+    - It names the [cmem-package-template](https://github.com/eccenca/cmem-package-template) copier template, which most packages in the catalog are generated from.
+- `manifest_example` hands out a complete, valid manifest of either package type, tested against the same rules `manifest_check` applies.
+- `package_info` takes `include_manifest` and then answers with the whole manifest of the selected version, including its file specifications.
+- `package_list` names the marketplace its page came from and reports tag counts in its facets, so the tag vocabulary of a catalog can be asked for instead of being pieced together page by page.
+- `ECC_MARKETPLACE_LICENSE_MODE_ALLOWED_LICENSES` restricts header-verified `LICENSE_TOKEN` access to an explicit, comma-separated list of licenses.
+
+**v26.2.8 of Marketplace introduces the following changes:**
+
+- `POST /api/manifest` answers the same verdict as the `manifest_check` MCP tool, from one shared implementation, so a rule cannot hold on one authoring surface and not on the other.
+    - The route takes the raw manifest text and always answers `200` with `valid` and the problems found, rather than `204` or `422`.
+    - It echoes the declared identity back so a wrong file is recognizable, reports every reserved resource instead of only the first, and refuses something far too large to be a manifest before reading it.
+    - It is public now, like the `GET` on the same path, because it reads no package, no marketplace and no Corporate Memory.
+        `POST /api/archive` keeps that gate, since it streams and unzips an upload.
+- The `$schema` of a manifest defaults to `https://eccenca.market/api/manifest`, the production marketplace, rather than the development one.
+
+**v26.2.8 of Marketplace ships the following fixes:**
+
+- A refused installation or removal through `POST /api/cmem/packages/install/...` or `POST /api/cmem/packages/uninstall` answered an internal server error, and now answers `409 Conflict` carrying the reason reported by Corporate Memory.
+- `manifest_check` and `POST /api/manifest` reported a manifest as valid when the package ships a resource of the package management itself, such as the package data graph, the marketplace vocabulary graph or the `marketplace-packages` project.
+    Such a package is refused when its archive is built and when it is installed, so both authoring surfaces report it now.
+- `manifest_check` and `POST /api/manifest` reported which rule a manifest broke but not which value broke it.
+    Both rules now sit on the value they are about, quote the offending URL or agent name, and report every broken rule in one verdict.
+- An error inside a discriminated union carried the tag of the union branch in its location, so an agent URL came back at `metadata.agents.0.organization.agent_url`, a path the manifest file does not have.
+    The tags of the manifest, agent, file spec and dependency unions are dropped wherever they appear.
+- The content limits in `package_build_guide` read as if the 1 MiB text file limit applied to every text file, `.ttl` graphs included, which makes a large vocabulary look impossible to package.
+    It applies to `README.md`, `LICENSE` and `CHANGELOG.md` only, and the guide states the graph, project and whole-package limits.
+- The JSON Schema of a vocabulary package states the rules that decide its shape: exactly one graph, `register_as_vocabulary` set explicitly, and no dependencies.
 
 **v26.2.7 of Marketplace adds the following new features:**
 
@@ -708,6 +747,9 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 
 - **Authenticated read access:** With v26.2.6, listing, inspecting and downloading packages requires an authenticated marketplace user, except on a central marketplace which receives the license per request.
     Clients which read packages anonymously from an instance in the `ANONYMOUS` mode or in the `LICENSE_TOKEN` mode with a mounted license need to authenticate now.
+- **Manifest validation route:** With v26.2.8, `POST /api/manifest` takes the raw manifest text and always answers `200` with the verdict in the body, instead of `204` for a valid manifest and `422` for an invalid one.
+    Clients which branch on the status code need to read `valid` from the body now.
+    The route no longer requires a Keycloak admin group.
 
 ### cmemc
 
