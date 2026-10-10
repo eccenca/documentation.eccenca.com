@@ -200,9 +200,10 @@ For an agent that depends on a bearer token, create a dedicated Keycloak client 
         TOKEN=$(cmemc -c your-config admin token)
         ```
 
-    2. Register the server with the token:
+    2. Register the two MCP servers with the token:
 
         ``` shell-session
+        $ agy mcp add --header "Authorization: Bearer $TOKEN" --type http cmem-explore https://your-cmem.example.org/dataplatform/mcp/streamable
         $ agy mcp add --header "Authorization: Bearer $TOKEN" --type http cmem-build https://your-cmem.example.org/dataintegration/mcp
         ```
 
@@ -213,6 +214,13 @@ For an agent that depends on a bearer token, create a dedicated Keycloak client 
     ``` json title="~/.gemini/config/mcp_config.json"
     {
       "mcpServers": {
+        "cmem-explore": {
+          "disabled": false,
+          "headers": {
+            "Authorization": "Bearer <token>"
+          },
+          "serverUrl": "https://your-cmem.example.org/dataplatform/mcp/streamable"
+        },
         "cmem-build": {
           "disabled": false,
           "headers": {
