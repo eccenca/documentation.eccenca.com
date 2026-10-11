@@ -41,4 +41,10 @@ Setup processes and automate activities based on and towards your Knowledge Grap
 
     Trigger Corporate Memory workflows and read from the Knowledge Graph inside event-driven n8n automations.
 
+- :material-robot-outline: [Agent Integration](agent-integration/index.md)
+
+    ---
+
+    Connect AI agents such as Claude Code or Codex to Corporate Memory through MCP servers, APIs and cmemc.
+
 </div>
