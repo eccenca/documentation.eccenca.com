@@ -88,10 +88,47 @@ integrations:
       (LLMs).
 
   - name: OpenAI
-    icon: ":simple-openai:"
+    icon: ":fontawesome-brands-openai:"
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
       to interact with any [OpenAI provided Large Language Models](https://platform.openai.com/docs/models) (LLMs).
+
+  - name: Mistral AI
+    icon: ":simple-mistralai:"
+    content: |
+      Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
+      to interact with any
+      [Mistral AI provided Large Language Models](https://docs.mistral.ai/getting-started/models/models_overview/)
+      (LLMs) through their OpenAI-compatible endpoint.
+
+  #####
+  # AI Agents
+  #####
+
+  - name: Antigravity CLI
+    icon: ":simple-googlegemini:"
+    content: |
+      Connect the [Antigravity CLI](https://antigravity.google/docs/cli) (`agy`) to the Corporate Memory MCP
+      servers with a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
+
+  - name: Claude Code
+    icon: ":simple-claude:"
+    content: |
+      Connect [Claude Code](https://claude.com/product/claude-code) to the Corporate Memory MCP servers and let it
+      inspect, author and run projects, datasets, transformations and workflows, see
+      [Agent Integration](../../automate/agent-integration/index.md).
+
+  - name: Codex
+    icon: ":fontawesome-brands-openai:"
+    content: |
+      Connect [Codex](https://developers.openai.com/codex/cli/) to the Corporate Memory MCP servers with an OAuth
+      sign-in or a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
+
+  - name: Mistral Vibe
+    icon: ":simple-mistralai:"
+    content: |
+      Connect [Mistral Vibe](https://github.com/mistralai/mistral-vibe) to the Corporate Memory MCP servers with
+      an OAuth sign-in or a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
 
   #####
   # Services
