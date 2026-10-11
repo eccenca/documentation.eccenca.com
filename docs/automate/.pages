@@ -6,4 +6,5 @@ nav:
     - Scheduling Workflows: scheduling-workflows
     - Continuous Integration: continuous-integration
     - n8n Integration: n8n-node
+    - Agent Integration: agent-integration
 

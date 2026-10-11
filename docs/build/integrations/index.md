@@ -12,7 +12,8 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-The following services and applications can be easily integrated in Corporate Memory workflows:
+The following services and applications integrate with eccenca Corporate Memory.
+Some are used as part of a workflow, others control Corporate Memory from the outside:
 
 <div class="grid cards" markdown>
 
@@ -24,6 +25,14 @@ The following services and applications can be easily integrated in Corporate Me
 to interact with any
 [Anthropic / Claude provided Large Language Models](https://docs.claude.com/en/docs/about-claude/models/overview)
 (LLMs).
+
+
+- :simple-googlegemini:{ .lg .middle } Antigravity CLI
+
+    ---
+
+    Connect the [Antigravity CLI](https://antigravity.google/docs/cli) (`agy`) to the Corporate Memory MCP
+servers with a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
 
 
 - :other-apify:{ .lg .middle } Apify
@@ -64,6 +73,23 @@ PDF documents, as well as to compress and decompress ZIP archives.
     [Download the files](../../build/reference/customtask/cmem_plugin_ckan-Download.md) of a dataset from a
 [CKAN](https://ckan.org) service, or
 [publish files](../../build/reference/customtask/cmem_plugin_ckan-Upload.md) as the resources of a CKAN dataset.
+
+
+- :simple-claude:{ .lg .middle } Claude Code
+
+    ---
+
+    Connect [Claude Code](https://claude.com/product/claude-code) to the Corporate Memory MCP servers and let it
+inspect, author and run projects, datasets, transformations and workflows, see
+[Agent Integration](../../automate/agent-integration/index.md).
+
+
+- :fontawesome-brands-openai:{ .lg .middle } Codex
+
+    ---
+
+    Connect [Codex](https://developers.openai.com/codex/cli/) to the Corporate Memory MCP servers with an OAuth
+sign-in or a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
 
 
 - :fontawesome-solid-file-csv:{ .lg .middle } CSV
@@ -224,6 +250,24 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
     The Microsoft SQL Server can be accessed with the [Remote SQL endpoint](../../build/reference/dataset/Jdbc.md) dataset (JDBC driver included).
 
 
+- :simple-mistralai:{ .lg .middle } Mistral AI
+
+    ---
+
+    Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
+to interact with any
+[Mistral AI provided Large Language Models](https://docs.mistral.ai/getting-started/models/models_overview/)
+(LLMs) through their OpenAI-compatible endpoint.
+
+
+- :simple-mistralai:{ .lg .middle } Mistral Vibe
+
+    ---
+
+    Connect [Mistral Vibe](https://github.com/mistralai/mistral-vibe) to the Corporate Memory MCP servers with
+an OAuth sign-in or a bearer token, see [Agent Integration](../../automate/agent-integration/index.md).
+
+
 - :fontawesome-solid-file-csv:{ .lg .middle } Multi CSV ZIP
 
     ---
@@ -282,7 +326,7 @@ them, or [upload files](../../build/reference/customtask/cmem_plugin_nextcloud-U
 to interact with Ollama provided Large Language Models (LLMs).
 
 
-- :simple-openai:{ .lg .middle } OpenAI
+- :fontawesome-brands-openai:{ .lg .middle } OpenAI
 
     ---
 
