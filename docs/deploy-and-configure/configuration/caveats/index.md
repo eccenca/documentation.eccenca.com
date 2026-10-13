@@ -25,7 +25,7 @@ See [GraphDB technical-requirements](https://graphdb.ontotext.com/documentation/
 
 ## Load Balancer
 
-Depending on the deployment, load balancers or proxies in between Corporate Memory components (such as Build (DataIntegration) <-> Explore backend, Explore backend <-> Triplestore) tend to drop long running TCP connections when they are idle.
+Depending on the deployment, load balancers or proxies in between eccenca Corporate Memory components (such as Build (DataIntegration) <-> Explore backend, Explore backend <-> Triplestore) tend to drop long running TCP connections when they are idle.
 As e.g. SPARQL Update requests may be idle for a long time (while the update is performed) the client will not receive the response.
 Hence, DI workflow execution will not proceed even though the update went through.
 

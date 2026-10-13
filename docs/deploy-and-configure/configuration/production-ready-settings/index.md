@@ -5,7 +5,7 @@ tags:
 ---
 # Production-Ready Settings
 
-If you plan to deploy Corporate Memory in a non-trusted environment, you need to take care about some final configuration steps.
+If you plan to deploy eccenca Corporate Memory in a non-trusted environment, you need to take care about some final configuration steps.
 
 ## Restrict Redirect URLs
 

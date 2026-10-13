@@ -10,7 +10,7 @@ tags:
 
 ## Introduction
 
-In a reasonable production deployment, all client-accessible Corporate Memory APIs will be securely available as HTTPS endpoints.
+In a reasonable production deployment, all client-accessible eccenca Corporate Memory APIs will be securely available as HTTPS endpoints.
 This document clarifies how to deal with certificates.
 cmemc will validate the certificates of your HTTPS endpoints and indicate validation errors.
 If the certificates of your Corporate Memory deployment are based on a common and publicly available Certificate Authority (such as [Let's Encrypt](https://letsencrypt.org/)), cmemc is able to validate your certificates out of the box.

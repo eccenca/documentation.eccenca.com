@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-Learn how to provide data via a customized Corporate Memory API in a text format of your choice and how to consume it in your applications.
+Learn how to provide data via a customized eccenca Corporate Memory API in a text format of your choice and how to consume it in your applications.
 This tutorial describes how you can provide data in a text format of your choice via your own custom Corporate Memory API, and how you request those APIs.
 
 In this tutorial, we describe how you can set up an endpoint which provides [iCalendar data](https://en.wikipedia.org/wiki/ICalendar).
@@ -58,7 +58,7 @@ WHERE {
 
 As a next step, we will define a template that generates iCalendar data from our previously defined SPARQL query.
 
-Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Result Template and click `Create a new Select Result Template` to create a new template.
+Select in *Graphs* the Corporate Memory Query Catalog graph, select in *Navigation* the Select Result Template and click `Create a new Select Result Template` to create a new template.
 
 ![result-template](22-1-2-result-template.png)
 
@@ -108,7 +108,7 @@ END:VCALENDAR
 
 As a next step, we will set up the API which serves the data in the format we defined in the previous template.
 
-Select in *Graphs* the CMEM Query Catalog graph, select in *Navigation* the Select Query Endpoint and click "Create a new Select Query Endpoint" to create a new endpoint.
+Select in *Graphs* the Corporate Memory Query Catalog graph, select in *Navigation* the Select Query Endpoint and click "Create a new Select Query Endpoint" to create a new endpoint.
 
 ![query-endpoint](22-1-3-query-endpoint.png)
 

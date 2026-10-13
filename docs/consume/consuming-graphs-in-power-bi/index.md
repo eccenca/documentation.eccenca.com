@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-Learn how to consume data from your Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
+Learn how to consume data from your eccenca Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
 
 This manual and tutorial describes how you can consume data from your knowledge graph in Microsoft Power BI through our Corporate Memory Power-BI-Connector.
 
