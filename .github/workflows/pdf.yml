@@ -1,18 +1,24 @@
 ---
 name: PDF
 
-# Builds the PDF of the whole documentation after every push to main, merged
-# pull requests included, and keeps it as an artifact of the workflow run.
+# Builds every PDF of the documentation after a push to main or to the
+# print-on-demand branch: the screen edition, the print edition (the book block
+# for print on demand), its PDF/X-4 copy in CMYK and the greyscale preview. The
+# run summary lists all four with their download links, so they need not be dug
+# out of the artifact section.
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "feature/print-on-demand"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 permissions:
   contents: read
 
-# A newer push to main makes a running build obsolete.
+# A newer push to the same branch makes a running build obsolete; main and a
+# branch do not cancel each other.
 concurrency:
-  group: "pdf"
+  group: "pdf-${{ github.ref }}"
   cancel-in-progress: true
 
 env:
@@ -62,8 +68,10 @@ jobs:
       - name: update packages
         run: sudo apt-get update -y
 
+      # Poppler carries the pdffonts, pdfimages and pdftotext the preflight report
+      # reads. Ghostscript comes from a container below, not from apt.
       - name: install packages
-        run: sudo apt-get install -y libffi-dev libz-dev
+        run: sudo apt-get install -y libffi-dev libz-dev poppler-utils
 
       - name: install pandoc
         run: |
@@ -79,14 +87,119 @@ jobs:
             | tar -xJ -C "$RUNNER_TEMP"
           sudo install -m 0755 "$RUNNER_TEMP/typst-x86_64-unknown-linux-musl/typst" /usr/local/bin/typst
 
-      - name: build pdf
+      # The ISO Coated v2 profile of the output intent is not in the repository
+      # (its licence forbids it), so it is fetched once and kept between runs.
+      - name: cache the output intent profile
+        uses: actions/cache@v4
+        with:
+          path: dist/icc
+          key: icc-iso-coated-v2-eci
+
+      # Ubuntu ships Ghostscript 10.02, where `-dPDFX=4` is still a boolean, so
+      # the 4 raises `/typecheck in --pdfmark--` and PDF/X-4 cannot be written at
+      # all. A container carries a newer one, behind a shim that runs it at the
+      # paths the build uses, so the PDFs, the pdfmark prefix and the profiles
+      # resolve inside the container exactly as they do outside. The grey output
+      # intent profile comes out of the same image.
+      - name: ghostscript from a container
+        run: |
+          printf 'FROM alpine:edge\nRUN apk add --no-cache ghostscript\n' | docker build -q -t pdfx-gs -
+          W="$GITHUB_WORKSPACE"
+          sudo tee /usr/local/bin/gs-docker >/dev/null <<SHIM
+          #!/bin/sh
+          exec docker run --rm -v "$W:$W" -v /tmp:/tmp -w "$W" pdfx-gs gs "\$@"
+          SHIM
+          sudo chmod +x /usr/local/bin/gs-docker
+          gs-docker --version
+          mkdir -p dist/icc
+          docker run --rm pdfx-gs cat /usr/share/ghostscript/iccprofiles/default_gray.icc \
+            > dist/icc/default_gray.icc
+          {
+            echo "GHOSTSCRIPT=/usr/local/bin/gs-docker"
+            echo "PDF_GRAY_PROFILE=$W/dist/icc/default_gray.icc"
+          } >> "$GITHUB_ENV"
+
+      - name: build the screen pdf
         run: task pdf
 
-      - name: upload pdf
+      - name: build the print pdfs
+        run: task pdf:print -- --normalize --gray
+
+      - name: upload the screen pdf
+        id: screen
         uses: actions/upload-artifact@v4
         with:
-          name: documentation-eccenca-com-pdf
-          path: dist/documentation-eccenca-com-*.pdf
+          name: pdf-screen
+          path: |
+            dist/documentation-eccenca-com-*.pdf
+            !dist/documentation-eccenca-com-*-print*.pdf
           if-no-files-found: error
+          retention-days: 30
           # A PDF is compressed already.
           compression-level: 0
+
+      - name: upload the print pdf
+        id: print
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-print
+          path: dist/documentation-eccenca-com-*-print.pdf
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      - name: upload the pdf/x-4 pdf
+        id: pdfx
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-print-x4
+          path: dist/documentation-eccenca-com-*-print-x4.pdf
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      - name: upload the greyscale pdf
+        id: gray
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-print-gray-x4
+          path: dist/documentation-eccenca-com-*-print-gray-x4.pdf
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      # The table is built in one go and printed to the log as well, so the
+      # editions and their links are readable even if the summary ever stays
+      # empty - which is how the first run of this step ended.
+      - name: list the pdfs in the run summary
+        run: |
+          # $1 is a glob; $4, when given, drops what the glob also matches - the
+          # screen edition is the one file whose name carries no `-print`.
+          describe() {
+            file="$(ls $1 2>/dev/null | grep -v -- "${4:-^$}" | head -1)"
+            if [ -z "$file" ]; then
+              printf '| %s | - | - | missing |\n' "$2"
+              return
+            fi
+            printf '| %s | %s | %s | [%s](%s) |\n' "$2" \
+              "$(pdfinfo "$file" 2>/dev/null | awk '/^Pages/ {print $2}')" \
+              "$(du -h "$file" | cut -f1)" "$(basename "$file")" "$3"
+          }
+          {
+            echo "## PDF editions of ${GITHUB_REF_NAME}"
+            echo
+            echo "| Edition | Pages | Size | Download |"
+            echo "| :------ | ----: | ---: | :------- |"
+            describe "dist/documentation-eccenca-com-*.pdf" \
+              "Screen" "${{ steps.screen.outputs.artifact-url }}" "-print"
+            describe "dist/documentation-eccenca-com-*-print.pdf" \
+              "Print, book block" "${{ steps.print.outputs.artifact-url }}"
+            describe "dist/documentation-eccenca-com-*-print-x4.pdf" \
+              "Print, PDF/X-4 in CMYK" "${{ steps.pdfx.outputs.artifact-url }}"
+            describe "dist/documentation-eccenca-com-*-print-gray-x4.pdf" \
+              "Print, greyscale preview" "${{ steps.gray.outputs.artifact-url }}"
+            echo
+            echo "The print editions carry the preflight report of \`dec-tool pdf-preflight\`;"
+            echo "a failed check fails this job."
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "summary file: $GITHUB_STEP_SUMMARY, $(wc -c < "$GITHUB_STEP_SUMMARY") bytes"

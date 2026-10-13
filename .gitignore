@@ -10,3 +10,5 @@ tmp
 .python-version
 dist/
 .env
+*.sw[a-p]
+*~

@@ -69,6 +69,7 @@ tasks:
     cmds:
       - task: check:links
       - task: check:rumdl
+      - task: check:images
       - task: check:yamllint
       - task: check:navigation
       - task: check:output
@@ -81,6 +82,18 @@ tasks:
       # `.` picks up the repo .yamllint, which is what makes a local run and a
       # CI run agree: GitHub runners have no user-level yamllint config.
       - poetry run yamllint .
+
+  check:images:
+    desc: Fail if a screenshot prints below 150 ppi in the print edition
+    summary: |
+      Runs `dec-tool image-widths`: every raster image in a page that is not
+      generated must carry a width small enough for its pixels, or it prints
+      coarse (tasks/spec.md, §11, D18). `dec-tool image-widths --fix` writes
+      the width a listed image needs.
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool image-widths
 
   check:navigation:
     desc: Fail if nav.yml is out of sync with the docs/**/.pages files
@@ -199,6 +212,60 @@ tasks:
       BUILD_VERSION: '{{.CURRENT_VERSION}}'
     cmds:
       - poetry run dec-tool build-pdf
+
+  pdf:print:
+    desc: Build the print edition of the PDF - the book block for print on demand
+    summary: |
+      Runs `task build`, then `dec-tool build-pdf --edition print`: the same
+      merge, pandoc run and fonts as `task pdf`, typeset as the book block of
+      a printed book (BoD, A4, black and white). tasks/spec.md describes it:
+      mirrored page furniture, right-hand part starts, title page and
+      imprint, links printed as page references and footnotes, and images
+      normalized to 300 ppi without transparency.
+
+      tools/pdf/print.yml configures the edition: the publisher, the authors'
+      names and exclusions, and how each navigation section is printed (full,
+      list or omit). tools/pdf/authors.yml is the imprint's author list;
+      refresh it with `task pdf:authors`.
+
+      Writes dist/documentation-eccenca-com-<ver>-print.pdf; the merged HTML,
+      the Typst source and the normalized images stay in dist/pdf/print/. The
+      screen PDF of `task pdf` is not affected.
+
+      The build lists images below 150 ppi at their printed size in
+      dist/pdf/print/low-resolution.tsv and runs the preflight report
+      (`dec-tool pdf-preflight`), failing on an error. `task pdf:print --
+      --normalize` (or PDF_NORMALIZE=1) also writes a PDF/X-4 copy in CMYK
+      with Ghostscript, -print-x4.pdf, and checks that one; the ISO Coated v2
+      profile is fetched from the ECI into dist/icc/ unless PDF_ICC_PROFILE
+      names one. `task pdf:print -- --gray` (or PDF_GRAY=1) writes a
+      greyscale preview, -print-gray-x4.pdf, to check on screen how the book
+      prints in black and white; it is PDF/X-4 by the grey profile Ghostscript
+      ships, and the two flags combine.
+    deps:
+      - task: build
+    env:
+      BUILD_VERSION: '{{.CURRENT_VERSION}}'
+    cmds:
+      - poetry run dec-tool build-pdf --edition print {{.CLI_ARGS}}
+
+  pdf:authors:
+    desc: Refresh the author list of the print edition's imprint
+    summary: |
+      Writes tools/pdf/authors.yml from the commits to what the print edition
+      prints - its pages that are not generated, and the images they
+      reference: most commits first, with the names the GitHub profiles show,
+      without anonymous commits, bot accounts, software agents and the IDs
+      excluded in tools/pdf/print.yml. Adds each author that
+      print.yml does not list yet to its authors.names, without a name, and
+      warns about each author who would print as a GitHub ID. Commit both
+      files. Uses GITHUB_TOKEN or GH_TOKEN, else the token of a logged-in
+      GitHub CLI (`gh auth login`); without a token GitHub allows 60
+      requests an hour, and a run takes one per author.
+    deps:
+      - task: install
+    cmds:
+      - poetry run dec-tool pdf-authors
 
   update:icons:
     desc: update the used eccenca icons from carbon

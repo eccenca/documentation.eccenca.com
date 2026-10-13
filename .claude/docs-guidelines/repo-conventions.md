@@ -127,6 +127,11 @@ Do not write `index.html` stubs under `docs/`.
 - `class="bordered"` on every product screenshot (436 uses in the tree).
 - `width="50%"` or `width="70%"` for dialogs and modals, no width for full-screen views. Keep the width
   consistent within one page.
+- A screenshot needs a width small enough for its pixels, or it prints coarse: an image of 900 pixels
+  across the full 16 cm column prints at 143 ppi. `poetry run dec-tool image-widths` lists every raster
+  image in a page that is not generated that prints below 150 ppi, and `--fix` writes the `width="NN%"`
+  that reaches it — the pixel width divided by the column and the target, rounded down. The same width
+  then governs the site.
 - `.off-glb` opts an image out of the glightbox lightbox — used for inline icons and decorative images.
 - File names: lowercase, hyphen-separated, descriptive (style guide 5.5).
 - Delete screenshots that are no longer referenced. Orphan check for one page directory:
@@ -203,6 +208,24 @@ Known drift to fix when touching a page: 32 `shell-session` blocks in hand-writt
 - A screenshot or admonition inside a numbered step must be indented to the step's content level, otherwise the
   numbering restarts at 1 in the rendered page. Check the rendered result for any step list you touch.
 - `sane_lists` is enabled: an unordered item does not continue an ordered list.
+
+## Leaving content out of the print edition
+
+The print edition of the PDF (`task pdf:print`, `tasks/spec.md` §10) can leave out content that only makes sense online.
+
+- A subtree or a single page: an `omit` entry under `sections` in `tools/pdf/print.yml`, keyed by its `docs/` path.
+  The page itself carries no marker, so this works for generated pages too.
+- A part of a page: the class `print-exclude` on the block. The print edition prints a note in its place that points
+  to the page online; the site and the screen PDF show the part unchanged.
+
+| Block | Markup |
+| --- | --- |
+| code block | `sql { .print-exclude }` right after the backticks of the opening fence |
+| admonition or collapsible block | `??? example print-exclude "INSERT query"` |
+| paragraph | `{ .print-exclude }` on the line after the paragraph |
+| several blocks | `<div class="print-exclude" markdown>` … `</div>`, with blank lines around the content |
+
+A generated page cannot carry the class: the next generator run removes it.
 
 ## Editorial decisions beyond the style guide
 

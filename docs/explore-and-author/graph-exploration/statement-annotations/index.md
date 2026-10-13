@@ -76,7 +76,7 @@ These Annotation Resources are based on specific Shapes which are enabled as Sta
 Reification Resources as well as Annotation Resources are managed in a Statement Annotation Graph, which need to be configured on a Graph as well as imported to this Graph.
 The following illustration depicts this schema with boxes and arrows:
 
-![](20-10-StatementAnnotationSchema.png){ class="bordered" }
+![](20-10-StatementAnnotationSchema.png){ class="bordered" width="91%" }
 
 !!! note "Some notes on this:"
 

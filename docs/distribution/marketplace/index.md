@@ -61,7 +61,7 @@ They can be combined.
 
 !!! info inline ""
 
-    ![The open Package type drop-down](marketplace-filter-package-type.png "The open Package type drop-down")
+    ![The open Package type drop-down](marketplace-filter-package-type.png "The open Package type drop-down"){ width="21%" }
 
 #### Package type
 
@@ -73,7 +73,7 @@ Show only **Vocabulary** or only **Project** packages, see [Package Types](#pack
 
 !!! info inline ""
 
-    ![The open License drop-down](marketplace-filter-license.png "The open License drop-down")
+    ![The open License drop-down](marketplace-filter-license.png "The open License drop-down"){ width="32%" }
 
 #### License
 
@@ -93,7 +93,7 @@ Show only packages whose name or description contains the entered keyword.
 
 !!! info inline ""
 
-    ![The Installed toggle, switched on](marketplace-filter-installed.png "The Installed toggle, switched on")
+    ![The Installed toggle, switched on](marketplace-filter-installed.png "The Installed toggle, switched on"){ width="14%" }
 
 #### Installed
 
@@ -105,7 +105,7 @@ Switch on to show only the packages currently installed in your instance.
 
 !!! info inline ""
 
-    ![The open Marketplace drop-down](marketplace-filter-server.png "The open Marketplace drop-down")
+    ![The open Marketplace drop-down](marketplace-filter-server.png "The open Marketplace drop-down"){ width="38%" }
 
 #### Marketplace (top right)
 
