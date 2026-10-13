@@ -37,17 +37,17 @@ Here, the figure 3 is nice but before this first schema during the project, ther
 
 ## Technical feasibility with the available information
 
-It's not really technical to check if the data is available or not, but without technical knowledge, it's hard to evaluate the difficulty to link each id to their instance in your RDF knowledge graph.
-In this tutorial, we learn to use Corporate Memory of Eccenca to transform these IDs to IRI to import properly these ID with the other data necessary to build these interface.
+It is not really technical to check if the data is available or not, but without technical knowledge, it is hard to evaluate the difficulty to link each id to their instance in your RDF knowledge graph.
+In this tutorial, we learn to use Corporate Memory of eccenca to transform these IDs to IRI to import properly these ID with the other data necessary to build these interface.
 
-After research and one meeting with analysts, we have chosen the datasets of Mitre Attack, the datasets of IoC rules (Sigma and Hayabusa) in Github and of course, the IoCs data already in the Splunk indexes.
+After research and one meeting with analysts, we have chosen the datasets of Mitre Attack, the datasets of IoC rules (Sigma and Hayabusa) in GitHub and of course, the IoCs data already in the Splunk indexes.
 
 <figure markdown="span">
 ![Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.](alert_data_of_ioc.png)
 <figcaption>Figure 5. Define the information available in alerts of IDS and in OSINT to link these information.</figcaption>
 </figure>
 
-The Splunk indexes of IoCs are selected by the analysts in the dashboard via the component [multiselect input](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/FormEditor#Multiselect) in the form part of dashboard (the form part inits other Splunk tokens). We have choosen the IDs to link these data and the figure 5 resumes how we are going to link these data via Corporate Memory of Eccenca.
+The Splunk indexes of IoCs are selected by the analysts in the dashboard via the component [multiselect input](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/FormEditor#Multiselect) in the form part of dashboard (the form part inits other Splunk tokens). We have choosen the IDs to link these data and the figure 5 resumes how we are going to link these data via Corporate Memory of eccenca.
 
 ## Understand the base of Splunk dashboards
 
@@ -157,11 +157,11 @@ WHERE {
 
 ## Technical feasibility with the Splunk dashboard
 
-During our project, we have implemented the SPARQL command necessary to execute a SPARQL query in a SPL query but also several scripts to extend the panels of dashboard. For example, these are problems to print a HTML text and open a external Web page in a dashboard. Before starting a knowledge graph, we need to know if we have to work with a specific syntax in output for Splunk. So, we have searched the simplest solution to print the HTML literal in our knowledge graph with their links. We found it and implemented simple Javascript scripts to resolve these problems. These scripts are imported via the header of dashboard XML and called in the XML of static table panel. You can see the final dashboard with the Mitre description in HTML (the Mitre in these datasets uses Markdown but we show how convert Markdown link to HTML). We give you these scripts in your [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz) ([tutorial page](../link-IDS-event-to-KG/index.md)).
+During our project, we have implemented the SPARQL command necessary to execute a SPARQL query in a SPL query but also several scripts to extend the panels of dashboard. For example, these are problems to print a HTML text and open a external Web page in a dashboard. Before starting a knowledge graph, we need to know if we have to work with a specific syntax in output for Splunk. So, we have searched the simplest solution to print the HTML literal in our knowledge graph with their links. We found it and implemented simple JavaScript scripts to resolve these problems. These scripts are imported via the header of dashboard XML and called in the XML of static table panel. You can see the final dashboard with the Mitre description in HTML (the Mitre in these datasets uses Markdown but we show how convert Markdown link to HTML). We give you these scripts in your [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz) ([tutorial page](../link-IDS-event-to-KG/index.md)).
 
 <figure markdown="span">
-![Figure 6. With an extern Javascript script, static tables support HTML and the user can open.](../link-IDS-event-to-KG/demo_ld.png)
-<figcaption>Figure 6. With an extern Javascript script, static tables support HTML and the user can open.</figcaption>
+![Figure 6. With an extern JavaScript script, static tables support HTML and the user can open.](../link-IDS-event-to-KG/demo_ld.png)
+<figcaption>Figure 6. With an extern JavaScript script, static tables support HTML and the user can open.</figcaption>
 </figure>
 
 ## Conclusion: starting to specify the necessary RDF models for these interfaces

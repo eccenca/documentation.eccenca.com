@@ -5,6 +5,7 @@ tags:
 
 ## Deployment options for explore container
 
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 ***Property: deploy.apiPrefix***
 

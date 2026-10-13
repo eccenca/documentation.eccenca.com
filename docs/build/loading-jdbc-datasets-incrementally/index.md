@@ -67,7 +67,7 @@ To incrementally extract data in Corporate Memory, we need to store the informat
 ### To find the JDBC endpoint IRI
 
 1. Visit the **Exploration** Tab of Corporate Memory
-2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, please contact your administrator)
+2. Select in Graph (top left) your project, which starts with "**CMEM DI Project** ... " (if you cannot see it, you might not have the necessary access rights. In this case, contact your administrator)
 3. Select in Navigation (bottom left): **functions_Plugins_Jdbc**
 4. Select the previously created JDBC endpoint (in our example: "Services Table (JDBC)"
 5. Press the **Turtle** tab inside your JDBC endpoint view (right)
@@ -182,7 +182,7 @@ Finally, we can build a Workflow which demonstrates how each step works.
 We compose the SQL query based on the OFFSET and LIMIT information in our Metadata Graph.
 This SQL query will be used to configure the sourceQuery of the JDBC endpoint.
 Next, we do a "regular" transformation of data from a JDBC endpoint to RDF.
-As this step was omitted here, please feel free to read how this Transformation can be built here: [Lift data from tabular data such as CSV, XSLX or database tables](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md).
+As this step was omitted here, feel free to read how this Transformation can be built here: [Lift data from tabular data such as CSV, XSLX or database tables](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md).
 As a final step, we use our SPARQL update query to select the max service ID in our Knowledge Graph and update the RDF Triples in our Metadata Graph accordingly.
 
 ![Workflow using config part for incremental data loading](incr-jdbc-complete-wf.png){ class="bordered" }
