@@ -535,6 +535,8 @@ nav:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:
           - explore-and-author/link-rules/index.md
+          - Tutorial:
+              - explore-and-author/link-rules/tutorial/index.md
       - Application view:
           - explore-and-author/workspace-configuration/index.md
   - Consume:
