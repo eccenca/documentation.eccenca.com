@@ -445,6 +445,8 @@ Please read the migration notes carefully.
 ### eccenca Explore
 
 - Custom navigation queries need to be adjusted manually.
+    The query structure changed from a top query listing the first level entries plus one query per node to check for children (click and load) to a top query plus a single query listing all edges of the tree to be displayed.
+    The Navigation box computes the complete tree in memory when it is mounted.
 - Existing workspaces require a workspace configuration migration to introduce the new workspace configuration versioning description field.
 
 ### cmemc
