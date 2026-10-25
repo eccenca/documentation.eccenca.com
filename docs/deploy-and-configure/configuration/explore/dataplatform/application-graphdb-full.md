@@ -8,7 +8,7 @@ tags:
 Configuration example:
 
 This example configures a connection with HTTPS to a remote graphdb store (<https://remote:7200>) using the workbench import directory
-which is shared with the GraphDB instance. The repository will be created on startup of CMEM.
+which is shared with the GraphDB instance. The repository will be created on startup of eccenca Corporate Memory.
 
 ```yaml
 store:

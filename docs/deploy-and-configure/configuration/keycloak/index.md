@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-This page describes important steps in order to configure Keycloak as an authentication backend for Corporate Memory.
+This page describes important steps in order to configure Keycloak as an authentication backend for eccenca Corporate Memory.
 The screenshots displayed in this documentation were taken from Keycloak v20 using the `keycloak.v2` theme.
 
 !!! info

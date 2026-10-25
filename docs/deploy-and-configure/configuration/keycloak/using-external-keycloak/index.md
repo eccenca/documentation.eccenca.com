@@ -4,11 +4,11 @@ tags:
     - Security
     - Keycloak
 ---
-# Configure Corporate Memory with an external Keycloak
+# Configure eccenca Corporate Memory with an external Keycloak
 
 ## Introduction
 
-Maybe you already operate a central Keycloak deployment in your infrastructure or you want to deploy multiple stages of Corporate Memory with a single Keycloak.
+Maybe you already operate a central Keycloak deployment in your infrastructure or you want to deploy multiple stages of eccenca Corporate Memory with a single Keycloak.
 Very often this results in a Keycloak which is deployed in a different domain than your Corporate Memory (such as Corporate Memory is available on `https://cmem.example.com` and Keycloak is available on `https://keycloak.example.com`).
 For this scenario, this page provides additional configuration requirements.
 
@@ -23,7 +23,7 @@ Depending on your infrastructure around Corporate Memory, you need to change som
 - Headers for Corporate Memory URLs:
     - `Access-Control-Allow-Origin: *`
 
-For example, if you are using our helm charts, adapt the followin ingress annotations:
+For example, if you are using our helm charts, adapt the following ingress annotations:
 
 ``` yaml
   # KEYCLOAK ingress

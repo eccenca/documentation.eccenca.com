@@ -11,7 +11,7 @@ tags:
 
 This beginner-level tutorial shows how to use Business Knowledge Editor to visually create new ontology (vocabulary) **classes** and **properties** (object properties and datatype properties).
 
-There are other ways to create new classes and properties in Corporate Memory, for example by using SHACL shapes. Business Knowledge Editor provides an intuitive diagram-based approach that simplifies this process.
+There are other ways to create new classes and properties in eccenca Corporate Memory, for example by using SHACL shapes. Business Knowledge Editor provides an intuitive diagram-based approach that simplifies this process.
 
 The tutorial consists of the following steps, which are described in detail below:
 

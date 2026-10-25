@@ -58,7 +58,7 @@ The following table gives an impression of how different these name sets are:
 !!! tip
 
     With [command-line completion](../configuration/completion-setup/index.md) enabled, you do not need to remember any of this.
-    Pressing ++tab++ after `--filter` offers the filter names of the current command, and pressing ++tab++ again often completes the values as well, taken live from your Corporate Memory instance.
+    Pressing ++tab++ after `--filter` offers the filter names of the current command, and pressing ++tab++ again often completes the values as well, taken live from your eccenca Corporate Memory instance.
 
 ## Combining filters
 

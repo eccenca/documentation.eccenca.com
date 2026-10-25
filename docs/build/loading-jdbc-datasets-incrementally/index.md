@@ -33,7 +33,7 @@ This tutorial walks you through the process of loading data incrementally from a
 
 ## 1 Create the JDBC dataset
 
-To extract data from a relational database, you need to first register a **JDBC endpoint** in Corporate Memory. This tutorial assumes that you have access to the relational database from the Corporate Memory instance.
+To extract data from a relational database, you need to first register a **JDBC endpoint** in eccenca Corporate Memory. This tutorial assumes that you have access to the relational database from the Corporate Memory instance.
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
 
@@ -82,13 +82,13 @@ Now that we have the JDBC endpoint IRI, we will build the Metadata Graph to stor
 
 The following three RDF triples hold the (minimal) necessary information we need for this tutorial:
 
-1. The first triple imports the CMEM DI Project graph into our Metadata Graph to enable access to the LIMIT property defined earlier and to additional information we may need in the future.
+1. The first triple imports the **CMEM DI Project** graph into our Metadata Graph to enable access to the LIMIT property defined earlier and to additional information we may need in the future.
 2. The second triple defines a label for the Graph.
 3. The third triple defines the <...**lastOffset**> property we need for this tutorial. As a default, we set it to 0 to start with the first row in the table.
 
 For your project:
 
-1. adjust the CMEM DI Project IRI and
+1. adjust the **CMEM DI Project** IRI and
 2. the JDBC endpoint IRI.
 
 **Import the Graph** in the Exploration tab → Graph (menu) → Add new Graph → Provide Graph IRI + Select file.

@@ -31,7 +31,7 @@ If you start cmemc without any command or option, it outputs a general introduct
     $ cmemc
     Usage: cmemc [OPTIONS] COMMAND [ARGS]...
 
-      Eccenca Corporate Memory Control (cmemc).
+      eccenca Corporate Memory Control (cmemc).
 
       cmemc is the eccenca Corporate Memory Command Line Interface (CLI).
 

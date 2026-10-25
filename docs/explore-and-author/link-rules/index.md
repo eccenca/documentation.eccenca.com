@@ -10,7 +10,7 @@ tags:
 
 The Link Rules provides mechanisms to simplify creating data linking and to imposes role specific workflows over the whole process.
 
-Linking tasks allow the creation of links between resources based on rules in the Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your Knowledge Graph internals and may become a repetitive task. The Link rules allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
+Linking tasks allow the creation of links between resources based on rules in the eccenca Corporate Memory Build component. Such a linking task demands the configuration of source and target input resource selections (dataset, resource type or additional restrictions), the link type and an output dataset. These configurations demand a thorough understanding of your Knowledge Graph internals and may become a repetitive task. The Link rules allows to streamline this process in a way that also users with limited understanding of the knowledge graph can create link rules based on pre-defined templates.
 
 ## Usage
 
@@ -103,7 +103,7 @@ This access conditions is used by the Link Rules module to grant write access to
 
 !!! info
 
-    It is currently not possible to set a *Access Condition Identifier* nor to simply retrieve the IRI of an existing access condition. Hence the admin needs to retrieve the IRI of this access condition from the CMEM Access Conditions graph.
+    It is currently not possible to set a *Access Condition Identifier* nor to simply retrieve the IRI of an existing access condition. Hence the admin needs to retrieve the IRI of this access condition from the Corporate Memory Access Conditions graph.
 
 In order to enable users to use the Link Rules Module, the following must be allowed (this can be granted in this rule or be defined separately):
 

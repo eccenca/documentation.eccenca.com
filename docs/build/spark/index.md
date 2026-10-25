@@ -4,11 +4,11 @@ tags:
     - Introduction
     - Explainer
 ---
-# Apache Spark within Corporate Memory Build
+# Apache Spark within eccenca Corporate Memory Build
 
 ## Introduction
 
-This documentation provides an overview of Apache Spark and its integration within Corporate Memory’s Build component.
+This documentation provides an overview of Apache Spark and its integration within eccenca Corporate Memory’s Build component.
 The goal is to provide a conceptual understanding of Spark, its purpose in Build, and how workflows leverage Spark-aware datasets for efficient, distributed data processing.
 
 The documentation is structured in two parts:
