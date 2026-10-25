@@ -32,7 +32,7 @@ Hence, DI workflow execution will not proceed even though the update went throug
 Similar problems can occur between the connection between Explore backend (DataPlatform) and GraphDB.
 
 In addition to the hints in the next sections you can always change the TCP keep-alive of the system hosting the containers.
-However in cloud environments this often isn't practical. In Debian based Linux distribution you have to edit `/etc/sysctl.conf`.
+However in cloud environments this often is not practical. In Debian based Linux distribution you have to edit `/etc/sysctl.conf`.
 But be advised, only do this, if you are aware of the risks.
 
 ``` unixconfig

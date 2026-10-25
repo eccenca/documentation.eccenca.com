@@ -57,8 +57,8 @@ In addition to that, these changes are shipped:
 - RDF Workspace Provider: Improved reading of project data if Graph Store protocol is supported by RDF endpoint.
 - RDF Workspace Provider: Improved import of projects if Graph Store protocol is supported by RDF endpoint.
 - More consistent labels for tasks, operators and their parameters.
-- If active learning is started with an existing linkage rule, it's also used to generate the unlabeled pool.
-- `ExcelMapTransformer` reloads the referenced resource if it's modification time changed. For performance reasons the check may be deferred by some seconds.
+- If active learning is started with an existing linkage rule, it is also used to generate the unlabeled pool.
+- `ExcelMapTransformer` reloads the referenced resource if its modification time changed. For performance reasons the check may be deferred by some seconds.
 
 In addition to that, multiple performance and stability issues were solved.
 
