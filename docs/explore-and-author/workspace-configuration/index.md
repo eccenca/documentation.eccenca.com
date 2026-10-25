@@ -25,7 +25,7 @@ Click the drop-down list and click the Application view you want to open.
 
 Click the :eccenca-module-workspace-configuration: **Application view configuration** icon in the main menu.
 
-![Configuration module](configuration.png){ class="bordered" }
+![Configuration module](configuration.png){ class="bordered" width="29%" }
 
 Select the Application view from the dropdown menu to configure.
 
