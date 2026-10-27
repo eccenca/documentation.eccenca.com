@@ -36,7 +36,7 @@ This release delivers the following component versions:
     - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
     - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
     - [eccenca Marketplace v26.2.8](#eccenca-marketplace-v2628)
-    - [eccenca Corporate Memory Control (cmemc) v26.2.2](#eccenca-corporate-memory-control-cmemc-v2622)
+    - [eccenca Corporate Memory Control (cmemc) v26.2.3](#eccenca-corporate-memory-control-cmemc-v2623)
     - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
     - [Migration Notes](#migration-notes)
@@ -551,9 +551,18 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 
-## eccenca Corporate Memory Control (cmemc) v26.2.2
+## eccenca Corporate Memory Control (cmemc) v26.2.3
 
 We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
+
+**v26.2.3 of cmemc ships the following fixes:**
+
+- `workflow io` and `workflow list --filter io` reported no variable inputs and outputs for a workflow of workflows whose replaceable datasets sit in nested workflows
+    - the variable inputs and outputs are now taken from the workflow info endpoint, which resolves nested workflows
+
+**v26.2.3 of cmemc ships the following security updates:**
+
+- updated dependencies, including certifi 2026.10.23, so cmemc no longer trusts the eMudhra CA certificates whose intermediate private keys were compromised (CVE-2026-111943)
 
 **v26.2.2 of cmemc adds the following new features:**
 
