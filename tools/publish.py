@@ -29,6 +29,7 @@ from urllib.parse import urljoin
 
 import click
 from mike import commands, utils
+from mike.git_utils import GitEmptyCommit
 
 CANONICAL_RE = re.compile(r'<link rel="canonical" href="([^"]+)"')
 
@@ -95,15 +96,26 @@ def publish(version: str, branch: str, aliases: tuple[str, ...]) -> None:
     if pruned:
         print(f"Pruned {len(pruned)} copied-along dotfile(s)", file=sys.stderr)
 
-    # Empty body: mike commits site_dir when the context manager exits.
-    with commands.deploy(
-        cfg,
-        version,
-        aliases=list(aliases),
-        update_aliases=True,
-        branch=branch,
-    ):
-        pass
-
     listed = ", ".join(aliases) or "no aliases"
+
+    # Empty body: mike commits site_dir when the context manager exits. An
+    # unchanged site is not an error - mike has already dropped the empty
+    # commit, and public:preview must still serve the branch as it stands.
+    try:
+        with commands.deploy(
+            cfg,
+            version,
+            aliases=list(aliases),
+            update_aliases=True,
+            branch=branch,
+        ):
+            pass
+    except GitEmptyCommit:
+        print(
+            f"{branch} already carries this build as {version} ({listed}) - "
+            f"nothing to commit",
+            file=sys.stderr,
+        )
+        return
+
     print(f"Committed {site} as {version} ({listed}) on {branch}", file=sys.stderr)
