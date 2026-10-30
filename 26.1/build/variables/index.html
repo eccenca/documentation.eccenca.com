@@ -24913,7 +24913,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 26.1.3
+    Corporate Memory 26.1.4
   
 
     
@@ -24938,7 +24938,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 26.1.3
+    Corporate Memory 26.1.4
   
 
           </label>
@@ -26461,6 +26461,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#execution-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-execution-variables-when-starting-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing execution variables when starting a workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-execution-variables-during-a-workflow-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting execution variables during a workflow run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -26541,17 +26580,24 @@ They can be used in most Build configuration and input fields that take inputs o
 <li>integer parameters (any integer),</li>
 <li>and boolean values (<code>true</code>/<code>false</code>).</li>
 </ul>
-<p>Two kinds of variables can be defined:</p>
+<p>Variables are organized in scopes.
+Each scope is addressed by a prefix that is used when referencing a variable in a template, e.g. a project variable named <code>host</code> is referenced as <code>{{project.host}}</code>.
+The following scopes are available:</p>
 <dl>
-<dt><code>Global variables</code></dt>
+<dt><code>Global variables</code> (<code>global.</code>)</dt>
 <dd>
-<p>It is defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.</p>
+<p>They are defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.</p>
 </dd>
-<dt><code>Project variables (User-defined)</code></dt>
+<dt><code>Project variables (User-defined)</code> (<code>project.</code>)</dt>
 <dd>
-<p>It is defined by the user in the UI.
+<p>They are defined by the user in the UI.
 Project variables can only be used in the same project.
 If a project is exported those will be exported as well.</p>
+</dd>
+<dt><code>Execution variables (User-defined)</code> (<code>execution.</code>)</dt>
+<dd>
+<p>They are defined by the user on an individual task or workflow as defaults and are only available while that task&rsquo;s execution is running.
+Each run can override them, and they can be changed while the run is in progress.</p>
 </dd>
 </dl>
 <p>Build variables can be particularly useful in scenarios where multiple tasks or components within a system need access to the same data or configuration values.
@@ -26560,23 +26606,23 @@ Instead of repeating the same information in multiple places, project variables 
 <ol>
 <li>
 <p>When sending an email to all employees, instead of manually typing or copy pasting each email address, you can conveniently store all the email addresses once and utilize them with a single word.
-    This saves time and ensures that no email addresses are missed or incorrectly entered.</p>
+   This saves time and ensures that no email addresses are missed or incorrectly entered.</p>
 </li>
 <li>
 <p>Another scenario where variables can be beneficial is when dealing with lengthy or hard-to-remember values.
-    For instance, consider the value &ldquo;xmhnjnnjkmnlbbhbvfhnbjkm&rdquo;.
-    By assigning it to a variable, you can store it once and easily recall it whenever needed.
-    This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.</p>
+   For instance, consider the value &ldquo;xmhnjnnjkmnlbbhbvfhnbjkm&rdquo;.
+   By assigning it to a variable, you can store it once and easily recall it whenever needed.
+   This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.</p>
 </li>
 <li>
 <p>In software development, when working with URLs or file paths that are long or subject to change, you can store them in variables.
-    This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
-    For example, you can assign a URL like &ldquo;<a href="https://example.com/api/data">https://example.com/api/data</a>&rdquo; to a variable named <code>apiURL</code> for consistent referencing.</p>
+   This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
+   For example, you can assign a URL like &ldquo;<a href="https://example.com/api/data">https://example.com/api/data</a>&rdquo; to a variable named <code>apiURL</code> for consistent referencing.</p>
 </li>
 <li>
 <p>When creating templates or form letters, variables can be used to personalize the content.
-    For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient&rsquo;s name and company information.
-    This way, you can generate customized communications quickly without manually editing each instance.</p>
+   For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient&rsquo;s name and company information.
+   This way, you can generate customized communications quickly without manually editing each instance.</p>
 </li>
 <li>
 <p>You can save the message, port, host or IP address, tokens, passwords, properties etc.</p>
@@ -26645,6 +26691,49 @@ Instead of typing or copy pasting all the mail id we can add all the email ids i
 <p>The email_ids variable is added as shown below.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="bordered" src="di-var-email-defined.png" /></a></p>
 </div>
+<h2 id="execution-variables">Execution Variables<a class="headerlink" href="#execution-variables" title="Permanent link">¤</a></h2>
+<p>While project variables are shared across all tasks of a project, execution variables belong to a single task or workflow and exist only during its execution.
+They are referenced with the <code>execution.</code> prefix, for example <code>{{execution.myVariable}}</code>.</p>
+<p>Tasks (including workflows) have an <strong>Execution variables</strong> widget in its configuration view, managed in the same way as project variables:
+click on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16,4c6.6,0,12,5.4,12,12s-5.4,12-12,12S4,22.6,4,16S9.4,4,16,4 M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14	S23.7,2,16,2z"/><path d="M24 15L17 15 17 8 15 8 15 15 8 15 8 17 15 17 15 24 17 24 17 17 24 17z"/></svg></span> to add a variable and provide a name, value and description in the same dialog used for project variables.
+When an execution is started, these variables provide the default values of the execution scope.
+For a workflow run, the defaults come from the <strong>workflow itself</strong> — the execution variables of the operators and datasets inside the workflow are not used during a workflow run; they apply when such a task is executed directly.</p>
+<p><code>{{execution.&lt;name&gt;}}</code> resolves only from the execution scope — there is no fallback to other scopes.
+If <code>&lt;name&gt;</code> has not been defined as a default, provided or set for the run, the reference cannot be resolved and the execution fails with an error.
+To base a default on a project or global variable, give the execution variable a <em>template</em> (e.g. <code>{{project.baseUrl}}/api</code>); it is resolved when the variable is saved, and the resulting value is used for each run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Execution variables are resolved in templates that are evaluated <strong>during execution</strong>, for example the template of the template operator.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The execution variables of a task are stored together with the task (their default values, not any run-specific overrides).
+When the task or its project is exported, they are exported as well.
+The values of a running execution are never persisted and are not shared between runs.</p>
+</div>
+<p>Besides the defaults defined in the widget, there are two further ways to supply execution variables for a run:</p>
+<h3 id="passing-execution-variables-when-starting-a-workflow">Passing execution variables when starting a workflow<a class="headerlink" href="#passing-execution-variables-when-starting-a-workflow" title="Permanent link">¤</a></h3>
+<p>When a workflow execution is triggered via the REST API, execution variables can be provided in the JSON request body under the <code>executionVariables</code> key as a simple name/value map.
+For example, executing a workflow with a single execution variable <code>testVar</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;executionVariables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;testVar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;World&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Each entry is set in the <code>execution</code> scope — overriding a default of the same name defined on the workflow — and can be referenced anywhere in the workflow as <code>{{execution.&lt;name&gt;}}</code>.
+For instance, an operator configured with the template <code>{{value}} {{execution.testVar}}</code> would resolve <code>execution.testVar</code> to <code>World</code> for that run.</p>
+<h3 id="setting-execution-variables-during-a-workflow-run">Setting execution variables during a workflow run<a class="headerlink" href="#setting-execution-variables-during-a-workflow-run" title="Permanent link">¤</a></h3>
+<p>Execution variables can also be created or updated while a workflow is running.
+Two operators in the <em>Variables</em> category support this:</p>
+<ul>
+<li><strong>Set execution variable</strong> (workflow operator) — a standalone workflow node placed between any two nodes; reads a value from its input and writes it to the <code>execution</code> scope, passing the input through unchanged.</li>
+<li><strong>Set execution variable</strong> (transform operator) — a transformer used inside a transformation mapping; writes the first value of its input to the <code>execution</code> scope and passes all values through unchanged.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both operators only have an effect while running inside a workflow execution.</p>
+</div>
 <h2 id="using-variables">Using Variables<a class="headerlink" href="#using-variables" title="Permanent link">¤</a></h2>
 <p>Let&rsquo;s see how these variables are useful.</p>
 <p>Click on the symbol <strong>{#}</strong> it turns blue in colour it means the variables feature is active then click in the To option and type <code>{{email_ids}}</code>.</p>
@@ -26708,7 +26797,7 @@ When you start typing the variable name it shows you the variable name that you 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 16, 2025 17:17:35 UTC"><span class="timeago" datetime="2025-12-16T17:17:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 16, 2025 17:17:35 UTC">2025-12-16</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 7, 2026 07:48:59 UTC"><span class="timeago" datetime="2026-07-07T07:48:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 7, 2026 07:48:59 UTC">2026-07-07</span>
   </span>
 
     

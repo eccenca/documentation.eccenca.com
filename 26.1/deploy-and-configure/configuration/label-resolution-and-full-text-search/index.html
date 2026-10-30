@@ -24915,7 +24915,7 @@
   <span class="md-ellipsis">
     
   
-    Corporate Memory 26.1.3
+    Corporate Memory 26.1.4
   
 
     
@@ -24940,7 +24940,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Corporate Memory 26.1.3
+    Corporate Memory 26.1.4
   
 
           </label>
@@ -26509,27 +26509,48 @@ This resolution and, by extension, the full text search is configurable for diff
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="nt">languagePreferencesAnyLangFallback</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div></td></tr></table></div>
-<p>These properties define not only which properties and languages should be considered, but also the precedence of languages and properties over each other.</p>
+<p>These properties define not only which properties and languages should be considered, but also the precedence of properties and languages over each other.</p>
 <p>The retrieval process can be simplified to the following procedure:</p>
 <ul>
-<li>First, when determining the label for a resource, the language is evaluated, then the property is considered.</li>
-<li>Consequently, for a resource in the default case:<ol>
+<li>When determining the label for a resource, the <strong>property</strong> is the primary criterion and the <strong>language</strong> the secondary one. In other words, the complete list of preferred languages is evaluated for the first property before Explore backend (DataPlatform) moves on to the next property.</li>
+<li>Consequently, for a resource with the default settings above, the candidates are tried in this order:<ol>
 <li>An english value for <code>rdfs:label</code> is searched.</li>
 <li>A literal of the property <code>rdfs:label</code> without a language tag is searched (which is why there is an entry <code>""</code>).</li>
 <li>An english value of <code>skos:prefLabel</code> is searched.</li>
 <li>A literal of the property <code>skos:prefLabel</code> without a language tag is searched.</li>
-<li>If nothing is found, Explore backend (DataPlatform) tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.</li>
+<li>If nothing is found and <code>languagePreferencesAnyLangFallback</code> is <code>true</code>, a value in any remaining language is used, again honoring the property precedence (see <a href="#example">Example</a>).</li>
+<li>If still nothing is found, Explore backend (DataPlatform) tries to create a prefixed URI, otherwise the last segment of the resource identifier is used.</li>
 </ol>
 </li>
 </ul>
-<p>Additionally, in case more than one label could be retrieved, for example by conflicting values, the alphabetically first entry is used.</p>
+<p>Additionally, in case more than one label could be retrieved for the same property and language, for example by conflicting values, the alphabetically first entry is used.</p>
+<div class="admonition note">
+<p class="admonition-title">Property precedence beats language precedence</p>
+<p>Because the property is the primary criterion, a value of an earlier property is preferred over a better-matching language on a later property. This especially affects untagged literals: an entry <code>""</code> in <code>languagePreferences</code> matches a literal without a language tag, so if an earlier property carries such an untagged literal, it wins over a later property that has a value in a preferred language.</p>
+<p>Consider the following configuration and resource:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">proxy</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">labelProperties</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;http://www.w3.org/2004/02/skos/core#notation&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;http://www.w3.org/2000/01/rdf-schema#label&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;http://www.w3.org/2004/02/skos/core#prefLabel&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">languagePreferences</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;en&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;de&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">:</span><span class="nt">labelEn</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">Class</span> <span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span>     <span class="s">&quot;label en&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">,</span> <span class="s">&quot;label de&quot;</span><span class="o">@</span><span class="ge">de</span> <span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="nn">skos</span><span class="p">:</span><span class="nt">notation</span>  <span class="s">&quot;notation&quot;</span> <span class="p">.</span>
+</code></pre></div>
+<p>The resolved label is <code>notation</code>: <code>skos:notation</code> is the first property, and although it has no <code>en</code> or <code>de</code> value, its untagged literal is matched by the <code>""</code> language preference, so the search never reaches <code>rdfs:label</code>. To make <code>rdfs:label</code> win here, either list it before <code>skos:notation</code> in <code>labelProperties</code>, or remove the <code>""</code> entry from <code>languagePreferences</code> (which lets <code>skos:notation</code> fall through to <code>rdfs:label "label en"@en</code>).</p>
+</div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¤</a></h2>
 <p>How labels are resolved is best explained using these default settings and some examples.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">:</span><span class="nt">Resource1</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Leipzig&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">.</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">:</span><span class="nt">Resource2</span> <span class="p">:</span><span class="nt">someOtherProperty</span> <span class="s">&quot;Berlin&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">.</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">:</span><span class="nt">Resource3</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Stuttgart&quot;</span><span class="o">@</span><span class="ge">de</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">:</span><span class="nt">Resource4</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Hanover&quot;</span><span class="o">@</span><span class="ge">en</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">:</span><span class="nt">Resource4</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Another Label for Hanover&quot;</span><span class="o">@</span><span class="ge">en</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">:</span><span class="nt">Resource1</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Leipzig&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">.</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">:</span><span class="nt">Resource2</span> <span class="p">:</span><span class="nt">someOtherProperty</span> <span class="s">&quot;Berlin&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">:</span><span class="nt">Resource3</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Stuttgart&quot;</span><span class="o">@</span><span class="ge">de</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">:</span><span class="nt">Resource4</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Hanover&quot;</span><span class="o">@</span><span class="ge">en</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">:</span><span class="nt">Resource4</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;Another Label for Hanover&quot;</span><span class="o">@</span><span class="ge">en</span>
 </code></pre></div>
 <ul>
 <li>For <code>:Resource1</code> the label will be <code>Leipzig</code> as the english <code>rdfs:label</code> will be retrieved.</li>
@@ -26568,7 +26589,7 @@ This functionality is exposed as an <a href="../../../develop/dataplatform-apis
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 2, 2026 11:23:23 UTC"><span class="timeago" datetime="2026-04-02T11:23:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 2, 2026 11:23:23 UTC">2026-04-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 2, 2026 17:16:14 UTC"><span class="timeago" datetime="2026-07-02T17:16:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 2, 2026 17:16:14 UTC">2026-07-02</span>
   </span>
 
     
