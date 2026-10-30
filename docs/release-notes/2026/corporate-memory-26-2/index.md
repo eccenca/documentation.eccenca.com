@@ -37,7 +37,7 @@ This release delivers the following component versions:
     - [eccenca Explore v26.2.3](#eccenca-explore-v2623)
     - [eccenca Marketplace v26.2.9](#eccenca-marketplace-v2629)
     - [eccenca Corporate Memory Control (cmemc) v26.2.3](#eccenca-corporate-memory-control-cmemc-v2623)
-    - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
+    - [eccenca Graph Insights v20.1.0](#eccenca-graph-insights-v2010)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
     - [Migration Notes](#migration-notes)
         - [eccenca DataIntegration](#eccenca-dataintegration)
@@ -295,7 +295,7 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - openai/anthropic providers without structured output support cannot be used.
         - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
 - **Graph Insights:**
-    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2002) below.
+    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2010) below.
 
 **v26.2.1 of Explore introduces the following changes:**
 
@@ -703,9 +703,21 @@ We are excited to announce the release of cmemc v26.2, which adds a command grou
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
 - HTTP errors, e.g. connection failures and timeouts, now result in a proper error message instead of a stack trace.
 
-## eccenca Graph Insights v20.0.2
+## eccenca Graph Insights v20.1.0
 
 We are excited to announce the release of Graph Insights v20.0, which adds a content language selection for the explored data and visual representations for resources.
+
+**v20.1.0 of Graph Insights ships the following fixes:**
+
+- Several CVE fixes Jackons
+
+**v20.1.0 of Graph Insights adds the following new features:**
+
+- Actuator Endpoints
+
+**v20.0.2 of Graph Insights ships the following fixes:**
+
+- Several CVE fixes for Tomcat, Jackson, Log4j
 
 **v20.0.0 of Graph Insights adds the following new features:**
 
