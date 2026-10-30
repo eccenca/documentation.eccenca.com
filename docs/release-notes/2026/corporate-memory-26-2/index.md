@@ -35,7 +35,7 @@ This release delivers the following component versions:
 - [eccenca Corporate Memory 26.2.3](#eccenca-corporate-memory-2623)
     - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
     - [eccenca Explore v26.2.3](#eccenca-explore-v2623)
-    - [eccenca Marketplace v26.2.8](#eccenca-marketplace-v2628)
+    - [eccenca Marketplace v26.2.9](#eccenca-marketplace-v2629)
     - [eccenca Corporate Memory Control (cmemc) v26.2.3](#eccenca-corporate-memory-control-cmemc-v2623)
     - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
@@ -397,9 +397,13 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.8
+## eccenca Marketplace v26.2.9
 
 We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+
+**v26.2.9 of Marketplace ships the following security updates:**
+
+- Updated dependencies, including certifi 2026.10.23, so Marketplace no longer trusts the eMudhra CA certificates whose intermediate private keys were compromised (CVE-2026-111943)
 
 **v26.2.8 of Marketplace adds the following new features:**
 
