@@ -56,7 +56,7 @@ REWRITES = {
 # against.
 INERT_URLS = {
     "https://unpkg.com/ace-builds@1.44.0/src-noconflict/ace.js",
-    "https://unpkg.com/mermaid@11/dist/mermaid.min.js",
+    "https://unpkg.com/mermaid@12/dist/mermaid.min.js",
     "https://unpkg.com/pyodide@314.0.2/pyodide.js",
     "https://cdn.jsdelivr.net/pyodide/v314.0.2/full/",
 }
