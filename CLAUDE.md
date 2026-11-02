@@ -26,6 +26,7 @@ rules or renumber it — a convention this repository decided for itself belongs
 - `review-documentation-page` — read-only review against the guidelines and the product; writes a report.
 - `update-documentation-page` — rewrite a page against the product and the style guide.
 - `suggest-commit-message` — print a commit message in the style of this repository.
+- `bump-zensical` — bump the Zensical pin, check what the release changes and report the result.
 
 They do no git work: no branch, no staging, no commit, no push. Committing is the user's decision.
 
