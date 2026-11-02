@@ -34,7 +34,7 @@ Set a new password.
 
 ## Change credentials of cmem-service-account
 
-Make sure the realm Cmem is selected, go to Clients in left sidebar and edit cmem-service-account:
+Make sure the realm `cmem` is selected, go to Clients in left sidebar and edit the `cmem-service-account`:
 
 ![cmem-selection](22-1-cmem-selection.png)
 
@@ -44,9 +44,9 @@ Switch to "Credentials" tab and press "Regenerate Secret" Button.
 
 ## Change credentials of user accounts
 
-In default configuration, there are two users: user and admin. Both are configured with different groups to have different permissions inside Corporate Memory.
+In default configuration, there are two users: user and admin. Both are configured with different groups to have different permissions inside eccenca Corporate Memory.
 
-To change the default passwords, select the Cmem Realm and open Users in the left sidebar:
+To change the default passwords, select the `cmem` realm and open Users in the left sidebar:
 
 ![users-lookup](22-1-users-lookup.png)
 

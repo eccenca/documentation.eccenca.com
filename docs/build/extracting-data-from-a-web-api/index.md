@@ -91,7 +91,7 @@ As we are only interested in the _HTTP Message Body_ which holds the JSON reposi
 
 ## 3 Create a JSON Dataset
 
-To create a JSON-to-RDF-mapping within Corporate Memory, we have to first register an example response from the API (repos.json). Based on the schema of the response, we can then define step-by-step the mappings, which are used to build the Knowledge Graph.
+To create a JSON-to-RDF-mapping within eccenca Corporate Memory, we have to first register an example response from the API (repos.json). Based on the schema of the response, we can then define step-by-step the mappings, which are used to build the Knowledge Graph.
 
 1. Click the **Create** button (top right) in the data integration workspace and select the type **JSON**.
 

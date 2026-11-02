@@ -13,7 +13,7 @@ tags:
 [Apache Kafka](https://kafka.apache.org/) is a distributed event store and stream-processing platform.
 Kafka is widely used in enterprises for data pipelines, streaming analytics, data integration and other applications.
 
-By using the [cmem-plugin-kafka](https://pypi.org/project/cmem-plugin-kafka/) [Python Plugin](../../develop/python-plugins/index.md), you can consume messages from Apache Kafka and use them inside Corporate Memory Workflows.
+By using the [cmem-plugin-kafka](https://pypi.org/project/cmem-plugin-kafka/) [Python Plugin](../../develop/python-plugins/index.md), you can consume messages from Apache Kafka and use them inside eccenca Corporate Memory Workflows.
 
 ## Installation
 

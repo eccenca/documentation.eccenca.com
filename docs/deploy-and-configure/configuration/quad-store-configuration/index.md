@@ -156,7 +156,7 @@ xsd:unsignedShort <urn:example:value> "42"^^xsd:integer .
 xsd:unsignedByte <urn:example:value> "42"^^xsd:integer .
 ```
 
-If data is to be copied between CMEM setups backed by Stardog, the `index.literals.canonical` options of the corresponding databases must be set to the same value on both setups.
+If data is to be copied between eccenca Corporate Memory setups backed by Stardog, the `index.literals.canonical` options of the corresponding databases must be set to the same value on both setups.
 
 It is recommended to only turn this canonicalization off when it is strictly necessary, due to a negative impact on database performance without it.
 

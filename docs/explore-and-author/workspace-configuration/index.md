@@ -6,7 +6,7 @@ tags:
 ---
 # Application view
 
-An Application view determines which modules are available in the Corporate Memory
+An Application view determines which modules are available in the eccenca Corporate Memory
 user interface. The Application view configuration module lets you select the
 Application view you work in, configure its details, and create or delete
 Application views.

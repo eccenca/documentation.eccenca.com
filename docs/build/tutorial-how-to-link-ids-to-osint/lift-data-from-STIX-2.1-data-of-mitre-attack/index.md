@@ -14,7 +14,7 @@ The MITRE ATT&CK datasets in STIX 2.1 JSON collections are here:
 
 The "ontology" of MITRE ATT&CK with STIX is here: [https://github.com/mitre/cti/blob/master/USAGE.md](https://github.com/mitre/cti/blob/master/USAGE.md)
 
-The objective of this tutorial is not focus on the ontologies. In our use case, we just need to extract several metadata. If the community of STIX wants to resolve their problems, it will be the moment to define a solid ontology. If you are a newbie with the Linked Data technologies, you have to learn to generate in first a functional knowledge graph for your needs before building a perfect ontology for everybody. When you masterize the ontologies, we will modify this first ontology and you could refresh your knowledge graph when you want with Corporate Memory.
+The objective of this tutorial is not focus on the ontologies. In our use case, we just need to extract several metadata. If the community of STIX wants to resolve their problems, it will be the moment to define a solid ontology. If you are a newbie with the Linked Data technologies, you have to learn to generate in first a functional knowledge graph for your needs before building a perfect ontology for everybody. When you masterize the ontologies, we will modify this first ontology and you could refresh your knowledge graph when you want with eccenca Corporate Memory.
 
 This tutorial is written in order to gradually acquire all the skills necessary to build from scratch a knowledge graph with Corporate Memory and update it automatically via Corporate Memory Console.
 This tutorial must be completed in order.
@@ -626,7 +626,7 @@ Here, we are creating a new SPARQL Update task to calculate and insert automatic
 
 ### Refresh all automatically
 
-The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use CMEM.
+The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use eccenca Corporate Memory.
 
 1. [Install CMEMC - a Command Line Interface of CMEM](../../../automate/cmemc-command-line-interface/installation/index.md)
 
@@ -788,7 +788,7 @@ STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory
 ## Ressources
 
 * [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
-* [Archive of CMEM project](MITREATTCK_tutorial.zip)
+* [Archive of Corporate Memory project](MITREATTCK_tutorial.zip)
 
 ---
 
