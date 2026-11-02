@@ -38,7 +38,7 @@ Click the :eccenca-module-marketplace: **Packages** icon in the main menu under 
 Search for the required ontologies / vocabularies, then click the **Install** button to install the "The RDF Schema Vocabulary" and "Friend of a Friend (FOAF)" vocabulary.
 Wait until each installation is complete (the **Install** button will change to **Uninstall**) before installing the next package.
 
-![Search and install ontologies](bacui-marketplace-schema-search.png){ class="bordered" }
+![Search and install ontologies](bacui-marketplace-schema-search.png){ class="bordered" width="90%" }
 
 ### Create Shape Catalog
 
