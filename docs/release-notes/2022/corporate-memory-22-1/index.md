@@ -217,7 +217,7 @@ In addition to that, multiple performance and stability issues were solved.
 
 ### DataPlatform
 
-- While updating, property `spring.profiles=PROFILE` needs to be replaced by `spring.config.activate.on-profile`. For further information, please see [this blog post](https://spring.io/blog/2020/08/14/config-file-processing-in-spring-boot-2-4).
+- While updating, property `spring.profiles=PROFILE` needs to be replaced by `spring.config.activate.on-profile`. For further information, see [this blog post](https://spring.io/blog/2020/08/14/config-file-processing-in-spring-boot-2-4).
 - Removed custom redirect for Swagger UI under `/swagger-ui`. Swagger UI only accessible under `/swagger-ui.html` (Spring Boot Default)
 
 ### cmemc

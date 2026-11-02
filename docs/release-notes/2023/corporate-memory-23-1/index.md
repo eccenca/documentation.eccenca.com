@@ -200,7 +200,7 @@ v23.1 of eccenca DataManager adds the following new features:
 
 v23.1 of eccenca DataManager introduces the following changes:
 
-- Configuration is now fully retrieved from DataPlatform, the included Spring Boot based backend is solely delivering the javascript frontend.
+- Configuration is now fully retrieved from DataPlatform, the included Spring Boot based backend is solely delivering the JavaScript frontend.
 - The configuration can be changed at runtime using a frontend in the `/admin` Module. Changes are visible with the next full browser reload.
 - Authentication is now based on the OAuth2 Code Flow.
 

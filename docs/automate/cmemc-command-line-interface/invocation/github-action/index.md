@@ -1,16 +1,16 @@
 ---
-title: "cmemc: Using Github Actions"
+title: "cmemc: Using GitHub Actions"
 icon: material/github
 tags:
     - Automate
     - cmemc
 ---
-# Using Github Actions
+# Using GitHub Actions
 
 ## Introduction
 
-[Github Actions](https://docs.github.com/en/actions) allow for the automation and execution of workflows based on pushes, merge requests and other trigger events to your git repository.
-In order to control eccenca Corporate Memory instances from within Github Action based workflows, you need to provide cmemc as well as credentials for your instance to the workflow.
+[GitHub Actions](https://docs.github.com/en/actions) allow for the automation and execution of workflows based on pushes, merge requests and other trigger events to your git repository.
+In order to control eccenca Corporate Memory instances from within GitHub Action based workflows, you need to provide cmemc as well as credentials for your instance to the workflow.
 
 ## Runner Provisioning
 
@@ -34,7 +34,7 @@ Adding the above to your workflow yaml description will provide a cmemc command 
 ## Credentials and Usage
 
 Since we should never save credentials in your repository, we need to provide them as an encrypted secret managed outside of the repository.
-Github provides you with an [Encrypted Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) interface where you can add secrets for your repository, which in turn can be used in your workflows.
+GitHub provides you with an [Encrypted Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) interface where you can add secrets for your repository, which in turn can be used in your workflows.
 
 Given the following workflow step, you need to add `MY_CMEM_BASE_URI`, `MY_OAUTH_GRANT_TYPE`, `MY_OAUTH_CLIENT_ID` and `MY_OAUTH_CLIENT_SECRET` as encrypted secrets to your repository:
 
@@ -56,7 +56,7 @@ The above snippet also demonstrates how you can map your encrypted secrets to [c
 
 ## Example Project
 
-The Github project [eccenca/cmemc-workflow](https://github.com/eccenca/cmemc-workflow) provides an [example workflow description](https://github.com/eccenca/cmemc-workflow/blob/main/.github/workflows/cmemc.yml) which uses cmemc to import a graph, count the triples and removes the graph afterwards.
+The GitHub project [eccenca/cmemc-workflow](https://github.com/eccenca/cmemc-workflow) provides an [example workflow description](https://github.com/eccenca/cmemc-workflow/blob/main/.github/workflows/cmemc.yml) which uses cmemc to import a graph, count the triples and removes the graph afterwards.
 Here is an example output:
 
 ![Example workflow output](example-workflow-output.png "Example workflow output")

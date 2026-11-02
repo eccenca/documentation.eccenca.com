@@ -88,7 +88,7 @@ With these interfaces to manage and calculate different investigations with diff
 
 ## Manage the graphs of your application
 
-A knowledge graph in Corporate Memory is a set of named RDF graphs. Each named graph can be managed and each named graph can have missions very different. In this PoC, when a new investigation is created, the app creates in first the named graph "investigation" to link all the other tempory named graphs for this investigation with the property "owl:imports". So, when an analyst want to delete an investigation, the app can find all the tempory graphs of this investigation and can delete all its tempory graphs simply. Moreover, the analyst can request with SPARQL all these tempory graphs via one named graph "investigation" (thanks to "owl:imports"), so the complexity of tempory graphs is invisible for the final user.
+A knowledge graph in Corporate Memory is a set of named RDF graphs. Each named graph can be managed and each named graph can have missions very different. In this PoC, when a new investigation is created, the app creates in first the named graph "investigation" to link all the other tempory named graphs for this investigation with the property "owl:imports". So, when an analyst want to delete an investigation, the app can find all the tempory graphs of this investigation and can delete all its tempory graphs simply. Moreover, the analyst can request with SPARQL all these tempory graphs via one named graph "investigation" (due to "owl:imports"), so the complexity of tempory graphs is invisible for the final user.
 
 An error of novices is to save all the triples of data in input and their inferences in the same graph. For each upload of facts, each calculated inference, etc, you need to save their triples in its own named graph because during the life of data (and the development), you want to restore easily one named graph without re-building all the other graphs.
 
@@ -178,7 +178,7 @@ In the previous chapter, you explain the role of token "source_x" to create a ne
     </input>
 ```
 
-Here the example is simple with one external token, but when you have several external tokens in the token "source_x", there are often problems to generate a complet SPL query (to check the SPL query, you need to use the Javascript console via the Javascript "investigation.js" to read the final SPL queries in the tokens "source_x").
+Here the example is simple with one external token, but when you have several external tokens in the token "source_x", there are often problems to generate a complet SPL query (to check the SPL query, you need to use the JavaScript console via the JavaScript "investigation.js" to read the final SPL queries in the tokens "source_x").
 
 You can add in your dashboard several tokens "source_1", "source_2", "source_3", etc. Each source generates a part of final bash script where a curl command requests the Splunk API and a CMEMC command executes the specified worflow via its ID in the token. With this method, the analyst is free to import any Splunk data and choose any CMEM workflow according to these data. The SPL queries are executed by the Splunk API (via curl), so the analyst is free to use all commands supported in Splunk to select the data. For example, with low-level investigation, these SPL queries contains also the selected period by the analyst to limit the quantity of data to import.
 
