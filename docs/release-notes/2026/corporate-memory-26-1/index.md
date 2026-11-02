@@ -31,7 +31,7 @@ This release delivers the following component versions:
 
 - eccenca DataIntegration v26.1.0
 - eccenca Explore v26.1.4
-- eccenca Corporate Memory Control (cmemc) v26.1.3
+- eccenca Corporate Memory Control (cmemc) v26.1.4
 - eccenca Graph Insights v19.2.0
 
 We tested this release with the following dependency components:
@@ -246,9 +246,13 @@ We are pleased to announce the release of Explore v26.1, which introduces badges
     - SPARQL Excel downloads now have clean file names.
     - Notifications are now more robust when given non-string input.
 
-## eccenca Corporate Memory Control (cmemc) v26.1.3
+## eccenca Corporate Memory Control (cmemc) v26.1.4
 
 We are excited to announce the release of cmemc v26.1, which expands access-condition administration, adds richer project and query catalog operations, and improves list and output consistency across the CLI.
+
+**v26.1.4 of cmemc ships the following security updates:**
+
+- updated dependencies, including certifi 2026.10.23, so cmemc no longer trusts the eMudhra CA certificates whose intermediate private keys were compromised (CVE-2026-111943)
 
 **v26.1.3 of cmemc ships the following changes:**
 
