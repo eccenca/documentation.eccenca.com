@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 26.1.4
+# Corporate Memory 26.1.3
 
 Corporate Memory 26.1 is the first major release in 2026. It expands AI-assisted mapping in Build, refreshes the resource experience in Explore, and strengthens access-condition and query-catalog administration in cmemc.
 
