@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# eccenca Corporate Memory 26.2.2
+# eccenca Corporate Memory 26.2.3
 
 eccenca Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
@@ -32,12 +32,12 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- [eccenca Corporate Memory 26.2.2](#eccenca-corporate-memory-2622)
+- [eccenca Corporate Memory 26.2.3](#eccenca-corporate-memory-2623)
     - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
-    - [eccenca Explore v26.2.2](#eccenca-explore-v2622)
-    - [eccenca Marketplace v26.2.8](#eccenca-marketplace-v2628)
-    - [eccenca Corporate Memory Control (cmemc) v26.2.2](#eccenca-corporate-memory-control-cmemc-v2622)
-    - [eccenca Graph Insights v20.0.2](#eccenca-graph-insights-v2002)
+    - [eccenca Explore v26.2.3](#eccenca-explore-v2623)
+    - [eccenca Marketplace v26.2.9](#eccenca-marketplace-v2629)
+    - [eccenca Corporate Memory Control (cmemc) v26.2.3](#eccenca-corporate-memory-control-cmemc-v2623)
+    - [eccenca Graph Insights v20.1.0](#eccenca-graph-insights-v2010)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
     - [Migration Notes](#migration-notes)
         - [eccenca DataIntegration](#eccenca-dataintegration)
@@ -280,9 +280,14 @@ We are excited to announce the release of DataIntegration v26.2, which brings re
     - Overriding a setting in `dataintegration.conf` now also updates the settings derived from it, e.g. setting `directories.base` moves the data, cache, and log directories along with it.
     - The `profiling.rdfSerialization.enabled` setting now controls the RDF profiling output; previously it was ignored and the output was controlled by `profiling.cache.enabled` instead.
 
-## eccenca Explore v26.2.2
+## eccenca Explore v26.2.3
 
 We are pleased to announce the release of Explore v26.2, which introduces the new Manage module, extends Companion with external MCP servers and SHACL based resource authoring, improves SHACL editing and chart handling, and ships a broad platform refresh.
+
+**v26.2.3 of Explore ships the following security updates:**
+
+- Removed the eMudhra/emSign root CAs from the Java truststore (CVE-2026-111943)
+- Updated Spring Boot to 4.1.2
 
 **v26.2.2 of Explore ships the following fixes:**
 
@@ -290,7 +295,7 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - openai/anthropic providers without structured output support cannot be used.
         - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
 - **Graph Insights:**
-    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2002) below.
+    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2010) below.
 
 **v26.2.1 of Explore introduces the following changes:**
 
@@ -392,9 +397,13 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - Long labels are now displayed better in the thesaurus.
     - Refactored queued RTK queries.
 
-## eccenca Marketplace v26.2.8
+## eccenca Marketplace v26.2.9
 
 We are excited to announce the release of eccenca Marketplace v26.2. The Marketplace is a package registry for Corporate Memory: it stores and serves versioned packages, validates their manifests and archives, and installs them into a connected Corporate Memory instance. Corporate Memory 26.2 is the first platform release that ships this component as generally available.
+
+**v26.2.9 of Marketplace ships the following security updates:**
+
+- Updated dependencies, including certifi 2026.10.23, so Marketplace no longer trusts the eMudhra CA certificates whose intermediate private keys were compromised (CVE-2026-111943)
 
 **v26.2.8 of Marketplace adds the following new features:**
 
@@ -551,9 +560,18 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 
-## eccenca Corporate Memory Control (cmemc) v26.2.2
+## eccenca Corporate Memory Control (cmemc) v26.2.3
 
 We are excited to announce the release of cmemc v26.2, which adds a command group for the view configurations of the Explore application, status reporting for task loading errors, privacy-aware exports and versioned package installation, extends the inspect commands with a single key output, and completes the migration of the command line interface to the cmem-client library.
+
+**v26.2.3 of cmemc ships the following fixes:**
+
+- `workflow io` and `workflow list --filter io` reported no variable inputs and outputs for a workflow of workflows whose replaceable datasets sit in nested workflows
+    - the variable inputs and outputs are now taken from the workflow info endpoint, which resolves nested workflows
+
+**v26.2.3 of cmemc ships the following security updates:**
+
+- updated dependencies, including certifi 2026.10.23, so cmemc no longer trusts the eMudhra CA certificates whose intermediate private keys were compromised (CVE-2026-111943)
 
 **v26.2.2 of cmemc adds the following new features:**
 
@@ -685,9 +703,21 @@ We are excited to announce the release of cmemc v26.2, which adds a command grou
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
 - HTTP errors, e.g. connection failures and timeouts, now result in a proper error message instead of a stack trace.
 
-## eccenca Graph Insights v20.0.2
+## eccenca Graph Insights v20.1.0
 
 We are excited to announce the release of Graph Insights v20.0, which adds a content language selection for the explored data and visual representations for resources.
+
+**v20.1.0 of Graph Insights ships the following fixes:**
+
+- Several CVE fixes Jackons
+
+**v20.1.0 of Graph Insights adds the following new features:**
+
+- Actuator Endpoints
+
+**v20.0.2 of Graph Insights ships the following fixes:**
+
+- Several CVE fixes for Tomcat, Jackson, Log4j
 
 **v20.0.0 of Graph Insights adds the following new features:**
 
