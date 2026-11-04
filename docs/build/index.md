@@ -9,52 +9,60 @@ hide:
 
 # :material-star: Build
 
-The Build stage turns your source data—across files, databases, APIs, and streams—into an Enterprise Knowledge Graph. The sections below explain the Build workspace and guide you from first lifting steps to reusable patterns and reference material.
+The Build stage turns source data from files, databases, APIs, and streams into an Enterprise Knowledge Graph.
 
 **:octicons-people-24: Intended audience:** Linked Data Experts
 
 <div class="grid cards" markdown>
 
-- :eccenca-application-dataintegration: Foundations: Introduction and Best Practices
+- :material-lightbulb-outline: Foundations
 
     ---
 
-    - [Introduction to the User Interface](introduction-to-the-user-interface/index.md) --- a short introduction to the **Build** workspace incl. projects and tasks management.
-    - [Rule Operators](rule-operators/index.md) --- Overview on operators that can be used to build linkage and transformation rules.
-    - [Cool IRIs](cool-iris/index.md) --- URIs and IRIs are character strings identifying the nodes and edges in the graph. Defining them is an important step in creating an exploitable Knowledge Graph for your Company.
-    - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Namespace declarations allow for abbreviation of IRIs by using a prefixed name instead of an IRI, in particular when writing SPARQL queries or Turtle.
-    - [Spark](spark/index.md) --- Explainer of Apache Spark and its integration within the BUILD platform.
-    - [Project Access Control](project-access-control/index.md) --- Restrict a project to the members of selected user groups.
+    Understand the workspace and the concepts behind it.
+
+    - [Introduction to the User Interface](introduction-to-the-user-interface/index.md) --- The **Build** workspace, its projects and its tasks.
+    - [Cool IRIs](cool-iris/index.md) --- Define the identifiers of the nodes and edges in a Knowledge Graph.
+    - [Define Prefixes / Namespaces](define-prefixes-namespaces/index.md) --- Abbreviate IRIs with prefixed names.
+    - [Rule Operators](rule-operators/index.md) --- The operators that make up linking and transformation rules.
+    - [Spark](spark/index.md) --- Apache Spark and its integration in **Build**.
 
 - :material-list-status: Tutorials
 
     ---
 
+    Follow an example from start to finish.
+
     - [Build a mapping with the Mapping Creator](mapping-creator-tutorial/index.md) --- Map a hierarchical XML file to a vocabulary with the visual editor and its AI-generated suggestions.
-    - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from tabular data such as CSV, XSLX or database tables.
-    - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph based on input data from hierarchical sources such as JSON and XML files.
-    - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph based on input data from a Web API.
-    - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load data incrementally from a JDBC Dataset (relational database Table) into a Knowledge Graph.
-    - [Active learning](active-learning/index.md) --- Advanced workflows that improve results iteratively by incorporating feedback signals.
-    - [Connect to Snowflake](snowflake-tutorial/index.md) --- Connect Snowflake as a scalable cloud warehouse and lift/link its data in Corporate Memory to unify it with your other sources in one knowledge graph.
-    - [Build Knowledge Graphs from Kafka Topics](kafka-consumer/index.md) --- Consume Kafka topics and lift event streams into a Knowledge Graph.
-    - [Evaluate Jinja Template and Send an Email Message](evaluate-template/index.md) --- Template and send an email after a workflow execution.
+    - [Lift Data from Tabular Data](lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md) --- Build a Knowledge Graph from CSV, XLSX or database tables.
+    - [Lift data from JSON and XML sources](lift-data-from-json-and-xml-sources/index.md) --- Build a Knowledge Graph from hierarchical files.
+    - [Extracting data from a Web API](extracting-data-from-a-web-api/index.md) --- Build a Knowledge Graph from a Web API response.
+    - [Incremental Database Loading](loading-jdbc-datasets-incrementally/index.md) --- Load a relational database table incrementally through a JDBC dataset.
+    - [Connect to Snowflake](snowflake-tutorial/index.md) --- Lift and link data from a Snowflake cloud warehouse.
+    - [Build Knowledge Graphs from Kafka Topics](kafka-consumer/index.md) --- Consume Kafka topics and lift event streams.
+    - [Evaluate Jinja Template and Send an Email Message](evaluate-template/index.md) --- Fill a template from a graph and send it after a workflow execution.
     - [Link Intrusion Detection Systems to Open-Source INTelligence](tutorial-how-to-link-ids-to-osint/index.md) --- Link IDS data to OSINT sources.
 
-- :fontawesome-regular-snowflake: Patterns
+- :material-wrench-outline: Guides
 
     ---
 
-    - [Reconfigure Workflow Tasks](workflows/index.md) --- During its execution, new parameters can be loaded from any source, which overwrites originally set parameters.
-    - [Project and Global Variables](variables/index.md) --- Define and reuse variables across tasks and projects.
-    - [Rule Blocks](rule-blocks/index.md) --- Build re-usable, function-like transformation sequences which are referenced from transformation and linking rules and managed centrally.
+    Use a feature in a project.
+
+    - [Mapping Creator](mapping-creator/index.md) --- Create and manage mappings on a visual canvas.
+    - [Active learning](active-learning/index.md) --- Learn a linking rule from interactively labeled record pairs.
+    - [Rule Blocks](rule-blocks/index.md) --- Build reusable transformation sequences, referenced from transformation and linking rules and managed centrally.
+    - [Workflows](workflows/index.md) --- Orchestrate datasets and tasks, and reconfigure tasks during execution.
+    - [Variables](variables/index.md) --- Define and reuse global, project and execution variables.
+    - [Project Access Control](project-access-control/index.md) --- Restrict a project to the members of selected user groups.
 
 - :material-book-open-variant-outline: Reference
 
     ---
 
-    - [Mapping Creator](mapping-creator/index.md) --- Create and manage mappings to lift legacy data into a Knowledge Graph.
-    - [Integrations](integrations/index.md) --- Supported integrations and configuration options for connecting data sources and sinks.
-    - [Task and Operator Reference](reference/index.md) --- Reference documentation for tasks and operators in the Build workspace.
+    Look up tasks, operators and supported services.
+
+    - [Task and Operator Reference](reference/index.md) --- Tasks and operators of the **Build** workspace.
+    - [Integrations](integrations/index.md) --- Services and applications that integrate with Corporate Memory.
 
 </div>
