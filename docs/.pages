@@ -1,5 +1,8 @@
 ---
 nav:
+    - Home:
+          - index.md
+          - introduction
     - Build: build
     - Explore: explore-and-author
     - Consume: consume
@@ -9,4 +12,3 @@ nav:
     - Develop: develop
     - Release Notes: release-notes
     - Tutorials: tutorials
-
