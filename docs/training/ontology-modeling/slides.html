@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Slides: Ontology Modeling · eccenca Corporate Memory training</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/revealjs/reset.css">
+<link rel="stylesheet" href="../../assets/revealjs/reveal.css">
+<link rel="stylesheet" href="../../assets/revealjs/eccenca-theme.css">
+</head>
+<body>
+<!--
+  Slide source of the training module "Ontology Modeling".
+  The explanations for these slides are in index.md next to this file.
+  Conventions: see ../rdf-and-linked-data/slides.html.
+-->
+<div class="reveal">
+<div class="slides">
+
+<section id="title" class="title-slide" data-background-gradient="linear-gradient(135deg, #e07d00 0%, #f39200 55%, #b85e0b 100%)" data-markdown>
+<textarea data-template>
+<div class="brand">eccenca<small>mastering complexity</small></div>
+
+# Ontology Modeling
+
+RDF Schema and OWL · eccenca Corporate Memory training · Module 3
+</textarea>
+</section>
+
+<section id="schema-knowledge" data-explainer="schema-knowledge" data-markdown>
+<textarea data-template>
+## From facts to schema knowledge
+
+RDF states facts:
+
+```turtle
+ex:AlbertEinstein ex:discovered ex:TheoryOfRelativity .
+```
+
+But how to state that …
+
+- only a **person** discovers, and what is discovered is a **theory**?
+- Einstein is a **researcher**, and every researcher is a **person**?
+
+This is **schema** or **terminological** knowledge – the content of a vocabulary.
+</textarea>
+</section>
+
+<section id="rdfs" data-explainer="rdf-schema" data-markdown>
+<textarea data-template>
+## RDF Schema (RDFS)
+
+- Part of the W3C RDF recommendations – current version **RDF Schema 1.1** (2014)
+- Describes classes, properties and their hierarchies
+- Is itself an RDF vocabulary – every RDFS schema is an RDF graph
+- Generic: not bound to any domain
+- Namespace `http://www.w3.org/2000/01/rdf-schema#`, prefix `rdfs:`
+</textarea>
+</section>
+
+<section id="classes" data-explainer="classes-and-instances" data-markdown>
+<textarea data-template>
+## Classes and instances
+
+- A **class** is a set of things, named by an IRI
+- `rdf:type` (Turtle: `a`) makes a resource an **instance** of a class
+
+```turtle
+ex:Car a rdfs:Class .
+
+ex:MyBlueVWGolf a ex:Car , ex:GermanProduct .
+```
+
+- A resource can be an instance of several classes
+- Syntactically, nothing distinguishes a class from an instance
+</textarea>
+</section>
+
+<section id="class-hierarchy" data-explainer="class-hierarchies">
+<h2>Class hierarchies</h2>
+<div class="columns">
+<div>
+<p><code>rdfs:subClassOf</code> – every instance of the subclass is an instance of the superclass.</p>
+<pre class="data"><code>ex:Car rdfs:subClassOf ex:MotorVehicle .
+ex:Bus rdfs:subClassOf ex:MotorVehicle .
+ex:MyBlueVWGolf a ex:Car .</code></pre>
+</div>
+<div>
+<svg class="diagram" viewBox="0 0 420 300" width="420" role="img" aria-label="MotorVehicle with the subclasses Car and Bus; MyBlueVWGolf is an instance of Car">
+  <g font-size="17">
+    <rect class="cls" x="140" y="20" width="150" height="44" rx="3"/><text class="cls-label" x="215" y="48" text-anchor="middle">MotorVehicle</text>
+    <rect class="cls" x="40" y="130" width="140" height="44" rx="3"/><text class="cls-label" x="110" y="158" text-anchor="middle">Car</text>
+    <rect class="cls" x="250" y="130" width="140" height="44" rx="3"/><text class="cls-label" x="320" y="158" text-anchor="middle">Bus</text>
+    <path class="sub" d="M110 130 L190 64 M320 130 L240 64"/>
+    <rect x="30" y="240" width="160" height="44" fill="#fff" stroke="#4f81bd"/><text x="110" y="268" text-anchor="middle">MyBlueVWGolf</text>
+    <path class="sub" d="M110 240 L110 174" stroke-dasharray="5 4"/>
+    <text x="210" y="268" font-size="14" fill="#6b7782">instance</text>
+  </g>
+</svg>
+</div>
+</div>
+</section>
+
+<section id="inference" data-explainer="inference" data-markdown>
+<textarea data-template>
+## Implicit knowledge
+
+```turtle
+ex:MyBlueVWGolf rdf:type        ex:Car .
+ex:Car          rdfs:subClassOf ex:MotorVehicle .
+ex:MotorVehicle rdfs:subClassOf ex:Vehicle .
+```
+
+entails
+
+```turtle
+ex:MyBlueVWGolf rdf:type        ex:MotorVehicle , ex:Vehicle .
+ex:Car          rdfs:subClassOf ex:Vehicle .            # transitive
+```
+<!-- .element: class="result" -->
+
+Two classes that are subclasses of each other have the same instances – they are equivalent.
+</textarea>
+</section>
+
+<section id="builtin-classes" data-explainer="built-in-classes" data-markdown>
+<textarea data-template>
+## Built-in classes
+
+| Class | Contains |
+| --- | --- |
+| `rdfs:Resource` | everything |
+| `rdfs:Class` | all classes – including itself |
+| `rdf:Property` | all properties |
+| `rdfs:Literal` | all literal values |
+| `rdfs:Datatype` | all datatypes, such as `xsd:integer` |
+| `rdf:langString` | language-tagged strings |
+| `rdf:Statement` | reified statements |
+| `rdfs:Container` | `rdf:Bag`, `rdf:Seq`, `rdf:Alt` |
+</textarea>
+</section>
+
+<section id="properties" data-explainer="properties" data-markdown>
+<textarea data-template>
+## Properties and their hierarchies
+
+- A property relates two things – as a set of pairs: *drives* = {(Max, MyBlueVWGolf), …}
+- Declared as an instance of `rdf:Property`
+
+```turtle
+ex:drives a rdf:Property ;
+          rdfs:subPropertyOf ex:controls .
+
+ex:Max ex:drives ex:MyBlueVWGolf .
+```
+
+entails
+
+```turtle
+ex:Max ex:controls ex:MyBlueVWGolf .
+```
+<!-- .element: class="result" -->
+</textarea>
+</section>
+
+<section id="domain-range" data-explainer="domain-and-range" data-markdown>
+<textarea data-template>
+## Domain and range
+
+```turtle
+ex:drives  rdfs:domain ex:Person ;
+           rdfs:range  ex:Vehicle .
+ex:hasAge  rdfs:range  xsd:nonNegativeInteger .
+```
+
+- `rdfs:domain` – the class of every **subject** of the property
+- `rdfs:range` – the class or datatype of every **object**
+
+```turtle
+ex:Max ex:drives ex:MyBlueVWGolf .
+```
+
+entails `ex:Max a ex:Person` and `ex:MyBlueVWGolf a ex:Vehicle`.
+</textarea>
+</section>
+
+<section id="domain-range-caution" data-explainer="domain-and-range-are-not-constraints" data-markdown>
+<textarea data-template>
+## Caution: domain and range infer, they do not check
+
+```turtle
+ex:belongsTo rdfs:range ex:Organization .
+ex:Five a ex:Number ;
+        ex:belongsTo ex:Primes .
+```
+
+→ `ex:Primes a ex:Organization` – no error, just a surprising conclusion.
+
+In the product data:
+
+```turtle
+prod:hasProductManager rdfs:range prod:Employee .
+```
+
+49 products name a product manager that is not in the organization map – a reasoner would simply make each of them an employee.
+</textarea>
+</section>
+
+<section id="annotations" data-explainer="annotations" data-markdown>
+<textarea data-template>
+## Annotations for people
+
+| Property | Purpose |
+| --- | --- |
+| `rdfs:label` | human-readable name |
+| `rdfs:comment` | longer description |
+| `rdfs:seeAlso` | further information about the resource |
+| `rdfs:isDefinedBy` | where the resource is defined |
+
+```turtle
+prod:Hardware rdfs:label "Hardware"@en ;
+              rdfs:comment "A physical product."@en ;
+              rdfs:isDefinedBy <http://ld.company.org/prod-vocab/> .
+```
+</textarea>
+</section>
+
+<section id="reification" data-explainer="reification" data-markdown>
+<textarea data-template>
+## Statements about statements
+
+*The detective supposes that the butler killed the gardener – unproven.*
+
+```turtle
+ex:Detective ex:supposes _:theory .
+_:theory a rdf:Statement ;
+         rdf:subject   ex:Butler ;
+         rdf:predicate ex:hasKilled ;
+         rdf:object    ex:Gardener ;
+         ex:hasState   "unproven" .
+```
+
+The triple itself is **not** asserted – only described.
+</textarea>
+</section>
+
+<section id="rdfs-limits" data-explainer="limits-of-rdf-schema" data-markdown>
+<textarea data-template>
+## What RDF Schema cannot say
+
+- **Negation** – cats are *not* dogs
+- **Cardinality** – a person has at most one spouse
+- **Alternatives** – the range is a car *or* a ship
+
+```turtle
+ex:drives rdfs:range ex:Car , ex:Ship .   # means: car AND ship!
+```
+
+- **Equality** of individuals, inverse properties, …
+
+→ **OWL**, the Web Ontology Language
+</textarea>
+</section>
+
+<section id="divider-owl" class="divider" data-background-color="#2e3a44" data-markdown>
+<textarea data-template>
+<div class="brand">eccenca<small>mastering complexity</small></div>
+
+# OWL – the Web Ontology Language
+</textarea>
+</section>
+
+<section id="owl" data-explainer="owl" data-markdown>
+<textarea data-template>
+## OWL
+
+- W3C Recommendation: OWL 2004, **OWL 2** in 2009 (2nd edition 2012)
+- Builds on RDF Schema, adds logic with a clear semantics
+- An ontology is a set of **axioms**, each written as RDF triples
+- Three building blocks:
+  - **individuals** – the things
+  - **classes** – sets of things
+  - **properties** – relations between things or to values
+- Syntaxes: Turtle, RDF/XML, OWL/XML, Manchester, Functional
+</textarea>
+</section>
+
+<section id="ontology-header" data-explainer="ontology-header" data-markdown>
+<textarea data-template>
+## The ontology header
+
+```turtle
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<http://ld.company.org/prod-vocab/> a owl:Ontology ;
+    rdfs:label "pv: Products - Vocab"@en ;
+    owl:versionInfo "v1.2.0" ;
+    dct:modified "2025-01-22"^^xsd:date ;
+    vann:preferredNamespacePrefix "pv" ;
+    vann:preferredNamespaceUri "http://ld.company.org/prod-vocab/" .
+```
+
+<p class="small muted">Excerpt from the products vocabulary of the Product Data Demo package.</p>
+
+Versioning: `owl:versionInfo`, `owl:priorVersion`, `owl:deprecated`, …
+</textarea>
+</section>
+
+<section id="owl-classes-properties" data-explainer="owl-classes-and-properties" data-markdown>
+<textarea data-template>
+## Classes and properties in OWL
+
+```turtle
+prod:Employee a owl:Class ;
+    rdfs:subClassOf prod:Agent .
+
+prod:memberOf a owl:ObjectProperty ;       # resource → resource
+    rdfs:domain prod:Agent ;
+    rdfs:range  prod:Department .
+
+prod:email a owl:DatatypeProperty ;        # resource → literal
+    rdfs:domain prod:Agent ;
+    rdfs:range  xsd:string .
+```
+
+Built in: `owl:Thing` (everything) and `owl:Nothing` (empty)
+</textarea>
+</section>
+
+<section id="individuals" data-explainer="individuals" data-markdown>
+<textarea data-template>
+## Individuals
+
+```turtle
+ex:Einstein a ex:Professor ;
+    ex:belongsTo ex:Princeton , ex:Bern ;     # properties are not functional
+    owl:sameAs ex:AlbertEinstein .
+```
+
+→ `ex:AlbertEinstein a ex:Professor`
+<!-- .element: class="small" -->
+
+```turtle
+[] a owl:AllDifferent ;
+   owl:distinctMembers ( ex:AlbertEinstein ex:IsaacNewton ex:Aristotle ) .
+```
+
+No **unique name assumption**: two IRIs may name the same thing – unless stated otherwise.
+</textarea>
+</section>
+
+<section id="class-relations" data-explainer="class-relations" data-markdown>
+<textarea data-template>
+## Relations between classes
+
+| Axiom | Meaning | Example |
+| --- | --- | --- |
+| `rdfs:subClassOf` | A is more specific than B | dog – mammal |
+| `owl:equivalentClass` | A and B have the same members | parent – mother or father |
+| `owl:disjointWith` | A and B share no members | cat – dog |
+
+```turtle
+ex:Book         rdfs:subClassOf  ex:Publication .
+ex:FacultyStaff owl:disjointWith ex:Publication .
+ex:Professor    rdfs:subClassOf  ex:FacultyStaff .
+```
+
+→ `ex:Professor` and `ex:Book` are disjoint.
+</textarea>
+</section>
+
+<section id="class-constructors" data-explainer="class-constructors" data-markdown>
+<textarea data-template>
+## Building classes from classes
+
+| Constructor | Logic |
+| --- | --- |
+| `owl:intersectionOf` | AND |
+| `owl:unionOf` | OR |
+| `owl:complementOf` | NOT |
+| `owl:oneOf` | enumeration |
+
+```turtle
+ex:MoonOfMars owl:equivalentClass [
+    owl:intersectionOf ( ex:Moon ex:ObjectNearMars ) ] .
+
+ex:Person owl:equivalentClass [ owl:unionOf ( ex:Adult ex:Child ) ] .
+
+ex:Professor owl:disjointUnionOf ( ex:ActiveProfessor ex:RetiredProfessor ) .
+```
+</textarea>
+</section>
+
+<section id="property-characteristics" data-explainer="property-characteristics" data-markdown>
+<textarea data-template>
+## Property characteristics
+
+| Axiom | Example | Inference |
+| --- | --- | --- |
+| `owl:inverseOf` | `hasManager` ↔ `hasDirectReport` | one direction gives the other |
+| `owl:TransitiveProperty` | `partOf` | part of a part is a part |
+| `owl:SymmetricProperty` | `marriedTo` | holds in both directions |
+| `owl:FunctionalProperty` | `hasBirthDate` | at most one value |
+| `owl:equivalentProperty` | `hasEmail` = `email` | same pairs |
+
+```turtle
+prod:hasManager owl:inverseOf prod:hasDirectReport .
+```
+</textarea>
+</section>
+
+<section id="restrictions" data-explainer="restrictions" data-markdown>
+<textarea data-template>
+## Property restrictions
+
+```turtle
+ex:Exam rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty ex:hasExaminer ;
+    owl:allValuesFrom ex:Professor ] ,      # every examiner is a professor
+  [ a owl:Restriction ;
+    owl:onProperty ex:hasExaminer ;
+    owl:someValuesFrom ex:Person ] ,        # at least one examiner
+  [ a owl:Restriction ;
+    owl:onProperty ex:hasExaminer ;
+    owl:maxCardinality "2"^^xsd:nonNegativeInteger ] .   # at most two
+```
+
+Also: `owl:hasValue`, `owl:minCardinality`, `owl:cardinality`
+</textarea>
+</section>
+
+<section id="open-world" data-explainer="open-world" data-markdown>
+<textarea data-template>
+## Open world: OWL does not validate
+
+*Every exam has at least one examiner.* An exam without examiner in the data:
+
+- **OWL** concludes: there is an examiner nobody has recorded yet.
+- **SHACL** reports: this exam violates the constraint.
+
+| | OWL | SHACL |
+| --- | --- | --- |
+| Assumption | open world | closed world |
+| Purpose | describe meaning, infer | check data, drive forms |
+
+In Corporate Memory: vocabularies in OWL, forms and validation in SHACL.
+</textarea>
+</section>
+
+<section id="expressivity" data-explainer="expressivity" data-markdown>
+<textarea data-template>
+## Expressivity has a price
+
+taxonomy → thesaurus → **RDF Schema** → **OWL** → first-order logic → natural language
+
+<p class="small muted">weaker semantics, simpler reasoning → stronger semantics, harder or undecidable reasoning</p>
+
+| Language | Reasoning |
+| --- | --- |
+| OWL 2 Full | undecidable |
+| OWL 2 DL | decidable (description logic *SROIQ*) |
+| OWL 2 EL, QL, RL | profiles with efficient reasoning |
+</textarea>
+</section>
+
+<section id="reuse" data-explainer="reuse" data-markdown>
+<textarea data-template>
+## Reuse existing vocabularies
+
+| Vocabulary | For |
+| --- | --- |
+| **Dublin Core** | metadata: title, creator, date |
+| **FOAF** | people and their relations |
+| **SKOS** | thesauri and taxonomies |
+| **Organization Ontology** | organizations, units, memberships |
+| **PROV-O** | provenance |
+| **schema.org** | structured data on the Web |
+
+The Corporate Memory **Vocabulary Catalog** installs common vocabularies from the Marketplace.
+</textarea>
+</section>
+
+<section id="summary" data-explainer="summary" data-markdown>
+<textarea data-template>
+## Summary
+
+<div class="columns">
+<div>
+
+**RDF Schema**
+- classes, properties, hierarchies
+- domain and range
+- labels and comments
+- a lightweight ontology
+
+</div>
+<div>
+
+**OWL**
+- equivalence, disjointness, inverses
+- class constructors, restrictions
+- open world – SHACL for validation
+
+</div>
+</div>
+
+> An ontology is a formal, explicit specification of a shared conceptualization. – Studer, Benjamins, Fensel 1998, after Gruber 1993
+</textarea>
+</section>
+
+</div>
+</div>
+
+<script src="../../assets/revealjs/reveal.js"></script>
+<script src="../../assets/revealjs/plugin/markdown.js"></script>
+<script src="../../assets/revealjs/plugin/notes.js"></script>
+<script src="../../assets/revealjs/training-deck.js"></script>
+</body>
+</html>

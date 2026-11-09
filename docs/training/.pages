@@ -3,3 +3,5 @@ nav:
     - Overview: index.md
     - RDF and Linked Data: rdf-and-linked-data
     - SPARQL Basics: sparql-basics
+    - Ontology Modeling: ontology-modeling
+    - Ontology Engineering: ontology-engineering

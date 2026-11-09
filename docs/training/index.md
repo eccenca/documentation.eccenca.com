@@ -12,7 +12,7 @@ Each module combines the slides with a written explanation of every slide, so th
 !!! info "Draft"
 
     This section is a draft.
-    It contains the first two theory modules, the remaining modules follow.
+    It contains the four theory modules, material for the product-related sessions follows.
 
 ## Modules
 
@@ -30,6 +30,18 @@ Each module combines the slides with a written explanation of every slide, so th
 
     Graph patterns, filters, solution modifiers, query forms, aggregation and updates, with exercises on the product Knowledge Graph.
 
+- :material-sitemap-outline: **[Ontology Modeling](ontology-modeling/index.md)**
+
+    ---
+
+    Classes, properties and inference with RDF Schema, and the richer axioms of OWL.
+
+- :material-pencil-ruler-outline: **[Ontology Engineering](ontology-engineering/index.md)**
+
+    ---
+
+    Hands-on: from competency questions and a domain description to a formal vocabulary.
+
 </div>
 
 ## Two-day training
@@ -43,7 +55,8 @@ Theory alternates with hands-on sessions in Corporate Memory, which use the tuto
 | --- | --- |
 | Introduction to eccenca Corporate Memory: build, explore, consume and govern | [Getting Started](../getting-started/index.md) |
 | RDF and Linked Data foundations | [Module](rdf-and-linked-data/index.md) |
-| Ontology modeling with RDF Schema and OWL | Module in preparation |
+| Ontology modeling with RDF Schema and OWL | [Module](ontology-modeling/index.md) |
+| Hands-on: ontology engineering for the product domain | [Module](ontology-engineering/index.md), [Visually Authoring Ontologies](../explore-and-author/bke-module/visually-authoring-ontologies/index.md) |
 | Hands-on: register the products vocabulary, lift the hardware, services and organization data, combine them in a workflow | [Lift data from tabular data](../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md), [Lift data from JSON and XML sources](../build/lift-data-from-json-and-xml-sources/index.md), [Workflows](../build/workflows/index.md) |
 | Hands-on: link similar products, try active learning | [Active learning](../build/active-learning/index.md) |
 | Hands-on: schedule a workflow | [Scheduling workflows](../automate/scheduling-workflows/index.md) |

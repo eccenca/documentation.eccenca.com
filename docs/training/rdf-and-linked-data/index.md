@@ -271,7 +271,7 @@ The property `rdf:type` states that a resource is an instance of a class.
 It is used so often that Turtle offers the keyword `a` as shorthand, and both lines on the slide are the same triple.
 A resource can belong to any number of classes: the blue VW Golf is a car and a German product at the same time.
 
-How classes form hierarchies, and how properties are tied to classes, is the subject of the ontology module.
+How classes form hierarchies, and how properties are tied to classes, is the subject of the module [Ontology Modeling](../ontology-modeling/index.md).
 
 ## n-ary relations { #n-ary-relations }
 
@@ -319,10 +319,11 @@ RDF is a widely supported standard for storing and exchanging data, and triple s
 Because every resource has a global name, data from many sources merges into one graph.
 
 Plain RDF describes individuals, but it has little to say about their kinds.
-That a car is a motor vehicle, or that only a person drives, is schema knowledge, described with RDF Schema and OWL.
+That a car is a motor vehicle, or that only a person drives, is schema knowledge, described with RDF Schema and OWL, see [Ontology Modeling](../ontology-modeling/index.md).
 Getting answers out of a graph needs a query language, SPARQL.
 
 Continue with:
 
 - the module [SPARQL basics](../sparql-basics/index.md),
+- the module [Ontology Modeling](../ontology-modeling/index.md),
 - the tutorial [Lift data from tabular data](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md), which builds a Knowledge Graph from the data used in the hands-on exercises.

@@ -220,9 +220,18 @@ In Corporate Memory, every graph is a named graph, and write access is controlle
 
 ## Exercises { #exercises }
 
-The exercises use the product Knowledge Graph built in module 1, see [Lift data from tabular data](../../build/lift-data-from-tabular-data-such-as-csv-xslx-or-database-tables/index.md).
-Its vocabulary uses the prefix `prod:` for `http://ld.company.org/prod-vocab/`.
-Run the queries in the Query module, against the graph that contains the instance data.
+The exercises query the product data of the **Product Data Demo** package, ID `ecc-product-data-project`.
+The [sandbox](../../getting-started/with-your-sandbox/index.md) comes with it installed, on another instance it is installed from the [Marketplace](../../distribution/marketplace/index.md).
+The package contains the build project *Product Data Integration Demo* and the graphs it generates, among them hardware, services and the organization map, plus the integration graph *Products - Integration* (`http://ld.company.org/prod-inst/`), which imports all of them.
+
+The vocabulary uses the prefix `prod:` for `http://ld.company.org/prod-vocab/`.
+Run the queries in the Query module.
+
+!!! tip "No inference"
+
+    The data types products as `prod:Hardware` or `prod:Service`, and the vocabulary declares both as subclasses of `prod:Product`.
+    The triple store does not infer `prod:Product` from that, so `?product a prod:Product` finds nothing.
+    The property path `a/rdfs:subClassOf*` follows the class hierarchy in the query itself, and the solutions below use it wherever a superclass is meant.
 
 ??? example "1. Find all products"
 
@@ -232,97 +241,138 @@ Run the queries in the Query module, against the graph that contains the instanc
 
     SELECT ?product ?label
     WHERE {
-      ?product a prod:Product .
+      ?product a/rdfs:subClassOf* prod:Product .
       OPTIONAL { ?product rdfs:label ?label . }
     }
     ORDER BY ?label
     ```
 
-??? example "2. Find products lighter than 10"
+    The result has 1009 rows: 1000 hardware products and 9 services.
+
+??? example "2. Find hardware products lighter than 10 g"
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    SELECT ?product ?weight
+    SELECT ?product ?label ?weight
     WHERE {
-      ?product a prod:Product ;
-               prod:weight ?weight .
+      ?product a prod:Hardware ;
+               rdfs:label ?label ;
+               prod:weight_g ?weight .
       FILTER (?weight < 10)
     }
+    ORDER BY ?weight ?label
     ```
 
-    The products vocabulary defines no weight property.
-    Use the property that the mapping of the `Weigth` column of `products.xlsx` writes to, `prod:weight` is an example.
+    `prod:weight_g` holds the weight in grams.
+    478 of the 1000 hardware products weigh less than 10 g.
 
-??? example "3. Find products and services without a product manager"
+??? example "3. Find products whose product manager is not in the organization map"
+
+    Every product in the data has a product manager, so a query for products *without* one returns no rows.
+    A more revealing question is whether the product manager is a known employee:
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    SELECT ?item
+    SELECT ?item ?label ?manager
     WHERE {
-      { ?item a prod:Product . } UNION { ?item a prod:Service . }
-      FILTER NOT EXISTS { ?item prod:hasProductManager ?manager . }
+      ?item a/rdfs:subClassOf* prod:Product ;
+            rdfs:label ?label ;
+            prod:hasProductManager ?manager .
+      FILTER NOT EXISTS { ?manager a/rdfs:subClassOf* prod:Employee . }
     }
+    ORDER BY ?manager ?label
     ```
+
+    49 products refer to 3 product managers that the organization map does not contain.
+    Without the property path, managers typed only as `prod:Manager` would show up as well.
 
 ??? example "4. Find products without a responsible department"
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    SELECT ?product
+    SELECT ?item ?label
     WHERE {
-      ?product a prod:Product .
-      FILTER NOT EXISTS { ?department prod:responsibleFor ?product . }
+      ?item a/rdfs:subClassOf* prod:Product ;
+            rdfs:label ?label .
+      FILTER NOT EXISTS { ?department prod:responsibleFor ?item . }
     }
+    ORDER BY ?label
     ```
 
-??? example "5. Find experts for the category of a product"
+    Departments are responsible for 58 products, so 951 products have no responsible department.
+
+??? example "5. Find alternative experts for a product"
+
+    An employee's `prod:areaOfExpertise` names product categories.
+    Employees who share a category with the product manager can take over responsibility:
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    SELECT ?product ?category ?expert
+    SELECT ?productLabel ?managerLabel
+           (GROUP_CONCAT(DISTINCT ?alternativeLabel; separator=", ") AS ?alternatives)
     WHERE {
-      ?product prod:hasCategory ?category .
-      ?expert prod:expertFor ?category .
+      VALUES ?product { <http://ld.company.org/prod-instances/hw-N573-1498086> }
+      ?product rdfs:label ?productLabel ;
+               prod:hasProductManager ?manager .
+      ?manager rdfs:label ?managerLabel ;
+               prod:areaOfExpertise ?category .
+      ?alternative prod:areaOfExpertise ?category ;
+                   rdfs:label ?alternativeLabel .
+      FILTER (?alternative != ?manager)
     }
+    GROUP BY ?productLabel ?managerLabel
     ```
+
+    For the Dipole Transformer, managed by Ratt Hartmann, the query lists 14 colleagues.
+    Remove the `VALUES` line to get the alternatives for every product.
 
 ??? example "6. Count the products per manager and department"
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    SELECT ?department ?manager (COUNT(DISTINCT ?product) AS ?products)
+    SELECT ?departmentLabel ?managerLabel (COUNT(DISTINCT ?product) AS ?products)
     WHERE {
       ?product prod:hasProductManager ?manager .
-      OPTIONAL { ?manager prod:memberOf ?department . }
+      ?manager rdfs:label ?managerLabel ;
+               prod:memberOf ?department .
+      ?department rdfs:label ?departmentLabel .
     }
-    GROUP BY ?department ?manager
-    ORDER BY ?department DESC(?products)
+    GROUP BY ?departmentLabel ?managerLabel
+    ORDER BY ?departmentLabel DESC(?products)
     ```
 
     Save this query in the query catalog.
     The charts and custom API exercises reuse it.
 
-??? example "7. Insert yourself as an employee"
+??? example "7. Add an employee"
 
     ```sparql
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
     INSERT DATA {
-      GRAPH <http://ld.company.org/prod-instances/> {
-        <http://ld.company.org/prod-inst/jane-doe> a prod:Employee ;
+      GRAPH <http://ld.company.org/training/> {
+        <http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org> a prod:Employee ;
             rdfs:label "Jane Doe" ;
-            prod:email "jane.doe@company.org" .
+            prod:email "Jane.Doe@company.org" ;
+            prod:memberOf <http://ld.company.org/prod-instances/dept-73191> .
       }
     }
     ```
 
-    Replace the IRI, label and email address with personal values, and the graph IRI with the instance graph of the project.
+    Replace the name and email address with personal values.
+    The statements go into a graph of their own, which leaves the package data untouched and is removed again with `DROP GRAPH <http://ld.company.org/training/>`.
+    Because the new employee links to an existing department, the employee appears in the department's data in queries over all graphs.
 
 ## Summary { #summary }
 

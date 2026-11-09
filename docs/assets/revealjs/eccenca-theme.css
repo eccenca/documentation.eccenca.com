@@ -301,3 +301,17 @@
   right: auto;
   bottom: 14px;
 }
+
+/* ontology engineering: marking concepts, relations, instances and attributes in a text */
+.reveal .domain-text { font-size: 0.85em; line-height: 1.5; }
+.reveal .c-concept { color: #3c6fb0; font-weight: 500; }
+.reveal .c-rel { color: #c0504d; font-weight: 500; }
+.reveal .c-inst { color: #7030a0; font-style: italic; }
+.reveal .c-attr { color: #2e8b57; font-weight: 500; }
+
+/* class diagrams */
+.reveal svg.diagram .cls { fill: #4f81bd; stroke: #2e5a8a; }
+.reveal svg.diagram .cls-label { fill: #fff; }
+.reveal svg.diagram .rel { stroke: #e08a00; stroke-width: 2; fill: none; }
+.reveal svg.diagram .rel-label { fill: #c97800; }
+.reveal svg.diagram .sub { stroke: #4f81bd; stroke-width: 1.5; fill: none; }

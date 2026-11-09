@@ -419,8 +419,9 @@ PREFIX prod: <http://ld.company.org/prod-vocab/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 INSERT DATA {
-  GRAPH <http://ld.company.org/prod-instances/> {
-    <http://ld.company.org/prod-inst/jane-doe> a prod:Employee ;
+  GRAPH <http://ld.company.org/training/> {
+    <http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org>
+        a prod:Employee ;
         rdfs:label "Jane Doe" .
   }
 }
@@ -463,7 +464,7 @@ Also: `DELETE DATA`, `DELETE { … } INSERT { … } WHERE { … }`, `CLEAR GRAPH
 
 # Hands-on
 
-Query the product Knowledge Graph from module 1
+Query the Product Data Demo
 </textarea>
 </section>
 
@@ -471,13 +472,13 @@ Query the product Knowledge Graph from module 1
 <textarea data-template>
 ## Exercises
 
-1. Find all products.
-2. Find products lighter than 10 – `FILTER (?weight < 10)`
-3. Find products and services without a product manager – `FILTER NOT EXISTS`
-4. Find products and services without a responsible department.
-5. Find experts who can take over responsibility for a product category.
+1. Find all products – mind the class hierarchy: `a/rdfs:subClassOf*`
+2. Find hardware lighter than 10 g – `FILTER (?weight < 10)`
+3. Find products whose product manager is not in the organization map – `FILTER NOT EXISTS`
+4. Find products without a responsible department.
+5. Find alternative experts for a product – shared `prod:areaOfExpertise`
 6. Count the products per manager and department – save it in the query catalog.
-7. Insert yourself as an employee.
+7. Add an employee with `INSERT DATA`.
 
 <p class="small muted">Solutions are below the slides.</p>
 </textarea>

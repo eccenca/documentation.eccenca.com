@@ -8,6 +8,6 @@ nav:
     - Automate: automate
     - Develop: develop
     - Release Notes: release-notes
-    - Tutorials: tutorials
-    - Training: training
-
+    - Learn:
+          - Tutorials: tutorials
+          - Training: training
