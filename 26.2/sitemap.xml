@@ -1816,6 +1816,15 @@
         <loc>https://documentation.eccenca.com/26.2/distribution/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/distribution/fair-data/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/distribution/fair-data/fairification/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/distribution/fair-data/principles/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/distribution/marketplace/</loc>
       </url>
       <url>
@@ -1859,9 +1868,6 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/</loc>
-      </url>
-      <url>
-        <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/_README/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/explore-and-author/graph-exploration/graph-insights/concepts/</loc>
@@ -2000,6 +2006,21 @@
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/testing/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/training/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/training/ontology-engineering/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/training/ontology-modeling/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/training/rdf-and-linked-data/</loc>
+      </url>
+      <url>
+        <loc>https://documentation.eccenca.com/26.2/training/sparql-basics/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/tutorials/</loc>
