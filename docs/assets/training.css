@@ -1,0 +1,237 @@
+/* ---------------------------------------------------------------------------
+   Training pages: the deck above the fold, the explanations below.
+   See assets/training.js and assets/revealjs/training-deck.js.
+   --------------------------------------------------------------------------- */
+
+.training-deck {
+    /* never taller than the window: leave room for header, tabs and the bar */
+    max-width: min(100%, calc((100vh - 15rem) * 16 / 9));
+    margin: 0 auto 2rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.3rem;
+    background: #2e3a44;
+    overflow: hidden;
+    box-shadow: 0 0.6rem 1.6rem -0.8rem rgba(0, 0, 0, 0.45);
+}
+
+.training-deck iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    background: #f4f5f7;
+}
+
+.training-deck__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1rem;
+    padding: 0.4rem 0.6rem;
+    background: #2e3a44;
+    color: #fff;
+    font-size: 0.65rem;
+}
+
+.training-deck__nav {
+    display: flex;
+    flex: 1 1 18rem;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.training-deck__position {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.training-deck__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.md-typeset .training-deck__button,
+.training-deck__button {
+    padding: 0.15rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 0.2rem;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.md-content .training-deck a.training-deck__button,
+.md-content .training-deck a.training-deck__explain {
+    color: #fff;
+    text-decoration: none;
+}
+
+.training-deck__button:hover,
+.training-deck__button:focus-visible {
+    border-color: #f39200;
+    background: #f39200;
+}
+
+.md-content .training-deck a.training-deck__explain {
+    padding: 0.15rem 0.6rem;
+    border-radius: 0.2rem;
+    background: #f39200;
+    font-weight: 700;
+}
+
+/* "Show slide" button behind an explained heading */
+.md-typeset .training-show-slide {
+    margin-left: 0.6rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--md-primary-fg-color);
+    border-radius: 0.2rem;
+    background: transparent;
+    color: var(--md-primary-fg-color);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.md-typeset .training-show-slide::before {
+    content: "▶ ";
+}
+
+.md-typeset .training-show-slide:hover {
+    background: var(--md-primary-fg-color);
+    color: #fff;
+}
+
+/* the heading that explains the slide currently shown */
+.md-typeset .training-current {
+    box-shadow: inset 0.2rem 0 0 #f39200;
+    padding-left: 0.6rem;
+    transition: box-shadow 0.2s, padding 0.2s;
+}
+
+/* ---------------------------------------------------------------------------
+   "Try it" boxes: SPARQL that runs in the browser. See assets/training-sparql.js.
+   --------------------------------------------------------------------------- */
+
+.md-typeset .try-sparql__hint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__editable code {
+    outline: none;
+    cursor: text;
+}
+
+.md-typeset .try-sparql__editable:focus-within {
+    box-shadow: 0 0 0 0.1rem #f39200;
+    border-radius: 0.1rem;
+}
+
+.md-typeset .try-sparql__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+    margin: -0.4em 0 0.6em;
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__button {
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--md-primary-fg-color);
+    border-radius: 0.2rem;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    font: inherit;
+    cursor: pointer;
+}
+
+.md-typeset .try-sparql__button:hover,
+.md-typeset .try-sparql__button:focus-visible {
+    border-color: #f39200;
+    background: #f39200;
+    color: #fff;
+}
+
+.md-typeset .try-sparql__reset {
+    background: transparent;
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset .try-sparql__status--error {
+    color: var(--md-code-hl-special-color, #c0392b);
+    font-family: var(--md-code-font-family);
+    white-space: pre-wrap;
+}
+
+.md-typeset .try-sparql__result table {
+    display: block;
+    max-height: 24rem;
+    margin: 0 0 1em;
+    overflow: auto;
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__result td {
+    font-family: var(--md-code-font-family);
+    white-space: nowrap;
+}
+
+.md-typeset .try-sparql__suffix {
+    color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .try-sparql__result table th,
+.md-typeset .try-sparql__result table td {
+    padding: 0.35em 0.9em;
+}
+
+/* label data and query blocks, with or without the script */
+.md-typeset .try-data.highlight,
+.md-typeset .try-query.highlight {
+    position: relative;
+}
+
+.md-typeset .try-data.highlight::after,
+.md-typeset .try-query.highlight::after {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.6rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.md-typeset .try-data.highlight::after {
+    content: "Data";
+}
+
+.md-typeset .try-query.highlight::after {
+    content: "Query";
+}
+
+/* a result whose query or data was edited since it was computed */
+.md-typeset .try-sparql__result--stale {
+    opacity: 0.4;
+}
+
+/* written results carry code spans, run results plain text: look the same */
+.md-typeset .try-sparql__result td code {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    word-break: normal;
+}

@@ -82,11 +82,14 @@ extra:
 extra_css:
   - assets/fonts.css
   - assets/extra.css
+  - assets/training.css
 extra_javascript:
   # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#sortable-tables
   - assets/tablesort.min.js
   - assets/tablesort.js
   - assets/extra.js
+  - assets/training.js
+  - assets/training-sparql.js
 # }}}
 
 # {{{ Theme configuration
