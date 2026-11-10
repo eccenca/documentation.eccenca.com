@@ -1385,10 +1385,15 @@ def resolve_images(
 
 
 def embedded_media_to_links(doc: BeautifulSoup, stats: Counter) -> None:
-    """Videos and iframes cannot play on paper; their address can be followed."""
+    """Videos and iframes cannot play on paper; their address can be followed.
+
+    The link reads as the media's title, and its address goes to the footnote
+    that every external link gets.
+    """
     for media in doc.find_all(["iframe", "video"]):
         link = doc.new_tag("a", href=media.get("src", ""))
-        link.string = f"[{media.name}: {media.get('src', '')}]"
+        fallback = "Video" if media.name == "video" else "Embedded content"
+        link.string = media.get("title", "").strip() or fallback
         media.replace_with(link)
         stats["embedded media"] += 1
 

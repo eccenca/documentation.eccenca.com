@@ -6,54 +6,45 @@ repository: eccenca/documentation.eccenca.com
 authors:
   - id: rpietzsch
     name: null
-    commits: 249
+    commits: 181
   - id: seebi
     name: Sebastian Tramp
-    commits: 156
-  - id: sobo
-    name: Thomas Telleis
-    commits: 46
+    commits: 112
   - id: muddymudskipper
     name: Thomas
-    commits: 45
-  - id: irangareddy
-    name: Ranga Reddy
-    commits: 37
+    commits: 29
   - id: annamakor
     name: null
-    commits: 22
-  - id: spl0tt
-    name: Sebastian Plott
-    commits: 11
-  - id: mgns
-    name: Magnus
-    commits: 10
-  - id: white-gecko
-    name: Natanael Arndt
-    commits: 10
-  - id: louiswesterheide
-    name: Louis
-    commits: 9
+    commits: 26
   - id: robertisele
     name: Robert Isele
+    commits: 10
+  - id: irangareddy
+    name: Ranga Reddy
     commits: 9
+  - id: white-gecko
+    name: Natanael Arndt
+    commits: 9
+  - id: louiswesterheide
+    name: Louis
+    commits: 7
   - id: MaximilianWenzel
     name: null
     commits: 6
+  - id: mgns
+    name: Magnus
+    commits: 5
+  - id: spl0tt
+    name: Sebastian Plott
+    commits: 4
   - id: adelahaye-ecc
     name: null
-    commits: 5
+    commits: 2
   - id: BorderCloud
     name: Karima Rafes
     commits: 1
-  - id: dgrtner-ecc
-    name: null
-    commits: 1
   - id: looooph
     name: Istvan Mocsy
-    commits: 1
-  - id: peterfreytag
-    name: Peter Freytag
     commits: 1
   - id: tomatophantastico
     name: Jörg Unbehauen
