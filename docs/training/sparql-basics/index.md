@@ -1,5 +1,7 @@
 ---
 title: "Training: SPARQL Basics"
+hide:
+  - toc
 icon: material/presentation
 tags:
   - BeginnersTutorial

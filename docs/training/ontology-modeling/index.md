@@ -1,5 +1,7 @@
 ---
 title: "Training: Ontology Modeling"
+hide:
+  - toc
 icon: material/presentation
 tags:
   - BeginnersTutorial

@@ -1,5 +1,7 @@
 ---
 title: "Training: RDF and Linked Data Foundations"
+hide:
+  - toc
 icon: material/presentation
 tags:
   - BeginnersTutorial

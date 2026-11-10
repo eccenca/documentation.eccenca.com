@@ -1,5 +1,7 @@
 ---
 title: "Training: Ontology Engineering"
+hide:
+  - toc
 icon: material/presentation
 tags:
   - BeginnersTutorial
