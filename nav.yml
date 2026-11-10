@@ -11,10 +11,10 @@ nav:
           - introduction/semantic-web-basics/index.md
       - Corporate Memory at a glance:
           - introduction/corporate-memory-at-a-glance/index.md
-      - Get access:
-          - introduction/get-access/index.md
       - Highlight features:
           - introduction/highlight-features/index.md
+      - Get access:
+          - introduction/get-access/index.md
   - Build:
       - Build: build/index.md
       - Introduction to the User Interface:
