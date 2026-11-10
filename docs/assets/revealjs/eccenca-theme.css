@@ -1,0 +1,317 @@
+/*
+ * eccenca theme for the training decks.
+ *
+ * reveal.js 5.2.1 (MIT, see LICENSE in this directory) is vendored here,
+ * not loaded from a CDN, for the same reason the web fonts are self-hosted:
+ * no visitor IP address may reach a third-party origin. The bundled reveal.js
+ * themes are not used because they @import their own font files. This theme
+ * reuses the site's self-hosted Roboto from assets/fonts.css instead.
+ *
+ * Vendored files: reveal.js, reveal.css, reset.css, plugin/markdown.js,
+ * plugin/notes.js (all from the reveal.js@5.2.1 npm package, source map
+ * comment removed).
+ */
+
+:root {
+  --ecc-orange: #f39200;
+  --ecc-orange-dark: #c97800;
+  --ecc-slate: #2e3a44;
+  --ecc-slate-light: #4a5864;
+  --ecc-text: #2e3a44;
+  --ecc-muted: #6b7782;
+  --ecc-bg: #f4f5f7;
+  --ecc-code-bg: #e9e4ef;
+  --ecc-callout: #ffc000;
+  --ecc-blue: #0f5e98;
+
+  --r-background-color: var(--ecc-bg);
+  --r-main-font: "Roboto", Helvetica, Arial, sans-serif;
+  --r-main-font-size: 24px;
+  --r-main-color: var(--ecc-text);
+  --r-block-margin: 14px;
+  --r-heading-margin: 0 0 22px 0;
+  --r-heading-font: "Roboto", Helvetica, Arial, sans-serif;
+  --r-heading-color: var(--ecc-slate);
+  --r-heading-line-height: 1.15;
+  --r-heading-font-weight: 300;
+  --r-heading1-size: 2em;
+  --r-heading2-size: 1.45em;
+  --r-heading3-size: 1.15em;
+  --r-code-font: "Roboto Mono", monospace;
+  --r-link-color: var(--ecc-blue);
+  --r-link-color-hover: var(--ecc-orange-dark);
+  --r-selection-background-color: var(--ecc-orange);
+  --r-selection-color: #fff;
+}
+
+.reveal-viewport {
+  background: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  color: var(--r-main-color);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  height: 100%;
+  padding: 30px 46px 52px;
+  box-sizing: border-box;
+}
+
+/* eccenca logo mark and copyright line in every slide's footer */
+.reveal .slides section::after {
+  content: "© eccenca GmbH";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--ecc-muted);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  text-transform: none;
+}
+
+.reveal h1 { font-size: var(--r-heading1-size); }
+.reveal h2 { font-size: var(--r-heading2-size); }
+.reveal h3 { font-size: var(--r-heading3-size); font-weight: 500; }
+
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.35;
+}
+
+.reveal strong { font-weight: 600; }
+
+.reveal ul,
+.reveal ol {
+  display: block;
+  margin: 0 0 0 1.1em;
+}
+
+.reveal li {
+  margin: 0.25em 0;
+  line-height: 1.3;
+}
+
+.reveal li li {
+  font-size: 0.85em;
+}
+
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: underline;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  font-size: 0.85em;
+}
+
+.reveal pre {
+  display: block;
+  width: 100%;
+  margin: var(--r-block-margin) 0;
+  font-size: 0.7em;
+  line-height: 1.4;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 10px 16px;
+  overflow: auto;
+  max-height: 380px;
+  background: var(--ecc-code-bg);
+  color: var(--ecc-text);
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.reveal pre.data code { background: #dfe8f3; }
+.reveal pre.result code { background: #e8eedd; }
+
+.reveal table {
+  margin: 10px 0;
+  border-collapse: collapse;
+  font-size: 0.75em;
+}
+
+.reveal table th,
+.reveal table td {
+  padding: 6px 14px;
+  border: 1px solid var(--ecc-slate);
+  text-align: left;
+}
+
+.reveal table th { background: #e7e9ec; font-weight: 600; }
+.reveal table td { background: #fff; }
+
+/* the yellow "what the query asks" bubble of the original decks */
+.reveal .ask {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--ecc-callout);
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.reveal .label {
+  display: inline-block;
+  margin: 0 0 6px;
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ecc-muted);
+  text-transform: uppercase;
+}
+
+.reveal .small { font-size: 0.7em; }
+.reveal .muted { color: var(--ecc-muted); }
+
+.reveal .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.reveal .columns > * { min-width: 0; }
+
+.reveal .pill {
+  display: inline-block;
+  padding: 4px 18px;
+  border-radius: 999px;
+  background: var(--ecc-orange);
+  color: #fff;
+  font-size: 0.5em;
+  font-weight: 600;
+}
+
+/* title and section divider slides */
+.reveal .slides section.title-slide,
+.reveal .slides section.divider {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 66px;
+}
+
+/* the backgrounds themselves are set with data-background-* on the section */
+
+.reveal .slides section.title-slide h1,
+.reveal .slides section.title-slide h2,
+.reveal .slides section.title-slide p,
+.reveal .slides section.divider h1,
+.reveal .slides section.divider h2,
+.reveal .slides section.divider p,
+.reveal .slides section.title-slide::after,
+.reveal .slides section.divider::after {
+  color: #fff;
+}
+
+.reveal .slides section.title-slide h1,
+.reveal .slides section.divider h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.reveal .slides section.title-slide .brand,
+.reveal .slides section.divider .brand {
+  position: absolute;
+  top: 44px;
+  left: 46px;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.reveal .slides section.title-slide .brand small,
+.reveal .slides section.divider .brand small {
+  display: block;
+  font-size: 0.4em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* inline SVG diagrams */
+.reveal svg.diagram {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+  font-family: var(--r-main-font);
+}
+
+.reveal svg.diagram .node { fill: #dfeac6; stroke: #8fae4f; }
+.reveal svg.diagram .lit { fill: #f8cfb3; stroke: #d98a5a; }
+.reveal svg.diagram .edge { stroke: #3c6fb0; stroke-width: 2; fill: none; }
+.reveal svg.diagram text { fill: var(--ecc-text); }
+
+/* Semantic Web layer cake */
+.reveal .stack {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  width: 600px;
+  margin: 0 auto;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.reveal .stack div {
+  padding: 10px 4px;
+  border: 1px solid #9aa3ab;
+  background: #e2e4e7;
+}
+
+/* progress bar and controls in eccenca orange */
+.reveal .progress { color: var(--ecc-orange); height: 4px; }
+.reveal .controls { color: var(--ecc-orange); }
+.reveal .slide-number a { text-decoration: none; color: inherit; }
+.reveal .slide-number {
+  background: transparent;
+  color: var(--ecc-muted);
+  font-size: 11px;
+  left: 46px;
+  right: auto;
+  bottom: 14px;
+}
+
+/* ontology engineering: marking concepts, relations, instances and attributes in a text */
+.reveal .domain-text { font-size: 0.85em; line-height: 1.5; }
+.reveal .c-concept { color: #3c6fb0; font-weight: 500; }
+.reveal .c-rel { color: #c0504d; font-weight: 500; }
+.reveal .c-inst { color: #7030a0; font-style: italic; }
+.reveal .c-attr { color: #2e8b57; font-weight: 500; }
+
+/* class diagrams */
+.reveal svg.diagram .cls { fill: #4f81bd; stroke: #2e5a8a; }
+.reveal svg.diagram .cls-label { fill: #fff; }
+.reveal svg.diagram .rel { stroke: #e08a00; stroke-width: 2; fill: none; }
+.reveal svg.diagram .rel-label { fill: #c97800; }
+.reveal svg.diagram .sub { stroke: #4f81bd; stroke-width: 1.5; fill: none; }

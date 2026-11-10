@@ -33,7 +33,7 @@ They do no git work: no branch, no staging, no commit, no push. Committing is th
 ## Four things that are easy to get wrong
 
 **Most files under `docs/` are generated.** About 500 of 664. They carry a `generated` marker, except the
-`graph-insights` files declared in a `_README.md`. Check before editing anything:
+`graph-insights` files synced from upstream (see `repo-conventions.md`). Check before editing anything:
 
 ```bash
 head -5 <file> | grep -i "generated"

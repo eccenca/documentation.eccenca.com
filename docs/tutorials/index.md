@@ -1,7 +1,5 @@
 ---
 icon: material/list-status
-hide:
-  - navigation
 ---
 # Tutorials
 
