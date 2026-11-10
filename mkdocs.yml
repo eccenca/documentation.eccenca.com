@@ -89,6 +89,7 @@ extra_javascript:
   - assets/tablesort.js
   - assets/extra.js
   - assets/training.js
+  - assets/training-sparql.js
 # }}}
 
 # {{{ Theme configuration

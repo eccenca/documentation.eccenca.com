@@ -114,3 +114,124 @@
     padding-left: 0.6rem;
     transition: box-shadow 0.2s, padding 0.2s;
 }
+
+/* ---------------------------------------------------------------------------
+   "Try it" boxes: SPARQL that runs in the browser. See assets/training-sparql.js.
+   --------------------------------------------------------------------------- */
+
+.md-typeset .try-sparql__hint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__editable code {
+    outline: none;
+    cursor: text;
+}
+
+.md-typeset .try-sparql__editable:focus-within {
+    box-shadow: 0 0 0 0.1rem #f39200;
+    border-radius: 0.1rem;
+}
+
+.md-typeset .try-sparql__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.8rem;
+    margin: -0.4em 0 0.6em;
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__button {
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--md-primary-fg-color);
+    border-radius: 0.2rem;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    font: inherit;
+    cursor: pointer;
+}
+
+.md-typeset .try-sparql__button:hover,
+.md-typeset .try-sparql__button:focus-visible {
+    border-color: #f39200;
+    background: #f39200;
+    color: #fff;
+}
+
+.md-typeset .try-sparql__reset {
+    background: transparent;
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset .try-sparql__status--error {
+    color: var(--md-code-hl-special-color, #c0392b);
+    font-family: var(--md-code-font-family);
+    white-space: pre-wrap;
+}
+
+.md-typeset .try-sparql__result table {
+    display: block;
+    max-height: 24rem;
+    margin: 0 0 1em;
+    overflow: auto;
+    font-size: 0.65rem;
+}
+
+.md-typeset .try-sparql__result td {
+    font-family: var(--md-code-font-family);
+    white-space: nowrap;
+}
+
+.md-typeset .try-sparql__suffix {
+    color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .try-sparql__result table th,
+.md-typeset .try-sparql__result table td {
+    padding: 0.35em 0.9em;
+}
+
+/* label data and query blocks, with or without the script */
+.md-typeset .try-data.highlight,
+.md-typeset .try-query.highlight {
+    position: relative;
+}
+
+.md-typeset .try-data.highlight::after,
+.md-typeset .try-query.highlight::after {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.6rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.md-typeset .try-data.highlight::after {
+    content: "Data";
+}
+
+.md-typeset .try-query.highlight::after {
+    content: "Query";
+}
+
+/* a result whose query or data was edited since it was computed */
+.md-typeset .try-sparql__result--stale {
+    opacity: 0.4;
+}
+
+/* written results carry code spans, run results plain text: look the same */
+.md-typeset .try-sparql__result td code {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    word-break: normal;
+}

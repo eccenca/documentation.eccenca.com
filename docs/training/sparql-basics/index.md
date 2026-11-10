@@ -20,6 +20,7 @@ tags:
 
     Use **Show slide** next to a heading to bring the matching slide into view, or **Read the explanation** under the slides to jump to the text for the current slide.
     All queries run in the [Query module](../../explore-and-author/query-module/index.md) of eccenca Corporate Memory.
+    The **Try it** boxes run the queries of the slides directly in the browser, against the data shown in the box, without a Corporate Memory instance.
 
 ## Why a query language for RDF { #why-a-query-language }
 
@@ -62,6 +63,39 @@ A variable starts with `?` (or `$`), carries a freely chosen name and may stand 
 The example uses the Registered Organization Vocabulary, whose property `rov:legalName` holds the official name of an organization.
 The query reads: *find every `?x` with a legal name, and return the name*.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix rov:  <http://www.w3.org/ns/regorg#> .
+    @prefix org:  <http://www.w3.org/ns/org#> .
+    @prefix comp: <http://example.org/company/> .
+    @prefix site: <http://example.org/site/> .
+
+    comp:A rov:legalName "Niké" ;
+           org:hasRegisteredSite site:1234 .
+    comp:B rov:legalName "BARCO" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX rov: <http://www.w3.org/ns/regorg#>
+
+    SELECT ?name
+    WHERE {
+      ?x rov:legalName ?name .
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 rows
+
+    | name |
+    | --- |
+    | `"BARCO"` |
+    | `"Niké"` |
+
+    </div>
+
 ## Basic graph patterns { #basic-graph-patterns }
 
 A set of triple patterns is a basic graph pattern.
@@ -74,6 +108,70 @@ Only `ex:E63_AMG` satisfies all three, and the query returns its model and class
 
 Patterns that share no variable are not joined, and the result is the cross product of their solutions.
 An unintended cross product is a frequent cause of slow queries with huge results.
+
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex: <http://example.org/> .
+
+    ex:E63_AMG ex:producedBy <http://mercedes-benz.de/> ;
+               ex:model "E63 AMG" ;
+               ex:class "E-Klasse" .
+    ex:C200    ex:producedBy <http://mercedes-benz.de/> ;
+               ex:model "C 200" .
+    ex:M3      ex:producedBy <http://bmw.de/> ;
+               ex:model "M3" ;
+               ex:class "3er" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?model ?class
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      ?car ex:model ?model .
+      ?car ex:class ?class .
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | model | class |
+    | --- | --- |
+    | `"E63 AMG"` | `"E-Klasse"` |
+
+    </div>
+
+    The second query uses two variables, `?car` and `?other`, so its patterns are not joined.
+    Each of the two Mercedes-Benz cars combines with each of the three models:
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?car ?model
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      ?other ex:model ?model .
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    6 rows
+
+    | car | model |
+    | --- | --- |
+    | `ex:E63_AMG` | `"M3"` |
+    | `ex:C200` | `"M3"` |
+    | `ex:E63_AMG` | `"C 200"` |
+    | `ex:C200` | `"C 200"` |
+    | `ex:E63_AMG` | `"E63 AMG"` |
+    | `ex:C200` | `"E63 AMG"` |
+
+    </div>
 
 ## Matching literals { #matching-literals }
 
@@ -92,6 +190,60 @@ The data contains four literals with the text `test`, but they are not the same 
 
 To find a text regardless of its language tag or datatype, compare its string value in a filter: `FILTER (STR(?o) = "test")`.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex:  <http://example.org/> .
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+    ex:bsp1 ex:p "test" .
+    ex:bsp2 ex:p "test"^^xsd:string .
+    ex:bsp3 ex:p "test"@de .
+    ex:bsp4 ex:p "42"^^xsd:integer .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?subject
+    WHERE {
+      ?subject ex:p "test" .
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 rows
+
+    | subject |
+    | --- |
+    | `ex:bsp2` |
+    | `ex:bsp1` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?subject ?o
+    WHERE {
+      ?subject ex:p ?o .
+      FILTER (STR(?o) = "test")
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    3 rows
+
+    | subject | o |
+    | --- | --- |
+    | `ex:bsp3` | `"test"@de` |
+    | `ex:bsp2` | `"test"` |
+    | `ex:bsp1` | `"test"` |
+
+    </div>
+
 ## OPTIONAL and UNION { #optional-and-union }
 
 Braces group patterns.
@@ -105,6 +257,70 @@ Without `OPTIONAL`, Schmidt, who has neither, would disappear from the result, a
 The union is not exclusive: Mueller, who has a phone number and an email address, appears twice, once for each.
 Binding both alternatives to the same variable `?contactData` puts phone numbers and email addresses into one column.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix : <http://example.org/customers/> .
+
+    :c1 :hasName "Mueller" ;
+        :hasPhoneNumber "03414483711" ;
+        :hasEmail "mueller@example.org" .
+    :c2 :hasName "Meyer" ;
+        :hasEmail "meyer@example.org" .
+    :c3 :hasName "Schulze" ;
+        :hasPhoneNumber "0308473625" .
+    :c4 :hasName "Schmidt" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX : <http://example.org/customers/>
+
+    SELECT ?customer ?phone ?email
+    WHERE {
+      ?customerID :hasName ?customer .
+      OPTIONAL { ?customerID :hasPhoneNumber ?phone . }
+      OPTIONAL { ?customerID :hasEmail ?email . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    4 rows
+
+    | customer | phone | email |
+    | --- | --- | --- |
+    | `"Schmidt"` |  |  |
+    | `"Schulze"` | `"0308473625"` |  |
+    | `"Meyer"` |  | `"meyer@example.org"` |
+    | `"Mueller"` | `"03414483711"` | `"mueller@example.org"` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX : <http://example.org/customers/>
+
+    SELECT ?contactData ?customer
+    WHERE {
+      ?customerID :hasName ?customer .
+      { ?customerID :hasPhoneNumber ?contactData . }
+      UNION
+      { ?customerID :hasEmail ?contactData . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    4 rows
+
+    | contactData | customer |
+    | --- | --- |
+    | `"0308473625"` | `"Schulze"` |
+    | `"meyer@example.org"` | `"Meyer"` |
+    | `"03414483711"` | `"Mueller"` |
+    | `"mueller@example.org"` | `"Mueller"` |
+
+    </div>
+
 ## Combining OPTIONAL and UNION { #combining-optional-and-union }
 
 `OPTIONAL` and `UNION` bind equally strong and are left-associative: each applies to everything written to its left within the same group.
@@ -115,6 +331,80 @@ A reader who expects it to apply only to the editor branch is surprised by the r
 
 Explicit braces make the intention visible and cost nothing.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex:   <http://example.org/> .
+    @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+    ex:book1 ex:publishedBy ex:Springer ;
+             ex:author ex:alice .
+    ex:book2 ex:publishedBy ex:Springer ;
+             ex:editor ex:bob .
+    ex:book3 ex:publishedBy ex:Springer ;
+             ex:editor ex:carol .
+    ex:book4 ex:publishedBy ex:Elsevier ;
+             ex:author ex:dave .
+
+    ex:alice foaf:firstName "Alice" .
+    ex:bob   foaf:firstName "Bob" .
+    ex:dave  foaf:firstName "Dave" .
+    ```
+
+    The `OPTIONAL` applies to the whole union, so authors and editors get their first name:
+
+    ```sparql { .try-query }
+    PREFIX ex:   <http://example.org/>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+    SELECT ?book ?person ?firstName
+    WHERE {
+      { ?book ex:publishedBy ex:Springer ; ex:author ?person . }
+      UNION
+      { ?book ex:publishedBy ex:Springer ; ex:editor ?person . }
+      OPTIONAL { ?person foaf:firstName ?firstName . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    3 rows
+
+    | book | person | firstName |
+    | --- | --- | --- |
+    | `ex:book1` | `ex:alice` | `"Alice"` |
+    | `ex:book3` | `ex:carol` |  |
+    | `ex:book2` | `ex:bob` | `"Bob"` |
+
+    </div>
+
+    Braces that move the `OPTIONAL` into the editor branch change the result, and the author loses the first name:
+
+    ```sparql { .try-query }
+    PREFIX ex:   <http://example.org/>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+    SELECT ?book ?person ?firstName
+    WHERE {
+      { ?book ex:publishedBy ex:Springer ; ex:author ?person . }
+      UNION
+      { ?book ex:publishedBy ex:Springer ; ex:editor ?person .
+        OPTIONAL { ?person foaf:firstName ?firstName . } }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    3 rows
+
+    | book | person | firstName |
+    | --- | --- | --- |
+    | `ex:book1` | `ex:alice` |  |
+    | `ex:book3` | `ex:carol` |  |
+    | `ex:book2` | `ex:bob` | `"Bob"` |
+
+    </div>
+
 ## FILTER { #filter }
 
 Graph patterns select by structure.
@@ -124,6 +414,42 @@ Filters select by value: participants younger than 30, last names containing a h
 A solution is removed when the expression is false and also when it raises an error, for example a comparison between a number and a string.
 
 A filter applies to the whole group it stands in, wherever in the group it is written.
+
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex: <http://example.org/> .
+
+    ex:E63_AMG ex:producedBy <http://mercedes-benz.de/> ;
+               ex:model "E63 AMG" ;
+               ex:price 115000 .
+    ex:C200    ex:producedBy <http://mercedes-benz.de/> ;
+               ex:model "C 200" ;
+               ex:price 48500 .
+    ex:A180    ex:producedBy <http://mercedes-benz.de/> ;
+               ex:model "A 180" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?car
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      ?car ex:price ?price .
+      FILTER (?price < 70000)
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | car |
+    | --- |
+    | `ex:C200` |
+
+    </div>
 
 ## Operators { #operators }
 
@@ -138,6 +464,66 @@ SPARQL logic has three values: true, false and error.
 `true || error` is true and `false && error` is false, because the other operand already decides the outcome; in every other case an error propagates.
 At the end, the filter treats an error like false.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex: <http://example.org/> .
+
+    ex:anna  ex:name "Anna Schmidt-Lehmann" ;
+             ex:age 27 .
+    ex:ben   ex:name "Ben Ott" ;
+             ex:age 34 .
+    ex:clara ex:name "Clara Weiss" ;
+             ex:age "unknown" .
+    ```
+
+    Comparing the string `"unknown"` with a number is an error, so the filter removes Clara:
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?name ?age
+    WHERE {
+      ?person ex:name ?name ;
+              ex:age ?age .
+      FILTER (?age < 30)
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | name | age |
+    | --- | --- |
+    | `"Anna Schmidt-Lehmann"` | `"27"^^xsd:integer` |
+
+    </div>
+
+    With `||`, the error meets a true operand, and Clara is back:
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?name ?age
+    WHERE {
+      ?person ex:name ?name ;
+              ex:age ?age .
+      FILTER (?age < 30 || CONTAINS(?name, "Weiss"))
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 rows
+
+    | name | age |
+    | --- | --- |
+    | `"Clara Weiss"` | `"unknown"` |
+    | `"Anna Schmidt-Lehmann"` | `"27"^^xsd:integer` |
+
+    </div>
+
 ## Functions for RDF terms { #rdf-functions }
 
 SPARQL provides functions that inspect RDF terms:
@@ -150,6 +536,58 @@ SPARQL provides functions that inspect RDF terms:
 
 SPARQL 1.1 adds string functions such as `CONTAINS`, `STRSTARTS`, `LCASE`, `CONCAT` and `REPLACE`, which are faster and easier to read than a regular expression for simple cases.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex:   <http://example.org/> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+    ex:zurich rdfs:label "Zürich"@de-CH , "Zurich"@en .
+    ex:munich rdfs:label "München"@de , "Munich"@en .
+    ex:paris  rdfs:label "Paris" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?city ?label (LANG(?label) AS ?lang) (DATATYPE(?label) AS ?datatype)
+    WHERE {
+      ?city rdfs:label ?label .
+      FILTER langMatches(LANG(?label), "de")
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 rows
+
+    | city | label | lang | datatype |
+    | --- | --- | --- | --- |
+    | `ex:munich` | `"München"@de` | `"de"` | `rdf:langString` |
+    | `ex:zurich` | `"Zürich"@de-ch` | `"de-ch"` | `rdf:langString` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?city ?label
+    WHERE {
+      ?city rdfs:label ?label .
+      FILTER REGEX(?label, "^mu", "i")
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | city | label |
+    | --- | --- |
+    | `ex:munich` | `"Munich"@en` |
+
+    </div>
+
 ## Negation { #negation }
 
 *Show all cars without a price* asks for something that is not in the data.
@@ -160,6 +598,81 @@ The two give the same result in most queries, and differ when the patterns share
 `FILTER NOT EXISTS` is the safer default.
 
 The older idiom `OPTIONAL { … } FILTER (!BOUND(?x))` achieves the same and appears in many existing queries.
+
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex: <http://example.org/> .
+
+    ex:E63_AMG ex:producedBy <http://mercedes-benz.de/> ;
+               ex:price 115000 .
+    ex:C200    ex:producedBy <http://mercedes-benz.de/> ;
+               ex:price 48500 .
+    ex:A180    ex:producedBy <http://mercedes-benz.de/> .
+    ```
+
+    The three queries express the same question in the three ways:
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?car
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      FILTER NOT EXISTS { ?car ex:price ?price . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | car |
+    | --- |
+    | `ex:A180` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?car
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      MINUS { ?car ex:price ?price . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | car |
+    | --- |
+    | `ex:A180` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT ?car
+    WHERE {
+      ?car ex:producedBy <http://mercedes-benz.de/> .
+      OPTIONAL { ?car ex:price ?price . }
+      FILTER (!BOUND(?price))
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    1 row
+
+    | car |
+    | --- |
+    | `ex:A180` |
+
+    </div>
 
 ## Solution modifiers { #solution-modifiers }
 
@@ -175,6 +688,36 @@ The modifiers apply in this order: sort, remove duplicates, skip, cut.
 Without `ORDER BY`, the order of the rows is undefined, and `LIMIT` and `OFFSET` return arbitrary rows.
 Combine them with `ORDER BY` to page through a result reliably.
 
+??? example try-sparql "Try it"
+
+    Data: [thirty books with a price](data/books.ttl){ .try-data }
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+
+    SELECT DISTINCT ?book ?price
+    WHERE {
+      ?book ex:price ?price .
+    }
+    ORDER BY DESC(?price) ?book
+    LIMIT 5
+    OFFSET 25
+    ```
+
+    <div class="try-result" markdown>
+
+    5 rows
+
+    | book | price |
+    | --- | --- |
+    | `ex:book13` | `"8.5"^^xsd:decimal` |
+    | `ex:book28` | `"8.2"^^xsd:decimal` |
+    | `ex:book20` | `"7.99"^^xsd:decimal` |
+    | `ex:book27` | `"7.5"^^xsd:decimal` |
+    | `ex:book26` | `"6.9"^^xsd:decimal` |
+
+    </div>
+
 ## Query forms { #query-forms }
 
 SPARQL has four query forms, which differ in what they return:
@@ -189,6 +732,51 @@ SPARQL has four query forms, which differ in what they return:
 
 The examples use two W3C vocabularies: `rov:` for the Registered Organization Vocabulary and `org:` for the Organization Ontology.
 
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix rov:  <http://www.w3.org/ns/regorg#> .
+    @prefix org:  <http://www.w3.org/ns/org#> .
+    @prefix comp: <http://example.org/company/> .
+    @prefix site: <http://example.org/site/> .
+
+    comp:A rov:legalName "Niké" ;
+           org:hasRegisteredSite site:1234 .
+    comp:B rov:legalName "BARCO" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX org:  <http://www.w3.org/ns/org#>
+    PREFIX comp: <http://example.org/company/>
+
+    ASK { comp:B org:hasRegisteredSite ?site . }
+    ```
+
+    <div class="try-result" markdown>
+
+    Answer: false
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX org:  <http://www.w3.org/ns/org#>
+    PREFIX site: <http://example.org/site/>
+
+    DESCRIBE ?org
+    WHERE { ?org org:hasRegisteredSite site:1234 . }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 triples
+
+    | subject | predicate | object |
+    | --- | --- | --- |
+    | `comp:A` | `org:hasRegisteredSite` | `site:1234` |
+    | `comp:A` | `rov:legalName` | `"Niké"` |
+
+    </div>
+
 ## CONSTRUCT { #construct }
 
 `CONSTRUCT` turns query results into new triples.
@@ -197,6 +785,38 @@ The template after `CONSTRUCT` is a set of triple patterns, and the triple store
 The example derives an `rdfs:label` from each legal name.
 Typical uses are mapping data from one vocabulary to another, deriving shortcuts over long paths, and extracting a subgraph for export.
 In Corporate Memory, a `CONSTRUCT` query in a workflow writes its result into a graph, which makes it a building block for data transformation.
+
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix rov:  <http://www.w3.org/ns/regorg#> .
+    @prefix org:  <http://www.w3.org/ns/org#> .
+    @prefix comp: <http://example.org/company/> .
+    @prefix site: <http://example.org/site/> .
+
+    comp:A rov:legalName "Niké" ;
+           org:hasRegisteredSite site:1234 .
+    comp:B rov:legalName "BARCO" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX rov:  <http://www.w3.org/ns/regorg#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    CONSTRUCT { ?comp rdfs:label ?name . }
+    WHERE     { ?comp rov:legalName ?name . }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 triples
+
+    | subject | predicate | object |
+    | --- | --- | --- |
+    | `comp:B` | `rdfs:label` | `"BARCO"` |
+    | `comp:A` | `rdfs:label` | `"Niké"` |
+
+    </div>
 
 ## Aggregation and more { #aggregation }
 
@@ -209,6 +829,69 @@ SPARQL 1.1 added the features that make it a complete analysis language:
 - **`VALUES`** provides a fixed list of bindings, for example a list of IRIs to look up.
 - **Property paths** follow chains and repetitions of properties: `prod:memberOf/rdfs:label` reaches the label of the department, `rdfs:subClassOf*` walks a class hierarchy to any depth.
 
+??? example try-sparql "Try it"
+
+    Data: [product data](data/product-data.ttl){ .try-data }, the graphs of the [exercises](#exercises)
+
+    ```sparql { .try-query }
+    PREFIX prod: <http://ld.company.org/prod-vocab/>
+
+    SELECT ?manager (COUNT(?product) AS ?products)
+    WHERE {
+      ?product prod:hasProductManager ?manager .
+    }
+    GROUP BY ?manager
+    ORDER BY DESC(?products)
+    ```
+
+    <div class="try-result" markdown>
+
+    56 rows, the first 10 shown
+
+    | manager | products |
+    | --- | --- |
+    | `pi:empl-Wolfgang.Martin%40company.org` | `"28"^^xsd:integer` |
+    | `pi:empl-Bert.Blumstein%40company.org` | `"26"^^xsd:integer` |
+    | `pi:empl-Franziska.Acker%40company.org` | `"26"^^xsd:integer` |
+    | `pi:empl-Gretel.Roth%40company.org` | `"25"^^xsd:integer` |
+    | `pi:empl-Manfred.Foth%40company.org` | `"25"^^xsd:integer` |
+    | `pi:empl-Berlin.Schulz%40company.org` | `"24"^^xsd:integer` |
+    | `pi:empl-Thomas.Mueller%40company.org` | `"24"^^xsd:integer` |
+    | `pi:empl-Elisabeth.Harman%40company.org` | `"24"^^xsd:integer` |
+    | `pi:empl-Kevin.Feigenbaum%40company.org` | `"24"^^xsd:integer` |
+    | `pi:empl-Corinna.Ludwig%40company.org` | `"22"^^xsd:integer` |
+
+    </div>
+
+    A property path reaches the department of the product manager in one step:
+
+    ```sparql { .try-query }
+    PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?department (COUNT(DISTINCT ?product) AS ?products)
+    WHERE {
+      ?product prod:hasProductManager/prod:memberOf/rdfs:label ?department .
+    }
+    GROUP BY ?department
+    ORDER BY DESC(?products)
+    ```
+
+    <div class="try-result" markdown>
+
+    6 rows
+
+    | department | products |
+    | --- | --- |
+    | `"Product Management"` | `"238"^^xsd:integer` |
+    | `"Marketing"` | `"183"^^xsd:integer` |
+    | `"Data Services"` | `"179"^^xsd:integer` |
+    | `"Procurement"` | `"152"^^xsd:integer` |
+    | `"Engineering"` | `"125"^^xsd:integer` |
+    | `"Production"` | `"83"^^xsd:integer` |
+
+    </div>
+
 ## SPARQL Update { #sparql-update }
 
 SPARQL 1.1 Update changes graphs:
@@ -220,6 +903,73 @@ SPARQL 1.1 Update changes graphs:
 `GRAPH <iri> { … }` selects the named graph to change.
 In Corporate Memory, every graph is a named graph, and write access is controlled per graph by access conditions.
 
+??? example try-sparql "Try it"
+
+    The store of this box starts empty.
+    Run the four steps in order: insert, look, rename, drop.
+
+    ```sparql { .try-query }
+    PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    INSERT DATA {
+      GRAPH <http://ld.company.org/training/> {
+        <http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org>
+            a prod:Employee ;
+            rdfs:label "Jane Doe" .
+      }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    Update done (+2), the store holds 2 triples.
+
+    </div>
+
+    ```sparql { .try-query }
+    SELECT ?s ?p ?o
+    WHERE {
+      GRAPH <http://ld.company.org/training/> { ?s ?p ?o . }
+    }
+    ```
+
+    <div class="try-result" markdown>
+
+    2 rows
+
+    | s | p | o |
+    | --- | --- | --- |
+    | `<http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org>` | `rdfs:label` | `"Jane Doe"` |
+    | `<http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org>` | `rdf:type` | `<http://ld.company.org/prod-vocab/Employee>` |
+
+    </div>
+
+    ```sparql { .try-query }
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+    DELETE { GRAPH ?g { ?s rdfs:label ?label . } }
+    INSERT { GRAPH ?g { ?s skos:prefLabel ?label . } }
+    WHERE  { GRAPH ?g { ?s rdfs:label ?label . } }
+    ```
+
+    <div class="try-result" markdown>
+
+    Update done, the store holds 2 triples.
+
+    </div>
+
+    ```sparql { .try-query }
+    DROP GRAPH <http://ld.company.org/training/>
+    ```
+
+    <div class="try-result" markdown>
+
+    Update done (-2), the store holds 0 triples.
+
+    </div>
+
 ## Exercises { #exercises }
 
 The exercises query the product data of the **Product Data Demo** package, ID `ecc-product-data-project`.
@@ -227,7 +977,7 @@ The [sandbox](../../getting-started/with-your-sandbox/index.md) comes with it in
 The package contains the build project *Product Data Integration Demo* and the graphs it generates, among them hardware, services and the organization map, plus the integration graph *Products - Integration* (`http://ld.company.org/prod-inst/`), which imports all of them.
 
 The vocabulary uses the prefix `prod:` for `http://ld.company.org/prod-vocab/`.
-Run the queries in the Query module.
+Run the queries in the Query module, or with **Run** on this page against a copy of the graphs in [product-data.ttl](data/product-data.ttl).
 
 !!! tip "No inference"
 
@@ -235,9 +985,11 @@ Run the queries in the Query module.
     The triple store does not infer `prod:Product` from that, so `?product a prod:Product` finds nothing.
     The property path `a/rdfs:subClassOf*` follows the class hierarchy in the query itself, and the solutions below use it wherever a superclass is meant.
 
-??? example "1. Find all products"
+??? example try-sparql "1. Find all products"
 
-    ```sparql
+    Data: [product data](data/product-data.ttl){ .try-data }
+
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -249,11 +1001,32 @@ Run the queries in the Query module.
     ORDER BY ?label
     ```
 
+    <div class="try-result" markdown>
+
+    1009 rows, the first 10 shown
+
+    | product | label |
+    | --- | --- |
+    | `pi:hw-A145-1240844` | `"A145-1240844 - Bipolar-junction Coil Compensator Transducer"` |
+    | `pi:hw-A166-3766336` | `"A166-3766336 - Aluminum LCD Driver Gauge"` |
+    | `pi:hw-A181-1118563` | `"A181-1118563 - Compensator Switch"` |
+    | `pi:hw-A225-1988393` | `"A225-1988393 - Field-effect Dipole Gauge"` |
+    | `pi:hw-A243-3332548` | `"A243-3332548 - Bipolar-junction Crystal Meter"` |
+    | `pi:hw-A315-1730287` | `"A315-1730287 - Network Dipole"` |
+    | `pi:hw-A360-3041803` | `"A360-3041803 - Inductor Transformer Warp"` |
+    | `pi:hw-A391-9508821` | `"A391-9508821 - Oscillator Compensator"` |
+    | `pi:hw-A403-4549719` | `"A403-4549719 - Flow Gauge Transformer"` |
+    | `pi:hw-A464-7310986` | `"A464-7310986 - Network Driver"` |
+
+    </div>
+
     The result has 1009 rows: 1000 hardware products and 9 services.
 
-??? example "2. Find hardware products lighter than 10 g"
+??? example try-sparql "2. Find hardware products lighter than 10 g"
 
-    ```sparql
+    Data: [product data](data/product-data.ttl){ .try-data }
+
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -267,15 +1040,36 @@ Run the queries in the Query module.
     ORDER BY ?weight ?label
     ```
 
+    <div class="try-result" markdown>
+
+    478 rows, the first 10 shown
+
+    | product | label | weight |
+    | --- | --- | --- |
+    | `pi:hw-A998-9941987` | `"A998-9941987 - Flow Compensator"` | `"1"^^xsd:integer` |
+    | `pi:hw-C213-4995667` | `"C213-4995667 - Potentiometer Crystal Encoder"` | `"1"^^xsd:integer` |
+    | `pi:hw-C770-9751514` | `"C770-9751514 - Transistor Resonator Breaker"` | `"1"^^xsd:integer` |
+    | `pi:hw-D483-7794770` | `"D483-7794770 - Memristor Gauge"` | `"1"^^xsd:integer` |
+    | `pi:hw-D516-5106885` | `"D516-5106885 - Driver Rheostat Capacitor"` | `"1"^^xsd:integer` |
+    | `pi:hw-D915-4717890` | `"D915-4717890 - Oscillator Switch"` | `"1"^^xsd:integer` |
+    | `pi:hw-E405-1045893` | `"E405-1045893 - Polymer Sensor"` | `"1"^^xsd:integer` |
+    | `pi:hw-E424-4700158` | `"E424-4700158 - Rheostat Compensator Meter"` | `"1"^^xsd:integer` |
+    | `pi:hw-E502-4333702` | `"E502-4333702 - Heisenberg Resistor Gauge Dipole"` | `"1"^^xsd:integer` |
+    | `pi:hw-E660-5579477` | `"E660-5579477 - Film Oscillator Transistor Capacitor"` | `"1"^^xsd:integer` |
+
+    </div>
+
     `prod:weight_g` holds the weight in grams.
     478 of the 1000 hardware products weigh less than 10 g.
 
-??? example "3. Find products whose product manager is not in the organization map"
+??? example try-sparql "3. Find products whose product manager is not in the organization map"
+
+    Data: [product data](data/product-data.ttl){ .try-data }
 
     Every product in the data has a product manager, so a query for products *without* one returns no rows.
     A more revealing question is whether the product manager is a known employee:
 
-    ```sparql
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -289,12 +1083,33 @@ Run the queries in the Query module.
     ORDER BY ?manager ?label
     ```
 
+    <div class="try-result" markdown>
+
+    49 rows, the first 10 shown
+
+    | item | label | manager |
+    | --- | --- | --- |
+    | `pi:hw-A509-5571891` | `"A509-5571891 - Multiplexer Inductor"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-A595-2446575` | `"A595-2446575 - Sensor Driver Capacitor"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-C605-1105328` | `"C605-1105328 - Log-periodic Gauge Compensator Meter"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-C799-8367143` | `"C799-8367143 - Coil Strain Meter"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-E267-7496794` | `"E267-7496794 - Crystal Rheostat"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-E395-9906117` | `"E395-9906117 - Flow Inductor Crystal Encoder"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-E952-1325145` | `"E952-1325145 - Driver Gauge"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-H609-2196524` | `"H609-2196524 - Planck Potentiometer Transformer"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-M645-5460777` | `"M645-5460777 - Log-periodic Multiplexer Rheostat"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+    | `pi:hw-R231-2442628` | `"R231-2442628 - Transformer Transducer"` | `pi:empl-Frau.Irmalinda%E2%80%9A%C3%84%C3%B2.Becker%40company.org` |
+
+    </div>
+
     49 products refer to 3 product managers that the organization map does not contain.
     Without the property path, managers typed only as `prod:Manager` would show up as well.
 
-??? example "4. Find products without a responsible department"
+??? example try-sparql "4. Find products without a responsible department"
 
-    ```sparql
+    Data: [product data](data/product-data.ttl){ .try-data }
+
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -307,14 +1122,35 @@ Run the queries in the Query module.
     ORDER BY ?label
     ```
 
+    <div class="try-result" markdown>
+
+    951 rows, the first 10 shown
+
+    | item | label |
+    | --- | --- |
+    | `pi:hw-A166-3766336` | `"A166-3766336 - Aluminum LCD Driver Gauge"` |
+    | `pi:hw-A181-1118563` | `"A181-1118563 - Compensator Switch"` |
+    | `pi:hw-A225-1988393` | `"A225-1988393 - Field-effect Dipole Gauge"` |
+    | `pi:hw-A243-3332548` | `"A243-3332548 - Bipolar-junction Crystal Meter"` |
+    | `pi:hw-A315-1730287` | `"A315-1730287 - Network Dipole"` |
+    | `pi:hw-A360-3041803` | `"A360-3041803 - Inductor Transformer Warp"` |
+    | `pi:hw-A391-9508821` | `"A391-9508821 - Oscillator Compensator"` |
+    | `pi:hw-A403-4549719` | `"A403-4549719 - Flow Gauge Transformer"` |
+    | `pi:hw-A464-7310986` | `"A464-7310986 - Network Driver"` |
+    | `pi:hw-A509-5571891` | `"A509-5571891 - Multiplexer Inductor"` |
+
+    </div>
+
     Departments are responsible for 58 products, so 951 products have no responsible department.
 
-??? example "5. Find alternative experts for a product"
+??? example try-sparql "5. Find alternative experts for a product"
+
+    Data: [product data](data/product-data.ttl){ .try-data }
 
     An employee's `prod:areaOfExpertise` names product categories.
     Employees who share a category with the product manager can take over responsibility:
 
-    ```sparql
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -333,12 +1169,24 @@ Run the queries in the Query module.
     GROUP BY ?productLabel ?managerLabel
     ```
 
+    <div class="try-result" markdown>
+
+    1 row
+
+    | productLabel | managerLabel | alternatives |
+    | --- | --- | --- |
+    | `"N573-1498086 - Dipole Transformer"` | `"Ratt Hartmann"` | `"Valda Everhart, Siglind Brinkerhoff, Kevin Feigenbaum, Anamchara Foerstner, Xochitl Aue, Frauke Faerber, Wanja Hoffmann, Sabrina Geiger, Minnie Kuehn, Lili Geier, Herr Burgh Eichel, Bert Blumstein, Arnelle Gerber, Arendt Beitel"` |
+
+    </div>
+
     For the Dipole Transformer, managed by Ratt Hartmann, the query lists 14 colleagues.
     Remove the `VALUES` line to get the alternatives for every product.
 
-??? example "6. Count the products per manager and department"
+??? example try-sparql "6. Count the products per manager and department"
 
-    ```sparql
+    Data: [product data](data/product-data.ttl){ .try-data }
+
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -353,12 +1201,33 @@ Run the queries in the Query module.
     ORDER BY ?departmentLabel DESC(?products)
     ```
 
+    <div class="try-result" markdown>
+
+    53 rows, the first 10 shown
+
+    | departmentLabel | managerLabel | products |
+    | --- | --- | --- |
+    | `"Data Services"` | `"Wolfgang Martin"` | `"28"^^xsd:integer` |
+    | `"Data Services"` | `"Gretel Roth"` | `"25"^^xsd:integer` |
+    | `"Data Services"` | `"Nadia Schubert"` | `"20"^^xsd:integer` |
+    | `"Data Services"` | `"Elena Herzog"` | `"18"^^xsd:integer` |
+    | `"Data Services"` | `"Anamchara Foerstner"` | `"17"^^xsd:integer` |
+    | `"Data Services"` | `"Ratt Hartmann"` | `"16"^^xsd:integer` |
+    | `"Data Services"` | `"Arnelle Gerber"` | `"15"^^xsd:integer` |
+    | `"Data Services"` | `"Siglind Brinkerhoff"` | `"15"^^xsd:integer` |
+    | `"Data Services"` | `"Sylvester Brant"` | `"13"^^xsd:integer` |
+    | `"Data Services"` | `"Rebecca Hall"` | `"12"^^xsd:integer` |
+
+    </div>
+
     Save this query in the query catalog.
     The charts and custom API exercises reuse it.
 
-??? example "7. Add an employee"
+??? example try-sparql "7. Add an employee"
 
-    ```sparql
+    Data: [product data](data/product-data.ttl){ .try-data }
+
+    ```sparql { .try-query }
     PREFIX prod: <http://ld.company.org/prod-vocab/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -372,9 +1241,53 @@ Run the queries in the Query module.
     }
     ```
 
+    <div class="try-result" markdown>
+
+    Update done (+4), the store holds 23601 triples.
+
+    </div>
+
     Replace the name and email address with personal values.
     The statements go into a graph of their own, which leaves the package data untouched and is removed again with `DROP GRAPH <http://ld.company.org/training/>`.
-    Because the new employee links to an existing department, the employee appears in the department's data in queries over all graphs.
+    Because the new employee links to an existing department, the employee appears in the department's data in queries over all graphs:
+
+    ```sparql { .try-query }
+    PREFIX prod: <http://ld.company.org/prod-vocab/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?member ?label
+    WHERE {
+      ?member prod:memberOf <http://ld.company.org/prod-instances/dept-73191> ;
+              rdfs:label ?label .
+    }
+    ORDER BY ?label
+    ```
+
+    <div class="try-result" markdown>
+
+    7 rows
+
+    | member | label |
+    | --- | --- |
+    | `pi:empl-Corinna.Ludwig%40company.org` | `"Corinna Ludwig"` |
+    | `pi:empl-Herr.Haan.Bader%40company.org` | `"Herr Haan Bader"` |
+    | `pi:empl-Jane.Doe%40company.org` | `"Jane Doe"` |
+    | `pi:empl-Karch.Moeller%40company.org` | `"Karch Moeller"` |
+    | `pi:empl-Karen.Brant%40company.org` | `"Karen Brant"` |
+    | `pi:empl-Manfred.Foth%40company.org` | `"Manfred Foth"` |
+    | `pi:empl-Thomas.Mueller%40company.org` | `"Thomas Mueller"` |
+
+    </div>
+
+    ```sparql { .try-query }
+    DROP GRAPH <http://ld.company.org/training/>
+    ```
+
+    <div class="try-result" markdown>
+
+    Update done (-4), the store holds 23597 triples.
+
+    </div>
 
 ## Summary { #summary }
 

@@ -1,0 +1,65 @@
+# Thirty books with a title and a price, for the solution modifiers example
+# of the SPARQL Basics training module.
+@prefix ex: <http://example.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:book01 ex:title "Moby-Dick" ;
+    ex:price "18.90"^^xsd:decimal .
+ex:book02 ex:title "Middlemarch" ;
+    ex:price "24.50"^^xsd:decimal .
+ex:book03 ex:title "Emma" ;
+    ex:price "12.00"^^xsd:decimal .
+ex:book04 ex:title "Dracula" ;
+    ex:price "9.99"^^xsd:decimal .
+ex:book05 ex:title "Ulysses" ;
+    ex:price "32.00"^^xsd:decimal .
+ex:book06 ex:title "Walden" ;
+    ex:price "14.50"^^xsd:decimal .
+ex:book07 ex:title "Persuasion" ;
+    ex:price "12.00"^^xsd:decimal .
+ex:book08 ex:title "Frankenstein" ;
+    ex:price "9.99"^^xsd:decimal .
+ex:book09 ex:title "Bleak House" ;
+    ex:price "27.80"^^xsd:decimal .
+ex:book10 ex:title "Jane Eyre" ;
+    ex:price "15.00"^^xsd:decimal .
+ex:book11 ex:title "Wuthering Heights" ;
+    ex:price "13.40"^^xsd:decimal .
+ex:book12 ex:title "Little Women" ;
+    ex:price "11.90"^^xsd:decimal .
+ex:book13 ex:title "Kim" ;
+    ex:price "8.50"^^xsd:decimal .
+ex:book14 ex:title "Lord Jim" ;
+    ex:price "16.20"^^xsd:decimal .
+ex:book15 ex:title "Nostromo" ;
+    ex:price "21.00"^^xsd:decimal .
+ex:book16 ex:title "Ivanhoe" ;
+    ex:price "10.80"^^xsd:decimal .
+ex:book17 ex:title "Silas Marner" ;
+    ex:price "9.50"^^xsd:decimal .
+ex:book18 ex:title "The Odyssey" ;
+    ex:price "19.90"^^xsd:decimal .
+ex:book19 ex:title "Don Quixote" ;
+    ex:price "29.90"^^xsd:decimal .
+ex:book20 ex:title "Candide" ;
+    ex:price "7.99"^^xsd:decimal .
+ex:book21 ex:title "Faust" ;
+    ex:price "22.00"^^xsd:decimal .
+ex:book22 ex:title "Effi Briest" ;
+    ex:price "11.50"^^xsd:decimal .
+ex:book23 ex:title "Buddenbrooks" ;
+    ex:price "26.40"^^xsd:decimal .
+ex:book24 ex:title "Der Prozess" ;
+    ex:price "12.90"^^xsd:decimal .
+ex:book25 ex:title "Siddhartha" ;
+    ex:price "9.99"^^xsd:decimal .
+ex:book26 ex:title "Heidi" ;
+    ex:price "6.90"^^xsd:decimal .
+ex:book27 ex:title "Pinocchio" ;
+    ex:price "7.50"^^xsd:decimal .
+ex:book28 ex:title "Bambi" ;
+    ex:price "8.20"^^xsd:decimal .
+ex:book29 ex:title "Robinson Crusoe" ;
+    ex:price "10.00"^^xsd:decimal .
+ex:book30 ex:title "Treasure Island" ;
+    ex:price "9.99"^^xsd:decimal .
