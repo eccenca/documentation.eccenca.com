@@ -38,8 +38,7 @@ head -5 <file> | grep -i "generated"
 If the file is generated, stop reviewing it as Markdown.
 Report which generator owns it (see `.claude/docs-guidelines/repo-conventions.md`) and collect the findings for
 a ticket against the generator source instead.
-Also check whether a `_README.md` in the directory declares neighbouring files as generated — those carry no
-inline marker.
+Some generated files carry no inline marker — `repo-conventions.md` lists them (the synced Graph Insights pages).
 
 ### 2. Load the guidelines
 

@@ -31,7 +31,7 @@ This tutorial contains the following step-by-step instructions to connect the Sn
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
-- The product data vocabulary [products_vocabulary.nt](products_vocabulary.nt)
+- The product data vocabulary [products_vocabulary.nt](../products_vocabulary.nt)
 
 ## 1. Create a database in Snowflake
 
@@ -1189,7 +1189,7 @@ Here you can populate some test data with the following SQL query:
 
     ![image](snowflake-click-on-mapping.png){ class="bordered" }
 
-- For  the target entity select  **Product (pv:product)**.
+- For  the target entity select  **Product (pv:Product)**.
 
     ![image](snowflake-target-entity.png){ class="bordered" }
 
@@ -1236,7 +1236,7 @@ Here you can populate some test data with the following SQL query:
 
     !!! note
 
-        Suggestions generated are based on vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
+        Suggestions generated are based on vocabulary which describes the data in the CSV files: [products_vocabulary.nt](../products_vocabulary.nt)
 
 - **Tick** the box to select the suggestions to be added, then click on **Add**.
 

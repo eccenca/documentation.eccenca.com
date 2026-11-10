@@ -46,9 +46,9 @@ The result is a Knowledge Graph of departments, their managers, their employees,
 The following material is used in this tutorial.
 Download both files and keep them at hand.
 
-- Vocabulary which describes the target structure of the Knowledge Graph: [products_vocabulary.nt](products_vocabulary.nt)
+- Vocabulary which describes the target structure of the Knowledge Graph: [products_vocabulary.nt](../products_vocabulary.nt)
 
-    ![Classes and properties of the products vocabulary](products-vocab.png){ class="bordered" }
+    ![Classes and object properties of the products vocabulary in the Vocab tab of Explore](../products-vocab.png){ class="bordered" }
 
 - Source file with the organizational structure of a company: [orgmap.xml](orgmap.xml)
 
