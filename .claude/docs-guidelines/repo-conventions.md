@@ -9,9 +9,14 @@ established in the page rewrites of 2026-08 and 2026-09.
 About 500 of the 664 Markdown files under `docs/` are generated and carry
 `<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->` (variant: `<!-- Auto-Generated. Do not edit directly! -->`).
 
-Additionally, `docs/explore-and-author/graph-exploration/graph-insights/_README.md` declares `concepts.md`,
-`tutorial.md` and `features/*.md` as generated **without** those files carrying an inline marker — a
-marker-only search misses them.
+Additionally, in `docs/explore-and-author/graph-exploration/graph-insights/`, the files `concepts.md`,
+`tutorial.md` and `features/*.md` are generated **without** carrying an inline marker — a marker-only search
+misses them.
+They are synced from the Graph Insights user guide, which Derivo generates with a single-source Jinja pipeline,
+and every sync overwrites manual edits.
+Route fixes to the Derivo team (`derivo-company/eccenca-support` on GitHub).
+`index.md` and `navigating-to-cmem.md` in the same directory are written here and may be edited.
+The upstream `_README.md` that states this does not belong in this repository; do not commit it with a sync.
 
 Check before editing any file:
 
@@ -29,6 +34,7 @@ Generators (see `Taskfile.yml`):
 | `docs/build/integrations/index.md` | `task update:integrations` |
 | `docs/explore-and-author/graph-exploration/building-a-customized-user-interface/{node-shapes,property-shapes,datatype-reference}/` | `task update:shape-reference` |
 | `overrides/.icons/eccenca/` | `task update:icons` |
+| `<div class="try-result" markdown>` blocks in "Try it" boxes (see below) | `task update:try-results` |
 
 Findings in generated files are collected into a report under `dist/` (gitignored) for a ticket against the
 generator source — plugin descriptions, Python docstrings, DataPlatform configuration.
@@ -227,6 +233,38 @@ Do not settle which term that is by counting how often each variant occurs in `d
 Majority usage is frequently the term the team has been trying to retire, and about 500 of the Markdown files
 are generated from sources that lag behind the interface, so a count is weighted towards the older wording.
 Check the running product, or ask, when the correct term is not obvious.
+
+## "Try it" SPARQL boxes
+
+A training page can let the reader run a query in the browser.
+A box is a collapsible admonition with the extra class `try-sparql`, holding data and one or more queries:
+
+````markdown
+??? example try-sparql "Try it"
+
+    ```turtle { .try-data }
+    @prefix ex: <http://example.org/> .
+    ex:a ex:p "test" .
+    ```
+
+    ```sparql { .try-query }
+    PREFIX ex: <http://example.org/>
+    SELECT ?s WHERE { ?s ex:p "test" . }
+    ```
+````
+
+- Data too large to show goes into a file next to the page, linked with `{ .try-data }`:
+  `Data: [product data](data/product-data.ttl){ .try-data }`.
+- The queries of one box share one store and run in order, so an update affects the queries after it.
+- Write every prefix a query uses into the query: the box is copied and edited by readers.
+- Run `task update:try-results` after changing data or a query.
+  It runs every box with pyoxigraph and writes the result under each query as a
+  `<div class="try-result" markdown>` block, which is generated — never edit it.
+  `task check` fails when a written result is out of date.
+- The written results make the box readable without JavaScript, in search and in the PDF.
+  `docs/assets/training-sparql.js` makes the blocks editable, adds **Run** and **Reset**, and runs
+  the queries with the WebAssembly build of Oxigraph in `docs/assets/oxigraph/`.
+- pyoxigraph is pinned to the release of that WebAssembly build. Bump both together.
 
 ## Markdown linting
 

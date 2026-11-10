@@ -10,6 +10,7 @@ from tools.publish import publish
 from tools.update_di_reference import update_di_reference
 from tools.update_icons import update_icons
 from tools.update_integrations import update_integrations
+from tools.update_try_results import update_try_results
 
 @click.group()
 def cli():
@@ -23,3 +24,4 @@ cli.add_command(publish)
 cli.add_command(update_icons)
 cli.add_command(update_di_reference)
 cli.add_command(update_integrations)
+cli.add_command(update_try_results)

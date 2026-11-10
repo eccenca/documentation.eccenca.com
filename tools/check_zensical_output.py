@@ -59,6 +59,7 @@ ASSET_RE = re.compile(
 )
 # <link rel="canonical"> and friends are metadata, not asset loads.
 LINK_META_RE = re.compile(r'rel="(canonical|alternate|manifest)"', re.IGNORECASE)
+DOCS_DIR = Path("docs")
 OG_IMAGE_RE = re.compile(r'<meta property="og:image" content="([^"]+)"')
 TAGS_LISTING_RE = re.compile(r'<h2 id="tag:([^"]+)"')
 # Zensical (0.0.58+) renders tag chips as links to their /tags/ listing anchor
@@ -254,6 +255,10 @@ def check_social_cards(site: Path, pages: list[Path]) -> None:
         body = page.read_text(encoding="utf-8", errors="replace")
         # Redirect stubs and the 404 page get no card.
         if REFRESH_RE.search(body) or page == site / "404.html":
+            continue
+        # An .html file in docs/ is copied verbatim, not rendered as a page,
+        # e.g. the slide decks of the training modules - it gets no card either.
+        if (DOCS_DIR / page.relative_to(site)).is_file():
             continue
         found = OG_IMAGE_RE.search(body)
         if not found:
