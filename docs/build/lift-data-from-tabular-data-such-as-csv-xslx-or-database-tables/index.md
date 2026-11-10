@@ -27,9 +27,9 @@ This beginner-level tutorial shows how you can build a Knowledge Graph based on 
 
 The following material is used in this tutorial, you should download the files and have them at hand throughout the tutorial:
 
-- Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](products_vocabulary.nt)
+- Sample vocabulary which describes the data in the CSV files: [products_vocabulary.nt](../products_vocabulary.nt)
 
-    ![](products-vocab.png){ class="bordered" }
+    ![Classes and object properties of the products vocabulary in the Vocab tab of Explore](../products-vocab.png){ class="bordered" }
 
 - Sample CSV file: [services.csv](services.csv)
 
@@ -178,7 +178,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 2. Fill out the **Label** with `Lift Service Database`.
 
-3. Scroll down to **Target vocabularies**, select **Select individual vocabularies** and choose `pv: Products-Vocab` in the drop-down list.
+3. Scroll down to **Target vocabularies**, select **Select individual vocabularies** and choose `pv: Products - Vocab` in the drop-down list.
 
 
     ![Label transformation](transformation-label.png){ class="bordered" width="50%" }
@@ -201,7 +201,7 @@ The transformation defines how an input dataset (e.g. CSV) will be transformed i
 
 3. Click **Edit** to create a base mapping.
 
-4. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. After typing the **Target entity type** you must click the custom entry: `Service` suggestion. Typing alone leaves it unset. In this example we will use:
+4. Define the **Target entity type** from the vocabulary, the **URI pattern** and a **label** for the mapping. After typing the **Target entity type**, select the `Service` suggestion from the vocabulary, not the **Create option** entry. Typing alone leaves it unset. In this example we will use:
 
     - Target entity type: `Service`
     - URI pattern:

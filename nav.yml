@@ -555,6 +555,12 @@ nav:
       - Distribution: distribution/index.md
       - Marketplace:
           - distribution/marketplace/index.md
+      - FAIR Data:
+          - FAIR Data: distribution/fair-data/index.md
+          - FAIR Principles:
+              - distribution/fair-data/principles/index.md
+          - FAIRification:
+              - distribution/fair-data/fairification/index.md
   - Deploy and Configure:
       - Deploy and Configure: deploy-and-configure/index.md
       - System Architecture:
@@ -903,7 +909,7 @@ nav:
       - '2026':
           - v26.2.3:
               - release-notes/2026/corporate-memory-26-2/index.md
-          - v26.1.4:
+          - v26.1.3:
               - release-notes/2026/corporate-memory-26-1/index.md
       - '2025':
           - v25.3.4:
@@ -952,5 +958,16 @@ nav:
       - '2019':
           - v19.10:
               - release-notes/2019/corporate-memory-19-10/index.md
-  - Tutorials:
-      - tutorials/index.md
+  - Learn:
+      - Tutorials:
+          - tutorials/index.md
+      - Training:
+          - Overview: training/index.md
+          - RDF and Linked Data:
+              - training/rdf-and-linked-data/index.md
+          - SPARQL Basics:
+              - training/sparql-basics/index.md
+          - Ontology Modeling:
+              - training/ontology-modeling/index.md
+          - Ontology Engineering:
+              - training/ontology-engineering/index.md
