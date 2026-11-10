@@ -964,5 +964,16 @@ nav:
       - '2019':
           - v19.10:
               - release-notes/2019/corporate-memory-19-10/index.md
-  - Tutorials:
-      - tutorials/index.md
+  - Learn:
+      - Tutorials:
+          - tutorials/index.md
+      - Training:
+          - Overview: training/index.md
+          - RDF and Linked Data:
+              - training/rdf-and-linked-data/index.md
+          - SPARQL Basics:
+              - training/sparql-basics/index.md
+          - Ontology Modeling:
+              - training/ontology-modeling/index.md
+          - Ontology Engineering:
+              - training/ontology-engineering/index.md

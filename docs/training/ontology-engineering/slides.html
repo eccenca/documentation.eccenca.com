@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Slides: Ontology Engineering · eccenca Corporate Memory training</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/revealjs/reset.css">
+<link rel="stylesheet" href="../../assets/revealjs/reveal.css">
+<link rel="stylesheet" href="../../assets/revealjs/eccenca-theme.css">
+</head>
+<body>
+<!--
+  Slide source of the training module "Ontology Engineering".
+  The explanations for these slides are in index.md next to this file.
+  Conventions: see ../rdf-and-linked-data/slides.html.
+-->
+<div class="reveal">
+<div class="slides">
+
+<section id="title" class="title-slide" data-background-gradient="linear-gradient(135deg, #e07d00 0%, #f39200 55%, #b85e0b 100%)" data-markdown>
+<textarea data-template>
+<div class="brand">eccenca<small>mastering complexity</small></div>
+
+# Hands-on: Ontology Engineering
+
+eccenca Corporate Memory training · Module 4
+</textarea>
+</section>
+
+<section id="what" data-explainer="what-is-an-ontology" data-markdown>
+<textarea data-template>
+## Ontologies are shared, structured conceptualizations
+
+- **Conceptualization** – a simplified view of a domain for a purpose: the things, concepts and their relations
+- **Structured** – written in standard languages such as RDFS, OWL and SKOS
+- **Shared** – agreed by domain experts, an extensible standard for the domain's data
+
+Domains range from the basic – persons, places, activities – to specialist areas such as supply chains or manufacturing.
+</textarea>
+</section>
+
+<section id="methodology" data-explainer="methodology" data-markdown>
+<textarea data-template>
+## There is no single right ontology
+
+- The domain and the application decide
+- Concepts stay close to the objects and relations of the domain
+- **Nouns** in sentences about the domain become classes, **verbs** become properties
+- The intended use decides which of them are needed
+
+**Iterate:** model, discuss, apply, refine.
+</textarea>
+</section>
+
+<section id="scope" data-explainer="scope-and-requirements" data-markdown>
+<textarea data-template>
+## Scope and requirements
+
+- Is there data already – or is this a green field?
+- What is the data used for?
+- A clearer, logical model of the domain – or compatibility with legacy structures?
+- How much metadata is needed?
+- Which other data sources are relevant?
+- Do ontologies for the domain already exist?
+</textarea>
+</section>
+
+<section id="competency-questions" data-explainer="competency-questions" data-markdown>
+<textarea data-template>
+## Competency questions
+
+1. Write down the questions the ontology has to answer
+2. After each milestone:
+   - create example data that follows the ontology
+   - query or browse it to answer the questions
+
+<span class="ask">Which products does a department manage?</span>
+<span class="ask">Who can take over a product when its manager leaves?</span>
+</textarea>
+</section>
+
+<section id="sources" data-explainer="source-material" data-markdown>
+<textarea data-template>
+## Source material
+
+<div class="columns">
+<div>
+
+- Databases and spreadsheets
+- Slide decks and training material
+- Taxonomies and product catalogs
+- Books and standards
+- Interviews with domain experts
+
+</div>
+<div>
+
+**Typically a mix:**
+1. Receive a spreadsheet and a slide deck
+2. Interview a domain expert
+3. Draft a first ontology
+4. Iterate with the expert
+5. Receive more material …
+
+</div>
+</div>
+</textarea>
+</section>
+
+<section id="domain" data-explainer="the-domain" data-markdown>
+<textarea data-template>
+## The domain: product data
+
+<div class="domain-text">
+
+The company's physical products and services are managed by product managers.
+Product management is distributed across all departments in which they have a direct report.
+Products are structured into categories, for which product managers and responsible departments have expertise.
+
+For example, product P516-8211068, named Film Multiplexer Rheostat Warp, is managed by Kristen Bauers in Procurement.
+
+</div>
+</textarea>
+</section>
+
+<section id="concepts" data-explainer="concepts-relationships-instances-and-attributes" data-markdown>
+<textarea data-template>
+## Concepts, relations, instances, attributes
+
+<div class="domain-text">
+
+The company's physical <span class="c-concept">products</span> and <span class="c-concept">services</span> are <span class="c-rel">managed by</span> <span class="c-concept">product managers</span>.
+Product management is distributed across all <span class="c-concept">departments</span> in which they <span class="c-rel">have</span> a <span class="c-concept">direct report</span>.
+Products are <span class="c-rel">structured into</span> <span class="c-concept">categories</span>, for which product managers and <span class="c-rel">responsible</span> departments <span class="c-rel">have expertise</span>.
+
+For example, product <span class="c-inst">P516-8211068</span>, <span class="c-attr">named</span> <span class="c-inst">Film Multiplexer Rheostat Warp</span>, is managed by <span class="c-inst">Kristen Bauers</span> in <span class="c-inst">Procurement</span>.
+
+</div>
+
+<p class="small"><span class="c-concept">concepts</span> · <span class="c-rel">relationships</span> · <span class="c-inst">instances</span> – usually from data sources · <span class="c-attr">attributes</span></p>
+</textarea>
+</section>
+
+<section id="approaches" data-explainer="defining-classes" data-markdown>
+<textarea data-template>
+## Defining classes
+
+- **Top-down** – most general classes first, then specialize
+- **Bottom-up** – most specific classes first, then generalize
+- **Middle-out** – the most salient classes first, then both directions
+
+Candidates: <span class="c-concept">product, service, product manager, department, direct report, category</span>
+
+Draw it: classes as boxes, relations as arrows.
+</textarea>
+</section>
+
+<section id="model" data-explainer="the-model">
+<h2>The model</h2>
+<svg class="diagram" viewBox="0 0 900 400" width="860" role="img" aria-label="Class diagram: Hardware and Service are subclasses of Product; Employee is a subclass of Agent, Manager a subclass of Employee; Product has product manager Employee; Product has category ProductCategory; Agent has area of expertise ProductCategory; Agent is member of Department; Department is responsible for Product; Employee has manager Manager; Service is eligible for Product">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#e08a00"/></marker>
+    <marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 12 6 0 12z" fill="#fff" stroke="#4f81bd"/></marker>
+  </defs>
+  <g font-size="15">
+    <!-- classes -->
+    <rect class="cls" x="40" y="40" width="160" height="40"/><text class="cls-label" x="120" y="65" text-anchor="middle">ProductCategory</text>
+    <rect class="cls" x="60" y="190" width="120" height="40"/><text class="cls-label" x="120" y="215" text-anchor="middle">Product</text>
+    <rect class="cls" x="10" y="330" width="110" height="40"/><text class="cls-label" x="65" y="355" text-anchor="middle">Hardware</text>
+    <rect class="cls" x="140" y="330" width="110" height="40"/><text class="cls-label" x="195" y="355" text-anchor="middle">Service</text>
+    <rect class="cls" x="460" y="40" width="120" height="40"/><text class="cls-label" x="520" y="65" text-anchor="middle">Agent</text>
+    <rect class="cls" x="460" y="190" width="120" height="40"/><text class="cls-label" x="520" y="215" text-anchor="middle">Employee</text>
+    <rect class="cls" x="460" y="330" width="120" height="40"/><text class="cls-label" x="520" y="355" text-anchor="middle">Manager</text>
+    <rect class="cls" x="740" y="40" width="140" height="40"/><text class="cls-label" x="810" y="65" text-anchor="middle">Department</text>
+    <!-- subclass arrows -->
+    <path class="sub" d="M65 330 L105 230" marker-end="url(#tri)"/>
+    <path class="sub" d="M195 330 L140 230" marker-end="url(#tri)"/>
+    <path class="sub" d="M520 190 L520 80" marker-end="url(#tri)"/>
+    <path class="sub" d="M520 330 L520 230" marker-end="url(#tri)"/>
+    <!-- relations -->
+    <path class="rel" d="M120 190 L120 80" marker-end="url(#ar)"/><text class="rel-label" x="128" y="140">hasCategory</text>
+    <path class="rel" d="M460 60 L200 60" marker-end="url(#ar)"/><text class="rel-label" x="250" y="52">areaOfExpertise</text>
+    <path class="rel" d="M180 210 L460 210" marker-end="url(#ar)"/><text class="rel-label" x="240" y="202">hasProductManager</text>
+    <path class="rel" d="M580 50 L740 50" marker-end="url(#ar)"/><text class="rel-label" x="620" y="42">memberOf</text>
+    <path class="rel" d="M810 80 L810 150 L170 150 L150 190" marker-end="url(#ar)"/><text class="rel-label" x="620" y="142">responsibleFor</text>
+    <path class="rel" d="M580 220 L640 220 L640 350 L580 350" marker-end="url(#ar)"/><text class="rel-label" x="648" y="290">hasManager</text>
+    <path class="rel" d="M250 360 L300 360 L300 240 L180 225" marker-end="url(#ar)"/><text class="rel-label" x="306" y="300">eligibleFor</text>
+  </g>
+</svg>
+<p class="small muted">Core of the products vocabulary v1.2.0 (prefix <code>prod:</code>) – attributes such as <code>name</code>, <code>id</code> and <code>email</code> omitted.</p>
+</section>
+
+<section id="class-or-attribute" data-explainer="class-or-attribute" data-markdown>
+<textarea data-template>
+## Class or attribute?
+
+| facility | city | cityLocation |
+| --- | --- | --- |
+| manu1 | Amadora | 38.7578° N, 9.2245° W |
+| manu2 | Bangkok | 13.7563° N, 100.5018° E |
+| store3 | Seattle | 47.6062° N, 122.3321° W |
+
+- `facility —cityName→ "Amadora"` – fine while the city is only a name
+- `facility —locatedIn→ City` – needed once the city has statements of its own
+
+A thing becomes a class when it is a **business object**, carries **statements of its own**, or appears in **other datasets**.
+</textarea>
+</section>
+
+<section id="formalize" data-explainer="formalize" data-markdown>
+<textarea data-template>
+## Formalize
+
+```turtle
+prod:Employee a owl:Class ;
+    rdfs:subClassOf prod:Agent ;
+    rdfs:label "Employee"@en ;
+    rdfs:isDefinedBy <http://ld.company.org/prod-vocab/> .
+
+prod:hasProductManager a owl:ObjectProperty ;
+    rdfs:domain prod:Product ;
+    rdfs:range  prod:Employee ;
+    rdfs:label "has product manager"@en ;
+    rdfs:isDefinedBy <http://ld.company.org/prod-vocab/> .
+```
+
+Tools: a text editor, Protégé, or the **Business Knowledge Editor** in Corporate Memory.
+</textarea>
+</section>
+
+<section id="quality" data-explainer="quality-checks" data-markdown>
+<textarea data-template>
+## Quality checks
+
+**The ontology**
+- header: version, preferred prefix and namespace
+- every class and property: `rdf:type`, `rdfs:isDefinedBy`
+- at least one `rdfs:label` and `rdfs:comment` – no "todo"
+- labels and comments unique and different from each other
+
+**The data**
+- SHACL shapes check instance data against the model
+- automated in workflows and CI pipelines
+</textarea>
+</section>
+
+<section id="visualize" data-explainer="visualize-and-use" data-markdown>
+<textarea data-template>
+## Visualize and use the ontology
+
+- A diagram shows the structure, helps domain experts follow it, and reveals errors
+- In Corporate Memory:
+  - **Vocabulary Catalog** – install and manage vocabularies
+  - **Business Knowledge Editor** – explore and author ontologies visually
+  - **Mapping editor** – fill the ontology with data from sources
+
+*Data is what brings an ontology to life.*
+</textarea>
+</section>
+
+<section id="exercise" data-explainer="exercise" data-markdown>
+<textarea data-template>
+## Exercise
+
+1. Pick a domain from daily work – or extend the product domain with **suppliers**
+2. Write five competency questions
+3. Mark concepts, relations, instances and attributes in a short description
+4. Draw the model
+5. Formalize it in Turtle, or in the Business Knowledge Editor
+6. Create a few instances and answer the questions with SPARQL
+</textarea>
+</section>
+
+</div>
+</div>
+
+<script src="../../assets/revealjs/reveal.js"></script>
+<script src="../../assets/revealjs/plugin/markdown.js"></script>
+<script src="../../assets/revealjs/plugin/notes.js"></script>
+<script src="../../assets/revealjs/training-deck.js"></script>
+</body>
+</html>
