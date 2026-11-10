@@ -9,12 +9,12 @@ nav:
           - introduction/what-is-a-knowledge-graph/index.md
       - Semantic Web basics:
           - introduction/semantic-web-basics/index.md
-      - At a glance:
+      - Corporate Memory at a glance:
           - introduction/corporate-memory-at-a-glance/index.md
       - Get access:
           - introduction/get-access/index.md
-      - See it in the product:
-          - introduction/see-it-in-the-product/index.md
+      - Highlight features:
+          - introduction/highlight-features/index.md
   - Build:
       - Build: build/index.md
       - Introduction to the User Interface:

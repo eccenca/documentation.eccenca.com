@@ -1,5 +1,7 @@
 ---
 title: "Welcome to the eccenca Corporate Memory documentation"
+hide:
+  - toc
 icon: material/home
 comments: false
 ---

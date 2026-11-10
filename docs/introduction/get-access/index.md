@@ -73,7 +73,7 @@ When the sandbox is ready, eccenca.my sends an email with the link to the sandbo
 
 ## Next
 
-- [See it in the product](../see-it-in-the-product/index.md): five features, with the documentation for each
+- [Highlight features](../highlight-features/index.md): five features that set Corporate Memory apart, with the documentation for each
 - Basic, the guided path from a source file to a knowledge graph in about four hours, is in preparation.
   Until then, the [Tutorials](../../tutorials/index.md) cover the first steps.
 

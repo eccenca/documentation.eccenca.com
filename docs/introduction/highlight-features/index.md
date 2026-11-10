@@ -1,11 +1,11 @@
 ---
-title: "Introduction: See it in the product"
+title: "Introduction: Highlight features"
 ---
 
-# See it in the product
+# Highlight features
 
-The five features below are the ones a newcomer to eccenca Corporate Memory meets first.
-Each is shown once, with a link to the documentation that covers it.
+The five features below are highlighted because they matter in daily work with eccenca Corporate Memory and set it apart.
+Each is shown with a link to the documentation that covers it.
 
 Nothing here has to be understood or operated yet.
 Looking is enough.
