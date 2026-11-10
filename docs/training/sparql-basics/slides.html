@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Slides: SPARQL Basics · eccenca Corporate Memory training</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../../assets/revealjs/reset.css">
+<link rel="stylesheet" href="../../assets/revealjs/reveal.css">
+<link rel="stylesheet" href="../../assets/revealjs/eccenca-theme.css">
+</head>
+<body>
+<!--
+  Slide source of the training module "SPARQL Basics".
+  The explanations for these slides are in index.md next to this file.
+  Conventions: see ../rdf-and-linked-data/slides.html.
+-->
+<div class="reveal">
+<div class="slides">
+
+<section id="title" class="title-slide" data-background-gradient="linear-gradient(135deg, #e07d00 0%, #f39200 55%, #b85e0b 100%)" data-markdown>
+<textarea data-template>
+<div class="brand">eccenca<small>mastering complexity</small></div>
+
+# SPARQL Basics
+
+eccenca Corporate Memory training · Module 2
+</textarea>
+</section>
+
+<section id="why" data-explainer="why-a-query-language" data-markdown>
+<textarea data-template>
+## Why a query language for RDF?
+
+- How is information retrieved from an RDF graph?
+- How are search patterns expressed?
+- How is reasoning put to use?
+
+<span class="ask">Which German-language strings are used?</span>
+<span class="ask">Which relations hold between two entities?</span>
+<span class="ask">Which pairs of persons share a parent?</span>
+</textarea>
+</section>
+
+<section id="sparql" data-explainer="sparql" data-markdown>
+<textarea data-template>
+## SPARQL
+
+- **S**PARQL **P**rotocol **a**nd **R**DF **Q**uery **L**anguage
+- W3C Recommendation: 1.0 in 2008, **1.1 in 2013**
+- A **query language** for RDF graphs – and an **update language**
+- A **protocol** for SPARQL endpoints over HTTP
+- Result formats in JSON, XML, CSV and TSV
+
+In Corporate Memory: the **Queries** module, the query catalog, cmemc `query` commands, and the SPARQL endpoint.
+</textarea>
+</section>
+
+<section id="structure" data-explainer="structure-of-a-query" data-markdown>
+<textarea data-template>
+## Structure of a query
+
+```sparql
+PREFIX rov: <http://www.w3.org/ns/regorg#>   # 1. prefixes
+
+SELECT ?name                                  # 2. query form and variables
+WHERE {                                       # 3. graph pattern
+  ?x rov:legalName ?name .
+}
+```
+
+- Variables start with `?` (or `$`) – in subject, predicate or object position
+- The `WHERE` block is a **triple pattern**: Turtle with variables
+
+<span class="ask">Give me the names of all entities that have a legal name.</span>
+</textarea>
+</section>
+
+<section id="select-example" data-explainer="basic-graph-patterns" data-markdown>
+<textarea data-template>
+## Basic graph patterns
+
+```turtle
+@prefix ex: <http://example.org/> .
+ex:E63_AMG ex:producedBy <http://mercedes-benz.de/> ;
+           ex:model "E63 AMG" ;
+           ex:class "E-Klasse" .
+```
+<!-- .element: class="data" -->
+
+```sparql
+PREFIX ex: <http://example.org/>
+SELECT ?model ?class
+WHERE {
+  ?car ex:producedBy <http://mercedes-benz.de/> .
+  ?car ex:model ?model .
+  ?car ex:class ?class .
+}
+```
+
+| model | class |
+| --- | --- |
+| E63 AMG | E-Klasse |
+</textarea>
+</section>
+
+<section id="literal-matching" data-explainer="matching-literals" data-markdown>
+<textarea data-template>
+## Matching literals
+
+```turtle
+ex:bsp1 ex:p "test" .
+ex:bsp2 ex:p "test"^^xsd:string .
+ex:bsp3 ex:p "test"@de .
+ex:bsp4 ex:p "42"^^xsd:integer .
+```
+<!-- .element: class="data" -->
+
+```sparql
+SELECT ?subject WHERE { ?subject ex:p "test" . }
+```
+
+| subject |
+| --- |
+| ex:bsp1 |
+| ex:bsp2 |
+
+<p class="small muted">RDF 1.1: <code>"test"</code> and <code>"test"^^xsd:string</code> are the same term. <code>"test"@de</code> is not.</p>
+</textarea>
+</section>
+
+<section id="complex-patterns" data-explainer="optional-and-union" data-markdown>
+<textarea data-template>
+## Complex patterns
+
+- Group patterns with `{ }`
+- `OPTIONAL { }` – parts that may be missing; their variables stay **unbound**
+- `{ } UNION { }` – alternatives; the result is the union of both
+
+<span class="ask">Show the names of all customers and, *if available*, phone and email.</span>
+
+<span class="ask">Show all contact data – phone *or* email – with the customer name.</span>
+</textarea>
+</section>
+
+<section id="optional" data-explainer="optional-and-union" data-markdown>
+<textarea data-template>
+## OPTIONAL
+
+```sparql
+SELECT ?customer ?phone ?email
+WHERE {
+  ?customerID :hasName ?customer .
+  OPTIONAL { ?customerID :hasPhoneNumber ?phone . }
+  OPTIONAL { ?customerID :hasEmail ?email . }
+}
+```
+
+| customer | phone | email |
+| --- | --- | --- |
+| "Mueller" | "03414483711" | "mueller@example.org" |
+| "Meyer" | | "meyer@example.org" |
+| "Schulze" | "0308473625" | |
+| "Schmidt" | | |
+</textarea>
+</section>
+
+<section id="union" data-explainer="optional-and-union" data-markdown>
+<textarea data-template>
+## UNION
+
+```sparql
+SELECT ?contactData ?customer
+WHERE {
+  ?customerID :hasName ?customer .
+  { ?customerID :hasPhoneNumber ?contactData . }
+  UNION
+  { ?customerID :hasEmail ?contactData . }
+}
+```
+
+| contactData | customer |
+| --- | --- |
+| "03414483711" | "Mueller" |
+| "mueller@example.org" | "Mueller" |
+| "meyer@example.org" | "Meyer" |
+| "0308473625" | "Schulze" |
+</textarea>
+</section>
+
+<section id="combining" data-explainer="combining-optional-and-union" data-markdown>
+<textarea data-template>
+## Combining OPTIONAL and UNION
+
+`OPTIONAL` and `UNION` bind equally strong and are **left-associative**.
+
+```sparql
+{ {s1 p1 o1} OPTIONAL {s2 p2 o2} UNION {s3 p3 o3} OPTIONAL {s4 p4 o4} }
+```
+
+is read as
+
+```sparql
+{ { { {s1 p1 o1} OPTIONAL {s2 p2 o2} } UNION {s3 p3 o3} } OPTIONAL {s4 p4 o4} }
+```
+
+When in doubt: add braces.
+</textarea>
+</section>
+
+<section id="filter" data-explainer="filter" data-markdown>
+<textarea data-template>
+## FILTER
+
+<span class="ask">Which participants are younger than 30? Whose last name contains a hyphen?</span>
+
+`FILTER ( expression )` removes every solution for which the expression is **false** or an **error**.
+
+```sparql
+PREFIX ex: <http://example.org/>
+SELECT ?car
+WHERE {
+  ?car ex:producedBy <http://mercedes-benz.de/> .
+  ?car ex:price ?price .
+  FILTER (?price < 70000)
+}
+```
+</textarea>
+</section>
+
+<section id="operators" data-explainer="operators" data-markdown>
+<textarea data-template>
+## Operators
+
+<div class="columns">
+<div>
+
+**Comparison** `<` `=` `>` `<=` `>=` `!=`<br>
+numbers, dates, strings, booleans
+
+**Arithmetic** `+` `-` `*` `/`
+
+```sparql
+FILTER (?weight / (?length * ?height) >= 25)
+```
+
+</div>
+<div>
+
+**Logic** `&&` `||` `!`
+
+| A | B | A \|\| B | A && B |
+| --- | --- | --- | --- |
+| T | E | T | E |
+| F | E | E | F |
+| E | E | E | E |
+
+Error counts as false in the filter.
+
+</div>
+</div>
+</textarea>
+</section>
+
+<section id="functions" data-explainer="rdf-functions" data-markdown>
+<textarea data-template>
+## Functions for RDF terms
+
+| Function | Returns |
+| --- | --- |
+| `BOUND(?x)` | true if `?x` has a value |
+| `isIRI(?x)`, `isBLANK(?x)`, `isLITERAL(?x)` | the kind of term |
+| `STR(?x)` | the lexical form as a string |
+| `LANG(?x)`, `DATATYPE(?x)` | language tag, datatype IRI |
+| `langMatches(LANG(?x), "de")` | language tag matches a range |
+| `REGEX(?x, "pattern", "i")` | text matches a regular expression |
+| `CONTAINS`, `STRSTARTS`, `LCASE`, … | string functions (SPARQL 1.1) |
+</textarea>
+</section>
+
+<section id="negation" data-explainer="negation" data-markdown>
+<textarea data-template>
+## Negation: FILTER NOT EXISTS
+
+<span class="ask">Show all cars produced by Mercedes-Benz that have no price.</span>
+
+```sparql
+PREFIX ex: <http://example.org/>
+SELECT ?car
+WHERE {
+  ?car ex:producedBy <http://mercedes-benz.de/> .
+  FILTER NOT EXISTS { ?car ex:price ?price . }
+}
+```
+
+Also: `MINUS { … }` removes matching solutions.
+</textarea>
+</section>
+
+<section id="modifiers" data-explainer="solution-modifiers" data-markdown>
+<textarea data-template>
+## Solution modifiers
+
+```sparql
+SELECT DISTINCT ?book ?price
+WHERE {
+  ?book ex:price ?price .
+}
+ORDER BY DESC(?price) ?book
+LIMIT 5
+OFFSET 25
+```
+
+| Modifier | Effect |
+| --- | --- |
+| `ORDER BY` | sort; `ASC()` is the default, `DESC()` reverses |
+| `DISTINCT` | remove duplicate rows |
+| `OFFSET` | skip the first n rows |
+| `LIMIT` | return at most n rows |
+</textarea>
+</section>
+
+<section id="query-forms" data-explainer="query-forms" data-markdown>
+<textarea data-template>
+## Query forms
+
+| Form | Returns |
+| --- | --- |
+| `SELECT` | a table of variable bindings |
+| `ASK` | `true` or `false` – does the pattern match? |
+| `DESCRIBE` | an RDF graph about the resources found |
+| `CONSTRUCT` | a new RDF graph, built from a template |
+</textarea>
+</section>
+
+<section id="ask" data-explainer="query-forms" data-markdown>
+<textarea data-template>
+## ASK and DESCRIBE
+
+```turtle
+comp:A rov:legalName "Niké" ;
+       org:hasRegisteredSite site:1234 .
+comp:B rov:legalName "BARCO" .
+```
+<!-- .element: class="data" -->
+
+<div class="columns">
+<div>
+
+```sparql
+ASK { comp:B org:hasRegisteredSite ?site . }
+```
+
+→ `false`
+
+</div>
+<div>
+
+```sparql
+DESCRIBE ?org
+WHERE { ?org org:hasRegisteredSite site:1234 . }
+```
+
+→ the triples about `comp:A`
+
+</div>
+</div>
+</textarea>
+</section>
+
+<section id="construct" data-explainer="construct" data-markdown>
+<textarea data-template>
+## CONSTRUCT
+
+```sparql
+PREFIX rov:  <http://www.w3.org/ns/regorg#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT { ?comp rdfs:label ?name . }
+WHERE     { ?comp rov:legalName ?name . }
+```
+
+```turtle
+comp:A rdfs:label "Niké" .
+comp:B rdfs:label "BARCO" .
+```
+<!-- .element: class="result" -->
+
+A new graph from existing data – the basis of many workflows.
+</textarea>
+</section>
+
+<section id="aggregation" data-explainer="aggregation" data-markdown>
+<textarea data-template>
+## SPARQL 1.1: aggregation and more
+
+```sparql
+PREFIX prod: <http://ld.company.org/prod-vocab/>
+SELECT ?manager (COUNT(?product) AS ?products)
+WHERE {
+  ?product prod:hasProductManager ?manager .
+}
+GROUP BY ?manager
+ORDER BY DESC(?products)
+```
+
+- Aggregates: `COUNT`, `SUM`, `MIN`, `MAX`, `AVG`, `SAMPLE`, `GROUP_CONCAT`
+- `BIND`, `VALUES`, subqueries, property paths (`prod:memberOf/rdfs:label`)
+</textarea>
+</section>
+
+<section id="update" data-explainer="sparql-update" data-markdown>
+<textarea data-template>
+## SPARQL Update
+
+```sparql
+PREFIX prod: <http://ld.company.org/prod-vocab/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT DATA {
+  GRAPH <http://ld.company.org/training/> {
+    <http://ld.company.org/prod-instances/empl-Jane.Doe%40company.org>
+        a prod:Employee ;
+        rdfs:label "Jane Doe" .
+  }
+}
+```
+
+Also: `DELETE DATA`, `DELETE { … } INSERT { … } WHERE { … }`, `CLEAR GRAPH`
+</textarea>
+</section>
+
+<section id="summary" data-explainer="summary" data-markdown>
+<textarea data-template>
+## Summary
+
+<div class="columns">
+<div>
+
+**Structure** `PREFIX`, `WHERE { }`
+
+**Query forms** `SELECT`, `ASK`, `DESCRIBE`, `CONSTRUCT`
+
+**Patterns** `{ }`, `OPTIONAL`, `UNION`, `FILTER NOT EXISTS`
+
+</div>
+<div>
+
+**Modifiers** `ORDER BY`, `LIMIT`, `OFFSET`, `DISTINCT`
+
+**Filters** `BOUND`, `isIRI`, `STR`, `LANG`, `DATATYPE`, `langMatches`, `REGEX`
+
+**1.1** aggregates, `GROUP BY`, `BIND`, update
+
+</div>
+</div>
+</textarea>
+</section>
+
+<section id="exercises" class="divider" data-explainer="exercises" data-background-color="#2e3a44" data-markdown>
+<textarea data-template>
+<div class="brand">eccenca<small>mastering complexity</small></div>
+
+# Hands-on
+
+Query the Product Data Demo
+</textarea>
+</section>
+
+<section id="exercise-list" data-explainer="exercises" data-markdown>
+<textarea data-template>
+## Exercises
+
+1. Find all products – mind the class hierarchy: `a/rdfs:subClassOf*`
+2. Find hardware lighter than 10 g – `FILTER (?weight < 10)`
+3. Find products whose product manager is not in the organization map – `FILTER NOT EXISTS`
+4. Find products without a responsible department.
+5. Find alternative experts for a product – shared `prod:areaOfExpertise`
+6. Count the products per manager and department – save it in the query catalog.
+7. Add an employee with `INSERT DATA`.
+
+<p class="small muted">Solutions are below the slides.</p>
+</textarea>
+</section>
+
+</div>
+</div>
+
+<script src="../../assets/revealjs/reveal.js"></script>
+<script src="../../assets/revealjs/plugin/markdown.js"></script>
+<script src="../../assets/revealjs/plugin/notes.js"></script>
+<script src="../../assets/revealjs/training-deck.js"></script>
+</body>
+</html>

@@ -53,6 +53,10 @@ click = "^8.5"
 markdown = "^3.10"
 # tools/update_icons.py fetches the eccenca icon set from the gui-elements repository.
 requests = "^2.32"
+# tools/update_try_results.py runs the "Try it" SPARQL boxes of the training pages.
+# Exact pin: it must be the release of the WebAssembly build in docs/assets/oxigraph/,
+# so the written results are what the browser returns. Bump both together.
+pyoxigraph = "0.5.13"
 
 [tool.poetry.group.dev.dependencies]
 linkcheckmd = "^1.4.0"

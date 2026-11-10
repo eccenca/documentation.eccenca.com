@@ -27,9 +27,9 @@ This tutorial shows how you can build a Knowledge Graph based on input data from
 
 The following material is used in this tutorial:
 
-- Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](products_vocabulary.nt)
+- Sample vocabulary describing the data in the JSON and XML files: [products_vocabulary.nt](../products_vocabulary.nt)
 
-    ![Visualization of the "Products Vocabulary".](products-vocab-xml+json.png){ class="bordered" }
+    ![Classes and object properties of the products vocabulary in the Vocab tab of Explore](../products-vocab.png){ class="bordered" }
 
 - Sample JSON file: [services.json](services.json)
 

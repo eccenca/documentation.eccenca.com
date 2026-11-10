@@ -59,7 +59,7 @@ tasks:
       - poetry install
 
   check:
-    desc: Check documentation links, Markdown and YAML style, nav drift and build output
+    desc: Check documentation links, Markdown and YAML style, nav drift, Try it results and build output
     # Sequential (`cmds`, not `deps`) on purpose. Task resolves `deps` in
     # parallel, which ran several `poetry install` invocations at once and, worse,
     # ran `zensical build` alongside the link and style checks - under that load
@@ -72,6 +72,7 @@ tasks:
       - task: check:images
       - task: check:yamllint
       - task: check:navigation
+      - task: check:try-results
       - task: check:output
 
   check:yamllint:
@@ -101,6 +102,13 @@ tasks:
       - install
     cmds:
       - poetry run dec-tool build-navigation --check
+
+  check:try-results:
+    desc: Fail if a "Try it" SPARQL box states a result its query no longer returns
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool update-try-results --check
 
   check:output:
     desc: Fail if a feature we reimplemented for Zensical regressed in the build
@@ -379,6 +387,13 @@ tasks:
       - install
     cmds:
       - poetry run dec-tool build-navigation
+
+  update:try-results:
+    desc: Run the "Try it" SPARQL boxes and write their results into the pages
+    deps:
+      - install
+    cmds:
+      - poetry run dec-tool update-try-results
 
   public:versions:
     desc: List public documentation versions
