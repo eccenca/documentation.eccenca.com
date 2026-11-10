@@ -2,3 +2,4 @@
 nav:
     - Distribution: index.md
     - Marketplace: marketplace
+    - FAIR Data: fair-data
