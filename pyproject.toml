@@ -36,10 +36,11 @@ pyyaml = "^6.0"
 cmem-cmempy = "^25.3.0"
 pydantic = "^2.11.7"
 jinja2 = "^3.1.6"
-# Zensical is pre-1.0: the caret pin resolves to >=0.0.74,<0.0.75, i.e. a single
-# release. This narrowness is intentional -- bump it manually and re-run
-# `task build` plus `tools/check_zensical_output.py` when doing so.
-zensical = "^0.0.74"
+# Zensical is pre-1.0: the exact pin allows a single release. A caret no longer
+# does from 0.1 on (^0.1.1 resolves to >=0.1.1,<0.2.0). This narrowness is
+# intentional -- bump it manually and re-run `task build` plus
+# `tools/check_zensical_output.py` when doing so.
+zensical = "0.1.1"
 pillow = "^11.3.0"
 # tools/pdf_normalize.py and tools/pdf_preflight.py read the PDFs the print
 # edition writes: the PDF/X-4 marker, the output intent, page sizes and annotations.
