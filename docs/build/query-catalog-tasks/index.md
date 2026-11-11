@@ -67,6 +67,9 @@ $ cmemc -c my-cmem admin workspace python list-plugins
     - **Catalog Graph:** `CMEM Query Catalog`
     - **Query Kind:** `All Queries`
 
+    An entry of the **Catalog Graph** list contains more than the label of the graph.
+    Select the entry that starts with `CMEM Query Catalog`.
+
 4. Click **Preview**, then expand the **Preview** result.
     The table shows the label, the type, the placeholders and the IRI of every query in the catalog.
 
@@ -75,7 +78,8 @@ $ cmemc -c my-cmem admin workspace python list-plugins
 5. Click **Create**.
 
 The **Catalog Graph** list shows the query catalogs first, then the shape catalogs, then any other graph that holds queries.
-Each entry states how many read and write queries the graph contains.
+Each entry starts with the label of the graph, followed by the kind of catalog, the number of read and write queries the graph contains and the graph IRI.
+In the same way, an entry of the **Query** list starts with the label of the query and ends with its IRI.
 **Query Kind** restricts the entities to `Read Queries` or `Write Queries`, or keeps `All Queries`.
 
 In a workflow, the task emits one entity per query with the values `catalogGraph`, `query`, `label`, `description`, `queryType`, `queryText` and `placeholder`.
@@ -84,7 +88,9 @@ The query text is emitted with its placeholders unfilled.
 ## 2 Run a query without placeholders
 
 The query `total number of triples` counts the triples of every graph and has no placeholders.
-A task that runs it has no input, so it can start a workflow.
+A task that runs it does not read any input, so it can start a workflow.
+In the workflow editor, the node of the task can still show an input connector.
+Leave it unconnected.
 
 1. Create a [CSV dataset](../reference/dataset/csv.md) with the label `Triple counts` and the file name `triple-counts.csv`.
 2. Click **Create new**, select **Execute Catalog Query** and click **Add**.
@@ -151,8 +157,8 @@ The task runs the query once per input entity and passes on the results of all e
     - **Query Kind:** `Read Queries`
     - **Query:** `ordered list of used classes for a graph`
 
-5. Click **Preview query** to check the query before creating the task.
-    The preview shows the query text, its placeholders and the input the task expects.
+5. Click **Preview query** to check the query before creating the task, then expand the **Preview query** result.
+    The result shows the query type, its placeholders, the input the task expects and the query text.
 
     ![Preview query result of the Execute Catalog Query task showing the placeholder graph](execute-catalog-query-preview.png){ class="bordered" width="70%" }
 
