@@ -39,5 +39,5 @@ They are bundled into **Marketplace Packages**: single, versioned artifacts whic
 
 !!! info "Related sections"
 
-    - [Marketplace Packages: Installation and Management](../develop/packages/installation/index.md) describes the same lifecycle on the command line with [cmemc](../automate/cmemc-command-line-interface/index.md), including the installation of local package archives.
-    - [Marketplace Packages: Development and Publication](../develop/packages/development/index.md) describes how to create and publish your own packages.
+    - [Marketplace Packages: Installation and Management](../develop/marketplace-packages/installation/index.md) describes the same lifecycle on the command line with [cmemc](../automate/cmemc-command-line-interface/index.md), including the installation of local package archives.
+    - [Marketplace Packages: Development and Publication](../develop/marketplace-packages/development/index.md) describes how to create and publish your own packages.
