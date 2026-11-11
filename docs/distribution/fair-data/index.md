@@ -74,5 +74,5 @@ They build on FAIR data rather than following from it.
 !!! info "Related sections"
 
     - [Marketplace](../marketplace/index.md) describes how ready-made vocabularies, ontologies and projects are installed as versioned packages.
-    - [Marketplace Packages: Development and Publication](../../develop/packages/development/index.md) describes the manifest in which name, description, license and dependencies of a package are declared.
+    - [Marketplace Packages: Development and Publication](../../develop/marketplace-packages/development/index.md) describes the manifest in which name, description, license and dependencies of a package are declared.
     - [Access Conditions](../../deploy-and-configure/configuration/access-conditions/index.md) describes how access to graphs and actions is granted.

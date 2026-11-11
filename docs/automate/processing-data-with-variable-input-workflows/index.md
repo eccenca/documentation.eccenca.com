@@ -42,7 +42,7 @@ Click the :eccenca-module-marketplace: **Packages** icon in the main menu under 
 Search for the required ontologies / vocabularies and click the **Install** button.
 Wait for a package installation to complete (the **Install** button will change to **Uninstall**) before installing the next package.
 
-![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" }
+![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" width="90%" }
 
 ## 2 Create a new project
 

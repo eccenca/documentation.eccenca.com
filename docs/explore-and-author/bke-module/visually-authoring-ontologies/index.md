@@ -46,7 +46,7 @@ To create a new ontology graph:
 
 1. In Corporate Memory, click **Knowledge graphs** under **EXPLORE** in the navigation on the left side of the page.
 
-    ![](explore-kgs.png){ class="bordered" width="50%" }
+    ![](explore-kgs.png){ class="bordered" width="29%" }
 
 2. In the **Graphs** drop-down menu, click the **(+)** button and select **New Ontology (owl:Ontology)**.
 
@@ -62,7 +62,7 @@ To create a new ontology graph:
 
 1. In Corporate Memory, click **Business Knowledge Editor** under **EXPLORE** in the navigation on the left side of the page.
 
-    ![](explore-bke.png){ class="bordered" width="50%" }
+    ![](explore-bke.png){ class="bordered" width="29%" }
 
 2. Select the target graph using the drop-down menu.
 
@@ -82,7 +82,7 @@ New elements can be created from the entries listed in **Classes** on the left s
 
 1. Drag and drop **Class** from the bottom left list into the canvas.
 
-    ![](classes.png){ class="bordered" width="50%" }
+    ![](classes.png){ class="bordered" width="28%" }
 
     !!! info
 
@@ -130,7 +130,7 @@ New elements can be created from the entries listed in **Classes** on the left s
 
 7. Drag and drop **New Class** into the canvas.
 
-    ![](drag-drop-new-class.png){ class="bordered" width="50%" }
+    ![](drag-drop-new-class.png){ class="bordered" width="49%" }
 
 8. Click the newly created class to open its form, then fill out the required fields and any optional fields you want to define.
 
@@ -181,7 +181,7 @@ Save the changes as a named visualization so you can edit your classes and prope
 
 3. Enter a name for the visualization.
 
-    ![](save-changes.png)
+    ![](save-changes.png){ width="76%" }
 
 4. Click **Save**.
 

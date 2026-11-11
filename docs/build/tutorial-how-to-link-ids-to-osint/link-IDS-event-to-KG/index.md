@@ -27,7 +27,7 @@ The "Linked Data App" extends Splunk Search Processing Language (SPL) to support
 2. Open the App window in Splunk via the icon "tools" (see figure 1)
 
 <figure markdown="span">
-![Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps](splunk_apps_menu.png)
+![Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps](splunk_apps_menu.png){ width="30%" }
 <figcaption>Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps</figcaption>
 </figure>
 

@@ -74,7 +74,7 @@ Depending on the content types inside it, an installed package appears in differ
 
 !!! info inline ""
 
-    ![Example: Graphs](example-vocabulary.png "Example: Graphs")
+    ![Example: Graphs](example-vocabulary.png "Example: Graphs"){ width="68%" }
 
 **Graphs** such as data graphs but also **Vocabularies** or **Shapes Catalogs** are listed in [**Explore > Graphs**](../../../explore-and-author/graph-exploration/index.md#graphs).
 

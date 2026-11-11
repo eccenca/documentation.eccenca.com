@@ -50,7 +50,7 @@ To change the default passwords, select the `cmem` realm and open Users in the l
 
 ![users-lookup](22-1-users-lookup.png)
 
-![user-details](22-1-user-details.png)
+![user-details](22-1-user-details.png){ width="75%" }
 
 Then, select "View all users" and choose an account you want to change the password for (we start with admin)
 
