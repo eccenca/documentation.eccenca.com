@@ -37,9 +37,19 @@ function Div(el)
     -- Consumed by the enclosing admonition below.
     return nil
   elseif c:includes('chapter-break') then
-    return raw('#pagebreak(weak: true)')
+    -- A new page on screen, a right-hand page in print; style.typ decides.
+    return raw('#chapter-break()')
   elseif c:includes('part-contents') then
     return raw('#part-contents()')
+  elseif c:includes('keep-with-next') then
+    -- A short lead line under a heading: it stays with the block after it, so
+    -- heading and line do not sit alone at the foot of a page.
+    return wrap('#keep-with-next[', el.content, ']')
+  elseif c:includes('operator-fields') then
+    return wrap('#operator-fields[', el.content, ']')
+  elseif c:includes('part-end') then
+    -- The web addresses the part cites; the print edition only.
+    return raw('#part-addresses()')
   elseif c:includes('admonition') then
     local kind = 'note'
     for _, cl in ipairs(c) do

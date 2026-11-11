@@ -137,7 +137,7 @@ Content-Type: application/problem+json
 {
   "title": "Internal Server Error",
   "status": 500,
-  "detail": "Database server 'Stardog' unavailable",
+  "detail": "Database server 'GraphDB' unavailable",
   "cause": {
     "title": "Internal Server Error",
     "status": 500,
