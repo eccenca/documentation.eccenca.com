@@ -15,6 +15,7 @@ nav:
           - Incremental Database Loading: loading-jdbc-datasets-incrementally
           - Connect to Snowflake: snowflake-tutorial
           - Build Knowledge Graphs from Kafka Topics: kafka-consumer
+          - Run Catalog Queries in Workflows: query-catalog-tasks
           - Evaluate Template Operator: evaluate-template
           - Link Intrusion Detection Systems to Open-Source INTelligence: tutorial-how-to-link-ids-to-osint
     - Guides:
