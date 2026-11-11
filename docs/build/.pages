@@ -21,5 +21,6 @@ nav:
     - Variables: variables
     - Evaluate Template Operator: evaluate-template
     - Build Knowledge Graphs from Kafka Topics: kafka-consumer
+    - Run Catalog Queries in Workflows: query-catalog-tasks
     - Spark: spark
     - Project Access Control: project-access-control

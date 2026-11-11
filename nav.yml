@@ -480,6 +480,8 @@ nav:
           - build/evaluate-template/index.md
       - Build Knowledge Graphs from Kafka Topics:
           - build/kafka-consumer/index.md
+      - Run Catalog Queries in Workflows:
+          - build/query-catalog-tasks/index.md
       - Spark:
           - build/spark/index.md
       - Project Access Control:
