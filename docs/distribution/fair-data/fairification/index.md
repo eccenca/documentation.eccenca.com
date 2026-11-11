@@ -70,7 +70,7 @@ Decide who reaches the graph and under which conditions, and record the decision
 [Access Conditions](../../../deploy-and-configure/configuration/access-conditions/index.md) grant access per graph, per action and through dynamic conditions.
 
 State the license under which the content may be reused.
-For content distributed as a Marketplace Package, the license is an [SPDX identifier](https://spdx.org/licenses/) in the manifest, and publication without it is rejected, see [Metadata](../../../develop/packages/development/index.md#metadata).
+For content distributed as a Marketplace Package, the license is an [SPDX identifier](https://spdx.org/licenses/) in the manifest, and publication without it is rejected, see [Metadata](../../../develop/marketplace-packages/development/index.md#metadata).
 
 ## 6. Publish and check
 
@@ -88,7 +88,7 @@ Expose the graph over the standard endpoints and verify that it holds what the s
     ```
 
 Bundle the result for reuse elsewhere.
-[Marketplace Packages: Development and Publication](../../../develop/packages/development/index.md) describes how graphs, projects and queries are packaged into a single versioned artifact, and [Marketplace](../../marketplace/index.md) how such a package is installed into another instance.
+[Marketplace Packages: Development and Publication](../../../develop/marketplace-packages/development/index.md) describes how graphs, projects and queries are packaged into a single versioned artifact, and [Marketplace](../../marketplace/index.md) how such a package is installed into another instance.
 
 !!! info "Related sections"
 

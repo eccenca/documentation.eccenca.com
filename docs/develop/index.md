@@ -27,7 +27,7 @@ Extend eccenca Corporate Memory with custom plugins and packages, and access it 
 
     ---
 
-    [Marketplace Packages](packages/index.md) bundle existing content (graphs, Build projects, dependencies, ...) into a single shareable artifact. [Create your own packages](packages/development/index.md) for easy distribution and reuse.
+    [Marketplace Packages](marketplace-packages/index.md) bundle existing content (graphs, Build projects, dependencies, ...) into a single shareable artifact. [Create your own packages](marketplace-packages/development/index.md) for easy distribution and reuse.
 
 - :material-api: OpenAPI specification
 

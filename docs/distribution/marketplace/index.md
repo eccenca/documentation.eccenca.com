@@ -223,10 +223,10 @@ $ cmemc package install ecc-product-data-project
 Installing package 'ecc-product-data-project' from marketplace ... done
 ```
 
-See [Marketplace Packages: Installation and Management](../../develop/packages/installation/index.md) for the complete workflow and the [package command group](../../automate/cmemc-command-line-interface/command-reference/package/index.md) for the command reference.
+See [Marketplace Packages: Installation and Management](../../develop/marketplace-packages/installation/index.md) for the complete workflow and the [package command group](../../automate/cmemc-command-line-interface/command-reference/package/index.md) for the command reference.
 
 ## Build Your Own Packages
 
 Vocabularies, graphs, Build projects and configurations of your own solution can be bundled into a Marketplace Package as well, and then be shared with other teams or published to a Marketplace Server.
 
-See [Marketplace Packages: Development and Publication](../../develop/packages/development/index.md) for an overview and the [step-by-step tutorial](../../develop/packages/development/tutorial/index.md) to build your first package.
+See [Marketplace Packages: Development and Publication](../../develop/marketplace-packages/development/index.md) for an overview and the [step-by-step tutorial](../../develop/marketplace-packages/development/tutorial/index.md) to build your first package.
