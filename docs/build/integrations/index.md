@@ -111,7 +111,7 @@ sign-in or a bearer token, see [Agent Integration](../../automate/agent-integrat
 
     ---
 
-    Manage [Marketplace Packages](../../develop/packages/index.md) in workflows:
+    Manage [Marketplace Packages](../../develop/marketplace-packages/index.md) in workflows:
 [build package archives](../../build/reference/customtask/cmem_plugin_packages-BuildPackages.md),
 [bump their version](../../build/reference/customtask/cmem_plugin_packages-BumpVersions.md),
 [publish](../../build/reference/customtask/cmem_plugin_packages-PublishPackages.md) them to a Marketplace Server

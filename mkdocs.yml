@@ -306,6 +306,13 @@ plugins:
         cmemc/index.md: automate/cmemc-command-line-interface/index.md
         # yamllint disable-line rule:line-length
         explore-and-author/building-a-customized-user-interface/index.md: explore-and-author/graph-exploration/building-a-customized-user-interface/index.md
+        # The Marketplace Packages section was published under develop/packages/;
+        # the feature resolver points at develop/marketplace-packages/.
+        develop/packages/index.md: develop/marketplace-packages/index.md
+        develop/packages/installation/index.md: develop/marketplace-packages/installation/index.md
+        develop/packages/development/index.md: develop/marketplace-packages/development/index.md
+        # yamllint disable-line rule:line-length
+        develop/packages/development/tutorial/index.md: develop/marketplace-packages/development/tutorial/index.md
         # Release notes were regrouped into year directories; the flat paths
         # below are what external links and search results still point at.
         release-notes/corporate-memory-19-10/index.md: release-notes/2019/corporate-memory-19-10/index.md

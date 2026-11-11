@@ -25,7 +25,7 @@ Conversely, a rule which uses a rule block stays small and readable, because the
 Since a rule block is a regular project item, it travels with the project:
 it is contained in project exports and imports, and it can be shipped inside a [Marketplace Package](../../distribution/marketplace/index.md).
 This makes rule blocks a natural carrier for conventions which should not be re-invented per project or per team - an IRI minting rule which implements your [Cool IRI](../cool-iris/index.md) policy, a normalization of company names, or the canonical way to build a label.
-Published as [a package](../../develop/packages/index.md), such a set of rule blocks becomes a shared, versioned guideline which other units or organizations install instead of re-implementing.
+Published as [a package](../../develop/marketplace-packages/index.md), such a set of rule blocks becomes a shared, versioned guideline which other units or organizations install instead of re-implementing.
 
 !!! info "Availability"
 
@@ -213,7 +213,7 @@ To use the same rule block elsewhere, distribute the project item:
     See the [project command group](../../automate/cmemc-command-line-interface/command-reference/project/index.md) of [cmemc](../../automate/cmemc-command-line-interface/index.md).
 - **Marketplace Packages** - a package which ships a Build project ships its rule blocks with it.
     This is the way to publish a set of agreed-upon rule blocks - IRI minting, name and address normalization, code cleanup - as a versioned artifact which other teams install.
-    See [Marketplace Packages: Development and Publication](../../develop/packages/development/index.md) and the [Marketplace](../../distribution/marketplace/index.md).
+    See [Marketplace Packages: Development and Publication](../../develop/marketplace-packages/development/index.md) and the [Marketplace](../../distribution/marketplace/index.md).
 
 ## Limitations
 
