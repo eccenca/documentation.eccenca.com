@@ -36,20 +36,20 @@ This tutorial uses the _Multi CSV Zip_ format to efficiently handle the followin
 To upload multiple files together as an input:
 
 1. In Corporate Memory, click Projects under **BUILD** in the navigation on the left side of the page.
-    ![Menu > BUILD > Projects](pdtn-menu-projects.png){width="50%"}
+    ![Menu > BUILD > Projects](pdtn-menu-projects.png){width="29%"}
 2. Click Create at the top of the page.
 3. In Create new item window, select Project and click Add. The Create new item of type Project window appears.
 4. Fill in the required details such as Title and Description.  Alternatively, import the existing project by clicking Import Project File and selecting the file from your system.
 5. Click Create. Your project (Northwind) is created.
-    ![Project Northwind](pdtn-project-northwind.png)
+    ![Project Northwind](pdtn-project-northwind.png){ width="79%" }
 6. In your project, click Create Item.
 7. In the Create new item window, select Multi CSV ZIP and click Add.
-    ![Create Multi CSV Zip dataset](pdtn-create-dataset-multi-csv.png)
+    ![Create Multi CSV Zip dataset](pdtn-create-dataset-multi-csv.png){ width="64%" }
 8. Specify a Label of the dataset in the Create new item of type Multi CSV ZIP window.
 9. Select the Upload new file option as you have the files. The Multi CSV ZIP file containing the above-listed files is available here. If it is an existing project, you can select the files from the project. For the remaining parameters, the default settings are used.
 10. Click Create. You can see the message northwind.zip was successfully uploaded in Green.
 11. You can see the Multi CSV ZIP file is uploaded with the datasets, and the item has been created.
-    ![Upload file to dataset](pdtn-create-dataset-upload.png)
+    ![Upload file to dataset](pdtn-create-dataset-upload.png){ width="71%" }
 12. Click the Play button and review the dataset in the Data preview section. You can see the contents of the loaded zip file consisting of the CSV files introduced above.
 
 ## 2 Create a Neo4j dataset
@@ -59,7 +59,7 @@ Perform the following steps to create a Neo4j dataset:
 
 1. In your existing project, click Create to create a new item.
 2. In the item category Dataset select Neo4j.
-    ![Create Neo4j dataset](pdtn-create-dataset-neo4j.png)
+    ![Create Neo4j dataset](pdtn-create-dataset-neo4j.png){ width="68%" }
 3. Click Add.
 4. Enter the following details:
     - Label: _Name of the item_.  
@@ -81,7 +81,7 @@ The provided vocabulary is inspired by this structure from the original Neo4j tu
 
 The vocabulary for the Northwind project can be visualized like this:
 
-![Northwind vocabulary](pdtn-vocabulary.png)
+![Northwind vocabulary](pdtn-vocabulary.png){ width="96%" }
 
 ## 4 Create Transformations
 
@@ -263,7 +263,7 @@ Click the Play icon to validate the results. The nodes and edges created are sto
 
 ## 6 Results in Neo4j
 
-![Result in Neo4j](pdtn-result-in-neo4j.png)
+![Result in Neo4j](pdtn-result-in-neo4j.png){ width="89%" }
 
 ## 7 Results in Knowledge Graph
 
@@ -272,4 +272,4 @@ Optionally, you can use the same transformation and workflow to render the resul
 1. Add a Knowledge Graph dataset and use this as an additional target in your workflow:
     ![Add Knowledge Graph output](pdtn-add-kg-dataset-into-workflow.png)
 2. The results can then be reviewed in the Knowledge Graph module, e.g., explored visually:
-    ![Results in Corporate Memory](pdtn-ontodia-result-view.png)
+    ![Results in Corporate Memory](pdtn-ontodia-result-view.png){ width="72%" }
