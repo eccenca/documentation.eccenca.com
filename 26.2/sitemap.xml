@@ -199,6 +199,9 @@
         <loc>https://documentation.eccenca.com/26.2/build/project-access-control/</loc>
       </url>
       <url>
+        <loc>https://documentation.eccenca.com/26.2/build/query-catalog-tasks/</loc>
+      </url>
+      <url>
         <loc>https://documentation.eccenca.com/26.2/build/reference/</loc>
       </url>
       <url>
@@ -1789,16 +1792,16 @@
         <loc>https://documentation.eccenca.com/26.2/develop/dataplatform-apis/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/marketplace-packages/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/marketplace-packages/development/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/development/tutorial/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/marketplace-packages/development/tutorial/</loc>
       </url>
       <url>
-        <loc>https://documentation.eccenca.com/26.2/develop/packages/installation/</loc>
+        <loc>https://documentation.eccenca.com/26.2/develop/marketplace-packages/installation/</loc>
       </url>
       <url>
         <loc>https://documentation.eccenca.com/26.2/develop/python-plugins/</loc>
