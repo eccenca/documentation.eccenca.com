@@ -28,6 +28,12 @@ Sends an email using an SMTP server with support for both plain text and HTML fo
 When connected to a dataset that is based on a file in a workflow, it will send that file as an attachment whenever
 the workflow is executed. This allows you to send workflow results via email automatically.
 
+## SSL/TLS
+
+The connection is upgraded with STARTTLS if the server offers it. "Force SSL" uses SSL/TLS from the start.
+The certificate of the server must be trusted by the Java runtime and match the configured host.
+The host name check can be switched off with the advanced parameter "Verify server host name".
+
 ## HTML email example
 
 Enable HTML formatting and use standard HTML markup in your message:
@@ -229,3 +235,13 @@ The number of retries per email when send errors are encountered.
 - ID: `nrRetries`
 - Datatype: `int`
 - Default Value: `2`
+
+
+
+### Verify server host name
+
+When enabled, the certificate of the SMTP server must match the configured host for SSL/TLS connections. Disable this only if the server cannot present a matching certificate, because the connection can then be intercepted.
+
+- ID: `verifyServerHostName`
+- Datatype: `boolean`
+- Default Value: `true`

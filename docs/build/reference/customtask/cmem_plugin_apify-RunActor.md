@@ -32,7 +32,7 @@ and renders a list where a list is supplied.
 The result leaves through the file port as one file per actor run, in the chosen
 format. It is deliberately not turned into entities here: a dataset can be very
 large, and reading structure out of a file is what the JSON, CSV and XML
-datasets of Corporate Memory already do.
+datasets of eccenca Corporate Memory already do.
 
 The task covers three cases, which change its shape. Reading an existing Apify
 dataset starts no run and needs no input. Running an actor without reading it

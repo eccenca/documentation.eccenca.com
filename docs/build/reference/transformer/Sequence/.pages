@@ -1,4 +1,3 @@
----
 nav:
     - "Count values": count.md
     - "Get value by index": getValueByIndex.md

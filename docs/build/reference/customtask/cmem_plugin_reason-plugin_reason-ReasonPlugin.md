@@ -17,18 +17,22 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-A task performing OWL reasoning. With an OWL ontology and a data graph as input the reasoning result is written to a specified graph.
+A task performing OWL reasoning. With an OWL ontology and/or a data graph as input the reasoning result is written to a
+specified graph. At least one of the two input graphs must be specified. With two different input graphs, the data
+graph is reasoned with the ontology imported; with only one, or the same graph in both, that graph is reasoned on its
+own.
 
 ## Options
 
 ### Data graph IRI
 
 The IRI of the input data graph. The graph IRI is selected from a list of graphs of types `di:Dataset`, `void:Dataset`
-and `owl:Ontology`.
+and `owl:Ontology`. Optional if an ontology graph is specified.
 
 ### Ontology graph IRI
 
-The IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type`owl:Ontology`.
+The IRI of the input ontology graph. The graph IRI is selected from a list of graphs of type `owl:Ontology`. Optional if
+a data graph is specified.
 
 ### Ignore missing imports
 
@@ -172,6 +176,7 @@ If there are classes `Person`, `Student` and `Professor` as wells as the object 
 ### Validate OWL2 profiles
 
 Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and annotate the result graph.
+Needs an ontology graph.
 
 ### Process valid OWL profiles from input
 
@@ -182,7 +187,7 @@ profiles validation is not done in the plugin. The valid profiles input is a com
 ### Output graph import
 
 Add the triple <output_graph_iri> owl:imports <ontology_graph_iri> into the output graph or add the triple
-<ontology_graph_iri> owl:imports <output_graph_iri> into the ontology graph.
+<ontology_graph_iri> owl:imports <output_graph_iri> into the ontology graph. Needs an ontology graph.
 
 ### Maximum RAM Percentage
 
@@ -195,7 +200,7 @@ Maximum heap size for the Java virtual machine in the DI container running the r
 
 ### Data graph IRI
 
-The IRI of the input data graph.
+The IRI of the input data graph. At least one of data graph and ontology graph must be specified.
 
 - ID: `data_graph_iri`
 - Datatype: `scheme:string`
@@ -205,7 +210,7 @@ The IRI of the input data graph.
 
 ### Ontology graph IRI
 
-The IRI of the input ontology graph.
+The IRI of the input ontology graph. At least one of data graph and ontology graph must be specified.
 
 - ID: `ontology_graph_iri`
 - Datatype: `scheme:string`
@@ -375,7 +380,7 @@ Validate the input ontology against OWL profiles (DL, EL, QL, RL, and Full) and 
 
 ### Output graph import
 
-Add the triple <output_graph_iri> owl:imports <ontology_graph_iri> to the output graph or add the triple <ontology_graph_iri> owl:imports <output_graph_iri> to the ontology graph.
+Add the triple <output_graph_iri> owl:imports <ontology_graph_iri> to the output graph or add the triple <ontology_graph_iri> owl:imports <output_graph_iri> to the ontology graph. Needs an ontology graph.
 
 - ID: `imports`
 - Datatype: `string`

@@ -1,6 +1,6 @@
 ---
 title: "JQL query"
-description: "Search and retrieve JIRA issues."
+description: "Search and retrieve Jira issues."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -22,7 +22,7 @@ to the [REST API (v2)](https://developer.atlassian.com/cloud/jira/platform/rest/
 Jira service. It is tested both with on-premise Jira deployments as well as with instances on
 `atlassian.net`.
 
-The result of the JQL query is a list of JIRA issue descriptions (entities).
+The result of the JQL query is a list of Jira issue descriptions (entities).
 This list is forwarded as a JSON document to the output port,
 where you should connect a JSON Dataset.
 
@@ -84,7 +84,7 @@ Maximum number of issues to retrieve (0 = retrieve all issues).
 
 ### Verify SSL Connection
 
-
+If enabled, the Jira server's SSL certificate is verified. Disable only when connecting to a server with a self-signed or otherwise untrusted certificate.
 
 - ID: `ssl_verify`
 - Datatype: `boolean`

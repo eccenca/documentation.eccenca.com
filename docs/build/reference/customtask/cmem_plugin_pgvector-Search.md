@@ -1,6 +1,6 @@
 ---
 title: "Search Vector Embeddings"
-description: "Search for top-k metadata stored in Postgres Vector Store (PGVector)."
+description: "Search for the top-k nearest matches to a query embedding in Postgres Vector Store (PGVector)."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -18,19 +18,15 @@ tags:
     e.g. with cmemc.
 
 
-This workflow task search for the top-k metadata stored into Postgres Vector Store.
+This workflow task searches for the top-k nearest vectors stored in a collection in Postgres
+Vector Store (PGVector).
 
-The incoming embedding entities are used to retrieve the nearest top-k
-vectors in the collection stored in the Postgres Vector Store.
-It is possible to specify which paths are going to be used for searching as well as which Postgres
-Vector Store and collection name.
+Each incoming entity supplies a query embedding on the single input path. The task compares it
+against the vectors in the configured collection and attaches the top-k nearest matches to the
+entity as a JSON array on an additional output path, together with each match's metadata, its
+stored embedding source, and its distance to the query.
 
-The task uses the embeddings from the path configured with the Embedding Query Path
-parameter (`embedding_query_path`, default value: `_embedding`) to search over the collection.
-The results are provided in the output path configured with the Search Result Path parameter
-(`search_result_path`, default value: `_search_result`).
-
-The results in this output are structured like this:
+The result is structured like this:
 
 ``` json
 [
@@ -43,6 +39,8 @@ The results in this output are structured like this:
 ...
 ]
 ```
+
+Use together with **Store Vector Embeddings**, which populates the collection this task searches.
 
 
 ## Parameter
@@ -99,7 +97,7 @@ The database name.
 
 ### Collection Name
 
-The name of the collection that will be used for search.
+The name of the collection in Postgres Vector Store (PGVector).
 
 - ID: `collection_name`
 - Datatype: `string`
@@ -119,7 +117,7 @@ The path containing the search result in the output entities.
 
 ### Embedding Query Path
 
-The path containing the embedding to be used for searching.
+The path containing the query embedding to search with. Its value must be a string representation of a list of floats, e.g. `[0.1, 0.2, ...]`; the task fails if it cannot be parsed as one.
 
 - ID: `embedding_query_path`
 - Datatype: `string`
@@ -139,7 +137,7 @@ The number of entries to be returned in the search result.
 
 ### Distance Strategy
 
-The distance strategy to use. (default: COSINE)
+The distance strategy used to rank search matches.
 
 - ID: `distance_strategy`
 - Datatype: `enumeration`

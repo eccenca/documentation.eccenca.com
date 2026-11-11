@@ -1,4 +1,3 @@
----
 nav:
     - "File hash": fileHash.md
     - "Input file attributes": inputFileAttributes.md

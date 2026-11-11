@@ -1,4 +1,3 @@
----
 nav:
     - "Filter by length": filterByLength.md
     - "Filter by regex": filterByRegex.md

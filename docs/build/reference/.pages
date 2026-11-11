@@ -1,4 +1,3 @@
----
 nav:
     - "Task and Operator Reference": index.md
     - "Aggregators": aggregator

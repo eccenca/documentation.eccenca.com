@@ -1,4 +1,3 @@
----
 nav:
     - "Aggregate numbers": aggregateNumbers.md
     - "Compare numbers": compareNumbers.md

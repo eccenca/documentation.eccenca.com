@@ -1,6 +1,6 @@
 ---
 title: "Send Mattermost messages"
-description: "Send messages to Mattermost channels and/or users."
+description: "Post messages to Mattermost users and channels through a bot account."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -17,31 +17,43 @@ tags:
     In order to use it, you need to install it,
     e.g. with cmemc.
 
-This task sends messages to Mattermost channels and users.
-
-You need a bot account in order to connect to Mattermost.
-Learn more on bot accounts at
+This task posts messages to Mattermost. Every message is sent by a bot
+account, so recipients see it as coming from the bot rather than from the
+person who ran the workflow. You need that bot account and a personal access
+token for it before the task can do anything - learn more at
 [developers.mattermost.com](https://developers.mattermost.com):
 
 - [Using bot accounts](https://developers.mattermost.com/integrate/reference/bot-accounts/)
 - [Personal access tokens](https://developers.mattermost.com/integrate/reference/personal-access-token/)
 
-The task has two working modes.
+# Ports
 
-# Single Message
+One input port accepts entities carrying the paths `user`, `channel` and
+`message`. Each entity is sent as one message per recipient it names: a direct
+message to the user, a post to the channel, or both.
 
-You can send a single static message to a pre-configured channel or user.
-Just configure the User and/or Channel and Message parameters to do so.
+There is no output port. The task is a terminal step - it hands nothing on to
+the rest of the workflow and reports only how many messages went where.
 
-# Multiple Messages
+A recipient and a message configured on the task itself are sent once, before
+any entity is read. Configuring them while entities also arrive sends both:
+that message once, and one message per entity on top of it.
 
-You can send multiple messages to different channels or users by piping data into
-the task. For each entity, a message is send. For dynamic messages the following
-input paths are recognized:
+# Caveats
 
-- user
-- channel
-- message
+- One field names one recipient, matched exactly. A user is found by username,
+  nickname, email address or full name; a channel by its name or its display
+  name. A comma separated list is **not** split into several recipients - it is
+  looked up as a single name, which fails.
+- What an entity carries is not merged with what is configured on the task. An
+  entity without a message does not fall back to the configured message; it
+  fails.
+- The task stops at the first entity it cannot send - one naming no recipient,
+  one carrying no message, or one naming a recipient Mattermost does not know.
+  Messages sent for earlier entities have already been posted and are not taken
+  back.
+- Requests to Mattermost time out after two seconds, so an unreachable or slow
+  server fails the task rather than delaying it.
 
 
 ## Parameter
@@ -68,7 +80,7 @@ The Personal Access Token of the bot account.
 
 ### Bot name
 
-The name or display name of the bot you want to use to connect.
+The bot account that sends the messages, named by its username, nickname, email address or full name.
 
 - ID: `bot_name`
 - Datatype: `string`
@@ -78,7 +90,7 @@ The name or display name of the bot you want to use to connect.
 
 ### User
 
-The user account which will receive the message. You can search for users if the connection was successful (Base URl, bot + token).
+The single user account that receives the message as a direct message, named by username, nickname, email address or full name. Type at least one letter to search for users. Suggestions need the URL and the Access Token to be filled in first.
 
 - ID: `user`
 - Datatype: `string`
@@ -88,7 +100,7 @@ The user account which will receive the message. You can search for users if the
 
 ### Channel
 
-The channel which will receive the message. You can search for channels if the connection was successful (Base URl, bot + token). If you want to send your message to multiple channels, separate them with a comma.
+The single channel that receives the message, named by its name or its display name. Type at least one letter to search for channels. Suggestions need the URL and the Access Token to be filled in first.
 
 - ID: `channel`
 - Datatype: `string`
@@ -98,7 +110,7 @@ The channel which will receive the message. You can search for channels if the c
 
 ### Message
 
-The message size is limited to a configured maximum (e.g. 16383 characters).
+The message text, interpreted by Mattermost as Markdown. Its maximum length is a server setting, 16383 characters by default.
 
 - ID: `message`
 - Datatype: `multiline string`

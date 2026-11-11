@@ -230,7 +230,7 @@ Parameters related to writing to the database.
 
 #### Write strategy
 
-If this dataset is written to, it can be selected if data is overwritten or appended.
+How this dataset is written to. 'Create table' fails if the table already exists, 'Overwrite table' deletes an existing table before writing, and 'Append rows' adds records to an existing table, whose columns need to match the mapping. Creating and overwriting tables always needs the Spark modules. Appending rows needs them too, unless the database supports importing CSV files.
 
 - ID: `write.writeStrategy`
 - Datatype: `enumeration`

@@ -1,4 +1,3 @@
----
 nav:
     - "Contains all of": containsAllOf.md
     - "Contains any of": containsAnyOf.md

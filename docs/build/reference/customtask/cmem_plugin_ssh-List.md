@@ -1,6 +1,6 @@
 ---
 title: "List SSH files"
-description: "List files from a given SSH instance."
+description: "List the files of a directory on an SSH server, with their metadata."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -18,43 +18,41 @@ tags:
     e.g. with cmemc.
 
 
-This workflow task generates structured output from a specified SSH instance.
+Lists the files of a directory on an SSH server, together with the metadata the
+server reports for them.
 
-By providing the hostname, username, port and authentication method, you can specify the
-folder from which the data should be extracted.
+The task takes no input. It emits one entity per file, holding the full remote path
+in `file_name`, plus `size`, `uid`, `gid`, `mode`, `atime` and `mtime` exactly as the
+server reports them: a byte count, numeric owner and group ids, numeric mode bits and
+Unix timestamps. Folders are traversed but never emitted.
 
-You can also define a regular expression to include or exclude specific files.
+**Download SSH files** accepts these entities on its input port, so that listing and
+downloading can be split into two steps, with transformations in between that narrow
+down which of the listed files are fetched.
 
-There is also an option to prevent files in subfolders from being included.
+The **Preview results** action lists the first ten matches without running the
+workflow. It stops after ten files, so it can miss the unreadable file that would make
+a real run behave differently.
 
-## Authentication Methods
+## Caveats
 
-- **Password:** Only the password will be used for authentication. The private key field is
-ignored, even if filled.
-- **Key:** The private key will be used for authentication. If the key is encrypted, the password
-will be used to decrypt it.
-
-### Error handling modes
-
-- **Ignore:** Ignores the permission rights of files and lists them all. Skips folders when there
-is no correct permission.
-- **Warning:** Warns the user about files that the user has no permission rights to. Lists all files
-and skips folder when there is no correct permission.
-- **Error:** Throws an error when there is a single file or folder with incorrect permission rights.
-
-#### Note
-
-- If a connection cannot be established within 20 seconds, a timeout occurs.
-- Currently supported key types are: RSA, ECDSA, Ed25519.
-- Setting the maximum amount of workers to more than 1 may cause a Channel Exception when
-the amount of files is too large
+- Files the account cannot read are listed like every other file. The error handling
+only decides whether they are reported on top of that, or the listing fails.
+- A folder that cannot be read is skipped silently unless the error handling is set to
+Error, and the files below it are then missing from the result without further notice.
+- Every file is opened and one byte is read from it to find out whether it is readable,
+which makes listing a large directory noticeably slower than a plain directory listing.
+- The task logs in with the configured credentials only, and offers no key of the
+machine it runs on. The host key of the server in turn is accepted as presented and
+never checked against a known hosts list.
+- Establishing the connection fails after 20 seconds.
 
 
 ## Parameter
 
 ### Hostname
 
-Hostname to connect to. Usually in the form of an IP address
+Host name or IP address of the SSH server.
 
 - ID: `hostname`
 - Datatype: `string`
@@ -64,7 +62,7 @@ Hostname to connect to. Usually in the form of an IP address
 
 ### Port
 
-The port on which the connection will be tried on. Default is 22.
+TCP port the SSH server listens on.
 
 - ID: `port`
 - Datatype: `Long`
@@ -74,7 +72,7 @@ The port on which the connection will be tried on. Default is 22.
 
 ### Username
 
-The username with which a connection will be instantiated.
+Account to log in as.
 
 - ID: `username`
 - Datatype: `string`
@@ -84,7 +82,7 @@ The username with which a connection will be instantiated.
 
 ### Authentication method
 
-The method that is used to connect to the SSH server.
+How the task authenticates against the server.
 
 - ID: `authentication_method`
 - Datatype: `string`
@@ -94,7 +92,7 @@ The method that is used to connect to the SSH server.
 
 ### Private key
 
-Your private key to connect via SSH.
+Private key in PEM format, used when the authentication method is Key. RSA, ECDSA and Ed25519 keys are supported.
 
 - ID: `private_key`
 - Datatype: `password`
@@ -104,7 +102,7 @@ Your private key to connect via SSH.
 
 ### Password
 
-Depending on your authentication method this will either be used toconnect via password to SSH, or to decrypt the SSH private key
+Password of the account, or the passphrase of the private key when the authentication method is Key.
 
 - ID: `password`
 - Datatype: `password`
@@ -114,7 +112,7 @@ Depending on your authentication method this will either be used toconnect via p
 
 ### Path
 
-The currently selected path within your SSH instance. Auto-completion starts from user home folder, use '..' for parent directory or '/' for root directory.
+Remote directory the task works in. Autocompletion starts in the home directory of the account, use '..' for the parent directory or '/' for the root directory.
 
 - ID: `path`
 - Datatype: `string`
@@ -122,9 +120,9 @@ The currently selected path within your SSH instance. Auto-completion starts fro
 
 
 
-### Error handling for missing permissions
+### Error handling
 
-A choice on how to handle errors concerning the permissions rights.When choosing 'ignore' all files get listed regardless if the current user has correct permission rightsWhen choosing 'warning' all files get listed however there will be a mention that some of the files are not under the users permissionsif there are anyWhen choosing 'error' the files will not get listed if therethere are files the user has no access to.
+How the task reacts to files and folders the account cannot read.
 
 - ID: `error_handling`
 - Datatype: `string`
@@ -134,7 +132,7 @@ A choice on how to handle errors concerning the permissions rights.When choosing
 
 ### No subfolder
 
-When this flag is set, only files from the current directory will be listed.
+If enabled, only the given directory is listed and its subfolders are left out.
 
 - ID: `no_subfolder`
 - Datatype: `boolean`
@@ -144,7 +142,7 @@ When this flag is set, only files from the current directory will be listed.
 
 ### Regular expression
 
-A regular expression used to define which files will get listed.
+Regular expression a file name has to match completely to be listed. It is matched against the plain file name, not against the path.
 
 - ID: `regex`
 - Datatype: `string`
@@ -152,9 +150,9 @@ A regular expression used to define which files will get listed.
 
 ## Advanced Parameter
 
-### Maximum amount of workers
+### Maximum number of workers
 
-Determines the amount of workers used for concurrent thread execution of the task. Default is 1, maximum is 32. Note that too many workers can cause a ChannelException.
+Number of threads that list subfolders in parallel, from 1 to 32. More threads speed up a deep folder tree, but too many parallel channels make some servers refuse them with a ChannelException.
 
 - ID: `max_workers`
 - Datatype: `Long`

@@ -1,4 +1,3 @@
----
 nav:
     - "Validate date after": validateDateAfter.md
     - "Validate date range": validateDateRange.md

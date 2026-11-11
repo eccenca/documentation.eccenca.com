@@ -73,7 +73,7 @@ Set date (e.g.YYYY-MM-DD) to convert currencies based on historic rates.
 
 - ID: `date`
 - Datatype: `string`
-- Default Value: `2026-09-02`
+- Default Value: `2026-11-11`
 
 
 
