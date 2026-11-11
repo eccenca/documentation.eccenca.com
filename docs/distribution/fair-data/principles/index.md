@@ -7,7 +7,7 @@ tags:
     - BestPractice
 ---
 
-# The FAIR principles in Corporate Memory
+# The FAIR principles in eccenca Corporate Memory
 
 The fifteen Findable, Accessible, Interoperable and Reusable (FAIR) principles are quoted below in the wording of the [GO FAIR Foundation](https://www.gofair.foundation/fair-principles), retrieved on 2026-10-02.
 For each principle, the table names the mechanism in eccenca Corporate Memory that implements it and links to the page documenting that mechanism.

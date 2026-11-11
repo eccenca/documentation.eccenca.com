@@ -21,7 +21,7 @@ Key advantages:
 ## Setup
 
 SPARQL Constraints are resources which need to be managed in a Shape Catalog.
-This catalog graph needs to be imported (virtually, with `owl:imports`) into the main CMEM Shapes Catalog.
+This catalog graph needs to be imported (virtually, with `owl:imports`) into the main eccenca Corporate Memory Shapes Catalog.
 Similar to property shapes, SPARQL Constraints needed to be linked from a Node Shape in order to select the set of shapes which are used for a given selection of resources.
 
 ## Step-by-Step Example

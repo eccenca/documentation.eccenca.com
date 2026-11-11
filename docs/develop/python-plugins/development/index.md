@@ -663,7 +663,7 @@ This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin i
 
 ## Concurrency
 
-CMEM uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
+eccenca Corporate Memory uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
 Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor) relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:
 
 - Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.

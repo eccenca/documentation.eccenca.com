@@ -628,7 +628,7 @@ Here, we are creating a new SPARQL Update task to calculate and insert automatic
 
 The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use eccenca Corporate Memory.
 
-1. [Install CMEMC - a Command Line Interface of CMEM](../../../automate/cmemc-command-line-interface/installation/index.md)
+1. [Install cmemc - a Command Line Interface of Corporate Memory](../../../automate/cmemc-command-line-interface/installation/index.md)
 
 2. Open your config file:
 
@@ -636,7 +636,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
     cmemc config edit
     ```
 
-3. Insert your sandbox in your CMEMC config, example with a password grant type:
+3. Insert your sandbox in your cmemc config, example with a password grant type:
 
     ```bash
     [johndo.eccenca.my]
@@ -651,7 +651,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
 
     !!! Tip
 
-        Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for CMEMC with this line:
+        Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for cmemc with this line:
 
         ```bash
         export CMEMC_CONNECTION=johndo.eccenca.my
