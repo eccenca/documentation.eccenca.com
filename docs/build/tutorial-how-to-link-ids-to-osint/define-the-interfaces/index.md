@@ -10,21 +10,21 @@ In this tutorial, we will show how to (1) define the information available in an
 In the previous tutorial, we have defined the use cases in contact with the humans, ie. analysts (see figure 1)
 
 <figure markdown="span">
-![Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.](use_cases_with_interfaces.png)
+![Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.](use_cases_with_interfaces.png){ width="50%" }
 <figcaption>Figure 1. We need to imagine an interface where analysts can list the IoCs during the incident and read all their documentations.</figcaption>
 </figure>
 
 The classic Splunk interface is a set of panels, like "static table" panel. This table panel can show a table of cells and also one cell with a text via in input a Splunk Search Processing Language (SPL). With the plugin [Linked Data App](../link-IDS-event-to-KG/eccenca_commands.tar.gz) ([tutorial page](../link-IDS-event-to-KG/index.md)), we can insert a SPARQL query and select the part of your knowledge graph to print (figure 2).
 
 <figure markdown="span">
-![Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"](demo-splunk-with-kg-edit.png)
+![Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"](demo-splunk-with-kg-edit.png){ width="75%" }
 <figcaption>Figure 2. An analyst can insert a SPARQL query with Splunk token in input of one "static table" panel of his dashboard with the plugin "Linked Data App"</figcaption>
 </figure>
 
 The first dashboard to do for our use cases is the list of IoCs with classic SPL queries of analysts via a static table and allow the analyst to select one IoC via a click in the table. The dashboard with this selected row can save the ID of IoC in a global variable for the other panels in the same dashboard ([a Splunk token](https://docs.splunk.com/Documentation/Splunk/9.0.5/Viz/tokens)). When this variable (Splunk token) is changed by the user, Splunk is able to recalculate automatically the queries with this variable in the other static tables. So with this mechanism, we can print the details in the knowledge graph (with SPARQL queries) and the IoC statistics in the Splunk indexes (with SPL queries) around of one selected IoC. With these knowledge about Splunk dashboard, we proposed to analysts a first naive interface in the figure 3.
 
 <figure markdown="span">
-![Figure 3. Imagine the expected Splunk dashboard with its interaction](interface.png)
+![Figure 3. Imagine the expected Splunk dashboard with its interaction](interface.png){ width="57%" }
 <figcaption>Figure 3. Imagine the expected Splunk dashboard with its interaction</figcaption>
 </figure>
 
