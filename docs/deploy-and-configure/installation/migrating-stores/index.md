@@ -6,7 +6,7 @@ icon: material/database
 ## Sizing and Deployment
 
 - size and deploy of the new store (refer to the capacity planning / sizing considerations, refer to the docker container / orchestration)
-- store specific config (e.g. search-all-graphs in SD)
+- store specific config
 
 ## Transferring Data and Configuration
 
@@ -15,7 +15,6 @@ icon: material/database
         - blacklisting the DI projects graphs
     - config
         - DM
-            - stardog text match support (this is a DM parameter!)
             - search queries
             - navigation
     - DP
