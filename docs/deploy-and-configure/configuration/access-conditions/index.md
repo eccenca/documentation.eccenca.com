@@ -307,7 +307,7 @@ The following list, provides grants which work together:
 
 - Allowed Actions: **Explore - Knowledge Graphs Exploration** (`:Explore-KnowledgeGraphs`)
 - Allow read graphs:
-    - **CMEM Shape Catalog** (`https://vocab.eccenca.com/shacl/`)
+    - **CMEM Shapes Catalog** (`https://vocab.eccenca.com/shacl/`)
     - Any other graph the user should be able to explore
 - Allow write graphs:
     - (optional) Any graph the user should be able to change

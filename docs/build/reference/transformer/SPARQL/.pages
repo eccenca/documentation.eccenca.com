@@ -1,3 +1,4 @@
+---
 nav:
     - "Escape SPARQL multiline literal": escape_multiline_literal.md
     - "Escape SPARQL plain literal": escape_literal.md

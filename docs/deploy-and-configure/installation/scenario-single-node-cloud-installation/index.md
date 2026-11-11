@@ -152,7 +152,7 @@ make clean-pull-start-bootstrap
 make tutorials-import
 ```
 
-Optional: you can install cmem as a systemd service for this use these commands as root or sudo:
+Optional: you can install Corporate Memory as a systemd service for this use these commands as root or sudo:
 
 ```bash
 cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \

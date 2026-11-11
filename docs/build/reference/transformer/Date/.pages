@@ -1,3 +1,4 @@
+---
 nav:
     - "Compare dates": compareDates.md
     - "Current date": currentDate.md

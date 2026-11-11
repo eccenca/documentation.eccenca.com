@@ -17,7 +17,7 @@ If the certificates of your Corporate Memory deployment are based on a common an
 
 However, in some cases you need to do one of the following:
 
-- provide your own certificates CA bundle in order to allow cmem to trust your servers
+- provide your own certificates CA bundle in order to allow cmemc to trust your servers
 - disable SSL verification entirely (for debugging and testing purpose only)
 
 ## Provide your own CA bundle

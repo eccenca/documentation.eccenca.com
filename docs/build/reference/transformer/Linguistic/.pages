@@ -1,3 +1,4 @@
+---
 nav:
     - "Metaphone": metaphone.md
     - "Normalize chars": normalizeChars.md

@@ -88,7 +88,7 @@ Empty config created: config.ini
 No connections found.
 ```
 
-You can now edit your configuration file and add credentials and URL parameters for your Corporate Memory deployment.
+You can now edit your configuration file and add credentials and URL parameters for your eccenca Corporate Memory deployment.
 You either search for the configuration manually in your home directory or you can use the `config edit` command, which opens the configuration file in your default text editor (specified by the [`EDITOR` variable](https://wiki.archlinux.org/title/environment_variables#Default_programs)).
 
 ``` shell-session

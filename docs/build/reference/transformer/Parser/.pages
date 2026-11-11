@@ -1,3 +1,4 @@
+---
 nav:
     - "Parse date": DateTypeParser.md
     - "Parse float": FloatTypeParser.md

@@ -1,3 +1,4 @@
+---
 nav:
     - "Camel case tokenizer": camelcasetokenizer.md
     - "Tokenize": tokenize.md

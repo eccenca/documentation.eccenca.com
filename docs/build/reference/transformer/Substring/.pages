@@ -1,3 +1,4 @@
+---
 nav:
     - "Strip postfix": stripPostfix.md
     - "Strip prefix": stripPrefix.md

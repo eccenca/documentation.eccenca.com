@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.3.2
+# eccenca Corporate Memory 24.3.2
 
 Corporate Memory 24.3.2 is the third major release in 2024.
 
