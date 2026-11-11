@@ -740,13 +740,13 @@ nav:
           - Setup and Configuration:
               - develop/python-plugins/setup/index.md
       - Marketplace Packages:
-          - Marketplace Packages: develop/packages/index.md
+          - Marketplace Packages: develop/marketplace-packages/index.md
           - Installation and Management:
-              - develop/packages/installation/index.md
+              - develop/marketplace-packages/installation/index.md
           - Development and Publication:
-              - Development and Publication: develop/packages/development/index.md
+              - Development and Publication: develop/marketplace-packages/development/index.md
               - Tutorial:
-                  - develop/packages/development/tutorial/index.md
+                  - develop/marketplace-packages/development/tutorial/index.md
       - cmempy - Python API:
           - develop/cmempy-python-api/index.md
       - cmem-client - Python API:

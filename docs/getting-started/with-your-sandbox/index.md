@@ -20,7 +20,7 @@ eccenca's Corporate Memory is a platform for creating and managing Enterprise Kn
     ![Error message 503 Service Temporarily Unavailable when installing a package that depends on cmem-plugin-shapes](python-plugin-install-error.png){ class="bordered" width="20%" align=right }
 
     Python plugins cannot be used with sandbox instances.
-    The installation of a [Marketplace Package](../../develop/packages/index.md) fails if the package depends on a Python plugin (any `cmem-plugin-*`).
+    The installation of a [Marketplace Package](../../develop/marketplace-packages/index.md) fails if the package depends on a Python plugin (any `cmem-plugin-*`).
     The sandbox then returns the error shown here.
 
     Contact [info@eccenca.com](mailto:info@eccenca.com) to discuss your requirements.
