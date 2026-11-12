@@ -15,7 +15,7 @@ In this document we provide an overview on how the environment files are loaded,
 ## Environment Files: Loading Sequence
 
 The environment files are supplied in the CONFIGFILE environment variable to the make targets inside the orchestration.
-For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the Corporate Memory instance using `prod.env` configuration:
+For example, in [Scenario: Single Node Cloud Installation](../../installation/scenario-single-node-cloud-installation/index.md) we have created a `prod.env` environment file and created the eccenca Corporate Memory instance using `prod.env` configuration:
 
 ``` shell-session
 CONFIGFILE=environments/prod.env make clean-pull-start-bootstrap
@@ -47,7 +47,6 @@ echo "create empty environments/prod.env file"
 touch environments/prod.env
 echo "inject necessary variables into the prod.env"
 echo "CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a" >> environments/prod.env
-echo "STARDOG_PASSWORD=admin" >> environments/prod.env
 echo "TRUSTSTOREPASS=Aimeik5Ocho5riuC" >> environments/prod.env
 ```
 
@@ -129,13 +128,6 @@ All available configuration environment variables are listed in `environments/de
 | KEYCLOAK_AUTH_URL_INTERNAL | `http://keycloak:8080/auth/realms/cmem/protocol/openid-connect/token` (internal) | used in scripts/utils.sh to restore Build (DataIntegration) projects |
 | CMEM_SERVICE_ACCOUNT_CLIENT_ID | (internal) | used in scripts/utils.sh to restore Build (DataIntegration) projects |
 
-### Stardog Settings
-
-| Variable | Default Value | Description |
-| -------------------------- | ---------------------------------------- | -------------------------------------------------- |
-| STARDOG_SEARCHINDEX_ENABLE | true | Enable or disable stardog search index |
-| STARDOG_SERVER_JAVA_ARGS | -Xms2g -Xmx2g -XX:MaxDirectMemorySize=1g | Java options, modify to increase memory allocation |
-
 ### Component Versions
 
 | Variable | Default Value | Description |
@@ -146,7 +138,6 @@ All available configuration environment variables are listed in `environments/de
 | APACHE2_VERSION | v2.6.0 | Apache2 docker image version to be used |
 | KEYCLOAK_VERSION | v6.0.1-2 | Keycloak docker image version to be used |
 | POSTGRES_VERSION | 11.5-alpine | Postgresql docker image version to be used |
-| STARDOG_VERSION | v7.2.0-1 | Stardog docker image version to be used |
 
 ## SSL Configuration with Letsencrypt Example
 
@@ -156,13 +147,11 @@ A complete example on how to deploy the Corporate Memory instance on Hetzner wit
 #!/bin/bash
 
 CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
-STARDOG_PASSWORD=admin
 # change DEPLOYHOST to your own value! the one you have configured in your DNS
 DEPLOYHOST=corporate-memory.example.com
 PROXY_ADDRESS_FORWARDING=true
 DATAINTEGRATION_JAVA_TOOL_OPTIONS=-Xmx4g
 DATAPLATFORM_JAVA_TOOL_OPTIONS=-Xms2g -Xmx4g
-STARDOG_SERVER_JAVA_ARGS=-Xms2g -Xmx2g -XX:MaxDirectMemorySize=4g
 
 # letsencrypt:
 SSLCONF=ssl.letsencrypt.conf
@@ -175,7 +164,6 @@ DM_VERSION=v20.03
 APACHE2_VERSION=v2.6.0
 KEYCLOAK_VERSION=v6.0.1-2
 POSTGRES_VERSION=11.5-alpine
-STARDOG_VERSION=v7.2.0-1
 
 #################################
 # Do NOT CHANGE these settings. #
@@ -196,7 +184,6 @@ PROXY_ADDRESS_FORWARDING=true
 #!/bin/bash
 
 CMEM_SERVICE_ACCOUNT_CLIENT_SECRET=c8c12828-000c-467b-9b6d-2d6b5e16df4a
-STARDOG_PASSWORD=admin
 TRUSTSTOREPASS=Aimeik5Ocho5riuC
 
 # Set this to your deployhost
@@ -209,7 +196,6 @@ DM_VERSION=v20.03
 APACHE2_VERSION=v2.6.0
 KEYCLOAK_VERSION=v6.0.1-2
 POSTGRES_VERSION=11.5-alpine
-STARDOG_VERSION=v7.2.0-1
 
 #################################
 # Do NOT CHANGE these settings. #

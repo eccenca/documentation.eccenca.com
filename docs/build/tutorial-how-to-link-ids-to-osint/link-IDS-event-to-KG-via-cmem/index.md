@@ -4,7 +4,7 @@
 
 In this tutorial, we are using the Splunk app "Investigate lateral movements with a knowledge graph", like example. This app contains several dasboards to help the analysts to navigate in the Hayabusa or Sigma alerts before searching in the Suricata and Sysmon alerts. We hope this method can "Accelerate Cyber Threat Hunting".
 
-In the demo of this Splunk app via the video 1, the user selects the data about one investigation via Splunk and generate a bash script to export these data via the Splunk API in tempory graphs in Corporate Memory for each investigation.
+In the demo of this Splunk app via the video 1, the user selects the data about one investigation via Splunk and generate a bash script to export these data via the Splunk API in tempory graphs in eccenca Corporate Memory for each investigation.
 
 <figure markdown="span">
 ![Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"](splunk-app-demo-poc-app.gif)
@@ -56,17 +56,17 @@ For each investigation, an analyst selects and navigates in the data with two da
 </figure>
 
 <figure markdown="span">
-![Figure 2: High-level investigation dashboard with the list of computers implicated in the incident](poc-app_high_level_computers.png)
+![Figure 2: High-level investigation dashboard with the list of computers implicated in the incident](poc-app_high_level_computers.png){ width="68%" }
 <figcaption>Figure 2: High-level investigation dashboard with the list of computers implicated in the incident</figcaption>
 </figure>
 
 <figure markdown="span">
-![Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details](poc-app_high_level_period.png)
+![Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details](poc-app_high_level_period.png){ width="69%" }
 <figcaption>Figure 3: High-level investigation dashboard with the panel to select a specific period during an incident according to IoCs details</figcaption>
 </figure>
 
 <figure markdown="span">
-![Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard](poc-app_low_level.png)
+![Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard](poc-app_low_level.png){ width="73%" }
 <figcaption>Figure 4: low-level investigation dashboard contains the command lines of Windows processus rised Suricata alerts during the period selected by the analyst in a high-level investigation dashboard</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ The idea is the analyst can do an investigation high-level without using a lot o
 To follow the calculation of investigations and free memory when one investigation is closed, we developed another dashboard "investigation_list.xml" (see figure 5). This dashboard prints the status of investigations actually in the knowledge graph. Here, each investigation is saved in tempory graphs and the analyst can create and delete them directly in Splunk.
 
 <figure markdown="span">
-![Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.](poc-app_list_investigations.png)
+![Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.](poc-app_list_investigations.png){ width="82%" }
 <figcaption>Figure 5: The dashboard "investigation list" shows all the tempory graph actually in the knowledge graph. The analyst can open an investigation, see the SPL query generated when he has created an investigation and delete it when he want.</figcaption>
 </figure>
 
@@ -139,7 +139,7 @@ There are not consensus about the manner to calculate inferences on the RDF data
 
 We use two manners to calculate new inferences:
 
-- when the inference is simple to calculate with SPARQL, we use a SPARQL update query with parameters in Corporate Memory (like "inferenceID" to build the name of destination tempory graph). "queryIRI" is the IRI of the query in the catalog of Corporate Memory.
+- when the inference is simple to calculate with SPARQL, we use a SPARQL update query with parameters in eccenca Corporate Memory (like "inferenceID" to build the name of destination tempory graph). "queryIRI" is the IRI of the query in the catalog of Corporate Memory.
 - when the inference is complex to calculate, we use a workflow of Corporate Memory.
 
 With these tokens "source_1", "source_2", etc and "inferences" in the dashboard, the app can generate a bash script for CMEMC.
@@ -180,7 +180,7 @@ In the previous chapter, you explain the role of token "source_x" to create a ne
 
 Here the example is simple with one external token, but when you have several external tokens in the token "source_x", there are often problems to generate a complet SPL query (to check the SPL query, you need to use the JavaScript console via the JavaScript "investigation.js" to read the final SPL queries in the tokens "source_x").
 
-You can add in your dashboard several tokens "source_1", "source_2", "source_3", etc. Each source generates a part of final bash script where a curl command requests the Splunk API and a CMEMC command executes the specified worflow via its ID in the token. With this method, the analyst is free to import any Splunk data and choose any CMEM workflow according to these data. The SPL queries are executed by the Splunk API (via curl), so the analyst is free to use all commands supported in Splunk to select the data. For example, with low-level investigation, these SPL queries contains also the selected period by the analyst to limit the quantity of data to import.
+You can add in your dashboard several tokens "source_1", "source_2", "source_3", etc. Each source generates a part of final bash script where a curl command requests the Splunk API and a CMEMC command executes the specified worflow via its ID in the token. With this method, the analyst is free to import any Splunk data and choose any Corporate Memory workflow according to these data. The SPL queries are executed by the Splunk API (via curl), so the analyst is free to use all commands supported in Splunk to select the data. For example, with low-level investigation, these SPL queries contains also the selected period by the analyst to limit the quantity of data to import.
 
 ## Reasoning with data in Corporate Memory via Splunk
 

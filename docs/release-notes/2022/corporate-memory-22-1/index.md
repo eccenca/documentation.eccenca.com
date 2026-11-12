@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 22.1
+# eccenca Corporate Memory 22.1
 
 Corporate Memory 22.1 is the first release in 2022.
 
@@ -212,7 +212,7 @@ In addition to that, multiple performance and stability issues were solved.
 ### DataManager
 
 - New Graph List component with configurable lists.
-    - The lists can be configured in the cmem config graph.
+    - The lists can be configured in the Corporate Memory config graph.
     - Configurations in the `<datamanager>/application.yml` are ignored any customizations need to be migrated.
 
 ### DataPlatform

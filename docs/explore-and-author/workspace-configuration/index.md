@@ -6,7 +6,7 @@ tags:
 ---
 # Application view
 
-An Application view determines which modules are available in the Corporate Memory
+An Application view determines which modules are available in the eccenca Corporate Memory
 user interface. The Application view configuration module lets you select the
 Application view you work in, configure its details, and create or delete
 Application views.
@@ -25,7 +25,7 @@ Click the drop-down list and click the Application view you want to open.
 
 Click the :eccenca-module-workspace-configuration: **Application view configuration** icon in the main menu.
 
-![Configuration module](configuration.png){ class="bordered" }
+![Configuration module](configuration.png){ class="bordered" width="29%" }
 
 Select the Application view from the dropdown menu to configure.
 

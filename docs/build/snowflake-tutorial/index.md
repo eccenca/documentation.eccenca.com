@@ -89,7 +89,7 @@ Here you can populate some test data with the following SQL query:
 
 ??? example "INSERT query"
 
-    ```sql
+    ```sql { .print-exclude }
     INSERT INTO product(product_id,product_name,height,width,depth,weigth,product_manager,price) VALUES
      ('I241-8776317','Strain Compensator',12,68,15,8,'Baldwin.Dirksen@company.org','0,50 EUR')
     ,('D215-3449390','Gauge Crystal',77,58,19,15,'Wanja.Hoffmann@company.org','2,00 EUR')
@@ -1210,7 +1210,7 @@ Here you can populate some test data with the following SQL query:
 - Select the **target property** according to transformation requirements, for example name, id, etc., then select the **value path** according to the target property as the product name, product id etc.
     This step will help in mapping the data from the source to the target property.
 
-    ![image](snowflake-target-property.png){ class="bordered" }
+    ![image](snowflake-target-property.png){ class="bordered" width="91%" }
 
 - Type the label name **product name**, then click on **Save**.
 
@@ -1232,7 +1232,7 @@ Here you can populate some test data with the following SQL query:
 
         Suggestion appears as below can select as per the requirement.
 
-        ![image](snowflake-suggestion-result.png){ class="bordered" }
+        ![image](snowflake-suggestion-result.png){ class="bordered" width="91%" }
 
     !!! note
 
@@ -1240,7 +1240,7 @@ Here you can populate some test data with the following SQL query:
 
 - **Tick** the box to select the suggestions to be added, then click on **Add**.
 
-![image](snowflake-tick.png){ class="bordered" }
+![image](snowflake-tick.png){ class="bordered" width="93%" }
 
 ## 4. Create a knowledge graph
 

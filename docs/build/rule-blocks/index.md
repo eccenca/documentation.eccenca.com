@@ -25,7 +25,7 @@ Conversely, a rule which uses a rule block stays small and readable, because the
 Since a rule block is a regular project item, it travels with the project:
 it is contained in project exports and imports, and it can be shipped inside a [Marketplace Package](../../distribution/marketplace/index.md).
 This makes rule blocks a natural carrier for conventions which should not be re-invented per project or per team - an IRI minting rule which implements your [Cool IRI](../cool-iris/index.md) policy, a normalization of company names, or the canonical way to build a label.
-Published as [a package](../../develop/packages/index.md), such a set of rule blocks becomes a shared, versioned guideline which other units or organizations install instead of re-implementing.
+Published as [a package](../../develop/marketplace-packages/index.md), such a set of rule blocks becomes a shared, versioned guideline which other units or organizations install instead of re-implementing.
 
 !!! info "Availability"
 
@@ -89,7 +89,7 @@ Dragging **New input port** onto the canvas creates a port as well.
 Existing ports are listed below that entry.
 Click the **:material-pencil-outline: edit** icon of a port to open the **Edit input port** dialog, or the **:material-delete-outline: delete** icon to remove it:
 
-![The Edit input port dialog](rule-blocks-input-port.png "The Edit input port dialog")
+![The Edit input port dialog](rule-blocks-input-port.png "The Edit input port dialog"){ width="62%" }
 
 **Label**
 :   The name of the port.
@@ -145,7 +145,7 @@ It has one input handle per input port, in the port order defined in the rule bl
 
 Its context menu offers the actions specific to the reference:
 
-![The context menu of a rule block node](rule-blocks-node-menu.png "The context menu of a rule block node")
+![The context menu of a rule block node](rule-blocks-node-menu.png "The context menu of a rule block node"){ width="32%" }
 
 **Clone**
 :   Adds a second reference to the same rule block.
@@ -187,7 +187,7 @@ That also means a change can break those rules, so the editor restricts what may
 
 Click the **:material-information-outline: Usage status** button next to **Save** to see the current state:
 
-![The usage status of a rule block](rule-blocks-usage-status.png "The usage status of a rule block")
+![The usage status of a rule block](rule-blocks-usage-status.png "The usage status of a rule block"){ width="75%" }
 
 While a rule block is in use:
 
@@ -213,7 +213,7 @@ To use the same rule block elsewhere, distribute the project item:
     See the [project command group](../../automate/cmemc-command-line-interface/command-reference/project/index.md) of [cmemc](../../automate/cmemc-command-line-interface/index.md).
 - **Marketplace Packages** - a package which ships a Build project ships its rule blocks with it.
     This is the way to publish a set of agreed-upon rule blocks - IRI minting, name and address normalization, code cleanup - as a versioned artifact which other teams install.
-    See [Marketplace Packages: Development and Publication](../../develop/packages/development/index.md) and the [Marketplace](../../distribution/marketplace/index.md).
+    See [Marketplace Packages: Development and Publication](../../develop/marketplace-packages/development/index.md) and the [Marketplace](../../distribution/marketplace/index.md).
 
 ## Limitations
 

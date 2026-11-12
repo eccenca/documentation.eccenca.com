@@ -15,7 +15,7 @@ Repository implementation for simple list API endpoints.
 
 This module provides PlainListRepository, a repository implementation for
 API endpoints that return a simple array of objects without pagination.
-It's commonly used with Corporate Memory's DataIntegration (build) APIs
+It is commonly used with Corporate Memory's DataIntegration (build) APIs
 that provide straightforward list responses.
 
 The PlainListRepository fetches the entire list in a single request and

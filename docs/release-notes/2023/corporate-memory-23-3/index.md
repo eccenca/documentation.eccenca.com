@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.3.2
+# eccenca Corporate Memory 23.3.2
 
 Corporate Memory 23.3.2 is the second patch release in the 23.3 release line.
 
@@ -124,7 +124,7 @@ v23.3.0 of DataManager ships the following changes:
 v23.3.0 of DataManager ships the following fixes:
 
 - Fixed broken navigation (workspace part of URL was lost).
-- CMEM Manual Testing 23.2 e2e - Don't do redundant redirects in the Module context.
+- Manual Testing 23.2 e2e - Don't do redundant redirects in the Module context.
 - Navigation tree in the Thesaurus module was collapsed after a subitem select.
 - Use more space for visualization catalogue if available.
 

@@ -33,6 +33,8 @@ tags:
 | [admin client](admin/client/index.md) | [list](admin/client/index.md#admin-client-list) | List client accounts. |
 | [admin client](admin/client/index.md) | [secret](admin/client/index.md#admin-client-secret) | Get or generate a new secret for a client account. |
 | [admin client](admin/client/index.md) | [open](admin/client/index.md#admin-client-open) | Open clients in the browser. |
+| [admin logs](admin/logs/index.md) | [list](admin/logs/index.md#admin-logs-list) | List the most recent log lines of the jobs. |
+| [admin logs](admin/logs/index.md) | [status](admin/logs/index.md#admin-logs-status) | Get the state of the in-memory log buffers. |
 | [admin metrics](admin/metrics/index.md) | [get](admin/metrics/index.md#admin-metrics-get) | Get sample data of a metric. |
 | [admin metrics](admin/metrics/index.md) | [inspect](admin/metrics/index.md#admin-metrics-inspect) | Inspect a metric. |
 | [admin metrics](admin/metrics/index.md) | [list](admin/metrics/index.md#admin-metrics-list) | List metrics for a specific job. |
@@ -100,6 +102,7 @@ tags:
 | [graph validation](graph/validation/index.md) | [export](graph/validation/index.md#graph-validation-export) | Export a report of finished validations. |
 | [package](package/index.md) | [inspect](package/index.md#package-inspect) | Inspect the manifest of a package. |
 | [package](package/index.md) | [list](package/index.md#package-list) | List installed packages. |
+| [package](package/index.md) | [dependencies](package/index.md#package-dependencies) | Show the dependency tree of the installed packages. |
 | [package](package/index.md) | [install](package/index.md#package-install) | Install packages. |
 | [package](package/index.md) | [download](package/index.md#package-download) | Download a package archive from the marketplace. |
 | [package](package/index.md) | [uninstall](package/index.md#package-uninstall) | Uninstall installed packages. |
@@ -121,11 +124,21 @@ tags:
 | [project file](project/file/index.md) | [upload](project/file/index.md#project-file-upload) | Upload a file to a project. |
 | [project file](project/file/index.md) | [inspect](project/file/index.md#project-file-inspect) | Display all metadata of a file resource. |
 | [project file](project/file/index.md) | [usage](project/file/index.md#project-file-usage) | Display all usage data of a file resource. |
-| [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project variables. |
-| [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project variable. |
-| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project variables. |
-| [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project variable. |
-| [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project variable. |
+| [project rule-block](project/rule-block/index.md) | [list](project/rule-block/index.md#project-rule-block-list) | List available rule blocks. |
+| [project rule-block](project/rule-block/index.md) | [inspect](project/rule-block/index.md#project-rule-block-inspect) | Display all metadata of a rule block. |
+| [project rule-block](project/rule-block/index.md) | [open](project/rule-block/index.md#project-rule-block-open) | Open rule blocks in the browser. |
+| [project rule-block](project/rule-block/index.md) | [usage](project/rule-block/index.md#project-rule-block-usage) | Display all tasks which use a rule block. |
+| [project rule-block](project/rule-block/index.md) | [create](project/rule-block/index.md#project-rule-block-create) | Create an empty rule block. |
+| [project rule-block](project/rule-block/index.md) | [update](project/rule-block/index.md#project-rule-block-update) | Update a key of an existing rule block. |
+| [project rule-block](project/rule-block/index.md) | [export](project/rule-block/index.md#project-rule-block-export) | Export rule blocks to JSON files. |
+| [project rule-block](project/rule-block/index.md) | [import](project/rule-block/index.md#project-rule-block-import) | Import rule blocks from JSON files. |
+| [project rule-block](project/rule-block/index.md) | [delete](project/rule-block/index.md#project-rule-block-delete) | Delete rule blocks. |
+| [project rule-block](project/rule-block/index.md) | [eval](project/rule-block/index.md#project-rule-block-eval) | Evaluate a rule block against its stored input examples. |
+| [project variable](project/variable/index.md) | [list](project/variable/index.md#project-variable-list) | List available project, execution and global variables. |
+| [project variable](project/variable/index.md) | [get](project/variable/index.md#project-variable-get) | Get the value or other data of a project, execution or global variable. |
+| [project variable](project/variable/index.md) | [delete](project/variable/index.md#project-variable-delete) | Delete project and execution variables. |
+| [project variable](project/variable/index.md) | [create](project/variable/index.md#project-variable-create) | Create a new project or execution variable. |
+| [project variable](project/variable/index.md) | [update](project/variable/index.md#project-variable-update) | Update data of an existing project or execution variable. |
 | [query](query/index.md) | [execute](query/index.md#query-execute) | Execute queries which are loaded from files or a query catalog. |
 | [query](query/index.md) | [list](query/index.md#query-list) | List available queries from a query catalog. |
 | [query](query/index.md) | [open](query/index.md#query-open) | Open queries in the editor of a query catalog in your browser. |
@@ -147,6 +160,7 @@ tags:
 | [workflow](workflow/index.md) | [io](workflow/index.md#workflow-io) | Execute a workflow with file input/output. |
 | [workflow](workflow/index.md) | [list](workflow/index.md#workflow-list) | List available workflow. |
 | [workflow](workflow/index.md) | [status](workflow/index.md#workflow-status) | Get status information of workflow(s). |
+| [workflow](workflow/index.md) | [variables](workflow/index.md#workflow-variables) | List the execution variables a workflow run needs. |
 | [workflow](workflow/index.md) | [open](workflow/index.md#workflow-open) | Open a workflow in your browser. |
 | [workflow scheduler](workflow/scheduler/index.md) | [open](workflow/scheduler/index.md#workflow-scheduler-open) | Open scheduler(s) in the browser. |
 | [workflow scheduler](workflow/scheduler/index.md) | [list](workflow/scheduler/index.md#workflow-scheduler-list) | List available scheduler. |

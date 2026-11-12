@@ -8,7 +8,7 @@ tags:
 
 ## Introduction
 
-Learn how to consume data from your Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
+Learn how to consume data from your eccenca Corporate Memory Knowledge Graph with our Microsoft Power-BI-Connector.
 
 This manual and tutorial describes how you can consume data from your knowledge graph in Microsoft Power BI through our Corporate Memory Power-BI-Connector.
 
@@ -37,7 +37,7 @@ The latest (unsigned) version of our Power-BI-Connector is available from its so
             - The registry path is `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Power BI Desktop` . Make sure the path exists, or create it.
             - Add a new value under the path specified above. The type should be “Multi-String Value” ( `REG_MULTI_SZ` ), and it should be called `TrustedCertificateThumbprints`
             - Add the thumbprints of the certificates you want to trust. You can add multiple certificates by using “\0” as a delimiter, or in the registry editor, right click → modify and put each thumbprint on a new line.
-            ![PowerBI-Registry-Editor.png](22-1-PowerBI-Registry-Editor.png)
+            ![PowerBI-Registry-Editor.png](22-1-PowerBI-Registry-Editor.png){ width="95%" }
             - (Re-)Start Power BI Desktop
 
         If you wish to automate this setup you can use the reg windows command line tool to make this entry like:

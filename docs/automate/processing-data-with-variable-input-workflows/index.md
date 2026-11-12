@@ -10,7 +10,7 @@ tags:
 
 ## Introduction
 
-This tutorial shows how you can create and use data integration workflows to process data coming from outside Corporate Memory (i.e., without registering datasets).
+This tutorial shows how you can create and use data integration workflows to process data coming from outside eccenca Corporate Memory (i.e., without registering datasets).
 This is achieved with the **Allow replacement** flag on input and/or output datasets.
 This flag is supported by most file dataset types.
 A replaceable dataset is created and used inside a workflow as an input for other tasks (e.g., a transformation).
@@ -42,7 +42,7 @@ Click the :eccenca-module-marketplace: **Packages** icon in the main menu under 
 Search for the required ontologies / vocabularies and click the **Install** button.
 Wait for a package installation to complete (the **Install** button will change to **Uninstall**) before installing the next package.
 
-![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" }
+![Search and install ontologies](pdwviw-marketplace-schema-search.png){ class="bordered" width="90%" }
 
 ## 2 Create a new project
 

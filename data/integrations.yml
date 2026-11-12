@@ -163,7 +163,7 @@ integrations:
   - name: GraphQL
     icon: ":simple-graphql:"
     content: |
-      Execute a {{p.cmem_plugin_graphql_workflow_graphql_GraphQLPlugin}} and process the result in a workflow.
+      Execute a {{p.cmem_plugin_graphql_Query}} and process the result in a workflow.
 
   - name: eMail / SMTP / IMAP
     icon: ":material-email-outline:"
@@ -254,7 +254,7 @@ integrations:
   - name: eccenca Marketplace
     icon: ":eccenca-module-marketplace:"
     content: |
-      Manage [Marketplace Packages](../../develop/packages/index.md) in workflows:
+      Manage [Marketplace Packages](../../develop/marketplace-packages/index.md) in workflows:
       [build package archives]({{p.cmem_plugin_packages_BuildPackages_ref}}),
       [bump their version]({{p.cmem_plugin_packages_BumpVersions_ref}}),
       [publish]({{p.cmem_plugin_packages_PublishPackages_ref}}) them to a Marketplace Server

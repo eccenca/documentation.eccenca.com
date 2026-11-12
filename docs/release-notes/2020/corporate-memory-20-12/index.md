@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 20.12
+# eccenca Corporate Memory 20.12
 
 Corporate Memory 20.12 is the fourth release in 2020.
 
@@ -91,7 +91,7 @@ This version of eccenca DataPlatform ships the following changes:
 - Spring libraries:
     - Spring Boot version upgraded to `2.2.10.RELEASE`, Spring Cloud version upgraded to `Hoxton.RELEASE`.
 - Bootstrap & Vocabularies:
-    - cmem ontologies and graphs can now be updated using the bootstrap endpoint.
+    - Corporate Memory ontologies and graphs can now be updated using the bootstrap endpoint.
 - Statement Annotation:
     - additional endpoints for browsing and bulk editing
 - Graph List:

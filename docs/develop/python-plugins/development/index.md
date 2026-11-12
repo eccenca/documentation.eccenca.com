@@ -19,7 +19,7 @@ This page gives an overview of the concepts you need to understand in order to d
 
 ## Base Package
 
-`cmem-plugin-base` is a Python library that provides a set of base classes for developing plugins for the eccenca Corporate Memory (CMEM) platform. These base classes provide a consistent interface for defining new plugins, handling configuration, and communicating with the Build (DataIntegration) of CMEM.
+`cmem-plugin-base` is a Python library that provides a set of base classes for developing plugins for the eccenca Corporate Memory platform. These base classes provide a consistent interface for defining new plugins, handling configuration, and communicating with the Build (DataIntegration) of Corporate Memory.
 
 ## Plugin Types
 
@@ -350,7 +350,7 @@ The method returns a list of `Autocompletion` objects, which represent the possi
 
 The [cmem-plugin-base](https://github.com/eccenca/cmem-plugin-base/) package describes [context objects](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/context.py), which are passed to the plugin depending on the executed method.
 
-![context-api-flow-diagram](23-1-context-api-flow-diagram.png)
+![context-api-flow-diagram](23-1-context-api-flow-diagram.png){ width="75%" }
 
 ### Basic Understanding
 
@@ -453,7 +453,7 @@ The following image shows these terms and their relationships. (1)
 
 1. The concrete implementation details of entities can be found in the [entity module](https://github.com/eccenca/cmem-plugin-base/blob/main/cmem_plugin_base/dataintegration/entity.py) of the cmem-plugin-base package.
 
-![entities-flow-diagram](22-2-entities-flow-diagram.png)
+![entities-flow-diagram](22-2-entities-flow-diagram.png){ width="90%" }
 
 | Class          | Description                                                        |
 | -------------- | ------------------------------------------------------------------ |
@@ -663,7 +663,7 @@ This JVM-based logger will prefix all plugin logs with `plugins.python.<plugin i
 
 ## Concurrency
 
-CMEM uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
+eccenca Corporate Memory uses [JEP](https://github.com/ninia/jep) to run Python plugins inside the JVM.
 Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor) relies on forking or spawning new operating system processes, which is not compatible with JEP for several reasons:
 
 - Forking a process within the JVM environment is problematic and can lead to deadlocks or unstable behavior.
@@ -672,4 +672,4 @@ Python’s [concurrent.futures.ProcessPoolExecutor](https://docs.python.org/3/li
 
 In contrast, Python’s [concurrent.futures.ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) does not encounter these issues. It uses threads that share the same memory space and operate within a single process, avoiding the need for subprocess creation.
 
-**Recommendation:** Always use `ThreadPoolExecutor` in CMEM Python plugins running under JEP, as `ProcessPoolExecutor` may cause deadlocks.
+**Recommendation:** Always use `ThreadPoolExecutor` in Corporate Memory Python plugins running under JEP, as `ProcessPoolExecutor` may cause deadlocks.

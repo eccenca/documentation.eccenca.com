@@ -14,7 +14,7 @@ The MITRE ATT&CK datasets in STIX 2.1 JSON collections are here:
 
 The "ontology" of MITRE ATT&CK with STIX is here: [https://github.com/mitre/cti/blob/master/USAGE.md](https://github.com/mitre/cti/blob/master/USAGE.md)
 
-The objective of this tutorial is not focus on the ontologies. In our use case, we just need to extract several metadata. If the community of STIX wants to resolve their problems, it will be the moment to define a solid ontology. If you are a newbie with the Linked Data technologies, you have to learn to generate in first a functional knowledge graph for your needs before building a perfect ontology for everybody. When you masterize the ontologies, we will modify this first ontology and you could refresh your knowledge graph when you want with Corporate Memory.
+The objective of this tutorial is not focus on the ontologies. In our use case, we just need to extract several metadata. If the community of STIX wants to resolve their problems, it will be the moment to define a solid ontology. If you are a newbie with the Linked Data technologies, you have to learn to generate in first a functional knowledge graph for your needs before building a perfect ontology for everybody. When you masterize the ontologies, we will modify this first ontology and you could refresh your knowledge graph when you want with eccenca Corporate Memory.
 
 This tutorial is written in order to gradually acquire all the skills necessary to build from scratch a knowledge graph with Corporate Memory and update it automatically via Corporate Memory Console.
 This tutorial must be completed in order.
@@ -77,7 +77,7 @@ Each domain dataset is saved in GitHub:
     !!! Success
 
         Now, you can see these JSON datasets in Corporate Memory:
-        ![](23-1-import-JSON-result.png)
+        ![](23-1-import-JSON-result.png){ width="80%" }
 
 ### Create named graphs
 
@@ -118,7 +118,7 @@ Create one RDF dataset for each Mitre dataset:
     !!! Success
 
         Now, you can see these RDF datasets in Corporate Memory:
-        ![](23-1-create-RDF-dataset-result.png)
+        ![](23-1-create-RDF-dataset-result.png){ width="80%" }
 
     !!! Tip
 
@@ -404,7 +404,7 @@ Create one RDF dataset for each Mitre dataset:
 
         You can test the result when you search the Mitre ID via the explorer of knowledge graph "MA Entreprise":
 
-        ![](23-1-success-extract-rdfslabel.png)
+        ![](23-1-success-extract-rdfslabel.png){ width="55%" }
 
 ### Create a workflow
 
@@ -626,9 +626,9 @@ Here, we are creating a new SPARQL Update task to calculate and insert automatic
 
 ### Refresh all automatically
 
-The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use CMEM.
+The datasets of Mitre are updated regularly. You may want to update them automatically via a command line in a bash file. In this script, we use eccenca Corporate Memory.
 
-1. [Install CMEMC - a Command Line Interface of CMEM](../../../automate/cmemc-command-line-interface/installation/index.md)
+1. [Install cmemc - a Command Line Interface of Corporate Memory](../../../automate/cmemc-command-line-interface/installation/index.md)
 
 2. Open your config file:
 
@@ -636,7 +636,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
     cmemc config edit
     ```
 
-3. Insert your sandbox in your CMEMC config, example with a password grant type:
+3. Insert your sandbox in your cmemc config, example with a password grant type:
 
     ```bash
     [johndo.eccenca.my]
@@ -651,7 +651,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
 
     !!! Tip
 
-        Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for CMEMC with this line:
+        Immediatly, in the file ~/.bashrc, you can specify your sandbox like your instance by default for cmemc with this line:
 
         ```bash
         export CMEMC_CONNECTION=johndo.eccenca.my
@@ -754,7 +754,7 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
 
 5. Create a new workflow "MITRE ATT&CK® workflow" where you will insert the other workflows, like that:
 
-    ![](23-1-ex-workflow-global.png)
+    ![](23-1-ex-workflow-global.png){ width="75%" }
 
     !!! Success
 
@@ -788,7 +788,7 @@ STIX uses JSON syntax and can therefore be converted to RDF via Corporate Memory
 ## Ressources
 
 * [RDF schemas (Model, pattern, etc)](RDF_model_and_pattern.drawio)
-* [Archive of CMEM project](MITREATTCK_tutorial.zip)
+* [Archive of Corporate Memory project](MITREATTCK_tutorial.zip)
 
 ---
 

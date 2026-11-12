@@ -25,8 +25,26 @@ jinja_environment = Environment(
     undefined=StrictUndefined
 )
 
+# A fenced block, with or without a language. Squeezed onto one line it is no
+# fence, but rumdl --fix still takes it for one and inserts a blank line before
+# it - which ends the operator table whose row the description is.
+FENCED_BLOCK = re.compile(r"```(?:\w*\n)?(.*?)```", re.DOTALL)
+
+
+def code_span(match: re.Match) -> str:
+    """A fenced block's content as a code span, delimited by two backticks when it holds one."""
+    content = re.sub(r"\s+", " ", match.group(1)).strip()
+    return f"`` {content} ``" if "`" in content else f"`{content}`"
+
+
+def write_pages_file(path: Path, content: str) -> None:
+    """Write a .pages file as a YAML document that passes yamllint: document start marker, final newline."""
+    click.echo(f"Create .pages file {path}")
+    path.write_text(f"---\n{content}\n", encoding="utf-8")
+
+
 def stripped_single_line(value: str) -> str:
-    return re.sub(r"\s+", " ", value).strip()
+    return re.sub(r"\s+", " ", FENCED_BLOCK.sub(code_span, value)).strip()
 
 class PluginReference(BaseModel):
     """Reference to a related plugin."""
@@ -231,17 +249,16 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
         f.write(reference_base_template.render())
 
     # Create the main .pages file
-    reference_base_pages_file = base_dir / f".pages"
-    with reference_base_pages_file.open("w", encoding="utf-8") as f:
-        click.echo(f"Create the main .pages file: {reference_base_pages_file}")
-        content = """nav:
+    write_pages_file(
+        base_dir / ".pages",
+        """nav:
     - "Task and Operator Reference": index.md
     - "Aggregators": aggregator
     - "Custom Workflow Tasks": customtask
     - "Datasets": dataset
     - "Distance Measures": distancemeasure
-    - "Transformers": transformer"""
-        f.write(content)
+    - "Transformers": transformer""",
+    )
 
     for type_id, plugins_of_type in plugins.items():
         if type_id == "transformer":
@@ -272,17 +289,13 @@ def create_umbrella_pages(plugins: dict[str, list[PluginDescription]], base_dir:
                 category_plugins = [plugin for plugin in plugins[type_id] if plugin.main_category == category]
                 for plugin in category_plugins:
                     sub_pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
-                with sub_pages_file.open("w", encoding="utf-8") as f:
-                    click.echo(f"Create .pages file {sub_pages_file}")
-                    f.write(sub_pages_content)
+                write_pages_file(sub_pages_file, sub_pages_content)
         else:
             for plugin in plugins_of_type:
                 if plugin.is_deprecated:
                     continue
                 pages_content += f"\n    - \"{plugin.title}\": {plugin.pluginId}.md"
-        with pages_file.open("w", encoding="utf-8") as f:
-            click.echo(f"Create .pages file {pages_file}")
-            f.write(pages_content)
+        write_pages_file(pages_file, pages_content)
 
 def build_plugin_paths(plugins: dict[str, list[PluginDescription]]) -> dict[str, str]:
     """Map every non-deprecated plugin's ID to the path its own page will have.

@@ -32,11 +32,14 @@ configuration, and repository operations.
 - [**GraphStoreBusyError**](#cmem_client.exceptions.GraphStoreBusyError) – Exception raised when a graph store admin operation is attempted while another is already in progress.
 - [**GraphVannMetadataConflictError**](#cmem_client.exceptions.GraphVannMetadataConflictError) – Exception raised when vann namespace metadata in the file conflicts with provided config.
 - [**GraphVannMetadataMissingError**](#cmem_client.exceptions.GraphVannMetadataMissingError) – Exception raised when vann namespace metadata is missing from an ontology file.
+- [**LogsReadError**](#cmem_client.exceptions.LogsReadError) – Exception raised when a log buffer response cannot be interpreted.
 - [**MarketplaceAuthError**](#cmem_client.exceptions.MarketplaceAuthError) – Exception raised when a marketplace auth operation failed or is invalid.
 - [**MarketplaceDeleteError**](#cmem_client.exceptions.MarketplaceDeleteError) – Exception raised when a marketplace delete operation failed or is invalid.
 - [**MarketplacePackagesDeleteError**](#cmem_client.exceptions.MarketplacePackagesDeleteError) – Exception raised when a marketplace package deletion fails.
 - [**MarketplacePackagesExportError**](#cmem_client.exceptions.MarketplacePackagesExportError) – Exception raised when a marketplace packages export fails.
+- [**MarketplacePackagesFileNotFoundError**](#cmem_client.exceptions.MarketplacePackagesFileNotFoundError) – Exception raised when an installed marketplace package declares no such file.
 - [**MarketplacePackagesImportError**](#cmem_client.exceptions.MarketplacePackagesImportError) – Exception raised when a marketplace package installation fails.
+- [**MarketplacePackagesNotFoundError**](#cmem_client.exceptions.MarketplacePackagesNotFoundError) – Exception raised when a marketplace package is not installed.
 - [**MarketplaceReadError**](#cmem_client.exceptions.MarketplaceReadError) – Exception raised when a marketplace read operation failed or is invalid.
 - [**MarketplaceWriteError**](#cmem_client.exceptions.MarketplaceWriteError) – Exception raised when a marketplace write operation failed or is invalid.
 - [**ProjectExportError**](#cmem_client.exceptions.ProjectExportError) – Exception raised when a project export operation fails.
@@ -132,6 +135,12 @@ Bases: <code>[GraphImportError](#cmem_client.exceptions.GraphImportError)</code>
 
 Exception raised when vann namespace metadata is missing from an ontology file.
 
+## `LogsReadError` {#cmem_client.exceptions.LogsReadError}
+
+Bases: <code>[BaseError](#cmem_client.exceptions.BaseError)</code>
+
+Exception raised when a log buffer response cannot be interpreted.
+
 ## `MarketplaceAuthError` {#cmem_client.exceptions.MarketplaceAuthError}
 
 Bases: <code>[BaseError](#cmem_client.exceptions.BaseError)</code>
@@ -156,11 +165,23 @@ Bases: <code>[BaseError](#cmem_client.exceptions.BaseError)</code>
 
 Exception raised when a marketplace packages export fails.
 
+## `MarketplacePackagesFileNotFoundError` {#cmem_client.exceptions.MarketplacePackagesFileNotFoundError}
+
+Bases: <code>[RepositoryItemNotFoundError](#cmem_client.exceptions.RepositoryItemNotFoundError)</code>
+
+Exception raised when an installed marketplace package declares no such file.
+
 ## `MarketplacePackagesImportError` {#cmem_client.exceptions.MarketplacePackagesImportError}
 
 Bases: <code>[RepositoryModificationError](#cmem_client.exceptions.RepositoryModificationError)</code>
 
 Exception raised when a marketplace package installation fails.
+
+## `MarketplacePackagesNotFoundError` {#cmem_client.exceptions.MarketplacePackagesNotFoundError}
+
+Bases: <code>[RepositoryItemNotFoundError](#cmem_client.exceptions.RepositoryItemNotFoundError)</code>
+
+Exception raised when a marketplace package is not installed.
 
 ## `MarketplaceReadError` {#cmem_client.exceptions.MarketplaceReadError}
 

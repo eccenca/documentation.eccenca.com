@@ -27,7 +27,7 @@ The "Linked Data App" extends Splunk Search Processing Language (SPL) to support
 2. Open the App window in Splunk via the icon "tools" (see figure 1)
 
 <figure markdown="span">
-![Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps](splunk_apps_menu.png)
+![Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps](splunk_apps_menu.png){ width="30%" }
 <figcaption>Figure 1: In the top of the list of installed Splunk apps, you need to click on the icon "tools" to open the window to manage your apps</figcaption>
 </figure>
 
@@ -420,6 +420,6 @@ In the next page, we are using advanced tools in Coporate Memory to "Accelerate 
 
 Tutorial: [how to link Intrusion Detection Systems (IDS) to Open-Source INTelligence (OSINT)](../index.md)
 
-Next chapter: [Link IDS event to a knowledge graph in dashboards via inferences](../link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of Corporate Memory)
+Next chapter: [Link IDS event to a knowledge graph in dashboards via inferences](../link-IDS-event-to-KG-via-cmem/index.md) (for the advanced users of eccenca Corporate Memory)
 
 Previous chapter: [Build a Knowledge Graph from indicators of compromise rules, like Hayabusa and Sigma rules](../lift-data-from-YAML-data-of-hayabusa-sigma/index.md)

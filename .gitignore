@@ -10,6 +10,9 @@ tmp
 .python-version
 dist/
 .env
+.lycheecache
+*.sw[a-p]
+*~
 
 # upstream note of the synced Graph Insights user guide, not part of this repository
 docs/explore-and-author/graph-exploration/graph-insights/_README.md

@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.1.3
+# eccenca Corporate Memory 23.1.3
 
 Corporate Memory 23.1.3 is the second patch release in the 23.1 release line.
 

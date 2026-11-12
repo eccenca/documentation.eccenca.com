@@ -9,6 +9,7 @@ from tools.update_di_reference import (
     get_plugin_descriptions,
     resolve_related_plugin_links,
     create_plugin_markdown,
+    create_umbrella_pages,
     build_plugin_paths,
     validate_related_plugin_references,
 )
@@ -29,13 +30,13 @@ def test_get_plugin_descriptions():
         assert titles == sorted(titles)
 
 
-def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", related=None):
+def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", related=None, description="test plugin"):
     """Build a minimal valid PluginDescription for a test, filling in only what varies."""
     return PluginDescription(
         pluginId=plugin_id,
         title=plugin_id,
         categories=[main_category],
-        description="test plugin",
+        description=description,
         properties={},
         actions={},
         required=[],
@@ -43,6 +44,31 @@ def _make_plugin(plugin_id, plugin_type="transformer", main_category="Extract", 
         pluginType=plugin_type,
         relatedPlugins=related or [],
     )
+
+
+@pytest.mark.parametrize(
+    "description, expected",
+    [
+        # the Excel map transformer: a fence without a language
+        (
+            "sheets of the form:\n```\nmapFrom,mapTo\n<source string>,<target string>\n```\nand more.",
+            "sheets of the form: `mapFrom,mapTo <source string>,<target string>` and more.",
+        ),
+        # a fence with a language
+        ("Run:\n```sparql\nSELECT *\nWHERE { ?s ?p ?o }\n```", "Run: `SELECT * WHERE { ?s ?p ?o }`"),
+        # a fence already on one line
+        ("Use ```a,b``` here.", "Use `a,b` here."),
+        # a backtick inside needs a longer delimiter
+        ("Quote:\n```\nx = `y`\n```", "Quote: `` x = `y` ``"),
+        # inline code stays as it is
+        ("Insert `=\"\"` in a cell.", "Insert `=\"\"` in a cell."),
+    ],
+)
+def test_description_turns_a_fenced_block_into_a_code_span(description, expected):
+    # A fence squeezed onto one line is no fence in Markdown, but rumdl --fix
+    # still takes it for one and inserts a blank line before it - which ends the
+    # operator table the description is a row of.
+    assert _make_plugin("excelMap", description=description).description == expected
 
 
 @pytest.mark.parametrize(
@@ -240,3 +266,28 @@ def test_create_plugin_markdown_renders_empty_list_for_untagged_plugin(tmp_path)
     written = (tmp_path / "aggregator" / "average.md").read_text()
     front_matter = written.split("---")[1]
     assert yaml.safe_load(front_matter)["tags"] == []
+
+
+def test_create_umbrella_pages_writes_pages_files_as_yaml_documents(tmp_path):
+    """Test that every generated .pages file starts with the document marker and ends with a newline, as yamllint requires"""
+    plugins = {
+        "transformer": [_make_plugin("regexExtract")],
+        "dataset": [_make_plugin("json", plugin_type="dataset", main_category="File")],
+    }
+    (tmp_path / "transformer" / "Extract").mkdir(parents=True)
+    (tmp_path / "dataset").mkdir()
+
+    create_umbrella_pages(plugins, tmp_path)
+
+    pages_files = sorted(tmp_path.rglob(".pages"))
+    assert [p.relative_to(tmp_path).as_posix() for p in pages_files] == [
+        ".pages",
+        "dataset/.pages",
+        "transformer/.pages",
+        "transformer/Extract/.pages",
+    ]
+    for pages_file in pages_files:
+        content = pages_file.read_text()
+        assert content.startswith("---\n")
+        assert content.endswith("\n") and not content.endswith("\n\n")
+        assert "nav" in yaml.safe_load(content)

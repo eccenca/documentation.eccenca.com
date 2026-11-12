@@ -11,7 +11,7 @@ Here, we are working with the Hayabusa/Sigma rules available via GitHub:
 - [https://github.com/Yamato-Security/hayabusa-rules](https://github.com/Yamato-Security/hayabusa-rules)
 - [https://github.com/SigmaHQ/sigma](https://github.com/Yamato-Security/hayabusa-rules)
 
-The problem of interoperability, here, is the YAML format of files, their random position in their folders in their GitHub projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
+The problem of interoperability, here, is the YAML format of files, their random position in their folders in their GitHub projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In eccenca Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
 
 To build this knowledge graph of rules, we need to:
 
@@ -134,7 +134,7 @@ This new transformer are building the following RDF model for your use case:
             - replace `\./hayabusa-rules/` by `https://github.com/Yamato-Security/hayabusa-rules/blob/main/`
             - replace `\./sigma/` by `https://github.com/SigmaHQ/sigma/blob/master/`
 
-    ![](23-1-rules-isdefinedby.png)
+    ![](23-1-rules-isdefinedby.png){ width="95%" }
 
     So the rulepath `./sigma/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` becomes the link `https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_boot_conf_tamper.yml` and `./hayabusa-rules/hayabusa/sysmon/Sysmon_15_Info_ADS-Created.yml`becomes `https://github.com/Yamato-Security/hayabusa-rules/blob/main/hayabusa/sysmon/Sysmon_11_Med_FileCreated_RuleAlert.yml`
 
@@ -155,7 +155,7 @@ This new transformer are building the following RDF model for your use case:
 
     And do not forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
 
-    ![](23-1-workflow-allow-replacement.png)
+    ![](23-1-workflow-allow-replacement.png){ width="65%" }
 
     ![](23-1-add-worflow.gif)
 

@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 22.2.3
+# eccenca Corporate Memory 22.2.3
 
 Corporate Memory 22.2.3 is the third patch release in the 22.2 release line.
 

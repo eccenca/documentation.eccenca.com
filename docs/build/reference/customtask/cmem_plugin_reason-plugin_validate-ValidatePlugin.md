@@ -56,6 +56,10 @@ The IRI of the output graph for the reasoning result.
 
 ⚠️ Existing graphs will be overwritten.
 
+The output graph holds the explanation axioms plus the validation result and is declared a
+`void:Dataset`. It is not declared an `owl:Ontology`: it does not contain an ontology of its
+own, it describes the validated one.
+
 ### Write markdown explanation file
 
 If enabled, an explanation markdown file is written to the project.

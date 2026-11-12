@@ -18,32 +18,28 @@ tags:
     e.g. with cmemc.
 
 
-This workflow operator retrieves a specific execution report of a workflow and outputs it
-as a JSON file.
+This workflow operator retrieves one execution report of a workflow and outputs it as a JSON
+file.
 
-The plugin queries the backend API to list all available reports for the given workflow and
-allows you to select which report to retrieve:
+## Ports
 
-- **Latest Report**: The most recent execution report
-- **Latest Report with Errors**: The most recent failed execution report
-- **Latest Report with Warning or Errors**: The most recent report with warnings (successful or not)
-
-The report contains detailed information about the workflow execution, including task results,
-execution times, and any errors or warnings.
-
-## Output
-
-The plugin outputs a single JSON file entity containing the complete workflow execution report.
+The task has no input port; it queries the reports available for the selected workflow
+directly. It outputs a single JSON file entity holding the report - the same JSON payload
+returned for that execution, including its finish status and any warnings.
 
 ## Usage
 
-This operator is useful for:
+With no input port, this operator is typically the first task in a workflow. Its output feeds
+a downstream task that reads or forwards the JSON file, for example to inspect it, archive it,
+or route on the presence of errors or warnings.
 
-- Monitoring workflow execution results and failures
-- Debugging recent errors or warnings
-- Creating audit trails of workflow runs
-- Archiving execution reports for compliance purposes
-- Feeding execution data into downstream analysis tasks
+## Caveats
+
+- If no report matches the selected mode - none currently carries warnings or errors, or the
+  time period excludes every report - the output file contains an empty JSON object `{}`, not
+  an error or any other indication that nothing was found.
+- Finding the latest report with warnings or errors is checked from newest to oldest, and may
+  fetch every report in scope individually before a match is found or the list is exhausted.
 
 
 ## Parameter
@@ -70,7 +66,7 @@ Selector for reports to be shown.
 
 ### Time Period
 
-The time period in hours of the workflow execution reports that can be listed.Allows only full hours. Defaults to 0 for every execution report.
+The time period in hours of the workflow execution reports that can be listed. Allows only full hours. Defaults to 0, which lists every execution report.
 
 - ID: `time_period`
 - Datatype: `Long`

@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 24.1.3
+# eccenca Corporate Memory 24.1.3
 
 Corporate Memory 24.1.3 is the third patch release in the 24.1 release line.
 
