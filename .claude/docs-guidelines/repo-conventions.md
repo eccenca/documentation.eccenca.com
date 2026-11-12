@@ -296,11 +296,15 @@ A box is a collapsible admonition with the extra class `try-sparql`, holding dat
 
 ```bash
 task format:fix     # rumdl --fix over ./docs and ./*.md
-task check          # link check + rumdl report (does not fail the stage)
+task check          # link check + rumdl (fails on all rules except the cosmetic ones)
 task build          # zensical build --strict
 ```
 
-- Config: `.markdownlint.jsonc` (`rumdl --config .markdownlint.jsonc check`).
+- Config: `.rumdl.toml` (`rumdl --config .rumdl.toml check`).
+- The rules are split into two sets. `task check:rumdl` runs every enabled rule except `MD061` and `MD044`
+  and fails the stage on any issue (JUnit report: `dist/md-lint-issues.xml`).
+  `task check:rumdl:cosmetic` runs only `MD061` and `MD044`, lists the issues and writes
+  `dist/md-lint-cosmetic-issues.xml`, but never fails. The cosmetic set is `RUMDL_COSMETIC_RULES` in the Taskfile.
 - `MD044` (proper names) has a `names` allowlist. Resolve new false positives — icon shortcodes, host names,
   environment variables — by adding the longer technical identifier to that allowlist, not by adding
   `rumdl-disable` comments to the prose.
