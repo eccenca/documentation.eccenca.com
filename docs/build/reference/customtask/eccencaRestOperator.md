@@ -1,6 +1,6 @@
 ---
 title: "Execute REST requests"
-description: "REST operator that fetches and optionally merges data from a REST endpoint. It supports executing multiple requests either via input entities that each overwrite config parameters or via paging. If you only need to download a single file, the 'Download file' operator might be the better option. Most features are currently only supported for JSON REST APIs. From multiple requests the REST operator can produce a merged JSON result, i.e. for JSON it will concatenate all results in a JSON array. Alternatively multiple results can be written directly to file (of a JSON dataset), either as a merged JSON file or one file per request inside a ZIP file. By default the output of this operator is an entity with a single property 'result', which is the (concatenated) JSON string."
+description: "REST operator that fetches and optionally merges data from a REST endpoint. It supports executing multiple requests either via input entities that each overwrite config parameters or via paging. If you only need to download a single file, the 'Download file' operator might be the better option. Most features are currently only supported for JSON REST APIs. By default the output of this operator is one entity per response with a single property 'result' that holds the response body. Responses of multiple requests are merged into a single JSON array if the 'Parse JSON' operator is connected or the Accept header starts with 'application/json'. Alternatively the response/s can be written to the file of a connected file-based dataset, either as a merged JSON file (JSON dataset) or, if the dataset file ends in '.zip', one file per response inside a ZIP file."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -32,6 +32,13 @@ If the request needs authorization following parameters should be set, else ther
                                 and cannot be accessed in the user interface anymore after saving it.
                                 E.g. for OAuth the value would have the following form: `bearer <TOKEN_VALUE>`.
 
+## Secrets in the request content and headers
+
+Templates of the `Content` and `HTTP headers` parameters may reference sensitive variables, e.g. `secret={{global.apiSecret}}`
+as content or `X-Api-Key: {{global.apiKey}}` as a header line. The evaluated value is sent with the request but not displayed:
+the template preview, the task properties and the search show the placeholder `••••••` instead.
+As with password parameters, anyone who can edit the task can send the value to any host.
+
 ## Sending multiple requests
 
 In the default configuration a single requests is sent. If multiple requests should be sent with different URLs and/or content,
@@ -46,9 +53,8 @@ the configurations for these requests must be defined via the input port of the 
 - <a id="parameter_doc_limit">Limit</a>: If set to a positive number, then only that number of input entities will be processed as requests.
 - <a id="parameter_doc_offset">Offset</a>: If set to a positive number, then that many input entities will be ignored before processing them as requests.
 
-If the option 'Read parameters from input' is enabled, it is currently always assumed that multiple requests will be sent.
-The responses must either be of type JSON, then the results are merged into a JSON array, or the 'Output result as file'
-option must be enabled in order to write a merged JSON or a ZIP file. See section 'Output options' for more details.
+If the option 'Read parameters from input' is enabled or a paging method is configured, it is always assumed that multiple
+requests will be sent. See section 'Output options' for how the responses of multiple requests are output.
 
 ## Paging
 
@@ -100,21 +106,49 @@ following parameter must be configured:
 
 ## Output options
 
-By default, the response body of a request is output as value of the 'result' property of a single output entity.
-If the response body needs to be processed this can e.g. be achieved with the 'Parse JSON' operator. Alternatively
-the response/s can be written to a file based dataset. Currently only text based datasets are supported.
+By default, the response body of a request is output as value of the 'result' property of an output entity.
+If the response body needs to be processed this can e.g. be achieved with the 'Parse JSON' operator.
+If multiple requests are sent, see sections 'Sending multiple requests' and 'Paging', one entity per response is output.
+Only if the 'Parse JSON' operator is connected to the output or the 'Accept' parameter starts with 'application/json',
+the responses are merged into a single JSON array that is output as a single entity. In that case each response of a
+GET request must be valid JSON, otherwise the request is considered failed. Responses to other HTTP methods that are not
+valid JSON are skipped.
 
-The results of multiple requests, see section 'Sending multiple requests' for details, can be written to
-a single, merged file (only supported for JSON) or to a ZIP archive, i.e. a file resource that must end in '.zip'.
-In the latter case an entry per request is added to the ZIP file.
-Currently, the following datasets support the processing of ZIP files: JSON, XML, CSV and RDF file.
+Alternatively, the response/s can be written to the file of a file-based dataset:
 
-- <a id="parameter_doc_outputResultAsFile">`Output result as file`</a>: If enabled, instead of outputting a single entity, the result/s will be written directly
+- <a id="parameter_doc_outputResultAsFile">`Output result as file`</a>: If enabled, instead of outputting entities, the result/s will be written directly
                            to the file of the file-based dataset that is connected to the output of this operator.
 
-If the option 'Read parameters from input' is enabled, it is currently always assumed that multiple requests will be sent.
-The responses must either be JSON, then the results are merged into a JSON array or the 'Output result as file'
-option must be enabled in order to write a merged JSON or ZIP file.
+With this option enabled, the operator outputs a file instead of entities. The task connected to the output must be a
+file-based dataset, e.g. JSON, XML, CSV, Text or RDF file. The file of that dataset is replaced by the written file,
+so its previous content is lost. Afterwards the responses can be processed like any other file of the dataset, e.g. by
+a transformation that reads the dataset. Currently only text based responses are supported. Responses with HTTP status
+204 (No Content) are not written.
+
+### Single request
+
+If a single request is sent, the response body is written to the dataset file as is. If the dataset file is a ZIP archive,
+i.e. its name ends in '.zip', the response is written as the only entry of the archive, named as described under
+'Multiple requests'. If the dataset is a JSON dataset with a file that does not end in '.zip', the response of a GET request
+must be valid JSON, otherwise the request is considered failed, and the 'URL property' option, see section 'Propagating
+the request URL', is applied to the valid response before it is written.
+
+### Multiple requests
+
+If multiple requests are sent, all responses are written to a single file in one of the following ways:
+
+- ZIP archive: If the file of the connected dataset ends in '.zip', one entry per response is added to the archive.
+  This applies to all file-based datasets, including a JSON dataset, for which no merged JSON array is written in that case.
+  The entries are named 'responseBody' followed by a ten-digit counter, e.g. `responseBody0000000001.json`. The suffix
+  is '.json', '.csv' or '.xml' for the JSON, CSV, Multi CSV ZIP and XML datasets and omitted for other datasets.
+  The following datasets can read ZIP archives: JSON, XML, CSV, Multi CSV ZIP, Text, Binary file and RDF file. An RDF file dataset
+  needs its 'format' parameter set, since the format is guessed from the dataset file name, which ends in '.zip'.
+- Merged JSON file: If a JSON dataset with a file that does not end in '.zip' is connected, the responses are merged into
+  a JSON array, i.e. `[<response 1>,<response 2>,...]`. Each response of a GET request must be valid JSON, otherwise the
+  request is considered failed. For other HTTP methods, responses that are not valid JSON are skipped. The 'URL property'
+  option is applied to each response before it is written.
+
+Writing multiple responses to a dataset that is neither a JSON dataset nor based on a ZIP file fails with a validation error.
 
 ## Fine-tuning timeouts
 
@@ -228,7 +262,7 @@ The content-type header String. This can be set in case of PUT or POST. If anoth
 
 ### Content
 
-The content that is send with a POST, PUT or PATCH request. For handling this payload dynamically this parameter must be overwritten via the task input.
+The content that is send with a POST, PUT or PATCH request. For handling this payload dynamically this parameter must be overwritten via the task input. A template of this parameter may use sensitive variables; their values are sent with the request but not displayed.
 
 - ID: `content`
 - Datatype: `string`
@@ -238,7 +272,7 @@ The content that is send with a POST, PUT or PATCH request. For handling this pa
 
 ### HTTP headers
 
-Configure additional HTTP headers. One header per line. Each header entry follows the curl syntax.
+Configure additional HTTP headers. One header per line. Each header entry follows the curl syntax. A template of this parameter may use sensitive variables; their values are sent with the request but not displayed.
 
 - ID: `httpHeaders`
 - Datatype: `multiline string`
@@ -378,7 +412,7 @@ The query parameter name for the next page ID that should be attached to the nex
 
 ### Output result as file
 
-If a file based dataset is connected to the output of the REST operator, then this option can be enabled in order to overwrite the file resource of the connected dataset. This allows for handling the result of the REST request/s as a normal dataset. If a non-file based dataset is connected to this operator the execution will fail. If disabled, a single entity with a single property 'result' will be output that contains the (merged) result.
+If enabled, the response/s are written to the file of the file-based dataset connected to the output, replacing its previous content. A single response is written as is, or as the only entry of a ZIP file. Multiple responses are written as one entry per response into a ZIP file if the dataset file ends in '.zip', or merged into a JSON array if a JSON dataset is connected. The task connected to the output must be a file-based dataset. If disabled, the response/s are output as entities with a single property 'result'.
 
 - ID: `outputResultAsFile`
 - Datatype: `boolean`

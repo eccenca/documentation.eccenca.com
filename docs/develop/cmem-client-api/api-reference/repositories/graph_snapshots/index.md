@@ -1,5 +1,5 @@
 ---
-title: "cmem-client: repositories.graph_insights module"
+title: "cmem-client: repositories.graph_snapshots module"
 description: "Repository for the Graph Insights snapshots of Corporate Memory."
 tags:
   - API
@@ -7,15 +7,15 @@ tags:
   - cmem-client
 ---
 
-# `cmem_client.repositories.graph_insights` {#cmem_client.repositories.graph_insights}
+# `cmem_client.repositories.graph_snapshots` {#cmem_client.repositories.graph_snapshots}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
 Repository for the Graph Insights snapshots of Corporate Memory.
 
-Provides GraphInsightsRepository for creating statistics snapshots of a graph, polling
+Provides GraphSnapshotsRepository for creating statistics snapshots of a graph, polling
 their computation and deleting them. Graph Insights is an optional extension, so check
-that it is enabled before using it.
+that it is available with `client.graphinsights.is_available()` before using it.
 
 **Examples:**
 
@@ -24,26 +24,26 @@ Check whether the extension is available, then create a snapshot:
 ```pycon
 >>> from cmem_client.client import Client
 >>> client = Client.from_env()
->>> client.graph_insights.is_available()
->>> snapshot_id = client.graph_insights.create("https://ns.eccenca.com/data/config/")
->>> client.graph_insights.wait_for_completion(snapshot_id)
+>>> client.graphinsights.is_available()
+>>> snapshot_id = client.graph_snapshots.create("https://ns.eccenca.com/data/config/")
+>>> client.graph_snapshots.wait_for_completion(snapshot_id)
 ```
 
 Read the snapshots and drop them again:
 
 ```pycon
->>> client.graph_insights.fetch_data()
->>> list(client.graph_insights)
->>> client.graph_insights.delete_item(snapshot_id)
+>>> client.graph_snapshots.fetch_data()
+>>> list(client.graph_snapshots)
+>>> client.graph_snapshots.delete_item(snapshot_id)
 ```
 
 **Classes:**
 
-- [**GraphInsightDeleteConfig**](#cmem_client.repositories.graph_insights.GraphInsightDeleteConfig) – Graph Insight Snapshot Delete Configuration.
-- [**GraphInsightUpdateConfig**](#cmem_client.repositories.graph_insights.GraphInsightUpdateConfig) – Graph Insight Snapshot Update Configuration.
-- [**GraphInsightsRepository**](#cmem_client.repositories.graph_insights.GraphInsightsRepository) – Repository for the semspect Graph Insights extension.
+- [**GraphSnapshotDeleteConfig**](#cmem_client.repositories.graph_snapshots.GraphSnapshotDeleteConfig) – Graph Insight Snapshot Delete Configuration.
+- [**GraphSnapshotUpdateConfig**](#cmem_client.repositories.graph_snapshots.GraphSnapshotUpdateConfig) – Graph Insight Snapshot Update Configuration.
+- [**GraphSnapshotsRepository**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository) – Repository for the snapshots of the semspect Graph Insights extension.
 
-## `GraphInsightDeleteConfig` {#cmem_client.repositories.graph_insights.GraphInsightDeleteConfig}
+## `GraphSnapshotDeleteConfig` {#cmem_client.repositories.graph_snapshots.GraphSnapshotDeleteConfig}
 
 Bases: <code>[DeleteConfig](../../repositories/protocols/delete_item/index.md#cmem_client.repositories.protocols.delete_item.DeleteConfig)</code>
 
@@ -53,7 +53,7 @@ Graph Insight Snapshot Delete Configuration.
 
 - **model_config** –
 
-## `GraphInsightUpdateConfig` {#cmem_client.repositories.graph_insights.GraphInsightUpdateConfig}
+## `GraphSnapshotUpdateConfig` {#cmem_client.repositories.graph_snapshots.GraphSnapshotUpdateConfig}
 
 Bases: <code>[UpdateConfig](../../repositories/protocols/update_item/index.md#cmem_client.repositories.protocols.update_item.UpdateConfig)</code>
 
@@ -63,38 +63,39 @@ Graph Insight Snapshot Update Configuration.
 
 - **model_config** –
 
-## `GraphInsightsRepository` {#cmem_client.repositories.graph_insights.GraphInsightsRepository}
+## `GraphSnapshotsRepository` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository}
 
 ```python
-GraphInsightsRepository(client)
+GraphSnapshotsRepository(client)
 ```
 
 Bases: <code>[Repository](../../repositories/base/abc/index.md#cmem_client.repositories.base.abc.Repository)[[GraphInsightSnapshot](../../models/graph_insight/index.md#cmem_client.models.graph_insight.GraphInsightSnapshot)]</code>, <code>[DeleteItemProtocol](../../repositories/protocols/delete_item/index.md#cmem_client.repositories.protocols.delete_item.DeleteItemProtocol)</code>, <code>[UpdateItemProtocol](../../repositories/protocols/update_item/index.md#cmem_client.repositories.protocols.update_item.UpdateItemProtocol)</code>
 
-Repository for the semspect Graph Insights extension.
+Repository for the snapshots of the semspect Graph Insights extension.
 
 Does not auto-fetch on init because semspect is optional and may not be installed.
-Call fetch_data() explicitly before iterating snapshots.
+Check `client.graphinsights.is_available()`, and call fetch_data() explicitly before
+iterating snapshots.
 
 **Functions:**
 
-- [**create**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.create) – Create or update a snapshot for the given graph IRI.
-- [**delete_all**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.delete_all) – Delete all snapshots via the bulk DELETE endpoint.
-- [**delete_item**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.delete_item) – Delete an item from the repository
-- [**fetch_data**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.fetch_data) – Fetch all snapshots from the semspect status endpoint.
-- [**get_status**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.get_status) – Fetch current status of a single snapshot.
-- [**is_available**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.is_available) – Return True if the semspect extension is active and the user is allowed.
-- [**items**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.items) – Get the items of the repository
-- [**keys**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.keys) – Get the keys of the repository
-- [**update_item**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.update_item) – Update an existing item in the repository.
-- [**values**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.values) – Get the values of the repository
-- [**wait_for_completion**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.wait_for_completion) – Poll until snapshot status is no longer ONGOING.
+- [**create**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.create) – Create or update a snapshot for the given graph IRI.
+- [**delete_all**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.delete_all) – Delete all snapshots via the bulk DELETE endpoint.
+- [**delete_item**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.delete_item) – Delete an item from the repository
+- [**fetch_data**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.fetch_data) – Fetch all snapshots from the semspect status endpoint.
+- [**get_status**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.get_status) – Fetch current status of a single snapshot.
+- [**is_available**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.is_available) – Deprecated: use `client.graphinsights.is_available()` instead.
+- [**items**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.items) – Get the items of the repository
+- [**keys**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.keys) – Get the keys of the repository
+- [**update_item**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.update_item) – Update an existing item in the repository.
+- [**values**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.values) – Get the values of the repository
+- [**wait_for_completion**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.wait_for_completion) – Poll until snapshot status is no longer ONGOING.
 
 **Attributes:**
 
-- [**logger**](#cmem_client.repositories.graph_insights.GraphInsightsRepository.logger) (<code>Logger</code>) – Gets the client logger
+- [**logger**](#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.logger) (<code>Logger</code>) – Gets the client logger
 
-### `create` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.create}
+### `create` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.create}
 
 ```python
 create(iri)
@@ -110,7 +111,7 @@ Create or update a snapshot for the given graph IRI.
 
 - <code>str</code> – The snapshot ID returned by the server.
 
-### `delete_all` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.delete_all}
+### `delete_all` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.delete_all}
 
 ```python
 delete_all()
@@ -118,7 +119,7 @@ delete_all()
 
 Delete all snapshots via the bulk DELETE endpoint.
 
-### `delete_item` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.delete_item}
+### `delete_item` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.delete_item}
 
 ```python
 delete_item(key, skip_if_missing=False, configuration=None)
@@ -137,7 +138,7 @@ Delete an item from the repository
 - <code>[RepositoryModificationError](../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – if an error occurs while creating the item
 - <code>HTTPError</code> – for any other http error
 
-### `fetch_data` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.fetch_data}
+### `fetch_data` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.fetch_data}
 
 ```python
 fetch_data()
@@ -145,7 +146,7 @@ fetch_data()
 
 Fetch all snapshots from the semspect status endpoint.
 
-### `get_status` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.get_status}
+### `get_status` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.get_status}
 
 ```python
 get_status(snapshot_id)
@@ -161,15 +162,21 @@ Fetch current status of a single snapshot.
 
 - <code>[GraphInsightSnapshot](../../models/graph_insight/index.md#cmem_client.models.graph_insight.GraphInsightSnapshot)</code> – A GraphInsightSnapshot with current status fields.
 
-### `is_available` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.is_available}
+### `is_available` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.is_available}
 
 ```python
 is_available()
 ```
 
-Return True if the semspect extension is active and the user is allowed.
+Deprecated: use `client.graphinsights.is_available()` instead.
 
-### `items` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.items}
+Returns the same answer, and raises a `DeprecationWarning`. Removed in cmem-client 2.0.0.
+
+**Returns:**
+
+- <code>bool</code> – True if the Graph Insights extension is active and the user is allowed to use it.
+
+### `items` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.items}
 
 ```python
 items()
@@ -177,7 +184,7 @@ items()
 
 Get the items of the repository
 
-### `keys` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.keys}
+### `keys` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.keys}
 
 ```python
 keys()
@@ -185,7 +192,7 @@ keys()
 
 Get the keys of the repository
 
-### `logger` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.logger}
+### `logger` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.logger}
 
 ```python
 logger: logging.Logger
@@ -193,7 +200,7 @@ logger: logging.Logger
 
 Gets the client logger
 
-### `update_item` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.update_item}
+### `update_item` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.update_item}
 
 ```python
 update_item(item, configuration=None)
@@ -211,7 +218,7 @@ Update an existing item in the repository.
 - <code>[RepositoryModificationError](../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – If the item does not exist or an error occurs.
 - <code>HTTPError</code> – For any other HTTP error.
 
-### `values` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.values}
+### `values` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.values}
 
 ```python
 values()
@@ -219,7 +226,7 @@ values()
 
 Get the values of the repository
 
-### `wait_for_completion` {#cmem_client.repositories.graph_insights.GraphInsightsRepository.wait_for_completion}
+### `wait_for_completion` {#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository.wait_for_completion}
 
 ```python
 wait_for_completion(snapshot_id, timeout=120.0, poll_interval=2.0)

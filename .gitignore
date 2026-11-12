@@ -10,6 +10,7 @@ tmp
 .python-version
 dist/
 .env
+.lycheecache
 *.sw[a-p]
 *~
 

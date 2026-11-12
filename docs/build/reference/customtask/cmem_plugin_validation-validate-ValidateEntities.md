@@ -28,39 +28,33 @@ The used JSON Schema needs to be provided as a JSON Dataset in the project.
 
 ## Input Modes
 
-The plugin supports two input modes for validation:
-
-1. **Validate Entities**: Validates entities received from the input port in the workflow.
-2. **Validate JSON Dataset**: Validates a JSON dataset stored in the project.
-    - If the JSON dataset is a JSON array, the schema will validate each object inside the array.
-    - If the JSON dataset is a JSON object, it will be validated against the schema directly.
-
-Validated data objects can be sent to an output port for further processing in the workflow
-or saved in a JSON dataset in the project.
+Entities arrive on the input port by default. Switching the input mode to a JSON dataset
+removes the input port, and the resources to validate are instead read from a JSON dataset in
+the project. A JSON array in that dataset has each of its objects validated individually; a
+JSON object is validated directly.
 
 ### Output Modes
 
-1. **Valid JSON objects sent to Output Port**: Valid JSON objects can be sent as entities
-   to the output port.
-2. **Saved in JSON Dataset**: Valid JSON objects can be stored in a specified JSON dataset
-   in the project.
+Valid JSON objects are sent to an output port by default, ready for further processing in the
+workflow. Switching the output mode to a JSON dataset removes the output port, and the valid
+JSON objects are instead saved to a JSON dataset in the project, replacing its existing content.
 
 ### Error Handling
 
-The task can either:
+Every entity or object is validated regardless of the outcome. The task can then either:
 
-- Fail instantly if there is a data violation, halting the workflow.
-- Provide warnings in the workflow report, allowing follow-up tasks to run based on the
+- Fail once validation completes if any entity has violations, halting the workflow.
+- Report violations only as warnings, allowing follow-up tasks to run based on the
   validated data.
 
-The error handling behavior is configurable through the `Fail on violations` parameter.
+The error handling behavior is configurable through the **Fail on violations** parameter.
 
 
 ## Parameter
 
 ### Source / Input Mode
 
-
+Selects where entities to validate come from: the input port or a JSON dataset.
 
 - ID: `source_mode`
 - Datatype: `string`
@@ -70,7 +64,7 @@ The error handling behavior is configurable through the `Fail on violations` par
 
 ### Target / Output Mode
 
-
+Selects where valid JSON objects are written to: the output port or a JSON dataset.
 
 - ID: `target_mode`
 - Datatype: `string`
@@ -90,7 +84,7 @@ This dataset holds the JSON schema to use for validation.
 
 ### Fail on violations
 
-If enabled, the task will fail on the first data violation.
+If enabled, the workflow fails once validation completes if any entity has violations. All entities are validated either way; disabling this instead reports the violations as warnings.
 
 - ID: `fail_on_violations`
 - Datatype: `boolean`
@@ -100,7 +94,7 @@ If enabled, the task will fail on the first data violation.
 
 ### Source JSON Dataset
 
-This dataset holds the resources you want to validate.
+This dataset holds the resources you want to validate. Required when Source / Input Mode is set to dataset; leave it empty when using entities.
 
 - ID: `source_dataset`
 - Datatype: `string`
@@ -110,7 +104,7 @@ This dataset holds the resources you want to validate.
 
 ### Target JSON Dataset
 
-This dataset will be used to store the valid JSON objects after validation.
+This dataset stores the valid JSON objects after validation, replacing any existing content. Required when Target / Output Mode is set to dataset; leave it empty when using entities.
 
 - ID: `target_dataset`
 - Datatype: `string`

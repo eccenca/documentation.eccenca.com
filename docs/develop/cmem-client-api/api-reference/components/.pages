@@ -2,7 +2,7 @@
 title: components
 nav:
     - deployment: deployment
-    - graph_store: graph_store
+    - build: build
+    - explore: explore
+    - graphinsights: graphinsights
     - marketplace: marketplace
-    - sparql_wrapper: sparql_wrapper
-    - workspace: workspace

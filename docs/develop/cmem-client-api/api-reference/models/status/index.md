@@ -14,14 +14,17 @@ tags:
 Models for Corporate Memory aggregated status information.
 
 Aggregates version and health metadata across the build (DataIntegration),
-explore (DataPlatform), shapes catalog, and graph store components.
+explore (DataPlatform), shapes catalog, graph store, marketplace, and Graph Insights
+components.
 
 **Classes:**
 
 - [**CmemLicense**](#cmem_client.models.status.CmemLicense) – Corporate Memory license metadata from the DataPlatform info payload.
 - [**ComponentStatus**](#cmem_client.models.status.ComponentStatus) – Version and health of a single Corporate Memory component.
 - [**ExploreStatus**](#cmem_client.models.status.ExploreStatus) – Status of the explore (DataPlatform) component, including raw actuator payload.
+- [**GraphInsightsStatus**](#cmem_client.models.status.GraphInsightsStatus) – Status of the Graph Insights (semspect) extension.
 - [**HealthState**](#cmem_client.models.status.HealthState) – Health state of a Corporate Memory component.
+- [**MarketplaceStatus**](#cmem_client.models.status.MarketplaceStatus) – Status of the local marketplace bundled beside this Corporate Memory instance.
 - [**StatusInfo**](#cmem_client.models.status.StatusInfo) – Aggregated status across all Corporate Memory components.
 - [**StoreInfo**](#cmem_client.models.status.StoreInfo) – Graph store metadata embedded in the DataPlatform info payload.
 - [**StoreStatus**](#cmem_client.models.status.StoreStatus) – Status of the graph store backing the DataPlatform.
@@ -223,6 +226,62 @@ workspaces_to_migrate: list[Any]
 
 Workspace IDs flagged by the DataPlatform as requiring configuration migration.
 
+## `GraphInsightsStatus` {#cmem_client.models.status.GraphInsightsStatus}
+
+Bases: <code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>
+
+Status of the Graph Insights (semspect) extension.
+
+**Attributes:**
+
+- [**applicable**](#cmem_client.models.status.GraphInsightsStatus.applicable) (<code>bool</code>) – Whether Graph Insights is expected on this deployment.
+- [**error**](#cmem_client.models.status.GraphInsightsStatus.error) (<code>str | None</code>) – Captured error message if status retrieval failed; None otherwise.
+- [**health**](#cmem_client.models.status.GraphInsightsStatus.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Health state of the component.
+- [**model_config**](#cmem_client.models.status.GraphInsightsStatus.model_config) –
+- [**version**](#cmem_client.models.status.GraphInsightsStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
+
+### `applicable` {#cmem_client.models.status.GraphInsightsStatus.applicable}
+
+```python
+applicable: bool = True
+```
+
+Whether Graph Insights is expected on this deployment.
+
+Graph Insights is an optional extension, so this is set to False when it is not
+active for this deployment and user. Not applicable Graph Insights status is left
+out of both the overall health rollup and the summary dict.
+
+### `error` {#cmem_client.models.status.GraphInsightsStatus.error}
+
+```python
+error: str | None = None
+```
+
+Captured error message if status retrieval failed; None otherwise.
+
+### `health` {#cmem_client.models.status.GraphInsightsStatus.health}
+
+```python
+health: HealthState = HealthState.UNKNOWN
+```
+
+Health state of the component.
+
+### `model_config` {#cmem_client.models.status.GraphInsightsStatus.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `version` {#cmem_client.models.status.GraphInsightsStatus.version}
+
+```python
+version: str = 'UNKNOWN'
+```
+
+Component version string as reported by its version/info endpoint.
+
 ## `HealthState` {#cmem_client.models.status.HealthState}
 
 Bases: <code>StrEnum</code>
@@ -272,6 +331,63 @@ considered DOWN. Missing/empty values become UNKNOWN.
 
 - <code>[HealthState](#cmem_client.models.status.HealthState)</code> – The matching HealthState.
 
+## `MarketplaceStatus` {#cmem_client.models.status.MarketplaceStatus}
+
+Bases: <code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>
+
+Status of the local marketplace bundled beside this Corporate Memory instance.
+
+**Attributes:**
+
+- [**applicable**](#cmem_client.models.status.MarketplaceStatus.applicable) (<code>bool</code>) – Whether the marketplace is expected on this deployment.
+- [**error**](#cmem_client.models.status.MarketplaceStatus.error) (<code>str | None</code>) – Captured error message if status retrieval failed; None otherwise.
+- [**health**](#cmem_client.models.status.MarketplaceStatus.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Health state of the component.
+- [**model_config**](#cmem_client.models.status.MarketplaceStatus.model_config) –
+- [**version**](#cmem_client.models.status.MarketplaceStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
+
+### `applicable` {#cmem_client.models.status.MarketplaceStatus.applicable}
+
+```python
+applicable: bool = True
+```
+
+Whether the marketplace is expected on this deployment.
+
+The marketplace was introduced in Corporate Memory v26.2; on an older build it is
+optional, so a DOWN marketplace on such a build is set to False here. Not applicable
+marketplace status is left out of both the overall health rollup and the summary dict,
+instead of being reported as DOWN.
+
+### `error` {#cmem_client.models.status.MarketplaceStatus.error}
+
+```python
+error: str | None = None
+```
+
+Captured error message if status retrieval failed; None otherwise.
+
+### `health` {#cmem_client.models.status.MarketplaceStatus.health}
+
+```python
+health: HealthState = HealthState.UNKNOWN
+```
+
+Health state of the component.
+
+### `model_config` {#cmem_client.models.status.MarketplaceStatus.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `version` {#cmem_client.models.status.MarketplaceStatus.version}
+
+```python
+version: str = 'UNKNOWN'
+```
+
+Component version string as reported by its version/info endpoint.
+
 ## `SHAPES_CATALOG_VERSION_QUERY` {#cmem_client.models.status.SHAPES_CATALOG_VERSION_QUERY}
 
 ```python
@@ -294,7 +410,9 @@ Aggregated status across all Corporate Memory components.
 
 - [**build**](#cmem_client.models.status.StatusInfo.build) (<code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>) – Status of the build (DataIntegration) component.
 - [**explore**](#cmem_client.models.status.StatusInfo.explore) (<code>[ExploreStatus](#cmem_client.models.status.ExploreStatus)</code>) – Status of the explore (DataPlatform) component.
-- [**health**](#cmem_client.models.status.StatusInfo.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Overall health: UP only if every component is UP, DOWN otherwise.
+- [**graphinsights**](#cmem_client.models.status.StatusInfo.graphinsights) (<code>[GraphInsightsStatus](#cmem_client.models.status.GraphInsightsStatus)</code>) – Status of the Graph Insights (semspect) extension.
+- [**health**](#cmem_client.models.status.StatusInfo.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Overall health: UP only if every applicable component is UP, DOWN otherwise.
+- [**marketplace**](#cmem_client.models.status.StatusInfo.marketplace) (<code>[MarketplaceStatus](#cmem_client.models.status.MarketplaceStatus)</code>) – Status of the local marketplace bundled beside this Corporate Memory instance.
 - [**model_config**](#cmem_client.models.status.StatusInfo.model_config) –
 - [**shapes**](#cmem_client.models.status.StatusInfo.shapes) (<code>[ComponentStatus](#cmem_client.models.status.ComponentStatus)</code>) – Status of the shapes catalog (queried from the explore store).
 - [**store**](#cmem_client.models.status.StatusInfo.store) (<code>[StoreStatus](#cmem_client.models.status.StoreStatus)</code>) – Status of the graph store backing the DataPlatform.
@@ -315,13 +433,32 @@ explore: ExploreStatus = Field(default_factory=ExploreStatus)
 
 Status of the explore (DataPlatform) component.
 
+### `graphinsights` {#cmem_client.models.status.StatusInfo.graphinsights}
+
+```python
+graphinsights: GraphInsightsStatus = Field(default_factory=GraphInsightsStatus)
+```
+
+Status of the Graph Insights (semspect) extension.
+
 ### `health` {#cmem_client.models.status.StatusInfo.health}
 
 ```python
 health: HealthState
 ```
 
-Overall health: UP only if every component is UP, DOWN otherwise.
+Overall health: UP only if every applicable component is UP, DOWN otherwise.
+
+Graph Insights only counts once its health is known: a Graph Insights build
+without actuator endpoints reports UNKNOWN, which is not treated as a failure.
+
+### `marketplace` {#cmem_client.models.status.StatusInfo.marketplace}
+
+```python
+marketplace: MarketplaceStatus = Field(default_factory=MarketplaceStatus)
+```
+
+Status of the local marketplace bundled beside this Corporate Memory instance.
 
 ### `model_config` {#cmem_client.models.status.StatusInfo.model_config}
 

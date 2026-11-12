@@ -112,3 +112,4 @@ Separator to be inserted between two concatenated strings. The text can contain 
 ## Related Plugins
 
 * [concatPairwise](concatPairwise.md) — Zip handles unequal input lengths by padding, not truncating, and is constrained to exactly two inputs. Concatenate pairwise removes that constraint — it accepts any number of inputs — but resolves the length mismatch by stopping at the shortest.
+* [inputHash](../Value/inputHash.md) — Zip pairs exactly two inputs position by position and returns one output per pair, using the same optional separator between values. Combined input hash instead combines every connected value into a single hash, regardless of how many ports are used.

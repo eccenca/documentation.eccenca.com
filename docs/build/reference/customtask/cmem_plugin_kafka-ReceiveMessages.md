@@ -1,6 +1,6 @@
 ---
 title: "Kafka Consumer (Receive Messages)"
-description: "Reads messages from a Kafka topic and saves it to a messages dataset (Consumer)."
+description: "Reads messages from a Kafka topic as entities, or saves them to a dataset (Consumer)."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -19,9 +19,10 @@ tags:
 
 
 This workflow operator uses the Kafka Consumer API
-to receive messages from an [Apache Kafka](https://kafka.apache.org/) topic.
+to receive messages from an [Apache Kafka](https://kafka.apache.org/) topic. It has
+no input port: it starts a workflow by reading from the topic on its own.
 
-Messages received from the topic will be generated as entities with the following
+By default, each message received is generated as one entity with the following
 flat schema:
 
 - **key** - the optional key of the message,
@@ -36,7 +37,9 @@ In order to process the resulting entities, they have to run through a transform
 
 As an alternate working mode, messages can be exported directly to a JSON or XML
 dataset if you know that the messages on your topic are valid JSON or XML documents
-(see Advanced Options > Messages Dataset).
+(see the Messages Dataset parameter). In this mode the task has no output port either
+
+- messages are written directly to the dataset instead of being handed on as entities.
 
 In this case, a sample response from the consumer will appear as follows:
 
@@ -239,7 +242,7 @@ The maximum number of messages to fetch and process in each run. If 0 or less, a
 
 ### Disable Commit
 
-Setting this to true will disable committing messages after retrival. This means you will receive the same messages on the next execution (for debugging).
+Setting this to true will disable committing messages after retrieval. This means you will receive the same messages on the next execution (for debugging).
 
 - ID: `disable_commit`
 - Datatype: `boolean`

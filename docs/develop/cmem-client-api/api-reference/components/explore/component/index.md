@@ -1,38 +1,32 @@
 ---
-title: "cmem-client: components.graph_store module"
-description: "Corporate Memory DataPlatform (explore) graph store management."
+title: "cmem-client: components.explore.component module"
+description: "Corporate Memory Explore (DataPlatform) component."
 tags:
   - API
   - Python
   - cmem-client
 ---
 
-# `cmem_client.components.graph_store` {#cmem_client.components.graph_store}
+# `cmem_client.components.explore.component` {#cmem_client.components.explore.component}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory DataPlatform (explore) graph store management.
+Corporate Memory Explore (DataPlatform) component.
 
-This module provides the GraphStore component for managing Corporate Memory's
-DataPlatform graph store. The graph store is the primary repository for RDF
-data and knowledge graphs, supporting semantic queries and exploration.
-
-The GraphStore component provides high-level administrative operations including
-bootstrap data management, full store backup and restoration, and system
-information retrieval. These operations are essential for store maintenance,
-deployment, and operational monitoring.
+The Explore component bundles the operations of the Explore service which are not
+collections of items: the SPARQL endpoint, administrative status, bootstrap and showcase
+data, full backup and restore, and information about the graph store instance. Each of
+these lives in its own module of this package; this class only delegates to them.
 
 **Classes:**
 
-- [**AdminOperationStatus**](#cmem_client.components.graph_store.AdminOperationStatus) – Current administrative operation reported by GET /api/admin/status.
-- [**GraphStore**](#cmem_client.components.graph_store.GraphStore) – High-level interface for Corporate Memory DataPlatform graph store operations.
-- [**StoreInformation**](#cmem_client.components.graph_store.StoreInformation) – Information about the graph store instance and its capabilities.
+- [**Explore**](#cmem_client.components.explore.component.Explore) – High-level interface for the Corporate Memory Explore (DataPlatform) service.
 
 **Attributes:**
 
-- [**AUTHORIZATION_GRAPH_URI**](#cmem_client.components.graph_store.AUTHORIZATION_GRAPH_URI) – The URI of the access conditions graph. Deleting or importing this graph requires an authorization refresh.
+- [**AUTHORIZATION_GRAPH_URI**](#cmem_client.components.explore.component.AUTHORIZATION_GRAPH_URI) – The URI of the access conditions graph. Deleting or importing this graph requires an authorization refresh.
 
-## `AUTHORIZATION_GRAPH_URI` {#cmem_client.components.graph_store.AUTHORIZATION_GRAPH_URI}
+## `AUTHORIZATION_GRAPH_URI` {#cmem_client.components.explore.component.AUTHORIZATION_GRAPH_URI}
 
 ```python
 AUTHORIZATION_GRAPH_URI = 'https://ns.eccenca.com/data/ac/'
@@ -40,79 +34,28 @@ AUTHORIZATION_GRAPH_URI = 'https://ns.eccenca.com/data/ac/'
 
 The URI of the access conditions graph. Deleting or importing this graph requires an authorization refresh.
 
-## `AdminOperationStatus` {#cmem_client.components.graph_store.AdminOperationStatus}
-
-Bases: <code>StrEnum</code>
-
-Current administrative operation reported by GET /api/admin/status.
-
-**Attributes:**
-
-- [**BACKUP**](#cmem_client.components.graph_store.AdminOperationStatus.BACKUP) –
-- [**BOOTSTRAP**](#cmem_client.components.graph_store.AdminOperationStatus.BOOTSTRAP) –
-- [**DROP_ALL_GRAPHS**](#cmem_client.components.graph_store.AdminOperationStatus.DROP_ALL_GRAPHS) –
-- [**NONE**](#cmem_client.components.graph_store.AdminOperationStatus.NONE) –
-- [**RESTORE**](#cmem_client.components.graph_store.AdminOperationStatus.RESTORE) –
-- [**SHOWCASE**](#cmem_client.components.graph_store.AdminOperationStatus.SHOWCASE) –
-
-### `BACKUP` {#cmem_client.components.graph_store.AdminOperationStatus.BACKUP}
+## `Explore` {#cmem_client.components.explore.component.Explore}
 
 ```python
-BACKUP = 'BACKUP'
+Explore(client)
 ```
 
-### `BOOTSTRAP` {#cmem_client.components.graph_store.AdminOperationStatus.BOOTSTRAP}
+High-level interface for the Corporate Memory Explore (DataPlatform) service.
 
-```python
-BOOTSTRAP = 'BOOTSTRAP'
-```
-
-### `DROP_ALL_GRAPHS` {#cmem_client.components.graph_store.AdminOperationStatus.DROP_ALL_GRAPHS}
-
-```python
-DROP_ALL_GRAPHS = 'DROP_ALL_GRAPHS'
-```
-
-### `NONE` {#cmem_client.components.graph_store.AdminOperationStatus.NONE}
-
-```python
-NONE = 'NONE'
-```
-
-### `RESTORE` {#cmem_client.components.graph_store.AdminOperationStatus.RESTORE}
-
-```python
-RESTORE = 'RESTORE'
-```
-
-### `SHOWCASE` {#cmem_client.components.graph_store.AdminOperationStatus.SHOWCASE}
-
-```python
-SHOWCASE = 'SHOWCASE'
-```
-
-## `GraphStore` {#cmem_client.components.graph_store.GraphStore}
-
-```python
-GraphStore(client)
-```
-
-High-level interface for Corporate Memory DataPlatform graph store operations.
-
-The GraphStore component provides administrative and operational methods for
+The Explore component provides administrative and operational methods for
 managing the Corporate Memory DataPlatform graph store. It handles store-level
 operations including bootstrap data management, full backup and restoration,
 and system information retrieval.
 
 This component abstracts the complexities of the DataPlatform API and provides
-a convenient interface for common graph store management tasks. It's designed
+a convenient interface for common graph store management tasks. It is designed
 for administrative operations rather than individual graph manipulation
 (use repositories for graph-level operations).
 
 **Attributes:**
 
-- **_client** (<code>[Client](../../client/index.md#cmem_client.client.Client)</code>) – The Corporate Memory client instance used for API communication.
-- **_sparql_wrapper** (<code>[SPARQLWrapper](../../components/sparql_wrapper/index.md#cmem_client.components.sparql_wrapper.SPARQLWrapper)</code>) – SPARQLWrapper instance for rdflib SPARQL queries.
+- **_client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – The Corporate Memory client instance used for API communication.
+- **_sparql_wrapper** (<code>[SPARQLWrapper](../../../components/explore/sparql/index.md#cmem_client.components.explore.sparql.SPARQLWrapper)</code>) – SPARQLWrapper instance for rdflib SPARQL queries.
 
 <details class="administrative-operations" open markdown="1">
 <summary>Administrative Operations</summary>
@@ -132,18 +75,18 @@ which provides CRUD operations for specific RDF graphs.
 
 **Functions:**
 
-- [**create_showcase_data**](#cmem_client.components.graph_store.GraphStore.create_showcase_data) – Create showcase data in the graph store.
-- [**delete_bootstrap_data**](#cmem_client.components.graph_store.GraphStore.delete_bootstrap_data) – Delete bootstrap data from the graph store.
-- [**export_to_zip**](#cmem_client.components.graph_store.GraphStore.export_to_zip) – Export a complete backup of the graph store as a ZIP archive.
-- [**import_bootstrap_data**](#cmem_client.components.graph_store.GraphStore.import_bootstrap_data) – Import or update bootstrap data in the graph store.
-- [**import_from_zip**](#cmem_client.components.graph_store.GraphStore.import_from_zip) – Import and restore a complete graph store backup from a ZIP archive.
-
-Creates a GraphStore component that uses the provided client for
-API communication with the DataPlatform graph store.
+- [**create_showcase_data**](#cmem_client.components.explore.component.Explore.create_showcase_data) – Create showcase data in the graph store.
+- [**delete_bootstrap_data**](#cmem_client.components.explore.component.Explore.delete_bootstrap_data) – Delete bootstrap data from the graph store.
+- [**export_to_zip**](#cmem_client.components.explore.component.Explore.export_to_zip) – Export a complete backup of the graph store as a ZIP archive.
+- [**get_health**](#cmem_client.components.explore.component.Explore.get_health) – Report version and health of the Explore (DataPlatform) service.
+- [**get_shapes_health**](#cmem_client.components.explore.component.Explore.get_shapes_health) – Report version and health of the shapes catalog served by Explore.
+- [**import_bootstrap_data**](#cmem_client.components.explore.component.Explore.import_bootstrap_data) – Import or update bootstrap data in the graph store.
+- [**import_from_zip**](#cmem_client.components.explore.component.Explore.import_from_zip) – Import and restore a complete graph store backup from a ZIP archive.
+- [**wait_for_admin_idle**](#cmem_client.components.explore.component.Explore.wait_for_admin_idle) – Poll the administrative status until no administrative operation is in progress.
 
 **Parameters:**
 
-- **client** (<code>[Client](../../client/index.md#cmem_client.client.Client)</code>) – A configured Corporate Memory client instance with
+- **client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – A configured Corporate Memory client instance with
 authentication and endpoint configuration.
 
 <details class="note" open markdown="1">
@@ -155,7 +98,7 @@ instantiation is rarely needed in normal usage.
 
 </details>
 
-### `create_showcase_data` {#cmem_client.components.graph_store.GraphStore.create_showcase_data}
+### `create_showcase_data` {#cmem_client.components.explore.component.Explore.create_showcase_data}
 
 ```python
 create_showcase_data(scale_factor=None)
@@ -179,7 +122,7 @@ A value of 10 results in around 40k triples, a value of
 - <code>HTTPError</code> – If the showcase creation request fails due to network
 issues or server errors.
 
-### `delete_bootstrap_data` {#cmem_client.components.graph_store.GraphStore.delete_bootstrap_data}
+### `delete_bootstrap_data` {#cmem_client.components.explore.component.Explore.delete_bootstrap_data}
 
 ```python
 delete_bootstrap_data()
@@ -217,7 +160,7 @@ operation should typically be followed by import_bootstrap_data().
 
 </details>
 
-### `export_to_zip` {#cmem_client.components.graph_store.GraphStore.export_to_zip}
+### `export_to_zip` {#cmem_client.components.explore.component.Explore.export_to_zip}
 
 ```python
 export_to_zip(path)
@@ -277,7 +220,39 @@ Use import_from_zip() to restore from backup archives created by this method.
 
 </details>
 
-### `import_bootstrap_data` {#cmem_client.components.graph_store.GraphStore.import_bootstrap_data}
+### `get_health` {#cmem_client.components.explore.component.Explore.get_health}
+
+```python
+get_health()
+```
+
+Report version and health of the Explore (DataPlatform) service.
+
+Reads the service's `/actuator/info` and `/actuator/health`. Both answers are kept
+in the result: `info` also carries the store block (type and version of the graph
+store), and is only set when both requests succeed.
+
+**Returns:**
+
+- <code>[ExploreStatus](../../../models/status/index.md#cmem_client.models.status.ExploreStatus)</code> – The status of Explore. An unreachable or failing service is reported DOWN with
+- <code>[ExploreStatus](../../../models/status/index.md#cmem_client.models.status.ExploreStatus)</code> – the error, instead of raising.
+
+### `get_shapes_health` {#cmem_client.components.explore.component.Explore.get_shapes_health}
+
+```python
+get_shapes_health()
+```
+
+Report version and health of the shapes catalog served by Explore.
+
+Reads the version the shapes catalog graph declares, with a SPARQL query.
+
+**Returns:**
+
+- <code>[ComponentStatus](../../../models/status/index.md#cmem_client.models.status.ComponentStatus)</code> – The status of the shapes catalog: UP with its version, DOWN without a version
+- <code>[ComponentStatus](../../../models/status/index.md#cmem_client.models.status.ComponentStatus)</code> – or with the error of a failing query, instead of raising.
+
+### `import_bootstrap_data` {#cmem_client.components.explore.component.Explore.import_bootstrap_data}
 
 ```python
 import_bootstrap_data()
@@ -299,7 +274,7 @@ issues or server errors.
 <summary>Note</summary>
 
 This operation may take some time.
-It's typically performed during system initialization or when
+It is typically performed during system initialization or when
 updating to new Corporate Memory versions that include new
 system vocabularies.
 
@@ -314,7 +289,7 @@ system vocabularies.
 
 </details>
 
-### `import_from_zip` {#cmem_client.components.graph_store.GraphStore.import_from_zip}
+### `import_from_zip` {#cmem_client.components.explore.component.Explore.import_from_zip}
 
 ```python
 import_from_zip(path)
@@ -384,13 +359,21 @@ Use export_to_zip() to create backup archives for import with this method.
 
 </details>
 
-### `logger` {#cmem_client.components.graph_store.GraphStore.logger}
+### `logger` {#cmem_client.components.explore.component.Explore.logger}
 
 ```python
 logger = logging.getLogger(f'{self._client.logger.name}.{self.__class__.__name__}')
 ```
 
-### `self_information` {#cmem_client.components.graph_store.GraphStore.self_information}
+### `logs` {#cmem_client.components.explore.component.Explore.logs}
+
+```python
+logs: ExploreLogs = ExploreLogs(client=client)
+```
+
+The in-memory log buffer of Explore: the most recent lines and the state of the buffer.
+
+### `self_information` {#cmem_client.components.explore.component.Explore.self_information}
 
 ```python
 self_information: StoreInformation
@@ -406,7 +389,7 @@ provides real-time metadata about the running graph store instance.
 
 **Returns:**
 
-- **StoreInformation** (<code>[StoreInformation](#cmem_client.components.graph_store.StoreInformation)</code>) – A model containing store type and version information.
+- **StoreInformation** (<code>[StoreInformation](../../../models/explore/index.md#cmem_client.models.explore.StoreInformation)</code>) – A model containing store type and version information.
 The returned object includes the store implementation name
 
 (e.g., "GRAPHDB", "TENTRIS") and its version string.
@@ -437,7 +420,7 @@ information due to unexpected response format.
 
 </details>
 
-### `sparql` {#cmem_client.components.graph_store.GraphStore.sparql}
+### `sparql` {#cmem_client.components.explore.component.Explore.sparql}
 
 ```python
 sparql: SPARQLWrapper
@@ -452,50 +435,45 @@ authentication handling.
 
 **Returns:**
 
-- <code>[SPARQLWrapper](../../components/sparql_wrapper/index.md#cmem_client.components.sparql_wrapper.SPARQLWrapper)</code> – The SPARQLWrapper component instance, created lazily on first access.
+- <code>[SPARQLWrapper](../../../components/explore/sparql/index.md#cmem_client.components.explore.sparql.SPARQLWrapper)</code> – The SPARQLWrapper component instance, created lazily on first access.
 
 **Examples:**
 
 ```pycon
 >>> from cmem_client.client import Client
 >>> client = Client.from_env()
->>> sparql_wrapper = client.store.sparql
+>>> sparql_wrapper = client.explore.sparql
 ```
 
-## `StoreInformation` {#cmem_client.components.graph_store.StoreInformation}
-
-Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
-
-Information about the graph store instance and its capabilities.
-
-This model represents metadata about the DataPlatform graph store,
-including the store type and version information. This information
-is useful for compatibility checks, monitoring, and debugging.
-
-**Attributes:**
-
-- [**type**](#cmem_client.components.graph_store.StoreInformation.type) (<code>str</code>) – The type of graph store (e.g., "GRAPHDB", "TENTRIS").
-- [**version**](#cmem_client.components.graph_store.StoreInformation.version) (<code>str</code>) – The version string of the graph store implementation.
-
-### `model_config` {#cmem_client.components.graph_store.StoreInformation.model_config}
+### `titles` {#cmem_client.components.explore.component.Explore.titles}
 
 ```python
-model_config = ConfigDict(extra='allow', populate_by_name=True)
+titles: ExploreTitles = ExploreTitles(client=client)
 ```
 
-### `type` {#cmem_client.components.graph_store.StoreInformation.type}
+Human-readable titles of IRIs, resolved in batches and cached.
+
+### `wait_for_admin_idle` {#cmem_client.components.explore.component.Explore.wait_for_admin_idle}
 
 ```python
-type: str
+wait_for_admin_idle(timeout=60.0, poll_interval=1.0)
 ```
 
-The type/implementation of the graph store (e.g., "GRAPHDB", "TENTRIS").
+Poll the administrative status until no administrative operation is in progress.
 
-### `version` {#cmem_client.components.graph_store.StoreInformation.version}
+Administrative operations such as import_bootstrap_data() or create_showcase_data()
+are asynchronous on the server: the method call returns as soon as the operation has
+been accepted, not once it has finished. Call this method afterward to wait until the
+operation has actually completed before relying on its effects, for example before
+reading the graphs it wrote.
 
-```python
-version: str
-```
+**Parameters:**
 
-The version string of the graph store implementation.
+- **timeout** (<code>float</code>) – Maximum seconds to wait before raising TimeoutError.
+- **poll_interval** (<code>float</code>) – Seconds to wait between status checks.
+
+**Raises:**
+
+- <code>TimeoutError</code> – If an administrative operation is still in progress after timeout seconds.
+- <code>HTTPError</code> – If a status request fails.
 

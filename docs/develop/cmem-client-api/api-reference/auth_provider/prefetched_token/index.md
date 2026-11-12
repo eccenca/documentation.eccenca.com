@@ -19,7 +19,7 @@ for environments where tokens are managed by external systems, CI/CD pipelines,
 or when integrating with existing authentication infrastructure.
 
 The PrefetchedToken provider simply stores and returns a pre-obtained access token
-without performing any token refresh or validation. It's the responsibility of the
+without performing any token refresh or validation. It is the responsibility of the
 external system to ensure the token is valid and renewed when necessary.
 
 This approach is often used in containerized environments, serverless functions,
@@ -50,7 +50,7 @@ This approach is commonly used in:
 - CI/CD pipelines with token management systems
 - Serverless functions with external authentication services
 - Integration with existing authentication infrastructure
-- Short-lived execution contexts where token refresh isn't needed
+- Short-lived execution contexts where token refresh is not needed
 
 **Attributes:**
 

@@ -33,12 +33,16 @@ Neo4j _labels_ are comparable with _classes_ in RDF (not to be confused with lab
 
 When writing entities to the Neo4j dataset, the following _labels_ will be added to each generated node:
 
-- For each entity _type_ (such as the _type_ set in a mapping), a _label_ will be added to the node in Neo4j.
+- For each `rdf:type` value of the entity, a _label_ will be added to the node in Neo4j.
+  This covers all target entity types set in a mapping as well as mapping rules with the target property `rdf:type`, which allow to set the labels per entity, for instance from the classes of the source resources.
   Since _types_ in eccenca DataIntegration are usually URIs, they will be converted according to the rules further down.
 - The _label_ as configured by the _label_ parameter on the Neo4j dataset itself.
   This is typically used to identify all entities that have been written by a certain Neo4j dataset specification in the project.
   For instance, if two Neo4j dataset specifications are added to a project - both writing to the same Neo4j database - different labels can be set to distinguish both sets of entities.
   In that respect it may be used to model a similar concept as _graphs_ in RDF.
+
+Labels are only added, never removed.
+If the types of an entity change between two runs, clear the dataset before writing, otherwise the node keeps the labels of the previous run as well.
 
 ### Relationships
 
