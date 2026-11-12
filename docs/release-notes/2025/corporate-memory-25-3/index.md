@@ -3,7 +3,7 @@ tags:
     - ReleaseNote
 ---
 
-# Corporate Memory 25.3.4
+# eccenca Corporate Memory 25.3.4
 
 Corporate Memory 25.3 is the third major release in 2025.
 

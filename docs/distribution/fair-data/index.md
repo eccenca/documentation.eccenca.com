@@ -7,7 +7,7 @@ tags:
     - BestPractice
 ---
 
-# FAIR data with Corporate Memory
+# FAIR data with eccenca Corporate Memory
 
 !!! abstract
 

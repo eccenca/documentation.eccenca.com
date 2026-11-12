@@ -14,7 +14,8 @@ tags:
 Repository for managing DataIntegration projects.
 
 Provides ProjectsRepository for creating, deleting, importing and exporting build
-projects, and for reloading a project and reading its failed task report.
+projects, and for reloading a project, reading its failed task report and its prefix
+map.
 
 **Examples:**
 
@@ -46,52 +47,19 @@ Find out which tasks of a project failed to load:
 ...     print(failed)
 ```
 
+Get the prefix map of a project:
+
+```pycon
+>>> client.projects.get_prefixes("my-project")
+```
+
 **Classes:**
 
-- [**ProjectImportStatus**](#cmem_client.repositories.projects.ProjectImportStatus) – Response of the project import status endpoint.
 - [**ProjectsCreateConfig**](#cmem_client.repositories.projects.ProjectsCreateConfig) – Project Create Configuration.
 - [**ProjectsDeleteConfig**](#cmem_client.repositories.projects.ProjectsDeleteConfig) – Project Delete Configuration.
 - [**ProjectsExportConfig**](#cmem_client.repositories.projects.ProjectsExportConfig) – Project Export Configuration.
 - [**ProjectsImportConfig**](#cmem_client.repositories.projects.ProjectsImportConfig) – Project Import Configuration.
 - [**ProjectsRepository**](#cmem_client.repositories.projects.ProjectsRepository) – Repository for Build (DataIntegration) projects.
-
-## `ProjectImportStatus` {#cmem_client.repositories.projects.ProjectImportStatus}
-
-Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
-
-Response of the project import status endpoint.
-
-**Attributes:**
-
-- [**project_id**](#cmem_client.repositories.projects.ProjectImportStatus.project_id) (<code>str</code>) – Identifier of the imported project, sent as ``projectId``.
-- [**success**](#cmem_client.repositories.projects.ProjectImportStatus.success) (<code>bool | None</code>) – Whether the import finished successfully. None while the import is still
-running, which is what ``import_item()`` polls on.
-- [**failure_message**](#cmem_client.repositories.projects.ProjectImportStatus.failure_message) (<code>str | None</code>) – Reason the import failed, sent as ``failureMessage``. Only set when
-the import failed.
-
-### `failure_message` {#cmem_client.repositories.projects.ProjectImportStatus.failure_message}
-
-```python
-failure_message: str | None = Field(alias='failureMessage', default=None)
-```
-
-### `model_config` {#cmem_client.repositories.projects.ProjectImportStatus.model_config}
-
-```python
-model_config = ConfigDict(extra='allow', populate_by_name=True)
-```
-
-### `project_id` {#cmem_client.repositories.projects.ProjectImportStatus.project_id}
-
-```python
-project_id: str = Field(alias='projectId')
-```
-
-### `success` {#cmem_client.repositories.projects.ProjectImportStatus.success}
-
-```python
-success: bool | None = None
-```
 
 ## `ProjectsCreateConfig` {#cmem_client.repositories.projects.ProjectsCreateConfig}
 
@@ -207,6 +175,7 @@ the [Project model](../../models/project/index.md#cmem_client.models.project.Pro
 - [**export_item**](#cmem_client.repositories.projects.ProjectsRepository.export_item) – Export an item from the repository to a file path.
 - [**fetch_data**](#cmem_client.repositories.projects.ProjectsRepository.fetch_data) – Fetch simple list from a JSON endpoint via a type adapter
 - [**get_failed_tasks_report**](#cmem_client.repositories.projects.ProjectsRepository.get_failed_tasks_report) – Get all failed tasks from project from its ID
+- [**get_prefixes**](#cmem_client.repositories.projects.ProjectsRepository.get_prefixes) – Get the prefix map (prefix to namespace URI) of a project.
 - [**import_item**](#cmem_client.repositories.projects.ProjectsRepository.import_item) – Import an exported file to the repository
 - [**items**](#cmem_client.repositories.projects.ProjectsRepository.items) – Get the items of the repository
 - [**keys**](#cmem_client.repositories.projects.ProjectsRepository.keys) – Get the keys of the repository
@@ -286,7 +255,7 @@ Export an item from the repository to a file path.
 **Raises:**
 
 - <code>[RepositoryItemNotFoundError](../../exceptions/index.md#cmem_client.exceptions.RepositoryItemNotFoundError)</code> – If the specified item key is not found.
-- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there's an error during export or path mismatch.
+- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there is an error during export or path mismatch.
 
 ### `fetch_data` {#cmem_client.repositories.projects.ProjectsRepository.fetch_data}
 
@@ -305,6 +274,14 @@ get_failed_tasks_report(project_id)
 ```
 
 Get all failed tasks from project from its ID
+
+### `get_prefixes` {#cmem_client.repositories.projects.ProjectsRepository.get_prefixes}
+
+```python
+get_prefixes(project_id)
+```
+
+Get the prefix map (prefix to namespace URI) of a project.
 
 ### `import_item` {#cmem_client.repositories.projects.ProjectsRepository.import_item}
 

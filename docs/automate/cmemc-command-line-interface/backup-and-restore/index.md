@@ -9,7 +9,7 @@ tags:
 
 ## Introduction
 
-cmemc can export and re-import all data which Corporate Memory manages: the knowledge graphs in the store, the projects in the workspace, and any subset of them.
+cmemc can export and re-import all data which eccenca Corporate Memory manages: the knowledge graphs in the store, the projects in the workspace, and any subset of them.
 This page describes which artifacts you can create, how to restore each of them, and - just as important - which parts of a deployment cmemc does **not** cover.
 
 !!! warning "A cmemc export is not a complete instance backup"

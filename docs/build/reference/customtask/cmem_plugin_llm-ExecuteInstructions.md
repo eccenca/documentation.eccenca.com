@@ -1,6 +1,6 @@
 ---
 title: "Execute Instructions"
-description: "Send instructions (prompt) to an LLM and process the result."
+description: "Prompt a large language model once per entity and add the answer to the entity."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -18,165 +18,70 @@ tags:
     e.g. with cmemc.
 
 
-## Overview
+Sends a prompt to a large language model once for every entity it receives, and adds the
+model's answer to that entity. The prompt is a Jinja template rendered against the entity, so
+every entity gets a prompt of its own. Requests go over the OpenAI chat completions protocol,
+which covers OpenAI itself, Azure OpenAI and any service speaking the same protocol -
+Anthropic, OpenRouter, or a model hosted locally. With no endpoint configured, the task uses
+the built-in model proxy of the eccenca Corporate Memory deployment it runs in.
 
-This plugin executes Large Language Model (LLM) instructions over entity collections, enabling
-AI-powered text generation, analysis, and transformation tasks within Corporate Memory workflows.
+## Ports
 
-## Core Functionality
+Entities arrive on one input port and leave, enriched, on one output port. The shape of both
+follows from the instruction prompt alone; variables written into the developer prompt or into
+the messages template are not looked at.
 
-- **LLM Integration**: Supports OpenAI API, Azure OpenAI, and OpenAI-compatible endpoints
-  (Anthropic Claude, OpenRouter, etc.)
-- **Entity Processing**: Processes entities individually or in batches with configurable
-  concurrency
-- **Template System**: Uses Jinja2 templates for dynamic prompt generation from entity data
-- **File Inputs**: Optionally accept files (images and documents) from CMEM as multimodal
-  LLM inputs
-- **Output Formats**: Supports text, JSON mode, and structured outputs with Pydantic schemas
-- **Performance Optimization**: Includes batching, rate limiting, and async processing for
-  high-throughput scenarios
+- **A prompt without variables** is the same for every entity, so there is nothing to read.
+  The task then has no input port at all and emits a single entity.
+- **`{{ entity }}`** renders the whole entity, whose paths cannot be known beforehand. Both
+  ports are flexible, and everything that arrives is passed through to the output.
+- **`{{ entity.title }}`** names one path. The input port then asks for exactly the paths the
+  prompt names, and the output port carries them through beside the answer.
 
-## Input/Output Behavior
+`entity` is the only variable name a prompt may introduce. Any other one is rejected while the
+task is being configured rather than at run time.
 
-After processing, each entity receives an additional path (default: `_instruction_output`)
-containing the LLM response. For TEXT and JSON_MODE output formats, the response is stored
-in this path. For STRUCTURED_OUTPUT, the Pydantic model fields are directly added to the
-entity (the `_instruction_output` path is not used).
+The answer is added on a path of its own. Under structured output it is the fields of the
+schema you supply that become paths instead, and a model nested inside that schema becomes a
+sub-entity rather than a path. Switching the task to file input replaces the input side
+entirely: the port then takes file entities, one file is sent per request, and there are no
+entity paths left for a prompt to read.
 
-Input/output ports are automatically configured based on template variables and the
-**Enable File Inputs** option:
+## Where it fits
 
-- **No placeholders**: No input ports required
-- **With placeholders**: Single input port created for entity data
-- **Schema handling**: Fixed schemas when using specific entity paths, flexible schemas otherwise
-- **File Inputs enabled**: Single input port accepting `FileEntitySchema` entities (template
-  variables on the entity are ignored)
+The task sits between whatever produces entities - a dataset, a knowledge graph, an earlier
+transformation - and whatever consumes them, and leaves what it passes through untouched.
+**Create Embeddings** is its counterpart: that task turns text into vectors for retrieval
+rather than generating new text, and the two often appear in one workflow, one finding the
+entities worth looking at and the other writing about them.
 
-## Template System
+## Caveats
 
-Uses Jinja2 templating for dynamic prompts:
+The model is asked once per entity, so a run costs one request per entity, and how long it
+takes is governed by how many of those may be in flight at a time.
 
-```jinja2
-{{ entity }}           # Entire entity as JSON
-{{ entity.name }}      # Specific entity property
-```
+Cancelling a workflow takes effect between batches. Requests already sent are finished first.
 
-The following template processing rules are implemented:
+Only failures reported by the API count as API errors. A prompt that cannot be rendered, a
+messages template that is not valid JSON and a file that cannot be read stop the workflow
+whatever the error setting says.
 
-1. **Variable Extraction**: Automatically detects template variables to configure input ports
-2. **Entity Iteration**: Processes entities from the single input port individually
-3. **Single Entity Context**: Each entity is processed independently with its own template context
+Where API errors are not raised, the error text is written to the answer path and the workflow
+carries on, so a later task can consume a failure message as though it were an answer. Under
+structured output that is worse than it sounds: the declared output schema has no answer path,
+the error text is written to one regardless, and the values then no longer line up with the
+fields the schema promises.
 
-## File Inputs
-
-Enable **Enable File Inputs** to send files (images or documents) from CMEM to the LLM as
-multimodal input. When activated:
-
-- The input port switches to `FileEntitySchema`, accepting file entities.
-- Each file is read from the project, base64-encoded, and embedded into the chat message
-  as a `data:` URL.
-- The `message_template` parameter is ignored and the message structure is selected automatically
-  by MIME type:
-    - **Images** (e.g. PNG, JPEG) are sent as `image_url` content parts.
-    - **Documents** (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are
-      sent as `file` content parts with the original filename preserved.
-- If no MIME type is given, it is guessed by filename extension.
-- The `developer_prompt_template` and `instruct_prompt_template` is sent alongside the file.
-  Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode.
-- For **TEXT** and **JSON_MODE** outputs, the output entity additionally carries
-  `_filename` and `_mimetype` paths so downstream tasks can see what the model saw.
-  **STRUCTURED_OUTPUT** keeps the schema pure and does not add these paths.
-
-Note: Multimodal capability depends on the chosen model. Use a vision-capable model for
-images and a model that accepts file/document inputs for documents.
-
-For more details and all available MIME types see the official documentation:
-
-- [Images and vision](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
-- [File inputs](https://developers.openai.com/api/docs/guides/file-inputs?api-mode=chat)
-
-## Output Formats
-
-1. **Text Output (Default)** - Standard LLM text responses for general-purpose tasks.
-2. **JSON Mode** - Ensures valid JSON output format. Add JSON structure requirements
-   to your prompt template.
-3. **Structured Output** - Uses Pydantic schemas for type-safe, validated responses:
-
-```python
-from pydantic import BaseModel
-
-class StructuredOutput(BaseModel):
-    title: str
-    summary: str
-    keywords: list[str]
-    confidence_score: float
-```
-
-## Performance Features
-
-Parallel Processing:
-
-- **Concurrent Requests**: Configurable semaphore-controlled API calls
-- **Batch Processing**: Entities processed in configurable batch sizes
-- **Rate Limiting**: Optional delays between requests
-- **Memory Optimization**: Streaming processing with generator patterns
-
-Error Handling:
-
-- **Graceful Degradation**: Continue processing on API errors (configurable)
-- **Detailed Logging**: Comprehensive error reporting and debugging information
-- **Workflow Integration**: Proper cancellation support and progress reporting
-
-## API Compatibility
-
-Supported Providers:
-
-- **OpenAI**: Direct API access with full feature support
-- **Azure OpenAI**: Enterprise Azure-hosted services with API versioning
-- **OpenAI-Compatible**: Anthropic Claude, OpenRouter, local models, and other compatible endpoints
-
-Authentication:
-
-- **API Keys**: Secure password-type parameters for API authentication
-- **Azure Integration**: Supports Azure OpenAI API versioning and endpoint configuration
-- **Flexible Endpoints**: Custom base URLs for various providers
-
-## Advanced Configuration
-
-### Message Templates
-
-Customize the conversation structure beyond simple prompts:
-
-```json
-[
-    {"role": "system", "content": "You are a data analyst."},
-    {"role": "user", "content": "{{ instruction_prompt }}"}
-]
-```
-
-### Performance Tuning
-
-- **Temperature Control**: Adjust creativity vs. determinism (0.0-2.0)
-- **Timeout Management**: Request-level timeout configuration
-- **Concurrency Limits**: Prevent rate limiting with request throttling
-- **Batch Optimization**: Balance memory usage vs. throughput
-
-## Best Practices
-
-1. **Schema Design**: Use specific entity paths in templates for fixed schemas
-2. **Error Strategy**: Enable error continuation for large datasets
-3. **Performance**: Adjust concurrency and batch size based on API limits
-4. **Templates**: Design prompts with clear instructions and expected outputs
-5. **Testing**: Start with small entity sets to validate templates and outputs
-
-For detailed prompting guidance, see [OpenAI's Text Generation Guide](https://platform.openai.com/docs/guides/text?api-mode=chat).
+JSON mode guarantees only that the answer parses as JSON, never that it has the structure you
+had in mind - that still has to be described in the prompt. Structured output does constrain
+the shape, but only against providers and models that implement it.
 
 
 ## Parameter
 
-### Instruct Model
+### Instruct model
 
-The identifier of the instruct model to use. Note that some provider do not support a model list endpoint. Just create a custom entry then. Available model IDs for some public providers can be found here: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure). **Note:** For STRUCTURED_OUTPUT format, only certain models support structured outputs. See [OpenAI Structured Outputs Guide](https://platform.openai.com/docs/guides/structured-outputs) for supported models.
+The identifier of the chat model to ask. Some providers do not offer a model listing, in which case type the identifier in directly rather than picking it from the list. Structured output additionally requires a model that implements it; the provider's own model overview says which ones do. Model identifiers for some public providers: [OpenAI](https://platform.openai.com/docs/models), [Claude](https://docs.claude.com/en/docs/about-claude/models/overview), [OpenRouter](https://openrouter.ai/models), [Azure](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure).
 
 - ID: `model`
 - Datatype: `string`
@@ -184,9 +89,9 @@ The identifier of the instruct model to use. Note that some provider do not supp
 
 
 
-### Developer Prompt Template
+### Developer prompt template
 
-The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messages Template. Defines the LLM's role and behaviour.
+The developer (system) prompt, which sets the model's role and behaviour. It is substituted into the messages template wherever `{{ developer_prompt }}` appears, but it is not itself rendered against the entity: Jinja variables written here stay in the prompt as literal text.
 
 - ID: `developer_prompt_template`
 - Datatype: `code-jinja2`
@@ -194,9 +99,9 @@ The developer (system) prompt inserted at `{{ developer_prompt }}` in the Messag
 
 
 
-### Instruction Prompt Template
+### Instruction prompt template
 
-The instruction (user) prompt inserted at `{{ instruction_prompt }}` in the Messages Template. Please have a look at the task documentation for detailed instructions.
+The instruction (user) prompt, the actual request made of the model. It is rendered against each entity and the result is substituted into the messages template wherever `{{ instruction_prompt }}` appears. The variables it uses decide whether the task has an input port and what that port asks for, which the task documentation describes in full.
 
 - ID: `instruct_prompt_template`
 - Datatype: `code-jinja2`
@@ -204,9 +109,9 @@ The instruction (user) prompt inserted at `{{ instruction_prompt }}` in the Mess
 
 
 
-### Enable File Inputs
+### Enable file inputs
 
-Send files from CMEM to the LLM as multimodal input. When enabled, the input port accepts files (FileEntitySchema). Each file is base64-encoded and embedded into the chat message: images (e.g. PNG, JPEG) are sent as image content parts; documents and other files (e.g. PDF, spreadsheets, rich documents, presentations, text and code) are sent as file content parts. Which MIME types are supported is highly dependent on the provider and model used. Entity-derived template variables (e.g. `{{ entity.name }}`) are not available in this mode. The `developer_prompt_template` as well as `instruct_prompt_template` are sent alongside the image/file. For TEXT and JSON_MODE outputs, the output entity carries `_filename` and `_mimetype` paths so downstream tasks can see what the model saw. Note: requires a multimodal-capable model for the chosen file type.
+If enabled, the task sends files instead of entity data. The input port then accepts file entities, and each file is base64 encoded into its own request: images go as image content parts and everything else - PDFs, spreadsheets, presentations, text and code - as file content parts, with the filename preserved. A file carrying no MIME type is classified by its extension. The model has to be able to read the type you send it, and which types a provider accepts varies widely. Both prompts are sent alongside the file, but there is no entity left for them to read, so entity variables in the instruction prompt have nothing to render. The messages template is replaced by a built-in one. For text and JSON mode the output additionally carries `_filename` and `_mimetype`, so a later task can see what the model saw; structured output keeps its schema to the declared fields and adds neither.
 
 - ID: `enable_file_inputs`
 - Datatype: `boolean`
@@ -216,7 +121,7 @@ Send files from CMEM to the LLM as multimodal input. When enabled, the input por
 
 ### Base URL
 
-The base URL of the OpenAI compatible API (without endpoint path). If left empty CMEMs internal LLM proxy is used.
+The base URL of the OpenAI compatible API, without the endpoint path. Left empty, the task uses the built-in large language model proxy of the eccenca Corporate Memory deployment it runs in. That fallback does not apply to `AZURE_OPENAI`, which always needs a URL here.
 
 - ID: `base_url`
 - Datatype: `string`
@@ -224,9 +129,9 @@ The base URL of the OpenAI compatible API (without endpoint path). If left empty
 
 
 
-### API Type
+### API type
 
-Select the API client type. This determines the authentication method and endpoint configuration used for API requests. Choose `OPENAI` for direct OpenAI API access or `AZURE_OPENAI` for Azure-hosted OpenAI services. Consider using the API version advanced parameter in case you access Azure-hosted OpenAI services.
+Which client is used to reach the API. `OPENAI` speaks the plain OpenAI protocol and covers OpenAI itself as well as every compatible service. `AZURE_OPENAI` uses Azure's authentication and URL layout, and needs both a base URL and an API version.
 
 - ID: `api_type`
 - Datatype: `enumeration`
@@ -236,7 +141,7 @@ Select the API client type. This determines the authentication method and endpoi
 
 ### API key
 
-An optional API key for authentication. When using CMEMs internal LLM proxy this parameter is ignored and `EXPLORE_AI_APIKEY` in `environments/config.env` is used.
+The key used to authenticate against the API. It is ignored when the built-in model proxy is used, which authenticates with the `EXPLORE_AI_APIKEY` entry of `environments/config.env` instead.
 
 - ID: `api_key`
 - Datatype: `password`
@@ -244,9 +149,9 @@ An optional API key for authentication. When using CMEMs internal LLM proxy this
 
 
 
-### API Version
+### API version
 
-Azure OpenAI API version (only used when API Type is `AZURE_OPENAI`). For more information about OpenAI API version at Azure, please see [the documentation](https://learn.microsoft.com/en-gb/azure/ai-foundry/openai/api-version-lifecycle).
+The Azure OpenAI API version, read only when the API type is `AZURE_OPENAI`. The versions currently offered are listed in [the Azure documentation](https://learn.microsoft.com/en-gb/azure/ai-foundry/openai/api-version-lifecycle).
 
 - ID: `api_version`
 - Datatype: `string`
@@ -254,9 +159,9 @@ Azure OpenAI API version (only used when API Type is `AZURE_OPENAI`). For more i
 
 
 
-### Temperature (between 0 and 2)
+### Temperature
 
-A parameter that controls the randomness and creativity of the model. A high temperature value (`0.8` - `1.0`) increases randomness and creativity. This is useful for open-ended tasks like storytelling or brainstorming. A low temperature value (`0.0` - `0.4`) produces more deterministic and focused outputs. This is suitable for factual or technical tasks.
+How random the model is allowed to be, between `0` and `2`. A high value (`0.8` - `1.0`) makes the output more varied and more creative, which suits open-ended writing. A low value (`0.0` - `0.4`) makes it more repeatable and more focused, which suits factual and technical work.
 
 - ID: `temperature`
 - Datatype: `double`
@@ -266,7 +171,7 @@ A parameter that controls the randomness and creativity of the model. A high tem
 
 ### Timeout (seconds)
 
-The timeout for a single API request in seconds.
+How long a single API request may take before it is abandoned, in seconds.
 
 - ID: `timeout`
 - Datatype: `double`
@@ -274,9 +179,9 @@ The timeout for a single API request in seconds.
 
 
 
-### Instruction Output Path
+### Instruction output path
 
-The entity path where the instruction result will be provided. Note: This parameter is not used when Output Format is set to STRUCTURED_OUTPUT. For structured outputs, only the Pydantic model fields are included in the output schema.
+The entity path the model's answer is written to. It may not be a path the prompt reads. Structured output does not use it, because the fields of the schema become the output paths instead.
 
 - ID: `instruction_output_path`
 - Datatype: `string`
@@ -284,9 +189,9 @@ The entity path where the instruction result will be provided. Note: This parame
 
 
 
-### Messages Template
+### Messages template
 
-A list of messages comprising the conversation compatible with OpenAI chat completion API message object. Ignored if `enable_file_inputs` is active. Have look at [Message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) to learn about different levels of priority to messages with different roles.
+The list of messages sent to the chat completions API, as JSON. `{{ developer_prompt }}` and `{{ instruction_prompt }}` are replaced by the two prompts, and the template has to mention `instruction_prompt` somewhere. Use it to add further messages, to give an example exchange, or to assign the prompts to roles other than the default ones - [message roles and instruction following](https://platform.openai.com/docs/guides/text#message-roles-and-instruction-following) explains what the roles weigh. It is replaced by a built-in template when file inputs are enabled.
 
 - ID: `messages_template`
 - Datatype: `code-json`
@@ -307,9 +212,9 @@ A list of messages comprising the conversation compatible with OpenAI chat compl
 
 
 
-### Output Format
+### Output format
 
-Specifying the format that the model must output. Possible values are `TEXT` - Standard text output, `STRUCTURED_OUTPUT` - output follows a given schema. Add your schema as Pydantic model in the parameter below, `JSON_MODE` - a more basic version of the structured outputs feature where you have to add your structure to the prompt template.
+What the model is asked to return. `TEXT` takes the answer as it comes. `JSON_MODE` makes the provider guarantee that the answer parses as JSON, while the structure it should have remains something to describe in the prompt. `STRUCTURED_OUTPUT` hands the provider a schema instead, so the answer comes back in the shape the Pydantic schema gives.
 
 - ID: `output_format`
 - Datatype: `enumeration`
@@ -317,9 +222,9 @@ Specifying the format that the model must output. Possible values are `TEXT` - S
 
 
 
-### Pydantic Schema
+### Pydantic schema
 
-The Pydantic schema definition with a mandatory class named `StructuredOutput(BaseModel)`. This is only used in combination with the Structured Output format. A schema may have up to 100 object properties total, with up to 5 levels of nesting. The total string length of all property names, definition names, enum values, and const values cannot exceed 15,000 characters.
+The schema the answer has to follow, used by the structured output format. It is a Pydantic model, and the root class has to be named `StructuredOutput`. Only class definitions with typed fields are accepted here, next to imports from `pydantic`, `typing`, `typing_extensions`, `datetime` and `enum`. Methods, plain assignments and anything else executable are rejected. Nested models are allowed and become sub-entities on the output. Providers place their own limits on the schema, commonly at 100 properties, five levels of nesting, and 15,000 characters across all property, definition, enum and constant names.
 
 - ID: `pydantic_schema`
 - Datatype: `code-python`
@@ -339,7 +244,7 @@ class StructuredOutput(BaseModel):
 
 ### Raise on API errors
 
-How to react on API errors. When enable, any API errors will cause the workflow to stop with an exception. When disabled, API errors are logged and the error message is written to the entity output, allowing the workflow to continue processing other entities.
+If enabled, an error reported by the API stops the workflow. If disabled, the error is logged, its text is written to the output in place of an answer, and the remaining entities are still processed. Errors that are not the API's - an unrenderable prompt, an unreadable file - stop the workflow either way.
 
 - ID: `raise_on_error`
 - Datatype: `boolean`
@@ -347,9 +252,9 @@ How to react on API errors. When enable, any API errors will cause the workflow 
 
 
 
-### Maximum Concurrent Requests
+### Maximum concurrent requests
 
-Maximum number of concurrent API requests to prevent rate limiting and resource exhaustion.
+How many API requests may be in flight at once. This is what governs how fast a run gets through its entities, and lowering it is the first answer to a provider that rate-limits.
 
 - ID: `max_concurrent_requests`
 - Datatype: `Long`
@@ -357,9 +262,9 @@ Maximum number of concurrent API requests to prevent rate limiting and resource 
 
 
 
-### Batch Size
+### Batch size
 
-Number of entities to process in each batch for memory optimization.
+How many entities are prepared and processed together. Entities are read and handed on one batch at a time rather than all at once, so a smaller batch keeps less in memory and lets results reach the next task sooner.
 
 - ID: `batch_size`
 - Datatype: `Long`
@@ -367,9 +272,9 @@ Number of entities to process in each batch for memory optimization.
 
 
 
-### Request Delay (seconds)
+### Request delay (seconds)
 
-Delay between API requests in seconds to respect rate limits.
+How long to wait before each API request, in seconds. Left at zero, requests are sent as fast as the concurrency limit allows. Raise it for a provider that rejects bursts even within its request limit.
 
 - ID: `request_delay`
 - Datatype: `double`

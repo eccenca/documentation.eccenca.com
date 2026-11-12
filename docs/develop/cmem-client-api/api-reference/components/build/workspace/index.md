@@ -1,5 +1,5 @@
 ---
-title: "cmem-client: components.workspace module"
+title: "cmem-client: components.build.workspace module"
 description: "Corporate Memory DataIntegration (build) workspace management."
 tags:
   - API
@@ -7,7 +7,7 @@ tags:
   - cmem-client
 ---
 
-# `cmem_client.components.workspace` {#cmem_client.components.workspace}
+# `cmem_client.components.build.workspace` {#cmem_client.components.build.workspace}
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
@@ -24,9 +24,9 @@ scenarios.
 
 **Classes:**
 
-- [**BuildWorkspace**](#cmem_client.components.workspace.BuildWorkspace) – High-level interface for Corporate Memory DataIntegration workspace operations.
+- [**BuildWorkspace**](#cmem_client.components.build.workspace.BuildWorkspace) – High-level interface for Corporate Memory DataIntegration workspace operations.
 
-## `BuildWorkspace` {#cmem_client.components.workspace.BuildWorkspace}
+## `BuildWorkspace` {#cmem_client.components.build.workspace.BuildWorkspace}
 
 ```python
 BuildWorkspace(client)
@@ -51,7 +51,7 @@ a convenient interface for workspace-wide administrative tasks.
 
 **Attributes:**
 
-- **_client** (<code>[Client](../../client/index.md#cmem_client.client.Client)</code>) – The Corporate Memory client instance used for API communication.
+- **_client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – The Corporate Memory client instance used for API communication.
 
 <details class="administrative-operations" open markdown="1">
 <summary>Administrative Operations</summary>
@@ -73,19 +73,19 @@ which provides CRUD operations for specific DataIntegration projects.
 
 **Functions:**
 
-- [**export_to_zip**](#cmem_client.components.workspace.BuildWorkspace.export_to_zip) – Export a complete backup of the workspace as a ZIP archive.
-- [**get_marshalling_plugins**](#cmem_client.components.workspace.BuildWorkspace.get_marshalling_plugins) – Get the list of marshalling plugins.
-- [**get_status**](#cmem_client.components.workspace.BuildWorkspace.get_status) – Get the loading status of the whole workspace.
-- [**import_from_zip**](#cmem_client.components.workspace.BuildWorkspace.import_from_zip) – Import and restore a complete workspace backup from a ZIP archive.
-- [**reload_workspace**](#cmem_client.components.workspace.BuildWorkspace.reload_workspace) – Reload the workspace.
-- [**retrieve_access_control_configuration**](#cmem_client.components.workspace.BuildWorkspace.retrieve_access_control_configuration) – Retrieves the current access control configuration.
+- [**export_to_zip**](#cmem_client.components.build.workspace.BuildWorkspace.export_to_zip) – Export a complete backup of the workspace as a ZIP archive.
+- [**get_marshalling_plugins**](#cmem_client.components.build.workspace.BuildWorkspace.get_marshalling_plugins) – Get the list of marshalling plugins.
+- [**get_status**](#cmem_client.components.build.workspace.BuildWorkspace.get_status) – Get the loading status of the whole workspace.
+- [**import_from_zip**](#cmem_client.components.build.workspace.BuildWorkspace.import_from_zip) – Import and restore a complete workspace backup from a ZIP archive.
+- [**reload_workspace**](#cmem_client.components.build.workspace.BuildWorkspace.reload_workspace) – Reload the workspace.
+- [**retrieve_access_control_configuration**](#cmem_client.components.build.workspace.BuildWorkspace.retrieve_access_control_configuration) – Retrieves the current access control configuration.
 
 Creates a BuildWorkspace component that uses the provided client for
 API communication with the DataIntegration workspace endpoints.
 
 **Parameters:**
 
-- **client** (<code>[Client](../../client/index.md#cmem_client.client.Client)</code>) – A configured Corporate Memory client instance with
+- **client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – A configured Corporate Memory client instance with
 authentication and endpoint configuration.
 
 <details class="note" open markdown="1">
@@ -97,7 +97,7 @@ instantiation is rarely needed in normal usage.
 
 </details>
 
-### `export_to_zip` {#cmem_client.components.workspace.BuildWorkspace.export_to_zip}
+### `export_to_zip` {#cmem_client.components.build.workspace.BuildWorkspace.export_to_zip}
 
 ```python
 export_to_zip(path, marshalling_plugin='xmlZip', include_access_conditions=False, export_user_data=True)
@@ -137,7 +137,7 @@ timestamps and account names). If False, this data is removed from the archive.
 errors, or insufficient permissions.
 - <code>OSError</code> – If the specified path cannot be written to due to file system
 permissions or disk space issues.
-- <code>[RepositoryModificationError](../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – If the server reports that the export failed.
+- <code>[RepositoryModificationError](../../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – If the server reports that the export failed.
 
 <details class="performance-notes" open markdown="1">
 <summary>Performance Notes</summary>
@@ -180,7 +180,7 @@ Use import_from_zip() to restore workspace archives created by this method.
 
 </details>
 
-### `get_marshalling_plugins` {#cmem_client.components.workspace.BuildWorkspace.get_marshalling_plugins}
+### `get_marshalling_plugins` {#cmem_client.components.build.workspace.BuildWorkspace.get_marshalling_plugins}
 
 ```python
 get_marshalling_plugins()
@@ -188,7 +188,7 @@ get_marshalling_plugins()
 
 Get the list of marshalling plugins.
 
-### `get_status` {#cmem_client.components.workspace.BuildWorkspace.get_status}
+### `get_status` {#cmem_client.components.build.workspace.BuildWorkspace.get_status}
 
 ```python
 get_status()
@@ -201,9 +201,9 @@ Only projects with at least one failed task are listed.
 
 **Returns:**
 
-- <code>[WorkspaceStatus](../../models/workspace_status/index.md#cmem_client.models.workspace_status.WorkspaceStatus)</code> – The workspace status, listing the failed tasks per project.
+- <code>[WorkspaceStatus](../../../models/workspace_status/index.md#cmem_client.models.workspace_status.WorkspaceStatus)</code> – The workspace status, listing the failed tasks per project.
 
-### `import_from_zip` {#cmem_client.components.workspace.BuildWorkspace.import_from_zip}
+### `import_from_zip` {#cmem_client.components.build.workspace.BuildWorkspace.import_from_zip}
 
 ```python
 import_from_zip(path, marshalling_plugin='xmlZip', include_access_conditions=False)
@@ -243,7 +243,7 @@ for detailed import results and any warnings or errors.
 errors, insufficient permissions, or invalid archive format.
 - <code>OSError</code> – If the specified backup file cannot be read due to file system
 permissions or if the file does not exist.
-- <code>[RepositoryModificationError](../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – If the server reports that the import failed.
+- <code>[RepositoryModificationError](../../../exceptions/index.md#cmem_client.exceptions.RepositoryModificationError)</code> – If the server reports that the import failed.
 
 <details class="important-considerations" open markdown="1">
 <summary>Important Considerations</summary>
@@ -281,13 +281,13 @@ Use export_to_zip() to create workspace archives for import with this method.
 
 </details>
 
-### `logger` {#cmem_client.components.workspace.BuildWorkspace.logger}
+### `logger` {#cmem_client.components.build.workspace.BuildWorkspace.logger}
 
 ```python
 logger = logging.getLogger(f'{self._client.logger.name}.{self.__class__.__name__}')
 ```
 
-### `reload_workspace` {#cmem_client.components.workspace.BuildWorkspace.reload_workspace}
+### `reload_workspace` {#cmem_client.components.build.workspace.BuildWorkspace.reload_workspace}
 
 ```python
 reload_workspace()
@@ -295,7 +295,7 @@ reload_workspace()
 
 Reload the workspace.
 
-### `retrieve_access_control_configuration` {#cmem_client.components.workspace.BuildWorkspace.retrieve_access_control_configuration}
+### `retrieve_access_control_configuration` {#cmem_client.components.build.workspace.BuildWorkspace.retrieve_access_control_configuration}
 
 ```python
 retrieve_access_control_configuration()

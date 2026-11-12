@@ -99,8 +99,8 @@ resource allocation.
 - **_headers** (<code>dict</code>) – Class-level dictionary of HTTP headers shared across instances.
 - **_auth** (<code>[AuthProvider](../auth_provider/abc/index.md#cmem_client.auth_provider.abc.AuthProvider)</code>) – Authentication provider for obtaining access tokens.
 - **_http** (<code>Client</code>) – HTTP client instance for making API requests.
-- **_workspace** (<code>[BuildWorkspace](../components/workspace/index.md#cmem_client.components.workspace.BuildWorkspace)</code>) – DataIntegration workspace component for build operations.
-- **_store** (<code>[GraphStore](../components/graph_store/index.md#cmem_client.components.graph_store.GraphStore)</code>) – DataPlatform graph store component for explore operations.
+- **_build** (<code>Build</code>) – Build (DataIntegration) component for workspace operations.
+- **_explore** (<code>Explore</code>) – Explore (DataPlatform) component for graph store operations.
 
 **Functions:**
 
@@ -161,6 +161,31 @@ authenticated API requests. Use Client.from_env() for automatic
 configuration or set the auth property manually.
 
 </details>
+
+### `build` {#cmem_client.client.Client.build}
+
+```python
+build: Build
+```
+
+Get the Build (DataIntegration) component.
+
+Returns the Build component for managing Corporate Memory's DataIntegration
+service. Its `workspace` feature holds the workspace-level operations: import
+and export, reload, access control configuration and status.
+
+**Returns:**
+
+- <code>Build</code> – The Build component instance, created lazily on first access.
+
+**Examples:**
+
+```pycon
+>>> from pathlib import Path
+>>> client = Client.from_env()
+>>> client.build.workspace.import_from_zip(Path("backup.zip"))
+>>> client.build.workspace.export_to_zip(Path("new_backup.zip"))
+```
 
 ### `client_accounts` {#cmem_client.client.Client.client_accounts}
 
@@ -288,6 +313,30 @@ information across all Corporate Memory services.
 >>> print(status.explore.version, status.health)
 ```
 
+### `explore` {#cmem_client.client.Client.explore}
+
+```python
+explore: Explore
+```
+
+Get the Explore (DataPlatform) component.
+
+Returns the Explore component for managing Corporate Memory's
+DataPlatform graph store, including SPARQL queries and updates, bootstrap
+data management, and store-level backup/restore functionality.
+
+**Returns:**
+
+- <code>Explore</code> – The Explore component instance, created lazily on first access.
+
+**Examples:**
+
+```pycon
+>>> client = Client.from_env()
+>>> store_info = client.explore.self_information
+>>> print(f"Store type: {store_info.type}, version: {store_info.version}")
+```
+
 ### `files` {#cmem_client.client.Client.files}
 
 ```python
@@ -314,7 +363,7 @@ from_context(context, logger=None)
 
 Create a client instance configured from a cmem-plugin-base context object.
 
-This method is intended for use inside corporate memory python plugins.
+This method is intended for use inside Corporate Memory Python plugins.
 It extracts connection URLs from the ``SystemContext`` and uses the token
 provided by the ``UserContext`` for authentication, so no environment variables
 or credentials need to be supplied manually.
@@ -396,7 +445,7 @@ Create a client instance configured from environment variables.
 
 This factory method creates a fully configured client by reading
 configuration and authentication settings from environment variables.
-It's the recommended way to create clients in most applications.
+This is the recommended way to create clients in most applications.
 
 **Parameters:**
 
@@ -415,7 +464,7 @@ It's the recommended way to create clients in most applications.
 
 ```pycon
 >>> my_client = Client.from_env()  # Uses CMEM_BASE_URI, OAUTH_* vars
->>> store_info = my_client.store.self_information
+>>> store_info = my_client.explore.self_information
 ```
 
 ### `get_new_httpx_client` {#cmem_client.client.Client.get_new_httpx_client}
@@ -455,12 +504,43 @@ Returns: The graph imports repository instance, created lazily on first access.
 ### `graph_insights` {#cmem_client.client.Client.graph_insights}
 
 ```python
-graph_insights: GraphInsightsRepository
+graph_insights: GraphSnapshotsRepository
 ```
 
-Get the Graph Insights repository for managing semspect snapshots.
+Deprecated: use [`graph_snapshots`](#cmem_client.client.Client.graph_snapshots) instead.
 
-Returns: The GraphInsightsRepository instance, created lazily on first access.
+Returns the snapshot repository, as before the Graph Insights component became
+[`graphinsights`](#cmem_client.client.Client.graphinsights), and raises a
+`DeprecationWarning`. Removed in cmem-client 2.0.0.
+
+**Returns:**
+
+- <code>[GraphSnapshotsRepository](../repositories/graph_snapshots/index.md#cmem_client.repositories.graph_snapshots.GraphSnapshotsRepository)</code> – The GraphSnapshotsRepository instance.
+
+### `graph_snapshots` {#cmem_client.client.Client.graph_snapshots}
+
+```python
+graph_snapshots: GraphSnapshotsRepository
+```
+
+Get the repository of the Graph Insights snapshots.
+
+Returns: The GraphSnapshotsRepository instance, created lazily on first access.
+
+### `graphinsights` {#cmem_client.client.Client.graphinsights}
+
+```python
+graphinsights: GraphInsights
+```
+
+Get the Graph Insights component.
+
+Graph Insights is an optional extension. Its snapshots are managed through
+[`graph_snapshots`](#cmem_client.client.Client.graph_snapshots).
+
+**Returns:**
+
+- <code>GraphInsights</code> – The GraphInsights component instance, created lazily on first access.
 
 ### `graphs` {#cmem_client.client.Client.graphs}
 
@@ -531,7 +611,7 @@ Returns the Marketplace component.
 
 **Returns:**
 
-- <code>[Marketplace](../components/marketplace/index.md#cmem_client.components.marketplace.Marketplace)</code> – The Marketplace component instance, created lazily on first access.
+- <code>Marketplace</code> – The Marketplace component instance, created lazily on first access.
 
 ### `marketplace_packages` {#cmem_client.client.Client.marketplace_packages}
 
@@ -616,6 +696,31 @@ graphs and described using SHACL UI vocabulary.
 >>> my_query = queries.get(":myQueryId")
 ```
 
+### `rule_blocks` {#cmem_client.client.Client.rule_blocks}
+
+```python
+rule_blocks: RuleBlocksRepository
+```
+
+Get the DataIntegration (build) rule blocks repository.
+
+Returns the RuleBlocksRepository for managing reusable transformation
+rule blocks within projects. Rule blocks require Corporate Memory 26.2
+or newer.
+
+**Returns:**
+
+- <code>[RuleBlocksRepository](../repositories/rule_blocks/index.md#cmem_client.repositories.rule_blocks.RuleBlocksRepository)</code> – The RuleBlocksRepository instance, created lazily on first access.
+
+**Examples:**
+
+```pycon
+>>> client = Client.from_env()
+>>> client.rule_blocks.fetch_data()
+>>> for rule_block in client.rule_blocks.values():
+...     print(rule_block.get_id(), len(rule_block.data.rule_block_model.ports))
+```
+
 ### `schedulers` {#cmem_client.client.Client.schedulers}
 
 ```python
@@ -643,26 +748,17 @@ intervals and are identified by a 'project_id:scheduler_id' composite key.
 ### `store` {#cmem_client.client.Client.store}
 
 ```python
-store: GraphStore
+store: Explore
 ```
 
-Get the DataPlatform (explore) graph store component.
+Deprecated: use [`explore`](#cmem_client.client.Client.explore) instead.
 
-Returns the GraphStore component for managing Corporate Memory's
-DataPlatform graph store, including RDF graph operations, bootstrap
-data management, and store-level backup/restore functionality.
+Returns the same component as `explore`, and raises a `DeprecationWarning`.
+Removed in cmem-client 2.0.0.
 
 **Returns:**
 
-- <code>[GraphStore](../components/graph_store/index.md#cmem_client.components.graph_store.GraphStore)</code> – The GraphStore component instance, created lazily on first access.
-
-**Examples:**
-
-```pycon
->>> client = Client.from_env()
->>> store_info = client.store.self_information
->>> print(f"Store type: {store_info.type}, version: {store_info.version}")
-```
+- <code>Explore</code> – The Explore component instance.
 
 ### `user_accounts` {#cmem_client.client.Client.user_accounts}
 
@@ -760,24 +856,14 @@ Returns: The workflows repository instance, created lazily on first access.
 workspace: BuildWorkspace
 ```
 
-Get the DataIntegration (build) workspace component.
+Deprecated: use `build.workspace` of [`build`](#cmem_client.client.Client.build) instead.
 
-Returns the BuildWorkspace component for managing Corporate Memory's
-DataIntegration workspace, including projects, datasets, transformations,
-and workspace-level import/export operations.
+Returns the same component as `build.workspace`, and raises a `DeprecationWarning`.
+Removed in cmem-client 2.0.0.
 
 **Returns:**
 
-- <code>[BuildWorkspace](../components/workspace/index.md#cmem_client.components.workspace.BuildWorkspace)</code> – The BuildWorkspace component instance, created lazily on first access.
-
-**Examples:**
-
-```pycon
->>> from pathlib import Path
->>> client = Client.from_env()
->>> client.workspace.import_from_zip(Path("backup.zip"))
->>> client.workspace.export_to_zip(Path("new_backup.zip"))
-```
+- <code>BuildWorkspace</code> – The BuildWorkspace component instance.
 
 ### `workspace_configs` {#cmem_client.client.Client.workspace_configs}
 

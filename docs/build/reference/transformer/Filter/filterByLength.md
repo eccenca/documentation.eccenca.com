@@ -38,3 +38,7 @@ No description
 ## Advanced Parameter
 
 `None`
+
+## Related Plugins
+
+- [filterByRegex](filterByRegex.md) — Filter by regex tests each value against a pattern; the length is never a factor. Filter by length checks the length bounds only; a pattern is never a factor.

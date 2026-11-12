@@ -313,19 +313,19 @@ Use this property to enable or disable the AI capabilities of Explore
 
 Changeable configuration settings of the companion mcp server and mcp client integration.
 Explore can integrate external mcp servers via plain spring ai mcp client configuration
-and CMEM MCP servers in the authentication realm of the companion via spring.ai.mcp.client.cmem properties
+and eccenca Corporate Memory MCP servers in the authentication realm of the companion via spring.ai.mcp.client.cmem properties
 Every connection is registered under a name and the tools of a connection are exposed to the LLM
 prefixed with that name, so that equally named tools of different servers stay distinguishable:
   external mcp servers: external_<connection name>_<tool name>
-  CMEM MCP servers:     cmem_<connection name>_<tool name>
+ Corporate Memory MCP servers:     cmem_<connection name>_<tool name>
 Since the complete tool name must not exceed 64 characters, keep the connection names short.
 
 
 ***Property: spring.ai.mcp.client.cmem***
 
-CMEM MCP Servers requiring bearer token authentication in same realm are configured here
+Corporate Memory MCP Servers requiring bearer token authentication in same realm are configured here
 Both SSE and streamable connections are supported.
-The configurations under CMEM are the same as Spring AI mcp client configuration.
+The configurations under Corporate Memory are the same as Spring AI mcp client configuration.
 The name of a connection ("build" in the examples below) is part of the tool names.
 For instance for Streamable:
   spring.ai.mcp.client.cmem.streamableConnections.build.url=<https://my-cmem-system>

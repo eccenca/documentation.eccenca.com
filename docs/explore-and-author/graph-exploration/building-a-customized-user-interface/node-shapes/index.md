@@ -156,7 +156,7 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiGraph}}` - the currently used graph
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
+- `{{shuiResource}}` - refers to the resource rendered in the node shape
 
 
 Used Path: `shui:onDeleteUpdate`
@@ -175,7 +175,6 @@ The query can use these placeholders:
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 
 Used Path: `shui:onUpdateUpdate`
@@ -215,7 +214,6 @@ The query needs to be an ASK query and can include the following placeholders, w
 - `{{shuiGraph}}` - the IRI of the current working graph
 - `{{shuiAccount}}` - the IRI of the active user account
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 
 
@@ -233,7 +231,6 @@ The query needs to be an ASK query and can include the following placeholders, w
 - `{{shuiGraph}}` - the IRI of the current working graph
 - `{{shuiAccount}}` - the IRI of the active user account
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 
 
@@ -251,7 +248,6 @@ The query needs to be an ASK query and can include the following placeholders, w
 - `{{shuiGraph}}` - the IRI of the current working graph
 - `{{shuiAccount}}` - the IRI of the active user account
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 
 

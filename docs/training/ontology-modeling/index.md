@@ -17,7 +17,7 @@ tags:
 
     This module introduces RDF Schema and OWL, the two W3C languages for describing the classes and properties of a domain.
     It builds on [RDF and Linked Data Foundations](../rdf-and-linked-data/index.md) and [SPARQL Basics](../sparql-basics/index.md), and prepares the hands-on module [Ontology Engineering](../ontology-engineering/index.md).
-    It is part of the [Corporate Memory training](../index.md).
+    It is part of the [eccenca Corporate Memory training](../index.md).
 
     Use **Show slide** next to a heading to bring the matching slide into view, or **Read the explanation** under the slides to jump to the text for the current slide.
 

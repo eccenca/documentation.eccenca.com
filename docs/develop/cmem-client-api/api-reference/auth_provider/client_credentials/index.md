@@ -18,7 +18,7 @@ accessing eccenca Corporate Memory via OAuth 2.0. This flow is designed for
 machine-to-machine authentication where no user interaction is required.
 
 The Client Credentials Flow exchanges client ID and client secret for an access
-token directly with the authorization server. It's ideal for backend services,
+token directly with the authorization server. It is ideal for backend services,
 APIs, and automated systems that need to authenticate without user involvement.
 
 This implementation handles token caching and automatic renewal when tokens expire.
@@ -46,7 +46,7 @@ authentication with Corporate Memory via Keycloak. This flow exchanges client cr
 (client ID and secret) directly for access tokens without user interaction.
 
 The provider handles automatic token caching and refresh, ensuring that get_access_token()
-always returns a valid, non-expired token. It's designed for backend services, CLIs,
+always returns a valid, non-expired token. It is designed for backend services, CLIs,
 daemons, and other automated systems that need to authenticate as an application
 rather than on behalf of a user.
 
@@ -233,7 +233,7 @@ from_env(config)
 Create a Client Credentials Flow provider from environment variables.
 
 This factory method creates a provider instance by reading OAuth client
-credentials from environment variables. It's the recommended way to
+credentials from environment variables. It is the recommended way to
 create providers in production environments where credentials are
 managed externally.
 

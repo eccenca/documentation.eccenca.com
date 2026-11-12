@@ -16,10 +16,10 @@ tags:
 !!! abstract "About this module"
 
     This module teaches how to query RDF graphs with SPARQL, from the first triple pattern to aggregation and updates, and ends with exercises on the product Knowledge Graph.
-    It builds on [RDF and Linked Data Foundations](../rdf-and-linked-data/index.md) and is part of the [Corporate Memory training](../index.md).
+    It builds on [RDF and Linked Data Foundations](../rdf-and-linked-data/index.md) and is part of the [eccenca Corporate Memory training](../index.md).
 
     Use **Show slide** next to a heading to bring the matching slide into view, or **Read the explanation** under the slides to jump to the text for the current slide.
-    All queries run in the [Query module](../../explore-and-author/query-module/index.md) of eccenca Corporate Memory.
+    All queries run in the [Query module](../../explore-and-author/query-module/index.md) of Corporate Memory.
     The **Try it** boxes run the queries of the slides directly in the browser, against the data shown in the box, without a Corporate Memory instance.
 
 ## Why a query language for RDF { #why-a-query-language }

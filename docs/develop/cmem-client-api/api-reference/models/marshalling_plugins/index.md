@@ -15,8 +15,8 @@ Marshalling Plugin models
 
 A marshalling plugin defines the file format a DataIntegration workspace is written to
 and read from. The plugins a deployment offers are returned by
-``client.workspace.get_marshalling_plugins()``, and their ``id`` is what
-``client.workspace.export_to_zip()`` and ``import_from_zip()`` expect.
+``client.build.workspace.get_marshalling_plugins()``, and their ``id`` is what
+``client.build.workspace.export_to_zip()`` and ``import_from_zip()`` expect.
 
 **Classes:**
 

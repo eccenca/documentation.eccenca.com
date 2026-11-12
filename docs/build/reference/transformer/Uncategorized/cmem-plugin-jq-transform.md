@@ -18,6 +18,27 @@ tags:
     e.g. with cmemc.
 
 
+This operator applies a jq filter to each value of a single input path and
+emits the filter's result as the value on the operator's output path.
+
+Exactly one input is required - the operator fails if it is connected to no
+input path or to more than one. Each value of that path is passed to the
+filter independently, so a multi-valued path produces one filter run, and one
+output value, per input value.
+
+A filter run can emit zero, one or several JSON values. If it emits exactly
+one and **Output list with one item as string** is enabled (the default),
+that single value is converted with Python's `str()`. For a plain JSON
+string this yields the text unchanged, but for any other JSON type - numbers,
+booleans, `null`, objects, arrays - it yields Python's own literal syntax
+instead of JSON, for example `true` becomes `True` and `null` becomes `None`.
+The same applies, regardless of the option, whenever a run emits zero or
+several values: the operator then outputs the Python `str()` of the whole
+result list. Filters that are expected to always return a single JSON string
+are unaffected; filters that can return other types or a variable number of
+results will need their output parsed back from this Python-literal form
+downstream.
+
 > [jq](https://jqlang.org/) is like sed for JSON data - you can use it to
 > slice and filter and map and transform structured data with the same ease that sed, awk,
 > grep and friends let you play with text.
@@ -92,7 +113,7 @@ The jq program to apply to the input JSON string.
 
 ### Output list with one item as string
 
-
+If enabled, a filter result of exactly one value is written as that value's Python string representation instead of as a one-element list. If disabled, or if the filter returns zero or several values, the whole result list is written the same way.
 
 - ID: `single_item_as_string`
 - Datatype: `boolean`
