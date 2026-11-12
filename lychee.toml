@@ -1,0 +1,75 @@
+# lychee configuration for `task check:links` - https://lychee.cli.rs/
+#
+# Checks the outgoing http(s) links of the Markdown sources under docs/.
+# Links inside the site are checked by `zensical build --strict` and
+# `task check:build-output`, not here.
+
+# Outgoing links only.
+scheme = ["https", "http"]
+
+# Several sites (w3.org, salesforce.com, ...) answer 403 to non-browser
+# clients, so present a browser user agent.
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+
+# 429 means "rate limited", not "gone".
+accept = ["100..=103", "200..=299", "429"]
+
+# A run lasts as long as its slowest link: an unreachable host costs
+# timeout * (max_retries + 1) plus the waits, on every run (failures are not cached).
+# 20s leaves room for slow but working pages (the Microsoft download pages take ~9s).
+timeout = 20
+max_retries = 2
+retry_wait_time = 1
+max_concurrency = 32
+
+# Remember results for a day, so repeated local runs do not hammer the same hosts.
+cache = true
+max_cache_age = "1d"
+
+# Generated configuration reference: its prose holds `PROTOCOL://HOST:PORT/CONTEXT_PATH`,
+# which lychee reports as an unparsable URL before any exclude pattern applies.
+exclude_path = [
+    'docs/deploy-and-configure/configuration/explore/dataplatform/application-full\.md',
+]
+
+exclude = [
+    # Placeholder hosts and values in examples and configuration defaults.
+    '^https?://localhost',
+    '^https?://127\.0\.0\.1',
+    '^https?://([a-z0-9-]+\.)*example\.(com|org|net)',
+    '^https?://remote:',
+    '^https?://my-cmem-system',
+    '^https?://fallback\.eccenca\.com',
+    '^https?://cmem-mcp-server\.eccenca\.com',
+    '^https?://database\.windows\.net',
+    '^https?://ld\.company\.org',
+    '^https?://namespace\.org',
+    '^PROTOCOL://',
+
+    # IRIs: identifiers written as autolinks, not documents to fetch.
+    '^https?://vocab\.eccenca\.com/',
+    '^https?://ns\.eccenca\.com/',
+    '^https?://attack\.mitre\.org/inferences',
+    '^https?://rdfs\.org/ns/',
+
+    # Sites that answer 403 to any automated client, whatever the user agent.
+    '^https?://(www\.)?w3\.org/',
+    '^https?://developer\.salesforce\.com/',
+    '^https?://jfact\.sourceforge\.net',
+    '^https?://(www\.)?wikiwand\.com/',
+    '^https?://(www\.)?npmjs\.com/',
+
+    # Behind a login.
+    '^https?://releases\.eccenca\.com/',
+
+    # Known failures, excluded so the gate stays usable. Check each again and remove
+    # the entry once the link works or the page no longer has it.
+    # 2026-11-12: 404; in generated plugin descriptions (Geo transformers, SearchAddresses) - needs a ticket.
+    '^https://adresse\.data\.gouv\.fr/$',
+    # 2026-11-12: TLS certificate expired; in the generated ShapesPlugin reference.
+    '^https://prefix\.cc/',
+    # 2026-11-12: host refuses connections (www.openlinksw.com too); system-architecture page.
+    '^https://virtuoso\.openlinksw\.com/',
+    # 2026-11-12: times out for automated clients; GNU make bug link on two installation pages.
+    '^https://savannah\.gnu\.org/',
+]

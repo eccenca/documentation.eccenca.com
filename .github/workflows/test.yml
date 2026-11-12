@@ -61,7 +61,28 @@ jobs:
       - name: test
         run: task test:unit
 
+      - name: install lychee
+        env:
+          LYCHEE_VERSION: "0.24.2"
+          LYCHEE_ASSET: lychee-x86_64-unknown-linux-gnu
+          LYCHEE_RELEASES: https://github.com/lycheeverse/lychee/releases/download
+        run: |
+          curl -sSfL "${LYCHEE_RELEASES}/lychee-v${LYCHEE_VERSION}/${LYCHEE_ASSET}.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin --strip-components=1 "${LYCHEE_ASSET}/lychee"
+          lychee --version
+
+      - name: load link check cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          # A new key per run saves the updated cache; restore-keys picks up the latest one.
+          # lychee itself re-checks entries older than max_cache_age (lychee.toml).
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+
       - name: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: task check
 
       - name: Publish Test Results

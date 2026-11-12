@@ -33,6 +33,7 @@ The following tools you need locally to get started:
 
 - [poetry](https://python-poetry.org/)
 - [task](https://taskfile.dev/)
+- [lychee](https://lychee.cli.rs/) - the link checker behind `task check:links`
 - git, markdown editor
 
 On a few OS distributions (e.g. Arch Linux) the tool/binary is named `go-task`.
