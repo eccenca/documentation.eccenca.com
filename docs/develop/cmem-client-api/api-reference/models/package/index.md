@@ -46,6 +46,14 @@ a package installed before this was recorded.
 
 - [**get_id**](#cmem_client.models.package.Package.get_id) – Get the package identifier.
 
+### `dependencies` {#cmem_client.models.package.Package.dependencies}
+
+```python
+dependencies: list[ValidDependency]
+```
+
+The dependencies declared by the installed version.
+
 ### `get_id` {#cmem_client.models.package.Package.get_id}
 
 ```python
@@ -63,6 +71,14 @@ Get the package identifier.
 ```python
 installation_metadata: PackageInstallationMetadata | None = None
 ```
+
+### `installed_version` {#cmem_client.models.package.Package.installed_version}
+
+```python
+installed_version: PackageVersionIdentifier
+```
+
+The version of the package which is installed.
 
 ### `model_config` {#cmem_client.models.package.Package.model_config}
 
@@ -99,6 +115,11 @@ which were already installed beforehand.
 ``file``. ``None`` for packages installed before this was tracked.
 - [**origin_url**](#cmem_client.models.package.PackageInstallationMetadata.origin_url) (<code>str | None</code>) – URL of the marketplace server the package came from. Only set when
 ``origin_type`` is ``marketplace``.
+- [**installed_by**](#cmem_client.models.package.PackageInstallationMetadata.installed_by) (<code>str | None</code>) – Account which installed the package, the ``preferred_username``
+claim of the installing token. ``None`` when the token carries no such claim
+and for packages installed before this was recorded.
+- [**package_size**](#cmem_client.models.package.PackageInstallationMetadata.package_size) (<code>int | None</code>) – Size of the packaged files in bytes, uncompressed, without the
+manifest. ``None`` for packages installed before this was recorded.
 
 ### `dependency_level` {#cmem_client.models.package.PackageInstallationMetadata.dependency_level}
 
@@ -110,6 +131,12 @@ dependency_level: int = Field(ge=0, default=0)
 
 ```python
 installed_at: datetime = Field(default=datetime.now(tz=UTC))
+```
+
+### `installed_by` {#cmem_client.models.package.PackageInstallationMetadata.installed_by}
+
+```python
+installed_by: str | None = None
 ```
 
 ### `is_direct_installed` {#cmem_client.models.package.PackageInstallationMetadata.is_direct_installed}
@@ -142,6 +169,12 @@ origin_url: str | None = None
 
 ```python
 package_dependency_already_existed: list[str] = Field(default=[])
+```
+
+### `package_size` {#cmem_client.models.package.PackageInstallationMetadata.package_size}
+
+```python
+package_size: int | None = Field(default=None, ge=0)
 ```
 
 ### `python_dependency_already_existed` {#cmem_client.models.package.PackageInstallationMetadata.python_dependency_already_existed}

@@ -107,9 +107,11 @@ nav:
                   - Download Git files: build/reference/customtask/cmem_plugin_git-Download.md
                   - Download Nextcloud files: build/reference/customtask/cmem_plugin_nextcloud-Download.md
                   - Download Office 365 Files: build/reference/customtask/cmem_plugin_office365-Download.md
+                  - Download S3 objects: build/reference/customtask/cmem_plugin_s3-Download.md
                   - Download SSH files: build/reference/customtask/cmem_plugin_ssh-Download.md
                   - Evaluate template: build/reference/customtask/Template.md
                   - Execute a command in a kubernetes pod: build/reference/customtask/cmem_plugin_kubernetes-Execute.md
+                  - Execute Catalog Query: build/reference/customtask/cmem_plugin_querycatalog-ExecuteCatalogQuery.md
                   - Execute commands via SSH: build/reference/customtask/cmem_plugin_ssh-Execute.md
                   - Execute Instructions: build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md
                   - Execute REST requests: build/reference/customtask/eccencaRestOperator.md
@@ -118,10 +120,15 @@ nav:
                   - Generate base36 IRDIs: build/reference/customtask/cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
                   - Generate random values: build/reference/customtask/cmem_plugin_random-GenerateEntities.md
                   - Generate SHACL shapes from data: build/reference/customtask/cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
+                  - Get Catalog Query: build/reference/customtask/cmem_plugin_querycatalog-GetCatalogQuery.md
                   - Get emails: build/reference/customtask/cmem-plugin-email-GetEmails.md
+                  - Get ntfy attachments: build/reference/customtask/cmem_plugin_ntfy-GetAttachments.md
+                  - Get ntfy messages: build/reference/customtask/cmem_plugin_ntfy-GetMessages.md
                   - Get project files: build/reference/customtask/getProjectFiles.md
                   - Get workflow report: build/reference/customtask/cmem_plugin_wfreports_get_report.md
-                  - GraphQL query: build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
+                  - GraphQL query: build/reference/customtask/cmem_plugin_graphql-Query.md
+                  - 'Hetzner Cloud: List Resources': build/reference/customtask/cmem_plugin_hetzner-ListResources.md
+                  - 'Hetzner Cloud: List Server Types': build/reference/customtask/cmem_plugin_hetzner-ListServerTypes.md
                   - Install Packages: build/reference/customtask/cmem_plugin_packages-InstallPackages.md
                   - Join tables: build/reference/customtask/Merge.md
                   - jq: build/reference/customtask/cmem-plugin-jq-workflow.md
@@ -129,10 +136,12 @@ nav:
                   - JSON to File: build/reference/customtask/jsonToFile.md
                   - Kafka Consumer (Receive Messages): build/reference/customtask/cmem_plugin_kafka-ReceiveMessages.md
                   - Kafka Producer (Send Messages): build/reference/customtask/cmem_plugin_kafka-SendMessages.md
+                  - List Catalog Queries: build/reference/customtask/cmem_plugin_querycatalog-ListCatalogQueries.md
                   - List Git files: build/reference/customtask/cmem_plugin_git-List.md
                   - List Nextcloud files: build/reference/customtask/cmem_plugin_nextcloud-List.md
                   - List Office 365 Files: build/reference/customtask/cmem_plugin_office365-List.md
                   - List project files: build/reference/customtask/cmem_plugin_project_resources-List.md
+                  - List S3 objects: build/reference/customtask/cmem_plugin_s3-List.md
                   - List SSH files: build/reference/customtask/cmem_plugin_ssh-List.md
                   - Merge tables: build/reference/customtask/MultiTableMerge.md
                   - Normalize units of measurement: build/reference/customtask/ucumNormalizationTask.md
@@ -149,10 +158,13 @@ nav:
                   - Scheduler: build/reference/customtask/Scheduler.md
                   - Search addresses: build/reference/customtask/SearchAddresses.md
                   - Search for Logs: build/reference/customtask/cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
+                  - Search LDAP directory: build/reference/customtask/cmem_plugin_ldap-Search.md
                   - Search Vector Embeddings: build/reference/customtask/cmem_plugin_pgvector-Search.md
                   - Select random entities: build/reference/customtask/cmem_plugin_random-SelectEntities.md
                   - Send email: build/reference/customtask/SendEMail.md
                   - Send Mattermost messages: build/reference/customtask/cmem_plugin_mattermost.md
+                  - Send ntfy attachment: build/reference/customtask/cmem_plugin_ntfy-SendAttachment.md
+                  - Send ntfy message: build/reference/customtask/cmem_plugin_ntfy-SendMessage.md
                   - Set execution variable: build/reference/customtask/setExecutionVariableOperator.md
                   - Set or Overwrite parameters: build/reference/customtask/cmem_plugin_parameters-ParametersPlugin.md
                   - Set parameters: build/reference/customtask/setParameters.md
@@ -171,6 +183,7 @@ nav:
                   - Upload File to Knowledge Graph: build/reference/customtask/eccencaDataPlatformGraphStoreFileUploadOperator.md
                   - Upload files to CKAN: build/reference/customtask/cmem_plugin_ckan-Upload.md
                   - Upload files to Nextcloud: build/reference/customtask/cmem_plugin_nextcloud-Upload.md
+                  - Upload files to S3: build/reference/customtask/cmem_plugin_s3-Upload.md
                   - Upload Git files: build/reference/customtask/cmem_plugin_git-Upload.md
                   - Upload local files: build/reference/customtask/cmem_plugin_project_resources-UploadLocalFiles.md
                   - Upload SSH files: build/reference/customtask/cmem_plugin_ssh-Upload.md
@@ -685,6 +698,8 @@ nav:
                       - automate/cmemc-command-line-interface/command-reference/admin/acl/index.md
                   - Client:
                       - automate/cmemc-command-line-interface/command-reference/admin/client/index.md
+                  - Logs:
+                      - automate/cmemc-command-line-interface/command-reference/admin/logs/index.md
                   - Metrics:
                       - automate/cmemc-command-line-interface/command-reference/admin/metrics/index.md
                   - Migration:
@@ -717,6 +732,8 @@ nav:
                   - automate/cmemc-command-line-interface/command-reference/project/index.md
                   - File:
                       - automate/cmemc-command-line-interface/command-reference/project/file/index.md
+                  - Rule block:
+                      - automate/cmemc-command-line-interface/command-reference/project/rule-block/index.md
                   - Variable:
                       - automate/cmemc-command-line-interface/command-reference/project/variable/index.md
               - Query:
@@ -787,14 +804,28 @@ nav:
               - components:
                   - deployment:
                       - develop/cmem-client-api/api-reference/components/deployment/index.md
-                  - graph_store:
-                      - develop/cmem-client-api/api-reference/components/graph_store/index.md
+                  - build:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/build/component/index.md
+                      - logs:
+                          - develop/cmem-client-api/api-reference/components/build/logs/index.md
+                      - workspace:
+                          - develop/cmem-client-api/api-reference/components/build/workspace/index.md
+                  - explore:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/explore/component/index.md
+                      - logs:
+                          - develop/cmem-client-api/api-reference/components/explore/logs/index.md
+                      - sparql:
+                          - develop/cmem-client-api/api-reference/components/explore/sparql/index.md
+                      - titles:
+                          - develop/cmem-client-api/api-reference/components/explore/titles/index.md
+                  - graphinsights:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/graphinsights/component/index.md
                   - marketplace:
-                      - develop/cmem-client-api/api-reference/components/marketplace/index.md
-                  - sparql_wrapper:
-                      - develop/cmem-client-api/api-reference/components/sparql_wrapper/index.md
-                  - workspace:
-                      - develop/cmem-client-api/api-reference/components/workspace/index.md
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/marketplace/component/index.md
               - models:
                   - access_condition:
                       - develop/cmem-client-api/api-reference/models/access_condition/index.md
@@ -808,6 +839,8 @@ nav:
                       - develop/cmem-client-api/api-reference/models/dataset/index.md
                   - error:
                       - develop/cmem-client-api/api-reference/models/error/index.md
+                  - explore:
+                      - develop/cmem-client-api/api-reference/models/explore/index.md
                   - graph:
                       - develop/cmem-client-api/api-reference/models/graph/index.md
                   - graph_import:
@@ -820,10 +853,14 @@ nav:
                       - develop/cmem-client-api/api-reference/models/keycloak_client/index.md
                   - logging_config:
                       - develop/cmem-client-api/api-reference/models/logging_config/index.md
+                  - logs:
+                      - develop/cmem-client-api/api-reference/models/logs/index.md
                   - marshalling_plugins:
                       - develop/cmem-client-api/api-reference/models/marshalling_plugins/index.md
                   - package:
                       - develop/cmem-client-api/api-reference/models/package/index.md
+                  - paged_list:
+                      - develop/cmem-client-api/api-reference/models/paged_list/index.md
                   - project:
                       - develop/cmem-client-api/api-reference/models/project/index.md
                   - python_install:
@@ -834,6 +871,8 @@ nav:
                       - develop/cmem-client-api/api-reference/models/query_catalog/index.md
                   - resource:
                       - develop/cmem-client-api/api-reference/models/resource/index.md
+                  - rule_block:
+                      - develop/cmem-client-api/api-reference/models/rule_block/index.md
                   - scheduler:
                       - develop/cmem-client-api/api-reference/models/scheduler/index.md
                   - status:
@@ -871,8 +910,8 @@ nav:
                       - develop/cmem-client-api/api-reference/repositories/files/index.md
                   - graph_imports:
                       - develop/cmem-client-api/api-reference/repositories/graph_imports/index.md
-                  - graph_insights:
-                      - develop/cmem-client-api/api-reference/repositories/graph_insights/index.md
+                  - graph_snapshots:
+                      - develop/cmem-client-api/api-reference/repositories/graph_snapshots/index.md
                   - graphs:
                       - develop/cmem-client-api/api-reference/repositories/graphs/index.md
                   - marketplace_packages:
@@ -883,6 +922,8 @@ nav:
                       - develop/cmem-client-api/api-reference/repositories/python_packages/index.md
                   - queries:
                       - develop/cmem-client-api/api-reference/repositories/queries/index.md
+                  - rule_blocks:
+                      - develop/cmem-client-api/api-reference/repositories/rule_blocks/index.md
                   - schedulers:
                       - develop/cmem-client-api/api-reference/repositories/schedulers/index.md
                   - user_accounts:

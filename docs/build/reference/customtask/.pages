@@ -18,9 +18,11 @@ nav:
     - "Download Git files": cmem_plugin_git-Download.md
     - "Download Nextcloud files": cmem_plugin_nextcloud-Download.md
     - "Download Office 365 Files": cmem_plugin_office365-Download.md
+    - "Download S3 objects": cmem_plugin_s3-Download.md
     - "Download SSH files": cmem_plugin_ssh-Download.md
     - "Evaluate template": Template.md
     - "Execute a command in a kubernetes pod": cmem_plugin_kubernetes-Execute.md
+    - "Execute Catalog Query": cmem_plugin_querycatalog-ExecuteCatalogQuery.md
     - "Execute commands via SSH": cmem_plugin_ssh-Execute.md
     - "Execute Instructions": cmem_plugin_llm-ExecuteInstructions.md
     - "Execute REST requests": eccencaRestOperator.md
@@ -29,10 +31,15 @@ nav:
     - "Generate base36 IRDIs": cmem_plugin_irdi-workflow-irdi_plugin-IrdiPlugin.md
     - "Generate random values": cmem_plugin_random-GenerateEntities.md
     - "Generate SHACL shapes from data": cmem_plugin_shapes-plugin_shapes-ShapesPlugin.md
+    - "Get Catalog Query": cmem_plugin_querycatalog-GetCatalogQuery.md
     - "Get emails": cmem-plugin-email-GetEmails.md
+    - "Get ntfy attachments": cmem_plugin_ntfy-GetAttachments.md
+    - "Get ntfy messages": cmem_plugin_ntfy-GetMessages.md
     - "Get project files": getProjectFiles.md
     - "Get workflow report": cmem_plugin_wfreports_get_report.md
-    - "GraphQL query": cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md
+    - "GraphQL query": cmem_plugin_graphql-Query.md
+    - "Hetzner Cloud: List Resources": cmem_plugin_hetzner-ListResources.md
+    - "Hetzner Cloud: List Server Types": cmem_plugin_hetzner-ListServerTypes.md
     - "Install Packages": cmem_plugin_packages-InstallPackages.md
     - "Join tables": Merge.md
     - "jq": cmem-plugin-jq-workflow.md
@@ -40,10 +47,12 @@ nav:
     - "JSON to File": jsonToFile.md
     - "Kafka Consumer (Receive Messages)": cmem_plugin_kafka-ReceiveMessages.md
     - "Kafka Producer (Send Messages)": cmem_plugin_kafka-SendMessages.md
+    - "List Catalog Queries": cmem_plugin_querycatalog-ListCatalogQueries.md
     - "List Git files": cmem_plugin_git-List.md
     - "List Nextcloud files": cmem_plugin_nextcloud-List.md
     - "List Office 365 Files": cmem_plugin_office365-List.md
     - "List project files": cmem_plugin_project_resources-List.md
+    - "List S3 objects": cmem_plugin_s3-List.md
     - "List SSH files": cmem_plugin_ssh-List.md
     - "Merge tables": MultiTableMerge.md
     - "Normalize units of measurement": ucumNormalizationTask.md
@@ -60,10 +69,13 @@ nav:
     - "Scheduler": Scheduler.md
     - "Search addresses": SearchAddresses.md
     - "Search for Logs": cmem_plugin_logpoint-search_logs_task-RetrieveLogs.md
+    - "Search LDAP directory": cmem_plugin_ldap-Search.md
     - "Search Vector Embeddings": cmem_plugin_pgvector-Search.md
     - "Select random entities": cmem_plugin_random-SelectEntities.md
     - "Send email": SendEMail.md
     - "Send Mattermost messages": cmem_plugin_mattermost.md
+    - "Send ntfy attachment": cmem_plugin_ntfy-SendAttachment.md
+    - "Send ntfy message": cmem_plugin_ntfy-SendMessage.md
     - "Set execution variable": setExecutionVariableOperator.md
     - "Set or Overwrite parameters": cmem_plugin_parameters-ParametersPlugin.md
     - "Set parameters": setParameters.md
@@ -82,6 +94,7 @@ nav:
     - "Upload File to Knowledge Graph": eccencaDataPlatformGraphStoreFileUploadOperator.md
     - "Upload files to CKAN": cmem_plugin_ckan-Upload.md
     - "Upload files to Nextcloud": cmem_plugin_nextcloud-Upload.md
+    - "Upload files to S3": cmem_plugin_s3-Upload.md
     - "Upload Git files": cmem_plugin_git-Upload.md
     - "Upload local files": cmem_plugin_project_resources-UploadLocalFiles.md
     - "Upload SSH files": cmem_plugin_ssh-Upload.md

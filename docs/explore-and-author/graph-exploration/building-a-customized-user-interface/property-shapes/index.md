@@ -130,7 +130,6 @@ The following placeholders can be used in the SPARQL query text:
 - `{{shuiResource}}` - refers to the resource rendered in the node shape where this property shape is used (including sub-shapes)
 - `{{shuiAccount}}` - the account IRI of the active user, including the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the username/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant for sub-shape usage)
 
 For proper usage, include `?graph` or `?_graph` in the projection, bound to the IRI of the graph where the relation statement is stored or the context in which it was inferred.
 
@@ -278,7 +277,6 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 
 Beta Feature: This query will be used as well to populate the selectable resources for the advanced editor and the candidate resources in the Business Knowledge Editor.
 
@@ -357,7 +355,6 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 - `{{shuiObject}}` - the object value of the statement matched by the property shape
 - `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
 
@@ -376,7 +373,6 @@ The following placeholder can be used in the query text of the SPARQL query:
 - `{{shuiResource}}` - refers to the resource which is rendered in the node shape where this property shape is used (maybe a sub-shape)
 - `{{shuiAccount}}` - the account IRI of the active user, this includes the username (use a SUBSTR() function if you need the name only)
 - `{{shuiAccountName}}` - the user name/ID of the active user account
-- `{{shuiMainResource}}` - refers to the main resource rendered in the start node shape of the currently displayed node shape tree (only relevant in case of sub-shape usage)
 - `{{shuiObject}}` - the object value of the statement matched by the property shape
 - `{{shuiProperty}}` - the IRI of the property of the statement matched by the property shape
 

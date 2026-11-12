@@ -87,7 +87,7 @@ This command deletes existing datasets in integration projects from Corporate Me
 Download the resource file of a dataset.
 
 ```shell-session title="Usage"
-$ cmemc dataset download [OPTIONS] DATASET_ID OUTPUT_PATH
+$ cmemc dataset download [OPTIONS] DATASET_ID [OUTPUT_PATH]
 ```
 
 
@@ -95,7 +95,7 @@ $ cmemc dataset download [OPTIONS] DATASET_ID OUTPUT_PATH
 
 This command downloads the file resource of a dataset to your local file system or to standard out (`-`). Note that this is not possible for dataset types such as Knowledge Graph (`eccencaDataplatform`) or SQL endpoint (`sqlEndpoint`).
 
-Without providing an output path, the output file name will be the same as the remote file resource.
+Without providing an output path, the output file name will be the same as the remote file resource (without its directories) and the file is saved to the current directory. Use the ``--filename-template`` option to build the output file name from placeholders instead.
 
 !!! note
     Datasets can be listed by using the `dataset list` command.
@@ -106,8 +106,16 @@ Without providing an output path, the output file name will be the same as the r
 ??? info "Options"
     ```text
 
-    --replace   Replace existing files. This is a dangerous option, so use it
-                with care!
+    -t, --filename-template TEXT  Template for the output file name, used
+                                  instead of an output path. Possible
+                                  placeholders are (Jinja2): {{file}} (the name
+                                  of the remote file resource), {{project}} (the
+                                  project ID), {{dataset}} (the dataset ID),
+                                  {{connection}} (from the --connection option)
+                                  and {{date}} (the current date as YYYY-MM-DD).
+                                  Needed directories will be created.
+    --replace                     Replace existing files. This is a dangerous
+                                  option, so use it with care!
     ```
 
 ## dataset upload

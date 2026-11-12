@@ -118,11 +118,17 @@ tasks:
       - poetry run dec-tool check-zensical-output
 
   check:links:
-    desc: Check outgoing links
-    deps:
-      - install
+    desc: Check outgoing links (lychee, configured in lychee.toml)
+    summary: |
+      Checks the outgoing http(s) links of the Markdown sources under docs/
+      with lychee. Exclusions, accepted status codes and retries are set in
+      lychee.toml. Set GITHUB_TOKEN to avoid GitHub rate limits.
+      Shows a progress bar in a terminal; in CI (CI is set) it prints the summary only.
+    preconditions:
+      - sh: command -v lychee
+        msg: "lychee is not installed - see https://lychee.cli.rs/installation/ (e.g. brew install lychee)"
     cmds:
-      - poetry run linkcheckMarkdown -r docs 2>&1 | grep -v "ResourceWarning"
+      - lychee --config lychee.toml ${CI:+--no-progress} 'docs/**/*.md'
 
   test:
     desc: Run the Python unit test suite

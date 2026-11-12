@@ -33,6 +33,12 @@ Executing a workflow can be done in two ways: Without `--wait` just sends the st
 
 The optional `--wait` option starts the workflows in the same way, but also polls the status of a workflow until it is finished. In case of an error of a workflow, the next workflow is not started.
 
+Use `--parameter` or `--parameter-file` to override the default values of execution variables for this run only. The overrides are applied to every given workflow, and a warning is shown for each workflow which does not use or define a given name. A workflow is not started as long as an execution variable it requires has no value. A run with overrides is not shown as the default execution of the workflow: its status is listed under the activity ExecuteWorkflowWithPayload. With `--wait`, the finished run is removed again.
+
+!!! note
+    Workflows started by a scheduler can not take such overrides, they always use the default values of their execution variables.
+
+
 
 
 ??? info "Options"
@@ -47,6 +53,16 @@ The optional `--wait` option starts the workflows in the same way, but also poll
                                     polls. Status polls are cheap, so a higher
                                     polling interval is most likely not needed.
                                     [default: 1; 0<=x<=60]
+    -p, --parameter <TEXT TEXT>...  Override the default value of an execution
+                                    variable for this run only. Pairs of
+                                    variable name and value need to be given as
+                                    a tuple 'NAME VALUE'. The option can be
+                                    given multiple times. The stored default
+                                    stays unchanged.
+    --parameter-file FILE           Read execution variable overrides from a
+                                    JSON file with an object of variable names
+                                    and values. A name given with --parameter
+                                    wins over the same name in the file.
     ```
 
 ## workflow io
@@ -65,6 +81,8 @@ With this command, you can execute a workflow that uses replaceable datasets as 
 !!! note
     Regarding the input dataset configuration - the following rules apply: If autoconfig is enabled ('--autoconfig', the default), the dataset configuration is guessed. If autoconfig is disabled ('--no-autoconfig') and the type of the dataset file is the same as the replaceable dataset in the workflow, the configuration from this dataset is copied. If autoconfig is disabled and the type of the dataset file is different from the replaceable dataset in the workflow, the default config is used.
 
+
+Use `--parameter` or `--parameter-file` to override the default values of execution variables for this run only. The overrides are never part of the input data. The workflow is not started as long as an execution variable it requires has no value.
 
 
 
@@ -96,6 +114,16 @@ With this command, you can execute a workflow that uses replaceable datasets as 
                                     e.g. in order to process CSV files with
                                     semicolon- instead of comma-separation.
                                     [default: autoconfig]
+    -p, --parameter <TEXT TEXT>...  Override the default value of an execution
+                                    variable for this run only. Pairs of
+                                    variable name and value need to be given as
+                                    a tuple 'NAME VALUE'. The option can be
+                                    given multiple times. The stored default
+                                    stays unchanged.
+    --parameter-file FILE           Read execution variable overrides from a
+                                    JSON file with an object of variable names
+                                    and values. A name given with --parameter
+                                    wins over the same name in the file.
     ```
 
 ## workflow list
@@ -150,6 +178,34 @@ cmemc workflow status [OPTIONS] [WORKFLOW_IDS]...
                                     Defaults to ExecuteDefaultWorkflow. When
                                     using the IO command, consider using
                                     ExecuteWorkflowWithPayload
+    ```
+
+## workflow variables
+
+List the execution variables a workflow run needs.
+
+```shell-session title="Usage"
+cmemc workflow variables [OPTIONS] WORKFLOW_ID
+```
+
+
+
+
+Outputs the execution variables which can or have to be given when the workflow is executed, e.g. with the ``--parameter`` option of the execute and io commands. This covers the variables used by the tasks of the workflow and of its sub-workflows, and the variables defined on the workflow itself.
+
+A variable is required if it is used during the run, but the workflow defines no default value for it and no preceding task sets it. A workflow is not started as long as a required variable has no value. Note that only the defaults defined on the workflow itself apply to a run, the defaults of its tasks do not.
+
+The table states for each variable the tasks which use it and the tasks which set it during the run.
+
+
+
+??? info "Options"
+    ```text
+
+    --raw       Outputs raw JSON.
+    --id-only   Lists only the names of the execution variables and no other
+                metadata. This is useful for piping the names into other
+                commands.
     ```
 
 ## workflow open

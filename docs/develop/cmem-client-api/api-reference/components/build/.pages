@@ -1,0 +1,6 @@
+---
+title: build
+nav:
+    - component: component
+    - logs: logs
+    - workspace: workspace

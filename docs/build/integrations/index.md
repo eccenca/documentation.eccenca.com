@@ -181,7 +181,7 @@ geocoding service, such as [Nominatim](https://nominatim.org/),
 
     ---
 
-    Execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
+    Execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-Query.md) and process the result in a workflow.
 
 
 - :simple-apachehive:{ .lg .middle } Hive

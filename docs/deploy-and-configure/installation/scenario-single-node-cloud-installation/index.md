@@ -53,7 +53,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io \
 
 ## Installation
 
-Corporate Memory uses Ontotext GraphDB triple store as default backend.
+eccenca Corporate Memory uses Ontotext GraphDB triple store as default backend.
 Graphdb is available as free version and does not requires a license.
 You need to copy your license for Ontotext GraphDB to the `license` folder inside Corporate Memory's root folder.
 
@@ -152,7 +152,7 @@ make clean-pull-start-bootstrap
 make tutorials-import
 ```
 
-Optional: you can install cmem as a systemd service for this use these commands as root or sudo:
+Optional: you can install Corporate Memory as a systemd service for this use these commands as root or sudo:
 
 ```bash
 cp /opt/cmem-orchestration/conf/systemd/cmem-orchestration.service \

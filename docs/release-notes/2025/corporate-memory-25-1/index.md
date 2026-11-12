@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.1.2
+# eccenca Corporate Memory 25.1.2
 
 Corporate Memory 25.1 is the first major release in 2025.
 

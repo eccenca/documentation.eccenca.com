@@ -27,11 +27,16 @@ tags:
 | [auth_provider.prefetched_token](auth_provider/prefetched_token/index.md) | Prefetched token authentication provider. |
 | [auth_provider.provided_token](auth_provider/provided_token/index.md) | Provided token authentication provider. |
 | [client](client/index.md) | Main API client for eccenca Corporate Memory. |
+| [components.build.component](components/build/component/index.md) | Corporate Memory Build (DataIntegration) component. |
+| [components.build.logs](components/build/logs/index.md) | The in-memory log buffer of Build (DataIntegration). |
+| [components.build.workspace](components/build/workspace/index.md) | Corporate Memory DataIntegration (build) workspace management. |
 | [components.deployment](components/deployment/index.md) | Corporate Memory deployment status component. |
-| [components.graph_store](components/graph_store/index.md) | Corporate Memory DataPlatform (explore) graph store management. |
-| [components.marketplace](components/marketplace/index.md) | eccenca Marketplace server integration. |
-| [components.sparql_wrapper](components/sparql_wrapper/index.md) | SPARQL Wrapper for eccenca Corporate Memory |
-| [components.workspace](components/workspace/index.md) | Corporate Memory DataIntegration (build) workspace management. |
+| [components.explore.component](components/explore/component/index.md) | Corporate Memory Explore (DataPlatform) component. |
+| [components.explore.logs](components/explore/logs/index.md) | The in-memory log buffer of Explore (DataPlatform). |
+| [components.explore.sparql](components/explore/sparql/index.md) | SPARQL Wrapper for eccenca Corporate Memory |
+| [components.explore.titles](components/explore/titles/index.md) | Titles of resources, resolved by the Corporate Memory Explore title service. |
+| [components.graphinsights.component](components/graphinsights/component/index.md) | Corporate Memory Graph Insights component. |
+| [components.marketplace.component](components/marketplace/component/index.md) | eccenca Marketplace server integration. |
 | [config](config/index.md) | Configuration management for the Corporate Memory client. |
 | [exceptions](exceptions/index.md) | Custom exception classes for the cmem_client package. |
 | [logging_utils](logging_utils/index.md) | Logging utilities. |
@@ -41,19 +46,23 @@ tags:
 | [models.credentials](models/credentials/index.md) | Models for the OAuth2 credentials. |
 | [models.dataset](models/dataset/index.md) | Corporate Memory dataset models for data integration. |
 | [models.error](models/error/index.md) | Error response models for Corporate Memory API error handling. |
+| [models.explore](models/explore/index.md) | Models of the Corporate Memory Explore (DataPlatform) component. |
 | [models.graph](models/graph/index.md) | RDF graph models for Corporate Memory knowledge graphs. |
 | [models.graph_import](models/graph_import/index.md) | Graph import models for Corporate Memory. |
 | [models.graph_insight](models/graph_insight/index.md) | Graph Insight models for Corporate Memory. |
 | [models.item](models/item/index.md) | ImportItem base class and inherited classes |
 | [models.keycloak_client](models/keycloak_client/index.md) | Keycloak client models. |
 | [models.logging_config](models/logging_config/index.md) | Models for the configuration of the logging module |
+| [models.logs](models/logs/index.md) | Corporate Memory log buffer models. |
 | [models.marshalling_plugins](models/marshalling_plugins/index.md) | Marshalling Plugin models |
 | [models.package](models/package/index.md) | Marketplace package models. |
+| [models.paged_list](models/paged_list/index.md) | Models of paged list responses. |
 | [models.project](models/project/index.md) | Corporate Memory project models and metadata. |
 | [models.python_install](models/python_install/index.md) | Result models for Python package installation and plugin management operations. |
 | [models.python_package](models/python_package/index.md) | Python package models. |
 | [models.query_catalog](models/query_catalog/index.md) | Models for query catalog operations. |
 | [models.resource](models/resource/index.md) | A file resource model |
+| [models.rule_block](models/rule_block/index.md) | Corporate Memory rule block models for data integration. |
 | [models.scheduler](models/scheduler/index.md) | Scheduler models |
 | [models.status](models/status/index.md) | Models for Corporate Memory aggregated status information. |
 | [models.task](models/task/index.md) | Task models for the DataIntegration task endpoint. |
@@ -61,7 +70,7 @@ tags:
 | [models.url](models/url/index.md) | HTTP URL validation and manipulation utilities. |
 | [models.user](models/user/index.md) | Keycloak user and group models. |
 | [models.validation](models/validation/index.md) | Validation models for SHACL batch validation processes. |
-| [models.variable](models/variable/index.md) | Corporate Memory project variable models for data integration. |
+| [models.variable](models/variable/index.md) | Corporate Memory variable models for data integration. |
 | [models.vocabulary](models/vocabulary/index.md) | Vocabulary models for Corporate Memory vocabulary catalog. |
 | [models.workflow](models/workflow/index.md) | Workflow models |
 | [models.workspace_config](models/workspace_config/index.md) | Corporate Memory Explore workspace configuration models. |
@@ -76,7 +85,7 @@ tags:
 | [repositories.datasets](repositories/datasets/index.md) | Repository for managing datasets in Corporate Memory. |
 | [repositories.files](repositories/files/index.md) | Repository for the file resources of DataIntegration projects. |
 | [repositories.graph_imports](repositories/graph_imports/index.md) | Repository for the `owl:imports` relations between named graphs. |
-| [repositories.graph_insights](repositories/graph_insights/index.md) | Repository for the Graph Insights snapshots of Corporate Memory. |
+| [repositories.graph_snapshots](repositories/graph_snapshots/index.md) | Repository for the Graph Insights snapshots of Corporate Memory. |
 | [repositories.graphs](repositories/graphs/index.md) | Repository for managing named graphs in Corporate Memory. |
 | [repositories.marketplace_packages](repositories/marketplace_packages/index.md) | Repository for the marketplace packages installed in Corporate Memory. |
 | [repositories.projects](repositories/projects/index.md) | Repository for managing DataIntegration projects. |
@@ -87,6 +96,7 @@ tags:
 | [repositories.protocols.update_item](repositories/protocols/update_item/index.md) | Protocol interface for repository item update operations. |
 | [repositories.python_packages](repositories/python_packages/index.md) | Repository for the Python packages installed in DataIntegration. |
 | [repositories.queries](repositories/queries/index.md) | Repository for managing queries from the Corporate Memory query catalog. |
+| [repositories.rule_blocks](repositories/rule_blocks/index.md) | Rule block repository. |
 | [repositories.schedulers](repositories/schedulers/index.md) | Repository for the workflow schedulers of DataIntegration. |
 | [repositories.user_accounts](repositories/user_accounts/index.md) | Repository for the Keycloak user accounts of a Corporate Memory deployment. |
 | [repositories.validations](repositories/validations/index.md) | Repository for the SHACL validation batches of Corporate Memory. |

@@ -364,7 +364,7 @@ Export an item from the repository to a file path.
 **Raises:**
 
 - <code>[RepositoryItemNotFoundError](../../exceptions/index.md#cmem_client.exceptions.RepositoryItemNotFoundError)</code> – If the specified item key is not found.
-- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there's an error during export or path mismatch.
+- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there is an error during export or path mismatch.
 
 ### `fetch_data` {#cmem_client.repositories.queries.QueriesRepository.fetch_data}
 

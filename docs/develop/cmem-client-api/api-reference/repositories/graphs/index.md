@@ -58,7 +58,6 @@ Detect the serialization of a file before importing it:
 
 - [**GraphDeleteConfig**](#cmem_client.repositories.graphs.GraphDeleteConfig) – Graph Delete Configuration.
 - [**GraphExportConfig**](#cmem_client.repositories.graphs.GraphExportConfig) – Graph Export Configuration.
-- [**GraphFileSerialization**](#cmem_client.repositories.graphs.GraphFileSerialization) – Supported graph format description
 - [**GraphImportConfig**](#cmem_client.repositories.graphs.GraphImportConfig) – Graph Import Configuration.
 - [**GraphsRepository**](#cmem_client.repositories.graphs.GraphsRepository) – Repository for graphs.
 
@@ -99,7 +98,7 @@ Graph Export Configuration.
 
 **Attributes:**
 
-- [**serialization**](#cmem_client.repositories.graphs.GraphExportConfig.serialization) (<code>[GraphFileSerialization](#cmem_client.repositories.graphs.GraphFileSerialization) | None</code>) – RDF serialization to request for the export. If None, the server default
+- [**serialization**](#cmem_client.repositories.graphs.GraphExportConfig.serialization) (<code>[GraphFileSerialization](../../models/graph/index.md#cmem_client.models.graph.GraphFileSerialization) | None</code>) – RDF serialization to request for the export. If None, the server default
 is used. Export fails if the given format does not support export.
 - [**resolve_owl_imports**](#cmem_client.repositories.graphs.GraphExportConfig.resolve_owl_imports) (<code>bool</code>) – If True, resolve ``owl:imports`` and include the imported graphs in
 the export. Sent as ``owlImportsResolution``.
@@ -122,67 +121,6 @@ resolve_owl_imports: bool = False
 serialization: GraphFileSerialization | None = None
 ```
 
-## `GraphFileSerialization` {#cmem_client.repositories.graphs.GraphFileSerialization}
-
-Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
-
-Supported graph format description
-
-**Attributes:**
-
-- [**mime_type**](#cmem_client.repositories.graphs.GraphFileSerialization.mime_type) (<code>str</code>) – MIME type of the serialization, sent as ``Content-Type`` on import and as
-``Accept`` on export.
-- [**file_extensions**](#cmem_client.repositories.graphs.GraphFileSerialization.file_extensions) (<code>list[str]</code>) – File extensions mapped to this serialization, used by
-``guess_file_type()`` to detect the format of a path.
-- [**encoding**](#cmem_client.repositories.graphs.GraphFileSerialization.encoding) (<code>str | None</code>) – Content encoding of the file, sent as ``Content-Encoding`` on import when set.
-- [**known_not_supporters**](#cmem_client.repositories.graphs.GraphFileSerialization.known_not_supporters) (<code>list[str]</code>) – Store types known not to support this serialization, matched against
-the type reported by the graph store. The client does not enforce this; the test suite
-uses it to skip combinations a store cannot handle.
-- [**export_supported**](#cmem_client.repositories.graphs.GraphFileSerialization.export_supported) (<code>bool</code>) – Whether graphs can be exported in this serialization.
-- [**import_supported**](#cmem_client.repositories.graphs.GraphFileSerialization.import_supported) (<code>bool</code>) – Whether graphs can be imported from this serialization.
-
-### `encoding` {#cmem_client.repositories.graphs.GraphFileSerialization.encoding}
-
-```python
-encoding: str | None = None
-```
-
-### `export_supported` {#cmem_client.repositories.graphs.GraphFileSerialization.export_supported}
-
-```python
-export_supported: bool = True
-```
-
-### `file_extensions` {#cmem_client.repositories.graphs.GraphFileSerialization.file_extensions}
-
-```python
-file_extensions: list[str]
-```
-
-### `import_supported` {#cmem_client.repositories.graphs.GraphFileSerialization.import_supported}
-
-```python
-import_supported: bool = True
-```
-
-### `known_not_supporters` {#cmem_client.repositories.graphs.GraphFileSerialization.known_not_supporters}
-
-```python
-known_not_supporters: list[str] = Field(default_factory=list)
-```
-
-### `mime_type` {#cmem_client.repositories.graphs.GraphFileSerialization.mime_type}
-
-```python
-mime_type: str
-```
-
-### `model_config` {#cmem_client.repositories.graphs.GraphFileSerialization.model_config}
-
-```python
-model_config = ConfigDict(extra='allow', populate_by_name=True)
-```
-
 ## `GraphImportConfig` {#cmem_client.repositories.graphs.GraphImportConfig}
 
 Bases: <code>[ImportConfig](../../repositories/protocols/import_item/index.md#cmem_client.repositories.protocols.import_item.ImportConfig)</code>
@@ -192,7 +130,7 @@ Graph Import Configuration.
 **Attributes:**
 
 - [**register_as_vocabulary**](#cmem_client.repositories.graphs.GraphImportConfig.register_as_vocabulary) (<code>bool</code>) – If True, register the imported graph as a vocabulary.
-- [**serialization**](#cmem_client.repositories.graphs.GraphImportConfig.serialization) (<code>[GraphFileSerialization](#cmem_client.repositories.graphs.GraphFileSerialization) | None</code>) – RDF serialization of the imported file. If None, it is guessed from the
+- [**serialization**](#cmem_client.repositories.graphs.GraphImportConfig.serialization) (<code>[GraphFileSerialization](../../models/graph/index.md#cmem_client.models.graph.GraphFileSerialization) | None</code>) – RDF serialization of the imported file. If None, it is guessed from the
 file extension via ``guess_file_type()``.
 - [**namespace_prefix**](#cmem_client.repositories.graphs.GraphImportConfig.namespace_prefix) (<code>str | None</code>) – Vocabulary namespace prefix, used as a fallback when the file carries
 no vann metadata. Requires ``register_as_vocabulary=True`` and must be set together
@@ -248,7 +186,7 @@ Supports both regular graphs and vocabularies through the register_as_vocabulary
 
 **Attributes:**
 
-- [**formats**](#cmem_client.repositories.graphs.GraphsRepository.formats) (<code>dict[str, [GraphFileSerialization](#cmem_client.repositories.graphs.GraphFileSerialization)]</code>) – Registry of the supported RDF serializations, keyed by format name such as
+- [**formats**](#cmem_client.repositories.graphs.GraphsRepository.formats) (<code>dict[str, [GraphFileSerialization](../../models/graph/index.md#cmem_client.models.graph.GraphFileSerialization)]</code>) – Registry of the supported RDF serializations, keyed by format name such as
 ``turtle`` or ``json-ld``. Read by ``guess_file_type()`` and available to callers
 which need to pick a serialization explicitly.
 
@@ -332,7 +270,7 @@ Export an item from the repository to a file path.
 **Raises:**
 
 - <code>[RepositoryItemNotFoundError](../../exceptions/index.md#cmem_client.exceptions.RepositoryItemNotFoundError)</code> – If the specified item key is not found.
-- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there's an error during export or path mismatch.
+- <code>[RepositoryReadError](../../exceptions/index.md#cmem_client.exceptions.RepositoryReadError)</code> – If there is an error during export or path mismatch.
 
 ### `export_to_zip` {#cmem_client.repositories.graphs.GraphsRepository.export_to_zip}
 
@@ -372,7 +310,7 @@ Use this method to fetch data when your result set is an array of objects.
 ### `formats` {#cmem_client.repositories.graphs.GraphsRepository.formats}
 
 ```python
-formats: dict[str, GraphFileSerialization] = {'turtle': GraphFileSerialization(mime_type='text/turtle', file_extensions=['ttl']), 'rdf/xml': GraphFileSerialization(mime_type='application/rdf+xml', file_extensions=['rdf', 'xml']), 'json-ld': GraphFileSerialization(mime_type='application/ld+json', file_extensions=['jsonld'], known_not_supporters=['TENTRIS'], export_supported=False), 'n-triples': GraphFileSerialization(mime_type='application/n-triples', file_extensions=['nt']), 'pretty-turtle': GraphFileSerialization(mime_type='text/turtle+pretty', file_extensions=['ttl'], import_supported=False)}
+formats: dict[str, GraphFileSerialization] = {'turtle': _GraphFileSerialization(mime_type='text/turtle', file_extensions=['ttl']), 'rdf/xml': _GraphFileSerialization(mime_type='application/rdf+xml', file_extensions=['rdf', 'xml']), 'json-ld': _GraphFileSerialization(mime_type='application/ld+json', file_extensions=['jsonld'], known_not_supporters=['TENTRIS'], export_supported=False), 'n-triples': _GraphFileSerialization(mime_type='application/n-triples', file_extensions=['nt']), 'pretty-turtle': _GraphFileSerialization(mime_type='text/turtle+pretty', file_extensions=['ttl'], import_supported=False)}
 ```
 
 ### `guess_file_type` {#cmem_client.repositories.graphs.GraphsRepository.guess_file_type}
@@ -393,7 +331,7 @@ Only considers formats where import_supported is True.
 
 **Returns:**
 
-- **GraphFileSerialization** (<code>[GraphFileSerialization](#cmem_client.repositories.graphs.GraphFileSerialization)</code>) – The detected serialization format with
+- **GraphFileSerialization** (<code>[GraphFileSerialization](../../models/graph/index.md#cmem_client.models.graph.GraphFileSerialization)</code>) – The detected serialization format with
 MIME type, file extensions, and optional encoding information.
 
 **Raises:**

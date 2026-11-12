@@ -63,6 +63,6 @@ The Build stage turns source data from files, databases, APIs, and streams into 
     Look up tasks, operators and supported services.
 
     - [Task and Operator Reference](reference/index.md) --- Tasks and operators of the **Build** workspace.
-    - [Integrations](integrations/index.md) --- Services and applications that integrate with Corporate Memory.
+    - [Integrations](integrations/index.md) --- Services and applications that integrate with eccenca Corporate Memory.
 
 </div>
