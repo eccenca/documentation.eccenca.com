@@ -18,7 +18,7 @@ which allows highly-trusted applications to authenticate users by collecting
 their username and password credentials directly.
 
 Security Warning: This flow should only be used by absolutely trusted
-applications as it requires handling user passwords directly. It's typically
+applications as it requires handling user passwords directly. It is typically
 used for legacy applications or first-party applications where other OAuth flows
 are not feasible.
 
@@ -48,7 +48,7 @@ credentials (username and password) directly for access tokens, bypassing
 the standard OAuth 2.0 authorization code flow.
 
 This provider handles automatic token caching and refresh, ensuring that
-get_access_token() always returns a valid token. It's typically used for
+get_access_token() always returns a valid token. It is typically used for
 legacy applications, first-party applications, or scenarios where the standard
 OAuth flows are not feasible.
 

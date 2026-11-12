@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 25.2.7
+# eccenca Corporate Memory 25.2.7
 
 Corporate Memory 25.2 is the second major release in 2025.
 
@@ -126,7 +126,7 @@ We are pleased to announce Explore v25.2.6, which brings significant enhancement
 
 **v25.2.1 of Explore ships the following fixes and additions:**
 
-- Pagination for inline views of Dataset (used for preview in cmem build)
+- Pagination for inline views of Dataset (used for preview in Build workspace)
 - Widgets for shaped resources without properties to display are shown
 - Update/Replace in the explore graph list
 

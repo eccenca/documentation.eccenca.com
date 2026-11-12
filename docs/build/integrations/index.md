@@ -111,7 +111,7 @@ sign-in or a bearer token, see [Agent Integration](../../automate/agent-integrat
 
     ---
 
-    Manage [Marketplace Packages](../../develop/packages/index.md) in workflows:
+    Manage [Marketplace Packages](../../develop/marketplace-packages/index.md) in workflows:
 [build package archives](../../build/reference/customtask/cmem_plugin_packages-BuildPackages.md),
 [bump their version](../../build/reference/customtask/cmem_plugin_packages-BumpVersions.md),
 [publish](../../build/reference/customtask/cmem_plugin_packages-PublishPackages.md) them to a Marketplace Server
@@ -181,7 +181,7 @@ geocoding service, such as [Nominatim](https://nominatim.org/),
 
     ---
 
-    Execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-workflow-graphql-GraphQLPlugin.md) and process the result in a workflow.
+    Execute a [GraphQL query](../../build/reference/customtask/cmem_plugin_graphql-Query.md) and process the result in a workflow.
 
 
 - :simple-apachehive:{ .lg .middle } Hive

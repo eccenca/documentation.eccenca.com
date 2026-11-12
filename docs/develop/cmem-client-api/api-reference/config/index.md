@@ -28,6 +28,7 @@ variables, making it suitable for different deployment environments.
 **Attributes:**
 
 - [**DEFAULT_CMEM_BASE_URI**](#cmem_client.config.DEFAULT_CMEM_BASE_URI) –
+- [**logger**](#cmem_client.config.logger) –
 
 ## `Config` {#cmem_client.config.Config}
 
@@ -155,7 +156,8 @@ DP_API_ENDPOINT (optional): DataPlatform API endpoint override.
 KEYCLOAK_BASE_URI (optional): Keycloak server URL override.
 KEYCLOAK_REALM_ID (optional): Keycloak realm identifier override.
 OAUTH_TOKEN_URI (optional): OAuth token endpoint override.
-MARKETPLACE_BASE_URI (optional): Local marketplace (license issuer) override.
+MARKETPLACE_API_ENDPOINT (optional): Local marketplace (license issuer) override.
+    Deprecated alias: MARKETPLACE_BASE_URI.
 SSL_VERIFY (optional): Set to ``"false"`` to disable SSL verification.
 REQUESTS_CA_BUNDLE (optional): Path to a custom CA bundle file.
 
@@ -192,7 +194,8 @@ DP_API_ENDPOINT (optional): DataPlatform API endpoint override.
 KEYCLOAK_BASE_URI (optional): Keycloak server URL override.
 KEYCLOAK_REALM_ID (optional): Keycloak realm identifier override.
 OAUTH_TOKEN_URI (optional): OAuth token endpoint override.
-MARKETPLACE_BASE_URI (optional): Local marketplace (license issuer) override.
+MARKETPLACE_API_ENDPOINT (optional): Local marketplace (license issuer) override.
+    Deprecated alias: MARKETPLACE_BASE_URI.
 SSL_VERIFY (optional): SSL certificate verification flag.
 REQUESTS_CA_BUNDLE (optional): Path to a custom CA bundle file.
 
@@ -256,6 +259,23 @@ it defaults to the base URL with '/dataplatform/' appended.
 **Returns:**
 
 - <code>[HttpUrl](../models/url/index.md#cmem_client.models.url.HttpUrl)</code> – The DataPlatform API endpoint URL.
+
+### `url_graphinsights` {#cmem_client.config.Config.url_graphinsights}
+
+```python
+url_graphinsights: HttpUrl
+```
+
+Get the Graph Insights extension URL.
+
+Returns the URL of the Graph Insights service deployed beside this Corporate
+Memory instance, which serves its version and health on ``/actuator/info`` and
+``/actuator/health``. If not explicitly set, it defaults to the base URL with
+'/graphinsights/' appended.
+
+**Returns:**
+
+- <code>[HttpUrl](../models/url/index.md#cmem_client.models.url.HttpUrl)</code> – The Graph Insights extension URL.
 
 ### `url_keycloak` {#cmem_client.config.Config.url_keycloak}
 
@@ -359,5 +379,11 @@ environments. Production deployments should always verify certificates.
 
 ```python
 DEFAULT_CMEM_BASE_URI = 'http://docker.localhost'
+```
+
+## `logger` {#cmem_client.config.logger}
+
+```python
+logger = logging.getLogger(__name__)
 ```
 

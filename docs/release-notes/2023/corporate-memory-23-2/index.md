@@ -2,7 +2,7 @@
 tags:
     - ReleaseNote
 ---
-# Corporate Memory 23.2.1
+# eccenca Corporate Memory 23.2.1
 
 Corporate Memory 23.2.1 is the first patch release in the 23.2 release line.
 

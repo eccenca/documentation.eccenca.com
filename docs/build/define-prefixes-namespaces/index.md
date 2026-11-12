@@ -39,7 +39,7 @@ In the Explore area, an Ontology with a correct namespace declaration looks like
 
 ### Using cmemc
 
-The `vocabulary` command group of [cmemc](../../automate/cmemc-command-line-interface/index.md) has an `import` command that you can use to install arbitrary vocabulary documents and register them as vocabularies in Corporate Memory.
+The `vocabulary` command group of [cmemc](../../automate/cmemc-command-line-interface/index.md) has an `import` command that you can use to install arbitrary vocabulary documents and register them as vocabularies in eccenca Corporate Memory.
 
 Beginning with v22.2, this command has an additional option `--namespace` which you can use to set a vocabulary namespace even if the vocabulary does not include the data needed for autodiscovery:
 

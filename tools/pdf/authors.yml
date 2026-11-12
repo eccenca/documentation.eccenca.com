@@ -6,7 +6,7 @@ repository: eccenca/documentation.eccenca.com
 authors:
   - id: rpietzsch
     name: null
-    commits: 181
+    commits: 183
   - id: seebi
     name: Sebastian Tramp
     commits: 112
@@ -15,7 +15,7 @@ authors:
     commits: 29
   - id: annamakor
     name: null
-    commits: 26
+    commits: 28
   - id: robertisele
     name: Robert Isele
     commits: 10

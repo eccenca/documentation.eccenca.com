@@ -1,6 +1,6 @@
 ---
 title: "Parse YAML"
-description: "Parses files, source code or input values as YAML documents."
+description: "Parses YAML documents from a code field, entities or files and converts them to JSON."
 icon: octicons/cross-reference-24
 tags:
     - WorkflowTask
@@ -18,31 +18,45 @@ tags:
     e.g. with cmemc.
 
 
-This workflow task parses YAML content from multiple sources and converts it to various output
-formats.
+This task reads YAML documents, converts each of them to JSON, and hands the result on
+either as entities or as files.
 
-**Input Sources:**
+The YAML comes from one of three places: the code field of this task, entities carrying it
+as text, or files arriving on an input port. Both port modes read every entity of every
+port the task declares, so a batch of files becomes a batch of results, and the number of
+those ports is configurable, for documents which come from several tasks at once.
+Configured to read from its code field, it declares no input port and starts the workflow.
+On the output side the task either hands on the structure of the documents as entities, or
+one JSON file per document.
 
-- **entities**: Parse YAML from input port entities in a workflow
-- **code**: Parse YAML from directly entered source code
-- **file**: Parse YAML from uploaded project file resources
+It usually sits between a task that produces files and one that consumes them: read a
+directory of YAML, parse it here, and let a task that stores project resources keep the
+JSON. Feeding the entities output into a transformation is the other common chain.
 
-**Output Formats:**
+Worth knowing before configuring it:
 
-- **entities**: Convert parsed structure to entities for workflow processing
-- **json_entities**: Output as single JSON entity to the output port
-- **json_dataset**: Save parsed structure directly to a JSON dataset
-
-The plugin provides flexible YAML-to-JSON conversion with configurable input schema
-types and paths for entity-based processing. It includes comprehensive validation and
-error handling for all supported modes.
+- A document has to describe a mapping or a sequence. A file holding nothing but a string
+  or a number is rejected, since neither becomes a JSON object.
+- Exactly one document is read per file. A stream of several documents separated by `---`
+  fails.
+- Parsing is safe, so YAML tags that construct arbitrary Python objects are refused.
+- Documents leaving as entities are combined into one stream whose paths are the union of
+  all of them, and a value a document does not carry becomes empty. Where two documents
+  disagree about a key - a string in one, a list in the next - the key is carried as text
+  in both, since one schema cannot hold it both ways.
+- A key which is not a string becomes one. Mind that `on`, `yes` and `no` are booleans in
+  YAML, so `on:` reads back as `True` unless it is quoted in the source document.
+- A returned file is named after the file it came from - after the entry, when that file
+  is an entry in an archive - with a `.json` suffix, made unique when two of them would
+  otherwise share a name. A document that did not come from a file - from the code field,
+  or from an entity - has no name of its own and is written as `parsed-yaml.json` instead.
 
 
 ## Parameter
 
 ### Source / Input Mode
 
-
+Where the YAML documents come from.
 
 - ID: `source_mode`
 - Datatype: `string`
@@ -52,7 +66,7 @@ error handling for all supported modes.
 
 ### Target / Output Mode
 
-
+In which shape the parsed documents leave this task.
 
 - ID: `target_mode`
 - Datatype: `string`
@@ -62,7 +76,7 @@ error handling for all supported modes.
 
 ### YAML Source Code (when using the *code* input)
 
-
+The YAML document itself, used in the 'code' source mode.
 
 - ID: `source_code`
 - Datatype: `code-yaml`
@@ -70,29 +84,29 @@ error handling for all supported modes.
 
 ## Advanced Parameter
 
-### YAML File (when using the *file* input)
+### Number of Input Ports
 
-Which YAML file do you want to load into a JSON dataset? The dropdown shows file resources from the current project.
+How many input ports the task declares. Raise it to read from several tasks at once, in the order the ports are shown. It has no effect in the 'code' source mode, which declares no input port at all.
 
-- ID: `source_file`
-- Datatype: `string`
-- Default Value: `None`
+- ID: `number_of_inputs`
+- Datatype: `Long`
+- Default Value: `1`
 
 
 
-### Target Dataset
+### Tolerate Unusable Input
 
-Where do you want to save the result of the conversion? The dropdown shows JSON datasets from the current project.
+If enabled, a document that cannot be parsed is reported and skipped instead of stopping the task, and an input that delivers nothing at all produces an empty result. A batch in which every document fails remains an error, since something arrived and none of it could be used.
 
-- ID: `target_dataset`
-- Datatype: `string`
-- Default Value: `None`
+- ID: `tolerate_unusable_input`
+- Datatype: `boolean`
+- Default Value: `false`
 
 
 
 ### Input Schema Type / Class
 
-In case of source mode 'entities', you can specify the requested input type.
+The type the input ports ask for, used in the 'entities' source mode. Change it when the preceding task delivers entities of a different type.
 
 - ID: `input_schema_type`
 - Datatype: `string`
@@ -102,7 +116,7 @@ In case of source mode 'entities', you can specify the requested input type.
 
 ### Input Schema Path / Property
 
-In case of source mode 'entities', you can specify the requested input path.
+The path the YAML document is read from, used in the 'entities' source mode. Change it when the preceding task carries the document in a differently named path.
 
 - ID: `input_schema_path`
 - Datatype: `string`

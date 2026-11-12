@@ -16,10 +16,10 @@ List, (un)install, download, export, create, or inspect packages.
 
 Packages bundle re-usable content such as projects or vocabularies together with a manifest, so that it can be distributed and installed in other deployments. Packages are identified by a `PACKAGE_ID` and are used either as a package directory, as a Corporate Memory Package Archive (.cpa), or from a marketplace.
 
-Typical workflows are to install packages from a marketplace (`package search` and `package install`), to fetch a package archive without installing it (`package download`), and to create packages from your own workspace (`package export`, `package build` and `package publish`).
+Typical workflows are to install packages from a marketplace (`package search` and `package install`), to check what a package pulls in and whether the installed packages fit together (`package dependencies`), to fetch a package archive without installing it (`package download`), and to create packages from your own workspace (`package export`, `package build` and `package publish`).
 
 !!! note
-    To get a list of installed packages, execute the `package list` command or use tab-completion.
+    To get a list of installed packages, execute the `package list` command or use tab-completion. `package dependencies` shows the dependency tree of the installed packages and where it is broken.
 
 
 
@@ -79,6 +79,33 @@ Outputs a table of the packages which are currently installed in your Corporate 
     --raw                    Outputs raw JSON.
     ```
 
+## package dependencies
+
+Show the dependency tree of the installed packages.
+
+```shell-session title="Usage"
+cmemc package dependencies [OPTIONS] [PACKAGE_ID]
+```
+
+
+
+
+One tree is shown per installed package which no other installed package requires, expanded into the packages it pulls in - marketplace packages and Python packages alike - each with its type (`project`, `vocabulary` or `python`), the declared version constraint, the version installed in your Corporate Memory and whether the dependency is `satisfied`, `violated` or `missing`. A dependency is `violated` when the installed version lies outside of the constraint, and `missing` when it is not installed at all, for example because it was uninstalled although the package needs it, or because the package was installed while ignoring its dependencies. A package which appears a second time is shown as `[see above]`, a dependency cycle ends in `[cycle]`. With a `PACKAGE_ID` only the tree of that installed package is shown. A consistent tree ends with no warning; reinstalling a dependency at a satisfying version repairs a broken one.
+
+The raw JSON output carries both forms of the tree: `packages` lists every package once with its dependencies and the packages which depend on it (`required_by`), and `tree` is the nested form; every violated and missing dependency is collected under `violations` - an empty list means the tree is consistent.
+
+!!! note
+    `package install` refuses an installation which would break the installed tree unless `--force-dependencies` is given.
+
+
+
+
+??? info "Options"
+    ```text
+
+    --raw       Outputs raw JSON.
+    ```
+
 ## package install
 
 Install packages.
@@ -94,6 +121,12 @@ This command installs a package either from the marketplace or from local packag
 
 If a local package is chosen which has unzipped project directories, the installation will handle the zipping silently. See the `package export` command for more information.
 
+Dependencies are installed at the newest version which satisfies the version constraints declared on them. If an installed dependency violates such a constraint, the installation fails before anything is changed - use ``--force-dependencies`` to upgrade or downgrade it instead. Use this option with care: it breaks every installed package which needs the same dependency at a different version, and the command warns about each of them.
+
+Use ``--skip-installed`` to make repeated installations cheap: a package which is already installed in the requested version is left untouched, including its dependencies. If another version is installed, the installation is not skipped - combine the option with ``--replace`` to upgrade or downgrade in this case.
+
+An installation (also a replacement) whose versions would violate the version constraint of an already installed package is refused before anything is changed, naming each affected package, its constraint and the version which would break it. ``--force-dependencies`` installs anyway and warns about every installed package it broke; the `package dependencies` command shows where the installed tree is broken. Replacing a package reinstalls a dependency only it held at a version satisfying its constraint, never at the latest published version.
+
 
 
 ??? info "Options"
@@ -103,6 +136,9 @@ If a local package is chosen which has unzipped project directories, the install
                             directory.
     --replace               Replace (overwrite) an existing package version or
                             package content, if present.
+    --skip-installed        Skip the installation if the package is already
+                            installed in the requested version. For local
+                            packages, the version of the manifest is compared.
     --no-cache              Disable using cached package versions.
     --ignore-lock           Ignore and release the package lock file for this
                             operation. Use this to recover from a stale lock
@@ -111,6 +147,16 @@ If a local package is chosen which has unzipped project directories, the install
                             processes rely on); use with care.
     --version TEXT          Specific version to install from the marketplace.
                             Defaults to the latest version.
+    --force-dependencies    Upgrade or downgrade an installed dependency whose
+                            version violates the constraint the package declares
+                            on it, instead of failing the installation, and
+                            install the package although a version it puts in
+                            place - its own, or a dependency's - violates the
+                            constraint of an installed package. Such an
+                            installation is refused without this option; with
+                            it, a warning names every installed package it
+                            broke. This is a dangerous option, so use it with
+                            care.
     --marketplace-url TEXT  Base URL of the Marketplace - uses environment
                             variable ECCENCA_MARKETPLACE_URL if available.
                             [default: https://eccenca.market]
@@ -241,6 +287,10 @@ cmemc package build [OPTIONS] PACKAGE_DIRECTORY
 This command processes a package directory, validates its content including the manifest, and creates a versioned Corporate Memory Package Archive (.cpa) with the following naming convention: {package_id}-v{version}.cpa
 
 If the package contains an extracted project (directory) instead of a ZIP, it is zipped automatically in a temporary copy — the original package directory is never modified. The manifest still need to reference the project ZIP. See the `package export` command for more information.
+
+The archive manifest carries a `build_timestamp`: the time of the build in UTC, as an ISO 8601 date-time with second precision. It is set only when the manifest in the package directory does not carry one; a timestamp written by the package author is kept unchanged. The manifest file in the package directory is never modified by the build.
+
+An application view declared in the manifest (file type `view`) is checked against its file: the JSON file written by `admin view export` has to hold exactly one view, whose id is the declared `view_id`. The `default` view of a deployment cannot be shipped.
 
 !!! note
     Package archives can be published to the marketplace using the `package publish` command.

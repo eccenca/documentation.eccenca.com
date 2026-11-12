@@ -15,7 +15,7 @@ Active learning infuses expert knowledge and creates new relationships between p
 
 > Active learning is a special case of machine learning in which a learning algorithm interactively queries a user to label new data points with the desired outputs. [[wikipedia]](https://www.wikiwand.com/en/Active_learning_(machine_learning)#introduction)
 
-In Corporate Memory we apply this approach to the process of learning a linking rule by interactively label records from the configured source and target dataset.
+In eccenca Corporate Memory we apply this approach to the process of learning a linking rule by interactively label records from the configured source and target dataset.
 Labeling in this case means to indicate if the pair of resources (from source and target) should be connected with the configured property.
 The labeling process creates reference links against which the linking rule can be created and further refined as more input is given by the user.
 

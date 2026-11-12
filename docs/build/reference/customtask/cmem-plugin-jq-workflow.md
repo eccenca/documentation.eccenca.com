@@ -18,6 +18,27 @@ tags:
     e.g. with cmemc.
 
 
+This task applies a jq filter to a JSON file and writes the transformed
+result to a new JSON file.
+
+Both the input and the output port carry a single file per entity. The input
+file is read as JSON, transparently decompressing it first if it is
+gzip-compressed. The output file is always plain (uncompressed) JSON, encoded
+as UTF-8 and pretty-printed with two-space indentation.
+
+The task is typically placed between two file-based tasks, for example
+reading from a **JSON dataset** and writing to another one, so that the
+filter output becomes the next task's input.
+
+If the filter produces exactly one JSON value for a file, that value becomes
+the file's entire content. If it produces zero or several values, the output
+file instead contains a JSON array of all of them - so the shape of the
+output can change from a single object to an array depending on how many
+values the filter happens to emit. The whole input file is read into memory
+before the filter runs, so very large files are not streamed. Cancelling the
+containing workflow only takes effect between files, not while a file is
+being transformed.
+
 > [jq](https://jqlang.org/) is like sed for JSON data - you can use it to
 > slice and filter and map and transform structured data with the same ease that sed, awk,
 > grep and friends let you play with text.
@@ -90,9 +111,9 @@ The jq program to apply to the input JSON string.
 
 ## Advanced Parameter
 
-### JSON source which can be used with the validate expression action
+### Validation source
 
-
+Example JSON used by the Validate expression action to preview the filter's output before running the task. Leave empty to skip the preview.
 
 - ID: `validation_source`
 - Datatype: `code-json`

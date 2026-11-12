@@ -18,12 +18,19 @@ tags:
     e.g. with cmemc.
 
 
-This plugin workflow store embeddings into Postgres Vector Store.
+This workflow task stores embeddings and their metadata into a collection in Postgres Vector
+Store (PGVector).
 
-The vector embeddings and its respective metadata are going to be stored into a collection inside
-the Postgres Vector Store.
-It is possible to specify either the name of the attributes containing the vectors as well as the
-metadata.
+The task accepts entities of any schema on its input port. Two of the incoming paths supply the
+text and the embedding to store; every other path, or a fixed subset of them, is stored alongside
+as metadata. The task produces no output port: it is a terminal step and hands nothing on to
+later tasks in the workflow.
+
+Use together with **Search Vector Embeddings**, which reads back the collection this task
+populates.
+
+If the incoming entities have no path configured for the text or the embedding, the task fails
+before storing anything.
 
 
 ## Parameter
@@ -80,7 +87,7 @@ The database name.
 
 ### Collection Name
 
-The name of the collection that will be used for search.
+The name of the collection in Postgres Vector Store (PGVector).
 
 - ID: `collection_name`
 - Datatype: `string`
@@ -90,7 +97,7 @@ The name of the collection that will be used for search.
 
 ### Pre Delete Collection
 
-If set to true, then the collection will removed at the beginning.
+If enabled, deletes any existing collection with the same name before storing, discarding its previous contents. If disabled, new vectors are added to whatever the collection already contains.
 
 - ID: `pre_delete_collection`
 - Datatype: `boolean`
@@ -110,7 +117,7 @@ The name of the path to use for reading the embedding source.
 
 ### Embedding Path
 
-The name of the path to use for reading the embeddings.
+The name of the path to use for reading the embeddings. Its value must be a string representation of a list of floats, e.g. `[0.1, 0.2, ...]`.
 
 - ID: `embedding_path`
 - Datatype: `string`
@@ -120,7 +127,7 @@ The name of the path to use for reading the embeddings.
 
 ### Metadata Paths
 
-The comma separated list path names to be used as metadata. Empty name means all paths (except embedding source and embedding) will be used
+The comma-separated list of path names to store as metadata. An empty value means every path except the source and embedding paths is used.
 
 - ID: `metadata_paths`
 - Datatype: `string`
@@ -130,7 +137,7 @@ The comma separated list path names to be used as metadata. Empty name means all
 
 ### Batch Processing Size
 
-The number of entries to be processed in batch.
+The number of entries to accumulate before writing them to the database as one batch.
 
 - ID: `batch_processing_size`
 - Datatype: `Long`

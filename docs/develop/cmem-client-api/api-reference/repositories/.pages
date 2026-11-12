@@ -6,12 +6,13 @@ nav:
     - datasets: datasets
     - files: files
     - graph_imports: graph_imports
-    - graph_insights: graph_insights
+    - graph_snapshots: graph_snapshots
     - graphs: graphs
     - marketplace_packages: marketplace_packages
     - projects: projects
     - python_packages: python_packages
     - queries: queries
+    - rule_blocks: rule_blocks
     - schedulers: schedulers
     - user_accounts: user_accounts
     - validations: validations

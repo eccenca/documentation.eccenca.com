@@ -9,6 +9,7 @@ from tools.update_di_reference import (
     get_plugin_descriptions,
     resolve_related_plugin_links,
     create_plugin_markdown,
+    create_umbrella_pages,
     build_plugin_paths,
     validate_related_plugin_references,
 )
@@ -265,3 +266,28 @@ def test_create_plugin_markdown_renders_empty_list_for_untagged_plugin(tmp_path)
     written = (tmp_path / "aggregator" / "average.md").read_text()
     front_matter = written.split("---")[1]
     assert yaml.safe_load(front_matter)["tags"] == []
+
+
+def test_create_umbrella_pages_writes_pages_files_as_yaml_documents(tmp_path):
+    """Test that every generated .pages file starts with the document marker and ends with a newline, as yamllint requires"""
+    plugins = {
+        "transformer": [_make_plugin("regexExtract")],
+        "dataset": [_make_plugin("json", plugin_type="dataset", main_category="File")],
+    }
+    (tmp_path / "transformer" / "Extract").mkdir(parents=True)
+    (tmp_path / "dataset").mkdir()
+
+    create_umbrella_pages(plugins, tmp_path)
+
+    pages_files = sorted(tmp_path.rglob(".pages"))
+    assert [p.relative_to(tmp_path).as_posix() for p in pages_files] == [
+        ".pages",
+        "dataset/.pages",
+        "transformer/.pages",
+        "transformer/Extract/.pages",
+    ]
+    for pages_file in pages_files:
+        content = pages_file.read_text()
+        assert content.startswith("---\n")
+        assert content.endswith("\n") and not content.endswith("\n\n")
+        assert "nav" in yaml.safe_load(content)

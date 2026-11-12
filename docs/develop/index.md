@@ -13,7 +13,7 @@ Extend eccenca Corporate Memory with custom plugins and packages, and access it 
 
     ---
 
-    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to Corporate Memory using a Java program.
+    [Accessing Graphs with Java Applications](accessing-graphs-with-java-applications/index.md) covers how to connect to eccenca Corporate Memory using a Java program.
 
 - :material-language-python: Python
 
@@ -25,7 +25,7 @@ Extend eccenca Corporate Memory with custom plugins and packages, and access it 
 
     ---
 
-    [Marketplace Packages](packages/index.md) bundle existing content (graphs, Build projects, dependencies, ...) into a single shareable artifact. [Create your own packages](packages/development/index.md) for easy distribution and reuse.
+    [Marketplace Packages](marketplace-packages/index.md) bundle existing content (graphs, Build projects, dependencies, ...) into a single shareable artifact. [Create your own packages](marketplace-packages/development/index.md) for easy distribution and reuse.
 
 - :material-api: OpenAPI specification
 

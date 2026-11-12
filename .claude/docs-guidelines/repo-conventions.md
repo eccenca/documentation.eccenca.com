@@ -121,7 +121,10 @@ Do not write `index.html` stubs under `docs/`.
 - No absolute links to `https://documentation.eccenca.com/latest/...` for internal pages.
 - No base-relative links such as `/automate/...`.
 - Same-page references use a plain anchor: `[Configure OAuth clients](#configure-oauth-clients-helm)`, never a full path back to the same file.
-- `task check:links` runs the link checker; `task build` runs `zensical build --strict` and fails on unresolved internal links.
+- `task check:links` runs [lychee](https://lychee.cli.rs/) over the outgoing http(s) links; exclusions and accepted
+  status codes live in `lychee.toml`. `task build` runs `zensical build --strict` and fails on unresolved internal links.
+- An IRI written as an autolink (`<https://vocab.eccenca.com/...>`) is checked like any link. Identifier namespaces
+  that do not resolve are excluded in `lychee.toml`; add a new one there rather than formatting the IRI differently.
 
 ## Images
 

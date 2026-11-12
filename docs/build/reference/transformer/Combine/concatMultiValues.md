@@ -152,3 +152,4 @@ No description
 ## Related Plugins
 
 * [concat](concat.md) — Concatenate multiple values collapses all values within each input into one string, preserving the boundary between inputs. Concatenate crosses that boundary — it takes one value from each input and produces all combinations, so the output grows with the number of inputs and values.
+* [inputHash](../Value/inputHash.md) — Combined input hash always produces exactly one hash value, however many ports or values are connected. Concatenate multiple values instead combines everything on one port into a single string, so connecting more ports returns more separate strings instead of one.
