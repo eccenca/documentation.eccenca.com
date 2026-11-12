@@ -12,7 +12,14 @@ vars:
   PREVIEW_BRANCH: publish-preview
   CURRENT_VERSION: 26.2
   # the markdown linter command, used by format:fix:path and check:rumdl
-  RUMDL_CHECK: poetry run rumdl --config .markdownlint.jsonc check
+  RUMDL_CHECK: poetry run rumdl --config .rumdl.toml check
+  # rules that are reported but never fail the check stage (check:rumdl:cosmetic):
+  # wording rather than structure - contractions/politeness and proper names
+  RUMDL_COSMETIC_RULES: MD061,MD044
+  # in GitHub Actions, print rumdl issues as workflow commands, which become
+  # line annotations on the PR diff (the JUnit reports carry no line numbers)
+  RUMDL_CI_FORMAT:
+    sh: '[ "$GITHUB_ACTIONS" = "true" ] && echo "--output-format github" || true'
   # the default lint targets: the docs tree plus the top-level markdown files
   DOCS_PATHS: ./docs ./*.md
 
@@ -67,8 +74,10 @@ tasks:
     # `--strict` fails the build (zensical/zensical#641). Serialising costs a
     # little wall-clock and makes the stage deterministic.
     cmds:
-      - task: check:links
+      # rumdl first: it writes the JUnit reports CI publishes, which must
+      # exist even when a later check fails the stage
       - task: check:rumdl
+      - task: check:links
       - task: check:images
       - task: check:yamllint
       - task: check:navigation
@@ -503,15 +512,42 @@ tasks:
           PATHS: '{{.DOCS_PATHS}}'
 
   check:rumdl:
-    desc: run rumdl (md-linter) for style issues without failing the check stage
+    desc: Fail on rumdl (md-linter) issues, except the cosmetic rules
+    summary: |
+      Runs every enabled rumdl rule except RUMDL_COSMETIC_RULES and fails the
+      check stage on any issue. The JUnit report is written to
+      dist/md-lint-issues.xml before the failing run, so CI can publish it.
+      The cosmetic rules run in check:rumdl:cosmetic.
     cmds:
+      - task: check:rumdl:cosmetic
       - mkdir -p ./dist
       - rm -f ./dist/md-lint-issues.xml
       - >
         find {{.DOCS_PATHS}} -type f -name '*.md' -print0
-        | xargs -0 {{.RUMDL_CHECK}} --output-format junit > ./dist/md-lint-issues.xml || true
+        | xargs -0 {{.RUMDL_CHECK}} --extend-disable {{.RUMDL_COSMETIC_RULES}}
+        --output-format junit > ./dist/md-lint-issues.xml || true
+      - >
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --extend-disable {{.RUMDL_COSMETIC_RULES}}
+        {{.RUMDL_CI_FORMAT}}
+
+  check:rumdl:cosmetic:
+    desc: Report cosmetic rumdl issues (MD061, MD044) without failing the check stage
+    summary: |
+      Runs only RUMDL_COSMETIC_RULES (forbidden terms, proper names). Issues
+      are listed and written to dist/md-lint-cosmetic-issues.xml (JUnit), but
+      never fail the check stage. Many of them sit in generated files and
+      are fixed in the generator, not in the Markdown.
+    cmds:
+      - mkdir -p ./dist
+      - rm -f ./dist/md-lint-cosmetic-issues.xml
+      - >
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0
+        | xargs -0 {{.RUMDL_CHECK}} --enable {{.RUMDL_COSMETIC_RULES}}
+        --output-format junit > ./dist/md-lint-cosmetic-issues.xml || true
       - |
-        find {{.DOCS_PATHS}} -type f -name '*.md' -print0 | xargs -0 {{.RUMDL_CHECK}} || {
-          echo "rumdl reported markdown style issues; continuing without failing the check stage."
+        find {{.DOCS_PATHS}} -type f -name '*.md' -print0 \
+          | xargs -0 {{.RUMDL_CHECK}} --enable {{.RUMDL_COSMETIC_RULES}} {{.RUMDL_CI_FORMAT}} || {
+          echo "rumdl reported cosmetic issues ({{.RUMDL_COSMETIC_RULES}}); not failing the check stage."
           true
         }
