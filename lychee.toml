@@ -58,6 +58,8 @@ exclude = [
     '^https?://jfact\.sourceforge\.net',
     '^https?://(www\.)?wikiwand\.com/',
     '^https?://(www\.)?npmjs\.com/',
+    # Answers 403 to GitHub Actions runners (works locally, fails in CI).
+    '^https?://(www\.)?(x|twitter)\.com/',
 
     # Behind a login.
     '^https?://releases\.eccenca\.com/',
