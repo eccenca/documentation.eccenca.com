@@ -46,7 +46,7 @@ log_method(method, display_name=None)
 
 Wrapper to log entry and exit of methods using TRACE level.
 
-Note: Don't use this on methods with sensitive information as they might get logged too
+Note: Do not use this on methods with sensitive information as they might get logged too
 
 **Returns:**
 

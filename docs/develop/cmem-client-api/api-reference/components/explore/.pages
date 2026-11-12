@@ -1,0 +1,6 @@
+title: explore
+nav:
+    - component: component
+    - logs: logs
+    - sparql: sparql
+    - titles: titles

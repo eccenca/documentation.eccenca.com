@@ -29,6 +29,10 @@ and report its own status instead of going back through the repository:
 **Classes:**
 
 - [**Workflow**](#cmem_client.models.workflow.Workflow) – A workflow
+- [**WorkflowReport**](#cmem_client.models.workflow.WorkflowReport) – One workflow execution report.
+- [**WorkflowReportFinishStatus**](#cmem_client.models.workflow.WorkflowReportFinishStatus) – Final execution status recorded in a workflow report.
+- [**WorkflowReportInfo**](#cmem_client.models.workflow.WorkflowReportInfo) – One entry of a workflow execution report list.
+- [**WorkflowReportMetaData**](#cmem_client.models.workflow.WorkflowReportMetaData) – Metadata section of a workflow execution report.
 - [**WorkflowSearchResultSet**](#cmem_client.models.workflow.WorkflowSearchResultSet) – Wrapper for the search API response envelope.
 - [**WorkflowStatus**](#cmem_client.models.workflow.WorkflowStatus) – Workflow execution status
 
@@ -87,10 +91,11 @@ forms the ``{project_id}:{id}`` key of the repository.
 which is what ``execute_io()`` writes its payload into.
 - [**variable_outputs**](#cmem_client.models.workflow.Workflow.variable_outputs) (<code>list[str]</code>) – IDs of the outputs which can be replaced at execution time,
 which is what ``execute_io()`` reads its result from.
-- [**warnings**](#cmem_client.models.workflow.Workflow.warnings) (<code>list[str]</code>) – Warnings DataIntegration reported for the workflow.
+- [**warnings**](#cmem_client.models.workflow.Workflow.warnings) (<code>list[str]</code>) – Warnings DataIntegration reported for the workflow. DataIntegration
+reports them as plain strings or as objects with a ``message``.
 - [**tags**](#cmem_client.models.workflow.Workflow.tags) (<code>list[[Tag](../../models/common/index.md#cmem_client.models.common.Tag)]</code>) – Tags attached to the workflow.
 - [**parameters**](#cmem_client.models.workflow.Workflow.parameters) (<code>dict</code>) – Raw parameters as returned by the search endpoint. Excluded from
-serialization; the variable inputs and outputs are read out of it.
+serialization.
 
 **Functions:**
 
@@ -198,6 +203,228 @@ variable_outputs: list[str] = Field(alias='variableOutputs', default_factory=lis
 
 ```python
 warnings: list[str] = Field(default_factory=list)
+```
+
+## `WorkflowReport` {#cmem_client.models.workflow.WorkflowReport}
+
+Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
+
+One workflow execution report.
+
+**Attributes:**
+
+- [**meta_data**](#cmem_client.models.workflow.WorkflowReport.meta_data) (<code>[WorkflowReportMetaData](#cmem_client.models.workflow.WorkflowReportMetaData)</code>) – Timing and final status of the execution.
+- [**value**](#cmem_client.models.workflow.WorkflowReport.value) (<code>dict[str, Any]</code>) – Report body describing the executed operation (warnings, error, entity
+counts, and nested reports of sub-tasks). Kept as a plain dictionary
+because its shape depends on the type of task that ran.
+
+### `meta_data` {#cmem_client.models.workflow.WorkflowReport.meta_data}
+
+```python
+meta_data: WorkflowReportMetaData = Field(alias='metaData')
+```
+
+### `model_config` {#cmem_client.models.workflow.WorkflowReport.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `value` {#cmem_client.models.workflow.WorkflowReport.value}
+
+```python
+value: dict[str, Any] = Field(default_factory=dict)
+```
+
+## `WorkflowReportFinishStatus` {#cmem_client.models.workflow.WorkflowReportFinishStatus}
+
+Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
+
+Final execution status recorded in a workflow report.
+
+**Attributes:**
+
+- [**status_name**](#cmem_client.models.workflow.WorkflowReportFinishStatus.status_name) (<code>str</code>) – Coarse state of the execution, e.g. ``Finished``.
+- [**concrete_status**](#cmem_client.models.workflow.WorkflowReportFinishStatus.concrete_status) (<code>str</code>) – What the state amounts to, e.g. ``Successful``, ``Failed`` or
+``Cancelled``.
+- [**is_running**](#cmem_client.models.workflow.WorkflowReportFinishStatus.is_running) (<code>bool</code>) – Whether the execution was still going when the report was written.
+Always ``False`` for a finished report.
+- [**progress**](#cmem_client.models.workflow.WorkflowReportFinishStatus.progress) (<code>float | None</code>) – How far the execution got, in percent.
+- [**message**](#cmem_client.models.workflow.WorkflowReportFinishStatus.message) (<code>str</code>) – Human readable status message.
+- [**failed**](#cmem_client.models.workflow.WorkflowReportFinishStatus.failed) (<code>bool</code>) – Whether the execution failed.
+- [**last_update_time**](#cmem_client.models.workflow.WorkflowReportFinishStatus.last_update_time) (<code>int</code>) – When the status was last updated, as a Unix timestamp in
+milliseconds.
+- [**runtime**](#cmem_client.models.workflow.WorkflowReportFinishStatus.runtime) (<code>int | None</code>) – How long the execution took, in milliseconds.
+- [**cancelled**](#cmem_client.models.workflow.WorkflowReportFinishStatus.cancelled) (<code>bool | None</code>) – Whether the execution was cancelled.
+- [**exception_message**](#cmem_client.models.workflow.WorkflowReportFinishStatus.exception_message) (<code>str | None</code>) – Message of the exception which ended the execution, if one
+did.
+
+### `cancelled` {#cmem_client.models.workflow.WorkflowReportFinishStatus.cancelled}
+
+```python
+cancelled: bool | None = None
+```
+
+### `concrete_status` {#cmem_client.models.workflow.WorkflowReportFinishStatus.concrete_status}
+
+```python
+concrete_status: str = Field(alias='concreteStatus')
+```
+
+### `exception_message` {#cmem_client.models.workflow.WorkflowReportFinishStatus.exception_message}
+
+```python
+exception_message: str | None = Field(default=None, alias='exceptionMessage')
+```
+
+### `failed` {#cmem_client.models.workflow.WorkflowReportFinishStatus.failed}
+
+```python
+failed: bool
+```
+
+### `is_running` {#cmem_client.models.workflow.WorkflowReportFinishStatus.is_running}
+
+```python
+is_running: bool = Field(alias='isRunning')
+```
+
+### `last_update_time` {#cmem_client.models.workflow.WorkflowReportFinishStatus.last_update_time}
+
+```python
+last_update_time: int = Field(alias='lastUpdateTime')
+```
+
+### `message` {#cmem_client.models.workflow.WorkflowReportFinishStatus.message}
+
+```python
+message: str
+```
+
+### `model_config` {#cmem_client.models.workflow.WorkflowReportFinishStatus.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `progress` {#cmem_client.models.workflow.WorkflowReportFinishStatus.progress}
+
+```python
+progress: float | None = None
+```
+
+### `runtime` {#cmem_client.models.workflow.WorkflowReportFinishStatus.runtime}
+
+```python
+runtime: int | None = None
+```
+
+### `status_name` {#cmem_client.models.workflow.WorkflowReportFinishStatus.status_name}
+
+```python
+status_name: str = Field(alias='statusName')
+```
+
+## `WorkflowReportInfo` {#cmem_client.models.workflow.WorkflowReportInfo}
+
+Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
+
+One entry of a workflow execution report list.
+
+**Attributes:**
+
+- [**project**](#cmem_client.models.workflow.WorkflowReportInfo.project) (<code>str</code>) – ID of the project holding the workflow.
+- [**task**](#cmem_client.models.workflow.WorkflowReportInfo.task) (<code>str</code>) – ID of the workflow task.
+- [**time**](#cmem_client.models.workflow.WorkflowReportInfo.time) (<code>datetime</code>) – Timestamp identifying the report, passed to
+[get_report](../../repositories/workflows/index.md#cmem_client.repositories.workflows.WorkflowsRepository.get_report)
+to retrieve it.
+
+### `model_config` {#cmem_client.models.workflow.WorkflowReportInfo.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `project` {#cmem_client.models.workflow.WorkflowReportInfo.project}
+
+```python
+project: str
+```
+
+### `task` {#cmem_client.models.workflow.WorkflowReportInfo.task}
+
+```python
+task: str
+```
+
+### `time` {#cmem_client.models.workflow.WorkflowReportInfo.time}
+
+```python
+time: datetime
+```
+
+## `WorkflowReportMetaData` {#cmem_client.models.workflow.WorkflowReportMetaData}
+
+Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
+
+Metadata section of a workflow execution report.
+
+**Attributes:**
+
+- [**started_by_user**](#cmem_client.models.workflow.WorkflowReportMetaData.started_by_user) (<code>str | None</code>) – Account name of the user who started the execution, if known.
+- [**queued_at**](#cmem_client.models.workflow.WorkflowReportMetaData.queued_at) (<code>datetime | None</code>) – When the execution was queued.
+- [**started_at**](#cmem_client.models.workflow.WorkflowReportMetaData.started_at) (<code>datetime | None</code>) – When the execution actually started.
+- [**finished_at**](#cmem_client.models.workflow.WorkflowReportMetaData.finished_at) (<code>datetime | None</code>) – When the execution finished.
+- [**cancelled_at**](#cmem_client.models.workflow.WorkflowReportMetaData.cancelled_at) (<code>datetime | None</code>) – When the execution was cancelled, if it was.
+- [**cancelled_by**](#cmem_client.models.workflow.WorkflowReportMetaData.cancelled_by) (<code>str | None</code>) – Account name of the user who cancelled the execution, if it was.
+- [**finish_status**](#cmem_client.models.workflow.WorkflowReportMetaData.finish_status) (<code>[WorkflowReportFinishStatus](#cmem_client.models.workflow.WorkflowReportFinishStatus)</code>) – The execution's final status.
+
+### `cancelled_at` {#cmem_client.models.workflow.WorkflowReportMetaData.cancelled_at}
+
+```python
+cancelled_at: datetime | None = Field(default=None, alias='cancelledAt')
+```
+
+### `cancelled_by` {#cmem_client.models.workflow.WorkflowReportMetaData.cancelled_by}
+
+```python
+cancelled_by: str | None = Field(default=None, alias='cancelledBy')
+```
+
+### `finish_status` {#cmem_client.models.workflow.WorkflowReportMetaData.finish_status}
+
+```python
+finish_status: WorkflowReportFinishStatus = Field(alias='finishStatus')
+```
+
+### `finished_at` {#cmem_client.models.workflow.WorkflowReportMetaData.finished_at}
+
+```python
+finished_at: datetime | None = Field(default=None, alias='finishedAt')
+```
+
+### `model_config` {#cmem_client.models.workflow.WorkflowReportMetaData.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `queued_at` {#cmem_client.models.workflow.WorkflowReportMetaData.queued_at}
+
+```python
+queued_at: datetime | None = Field(default=None, alias='queuedAt')
+```
+
+### `started_at` {#cmem_client.models.workflow.WorkflowReportMetaData.started_at}
+
+```python
+started_at: datetime | None = Field(default=None, alias='startedAt')
+```
+
+### `started_by_user` {#cmem_client.models.workflow.WorkflowReportMetaData.started_by_user}
+
+```python
+started_by_user: str | None = Field(default=None, alias='startedByUser')
 ```
 
 ## `WorkflowSearchResultSet` {#cmem_client.models.workflow.WorkflowSearchResultSet}

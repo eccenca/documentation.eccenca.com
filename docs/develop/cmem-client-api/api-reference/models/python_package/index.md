@@ -19,7 +19,7 @@ keyed by their PyPI name.
 
 **Classes:**
 
-- [**PythonPackage**](#cmem_client.models.python_package.PythonPackage) – Installed python package.
+- [**PythonPackage**](#cmem_client.models.python_package.PythonPackage) – Installed Python package.
 
 **Attributes:**
 
@@ -35,9 +35,9 @@ PipRequirementSpecifier = Annotated[str, Field(title='Pip Requirement Specifier'
 
 Bases: <code>[ReadRepositoryItem](../../models/base/index.md#cmem_client.models.base.ReadRepositoryItem)</code>
 
-Installed python package.
+Installed Python package.
 
-Represents a python package installed in Corporate Memory
+Represents a Python package installed in Corporate Memory.
 
 **Attributes:**
 
@@ -71,6 +71,19 @@ model_config = ConfigDict(arbitrary_types_allowed=True, str_strip_whitespace=Tru
 ```python
 name: PyPiIdentifier
 ```
+
+### `parsed_version` {#cmem_client.models.python_package.PythonPackage.parsed_version}
+
+```python
+parsed_version: Version | None
+```
+
+The installed version as a comparable version.
+
+**Returns:**
+
+- <code>Version | None</code> – The parsed version, or ``None`` if the deployment reports no version or one
+- <code>Version | None</code> – which is not a valid Python package version.
 
 ### `version` {#cmem_client.models.python_package.PythonPackage.version}
 

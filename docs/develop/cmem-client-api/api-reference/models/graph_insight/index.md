@@ -14,7 +14,7 @@ tags:
 Graph Insight models for Corporate Memory.
 
 Graph Insight is the semspect extension, which keeps its own indexed snapshot of the
-graphs it explores. The snapshots are the items of ``client.graph_insights``, keyed by
+graphs it explores. The snapshots are the items of ``client.graph_snapshots``, keyed by
 their database ID. That repository does not fetch on creation, so call ``fetch_data()``
 before iterating it.
 

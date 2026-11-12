@@ -223,7 +223,7 @@ An access condition result set
 **Attributes:**
 
 - [**content**](#cmem_client.models.access_condition.AccessConditionResultSet.content) (<code>list[[AccessCondition](#cmem_client.models.access_condition.AccessCondition)]</code>) – The access conditions on this page.
-- [**page**](#cmem_client.models.access_condition.AccessConditionResultSet.page) (<code>[PageDescription](../../repositories/base/paged_list/index.md#cmem_client.repositories.base.paged_list.PageDescription)</code>) – Which page this is and how many there are in total.
+- [**page**](#cmem_client.models.access_condition.AccessConditionResultSet.page) (<code>[PageDescription](../../models/paged_list/index.md#cmem_client.models.paged_list.PageDescription)</code>) – Which page this is and how many there are in total.
 
 ### `content` {#cmem_client.models.access_condition.AccessConditionResultSet.content}
 

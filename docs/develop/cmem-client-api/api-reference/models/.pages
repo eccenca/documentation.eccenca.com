@@ -1,4 +1,3 @@
----
 title: models
 nav:
     - access_condition: access_condition
@@ -7,19 +6,23 @@ nav:
     - credentials: credentials
     - dataset: dataset
     - error: error
+    - explore: explore
     - graph: graph
     - graph_import: graph_import
     - graph_insight: graph_insight
     - item: item
     - keycloak_client: keycloak_client
     - logging_config: logging_config
+    - logs: logs
     - marshalling_plugins: marshalling_plugins
     - package: package
+    - paged_list: paged_list
     - project: project
     - python_install: python_install
     - python_package: python_package
     - query_catalog: query_catalog
     - resource: resource
+    - rule_block: rule_block
     - scheduler: scheduler
     - status: status
     - task: task

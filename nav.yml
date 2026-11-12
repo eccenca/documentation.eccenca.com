@@ -792,14 +792,28 @@ nav:
               - components:
                   - deployment:
                       - develop/cmem-client-api/api-reference/components/deployment/index.md
-                  - graph_store:
-                      - develop/cmem-client-api/api-reference/components/graph_store/index.md
+                  - build:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/build/component/index.md
+                      - logs:
+                          - develop/cmem-client-api/api-reference/components/build/logs/index.md
+                      - workspace:
+                          - develop/cmem-client-api/api-reference/components/build/workspace/index.md
+                  - explore:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/explore/component/index.md
+                      - logs:
+                          - develop/cmem-client-api/api-reference/components/explore/logs/index.md
+                      - sparql:
+                          - develop/cmem-client-api/api-reference/components/explore/sparql/index.md
+                      - titles:
+                          - develop/cmem-client-api/api-reference/components/explore/titles/index.md
+                  - graphinsights:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/graphinsights/component/index.md
                   - marketplace:
-                      - develop/cmem-client-api/api-reference/components/marketplace/index.md
-                  - sparql_wrapper:
-                      - develop/cmem-client-api/api-reference/components/sparql_wrapper/index.md
-                  - workspace:
-                      - develop/cmem-client-api/api-reference/components/workspace/index.md
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/marketplace/component/index.md
               - models:
                   - access_condition:
                       - develop/cmem-client-api/api-reference/models/access_condition/index.md
@@ -813,6 +827,8 @@ nav:
                       - develop/cmem-client-api/api-reference/models/dataset/index.md
                   - error:
                       - develop/cmem-client-api/api-reference/models/error/index.md
+                  - explore:
+                      - develop/cmem-client-api/api-reference/models/explore/index.md
                   - graph:
                       - develop/cmem-client-api/api-reference/models/graph/index.md
                   - graph_import:
@@ -825,10 +841,14 @@ nav:
                       - develop/cmem-client-api/api-reference/models/keycloak_client/index.md
                   - logging_config:
                       - develop/cmem-client-api/api-reference/models/logging_config/index.md
+                  - logs:
+                      - develop/cmem-client-api/api-reference/models/logs/index.md
                   - marshalling_plugins:
                       - develop/cmem-client-api/api-reference/models/marshalling_plugins/index.md
                   - package:
                       - develop/cmem-client-api/api-reference/models/package/index.md
+                  - paged_list:
+                      - develop/cmem-client-api/api-reference/models/paged_list/index.md
                   - project:
                       - develop/cmem-client-api/api-reference/models/project/index.md
                   - python_install:
@@ -839,6 +859,8 @@ nav:
                       - develop/cmem-client-api/api-reference/models/query_catalog/index.md
                   - resource:
                       - develop/cmem-client-api/api-reference/models/resource/index.md
+                  - rule_block:
+                      - develop/cmem-client-api/api-reference/models/rule_block/index.md
                   - scheduler:
                       - develop/cmem-client-api/api-reference/models/scheduler/index.md
                   - status:
@@ -876,8 +898,8 @@ nav:
                       - develop/cmem-client-api/api-reference/repositories/files/index.md
                   - graph_imports:
                       - develop/cmem-client-api/api-reference/repositories/graph_imports/index.md
-                  - graph_insights:
-                      - develop/cmem-client-api/api-reference/repositories/graph_insights/index.md
+                  - graph_snapshots:
+                      - develop/cmem-client-api/api-reference/repositories/graph_snapshots/index.md
                   - graphs:
                       - develop/cmem-client-api/api-reference/repositories/graphs/index.md
                   - marketplace_packages:
@@ -888,6 +910,8 @@ nav:
                       - develop/cmem-client-api/api-reference/repositories/python_packages/index.md
                   - queries:
                       - develop/cmem-client-api/api-reference/repositories/queries/index.md
+                  - rule_blocks:
+                      - develop/cmem-client-api/api-reference/repositories/rule_blocks/index.md
                   - schedulers:
                       - develop/cmem-client-api/api-reference/repositories/schedulers/index.md
                   - user_accounts:

@@ -25,6 +25,7 @@ project data exchanged with the DataIntegration API.
 
 - [**FailedTasksReport**](#cmem_client.models.project.FailedTasksReport) – The failed tasks report
 - [**Project**](#cmem_client.models.project.Project) – A Build (DataIntegration) Project
+- [**ProjectImportStatus**](#cmem_client.models.project.ProjectImportStatus) – Response of the project import status endpoint.
 - [**ProjectMetaData**](#cmem_client.models.project.ProjectMetaData) – Project Meta Data
 
 **Functions:**
@@ -144,6 +145,44 @@ Set the label to the name if needed
 
 ```python
 name: str
+```
+
+## `ProjectImportStatus` {#cmem_client.models.project.ProjectImportStatus}
+
+Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>
+
+Response of the project import status endpoint.
+
+**Attributes:**
+
+- [**project_id**](#cmem_client.models.project.ProjectImportStatus.project_id) (<code>str</code>) – Identifier of the imported project, sent as ``projectId``.
+- [**success**](#cmem_client.models.project.ProjectImportStatus.success) (<code>bool | None</code>) – Whether the import finished successfully. None while the import is still
+running, which is what ``import_item()`` polls on.
+- [**failure_message**](#cmem_client.models.project.ProjectImportStatus.failure_message) (<code>str | None</code>) – Reason the import failed, sent as ``failureMessage``. Only set when
+the import failed.
+
+### `failure_message` {#cmem_client.models.project.ProjectImportStatus.failure_message}
+
+```python
+failure_message: str | None = Field(alias='failureMessage', default=None)
+```
+
+### `model_config` {#cmem_client.models.project.ProjectImportStatus.model_config}
+
+```python
+model_config = ConfigDict(extra='allow', populate_by_name=True)
+```
+
+### `project_id` {#cmem_client.models.project.ProjectImportStatus.project_id}
+
+```python
+project_id: str = Field(alias='projectId')
+```
+
+### `success` {#cmem_client.models.project.ProjectImportStatus.success}
+
+```python
+success: bool | None = None
 ```
 
 ## `ProjectMetaData` {#cmem_client.models.project.ProjectMetaData}
