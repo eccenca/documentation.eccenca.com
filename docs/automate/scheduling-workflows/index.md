@@ -28,7 +28,7 @@ For a time-based execution of a workflow, Corporate Memory provides the Schedule
 
 Once you are ready with the configurations, click **Create** button. Now, the scheduler will be executed with the given settings.
 
-![Create a Scheduler](22-1-CreateScheduler.gif "Create a Scheduler")
+<video src="create-scheduler.webm" poster="create-scheduler.png" title="Creating a scheduler for the workflow Process Replay JSON in the Create new item of type Scheduler dialog" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 ## Modify, enable or disable a scheduler
 

@@ -14,7 +14,7 @@ In case you are using bash or zsh as your terminal shell, you should enable [Com
 Tab completion is a powerful feature and will save you a lot of typing work.
 Furthermore, it will help you to learn the different commands, parameters and options and will auto-complete parameter values taken live from your Corporate Memory instance (such as graph IRIs, project IDs, etc.).
 
-![cmemc - Create Dataset](22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
+<video src="cmemc-create-dataset.webm" poster="cmemc-create-dataset.png" title="Creating a project and a dataset with cmemc, using tab completion for commands, file names and dataset IDs" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 We suggest using [zsh](https://en.wikipedia.org/wiki/Z_shell) so you can take advantage of its advanced menu-completion feature.
 
