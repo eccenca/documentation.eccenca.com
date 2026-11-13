@@ -7,7 +7,7 @@ In this tutorial, we are using the Splunk app "Investigate lateral movements wit
 In the demo of this Splunk app via the video 1, the user selects the data about one investigation via Splunk and generate a bash script to export these data via the Splunk API in tempory graphs in eccenca Corporate Memory for each investigation.
 
 <figure markdown="span">
-![Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"](splunk-app-demo-poc-app.gif)
+<video src="splunk-app-demo-poc-app.webm" poster="splunk-app-demo-poc-app.png" title="Video 1: Splunk dashboards of the Splunk app Investigate lateral movements with a knowledge graph" controls loop muted playsinline preload="metadata"></video>
 <figcaption>Video 1: Splunk dashboards of the Splunk app "Investigate lateral movements with a knowledge graph"</figcaption>
 </figure>
 

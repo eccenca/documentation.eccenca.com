@@ -16,6 +16,7 @@ from tools.build_pdf import (
     pair_tabs,
     resolve_images,
     settle_internal_links,
+    video_posters_to_images,
 )
 
 
@@ -199,3 +200,18 @@ def test_edition_reads_copyright_as_plain_text():
     assert values["subtitle"] == "Version 26.2"
     assert values["generated"] == "2026-09-14"
     assert values["commit"] == "31b5663"
+
+
+def test_video_with_poster_prints_as_its_still_and_without_one_stays_media():
+    doc = soup(
+        '<video src="/a/clip.webm" poster="/a/clip.png" title="Creating a scheduler" class="bordered" controls></video>'
+        '<video src="/a/other.webm"></video>'
+    )
+    stats = Counter()
+    video_posters_to_images(doc, stats)
+    img = doc.find("img")
+    assert img["src"] == "/a/clip.png"
+    assert img["alt"] == "Creating a scheduler"
+    assert img["class"] == ["bordered"]
+    assert [v["src"] for v in doc.find_all("video")] == ["/a/other.webm"]
+    assert stats["video posters"] == 1

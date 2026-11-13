@@ -149,6 +149,35 @@ Do not write `index.html` stubs under `docs/`.
 for img in <dir>/*.png; do grep -q "$(basename "$img")" <dir>/*.md || echo "orphan: $img"; done
 ```
 
+## Screen recordings
+
+A screen recording is a WebM (VP9) video next to the page, never an animated GIF and never an upload to a video
+platform.
+
+```html
+<video src="create-scheduler.webm" poster="create-scheduler.png" title="Creating a scheduler for the workflow Process Replay JSON in the Create new item of type Scheduler dialog" class="bordered" controls loop muted playsinline preload="metadata"></video>
+```
+
+- No `autoplay`: the reader starts the video. `controls loop muted playsinline preload="metadata"` on every video.
+- `title` takes the role of the alt text and follows the same rule (style guide 5.6).
+- `poster` is a still of the recording that shows its result, without keystroke overlays. The print edition prints
+  the poster in place of the video, with the `title` as alt text; a video without a poster prints as a link.
+- Same file names as images (5.5): `create-scheduler.webm` and `create-scheduler.png`.
+- Convert a GIF or a screen capture with:
+
+```bash
+ffmpeg -i in.gif -vf "scale='trunc(min(1440,iw)/2)*2':-2:flags=lanczos,scale=out_color_matrix=bt709:out_range=tv,format=yuv420p" \
+  -c:v libvpx-vp9 -crf 36 -b:v 0 -row-mt 1 \
+  -colorspace bt709 -color_primaries bt709 -color_trc bt709 -color_range tv -an out.webm
+ffmpeg -ss <seconds> -i in.gif -frames:v 1 -vf "scale='min(1440,iw)':-2:flags=lanczos" out.png
+```
+
+  Without the BT.709 options, white turns a visible light grey.
+  Video and poster are capped at 1440 pixels across: the content column shows a video about 690 CSS pixels wide,
+  so 1440 still covers a 2x display, and a 2x capture shrinks to about a third (22 MB GIF, 2.7 MB at 2870 pixels,
+  0.87 MB at 1436). A narrower recording keeps its width — scaling it down would make it soft.
+  Two-pass encoding does not make the file smaller; a higher `-crf` or a lower frame rate does, at a visible cost.
+
 ## Icons
 
 - Icon shortcode = file name in `overrides/.icons/eccenca/` without the extension: `application-explore.svg` -> `:eccenca-application-explore:`.

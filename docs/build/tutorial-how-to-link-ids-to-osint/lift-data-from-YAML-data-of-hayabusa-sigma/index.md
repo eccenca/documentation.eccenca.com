@@ -99,7 +99,7 @@ This new transformer are building the following RDF model for your use case:
 
 3. Create a JSON dataset "Rule example (JSON)" in Corporate Memory with one example of rule:
 
-    ![](23-1-add-json-dataset.gif)
+    <video src="add-json-dataset.webm" poster="add-json-dataset.png" title="Creating the JSON dataset Rule example (JSON) by uploading one rule file" controls loop muted playsinline preload="metadata"></video>
 
 4. Create the prefix of your vocabulary:
 
@@ -107,7 +107,7 @@ This new transformer are building the following RDF model for your use case:
     prefix ctis: <https://github.com/SigmaHQ/sigma-specification/blob/main/Sigma_specification.md#>
     ```
 
-    ![](23-1-add-prefix-ctis.gif)
+    <video src="add-prefix-ctis.webm" poster="add-prefix-ctis.png" title="Adding the prefix ctis in the Manage Prefixes dialog of the project" controls loop muted playsinline preload="metadata"></video>
 
 5. Create the transformer for "SIGMA Hayabusa rule" to build this RDF model.
 
@@ -157,11 +157,11 @@ This new transformer are building the following RDF model for your use case:
 
     ![](23-1-workflow-allow-replacement.png){ width="65%" }
 
-    ![](23-1-add-worflow.gif)
+    <video src="add-workflow.webm" poster="add-workflow.png" title="Creating the workflow Import rules, linking the JSON dataset through the transformation to the knowledge graph, allowing the replacement of the JSON dataset and executing it" controls loop muted playsinline preload="metadata"></video>
 
 7. Copy the workflow ID
 
-    ![](23-1-id-worflow.gif)
+    <video src="id-workflow.webm" poster="id-workflow.png" title="Copying the combined project and task identifier of the workflow Import rules with Show identifier" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
 

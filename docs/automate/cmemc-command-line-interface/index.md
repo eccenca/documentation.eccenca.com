@@ -56,7 +56,7 @@ tags:
     ---
 
     <figure markdown>
-      ![cmemc - Create Dataset](configuration/completion-setup/22.1-cmemc-create-dataset.gif "cmemc - Create Dataset")
+      <video src="configuration/completion-setup/cmemc-create-dataset.webm" poster="configuration/completion-setup/cmemc-create-dataset.png" title="Creating a project and a dataset with cmemc, using tab completion for commands, file names and dataset IDs" class="bordered" controls loop muted playsinline preload="metadata"></video>
       <figcaption>Create Build Project and Dataset</figcaption>
     </figure>
 
