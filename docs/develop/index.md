@@ -1,5 +1,7 @@
 ---
 icon: material/star-outline
+hide:
+  - toc
 ---
 # Develop
 

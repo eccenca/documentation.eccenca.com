@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 170" width="760" height="170" font-family="Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="26" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f39200"/>
+    </marker>
+  </defs>
+  <rect width="760" height="170" fill="#ffffff"/>
+  <g stroke="#f5b14f" stroke-width="2.5" marker-end="url(#arrow)">
+    <line x1="110" y1="80" x2="380" y2="80"/>
+    <line x1="380" y1="80" x2="650" y2="80"/>
+  </g>
+  <g font-size="14" fill="#f39200" text-anchor="middle">
+    <text x="245" y="68">is made at</text>
+    <text x="515" y="68">is supplied by</text>
+  </g>
+  <g fill="#f39200">
+    <circle cx="110" cy="80" r="14"/>
+    <circle cx="380" cy="80" r="14"/>
+    <circle cx="650" cy="80" r="14"/>
+  </g>
+  <g font-size="15" font-weight="500" fill="#333333" text-anchor="middle">
+    <text x="110" y="122">Product 10045</text>
+    <text x="380" y="122">Plant Leipzig</text>
+    <text x="650" y="122">Kessler GmbH</text>
+  </g>
+</svg>
