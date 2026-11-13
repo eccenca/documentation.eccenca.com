@@ -54,7 +54,7 @@ Create a new project, reproduce the demonstration in the following video:
 
 * Description: MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.
 
-![](23-1-create-project.gif)
+<video src="create-project.webm" poster="create-project.png" title="Creating the project MITRE ATT&amp;CK® with its description" controls loop muted playsinline preload="metadata"></video>
 
 ### Import datasets
 
@@ -68,7 +68,7 @@ Each domain dataset is saved in GitHub:
 
 1. Download these 3 files
 2. Create for each JSON file, a JSON dataset:
-    ![](23-1-import-JSON.gif)
+    <video src="import-json.webm" poster="import-json.png" title="Creating the JSON dataset MA Entreprise (JSON) by uploading the file enterprise-attack.json" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -113,7 +113,7 @@ Create one RDF dataset for each Mitre dataset:
 3. Put a URI of named graph
 4. Enable "Clear graph before workflow execution"
 
-    ![](23-1-create-RDF-dataset.gif)
+    <video src="create-rdf-dataset.webm" poster="create-rdf-dataset.png" title="Creating the Knowledge Graph dataset MA Entreprise (knowledge graph) with its graph URI and Clear graph before workflow execution enabled" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
 
@@ -162,7 +162,7 @@ Create one RDF dataset for each Mitre dataset:
     prefix ctia: <https://github.com/mitre/cti/blob/master/USAGE.md#>
     ```
 
-    ![](23-1-create-prefix.gif)
+    <video src="create-prefix.webm" poster="create-prefix.png" title="Adding the prefix ctia in the Manage Prefixes dialog of the project" controls loop muted playsinline preload="metadata"></video>
 
 2. Create the (Mitre) STIX 2.1 transformer
 
@@ -172,7 +172,7 @@ Create one RDF dataset for each Mitre dataset:
     * Input: MA Entreprise (JSON)
     * Output: MA Entreprise (knowledge graph)
 
-    ![](23-1-create-transformer.gif)
+    <video src="create-transformer.webm" poster="create-transformer.png" title="Creating the transformation STIX 2.1 transformer with MA Entreprise (JSON) as input and MA Entreprise (knowledge graph) as output" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -224,7 +224,7 @@ Create one RDF dataset for each Mitre dataset:
     * RDF type: ctia:Object
     * IRI pattern: <https://github.com/mitre-attack/attack-stix-data#{id}>
 
-    ![](23-1-extract-root-object.gif)
+    <video src="extract-root-object.webm" poster="extract-root-object.png" title="Setting the target type ctia:Object and a custom URI pattern for the root mapping, then checking the result in the transform evaluation" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -248,7 +248,7 @@ Create one RDF dataset for each Mitre dataset:
     * RDF type: ctia:Object
     * IRI pattern: <https://github.com/mitre-attack/attack-stix-data#{id}>
 
-    ![](23-1-extract-objects.gif)
+    <video src="extract-objects.webm" poster="extract-objects.png" title="Adding the object mapping ctia:object for the value path objects with the type ctia:Object and its URI pattern" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -274,7 +274,7 @@ Create one RDF dataset for each Mitre dataset:
     * value path: description
     * RDF type: String
 
-    ![](23-1-extract-properties.gif)
+    <video src="extract-properties.webm" poster="extract-properties.png" title="Adding the value mappings for label, description and type of the STIX objects and checking them in the transform evaluation" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -292,7 +292,7 @@ Create one RDF dataset for each Mitre dataset:
     * Regex:  `\[([^\[\]]*)\]\(([^\(\)]*)\)`
     * Replace: `<a href='$2' target='blank'>$1</a>`
 
-    ![](23-1-regex-replace.gif)
+    <video src="regex-replace.webm" poster="regex-replace.png" title="Adding a Regex replace operator to the description mapping that turns Markdown links into HTML links" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
         In the "value formula editor", you can immediatly check the result of your formula.
@@ -320,7 +320,7 @@ Create one RDF dataset for each Mitre dataset:
     * ctia:url
     * ctia:external_id
 
-    ![](23-1-extract-references.gif)
+    <video src="extract-references.webm" poster="extract-references.png" title="Adding the object mapping ctia:external_references with its value mappings and executing the transformation" controls loop muted playsinline preload="metadata"></video>
 
     !!! Tip
 
@@ -382,7 +382,7 @@ Create one RDF dataset for each Mitre dataset:
         GROUP BY ?title ?description
         ```
 
-        ![](23-1-sparql-query.gif)
+        <video src="sparql-query.webm" poster="sparql-query.png" title="Writing and running the SPARQL query step by step in the query editor until it returns the titles, descriptions and references" controls loop muted playsinline preload="metadata"></video>
 
 9. During the building of interfaces, we saw the same MITRE ID of IoC rules is used by the concepts of tactic, mitigation, technique,... In the final interface, we will print properly the label of each concept for the same Mitre ID, like "Technique TXX" or "Mitigation TXX".
 
@@ -418,7 +418,7 @@ You have now a STIX transformer. We are building here a workflow to apply this t
 6. Execute the workflow to test it
 7. Save it
 
-    ![](23-1-create-workflow.gif)
+    <video src="create-workflow.webm" poster="create-workflow.png" title="Creating the workflow MITRE ATT&amp;CK® workflow that links each JSON dataset through the STIX 2.1 transformer to its knowledge graph, and executing it" controls loop muted playsinline preload="metadata"></video>
 
 8. Do the same operations for the two other datasets.
 
@@ -490,7 +490,7 @@ We are showing the "SPARQL tasks", another important feature available in Corpor
 
 3. In the same workflow add one SPARQL task for each RDF datasets and in output add the RDF dataset "MITRE ATT&CK®". Execute it and save it.
 
-    ![](23-1-sparql-task.gif)
+    <video src="sparql-task.webm" poster="sparql-task.png" title="Creating the knowledge graph MITRE ATT&amp;CK® (knowledge graph) and the SPARQL Update task Import graph, adding them to the workflow and executing it" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
 
@@ -548,7 +548,7 @@ GROUP BY ?title ?description
 
 !!! Success
 
-    ![](23-1-sparql-all_datasets.gif)
+    <video src="sparql-all-datasets.webm" poster="sparql-all-datasets.png" title="Running the SPARQL query against the graph https://attack.mitre.org that imports all three datasets" controls loop muted playsinline preload="metadata"></video>
 
 ### Create the Void description
 
@@ -600,7 +600,7 @@ Here, we are creating a new SPARQL Update task to calculate and insert automatic
 
         This query uses the variable `$outputProperties.uri("graph")` (Jinja template). If the name of graph changes, the code of the query stays stable in your workflow.
 
-    ![](23-1-sparql-void.gif)
+    <video src="sparql-void.webm" poster="sparql-void.png" title="Creating the SPARQL Update task Create VoiD, adding it to the workflow and checking the VoID statistics of the graph" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
 
@@ -668,7 +668,7 @@ The datasets of Mitre are updated regularly. You may want to update them automat
 
 4. You need to know the IDs of your JSON datasets IDs and your workflow ID to implement the command lines with `cmemc`.
 
-    ![](23-1-collect_IDs.gif)
+    <video src="collect-ids.webm" poster="collect-ids.png" title="Copying the identifiers of the JSON datasets with Show identifier in the context menu" controls loop muted playsinline preload="metadata"></video>
 
     For example in my demo the JSON datasets and the workflow have these IDs:
 
@@ -759,7 +759,7 @@ After this tutorial, you want probably to navigate in your new knowledge graph b
     !!! Success
 
         You can now navigate in your first knowledge graph:
-        ![](23-1-ex-graph-navigation.gif)
+        <video src="explore-graph-navigation.webm" poster="explore-graph-navigation.png" title="Searching the knowledge graph for Rootkit and expanding its connection mitigates in the graph view" controls loop muted playsinline preload="metadata"></video>
 
 ### Reconcile automatically the STIX concepts via the Linking tasks
 

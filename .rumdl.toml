@@ -10,7 +10,7 @@ ul-multi = 1
 ul-single = 1
 
 [MD033]
-allowed-elements = ["a", "br", "cite", "details", "div", "figcaption", "figure", "iframe", "img", "key", "name", "p", "param", "span", "summary", "connection", "tool", "code"]
+allowed-elements = ["a", "br", "cite", "details", "div", "figcaption", "figure", "iframe", "img", "key", "name", "p", "param", "span", "summary", "connection", "tool", "code", "video"]
 
 [MD061]
 terms = [

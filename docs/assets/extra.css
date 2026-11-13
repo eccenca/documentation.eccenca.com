@@ -226,9 +226,16 @@ svg.icon {
   mask-image: var(--md-admonition-icon--task);
 }
 
-img.bordered {
+img.bordered, video.bordered {
     border: 1px solid #555;
     border-radius: 5px
+}
+
+/* Screen recordings embedded with <video> scale to the column like images */
+.md-typeset video {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /* 2024-02-19: Update lists to be more concise */

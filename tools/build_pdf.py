@@ -641,10 +641,11 @@ def resolve_links(
         else:
             a["href"] = urllib.parse.urljoin(public_base, absolute.lstrip("/"))
 
-    for el in section.find_all(src=True):
-        src = el["src"]
-        if src and not src.startswith(("http://", "https://", "data:", "/")):
-            el["src"] = urllib.parse.urljoin(base_url, src)
+    for attr in ("src", "poster"):
+        for el in section.find_all(attrs={attr: True}):
+            src = el[attr]
+            if src and not src.startswith(("http://", "https://", "data:", "/")):
+                el[attr] = urllib.parse.urljoin(base_url, src)
 
 
 def demote_headings(section, depth: int) -> None:
@@ -1384,6 +1385,22 @@ def resolve_images(
         stats["images"] += 1
 
 
+def video_posters_to_images(doc: BeautifulSoup, stats: Counter) -> None:
+    """A video with a poster prints as that still, the way a GIF printed its frame.
+
+    The poster becomes an <img> with the video's title as alt text and its
+    classes and width, so resolve_images embeds it like any screenshot. A
+    video without a poster is left to embedded_media_to_links.
+    """
+    for video in doc.find_all("video", poster=True):
+        attrs = {"src": video["poster"], "alt": video.get("title", "").strip()}
+        for attr in ("class", "width"):
+            if video.get(attr):
+                attrs[attr] = video[attr]
+        video.replace_with(doc.new_tag("img", attrs=attrs))
+        stats["video posters"] += 1
+
+
 def embedded_media_to_links(doc: BeautifulSoup, stats: Counter) -> None:
     """Videos and iframes cannot play on paper; their address can be followed.
 
@@ -1647,6 +1664,7 @@ def normalize(
     pair_tabs(doc, stats)
     mark_cards(doc, stats)
     inline_icons(doc, stats)
+    video_posters_to_images(doc, stats)
     resolve_images(doc, site_dir, stats, warnings, print_images, low_resolution)
     embedded_media_to_links(doc, stats)
     settle_internal_links(doc, stats)
