@@ -7,7 +7,7 @@ tags:
 # eccenca Corporate Memory 26.3.0
 
 eccenca Corporate Memory 26.3 is the third major release in 2026.
-It introduces a change journal that records, reviews and reverts every change to a Build project, adds sensitive variables, resolves version constraints between Marketplace packages and reports their update status, and opens the in-memory logs of the backends to administrators in Explore and cmemc.
+It introduces a change journal that records, reviews and reverts every change to a Build project, adds sensitive variables, resolves version constraints between Marketplace packages and reports their update status, adds a management module for the agents of Companion, and opens the in-memory logs of the backends to administrators in Explore and cmemc.
 
 The highlights of this release are:
 
@@ -28,6 +28,13 @@ The highlights of this release are:
     - [Marketplace](../../../distribution/marketplace/index.md) packages declare version constraints on their dependencies, which every installation path honors.
         The new **Installed** tab of **Packages** reports where each installed package came from, whether it was installed directly or as a dependency, and whether an update is available, and **Upgrade all** installs the available updates.
         Project packages can ship Explore application views.
+
+- Explore: **Companion Management**
+    ![26.3: Explore - Companion Management](26-3-explore-companion-management.png "26.3: Explore - Companion Management"){ class="bordered" width="20%" align=right }
+    - The new **Companion management** module configures [Companion](../../../explore-and-author/companion/index.md) in the user interface.
+        In the **Catalog** tab, administrators edit the agents, skills and named models of Companion, which are kept in a catalog graph.
+        The **Agent network** tab shows how a request travels from an application view through routing, interactive and task agents back to the user.
+        **Tools** lists the tools an agent can call, and **History** searches, exports, backs up and restores the conversations of all users.
 
 - Explore and cmemc: **Log Retrieval**
     ![26.3: Explore - Logs](26-3-explore-logs.png "26.3: Explore - Logs"){ class="bordered" width="20%" align=right }
