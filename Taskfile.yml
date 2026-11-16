@@ -10,7 +10,7 @@ vars:
   # Throwaway branch used by public:preview. Never pushed, recreated on every
   # run and deleted again when the preview server stops.
   PREVIEW_BRANCH: publish-preview
-  CURRENT_VERSION: 26.2
+  CURRENT_VERSION: 26.3
   # the markdown linter command, used by format:fix:path and check:rumdl
   RUMDL_CHECK: poetry run rumdl --config .rumdl.toml check
   # rules that are reported but never fail the check stage (check:rumdl:cosmetic):

@@ -954,6 +954,8 @@ nav:
           - develop/dataplatform-apis/index.md
   - Release Notes:
       - '2026':
+          - v26.3.0:
+              - release-notes/2026/corporate-memory-26-3/index.md
           - v26.2.3:
               - release-notes/2026/corporate-memory-26-2/index.md
           - v26.1.3:
