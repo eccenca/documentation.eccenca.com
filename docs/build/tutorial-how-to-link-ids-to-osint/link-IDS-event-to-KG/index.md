@@ -7,7 +7,7 @@ In this tutorial, we are using the Linked Data App for Splunk. This app contains
 In the demo of this app in the video 1, the user selects the indexes of his investigation and select an alert message to open its sources on the Web before searching manually via the Splunk interfaces. Splunk, automatically, refreshes the SPARQL queries in the dashboard after each interaction of user.
 
 <figure markdown="span">
-![Video 1: Splunk dashboards of the Linked Data App](splunk-app-demo-LD-app.gif)
+<video src="splunk-app-demo-ld-app.webm" poster="splunk-app-demo-ld-app.png" title="Video 1: Splunk dashboards of the Linked Data App" controls loop muted playsinline preload="metadata"></video>
 <figcaption>Video 1: Splunk dashboards of the Linked Data App</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ The "Linked Data App" extends Splunk Search Processing Language (SPL) to support
 1. Upload the app in Splunk (see video 2)
 
 <figure markdown="span">
-![Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk](splunk-app-install.gif)
+<video src="splunk-app-install.webm" poster="splunk-app-install.png" title="Video 2: Uploading the tar.gz of the Linked Data App in Splunk" controls loop muted playsinline preload="metadata"></video>
 <figcaption>Video 2: When the tar.gz of the "Linked Data App", you can upload it manually directly in Splunk</figcaption>
 </figure>
 

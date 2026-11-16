@@ -8,7 +8,7 @@ Corporate Memory 23.2.1 is the first patch release in the 23.2 release line.
 
 ![23.2: Build - Project Variables](23-2-build-project-variables.png "23.2: Build - Project Variables"){ class="bordered" }
 ![23.2: Explore - Easynav Graph Selection](23-2-easynav-graph-select.png "23.2: Explore - Easynav Graph Selection"){ class="bordered" }
-![23.2: Explore - Easynav Node Autolayout](23-2-easynav-autolayout.gif "23.2: Explore - Easynav Node Autolayout"){ class="bordered" }
+<video src="easynav-autolayout.webm" poster="easynav-autolayout.png" title="23.2: Explore - Easynav Node Autolayout" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 The highlights of this release are:
 

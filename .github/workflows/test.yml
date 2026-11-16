@@ -89,7 +89,18 @@ jobs:
         if: always()
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
+          check_name: "Markdown lint"
           files: "dist/md-lint-issues.xml"
+
+      # MD061/MD044 (wording, proper names): reported, but the check run stays green
+      - name: Publish cosmetic lint results
+        if: always()
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          check_name: "Markdown lint (cosmetic)"
+          files: "dist/md-lint-cosmetic-issues.xml"
+          fail_on: "nothing"
+          comment_mode: "off"
 
       - name: build
         run: task clean build

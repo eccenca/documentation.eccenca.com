@@ -28,7 +28,7 @@ You can open the **Charts module** from the main menu on the left.
 You will see a list of existing charts or that **Your charts catalog is empty**.
 Here you can create a new chart or edit an existing one.
 
-![](23-03-ChartCreation.gif){ class="bordered" }
+<video src="create-chart.webm" poster="create-chart.png" title="Creating the chart My Chart: selecting a query, configuring a bar chart in the assisted form, refining it in the advanced form and saving it to the charts catalog" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 After selecting **Create Chart** or an existing Chart, you will see the Chart Editor, which is divided into four components:
 

@@ -11,7 +11,7 @@ hide:
 
     ![Your are here](overview-cmem.drawio.svg "You are here")
 
-Thank you for registering your eccenca Corporate Memory Sandbox! We're excited to have you on board and look forward to showing you how Corporate Memory can help you with your data management needs. We hope that you find this experience valuable and informative. If you have any questions or feedback, please don't hesitate to reach out to us. Thanks again for joining us!
+Thank you for registering your eccenca Corporate Memory Sandbox! We are excited to have you on board and look forward to showing you how Corporate Memory can help you with your data management needs. We hope that you find this experience valuable and informative. If you have any questions or feedback, do not hesitate to reach out to us. Thank you again for joining us!
 
 eccenca's Corporate Memory is a platform for creating and managing Enterprise Knowledge Graphs. It has three main stages: _Build_, _Explore_, and _Consume_. In the _Build_ stage, you can convert legacy data points from existing datasets into a Knowledge Graph structure. The _Explore_ stage allows you to interact with your Knowledge Graph, while the _Consume_ stage is used to retrieve information from the graph and integrate it programmatically with your IT infrastructure.
 

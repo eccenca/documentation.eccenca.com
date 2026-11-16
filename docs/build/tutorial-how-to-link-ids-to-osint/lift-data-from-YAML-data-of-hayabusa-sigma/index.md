@@ -11,7 +11,7 @@ Here, we are working with the Hayabusa/Sigma rules available via GitHub:
 - [https://github.com/Yamato-Security/hayabusa-rules](https://github.com/Yamato-Security/hayabusa-rules)
 - [https://github.com/SigmaHQ/sigma](https://github.com/Yamato-Security/hayabusa-rules)
 
-The problem of interoperability, here, is the YAML format of files, their random position in their folders in their Github projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In eccenca Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
+The problem of interoperability, here, is the YAML format of files, their random position in their folders in their GitHub projets. Moreover, the same rule can exist in different projects but in this tutorial, we will not fix this problem and we consider the  IRI rule is their Web address. In eccenca Corporate Memory, we would fix that with the Linked Tool, we will study this tool in a next part of this tutorial.
 
 To build this knowledge graph of rules, we need to:
 
@@ -24,7 +24,7 @@ To build this knowledge graph of rules, we need to:
 
 The YAML syntax is used to define each rule and there is one file by rule.
 
-Corporate Memory doesn't support YAML (for the moment) but you can convert the files in JSON with this bash where you need to install git and [yq](https://github.com/mikefarah/yq).
+Corporate Memory does not support YAML (for the moment) but you can convert the files in JSON with this bash where you need to install git and [yq](https://github.com/mikefarah/yq).
 
 Moreover, we use yq to add the field `rulePath` in each file with their paths in their repositories to have the possibility to rebuild their positions on the Web and so allowing the analyst to click directly on this link to read the details and may be, modify this rule.
 
@@ -99,7 +99,7 @@ This new transformer are building the following RDF model for your use case:
 
 3. Create a JSON dataset "Rule example (JSON)" in Corporate Memory with one example of rule:
 
-    ![](23-1-add-json-dataset.gif)
+    <video src="add-json-dataset.webm" poster="add-json-dataset.png" title="Creating the JSON dataset Rule example (JSON) by uploading one rule file" controls loop muted playsinline preload="metadata"></video>
 
 4. Create the prefix of your vocabulary:
 
@@ -107,7 +107,7 @@ This new transformer are building the following RDF model for your use case:
     prefix ctis: <https://github.com/SigmaHQ/sigma-specification/blob/main/Sigma_specification.md#>
     ```
 
-    ![](23-1-add-prefix-ctis.gif)
+    <video src="add-prefix-ctis.webm" poster="add-prefix-ctis.png" title="Adding the prefix ctis in the Manage Prefixes dialog of the project" controls loop muted playsinline preload="metadata"></video>
 
 5. Create the transformer for "SIGMA Hayabusa rule" to build this RDF model.
 
@@ -153,15 +153,15 @@ This new transformer are building the following RDF model for your use case:
 
     ![](23-1-success-workflow.png)
 
-    And don't forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
+    And do not forget to allow the replacement of JSON dataset because it allows to replace this specific JSON by all other rules during the execution of this worflow.
 
     ![](23-1-workflow-allow-replacement.png){ width="65%" }
 
-    ![](23-1-add-worflow.gif)
+    <video src="add-workflow.webm" poster="add-workflow.png" title="Creating the workflow Import rules, linking the JSON dataset through the transformation to the knowledge graph, allowing the replacement of the JSON dataset and executing it" controls loop muted playsinline preload="metadata"></video>
 
 7. Copy the workflow ID
 
-    ![](23-1-id-worflow.gif)
+    <video src="id-workflow.webm" poster="id-workflow.png" title="Copying the combined project and task identifier of the workflow Import rules with Show identifier" controls loop muted playsinline preload="metadata"></video>
 
     !!! Success
 

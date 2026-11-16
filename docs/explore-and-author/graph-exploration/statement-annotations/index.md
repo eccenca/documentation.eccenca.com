@@ -43,28 +43,28 @@ In order to have a working Statement Annotation setup, the following steps need 
     Open the graph selection and create a new graph :material-plus-circle-outline:.
     Choose **New Statement Annotation Graph** and provide the needed meta data.
 
-    ![](23-03-CreateAnnotationGraph.gif){ class="bordered" }
+    <video src="create-annotation-graph.webm" poster="create-annotation-graph.png" title="Creating the statement annotation graph My Annotations with the New Statement Annotation Graph option of the graph selection" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 ??? note "2. Setup and import the Statement Annotation Graph in your data graph"
 
     Open the graph selection and switch to your data graph where the resources exist which you want to annotate.
     :material-pencil-circle-outline: Edit the graph description and :material-plus-circle-outline: add the property **Statement Annotation Graph** as well as **Imports**, where your select your newly created annotation graph in both fields.
 
-    ![](23-03-ImportSelectAnnotationGraph.gif){ class="bordered" }
+    <video src="import-select-annotation-graph.webm" poster="import-select-annotation-graph.png" title="Selecting My Annotations as Statement Annotation Graph and as import in the graph description of the data graph My Data" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 ??? note "3. Create a shape which will be used to annotate statements"
 
     Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
     Create a node shape which can be used as an Annotation and configure **Provide as Shape** in the Group **Statement Annotation** to true for this node shape.
 
-    ![](23-03-CreateAnnotationShape.gif){ class="bordered" }
+    <video src="create-annotation-shape.webm" poster="create-annotation-shape.png" title="Creating the node shape My Annotation in the Shape Catalog and setting Provide as Shape to true" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 ??? note "4. Allow statement annotations for specific Classes or Properties"
 
     Open the graph selection and switch to your Shape Catalog where your project shapes are managed.
     Select the Node or Property Shape from your Shape Catalog and enable annotations by setting the Enable option in the Statement Annotations group to true.
 
-    ![](23-03-EnableAnnotationsOnData.gif){ class="bordered" }
+    <video src="enable-annotations-on-data.webm" poster="enable-annotations-on-data.png" title="Setting Enable to true in the Statement Annotation group of the node shape Person" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
     This will enable the feature on the statements of all resources shown with this Node Shape or on all statements shown with this Property Shape.
 

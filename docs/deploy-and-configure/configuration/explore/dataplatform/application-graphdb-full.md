@@ -5,6 +5,8 @@ tags:
 
 ## Configuration for connecting to GraphDB backend
 
+<!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
+
 Configuration example:
 
 This example configures a connection with HTTPS to a remote graphdb store (<https://remote:7200>) using the workbench import directory
