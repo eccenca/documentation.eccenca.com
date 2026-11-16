@@ -211,3 +211,6 @@ Choosing one of these roles is not required at this point.
 - [What is a knowledge graph?](introduction/what-is-a-knowledge-graph/index.md): the concept, 5 minutes, on the main path
 - [Semantic Web basics](introduction/semantic-web-basics/index.md): optional, the terminology, about 35 minutes
 - [eccenca Corporate Memory at a glance](introduction/corporate-memory-at-a-glance/index.md): the parts of the product and how they relate
+
+Lost at any point?
+[How to use this documentation](introduction/how-to-use-this-documentation/index.md) explains how the documentation is organized.
