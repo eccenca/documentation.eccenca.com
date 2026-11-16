@@ -210,6 +210,20 @@ accounts in the Corporate Memory Keycloak realm.
 ...     print(client_account.client_id)
 ```
 
+### `companion` {#cmem_client.client.Client.companion}
+
+```python
+companion: Companion
+```
+
+Get the Companion component.
+
+Backs up and restores the conversation history of the Companion.
+
+**Returns:**
+
+- <code>Companion</code> – The Companion component instance, created lazily on first access.
+
 ### `config` {#cmem_client.client.Client.config}
 
 ```python

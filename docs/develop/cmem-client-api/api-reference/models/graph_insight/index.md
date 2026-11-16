@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.graph_insight module"
-description: "Graph Insight models for Corporate Memory."
+description: "Graph Insight models for eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Graph Insight models for Corporate Memory.
+Graph Insight models for eccenca Corporate Memory.
 
 Graph Insight is the semspect extension, which keeps its own indexed snapshot of the
 graphs it explores. The snapshots are the items of ``client.graph_snapshots``, keyed by

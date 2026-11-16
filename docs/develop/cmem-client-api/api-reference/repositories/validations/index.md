@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.validations module"
-description: "Repository for the SHACL validation batches of Corporate Memory."
+description: "Repository for the SHACL validation batches of eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for the SHACL validation batches of Corporate Memory.
+Repository for the SHACL validation batches of eccenca Corporate Memory.
 
 Provides ValidationsRepository for starting a validation of a context graph against a
 shape graph, for polling the batches which are running or finished, and for reading

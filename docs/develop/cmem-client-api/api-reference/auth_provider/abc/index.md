@@ -37,7 +37,7 @@ Bases: <code>ABC</code>
 Abstract base class for authentication providers.
 
 AuthProvider defines the common interface that all authentication providers
-must implement to work with the Corporate Memory client. It provides the
+must implement to work with the eccenca Corporate Memory client. It provides the
 contract for obtaining access tokens and includes a factory method for
 creating appropriate provider instances based on environment configuration.
 

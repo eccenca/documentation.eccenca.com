@@ -37,7 +37,7 @@ Bases: <code>[ReadRepositoryItem](../../models/base/index.md#cmem_client.models.
 
 Installed Python package.
 
-Represents a Python package installed in Corporate Memory.
+Represents a Python package installed in eccenca Corporate Memory.
 
 **Attributes:**
 

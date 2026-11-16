@@ -55,7 +55,7 @@ Bases: <code>[TaskSearchRepository](../../repositories/base/task_search/index.md
 
 Repository for managing workflow schedulers.
 
-Provides access to workflow schedulers in Corporate Memory. Schedulers
+Provides access to workflow schedulers in eccenca Corporate Memory. Schedulers
 execute workflows at specified intervals and are identified by a
 'project_id:scheduler_id' composite key.
 

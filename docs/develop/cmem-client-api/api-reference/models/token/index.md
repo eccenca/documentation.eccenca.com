@@ -14,7 +14,7 @@ tags:
 Authentication token models for OAuth 2.0 flows.
 
 This module provides models for handling OAuth 2.0 tokens, particularly
-Keycloak tokens used in Corporate Memory authentication. It includes
+Keycloak tokens used in eccenca Corporate Memory authentication. It includes
 automatic JWT parsing and expiration checking functionality.
 
 The KeycloakToken model handles token lifecycle management, including

@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.base.abc module"
-description: "Abstract base classes and configuration for CMEM repositories."
+description: "Abstract base classes and configuration for eccenca Corporate Memory repositories."
 tags:
   - API
   - Python
@@ -11,13 +11,13 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Abstract base classes and configuration for CMEM repositories.
+Abstract base classes and configuration for eccenca Corporate Memory repositories.
 
-This module provides the foundational classes for building repositories in the CMEM client:
+This module provides the foundational classes for building repositories in the client:
 
 - RepositoryConfig: Configuration class that defines component type, fetch paths, and data adapters
 - Repository: Abstract base class implementing a lazy-loading, read-only, dictionary-like interface
-  for accessing CMEM resources with automatic data fetching and caching capabilities
+  for accessing Corporate Memory resources with automatic data fetching and caching capabilities
 
 **Classes:**
 
@@ -116,7 +116,7 @@ RepositoryConfig(component, fetch_data_path, fetch_data_adapter)
 Configuration class for a read repository.
 
 This class defines the essential configuration parameters needed to set up
-a repository that can fetch data from CMEM components.
+a repository that can fetch data from Corporate Memory components.
 
 **Attributes:**
 

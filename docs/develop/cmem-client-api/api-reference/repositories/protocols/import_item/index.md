@@ -15,7 +15,7 @@ Protocol interface for repository item import operations.
 
 This module defines the ImportItemProtocol that repositories can implement
 to support importing items from files. This is commonly used for importing
-exported projects, graphs, or other resources into Corporate Memory.
+exported projects, graphs, or other resources into eccenca Corporate Memory.
 
 The protocol supports replacement, skip-if-existing, fail-if-existing, and
 merge behaviours, controlled via the on_conflict parameter on import_item().

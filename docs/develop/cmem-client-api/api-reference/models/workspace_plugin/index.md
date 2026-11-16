@@ -19,13 +19,13 @@ plugins of all installed packages.
 
 **Classes:**
 
-- [**WorkspacePlugin**](#cmem_client.models.workspace_plugin.WorkspacePlugin) – A plugin installed in the Corporate Memory DataIntegration workspace.
+- [**WorkspacePlugin**](#cmem_client.models.workspace_plugin.WorkspacePlugin) – A plugin installed in the eccenca Corporate Memory DataIntegration workspace.
 
 ## `WorkspacePlugin` {#cmem_client.models.workspace_plugin.WorkspacePlugin}
 
 Bases: <code>[ReadRepositoryItem](../../models/base/index.md#cmem_client.models.base.ReadRepositoryItem)</code>
 
-A plugin installed in the Corporate Memory DataIntegration workspace.
+A plugin installed in the eccenca Corporate Memory DataIntegration workspace.
 
 **Attributes:**
 

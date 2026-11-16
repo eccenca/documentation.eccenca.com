@@ -20,7 +20,7 @@ logic that is managed outside the cmem-client library.
 
 The ProvidedToken provider delegates token retrieval to a callable method on an
 external object, allowing maximum flexibility for custom authentication workflows
-while maintaining compatibility with the Corporate Memory client interface.
+while maintaining compatibility with the eccenca Corporate Memory client interface.
 
 **Classes:**
 
