@@ -19,13 +19,13 @@ their ``client_id``.
 
 **Classes:**
 
-- [**KeycloakClient**](#cmem_client.models.keycloak_client.KeycloakClient) – A Keycloak OpenID Connect client in the Corporate Memory realm.
+- [**KeycloakClient**](#cmem_client.models.keycloak_client.KeycloakClient) – A Keycloak OpenID Connect client in the eccenca Corporate Memory realm.
 
 ## `KeycloakClient` {#cmem_client.models.keycloak_client.KeycloakClient}
 
 Bases: <code>[Model](../../models/base/index.md#cmem_client.models.base.Model)</code>, <code>[ReadRepositoryItem](../../models/base/index.md#cmem_client.models.base.ReadRepositoryItem)</code>
 
-A Keycloak OpenID Connect client in the Corporate Memory realm.
+A Keycloak OpenID Connect client in the eccenca Corporate Memory realm.
 
 **Attributes:**
 

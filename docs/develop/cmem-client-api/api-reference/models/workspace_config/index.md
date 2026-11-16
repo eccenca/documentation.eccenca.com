@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.workspace_config module"
-description: "Corporate Memory Explore workspace configuration models."
+description: "eccenca Corporate Memory Explore workspace configuration models."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory Explore workspace configuration models.
+eccenca Corporate Memory Explore workspace configuration models.
 
 This module defines models for representing workspace configurations
 managed by the DataPlatform (explore) Workspace Config Controller API.

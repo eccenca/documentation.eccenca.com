@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.workspace_status module"
-description: "Corporate Memory DataIntegration workspace status models."
+description: "eccenca Corporate Memory DataIntegration workspace status models."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory DataIntegration workspace status models.
+eccenca Corporate Memory DataIntegration workspace status models.
 
 Models for the aggregated workspace status endpoint
 (`GET /dataintegration/api/workspace/status`), which reports task loading

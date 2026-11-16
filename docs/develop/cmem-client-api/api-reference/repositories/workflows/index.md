@@ -51,13 +51,13 @@ List the execution reports of a workflow and fetch the latest one:
 
 **Classes:**
 
-- [**WorkflowsRepository**](#cmem_client.repositories.workflows.WorkflowsRepository) – Repository for managing workflows in Corporate Memory.
+- [**WorkflowsRepository**](#cmem_client.repositories.workflows.WorkflowsRepository) – Repository for managing workflows in eccenca Corporate Memory.
 
 ## `WorkflowsRepository` {#cmem_client.repositories.workflows.WorkflowsRepository}
 
 Bases: <code>[TaskSearchRepository](../../repositories/base/task_search/index.md#cmem_client.repositories.base.task_search.TaskSearchRepository)</code>
 
-Repository for managing workflows in Corporate Memory.
+Repository for managing workflows in eccenca Corporate Memory.
 
 The dict (keys, values, items) is populated via the task search API, which returns
 the workflows with their tags in a single call, and the workflow info API, which

@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.marketplace_packages module"
-description: "Repository for the marketplace packages installed in Corporate Memory."
+description: "Repository for the marketplace packages installed in eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for the marketplace packages installed in Corporate Memory.
+Repository for the marketplace packages installed in eccenca Corporate Memory.
 
 Provides MarketplacePackagesRepository for installing packages from an archive or
 directory, exporting an installed package again and removing one. The packages

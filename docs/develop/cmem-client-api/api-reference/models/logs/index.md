@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.logs module"
-description: "Corporate Memory log buffer models."
+description: "eccenca Corporate Memory log buffer models."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory log buffer models.
+eccenca Corporate Memory log buffer models.
 
 Models for the in-memory log buffer API of a Corporate Memory service
 (`GET /api/admin/logs` and `GET /api/admin/logs/status`). Each instance of a

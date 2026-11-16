@@ -54,7 +54,7 @@ Protocol which allows for deletion of items
 
 **Attributes:**
 
-- **_client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – Corporate Memory client used for the HTTP requests of this repository.
+- **_client** (<code>[Client](../../../client/index.md#cmem_client.client.Client)</code>) – eccenca Corporate Memory client used for the HTTP requests of this repository.
 - **_dict** (<code>dict[str, [ItemType](../../../repositories/base/abc/index.md#cmem_client.repositories.base.abc.ItemType)]</code>) – Cached contents of the repository, mapping the key of each item to the item
 itself. Backs the Mapping interface and is populated by ``fetch_data()``.
 - **_logger** (<code>Logger</code>) – Logger of this repository, created lazily on first access through the

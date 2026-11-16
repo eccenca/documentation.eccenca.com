@@ -31,7 +31,7 @@ Bases: <code>[ReadRepositoryItem](../../models/base/index.md#cmem_client.models.
 
 Installed marketplace package.
 
-Represents a package installed in Corporate Memory with all its
+Represents a package installed in eccenca Corporate Memory with all its
 metadata, file specifications, and version information as stored
 in the marketplace catalog graph.
 

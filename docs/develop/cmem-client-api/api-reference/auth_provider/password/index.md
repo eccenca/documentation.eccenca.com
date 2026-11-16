@@ -43,7 +43,7 @@ Security Warning: This authentication flow should only be used by
 absolutely trusted applications as it requires handling user passwords directly.
 
 Implements the Resource Owner Password Flow (RFC 6749, section 4.3) for
-authentication with Corporate Memory via Keycloak. This flow exchanges user
+authentication with eccenca Corporate Memory via Keycloak. This flow exchanges user
 credentials (username and password) directly for access tokens, bypassing
 the standard OAuth 2.0 authorization code flow.
 

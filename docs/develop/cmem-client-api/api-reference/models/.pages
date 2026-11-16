@@ -4,6 +4,7 @@ nav:
     - access_condition: access_condition
     - base: base
     - common: common
+    - companion: companion
     - credentials: credentials
     - dataset: dataset
     - error: error

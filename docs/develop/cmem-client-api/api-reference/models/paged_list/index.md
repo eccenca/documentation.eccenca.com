@@ -13,7 +13,7 @@ tags:
 
 Models of paged list responses.
 
-A paged endpoint of Corporate Memory returns its items one page at a time, together with
+A paged endpoint of eccenca Corporate Memory returns its items one page at a time, together with
 a PageDescription of the page.
 
 **Classes:**

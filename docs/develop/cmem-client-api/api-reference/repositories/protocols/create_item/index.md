@@ -20,7 +20,7 @@ successful creation.
 
 The protocol handles both DataIntegration (build) and DataPlatform (explore)
 API error formats, providing consistent error reporting across different
-Corporate Memory components.
+eccenca Corporate Memory components.
 
 **Classes:**
 

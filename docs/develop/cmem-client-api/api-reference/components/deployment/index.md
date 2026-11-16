@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.deployment module"
-description: "Corporate Memory deployment status component."
+description: "eccenca Corporate Memory deployment status component."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory deployment status component.
+eccenca Corporate Memory deployment status component.
 
 Provides the Deployment component for aggregating version and health
 information across all Corporate Memory services (DataIntegration,
