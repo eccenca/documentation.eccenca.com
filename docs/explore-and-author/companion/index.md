@@ -4,122 +4,149 @@ status: new
 tags:
     - Reference
 ---
-# Companion AI Chat
+# Companion AI chat
 
 !!! info "AI Disclaimer"
 
     Companion is an AI-based feature.
     AI-generated content may be inaccurate or incomplete.
-    Please verify important information.
+    Verify important information.
 
-The Companion view enables you to interact with your data, graphs, vocabularies, resources and queries in a chat-like way.
+The Companion is a chat panel in Explore that answers questions about the data in eccenca Corporate Memory and, on request, changes it.
+It reads the view that is open, works with graphs, resources, queries, Build projects and Marketplace packages, and asks for a confirmation before it writes anything that the selected mode does not allow on its own.
 
-## Configuration Info
+## Configuration
 
 A specific configuration is required to activate this feature.
-Our deployment templates (helm charts and docker-compose configurations) provide tested configuration profiles for different LLM providers.
-See the link in the info box for details.
+The deployment templates (helm charts and docker-compose configurations) provide tested configuration profiles for different LLM providers.
 
 !!! info "Configuration"
 
     See [`spring.ai.*` configuration properties in _Configuration of Servlet Container_](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-servlet-container) to learn how to enable and configure this feature.
     Explore uses _Spring AI_ to connect and configure LLM provider, as such the [Spring AI Chat Model API Configuration Reference](https://docs.spring.io/spring-ai/reference/api/chatmodel.html) applies.
 
-For optimal results, we recommend using Anthropic or OpenAI frontier-level models configured through the native Spring AI provider setup.
+For optimal results, use Anthropic or OpenAI frontier-level models configured through the native Spring AI provider setup.
 
-## Usage
+Access to the Companion is granted through the action `https://vocab.eccenca.com/auth/Action/Explore-Companion-Use`.
+Agents, skills and models of the Companion are configured in **Companion management** in the **admin** section of the main navigation.
 
-![Companion Menu Button](companion-button.png){ class="bordered" width="40%" }
+## Open the Companion
 
-You can open the _Chat with Companion_ from any explore module via the :eccenca-application-ai-suggestion: Companion button in the top right of the application header, next to the :eccenca-application-useraccount: user menu.
+Click :eccenca-application-ai-suggestion: **Chat with the companion** in the application header, next to the :eccenca-application-useraccount: user menu.
+The Companion panel opens on the right side of the screen.
+Click the button again to close the panel.
 
-![Companion Chat](companion-anatomy.png){ class="bordered" width="60%" }
+![Companion panel next to a resource in Explore](companion-anatomy.png){ class="bordered" width="70%" }
 
-In the companion sidebar, use:
+The panel contains:
 
-- :eccenca-toggler-maximize: to increase the size of the sidebar
-- :eccenca-toggler-minimize: to decrease the size of the sidebar
-- :eccenca-item-add-artefact: to start a new conversation
-- :octicons-triangle-down-24: the dropdown menu to select or search for a conversation
-- :eccenca-item-upload: to add documents as context to the chat (supported formats include `pdf`, `txt` and `md`)
-- :eccenca-item-wrench: to configure the tools that the LLM can use to answer.
-- :eccenca-item-microphone: to use your microphone to dictate your questions
-- :material-send-variant-outline: to submit your question
+- **Chats** to switch to an earlier chat, search for a chat, rename it with :eccenca-item-edit: or delete it with :eccenca-item-remove:
+- :eccenca-item-add-artefact: **New chat** to start a new chat
+- **Wide view** and **Narrow view** to change the width of the panel
+- The messages of the current chat
+- The mode selector, see [Modes](#modes)
+- The context tag, which names the view the Companion sees
+- The input field with :eccenca-item-upload: **Attach a file** and :material-send-variant-outline: **Send the message**
 
-To maximize the relevance and accuracy of the generated answer, your question is automatically enriched based on the context of the current view (e.g. the query text, the graph and the resource IRI).
+## Ask a question
 
-### Tool Selection
+1. Enter a question in the **Ask the companion** field.
+2. Optionally, refer to a resource or a skill:
+    - Enter `@` followed by the beginning of a label to search for a resource in the open graph, then select the resource from the list.
+    - Enter `/` to list the skills, then select a skill, for example `/summarize_graph`.
+3. Optionally, click :eccenca-item-upload: **Attach a file** to add one or more files to the message, or drop them on the panel.
+    Files larger than the configured limit, 10 MB by default, are not attached.
+4. Click :material-send-variant-outline: **Send the message**, or press ++enter++.
 
-![Companion Tool Selection](companion-tool-selection.png){ class="bordered" width="40%" }
+The Companion receives the context of the current view with every message: the view, the application view, the selected resources and graphs.
+Click the context tag below the input field, for example `explore-instance`, to see what is sent.
+The same tag appears on each sent message.
 
-The companion chat uses various tools to interact with eccenca Corporate Memory.
-These tools are used autonomously by the configured LLM model to gather the relevant context needed to generate the best answer.
-If your use case or question requires you to limit the available tools (e.g. if you only want to use queries from the query catalogue and not generate any), you can configure the tools the model can use via the drop-down widget.
+While the Companion works, a status such as **Thinking** or **Working** is shown above the mode selector.
+Click **Stop** to interrupt the answer.
 
-- Query Catalog related
+## Modes
 
-    `query_list`
-    :   Lists all existing SPARQL queries on this Corporate Memory instance.
+The mode decides which tool calls of the Companion run on their own, which need a confirmation, and which are declined.
+Select the mode in the drop-down list above the input field.
+A new chat starts in **Read only**.
 
-    `query_details`
-    :   Retrieve all information about a certain query in the query catalog.
+![Mode selector of the Companion with the available modes](companion-modes.png){ class="bordered" width="40%" }
 
-    `query_execute_saved`
-    :   Executes a saved SPARQL query on this Corporate Memory instance.
-    The query is identified by its IRI.
+| Mode | Behavior |
+| --- | --- |
+| **Read here only** | The Companion reads data in this Corporate Memory deployment and does not change anything. Tools that reach outside the deployment, such as a web search or an external MCP server, are declined. |
+| **Read only** | The Companion reads data, also with tools that reach outside the deployment, and does not change anything. |
+| **Ask before writes** | The Companion reads data and asks for a confirmation before each change. |
+| **Plan first** | The Companion writes a plan and presents it for approval before it changes anything. |
+| **Execute** | The Companion runs changes without asking for a confirmation. |
 
-- Query related:
+A mode that is selected while a chat is open applies with the next message.
+Until then, **with next message** is shown next to the mode selector.
 
-    `query_execute_json`
-    :   Executes a `SPARQL SELECT` query on this Corporate Memory instance.
-    The query is provided as a string.
+### Confirm a change
 
-- Introspection related:
+In **Ask before writes**, and after a plan was approved with **Approve, ask before writes**, the Companion opens a confirmation dialog for each change.
+The dialog names the tool, marks it with **Changes or deletes data** and shows the parameters of the tool call.
 
-    `graph_tree`
-    :   Retrieves a tree of all the direct and transitive `owl:imports` for a given graph.
+![Confirmation dialog for a change to a resource proposed by the Companion](companion-confirm-change.png){ class="bordered" width="50%" }
 
-    `graph_class_usage`
-    :   Shows how classes are connected in a particular graph to each other by different properties.
+1. Check the parameters of the change.
+    Expand a parameter to see its full value, or turn on **Show all as JSON**.
+    For a change to a resource, the dialog can instead list the values that the change adds and removes.
+    Clear the checkbox of each value that must not be written.
+2. Click **Confirm** to run the change, or **Decline** to reject it.
 
-    `graph_list`
-    :   Lists all existing RDF graphs on this Corporate Memory instance.
+After **Decline**, the Companion waits for a message that says what to do instead.
 
-    `graph_properties_list`
-    :   Lists all used RDF properties used in this graph.
+### Approve a plan
 
-    `graph_classes_list`
-    :   Lists all used `owl:Class` etc. used in this graph.
+In **Plan first**, the Companion reads what it needs and presents a plan.
+Tools that write are not available until the plan is approved.
 
-    `vocabularies_property_list`
-    :   All Properties defined in this knowledge graph by installed vocabularies.
-    While all properties are returned, they can easily be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded.
+- Click **Approve** to execute the plan without further confirmations.
+- Click **Approve, ask before writes** to execute the plan with a confirmation for each change.
+- Click **Decline** to reject the plan, and optionally give a reason so that the Companion revises it.
 
-    `vocabularies_class_list`
-    :   All Classes defined in this knowledge graph by installed vocabularies.
-    While all classes are returned, they can easily be grouped by either their explicit association with an ontology in the isDefinedBy (`rdfs:isDefinedBy`) field, or by the sourceGraph field, which contains the names of the graphs from which the type statements were loaded.
+The approval switches the chat to the mode that executes the plan.
+While the plan runs, the Companion shows the progress of its tasks, for example `Tasks: 2/5`.
 
-- Resource related
+## Answers
 
-    `resource_search`
-    :   Performs a lucene syntax full text search of labels and descriptions for 'searchTerm' and retrieve list of best matches.
-    The context graph will restrict the search to its includes, or search the full graph. Pattern allows to define a `SPARQL WHERE` clause snippet, which defaults to `{GRAPH ?contextGraph {?resource ?p ?o}}`.
-    Search will always be on the `?resource`, so adjust the pattern, if needed.
+![Companion answer with Build projects and Marketplace packages](companion-answer.png){ class="bordered" width="60%" }
 
-    `resource_get`
-    :   Retrieves the Concise Bounded Description (CBD) of a resource from the knowledge graph and returns it as JSON-LD.
+Each answer names the agent that wrote it and the model that it used, for example `domain_expert · anthropic/claude-sonnet-5`.
+The Companion hands a question over to the agent that fits it, so the agent can change within a chat.
 
-### Interactive Answers
+An answer can contain the following interactive elements:
 
-![Enriched answers](companion-response-enrichment.png){ class="bordered" }
+Tool calls
+:   :eccenca-item-wrench: shows how many tool calls of the answer are finished, for example `4/4`.
+    A declined tool call is marked in red.
 
-Your answer may include elements that allow rich interaction with specific Corporate Memory views and modules:
+Resources
+:   Click a resource to open it in :eccenca-application-explore: **Knowledge Graphs**.
 
-`Queries`
-    :   :eccenca-application-queries: links will open a (generated) query in the query module for inspection or reuse.
+Queries
+:   Click :eccenca-item-copy: **Copy the query** to copy the query to the clipboard.
+    Click :eccenca-application-queries: **Open in Query Editor** to open the query in the **Queries** module.
 
-`Business Knowledge Editor`
-    :   :eccenca-module-bke: links open the respective resource(s) as starting node(s) in the Business Knowledge Editor module for visual exploration.
+Build projects, Build tasks and Marketplace packages
+:   These items are shown as tags.
 
-`Resources`
-    :   ![Resources Links](companion-resource.png){ class="bordered" width="30%" } links will open the resource details view in EXPLORE > Knowledge Graph module.
+To reuse a sent message, click :eccenca-item-edit: **Use as draft** next to its time.
+The text of the message replaces the text in the input field.
+
+## Tools
+
+The Companion uses tools to read and change data in Corporate Memory.
+The tools are provided by the MCP servers of the Corporate Memory components and are named after them:
+
+| Prefix | Tools for |
+| --- | --- |
+| `cmem_explore-` | Graphs, vocabularies, resources, SHACL shapes and validation, queries and the query catalog |
+| `cmem_build-` | Build projects, datasets, transformations, workflows and project resources |
+| `cmem_marketplace-` | Marketplace packages and package manifests |
+
+Each agent of the Companion uses only the tools that are configured for it in **Companion management**.
+External MCP servers can be added through the [MCP client configuration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server).
