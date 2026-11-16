@@ -17,7 +17,7 @@ This module provides the Marketplace component for interacting with the eccenca
 Marketplace server. The component handles package downloads, uploads and version queries,
 abstracting the marketplace REST API into a convenient Python interface.
 
-The eccenca Marketplace is a central repository for distributing Corporate Memory
+The eccenca Marketplace is a central repository for distributing eccenca Corporate Memory
 packages, including vocabularies, ontologies, and Python plugins. This component
 enables automated package retrieval for installation and dependency resolution.
 Packages and licensing each live in their own module of this package; the `Marketplace`

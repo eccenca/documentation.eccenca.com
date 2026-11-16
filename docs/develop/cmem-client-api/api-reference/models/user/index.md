@@ -13,7 +13,7 @@ tags:
 
 Keycloak user and group models.
 
-Corporate Memory keeps its accounts in Keycloak. The user accounts of the configured
+eccenca Corporate Memory keeps its accounts in Keycloak. The user accounts of the configured
 realm are the items of ``client.user_accounts``, keyed by their username, and the
 groups a user belongs to decide which access conditions apply to them.
 

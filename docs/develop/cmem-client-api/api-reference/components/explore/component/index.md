@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.explore.component module"
-description: "Corporate Memory Explore (DataPlatform) component."
+description: "eccenca Corporate Memory Explore (DataPlatform) component."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory Explore (DataPlatform) component.
+eccenca Corporate Memory Explore (DataPlatform) component.
 
 The Explore component bundles the operations of the Explore service which are not
 collections of items: the SPARQL endpoint, administrative status, bootstrap and showcase

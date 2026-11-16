@@ -801,6 +801,9 @@ nav:
                           - develop/cmem-client-api/api-reference/components/build/logs/index.md
                       - workspace:
                           - develop/cmem-client-api/api-reference/components/build/workspace/index.md
+                  - companion:
+                      - component:
+                          - develop/cmem-client-api/api-reference/components/companion/component/index.md
                   - explore:
                       - component:
                           - develop/cmem-client-api/api-reference/components/explore/component/index.md
@@ -823,6 +826,8 @@ nav:
                       - develop/cmem-client-api/api-reference/models/base/index.md
                   - common:
                       - develop/cmem-client-api/api-reference/models/common/index.md
+                  - companion:
+                      - develop/cmem-client-api/api-reference/models/companion/index.md
                   - credentials:
                       - develop/cmem-client-api/api-reference/models/credentials/index.md
                   - dataset:

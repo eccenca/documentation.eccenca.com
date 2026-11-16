@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.explore.titles module"
-description: "Titles of resources, resolved by the Corporate Memory Explore title service."
+description: "Titles of resources, resolved by the eccenca Corporate Memory Explore title service."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Titles of resources, resolved by the Corporate Memory Explore title service.
+Titles of resources, resolved by the eccenca Corporate Memory Explore title service.
 
 **Classes:**
 
