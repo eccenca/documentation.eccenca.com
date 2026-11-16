@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.project module"
-description: "Corporate Memory project models and metadata."
+description: "eccenca Corporate Memory project models and metadata."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory project models and metadata.
+eccenca Corporate Memory project models and metadata.
 
 This module defines models for representing Corporate Memory DataIntegration
 projects, including their metadata such as labels, descriptions, and tags.

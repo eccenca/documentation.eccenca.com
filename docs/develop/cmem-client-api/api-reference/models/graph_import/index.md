@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.graph_import module"
-description: "Graph import models for Corporate Memory."
+description: "Graph import models for eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Graph import models for Corporate Memory.
+Graph import models for eccenca Corporate Memory.
 
 An import is an ``owl:imports`` statement, which makes the content of one graph visible
 in another. The single statements are the items of ``client.graph_imports``, keyed by

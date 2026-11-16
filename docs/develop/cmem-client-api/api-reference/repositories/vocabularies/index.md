@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.vocabularies module"
-description: "Repository for managing vocabularies in Corporate Memory."
+description: "Repository for managing vocabularies in eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for managing vocabularies in Corporate Memory.
+Repository for managing vocabularies in eccenca Corporate Memory.
 
 Provides VocabulariesRepository class for listing, installing, and uninstalling
 vocabularies, and for reading the global vocabulary cache from DataIntegration.

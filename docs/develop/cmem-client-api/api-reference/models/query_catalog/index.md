@@ -84,7 +84,7 @@ placeholder management, and execution configuration.
 - [**fill_placeholders**](#cmem_client.models.query_catalog.Query.fill_placeholders) – Replace placeholders with provided values.
 - [**generate_url_if_missing**](#cmem_client.models.query_catalog.Query.generate_url_if_missing) – Generate a URL if none provided.
 - [**get_default_accept_header**](#cmem_client.models.query_catalog.Query.get_default_accept_header) – Get the default Accept header for this query type.
-- [**get_editor_url**](#cmem_client.models.query_catalog.Query.get_editor_url) – Get the Corporate Memory query editor URL for this query.
+- [**get_editor_url**](#cmem_client.models.query_catalog.Query.get_editor_url) – Get the eccenca Corporate Memory query editor URL for this query.
 - [**get_id**](#cmem_client.models.query_catalog.Query.get_id) – Get the query URL as its identifier.
 - [**get_placeholder_keys**](#cmem_client.models.query_catalog.Query.get_placeholder_keys) – Get all placeholder keys from the query text.
 
@@ -192,7 +192,7 @@ formats suitable for command-line display.
 get_editor_url(base_url, graph=None)
 ```
 
-Get the Corporate Memory query editor URL for this query.
+Get the eccenca Corporate Memory query editor URL for this query.
 
 Generates a URL to open the query in Corporate Memory's web-based
 SPARQL query editor.

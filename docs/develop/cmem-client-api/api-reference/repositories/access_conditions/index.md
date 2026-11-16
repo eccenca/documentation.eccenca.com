@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.access_conditions module"
-description: "Repository for the access conditions of Corporate Memory."
+description: "Repository for the access conditions of eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for the access conditions of Corporate Memory.
+Repository for the access conditions of eccenca Corporate Memory.
 
 Provides AccessConditionsRepository for creating, updating and deleting access
 conditions, and for inspecting the accounts, groups and actions they can refer to.

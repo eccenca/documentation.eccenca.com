@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.build.component module"
-description: "Corporate Memory Build (DataIntegration) component."
+description: "eccenca Corporate Memory Build (DataIntegration) component."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory Build (DataIntegration) component.
+eccenca Corporate Memory Build (DataIntegration) component.
 
 The Build component bundles the operations of the Build service which are not
 collections of items: the workspace feature (import and export of the whole workspace,

@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.dataset module"
-description: "Corporate Memory dataset models for data integration."
+description: "eccenca Corporate Memory dataset models for data integration."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory dataset models for data integration.
+eccenca Corporate Memory dataset models for data integration.
 
 This module defines models for representing datasets within Corporate Memory
 projects. Datasets are data sources or sinks used in data integration workflows,

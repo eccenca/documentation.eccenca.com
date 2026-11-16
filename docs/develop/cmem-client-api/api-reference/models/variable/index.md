@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.variable module"
-description: "Corporate Memory variable models for data integration."
+description: "eccenca Corporate Memory variable models for data integration."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory variable models for data integration.
+eccenca Corporate Memory variable models for data integration.
 
 This module defines models for representing the variables of Corporate Memory
 DataIntegration projects. Variables can hold static values or Jinja2 template strings

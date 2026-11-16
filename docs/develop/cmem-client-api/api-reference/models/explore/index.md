@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.explore module"
-description: "Models of the Corporate Memory Explore (DataPlatform) component."
+description: "Models of the eccenca Corporate Memory Explore (DataPlatform) component."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Models of the Corporate Memory Explore (DataPlatform) component.
+Models of the eccenca Corporate Memory Explore (DataPlatform) component.
 
 **Classes:**
 

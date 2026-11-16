@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.vocabulary module"
-description: "Vocabulary models for Corporate Memory vocabulary catalog."
+description: "Vocabulary models for eccenca Corporate Memory vocabulary catalog."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Vocabulary models for Corporate Memory vocabulary catalog.
+Vocabulary models for eccenca Corporate Memory vocabulary catalog.
 
 Provides Pydantic models for vocabulary catalog entries returned by the
 DataPlatform vocabularies API.

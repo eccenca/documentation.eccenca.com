@@ -18,7 +18,7 @@ validation and path manipulation capabilities. It ensures URLs are well-formed
 and provides convenient methods for building API endpoints.
 
 The HttpUrl class is used throughout the configuration system to construct
-various Corporate Memory API endpoints from base URLs.
+various eccenca Corporate Memory API endpoints from base URLs.
 
 **Classes:**
 

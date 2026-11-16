@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: config module"
-description: "Configuration management for the Corporate Memory client."
+description: "Configuration management for the eccenca Corporate Memory client."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Configuration management for the Corporate Memory client.
+Configuration management for the eccenca Corporate Memory client.
 
 This module provides the Config class that handles all configuration aspects
 of the Corporate Memory client, including URL construction, SSL verification,

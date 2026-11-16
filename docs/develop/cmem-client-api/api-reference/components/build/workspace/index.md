@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.build.workspace module"
-description: "Corporate Memory DataIntegration (build) workspace management."
+description: "eccenca Corporate Memory DataIntegration (build) workspace management."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory DataIntegration (build) workspace management.
+eccenca Corporate Memory DataIntegration (build) workspace management.
 
 This module provides the BuildWorkspace component for managing Corporate Memory's
 DataIntegration workspace. The workspace contains projects, datasets, transformations,

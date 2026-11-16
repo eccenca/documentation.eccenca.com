@@ -14,7 +14,7 @@ tags:
 Repository for the Keycloak OpenID Connect client accounts of a deployment.
 
 Provides ClientAccountRepository for listing the client accounts (service accounts)
-which can authenticate against Corporate Memory, and for reading or rotating their
+which can authenticate against eccenca Corporate Memory, and for reading or rotating their
 secret.
 
 **Examples:**

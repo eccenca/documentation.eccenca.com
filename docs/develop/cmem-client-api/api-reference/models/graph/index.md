@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.graph module"
-description: "RDF graph models for Corporate Memory knowledge graphs."
+description: "RDF graph models for eccenca Corporate Memory knowledge graphs."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-RDF graph models for Corporate Memory knowledge graphs.
+RDF graph models for eccenca Corporate Memory knowledge graphs.
 
 This module defines models for representing RDF graphs in Corporate Memory's
 DataPlatform (explore) environment. Graphs contain semantic data and are

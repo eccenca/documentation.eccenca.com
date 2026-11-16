@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.access_condition module"
-description: "Access control and authorization models for Corporate Memory."
+description: "Access control and authorization models for eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Access control and authorization models for Corporate Memory.
+Access control and authorization models for eccenca Corporate Memory.
 
 This module defines models for managing access conditions in Corporate Memory,
 which control user and group permissions for graphs, actions, and other resources.

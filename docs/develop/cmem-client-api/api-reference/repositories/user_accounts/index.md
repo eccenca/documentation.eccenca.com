@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.user_accounts module"
-description: "Repository for the Keycloak user accounts of a Corporate Memory deployment."
+description: "Repository for the Keycloak user accounts of an eccenca Corporate Memory deployment."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for the Keycloak user accounts of a Corporate Memory deployment.
+Repository for the Keycloak user accounts of an eccenca Corporate Memory deployment.
 
 Provides UserAccountRepository for creating, updating and deleting user accounts, for
 managing their group membership and for resetting their password. Accounts are keyed by

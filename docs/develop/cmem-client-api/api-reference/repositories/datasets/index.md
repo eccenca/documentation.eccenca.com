@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.datasets module"
-description: "Repository for managing datasets in Corporate Memory."
+description: "Repository for managing datasets in eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for managing datasets in Corporate Memory.
+Repository for managing datasets in eccenca Corporate Memory.
 
 Provides DatasetsRepository for listing datasets across projects and for creating,
 reading, updating and deleting a dataset inside a project. Datasets are addressed by
