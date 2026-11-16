@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.status module"
-description: "Models for Corporate Memory aggregated status information."
+description: "Models for eccenca Corporate Memory aggregated status information."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Models for Corporate Memory aggregated status information.
+Models for eccenca Corporate Memory aggregated status information.
 
 Aggregates version and health metadata across the build (DataIntegration),
 explore (DataPlatform), shapes catalog, graph store, marketplace, and Graph Insights
@@ -44,7 +44,7 @@ Corporate Memory license metadata from the DataPlatform info payload.
 
 - [**edition**](#cmem_client.models.status.CmemLicense.edition) (<code>str | None</code>) – License edition (e.g. 'PEDAL').
 - [**grace_date**](#cmem_client.models.status.CmemLicense.grace_date) (<code>str | None</code>) – Date until which the license keeps working in grace period (ISO date string).
-- [**in_grace_period**](#cmem_client.models.status.CmemLicense.in_grace_period) (<code>bool</code>) – Whether the CMEM license is currently within its grace period.
+- [**in_grace_period**](#cmem_client.models.status.CmemLicense.in_grace_period) (<code>bool</code>) – Whether the Corporate Memory license is currently within its grace period.
 - [**model_config**](#cmem_client.models.status.CmemLicense.model_config) –
 - [**valid_date**](#cmem_client.models.status.CmemLicense.valid_date) (<code>str | None</code>) – Date until which the license is valid (ISO date string).
 
@@ -70,7 +70,7 @@ Date until which the license keeps working in grace period (ISO date string).
 in_grace_period: bool = Field(default=False, alias='inGracePeriod')
 ```
 
-Whether the CMEM license is currently within its grace period.
+Whether the Corporate Memory license is currently within its grace period.
 
 ### `model_config` {#cmem_client.models.status.CmemLicense.model_config}
 
@@ -141,7 +141,7 @@ Status of the explore (DataPlatform) component, including raw actuator payload.
 - [**health**](#cmem_client.models.status.ExploreStatus.health) (<code>[HealthState](#cmem_client.models.status.HealthState)</code>) – Health state of the component.
 - [**health_details**](#cmem_client.models.status.ExploreStatus.health_details) (<code>dict[str, Any] | None</code>) – Raw payload of the DataPlatform /actuator/health endpoint (component breakdown).
 - [**info**](#cmem_client.models.status.ExploreStatus.info) (<code>dict[str, Any] | None</code>) – Raw payload of the DataPlatform /actuator/info endpoint.
-- [**license**](#cmem_client.models.status.ExploreStatus.license) (<code>[CmemLicense](#cmem_client.models.status.CmemLicense) | None</code>) – Typed CMEM license info, or None if not reported (DataPlatform < 24.1).
+- [**license**](#cmem_client.models.status.ExploreStatus.license) (<code>[CmemLicense](#cmem_client.models.status.CmemLicense) | None</code>) – Typed Corporate Memory license info, or None if not reported (DataPlatform < 24.1).
 - [**model_config**](#cmem_client.models.status.ExploreStatus.model_config) –
 - [**store_info**](#cmem_client.models.status.ExploreStatus.store_info) (<code>[StoreInfo](#cmem_client.models.status.StoreInfo) | None</code>) – Typed graph store info from the actuator payload, or None if absent.
 - [**version**](#cmem_client.models.status.ExploreStatus.version) (<code>str</code>) – Component version string as reported by its version/info endpoint.
@@ -186,7 +186,7 @@ Raw payload of the DataPlatform /actuator/info endpoint.
 license: CmemLicense | None
 ```
 
-Typed CMEM license info, or None if not reported (DataPlatform < 24.1).
+Typed Corporate Memory license info, or None if not reported (DataPlatform < 24.1).
 
 ### `model_config` {#cmem_client.models.status.ExploreStatus.model_config}
 

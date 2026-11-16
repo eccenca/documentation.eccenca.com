@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.base.task_search module"
-description: "Repository implementation for Corporate Memory task search endpoints."
+description: "Repository implementation for eccenca Corporate Memory task search endpoints."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository implementation for Corporate Memory task search endpoints.
+Repository implementation for eccenca Corporate Memory task search endpoints.
 
 This module provides TaskSearchRepository, a specialized repository that uses
 Corporate Memory's DataIntegration task search API to find and retrieve items.

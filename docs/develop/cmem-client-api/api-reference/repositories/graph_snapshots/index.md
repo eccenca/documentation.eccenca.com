@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.graph_snapshots module"
-description: "Repository for the Graph Insights snapshots of Corporate Memory."
+description: "Repository for the Graph Insights snapshots of eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for the Graph Insights snapshots of Corporate Memory.
+Repository for the Graph Insights snapshots of eccenca Corporate Memory.
 
 Provides GraphSnapshotsRepository for creating statistics snapshots of a graph, polling
 their computation and deleting them. Graph Insights is an optional extension, so check

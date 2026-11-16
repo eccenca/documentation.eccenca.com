@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.rule_block module"
-description: "Corporate Memory rule block models for data integration."
+description: "eccenca Corporate Memory rule block models for data integration."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory rule block models for data integration.
+eccenca Corporate Memory rule block models for data integration.
 
 A rule block is a reusable transformation unit: a named operator tree with
 declared input ports, referenced from transform and linking rules instead of

@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.queries module"
-description: "Repository for managing queries from the Corporate Memory query catalog."
+description: "Repository for managing queries from the eccenca Corporate Memory query catalog."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for managing queries from the Corporate Memory query catalog.
+Repository for managing queries from the eccenca Corporate Memory query catalog.
 
 Provides QueriesRepository class for accessing queries stored in RDF catalog graphs.
 Queries are fetched using the query catalog REST API.

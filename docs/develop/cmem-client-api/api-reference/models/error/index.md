@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: models.error module"
-description: "Error response models for Corporate Memory API error handling."
+description: "Error response models for eccenca Corporate Memory API error handling."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Error response models for Corporate Memory API error handling.
+Error response models for eccenca Corporate Memory API error handling.
 
 This module defines models for parsing and handling error responses from
 both the DataIntegration (build) and DataPlatform (explore) APIs. Different

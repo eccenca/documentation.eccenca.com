@@ -90,7 +90,7 @@ on the token; it is stored as-is.
 
 - **prefetched_token** (<code>str</code>) – A pre-obtained access token string. The token
 should be valid, properly formatted (typically JWT), and
-have appropriate permissions for Corporate Memory operations.
+have appropriate permissions for eccenca Corporate Memory operations.
 
 <details class="note" open markdown="1">
 <summary>Note</summary>

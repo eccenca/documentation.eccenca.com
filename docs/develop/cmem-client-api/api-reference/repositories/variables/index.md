@@ -100,7 +100,7 @@ Bases: <code>[Repository](../../repositories/base/abc/index.md#cmem_client.repos
 
 Repository for project variables, execution variables and global variables.
 
-Manages the variables of all projects in the Corporate Memory DataIntegration
+Manages the variables of all projects in the eccenca Corporate Memory DataIntegration
 (Build) environment together with the execution variables of their tasks.
 Project variables are stored with keys in the form ``project_id:variable_name``,
 execution variables with keys in the form ``project_id:task_id:variable_name``.

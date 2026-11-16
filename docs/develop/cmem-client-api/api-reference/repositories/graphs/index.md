@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: repositories.graphs module"
-description: "Repository for managing named graphs in Corporate Memory."
+description: "Repository for managing named graphs in eccenca Corporate Memory."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Repository for managing named graphs in Corporate Memory.
+Repository for managing named graphs in eccenca Corporate Memory.
 
 Provides GraphRepository class for managing RDF named graphs with operations for
 deletion and import. Supports multiple RDF formats (Turtle, RDF/XML, JSON-LD, N-Triples)

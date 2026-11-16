@@ -3,6 +3,7 @@ title: components
 nav:
     - deployment: deployment
     - build: build
+    - companion: companion
     - explore: explore
     - graphinsights: graphinsights
     - marketplace: marketplace

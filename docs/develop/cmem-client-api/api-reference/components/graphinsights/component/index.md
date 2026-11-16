@@ -1,6 +1,6 @@
 ---
 title: "cmem-client: components.graphinsights.component module"
-description: "Corporate Memory Graph Insights component."
+description: "eccenca Corporate Memory Graph Insights component."
 tags:
   - API
   - Python
@@ -11,7 +11,7 @@ tags:
 
 <!-- This file was generated - DO NOT CHANGE IT MANUALLY -->
 
-Corporate Memory Graph Insights component.
+eccenca Corporate Memory Graph Insights component.
 
 Graph Insights is an optional extension of Corporate Memory which computes statistics
 snapshots of graphs. This component covers the extension itself; the snapshots are the

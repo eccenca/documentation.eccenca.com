@@ -14,7 +14,7 @@ tags:
 Repository implementation for paginated API endpoints.
 
 This module provides PagedListRepository, a repository implementation that
-handles paginated API responses commonly used in Corporate Memory's DataPlatform
+handles paginated API responses commonly used in eccenca Corporate Memory's DataPlatform
 (explore) APIs. It automatically fetches all pages of results and provides
 a unified dictionary-like interface.
 
