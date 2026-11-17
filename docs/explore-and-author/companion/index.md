@@ -29,6 +29,7 @@ For optimal results, use Anthropic or OpenAI frontier-level models configured th
 
 Access to the Companion is granted through the action `https://vocab.eccenca.com/auth/Action/Explore-Companion-Use`.
 Agents, skills and models of the Companion are configured in **Companion management** in the **admin** section of the main navigation.
+See [Build a Companion catalog](build-a-companion-catalog/index.md) for a tutorial that adds a catalog with two agents and a skill.
 
 ## Open the Companion
 

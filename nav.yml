@@ -550,6 +550,8 @@ nav:
           - explore-and-author/charts-catalog/index.md
       - Companion AI chat:
           - explore-and-author/companion/index.md
+          - Build a companion catalog:
+              - explore-and-author/companion/build-a-companion-catalog/index.md
       - Services integrations:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:
