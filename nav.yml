@@ -548,8 +548,12 @@ nav:
           - explore-and-author/thesauri-management/index.md
       - Charts:
           - explore-and-author/charts-catalog/index.md
-      - Companion AI chat:
-          - explore-and-author/companion/index.md
+      - Companion:
+          - Companion: explore-and-author/companion/index.md
+          - AI chat:
+              - explore-and-author/companion/chat/index.md
+          - Management:
+              - explore-and-author/companion/management/index.md
       - Services integrations:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:

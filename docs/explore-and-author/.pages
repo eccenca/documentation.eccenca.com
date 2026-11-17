@@ -6,7 +6,7 @@ nav:
     - Queries: query-module
     - Thesauri: thesauri-management
     - Charts: charts-catalog
-    - Companion AI chat: companion
+    - Companion: companion
     - Services integrations: embedding-services-via-the-integrations-module
     - Link rules: link-rules
     - Application view: workspace-configuration
