@@ -16,7 +16,7 @@ tags:
 ## Introduction
 
 The purchasing team of a fictional hardware company asks the same two questions again and again: who supplies a part, and which supplier is the cheapest?
-This tutorial gives the team its own agents in the [Companion](../index.md) of eccenca Corporate Memory.
+This tutorial gives the team its own agents in the [Companion](../index.md) of eccenca Corporate Memory, using the module [Companion Management](../management/index.md).
 
 The tutorial builds a small agent network in a catalog of its own:
 
@@ -30,8 +30,8 @@ The shipped routing agent `default_router` has an empty **Handoff agents** list,
 
 ## Prerequisites
 
-- Companion is configured, see [Configuration](../index.md#configuration).
-- **Companion management** is available under **ADMIN** in the main navigation.
+- The Companion is configured for the deployment, see [Configuration](../index.md#configuration).
+- The user has the actions `https://vocab.eccenca.com/auth/Action/Explore-Companion-Use` and `https://vocab.eccenca.com/auth/Action/Explore-Companion-Manage`, see [Access](../index.md#access).
 - The package **Product Data Demo** (`ecc-product-data-project`) is installed, see [Install a package](../../../distribution/marketplace/index.md#install-a-package).
     It provides the hardware parts, suppliers and prices in the graph `http://ld.company.org/prod-inst/`.
 
