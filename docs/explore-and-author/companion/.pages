@@ -1,0 +1,5 @@
+---
+nav:
+    - Companion: index.md
+    - AI chat: chat
+    - Management: management
