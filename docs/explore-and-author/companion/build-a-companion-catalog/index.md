@@ -41,8 +41,8 @@ A catalog is a graph that holds agents, skills and named models.
 The main catalog `Default Companion Catalog Overlay` imports the other catalogs, and the Companion runs the merged result.
 
 1. Open **Companion management** under **ADMIN** in the main navigation.
-2. Select the **Catalog** tab, then **Catalogs**.
-3. Click **Add a new catalog**.
+2. Select the **Catalog** tab, then the **Catalogs** tab.
+3. Click :eccenca-item-add-artefact: **Add a new catalog** in the header.
 4. Enter the following values:
 
     - **Graph:** `https://ns.eccenca.com/data/companion/procurement/`
@@ -63,10 +63,10 @@ The main catalog imports it right away.
 A task agent is a worker that an interactive agent starts for one piece of work.
 Create it first, so that the interactive agent can refer to it.
 
-1. Select **Agents**.
+1. Select the **Agents** tab.
 2. Select `Procurement Companion` in the catalog selector next to **Agents**.
     The selector starts with **Default Companion Catalog Overlay (main)**, and a new agent is added to the catalog that it shows.
-3. Click **Add a new agent**.
+3. Click :eccenca-item-add-artefact: **Add a new agent** in the header.
 4. Select **Task agents** under **Kind of agent**.
     The kind cannot be changed afterwards.
 5. Enter `supplier_lookup` in the **Identifier** field and click **Create**.
@@ -95,13 +95,13 @@ Create it first, so that the interactive agent can refer to it.
 
 10. Enter `http://ld.company.org/prod-inst/` in the **Focus graphs** field and select **Add new item '<http://ld.company.org/prod-inst/>'**.
     The graph is shown with its label `Products - Integration`.
-11. Click **Save changes**.
+11. Click **Save changes** in the header.
 
 ## 3 Create the interactive agent
 
 An interactive agent fulfills a role in the conversation and answers the user.
 
-1. Click **Add a new agent**, with `Procurement Companion` still selected in the catalog selector.
+1. Click :eccenca-item-add-artefact: **Add a new agent** in the header, with `Procurement Companion` still selected in the catalog selector.
 2. Select **Interactive agents** under **Kind of agent**.
 3. Enter `procurement_advisor` in the **Identifier** field and click **Create**.
 4. Enter the following values:
@@ -123,15 +123,15 @@ An interactive agent fulfills a role in the conversation and answers the user.
 5. Add a filter entry with the server `cmem_explore` and the constraint **Read-only: yes**, as for `supplier_lookup`.
 6. Select `supplier_lookup` in the **Task agents** field.
 7. Add `http://ld.company.org/prod-inst/` to the **Focus graphs** field, as for `supplier_lookup`.
-8. Click **Save changes**.
+8. Click **Save changes** in the header.
 
 ## 4 Create the skill
 
 A skill is a prompt that a user calls with a slash command in the chat.
 
-1. Select **Skills**.
+1. Select the **Skills** tab.
 2. Select `Procurement Companion` in the catalog selector next to **Skills**.
-3. Click **Add a new skill**.
+3. Click :eccenca-item-add-artefact: **Add a new skill** in the header.
 4. Enter `cheapest_supplier` in the **Identifier** field and click **Create**.
 5. Enter the following values:
 
@@ -149,7 +149,7 @@ A skill is a prompt that a user calls with a slash command in the chat.
     `{{ skill.argument }}` holds the text that the user enters after the skill name.
     The **Description** is shown next to the skill in the chat.
 
-6. Click **Save changes**.
+6. Click **Save changes** in the header.
 
 ## 5 Check the agent network
 
