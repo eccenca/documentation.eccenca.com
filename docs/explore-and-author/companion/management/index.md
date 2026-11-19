@@ -16,6 +16,7 @@ tags:
 The **Companion Management** module configures the Companion of eccenca Corporate Memory.
 It shows how agents route a request, holds the catalog of agents, skills and named models, lists the tools an agent can call and keeps the conversations of all users.
 The concepts behind these entries are explained in [How the Companion works](../index.md#how-the-companion-works).
+For a walkthrough that adds a catalog with two agents and a skill, see [Build a Companion catalog](../build-a-companion-catalog/index.md).
 
 ## Prerequisites
 

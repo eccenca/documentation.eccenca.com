@@ -33,6 +33,12 @@ Administrators configure its agents, skills and models in the **Companion Manage
 
     Inspect the agent network, edit agents, skills and named models, check the available tools and manage the conversations of all users.
 
+- :eccenca-application-ai-suggestion: [Build a Companion catalog](build-a-companion-catalog/index.md)
+
+    ---
+
+    Tutorial: add a catalog with a task agent, an interactive agent and a skill, and ask the Companion about suppliers and prices.
+
 </div>
 
 ## How the Companion works

@@ -554,6 +554,8 @@ nav:
               - explore-and-author/companion/chat/index.md
           - Management:
               - explore-and-author/companion/management/index.md
+          - Build a catalog:
+              - explore-and-author/companion/build-a-companion-catalog/index.md
       - Services integrations:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:
