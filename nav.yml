@@ -5,6 +5,8 @@
 nav:
   - Home:
       - index.md
+      - How to use this documentation:
+          - introduction/how-to-use-this-documentation/index.md
       - What is a knowledge graph?:
           - introduction/what-is-a-knowledge-graph/index.md
       - Semantic Web basics:
