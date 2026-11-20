@@ -9,7 +9,7 @@ This page provides a short introduction to the BUILD / Data Integration workspac
 
 The workbench is the main entry point to the BUILD interface and provides a list view of your work, structured in _projects_.
 
-![](build-ui-workbench.png)
+![The Build workbench listing projects, datasets and workflows with the item type facets on the left](build-ui-workbench.png){ class="bordered" }
 
 On the left-hand side, a facet list provides an overview of different item types:
 
@@ -21,15 +21,14 @@ On the left-hand side, a facet list provides an overview of different item types
 
 The interface can be used to browse from a global level to a project level as well as to search for items globally and project wide.
 
-On the top right side in the header, there is a big blue **Create (+)** button which allows for creation of all possible data integration items:
+Click **Create new** in the header to create any kind of Build item:
 
 ![](build-ui-datasets.png)
 
 ## Projects
 
-Selecting a project from the search results opens the project details view (see above).
-
-The project is the main concept to structure your work. In the workspace, you can review your projects, create new or delete old ones, and import or export them.
+The project is the main concept to structure the work in Build.
+In the workbench, projects are created, imported, exported and deleted.
 
 Each project is self-contained and holds all relevant parts, such as the following:
 
@@ -41,6 +40,45 @@ Each project is self-contained and holds all relevant parts, such as the followi
 - definitions of **URI prefixes** used in the project
 
 Resources, datasets, tasks and other parts of a project can be added and configured from within the workspace. By clicking the `Show Details` button on any item in a project, you can ‘look inside’ and define the actual transformation or linking rules, or assemble the actual workflow.
+
+### Project view
+
+Selecting a project in the workbench opens the project view.
+
+![The project view of the Product Catalog project with its contents and the cards on the right](build-ui-project.png){ class="bordered" }
+
+The project view shows the following areas:
+
+- **Summary:** the label and description of the project
+- **Contents:** the items of the project, with a search field and facets
+- **Configuration:** the prefixes of the project
+- **Project variables:** the [variables](../variables/index.md) of the project
+- **Activities:** the activities of the project and their state
+- **Changes:** the number of recorded changes and of changes made by an agent that await review, see [Change journal](../change-journal/index.md)
+- **Files:** the files uploaded to the project
+
+### Import a project
+
+A project exported as a project file can be imported into the workbench.
+To import a project, follow these steps:
+
+1. Click **Create new** in the header.
+2. Select **Project** and click **Add**.
+3. Click **Import project file**.
+4. Upload the project file.
+    The **Project import** dialog shows the label and the description of the imported project.
+5. Select an **Import destination**:
+    - **Use original project ID** imports the project under the identifier stored in the project file.
+    - **Generate a new project ID** imports the project under a new identifier.
+    - **Use a custom project ID** imports the project under the identifier entered in the **Project identifier** field.
+
+    ![The Project import dialog with the import destinations and the warning about an existing project](build-ui-project-import.png){ class="bordered" width="70%" }
+
+6. Click **Import project**.
+
+If a project with the selected identifier already exists, the dialog shows a warning.
+Select **Replace existing project** and click **Replace existing project** to overwrite the existing project, or select another import destination.
+Click **Open existing project page** to inspect the existing project first.
 
 ## Datasets
 

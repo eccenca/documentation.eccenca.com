@@ -74,6 +74,8 @@ nav:
               - build/workflows/index.md
           - Variables:
               - build/variables/index.md
+          - Change Journal:
+              - build/change-journal/index.md
           - Project Access Control:
               - build/project-access-control/index.md
       - Reference:

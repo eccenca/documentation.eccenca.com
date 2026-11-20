@@ -24,6 +24,7 @@ nav:
           - Rule Blocks: rule-blocks
           - Workflows: workflows
           - Variables: variables
+          - Change Journal: change-journal
           - Project Access Control: project-access-control
     - Reference:
           - Task and Operator Reference: reference
