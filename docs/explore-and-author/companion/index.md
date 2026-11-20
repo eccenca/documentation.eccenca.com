@@ -1,10 +1,12 @@
 ---
+title: "Companion: Foundations"
 icon: eccenca/application-ai-suggestion
 status: new
 tags:
     - Reference
+    - Configuration
 ---
-# Companion AI chat
+# Companion
 
 !!! info "AI Disclaimer"
 
@@ -12,12 +14,114 @@ tags:
     AI-generated content may be inaccurate or incomplete.
     Verify important information.
 
-The Companion is a chat panel in Explore that answers questions about the data in eccenca Corporate Memory and, on request, changes it.
-It reads the view that is open, works with graphs, resources, queries, Build projects and Marketplace packages, and asks for a confirmation before it writes anything that the selected mode does not allow on its own.
+The Companion is the AI assistant of eccenca Corporate Memory.
+It answers questions about the data in Corporate Memory and, on request, changes it.
+Users talk to it in a chat panel in Explore.
+Administrators configure its agents, skills and models in the **Companion Management** module.
+
+<div class="grid cards" markdown>
+
+- :eccenca-application-ai-suggestion: [Companion AI chat](chat/index.md)
+
+    ---
+
+    Ask questions, refer to resources and skills, select a mode and confirm the changes that the Companion proposes.
+
+- :eccenca-application-ai-suggestion: [Companion Management](management/index.md)
+
+    ---
+
+    Inspect the agent network, edit agents, skills and named models, check the available tools and manage the conversations of all users.
+
+- :eccenca-application-ai-suggestion: [Build a Companion catalog](build-a-companion-catalog/index.md)
+
+    ---
+
+    Tutorial: add a catalog with a task agent, an interactive agent and a skill, and ask the Companion about suppliers and prices.
+
+</div>
+
+## How the Companion works
+
+A message travels through several agents before an answer reaches the user.
+Each agent has its own instructions, its own tools and a named model that runs it.
+All agents, skills and named models are stored in a catalog.
+
+### Agents
+
+Agents answer, route and work.
+The kind of an agent decides what it may do, and it cannot be changed after the agent is created:
+
+Routing agents
+:   Read the first message of a conversation and hand it to the interactive agent that fits it best.
+    Routing agents connect the application views to the Companion and run on a fast model.
+
+Interactive agents
+:   Fulfill a role, such as `domain_expert` or `knowledge_graph_expert`, and answer the user.
+    An interactive agent may hand the conversation over to another interactive agent and may start task agents.
+    Each answer in the chat names the agent that wrote it.
+
+Task agents
+:   Do a self-contained piece of work for an interactive agent and return the result.
+    Task agents cannot start further agents.
+
+Auxiliary agents
+:   Run jobs for the system itself, such as naming a conversation or assessing a change.
+    Auxiliary agents take no part in the handovers of a conversation.
+
+### Named models
+
+Agents do not reference a model of a provider directly.
+They reference a named model, such as `fast`, `default` or `expert`.
+A named model points at a model of a provider and sets the parameters it runs with, for example the reasoning effort.
+An installation can therefore exchange a model without changing the agents.
+
+### Skills
+
+A skill is a prompt that a user calls by entering a slash and the name of the skill in the chat, for example `/summarize_graph`.
+The text after the name of the skill is passed to the prompt.
+
+### Catalog
+
+A catalog is a graph that holds the agents, skills, named models and catalog properties of the Companion.
+The main catalog graph is `https://ns.eccenca.com/data/companion/`.
+It can import further catalog graphs with `owl:imports`.
+The Companion runs on the effective catalog, which merges the main catalog and its imports.
+When an identifier exists in more than one catalog, the entry of the main catalog applies.
+
+Until the catalog is saved for the first time, the Companion uses the catalog shipped with Corporate Memory.
+
+### Application views
+
+The context of a message includes the application view in which the chat is open.
+Agents and skills can be restricted to specific application views.
+An agent or skill without such a restriction is available in every application view.
+
+### Tools
+
+The Companion uses tools to read and change data in Corporate Memory.
+The tools are provided by the Model Context Protocol (MCP) servers of the Corporate Memory components and are named after them:
+
+| Prefix | Tools for |
+| --- | --- |
+| `cmem_explore-` | Graphs, vocabularies, resources, SHACL shapes and validation, queries and the query catalog |
+| `cmem_build-` | Build projects, datasets, transformations, workflows and project resources |
+| `cmem_marketplace-` | Marketplace packages and package manifests |
+
+Each tool declares whether it reads or changes data.
+A tool that declares nothing counts as changing data.
+Each agent uses only the tools that match the tool patterns configured for it.
+External MCP servers can be added through the [MCP client configuration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server).
+
+### Modes
+
+The mode of a chat decides which tool calls run on their own, which need a confirmation and which are declined.
+A new chat starts in **Read only**.
+See [Modes](chat/index.md#modes) for the available modes.
 
 ## Configuration
 
-A specific configuration is required to activate this feature.
+A specific configuration is required to activate the Companion.
 The deployment templates (helm charts and docker-compose configurations) provide tested configuration profiles for different LLM providers.
 
 !!! info "Configuration"
@@ -27,126 +131,11 @@ The deployment templates (helm charts and docker-compose configurations) provide
 
 For optimal results, use Anthropic or OpenAI frontier-level models configured through the native Spring AI provider setup.
 
-Access to the Companion is granted through the action `https://vocab.eccenca.com/auth/Action/Explore-Companion-Use`.
-Agents, skills and models of the Companion are configured in **Companion management** in the **admin** section of the main navigation.
+## Access
 
-## Open the Companion
+Two actions grant access to the Companion:
 
-Click :eccenca-application-ai-suggestion: **Chat with the companion** in the application header, next to the :eccenca-application-useraccount: user menu.
-The Companion panel opens on the right side of the screen.
-Click the button again to close the panel.
+- `https://vocab.eccenca.com/auth/Action/Explore-Companion-Use` grants access to the chat.
+- `https://vocab.eccenca.com/auth/Action/Explore-Companion-Manage` grants access to **Companion Management**.
 
-![Companion panel next to a resource in Explore](companion-anatomy.png){ class="bordered" width="70%" }
-
-The panel contains:
-
-- **Chats** to switch to an earlier chat, search for a chat, rename it with :eccenca-item-edit: or delete it with :eccenca-item-remove:
-- :eccenca-item-add-artefact: **New chat** to start a new chat
-- **Wide view** and **Narrow view** to change the width of the panel
-- The messages of the current chat
-- The mode selector, see [Modes](#modes)
-- The context tag, which names the view the Companion sees
-- The input field with :eccenca-item-upload: **Attach a file** and :material-send-variant-outline: **Send the message**
-
-## Ask a question
-
-1. Enter a question in the **Ask the companion** field.
-2. Optionally, refer to a resource or a skill:
-    - Enter `@` followed by the beginning of a label to search for a resource in the open graph, then select the resource from the list.
-    - Enter `/` to list the skills, then select a skill, for example `/summarize_graph`.
-3. Optionally, click :eccenca-item-upload: **Attach a file** to add one or more files to the message, or drop them on the panel.
-    Files larger than the configured limit, 10 MB by default, are not attached.
-4. Click :material-send-variant-outline: **Send the message**, or press ++enter++.
-
-The Companion receives the context of the current view with every message: the view, the application view, the selected resources and graphs.
-Click the context tag below the input field, for example `explore-instance`, to see what is sent.
-The same tag appears on each sent message.
-
-While the Companion works, a status such as **Thinking** or **Working** is shown above the mode selector.
-Click **Stop** to interrupt the answer.
-
-## Modes
-
-The mode decides which tool calls of the Companion run on their own, which need a confirmation, and which are declined.
-Select the mode in the drop-down list above the input field.
-A new chat starts in **Read only**.
-
-![Mode selector of the Companion with the available modes](companion-modes.png){ class="bordered" width="40%" }
-
-| Mode | Behavior |
-| --- | --- |
-| **Read here only** | The Companion reads data in this Corporate Memory deployment and does not change anything. Tools that reach outside the deployment, such as a web search or an external MCP server, are declined. |
-| **Read only** | The Companion reads data, also with tools that reach outside the deployment, and does not change anything. |
-| **Ask before writes** | The Companion reads data and asks for a confirmation before each change. |
-| **Plan first** | The Companion writes a plan and presents it for approval before it changes anything. |
-| **Execute** | The Companion runs changes without asking for a confirmation. |
-
-A mode that is selected while a chat is open applies with the next message.
-Until then, **with next message** is shown next to the mode selector.
-
-### Confirm a change
-
-In **Ask before writes**, and after a plan was approved with **Approve, ask before writes**, the Companion opens a confirmation dialog for each change.
-The dialog names the tool, marks it with **Changes or deletes data** and shows the parameters of the tool call.
-
-![Confirmation dialog for a change to a resource proposed by the Companion](companion-confirm-change.png){ class="bordered" width="50%" }
-
-1. Check the parameters of the change.
-    Expand a parameter to see its full value, or turn on **Show all as JSON**.
-    For a change to a resource, the dialog can instead list the values that the change adds and removes.
-    Clear the checkbox of each value that must not be written.
-2. Click **Confirm** to run the change, or **Decline** to reject it.
-
-After **Decline**, the Companion waits for a message that says what to do instead.
-
-### Approve a plan
-
-In **Plan first**, the Companion reads what it needs and presents a plan.
-Tools that write are not available until the plan is approved.
-
-- Click **Approve** to execute the plan without further confirmations.
-- Click **Approve, ask before writes** to execute the plan with a confirmation for each change.
-- Click **Decline** to reject the plan, and optionally give a reason so that the Companion revises it.
-
-The approval switches the chat to the mode that executes the plan.
-While the plan runs, the Companion shows the progress of its tasks, for example `Tasks: 2/5`.
-
-## Answers
-
-![Companion answer with Build projects and Marketplace packages](companion-answer.png){ class="bordered" width="60%" }
-
-Each answer names the agent that wrote it and the model that it used, for example `domain_expert · anthropic/claude-sonnet-5`.
-The Companion hands a question over to the agent that fits it, so the agent can change within a chat.
-
-An answer can contain the following interactive elements:
-
-Tool calls
-:   :eccenca-item-wrench: shows how many tool calls of the answer are finished, for example `4/4`.
-    A declined tool call is marked in red.
-
-Resources
-:   Click a resource to open it in :eccenca-application-explore: **Knowledge Graphs**.
-
-Queries
-:   Click :eccenca-item-copy: **Copy the query** to copy the query to the clipboard.
-    Click :eccenca-application-queries: **Open in Query Editor** to open the query in the **Queries** module.
-
-Build projects, Build tasks and Marketplace packages
-:   These items are shown as tags.
-
-To reuse a sent message, click :eccenca-item-edit: **Use as draft** next to its time.
-The text of the message replaces the text in the input field.
-
-## Tools
-
-The Companion uses tools to read and change data in Corporate Memory.
-The tools are provided by the MCP servers of the Corporate Memory components and are named after them:
-
-| Prefix | Tools for |
-| --- | --- |
-| `cmem_explore-` | Graphs, vocabularies, resources, SHACL shapes and validation, queries and the query catalog |
-| `cmem_build-` | Build projects, datasets, transformations, workflows and project resources |
-| `cmem_marketplace-` | Marketplace packages and package manifests |
-
-Each agent of the Companion uses only the tools that are configured for it in **Companion management**.
-External MCP servers can be added through the [MCP client configuration](../../deploy-and-configure/configuration/explore/dataplatform/application-full.md#configuration-of-mcp-server).
+Assign the actions to a user group in an [access condition](../../deploy-and-configure/configuration/access-conditions/index.md).

@@ -49,11 +49,12 @@ You will also learn how we make use of [SHACL Shapes](https://www.w3.org/TR/sha
 
     The Charts module provides a user interface to define and manage visualizations of your query results and to integrate them into your shape configurations.
 
-- :eccenca-application-ai-suggestion: [Companion AI chat](companion/index.md)
+- :eccenca-application-ai-suggestion: [Companion](companion/index.md)
 
     ---
 
-    The Companion AI chat allows you to interact with your graphs, vocabularies, resources and queries in a chat-like way.
+    The Companion is the AI assistant of Corporate Memory.
+    Users ask questions and request changes in the [Companion AI chat](companion/chat/index.md), administrators configure agents, skills and models in [Companion Management](companion/management/index.md).
 
 - :eccenca-module-integrations: [Service integrations](embedding-services-via-the-integrations-module/index.md)
 

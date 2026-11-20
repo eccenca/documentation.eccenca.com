@@ -3,6 +3,20 @@
 # Do not edit by hand - run `task update:navigation` instead.
 # yamllint disable rule:line-length
 nav:
+  - Home:
+      - index.md
+      - How to use this documentation:
+          - introduction/how-to-use-this-documentation/index.md
+      - What is a knowledge graph?:
+          - introduction/what-is-a-knowledge-graph/index.md
+      - Semantic Web basics:
+          - introduction/semantic-web-basics/index.md
+      - Corporate Memory at a glance:
+          - introduction/corporate-memory-at-a-glance/index.md
+      - Highlight features:
+          - introduction/highlight-features/index.md
+      - Get access:
+          - introduction/get-access/index.md
   - Build:
       - Build: build/index.md
       - Foundations:
@@ -60,6 +74,8 @@ nav:
               - build/workflows/index.md
           - Variables:
               - build/variables/index.md
+          - Change Journal:
+              - build/change-journal/index.md
           - Project Access Control:
               - build/project-access-control/index.md
       - Reference:
@@ -548,8 +564,14 @@ nav:
           - explore-and-author/thesauri-management/index.md
       - Charts:
           - explore-and-author/charts-catalog/index.md
-      - Companion AI chat:
-          - explore-and-author/companion/index.md
+      - Companion:
+          - Companion: explore-and-author/companion/index.md
+          - AI chat:
+              - explore-and-author/companion/chat/index.md
+          - Management:
+              - explore-and-author/companion/management/index.md
+          - Build a catalog:
+              - explore-and-author/companion/build-a-companion-catalog/index.md
       - Services integrations:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:
