@@ -136,7 +136,7 @@ The changes are reverted newest first.
 
 ### Workflow runs proposed by an agent
 
-An agent does not run a workflow while unreviewed changes exist, because a run would use these changes and its results cannot be reverted.
+While the review gate is enabled, which is the default, an agent does not run a workflow while unreviewed changes exist, because a run would use these changes and its results cannot be reverted.
 Instead, the request is recorded as a change of the state **Proposed run**, and the agent is asked to wait for the review.
 
 - After all changes are marked as reviewed, the next request of the agent runs the workflow.
@@ -161,8 +161,10 @@ Administrators configure the journal and the review gate for agents in the Build
 
 `com.eccenca.di.assistant.McpConfig.reviewGate`
 
-:   Holds workflow runs requested through the MCP server back for review, as described in [Workflow runs proposed by an agent](#workflow-runs-proposed-by-an-agent).
-    Set it to `false` for automation without a reviewer.
+:   Makes workflow runs requested through the MCP server wait for review, as described in [Workflow runs proposed by an agent](#workflow-runs-proposed-by-an-agent).
+    The default is `true`.
+    While the review gate is enabled, the MCP server does not offer the `resource_delete` tool, because deleting a file cannot be reverted.
+    Set it to `false` for automation without a reviewer: workflow runs then execute right away, and `resource_delete` is available.
 
 The journal of a project is also available through the REST API under `/api/workspace/projects/{project}/changes`.
 See the [Build (DataIntegration) API documentation](../../develop/dataintegration-apis/index.md) for details.
