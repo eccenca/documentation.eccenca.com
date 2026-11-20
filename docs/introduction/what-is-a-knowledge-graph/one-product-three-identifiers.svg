@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" font-family="Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f39200"/>
+    </marker>
+  </defs>
+  <rect width="760" height="250" fill="#ffffff"/>
+
+  <g fill="none" stroke="#f5b14f" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M200,125 L255,125 L295,45 L470,45"/>
+    <path d="M200,125 L470,125"/>
+    <path d="M200,125 L255,125 L295,205 L470,205"/>
+  </g>
+
+  <g font-size="13" fill="#f39200" text-anchor="middle">
+    <text x="382" y="36">ID in the ERP system</text>
+    <text x="382" y="116">ID in the PLM system</text>
+    <text x="382" y="196">ID in the supplier portal</text>
+  </g>
+
+  <circle cx="200" cy="125" r="14" fill="#f39200"/>
+  <text x="200" y="167" font-size="15" font-weight="500" fill="#333333" text-anchor="middle">Product 10045</text>
+
+  <g fill="#fdebd0" stroke="#f39200" stroke-width="1.5">
+    <rect x="470" y="28" width="200" height="34" rx="6"/>
+    <rect x="470" y="108" width="200" height="34" rx="6"/>
+    <rect x="470" y="188" width="200" height="34" rx="6"/>
+  </g>
+  <g font-size="15" font-family="Roboto Mono, Menlo, Consolas, monospace" fill="#333333" text-anchor="middle">
+    <text x="570" y="50">P-10045</text>
+    <text x="570" y="130">PRD_10045_A</text>
+    <text x="570" y="210">45100-XX</text>
+  </g>
+</svg>

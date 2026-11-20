@@ -3,6 +3,18 @@
 # Do not edit by hand - run `task update:navigation` instead.
 # yamllint disable rule:line-length
 nav:
+  - Home:
+      - index.md
+      - What is a knowledge graph?:
+          - introduction/what-is-a-knowledge-graph/index.md
+      - Semantic Web basics:
+          - introduction/semantic-web-basics/index.md
+      - Corporate Memory at a glance:
+          - introduction/corporate-memory-at-a-glance/index.md
+      - Highlight features:
+          - introduction/highlight-features/index.md
+      - Get access:
+          - introduction/get-access/index.md
   - Build:
       - Build: build/index.md
       - Foundations:
