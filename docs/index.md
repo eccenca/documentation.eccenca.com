@@ -78,9 +78,9 @@ Corporate Memory connects data that lives in separate systems into one meaningfu
 It keeps that whole usable as the systems and the business around it change.
 
 Prefer to watch?
-The video [eccenca Corporate Memory in 3 minutes](https://www.youtube.com/watch?v=Lb0zpH9oLMM){target=_blank} shows what Corporate Memory is for, without a product demo.
+The video _eccenca Corporate Memory in 3 minutes_ shows what Corporate Memory is for, without a product demo.
 
-[![Video eccenca Corporate Memory in 3 minutes on YouTube: a knowledge graph answering which products are affected if Kessler GmbH fails](video-corporate-memory-in-3-minutes.jpg){ class="bordered off-glb" width="60%" }](https://www.youtube.com/watch?v=Lb0zpH9oLMM){target=_blank}
+<video src="video-corporate-memory-in-3-minutes.webm" poster="video-corporate-memory-in-3-minutes.png" title="eccenca Corporate Memory in 3 minutes: a knowledge graph answering which products are affected if Kessler GmbH fails" class="bordered" controls playsinline preload="metadata"></video>
 
 Reading time: 4 minutes.
 No prior knowledge is required.

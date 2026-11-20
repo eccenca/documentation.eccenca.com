@@ -1,0 +1,6 @@
+---
+nav:
+    - Companion: index.md
+    - AI chat: chat
+    - Management: management
+    - Build a catalog: build-a-companion-catalog

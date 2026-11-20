@@ -159,6 +159,8 @@ platform.
 ```
 
 - No `autoplay`: the reader starts the video. `controls loop muted playsinline preload="metadata"` on every video.
+  Exception: a video with a soundtrack (narration, music) keeps its audio (`-c:a libopus -b:a 96k` in place of
+  `-an`) and drops `loop muted` — see the video on the home page.
 - `title` takes the role of the alt text and follows the same rule (style guide 5.6).
 - `poster` is a still of the recording that shows its result, without keystroke overlays. The print edition prints
   the poster in place of the video, with the `title` as alt text; a video without a poster prints as a link.
