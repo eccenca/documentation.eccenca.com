@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" width="760" height="190" font-family="Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="26" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f39200"/>
+    </marker>
+  </defs>
+  <rect width="760" height="190" fill="#ffffff"/>
+
+  <!-- role labels -->
+  <g font-size="13" font-weight="500" fill="#80868b" text-anchor="middle" letter-spacing="1">
+    <text x="170" y="34">SUBJECT</text>
+    <text x="380" y="34">PREDICATE</text>
+    <text x="590" y="34">OBJECT</text>
+  </g>
+  <g stroke="#dadce0" stroke-width="1.5" stroke-dasharray="3 3">
+    <line x1="170" y1="42" x2="170" y2="76"/>
+    <line x1="380" y1="42" x2="380" y2="80"/>
+    <line x1="590" y1="42" x2="590" y2="76"/>
+  </g>
+
+  <line x1="170" y1="100" x2="590" y2="100" stroke="#f5b14f" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="380" y="90" font-size="15" fill="#f39200" text-anchor="middle">is made at</text>
+
+  <g fill="#f39200">
+    <circle cx="170" cy="100" r="14"/>
+    <circle cx="590" cy="100" r="14"/>
+  </g>
+  <g font-size="15" font-weight="500" fill="#333333" text-anchor="middle">
+    <text x="170" y="142">Product 10045</text>
+    <text x="590" y="142">Plant Leipzig</text>
+  </g>
+
+  <text x="380" y="176" font-size="12" fill="#5f6368" text-anchor="middle">One triple: one complete statement about one thing</text>
+</svg>
