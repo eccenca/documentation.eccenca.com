@@ -7,8 +7,6 @@ title: "Introduction: How to use this documentation"
 This documentation describes eccenca Corporate Memory from first contact to operation in production.
 It is organized by what is being done with the product, not by the parts of the user interface.
 
-Reading time: 4 minutes.
-
 ## Two ways in
 
 - **New to Corporate Memory**: follow the introduction on [Home](../../index.md).
