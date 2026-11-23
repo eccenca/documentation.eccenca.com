@@ -81,13 +81,22 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
         A new task lists its non-default settings, task and mapping rule updates list the changed parameters or fields with both values, and a workflow or transformation saved as a whole lists its added, removed and changed nodes, connections or rules.
         A workflow run entry links its execution report.
     - The changes can be searched, filtered by kind, state, origin, user and task, and sorted.
+        The list is paged on the server.
     - Changes made by an agent through the MCP server count as unreviewed until a user reviews them.
         The **Changes** card on the project view shows how many changes await review.
         The **Changes** view marks them and offers **Revert unreviewed**, **Mark all as reviewed** and marking as reviewed up to a selected change.
     - The `workflow_execute` tool of the MCP server no longer runs a workflow directly: the request is staged as a proposed change and answered with a review link.
+        Setting `com.eccenca.di.assistant.McpConfig.reviewGate = false` restores direct runs, for automation without a reviewer.
     - The journal is kept on the file system, so it survives a restart and is included in exports that include user data.
         The export endpoints take an `exportChangeJournal` flag to leave it out.
     - Added a REST API under `/api/workspace/projects/:project/changes`, see the OpenAPI documentation for details.
+    - Added the WebSocket endpoint `/api/workspace/projects/:projectId/changes/updatesWebSocket`, which streams journal updates.
+        The HTTP and the WebSocket lists both support the `unreviewedOnly` filter.
+    - MCP requests can be attributed to a Companion conversation with the `X-CMEM-conversationId` header.
+    - Companion integration:
+        - Companion shows live counts of the unreviewed changes from the current conversation and from other sources in the open project, together with a review link.
+        - A Companion conversation can be opened from its journal entries without reloading the page.
+        - Companion links show the unreviewed changes, highlight the related conversation and filter the journal to its changes.
 - **Variables:**
     - **Sensitive variables:**
         - Project and execution variables can be marked as sensitive in the variables widget.
@@ -161,6 +170,15 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
         - Source path parse errors name the offending character and what was expected there, instead of printing the grammar of the parser.
         - The transform report warning that aggregates the entity validation errors names the worst offending rules with their error counts and points to `ruleResults` for the sample values.
     - The server instructions state that direct RDF graph access (SPARQL, Graph Store) is not part of this server, so an agent asks for the Explore MCP server instead.
+- **Companion integration** (configuration under `com.eccenca.di.assistant.CompanionConfig`), see the [Migration Notes](#eccenca-dataintegration):
+    - `enabled` defaults to `true`.
+        Companion also has to be enabled in Explore, and the user needs the `Explore-Companion-Use` action.
+        Set `enabled = false` to disable the integration in DataIntegration separately.
+    - `apiBasePath` defaults to `/dataplatform/api/companion/interactive`.
+        Journal conversation lookups append `/conversations` to this base path.
+- **Workflow execution:**
+    - When a workflow is cancelled in local execution, the execution report lists the tasks that were still running and how long the workflow took to stop, for example because a plugin does not react to the cancellation.
+    - Activity status messages show runtimes of a minute or more in minutes and hours, for example "Finished in 29min 20s" instead of "Finished in 1760.329s".
 - **Platform and dependencies:**
     - Upgraded Apache Spark to 4.3.0.
     - Upgraded the Play Framework to 2.9.12 and Logback to 1.6.6.
@@ -207,9 +225,13 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
     - Editing a sensitive variable in the variables widget keeps its sensitive flag.
     - Variables used in SPARQL Select and SPARQL Update queries are protected from deletion and are copied along with the task.
     - Invalid variable requests are rejected with a clear error instead of failing with a server error.
+    - The help in the dialog of the **Execution variables** widget describes execution variables instead of project variables.
 - **Workflow execution:**
     - XML, JSON, Excel, text and binary file datasets: a workflow that is cancelled or fails before writing to the dataset no longer wipes the existing file.
     - Activities no longer fail sporadically with `QueryCancelledException` when an unrelated activity is cancelled at the same time, for example when a task is updated while its caches are refreshing.
+    - Requests that wait for an activity, for example blocking workflow executions through the API, no longer sporadically leave a concurrent request unanswered.
+    - In local execution, a nested workflow no longer continues with its remaining nodes after the enclosing workflow has been cancelled.
+    - Cancelling a workflow in local execution while its output datasets are being cleared no longer clears the remaining ones.
     - **Execute REST requests** operator: responses written to a ZIP-based dataset with **Output result as file** enabled are stored directly in the dataset file instead of a nested ZIP file, and entries written for a Multi CSV ZIP dataset carry the `.csv` suffix.
     - Variable workflow execution:
         - Tasks that are re-configured through a config port resolve their parameter templates against their own execution variables, like every other task.
@@ -231,6 +253,7 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
     - A `complex` mapping rule with a URI-typed target and a `concat` pattern is no longer rewritten into an object mapping.
     - The mapping rule preview shows the entity URI as a source value for rules reading the empty path.
     - The object rule preview no longer shows an unrelated child value next to the generated URI.
+    - Class, property and type suggestions no longer stay empty until a manual cache reload after a task has been saved while other caches were busy.
 - **Workflow search:**
     - The workflow search no longer fails with a `500` when a workflow references a missing node, which also broke all `cmemc workflow` commands.
     - The **Output** facet value counts variable output datasets instead of input datasets.
@@ -238,6 +261,9 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
     - Dialogs that lacked an accessible name now have one.
     - The workflow report selection has an accessible label.
     - The project task tabs are accessible.
+    - The workflow report navigation can be used with the keyboard.
+    - Menus no longer use menu roles where they do not apply.
+    - Multi-select popups have correct semantics and keyboard behavior.
 
 ## eccenca Explore v26.3.0
 
@@ -536,6 +562,10 @@ We are excited to announce the release of cmemc v26.3, which manages execution v
 - **Task API:** Legacy task payloads and unknown keys are rejected with a `400`.
     Clients that send the task specification at the top level, parameters directly below `data`, or undeclared attributes and parameters need to send the documented task JSON.
 - **MCP server:** The `workflow_execute` tool no longer runs a workflow directly, but stages the request as a proposed change to be reviewed in the **Changes** view.
+    Set `com.eccenca.di.assistant.McpConfig.reviewGate = false` to keep running workflows without review.
+- **Companion integration:** `com.eccenca.di.assistant.CompanionConfig.enabled` defaults to `true`, and `apiBasePath` defaults to `/dataplatform/api/companion/interactive`.
+    Set the same-origin base path for the deployment, and update overrides from Companion V1 that end in `/api/companion`.
+    Set `enabled = false` to keep the integration disabled in DataIntegration.
 - **Templating:** The `Simple` and `Velocity` template engines of the SPARQL tasks will be removed in release 28.1.
     Migrate affected tasks to the `Jinja` template engine.
 
