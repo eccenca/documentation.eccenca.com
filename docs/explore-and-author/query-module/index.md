@@ -42,7 +42,7 @@ The query editor features SPARQL syntax highlighting and SPARQL validation, allo
 
 The Query editor allows to Run query, Download Results, Delete, Save and Save as Queries.
 
-![](./QueryEditor.png){ class="bordered" }
+![The Query editor with an opened query from the catalog and the toolbar with Run and Save as](./QueryEditor.png){ class="bordered" }
 
 ### Run a query
 
