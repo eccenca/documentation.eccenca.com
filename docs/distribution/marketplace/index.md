@@ -280,8 +280,8 @@ Confirm the **Confirm action** dialog with **Confirm**.
 
 This removes all contents of the package from the Corporate Memory instance, including the graphs and the Build projects that came with it.
 
-Packages installed as dependencies of the package remain installed.
-Uninstall them separately in the **Installed** view if they are not needed anymore.
+Packages installed as dependencies of the package are uninstalled together with it, including dependencies of dependencies.
+A dependency that another installed package still needs remains installed.
 
 !!! warning "Uninstalling removes data"
 
