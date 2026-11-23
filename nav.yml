@@ -578,6 +578,8 @@ nav:
           - explore-and-author/link-rules/index.md
       - Application view:
           - explore-and-author/workspace-configuration/index.md
+      - Platform management:
+          - explore-and-author/platform-management/index.md
   - Consume:
       - Consume: consume/index.md
       - Consuming Graphs in Power&nbsp;BI:
