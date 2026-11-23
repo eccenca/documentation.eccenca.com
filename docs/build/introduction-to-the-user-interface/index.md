@@ -137,6 +137,12 @@ Here you have the following options:
 - **Execute the Transformation rules** in order to create new data,
 - **Clone** the task, creating a new transform task with the same rules.
 
+To test a transformation on a small part of the data, set **Input limit** under **ADVANCED OPTIONS** in the configuration of the transform task.
+Only the first N input entities are transformed, in every execution of the task, including workflow executions and other tasks that read the transformation.
+For hierarchical mappings, the limit applies to each level separately.
+A parent entity can then reference child entities that were cut, and writing to a JSON or XML dataset fails because a referenced entity is missing.
+Leave the field empty to transform all input entities.
+
 ## Linking tasks
 
 The purpose of linking tasks is to integrate two datasets (source and target) by generating a linkset that contains links from the source to the target dataset.

@@ -84,7 +84,10 @@ Clicking an element of the source schema opens **Source element info**, describe
 Clicking an element of the target schema opens **Mapping info**, described in [Inspect and edit a mapping rule](#inspect-and-edit-a-mapping-rule).
 
 Several target elements can be removed in one step.
-Select them with their checkboxes or with **Select all**, then click **Delete**, which states the number of selected elements.
+Select them with their checkboxes, or hold ++ctrl++ (++cmd++ on macOS) and click the elements.
+Click :eccenca-state-unchecked: (**Select all**) in the header of the target schema to select all elements.
+Click :eccenca-state-checked: (**Deselect all**) to clear the selection again.
+Then click **Delete**, which states the number of selected elements.
 
 !!! question "Help"
 
