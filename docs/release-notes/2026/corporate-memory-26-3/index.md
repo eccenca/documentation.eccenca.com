@@ -562,10 +562,7 @@ We are excited to announce the release of cmemc v26.3, which manages execution v
 - **Task API:** Legacy task payloads and unknown keys are rejected with a `400`.
     Clients that send the task specification at the top level, parameters directly below `data`, or undeclared attributes and parameters need to send the documented task JSON.
 - **MCP server:** The `workflow_execute` tool no longer runs a workflow directly, but stages the request as a proposed change to be reviewed in the **Changes** view.
-    Set `com.eccenca.di.assistant.McpConfig.reviewGate = false` to keep running workflows without review.
-- **Companion integration:** `com.eccenca.di.assistant.CompanionConfig.enabled` defaults to `true`, and `apiBasePath` defaults to `/dataplatform/api/companion/interactive`.
-    Set the same-origin base path for the deployment, and update overrides from Companion V1 that end in `/api/companion`.
-    Set `enabled = false` to keep the integration disabled in DataIntegration.
+    Set `com.eccenca.di.assistant.McpConfig.reviewGate = false` in the Build configuration to keep running workflows without review.
 - **Templating:** The `Simple` and `Velocity` template engines of the SPARQL tasks will be removed in release 28.1.
     Migrate affected tasks to the `Jinja` template engine.
 
