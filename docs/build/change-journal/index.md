@@ -134,6 +134,8 @@ To review the changes, follow these steps:
 To reject all unreviewed changes at once, click **Revert unreviewed** and then **Revert**.
 The changes are reverted newest first.
 
+The tutorial [Review the changes of an AI agent](../review-agent-changes/index.md) walks through a review from the request of the agent to the approved workflow run.
+
 ### Workflow runs proposed by an agent
 
 While the review gate is enabled, which is the default, an agent does not run a workflow while unreviewed changes exist, because a run would use these changes and its results cannot be reverted.
