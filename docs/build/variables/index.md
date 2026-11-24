@@ -48,11 +48,6 @@ A sensitive variable can only be referenced from the following places:
 A task that references a sensitive variable in any other parameter cannot be saved.
 A variable that is not sensitive cannot be based on a template that references a sensitive variable.
 
-!!! note
-
-    When a sensitive variable is referenced in another parameter, the error message states that the variable is not defined.
-    Check whether the parameter accepts sensitive variables before checking the variable name.
-
 ## Global variables
 
 Global variables are defined in the `dataintegration.conf` configuration file:
