@@ -1,6 +1,5 @@
 ---
 title: "Marketplace: Configuration"
-icon: eccenca/module-marketplace
 tags:
     - Configuration
     - Marketplace
@@ -71,7 +70,7 @@ It also contacts Keycloak at startup and does not start when the realm configura
 | -------- | ------- | ----------- |
 | `ECC_MARKETPLACE_KEYCLOAK_URL` | (required) | Base URL of Keycloak, for example `https://cmem.example.org/auth/`. |
 | `ECC_MARKETPLACE_KEYCLOAK_REALM` | (required) | ID of the Keycloak realm, usually `cmem`. |
-| `ECC_MARKETPLACE_KEYCLOAK_ADMIN_GROUP` | (required) | Keycloak group whose members publish and delete packages, see [Permissions](#permissions). |
+| `ECC_MARKETPLACE_KEYCLOAK_ADMIN_GROUP` | (required) | Keycloak group whose members publish and delete packages, see [Permissions](#permissions). Several groups are given as a comma-separated list, for example `local-admins,package-publishers`. |
 
 ## Login and Keycloak client
 
@@ -106,7 +105,7 @@ Set `ECC_MARKETPLACE_KEYCLOAK_CLIENT_SECRET` only when the client is created as 
 | Read the name and version (`GET /api/info`), the allowed licenses, the manifest schema and package badges | Nothing. |
 | Check a manifest (`POST /api/manifest`) | Nothing. |
 | List, inspect and download packages | A login in the realm. A central Marketplace Server accepts the license sent with the request instead. |
-| Publish a package version, delete a package or a version | Membership in the group named by `ECC_MARKETPLACE_KEYCLOAK_ADMIN_GROUP`. |
+| Publish a package version, delete a package or a version | Membership in one of the groups named by `ECC_MARKETPLACE_KEYCLOAK_ADMIN_GROUP`. |
 | Install and uninstall packages in Corporate Memory, list installed packages | A login in the realm. |
 
 The service has no Corporate Memory account of its own.
@@ -169,14 +168,20 @@ The redirect URI of the Keycloak client moves with the prefix, see [Login and Ke
 | `ECC_MARKETPLACE_FRONTEND` | `true` | Whether the web application is served. With `false` a static home page is served instead. |
 | `ECC_MARKETPLACE_TITLE` | `eccenca Corporate Memory Marketplace` | Name of the instance, shown in the API documentation and returned by `GET /api/info`. |
 | `ECC_MARKETPLACE_DESCRIPTION` | (a short product text) | Description shown in the API documentation and on the static home page. |
-| `ECC_MARKETPLACE_MARKETPLACE_URLS` | `["https://eccenca.market"]` | JSON list of the Marketplace Servers offered to users. |
+| `ECC_MARKETPLACE_MARKETPLACE_URLS` | `https://eccenca.market` | Comma-separated list of the Marketplace Servers offered to users. |
 
 `ECC_MARKETPLACE_MARKETPLACE_URLS` also restricts where packages are installed from: an installation from any other Marketplace Server is refused.
-An empty list (`[]`) offers no remote Marketplace Server, which leaves only the own registry of the instance.
+An empty value offers no remote Marketplace Server, which leaves only the own registry of the instance.
 
 ```bash
-ECC_MARKETPLACE_MARKETPLACE_URLS=["https://eccenca.market","https://marketplace.example.org"]
+ECC_MARKETPLACE_MARKETPLACE_URLS=https://eccenca.market,https://marketplace.example.org
 ```
+
+!!! info "Lists before v26.3.1"
+
+    The comma-separated form of `ECC_MARKETPLACE_MARKETPLACE_URLS` and several groups in `ECC_MARKETPLACE_KEYCLOAK_ADMIN_GROUP` require Marketplace v26.3.1 or newer.
+    Earlier versions accept one admin group, and the Marketplace Servers only as a JSON list, for example `["https://eccenca.market"]`.
+    The JSON list is still accepted but deprecated.
 
 ## Corporate Memory integration
 
