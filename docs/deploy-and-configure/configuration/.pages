@@ -5,6 +5,7 @@ nav:
     - Build: dataintegration
     - Explore: explore
     - Graph Insights: graphinsights
+    - Marketplace: marketplace
     - Keycloak: keycloak
     - Quad-Store: quad-store-configuration
     - Reverse Proxy: reverse-proxy

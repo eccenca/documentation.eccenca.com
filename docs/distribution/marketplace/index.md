@@ -32,6 +32,7 @@ The Marketplace has two views:
     Opening the Marketplace and installing, upgrading or uninstalling packages requires the `:Marketplace-Frontend` action, plus access to the graphs a package writes to.
     If the **Packages** entry is missing from the navigation menu, or if the **Install** and **Uninstall** buttons do not react, contact the Corporate Memory administrator.
     See [Access Conditions](../../deploy-and-configure/configuration/access-conditions/index.md) for details.
+    The settings of the Marketplace service itself are described in [Marketplace configuration](../../deploy-and-configure/configuration/marketplace/index.md).
 
 ## Open the Marketplace
 

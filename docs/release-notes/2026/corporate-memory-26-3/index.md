@@ -318,6 +318,7 @@ We are pleased to announce the release of Explore v26.3, which adds log reading 
 ## eccenca Marketplace v26.3.0
 
 We are excited to announce the release of eccenca Marketplace v26.3, which resolves version constraints between packages on publishing and installation, adds a view of the packages installed in Corporate Memory together with their update status, and lets project packages ship Explore application views.
+The settings of the service are described in [Marketplace configuration](../../../deploy-and-configure/configuration/marketplace/index.md), and the manifest fields in [Development and Publication of Marketplace Packages](../../../develop/marketplace-packages/development/index.md#manifest).
 
 **v26.3.0 of Marketplace adds the following new features:**
 

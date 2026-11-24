@@ -398,6 +398,8 @@ To use it, make sure to:
 
 To skip the Marketplace, set `marketplace.enabled: false` (as in the basic example above).
 
+The settings of the Marketplace service are described in [Marketplace](../../configuration/marketplace/index.md).
+
 ### 3. Install the Corporate Memory chart
 
 To pull the Corporate Memory images, you need to provide credentials for the eccenca
