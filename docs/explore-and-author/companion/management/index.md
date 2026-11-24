@@ -60,18 +60,21 @@ The **Catalog** tab holds the entries of the catalog in four tabs:
 Each tab lists the entries on the left and shows the selected entry on the right.
 Enter a search term above the list to filter it.
 
-![Catalogs tab of Companion Management with the catalog status](companion-management-catalog.png){ class="bordered" }
+![Catalogs tab of Companion Management with the catalog status of the main catalog and the imported catalog Procurement Companion](companion-management-catalog.png){ class="bordered" }
 
 ### Catalogs
 
-The **Catalog graphs** list shows the main catalog graph and the catalog graphs it imports.
-Select a catalog graph to see its **Catalog status**:
+The **Catalog graphs** list shows the main catalog graph `Default Companion Catalog Overlay` and the catalog graphs it imports.
+Select the main catalog graph to see its **Catalog status**:
 
 - **Health** of the catalog, for example `Healthy`
 - **Main catalog graph**
 - **Loaded at**, the time the catalog was last loaded
 - **Catalog hash**
 - **Entries**, the number of agents, skills and named models
+- **Imported catalogs**, with the graph, the status and the number of entries of each imported catalog
+
+Select an imported catalog graph to see its **Graph**, **Label in the graph**, **Imports**, **Hash the companion computed**, **Entries the companion read** and **Stored JSON**.
 
 The list contains only the catalog graphs that the current user can read.
 The Companion reads the catalog as administrator, so it also uses catalog graphs that are missing from the list.
@@ -80,13 +83,27 @@ The following actions apply to the selected catalog graph:
 
 - Click **Export** to download the catalog.
 - Click **Import** to load a catalog from a file.
+- Click **Disable** to stop importing a catalog graph into the main catalog.
+    The Companion no longer uses its agents, skills and named models, and the catalog graph is marked `disabled`.
+    Click **Enable** to import it again.
+    Both take effect immediately, without **Save changes**.
 - Click **Reload catalog** to load the catalog from the graph again.
-- Click **Add a new catalog** in the header to add a catalog graph.
+
+The following actions apply to a catalog graph in the list:
+
+- Click **Open the agents of this catalog** to open the **Agents** tab with the catalog graph selected.
+- Click :eccenca-item-remove: **Delete this catalog graph** to delete an added catalog graph, then confirm with **Delete**.
+    The graph is deleted and the main catalog no longer imports it.
+    This cannot be undone.
+    The main catalog graph cannot be deleted.
+
+Click **Add a new catalog** in the header to add a catalog graph.
 
 !!! warning
 
-    **Reset to the shipped catalog** replaces the catalog with the catalog shipped with Corporate Memory.
-    Changes made to agents, skills and named models are lost.
+    **Reset to the defaults** removes the overlay stored in the main catalog graph, so the defaults of the installed version apply again.
+    Agents, skills and named models changed or added in the main catalog are lost.
+    Imported catalog graphs are kept.
 
 ### Agents
 
