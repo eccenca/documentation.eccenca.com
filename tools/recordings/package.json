@@ -1,0 +1,12 @@
+{
+  "name": "documentation-recordings",
+  "private": true,
+  "description": "Scripted screen recordings for documentation.eccenca.com, see README.md",
+  "license": "CC-BY-SA-4.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "puppeteer-core": "23.11.1"
+  }
+}

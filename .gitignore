@@ -16,3 +16,6 @@ dist/
 
 # upstream note of the synced Graph Insights user guide, not part of this repository
 docs/explore-and-author/graph-exploration/graph-insights/_README.md
+
+# dependencies of the recording scripts (tools/recordings/)
+node_modules/

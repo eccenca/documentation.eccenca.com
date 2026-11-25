@@ -410,6 +410,15 @@ tasks:
     cmds:
       - poetry run dec-tool update-try-results
 
+  record:
+    desc: >-
+      Record the screen recordings of a tutorial, for example
+      `task record -- companion-catalog --install` (see tools/recordings/README.md)
+    dir: tools/recordings
+    cmds:
+      - test -d node_modules || npm install --no-audit --no-fund
+      - node lib/run.js {{.CLI_ARGS}}
+
   public:versions:
     desc: List public documentation versions
     deps:
