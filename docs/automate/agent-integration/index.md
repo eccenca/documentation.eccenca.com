@@ -309,3 +309,6 @@ The authoring, deletion and execution tools are exposed after setting `com.eccen
 
     With the read-only mode off, an agent can delete projects and run workflows with the permissions of the authenticated account.
     Use a dedicated account or client with limited permissions, and review the actions of the agent.
+
+Changes that an agent makes through the Build MCP server are recorded in the [change journal](../../build/change-journal/index.md) of the project and await review.
+The tutorial [Review the changes of an AI agent](../../build/review-agent-changes/index.md) shows a review from start to end.
