@@ -28,6 +28,8 @@ The tutorial builds a small agent network in a catalog of its own:
 No routing agent is added.
 The shipped routing agent `default_router` has an empty **Handoff agents** list, so it hands a question to any interactive agent whose description fits, including `procurement_advisor`.
 
+Each step starts with a short screen recording of the step.
+
 ## Prerequisites
 
 - The Companion is configured for the deployment, see [Configuration](../index.md#configuration).
@@ -38,7 +40,9 @@ The shipped routing agent `default_router` has an empty **Handoff agents** list,
 ## 1 Create the catalog
 
 A catalog is a graph that holds agents, skills and named models.
-The main catalog `Default Companion Catalog Overlay` imports the other catalogs, and the Companion runs the merged result.
+The base catalog `CMEM Base Companion Catalog` imports the additional catalogs, and the Companion runs the merged result.
+
+<video src="companion-tutorial-create-catalog.webm" poster="companion-tutorial-create-catalog.png" title="Creating the catalog Procurement Companion with the graph https://ns.eccenca.com/data/companion/procurement/ in Companion Management" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 1. Open **Companion management** under **ADMIN** in the main navigation.
 2. Select the **Catalog** tab, then the **Catalogs** tab.
@@ -56,16 +60,18 @@ The main catalog `Default Companion Catalog Overlay` imports the other catalogs,
 5. Click **Create**.
 
 The catalog `Procurement Companion` appears under **Catalog graphs**.
-The main catalog imports it right away.
+The base catalog imports it right away.
 
 ## 2 Create the task agent
 
 A task agent is a worker that an interactive agent starts for one piece of work.
 Create it first, so that the interactive agent can refer to it.
 
+<video src="companion-tutorial-create-task-agent.webm" poster="companion-tutorial-create-task-agent.png" title="Creating the task agent supplier_lookup in the catalog Procurement Companion, with the model fast, a read-only filter entry for cmem_explore and the focus graph Products - Integration" class="bordered" controls loop muted playsinline preload="metadata"></video>
+
 1. Select the **Agents** tab.
 2. Select `Procurement Companion` in the catalog selector next to **Agents**.
-    The selector starts with **Default Companion Catalog Overlay (main)**, and a new agent is added to the catalog that it shows.
+    The selector starts with **CMEM Base Companion Catalog (base)**, and a new agent is added to the catalog that it shows.
 3. Click :eccenca-item-add-artefact: **Add a new agent** in the header.
 4. Select **Task agents** under **Kind of agent**.
     The kind cannot be changed afterwards.
@@ -101,6 +107,8 @@ Create it first, so that the interactive agent can refer to it.
 
 An interactive agent fulfills a role in the conversation and answers the user.
 
+<video src="companion-tutorial-create-interactive-agent.webm" poster="companion-tutorial-create-interactive-agent.png" title="Creating the interactive agent procurement_advisor with the model default, a read-only filter entry for cmem_explore, the task agent supplier_lookup and the focus graph Products - Integration" class="bordered" controls loop muted playsinline preload="metadata"></video>
+
 1. Click :eccenca-item-add-artefact: **Add a new agent** in the header, with `Procurement Companion` still selected in the catalog selector.
 2. Select **Interactive agents** under **Kind of agent**.
 3. Enter `procurement_advisor` in the **Identifier** field and click **Create**.
@@ -129,6 +137,8 @@ An interactive agent fulfills a role in the conversation and answers the user.
 
 A skill is a prompt that a user calls with a slash command in the chat.
 
+<video src="companion-tutorial-create-skill.webm" poster="companion-tutorial-create-skill.png" title="Creating the skill cheapest_supplier with its description and prompt in the catalog Procurement Companion" class="bordered" controls loop muted playsinline preload="metadata"></video>
+
 1. Select the **Skills** tab.
 2. Select `Procurement Companion` in the catalog selector next to **Skills**.
 3. Click :eccenca-item-add-artefact: **Add a new skill** in the header.
@@ -153,10 +163,13 @@ A skill is a prompt that a user calls with a slash command in the chat.
 
 ## 5 Check the agent network
 
+<video src="companion-tutorial-agent-network.webm" poster="companion-tutorial-agent-network.png" title="Showing the agent network by catalog, enlarging the group Procurement Companion and selecting the Procurement Advisor node" class="bordered" controls loop muted playsinline preload="metadata"></video>
+
 1. Select the **Agent network** tab.
 2. Click **By catalog**.
     Each catalog is shown as a group of its own.
-3. Use the zoom controls in the lower left corner to enlarge the group **Procurement Companion**.
+3. Enlarge the group **Procurement Companion** with the mouse wheel or the zoom controls in the lower left corner.
+    Drag the canvas to move the group into view.
 4. Click the **Procurement Advisor** node.
 
 The view highlights what the agent reaches: the task agent **Supplier Lookup**, the focus graph and **Answer to the user**.
@@ -164,6 +177,8 @@ The view highlights what the agent reaches: the task agent **Supplier Lookup**, 
 ![Agent network by catalog with the Procurement Advisor and Supplier Lookup agents in the Procurement Companion group](companion-agent-network-procurement.png){ class="bordered" }
 
 ## 6 Ask the Companion
+
+<video src="companion-tutorial-ask-companion.webm" poster="companion-tutorial-ask-companion.png" title="Asking the Companion who supplies the Resonator Transformer, then calling the skill /cheapest_supplier for the Multiplexer Transistor" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 1. Click :eccenca-application-ai-suggestion: **Chat with the companion** in the application header.
 2. Click **New chat**.

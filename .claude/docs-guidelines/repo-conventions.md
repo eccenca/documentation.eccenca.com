@@ -168,6 +168,16 @@ platform.
 - `poster` is a still of the recording that shows its result, without keystroke overlays. The print edition prints
   the poster in place of the video, with the `title` as alt text; a video without a poster prints as a link.
 - Same file names as images (5.5): `create-scheduler.webm` and `create-scheduler.png`.
+- Pace: a reader follows every step without pausing the video.
+  - About 3 seconds of stillness before the first action, and about 4 seconds on the result at the end.
+  - The pointer moves visibly to its target in about 1 second and rests about 0.6 seconds before it clicks.
+    A scripted recording draws the pointer and marks each click, since a headless browser shows no pointer.
+  - About 2 seconds after each action. Loading pauses are shortened to at most 2.5 seconds, not removed.
+  - Text is typed at about 12 characters per second. Text is not pasted.
+  - A long text of more than 100 characters is typed at about 100 characters per second, followed by a pause of
+    about 0.65 seconds before the next action.
+- A tutorial gets one short clip per step, embedded at the start of the step, not one long video.
+- A clip that shows an AI answer is recorded again until the answer is complete and correct.
 - Convert a GIF or a screen capture with:
 
 ```bash
