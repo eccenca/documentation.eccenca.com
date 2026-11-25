@@ -17,6 +17,7 @@ nav:
           - Build Knowledge Graphs from Kafka Topics: kafka-consumer
           - Run Catalog Queries in Workflows: query-catalog-tasks
           - Evaluate Template Operator: evaluate-template
+          - Review the Changes of an AI Agent: review-agent-changes
           - Link Intrusion Detection Systems to Open-Source INTelligence: tutorial-how-to-link-ids-to-osint
     - Guides:
           - Mapping Creator: mapping-creator

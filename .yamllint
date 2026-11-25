@@ -24,3 +24,4 @@ rules:
 ignore: |
     /site/
     /.venv/
+    node_modules/

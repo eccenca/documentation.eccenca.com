@@ -74,5 +74,11 @@ You will also learn how we make use of [SHACL Shapes](https://www.w3.org/TR/sha
 
     The Application view module provides a user interface to select, create and configure application views and the modules they offer.
 
+- :eccenca-item-wrench: [Platform management](platform-management/index.md)
+
+    ---
+
+    Platform management shows the state of the components, runs operations on the platform data, monitors SPARQL queries and reads the log lines of Build and Explore.
+
 
 </div>

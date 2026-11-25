@@ -123,6 +123,9 @@ Do not write `index.html` stubs under `docs/`.
 - Same-page references use a plain anchor: `[Configure OAuth clients](#configure-oauth-clients-helm)`, never a full path back to the same file.
 - `task check:links` runs [lychee](https://lychee.cli.rs/) over the outgoing http(s) links; exclusions and accepted
   status codes live in `lychee.toml`. `task build` runs `zensical build --strict` and fails on unresolved internal links.
+- In CI, outgoing links do not block a deployment. Deploy Pages runs `task check:offline` (every check but the links),
+  the Test workflow adds `task check:links:changed` for the Markdown files the branch changes, and the weekly Links
+  workflow (`.github/workflows/links.yml`) checks all of them and opens a new `broken-links` issue for a failure.
 - An IRI written as an autolink (`<https://vocab.eccenca.com/...>`) is checked like any link. Identifier namespaces
   that do not resolve are excluded in `lychee.toml`; add a new one there rather than formatting the IRI differently.
 
@@ -165,6 +168,16 @@ platform.
 - `poster` is a still of the recording that shows its result, without keystroke overlays. The print edition prints
   the poster in place of the video, with the `title` as alt text; a video without a poster prints as a link.
 - Same file names as images (5.5): `create-scheduler.webm` and `create-scheduler.png`.
+- Pace: a reader follows every step without pausing the video.
+  - About 3 seconds of stillness before the first action, and about 4 seconds on the result at the end.
+  - The pointer moves visibly to its target in about 1 second and rests about 0.6 seconds before it clicks.
+    A scripted recording draws the pointer and marks each click, since a headless browser shows no pointer.
+  - About 2 seconds after each action. Loading pauses are shortened to at most 2.5 seconds, not removed.
+  - Text is typed at about 12 characters per second. Text is not pasted.
+  - A long text of more than 100 characters is typed at about 100 characters per second, followed by a pause of
+    about 0.65 seconds before the next action.
+- A tutorial gets one short clip per step, embedded at the start of the step, not one long video.
+- A clip that shows an AI answer is recorded again until the answer is complete and correct.
 - Convert a GIF or a screen capture with:
 
 ```bash
@@ -179,6 +192,17 @@ ffmpeg -ss <seconds> -i in.gif -frames:v 1 -vf "scale='min(1440,iw)':-2:flags=la
   so 1440 still covers a 2x display, and a 2x capture shrinks to about a third (22 MB GIF, 2.7 MB at 2870 pixels,
   0.87 MB at 1436). A narrower recording keeps its width — scaling it down would make it soft.
   Two-pass encoding does not make the file smaller; a higher `-crf` or a lower frame rate does, at a visible cost.
+
+Scripted recordings live in `tools/recordings/`, one folder per tutorial, and are started with
+`task record -- <tutorial>`; see `tools/recordings/README.md`.
+
+A terminal clip, for example of an AI agent working through the Build MCP server, follows these rules:
+
+- The prompt and the working folder are neutral, with no user names, paths or branch names.
+- The start screen of a tool shows no account, plan or promotional notices: the clip starts after it, or the
+  recording hides these rows.
+- An AI agent such as Claude Code runs in its default permission mode, so the clip shows its permission prompts.
+- An AI agent runs with its shell tool disabled, so that it works only through the Build MCP server.
 
 ## Icons
 

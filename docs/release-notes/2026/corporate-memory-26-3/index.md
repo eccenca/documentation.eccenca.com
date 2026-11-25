@@ -38,7 +38,7 @@ The highlights of this release are:
 
 - Explore and cmemc: **Log Retrieval**
     ![26.3: Explore - Logs](26-3-explore-logs.png "26.3: Explore - Logs"){ class="bordered" width="20%" align=right }
-    - Administrators read and filter the most recent log lines of Build and Explore in the **Logs** tab of **Platform management**, with `cmemc admin logs` or through a REST API.
+    - Administrators read and filter the most recent log lines of Build and Explore in the **Logs** tab of [Platform management](../../../explore-and-author/platform-management/index.md), with `cmemc admin logs` or through a REST API.
         The lines are kept in an in-memory buffer, so no log file is needed.
 
     <div style="clear: right"></div>

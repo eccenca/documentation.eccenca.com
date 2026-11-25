@@ -4,74 +4,53 @@ tags:
   - KnowledgeGraph
   - Variables
 ---
-# Build Variables
+# Build variables
 
 ## Introduction
 
-Build variables are used to configure and customize build workflows and processes.
-These variables define various aspects of the integration tasks, such as the source target data formats, transformation rules, mapping definitions etc.
-The variables are not technically typed.
-They can be used in most Build configuration and input fields that take inputs of the following data types:
+Build variables hold values that tasks of eccenca Corporate Memory reuse, for example host names, file paths, recipient lists or credentials.
+A value that is stored once in a variable and referenced in many tasks is changed in one place.
 
-- simple text/string parameters (any string),
-- integer parameters (any integer),
-- and boolean values (`true`/`false`).
+Variables are not typed.
+They can be used in most configuration fields that take a text, an integer or a boolean value.
 
 Variables are organized in scopes.
-Each scope is addressed by a prefix that is used when referencing a variable in a template, e.g. a project variable named `host` is referenced as `{{project.host}}`.
+Each scope is addressed by a prefix in a template, for example a project variable named `host` is referenced as `{{project.host}}`.
 The following scopes are available:
 
 `Global variables` (`global.`)
 
-:   They are defined by the administrator in the configuration file at deployment time and cannot be set by a normal user.
+:   Defined by an administrator in the Build configuration at deployment time.
+    They cannot be changed in the user interface.
 
-`Project variables (User-defined)` (`project.`)
+`Project variables` (`project.`)
 
-:   They are defined by the user in the UI.
-Project variables can only be used in the same project.
-If a project is exported those will be exported as well.
+:   Defined in the user interface for a single project.
+    They can only be used in the same project and are exported together with it.
 
-`Execution variables (User-defined)` (`execution.`)
+`Execution variables` (`execution.`)
 
-:   They are defined by the user on an individual task or workflow as defaults and are only available while that task's execution is running.
-Each run can override them, and they can be changed while the run is in progress.
+:   Defined on an individual task or workflow as defaults, and only available while the execution of that task is running.
+    Each run can override them, and they can be changed while the run is in progress.
 
-Build variables can be particularly useful in scenarios where multiple tasks or components within a system need access to the same data or configuration values.
-Instead of repeating the same information in multiple places, project variables provide a centralized and reusable way to store and retrieve these values.
+## Sensitive variables
 
-## Benefits of using variables
+Global, project and execution variables can be marked as sensitive, for example for passwords and access tokens.
+The value of a sensitive variable is stored encrypted.
+It is neither displayed in the user interface nor returned by the API, cmemc or the MCP server.
 
-1. When sending an email to all employees, instead of manually typing or copy pasting each email address, you can conveniently store all the email addresses once and utilize them with a single word.
-   This saves time and ensures that no email addresses are missed or incorrectly entered.
+A sensitive variable can only be referenced from the following places:
 
-2. Another scenario where variables can be beneficial is when dealing with lengthy or hard-to-remember values.
-   For instance, consider the value "xmhnjnnjkmnlbbhbvfhnbjkm".
-   By assigning it to a variable, you can store it once and easily recall it whenever needed.
-   This avoids the need to repeatedly type or remember complex values, enhancing efficiency and accuracy in documentation and other tasks.
+- Password parameters, for example the **Password** of the **Send email** task
+- Parameters that allow sensitive variables, for example **Content** and **HTTP headers** of the **Execute REST requests** task
+- The template of another sensitive variable of the same scope
 
-3. In software development, when working with URLs or file paths that are long or subject to change, you can store them in variables.
-   This allows for easy modification and reuse throughout the codebase, reducing the chances of errors and making maintenance more efficient.
-   For example, you can assign a URL like "<https://example.com/api/data>" to a variable named `apiURL` for consistent referencing.
+A task that references a sensitive variable in any other parameter cannot be saved.
+A variable that is not sensitive cannot be based on a template that references a sensitive variable.
 
-4. When creating templates or form letters, variables can be used to personalize the content.
-   For instance, you can include variables such as {firstName}, {lastName}, and {companyName} to dynamically populate the recipient's name and company information.
-   This way, you can generate customized communications quickly without manually editing each instance.
+## Global variables
 
-5. You can save the message, port, host or IP address, tokens, passwords, properties etc.
-
-The use of variables provides flexibility, efficiency, and consistency, making it easier to manage complex or frequently used values across various tasks and documents.
-
-## Global Variables
-
-Global variables are statically defined in the `dataintegration.conf` configuration file.
-
-Global variables can be marked as sensitive (`isSensitive = true`) for storing passwords.
-Sensitive variables can only be used in password fields.
-Using sensitive variables in other fields or in variable templates fails and does not expose the value.
-
-Global variables can have an optional description (`description = "the description of my global variable"`).
-
-Global variables are set in a section like in the example below:
+Global variables are defined in the `dataintegration.conf` configuration file:
 
 ```conf
 ###############################################
@@ -103,57 +82,103 @@ config.variables = {
 }
 ```
 
-Global variables are used in the same way as project variables.
-Which is described in the following sections.
+The simple notation only sets the value.
+The advanced notation additionally sets a `description` and marks the variable as sensitive with `isSensitive = true`.
 
-## Project Variables
+The value of a sensitive global variable can be given encrypted, as `PASSWORD_PARAMETER:<encrypted value>`:
 
-In order to add project variables, login to eccenca Corporate Memory, select the build module and click on the project to open.
+```conf
+    smtpPassword = {
+        value = "PASSWORD_PARAMETER:<encrypted value>"
+        isSensitive = true
+    }
+```
 
-![Build projects overview](di-var-project-select.png){ class="bordered" }
+Build uses this format for the values of password parameters of tasks.
+To get the encrypted form of a value, enter it in a password parameter of a task and read the task through the API.
+The value is encrypted with the key `plugin.parameters.password.crypt.key` of the Build configuration, so it is only valid for deployments with the same key.
 
-On the right side of the page you can see the variable section Click on :eccenca-item-add-artefact: to add the variables.
+## Project variables
 
-![](di-var-add-variable.png){ class="bordered" width="80%" }
+### Add a project variable
 
-The variable definition dialog opens.
-Type the name, value and description of the variable.
+To add a project variable, follow these steps:
 
-!!! note
+1. Open the project in **Build**.
+2. In the **Project variables** card, click :eccenca-item-add-artefact:.
+3. Enter the following values in the **Add Variable** dialog:
+    - **Name:** `notification_recipients`
+    - **Value:** `team@example.org, ops@example.org`
+    - **Description (optional):** `Recipients of the status mails`
 
-    Variable names may only consist of uppercase and lowercase letters (`A-Z` , `a-z`), digits (`0-9`), and the underscore character (`_`).
-    Space in variable names is not supported hence Instead of space we can use underscore `_` to name the variable.
-    In addition, the first character of a variable name cannot be a digit.
+    ![The Add Variable dialog with the name, value and description of the variable notification_recipients](di-var-add-variable.png){ class="bordered" width="56%" }
 
-!!! example
+4. Click **Add**.
 
-    We have to send an email to all the team members.
-    Instead of typing or copy pasting all the mail id we can add all the email ids in variable and use whenever we require.
+A variable name consists of uppercase and lowercase letters (`A-Z`, `a-z`), digits (`0-9`) and the underscore (`_`).
+It cannot start with a digit.
 
-Type name as `email_ids`, in values we have updated all the email id’s of the team member’s and in description we have updated as email address then click on **Add**.
+### Add a sensitive project variable
 
-![](di-var-email-definition.png){ class="bordered" }
+To add a variable for a password, follow the same steps and switch on **Sensitive**:
 
-!!! success "Step Result"
+- **Name:** `smtp_password`
+- **Value:** `example-password`
+- **Sensitive:** on
+- **Description (optional):** `Password of the mail server account`
 
-    The email_ids variable is added as shown below.
+![The Add Variable dialog with Sensitive switched on for the variable smtp_password](di-var-sensitive-variable.png){ class="bordered" width="56%" }
 
-    ![](di-var-email-defined.png){ class="bordered" width="84%" }
+The **Project variables** card lists both variables.
+The value of the sensitive variable is masked.
 
-## Execution Variables
+![The Project variables card with the variables notification_recipients and smtp_password](di-var-project-variables.png){ class="bordered" width="52%" }
+
+Click :eccenca-item-edit: to change a variable, or :eccenca-item-remove: to delete it.
+A variable that a task still uses cannot be deleted.
+
+## Use variables in a task
+
+A parameter uses a variable when its value is a template that references the variable.
+The following example configures the **Send email** task `Notify team` with the variables from the previous section:
+
+1. Open the task and click :eccenca-item-edit: in the **Configuration** card.
+2. Click **{#}** next to the **To** field to switch the field to a template.
+3. Enter `{{project.` in the field and select `project.notification_recipients` from the suggestions.
+    The suggestions only list variables that the field accepts.
+
+    ![Suggestions for project variables while entering a template](di-var-autocomplete.png){ class="bordered" }
+
+4. Complete the template to `{{project.notification_recipients}}`.
+    The field shows the result below the template as **Evaluated template**.
+5. Click **{#}** next to the **Password** field and enter `{{project.smtp_password}}`.
+    The result of a sensitive variable is not shown.
+
+    ![The Password and To fields of the Send email task with templates that reference project variables](di-var-template-usage.png){ class="bordered" }
+
+6. Click **Update**.
+
+Click **{#}** again to switch a field back to a direct value.
+
+Project and global variables are resolved when a task is saved.
+Execution variables are resolved per run, see [Where execution variables resolve](#where-execution-variables-resolve).
+
+## Execution variables
 
 While project variables are shared across all tasks of a project, execution variables belong to a single task or workflow and exist only during its execution.
 They are referenced with the `execution.` prefix, for example `{{execution.myVariable}}`.
 
-Tasks (including workflows) have an **Execution variables** widget in its configuration view, managed in the same way as project variables:
-click on :eccenca-item-add-artefact: to add a variable and provide a name, value and description in the same dialog used for project variables.
-The widget is offered on every task.
-Its values take effect when that task is the one being executed, where they provide the defaults of the execution scope.
-A task that only runs as part of a workflow receives its values from the enclosing workflow, so its own widget stays unused.
+Every task, including workflows, transformations, linking tasks, datasets and custom tasks, has an **Execution variables** card in its view.
+Execution variables are added, changed and marked as sensitive in the same dialog as project variables.
 
-### Where Execution Variables Resolve
+![The Execution variables card of a workflow with the variable region](di-var-execution-variables.png){ class="bordered" width="52%" }
 
-Project and global variables are resolved when a task is saved, which is why they can be used in any parameter field that offers the **{#}** toggle.
+The values of the card take effect when that task is the one being executed, where they provide the defaults of the execution scope.
+A task that only runs as part of a workflow receives its values from the enclosing workflow, so its own card stays unused.
+
+### Where execution variables resolve
+
+Project and global variables are resolved when a task is saved, which is why they can be used in any parameter field that offers **{#}**.
 An execution variable only has a value while a run is in progress.
 It therefore takes effect in parameters that are evaluated once per execution, such as the template of the **Evaluate template** workflow operator and of the **Evaluate template** transformer.
 A reference such as `{{execution.myVariable}}` resolves there to the value of the current run.
@@ -163,7 +188,7 @@ It is resolved when the task is loaded, and the result is kept until the task is
 An execution variable referenced in such a field does not change the result from run to run and is not a way to parameterize a plugin per execution.
 To give a plugin parameter a value that differs per run, use the [config port](../workflows/index.md#workflow-reconfiguration) of the operator.
 
-### Determining the Variables of a Run
+### Determining the variables of a run
 
 The set of execution variables of a single run is built in three steps:
 
@@ -192,7 +217,7 @@ To base a default on a project or global variable, give the execution variable a
     When the task or its project is exported, they are exported as well.
     The values of a running execution are never persisted and are not shared between runs.
 
-### Passing Execution Variables When Starting a Workflow
+### Pass execution variables when starting a workflow
 
 When a workflow execution is triggered via the REST API, execution variables are provided in one of two ways.
 
@@ -220,12 +245,17 @@ The request body form is not available on endpoints that accept a replaceable in
 Each entry is set in the `execution` scope — overriding a default of the same name defined on the workflow — and can be referenced anywhere in the workflow as `{{execution.<name>}}`.
 For instance, an operator configured with the template `{{value}} {{execution.testVar}}` would resolve `execution.testVar` to `World` for that run.
 
-Querying `GET /api/core/variableTemplate/variables` for a workflow with the `transitive` flag returns every variable that has to be set for a run of that workflow:
-the execution variables of the workflow itself together with those of every task and sub-workflow that may take part in the execution.
-If the same name is defined on several levels, the definition of the enclosing workflow is returned, which is the one that applies during the run.
-These endpoints are described in the [DataIntegration API documentation](../../develop/dataintegration-apis/index.md).
+To find out which variables a run of a workflow needs, use one of the following endpoints:
 
-### Setting Execution Variables During a Workflow Run
+- `GET /api/workflow/executionVariables/{project}/{workflow}` lists the execution variables of a workflow run, whether each one is required, its default, and the tasks that use or set it.
+- `GET /api/core/variableTemplate/variables` with the `transitive` flag returns the execution variables of the workflow itself together with those of every task and sub-workflow that may take part in the execution.
+    If the same name is defined on several levels, the definition of the enclosing workflow is returned, which is the one that applies during the run.
+
+`GET /api/core/variableTemplate/allVariables` returns the global variables and the variables of all projects and their tasks in one request.
+Sensitive variables are listed without their value.
+These endpoints are described in the [Build (DataIntegration) API documentation](../../develop/dataintegration-apis/index.md).
+
+### Set execution variables during a workflow run
 
 Execution variables can also be created or updated while a workflow is running.
 Two operators in the *Variables* category support this:
@@ -237,59 +267,41 @@ Two operators in the *Variables* category support this:
 
     Both operators only have an effect while running inside a workflow execution.
 
-## Using Variables
+## Manage variables with cmemc
 
-Let's see how these variables are useful.
+The [`project variable` command group](../../automate/cmemc-command-line-interface/command-reference/project/variable/index.md) of cmemc manages project variables and the execution variables of tasks:
 
-Click on the symbol **{#}** it turns blue in colour it means the variables feature is active then click in the To option and type `{{email_ids}}`.
+```shell-session
+$ cmemc project variable create smtp_password --value example-password --sensitive --project product-catalog
+Create variable smtp_password in project product-catalog ... done
+$ cmemc project variable create region --value eu --task product-catalog:workflow-products
+Create variable region of task workflow-products in project product-catalog ... done
+```
 
-!!! note
+- `--sensitive` on `create` and `--sensitive`/`--no-sensitive` on `update` set the sensitive flag.
+    `get` refuses to read the value of a sensitive variable, and `list` shows it as `(sensitive)`.
+- `--task PROJECT:TASK` on `create` creates an execution variable on a task.
+    `get`, `update` and `delete` address an execution variable as `PROJECT:TASK:VARIABLE`.
+- `list` also shows the global variables, which are read-only.
 
-    Always use double curly brackets `{{` to use the variables.
-    When you start typing the variable name it shows you the variable name that you can use as shown below.
+The [`workflow` command group](../../automate/cmemc-command-line-interface/command-reference/workflow/index.md) runs workflows with execution variables:
 
-    ![](di-var-email-usage.png){ class="bordered" }
+- `workflow variables` lists the execution variables that a workflow run needs.
+- `workflow execute` and `workflow io` override the default of an execution variable for one run with `-p`/`--parameter NAME VALUE`, or read the overrides from a JSON file with `--parameter-file`.
+    A workflow does not start as long as an execution variable that it requires has no value.
 
-Select the `project.email_ids` and include the double curly brackets at last.
+In the following example, the **Evaluate template** task `report-text` of the workflow `workflow-report` references `{{execution.batch_id}}`, and the workflow defines no default for it:
 
-![](di-var-email-usage-2.png){ class="bordered" }
-
-!!! success "Step Result"
-
-    The email address of all the team members has been updated in the email field. 
-
-    As shown in the below image you can see the Evaluated template value as all the email id addresses we have added in the variable.
-
-    ![](di-var-value-evaluation.png){ class="bordered" }
-
-!!! example
-
-    The password is hard to remember and we used this password frequently then  we can add this password in variable for reusable.
-
-Same as above, add the variable click on :eccenca-item-add-artefact: and type name as `password`, value as `xmhnjnnjkmnlbbhbvfhnbjkm` and in the description `Gmail account password` as shown below then click on **Add**.
-
-![](di-var-password-definition.png){ class="bordered" width="76%" }
-
-!!! success "Step Result"
-
-    The password variable is added.
-
-Let's see how this variable can be used.
-
-Click on the symbol **{#}** it turns blue in color. It means the variable's feature is active then click in the **Password** option and type `{{password}}` select the option as shown below and click on **Update**.
-
-![](di-var-password-usage.png){ class="bordered" }
-
-!!! success "Step result"
-
-    The complex password is added in the password field easily.
-
-!!! note
-
-    Parameters that are typed as password will not show the evaluated template for security reasons and should only show after you saved the operator.
-
-## Accessing Variables with cmemc
-
-In order to allow the automation of activities with build variables from external processes, the Corporate Memory command line interfaces cmemc has a dedicated [`project variable` command group](../../automate/cmemc-command-line-interface/command-reference/project/variable/index.md) for this.
-
-Please have a look at command group documentation to learn how to use these commands.
+```shell-session
+$ cmemc workflow variables product-catalog:workflow-report
+┏━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Name     ┃ Required ┃ Default ┃ Used by     ┃ Set by ┃
+┣━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━╋━━━━━━━━━━━━━╋━━━━━━━━┫
+┃ batch_id ┃ yes      ┃         ┃ report-text ┃        ┃
+┗━━━━━━━━━━┻━━━━━━━━━━┻━━━━━━━━━┻━━━━━━━━━━━━━┻━━━━━━━━┛
+    1 execution variable of https://cmem.example.org
+$ cmemc workflow execute product-catalog:workflow-report --wait
+Error: Workflow 'product-catalog:workflow-report' needs a value for the execution variable(s) batch_id. Use the --parameter option to provide the value(s) (workflow was not executed).
+$ cmemc workflow execute product-catalog:workflow-report -p batch_id 42 --wait
+product-catalog:workflow-report ... Started ... Finished (Finished in 9ms, a second ago)
+```
