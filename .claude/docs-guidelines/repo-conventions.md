@@ -170,7 +170,9 @@ platform.
   - The pointer moves visibly to its target in about 1 second and rests about 0.6 seconds before it clicks.
     A scripted recording draws the pointer and marks each click, since a headless browser shows no pointer.
   - About 2 seconds after each action. Loading pauses are shortened to at most 2.5 seconds, not removed.
-  - Text is typed at about 12 characters per second, long texts included. Text is not pasted.
+  - Text is typed at about 12 characters per second. Text is not pasted.
+  - A long text of more than 100 characters is typed at about 100 characters per second, followed by a pause of
+    about 0.65 seconds before the next action.
 - A tutorial gets one short clip per step, embedded at the start of the step, not one long video.
 - A clip that shows an AI answer is recorded again until the answer is complete and correct.
 - Convert a GIF or a screen capture with:

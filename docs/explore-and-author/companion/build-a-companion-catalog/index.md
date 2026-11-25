@@ -40,7 +40,7 @@ Each step starts with a short screen recording of the step.
 ## 1 Create the catalog
 
 A catalog is a graph that holds agents, skills and named models.
-The main catalog `Default Companion Catalog Overlay` imports the other catalogs, and the Companion runs the merged result.
+The base catalog `CMEM Base Companion Catalog` imports the additional catalogs, and the Companion runs the merged result.
 
 <video src="companion-tutorial-create-catalog.webm" poster="companion-tutorial-create-catalog.png" title="Creating the catalog Procurement Companion with the graph https://ns.eccenca.com/data/companion/procurement/ in Companion Management" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
@@ -60,7 +60,7 @@ The main catalog `Default Companion Catalog Overlay` imports the other catalogs,
 5. Click **Create**.
 
 The catalog `Procurement Companion` appears under **Catalog graphs**.
-The main catalog imports it right away.
+The base catalog imports it right away.
 
 ## 2 Create the task agent
 
@@ -71,7 +71,7 @@ Create it first, so that the interactive agent can refer to it.
 
 1. Select the **Agents** tab.
 2. Select `Procurement Companion` in the catalog selector next to **Agents**.
-    The selector starts with **Default Companion Catalog Overlay (main)**, and a new agent is added to the catalog that it shows.
+    The selector starts with **CMEM Base Companion Catalog (base)**, and a new agent is added to the catalog that it shows.
 3. Click :eccenca-item-add-artefact: **Add a new agent** in the header.
 4. Select **Task agents** under **Kind of agent**.
     The kind cannot be changed afterwards.
