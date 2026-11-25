@@ -570,18 +570,21 @@ nav:
           - Companion: explore-and-author/companion/index.md
           - AI chat:
               - explore-and-author/companion/chat/index.md
-          - Management:
-              - explore-and-author/companion/management/index.md
           - Build a catalog:
               - explore-and-author/companion/build-a-companion-catalog/index.md
       - Services integrations:
           - explore-and-author/embedding-services-via-the-integrations-module/index.md
       - Link rules:
           - explore-and-author/link-rules/index.md
-      - Application view:
-          - explore-and-author/workspace-configuration/index.md
-      - Platform management:
-          - explore-and-author/platform-management/index.md
+      - Admin:
+          - Access control:
+              - explore-and-author/access-control/index.md
+          - Application view configuration:
+              - explore-and-author/workspace-configuration/index.md
+          - Platform management:
+              - explore-and-author/platform-management/index.md
+          - Companion management:
+              - explore-and-author/companion/management/index.md
   - Consume:
       - Consume: consume/index.md
       - Consuming Graphs in Power&nbsp;BI:

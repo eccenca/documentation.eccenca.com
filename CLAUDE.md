@@ -45,20 +45,26 @@ Markdown.
 **A `.pages` entry alone does not add a page to the navigation.** Zensical does not read `.pages`; the sidebar
 comes from the generated `nav.yml`, pulled in by `INHERIT` at the top of `mkdocs.yml`. Run
 `task update:navigation` to update `nav.yml` with the `.pages` change. `zensical build --strict` compiles an
-unlisted page without complaining — only `task check` catches the drift.
+unlisted page without complaining — only `task check:offline` (its navigation check) catches the drift.
 
 **A page has three titles, and they need not be the same.** The `.pages` entry is the menu label, `title:` in
 the front matter is the site page title and the tags page entry, and the `# Heading` is the visible title on
 the page. They serve different purposes — a menu label is written for scanning inside its section. Divergence
 between them is not drift and is not something to correct.
 
-**`task check` is the gate, not `task build`.** It runs the link check, rumdl, yamllint, the navigation check
-and the build-output check. Do not leave it failing.
+**`task check:offline` is the gate, not `task build`.** It runs rumdl, yamllint, the image, navigation and
+"Try it" checks and the build-output check — everything CI requires. Add `task check:links:changed` for the
+outgoing links of the Markdown files the branch changes, as the Test workflow does. Do not leave either failing.
+
+`task check` runs both plus every outgoing link of the documentation. A link on a page the branch did not touch
+can fail there because a site outside this repository moved; that is not a failure of the change. The weekly
+Links workflow reports such links as `broken-links` issues.
 
 ```bash
-task format:fix     # rumdl --fix
-task check          # the full gate
-task serve          # local preview
+task format:fix            # rumdl --fix
+task check:offline         # the gate
+task check:links:changed   # outgoing links of the changed Markdown files
+task serve                 # local preview
 ```
 
 **Do not write a walkthrough from assumption.** Steps, labels, field names and counts are verified against a

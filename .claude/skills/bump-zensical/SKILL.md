@@ -73,11 +73,12 @@ Run all of these, and do not call the bump done while one fails:
 
 ```bash
 task build
-task check
+task check:offline
 poetry run pytest -m "not integration"
 ```
 
-`task check` is the gate, not `task build`.
+`task check:offline` is the gate, not `task build`.
+It leaves out the outgoing links, which a Zensical release does not change.
 
 Compare the new `site/` with the baseline:
 

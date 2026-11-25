@@ -351,7 +351,7 @@ A box is a collapsible admonition with the extra class `try-sparql`, holding dat
 
 ```bash
 task format:fix     # rumdl --fix over ./docs and ./*.md
-task check          # link check + rumdl (fails on all rules except the cosmetic ones)
+task check:offline  # rumdl (fails on all rules except the cosmetic ones) and the other checks, no links
 task build          # zensical build --strict
 ```
 
