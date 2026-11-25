@@ -17,7 +17,7 @@ Each entry states who made the change, when, from which client and what it chang
 The journal serves two purposes:
 
 - **Undo changes:** Almost every change can be reverted from the journal, whether it was made in the user interface, through the REST API or by an agent.
-- **Review the work of agents:** An agent that works on a project through the [Build MCP server](../../automate/agent-integration/index.md#mcp) changes it without asking for each step.
+- **Review the work of agents:** An agent that works on a project through the [Build MCP server](../../automate/agent-integration/index.md#mcp), such as the [Companion](../../explore-and-author/companion/index.md) or an external agent, changes it without asking for each step.
     Its changes stay marked as unreviewed until a person reviews them.
 
 Everyone who can open a project sees its change journal and can review and revert its changes.
@@ -64,7 +64,8 @@ Each row shows:
 - **#:** the sequence number of the change in the project
 - **Date:** when the change was made
 - **User:** the account that made the change
-- **Source:** an icon if the change was made by an agent; hover over the icon to see the client name
+- **Source:** an icon if the change was made by an agent; hover over the icon to see the client name.
+    A change made by the Companion also shows its chat as a tag such as **C1**; click the tag to filter the list by this chat.
 - **Change:** a summary of the change, the details of what it changed, and tags for its kind and state
 
 The icons at the end of a row open what the change refers to:
@@ -73,11 +74,12 @@ The icons at the end of a row open what the change refers to:
 - :eccenca-application-mapping: opens a mapping rule in the mapping editor.
 - :eccenca-item-download: downloads an added file.
 - A workflow run additionally links its execution report.
+- **Open companion conversation** opens the chat of a change made by the Companion in the Companion panel.
 
 To narrow down the list, use the following controls:
 
 - Enter a term in the search field to search the change summaries.
-- Select values in the facets on the left: **KIND** (for example **Added**, **Updated**, **Run**), **STATE** (for example **Unreviewed**, **Proposed run**), **ORIGIN** (**Person** or the client name of an agent), **USER** and **TASK**.
+- Select values in the facets on the left: **KIND** (for example **Added**, **Updated**, **Run**), **STATE** (for example **Unreviewed**, **Proposed run**), **ORIGIN** (**Person** or the client name of an agent), **USER**, **TASK** and **CONVERSATION** (the Companion chat that made the change).
 - Click :eccenca-list-sort: to change the sort order.
 - Click :eccenca-item-reload: to load changes made since the list was opened.
 - Click :eccenca-item-question: to open a description of the change journal.
@@ -133,6 +135,20 @@ To review the changes, follow these steps:
 
 To reject all unreviewed changes at once, click **Revert unreviewed** and then **Revert**.
 The changes are reverted newest first.
+
+The tutorial [Review the changes of an AI agent](../review-agent-changes/index.md) walks through a review from the request of the agent to the approved workflow run.
+
+### Changes made by the Companion
+
+While the Companion changes a project, a panel below the chat counts the unreviewed changes:
+
+- **Changes from this conversation** — the changes that the Companion made in this chat
+- **Other changes awaiting review** — the unreviewed changes of the project from other sources
+- A link that lists the unreviewed changes of the project
+- A link that lists only the changes of this chat
+
+The links open the **Changes** view, filtered accordingly.
+When a workflow run is held back for review, the answer of the Companion links **Review changes**.
 
 ### Workflow runs proposed by an agent
 

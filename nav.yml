@@ -49,6 +49,8 @@ nav:
               - build/query-catalog-tasks/index.md
           - Evaluate Template Operator:
               - build/evaluate-template/index.md
+          - Review the Changes of an AI Agent:
+              - build/review-agent-changes/index.md
           - Link Intrusion Detection Systems to Open-Source INTelligence:
               - build/tutorial-how-to-link-ids-to-osint/index.md
               - Define the interfaces:
