@@ -10,7 +10,7 @@
   "alwaysDisplayInConsole": false,
   "clientAuthenticatorType": "client-secret",
   "redirectUris": [
-    "*"
+    "/marketplace/auth/callback"
   ],
   "webOrigins": [],
   "notBefore": 0,
@@ -42,7 +42,7 @@
     "dpop.bound.access.tokens": "false"
   },
   "authenticationFlowBindingOverrides": {},
-  "fullScopeAllowed": true,
+  "fullScopeAllowed": false,
   "nodeReRegistrationTimeout": -1,
   "protocolMappers": [
     {

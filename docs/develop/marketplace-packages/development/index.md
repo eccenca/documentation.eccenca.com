@@ -361,14 +361,12 @@ cmemc package publish my-package-v1.0.0.cpa
 The published package ID and version are taken from the manifest inside the archive.
 
 The Marketplace Server validates the archive and resolves its dependencies against the packages it hosts.
-It refuses a version whose dependencies cannot be resolved and reports one of the following problems:
+It refuses a version whose dependencies cannot be resolved, which is the case for one of the following problems:
 
-| Code | Problem |
-| ---- | ------- |
-| `dependency_not_found` | A dependency, or a package further down the dependency tree, is not published on this Marketplace Server. |
-| `dependency_unsatisfiable` | No published version satisfies a constraint, e.g. `>=2.0.0` while only `1.0.0` is published. |
-| `dependency_conflict` | The constraints on one package have no version in common. |
-| `dependency_depth` | The dependency chain is longer than 20 packages. |
+- A dependency, or a package further down the dependency tree, is not published on this Marketplace Server.
+- No published version satisfies a constraint, e.g. `>=2.0.0` while only `1.0.0` is published.
+- The constraints on one package have no version in common.
+- The dependency chain is too long.
 
 Publish the dependencies of a package before the package itself.
 

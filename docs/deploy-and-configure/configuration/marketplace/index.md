@@ -233,7 +233,7 @@ In `LICENSE_TOKEN` mode the license comes from one of two sources:
 Calculate the checksum of a license with the following command:
 
 ```bash
-grep '^licenseSignature' license.asc | cut -d= -f2 | base64 -d | sha256sum
+grep '^licenseSignature' license.asc | cut -d= -f2- | base64 -d | sha256sum
 ```
 
 Treat `ECC_MARKETPLACE_LICENSE_TEXT` as a secret.
