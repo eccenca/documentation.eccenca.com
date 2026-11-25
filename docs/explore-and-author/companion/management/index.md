@@ -60,50 +60,81 @@ The **Catalog** tab holds the entries of the catalog in four tabs:
 Each tab lists the entries on the left and shows the selected entry on the right.
 Enter a search term above the list to filter it.
 
-![Catalogs tab of Companion Management with the catalog status of the main catalog and the imported catalog Procurement Companion](companion-management-catalog.png){ class="bordered" }
+![Catalogs tab of Companion Management with the base catalog CMEM Base Companion Catalog selected and the additional catalog Procurement Companion in the list](companion-management-catalog.png){ class="bordered" }
 
 ### Catalogs
 
-The **Catalog graphs** list shows the main catalog graph `Default Companion Catalog Overlay` and the catalog graphs it imports.
-Select the main catalog graph to see its **Catalog status**:
-
-- **Health** of the catalog, for example `Healthy`
-- **Main catalog graph**
-- **Loaded at**, the time the catalog was last loaded
-- **Catalog hash**
-- **Entries**, the number of agents, skills and named models
-- **Imported catalogs**, with the graph, the status and the number of entries of each imported catalog
-
-Select an imported catalog graph to see its **Graph**, **Label in the graph**, **Imports**, **Hash the companion computed**, **Entries the companion read** and **Stored JSON**.
+The **Catalog graphs** list shows the base catalog `CMEM Base Companion Catalog` and the additional catalogs it imports.
+The base catalog holds the changes of this installation to the defaults of the installed version.
+The Companion runs the effective catalog, which merges the defaults, the base catalog and the additional catalogs.
+When an entry exists in more than one catalog, the entry of the base catalog applies.
+Without a selection, **How a catalog fits together** explains this merge.
 
 The list contains only the catalog graphs that the current user can read.
 The Companion reads the catalog as administrator, so it also uses catalog graphs that are missing from the list.
+
+Select a catalog graph to see the following fields:
+
+- **Graph**
+- **Label in the graph**
+- **Imports**
+- **Hash the companion computed**
+- **Entries the companion read**, the number of agents, skills and named models
+
+The base catalog is marked `base`.
+It also shows the **Catalog properties**, which apply to every agent:
+
+- **Personality:** how the Companion speaks, as plain text put in front of the system message of an interactive agent
+- **Output instructions:** how an answer looks, as a Jinja template put behind the system message of an interactive agent
+- **Resources instructions:** how the focus graphs of an agent are presented, as a Jinja template
+- **Additional properties:** further values, available on the `conversation` object in agent templates.
+    Click **Add property** to add one.
+
+An additional catalog shows its **Stored JSON** instead.
 
 The following actions apply to the selected catalog graph:
 
 - Click **Export** to download the catalog.
 - Click **Import** to load a catalog from a file.
-- Click **Disable** to stop importing a catalog graph into the main catalog.
+- Click **Disable** to stop importing an additional catalog into the base catalog.
     The Companion no longer uses its agents, skills and named models, and the catalog graph is marked `disabled`.
     Click **Enable** to import it again.
     Both take effect immediately, without **Save changes**.
-- Click **Reload catalog** to load the catalog from the graph again.
 
 The following actions apply to a catalog graph in the list:
 
 - Click **Open the agents of this catalog** to open the **Agents** tab with the catalog graph selected.
-- Click :eccenca-item-remove: **Delete this catalog graph** to delete an added catalog graph, then confirm with **Delete**.
-    The graph is deleted and the main catalog no longer imports it.
+- Click **Remove customizations** on the base catalog to reset it to the defaults, then confirm with **Delete**.
+    The action is available only when the base catalog holds changes.
+- Click :eccenca-item-remove: **Delete this catalog graph** to delete an additional catalog, then confirm with **Delete**.
+    The graph is deleted and the base catalog no longer imports it.
     This cannot be undone.
-    The main catalog graph cannot be deleted.
+    The base catalog cannot be deleted.
 
 Click **Add a new catalog** in the header to add a catalog graph.
 
 !!! warning
 
-    **Reset to the defaults** removes the overlay stored in the main catalog graph, so the defaults of the installed version apply again.
-    Agents, skills and named models changed or added in the main catalog are lost.
-    Imported catalog graphs are kept.
+    **Remove customizations** deletes the changes stored in the base catalog graph, so the defaults of the installed version apply again.
+    Agents, skills and named models changed or added in the base catalog are lost.
+    Additional catalogs are kept.
+
+#### Catalog status
+
+Click the status icon next to **Catalog graphs** to open the **Catalog status**.
+
+![Catalog status dialog with the health, the base catalog graph and the imported catalog Procurement Companion](companion-management-catalog-status.png){ class="bordered" width="60%" }
+
+The dialog shows the following fields:
+
+- **Health** of the catalog, for example `Healthy`
+- **Base catalog graph**
+- **Loaded at**, the time the catalog was last loaded
+- **Catalog hash**
+- **Entries**, the number of agents, skills and named models in the effective catalog
+- **Imported catalogs**, with the graph, the status and the number of entries of each additional catalog
+
+Click **Reload catalog** to load the catalog from the graphs again.
 
 ### Agents
 
@@ -185,7 +216,7 @@ Changes to catalogs, agents, skills and named models are collected until they ar
 - Click **Save changes** to write the changes into the catalog graph.
 
 As long as the catalog has not been saved, the Companion uses the catalog shipped with Corporate Memory.
-The first save writes the catalog into the main catalog graph.
+The first save writes the changes into the base catalog graph.
 
 ## Tools
 
