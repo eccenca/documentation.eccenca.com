@@ -123,6 +123,9 @@ Do not write `index.html` stubs under `docs/`.
 - Same-page references use a plain anchor: `[Configure OAuth clients](#configure-oauth-clients-helm)`, never a full path back to the same file.
 - `task check:links` runs [lychee](https://lychee.cli.rs/) over the outgoing http(s) links; exclusions and accepted
   status codes live in `lychee.toml`. `task build` runs `zensical build --strict` and fails on unresolved internal links.
+- In CI, outgoing links do not block a deployment. Deploy Pages runs `task check:offline` (every check but the links),
+  the Test workflow adds `task check:links:changed` for the Markdown files the branch changes, and the weekly Links
+  workflow (`.github/workflows/links.yml`) checks all of them and opens a new `broken-links` issue for a failure.
 - An IRI written as an autolink (`<https://vocab.eccenca.com/...>`) is checked like any link. Identifier namespaces
   that do not resolve are excluded in `lychee.toml`; add a new one there rather than formatting the IRI differently.
 

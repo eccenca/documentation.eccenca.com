@@ -74,10 +74,21 @@ tasks:
     # `--strict` fails the build (zensical/zensical#641). Serialising costs a
     # little wall-clock and makes the stage deterministic.
     cmds:
+      - task: check:offline
+      - task: check:links
+
+  check:offline:
+    desc: Run every check of `task check` except the outgoing link check
+    summary: |
+      The gate of the CI workflows. Outgoing links depend on sites outside this
+      repository, so they do not block a deployment: the Test workflow checks the
+      links of the changed files (check:links:changed), and the scheduled Links
+      workflow checks all of them and opens an issue when one fails.
+    # Sequential for the same reason as `check`.
+    cmds:
       # rumdl first: it writes the JUnit reports CI publishes, which must
       # exist even when a later check fails the stage
       - task: check:rumdl
-      - task: check:links
       - task: check:images
       - task: check:yamllint
       - task: check:navigation
@@ -133,11 +144,37 @@ tasks:
       with lychee. Exclusions, accepted status codes and retries are set in
       lychee.toml. Set GITHUB_TOKEN to avoid GitHub rate limits.
       Shows a progress bar in a terminal; in CI (CI is set) it prints the summary only.
+      Arguments after `--` go to lychee, e.g. `task check:links -- --format markdown`.
     preconditions:
       - sh: command -v lychee
         msg: "lychee is not installed - see https://lychee.cli.rs/installation/ (e.g. brew install lychee)"
     cmds:
-      - lychee --config lychee.toml ${CI:+--no-progress} 'docs/**/*.md'
+      - lychee --config lychee.toml ${CI:+--no-progress} {{.CLI_ARGS}} 'docs/**/*.md'
+
+  check:links:changed:
+    desc: Check outgoing links of the Markdown files changed against BASE (default origin/main)
+    summary: |
+      Runs lychee like check:links, but only over the Markdown files under docs/
+      that differ from the merge base with BASE, uncommitted changes included.
+      A link someone adds or edits is checked before the merge; a link elsewhere
+      that broke because its site changed does not fail the pull request.
+      Example: `task check:links:changed BASE=origin/release`.
+    vars:
+      BASE: '{{.BASE | default "origin/main"}}'
+    preconditions:
+      - sh: command -v lychee
+        msg: "lychee is not installed - see https://lychee.cli.rs/installation/ (e.g. brew install lychee)"
+    cmds:
+      # `docs/*.md` is a git pathspec: its `*` matches across directories too.
+      # Deleted files are left out, they have no links left to check.
+      - |
+        files="$(git diff --name-only --diff-filter=d --merge-base '{{.BASE}}' -- 'docs/*.md')"
+        if [ -z "$files" ]; then
+          echo "no Markdown file under docs/ changed against {{.BASE}} - nothing to check"
+          exit 0
+        fi
+        echo "$files"
+        printf '%s\n' "$files" | tr '\n' '\0' | xargs -0 lychee --config lychee.toml ${CI:+--no-progress}
 
   test:
     desc: Run the Python unit test suite
