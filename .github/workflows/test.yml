@@ -81,9 +81,15 @@ jobs:
           restore-keys: lychee-
 
       - name: check
+        run: task check:offline
+
+      # Only the links of the Markdown files this branch changes: a link someone
+      # adds or edits is checked before the merge, a link elsewhere that broke
+      # because its site changed is left to the weekly Links workflow (links.yml).
+      - name: check the links of the changed files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: task check
+        run: task check:links:changed BASE=origin/${{ github.base_ref || 'main' }}
 
       - name: Publish Test Results
         if: always()
