@@ -193,6 +193,17 @@ ffmpeg -ss <seconds> -i in.gif -frames:v 1 -vf "scale='min(1440,iw)':-2:flags=la
   0.87 MB at 1436). A narrower recording keeps its width — scaling it down would make it soft.
   Two-pass encoding does not make the file smaller; a higher `-crf` or a lower frame rate does, at a visible cost.
 
+Scripted recordings live in `tools/recordings/`, one folder per tutorial, and are started with
+`task record -- <tutorial>`; see `tools/recordings/README.md`.
+
+A terminal clip, for example of an AI agent working through the Build MCP server, follows these rules:
+
+- The prompt and the working folder are neutral, with no user names, paths or branch names.
+- The start screen of a tool shows no account, plan or promotional notices: the clip starts after it, or the
+  recording hides these rows.
+- An AI agent such as Claude Code runs in its default permission mode, so the clip shows its permission prompts.
+- An AI agent runs with its shell tool disabled, so that it works only through the Build MCP server.
+
 ## Icons
 
 - Icon shortcode = file name in `overrides/.icons/eccenca/` without the extension: `application-explore.svg` -> `:eccenca-application-explore:`.
