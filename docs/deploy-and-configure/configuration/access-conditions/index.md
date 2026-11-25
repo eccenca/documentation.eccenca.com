@@ -164,51 +164,8 @@ PREFIX void: <http://rdfs.org/ns/void#>
 
 ### Web interface
 
-The access control module can be selected in the **Admin** section of the left main menu of the **Explore** component.
-After clicking it, you will see a screen similar to this:
-
-<figure markdown>
-![Access Control: List Access Conditions](24-3-access-condition-module-list.png)
-<figcaption>Access Control: List Access Conditions</figcaption>
-</figure>
-
-You have two major application areas (tabs) here:
-
-- In the **Manage** tab, you can view, edit, add and delete all access conditions, which are manageable by your account.
-- In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
-
-#### View, edit and update
-
-Use the following icon buttons for a specific action with a certain access condition:
-
-- Use :material-eye-outline: to view an access condition.
-- Use :material-pencil-outline: to edit an access condition.
-- Use :material-trash-can-outline: to delete an access condition.
-
-Use the **Create access condition** button to create a new access condition.
-
-#### Review
-
-In the **Review** tab, you can see the **effective rights** based on a selection of an account and groups.
-This allows for debugging your access condition system as a whole.
-In order to see the rights select a user and / or group combination from the drop-down list on top (principal).
-Then you will see a screen similar to this:
-
-<figure markdown>
-![Access Control: Review Access Conditions](24-3-access-condition-module-review.png)
-<figcaption>Access Control: Review Access Conditions</figcaption>
-</figure>
-
-This screen is split into two main areas:
-
-- First, the effective rights are listed, which summarize the resulting access rights.
-    - The **Root access** field shows if the principal has root access.
-    - The **Read all** and **Write all** fields show if the principal has read or write access to all graphs.
-    - The **All actions are allowed** field shows if the principal has permission to execute all actions.
-    - The **Allowed actions** field lists the actions the principal is allowed to execute.
-    - The **Readable graphs** and **Writable graphs** fields list the graphs the principal is allowed to read or write.
-
-- Second, the list of all access conditions which contributed to the effective access rights. This section allows to see which access conditions matched the principal and which access rights they grant.
+The module **Access control** in the **ADMIN** section of the main navigation manages access conditions in the browser and reviews the effective rights of an account.
+See [Access control](../../../explore-and-author/access-control/index.md).
 
 ### Command line interface
 

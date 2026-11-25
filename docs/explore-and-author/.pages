@@ -9,6 +9,9 @@ nav:
     - Companion: companion
     - Services integrations: embedding-services-via-the-integrations-module
     - Link rules: link-rules
-    - Application view: workspace-configuration
-    - Platform management: platform-management
-
+    # the ADMIN section of the main navigation, in its order; the pages keep their URLs
+    - Admin:
+          - Access control: access-control
+          - Application view configuration: workspace-configuration
+          - Platform management: platform-management
+          - Companion management: companion/management

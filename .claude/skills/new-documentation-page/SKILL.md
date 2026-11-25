@@ -123,12 +123,15 @@ and `class="bordered"`, and show only the relevant part of the interface with cl
 
 ```bash
 task format:fix
-task check          # link check, rumdl, yamllint, nav drift, build output
+task check:offline         # rumdl, yamllint, nav drift, build output
+task check:links:changed   # outgoing links of the changed Markdown files
 ```
 
-`task check` is the gate, not `task build` on its own: `zensical build --strict` compiles a page that is
+`task check:offline` is the gate, not `task build` on its own: `zensical build --strict` compiles a page that is
 missing from the navigation without complaining, and only `check:navigation` catches `nav.yml` drifting from
 the `.pages` files.
+`task check` also checks every outgoing link of the documentation; a failure on a page the change did not touch
+comes from a site outside this repository and is not part of the change.
 
 Check the page in the local server (`task serve`): navigation entry, title, step numbering, image widths.
 
