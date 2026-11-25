@@ -90,7 +90,9 @@ for img in <dir>/*.png; do grep -q "$(basename "$img")" <dir>/*.md || echo "orph
 ```bash
 task format:fix     # rumdl --fix
 poetry run rumdl --config .markdownlint.jsonc check <file>
-task build          # zensical build --strict; task check also covers nav drift and links
+task build          # zensical build --strict
+task check:offline  # the gate: also nav drift, images and build output
+task check:links:changed   # outgoing links of the changed Markdown files
 ```
 
 Check the rendered page if the local server is running (`task serve`), especially step numbering and image
