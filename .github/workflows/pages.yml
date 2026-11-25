@@ -23,12 +23,8 @@ concurrency:
 
 jobs:
 
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: checkout
@@ -82,9 +78,21 @@ jobs:
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Upload the built site
           path: 'site'
 
+  # A separate job, so that the artifact is listed by the time deploy-pages
+  # looks for it. In the same job it ran 0.4 s after the upload and found no
+  # artifact - and a re-run then failed on two artifacts of the same name.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: deploy to gitHub pages
         id: deployment
         uses: actions/deploy-pages@v4
