@@ -4,7 +4,7 @@ tags:
     - ReleaseNote
 ---
 
-# eccenca Corporate Memory 26.2.3
+# eccenca Corporate Memory 26.2.8
 
 eccenca Corporate Memory 26.2 is the second major release in 2026. It introduces reusable rule blocks and execution variables in Build, a new Manage module and SHACL based resource authoring in Explore, ships eccenca Marketplace as a generally available component, and adds workspace status reporting and Explore view administration to cmemc.
 
@@ -32,29 +32,35 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- [eccenca Corporate Memory 26.2.3](#eccenca-corporate-memory-2623)
-    - [eccenca DataIntegration v26.2.0](#eccenca-dataintegration-v2620)
+- [eccenca Corporate Memory 26.2.8](#eccenca-corporate-memory-2628)
+    - [eccenca DataIntegration v26.2.1](#eccenca-dataintegration-v2621)
     - [eccenca Explore v26.2.3](#eccenca-explore-v2623)
     - [eccenca Marketplace v26.2.9](#eccenca-marketplace-v2629)
     - [eccenca Corporate Memory Control (cmemc) v26.2.3](#eccenca-corporate-memory-control-cmemc-v2623)
-    - [eccenca Graph Insights v20.1.0](#eccenca-graph-insights-v2010)
+    - [eccenca Graph Insights v20.1.0-1](#eccenca-graph-insights-v2010-1)
     - [eccenca n8n Community Node v0.4.2](#eccenca-n8n-community-node-v042)
+    - [Docker Orchestration](#docker-orchestration)
     - [Migration Notes](#migration-notes)
         - [eccenca DataIntegration](#eccenca-dataintegration)
         - [eccenca Explore](#eccenca-explore)
         - [eccenca Marketplace](#eccenca-marketplace)
+        - [eccenca Graph Insights](#eccenca-graph-insights)
         - [cmemc](#cmemc)
 
 We tested this release with the following dependency components:
 
 - Ontotext GraphDB v11.5.0
-- Keycloak v26.7.3
+- Keycloak v26.8.2
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v26.2.0
+## eccenca DataIntegration v26.2.1
 
 We are excited to announce the release of DataIntegration v26.2, which brings reusable rule blocks, execution variables, Jinja templating for SPARQL tasks, an embedded MCP server for LLM agents, and a broad refresh of the platform, its operators and its execution reports.
+
+**v26.2.1 of DataIntegration ships the following security updates:**
+
+- Upgraded the Docker base and build images to fix known vulnerabilities.
 
 **v26.2.0 of DataIntegration adds the following new features:**
 
@@ -295,7 +301,7 @@ We are pleased to announce the release of Explore v26.2, which introduces the ne
     - openai/anthropic providers without structured output support cannot be used.
         - `explore.llm.structured-output.native-schema` to send the companion response schema in the system message instead of as a provider option
 - **Graph Insights:**
-    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2010) below.
+    - Updated Graph Insights to v20.0.2, see the [Graph Insights section](#eccenca-graph-insights-v2010-1) below.
 
 **v26.2.1 of Explore introduces the following changes:**
 
@@ -703,9 +709,13 @@ We are excited to announce the release of cmemc v26.2, which adds a command grou
     - Fixed the tab completion: the `--id` and `--filter` completers no longer fail silently when `ctx.obj` is unset.
 - HTTP errors, e.g. connection failures and timeouts, now result in a proper error message instead of a stack trace.
 
-## eccenca Graph Insights v20.1.0
+## eccenca Graph Insights v20.1.0-1
 
 We are excited to announce the release of Graph Insights v20.0, which adds a content language selection for the explored data and visual representations for resources.
+
+**v20.1.0-1 of Graph Insights ships the following security updates:**
+
+- Rebuilt the image, which removes the eMudhra root CAs from the Java truststore where they are present (CVE-2026-111943).
 
 **v20.1.0 of Graph Insights ships the following fixes:**
 
@@ -718,6 +728,22 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 **v20.0.2 of Graph Insights ships the following fixes:**
 
 - Several CVE fixes for Tomcat, Jackson, Log4j
+
+**v20.0.0-1 of Graph Insights adds the following new features:**
+
+- **Custom CA certificates:**
+    - Added the environment variable `CUSTOM_CERTIFICATE_DIRECTORY`, which names the directory the start script scans for custom CA certificates.
+        It defaults to `/customcacerts`.
+    - The start script reports which certificate directory was scanned, how many `*.crt` and `*.pem` certificates were found, and whether an existing truststore was reused, which eases the debugging of TLS misconfigurations.
+
+**v20.0.0-1 of Graph Insights introduces the following changes:**
+
+- **Custom CA certificates:** Custom CA certificates have to be mounted at `/customcacerts` instead of `/cacerts`, which is used exclusively for the generated Java truststore now.
+    See the [Migration Notes](#eccenca-graph-insights) below.
+
+**v20.0.0-1 of Graph Insights ships the following fixes:**
+
+- An updated certificate is applied correctly: an existing truststore entry with the same alias is removed before the certificate is imported, and a failing import aborts the startup instead of being ignored.
 
 **v20.0.0 of Graph Insights adds the following new features:**
 
@@ -734,6 +760,58 @@ We are excited to announce the release of Graph Insights v20.0, which adds a con
 ## eccenca n8n Community Node v0.4.2
 
 We are excited to announce the release of the n8n Corporate Memory community node v0.4.2, see [n8n Community Node](../../../automate/n8n-node/index.md) for details.
+
+## Docker Orchestration
+
+The Docker Orchestration is released with the overall version of Corporate Memory and delivers the component versions listed above.
+See [Docker Orchestration](../../../deploy-and-configure/configuration/docker-orchestration/index.md) for its configuration.
+
+**v26.2.8 of the orchestration ships the following security updates:**
+
+- The clients of the shipped Keycloak realm are restricted to what they need:
+    - **Full scope allowed** is disabled for the clients `cmem`, `cmemc`, `graph-insights` and `marketplace`, and for the service accounts `cmem-service-account` and `graph-insights-service-account`, so their tokens no longer carry every realm role of the user or the service account.
+    - The clients `cmem`, `graph-insights` and `marketplace` no longer accept the wildcard `*` as a valid redirect URI, but only their own callbacks `/dataintegration/login`, `/dataplatform/login/oauth2/code/keycloak`, `/graphinsights/login/oauth2/code/keycloak` and `/marketplace/auth/callback`, relative to the root URL.
+
+**v26.2.8 of the orchestration adds the following new features:**
+
+- The shipped Keycloak realm provides the new client `agent` for MCP tools and other agents which log in on behalf of a user.
+    It accepts the loopback redirect URIs `http://127.0.0.1/oauth/callback` and `http://localhost:3118/callback` only, and has the full scope disabled.
+- The clients `cmem-service-account` and `cmemc` carry the `kc-admin-api` client scope as a default scope, which adds the audience the Keycloak Admin REST API requires.
+
+**v26.2.8 of the orchestration introduces the following changes:**
+
+- `make up` points all clients of the shipped Keycloak realm to `DEPLOY_BASE_URL`.
+- Updated the eccenca Keycloak theme to v2.5.1.
+
+**v26.2.7 of the orchestration introduces the following changes:**
+
+- Updated Keycloak to v26.8.2.
+
+**v26.2.7 of the orchestration ships the following fixes:**
+
+- Removed the quotes from `GRAPHINSIGHTS_JAVA_TOOL_OPTIONS`, which let Graph Insights fail to start in some cases.
+
+**v26.2.6 of the orchestration ships the following security updates:**
+
+- Added the Java option `-XX:-UseBASE64Intrinsics` to DataIntegration, Explore, Graph Insights, Keycloak and GraphDB to mitigate CVE-2026-114938, a remote code execution in the base64 decoder of OpenJDK.
+    The option is also set in all memory profiles of DataIntegration and Explore.
+
+**v26.2.5 of the orchestration ships the following security updates:**
+
+- Updated Apache httpd to v2.4.71-1, which fixes CVE-2026-119618.
+
+**v26.2.4 of the orchestration introduces the following changes:**
+
+- Updated Apache httpd to v2.4.69-1, Keycloak to v26.8.1-2 and PostgreSQL to v17.11.
+- The published container ports are bound to `127.0.0.1` instead of all host interfaces.
+
+**v26.2.4 of the orchestration removes the following functionality:**
+
+- Removed adminer and phpMyAdmin from the extensions.
+
+**v26.2.3 of the orchestration introduces the following changes:**
+
+- Updated the component images to DataIntegration v26.2.1, Explore v26.2.3, cmemc v26.2.3, Marketplace v26.2.9 and Graph Insights v20.1.0-1, together with the eccenca DataIntegration plugins v4.0.1, the eccenca Marketplace packages v1.0.0-1 and the eccenca Keycloak theme v2.5.0.
 
 ## Migration Notes
 
@@ -780,6 +858,11 @@ We are excited to announce the release of the n8n Corporate Memory community nod
 - **Manifest validation route:** With v26.2.8, `POST /api/manifest` takes the raw manifest text and always answers `200` with the verdict in the body, instead of `204` for a valid manifest and `422` for an invalid one.
     Clients which branch on the status code need to read `valid` from the body now.
     The route no longer requires a Keycloak admin group.
+
+### eccenca Graph Insights
+
+- **Custom CA certificates:** With v20.0.0-1, custom CA certificates have to be mounted at `/customcacerts` instead of `/cacerts`, which is used exclusively for the generated Java truststore now.
+    Deployments which mount their certificates at `/cacerts` have to move them, or point the `CUSTOM_CERTIFICATE_DIRECTORY` environment variable at the directory they use.
 
 ### cmemc
 
