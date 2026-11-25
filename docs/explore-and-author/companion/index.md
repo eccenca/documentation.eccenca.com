@@ -17,7 +17,7 @@ tags:
 The Companion is the AI assistant of eccenca Corporate Memory.
 It answers questions about the data in Corporate Memory and, on request, changes it.
 Users talk to it in a chat panel in Explore.
-Administrators configure its agents, skills and models in the **Companion Management** module.
+Administrators configure its agents, skills and models in the module [Companion Management](management/index.md), in the **ADMIN** section of the main navigation.
 
 <div class="grid cards" markdown>
 
