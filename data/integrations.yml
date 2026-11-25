@@ -98,7 +98,7 @@ integrations:
     content: |
       Use the {{p.cmem_plugin_llm_ExecuteInstructions}} or {{p.cmem_plugin_llm_CreateEmbeddings}} task
       to interact with any
-      [Mistral AI provided Large Language Models](https://docs.mistral.ai/getting-started/models/models_overview/)
+      [Mistral AI provided Large Language Models](https://docs.mistral.ai/models/)
       (LLMs) through their OpenAI-compatible endpoint.
 
   #####

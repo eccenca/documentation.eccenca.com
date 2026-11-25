@@ -1,0 +1,106 @@
+---
+name: Links
+
+# Checks every outgoing link of the documentation once a week. Outgoing links
+# depend on sites outside this repository, so they no longer block the Deploy
+# Pages or the Test workflow; a failure here opens a new issue labelled
+# `broken-links` with the lychee report, and the run turns red.
+# Fix a link in the Markdown source - or in its generator, for a generated page -
+# or add it to the known failures in lychee.toml, then close the issue.
+on:
+  schedule:
+    # Mondays, 05:00 UTC
+    - cron: "0 5 * * 1"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: "links"
+  cancel-in-progress: true
+
+jobs:
+
+  links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+
+      - name: install task
+        uses: arduino/setup-task@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: install lychee
+        env:
+          LYCHEE_VERSION: "0.24.2"
+          LYCHEE_ASSET: lychee-x86_64-unknown-linux-gnu
+          LYCHEE_RELEASES: https://github.com/lycheeverse/lychee/releases/download
+        run: |
+          curl -sSfL "${LYCHEE_RELEASES}/lychee-v${LYCHEE_VERSION}/${LYCHEE_ASSET}.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin --strip-components=1 "${LYCHEE_ASSET}/lychee"
+          lychee --version
+
+      - name: load link check cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          # A new key per run saves the updated cache; restore-keys picks up the latest one.
+          # lychee itself re-checks entries older than max_cache_age (lychee.toml).
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+
+      - name: check all outgoing links
+        id: links
+        # The issue step below decides the outcome of the run.
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p dist
+          task check:links -- --format markdown --output dist/link-report.md
+
+      - name: show the report in the run summary
+        if: always()
+        run: |
+          if [ -f dist/link-report.md ]; then
+            cat dist/link-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "lychee wrote no report - see the log of the link check step." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: open an issue for the broken links
+        if: steps.links.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create broken-links --color d73a4a \
+            --description "Outgoing links reported by the weekly Links workflow" --force
+          {
+            echo "The weekly link check found outgoing links that fail: [workflow run]($RUN_URL)."
+            echo
+            echo "Fix each link in the Markdown source, or in its generator if the page is"
+            echo "generated, or add it to the known failures in \`lychee.toml\` with a dated reason."
+            echo
+            if [ -f dist/link-report.md ]; then
+              # An issue body holds at most 65536 characters.
+              head -c 60000 dist/link-report.md
+            else
+              echo "lychee wrote no report, so it most likely failed before checking a link -"
+              echo "see the log of the run."
+            fi
+          } > dist/link-issue.md
+          gh issue create \
+            --title "Broken external links ($(date -u +%Y-%m-%d))" \
+            --label broken-links \
+            --body-file dist/link-issue.md
+          # Keep the run red, so the failure shows in the Actions tab as well.
+          exit 1

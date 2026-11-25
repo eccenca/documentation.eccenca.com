@@ -256,7 +256,7 @@ the [Send Mattermost messages](../../build/reference/customtask/cmem_plugin_matt
 
     Use the [Execute Instructions](../../build/reference/customtask/cmem_plugin_llm-ExecuteInstructions.md) or [Create Embeddings](../../build/reference/customtask/cmem_plugin_llm-CreateEmbeddings.md) task
 to interact with any
-[Mistral AI provided Large Language Models](https://docs.mistral.ai/getting-started/models/models_overview/)
+[Mistral AI provided Large Language Models](https://docs.mistral.ai/models/)
 (LLMs) through their OpenAI-compatible endpoint.
 
 
