@@ -84,10 +84,10 @@ The text after the name of the skill is passed to the prompt.
 ### Catalog
 
 A catalog is a graph that holds the agents, skills, named models and catalog properties of the Companion.
-The main catalog graph is `https://ns.eccenca.com/data/companion/`.
-It can import further catalog graphs with `owl:imports`.
-The Companion runs on the effective catalog, which merges the main catalog and its imports.
-When an identifier exists in more than one catalog, the entry of the main catalog applies.
+The base catalog `CMEM Base Companion Catalog` in the graph `https://ns.eccenca.com/data/companion/` holds the changes of the installation to the defaults of the installed version.
+It imports additional catalog graphs with `owl:imports`.
+The Companion runs on the effective catalog, which merges the defaults, the base catalog and the additional catalogs.
+When an identifier exists in more than one catalog, the entry of the base catalog applies.
 
 Until the catalog is saved for the first time, the Companion uses the catalog shipped with Corporate Memory.
 
