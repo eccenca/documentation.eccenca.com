@@ -26419,10 +26419,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#eccenca-dataintegration-v2610" class="md-nav__link">
+  <a href="#eccenca-dataintegration-v2611" class="md-nav__link">
     <span class="md-ellipsis">
       
-        eccenca DataIntegration v26.1.0
+        eccenca DataIntegration v26.1.1
       
     </span>
   </a>
@@ -26445,6 +26445,17 @@
     <span class="md-ellipsis">
       
         eccenca Corporate Memory Control (cmemc) v26.1.4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eccenca-graph-insights-v1921" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eccenca Graph Insights v19.2.1
       
     </span>
   </a>
@@ -26567,10 +26578,10 @@
 </ul>
 <p>This release delivers the following component versions:</p>
 <ul>
-<li>eccenca DataIntegration v26.1.0</li>
+<li>eccenca DataIntegration v26.1.1</li>
 <li>eccenca Explore v26.1.4</li>
 <li>eccenca Corporate Memory Control (cmemc) v26.1.4</li>
-<li>eccenca Graph Insights v19.2.0</li>
+<li>eccenca Graph Insights v19.2.1</li>
 </ul>
 <p>We tested this release with the following dependency components:</p>
 <ul>
@@ -26578,8 +26589,13 @@
 <li>Keycloak v26.5.3</li>
 </ul>
 <p>More detailed information for this release is provided in the next sections.</p>
-<h2 id="eccenca-dataintegration-v2610">eccenca DataIntegration v26.1.0<a class="headerlink" href="#eccenca-dataintegration-v2610" title="Permanent link">¤</a></h2>
+<h2 id="eccenca-dataintegration-v2611">eccenca DataIntegration v26.1.1<a class="headerlink" href="#eccenca-dataintegration-v2611" title="Permanent link">¤</a></h2>
 <p>We are excited to announce the release of DataIntegration v26.1, which expands Mapping Creator, improves dataset lifecycle management, and adds better visibility into deprecated plugins.</p>
+<p><strong>v26.1.1 of DataIntegration ships the following security updates:</strong></p>
+<ul>
+<li>Upgraded the Docker base and build images to fix known vulnerabilities.
+    The image is based on Java 25 and Red Hat Universal Base Image 10 now, instead of Java 21 and Red Hat Universal Base Image 9.</li>
+</ul>
 <p><strong>v26.1.0 of DataIntegration adds the following new features:</strong></p>
 <ul>
 <li><strong>Mapping Creator:</strong><ul>
@@ -27119,6 +27135,23 @@
 </ul>
 </li>
 </ul>
+<h2 id="eccenca-graph-insights-v1921">eccenca Graph Insights v19.2.1<a class="headerlink" href="#eccenca-graph-insights-v1921" title="Permanent link">¤</a></h2>
+<p>We are excited to announce the release of Graph Insights v19.2, which keeps the position in the application across a session expiry and starts up with a customized presentation configuration.</p>
+<p><strong>v19.2.1 of Graph Insights ships the following security updates:</strong></p>
+<ul>
+<li>Upgraded the dependencies of the image.</li>
+<li>The image is based on <code>eclipse-temurin:21-ubi10-minimal</code> now.</li>
+</ul>
+<p><strong>v19.2.0 of Graph Insights ships the following security updates:</strong></p>
+<ul>
+<li>Upgraded the dependencies of the image.</li>
+</ul>
+<p><strong>v19.2.0 of Graph Insights ships the following fixes:</strong></p>
+<ul>
+<li>A session which expires while Graph Insights is open no longer loses the position in the application.
+    Users are redirected to the login screen and return to the location they were at after the re-authentication.</li>
+<li>Invalid properties in the presentation configuration no longer crash the startup of the server.</li>
+</ul>
 <h2 id="migration-notes">Migration Notes<a class="headerlink" href="#migration-notes" title="Permanent link">¤</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Backward and Forward Compatibility</p>
@@ -27198,7 +27231,7 @@ We are harmonizing configuration paths under a single central entry point to sim
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 2, 2026 15:25:00 UTC"><span class="timeago" datetime="2026-11-02T15:25:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 2, 2026 15:25:00 UTC">2026-11-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 26, 2026 09:02:22 UTC"><span class="timeago" datetime="2026-11-26T09:02:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 26, 2026 09:02:22 UTC">2026-11-26</span>
   </span>
 
     
