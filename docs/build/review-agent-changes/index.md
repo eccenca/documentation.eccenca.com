@@ -70,7 +70,7 @@ Give the agent a task that changes the project and runs a workflow:
 
     1. Open the project **Product Feed**.
     2. Click :eccenca-application-ai-suggestion: **Chat with the companion** in the application header.
-    3. Select **Ask before writes** in the mode selector above the input field.
+    3. Select **Ask before writes** in the mode selector at the lower right of the Companion panel, above the notice on the AI system.
         A new chat starts in **Read only**, which does not change anything, see [Modes](../../explore-and-author/companion/chat/index.md#modes).
     4. Enter the task, for example:
 
@@ -80,21 +80,31 @@ Give the agent a task that changes the project and runs a workflow:
         Then run the workflow Load products.
         ```
 
-    5. Click **Confirm** in the confirmation dialog of each change, see [Confirm a change](../../explore-and-author/companion/chat/index.md#confirm-a-change).
+    5. Click :material-send-variant-outline: **Send the message**.
+    6. If the dialog **The companion has questions** opens, select an option for each question and click **Answer**.
+        The Companion marks the option it suggests as **recommended**.
+    7. Click **Confirm** in each confirmation dialog, see [Confirm a change](../../explore-and-author/companion/chat/index.md#confirm-a-change).
+        One dialog can cover several changes, for example both mapping rules.
+        The request to run the workflow opens a dialog of its own.
 
 === "External agent"
+
+    <video src="review-agent-changes-agent-changes.webm" poster="review-agent-changes-agent-changes.png" title="Claude Code maps the columns price and supplier in the transformation Transform products through the Build MCP server, and the run of the workflow Load products waits for review" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
     Enter the task in the agent, for example:
 
     ```text
     In the project Product Feed, map the columns price and supplier of products.csv
     in the transformation Transform products to schema.org properties.
-    Then run the workflow Load products.
+    Choose the properties yourself. Then run the workflow Load products.
     ```
 
+    Answer the questions of the agent, and allow the tool calls that it asks for.
+    In the video, the read-only tools of the Build MCP server are allowed in advance, so the agent asks only before a change.
+
 The agent adds two mapping rules: `price`, which maps the column `price` to `https://schema.org/price`, and a rule that maps the column `supplier` to a schema.org property.
-In this example, the rule for `supplier` is `brand`, which maps it to `https://schema.org/brand`.
-The property that an agent selects can differ, for example `manufacturer`.
+In this example, this rule is named `supplier` and maps the column to `https://schema.org/manufacturer`.
+The name of the rule and the property that an agent selects can differ, for example `seller`.
 Then the agent requests the run of **Load products**.
 
 The Build MCP server does not run the workflow.
@@ -102,13 +112,13 @@ It records the request as a proposed run and answers that the changes of the age
 The answer contains a link to the **Changes** view of the project and instructs the agent to ask for the review and to request the run again afterwards.
 How the agent passes this on depends on the agent.
 
-The Companion links **Review changes** in its answer.
+The answer of the Companion contains a link to the review.
 Below the chat, a panel counts the unreviewed changes:
 
 - **Changes from this conversation** — the changes that the Companion made in this chat
 - **Other changes awaiting review** — the unreviewed changes of the project from other sources
-- A link that lists the unreviewed changes of the project
-- A link that lists only the changes of this chat
+- **Show unreviewed changes of product-feed** — lists the unreviewed changes of the project
+- **Show only this conversation's changes in product-feed** — lists only the changes of this chat
 
 ![The answer of the Companion with the Review changes link and the panel with the unreviewed changes](review-agent-changes-companion.png){ class="bordered" width="70%" }
 
@@ -116,9 +126,11 @@ Below the chat, a panel counts the unreviewed changes:
 
 === "Companion"
 
-    Click **Review changes** in the answer of the Companion, or a link in the panel below the chat.
+    Click **Show unreviewed changes of product-feed** in the panel below the chat, or the link in the answer of the Companion.
 
 === "External agent"
+
+    <video src="review-agent-changes-open-review.webm" poster="review-agent-changes-open-review.png" title="Opening the review from the Changes card of the project Product Feed and filtering the list by the origin mcp:claude-code" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
     1. Open the project **Product Feed**.
         The **Changes** card states how many changes made by an agent await review.
@@ -142,8 +154,10 @@ To list only the changes of the agent, select a checkbox in one of these facets:
     Under **CONVERSATION**, select the chat of the Companion, for example **C1**.
     The facet lists each Companion chat that changed the project.
 
-    A change of the Companion also shows its chat as a tag such as **C1** in the **Source** column.
-    Click the tag to filter the list by this chat, or click **Open companion conversation** in the row to open the chat in the Companion panel.
+    In the **Source** column, a change of the Companion shows a tag for its chat, such as **C1**.
+    Click the tag to list only the changes of this chat.
+    Click **Open companion conversation** in the row to open the chat in the Companion panel.
+    In another browser session, the chat can be unavailable: the tag then shows **?**, and the row has no **Open companion conversation**.
 
     ![The Changes view filtered to the unreviewed changes of one Companion chat](review-agent-changes-companion-journal.png){ class="bordered" }
 
@@ -156,17 +170,24 @@ Click :eccenca-application-mapping: in the row of a mapping rule to open the rul
 
 ## 3 Revert an unwanted change
 
-The column `supplier` holds the company that delivers a part, not its brand or its manufacturer, so the mapping rule for `supplier` is not wanted.
+<video src="review-agent-changes-revert-change.webm" poster="review-agent-changes-revert-change.png" title="Reverting the change Added value mapping 'supplier' in the Changes view, which adds the change Removed mapping rule 'supplier'" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
-1. Click :eccenca-item-moremenu: in the row of the change that adds this rule, here **Added value mapping 'brand'**.
+The column `supplier` holds the company that delivers a part, not its manufacturer or its brand, so the mapping rule for `supplier` is not wanted.
+
+1. Click :eccenca-item-moremenu: in the row of the change that adds this rule, here **Added value mapping 'supplier'**.
 2. Select **Revert this change**.
 3. Click **Revert**.
 
 The mapping rule is removed from **Transform products**.
-The revert is recorded as a new change with a tag such as **Reverts #7**, and the reverted change carries a tag such as **Reverted by #9**.
+The revert is recorded as a new change with a tag such as **Reverts #2**, and the reverted change carries a tag such as **Reverted by #4**.
 **Unreviewed changes** drops to `2`.
 
+If the list shows only unreviewed changes, for example after **Show unreviewed changes of product-feed**, the reverted change leaves the list.
+Remove the filter **State** above the list to see the revert and the reverted change.
+
 ## 4 Mark the remaining changes as reviewed
+
+<video src="review-agent-changes-mark-reviewed.webm" poster="review-agent-changes-mark-reviewed.png" title="Marking the proposed run and the mapping rule price as reviewed with Mark all as reviewed" class="bordered" controls loop muted playsinline preload="metadata"></video>
 
 1. Click **Mark all as reviewed**.
     The dialog lists the changes to mark, here the proposed run and the mapping rule `price`.
@@ -178,11 +199,38 @@ To reject a proposed run instead, revert it before marking the remaining changes
 ## 5 Let the agent run the workflow
 
 Tell the agent that the review is done and ask it to run the workflow again.
-In the Companion, click **Confirm** in the confirmation dialog of the run.
+Name the changes that were reverted: otherwise the agent can assume that all of its changes are in place.
+
+=== "Companion"
+
+    1. Open the chat of the task, if the Companion panel is closed.
+        Click **Open companion conversation** in a row of the **Changes** view, or select the chat in the chat list at the top of the Companion panel.
+    2. Enter the message, for example:
+
+        ```text
+        The review is done: I reverted the supplier mapping and marked the other changes as reviewed.
+        Run the workflow Load products again.
+        ```
+
+    3. Click :material-send-variant-outline: **Send the message**.
+    4. Click **Confirm** in the confirmation dialog of the run.
+
+=== "External agent"
+
+    <video src="review-agent-changes-agent-runs-workflow.webm" poster="review-agent-changes-agent-runs-workflow.png" title="Claude Code runs the workflow Load products after the review and reports that the supplier mapping was reverted" class="bordered" controls loop muted playsinline preload="metadata"></video>
+
+    Enter the message in the conversation of the task, for example:
+
+    ```text
+    The review is done: I reverted the supplier mapping and marked the other changes as reviewed.
+    Run the workflow Load products again.
+    ```
+
+    Allow the tool call to run the workflow when the agent asks for it.
 
 The agent requests the run again, and this time the Build MCP server runs **Load products**.
 The change journal records the run as **Executed workflow 'Load products'** with a link to its execution report.
-The proposed run carries a tag such as **Run as #10**.
+The proposed run carries a tag such as **Run as #5**.
 
 ![The Changes view after the review with the executed workflow, the revert and the reviewed changes of the agent](review-agent-changes-after-run.png){ class="bordered" }
 

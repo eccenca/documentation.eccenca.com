@@ -87,6 +87,7 @@ Before committing new clips:
 
 `companion-catalog/tutorial.js` is a complete example, including forms, multiselects and a chat answer that is
 checked.
+`review-agent-changes/tutorial.js` combines terminal clips of Claude Code with clips in the browser.
 
 ## Terminal clips
 
@@ -115,6 +116,9 @@ The building blocks prepare the terminal off camera:
     It confirms the trust question of a new folder and hides the rows of the start screen with the version,
     the account, the plan and promotional notices.
     Claude Code redraws its start screen, so clearing the screen does not remove it.
+    With `allowed`, tools such as the read-only tools of the Build MCP server run without a permission prompt,
+    so that the clip shows only the prompts of the tools that change something.
+    With `disallowed`, further tools are switched off, for example `AskUserQuestion`.
 - `exitClaude` ends Claude Code.
     Closing the browser alone leaves the process running under ttyd.
 

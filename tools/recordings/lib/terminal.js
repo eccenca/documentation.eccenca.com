@@ -6,7 +6,9 @@ const fs = require('fs');
 const { sleep, env } = require('./browser');
 
 // The default WebGL renderer of xterm.js stays blank in a headless browser: use the DOM renderer.
+// ttyd asks before the page is left; the question would block every later navigation of the page.
 async function openTerminal(page, { fontSize = 18 } = {}) {
+  if (!page.__acceptsLeave) { page.on('dialog', d => d.accept().catch(() => {})); page.__acceptsLeave = true; }
   const url = env('TTYD_URL', 'http://127.0.0.1:7681').replace(/\/$/, '');
   await page.goto(`${url}/?rendererType=dom&fontSize=${fontSize}`, { waitUntil: 'networkidle2' });
   await page.waitForSelector('.xterm-rows', { timeout: 15000 });
@@ -68,8 +70,13 @@ async function hideClaudeStartScreen(page) {
 // works only through the MCP servers and the clip shows its permission prompts. Its start screen with
 // account, plan and promotional notices is hidden. In a folder Claude Code has not seen, it first asks
 // whether to trust the folder: this is confirmed. `env` sets environment variables for Claude Code only.
-async function startClaude(page, { args = '', env = '' } = {}) {
-  await enter(page, `${env} claude --permission-mode default --disallowedTools Bash ${args}`.trim(), 2);
+// `allowed` lists tools that need no permission prompt (for example read-only MCP tools), `disallowed`
+// further tools besides Bash (for example AskUserQuestion). Both are written to a settings file, so that
+// the command line stays short and no option overrides the Bash restriction.
+async function startClaude(page, { args = '', env = '', allowed = [], disallowed = [] } = {}) {
+  const settings = path.join(os.tmpdir(), `claude-recording-${process.pid}.json`);
+  fs.writeFileSync(settings, JSON.stringify({ permissions: { allow: allowed, deny: ['Bash', ...disallowed] } }));
+  await enter(page, `${env} claude --permission-mode default --disallowedTools Bash --settings '${settings}' ${args}`.trim(), 2);
   const ready = /\/effort|for shortcuts|Try "/;
   await waitForText(page, /trust this folder|\/effort|for shortcuts|Try "/, { timeout: 60000 });
   if (/trust this folder/.test(await screen(page))) {

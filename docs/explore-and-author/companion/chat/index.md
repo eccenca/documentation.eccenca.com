@@ -57,7 +57,7 @@ Click **Stop** to interrupt the answer.
 ## Modes
 
 The mode decides which tool calls of the Companion run on their own, which need a confirmation, and which are declined.
-Select the mode in the drop-down list above the input field.
+Select the mode in the drop-down list at the lower right of the chat, above the notice on the AI system.
 A new chat starts in **Read only**.
 
 ![Mode selector of the Companion with the available modes](companion-modes.png){ class="bordered" width="40%" }
@@ -76,7 +76,9 @@ Until then, **with next message** is shown next to the mode selector.
 ### Confirm a change
 
 In **Ask before writes**, and after a plan was approved with **Approve, ask before writes**, the Companion opens a confirmation dialog for each change.
-The dialog names the tool, marks it with **Changes or deletes data** and shows the parameters of the tool call.
+The dialog names the tool and shows the parameters of the tool call.
+A tool that the Companion classifies as destructive is marked with **Changes or deletes data**.
+Not every tool that changes data carries this mark, for example adding a mapping rule.
 
 ![Confirmation dialog for a change to a resource proposed by the Companion](companion-confirm-change.png){ class="bordered" width="50%" }
 
