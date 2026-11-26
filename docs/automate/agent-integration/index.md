@@ -43,7 +43,9 @@ Corporate Memory exposes three MCP servers:
 
 The names of the servers are free to choose.
 The Build MCP server is part of Build (DataIntegration) since v26.2.
-It inspects the workspace, describes plugins and task types, previews data and, when changes are allowed, creates and runs tasks.
+It inspects the workspace, describes plugins and task types, previews data and, when changes are allowed, creates, changes and deletes tasks and requests workflow runs.
+Since v26.3, it also evaluates rule blocks, manages the tags of a project, finds past workflow runs, adds several mapping rules in one call and creates upload URLs for several files in one call.
+The [Companion](../../explore-and-author/companion/index.md) changes Build projects through the Build MCP server as well, so its changes go through the same [review](#allow-changes-through-the-build-mcp-server).
 The Marketplace MCP server is part of [eccenca Marketplace](../../distribution/marketplace/index.md) since v26.2.8, and is reachable where that component is deployed, under the root path of its deployment.
 
 !!! info
@@ -80,7 +82,7 @@ The two token methods work as follows:
 
 - **OAuth sign-in:** The agent opens a browser window and the user signs in to Keycloak.
   The agent receives an access token and refreshes it without further interaction.
-  This method needs an agent that supports OAuth for MCP servers.
+  This method needs an agent that supports OAuth for MCP servers, and a deployment that is reachable over HTTPS.
 - **Bearer token:** The agent sends a fixed token in the `Authorization` header.
   This method works with any agent that supports custom headers, but the token expires.
 
@@ -88,6 +90,10 @@ The OAuth sign-in uses the `cmem` Keycloak client, which is a public client with
 The recipes name its client ID, because Keycloak rejects the dynamic client registration that an agent attempts when no client ID is given.
 Depending on the agent, the client ID is a command line option or an entry in its configuration file.
 In a deployment that does not use the shipped `cmem` client, use the ID of the client that the web interface uses.
+
+An agent can refuse to fetch the token over plain HTTP.
+Claude Code, for example, sends the token request only to an HTTPS endpoint or to `localhost`, so the sign-in in Keycloak succeeds but the agent never receives a token.
+For a deployment that is reachable only over HTTP, such as a local test installation, use a bearer token.
 
 ### Protect the token
 
@@ -305,10 +311,22 @@ The Build MCP server offers only read-only tools: it inspects the workspace but 
 The authoring, deletion and execution tools are exposed after setting `com.eccenca.di.assistant.McpConfig.readOnly = false` in the Build configuration.
 `com.eccenca.di.assistant.McpConfig.enabled = false` disables the server, and requests then return 404.
 
+Changes that an agent makes through the Build MCP server are recorded in the [change journal](../../build/change-journal/index.md) of the project and await review.
+A change takes effect right away and can be reverted in the review.
+A workflow run cannot be reverted, so the Build MCP server holds back the run that an agent requests:
+
+- The request is recorded as a proposed run, and the agent receives a link to the review.
+- After the changes of the agent are reviewed, the next request of the agent runs the workflow.
+
+For the same reason, the tool that deletes project files is not offered, since a deleted file cannot be restored.
+
+`com.eccenca.di.assistant.McpConfig.reviewGate` controls this, and is `true` by default.
+With `com.eccenca.di.assistant.McpConfig.reviewGate = false`, the Build MCP server runs a workflow on the first request, even while changes of the agent await review, and offers the tool that deletes project files.
+Use this setting for automation without a reviewer.
+The tutorial [Review the changes of an AI agent](../../build/review-agent-changes/index.md) shows a review from start to end.
+
 !!! warning
 
-    With the read-only mode off, an agent can delete projects and run workflows with the permissions of the authenticated account.
-    Use a dedicated account or client with limited permissions, and review the actions of the agent.
-
-Changes that an agent makes through the Build MCP server are recorded in the [change journal](../../build/change-journal/index.md) of the project and await review.
-The tutorial [Review the changes of an AI agent](../../build/review-agent-changes/index.md) shows a review from start to end.
+    With the read-only mode off, an agent can create, change and delete tasks with the permissions of the authenticated account, and these changes take effect before they are reviewed.
+    With the review gate off, it also runs workflows and deletes project files without review.
+    Use a dedicated account or client with limited permissions, and review the changes of the agent.
