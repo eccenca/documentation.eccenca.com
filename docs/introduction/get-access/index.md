@@ -4,7 +4,7 @@ title: "Introduction: Get access to the sandbox"
 
 # Get access to the sandbox
 
-The eccenca Corporate Memory sandbox is a free, personal Corporate Memory instance for trying out the product.
+The eccenca Corporate Memory sandbox is a free, personal instance for trying out the product.
 It is provided at [eccenca.my](https://eccenca.my/) as the Community Edition sandbox.
 
 The following steps register an account at eccenca.my and sign in to the sandbox.
@@ -14,7 +14,7 @@ For the content that a new sandbox includes, and for its limitations, see [Welco
 
 !!! info "Existing instance"
 
-    With access to an existing Corporate Memory instance, no registration is needed.
+    With access to an existing eccenca Corporate Memory instance, no registration is needed.
     Open the URL of the instance and sign in with the credentials provided by its administrator, as described in [Login and Logout](../../getting-started/index.md#login-and-logout).
 
 ## Prerequisites
@@ -73,7 +73,7 @@ When the sandbox is ready, eccenca.my sends an email with the link to the sandbo
 
 ## Next
 
-- [Highlight features](../highlight-features/index.md): five features that set Corporate Memory apart, with the documentation for each
+- [Highlight features](../highlight-features/index.md): five features that set eccenca Corporate Memory apart, with the documentation for each
 - Basic, the guided path from a source file to a knowledge graph in about four hours, is in preparation.
   Until then, the [Tutorials](../../tutorials/index.md) cover the first steps.
 

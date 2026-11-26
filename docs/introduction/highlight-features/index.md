@@ -66,7 +66,7 @@ The tedious half of the work is proposed, while the decision about what the data
 
 ## Companion
 
-Companion is an AI agent built into Corporate Memory.
+Companion is an AI agent built into eccenca Corporate Memory.
 A question about the data, asked in plain language, is answered from the knowledge graph.
 That opens the graph to people who never write a query.
 Intentions for a data pipeline, described in plain language, are translated into Build workflows, transformations and other tasks.
