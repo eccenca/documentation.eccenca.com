@@ -41,7 +41,7 @@ There are two different types of clients used by Corporate Memory:
 
 - The first client type is used to authenticate a user for using the web interface (usually named `cmem`).
 - The second client is used as a technical user with the command line interface (usually named `cmem-service-account`).
-- Similar to the `cmem` client you can configure the Marketplace to use a separate client (usually named `marketplace`)
+- Similar to the `cmem` client you can configure the Marketplace to use a separate client (usually named `marketplace`), see [Login and Keycloak client](../marketplace/index.md#login-and-keycloak-client)
 - When using Graph Insights:
     - Similar to the `cmem` client you can configure Graph Insights to use a separate client (usually named `graph-insights`)
     - Similar to the `cmem-service-account` client you can configure Graph Insights to communicate with a separate client (usually named `graph-insights-service-account`)
@@ -77,7 +77,7 @@ To import a pre-configured `cmem` client for using the web interface, follow the
 
 - Login to Keycloak and select the Corporate Memory realm (`cmem`).
 - Download the [cmem client configuration for using the web interface](cmem.json) (`cmem.json`).
-- Download the [markeplace client configuration for using the web interface](marketplace.json) (`marketplace.json`).
+- Download the [marketplace client configuration for using the web interface](marketplace.json) (`marketplace.json`).
 - Select **Clients**, then **Import client**.
 - **Browse** for the downloaded `cmem.json` and select it.
 - **Save** new client.

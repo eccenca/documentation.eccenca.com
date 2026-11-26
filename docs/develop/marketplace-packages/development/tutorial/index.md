@@ -61,7 +61,7 @@ To add content to the package, simply copy the files you want to add into this f
 In order for the package to know about these added files, the `cpa-manifest.json` needs to be edited.
 
 The `"files": []` section of the manifest references the files the package needs to bundle.
-Complete information about the [package manifest can be found here](https://github.com/eccenca/cmem-package-template/tree/main#package-manifest), and more specifically [how to declare new files](https://github.com/eccenca/cmem-package-template/tree/main#adding-files).
+Complete information about the [package manifest can be found here](../index.md#manifest), and more specifically [how to declare new files](../index.md#files).
 
 For our example, we add a query graph and a project file.
 Make sure each `file_path` is valid and relative to your package directory (the nested folder):

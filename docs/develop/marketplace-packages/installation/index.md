@@ -52,6 +52,50 @@ done
     Use `--replace` to overwrite an already installed package version or package content.
     Without this option, installing over existing content fails.
 
+### Dependencies and Version Constraints
+
+A package can depend on other Marketplace Packages and on Python plugin packages, and it can restrict the versions it accepts with a [version constraint](../development/index.md#version-constraints).
+The installation takes care of the dependencies:
+
+- A missing dependency is installed at the newest version that satisfies all constraints declared on it.
+- An installed dependency at a satisfying version is left untouched.
+- If an installed dependency violates a constraint, the installation fails before anything is changed.
+- If the installation would violate the constraint of another installed package, it is refused before anything is changed, and the affected packages are named.
+
+Use `--force-dependencies` to install anyway.
+The option upgrades or downgrades the installed dependency and warns about every installed package it breaks.
+
+!!! warning "Forcing dependencies can break installed packages"
+
+    A package whose constraint is violated stays installed but is not guaranteed to work.
+    Check the dependency tree after a forced installation.
+
+Use the following command to show the dependency tree of the installed packages:
+
+```bash title="Show the dependency tree"
+cmemc package dependencies
+```
+
+Each dependency is listed with its declared constraint, the installed version and its state: `satisfied`, `violated`, or `missing`.
+Add a package ID to show the tree of one installed package only.
+Reinstalling a dependency at a satisfying version repairs a `violated` or `missing` dependency.
+
+### Upgrade Packages
+
+Use `--replace` to upgrade an installed package to the latest version of the Marketplace Server:
+
+```bash title="Upgrade a package to the latest version"
+cmemc package install --replace w3c-xsd-vocab
+```
+
+Add `--version` to install a specific version, which also changes to an older version:
+
+```bash title="Install a specific version"
+cmemc package install --replace --version 1.0.0 w3c-xsd-vocab
+```
+
+The rules for dependencies apply to an upgrade in the same way.
+
 ## List Packages
 
 Use the following command to list all installed packages:

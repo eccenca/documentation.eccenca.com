@@ -651,6 +651,8 @@ nav:
               - deploy-and-configure/configuration/explore/graph-resource-pattern/index.md
           - Graph Insights:
               - deploy-and-configure/configuration/graphinsights/index.md
+          - Marketplace:
+              - deploy-and-configure/configuration/marketplace/index.md
           - Keycloak:
               - Keycloak: deploy-and-configure/configuration/keycloak/index.md
               - Changing Passwords and Keys:

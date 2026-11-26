@@ -556,6 +556,7 @@ We are excited to announce the release of eccenca Marketplace v26.2. The Marketp
     - A multi-architecture Docker image based on the Red Hat Universal Base Image 10.
     - A file-based package repository with persistent storage.
     - Configuration via environment variables with the `ECC_MARKETPLACE_` prefix, including the Keycloak connection, the session secret, the list of marketplace URLs, and the Corporate Memory endpoints.
+        See [Marketplace configuration](../../../deploy-and-configure/configuration/marketplace/index.md) for the reference of all settings.
     - `ROOT_PATH` supports running the service behind a reverse proxy under a sub-path. The default changed with v26.2.4, see the changes above.
     - The storage and retrieval of packages on the local marketplace can be disabled with the `LOCAL_MARKETPLACE` setting, which also disables the corresponding session capabilities.
 

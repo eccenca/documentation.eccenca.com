@@ -49,7 +49,7 @@ The Marketplace MCP server is part of [eccenca Marketplace](../../distribution/m
 !!! info
 
     The Build and Marketplace MCP servers are enabled by default and offer only read-only tools.
-    `com.eccenca.di.assistant.McpConfig.readOnly` controls this for Build, and `ECC_MARKETPLACE_MCP_READ_ONLY` for Marketplace, where it decides whether the tools that install and uninstall packages are registered at all.
+    `com.eccenca.di.assistant.McpConfig.readOnly` controls this for Build, and [`ECC_MARKETPLACE_MCP_READ_ONLY`](../../deploy-and-configure/configuration/marketplace/index.md#mcp-endpoint) for Marketplace, where it decides whether the tools that install and uninstall packages are registered at all.
     The default does not apply to the API or cmemc: an agent that uses them is limited only by the permissions of its account.
     See [Allow changes through the Build MCP server](#allow-changes-through-the-build-mcp-server).
 

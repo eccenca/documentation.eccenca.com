@@ -10,7 +10,7 @@
   "alwaysDisplayInConsole": false,
   "clientAuthenticatorType": "client-secret",
   "redirectUris": [
-    "*"
+    "/marketplace/auth/callback"
   ],
   "webOrigins": [],
   "notBefore": 0,
@@ -33,7 +33,6 @@
     "tls-client-certificate-bound-access-tokens": "false",
     "realm_client": "false",
     "oidc.ciba.grant.enabled": "false",
-    "backchannel.logout.url": "http://docker.localhost/graphinsights/logout/connect/back-channel/keycloak",
     "backchannel.logout.session.required": "false",
     "client_credentials.use_refresh_token": "false",
     "acr.loa.map": "{}",
@@ -43,7 +42,7 @@
     "dpop.bound.access.tokens": "false"
   },
   "authenticationFlowBindingOverrides": {},
-  "fullScopeAllowed": true,
+  "fullScopeAllowed": false,
   "nodeReRegistrationTimeout": -1,
   "protocolMappers": [
     {

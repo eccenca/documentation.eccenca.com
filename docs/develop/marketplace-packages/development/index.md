@@ -47,6 +47,7 @@ The template asks for the following variables:
 
 `vocab_dependencies`
 :   Comma-separated dependencies on other Marketplace Packages (only asked for `project` packages).
+    A `vocabulary` package declares its dependencies on other vocabulary packages directly in the manifest, see [Dependencies](#dependencies).
 
 `github_page`
 :   Optional URL of the package repository, used as the base for icons and the homepage link.
@@ -70,6 +71,10 @@ The `cpa-manifest.json` in the package directory is the central package definiti
 It contains all relevant package metadata and describes the package contents.
 It is used to present package details and contents to the `inspect` command<!-- or in the marketplace frontends-->, to install, configure and uninstall all parts of a package.
 
+The manifest follows a JSON Schema, which every Marketplace Server publishes at `/api/manifest`, for example <https://eccenca.market/api/manifest>.
+The template sets this URL as the `$schema` of the manifest, so an editor validates and completes the fields.
+The schema is the reference for every field and its limits; the following sections describe the parts a package author works with.
+
 #### Metadata
 
 `package_type`
@@ -83,7 +88,11 @@ It is used to present package details and contents to the `inspect` command<!-- 
 :   Unique package identifier
 
 `package_version`
-:   Semantic version identifier string of the package, but limited to proper releases.
+:   Semantic version identifier string of the package, see [Versions and revisions](#versions-and-revisions).
+
+`build_timestamp`
+:   Optional date and time the package was built, in ISO 8601 format with a timezone offset, e.g. `2026-11-09T10:15:00+00:00`.
+    The Marketplace shows it in the package details.
 
 `metadata.name`
 :   The package name in English.
@@ -106,9 +115,24 @@ It is used to present package details and contents to the `inspect` command<!-- 
 `metadata.tags`
 :   Free-text tags used to categorize the package on a Marketplace Server.
 
+`metadata.languages`
+:   The languages the package content is available in, as ISO 639-1 codes, e.g. `["en", "de"]`.
+    Defaults to `["en"]`.
+
+#### Versions and Revisions
+
+A package version has the form `X.Y.Z`, e.g. `1.2.0`.
+The template derives it from the Git tag of the package repository at build time.
+
+A version can carry a packaging revision `X.Y.Z-N`, where `N` counts from `1`, e.g. `1.2.0-1`.
+A revision packages the same release again, for example to correct the manifest or a description without a new release of the content.
+
+- A revision ranks above its release and below the next release: `1.2.0` < `1.2.0-1` < `1.2.0-2` < `1.2.1`.
+- A [version constraint](#version-constraints) is matched against the release only: `1.2.0-1` satisfies the same constraints as `1.2.0`.
+
 #### Files
 
-A package can contain graphs, Build projects, text files, and images.
+A package can contain graphs, Build projects, application views, text files, and images.
 These contents are referenced in the `files` section of the `cpa-manifest.json`.
 
 ##### Graphs
@@ -150,6 +174,27 @@ We suggest to organize projects in a respective sub-folder (here `projects/`), b
 ]
 ```
 
+##### Application Views
+
+A `project` package can ship [application views](../../../explore-and-author/workspace-configuration/index.md) of Explore.
+Export the view with `cmemc admin view export` and declare the resulting JSON file together with the ID of the view:
+
+```json
+"files": [
+    …
+    {
+        "file_type": "view",
+        "file_path": "views/my-view.json",
+        "view_id": "my-view"
+    },
+    …
+]
+```
+
+The file holds exactly one view, and its ID is the declared `view_id`.
+The view is created after the graphs and projects of the package during installation, and removed before them when the package is uninstalled.
+A `vocabulary` package cannot contain application views, and the view `default` cannot be shipped.
+
 ##### Texts and Images
 
 Text files and images describe the package itself rather than shipping content.
@@ -177,6 +222,10 @@ The template declares `README.md`, `CHANGELOG.md`, and `LICENSE` this way; image
 Dependencies to other packages or to Python plugins can be declared in the `copier copy` answers.
 The dependencies are added to the `cpa-manifest.json` as described in the next sections.
 
+A `project` package can depend on Python plugin packages and on Marketplace Packages of both types.
+A `vocabulary` package can depend on other `vocabulary` packages only, for example a vocabulary that imports and extends another one.
+A package cannot depend on itself.
+
 ##### Python Plugin Packages
 
 Use the following to declare a dependency to a Python plugin:
@@ -202,10 +251,45 @@ Use the following to declare a dependency to another Marketplace Package:
     {
       "dependency_type": "marketplace-package",
       "package_id": "w3c-rdfs-vocab"
-    }
+    },
     …
 ]
 ```
+
+##### Version Constraints
+
+A dependency can restrict the versions it accepts with a `version_constraint`:
+
+```json
+"dependencies": [
+    …
+    {
+      "dependency_type": "marketplace-package",
+      "package_id": "w3c-rdfs-vocab",
+      "version_constraint": "^1.2.0"
+    },
+    {
+      "dependency_type": "python-package",
+      "pypi_id": "cmem-plugin-pyshacl",
+      "version_constraint": ">=5.0.0"
+    },
+    …
+]
+```
+
+| Constraint | Meaning | Marketplace Package | Python plugin package |
+| ---------- | ------- | ------------------- | --------------------- |
+| `>=1.2.0` | Version `1.2.0` or newer. | yes | yes |
+| `<=1.2.0` | Version `1.2.0` or older. | yes | yes |
+| `^1.2.0` | Version `1.2.0` or newer, as long as the leftmost non-zero part stays the same: `^1.2.0` accepts versions below `2.0.0`, `^0.2.3` below `0.3.0`, and `^0.0.3` below `0.0.4`. | yes | no |
+| `*` | Any version, the same as no constraint. | yes | yes |
+
+A dependency carries one constraint.
+Other operators, such as `>`, `<` or `==`, and combined ranges are not supported.
+
+During installation, each dependency is installed at the newest version that satisfies all constraints declared on it by the packages involved.
+An installed dependency at a satisfying version is left untouched.
+See [Dependencies and version constraints](../installation/index.md#dependencies-and-version-constraints) for how an installation handles conflicts.
 
 ## Package Development Cycle
 
@@ -275,6 +359,16 @@ cmemc package publish my-package-v1.0.0.cpa
 ```
 
 The published package ID and version are taken from the manifest inside the archive.
+
+The Marketplace Server validates the archive and resolves its dependencies against the packages it hosts.
+It refuses a version whose dependencies cannot be resolved, which is the case for one of the following problems:
+
+- A dependency, or a package further down the dependency tree, is not published on this Marketplace Server.
+- No published version satisfies a constraint, e.g. `>=2.0.0` while only `1.0.0` is published.
+- The constraints on one package have no version in common.
+- The dependency chain is too long.
+
+Publish the dependencies of a package before the package itself.
 
 Publishing requires a Marketplace account.
 If you do not provide the credentials, cmemc requests them interactively.

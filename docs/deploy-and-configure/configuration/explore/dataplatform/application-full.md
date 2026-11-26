@@ -394,7 +394,7 @@ Server type (SYNC/ASYNC) s. <https://docs.spring.io/spring-ai/reference/index.ht
 
 | Category | Value |
 |--- | ---: |
-| Default | This server provides access to corporate memory |
+| Default | This server provides access to Corporate Memory |
 | Required | false |
 | Valid values | string |
 | Environment | SPRING_AI_MCP_SERVER_INSTRUCTIONS |
