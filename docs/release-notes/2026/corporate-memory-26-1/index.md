@@ -29,10 +29,10 @@ The highlights of this release are:
 
 This release delivers the following component versions:
 
-- eccenca DataIntegration v26.1.0
+- eccenca DataIntegration v26.1.1
 - eccenca Explore v26.1.4
 - eccenca Corporate Memory Control (cmemc) v26.1.4
-- eccenca Graph Insights v19.2.0
+- eccenca Graph Insights v19.2.1
 
 We tested this release with the following dependency components:
 
@@ -41,9 +41,14 @@ We tested this release with the following dependency components:
 
 More detailed information for this release is provided in the next sections.
 
-## eccenca DataIntegration v26.1.0
+## eccenca DataIntegration v26.1.1
 
 We are excited to announce the release of DataIntegration v26.1, which expands Mapping Creator, improves dataset lifecycle management, and adds better visibility into deprecated plugins.
+
+**v26.1.1 of DataIntegration ships the following security updates:**
+
+- Upgraded the Docker base and build images to fix known vulnerabilities.
+    The image is based on Java 25 and Red Hat Universal Base Image 10 now, instead of Java 21 and Red Hat Universal Base Image 9.
 
 **v26.1.0 of DataIntegration adds the following new features:**
 
@@ -421,6 +426,25 @@ We are excited to announce the release of cmemc v26.1, which expands access-cond
     - Default output changed from a simple list to table format.
     - Use `--id-only` to get the simple connection name list for piping.
     - Previously deprecated commands and groups were removed; see migration notes.
+
+## eccenca Graph Insights v19.2.1
+
+We are excited to announce the release of Graph Insights v19.2, which keeps the position in the application across a session expiry and starts up with a customized presentation configuration.
+
+**v19.2.1 of Graph Insights ships the following security updates:**
+
+- Upgraded the dependencies of the image.
+- The image is based on `eclipse-temurin:21-ubi10-minimal` now.
+
+**v19.2.0 of Graph Insights ships the following security updates:**
+
+- Upgraded the dependencies of the image.
+
+**v19.2.0 of Graph Insights ships the following fixes:**
+
+- A session which expires while Graph Insights is open no longer loses the position in the application.
+    Users are redirected to the login screen and return to the location they were at after the re-authentication.
+- Invalid properties in the presentation configuration no longer crash the startup of the server.
 
 ## Migration Notes
 
