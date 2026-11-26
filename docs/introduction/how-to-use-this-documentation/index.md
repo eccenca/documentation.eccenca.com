@@ -9,14 +9,14 @@ It is organized by what is being done with the product, not by the parts of the 
 
 ## Two ways in
 
-- **New to Corporate Memory**: follow the introduction on [Home](../../index.md).
+- **New to eccenca Corporate Memory**: follow the introduction on [Home](../../index.md).
   It leads from what the product is for to getting access and a first tutorial.
-- **Familiar with Corporate Memory**: go straight to a section in the main menu, such as **Build** or **Explore**.
+- **Familiar with eccenca Corporate Memory**: go straight to a section in the main menu, such as **Build** or **Explore**.
   Each section has an overview that lists everything it contains.
 
 ## How the documentation is structured
 
-The main sections follow the path that data takes through Corporate Memory.
+The main sections follow the path that data takes through eccenca Corporate Memory.
 Each section overview names its intended audience next to :octicons-people-24:.
 
 | Section | What it covers | Intended audience |
@@ -24,20 +24,20 @@ Each section overview names its intended audience next to :octicons-people-24:.
 | :material-star: [Build](../../build/index.md) | Turning source data from files, databases, APIs and streams into a Knowledge Graph. | Linked Data Experts |
 | :material-star: [Explore](../../explore-and-author/index.md) | Browsing, querying, editing and validating the Knowledge Graph. | Linked Data Experts and Domain Experts |
 | :material-star: [Consume](../../consume/index.md) | Providing data from the Knowledge Graph to other applications and tools. | Linked Data Experts |
-| :material-star: [Distribution](../../distribution/index.md) | Discovering, installing and managing ready-made Marketplace Packages. | All Corporate Memory users |
-| :material-star-outline: [Deploy and Configure](../../deploy-and-configure/index.md) | Installing, configuring and upgrading Corporate Memory. | Deployment Engineers and System Administrators |
+| :material-star: [Distribution](../../distribution/index.md) | Discovering, installing and managing ready-made Marketplace Packages. | All eccenca Corporate Memory users |
+| :material-star-outline: [Deploy and Configure](../../deploy-and-configure/index.md) | Installing, configuring and upgrading eccenca Corporate Memory. | Deployment Engineers and System Administrators |
 | :material-star-outline: [Automate](../../automate/index.md) | Scheduling workflows, continuous integration and delivery, and the `cmemc` command line client. | Linked Data Experts and Deployment Engineers |
-| :material-star-outline: [Develop](../../develop/index.md) | Extending Corporate Memory with plugins and packages, and accessing it through its APIs. | Software Developers and Linked Data Experts |
-| :material-calendar: [Release Notes](../../release-notes/2026/corporate-memory-26-2/index.md) | Changes and enhancements in each version. | All Corporate Memory users |
+| :material-star-outline: [Develop](../../develop/index.md) | Extending eccenca Corporate Memory with plugins and packages, and accessing it through its APIs. | Software Developers and Linked Data Experts |
+| :material-calendar: [Release Notes](../../release-notes/2026/corporate-memory-26-2/index.md) | Changes and enhancements in each version. | All eccenca Corporate Memory users |
 
 <!-- TODO confirm the meaning of the two star icons with the team -->
 A filled star :material-star: marks the sections about working with data and the Knowledge Graph.
-An outlined star :material-star-outline: marks the sections about operating, automating and extending Corporate Memory.
+An outlined star :material-star-outline: marks the sections about operating, automating and extending eccenca Corporate Memory.
 
 The overviews of Build, Explore, Consume and Distribution show a diagram of the product architecture.
 The highlighted area marks the part of the product the section describes.
 
-**Home** introduces Corporate Memory and the ideas behind it.
+**Home** introduces eccenca Corporate Memory and the ideas behind it.
 **Learn** collects the tutorials and the training material of all sections in one place.
 
 ## Four types of content
@@ -68,7 +68,7 @@ The tutorials in a section focus on the features of that section.
 [Learn › Tutorials](../../tutorials/index.md) lists the tutorials of all sections, grouped by level: beginner, advanced and expert.
 
 [Learn › Training](../../training/index.md) contains the material of the eccenca Corporate Memory training.
-Its modules cover the theory behind Corporate Memory, such as RDF, SPARQL and ontology modeling, and link to the tutorials for the hands-on sessions.
+Its modules cover the theory behind eccenca Corporate Memory, such as RDF, SPARQL and ontology modeling, and link to the tutorials for the hands-on sessions.
 
 ## Where to start by role
 
@@ -89,12 +89,12 @@ Its modules cover the theory behind Corporate Memory, such as RDF, SPARQL and on
 
 ## Versions
 
-The documentation is published separately for each release of Corporate Memory.
+The documentation is published separately for each release of eccenca Corporate Memory.
 The version `latest` is the documentation of the most recent release.
 
 <!-- [needs-instance] confirm position and label of the version selector on documentation.eccenca.com -->
 To read the documentation that matches a deployment, select its version from the version selector in the header.
-The version of a deployment is shown in the user interface of Corporate Memory.
+The version of a deployment is shown in the user interface of eccenca Corporate Memory.
 <!-- [needs-instance] name the exact place in the product where the version is shown -->
 
 Features, labels and steps can differ between versions.
@@ -131,10 +131,10 @@ Colored boxes set information apart from the main text.
 
     A sample, often collapsed, such as a query or a configuration file.
 
-## Help inside Corporate Memory
+## Help inside eccenca Corporate Memory
 
 <!-- [needs-instance] verify where the context help sits in the current release and how it links to this documentation -->
-Corporate Memory provides context help for the main functions of its workspaces.
+eccenca Corporate Memory provides context help for the main functions of its workspaces.
 Select :material-help-circle-outline: to open it.
 
 ## When the documentation is not enough

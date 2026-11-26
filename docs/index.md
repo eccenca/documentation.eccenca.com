@@ -56,7 +56,7 @@ comments: false
 
     ---
 
-    Extend Corporate Memory with custom plugins and packages, and access it programmatically through the Python, Java and REST APIs.
+    Extend eccenca Corporate Memory with custom plugins and packages, and access it programmatically through the Python, Java and REST APIs.
 
 - :material-calendar: [Release Notes](release-notes/2026/corporate-memory-26-2/index.md)
 
@@ -74,11 +74,11 @@ comments: false
 
 ## What is eccenca Corporate Memory?
 
-Corporate Memory connects data that lives in separate systems into one meaningful whole, a knowledge graph.
+eccenca Corporate Memory connects data that lives in separate systems into one meaningful whole, a knowledge graph.
 It keeps that whole usable as the systems and the business around it change.
 
 Prefer to watch?
-The video _eccenca Corporate Memory in 3 minutes_ shows what Corporate Memory is for, without a product demo.
+The video _eccenca Corporate Memory in 3 minutes_ shows what the product is for, without a product demo.
 
 <video src="video-corporate-memory-in-3-minutes.webm" poster="video-corporate-memory-in-3-minutes.png" title="eccenca Corporate Memory in 3 minutes: a knowledge graph answering which products are affected if Kessler GmbH fails" class="bordered" controls playsinline preload="metadata"></video>
 
@@ -103,7 +103,7 @@ They have a connection problem.
 
 ![Left: three systems with three names for the same product. Right: the same product, connected by named relationships.](three-systems-one-product.png){ class="bordered" }
 
-Corporate Memory gives the context of the data a place to live.
+eccenca Corporate Memory gives the context of the data a place to live.
 
 It reads data from existing systems and expresses it as a knowledge graph: things, and the named relationships between them.
 This product is made at this plant.
@@ -139,7 +139,7 @@ They become useful once reading continues into the other sections.
 
 ### What it is and what it is not
 
-| Corporate Memory is … | … and it is not |
+| eccenca Corporate Memory is … | … and it is not |
 | --- | --- |
 | a layer that connects with existing systems | a replacement for them; the ERP system stays the ERP system |
 | built to represent meaning and relationships | a data warehouse or a BI tool for aggregating numbers |
@@ -147,15 +147,15 @@ They become useful once reading continues into the other sections.
 | support for modeling decisions | a way to avoid them |
 
 It does not wire the systems to each other either.
-Corporate Memory connects with them, brings their data together in one graph, and leaves them running as they are.
+eccenca Corporate Memory connects with them, brings their data together in one graph, and leaves them running as they are.
 
 The last row matters most.
 Deciding what the data means is modeling work.
-Corporate Memory supports that work, it does not do it.
+eccenca Corporate Memory supports that work, it does not do it.
 
 ### Is it the right tool?
 
-Corporate Memory is likely to add value when most of these questions are answered with yes:
+eccenca Corporate Memory is likely to add value when most of these questions are answered with yes:
 
 - Do the questions cross system boundaries?
 - Is the same real-world thing represented differently in different places?
@@ -190,9 +190,9 @@ That last one is the most common reason such projects stall, and no software sol
 
     ---
 
-    Integrate Corporate Memory with other applications and extend it.
+    Integrate eccenca Corporate Memory with other applications and extend it.
 
-    [:octicons-arrow-right-24: Extend Corporate Memory](develop/index.md)
+    [:octicons-arrow-right-24: Extend eccenca Corporate Memory](develop/index.md)
 
 - __Administrators__
 

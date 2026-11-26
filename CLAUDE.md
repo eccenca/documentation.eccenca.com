@@ -77,6 +77,10 @@ screenshot.
 **eccenca Corporate Memory** on first mention in prose on a page, **Corporate Memory** afterwards. `CMEM` is
 not acceptable in prose — keep it only in literal technical values (`CMEM_BASE_URI`, IRIs, JSON keys).
 
+The Home section (`docs/index.md` and `docs/introduction/`) is the exception: it writes out **eccenca Corporate
+Memory** on every mention, navigation labels included (`repo-conventions.md`, "The full product name throughout
+Home").
+
 `cmemc` is exempt and is never expanded: it is the separately branded eccenca command line client, a product
 name of its own rather than an abbreviation.
 

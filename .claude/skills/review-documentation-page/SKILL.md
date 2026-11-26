@@ -59,7 +59,8 @@ Work through the page and check:
   and admonitions?
 - **Style guide** — bold for UI elements (1.1), backticks for values (1.4), consistent interaction verbs (2.3),
   imperative without "you" (3.2), one action per step (3.3), field values as lists (3.4), optional fields marked
-  (3.5), present tense (3.6), product name (4.2), US English (4.3), sentence-case headings (4.6), one sentence
+  (3.5), present tense (3.6), product name (4.2; in the Home section the full name on every mention), US
+  English (4.3), sentence-case headings (4.6), one sentence
   per line (4.8), no contractions (4.9).
 - **Conventions** — front matter tags mapped in `mkdocs.yml`, no duplicate tags, `.pages` entry and title
   correspondence, relative links to `index.md`, plain anchors for same-page links, image syntax with alt text

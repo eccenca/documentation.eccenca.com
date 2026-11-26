@@ -16,7 +16,7 @@ It is a bridge, not a course.
 It covers enough to read the documentation and to work with the product, and points to a full course for everything beyond that.
 
 Skip ahead when triple, IRI and vocabulary are familiar terms.
-Nothing here is specific to Corporate Memory that does not also appear later.
+Nothing here is specific to eccenca Corporate Memory that does not also appear later.
 Read on when Resource Description Framework (RDF) and ontology are words heard but never used.
 Either way, the introduction continues with [eccenca Corporate Memory at a glance](../corporate-memory-at-a-glance/index.md).
 
@@ -136,7 +136,7 @@ There are three prefixes and their IRIs, a class after `a`, four properties, and
 The keyword `a` states the class of the subject, and is the Turtle shorthand for the property `rdf:type`.
 The semicolons group statements that share a subject.
 
-Writing Turtle by hand is not required in order to work with Corporate Memory.
+Writing Turtle by hand is not required in order to work with eccenca Corporate Memory.
 Recognizing it is useful, because an exported graph looks like this.
 
 ## What is left out

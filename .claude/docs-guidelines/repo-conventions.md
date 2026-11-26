@@ -307,6 +307,16 @@ It appears in 186 files under `docs/`, in prose as well as in commands, and is c
 The same applies to identifiers that carry the string verbatim — `CMEM_BASE_URI`, `cmem-plugin-base`, module
 paths and IRIs. They are written as they are, wherever they appear.
 
+### The full product name throughout Home
+
+Style guide 4.2 asks for **eccenca Corporate Memory** on the first mention on a page and **Corporate Memory**
+afterwards.
+The Home section is the entry point of the documentation, so its pages write out **eccenca Corporate Memory** on
+every mention, including headings, table cells, image alt texts and navigation labels.
+This covers `docs/index.md` and the pages under `docs/introduction/`.
+Where a sentence would name the product twice, rephrase it instead of shortening the name.
+All other pages keep style guide 4.2.
+
 ### Do not infer terminology from majority usage
 
 Style guide 4.1 requires one term per concept, and prefers the term the product itself uses.

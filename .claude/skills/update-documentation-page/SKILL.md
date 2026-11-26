@@ -65,6 +65,7 @@ Apply `.claude/docs-guidelines/style-guide.md` while rewriting, in particular:
 - Present tense (3.6), no filler (3.7), no politeness (3.9), no contractions (4.9).
 - One sentence per line in the Markdown source (4.8).
 - Full product name on first mention, `CMEM` only inside literal technical values (4.2).
+  In the Home section, the full name on every mention ("The full product name throughout Home").
 - Remove claims that cannot be reproduced instead of restating them.
 
 Keep the conventions in `.claude/docs-guidelines/repo-conventions.md`: fence identifiers, icons, link form,

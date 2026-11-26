@@ -76,7 +76,7 @@ A graph is built to represent meaning and to answer questions that were not fore
 
 Not automatic.
 The relationships have to be stated deliberately.
-That work is what the [Build](../../build/index.md) part of Corporate Memory is for, and it is the reason the result can be trusted later.
+That work is what the [Build](../../build/index.md) part of eccenca Corporate Memory is for, and it is the reason the result can be trusted later.
 
 ## Where the terminology comes from
 
@@ -84,7 +84,7 @@ Knowledge graphs are built on a set of open standards, usually grouped under the
 Those standards are why words such as triple, IRI and vocabulary appear in this documentation.
 
 None of them are needed here.
-The optional [Semantic Web basics](../semantic-web-basics/index.md) introduce them and show what each one looks like in Corporate Memory.
+The optional [Semantic Web basics](../semantic-web-basics/index.md) introduce them and show what each one looks like in eccenca Corporate Memory.
 
 ## Next
 

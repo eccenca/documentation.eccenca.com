@@ -9,7 +9,7 @@ The five areas around it are where the work with that graph happens.
 Each area is a part of eccenca Corporate Memory, and each has its own section in this documentation.
 The following descriptions say what each one is for, in two or three sentences, and nothing about how to use it.
 
-![Overview of Corporate Memory: the knowledge graph in the center, connected to Build, Explore and Consume, with Govern and Distribute across all three](corporate-memory-overview.png){ width="80%" }
+![Overview of eccenca Corporate Memory: the knowledge graph in the center, connected to Build, Explore and Consume, with Govern and Distribute across all three](corporate-memory-overview.png){ width="80%" }
 
 ## Build
 
@@ -58,7 +58,7 @@ Used by administrators and operations teams.
 Distribute is how work gets reused.
 The Marketplace holds ready-made content that can be added to an instance: vocabularies, taxonomies, data graphs, Build projects and query catalogs.
 Complete demo and solution setups are included.
-Everything arrives as a versioned package, and Corporate Memory puts its contents where they belong.
+Everything arrives as a versioned package, and eccenca Corporate Memory puts its contents where they belong.
 Solutions built in house can be packaged and shared the same way.
 
 Used by Linked Data Experts and developers.
@@ -78,7 +78,7 @@ The following capabilities exist alongside them, and are named here so that they
 | Linking rules | Decide when two records from different systems mean the same real-world thing. | [Link Rules](../../explore-and-author/link-rules/index.md) |
 | Link learning | Proposes those rules from examples, instead of requiring them to be written by hand. | [Active Learning](../../build/active-learning/index.md) |
 | Python plugins | Add functions that the standard product does not provide. | [Python Plugins](../../develop/python-plugins/index.md) |
-| Deployment | The technical operating layer, so Corporate Memory runs in different environments. | [Deploy and Configure](../../deploy-and-configure/index.md) |
+| Deployment | The technical operating layer, so eccenca Corporate Memory runs in different environments. | [Deploy and Configure](../../deploy-and-configure/index.md) |
 
 ## Next
 
