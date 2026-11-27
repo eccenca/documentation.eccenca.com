@@ -3,27 +3,31 @@ icon: eccenca/application-dataintegration
 ---
 # Introduction to the user interface
 
-This page provides a short introduction to the BUILD / Data Integration workspace incl. projects and different tasks.
+This introduction to Build in eccenca Corporate Memory covers the workbench, the projects and the views of datasets, tasks and workflows.
 
 ## Workbench
 
-The workbench is the main entry point to the BUILD interface and provides a list view of your work, structured in _projects_.
+The workbench is the entry point to Build.
+It lists the projects and the items in them.
 
 ![The Build workbench listing projects, datasets and workflows with the item type facets on the left](build-ui-workbench.png){ class="bordered" }
 
-On the left-hand side, a facet list provides an overview of different item types:
+The facet **ITEM TYPE** on the left filters the list by the type of item:
 
-- **Projects** are the main structure and consist of datasets, workflows and different tasks (transformations, linking and other tasks)
-- **Datasets** are registered data sources from files or endpoints, or internally managed.
-- **Transform** tasks take an input dataset and execute a (hierarchical) set of mapping and transformation rules, and generate data for an output dataset.
-- **Linking** tasks compare entities from two datasets according to (hierarchical) sets of comparators and generate links between these datasets in an output (link) dataset.
-- **Workflows** can combine all items in a project in order to create a structured work plan which can be executed on demand, controlled remotely (e.g. via [cmemc](../../automate/cmemc-command-line-interface/index.md)) or executed from a [scheduler](../../automate/scheduling-workflows/index.md).
+- **Project:** groups the datasets, tasks and workflows that belong together.
+- **Workflow:** connects datasets and tasks and runs them in order, see [Workflows](#workflows).
+- **Dataset:** a source or a destination of data, such as a file or an endpoint, see [Datasets](#datasets).
+- **Transform:** maps the entities of an input dataset to a target schema, see [Transform tasks](#transform-tasks).
+- **Linking:** compares the entities of two datasets and generates links between them, see [Linking tasks](#linking-tasks).
+- **Rule block:** a reusable part of mapping or linkage rules, see [Rule Blocks](../rule-blocks/index.md).
+- **Task:** any other task, such as an operator that runs in a workflow.
 
-The interface can be used to browse from a global level to a project level as well as to search for items globally and project wide.
+The search field searches all projects in the workbench, and the items of one project in the project view.
 
-Click **Create new** in the header to create any kind of Build item:
+Click **Create new** in the header to create any kind of Build item.
+The **Create new item** dialog groups the item types under **ITEM TYPE**: **Project**, **Workflow**, **Dataset**, **Transform**, **Linking**, **Rule block** and **Task**.
 
-![](build-ui-datasets.png)
+![The Create new item dialog with the item type Dataset selected and the list of dataset types](build-ui-datasets.png){ class="bordered" width="70%" }
 
 ## Projects
 
@@ -32,14 +36,15 @@ In the workbench, projects are created, imported, exported and deleted.
 
 Each project is self-contained and holds all relevant parts, such as the following:
 
-- the raw **data resources** (local or remote data files) that form the starting point for your work
+- the **files** that hold the source data
 - the **datasets** that provide uniform access to different kinds of data resources
-- **transformation tasks** to transform datasets (e.g., from one format or schema to another)
+- **transformation tasks** to transform datasets, for example from one format or schema to another
 - **linking tasks** to integrate different datasets
 - **workflows** to orchestrate the different tasks
 - definitions of **URI prefixes** used in the project
 
-Resources, datasets, tasks and other parts of a project can be added and configured from within the workspace. By clicking the `Show Details` button on any item in a project, you can ‘look inside’ and define the actual transformation or linking rules, or assemble the actual workflow.
+Click **Create new** in the header of a project to add datasets, tasks and workflows to it.
+Selecting an item opens its view, where its rules or its workflow are defined, see [Item views](#item-views).
 
 ### Project view
 
@@ -80,62 +85,67 @@ If a project with the selected identifier already exists, the dialog shows a war
 Select **Replace existing project** and click **Replace existing project** to overwrite the existing project, or select another import destination.
 Click **Open existing project page** to inspect the existing project first.
 
+## Item views
+
+Selecting a dataset, a task or a workflow in a project or in the search results opens its view.
+The views of all item types share the following parts:
+
+- The header shows :eccenca-item-remove: to delete the item and :eccenca-item-moremenu: with the following actions:
+    - **Copy** copies the item into another project.
+    - **Clone** creates a new item with the same configuration in the same project.
+        Items that the cloned item references are not duplicated.
+    - **Show identifier** shows the identifier of the item, the combined project and item identifier, and the URI of the item.
+- **Summary:** the label, the description and the tags of the item, and who created and last modified it.
+    Click :eccenca-item-edit: to change them.
+- **Related items:** the datasets, tasks and workflows that the item uses or that use it.
+- **Execution variables:** the [execution variables](../variables/index.md#execution-variables) of the item.
+
 ## Datasets
 
-Selecting a dataset in a project or from the search results opens the dataset details view.
+A dataset makes data available to Build: it provides the source or the destination of tasks.
+A transform task or a linking task reads entities from a dataset, and writes transformed entities or generated links into a dataset.
 
-![](build-ui-dataset-preview.png)
+![The view of the Excel dataset DS Prod-Demo hardware xlsx with the data preview, the related items and the configuration](build-ui-dataset-preview.png){ class="bordered" }
 
-Here you have the following options:
+The view of a dataset shows the following areas in addition to the [shared parts](#item-views):
 
-- Change the meta data of the dataset (**Summary** - label and description, top left main area),
-- Change the **Configuration** parameters of the dataset (lower right side area),
-- Browse to other **Related Items**, such as transforms, linking or workflow tasks which use this dataset (top right side area),
-- Get a **Data Preview** as well as generate and view **profiling information** (lower left main area).
+- **Data preview:** the first entities of the dataset.
+    For some dataset types, such as Excel, click **Load preview** to load them.
+    Click **Start profiling** to collect profiling information on the values.
+- **Configuration:** the parameters of the dataset type, for example the file of a file-based dataset.
+    Click :eccenca-item-edit: to change them.
+- **Activity overview:** the activities of the dataset, such as its caches.
 
-A dataset represents an abstraction over raw data. In order to work with data, you have to make it available in the form of a dataset. A dataset provides a source or destination for the different kinds of tasks. I.e., it may be used to read entities for transformation or linking, and it can be used to write transformed entities and generated links.
+:eccenca-item-moremenu: in the header also offers **Clear dataset**, which empties the dataset.
+It is not available for a read-only dataset.
 
-There is a range of different dataset types for different kinds of source data. Important dataset types include:
+The dataset type decides which kind of data the dataset reads and writes.
+Frequently used dataset types include:
 
-- **Knowledge Graph** - Read RDF from or write RDF to a Knowledge Graph embedded in eccenca Corporate Memory.
-- **CSV** - Read from or write to an CSV file.
-- **XML** - Read from or write to an XML file.
-- **JSON** - Read from or write to a JSON file.
-- **JDBC endpoint** - Connect to an existing JDBC endpoint.
-- **Variable dataset** - Dataset that acts as a placeholder in workflows and is replaced at request time.
-- **Excel** - Read from or write to an Excel workbook in Open XML format (XLSX).
-- **Multi CSV ZIP** - Reads from or writes to multiple CSV files from/to a single ZIP file.
+- **Knowledge Graph:** reads RDF from or writes RDF to a Knowledge Graph in eccenca Corporate Memory.
+- **CSV**, **JSON**, **XML** and **Excel:** read from or write to a file of this format.
+- **Multi CSV ZIP:** reads from or writes to several CSV files in one ZIP file.
+- **Remote SQL endpoint:** connects to an existing JDBC endpoint.
+- **SPARQL endpoint:** connects to an existing SPARQL endpoint.
+- **Embedded SQL endpoint:** exposes the results of workflows or transformations as tables that can be queried with SQL.
 
-Other options include:
-
-- **Internal dataset** - Dataset for storing entities between workflow steps.
-- **RDF** - Dataset which retrieves and writes all entities from/to an RDF file. The dataset is loaded in-memory and thus the size is restricted by the available memory. Large datasets should be loaded into an external RDF store and retrieved using the SPARQL dataset instead.
-- **SPARQL endpoint** - Connect to an existing SPARQL endpoint.
-- **In-memory dataset** - A dataset that holds all data in-memory.
-- **Avro** - Read from or write to an Apache Avro file.
-- **ORC** - Read from or write to an Apache ORC file.
-- **Parquet** - Read from or write to an Apache Parquet file.
-- **Hive database** - Read from or write to an embedded Apache Hive endpoint.
-- **SQL endpoint** - Provides a JDBC endpoint that exposes workflow or transformation results as tables, which can be queried using SQL.
-- **Neo4j** - Connect to an existing Neo4j property graph database system.
+The [dataset reference](../reference/dataset/index.md) describes every dataset type and its parameters.
 
 ## Transform tasks
 
-The purpose of transform tasks is to transform datasets (e.g., from one format or schema to another). More specifically, Transform Tasks create Knowledge Graphs out of raw data sources.
+A transform task maps the entities of a dataset to a target schema with a set of mapping rules, for example to build a Knowledge Graph from a tabular source.
 
-Selecting a transform task in a project or from the search results opens the transform task details view.
+![The view of the transform task TF services csv with the mapping editor, the related items, the configuration and the activities](build-ui-transform.png){ class="bordered" }
 
-![](build-ui-transform.png)<!-- TODO: update img -->
+The view of a transform task shows the following areas in addition to the [shared parts](#item-views):
 
-Here you have the following options:
-
-- Change the metadata of the transformation task (**Summary** - label and description, top left main area)
-- Change the **Configuration** parameters of the transformation task (lower right side area),
-- Browse to other **Related Items**, such as used datasets or workflows using this task (top right side area),
-- Open the **Mapping Editor** in order to change the transformation rules,
-- **Evaluate the Transformation** to check for issues with the rules,
-- **Execute the Transformation rules** in order to create new data,
-- **Clone** the task, creating a new transform task with the same rules.
+- The editor area, which :eccenca-toggler-maximize: enlarges, with the following tabs:
+    - **Mapping editor** changes the mapping rules.
+    - **Mapping creator (beta)** creates and changes mapping rules visually, see [Mapping Creator](../mapping-creator/index.md).
+    - **Transform execution** runs the transformation and shows the execution report.
+    - **Transform evaluation** shows the entities that the mapping rules produce, to check the rules for issues.
+- **Configuration:** the input dataset, the target vocabularies and further parameters of the transformation.
+- **Activity overview:** the activities of the transform task, for example **Execute transformation** with :eccenca-item-start: to run it.
 
 To test a transformation on a small part of the data, set **Input limit** under **ADVANCED OPTIONS** in the configuration of the transform task.
 Only the first N input entities are transformed, in every execution of the task, including workflow executions and other tasks that read the transformation.
@@ -145,35 +155,35 @@ Leave the field empty to transform all input entities.
 
 ## Linking tasks
 
-The purpose of linking tasks is to integrate two datasets (source and target) by generating a linkset that contains links from the source to the target dataset.
+A linking task compares the entities of two datasets, a source and a target, and generates links between the entities that match.
 
-Selecting a linking task in a project or from the search results opens the transform task details view.
+![The view of the linking task LNK Supplier to Countries with the linking editor, the related items and the configuration](build-ui-linking.png){ class="bordered" }
 
-![](build-ui-linking.png) <!-- TODO: update img -->
+The view of a linking task shows the following areas in addition to the [shared parts](#item-views):
 
-Here you have the following options:
+- The editor area with the following tabs:
+    - **Linking editor** changes the linkage rule, which compares the source and the target entities.
+    - **Linking evaluation** evaluates the linkage rule and shows the evaluated links and the reference links.
+    - **Linking execution** runs the linking task and shows the execution report.
+    - **Learning** suggests a linkage rule from confirmed and rejected example links, see [Active learning](../active-learning/index.md).
+- **Configuration:** the source and the target input of the linking task.
+- **Configuration: Linkage rule:** the link type and the link limit of the linkage rule.
+- **Activity overview:** the activities of the linking task, for example **Execute linking** with :eccenca-item-start: to run it.
 
-- Change the metadata of the linking task (**Summary** - label and description, top left main area),
-- Change the **Configuration** parameters of the linking task (lower right side area),
-- Browse to other **Related Items**, such as used datasets or workflows using this task (top right side area),
-- Open the **Linking Editor** in order to change the comparison rules,
-- **Evaluate the Linking** to check for issues with the rules,
-- **Execute the Linking task** in order to create a linkset,
-- **Clone** the task, creating a new linking task with the same comparisons.
-
-As in the case of transform tasks, the output linkset of a linking task can either be written directly to an output dataset, or provide the input to another task if integrated into a workflow.
+The links that a linking task generates are written into an output dataset, or passed on to the next task in a workflow.
 
 ## Workflows
 
-For projects that go beyond one or two simple transform or linking tasks, you can create complex workflows. In a workflow, you can orchestrate datasets, transform tasks and linking tasks via connections between their inputs and outputs, and in this way perform complex tasks.
+A workflow connects datasets and tasks through their inputs and outputs, and runs them in order.
+Workflows are used for anything beyond a single task, and can be started on demand, through [cmemc](../../automate/cmemc-command-line-interface/index.md) or by a [scheduler](../../automate/scheduling-workflows/index.md).
 
-Selecting a workflow in a project or from the search results opens the workflow details view.
+![The view of the workflow WF Prod-Demo 1 data + linking + enrich with the workflow editor and the related items](build-ui-workflow.png){ class="bordered" }
 
-![](build-ui-workflow.png)
+The view of a workflow shows the editor area in addition to the [shared parts](#item-views), with the following tabs:
 
-Here you have the following options:
+- **Workflow editor** changes the workflow.
+    Drag datasets and tasks from the list on the left into the workflow and connect their ports.
+    Click :eccenca-item-start: above the workflow to run it.
+- **Workflow report** shows the report of the last run.
 
-- Change the metadata of the linking task (**Summary** - label and description, top left main area)
-- Browse to **Related Items**, such as used datasets and tasks (top right side area),
-- Open the **Worflow Editor** in order to change the workflow (here you can as well start the workflow),
-- **Clone** the workflow creating a new workflow with the same task.
+See [Workflows](../workflows/index.md) for working with the workflow editor.
