@@ -137,6 +137,7 @@ To reject all unreviewed changes at once, click **Revert unreviewed** and then *
 The changes are reverted newest first.
 
 The tutorial [Review the changes of an AI agent](../review-agent-changes/index.md) walks through a review from the request of the agent to the approved workflow run.
+The tutorial [Build a knowledge graph with an AI agent](../agentic-knowledge-graph-engineering/index.md) shows the review as part of a complete project that an agent builds.
 
 ### Changes made by the Companion
 
