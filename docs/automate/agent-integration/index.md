@@ -290,6 +290,7 @@ Use `--id-only` and `--raw` for machine-readable output.
 ```
 
 The file name depends on the agent, for example `CLAUDE.md` for Claude Code or `AGENTS.md` for Codex.
+The tutorial [Build a knowledge graph with an AI agent](../../build/agentic-knowledge-graph-engineering/index.md) uses an instruction file to set the project, the graph and the mapping of a complete Build project.
 
 The [cmem-package-template](https://github.com/eccenca/cmem-package-template) goes further than a single file.
 Package repositories generated from it ship agent rules and authoring skills for Marketplace packages, which read the manifest format from the Marketplace MCP server.
