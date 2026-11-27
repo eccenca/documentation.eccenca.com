@@ -582,7 +582,9 @@ nav:
           - Application view configuration:
               - explore-and-author/workspace-configuration/index.md
           - Platform management:
-              - explore-and-author/platform-management/index.md
+              - Platform management: explore-and-author/platform-management/index.md
+              - Troubleshoot a failing request:
+                  - explore-and-author/platform-management/troubleshoot-a-failing-request/index.md
           - Companion management:
               - explore-and-author/companion/management/index.md
   - Consume:

@@ -137,7 +137,7 @@ We are excited to announce the release of DataIntegration v26.3, which introduce
             A `dropped` value above zero reports lines that were evicted before the client fetched them.
         - `GET /api/core/system/logs/status` reports whether lines are captured and why they might be missing.
         - The lines are kept in a bounded in-memory ring buffer, so no log file is needed and an external Logback configuration keeps working.
-            The buffer is disabled by default (`logging.buffer.enabled`) and requires the `https://vocab.eccenca.com/auth/Action/LogRetrieval` action.
+            The buffer is enabled by default and requires the `https://vocab.eccenca.com/auth/Action/LogRetrieval` action.
             Each instance answers with its own lines only.
 
 **v26.3.0 of DataIntegration introduces the following changes:**

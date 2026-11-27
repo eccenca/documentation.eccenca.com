@@ -22,6 +22,8 @@ The module has four tabs:
 - [**Query Monitor**](#query-monitor): recent and running SPARQL queries
 - [**Logs**](#logs): recent log lines of Build and Explore
 
+The how-to [Troubleshoot a failing request](troubleshoot-a-failing-request/index.md) follows a failing query from its log line through the **Query Monitor** to the query editor.
+
 ## Access
 
 Which tabs are shown depends on the actions granted to the account, see [Access conditions](../../deploy-and-configure/configuration/access-conditions/index.md):
